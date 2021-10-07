@@ -13,7 +13,6 @@ __all__ = [
     'DatasetCsvOptionsArgs',
     'DatasetDataCatalogInputDefinitionArgs',
     'DatasetDatabaseInputDefinitionArgs',
-    'DatasetDatasetParameterArgs',
     'DatasetDatetimeOptionsArgs',
     'DatasetExcelOptionsArgs',
     'DatasetFilesLimitArgs',
@@ -22,6 +21,7 @@ __all__ = [
     'DatasetFormatOptionsArgs',
     'DatasetInputArgs',
     'DatasetJsonOptionsArgs',
+    'DatasetParameterArgs',
     'DatasetPathOptionsArgs',
     'DatasetPathParameterArgs',
     'DatasetS3LocationArgs',
@@ -32,7 +32,6 @@ __all__ = [
     'JobDataCatalogOutputArgs',
     'JobDatabaseOutputArgs',
     'JobDatabaseTableOutputOptionsArgs',
-    'JobJobSampleArgs',
     'JobOutputFormatOptionsArgs',
     'JobOutputLocationArgs',
     'JobOutputArgs',
@@ -41,6 +40,7 @@ __all__ = [
     'JobRecipeArgs',
     'JobS3LocationArgs',
     'JobS3TableOutputOptionsArgs',
+    'JobSampleArgs',
     'JobStatisticOverrideArgs',
     'JobStatisticsConfigurationArgs',
     'JobTagArgs',
@@ -50,10 +50,10 @@ __all__ = [
     'RecipeConditionExpressionArgs',
     'RecipeDataCatalogInputDefinitionArgs',
     'RecipeParameterMapArgs',
-    'RecipeRecipeParametersArgs',
-    'RecipeRecipeStepArgs',
+    'RecipeParametersArgs',
     'RecipeS3LocationArgs',
     'RecipeSecondaryInputArgs',
+    'RecipeStepArgs',
     'RecipeTagArgs',
     'ScheduleTagArgs',
 ]
@@ -206,79 +206,6 @@ class DatasetDatabaseInputDefinitionArgs:
     @temp_directory.setter
     def temp_directory(self, value: Optional[pulumi.Input['DatasetS3LocationArgs']]):
         pulumi.set(self, "temp_directory", value)
-
-
-@pulumi.input_type
-class DatasetDatasetParameterArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 type: pulumi.Input['DatasetDatasetParameterType'],
-                 create_column: Optional[pulumi.Input[bool]] = None,
-                 datetime_options: Optional[pulumi.Input['DatasetDatetimeOptionsArgs']] = None,
-                 filter: Optional[pulumi.Input['DatasetFilterExpressionArgs']] = None):
-        """
-        :param pulumi.Input['DatasetDatasetParameterType'] type: Parameter type
-        :param pulumi.Input[bool] create_column: Add the value of this parameter as a column in a dataset.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-        if create_column is not None:
-            pulumi.set(__self__, "create_column", create_column)
-        if datetime_options is not None:
-            pulumi.set(__self__, "datetime_options", datetime_options)
-        if filter is not None:
-            pulumi.set(__self__, "filter", filter)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input['DatasetDatasetParameterType']:
-        """
-        Parameter type
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input['DatasetDatasetParameterType']):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="createColumn")
-    def create_column(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Add the value of this parameter as a column in a dataset.
-        """
-        return pulumi.get(self, "create_column")
-
-    @create_column.setter
-    def create_column(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "create_column", value)
-
-    @property
-    @pulumi.getter(name="datetimeOptions")
-    def datetime_options(self) -> Optional[pulumi.Input['DatasetDatetimeOptionsArgs']]:
-        return pulumi.get(self, "datetime_options")
-
-    @datetime_options.setter
-    def datetime_options(self, value: Optional[pulumi.Input['DatasetDatetimeOptionsArgs']]):
-        pulumi.set(self, "datetime_options", value)
-
-    @property
-    @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input['DatasetFilterExpressionArgs']]:
-        return pulumi.get(self, "filter")
-
-    @filter.setter
-    def filter(self, value: Optional[pulumi.Input['DatasetFilterExpressionArgs']]):
-        pulumi.set(self, "filter", value)
 
 
 @pulumi.input_type
@@ -606,6 +533,79 @@ class DatasetJsonOptionsArgs:
 
 
 @pulumi.input_type
+class DatasetParameterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input['DatasetParameterType'],
+                 create_column: Optional[pulumi.Input[bool]] = None,
+                 datetime_options: Optional[pulumi.Input['DatasetDatetimeOptionsArgs']] = None,
+                 filter: Optional[pulumi.Input['DatasetFilterExpressionArgs']] = None):
+        """
+        :param pulumi.Input['DatasetParameterType'] type: Parameter type
+        :param pulumi.Input[bool] create_column: Add the value of this parameter as a column in a dataset.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if create_column is not None:
+            pulumi.set(__self__, "create_column", create_column)
+        if datetime_options is not None:
+            pulumi.set(__self__, "datetime_options", datetime_options)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['DatasetParameterType']:
+        """
+        Parameter type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['DatasetParameterType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="createColumn")
+    def create_column(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Add the value of this parameter as a column in a dataset.
+        """
+        return pulumi.get(self, "create_column")
+
+    @create_column.setter
+    def create_column(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "create_column", value)
+
+    @property
+    @pulumi.getter(name="datetimeOptions")
+    def datetime_options(self) -> Optional[pulumi.Input['DatasetDatetimeOptionsArgs']]:
+        return pulumi.get(self, "datetime_options")
+
+    @datetime_options.setter
+    def datetime_options(self, value: Optional[pulumi.Input['DatasetDatetimeOptionsArgs']]):
+        pulumi.set(self, "datetime_options", value)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional[pulumi.Input['DatasetFilterExpressionArgs']]:
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: Optional[pulumi.Input['DatasetFilterExpressionArgs']]):
+        pulumi.set(self, "filter", value)
+
+
+@pulumi.input_type
 class DatasetPathOptionsArgs:
     def __init__(__self__, *,
                  files_limit: Optional[pulumi.Input['DatasetFilesLimitArgs']] = None,
@@ -652,7 +652,7 @@ class DatasetPathOptionsArgs:
 @pulumi.input_type
 class DatasetPathParameterArgs:
     def __init__(__self__, *,
-                 dataset_parameter: pulumi.Input['DatasetDatasetParameterArgs'],
+                 dataset_parameter: pulumi.Input['DatasetParameterArgs'],
                  path_parameter_name: pulumi.Input[str]):
         """
         A key-value pair to associate dataset parameter name with its definition.
@@ -662,11 +662,11 @@ class DatasetPathParameterArgs:
 
     @property
     @pulumi.getter(name="datasetParameter")
-    def dataset_parameter(self) -> pulumi.Input['DatasetDatasetParameterArgs']:
+    def dataset_parameter(self) -> pulumi.Input['DatasetParameterArgs']:
         return pulumi.get(self, "dataset_parameter")
 
     @dataset_parameter.setter
-    def dataset_parameter(self, value: pulumi.Input['DatasetDatasetParameterArgs']):
+    def dataset_parameter(self, value: pulumi.Input['DatasetParameterArgs']):
         pulumi.set(self, "dataset_parameter", value)
 
     @property
@@ -970,38 +970,6 @@ class JobDatabaseTableOutputOptionsArgs:
 
 
 @pulumi.input_type
-class JobJobSampleArgs:
-    def __init__(__self__, *,
-                 mode: Optional[pulumi.Input['JobSampleMode']] = None,
-                 size: Optional[pulumi.Input[int]] = None):
-        """
-        Job Sample
-        """
-        if mode is not None:
-            pulumi.set(__self__, "mode", mode)
-        if size is not None:
-            pulumi.set(__self__, "size", size)
-
-    @property
-    @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input['JobSampleMode']]:
-        return pulumi.get(self, "mode")
-
-    @mode.setter
-    def mode(self, value: Optional[pulumi.Input['JobSampleMode']]):
-        pulumi.set(self, "mode", value)
-
-    @property
-    @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "size")
-
-    @size.setter
-    def size(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "size", value)
-
-
-@pulumi.input_type
 class JobOutputFormatOptionsArgs:
     def __init__(__self__, *,
                  csv: Optional[pulumi.Input['JobCsvOutputOptionsArgs']] = None):
@@ -1261,6 +1229,38 @@ class JobS3TableOutputOptionsArgs:
 
 
 @pulumi.input_type
+class JobSampleArgs:
+    def __init__(__self__, *,
+                 mode: Optional[pulumi.Input['JobSampleMode']] = None,
+                 size: Optional[pulumi.Input[int]] = None):
+        """
+        Job Sample
+        """
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input['JobSampleMode']]:
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input['JobSampleMode']]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "size", value)
+
+
+@pulumi.input_type
 class JobStatisticOverrideArgs:
     def __init__(__self__, *,
                  parameters: pulumi.Input['JobParameterMapArgs'],
@@ -1418,7 +1418,7 @@ class ProjectTagArgs:
 class RecipeActionArgs:
     def __init__(__self__, *,
                  operation: pulumi.Input[str],
-                 parameters: Optional[pulumi.Input[Union['RecipeRecipeParametersArgs', 'RecipeParameterMapArgs']]] = None):
+                 parameters: Optional[pulumi.Input[Union['RecipeParametersArgs', 'RecipeParameterMapArgs']]] = None):
         """
         :param pulumi.Input[str] operation: Step action operation
         """
@@ -1440,11 +1440,11 @@ class RecipeActionArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Union['RecipeRecipeParametersArgs', 'RecipeParameterMapArgs']]]:
+    def parameters(self) -> Optional[pulumi.Input[Union['RecipeParametersArgs', 'RecipeParameterMapArgs']]]:
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Union['RecipeRecipeParametersArgs', 'RecipeParameterMapArgs']]]):
+    def parameters(self, value: Optional[pulumi.Input[Union['RecipeParametersArgs', 'RecipeParameterMapArgs']]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -1576,7 +1576,7 @@ class RecipeParameterMapArgs:
 
 
 @pulumi.input_type
-class RecipeRecipeParametersArgs:
+class RecipeParametersArgs:
     def __init__(__self__, *,
                  aggregate_function: Optional[pulumi.Input[str]] = None,
                  base: Optional[pulumi.Input[str]] = None,
@@ -2799,40 +2799,6 @@ class RecipeRecipeParametersArgs:
 
 
 @pulumi.input_type
-class RecipeRecipeStepArgs:
-    def __init__(__self__, *,
-                 action: pulumi.Input['RecipeActionArgs'],
-                 condition_expressions: Optional[pulumi.Input[Sequence[pulumi.Input['RecipeConditionExpressionArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['RecipeConditionExpressionArgs']]] condition_expressions: Condition expressions applied to the step action
-        """
-        pulumi.set(__self__, "action", action)
-        if condition_expressions is not None:
-            pulumi.set(__self__, "condition_expressions", condition_expressions)
-
-    @property
-    @pulumi.getter
-    def action(self) -> pulumi.Input['RecipeActionArgs']:
-        return pulumi.get(self, "action")
-
-    @action.setter
-    def action(self, value: pulumi.Input['RecipeActionArgs']):
-        pulumi.set(self, "action", value)
-
-    @property
-    @pulumi.getter(name="conditionExpressions")
-    def condition_expressions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecipeConditionExpressionArgs']]]]:
-        """
-        Condition expressions applied to the step action
-        """
-        return pulumi.get(self, "condition_expressions")
-
-    @condition_expressions.setter
-    def condition_expressions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecipeConditionExpressionArgs']]]]):
-        pulumi.set(self, "condition_expressions", value)
-
-
-@pulumi.input_type
 class RecipeS3LocationArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
@@ -2893,6 +2859,40 @@ class RecipeSecondaryInputArgs:
     @s3_input_definition.setter
     def s3_input_definition(self, value: Optional[pulumi.Input['RecipeS3LocationArgs']]):
         pulumi.set(self, "s3_input_definition", value)
+
+
+@pulumi.input_type
+class RecipeStepArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input['RecipeActionArgs'],
+                 condition_expressions: Optional[pulumi.Input[Sequence[pulumi.Input['RecipeConditionExpressionArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['RecipeConditionExpressionArgs']]] condition_expressions: Condition expressions applied to the step action
+        """
+        pulumi.set(__self__, "action", action)
+        if condition_expressions is not None:
+            pulumi.set(__self__, "condition_expressions", condition_expressions)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input['RecipeActionArgs']:
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input['RecipeActionArgs']):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter(name="conditionExpressions")
+    def condition_expressions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecipeConditionExpressionArgs']]]]:
+        """
+        Condition expressions applied to the step action
+        """
+        return pulumi.get(self, "condition_expressions")
+
+    @condition_expressions.setter
+    def condition_expressions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecipeConditionExpressionArgs']]]]):
+        pulumi.set(self, "condition_expressions", value)
 
 
 @pulumi.input_type

@@ -13,15 +13,15 @@ __all__ = [
     'FirewallPolicyActionDefinitionArgs',
     'FirewallPolicyCustomActionArgs',
     'FirewallPolicyDimensionArgs',
-    'FirewallPolicyFirewallPolicyArgs',
     'FirewallPolicyPublishMetricActionArgs',
     'FirewallPolicyStatefulRuleGroupReferenceArgs',
     'FirewallPolicyStatelessRuleGroupReferenceArgs',
     'FirewallPolicyTagArgs',
+    'FirewallPolicyArgs',
     'FirewallSubnetMappingArgs',
     'FirewallTagArgs',
     'LoggingConfigurationLogDestinationConfigArgs',
-    'LoggingConfigurationLoggingConfigurationArgs',
+    'LoggingConfigurationArgs',
     'RuleGroupActionDefinitionArgs',
     'RuleGroupAddressArgs',
     'RuleGroupCustomActionArgs',
@@ -31,7 +31,6 @@ __all__ = [
     'RuleGroupPortRangeArgs',
     'RuleGroupPublishMetricActionArgs',
     'RuleGroupRuleDefinitionArgs',
-    'RuleGroupRuleGroupArgs',
     'RuleGroupRuleOptionArgs',
     'RuleGroupRuleVariablesArgs',
     'RuleGroupRulesSourceListArgs',
@@ -41,6 +40,7 @@ __all__ = [
     'RuleGroupStatelessRuleArgs',
     'RuleGroupTCPFlagFieldArgs',
     'RuleGroupTagArgs',
+    'RuleGroupArgs',
 ]
 
 @pulumi.input_type
@@ -101,69 +101,6 @@ class FirewallPolicyDimensionArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class FirewallPolicyFirewallPolicyArgs:
-    def __init__(__self__, *,
-                 stateless_default_actions: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 stateless_fragment_default_actions: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 stateful_rule_group_references: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatefulRuleGroupReferenceArgs']]]] = None,
-                 stateless_custom_actions: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomActionArgs']]]] = None,
-                 stateless_rule_group_references: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatelessRuleGroupReferenceArgs']]]] = None):
-        pulumi.set(__self__, "stateless_default_actions", stateless_default_actions)
-        pulumi.set(__self__, "stateless_fragment_default_actions", stateless_fragment_default_actions)
-        if stateful_rule_group_references is not None:
-            pulumi.set(__self__, "stateful_rule_group_references", stateful_rule_group_references)
-        if stateless_custom_actions is not None:
-            pulumi.set(__self__, "stateless_custom_actions", stateless_custom_actions)
-        if stateless_rule_group_references is not None:
-            pulumi.set(__self__, "stateless_rule_group_references", stateless_rule_group_references)
-
-    @property
-    @pulumi.getter(name="statelessDefaultActions")
-    def stateless_default_actions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        return pulumi.get(self, "stateless_default_actions")
-
-    @stateless_default_actions.setter
-    def stateless_default_actions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "stateless_default_actions", value)
-
-    @property
-    @pulumi.getter(name="statelessFragmentDefaultActions")
-    def stateless_fragment_default_actions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        return pulumi.get(self, "stateless_fragment_default_actions")
-
-    @stateless_fragment_default_actions.setter
-    def stateless_fragment_default_actions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "stateless_fragment_default_actions", value)
-
-    @property
-    @pulumi.getter(name="statefulRuleGroupReferences")
-    def stateful_rule_group_references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatefulRuleGroupReferenceArgs']]]]:
-        return pulumi.get(self, "stateful_rule_group_references")
-
-    @stateful_rule_group_references.setter
-    def stateful_rule_group_references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatefulRuleGroupReferenceArgs']]]]):
-        pulumi.set(self, "stateful_rule_group_references", value)
-
-    @property
-    @pulumi.getter(name="statelessCustomActions")
-    def stateless_custom_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomActionArgs']]]]:
-        return pulumi.get(self, "stateless_custom_actions")
-
-    @stateless_custom_actions.setter
-    def stateless_custom_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomActionArgs']]]]):
-        pulumi.set(self, "stateless_custom_actions", value)
-
-    @property
-    @pulumi.getter(name="statelessRuleGroupReferences")
-    def stateless_rule_group_references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatelessRuleGroupReferenceArgs']]]]:
-        return pulumi.get(self, "stateless_rule_group_references")
-
-    @stateless_rule_group_references.setter
-    def stateless_rule_group_references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatelessRuleGroupReferenceArgs']]]]):
-        pulumi.set(self, "stateless_rule_group_references", value)
 
 
 @pulumi.input_type
@@ -250,6 +187,69 @@ class FirewallPolicyTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class FirewallPolicyArgs:
+    def __init__(__self__, *,
+                 stateless_default_actions: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 stateless_fragment_default_actions: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 stateful_rule_group_references: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatefulRuleGroupReferenceArgs']]]] = None,
+                 stateless_custom_actions: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomActionArgs']]]] = None,
+                 stateless_rule_group_references: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatelessRuleGroupReferenceArgs']]]] = None):
+        pulumi.set(__self__, "stateless_default_actions", stateless_default_actions)
+        pulumi.set(__self__, "stateless_fragment_default_actions", stateless_fragment_default_actions)
+        if stateful_rule_group_references is not None:
+            pulumi.set(__self__, "stateful_rule_group_references", stateful_rule_group_references)
+        if stateless_custom_actions is not None:
+            pulumi.set(__self__, "stateless_custom_actions", stateless_custom_actions)
+        if stateless_rule_group_references is not None:
+            pulumi.set(__self__, "stateless_rule_group_references", stateless_rule_group_references)
+
+    @property
+    @pulumi.getter(name="statelessDefaultActions")
+    def stateless_default_actions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "stateless_default_actions")
+
+    @stateless_default_actions.setter
+    def stateless_default_actions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "stateless_default_actions", value)
+
+    @property
+    @pulumi.getter(name="statelessFragmentDefaultActions")
+    def stateless_fragment_default_actions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "stateless_fragment_default_actions")
+
+    @stateless_fragment_default_actions.setter
+    def stateless_fragment_default_actions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "stateless_fragment_default_actions", value)
+
+    @property
+    @pulumi.getter(name="statefulRuleGroupReferences")
+    def stateful_rule_group_references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatefulRuleGroupReferenceArgs']]]]:
+        return pulumi.get(self, "stateful_rule_group_references")
+
+    @stateful_rule_group_references.setter
+    def stateful_rule_group_references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatefulRuleGroupReferenceArgs']]]]):
+        pulumi.set(self, "stateful_rule_group_references", value)
+
+    @property
+    @pulumi.getter(name="statelessCustomActions")
+    def stateless_custom_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomActionArgs']]]]:
+        return pulumi.get(self, "stateless_custom_actions")
+
+    @stateless_custom_actions.setter
+    def stateless_custom_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomActionArgs']]]]):
+        pulumi.set(self, "stateless_custom_actions", value)
+
+    @property
+    @pulumi.getter(name="statelessRuleGroupReferences")
+    def stateless_rule_group_references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatelessRuleGroupReferenceArgs']]]]:
+        return pulumi.get(self, "stateless_rule_group_references")
+
+    @stateless_rule_group_references.setter
+    def stateless_rule_group_references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatelessRuleGroupReferenceArgs']]]]):
+        pulumi.set(self, "stateless_rule_group_references", value)
 
 
 @pulumi.input_type
@@ -346,7 +346,7 @@ class LoggingConfigurationLogDestinationConfigArgs:
 
 
 @pulumi.input_type
-class LoggingConfigurationLoggingConfigurationArgs:
+class LoggingConfigurationArgs:
     def __init__(__self__, *,
                  log_destination_configs: pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationLogDestinationConfigArgs']]]):
         pulumi.set(__self__, "log_destination_configs", log_destination_configs)
@@ -656,34 +656,6 @@ class RuleGroupRuleDefinitionArgs:
 
 
 @pulumi.input_type
-class RuleGroupRuleGroupArgs:
-    def __init__(__self__, *,
-                 rules_source: pulumi.Input['RuleGroupRulesSourceArgs'],
-                 rule_variables: Optional[pulumi.Input['RuleGroupRuleVariablesArgs']] = None):
-        pulumi.set(__self__, "rules_source", rules_source)
-        if rule_variables is not None:
-            pulumi.set(__self__, "rule_variables", rule_variables)
-
-    @property
-    @pulumi.getter(name="rulesSource")
-    def rules_source(self) -> pulumi.Input['RuleGroupRulesSourceArgs']:
-        return pulumi.get(self, "rules_source")
-
-    @rules_source.setter
-    def rules_source(self, value: pulumi.Input['RuleGroupRulesSourceArgs']):
-        pulumi.set(self, "rules_source", value)
-
-    @property
-    @pulumi.getter(name="ruleVariables")
-    def rule_variables(self) -> Optional[pulumi.Input['RuleGroupRuleVariablesArgs']]:
-        return pulumi.get(self, "rule_variables")
-
-    @rule_variables.setter
-    def rule_variables(self, value: Optional[pulumi.Input['RuleGroupRuleVariablesArgs']]):
-        pulumi.set(self, "rule_variables", value)
-
-
-@pulumi.input_type
 class RuleGroupRuleOptionArgs:
     def __init__(__self__, *,
                  keyword: pulumi.Input[str],
@@ -977,5 +949,33 @@ class RuleGroupTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class RuleGroupArgs:
+    def __init__(__self__, *,
+                 rules_source: pulumi.Input['RuleGroupRulesSourceArgs'],
+                 rule_variables: Optional[pulumi.Input['RuleGroupRuleVariablesArgs']] = None):
+        pulumi.set(__self__, "rules_source", rules_source)
+        if rule_variables is not None:
+            pulumi.set(__self__, "rule_variables", rule_variables)
+
+    @property
+    @pulumi.getter(name="rulesSource")
+    def rules_source(self) -> pulumi.Input['RuleGroupRulesSourceArgs']:
+        return pulumi.get(self, "rules_source")
+
+    @rules_source.setter
+    def rules_source(self, value: pulumi.Input['RuleGroupRulesSourceArgs']):
+        pulumi.set(self, "rules_source", value)
+
+    @property
+    @pulumi.getter(name="ruleVariables")
+    def rule_variables(self) -> Optional[pulumi.Input['RuleGroupRuleVariablesArgs']]:
+        return pulumi.get(self, "rule_variables")
+
+    @rule_variables.setter
+    def rule_variables(self, value: Optional[pulumi.Input['RuleGroupRuleVariablesArgs']]):
+        pulumi.set(self, "rule_variables", value)
 
 

@@ -11,7 +11,7 @@ from .. import _utilities
 __all__ = [
     'SkillAuthenticationConfigurationArgs',
     'SkillOverridesArgs',
-    'SkillSkillPackageArgs',
+    'SkillPackageArgs',
 ]
 
 @pulumi.input_type
@@ -70,7 +70,7 @@ class SkillOverridesArgs:
 
 
 @pulumi.input_type
-class SkillSkillPackageArgs:
+class SkillPackageArgs:
     def __init__(__self__, *,
                  s3_bucket: pulumi.Input[str],
                  s3_key: pulumi.Input[str],

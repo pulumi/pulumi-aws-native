@@ -10,18 +10,13 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GatewayRouteGatewayRouteHostnameMatch',
-    'GatewayRouteGatewayRouteHostnameRewrite',
-    'GatewayRouteGatewayRouteMetadataMatch',
-    'GatewayRouteGatewayRouteRangeMatch',
-    'GatewayRouteGatewayRouteSpec',
-    'GatewayRouteGatewayRouteTarget',
-    'GatewayRouteGatewayRouteVirtualService',
     'GatewayRouteGrpcGatewayRoute',
     'GatewayRouteGrpcGatewayRouteAction',
     'GatewayRouteGrpcGatewayRouteMatch',
     'GatewayRouteGrpcGatewayRouteMetadata',
     'GatewayRouteGrpcGatewayRouteRewrite',
+    'GatewayRouteHostnameMatch',
+    'GatewayRouteHostnameRewrite',
     'GatewayRouteHttpGatewayRoute',
     'GatewayRouteHttpGatewayRouteAction',
     'GatewayRouteHttpGatewayRouteHeader',
@@ -32,10 +27,15 @@ __all__ = [
     'GatewayRouteHttpGatewayRouteRewrite',
     'GatewayRouteHttpPathMatch',
     'GatewayRouteHttpQueryParameterMatch',
+    'GatewayRouteMetadataMatch',
     'GatewayRouteQueryParameter',
+    'GatewayRouteRangeMatch',
+    'GatewayRouteSpec',
     'GatewayRouteTag',
+    'GatewayRouteTarget',
+    'GatewayRouteVirtualService',
     'MeshEgressFilter',
-    'MeshMeshSpec',
+    'MeshSpec',
     'MeshTag',
     'RouteDuration',
     'RouteGrpcRetryPolicy',
@@ -56,42 +56,42 @@ __all__ = [
     'RouteHttpTimeout',
     'RouteMatchRange',
     'RouteQueryParameter',
-    'RouteRouteSpec',
+    'RouteSpec',
     'RouteTag',
     'RouteTcpRoute',
     'RouteTcpRouteAction',
     'RouteTcpTimeout',
     'RouteWeightedTarget',
+    'VirtualGatewayAccessLog',
+    'VirtualGatewayBackendDefaults',
+    'VirtualGatewayClientPolicy',
+    'VirtualGatewayClientPolicyTls',
+    'VirtualGatewayClientTlsCertificate',
+    'VirtualGatewayConnectionPool',
+    'VirtualGatewayFileAccessLog',
+    'VirtualGatewayGrpcConnectionPool',
+    'VirtualGatewayHealthCheckPolicy',
+    'VirtualGatewayHttp2ConnectionPool',
+    'VirtualGatewayHttpConnectionPool',
+    'VirtualGatewayListener',
+    'VirtualGatewayListenerTls',
+    'VirtualGatewayListenerTlsAcmCertificate',
+    'VirtualGatewayListenerTlsCertificate',
+    'VirtualGatewayListenerTlsFileCertificate',
+    'VirtualGatewayListenerTlsSdsCertificate',
+    'VirtualGatewayListenerTlsValidationContext',
+    'VirtualGatewayListenerTlsValidationContextTrust',
+    'VirtualGatewayLogging',
+    'VirtualGatewayPortMapping',
+    'VirtualGatewaySpec',
     'VirtualGatewaySubjectAlternativeNameMatchers',
     'VirtualGatewaySubjectAlternativeNames',
     'VirtualGatewayTag',
-    'VirtualGatewayVirtualGatewayAccessLog',
-    'VirtualGatewayVirtualGatewayBackendDefaults',
-    'VirtualGatewayVirtualGatewayClientPolicy',
-    'VirtualGatewayVirtualGatewayClientPolicyTls',
-    'VirtualGatewayVirtualGatewayClientTlsCertificate',
-    'VirtualGatewayVirtualGatewayConnectionPool',
-    'VirtualGatewayVirtualGatewayFileAccessLog',
-    'VirtualGatewayVirtualGatewayGrpcConnectionPool',
-    'VirtualGatewayVirtualGatewayHealthCheckPolicy',
-    'VirtualGatewayVirtualGatewayHttp2ConnectionPool',
-    'VirtualGatewayVirtualGatewayHttpConnectionPool',
-    'VirtualGatewayVirtualGatewayListener',
-    'VirtualGatewayVirtualGatewayListenerTls',
-    'VirtualGatewayVirtualGatewayListenerTlsAcmCertificate',
-    'VirtualGatewayVirtualGatewayListenerTlsCertificate',
-    'VirtualGatewayVirtualGatewayListenerTlsFileCertificate',
-    'VirtualGatewayVirtualGatewayListenerTlsSdsCertificate',
-    'VirtualGatewayVirtualGatewayListenerTlsValidationContext',
-    'VirtualGatewayVirtualGatewayListenerTlsValidationContextTrust',
-    'VirtualGatewayVirtualGatewayLogging',
-    'VirtualGatewayVirtualGatewayPortMapping',
-    'VirtualGatewayVirtualGatewaySpec',
-    'VirtualGatewayVirtualGatewayTlsValidationContext',
-    'VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust',
-    'VirtualGatewayVirtualGatewayTlsValidationContextFileTrust',
-    'VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust',
-    'VirtualGatewayVirtualGatewayTlsValidationContextTrust',
+    'VirtualGatewayTlsValidationContext',
+    'VirtualGatewayTlsValidationContextAcmTrust',
+    'VirtualGatewayTlsValidationContextFileTrust',
+    'VirtualGatewayTlsValidationContextSdsTrust',
+    'VirtualGatewayTlsValidationContextTrust',
     'VirtualNodeAccessLog',
     'VirtualNodeAwsCloudMapInstanceAttribute',
     'VirtualNodeAwsCloudMapServiceDiscovery',
@@ -100,11 +100,15 @@ __all__ = [
     'VirtualNodeClientPolicy',
     'VirtualNodeClientPolicyTls',
     'VirtualNodeClientTlsCertificate',
+    'VirtualNodeConnectionPool',
     'VirtualNodeDnsServiceDiscovery',
     'VirtualNodeDuration',
     'VirtualNodeFileAccessLog',
+    'VirtualNodeGrpcConnectionPool',
     'VirtualNodeGrpcTimeout',
     'VirtualNodeHealthCheck',
+    'VirtualNodeHttp2ConnectionPool',
+    'VirtualNodeHttpConnectionPool',
     'VirtualNodeHttpTimeout',
     'VirtualNodeListener',
     'VirtualNodeListenerTimeout',
@@ -119,255 +123,28 @@ __all__ = [
     'VirtualNodeOutlierDetection',
     'VirtualNodePortMapping',
     'VirtualNodeServiceDiscovery',
+    'VirtualNodeSpec',
     'VirtualNodeSubjectAlternativeNameMatchers',
     'VirtualNodeSubjectAlternativeNames',
     'VirtualNodeTag',
+    'VirtualNodeTcpConnectionPool',
     'VirtualNodeTcpTimeout',
     'VirtualNodeTlsValidationContext',
     'VirtualNodeTlsValidationContextAcmTrust',
     'VirtualNodeTlsValidationContextFileTrust',
     'VirtualNodeTlsValidationContextSdsTrust',
     'VirtualNodeTlsValidationContextTrust',
-    'VirtualNodeVirtualNodeConnectionPool',
-    'VirtualNodeVirtualNodeGrpcConnectionPool',
-    'VirtualNodeVirtualNodeHttp2ConnectionPool',
-    'VirtualNodeVirtualNodeHttpConnectionPool',
-    'VirtualNodeVirtualNodeSpec',
-    'VirtualNodeVirtualNodeTcpConnectionPool',
     'VirtualNodeVirtualServiceBackend',
+    'VirtualRouterListener',
     'VirtualRouterPortMapping',
+    'VirtualRouterSpec',
     'VirtualRouterTag',
-    'VirtualRouterVirtualRouterListener',
-    'VirtualRouterVirtualRouterSpec',
+    'VirtualServiceProvider',
+    'VirtualServiceSpec',
     'VirtualServiceTag',
     'VirtualServiceVirtualNodeServiceProvider',
     'VirtualServiceVirtualRouterServiceProvider',
-    'VirtualServiceVirtualServiceProvider',
-    'VirtualServiceVirtualServiceSpec',
 ]
-
-@pulumi.output_type
-class GatewayRouteGatewayRouteHostnameMatch(dict):
-    def __init__(__self__, *,
-                 exact: Optional[str] = None,
-                 suffix: Optional[str] = None):
-        if exact is not None:
-            pulumi.set(__self__, "exact", exact)
-        if suffix is not None:
-            pulumi.set(__self__, "suffix", suffix)
-
-    @property
-    @pulumi.getter
-    def exact(self) -> Optional[str]:
-        return pulumi.get(self, "exact")
-
-    @property
-    @pulumi.getter
-    def suffix(self) -> Optional[str]:
-        return pulumi.get(self, "suffix")
-
-
-@pulumi.output_type
-class GatewayRouteGatewayRouteHostnameRewrite(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "defaultTargetHostname":
-            suggest = "default_target_hostname"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GatewayRouteGatewayRouteHostnameRewrite. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        GatewayRouteGatewayRouteHostnameRewrite.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        GatewayRouteGatewayRouteHostnameRewrite.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 default_target_hostname: Optional[str] = None):
-        if default_target_hostname is not None:
-            pulumi.set(__self__, "default_target_hostname", default_target_hostname)
-
-    @property
-    @pulumi.getter(name="defaultTargetHostname")
-    def default_target_hostname(self) -> Optional[str]:
-        return pulumi.get(self, "default_target_hostname")
-
-
-@pulumi.output_type
-class GatewayRouteGatewayRouteMetadataMatch(dict):
-    def __init__(__self__, *,
-                 exact: Optional[str] = None,
-                 prefix: Optional[str] = None,
-                 range: Optional['outputs.GatewayRouteGatewayRouteRangeMatch'] = None,
-                 regex: Optional[str] = None,
-                 suffix: Optional[str] = None):
-        if exact is not None:
-            pulumi.set(__self__, "exact", exact)
-        if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
-        if range is not None:
-            pulumi.set(__self__, "range", range)
-        if regex is not None:
-            pulumi.set(__self__, "regex", regex)
-        if suffix is not None:
-            pulumi.set(__self__, "suffix", suffix)
-
-    @property
-    @pulumi.getter
-    def exact(self) -> Optional[str]:
-        return pulumi.get(self, "exact")
-
-    @property
-    @pulumi.getter
-    def prefix(self) -> Optional[str]:
-        return pulumi.get(self, "prefix")
-
-    @property
-    @pulumi.getter
-    def range(self) -> Optional['outputs.GatewayRouteGatewayRouteRangeMatch']:
-        return pulumi.get(self, "range")
-
-    @property
-    @pulumi.getter
-    def regex(self) -> Optional[str]:
-        return pulumi.get(self, "regex")
-
-    @property
-    @pulumi.getter
-    def suffix(self) -> Optional[str]:
-        return pulumi.get(self, "suffix")
-
-
-@pulumi.output_type
-class GatewayRouteGatewayRouteRangeMatch(dict):
-    def __init__(__self__, *,
-                 end: int,
-                 start: int):
-        pulumi.set(__self__, "end", end)
-        pulumi.set(__self__, "start", start)
-
-    @property
-    @pulumi.getter
-    def end(self) -> int:
-        return pulumi.get(self, "end")
-
-    @property
-    @pulumi.getter
-    def start(self) -> int:
-        return pulumi.get(self, "start")
-
-
-@pulumi.output_type
-class GatewayRouteGatewayRouteSpec(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "grpcRoute":
-            suggest = "grpc_route"
-        elif key == "http2Route":
-            suggest = "http2_route"
-        elif key == "httpRoute":
-            suggest = "http_route"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GatewayRouteGatewayRouteSpec. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        GatewayRouteGatewayRouteSpec.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        GatewayRouteGatewayRouteSpec.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 grpc_route: Optional['outputs.GatewayRouteGrpcGatewayRoute'] = None,
-                 http2_route: Optional['outputs.GatewayRouteHttpGatewayRoute'] = None,
-                 http_route: Optional['outputs.GatewayRouteHttpGatewayRoute'] = None):
-        if grpc_route is not None:
-            pulumi.set(__self__, "grpc_route", grpc_route)
-        if http2_route is not None:
-            pulumi.set(__self__, "http2_route", http2_route)
-        if http_route is not None:
-            pulumi.set(__self__, "http_route", http_route)
-
-    @property
-    @pulumi.getter(name="grpcRoute")
-    def grpc_route(self) -> Optional['outputs.GatewayRouteGrpcGatewayRoute']:
-        return pulumi.get(self, "grpc_route")
-
-    @property
-    @pulumi.getter(name="http2Route")
-    def http2_route(self) -> Optional['outputs.GatewayRouteHttpGatewayRoute']:
-        return pulumi.get(self, "http2_route")
-
-    @property
-    @pulumi.getter(name="httpRoute")
-    def http_route(self) -> Optional['outputs.GatewayRouteHttpGatewayRoute']:
-        return pulumi.get(self, "http_route")
-
-
-@pulumi.output_type
-class GatewayRouteGatewayRouteTarget(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "virtualService":
-            suggest = "virtual_service"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GatewayRouteGatewayRouteTarget. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        GatewayRouteGatewayRouteTarget.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        GatewayRouteGatewayRouteTarget.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 virtual_service: 'outputs.GatewayRouteGatewayRouteVirtualService'):
-        pulumi.set(__self__, "virtual_service", virtual_service)
-
-    @property
-    @pulumi.getter(name="virtualService")
-    def virtual_service(self) -> 'outputs.GatewayRouteGatewayRouteVirtualService':
-        return pulumi.get(self, "virtual_service")
-
-
-@pulumi.output_type
-class GatewayRouteGatewayRouteVirtualService(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "virtualServiceName":
-            suggest = "virtual_service_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GatewayRouteGatewayRouteVirtualService. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        GatewayRouteGatewayRouteVirtualService.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        GatewayRouteGatewayRouteVirtualService.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 virtual_service_name: str):
-        pulumi.set(__self__, "virtual_service_name", virtual_service_name)
-
-    @property
-    @pulumi.getter(name="virtualServiceName")
-    def virtual_service_name(self) -> str:
-        return pulumi.get(self, "virtual_service_name")
-
 
 @pulumi.output_type
 class GatewayRouteGrpcGatewayRoute(dict):
@@ -391,7 +168,7 @@ class GatewayRouteGrpcGatewayRoute(dict):
 @pulumi.output_type
 class GatewayRouteGrpcGatewayRouteAction(dict):
     def __init__(__self__, *,
-                 target: 'outputs.GatewayRouteGatewayRouteTarget',
+                 target: 'outputs.GatewayRouteTarget',
                  rewrite: Optional['outputs.GatewayRouteGrpcGatewayRouteRewrite'] = None):
         pulumi.set(__self__, "target", target)
         if rewrite is not None:
@@ -399,7 +176,7 @@ class GatewayRouteGrpcGatewayRouteAction(dict):
 
     @property
     @pulumi.getter
-    def target(self) -> 'outputs.GatewayRouteGatewayRouteTarget':
+    def target(self) -> 'outputs.GatewayRouteTarget':
         return pulumi.get(self, "target")
 
     @property
@@ -428,7 +205,7 @@ class GatewayRouteGrpcGatewayRouteMatch(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 hostname: Optional['outputs.GatewayRouteGatewayRouteHostnameMatch'] = None,
+                 hostname: Optional['outputs.GatewayRouteHostnameMatch'] = None,
                  metadata: Optional[Sequence['outputs.GatewayRouteGrpcGatewayRouteMetadata']] = None,
                  service_name: Optional[str] = None):
         if hostname is not None:
@@ -440,7 +217,7 @@ class GatewayRouteGrpcGatewayRouteMatch(dict):
 
     @property
     @pulumi.getter
-    def hostname(self) -> Optional['outputs.GatewayRouteGatewayRouteHostnameMatch']:
+    def hostname(self) -> Optional['outputs.GatewayRouteHostnameMatch']:
         return pulumi.get(self, "hostname")
 
     @property
@@ -459,7 +236,7 @@ class GatewayRouteGrpcGatewayRouteMetadata(dict):
     def __init__(__self__, *,
                  name: str,
                  invert: Optional[bool] = None,
-                 match: Optional['outputs.GatewayRouteGatewayRouteMetadataMatch'] = None):
+                 match: Optional['outputs.GatewayRouteMetadataMatch'] = None):
         pulumi.set(__self__, "name", name)
         if invert is not None:
             pulumi.set(__self__, "invert", invert)
@@ -478,21 +255,72 @@ class GatewayRouteGrpcGatewayRouteMetadata(dict):
 
     @property
     @pulumi.getter
-    def match(self) -> Optional['outputs.GatewayRouteGatewayRouteMetadataMatch']:
+    def match(self) -> Optional['outputs.GatewayRouteMetadataMatch']:
         return pulumi.get(self, "match")
 
 
 @pulumi.output_type
 class GatewayRouteGrpcGatewayRouteRewrite(dict):
     def __init__(__self__, *,
-                 hostname: Optional['outputs.GatewayRouteGatewayRouteHostnameRewrite'] = None):
+                 hostname: Optional['outputs.GatewayRouteHostnameRewrite'] = None):
         if hostname is not None:
             pulumi.set(__self__, "hostname", hostname)
 
     @property
     @pulumi.getter
-    def hostname(self) -> Optional['outputs.GatewayRouteGatewayRouteHostnameRewrite']:
+    def hostname(self) -> Optional['outputs.GatewayRouteHostnameRewrite']:
         return pulumi.get(self, "hostname")
+
+
+@pulumi.output_type
+class GatewayRouteHostnameMatch(dict):
+    def __init__(__self__, *,
+                 exact: Optional[str] = None,
+                 suffix: Optional[str] = None):
+        if exact is not None:
+            pulumi.set(__self__, "exact", exact)
+        if suffix is not None:
+            pulumi.set(__self__, "suffix", suffix)
+
+    @property
+    @pulumi.getter
+    def exact(self) -> Optional[str]:
+        return pulumi.get(self, "exact")
+
+    @property
+    @pulumi.getter
+    def suffix(self) -> Optional[str]:
+        return pulumi.get(self, "suffix")
+
+
+@pulumi.output_type
+class GatewayRouteHostnameRewrite(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultTargetHostname":
+            suggest = "default_target_hostname"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRouteHostnameRewrite. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRouteHostnameRewrite.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRouteHostnameRewrite.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_target_hostname: Optional[str] = None):
+        if default_target_hostname is not None:
+            pulumi.set(__self__, "default_target_hostname", default_target_hostname)
+
+    @property
+    @pulumi.getter(name="defaultTargetHostname")
+    def default_target_hostname(self) -> Optional[str]:
+        return pulumi.get(self, "default_target_hostname")
 
 
 @pulumi.output_type
@@ -517,7 +345,7 @@ class GatewayRouteHttpGatewayRoute(dict):
 @pulumi.output_type
 class GatewayRouteHttpGatewayRouteAction(dict):
     def __init__(__self__, *,
-                 target: 'outputs.GatewayRouteGatewayRouteTarget',
+                 target: 'outputs.GatewayRouteTarget',
                  rewrite: Optional['outputs.GatewayRouteHttpGatewayRouteRewrite'] = None):
         pulumi.set(__self__, "target", target)
         if rewrite is not None:
@@ -525,7 +353,7 @@ class GatewayRouteHttpGatewayRouteAction(dict):
 
     @property
     @pulumi.getter
-    def target(self) -> 'outputs.GatewayRouteGatewayRouteTarget':
+    def target(self) -> 'outputs.GatewayRouteTarget':
         return pulumi.get(self, "target")
 
     @property
@@ -567,7 +395,7 @@ class GatewayRouteHttpGatewayRouteHeaderMatch(dict):
     def __init__(__self__, *,
                  exact: Optional[str] = None,
                  prefix: Optional[str] = None,
-                 range: Optional['outputs.GatewayRouteGatewayRouteRangeMatch'] = None,
+                 range: Optional['outputs.GatewayRouteRangeMatch'] = None,
                  regex: Optional[str] = None,
                  suffix: Optional[str] = None):
         if exact is not None:
@@ -593,7 +421,7 @@ class GatewayRouteHttpGatewayRouteHeaderMatch(dict):
 
     @property
     @pulumi.getter
-    def range(self) -> Optional['outputs.GatewayRouteGatewayRouteRangeMatch']:
+    def range(self) -> Optional['outputs.GatewayRouteRangeMatch']:
         return pulumi.get(self, "range")
 
     @property
@@ -628,7 +456,7 @@ class GatewayRouteHttpGatewayRouteMatch(dict):
 
     def __init__(__self__, *,
                  headers: Optional[Sequence['outputs.GatewayRouteHttpGatewayRouteHeader']] = None,
-                 hostname: Optional['outputs.GatewayRouteGatewayRouteHostnameMatch'] = None,
+                 hostname: Optional['outputs.GatewayRouteHostnameMatch'] = None,
                  method: Optional[str] = None,
                  path: Optional['outputs.GatewayRouteHttpPathMatch'] = None,
                  prefix: Optional[str] = None,
@@ -653,7 +481,7 @@ class GatewayRouteHttpGatewayRouteMatch(dict):
 
     @property
     @pulumi.getter
-    def hostname(self) -> Optional['outputs.GatewayRouteGatewayRouteHostnameMatch']:
+    def hostname(self) -> Optional['outputs.GatewayRouteHostnameMatch']:
         return pulumi.get(self, "hostname")
 
     @property
@@ -731,7 +559,7 @@ class GatewayRouteHttpGatewayRoutePrefixRewrite(dict):
 @pulumi.output_type
 class GatewayRouteHttpGatewayRouteRewrite(dict):
     def __init__(__self__, *,
-                 hostname: Optional['outputs.GatewayRouteGatewayRouteHostnameRewrite'] = None,
+                 hostname: Optional['outputs.GatewayRouteHostnameRewrite'] = None,
                  path: Optional['outputs.GatewayRouteHttpGatewayRoutePathRewrite'] = None,
                  prefix: Optional['outputs.GatewayRouteHttpGatewayRoutePrefixRewrite'] = None):
         if hostname is not None:
@@ -743,7 +571,7 @@ class GatewayRouteHttpGatewayRouteRewrite(dict):
 
     @property
     @pulumi.getter
-    def hostname(self) -> Optional['outputs.GatewayRouteGatewayRouteHostnameRewrite']:
+    def hostname(self) -> Optional['outputs.GatewayRouteHostnameRewrite']:
         return pulumi.get(self, "hostname")
 
     @property
@@ -792,6 +620,51 @@ class GatewayRouteHttpQueryParameterMatch(dict):
 
 
 @pulumi.output_type
+class GatewayRouteMetadataMatch(dict):
+    def __init__(__self__, *,
+                 exact: Optional[str] = None,
+                 prefix: Optional[str] = None,
+                 range: Optional['outputs.GatewayRouteRangeMatch'] = None,
+                 regex: Optional[str] = None,
+                 suffix: Optional[str] = None):
+        if exact is not None:
+            pulumi.set(__self__, "exact", exact)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if range is not None:
+            pulumi.set(__self__, "range", range)
+        if regex is not None:
+            pulumi.set(__self__, "regex", regex)
+        if suffix is not None:
+            pulumi.set(__self__, "suffix", suffix)
+
+    @property
+    @pulumi.getter
+    def exact(self) -> Optional[str]:
+        return pulumi.get(self, "exact")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter
+    def range(self) -> Optional['outputs.GatewayRouteRangeMatch']:
+        return pulumi.get(self, "range")
+
+    @property
+    @pulumi.getter
+    def regex(self) -> Optional[str]:
+        return pulumi.get(self, "regex")
+
+    @property
+    @pulumi.getter
+    def suffix(self) -> Optional[str]:
+        return pulumi.get(self, "suffix")
+
+
+@pulumi.output_type
 class GatewayRouteQueryParameter(dict):
     def __init__(__self__, *,
                  name: str,
@@ -809,6 +682,75 @@ class GatewayRouteQueryParameter(dict):
     @pulumi.getter
     def match(self) -> Optional['outputs.GatewayRouteHttpQueryParameterMatch']:
         return pulumi.get(self, "match")
+
+
+@pulumi.output_type
+class GatewayRouteRangeMatch(dict):
+    def __init__(__self__, *,
+                 end: int,
+                 start: int):
+        pulumi.set(__self__, "end", end)
+        pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter
+    def end(self) -> int:
+        return pulumi.get(self, "end")
+
+    @property
+    @pulumi.getter
+    def start(self) -> int:
+        return pulumi.get(self, "start")
+
+
+@pulumi.output_type
+class GatewayRouteSpec(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "grpcRoute":
+            suggest = "grpc_route"
+        elif key == "http2Route":
+            suggest = "http2_route"
+        elif key == "httpRoute":
+            suggest = "http_route"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRouteSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRouteSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRouteSpec.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 grpc_route: Optional['outputs.GatewayRouteGrpcGatewayRoute'] = None,
+                 http2_route: Optional['outputs.GatewayRouteHttpGatewayRoute'] = None,
+                 http_route: Optional['outputs.GatewayRouteHttpGatewayRoute'] = None):
+        if grpc_route is not None:
+            pulumi.set(__self__, "grpc_route", grpc_route)
+        if http2_route is not None:
+            pulumi.set(__self__, "http2_route", http2_route)
+        if http_route is not None:
+            pulumi.set(__self__, "http_route", http_route)
+
+    @property
+    @pulumi.getter(name="grpcRoute")
+    def grpc_route(self) -> Optional['outputs.GatewayRouteGrpcGatewayRoute']:
+        return pulumi.get(self, "grpc_route")
+
+    @property
+    @pulumi.getter(name="http2Route")
+    def http2_route(self) -> Optional['outputs.GatewayRouteHttpGatewayRoute']:
+        return pulumi.get(self, "http2_route")
+
+    @property
+    @pulumi.getter(name="httpRoute")
+    def http_route(self) -> Optional['outputs.GatewayRouteHttpGatewayRoute']:
+        return pulumi.get(self, "http_route")
 
 
 @pulumi.output_type
@@ -831,6 +773,64 @@ class GatewayRouteTag(dict):
 
 
 @pulumi.output_type
+class GatewayRouteTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "virtualService":
+            suggest = "virtual_service"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRouteTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRouteTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRouteTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 virtual_service: 'outputs.GatewayRouteVirtualService'):
+        pulumi.set(__self__, "virtual_service", virtual_service)
+
+    @property
+    @pulumi.getter(name="virtualService")
+    def virtual_service(self) -> 'outputs.GatewayRouteVirtualService':
+        return pulumi.get(self, "virtual_service")
+
+
+@pulumi.output_type
+class GatewayRouteVirtualService(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "virtualServiceName":
+            suggest = "virtual_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRouteVirtualService. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRouteVirtualService.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRouteVirtualService.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 virtual_service_name: str):
+        pulumi.set(__self__, "virtual_service_name", virtual_service_name)
+
+    @property
+    @pulumi.getter(name="virtualServiceName")
+    def virtual_service_name(self) -> str:
+        return pulumi.get(self, "virtual_service_name")
+
+
+@pulumi.output_type
 class MeshEgressFilter(dict):
     def __init__(__self__, *,
                  type: str):
@@ -843,7 +843,7 @@ class MeshEgressFilter(dict):
 
 
 @pulumi.output_type
-class MeshMeshSpec(dict):
+class MeshSpec(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -851,14 +851,14 @@ class MeshMeshSpec(dict):
             suggest = "egress_filter"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MeshMeshSpec. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in MeshSpec. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        MeshMeshSpec.__key_warning(key)
+        MeshSpec.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        MeshMeshSpec.__key_warning(key)
+        MeshSpec.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1612,7 +1612,7 @@ class RouteQueryParameter(dict):
 
 
 @pulumi.output_type
-class RouteRouteSpec(dict):
+class RouteSpec(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1626,14 +1626,14 @@ class RouteRouteSpec(dict):
             suggest = "tcp_route"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RouteRouteSpec. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in RouteSpec. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        RouteRouteSpec.__key_warning(key)
+        RouteSpec.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        RouteRouteSpec.__key_warning(key)
+        RouteSpec.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1797,64 +1797,20 @@ class RouteWeightedTarget(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySubjectAlternativeNameMatchers(dict):
+class VirtualGatewayAccessLog(dict):
     def __init__(__self__, *,
-                 exact: Optional[Sequence[str]] = None):
-        if exact is not None:
-            pulumi.set(__self__, "exact", exact)
-
-    @property
-    @pulumi.getter
-    def exact(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "exact")
-
-
-@pulumi.output_type
-class VirtualGatewaySubjectAlternativeNames(dict):
-    def __init__(__self__, *,
-                 match: 'outputs.VirtualGatewaySubjectAlternativeNameMatchers'):
-        pulumi.set(__self__, "match", match)
-
-    @property
-    @pulumi.getter
-    def match(self) -> 'outputs.VirtualGatewaySubjectAlternativeNameMatchers':
-        return pulumi.get(self, "match")
-
-
-@pulumi.output_type
-class VirtualGatewayTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class VirtualGatewayVirtualGatewayAccessLog(dict):
-    def __init__(__self__, *,
-                 file: Optional['outputs.VirtualGatewayVirtualGatewayFileAccessLog'] = None):
+                 file: Optional['outputs.VirtualGatewayFileAccessLog'] = None):
         if file is not None:
             pulumi.set(__self__, "file", file)
 
     @property
     @pulumi.getter
-    def file(self) -> Optional['outputs.VirtualGatewayVirtualGatewayFileAccessLog']:
+    def file(self) -> Optional['outputs.VirtualGatewayFileAccessLog']:
         return pulumi.get(self, "file")
 
 
 @pulumi.output_type
-class VirtualGatewayVirtualGatewayBackendDefaults(dict):
+class VirtualGatewayBackendDefaults(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1862,29 +1818,29 @@ class VirtualGatewayVirtualGatewayBackendDefaults(dict):
             suggest = "client_policy"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayVirtualGatewayBackendDefaults. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayBackendDefaults. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VirtualGatewayVirtualGatewayBackendDefaults.__key_warning(key)
+        VirtualGatewayBackendDefaults.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VirtualGatewayVirtualGatewayBackendDefaults.__key_warning(key)
+        VirtualGatewayBackendDefaults.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 client_policy: Optional['outputs.VirtualGatewayVirtualGatewayClientPolicy'] = None):
+                 client_policy: Optional['outputs.VirtualGatewayClientPolicy'] = None):
         if client_policy is not None:
             pulumi.set(__self__, "client_policy", client_policy)
 
     @property
     @pulumi.getter(name="clientPolicy")
-    def client_policy(self) -> Optional['outputs.VirtualGatewayVirtualGatewayClientPolicy']:
+    def client_policy(self) -> Optional['outputs.VirtualGatewayClientPolicy']:
         return pulumi.get(self, "client_policy")
 
 
 @pulumi.output_type
-class VirtualGatewayVirtualGatewayClientPolicy(dict):
+class VirtualGatewayClientPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1892,32 +1848,32 @@ class VirtualGatewayVirtualGatewayClientPolicy(dict):
             suggest = "t_ls"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayVirtualGatewayClientPolicy. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayClientPolicy. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VirtualGatewayVirtualGatewayClientPolicy.__key_warning(key)
+        VirtualGatewayClientPolicy.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VirtualGatewayVirtualGatewayClientPolicy.__key_warning(key)
+        VirtualGatewayClientPolicy.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 t_ls: Optional['outputs.VirtualGatewayVirtualGatewayClientPolicyTls'] = None):
+                 t_ls: Optional['outputs.VirtualGatewayClientPolicyTls'] = None):
         if t_ls is not None:
             pulumi.set(__self__, "t_ls", t_ls)
 
     @property
     @pulumi.getter(name="tLS")
-    def t_ls(self) -> Optional['outputs.VirtualGatewayVirtualGatewayClientPolicyTls']:
+    def t_ls(self) -> Optional['outputs.VirtualGatewayClientPolicyTls']:
         return pulumi.get(self, "t_ls")
 
 
 @pulumi.output_type
-class VirtualGatewayVirtualGatewayClientPolicyTls(dict):
+class VirtualGatewayClientPolicyTls(dict):
     def __init__(__self__, *,
-                 validation: 'outputs.VirtualGatewayVirtualGatewayTlsValidationContext',
-                 certificate: Optional['outputs.VirtualGatewayVirtualGatewayClientTlsCertificate'] = None,
+                 validation: 'outputs.VirtualGatewayTlsValidationContext',
+                 certificate: Optional['outputs.VirtualGatewayClientTlsCertificate'] = None,
                  enforce: Optional[bool] = None,
                  ports: Optional[Sequence[int]] = None):
         pulumi.set(__self__, "validation", validation)
@@ -1930,12 +1886,12 @@ class VirtualGatewayVirtualGatewayClientPolicyTls(dict):
 
     @property
     @pulumi.getter
-    def validation(self) -> 'outputs.VirtualGatewayVirtualGatewayTlsValidationContext':
+    def validation(self) -> 'outputs.VirtualGatewayTlsValidationContext':
         return pulumi.get(self, "validation")
 
     @property
     @pulumi.getter
-    def certificate(self) -> Optional['outputs.VirtualGatewayVirtualGatewayClientTlsCertificate']:
+    def certificate(self) -> Optional['outputs.VirtualGatewayClientTlsCertificate']:
         return pulumi.get(self, "certificate")
 
     @property
@@ -1950,7 +1906,7 @@ class VirtualGatewayVirtualGatewayClientPolicyTls(dict):
 
 
 @pulumi.output_type
-class VirtualGatewayVirtualGatewayClientTlsCertificate(dict):
+class VirtualGatewayClientTlsCertificate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1958,19 +1914,19 @@ class VirtualGatewayVirtualGatewayClientTlsCertificate(dict):
             suggest = "s_ds"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayVirtualGatewayClientTlsCertificate. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayClientTlsCertificate. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VirtualGatewayVirtualGatewayClientTlsCertificate.__key_warning(key)
+        VirtualGatewayClientTlsCertificate.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VirtualGatewayVirtualGatewayClientTlsCertificate.__key_warning(key)
+        VirtualGatewayClientTlsCertificate.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 file: Optional['outputs.VirtualGatewayVirtualGatewayListenerTlsFileCertificate'] = None,
-                 s_ds: Optional['outputs.VirtualGatewayVirtualGatewayListenerTlsSdsCertificate'] = None):
+                 file: Optional['outputs.VirtualGatewayListenerTlsFileCertificate'] = None,
+                 s_ds: Optional['outputs.VirtualGatewayListenerTlsSdsCertificate'] = None):
         if file is not None:
             pulumi.set(__self__, "file", file)
         if s_ds is not None:
@@ -1978,17 +1934,17 @@ class VirtualGatewayVirtualGatewayClientTlsCertificate(dict):
 
     @property
     @pulumi.getter
-    def file(self) -> Optional['outputs.VirtualGatewayVirtualGatewayListenerTlsFileCertificate']:
+    def file(self) -> Optional['outputs.VirtualGatewayListenerTlsFileCertificate']:
         return pulumi.get(self, "file")
 
     @property
     @pulumi.getter(name="sDS")
-    def s_ds(self) -> Optional['outputs.VirtualGatewayVirtualGatewayListenerTlsSdsCertificate']:
+    def s_ds(self) -> Optional['outputs.VirtualGatewayListenerTlsSdsCertificate']:
         return pulumi.get(self, "s_ds")
 
 
 @pulumi.output_type
-class VirtualGatewayVirtualGatewayConnectionPool(dict):
+class VirtualGatewayConnectionPool(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2000,20 +1956,20 @@ class VirtualGatewayVirtualGatewayConnectionPool(dict):
             suggest = "h_ttp2"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayVirtualGatewayConnectionPool. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayConnectionPool. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VirtualGatewayVirtualGatewayConnectionPool.__key_warning(key)
+        VirtualGatewayConnectionPool.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VirtualGatewayVirtualGatewayConnectionPool.__key_warning(key)
+        VirtualGatewayConnectionPool.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 g_rpc: Optional['outputs.VirtualGatewayVirtualGatewayGrpcConnectionPool'] = None,
-                 h_ttp: Optional['outputs.VirtualGatewayVirtualGatewayHttpConnectionPool'] = None,
-                 h_ttp2: Optional['outputs.VirtualGatewayVirtualGatewayHttp2ConnectionPool'] = None):
+                 g_rpc: Optional['outputs.VirtualGatewayGrpcConnectionPool'] = None,
+                 h_ttp: Optional['outputs.VirtualGatewayHttpConnectionPool'] = None,
+                 h_ttp2: Optional['outputs.VirtualGatewayHttp2ConnectionPool'] = None):
         if g_rpc is not None:
             pulumi.set(__self__, "g_rpc", g_rpc)
         if h_ttp is not None:
@@ -2023,22 +1979,22 @@ class VirtualGatewayVirtualGatewayConnectionPool(dict):
 
     @property
     @pulumi.getter(name="gRPC")
-    def g_rpc(self) -> Optional['outputs.VirtualGatewayVirtualGatewayGrpcConnectionPool']:
+    def g_rpc(self) -> Optional['outputs.VirtualGatewayGrpcConnectionPool']:
         return pulumi.get(self, "g_rpc")
 
     @property
     @pulumi.getter(name="hTTP")
-    def h_ttp(self) -> Optional['outputs.VirtualGatewayVirtualGatewayHttpConnectionPool']:
+    def h_ttp(self) -> Optional['outputs.VirtualGatewayHttpConnectionPool']:
         return pulumi.get(self, "h_ttp")
 
     @property
     @pulumi.getter(name="hTTP2")
-    def h_ttp2(self) -> Optional['outputs.VirtualGatewayVirtualGatewayHttp2ConnectionPool']:
+    def h_ttp2(self) -> Optional['outputs.VirtualGatewayHttp2ConnectionPool']:
         return pulumi.get(self, "h_ttp2")
 
 
 @pulumi.output_type
-class VirtualGatewayVirtualGatewayFileAccessLog(dict):
+class VirtualGatewayFileAccessLog(dict):
     def __init__(__self__, *,
                  path: str):
         pulumi.set(__self__, "path", path)
@@ -2050,7 +2006,7 @@ class VirtualGatewayVirtualGatewayFileAccessLog(dict):
 
 
 @pulumi.output_type
-class VirtualGatewayVirtualGatewayGrpcConnectionPool(dict):
+class VirtualGatewayGrpcConnectionPool(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2058,14 +2014,14 @@ class VirtualGatewayVirtualGatewayGrpcConnectionPool(dict):
             suggest = "max_requests"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayVirtualGatewayGrpcConnectionPool. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayGrpcConnectionPool. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VirtualGatewayVirtualGatewayGrpcConnectionPool.__key_warning(key)
+        VirtualGatewayGrpcConnectionPool.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VirtualGatewayVirtualGatewayGrpcConnectionPool.__key_warning(key)
+        VirtualGatewayGrpcConnectionPool.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -2079,7 +2035,7 @@ class VirtualGatewayVirtualGatewayGrpcConnectionPool(dict):
 
 
 @pulumi.output_type
-class VirtualGatewayVirtualGatewayHealthCheckPolicy(dict):
+class VirtualGatewayHealthCheckPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2093,14 +2049,14 @@ class VirtualGatewayVirtualGatewayHealthCheckPolicy(dict):
             suggest = "unhealthy_threshold"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayVirtualGatewayHealthCheckPolicy. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayHealthCheckPolicy. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VirtualGatewayVirtualGatewayHealthCheckPolicy.__key_warning(key)
+        VirtualGatewayHealthCheckPolicy.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VirtualGatewayVirtualGatewayHealthCheckPolicy.__key_warning(key)
+        VirtualGatewayHealthCheckPolicy.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -2158,7 +2114,7 @@ class VirtualGatewayVirtualGatewayHealthCheckPolicy(dict):
 
 
 @pulumi.output_type
-class VirtualGatewayVirtualGatewayHttp2ConnectionPool(dict):
+class VirtualGatewayHttp2ConnectionPool(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2166,14 +2122,14 @@ class VirtualGatewayVirtualGatewayHttp2ConnectionPool(dict):
             suggest = "max_requests"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayVirtualGatewayHttp2ConnectionPool. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayHttp2ConnectionPool. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VirtualGatewayVirtualGatewayHttp2ConnectionPool.__key_warning(key)
+        VirtualGatewayHttp2ConnectionPool.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VirtualGatewayVirtualGatewayHttp2ConnectionPool.__key_warning(key)
+        VirtualGatewayHttp2ConnectionPool.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -2187,7 +2143,7 @@ class VirtualGatewayVirtualGatewayHttp2ConnectionPool(dict):
 
 
 @pulumi.output_type
-class VirtualGatewayVirtualGatewayHttpConnectionPool(dict):
+class VirtualGatewayHttpConnectionPool(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2197,14 +2153,14 @@ class VirtualGatewayVirtualGatewayHttpConnectionPool(dict):
             suggest = "max_pending_requests"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayVirtualGatewayHttpConnectionPool. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayHttpConnectionPool. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VirtualGatewayVirtualGatewayHttpConnectionPool.__key_warning(key)
+        VirtualGatewayHttpConnectionPool.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VirtualGatewayVirtualGatewayHttpConnectionPool.__key_warning(key)
+        VirtualGatewayHttpConnectionPool.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -2226,7 +2182,7 @@ class VirtualGatewayVirtualGatewayHttpConnectionPool(dict):
 
 
 @pulumi.output_type
-class VirtualGatewayVirtualGatewayListener(dict):
+class VirtualGatewayListener(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2240,21 +2196,21 @@ class VirtualGatewayVirtualGatewayListener(dict):
             suggest = "t_ls"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayVirtualGatewayListener. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayListener. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VirtualGatewayVirtualGatewayListener.__key_warning(key)
+        VirtualGatewayListener.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VirtualGatewayVirtualGatewayListener.__key_warning(key)
+        VirtualGatewayListener.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 port_mapping: 'outputs.VirtualGatewayVirtualGatewayPortMapping',
-                 connection_pool: Optional['outputs.VirtualGatewayVirtualGatewayConnectionPool'] = None,
-                 health_check: Optional['outputs.VirtualGatewayVirtualGatewayHealthCheckPolicy'] = None,
-                 t_ls: Optional['outputs.VirtualGatewayVirtualGatewayListenerTls'] = None):
+                 port_mapping: 'outputs.VirtualGatewayPortMapping',
+                 connection_pool: Optional['outputs.VirtualGatewayConnectionPool'] = None,
+                 health_check: Optional['outputs.VirtualGatewayHealthCheckPolicy'] = None,
+                 t_ls: Optional['outputs.VirtualGatewayListenerTls'] = None):
         pulumi.set(__self__, "port_mapping", port_mapping)
         if connection_pool is not None:
             pulumi.set(__self__, "connection_pool", connection_pool)
@@ -2265,31 +2221,31 @@ class VirtualGatewayVirtualGatewayListener(dict):
 
     @property
     @pulumi.getter(name="portMapping")
-    def port_mapping(self) -> 'outputs.VirtualGatewayVirtualGatewayPortMapping':
+    def port_mapping(self) -> 'outputs.VirtualGatewayPortMapping':
         return pulumi.get(self, "port_mapping")
 
     @property
     @pulumi.getter(name="connectionPool")
-    def connection_pool(self) -> Optional['outputs.VirtualGatewayVirtualGatewayConnectionPool']:
+    def connection_pool(self) -> Optional['outputs.VirtualGatewayConnectionPool']:
         return pulumi.get(self, "connection_pool")
 
     @property
     @pulumi.getter(name="healthCheck")
-    def health_check(self) -> Optional['outputs.VirtualGatewayVirtualGatewayHealthCheckPolicy']:
+    def health_check(self) -> Optional['outputs.VirtualGatewayHealthCheckPolicy']:
         return pulumi.get(self, "health_check")
 
     @property
     @pulumi.getter(name="tLS")
-    def t_ls(self) -> Optional['outputs.VirtualGatewayVirtualGatewayListenerTls']:
+    def t_ls(self) -> Optional['outputs.VirtualGatewayListenerTls']:
         return pulumi.get(self, "t_ls")
 
 
 @pulumi.output_type
-class VirtualGatewayVirtualGatewayListenerTls(dict):
+class VirtualGatewayListenerTls(dict):
     def __init__(__self__, *,
-                 certificate: 'outputs.VirtualGatewayVirtualGatewayListenerTlsCertificate',
+                 certificate: 'outputs.VirtualGatewayListenerTlsCertificate',
                  mode: str,
-                 validation: Optional['outputs.VirtualGatewayVirtualGatewayListenerTlsValidationContext'] = None):
+                 validation: Optional['outputs.VirtualGatewayListenerTlsValidationContext'] = None):
         pulumi.set(__self__, "certificate", certificate)
         pulumi.set(__self__, "mode", mode)
         if validation is not None:
@@ -2297,7 +2253,7 @@ class VirtualGatewayVirtualGatewayListenerTls(dict):
 
     @property
     @pulumi.getter
-    def certificate(self) -> 'outputs.VirtualGatewayVirtualGatewayListenerTlsCertificate':
+    def certificate(self) -> 'outputs.VirtualGatewayListenerTlsCertificate':
         return pulumi.get(self, "certificate")
 
     @property
@@ -2307,12 +2263,12 @@ class VirtualGatewayVirtualGatewayListenerTls(dict):
 
     @property
     @pulumi.getter
-    def validation(self) -> Optional['outputs.VirtualGatewayVirtualGatewayListenerTlsValidationContext']:
+    def validation(self) -> Optional['outputs.VirtualGatewayListenerTlsValidationContext']:
         return pulumi.get(self, "validation")
 
 
 @pulumi.output_type
-class VirtualGatewayVirtualGatewayListenerTlsAcmCertificate(dict):
+class VirtualGatewayListenerTlsAcmCertificate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2320,14 +2276,14 @@ class VirtualGatewayVirtualGatewayListenerTlsAcmCertificate(dict):
             suggest = "certificate_arn"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayVirtualGatewayListenerTlsAcmCertificate. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayListenerTlsAcmCertificate. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VirtualGatewayVirtualGatewayListenerTlsAcmCertificate.__key_warning(key)
+        VirtualGatewayListenerTlsAcmCertificate.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VirtualGatewayVirtualGatewayListenerTlsAcmCertificate.__key_warning(key)
+        VirtualGatewayListenerTlsAcmCertificate.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -2341,7 +2297,7 @@ class VirtualGatewayVirtualGatewayListenerTlsAcmCertificate(dict):
 
 
 @pulumi.output_type
-class VirtualGatewayVirtualGatewayListenerTlsCertificate(dict):
+class VirtualGatewayListenerTlsCertificate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2351,20 +2307,20 @@ class VirtualGatewayVirtualGatewayListenerTlsCertificate(dict):
             suggest = "s_ds"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayVirtualGatewayListenerTlsCertificate. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayListenerTlsCertificate. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VirtualGatewayVirtualGatewayListenerTlsCertificate.__key_warning(key)
+        VirtualGatewayListenerTlsCertificate.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VirtualGatewayVirtualGatewayListenerTlsCertificate.__key_warning(key)
+        VirtualGatewayListenerTlsCertificate.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 a_cm: Optional['outputs.VirtualGatewayVirtualGatewayListenerTlsAcmCertificate'] = None,
-                 file: Optional['outputs.VirtualGatewayVirtualGatewayListenerTlsFileCertificate'] = None,
-                 s_ds: Optional['outputs.VirtualGatewayVirtualGatewayListenerTlsSdsCertificate'] = None):
+                 a_cm: Optional['outputs.VirtualGatewayListenerTlsAcmCertificate'] = None,
+                 file: Optional['outputs.VirtualGatewayListenerTlsFileCertificate'] = None,
+                 s_ds: Optional['outputs.VirtualGatewayListenerTlsSdsCertificate'] = None):
         if a_cm is not None:
             pulumi.set(__self__, "a_cm", a_cm)
         if file is not None:
@@ -2374,22 +2330,22 @@ class VirtualGatewayVirtualGatewayListenerTlsCertificate(dict):
 
     @property
     @pulumi.getter(name="aCM")
-    def a_cm(self) -> Optional['outputs.VirtualGatewayVirtualGatewayListenerTlsAcmCertificate']:
+    def a_cm(self) -> Optional['outputs.VirtualGatewayListenerTlsAcmCertificate']:
         return pulumi.get(self, "a_cm")
 
     @property
     @pulumi.getter
-    def file(self) -> Optional['outputs.VirtualGatewayVirtualGatewayListenerTlsFileCertificate']:
+    def file(self) -> Optional['outputs.VirtualGatewayListenerTlsFileCertificate']:
         return pulumi.get(self, "file")
 
     @property
     @pulumi.getter(name="sDS")
-    def s_ds(self) -> Optional['outputs.VirtualGatewayVirtualGatewayListenerTlsSdsCertificate']:
+    def s_ds(self) -> Optional['outputs.VirtualGatewayListenerTlsSdsCertificate']:
         return pulumi.get(self, "s_ds")
 
 
 @pulumi.output_type
-class VirtualGatewayVirtualGatewayListenerTlsFileCertificate(dict):
+class VirtualGatewayListenerTlsFileCertificate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2399,14 +2355,14 @@ class VirtualGatewayVirtualGatewayListenerTlsFileCertificate(dict):
             suggest = "private_key"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayVirtualGatewayListenerTlsFileCertificate. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayListenerTlsFileCertificate. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VirtualGatewayVirtualGatewayListenerTlsFileCertificate.__key_warning(key)
+        VirtualGatewayListenerTlsFileCertificate.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VirtualGatewayVirtualGatewayListenerTlsFileCertificate.__key_warning(key)
+        VirtualGatewayListenerTlsFileCertificate.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -2427,7 +2383,7 @@ class VirtualGatewayVirtualGatewayListenerTlsFileCertificate(dict):
 
 
 @pulumi.output_type
-class VirtualGatewayVirtualGatewayListenerTlsSdsCertificate(dict):
+class VirtualGatewayListenerTlsSdsCertificate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2435,14 +2391,14 @@ class VirtualGatewayVirtualGatewayListenerTlsSdsCertificate(dict):
             suggest = "secret_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayVirtualGatewayListenerTlsSdsCertificate. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayListenerTlsSdsCertificate. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VirtualGatewayVirtualGatewayListenerTlsSdsCertificate.__key_warning(key)
+        VirtualGatewayListenerTlsSdsCertificate.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VirtualGatewayVirtualGatewayListenerTlsSdsCertificate.__key_warning(key)
+        VirtualGatewayListenerTlsSdsCertificate.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -2456,7 +2412,7 @@ class VirtualGatewayVirtualGatewayListenerTlsSdsCertificate(dict):
 
 
 @pulumi.output_type
-class VirtualGatewayVirtualGatewayListenerTlsValidationContext(dict):
+class VirtualGatewayListenerTlsValidationContext(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2464,18 +2420,18 @@ class VirtualGatewayVirtualGatewayListenerTlsValidationContext(dict):
             suggest = "subject_alternative_names"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayVirtualGatewayListenerTlsValidationContext. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayListenerTlsValidationContext. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VirtualGatewayVirtualGatewayListenerTlsValidationContext.__key_warning(key)
+        VirtualGatewayListenerTlsValidationContext.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VirtualGatewayVirtualGatewayListenerTlsValidationContext.__key_warning(key)
+        VirtualGatewayListenerTlsValidationContext.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 trust: 'outputs.VirtualGatewayVirtualGatewayListenerTlsValidationContextTrust',
+                 trust: 'outputs.VirtualGatewayListenerTlsValidationContextTrust',
                  subject_alternative_names: Optional['outputs.VirtualGatewaySubjectAlternativeNames'] = None):
         pulumi.set(__self__, "trust", trust)
         if subject_alternative_names is not None:
@@ -2483,7 +2439,7 @@ class VirtualGatewayVirtualGatewayListenerTlsValidationContext(dict):
 
     @property
     @pulumi.getter
-    def trust(self) -> 'outputs.VirtualGatewayVirtualGatewayListenerTlsValidationContextTrust':
+    def trust(self) -> 'outputs.VirtualGatewayListenerTlsValidationContextTrust':
         return pulumi.get(self, "trust")
 
     @property
@@ -2493,7 +2449,7 @@ class VirtualGatewayVirtualGatewayListenerTlsValidationContext(dict):
 
 
 @pulumi.output_type
-class VirtualGatewayVirtualGatewayListenerTlsValidationContextTrust(dict):
+class VirtualGatewayListenerTlsValidationContextTrust(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2501,19 +2457,19 @@ class VirtualGatewayVirtualGatewayListenerTlsValidationContextTrust(dict):
             suggest = "s_ds"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayVirtualGatewayListenerTlsValidationContextTrust. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayListenerTlsValidationContextTrust. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VirtualGatewayVirtualGatewayListenerTlsValidationContextTrust.__key_warning(key)
+        VirtualGatewayListenerTlsValidationContextTrust.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VirtualGatewayVirtualGatewayListenerTlsValidationContextTrust.__key_warning(key)
+        VirtualGatewayListenerTlsValidationContextTrust.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 file: Optional['outputs.VirtualGatewayVirtualGatewayTlsValidationContextFileTrust'] = None,
-                 s_ds: Optional['outputs.VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust'] = None):
+                 file: Optional['outputs.VirtualGatewayTlsValidationContextFileTrust'] = None,
+                 s_ds: Optional['outputs.VirtualGatewayTlsValidationContextSdsTrust'] = None):
         if file is not None:
             pulumi.set(__self__, "file", file)
         if s_ds is not None:
@@ -2521,17 +2477,17 @@ class VirtualGatewayVirtualGatewayListenerTlsValidationContextTrust(dict):
 
     @property
     @pulumi.getter
-    def file(self) -> Optional['outputs.VirtualGatewayVirtualGatewayTlsValidationContextFileTrust']:
+    def file(self) -> Optional['outputs.VirtualGatewayTlsValidationContextFileTrust']:
         return pulumi.get(self, "file")
 
     @property
     @pulumi.getter(name="sDS")
-    def s_ds(self) -> Optional['outputs.VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust']:
+    def s_ds(self) -> Optional['outputs.VirtualGatewayTlsValidationContextSdsTrust']:
         return pulumi.get(self, "s_ds")
 
 
 @pulumi.output_type
-class VirtualGatewayVirtualGatewayLogging(dict):
+class VirtualGatewayLogging(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2539,29 +2495,29 @@ class VirtualGatewayVirtualGatewayLogging(dict):
             suggest = "access_log"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayVirtualGatewayLogging. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayLogging. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VirtualGatewayVirtualGatewayLogging.__key_warning(key)
+        VirtualGatewayLogging.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VirtualGatewayVirtualGatewayLogging.__key_warning(key)
+        VirtualGatewayLogging.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 access_log: Optional['outputs.VirtualGatewayVirtualGatewayAccessLog'] = None):
+                 access_log: Optional['outputs.VirtualGatewayAccessLog'] = None):
         if access_log is not None:
             pulumi.set(__self__, "access_log", access_log)
 
     @property
     @pulumi.getter(name="accessLog")
-    def access_log(self) -> Optional['outputs.VirtualGatewayVirtualGatewayAccessLog']:
+    def access_log(self) -> Optional['outputs.VirtualGatewayAccessLog']:
         return pulumi.get(self, "access_log")
 
 
 @pulumi.output_type
-class VirtualGatewayVirtualGatewayPortMapping(dict):
+class VirtualGatewayPortMapping(dict):
     def __init__(__self__, *,
                  port: int,
                  protocol: str):
@@ -2580,7 +2536,7 @@ class VirtualGatewayVirtualGatewayPortMapping(dict):
 
 
 @pulumi.output_type
-class VirtualGatewayVirtualGatewaySpec(dict):
+class VirtualGatewaySpec(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2588,20 +2544,20 @@ class VirtualGatewayVirtualGatewaySpec(dict):
             suggest = "backend_defaults"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayVirtualGatewaySpec. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewaySpec. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VirtualGatewayVirtualGatewaySpec.__key_warning(key)
+        VirtualGatewaySpec.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VirtualGatewayVirtualGatewaySpec.__key_warning(key)
+        VirtualGatewaySpec.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 listeners: Sequence['outputs.VirtualGatewayVirtualGatewayListener'],
-                 backend_defaults: Optional['outputs.VirtualGatewayVirtualGatewayBackendDefaults'] = None,
-                 logging: Optional['outputs.VirtualGatewayVirtualGatewayLogging'] = None):
+                 listeners: Sequence['outputs.VirtualGatewayListener'],
+                 backend_defaults: Optional['outputs.VirtualGatewayBackendDefaults'] = None,
+                 logging: Optional['outputs.VirtualGatewayLogging'] = None):
         pulumi.set(__self__, "listeners", listeners)
         if backend_defaults is not None:
             pulumi.set(__self__, "backend_defaults", backend_defaults)
@@ -2610,22 +2566,66 @@ class VirtualGatewayVirtualGatewaySpec(dict):
 
     @property
     @pulumi.getter
-    def listeners(self) -> Sequence['outputs.VirtualGatewayVirtualGatewayListener']:
+    def listeners(self) -> Sequence['outputs.VirtualGatewayListener']:
         return pulumi.get(self, "listeners")
 
     @property
     @pulumi.getter(name="backendDefaults")
-    def backend_defaults(self) -> Optional['outputs.VirtualGatewayVirtualGatewayBackendDefaults']:
+    def backend_defaults(self) -> Optional['outputs.VirtualGatewayBackendDefaults']:
         return pulumi.get(self, "backend_defaults")
 
     @property
     @pulumi.getter
-    def logging(self) -> Optional['outputs.VirtualGatewayVirtualGatewayLogging']:
+    def logging(self) -> Optional['outputs.VirtualGatewayLogging']:
         return pulumi.get(self, "logging")
 
 
 @pulumi.output_type
-class VirtualGatewayVirtualGatewayTlsValidationContext(dict):
+class VirtualGatewaySubjectAlternativeNameMatchers(dict):
+    def __init__(__self__, *,
+                 exact: Optional[Sequence[str]] = None):
+        if exact is not None:
+            pulumi.set(__self__, "exact", exact)
+
+    @property
+    @pulumi.getter
+    def exact(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "exact")
+
+
+@pulumi.output_type
+class VirtualGatewaySubjectAlternativeNames(dict):
+    def __init__(__self__, *,
+                 match: 'outputs.VirtualGatewaySubjectAlternativeNameMatchers'):
+        pulumi.set(__self__, "match", match)
+
+    @property
+    @pulumi.getter
+    def match(self) -> 'outputs.VirtualGatewaySubjectAlternativeNameMatchers':
+        return pulumi.get(self, "match")
+
+
+@pulumi.output_type
+class VirtualGatewayTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VirtualGatewayTlsValidationContext(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2633,18 +2633,18 @@ class VirtualGatewayVirtualGatewayTlsValidationContext(dict):
             suggest = "subject_alternative_names"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayVirtualGatewayTlsValidationContext. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayTlsValidationContext. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VirtualGatewayVirtualGatewayTlsValidationContext.__key_warning(key)
+        VirtualGatewayTlsValidationContext.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VirtualGatewayVirtualGatewayTlsValidationContext.__key_warning(key)
+        VirtualGatewayTlsValidationContext.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 trust: 'outputs.VirtualGatewayVirtualGatewayTlsValidationContextTrust',
+                 trust: 'outputs.VirtualGatewayTlsValidationContextTrust',
                  subject_alternative_names: Optional['outputs.VirtualGatewaySubjectAlternativeNames'] = None):
         pulumi.set(__self__, "trust", trust)
         if subject_alternative_names is not None:
@@ -2652,7 +2652,7 @@ class VirtualGatewayVirtualGatewayTlsValidationContext(dict):
 
     @property
     @pulumi.getter
-    def trust(self) -> 'outputs.VirtualGatewayVirtualGatewayTlsValidationContextTrust':
+    def trust(self) -> 'outputs.VirtualGatewayTlsValidationContextTrust':
         return pulumi.get(self, "trust")
 
     @property
@@ -2662,7 +2662,7 @@ class VirtualGatewayVirtualGatewayTlsValidationContext(dict):
 
 
 @pulumi.output_type
-class VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust(dict):
+class VirtualGatewayTlsValidationContextAcmTrust(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2670,14 +2670,14 @@ class VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust(dict):
             suggest = "certificate_authority_arns"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayTlsValidationContextAcmTrust. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust.__key_warning(key)
+        VirtualGatewayTlsValidationContextAcmTrust.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust.__key_warning(key)
+        VirtualGatewayTlsValidationContextAcmTrust.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -2691,7 +2691,7 @@ class VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust(dict):
 
 
 @pulumi.output_type
-class VirtualGatewayVirtualGatewayTlsValidationContextFileTrust(dict):
+class VirtualGatewayTlsValidationContextFileTrust(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2699,14 +2699,14 @@ class VirtualGatewayVirtualGatewayTlsValidationContextFileTrust(dict):
             suggest = "certificate_chain"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayVirtualGatewayTlsValidationContextFileTrust. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayTlsValidationContextFileTrust. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VirtualGatewayVirtualGatewayTlsValidationContextFileTrust.__key_warning(key)
+        VirtualGatewayTlsValidationContextFileTrust.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VirtualGatewayVirtualGatewayTlsValidationContextFileTrust.__key_warning(key)
+        VirtualGatewayTlsValidationContextFileTrust.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -2720,7 +2720,7 @@ class VirtualGatewayVirtualGatewayTlsValidationContextFileTrust(dict):
 
 
 @pulumi.output_type
-class VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust(dict):
+class VirtualGatewayTlsValidationContextSdsTrust(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2728,14 +2728,14 @@ class VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust(dict):
             suggest = "secret_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayTlsValidationContextSdsTrust. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust.__key_warning(key)
+        VirtualGatewayTlsValidationContextSdsTrust.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust.__key_warning(key)
+        VirtualGatewayTlsValidationContextSdsTrust.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -2749,7 +2749,7 @@ class VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust(dict):
 
 
 @pulumi.output_type
-class VirtualGatewayVirtualGatewayTlsValidationContextTrust(dict):
+class VirtualGatewayTlsValidationContextTrust(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2759,20 +2759,20 @@ class VirtualGatewayVirtualGatewayTlsValidationContextTrust(dict):
             suggest = "s_ds"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayVirtualGatewayTlsValidationContextTrust. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VirtualGatewayTlsValidationContextTrust. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VirtualGatewayVirtualGatewayTlsValidationContextTrust.__key_warning(key)
+        VirtualGatewayTlsValidationContextTrust.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VirtualGatewayVirtualGatewayTlsValidationContextTrust.__key_warning(key)
+        VirtualGatewayTlsValidationContextTrust.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 a_cm: Optional['outputs.VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust'] = None,
-                 file: Optional['outputs.VirtualGatewayVirtualGatewayTlsValidationContextFileTrust'] = None,
-                 s_ds: Optional['outputs.VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust'] = None):
+                 a_cm: Optional['outputs.VirtualGatewayTlsValidationContextAcmTrust'] = None,
+                 file: Optional['outputs.VirtualGatewayTlsValidationContextFileTrust'] = None,
+                 s_ds: Optional['outputs.VirtualGatewayTlsValidationContextSdsTrust'] = None):
         if a_cm is not None:
             pulumi.set(__self__, "a_cm", a_cm)
         if file is not None:
@@ -2782,17 +2782,17 @@ class VirtualGatewayVirtualGatewayTlsValidationContextTrust(dict):
 
     @property
     @pulumi.getter(name="aCM")
-    def a_cm(self) -> Optional['outputs.VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust']:
+    def a_cm(self) -> Optional['outputs.VirtualGatewayTlsValidationContextAcmTrust']:
         return pulumi.get(self, "a_cm")
 
     @property
     @pulumi.getter
-    def file(self) -> Optional['outputs.VirtualGatewayVirtualGatewayTlsValidationContextFileTrust']:
+    def file(self) -> Optional['outputs.VirtualGatewayTlsValidationContextFileTrust']:
         return pulumi.get(self, "file")
 
     @property
     @pulumi.getter(name="sDS")
-    def s_ds(self) -> Optional['outputs.VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust']:
+    def s_ds(self) -> Optional['outputs.VirtualGatewayTlsValidationContextSdsTrust']:
         return pulumi.get(self, "s_ds")
 
 
@@ -3039,6 +3039,66 @@ class VirtualNodeClientTlsCertificate(dict):
 
 
 @pulumi.output_type
+class VirtualNodeConnectionPool(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "gRPC":
+            suggest = "g_rpc"
+        elif key == "hTTP":
+            suggest = "h_ttp"
+        elif key == "hTTP2":
+            suggest = "h_ttp2"
+        elif key == "tCP":
+            suggest = "t_cp"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeConnectionPool. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeConnectionPool.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeConnectionPool.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 g_rpc: Optional['outputs.VirtualNodeGrpcConnectionPool'] = None,
+                 h_ttp: Optional['outputs.VirtualNodeHttpConnectionPool'] = None,
+                 h_ttp2: Optional['outputs.VirtualNodeHttp2ConnectionPool'] = None,
+                 t_cp: Optional['outputs.VirtualNodeTcpConnectionPool'] = None):
+        if g_rpc is not None:
+            pulumi.set(__self__, "g_rpc", g_rpc)
+        if h_ttp is not None:
+            pulumi.set(__self__, "h_ttp", h_ttp)
+        if h_ttp2 is not None:
+            pulumi.set(__self__, "h_ttp2", h_ttp2)
+        if t_cp is not None:
+            pulumi.set(__self__, "t_cp", t_cp)
+
+    @property
+    @pulumi.getter(name="gRPC")
+    def g_rpc(self) -> Optional['outputs.VirtualNodeGrpcConnectionPool']:
+        return pulumi.get(self, "g_rpc")
+
+    @property
+    @pulumi.getter(name="hTTP")
+    def h_ttp(self) -> Optional['outputs.VirtualNodeHttpConnectionPool']:
+        return pulumi.get(self, "h_ttp")
+
+    @property
+    @pulumi.getter(name="hTTP2")
+    def h_ttp2(self) -> Optional['outputs.VirtualNodeHttp2ConnectionPool']:
+        return pulumi.get(self, "h_ttp2")
+
+    @property
+    @pulumi.getter(name="tCP")
+    def t_cp(self) -> Optional['outputs.VirtualNodeTcpConnectionPool']:
+        return pulumi.get(self, "t_cp")
+
+
+@pulumi.output_type
 class VirtualNodeDnsServiceDiscovery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3104,6 +3164,35 @@ class VirtualNodeFileAccessLog(dict):
     @pulumi.getter
     def path(self) -> str:
         return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class VirtualNodeGrpcConnectionPool(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxRequests":
+            suggest = "max_requests"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeGrpcConnectionPool. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeGrpcConnectionPool.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeGrpcConnectionPool.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_requests: int):
+        pulumi.set(__self__, "max_requests", max_requests)
+
+    @property
+    @pulumi.getter(name="maxRequests")
+    def max_requests(self) -> int:
+        return pulumi.get(self, "max_requests")
 
 
 @pulumi.output_type
@@ -3224,6 +3313,74 @@ class VirtualNodeHealthCheck(dict):
 
 
 @pulumi.output_type
+class VirtualNodeHttp2ConnectionPool(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxRequests":
+            suggest = "max_requests"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeHttp2ConnectionPool. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeHttp2ConnectionPool.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeHttp2ConnectionPool.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_requests: int):
+        pulumi.set(__self__, "max_requests", max_requests)
+
+    @property
+    @pulumi.getter(name="maxRequests")
+    def max_requests(self) -> int:
+        return pulumi.get(self, "max_requests")
+
+
+@pulumi.output_type
+class VirtualNodeHttpConnectionPool(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxConnections":
+            suggest = "max_connections"
+        elif key == "maxPendingRequests":
+            suggest = "max_pending_requests"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeHttpConnectionPool. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeHttpConnectionPool.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeHttpConnectionPool.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_connections: int,
+                 max_pending_requests: Optional[int] = None):
+        pulumi.set(__self__, "max_connections", max_connections)
+        if max_pending_requests is not None:
+            pulumi.set(__self__, "max_pending_requests", max_pending_requests)
+
+    @property
+    @pulumi.getter(name="maxConnections")
+    def max_connections(self) -> int:
+        return pulumi.get(self, "max_connections")
+
+    @property
+    @pulumi.getter(name="maxPendingRequests")
+    def max_pending_requests(self) -> Optional[int]:
+        return pulumi.get(self, "max_pending_requests")
+
+
+@pulumi.output_type
 class VirtualNodeHttpTimeout(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3290,7 +3447,7 @@ class VirtualNodeListener(dict):
 
     def __init__(__self__, *,
                  port_mapping: 'outputs.VirtualNodePortMapping',
-                 connection_pool: Optional['outputs.VirtualNodeVirtualNodeConnectionPool'] = None,
+                 connection_pool: Optional['outputs.VirtualNodeConnectionPool'] = None,
                  health_check: Optional['outputs.VirtualNodeHealthCheck'] = None,
                  outlier_detection: Optional['outputs.VirtualNodeOutlierDetection'] = None,
                  t_ls: Optional['outputs.VirtualNodeListenerTls'] = None,
@@ -3314,7 +3471,7 @@ class VirtualNodeListener(dict):
 
     @property
     @pulumi.getter(name="connectionPool")
-    def connection_pool(self) -> Optional['outputs.VirtualNodeVirtualNodeConnectionPool']:
+    def connection_pool(self) -> Optional['outputs.VirtualNodeConnectionPool']:
         return pulumi.get(self, "connection_pool")
 
     @property
@@ -3788,6 +3945,70 @@ class VirtualNodeServiceDiscovery(dict):
 
 
 @pulumi.output_type
+class VirtualNodeSpec(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backendDefaults":
+            suggest = "backend_defaults"
+        elif key == "serviceDiscovery":
+            suggest = "service_discovery"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeSpec.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 backend_defaults: Optional['outputs.VirtualNodeBackendDefaults'] = None,
+                 backends: Optional[Sequence['outputs.VirtualNodeBackend']] = None,
+                 listeners: Optional[Sequence['outputs.VirtualNodeListener']] = None,
+                 logging: Optional['outputs.VirtualNodeLogging'] = None,
+                 service_discovery: Optional['outputs.VirtualNodeServiceDiscovery'] = None):
+        if backend_defaults is not None:
+            pulumi.set(__self__, "backend_defaults", backend_defaults)
+        if backends is not None:
+            pulumi.set(__self__, "backends", backends)
+        if listeners is not None:
+            pulumi.set(__self__, "listeners", listeners)
+        if logging is not None:
+            pulumi.set(__self__, "logging", logging)
+        if service_discovery is not None:
+            pulumi.set(__self__, "service_discovery", service_discovery)
+
+    @property
+    @pulumi.getter(name="backendDefaults")
+    def backend_defaults(self) -> Optional['outputs.VirtualNodeBackendDefaults']:
+        return pulumi.get(self, "backend_defaults")
+
+    @property
+    @pulumi.getter
+    def backends(self) -> Optional[Sequence['outputs.VirtualNodeBackend']]:
+        return pulumi.get(self, "backends")
+
+    @property
+    @pulumi.getter
+    def listeners(self) -> Optional[Sequence['outputs.VirtualNodeListener']]:
+        return pulumi.get(self, "listeners")
+
+    @property
+    @pulumi.getter
+    def logging(self) -> Optional['outputs.VirtualNodeLogging']:
+        return pulumi.get(self, "logging")
+
+    @property
+    @pulumi.getter(name="serviceDiscovery")
+    def service_discovery(self) -> Optional['outputs.VirtualNodeServiceDiscovery']:
+        return pulumi.get(self, "service_discovery")
+
+
+@pulumi.output_type
 class VirtualNodeSubjectAlternativeNameMatchers(dict):
     def __init__(__self__, *,
                  exact: Optional[Sequence[str]] = None):
@@ -3829,6 +4050,35 @@ class VirtualNodeTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VirtualNodeTcpConnectionPool(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxConnections":
+            suggest = "max_connections"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeTcpConnectionPool. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNodeTcpConnectionPool.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNodeTcpConnectionPool.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_connections: int):
+        pulumi.set(__self__, "max_connections", max_connections)
+
+    @property
+    @pulumi.getter(name="maxConnections")
+    def max_connections(self) -> int:
+        return pulumi.get(self, "max_connections")
 
 
 @pulumi.output_type
@@ -4017,256 +4267,6 @@ class VirtualNodeTlsValidationContextTrust(dict):
 
 
 @pulumi.output_type
-class VirtualNodeVirtualNodeConnectionPool(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "gRPC":
-            suggest = "g_rpc"
-        elif key == "hTTP":
-            suggest = "h_ttp"
-        elif key == "hTTP2":
-            suggest = "h_ttp2"
-        elif key == "tCP":
-            suggest = "t_cp"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeVirtualNodeConnectionPool. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VirtualNodeVirtualNodeConnectionPool.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VirtualNodeVirtualNodeConnectionPool.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 g_rpc: Optional['outputs.VirtualNodeVirtualNodeGrpcConnectionPool'] = None,
-                 h_ttp: Optional['outputs.VirtualNodeVirtualNodeHttpConnectionPool'] = None,
-                 h_ttp2: Optional['outputs.VirtualNodeVirtualNodeHttp2ConnectionPool'] = None,
-                 t_cp: Optional['outputs.VirtualNodeVirtualNodeTcpConnectionPool'] = None):
-        if g_rpc is not None:
-            pulumi.set(__self__, "g_rpc", g_rpc)
-        if h_ttp is not None:
-            pulumi.set(__self__, "h_ttp", h_ttp)
-        if h_ttp2 is not None:
-            pulumi.set(__self__, "h_ttp2", h_ttp2)
-        if t_cp is not None:
-            pulumi.set(__self__, "t_cp", t_cp)
-
-    @property
-    @pulumi.getter(name="gRPC")
-    def g_rpc(self) -> Optional['outputs.VirtualNodeVirtualNodeGrpcConnectionPool']:
-        return pulumi.get(self, "g_rpc")
-
-    @property
-    @pulumi.getter(name="hTTP")
-    def h_ttp(self) -> Optional['outputs.VirtualNodeVirtualNodeHttpConnectionPool']:
-        return pulumi.get(self, "h_ttp")
-
-    @property
-    @pulumi.getter(name="hTTP2")
-    def h_ttp2(self) -> Optional['outputs.VirtualNodeVirtualNodeHttp2ConnectionPool']:
-        return pulumi.get(self, "h_ttp2")
-
-    @property
-    @pulumi.getter(name="tCP")
-    def t_cp(self) -> Optional['outputs.VirtualNodeVirtualNodeTcpConnectionPool']:
-        return pulumi.get(self, "t_cp")
-
-
-@pulumi.output_type
-class VirtualNodeVirtualNodeGrpcConnectionPool(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "maxRequests":
-            suggest = "max_requests"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeVirtualNodeGrpcConnectionPool. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VirtualNodeVirtualNodeGrpcConnectionPool.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VirtualNodeVirtualNodeGrpcConnectionPool.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 max_requests: int):
-        pulumi.set(__self__, "max_requests", max_requests)
-
-    @property
-    @pulumi.getter(name="maxRequests")
-    def max_requests(self) -> int:
-        return pulumi.get(self, "max_requests")
-
-
-@pulumi.output_type
-class VirtualNodeVirtualNodeHttp2ConnectionPool(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "maxRequests":
-            suggest = "max_requests"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeVirtualNodeHttp2ConnectionPool. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VirtualNodeVirtualNodeHttp2ConnectionPool.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VirtualNodeVirtualNodeHttp2ConnectionPool.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 max_requests: int):
-        pulumi.set(__self__, "max_requests", max_requests)
-
-    @property
-    @pulumi.getter(name="maxRequests")
-    def max_requests(self) -> int:
-        return pulumi.get(self, "max_requests")
-
-
-@pulumi.output_type
-class VirtualNodeVirtualNodeHttpConnectionPool(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "maxConnections":
-            suggest = "max_connections"
-        elif key == "maxPendingRequests":
-            suggest = "max_pending_requests"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeVirtualNodeHttpConnectionPool. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VirtualNodeVirtualNodeHttpConnectionPool.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VirtualNodeVirtualNodeHttpConnectionPool.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 max_connections: int,
-                 max_pending_requests: Optional[int] = None):
-        pulumi.set(__self__, "max_connections", max_connections)
-        if max_pending_requests is not None:
-            pulumi.set(__self__, "max_pending_requests", max_pending_requests)
-
-    @property
-    @pulumi.getter(name="maxConnections")
-    def max_connections(self) -> int:
-        return pulumi.get(self, "max_connections")
-
-    @property
-    @pulumi.getter(name="maxPendingRequests")
-    def max_pending_requests(self) -> Optional[int]:
-        return pulumi.get(self, "max_pending_requests")
-
-
-@pulumi.output_type
-class VirtualNodeVirtualNodeSpec(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "backendDefaults":
-            suggest = "backend_defaults"
-        elif key == "serviceDiscovery":
-            suggest = "service_discovery"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeVirtualNodeSpec. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VirtualNodeVirtualNodeSpec.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VirtualNodeVirtualNodeSpec.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 backend_defaults: Optional['outputs.VirtualNodeBackendDefaults'] = None,
-                 backends: Optional[Sequence['outputs.VirtualNodeBackend']] = None,
-                 listeners: Optional[Sequence['outputs.VirtualNodeListener']] = None,
-                 logging: Optional['outputs.VirtualNodeLogging'] = None,
-                 service_discovery: Optional['outputs.VirtualNodeServiceDiscovery'] = None):
-        if backend_defaults is not None:
-            pulumi.set(__self__, "backend_defaults", backend_defaults)
-        if backends is not None:
-            pulumi.set(__self__, "backends", backends)
-        if listeners is not None:
-            pulumi.set(__self__, "listeners", listeners)
-        if logging is not None:
-            pulumi.set(__self__, "logging", logging)
-        if service_discovery is not None:
-            pulumi.set(__self__, "service_discovery", service_discovery)
-
-    @property
-    @pulumi.getter(name="backendDefaults")
-    def backend_defaults(self) -> Optional['outputs.VirtualNodeBackendDefaults']:
-        return pulumi.get(self, "backend_defaults")
-
-    @property
-    @pulumi.getter
-    def backends(self) -> Optional[Sequence['outputs.VirtualNodeBackend']]:
-        return pulumi.get(self, "backends")
-
-    @property
-    @pulumi.getter
-    def listeners(self) -> Optional[Sequence['outputs.VirtualNodeListener']]:
-        return pulumi.get(self, "listeners")
-
-    @property
-    @pulumi.getter
-    def logging(self) -> Optional['outputs.VirtualNodeLogging']:
-        return pulumi.get(self, "logging")
-
-    @property
-    @pulumi.getter(name="serviceDiscovery")
-    def service_discovery(self) -> Optional['outputs.VirtualNodeServiceDiscovery']:
-        return pulumi.get(self, "service_discovery")
-
-
-@pulumi.output_type
-class VirtualNodeVirtualNodeTcpConnectionPool(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "maxConnections":
-            suggest = "max_connections"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualNodeVirtualNodeTcpConnectionPool. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VirtualNodeVirtualNodeTcpConnectionPool.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VirtualNodeVirtualNodeTcpConnectionPool.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 max_connections: int):
-        pulumi.set(__self__, "max_connections", max_connections)
-
-    @property
-    @pulumi.getter(name="maxConnections")
-    def max_connections(self) -> int:
-        return pulumi.get(self, "max_connections")
-
-
-@pulumi.output_type
 class VirtualNodeVirtualServiceBackend(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -4306,6 +4306,35 @@ class VirtualNodeVirtualServiceBackend(dict):
 
 
 @pulumi.output_type
+class VirtualRouterListener(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "portMapping":
+            suggest = "port_mapping"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualRouterListener. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualRouterListener.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualRouterListener.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 port_mapping: 'outputs.VirtualRouterPortMapping'):
+        pulumi.set(__self__, "port_mapping", port_mapping)
+
+    @property
+    @pulumi.getter(name="portMapping")
+    def port_mapping(self) -> 'outputs.VirtualRouterPortMapping':
+        return pulumi.get(self, "port_mapping")
+
+
+@pulumi.output_type
 class VirtualRouterPortMapping(dict):
     def __init__(__self__, *,
                  port: int,
@@ -4322,6 +4351,18 @@ class VirtualRouterPortMapping(dict):
     @pulumi.getter
     def protocol(self) -> str:
         return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
+class VirtualRouterSpec(dict):
+    def __init__(__self__, *,
+                 listeners: Sequence['outputs.VirtualRouterListener']):
+        pulumi.set(__self__, "listeners", listeners)
+
+    @property
+    @pulumi.getter
+    def listeners(self) -> Sequence['outputs.VirtualRouterListener']:
+        return pulumi.get(self, "listeners")
 
 
 @pulumi.output_type
@@ -4344,44 +4385,56 @@ class VirtualRouterTag(dict):
 
 
 @pulumi.output_type
-class VirtualRouterVirtualRouterListener(dict):
+class VirtualServiceProvider(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "portMapping":
-            suggest = "port_mapping"
+        if key == "virtualNode":
+            suggest = "virtual_node"
+        elif key == "virtualRouter":
+            suggest = "virtual_router"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualRouterVirtualRouterListener. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VirtualServiceProvider. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VirtualRouterVirtualRouterListener.__key_warning(key)
+        VirtualServiceProvider.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VirtualRouterVirtualRouterListener.__key_warning(key)
+        VirtualServiceProvider.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 port_mapping: 'outputs.VirtualRouterPortMapping'):
-        pulumi.set(__self__, "port_mapping", port_mapping)
+                 virtual_node: Optional['outputs.VirtualServiceVirtualNodeServiceProvider'] = None,
+                 virtual_router: Optional['outputs.VirtualServiceVirtualRouterServiceProvider'] = None):
+        if virtual_node is not None:
+            pulumi.set(__self__, "virtual_node", virtual_node)
+        if virtual_router is not None:
+            pulumi.set(__self__, "virtual_router", virtual_router)
 
     @property
-    @pulumi.getter(name="portMapping")
-    def port_mapping(self) -> 'outputs.VirtualRouterPortMapping':
-        return pulumi.get(self, "port_mapping")
+    @pulumi.getter(name="virtualNode")
+    def virtual_node(self) -> Optional['outputs.VirtualServiceVirtualNodeServiceProvider']:
+        return pulumi.get(self, "virtual_node")
+
+    @property
+    @pulumi.getter(name="virtualRouter")
+    def virtual_router(self) -> Optional['outputs.VirtualServiceVirtualRouterServiceProvider']:
+        return pulumi.get(self, "virtual_router")
 
 
 @pulumi.output_type
-class VirtualRouterVirtualRouterSpec(dict):
+class VirtualServiceSpec(dict):
     def __init__(__self__, *,
-                 listeners: Sequence['outputs.VirtualRouterVirtualRouterListener']):
-        pulumi.set(__self__, "listeners", listeners)
+                 provider: Optional['outputs.VirtualServiceProvider'] = None):
+        if provider is not None:
+            pulumi.set(__self__, "provider", provider)
 
     @property
     @pulumi.getter
-    def listeners(self) -> Sequence['outputs.VirtualRouterVirtualRouterListener']:
-        return pulumi.get(self, "listeners")
+    def provider(self) -> Optional['outputs.VirtualServiceProvider']:
+        return pulumi.get(self, "provider")
 
 
 @pulumi.output_type
@@ -4459,58 +4512,5 @@ class VirtualServiceVirtualRouterServiceProvider(dict):
     @pulumi.getter(name="virtualRouterName")
     def virtual_router_name(self) -> str:
         return pulumi.get(self, "virtual_router_name")
-
-
-@pulumi.output_type
-class VirtualServiceVirtualServiceProvider(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "virtualNode":
-            suggest = "virtual_node"
-        elif key == "virtualRouter":
-            suggest = "virtual_router"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualServiceVirtualServiceProvider. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VirtualServiceVirtualServiceProvider.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VirtualServiceVirtualServiceProvider.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 virtual_node: Optional['outputs.VirtualServiceVirtualNodeServiceProvider'] = None,
-                 virtual_router: Optional['outputs.VirtualServiceVirtualRouterServiceProvider'] = None):
-        if virtual_node is not None:
-            pulumi.set(__self__, "virtual_node", virtual_node)
-        if virtual_router is not None:
-            pulumi.set(__self__, "virtual_router", virtual_router)
-
-    @property
-    @pulumi.getter(name="virtualNode")
-    def virtual_node(self) -> Optional['outputs.VirtualServiceVirtualNodeServiceProvider']:
-        return pulumi.get(self, "virtual_node")
-
-    @property
-    @pulumi.getter(name="virtualRouter")
-    def virtual_router(self) -> Optional['outputs.VirtualServiceVirtualRouterServiceProvider']:
-        return pulumi.get(self, "virtual_router")
-
-
-@pulumi.output_type
-class VirtualServiceVirtualServiceSpec(dict):
-    def __init__(__self__, *,
-                 provider: Optional['outputs.VirtualServiceVirtualServiceProvider'] = None):
-        if provider is not None:
-            pulumi.set(__self__, "provider", provider)
-
-    @property
-    @pulumi.getter
-    def provider(self) -> Optional['outputs.VirtualServiceVirtualServiceProvider']:
-        return pulumi.get(self, "provider")
 
 

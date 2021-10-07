@@ -10,8 +10,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'BudgetBudgetDataArgs',
     'BudgetCostTypesArgs',
+    'BudgetDataArgs',
     'BudgetNotificationWithSubscribersArgs',
     'BudgetNotificationArgs',
     'BudgetSpendArgs',
@@ -24,105 +24,6 @@ __all__ = [
     'BudgetsActionSsmActionDefinitionArgs',
     'BudgetsActionSubscriberArgs',
 ]
-
-@pulumi.input_type
-class BudgetBudgetDataArgs:
-    def __init__(__self__, *,
-                 budget_type: pulumi.Input[str],
-                 time_unit: pulumi.Input[str],
-                 budget_limit: Optional[pulumi.Input['BudgetSpendArgs']] = None,
-                 budget_name: Optional[pulumi.Input[str]] = None,
-                 cost_filters: Optional[Any] = None,
-                 cost_types: Optional[pulumi.Input['BudgetCostTypesArgs']] = None,
-                 planned_budget_limits: Optional[Any] = None,
-                 time_period: Optional[pulumi.Input['BudgetTimePeriodArgs']] = None):
-        pulumi.set(__self__, "budget_type", budget_type)
-        pulumi.set(__self__, "time_unit", time_unit)
-        if budget_limit is not None:
-            pulumi.set(__self__, "budget_limit", budget_limit)
-        if budget_name is not None:
-            pulumi.set(__self__, "budget_name", budget_name)
-        if cost_filters is not None:
-            pulumi.set(__self__, "cost_filters", cost_filters)
-        if cost_types is not None:
-            pulumi.set(__self__, "cost_types", cost_types)
-        if planned_budget_limits is not None:
-            pulumi.set(__self__, "planned_budget_limits", planned_budget_limits)
-        if time_period is not None:
-            pulumi.set(__self__, "time_period", time_period)
-
-    @property
-    @pulumi.getter(name="budgetType")
-    def budget_type(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "budget_type")
-
-    @budget_type.setter
-    def budget_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "budget_type", value)
-
-    @property
-    @pulumi.getter(name="timeUnit")
-    def time_unit(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "time_unit")
-
-    @time_unit.setter
-    def time_unit(self, value: pulumi.Input[str]):
-        pulumi.set(self, "time_unit", value)
-
-    @property
-    @pulumi.getter(name="budgetLimit")
-    def budget_limit(self) -> Optional[pulumi.Input['BudgetSpendArgs']]:
-        return pulumi.get(self, "budget_limit")
-
-    @budget_limit.setter
-    def budget_limit(self, value: Optional[pulumi.Input['BudgetSpendArgs']]):
-        pulumi.set(self, "budget_limit", value)
-
-    @property
-    @pulumi.getter(name="budgetName")
-    def budget_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "budget_name")
-
-    @budget_name.setter
-    def budget_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "budget_name", value)
-
-    @property
-    @pulumi.getter(name="costFilters")
-    def cost_filters(self) -> Optional[Any]:
-        return pulumi.get(self, "cost_filters")
-
-    @cost_filters.setter
-    def cost_filters(self, value: Optional[Any]):
-        pulumi.set(self, "cost_filters", value)
-
-    @property
-    @pulumi.getter(name="costTypes")
-    def cost_types(self) -> Optional[pulumi.Input['BudgetCostTypesArgs']]:
-        return pulumi.get(self, "cost_types")
-
-    @cost_types.setter
-    def cost_types(self, value: Optional[pulumi.Input['BudgetCostTypesArgs']]):
-        pulumi.set(self, "cost_types", value)
-
-    @property
-    @pulumi.getter(name="plannedBudgetLimits")
-    def planned_budget_limits(self) -> Optional[Any]:
-        return pulumi.get(self, "planned_budget_limits")
-
-    @planned_budget_limits.setter
-    def planned_budget_limits(self, value: Optional[Any]):
-        pulumi.set(self, "planned_budget_limits", value)
-
-    @property
-    @pulumi.getter(name="timePeriod")
-    def time_period(self) -> Optional[pulumi.Input['BudgetTimePeriodArgs']]:
-        return pulumi.get(self, "time_period")
-
-    @time_period.setter
-    def time_period(self, value: Optional[pulumi.Input['BudgetTimePeriodArgs']]):
-        pulumi.set(self, "time_period", value)
-
 
 @pulumi.input_type
 class BudgetCostTypesArgs:
@@ -259,6 +160,105 @@ class BudgetCostTypesArgs:
     @use_blended.setter
     def use_blended(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_blended", value)
+
+
+@pulumi.input_type
+class BudgetDataArgs:
+    def __init__(__self__, *,
+                 budget_type: pulumi.Input[str],
+                 time_unit: pulumi.Input[str],
+                 budget_limit: Optional[pulumi.Input['BudgetSpendArgs']] = None,
+                 budget_name: Optional[pulumi.Input[str]] = None,
+                 cost_filters: Optional[Any] = None,
+                 cost_types: Optional[pulumi.Input['BudgetCostTypesArgs']] = None,
+                 planned_budget_limits: Optional[Any] = None,
+                 time_period: Optional[pulumi.Input['BudgetTimePeriodArgs']] = None):
+        pulumi.set(__self__, "budget_type", budget_type)
+        pulumi.set(__self__, "time_unit", time_unit)
+        if budget_limit is not None:
+            pulumi.set(__self__, "budget_limit", budget_limit)
+        if budget_name is not None:
+            pulumi.set(__self__, "budget_name", budget_name)
+        if cost_filters is not None:
+            pulumi.set(__self__, "cost_filters", cost_filters)
+        if cost_types is not None:
+            pulumi.set(__self__, "cost_types", cost_types)
+        if planned_budget_limits is not None:
+            pulumi.set(__self__, "planned_budget_limits", planned_budget_limits)
+        if time_period is not None:
+            pulumi.set(__self__, "time_period", time_period)
+
+    @property
+    @pulumi.getter(name="budgetType")
+    def budget_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "budget_type")
+
+    @budget_type.setter
+    def budget_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "budget_type", value)
+
+    @property
+    @pulumi.getter(name="timeUnit")
+    def time_unit(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "time_unit")
+
+    @time_unit.setter
+    def time_unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "time_unit", value)
+
+    @property
+    @pulumi.getter(name="budgetLimit")
+    def budget_limit(self) -> Optional[pulumi.Input['BudgetSpendArgs']]:
+        return pulumi.get(self, "budget_limit")
+
+    @budget_limit.setter
+    def budget_limit(self, value: Optional[pulumi.Input['BudgetSpendArgs']]):
+        pulumi.set(self, "budget_limit", value)
+
+    @property
+    @pulumi.getter(name="budgetName")
+    def budget_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "budget_name")
+
+    @budget_name.setter
+    def budget_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "budget_name", value)
+
+    @property
+    @pulumi.getter(name="costFilters")
+    def cost_filters(self) -> Optional[Any]:
+        return pulumi.get(self, "cost_filters")
+
+    @cost_filters.setter
+    def cost_filters(self, value: Optional[Any]):
+        pulumi.set(self, "cost_filters", value)
+
+    @property
+    @pulumi.getter(name="costTypes")
+    def cost_types(self) -> Optional[pulumi.Input['BudgetCostTypesArgs']]:
+        return pulumi.get(self, "cost_types")
+
+    @cost_types.setter
+    def cost_types(self, value: Optional[pulumi.Input['BudgetCostTypesArgs']]):
+        pulumi.set(self, "cost_types", value)
+
+    @property
+    @pulumi.getter(name="plannedBudgetLimits")
+    def planned_budget_limits(self) -> Optional[Any]:
+        return pulumi.get(self, "planned_budget_limits")
+
+    @planned_budget_limits.setter
+    def planned_budget_limits(self, value: Optional[Any]):
+        pulumi.set(self, "planned_budget_limits", value)
+
+    @property
+    @pulumi.getter(name="timePeriod")
+    def time_period(self) -> Optional[pulumi.Input['BudgetTimePeriodArgs']]:
+        return pulumi.get(self, "time_period")
+
+    @time_period.setter
+    def time_period(self, value: Optional[pulumi.Input['BudgetTimePeriodArgs']]):
+        pulumi.set(self, "time_period", value)
 
 
 @pulumi.input_type

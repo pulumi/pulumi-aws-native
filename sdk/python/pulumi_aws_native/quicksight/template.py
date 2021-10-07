@@ -20,7 +20,7 @@ class TemplateArgs:
                  template_id: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateResourcePermissionArgs']]]] = None,
-                 source_entity: Optional[pulumi.Input['TemplateTemplateSourceEntityArgs']] = None,
+                 source_entity: Optional[pulumi.Input['TemplateSourceEntityArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateTagArgs']]]] = None,
                  version_description: Optional[pulumi.Input[str]] = None):
         """
@@ -90,11 +90,11 @@ class TemplateArgs:
 
     @property
     @pulumi.getter(name="sourceEntity")
-    def source_entity(self) -> Optional[pulumi.Input['TemplateTemplateSourceEntityArgs']]:
+    def source_entity(self) -> Optional[pulumi.Input['TemplateSourceEntityArgs']]:
         return pulumi.get(self, "source_entity")
 
     @source_entity.setter
-    def source_entity(self, value: Optional[pulumi.Input['TemplateTemplateSourceEntityArgs']]):
+    def source_entity(self, value: Optional[pulumi.Input['TemplateSourceEntityArgs']]):
         pulumi.set(self, "source_entity", value)
 
     @property
@@ -133,7 +133,7 @@ class Template(pulumi.CustomResource):
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateResourcePermissionArgs']]]]] = None,
-                 source_entity: Optional[pulumi.Input[pulumi.InputType['TemplateTemplateSourceEntityArgs']]] = None,
+                 source_entity: Optional[pulumi.Input[pulumi.InputType['TemplateSourceEntityArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateTagArgs']]]]] = None,
                  template_id: Optional[pulumi.Input[str]] = None,
                  version_description: Optional[pulumi.Input[str]] = None,
@@ -178,7 +178,7 @@ class Template(pulumi.CustomResource):
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateResourcePermissionArgs']]]]] = None,
-                 source_entity: Optional[pulumi.Input[pulumi.InputType['TemplateTemplateSourceEntityArgs']]] = None,
+                 source_entity: Optional[pulumi.Input[pulumi.InputType['TemplateSourceEntityArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateTagArgs']]]]] = None,
                  template_id: Optional[pulumi.Input[str]] = None,
                  version_description: Optional[pulumi.Input[str]] = None,
@@ -291,7 +291,7 @@ class Template(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceEntity")
-    def source_entity(self) -> pulumi.Output[Optional['outputs.TemplateTemplateSourceEntity']]:
+    def source_entity(self) -> pulumi.Output[Optional['outputs.TemplateSourceEntity']]:
         return pulumi.get(self, "source_entity")
 
     @property
@@ -309,7 +309,7 @@ class Template(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output['outputs.TemplateTemplateVersion']:
+    def version(self) -> pulumi.Output['outputs.TemplateVersion']:
         return pulumi.get(self, "version")
 
     @property

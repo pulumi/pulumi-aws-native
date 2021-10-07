@@ -5,27 +5,19 @@
 from enum import Enum
 
 __all__ = [
-    'DetectorDetectorVersionStatus',
     'DetectorEventVariableDataSource',
     'DetectorEventVariableDataType',
     'DetectorEventVariableVariableType',
     'DetectorRuleExecutionMode',
     'DetectorRuleLanguage',
+    'DetectorVersionStatus',
     'EventTypeEventVariableDataSource',
     'EventTypeEventVariableDataType',
     'EventTypeEventVariableVariableType',
     'VariableDataSource',
     'VariableDataType',
-    'VariableVariableType',
+    'VariableType',
 ]
-
-
-class DetectorDetectorVersionStatus(str, Enum):
-    """
-    The desired detector version status for the detector
-    """
-    DRAFT = "DRAFT"
-    ACTIVE = "ACTIVE"
 
 
 class DetectorEventVariableDataSource(str, Enum):
@@ -82,6 +74,14 @@ class DetectorRuleExecutionMode(str, Enum):
 
 class DetectorRuleLanguage(str, Enum):
     DETECTORPL = "DETECTORPL"
+
+
+class DetectorVersionStatus(str, Enum):
+    """
+    The desired detector version status for the detector
+    """
+    DRAFT = "DRAFT"
+    ACTIVE = "ACTIVE"
 
 
 class EventTypeEventVariableDataSource(str, Enum):
@@ -149,7 +149,7 @@ class VariableDataType(str, Enum):
     BOOLEAN = "BOOLEAN"
 
 
-class VariableVariableType(str, Enum):
+class VariableType(str, Enum):
     """
     The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
     """

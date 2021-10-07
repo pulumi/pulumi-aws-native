@@ -15,7 +15,7 @@ __all__ = ['CachePolicyArgs', 'CachePolicy']
 @pulumi.input_type
 class CachePolicyArgs:
     def __init__(__self__, *,
-                 cache_policy_config: pulumi.Input['CachePolicyCachePolicyConfigArgs']):
+                 cache_policy_config: pulumi.Input['CachePolicyConfigArgs']):
         """
         The set of arguments for constructing a CachePolicy resource.
         """
@@ -23,11 +23,11 @@ class CachePolicyArgs:
 
     @property
     @pulumi.getter(name="cachePolicyConfig")
-    def cache_policy_config(self) -> pulumi.Input['CachePolicyCachePolicyConfigArgs']:
+    def cache_policy_config(self) -> pulumi.Input['CachePolicyConfigArgs']:
         return pulumi.get(self, "cache_policy_config")
 
     @cache_policy_config.setter
-    def cache_policy_config(self, value: pulumi.Input['CachePolicyCachePolicyConfigArgs']):
+    def cache_policy_config(self, value: pulumi.Input['CachePolicyConfigArgs']):
         pulumi.set(self, "cache_policy_config", value)
 
 
@@ -36,7 +36,7 @@ class CachePolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache_policy_config: Optional[pulumi.Input[pulumi.InputType['CachePolicyCachePolicyConfigArgs']]] = None,
+                 cache_policy_config: Optional[pulumi.Input[pulumi.InputType['CachePolicyConfigArgs']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CloudFront::CachePolicy
@@ -68,7 +68,7 @@ class CachePolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache_policy_config: Optional[pulumi.Input[pulumi.InputType['CachePolicyCachePolicyConfigArgs']]] = None,
+                 cache_policy_config: Optional[pulumi.Input[pulumi.InputType['CachePolicyConfigArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -113,7 +113,7 @@ class CachePolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cachePolicyConfig")
-    def cache_policy_config(self) -> pulumi.Output['outputs.CachePolicyCachePolicyConfig']:
+    def cache_policy_config(self) -> pulumi.Output['outputs.CachePolicyConfig']:
         return pulumi.get(self, "cache_policy_config")
 
     @property

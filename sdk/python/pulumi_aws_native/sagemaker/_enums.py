@@ -5,8 +5,8 @@
 from enum import Enum
 
 __all__ = [
-    'AppAppType',
     'AppResourceSpecInstanceType',
+    'AppType',
     'DataQualityJobDefinitionEndpointInputS3DataDistributionType',
     'DataQualityJobDefinitionEndpointInputS3InputMode',
     'DataQualityJobDefinitionS3OutputS3UploadMode',
@@ -21,7 +21,7 @@ __all__ = [
     'ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType',
     'ModelExplainabilityJobDefinitionEndpointInputS3InputMode',
     'ModelExplainabilityJobDefinitionS3OutputS3UploadMode',
-    'ModelPackageGroupModelPackageGroupStatus',
+    'ModelPackageGroupStatus',
     'ModelQualityJobDefinitionEndpointInputS3DataDistributionType',
     'ModelQualityJobDefinitionEndpointInputS3InputMode',
     'ModelQualityJobDefinitionProblemType',
@@ -29,21 +29,13 @@ __all__ = [
     'MonitoringScheduleEndpointInputS3DataDistributionType',
     'MonitoringScheduleEndpointInputS3InputMode',
     'MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus',
-    'MonitoringScheduleMonitoringScheduleStatus',
     'MonitoringScheduleMonitoringType',
     'MonitoringScheduleS3OutputS3UploadMode',
-    'ProjectProjectStatus',
+    'MonitoringScheduleStatus',
+    'ProjectStatus',
     'UserProfileResourceSpecInstanceType',
     'UserProfileSharingSettingsNotebookOutputOption',
 ]
-
-
-class AppAppType(str, Enum):
-    """
-    The type of app.
-    """
-    JUPYTER_SERVER = "JupyterServer"
-    KERNEL_GATEWAY = "KernelGateway"
 
 
 class AppResourceSpecInstanceType(str, Enum):
@@ -82,6 +74,14 @@ class AppResourceSpecInstanceType(str, Enum):
     ML_G4DN8XLARGE = "ml.g4dn.8xlarge"
     ML_G4DN12XLARGE = "ml.g4dn.12xlarge"
     ML_G4DN16XLARGE = "ml.g4dn.16xlarge"
+
+
+class AppType(str, Enum):
+    """
+    The type of app.
+    """
+    JUPYTER_SERVER = "JupyterServer"
+    KERNEL_GATEWAY = "KernelGateway"
 
 
 class DataQualityJobDefinitionEndpointInputS3DataDistributionType(str, Enum):
@@ -224,7 +224,7 @@ class ModelExplainabilityJobDefinitionS3OutputS3UploadMode(str, Enum):
     END_OF_JOB = "EndOfJob"
 
 
-class ModelPackageGroupModelPackageGroupStatus(str, Enum):
+class ModelPackageGroupStatus(str, Enum):
     """
     The status of a modelpackage group job.
     """
@@ -298,16 +298,6 @@ class MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus(str,
     STOPPED = "Stopped"
 
 
-class MonitoringScheduleMonitoringScheduleStatus(str, Enum):
-    """
-    The status of a schedule job.
-    """
-    PENDING = "Pending"
-    FAILED = "Failed"
-    SCHEDULED = "Scheduled"
-    STOPPED = "Stopped"
-
-
 class MonitoringScheduleMonitoringType(str, Enum):
     """
     The type of monitoring job.
@@ -326,7 +316,17 @@ class MonitoringScheduleS3OutputS3UploadMode(str, Enum):
     END_OF_JOB = "EndOfJob"
 
 
-class ProjectProjectStatus(str, Enum):
+class MonitoringScheduleStatus(str, Enum):
+    """
+    The status of a schedule job.
+    """
+    PENDING = "Pending"
+    FAILED = "Failed"
+    SCHEDULED = "Scheduled"
+    STOPPED = "Stopped"
+
+
+class ProjectStatus(str, Enum):
     """
     The status of a project.
     """

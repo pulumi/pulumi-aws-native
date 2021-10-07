@@ -14,6 +14,7 @@ __all__ = [
     'IdentityPoolCognitoStreams',
     'IdentityPoolPushSync',
     'UserPoolAccountRecoverySetting',
+    'UserPoolAddOns',
     'UserPoolAdminCreateUserConfig',
     'UserPoolClientAnalyticsConfiguration',
     'UserPoolClientTokenValidityUnits',
@@ -41,7 +42,6 @@ __all__ = [
     'UserPoolSmsConfiguration',
     'UserPoolStringAttributeConstraints',
     'UserPoolUserAttributeType',
-    'UserPoolUserPoolAddOns',
     'UserPoolUsernameConfiguration',
     'UserPoolVerificationMessageTemplate',
 ]
@@ -214,6 +214,36 @@ class UserPoolAccountRecoverySetting(dict):
     @pulumi.getter(name="recoveryMechanisms")
     def recovery_mechanisms(self) -> Optional[Sequence['outputs.UserPoolRecoveryOption']]:
         return pulumi.get(self, "recovery_mechanisms")
+
+
+@pulumi.output_type
+class UserPoolAddOns(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "advancedSecurityMode":
+            suggest = "advanced_security_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolAddOns. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolAddOns.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolAddOns.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 advanced_security_mode: Optional[str] = None):
+        if advanced_security_mode is not None:
+            pulumi.set(__self__, "advanced_security_mode", advanced_security_mode)
+
+    @property
+    @pulumi.getter(name="advancedSecurityMode")
+    def advanced_security_mode(self) -> Optional[str]:
+        return pulumi.get(self, "advanced_security_mode")
 
 
 @pulumi.output_type
@@ -1553,36 +1583,6 @@ class UserPoolUserAttributeType(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class UserPoolUserPoolAddOns(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "advancedSecurityMode":
-            suggest = "advanced_security_mode"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in UserPoolUserPoolAddOns. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        UserPoolUserPoolAddOns.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        UserPoolUserPoolAddOns.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 advanced_security_mode: Optional[str] = None):
-        if advanced_security_mode is not None:
-            pulumi.set(__self__, "advanced_security_mode", advanced_security_mode)
-
-    @property
-    @pulumi.getter(name="advancedSecurityMode")
-    def advanced_security_mode(self) -> Optional[str]:
-        return pulumi.get(self, "advanced_security_mode")
 
 
 @pulumi.output_type

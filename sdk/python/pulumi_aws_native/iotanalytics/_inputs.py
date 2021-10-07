@@ -9,16 +9,16 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ChannelChannelStorageArgs',
     'ChannelCustomerManagedS3Args',
     'ChannelRetentionPeriodArgs',
     'ChannelServiceManagedS3Args',
+    'ChannelStorageArgs',
     'ChannelTagArgs',
     'DatasetActionArgs',
     'DatasetContainerActionArgs',
-    'DatasetDatasetContentDeliveryRuleDestinationArgs',
-    'DatasetDatasetContentDeliveryRuleArgs',
-    'DatasetDatasetContentVersionValueArgs',
+    'DatasetContentDeliveryRuleDestinationArgs',
+    'DatasetContentDeliveryRuleArgs',
+    'DatasetContentVersionValueArgs',
     'DatasetDeltaTimeSessionWindowConfigurationArgs',
     'DatasetDeltaTimeArgs',
     'DatasetFilterArgs',
@@ -40,17 +40,16 @@ __all__ = [
     'DatastoreColumnArgs',
     'DatastoreCustomerManagedS3StorageArgs',
     'DatastoreCustomerManagedS3Args',
-    'DatastoreDatastorePartitionsArgs',
-    'DatastoreDatastorePartitionArgs',
-    'DatastoreDatastoreStorageArgs',
     'DatastoreFileFormatConfigurationArgs',
     'DatastoreIotSiteWiseMultiLayerStorageArgs',
     'DatastoreJsonConfigurationArgs',
     'DatastoreParquetConfigurationArgs',
+    'DatastorePartitionsArgs',
     'DatastorePartitionArgs',
     'DatastoreRetentionPeriodArgs',
     'DatastoreSchemaDefinitionArgs',
     'DatastoreServiceManagedS3Args',
+    'DatastoreStorageArgs',
     'DatastoreTagArgs',
     'DatastoreTimestampPartitionArgs',
     'PipelineActivityArgs',
@@ -66,35 +65,6 @@ __all__ = [
     'PipelineSelectAttributesArgs',
     'PipelineTagArgs',
 ]
-
-@pulumi.input_type
-class ChannelChannelStorageArgs:
-    def __init__(__self__, *,
-                 customer_managed_s3: Optional[pulumi.Input['ChannelCustomerManagedS3Args']] = None,
-                 service_managed_s3: Optional[pulumi.Input['ChannelServiceManagedS3Args']] = None):
-        if customer_managed_s3 is not None:
-            pulumi.set(__self__, "customer_managed_s3", customer_managed_s3)
-        if service_managed_s3 is not None:
-            pulumi.set(__self__, "service_managed_s3", service_managed_s3)
-
-    @property
-    @pulumi.getter(name="customerManagedS3")
-    def customer_managed_s3(self) -> Optional[pulumi.Input['ChannelCustomerManagedS3Args']]:
-        return pulumi.get(self, "customer_managed_s3")
-
-    @customer_managed_s3.setter
-    def customer_managed_s3(self, value: Optional[pulumi.Input['ChannelCustomerManagedS3Args']]):
-        pulumi.set(self, "customer_managed_s3", value)
-
-    @property
-    @pulumi.getter(name="serviceManagedS3")
-    def service_managed_s3(self) -> Optional[pulumi.Input['ChannelServiceManagedS3Args']]:
-        return pulumi.get(self, "service_managed_s3")
-
-    @service_managed_s3.setter
-    def service_managed_s3(self, value: Optional[pulumi.Input['ChannelServiceManagedS3Args']]):
-        pulumi.set(self, "service_managed_s3", value)
-
 
 @pulumi.input_type
 class ChannelCustomerManagedS3Args:
@@ -168,6 +138,35 @@ class ChannelRetentionPeriodArgs:
 class ChannelServiceManagedS3Args:
     def __init__(__self__):
         pass
+
+
+@pulumi.input_type
+class ChannelStorageArgs:
+    def __init__(__self__, *,
+                 customer_managed_s3: Optional[pulumi.Input['ChannelCustomerManagedS3Args']] = None,
+                 service_managed_s3: Optional[pulumi.Input['ChannelServiceManagedS3Args']] = None):
+        if customer_managed_s3 is not None:
+            pulumi.set(__self__, "customer_managed_s3", customer_managed_s3)
+        if service_managed_s3 is not None:
+            pulumi.set(__self__, "service_managed_s3", service_managed_s3)
+
+    @property
+    @pulumi.getter(name="customerManagedS3")
+    def customer_managed_s3(self) -> Optional[pulumi.Input['ChannelCustomerManagedS3Args']]:
+        return pulumi.get(self, "customer_managed_s3")
+
+    @customer_managed_s3.setter
+    def customer_managed_s3(self, value: Optional[pulumi.Input['ChannelCustomerManagedS3Args']]):
+        pulumi.set(self, "customer_managed_s3", value)
+
+    @property
+    @pulumi.getter(name="serviceManagedS3")
+    def service_managed_s3(self) -> Optional[pulumi.Input['ChannelServiceManagedS3Args']]:
+        return pulumi.get(self, "service_managed_s3")
+
+    @service_managed_s3.setter
+    def service_managed_s3(self, value: Optional[pulumi.Input['ChannelServiceManagedS3Args']]):
+        pulumi.set(self, "service_managed_s3", value)
 
 
 @pulumi.input_type
@@ -288,7 +287,7 @@ class DatasetContainerActionArgs:
 
 
 @pulumi.input_type
-class DatasetDatasetContentDeliveryRuleDestinationArgs:
+class DatasetContentDeliveryRuleDestinationArgs:
     def __init__(__self__, *,
                  iot_events_destination_configuration: Optional[pulumi.Input['DatasetIotEventsDestinationConfigurationArgs']] = None,
                  s3_destination_configuration: Optional[pulumi.Input['DatasetS3DestinationConfigurationArgs']] = None):
@@ -317,9 +316,9 @@ class DatasetDatasetContentDeliveryRuleDestinationArgs:
 
 
 @pulumi.input_type
-class DatasetDatasetContentDeliveryRuleArgs:
+class DatasetContentDeliveryRuleArgs:
     def __init__(__self__, *,
-                 destination: pulumi.Input['DatasetDatasetContentDeliveryRuleDestinationArgs'],
+                 destination: pulumi.Input['DatasetContentDeliveryRuleDestinationArgs'],
                  entry_name: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "destination", destination)
         if entry_name is not None:
@@ -327,11 +326,11 @@ class DatasetDatasetContentDeliveryRuleArgs:
 
     @property
     @pulumi.getter
-    def destination(self) -> pulumi.Input['DatasetDatasetContentDeliveryRuleDestinationArgs']:
+    def destination(self) -> pulumi.Input['DatasetContentDeliveryRuleDestinationArgs']:
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: pulumi.Input['DatasetDatasetContentDeliveryRuleDestinationArgs']):
+    def destination(self, value: pulumi.Input['DatasetContentDeliveryRuleDestinationArgs']):
         pulumi.set(self, "destination", value)
 
     @property
@@ -345,7 +344,7 @@ class DatasetDatasetContentDeliveryRuleArgs:
 
 
 @pulumi.input_type
-class DatasetDatasetContentVersionValueArgs:
+class DatasetContentVersionValueArgs:
     def __init__(__self__, *,
                  dataset_name: Optional[pulumi.Input[str]] = None):
         if dataset_name is not None:
@@ -761,7 +760,7 @@ class DatasetTriggerArgs:
 class DatasetVariableArgs:
     def __init__(__self__, *,
                  variable_name: pulumi.Input[str],
-                 dataset_content_version_value: Optional[pulumi.Input['DatasetDatasetContentVersionValueArgs']] = None,
+                 dataset_content_version_value: Optional[pulumi.Input['DatasetContentVersionValueArgs']] = None,
                  double_value: Optional[pulumi.Input[float]] = None,
                  output_file_uri_value: Optional[pulumi.Input['DatasetOutputFileUriValueArgs']] = None,
                  string_value: Optional[pulumi.Input[str]] = None):
@@ -786,11 +785,11 @@ class DatasetVariableArgs:
 
     @property
     @pulumi.getter(name="datasetContentVersionValue")
-    def dataset_content_version_value(self) -> Optional[pulumi.Input['DatasetDatasetContentVersionValueArgs']]:
+    def dataset_content_version_value(self) -> Optional[pulumi.Input['DatasetContentVersionValueArgs']]:
         return pulumi.get(self, "dataset_content_version_value")
 
     @dataset_content_version_value.setter
-    def dataset_content_version_value(self, value: Optional[pulumi.Input['DatasetDatasetContentVersionValueArgs']]):
+    def dataset_content_version_value(self, value: Optional[pulumi.Input['DatasetContentVersionValueArgs']]):
         pulumi.set(self, "dataset_content_version_value", value)
 
     @property
@@ -945,93 +944,6 @@ class DatastoreCustomerManagedS3Args:
 
 
 @pulumi.input_type
-class DatastoreDatastorePartitionsArgs:
-    def __init__(__self__, *,
-                 partitions: Optional[pulumi.Input[Sequence[pulumi.Input['DatastoreDatastorePartitionArgs']]]] = None):
-        if partitions is not None:
-            pulumi.set(__self__, "partitions", partitions)
-
-    @property
-    @pulumi.getter
-    def partitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatastoreDatastorePartitionArgs']]]]:
-        return pulumi.get(self, "partitions")
-
-    @partitions.setter
-    def partitions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatastoreDatastorePartitionArgs']]]]):
-        pulumi.set(self, "partitions", value)
-
-
-@pulumi.input_type
-class DatastoreDatastorePartitionArgs:
-    def __init__(__self__, *,
-                 partition: Optional[pulumi.Input['DatastorePartitionArgs']] = None,
-                 timestamp_partition: Optional[pulumi.Input['DatastoreTimestampPartitionArgs']] = None):
-        if partition is not None:
-            pulumi.set(__self__, "partition", partition)
-        if timestamp_partition is not None:
-            pulumi.set(__self__, "timestamp_partition", timestamp_partition)
-
-    @property
-    @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input['DatastorePartitionArgs']]:
-        return pulumi.get(self, "partition")
-
-    @partition.setter
-    def partition(self, value: Optional[pulumi.Input['DatastorePartitionArgs']]):
-        pulumi.set(self, "partition", value)
-
-    @property
-    @pulumi.getter(name="timestampPartition")
-    def timestamp_partition(self) -> Optional[pulumi.Input['DatastoreTimestampPartitionArgs']]:
-        return pulumi.get(self, "timestamp_partition")
-
-    @timestamp_partition.setter
-    def timestamp_partition(self, value: Optional[pulumi.Input['DatastoreTimestampPartitionArgs']]):
-        pulumi.set(self, "timestamp_partition", value)
-
-
-@pulumi.input_type
-class DatastoreDatastoreStorageArgs:
-    def __init__(__self__, *,
-                 customer_managed_s3: Optional[pulumi.Input['DatastoreCustomerManagedS3Args']] = None,
-                 iot_site_wise_multi_layer_storage: Optional[pulumi.Input['DatastoreIotSiteWiseMultiLayerStorageArgs']] = None,
-                 service_managed_s3: Optional[pulumi.Input['DatastoreServiceManagedS3Args']] = None):
-        if customer_managed_s3 is not None:
-            pulumi.set(__self__, "customer_managed_s3", customer_managed_s3)
-        if iot_site_wise_multi_layer_storage is not None:
-            pulumi.set(__self__, "iot_site_wise_multi_layer_storage", iot_site_wise_multi_layer_storage)
-        if service_managed_s3 is not None:
-            pulumi.set(__self__, "service_managed_s3", service_managed_s3)
-
-    @property
-    @pulumi.getter(name="customerManagedS3")
-    def customer_managed_s3(self) -> Optional[pulumi.Input['DatastoreCustomerManagedS3Args']]:
-        return pulumi.get(self, "customer_managed_s3")
-
-    @customer_managed_s3.setter
-    def customer_managed_s3(self, value: Optional[pulumi.Input['DatastoreCustomerManagedS3Args']]):
-        pulumi.set(self, "customer_managed_s3", value)
-
-    @property
-    @pulumi.getter(name="iotSiteWiseMultiLayerStorage")
-    def iot_site_wise_multi_layer_storage(self) -> Optional[pulumi.Input['DatastoreIotSiteWiseMultiLayerStorageArgs']]:
-        return pulumi.get(self, "iot_site_wise_multi_layer_storage")
-
-    @iot_site_wise_multi_layer_storage.setter
-    def iot_site_wise_multi_layer_storage(self, value: Optional[pulumi.Input['DatastoreIotSiteWiseMultiLayerStorageArgs']]):
-        pulumi.set(self, "iot_site_wise_multi_layer_storage", value)
-
-    @property
-    @pulumi.getter(name="serviceManagedS3")
-    def service_managed_s3(self) -> Optional[pulumi.Input['DatastoreServiceManagedS3Args']]:
-        return pulumi.get(self, "service_managed_s3")
-
-    @service_managed_s3.setter
-    def service_managed_s3(self, value: Optional[pulumi.Input['DatastoreServiceManagedS3Args']]):
-        pulumi.set(self, "service_managed_s3", value)
-
-
-@pulumi.input_type
 class DatastoreFileFormatConfigurationArgs:
     def __init__(__self__, *,
                  json_configuration: Optional[pulumi.Input['DatastoreJsonConfigurationArgs']] = None,
@@ -1100,19 +1012,49 @@ class DatastoreParquetConfigurationArgs:
 
 
 @pulumi.input_type
-class DatastorePartitionArgs:
+class DatastorePartitionsArgs:
     def __init__(__self__, *,
-                 attribute_name: pulumi.Input[str]):
-        pulumi.set(__self__, "attribute_name", attribute_name)
+                 partitions: Optional[pulumi.Input[Sequence[pulumi.Input['DatastorePartitionArgs']]]] = None):
+        if partitions is not None:
+            pulumi.set(__self__, "partitions", partitions)
 
     @property
-    @pulumi.getter(name="attributeName")
-    def attribute_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "attribute_name")
+    @pulumi.getter
+    def partitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatastorePartitionArgs']]]]:
+        return pulumi.get(self, "partitions")
 
-    @attribute_name.setter
-    def attribute_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "attribute_name", value)
+    @partitions.setter
+    def partitions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatastorePartitionArgs']]]]):
+        pulumi.set(self, "partitions", value)
+
+
+@pulumi.input_type
+class DatastorePartitionArgs:
+    def __init__(__self__, *,
+                 partition: Optional[pulumi.Input['DatastorePartitionArgs']] = None,
+                 timestamp_partition: Optional[pulumi.Input['DatastoreTimestampPartitionArgs']] = None):
+        if partition is not None:
+            pulumi.set(__self__, "partition", partition)
+        if timestamp_partition is not None:
+            pulumi.set(__self__, "timestamp_partition", timestamp_partition)
+
+    @property
+    @pulumi.getter
+    def partition(self) -> Optional[pulumi.Input['DatastorePartitionArgs']]:
+        return pulumi.get(self, "partition")
+
+    @partition.setter
+    def partition(self, value: Optional[pulumi.Input['DatastorePartitionArgs']]):
+        pulumi.set(self, "partition", value)
+
+    @property
+    @pulumi.getter(name="timestampPartition")
+    def timestamp_partition(self) -> Optional[pulumi.Input['DatastoreTimestampPartitionArgs']]:
+        return pulumi.get(self, "timestamp_partition")
+
+    @timestamp_partition.setter
+    def timestamp_partition(self, value: Optional[pulumi.Input['DatastoreTimestampPartitionArgs']]):
+        pulumi.set(self, "timestamp_partition", value)
 
 
 @pulumi.input_type
@@ -1165,6 +1107,47 @@ class DatastoreSchemaDefinitionArgs:
 class DatastoreServiceManagedS3Args:
     def __init__(__self__):
         pass
+
+
+@pulumi.input_type
+class DatastoreStorageArgs:
+    def __init__(__self__, *,
+                 customer_managed_s3: Optional[pulumi.Input['DatastoreCustomerManagedS3Args']] = None,
+                 iot_site_wise_multi_layer_storage: Optional[pulumi.Input['DatastoreIotSiteWiseMultiLayerStorageArgs']] = None,
+                 service_managed_s3: Optional[pulumi.Input['DatastoreServiceManagedS3Args']] = None):
+        if customer_managed_s3 is not None:
+            pulumi.set(__self__, "customer_managed_s3", customer_managed_s3)
+        if iot_site_wise_multi_layer_storage is not None:
+            pulumi.set(__self__, "iot_site_wise_multi_layer_storage", iot_site_wise_multi_layer_storage)
+        if service_managed_s3 is not None:
+            pulumi.set(__self__, "service_managed_s3", service_managed_s3)
+
+    @property
+    @pulumi.getter(name="customerManagedS3")
+    def customer_managed_s3(self) -> Optional[pulumi.Input['DatastoreCustomerManagedS3Args']]:
+        return pulumi.get(self, "customer_managed_s3")
+
+    @customer_managed_s3.setter
+    def customer_managed_s3(self, value: Optional[pulumi.Input['DatastoreCustomerManagedS3Args']]):
+        pulumi.set(self, "customer_managed_s3", value)
+
+    @property
+    @pulumi.getter(name="iotSiteWiseMultiLayerStorage")
+    def iot_site_wise_multi_layer_storage(self) -> Optional[pulumi.Input['DatastoreIotSiteWiseMultiLayerStorageArgs']]:
+        return pulumi.get(self, "iot_site_wise_multi_layer_storage")
+
+    @iot_site_wise_multi_layer_storage.setter
+    def iot_site_wise_multi_layer_storage(self, value: Optional[pulumi.Input['DatastoreIotSiteWiseMultiLayerStorageArgs']]):
+        pulumi.set(self, "iot_site_wise_multi_layer_storage", value)
+
+    @property
+    @pulumi.getter(name="serviceManagedS3")
+    def service_managed_s3(self) -> Optional[pulumi.Input['DatastoreServiceManagedS3Args']]:
+        return pulumi.get(self, "service_managed_s3")
+
+    @service_managed_s3.setter
+    def service_managed_s3(self, value: Optional[pulumi.Input['DatastoreServiceManagedS3Args']]):
+        pulumi.set(self, "service_managed_s3", value)
 
 
 @pulumi.input_type

@@ -10,14 +10,14 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'NotificationChannelNotificationChannelConfigArgs',
+    'NotificationChannelConfigArgs',
     'NotificationChannelSnsChannelConfigArgs',
     'ResourceCollectionCloudFormationCollectionFilterArgs',
-    'ResourceCollectionResourceCollectionFilterArgs',
+    'ResourceCollectionFilterArgs',
 ]
 
 @pulumi.input_type
-class NotificationChannelNotificationChannelConfigArgs:
+class NotificationChannelConfigArgs:
     def __init__(__self__, *,
                  sns: Optional[pulumi.Input['NotificationChannelSnsChannelConfigArgs']] = None):
         """
@@ -81,7 +81,7 @@ class ResourceCollectionCloudFormationCollectionFilterArgs:
 
 
 @pulumi.input_type
-class ResourceCollectionResourceCollectionFilterArgs:
+class ResourceCollectionFilterArgs:
     def __init__(__self__, *,
                  cloud_formation: Optional[pulumi.Input['ResourceCollectionCloudFormationCollectionFilterArgs']] = None):
         """

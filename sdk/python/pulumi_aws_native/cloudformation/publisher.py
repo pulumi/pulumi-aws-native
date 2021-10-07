@@ -184,7 +184,7 @@ class Publisher(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publisherStatus")
-    def publisher_status(self) -> pulumi.Output['PublisherPublisherStatus']:
+    def publisher_status(self) -> pulumi.Output['PublisherStatus']:
         """
         Whether the publisher is verified.
         """

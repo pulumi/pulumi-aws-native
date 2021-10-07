@@ -17,8 +17,8 @@ class ClusterArgs:
     def __init__(__self__, *,
                  capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterSettingsArgs']]]] = None,
-                 configuration: Optional[pulumi.Input['ClusterClusterConfigurationArgs']] = None,
+                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingsArgs']]]] = None,
+                 configuration: Optional[pulumi.Input['ClusterConfigurationArgs']] = None,
                  default_capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderStrategyItemArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]] = None):
         """
@@ -61,20 +61,20 @@ class ClusterArgs:
 
     @property
     @pulumi.getter(name="clusterSettings")
-    def cluster_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterSettingsArgs']]]]:
+    def cluster_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingsArgs']]]]:
         return pulumi.get(self, "cluster_settings")
 
     @cluster_settings.setter
-    def cluster_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterSettingsArgs']]]]):
+    def cluster_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingsArgs']]]]):
         pulumi.set(self, "cluster_settings", value)
 
     @property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['ClusterClusterConfigurationArgs']]:
+    def configuration(self) -> Optional[pulumi.Input['ClusterConfigurationArgs']]:
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['ClusterClusterConfigurationArgs']]):
+    def configuration(self, value: Optional[pulumi.Input['ClusterConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
 
     @property
@@ -103,8 +103,8 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClusterSettingsArgs']]]]] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['ClusterClusterConfigurationArgs']]] = None,
+                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSettingsArgs']]]]] = None,
+                 configuration: Optional[pulumi.Input[pulumi.InputType['ClusterConfigurationArgs']]] = None,
                  default_capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCapacityProviderStrategyItemArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterTagArgs']]]]] = None,
                  __props__=None):
@@ -141,8 +141,8 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClusterSettingsArgs']]]]] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['ClusterClusterConfigurationArgs']]] = None,
+                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSettingsArgs']]]]] = None,
+                 configuration: Optional[pulumi.Input[pulumi.InputType['ClusterConfigurationArgs']]] = None,
                  default_capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCapacityProviderStrategyItemArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterTagArgs']]]]] = None,
                  __props__=None):
@@ -218,12 +218,12 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterSettings")
-    def cluster_settings(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterClusterSettings']]]:
+    def cluster_settings(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterSettings']]]:
         return pulumi.get(self, "cluster_settings")
 
     @property
     @pulumi.getter
-    def configuration(self) -> pulumi.Output[Optional['outputs.ClusterClusterConfiguration']]:
+    def configuration(self) -> pulumi.Output[Optional['outputs.ClusterConfiguration']]:
         return pulumi.get(self, "configuration")
 
     @property

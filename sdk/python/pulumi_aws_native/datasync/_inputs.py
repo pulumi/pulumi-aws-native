@@ -24,8 +24,8 @@ __all__ = [
     'LocationSMBTagArgs',
     'TaskFilterRuleArgs',
     'TaskOptionsArgs',
+    'TaskScheduleArgs',
     'TaskTagArgs',
-    'TaskTaskScheduleArgs',
 ]
 
 @pulumi.input_type
@@ -699,6 +699,29 @@ class TaskOptionsArgs:
 
 
 @pulumi.input_type
+class TaskScheduleArgs:
+    def __init__(__self__, *,
+                 schedule_expression: pulumi.Input[str]):
+        """
+        Specifies the schedule you want your task to use for repeated executions.
+        :param pulumi.Input[str] schedule_expression: A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
+        """
+        pulumi.set(__self__, "schedule_expression", schedule_expression)
+
+    @property
+    @pulumi.getter(name="scheduleExpression")
+    def schedule_expression(self) -> pulumi.Input[str]:
+        """
+        A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
+        """
+        return pulumi.get(self, "schedule_expression")
+
+    @schedule_expression.setter
+    def schedule_expression(self, value: pulumi.Input[str]):
+        pulumi.set(self, "schedule_expression", value)
+
+
+@pulumi.input_type
 class TaskTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -734,28 +757,5 @@ class TaskTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class TaskTaskScheduleArgs:
-    def __init__(__self__, *,
-                 schedule_expression: pulumi.Input[str]):
-        """
-        Specifies the schedule you want your task to use for repeated executions.
-        :param pulumi.Input[str] schedule_expression: A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
-        """
-        pulumi.set(__self__, "schedule_expression", schedule_expression)
-
-    @property
-    @pulumi.getter(name="scheduleExpression")
-    def schedule_expression(self) -> pulumi.Input[str]:
-        """
-        A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
-        """
-        return pulumi.get(self, "schedule_expression")
-
-    @schedule_expression.setter
-    def schedule_expression(self, value: pulumi.Input[str]):
-        pulumi.set(self, "schedule_expression", value)
 
 

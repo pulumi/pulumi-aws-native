@@ -12,7 +12,7 @@ from . import outputs
 __all__ = [
     'ByteMatchSetByteMatchTuple',
     'ByteMatchSetFieldToMatch',
-    'IPSetIPSetDescriptor',
+    'IPSetDescriptor',
     'RulePredicate',
     'SizeConstraintSetFieldToMatch',
     'SizeConstraintSetSizeConstraint',
@@ -112,7 +112,7 @@ class ByteMatchSetFieldToMatch(dict):
 
 
 @pulumi.output_type
-class IPSetIPSetDescriptor(dict):
+class IPSetDescriptor(dict):
     def __init__(__self__, *,
                  type: str,
                  value: str):

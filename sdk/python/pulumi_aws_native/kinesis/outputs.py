@@ -10,12 +10,12 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'StreamStreamEncryption',
+    'StreamEncryption',
     'StreamTag',
 ]
 
 @pulumi.output_type
-class StreamStreamEncryption(dict):
+class StreamEncryption(dict):
     """
     When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream. Removing this property from your stack template and updating your stack disables encryption.
     """
@@ -28,22 +28,22 @@ class StreamStreamEncryption(dict):
             suggest = "key_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StreamStreamEncryption. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in StreamEncryption. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        StreamStreamEncryption.__key_warning(key)
+        StreamEncryption.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        StreamStreamEncryption.__key_warning(key)
+        StreamEncryption.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 encryption_type: 'StreamStreamEncryptionEncryptionType',
+                 encryption_type: 'StreamEncryptionEncryptionType',
                  key_id: str):
         """
         When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream. Removing this property from your stack template and updating your stack disables encryption.
-        :param 'StreamStreamEncryptionEncryptionType' encryption_type: The encryption type to use. The only valid value is KMS. 
+        :param 'StreamEncryptionEncryptionType' encryption_type: The encryption type to use. The only valid value is KMS. 
         :param str key_id: The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias aws/kinesis.
         """
         pulumi.set(__self__, "encryption_type", encryption_type)
@@ -51,7 +51,7 @@ class StreamStreamEncryption(dict):
 
     @property
     @pulumi.getter(name="encryptionType")
-    def encryption_type(self) -> 'StreamStreamEncryptionEncryptionType':
+    def encryption_type(self) -> 'StreamEncryptionEncryptionType':
         """
         The encryption type to use. The only valid value is KMS. 
         """

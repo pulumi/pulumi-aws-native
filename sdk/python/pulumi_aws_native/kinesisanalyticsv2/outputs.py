@@ -10,14 +10,13 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'ApplicationApplicationCodeConfiguration',
-    'ApplicationApplicationConfiguration',
-    'ApplicationApplicationSnapshotConfiguration',
     'ApplicationCSVMappingParameters',
     'ApplicationCatalogConfiguration',
     'ApplicationCheckpointConfiguration',
     'ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption',
+    'ApplicationCodeConfiguration',
     'ApplicationCodeContent',
+    'ApplicationConfiguration',
     'ApplicationCustomArtifactsConfiguration',
     'ApplicationDeployAsApplicationConfiguration',
     'ApplicationEnvironmentProperties',
@@ -52,158 +51,12 @@ __all__ = [
     'ApplicationReferenceDataSourceS3ReferenceDataSource',
     'ApplicationS3ContentBaseLocation',
     'ApplicationS3ContentLocation',
+    'ApplicationSnapshotConfiguration',
     'ApplicationSqlApplicationConfiguration',
     'ApplicationTag',
     'ApplicationZeppelinApplicationConfiguration',
     'ApplicationZeppelinMonitoringConfiguration',
 ]
-
-@pulumi.output_type
-class ApplicationApplicationCodeConfiguration(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "codeContent":
-            suggest = "code_content"
-        elif key == "codeContentType":
-            suggest = "code_content_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationCodeConfiguration. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ApplicationApplicationCodeConfiguration.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ApplicationApplicationCodeConfiguration.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 code_content: 'outputs.ApplicationCodeContent',
-                 code_content_type: str):
-        pulumi.set(__self__, "code_content", code_content)
-        pulumi.set(__self__, "code_content_type", code_content_type)
-
-    @property
-    @pulumi.getter(name="codeContent")
-    def code_content(self) -> 'outputs.ApplicationCodeContent':
-        return pulumi.get(self, "code_content")
-
-    @property
-    @pulumi.getter(name="codeContentType")
-    def code_content_type(self) -> str:
-        return pulumi.get(self, "code_content_type")
-
-
-@pulumi.output_type
-class ApplicationApplicationConfiguration(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "applicationCodeConfiguration":
-            suggest = "application_code_configuration"
-        elif key == "applicationSnapshotConfiguration":
-            suggest = "application_snapshot_configuration"
-        elif key == "environmentProperties":
-            suggest = "environment_properties"
-        elif key == "flinkApplicationConfiguration":
-            suggest = "flink_application_configuration"
-        elif key == "sqlApplicationConfiguration":
-            suggest = "sql_application_configuration"
-        elif key == "zeppelinApplicationConfiguration":
-            suggest = "zeppelin_application_configuration"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationConfiguration. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ApplicationApplicationConfiguration.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ApplicationApplicationConfiguration.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 application_code_configuration: Optional['outputs.ApplicationApplicationCodeConfiguration'] = None,
-                 application_snapshot_configuration: Optional['outputs.ApplicationApplicationSnapshotConfiguration'] = None,
-                 environment_properties: Optional['outputs.ApplicationEnvironmentProperties'] = None,
-                 flink_application_configuration: Optional['outputs.ApplicationFlinkApplicationConfiguration'] = None,
-                 sql_application_configuration: Optional['outputs.ApplicationSqlApplicationConfiguration'] = None,
-                 zeppelin_application_configuration: Optional['outputs.ApplicationZeppelinApplicationConfiguration'] = None):
-        if application_code_configuration is not None:
-            pulumi.set(__self__, "application_code_configuration", application_code_configuration)
-        if application_snapshot_configuration is not None:
-            pulumi.set(__self__, "application_snapshot_configuration", application_snapshot_configuration)
-        if environment_properties is not None:
-            pulumi.set(__self__, "environment_properties", environment_properties)
-        if flink_application_configuration is not None:
-            pulumi.set(__self__, "flink_application_configuration", flink_application_configuration)
-        if sql_application_configuration is not None:
-            pulumi.set(__self__, "sql_application_configuration", sql_application_configuration)
-        if zeppelin_application_configuration is not None:
-            pulumi.set(__self__, "zeppelin_application_configuration", zeppelin_application_configuration)
-
-    @property
-    @pulumi.getter(name="applicationCodeConfiguration")
-    def application_code_configuration(self) -> Optional['outputs.ApplicationApplicationCodeConfiguration']:
-        return pulumi.get(self, "application_code_configuration")
-
-    @property
-    @pulumi.getter(name="applicationSnapshotConfiguration")
-    def application_snapshot_configuration(self) -> Optional['outputs.ApplicationApplicationSnapshotConfiguration']:
-        return pulumi.get(self, "application_snapshot_configuration")
-
-    @property
-    @pulumi.getter(name="environmentProperties")
-    def environment_properties(self) -> Optional['outputs.ApplicationEnvironmentProperties']:
-        return pulumi.get(self, "environment_properties")
-
-    @property
-    @pulumi.getter(name="flinkApplicationConfiguration")
-    def flink_application_configuration(self) -> Optional['outputs.ApplicationFlinkApplicationConfiguration']:
-        return pulumi.get(self, "flink_application_configuration")
-
-    @property
-    @pulumi.getter(name="sqlApplicationConfiguration")
-    def sql_application_configuration(self) -> Optional['outputs.ApplicationSqlApplicationConfiguration']:
-        return pulumi.get(self, "sql_application_configuration")
-
-    @property
-    @pulumi.getter(name="zeppelinApplicationConfiguration")
-    def zeppelin_application_configuration(self) -> Optional['outputs.ApplicationZeppelinApplicationConfiguration']:
-        return pulumi.get(self, "zeppelin_application_configuration")
-
-
-@pulumi.output_type
-class ApplicationApplicationSnapshotConfiguration(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "snapshotsEnabled":
-            suggest = "snapshots_enabled"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationSnapshotConfiguration. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ApplicationApplicationSnapshotConfiguration.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ApplicationApplicationSnapshotConfiguration.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 snapshots_enabled: bool):
-        pulumi.set(__self__, "snapshots_enabled", snapshots_enabled)
-
-    @property
-    @pulumi.getter(name="snapshotsEnabled")
-    def snapshots_enabled(self) -> bool:
-        return pulumi.get(self, "snapshots_enabled")
-
 
 @pulumi.output_type
 class ApplicationCSVMappingParameters(dict):
@@ -362,6 +215,44 @@ class ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption(dict):
 
 
 @pulumi.output_type
+class ApplicationCodeConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "codeContent":
+            suggest = "code_content"
+        elif key == "codeContentType":
+            suggest = "code_content_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationCodeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationCodeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationCodeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 code_content: 'outputs.ApplicationCodeContent',
+                 code_content_type: str):
+        pulumi.set(__self__, "code_content", code_content)
+        pulumi.set(__self__, "code_content_type", code_content_type)
+
+    @property
+    @pulumi.getter(name="codeContent")
+    def code_content(self) -> 'outputs.ApplicationCodeContent':
+        return pulumi.get(self, "code_content")
+
+    @property
+    @pulumi.getter(name="codeContentType")
+    def code_content_type(self) -> str:
+        return pulumi.get(self, "code_content_type")
+
+
+@pulumi.output_type
 class ApplicationCodeContent(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -409,6 +300,86 @@ class ApplicationCodeContent(dict):
     @pulumi.getter(name="zipFileContent")
     def zip_file_content(self) -> Optional[str]:
         return pulumi.get(self, "zip_file_content")
+
+
+@pulumi.output_type
+class ApplicationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationCodeConfiguration":
+            suggest = "application_code_configuration"
+        elif key == "applicationSnapshotConfiguration":
+            suggest = "application_snapshot_configuration"
+        elif key == "environmentProperties":
+            suggest = "environment_properties"
+        elif key == "flinkApplicationConfiguration":
+            suggest = "flink_application_configuration"
+        elif key == "sqlApplicationConfiguration":
+            suggest = "sql_application_configuration"
+        elif key == "zeppelinApplicationConfiguration":
+            suggest = "zeppelin_application_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_code_configuration: Optional['outputs.ApplicationCodeConfiguration'] = None,
+                 application_snapshot_configuration: Optional['outputs.ApplicationSnapshotConfiguration'] = None,
+                 environment_properties: Optional['outputs.ApplicationEnvironmentProperties'] = None,
+                 flink_application_configuration: Optional['outputs.ApplicationFlinkApplicationConfiguration'] = None,
+                 sql_application_configuration: Optional['outputs.ApplicationSqlApplicationConfiguration'] = None,
+                 zeppelin_application_configuration: Optional['outputs.ApplicationZeppelinApplicationConfiguration'] = None):
+        if application_code_configuration is not None:
+            pulumi.set(__self__, "application_code_configuration", application_code_configuration)
+        if application_snapshot_configuration is not None:
+            pulumi.set(__self__, "application_snapshot_configuration", application_snapshot_configuration)
+        if environment_properties is not None:
+            pulumi.set(__self__, "environment_properties", environment_properties)
+        if flink_application_configuration is not None:
+            pulumi.set(__self__, "flink_application_configuration", flink_application_configuration)
+        if sql_application_configuration is not None:
+            pulumi.set(__self__, "sql_application_configuration", sql_application_configuration)
+        if zeppelin_application_configuration is not None:
+            pulumi.set(__self__, "zeppelin_application_configuration", zeppelin_application_configuration)
+
+    @property
+    @pulumi.getter(name="applicationCodeConfiguration")
+    def application_code_configuration(self) -> Optional['outputs.ApplicationCodeConfiguration']:
+        return pulumi.get(self, "application_code_configuration")
+
+    @property
+    @pulumi.getter(name="applicationSnapshotConfiguration")
+    def application_snapshot_configuration(self) -> Optional['outputs.ApplicationSnapshotConfiguration']:
+        return pulumi.get(self, "application_snapshot_configuration")
+
+    @property
+    @pulumi.getter(name="environmentProperties")
+    def environment_properties(self) -> Optional['outputs.ApplicationEnvironmentProperties']:
+        return pulumi.get(self, "environment_properties")
+
+    @property
+    @pulumi.getter(name="flinkApplicationConfiguration")
+    def flink_application_configuration(self) -> Optional['outputs.ApplicationFlinkApplicationConfiguration']:
+        return pulumi.get(self, "flink_application_configuration")
+
+    @property
+    @pulumi.getter(name="sqlApplicationConfiguration")
+    def sql_application_configuration(self) -> Optional['outputs.ApplicationSqlApplicationConfiguration']:
+        return pulumi.get(self, "sql_application_configuration")
+
+    @property
+    @pulumi.getter(name="zeppelinApplicationConfiguration")
+    def zeppelin_application_configuration(self) -> Optional['outputs.ApplicationZeppelinApplicationConfiguration']:
+        return pulumi.get(self, "zeppelin_application_configuration")
 
 
 @pulumi.output_type
@@ -1705,6 +1676,35 @@ class ApplicationS3ContentLocation(dict):
     @pulumi.getter(name="objectVersion")
     def object_version(self) -> Optional[str]:
         return pulumi.get(self, "object_version")
+
+
+@pulumi.output_type
+class ApplicationSnapshotConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "snapshotsEnabled":
+            suggest = "snapshots_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSnapshotConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSnapshotConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSnapshotConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 snapshots_enabled: bool):
+        pulumi.set(__self__, "snapshots_enabled", snapshots_enabled)
+
+    @property
+    @pulumi.getter(name="snapshotsEnabled")
+    def snapshots_enabled(self) -> bool:
+        return pulumi.get(self, "snapshots_enabled")
 
 
 @pulumi.output_type

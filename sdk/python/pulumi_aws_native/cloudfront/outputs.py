@@ -10,18 +10,18 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'CachePolicyCachePolicyConfig',
+    'CachePolicyConfig',
     'CachePolicyCookiesConfig',
     'CachePolicyHeadersConfig',
     'CachePolicyParametersInCacheKeyAndForwardedToOrigin',
     'CachePolicyQueryStringsConfig',
-    'CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig',
+    'CloudFrontOriginAccessIdentityConfig',
     'DistributionCacheBehavior',
+    'DistributionConfig',
     'DistributionCookies',
     'DistributionCustomErrorResponse',
     'DistributionCustomOriginConfig',
     'DistributionDefaultCacheBehavior',
-    'DistributionDistributionConfig',
     'DistributionForwardedValues',
     'DistributionFunctionAssociation',
     'DistributionGeoRestriction',
@@ -42,25 +42,25 @@ __all__ = [
     'DistributionStatusCodes',
     'DistributionTag',
     'DistributionViewerCertificate',
-    'FunctionFunctionConfig',
-    'FunctionFunctionMetadata',
-    'KeyGroupKeyGroupConfig',
+    'FunctionConfig',
+    'FunctionMetadata',
+    'KeyGroupConfig',
+    'OriginRequestPolicyConfig',
     'OriginRequestPolicyCookiesConfig',
     'OriginRequestPolicyHeadersConfig',
-    'OriginRequestPolicyOriginRequestPolicyConfig',
     'OriginRequestPolicyQueryStringsConfig',
-    'PublicKeyPublicKeyConfig',
+    'PublicKeyConfig',
     'RealtimeLogConfigEndPoint',
     'RealtimeLogConfigKinesisStreamConfig',
+    'StreamingDistributionConfig',
     'StreamingDistributionLogging',
     'StreamingDistributionS3Origin',
-    'StreamingDistributionStreamingDistributionConfig',
     'StreamingDistributionTag',
     'StreamingDistributionTrustedSigners',
 ]
 
 @pulumi.output_type
-class CachePolicyCachePolicyConfig(dict):
+class CachePolicyConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -74,14 +74,14 @@ class CachePolicyCachePolicyConfig(dict):
             suggest = "parameters_in_cache_key_and_forwarded_to_origin"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CachePolicyCachePolicyConfig. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in CachePolicyConfig. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        CachePolicyCachePolicyConfig.__key_warning(key)
+        CachePolicyConfig.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        CachePolicyCachePolicyConfig.__key_warning(key)
+        CachePolicyConfig.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -310,7 +310,7 @@ class CachePolicyQueryStringsConfig(dict):
 
 
 @pulumi.output_type
-class CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig(dict):
+class CloudFrontOriginAccessIdentityConfig(dict):
     def __init__(__self__, *,
                  comment: str):
         pulumi.set(__self__, "comment", comment)
@@ -524,6 +524,203 @@ class DistributionCacheBehavior(dict):
     @pulumi.getter(name="trustedSigners")
     def trusted_signers(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "trusted_signers")
+
+
+@pulumi.output_type
+class DistributionConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cNAMEs":
+            suggest = "c_names"
+        elif key == "cacheBehaviors":
+            suggest = "cache_behaviors"
+        elif key == "customErrorResponses":
+            suggest = "custom_error_responses"
+        elif key == "customOrigin":
+            suggest = "custom_origin"
+        elif key == "defaultCacheBehavior":
+            suggest = "default_cache_behavior"
+        elif key == "defaultRootObject":
+            suggest = "default_root_object"
+        elif key == "httpVersion":
+            suggest = "http_version"
+        elif key == "iPV6Enabled":
+            suggest = "i_pv6_enabled"
+        elif key == "originGroups":
+            suggest = "origin_groups"
+        elif key == "priceClass":
+            suggest = "price_class"
+        elif key == "s3Origin":
+            suggest = "s3_origin"
+        elif key == "viewerCertificate":
+            suggest = "viewer_certificate"
+        elif key == "webACLId":
+            suggest = "web_acl_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: bool,
+                 aliases: Optional[Sequence[str]] = None,
+                 c_names: Optional[Sequence[str]] = None,
+                 cache_behaviors: Optional[Sequence['outputs.DistributionCacheBehavior']] = None,
+                 comment: Optional[str] = None,
+                 custom_error_responses: Optional[Sequence['outputs.DistributionCustomErrorResponse']] = None,
+                 custom_origin: Optional['outputs.DistributionLegacyCustomOrigin'] = None,
+                 default_cache_behavior: Optional['outputs.DistributionDefaultCacheBehavior'] = None,
+                 default_root_object: Optional[str] = None,
+                 http_version: Optional[str] = None,
+                 i_pv6_enabled: Optional[bool] = None,
+                 logging: Optional['outputs.DistributionLogging'] = None,
+                 origin_groups: Optional['outputs.DistributionOriginGroups'] = None,
+                 origins: Optional[Sequence['outputs.DistributionOrigin']] = None,
+                 price_class: Optional[str] = None,
+                 restrictions: Optional['outputs.DistributionRestrictions'] = None,
+                 s3_origin: Optional['outputs.DistributionLegacyS3Origin'] = None,
+                 viewer_certificate: Optional['outputs.DistributionViewerCertificate'] = None,
+                 web_acl_id: Optional[str] = None):
+        pulumi.set(__self__, "enabled", enabled)
+        if aliases is not None:
+            pulumi.set(__self__, "aliases", aliases)
+        if c_names is not None:
+            pulumi.set(__self__, "c_names", c_names)
+        if cache_behaviors is not None:
+            pulumi.set(__self__, "cache_behaviors", cache_behaviors)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if custom_error_responses is not None:
+            pulumi.set(__self__, "custom_error_responses", custom_error_responses)
+        if custom_origin is not None:
+            pulumi.set(__self__, "custom_origin", custom_origin)
+        if default_cache_behavior is not None:
+            pulumi.set(__self__, "default_cache_behavior", default_cache_behavior)
+        if default_root_object is not None:
+            pulumi.set(__self__, "default_root_object", default_root_object)
+        if http_version is not None:
+            pulumi.set(__self__, "http_version", http_version)
+        if i_pv6_enabled is not None:
+            pulumi.set(__self__, "i_pv6_enabled", i_pv6_enabled)
+        if logging is not None:
+            pulumi.set(__self__, "logging", logging)
+        if origin_groups is not None:
+            pulumi.set(__self__, "origin_groups", origin_groups)
+        if origins is not None:
+            pulumi.set(__self__, "origins", origins)
+        if price_class is not None:
+            pulumi.set(__self__, "price_class", price_class)
+        if restrictions is not None:
+            pulumi.set(__self__, "restrictions", restrictions)
+        if s3_origin is not None:
+            pulumi.set(__self__, "s3_origin", s3_origin)
+        if viewer_certificate is not None:
+            pulumi.set(__self__, "viewer_certificate", viewer_certificate)
+        if web_acl_id is not None:
+            pulumi.set(__self__, "web_acl_id", web_acl_id)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def aliases(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "aliases")
+
+    @property
+    @pulumi.getter(name="cNAMEs")
+    def c_names(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "c_names")
+
+    @property
+    @pulumi.getter(name="cacheBehaviors")
+    def cache_behaviors(self) -> Optional[Sequence['outputs.DistributionCacheBehavior']]:
+        return pulumi.get(self, "cache_behaviors")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="customErrorResponses")
+    def custom_error_responses(self) -> Optional[Sequence['outputs.DistributionCustomErrorResponse']]:
+        return pulumi.get(self, "custom_error_responses")
+
+    @property
+    @pulumi.getter(name="customOrigin")
+    def custom_origin(self) -> Optional['outputs.DistributionLegacyCustomOrigin']:
+        return pulumi.get(self, "custom_origin")
+
+    @property
+    @pulumi.getter(name="defaultCacheBehavior")
+    def default_cache_behavior(self) -> Optional['outputs.DistributionDefaultCacheBehavior']:
+        return pulumi.get(self, "default_cache_behavior")
+
+    @property
+    @pulumi.getter(name="defaultRootObject")
+    def default_root_object(self) -> Optional[str]:
+        return pulumi.get(self, "default_root_object")
+
+    @property
+    @pulumi.getter(name="httpVersion")
+    def http_version(self) -> Optional[str]:
+        return pulumi.get(self, "http_version")
+
+    @property
+    @pulumi.getter(name="iPV6Enabled")
+    def i_pv6_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "i_pv6_enabled")
+
+    @property
+    @pulumi.getter
+    def logging(self) -> Optional['outputs.DistributionLogging']:
+        return pulumi.get(self, "logging")
+
+    @property
+    @pulumi.getter(name="originGroups")
+    def origin_groups(self) -> Optional['outputs.DistributionOriginGroups']:
+        return pulumi.get(self, "origin_groups")
+
+    @property
+    @pulumi.getter
+    def origins(self) -> Optional[Sequence['outputs.DistributionOrigin']]:
+        return pulumi.get(self, "origins")
+
+    @property
+    @pulumi.getter(name="priceClass")
+    def price_class(self) -> Optional[str]:
+        return pulumi.get(self, "price_class")
+
+    @property
+    @pulumi.getter
+    def restrictions(self) -> Optional['outputs.DistributionRestrictions']:
+        return pulumi.get(self, "restrictions")
+
+    @property
+    @pulumi.getter(name="s3Origin")
+    def s3_origin(self) -> Optional['outputs.DistributionLegacyS3Origin']:
+        return pulumi.get(self, "s3_origin")
+
+    @property
+    @pulumi.getter(name="viewerCertificate")
+    def viewer_certificate(self) -> Optional['outputs.DistributionViewerCertificate']:
+        return pulumi.get(self, "viewer_certificate")
+
+    @property
+    @pulumi.getter(name="webACLId")
+    def web_acl_id(self) -> Optional[str]:
+        return pulumi.get(self, "web_acl_id")
 
 
 @pulumi.output_type
@@ -895,203 +1092,6 @@ class DistributionDefaultCacheBehavior(dict):
     @pulumi.getter(name="trustedSigners")
     def trusted_signers(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "trusted_signers")
-
-
-@pulumi.output_type
-class DistributionDistributionConfig(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "cNAMEs":
-            suggest = "c_names"
-        elif key == "cacheBehaviors":
-            suggest = "cache_behaviors"
-        elif key == "customErrorResponses":
-            suggest = "custom_error_responses"
-        elif key == "customOrigin":
-            suggest = "custom_origin"
-        elif key == "defaultCacheBehavior":
-            suggest = "default_cache_behavior"
-        elif key == "defaultRootObject":
-            suggest = "default_root_object"
-        elif key == "httpVersion":
-            suggest = "http_version"
-        elif key == "iPV6Enabled":
-            suggest = "i_pv6_enabled"
-        elif key == "originGroups":
-            suggest = "origin_groups"
-        elif key == "priceClass":
-            suggest = "price_class"
-        elif key == "s3Origin":
-            suggest = "s3_origin"
-        elif key == "viewerCertificate":
-            suggest = "viewer_certificate"
-        elif key == "webACLId":
-            suggest = "web_acl_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DistributionDistributionConfig. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DistributionDistributionConfig.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DistributionDistributionConfig.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 enabled: bool,
-                 aliases: Optional[Sequence[str]] = None,
-                 c_names: Optional[Sequence[str]] = None,
-                 cache_behaviors: Optional[Sequence['outputs.DistributionCacheBehavior']] = None,
-                 comment: Optional[str] = None,
-                 custom_error_responses: Optional[Sequence['outputs.DistributionCustomErrorResponse']] = None,
-                 custom_origin: Optional['outputs.DistributionLegacyCustomOrigin'] = None,
-                 default_cache_behavior: Optional['outputs.DistributionDefaultCacheBehavior'] = None,
-                 default_root_object: Optional[str] = None,
-                 http_version: Optional[str] = None,
-                 i_pv6_enabled: Optional[bool] = None,
-                 logging: Optional['outputs.DistributionLogging'] = None,
-                 origin_groups: Optional['outputs.DistributionOriginGroups'] = None,
-                 origins: Optional[Sequence['outputs.DistributionOrigin']] = None,
-                 price_class: Optional[str] = None,
-                 restrictions: Optional['outputs.DistributionRestrictions'] = None,
-                 s3_origin: Optional['outputs.DistributionLegacyS3Origin'] = None,
-                 viewer_certificate: Optional['outputs.DistributionViewerCertificate'] = None,
-                 web_acl_id: Optional[str] = None):
-        pulumi.set(__self__, "enabled", enabled)
-        if aliases is not None:
-            pulumi.set(__self__, "aliases", aliases)
-        if c_names is not None:
-            pulumi.set(__self__, "c_names", c_names)
-        if cache_behaviors is not None:
-            pulumi.set(__self__, "cache_behaviors", cache_behaviors)
-        if comment is not None:
-            pulumi.set(__self__, "comment", comment)
-        if custom_error_responses is not None:
-            pulumi.set(__self__, "custom_error_responses", custom_error_responses)
-        if custom_origin is not None:
-            pulumi.set(__self__, "custom_origin", custom_origin)
-        if default_cache_behavior is not None:
-            pulumi.set(__self__, "default_cache_behavior", default_cache_behavior)
-        if default_root_object is not None:
-            pulumi.set(__self__, "default_root_object", default_root_object)
-        if http_version is not None:
-            pulumi.set(__self__, "http_version", http_version)
-        if i_pv6_enabled is not None:
-            pulumi.set(__self__, "i_pv6_enabled", i_pv6_enabled)
-        if logging is not None:
-            pulumi.set(__self__, "logging", logging)
-        if origin_groups is not None:
-            pulumi.set(__self__, "origin_groups", origin_groups)
-        if origins is not None:
-            pulumi.set(__self__, "origins", origins)
-        if price_class is not None:
-            pulumi.set(__self__, "price_class", price_class)
-        if restrictions is not None:
-            pulumi.set(__self__, "restrictions", restrictions)
-        if s3_origin is not None:
-            pulumi.set(__self__, "s3_origin", s3_origin)
-        if viewer_certificate is not None:
-            pulumi.set(__self__, "viewer_certificate", viewer_certificate)
-        if web_acl_id is not None:
-            pulumi.set(__self__, "web_acl_id", web_acl_id)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> bool:
-        return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter
-    def aliases(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "aliases")
-
-    @property
-    @pulumi.getter(name="cNAMEs")
-    def c_names(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "c_names")
-
-    @property
-    @pulumi.getter(name="cacheBehaviors")
-    def cache_behaviors(self) -> Optional[Sequence['outputs.DistributionCacheBehavior']]:
-        return pulumi.get(self, "cache_behaviors")
-
-    @property
-    @pulumi.getter
-    def comment(self) -> Optional[str]:
-        return pulumi.get(self, "comment")
-
-    @property
-    @pulumi.getter(name="customErrorResponses")
-    def custom_error_responses(self) -> Optional[Sequence['outputs.DistributionCustomErrorResponse']]:
-        return pulumi.get(self, "custom_error_responses")
-
-    @property
-    @pulumi.getter(name="customOrigin")
-    def custom_origin(self) -> Optional['outputs.DistributionLegacyCustomOrigin']:
-        return pulumi.get(self, "custom_origin")
-
-    @property
-    @pulumi.getter(name="defaultCacheBehavior")
-    def default_cache_behavior(self) -> Optional['outputs.DistributionDefaultCacheBehavior']:
-        return pulumi.get(self, "default_cache_behavior")
-
-    @property
-    @pulumi.getter(name="defaultRootObject")
-    def default_root_object(self) -> Optional[str]:
-        return pulumi.get(self, "default_root_object")
-
-    @property
-    @pulumi.getter(name="httpVersion")
-    def http_version(self) -> Optional[str]:
-        return pulumi.get(self, "http_version")
-
-    @property
-    @pulumi.getter(name="iPV6Enabled")
-    def i_pv6_enabled(self) -> Optional[bool]:
-        return pulumi.get(self, "i_pv6_enabled")
-
-    @property
-    @pulumi.getter
-    def logging(self) -> Optional['outputs.DistributionLogging']:
-        return pulumi.get(self, "logging")
-
-    @property
-    @pulumi.getter(name="originGroups")
-    def origin_groups(self) -> Optional['outputs.DistributionOriginGroups']:
-        return pulumi.get(self, "origin_groups")
-
-    @property
-    @pulumi.getter
-    def origins(self) -> Optional[Sequence['outputs.DistributionOrigin']]:
-        return pulumi.get(self, "origins")
-
-    @property
-    @pulumi.getter(name="priceClass")
-    def price_class(self) -> Optional[str]:
-        return pulumi.get(self, "price_class")
-
-    @property
-    @pulumi.getter
-    def restrictions(self) -> Optional['outputs.DistributionRestrictions']:
-        return pulumi.get(self, "restrictions")
-
-    @property
-    @pulumi.getter(name="s3Origin")
-    def s3_origin(self) -> Optional['outputs.DistributionLegacyS3Origin']:
-        return pulumi.get(self, "s3_origin")
-
-    @property
-    @pulumi.getter(name="viewerCertificate")
-    def viewer_certificate(self) -> Optional['outputs.DistributionViewerCertificate']:
-        return pulumi.get(self, "viewer_certificate")
-
-    @property
-    @pulumi.getter(name="webACLId")
-    def web_acl_id(self) -> Optional[str]:
-        return pulumi.get(self, "web_acl_id")
 
 
 @pulumi.output_type
@@ -1917,7 +1917,7 @@ class DistributionViewerCertificate(dict):
 
 
 @pulumi.output_type
-class FunctionFunctionConfig(dict):
+class FunctionConfig(dict):
     def __init__(__self__, *,
                  comment: str,
                  runtime: str):
@@ -1936,7 +1936,7 @@ class FunctionFunctionConfig(dict):
 
 
 @pulumi.output_type
-class FunctionFunctionMetadata(dict):
+class FunctionMetadata(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1944,14 +1944,14 @@ class FunctionFunctionMetadata(dict):
             suggest = "function_arn"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FunctionFunctionMetadata. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in FunctionMetadata. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        FunctionFunctionMetadata.__key_warning(key)
+        FunctionMetadata.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        FunctionFunctionMetadata.__key_warning(key)
+        FunctionMetadata.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1966,7 +1966,7 @@ class FunctionFunctionMetadata(dict):
 
 
 @pulumi.output_type
-class KeyGroupKeyGroupConfig(dict):
+class KeyGroupConfig(dict):
     def __init__(__self__, *,
                  items: Sequence[str],
                  name: str,
@@ -1985,6 +1985,68 @@ class KeyGroupKeyGroupConfig(dict):
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[str]:
+        return pulumi.get(self, "comment")
+
+
+@pulumi.output_type
+class OriginRequestPolicyConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cookiesConfig":
+            suggest = "cookies_config"
+        elif key == "headersConfig":
+            suggest = "headers_config"
+        elif key == "queryStringsConfig":
+            suggest = "query_strings_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OriginRequestPolicyConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OriginRequestPolicyConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OriginRequestPolicyConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cookies_config: 'outputs.OriginRequestPolicyCookiesConfig',
+                 headers_config: 'outputs.OriginRequestPolicyHeadersConfig',
+                 name: str,
+                 query_strings_config: 'outputs.OriginRequestPolicyQueryStringsConfig',
+                 comment: Optional[str] = None):
+        pulumi.set(__self__, "cookies_config", cookies_config)
+        pulumi.set(__self__, "headers_config", headers_config)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "query_strings_config", query_strings_config)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+
+    @property
+    @pulumi.getter(name="cookiesConfig")
+    def cookies_config(self) -> 'outputs.OriginRequestPolicyCookiesConfig':
+        return pulumi.get(self, "cookies_config")
+
+    @property
+    @pulumi.getter(name="headersConfig")
+    def headers_config(self) -> 'outputs.OriginRequestPolicyHeadersConfig':
+        return pulumi.get(self, "headers_config")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="queryStringsConfig")
+    def query_strings_config(self) -> 'outputs.OriginRequestPolicyQueryStringsConfig':
+        return pulumi.get(self, "query_strings_config")
 
     @property
     @pulumi.getter
@@ -2067,68 +2129,6 @@ class OriginRequestPolicyHeadersConfig(dict):
 
 
 @pulumi.output_type
-class OriginRequestPolicyOriginRequestPolicyConfig(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "cookiesConfig":
-            suggest = "cookies_config"
-        elif key == "headersConfig":
-            suggest = "headers_config"
-        elif key == "queryStringsConfig":
-            suggest = "query_strings_config"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in OriginRequestPolicyOriginRequestPolicyConfig. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        OriginRequestPolicyOriginRequestPolicyConfig.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        OriginRequestPolicyOriginRequestPolicyConfig.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 cookies_config: 'outputs.OriginRequestPolicyCookiesConfig',
-                 headers_config: 'outputs.OriginRequestPolicyHeadersConfig',
-                 name: str,
-                 query_strings_config: 'outputs.OriginRequestPolicyQueryStringsConfig',
-                 comment: Optional[str] = None):
-        pulumi.set(__self__, "cookies_config", cookies_config)
-        pulumi.set(__self__, "headers_config", headers_config)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "query_strings_config", query_strings_config)
-        if comment is not None:
-            pulumi.set(__self__, "comment", comment)
-
-    @property
-    @pulumi.getter(name="cookiesConfig")
-    def cookies_config(self) -> 'outputs.OriginRequestPolicyCookiesConfig':
-        return pulumi.get(self, "cookies_config")
-
-    @property
-    @pulumi.getter(name="headersConfig")
-    def headers_config(self) -> 'outputs.OriginRequestPolicyHeadersConfig':
-        return pulumi.get(self, "headers_config")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="queryStringsConfig")
-    def query_strings_config(self) -> 'outputs.OriginRequestPolicyQueryStringsConfig':
-        return pulumi.get(self, "query_strings_config")
-
-    @property
-    @pulumi.getter
-    def comment(self) -> Optional[str]:
-        return pulumi.get(self, "comment")
-
-
-@pulumi.output_type
 class OriginRequestPolicyQueryStringsConfig(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2168,7 +2168,7 @@ class OriginRequestPolicyQueryStringsConfig(dict):
 
 
 @pulumi.output_type
-class PublicKeyPublicKeyConfig(dict):
+class PublicKeyConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2178,14 +2178,14 @@ class PublicKeyPublicKeyConfig(dict):
             suggest = "encoded_key"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PublicKeyPublicKeyConfig. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in PublicKeyConfig. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        PublicKeyPublicKeyConfig.__key_warning(key)
+        PublicKeyConfig.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        PublicKeyPublicKeyConfig.__key_warning(key)
+        PublicKeyConfig.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -2297,6 +2297,84 @@ class RealtimeLogConfigKinesisStreamConfig(dict):
 
 
 @pulumi.output_type
+class StreamingDistributionConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Origin":
+            suggest = "s3_origin"
+        elif key == "trustedSigners":
+            suggest = "trusted_signers"
+        elif key == "priceClass":
+            suggest = "price_class"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamingDistributionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamingDistributionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamingDistributionConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comment: str,
+                 enabled: bool,
+                 s3_origin: 'outputs.StreamingDistributionS3Origin',
+                 trusted_signers: 'outputs.StreamingDistributionTrustedSigners',
+                 aliases: Optional[Sequence[str]] = None,
+                 logging: Optional['outputs.StreamingDistributionLogging'] = None,
+                 price_class: Optional[str] = None):
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "s3_origin", s3_origin)
+        pulumi.set(__self__, "trusted_signers", trusted_signers)
+        if aliases is not None:
+            pulumi.set(__self__, "aliases", aliases)
+        if logging is not None:
+            pulumi.set(__self__, "logging", logging)
+        if price_class is not None:
+            pulumi.set(__self__, "price_class", price_class)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="s3Origin")
+    def s3_origin(self) -> 'outputs.StreamingDistributionS3Origin':
+        return pulumi.get(self, "s3_origin")
+
+    @property
+    @pulumi.getter(name="trustedSigners")
+    def trusted_signers(self) -> 'outputs.StreamingDistributionTrustedSigners':
+        return pulumi.get(self, "trusted_signers")
+
+    @property
+    @pulumi.getter
+    def aliases(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "aliases")
+
+    @property
+    @pulumi.getter
+    def logging(self) -> Optional['outputs.StreamingDistributionLogging']:
+        return pulumi.get(self, "logging")
+
+    @property
+    @pulumi.getter(name="priceClass")
+    def price_class(self) -> Optional[str]:
+        return pulumi.get(self, "price_class")
+
+
+@pulumi.output_type
 class StreamingDistributionLogging(dict):
     def __init__(__self__, *,
                  bucket: str,
@@ -2358,84 +2436,6 @@ class StreamingDistributionS3Origin(dict):
     @pulumi.getter(name="originAccessIdentity")
     def origin_access_identity(self) -> str:
         return pulumi.get(self, "origin_access_identity")
-
-
-@pulumi.output_type
-class StreamingDistributionStreamingDistributionConfig(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "s3Origin":
-            suggest = "s3_origin"
-        elif key == "trustedSigners":
-            suggest = "trusted_signers"
-        elif key == "priceClass":
-            suggest = "price_class"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StreamingDistributionStreamingDistributionConfig. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StreamingDistributionStreamingDistributionConfig.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StreamingDistributionStreamingDistributionConfig.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 comment: str,
-                 enabled: bool,
-                 s3_origin: 'outputs.StreamingDistributionS3Origin',
-                 trusted_signers: 'outputs.StreamingDistributionTrustedSigners',
-                 aliases: Optional[Sequence[str]] = None,
-                 logging: Optional['outputs.StreamingDistributionLogging'] = None,
-                 price_class: Optional[str] = None):
-        pulumi.set(__self__, "comment", comment)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "s3_origin", s3_origin)
-        pulumi.set(__self__, "trusted_signers", trusted_signers)
-        if aliases is not None:
-            pulumi.set(__self__, "aliases", aliases)
-        if logging is not None:
-            pulumi.set(__self__, "logging", logging)
-        if price_class is not None:
-            pulumi.set(__self__, "price_class", price_class)
-
-    @property
-    @pulumi.getter
-    def comment(self) -> str:
-        return pulumi.get(self, "comment")
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> bool:
-        return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter(name="s3Origin")
-    def s3_origin(self) -> 'outputs.StreamingDistributionS3Origin':
-        return pulumi.get(self, "s3_origin")
-
-    @property
-    @pulumi.getter(name="trustedSigners")
-    def trusted_signers(self) -> 'outputs.StreamingDistributionTrustedSigners':
-        return pulumi.get(self, "trusted_signers")
-
-    @property
-    @pulumi.getter
-    def aliases(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "aliases")
-
-    @property
-    @pulumi.getter
-    def logging(self) -> Optional['outputs.StreamingDistributionLogging']:
-        return pulumi.get(self, "logging")
-
-    @property
-    @pulumi.getter(name="priceClass")
-    def price_class(self) -> Optional[str]:
-        return pulumi.get(self, "price_class")
 
 
 @pulumi.output_type

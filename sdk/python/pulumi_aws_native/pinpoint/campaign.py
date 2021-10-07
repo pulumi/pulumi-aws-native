@@ -21,7 +21,7 @@ class CampaignArgs:
                  schedule: pulumi.Input['CampaignScheduleArgs'],
                  segment_id: pulumi.Input[str],
                  additional_treatments: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignWriteTreatmentResourceArgs']]]] = None,
-                 campaign_hook: Optional[pulumi.Input['CampaignCampaignHookArgs']] = None,
+                 campaign_hook: Optional[pulumi.Input['CampaignHookArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  holdout_percent: Optional[pulumi.Input[int]] = None,
                  is_paused: Optional[pulumi.Input[bool]] = None,
@@ -115,11 +115,11 @@ class CampaignArgs:
 
     @property
     @pulumi.getter(name="campaignHook")
-    def campaign_hook(self) -> Optional[pulumi.Input['CampaignCampaignHookArgs']]:
+    def campaign_hook(self) -> Optional[pulumi.Input['CampaignHookArgs']]:
         return pulumi.get(self, "campaign_hook")
 
     @campaign_hook.setter
-    def campaign_hook(self, value: Optional[pulumi.Input['CampaignCampaignHookArgs']]):
+    def campaign_hook(self, value: Optional[pulumi.Input['CampaignHookArgs']]):
         pulumi.set(self, "campaign_hook", value)
 
     @property
@@ -207,7 +207,7 @@ class Campaign(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_treatments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CampaignWriteTreatmentResourceArgs']]]]] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
-                 campaign_hook: Optional[pulumi.Input[pulumi.InputType['CampaignCampaignHookArgs']]] = None,
+                 campaign_hook: Optional[pulumi.Input[pulumi.InputType['CampaignHookArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  holdout_percent: Optional[pulumi.Input[int]] = None,
                  is_paused: Optional[pulumi.Input[bool]] = None,
@@ -253,7 +253,7 @@ class Campaign(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_treatments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CampaignWriteTreatmentResourceArgs']]]]] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
-                 campaign_hook: Optional[pulumi.Input[pulumi.InputType['CampaignCampaignHookArgs']]] = None,
+                 campaign_hook: Optional[pulumi.Input[pulumi.InputType['CampaignHookArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  holdout_percent: Optional[pulumi.Input[int]] = None,
                  is_paused: Optional[pulumi.Input[bool]] = None,
@@ -364,7 +364,7 @@ class Campaign(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="campaignHook")
-    def campaign_hook(self) -> pulumi.Output[Optional['outputs.CampaignCampaignHook']]:
+    def campaign_hook(self) -> pulumi.Output[Optional['outputs.CampaignHook']]:
         return pulumi.get(self, "campaign_hook")
 
     @property

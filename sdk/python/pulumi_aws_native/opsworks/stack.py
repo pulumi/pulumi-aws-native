@@ -23,7 +23,7 @@ class StackArgs:
                  chef_configuration: Optional[pulumi.Input['StackChefConfigurationArgs']] = None,
                  clone_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  clone_permissions: Optional[pulumi.Input[bool]] = None,
-                 configuration_manager: Optional[pulumi.Input['StackStackConfigurationManagerArgs']] = None,
+                 configuration_manager: Optional[pulumi.Input['StackConfigurationManagerArgs']] = None,
                  custom_cookbooks_source: Optional[pulumi.Input['StackSourceArgs']] = None,
                  custom_json: Optional[Any] = None,
                  default_availability_zone: Optional[pulumi.Input[str]] = None,
@@ -165,11 +165,11 @@ class StackArgs:
 
     @property
     @pulumi.getter(name="configurationManager")
-    def configuration_manager(self) -> Optional[pulumi.Input['StackStackConfigurationManagerArgs']]:
+    def configuration_manager(self) -> Optional[pulumi.Input['StackConfigurationManagerArgs']]:
         return pulumi.get(self, "configuration_manager")
 
     @configuration_manager.setter
-    def configuration_manager(self, value: Optional[pulumi.Input['StackStackConfigurationManagerArgs']]):
+    def configuration_manager(self, value: Optional[pulumi.Input['StackConfigurationManagerArgs']]):
         pulumi.set(self, "configuration_manager", value)
 
     @property
@@ -332,7 +332,7 @@ class Stack(pulumi.CustomResource):
                  chef_configuration: Optional[pulumi.Input[pulumi.InputType['StackChefConfigurationArgs']]] = None,
                  clone_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  clone_permissions: Optional[pulumi.Input[bool]] = None,
-                 configuration_manager: Optional[pulumi.Input[pulumi.InputType['StackStackConfigurationManagerArgs']]] = None,
+                 configuration_manager: Optional[pulumi.Input[pulumi.InputType['StackConfigurationManagerArgs']]] = None,
                  custom_cookbooks_source: Optional[pulumi.Input[pulumi.InputType['StackSourceArgs']]] = None,
                  custom_json: Optional[Any] = None,
                  default_availability_zone: Optional[pulumi.Input[str]] = None,
@@ -388,7 +388,7 @@ class Stack(pulumi.CustomResource):
                  chef_configuration: Optional[pulumi.Input[pulumi.InputType['StackChefConfigurationArgs']]] = None,
                  clone_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  clone_permissions: Optional[pulumi.Input[bool]] = None,
-                 configuration_manager: Optional[pulumi.Input[pulumi.InputType['StackStackConfigurationManagerArgs']]] = None,
+                 configuration_manager: Optional[pulumi.Input[pulumi.InputType['StackConfigurationManagerArgs']]] = None,
                  custom_cookbooks_source: Optional[pulumi.Input[pulumi.InputType['StackSourceArgs']]] = None,
                  custom_json: Optional[Any] = None,
                  default_availability_zone: Optional[pulumi.Input[str]] = None,
@@ -528,7 +528,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="configurationManager")
-    def configuration_manager(self) -> pulumi.Output[Optional['outputs.StackStackConfigurationManager']]:
+    def configuration_manager(self) -> pulumi.Output[Optional['outputs.StackConfigurationManager']]:
         return pulumi.get(self, "configuration_manager")
 
     @property

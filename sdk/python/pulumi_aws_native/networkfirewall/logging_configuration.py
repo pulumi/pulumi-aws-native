@@ -11,13 +11,13 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['LoggingConfigurationArgs', 'LoggingConfiguration']
+__all__ = ['LoggingConfigurationInitArgs', 'LoggingConfiguration']
 
 @pulumi.input_type
-class LoggingConfigurationArgs:
+class LoggingConfigurationInitArgs:
     def __init__(__self__, *,
                  firewall_arn: pulumi.Input[str],
-                 logging_configuration: pulumi.Input['LoggingConfigurationLoggingConfigurationArgs'],
+                 logging_configuration: pulumi.Input['LoggingConfigurationArgs'],
                  firewall_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LoggingConfiguration resource.
@@ -38,11 +38,11 @@ class LoggingConfigurationArgs:
 
     @property
     @pulumi.getter(name="loggingConfiguration")
-    def logging_configuration(self) -> pulumi.Input['LoggingConfigurationLoggingConfigurationArgs']:
+    def logging_configuration(self) -> pulumi.Input['LoggingConfigurationArgs']:
         return pulumi.get(self, "logging_configuration")
 
     @logging_configuration.setter
-    def logging_configuration(self, value: pulumi.Input['LoggingConfigurationLoggingConfigurationArgs']):
+    def logging_configuration(self, value: pulumi.Input['LoggingConfigurationArgs']):
         pulumi.set(self, "logging_configuration", value)
 
     @property
@@ -62,7 +62,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  firewall_arn: Optional[pulumi.Input[str]] = None,
                  firewall_name: Optional[pulumi.Input[str]] = None,
-                 logging_configuration: Optional[pulumi.Input[pulumi.InputType['LoggingConfigurationLoggingConfigurationArgs']]] = None,
+                 logging_configuration: Optional[pulumi.Input[pulumi.InputType['LoggingConfigurationArgs']]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::NetworkFirewall::LoggingConfiguration
@@ -74,18 +74,18 @@ class LoggingConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LoggingConfigurationArgs,
+                 args: LoggingConfigurationInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource type definition for AWS::NetworkFirewall::LoggingConfiguration
 
         :param str resource_name: The name of the resource.
-        :param LoggingConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param LoggingConfigurationInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LoggingConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LoggingConfigurationInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -96,7 +96,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  firewall_arn: Optional[pulumi.Input[str]] = None,
                  firewall_name: Optional[pulumi.Input[str]] = None,
-                 logging_configuration: Optional[pulumi.Input[pulumi.InputType['LoggingConfigurationLoggingConfigurationArgs']]] = None,
+                 logging_configuration: Optional[pulumi.Input[pulumi.InputType['LoggingConfigurationArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -107,7 +107,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LoggingConfigurationArgs.__new__(LoggingConfigurationArgs)
+            __props__ = LoggingConfigurationInitArgs.__new__(LoggingConfigurationInitArgs)
 
             if firewall_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'firewall_arn'")
@@ -136,7 +136,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = LoggingConfigurationArgs.__new__(LoggingConfigurationArgs)
+        __props__ = LoggingConfigurationInitArgs.__new__(LoggingConfigurationInitArgs)
 
         __props__.__dict__["firewall_arn"] = None
         __props__.__dict__["firewall_name"] = None
@@ -155,6 +155,6 @@ class LoggingConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loggingConfiguration")
-    def logging_configuration(self) -> pulumi.Output['outputs.LoggingConfigurationLoggingConfiguration']:
+    def logging_configuration(self) -> pulumi.Output['outputs.LoggingConfiguration']:
         return pulumi.get(self, "logging_configuration")
 

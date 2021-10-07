@@ -15,7 +15,7 @@ __all__ = [
     'DetectorModelAssetPropertyValueArgs',
     'DetectorModelAssetPropertyVariantArgs',
     'DetectorModelClearTimerArgs',
-    'DetectorModelDetectorModelDefinitionArgs',
+    'DetectorModelDefinitionArgs',
     'DetectorModelDynamoDBv2Args',
     'DetectorModelDynamoDBArgs',
     'DetectorModelEventArgs',
@@ -37,7 +37,7 @@ __all__ = [
     'DetectorModelTagArgs',
     'DetectorModelTransitionEventArgs',
     'InputAttributeArgs',
-    'InputInputDefinitionArgs',
+    'InputDefinitionArgs',
     'InputTagArgs',
 ]
 
@@ -383,7 +383,7 @@ class DetectorModelClearTimerArgs:
 
 
 @pulumi.input_type
-class DetectorModelDetectorModelDefinitionArgs:
+class DetectorModelDefinitionArgs:
     def __init__(__self__, *,
                  initial_state_name: pulumi.Input[str],
                  states: pulumi.Input[Sequence[pulumi.Input['DetectorModelStateArgs']]]):
@@ -1478,7 +1478,7 @@ class InputAttributeArgs:
 
 
 @pulumi.input_type
-class InputInputDefinitionArgs:
+class InputDefinitionArgs:
     def __init__(__self__, *,
                  attributes: pulumi.Input[Sequence[pulumi.Input['InputAttributeArgs']]]):
         """

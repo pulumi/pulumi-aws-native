@@ -10,8 +10,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'AliasAliasRoutingConfigurationArgs',
     'AliasProvisionedConcurrencyConfigurationArgs',
+    'AliasRoutingConfigurationArgs',
     'AliasVersionWeightArgs',
     'CodeSigningConfigAllowedPublishersArgs',
     'CodeSigningConfigCodeSigningPoliciesArgs',
@@ -36,22 +36,6 @@ __all__ = [
 ]
 
 @pulumi.input_type
-class AliasAliasRoutingConfigurationArgs:
-    def __init__(__self__, *,
-                 additional_version_weights: pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgs']]]):
-        pulumi.set(__self__, "additional_version_weights", additional_version_weights)
-
-    @property
-    @pulumi.getter(name="additionalVersionWeights")
-    def additional_version_weights(self) -> pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgs']]]:
-        return pulumi.get(self, "additional_version_weights")
-
-    @additional_version_weights.setter
-    def additional_version_weights(self, value: pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgs']]]):
-        pulumi.set(self, "additional_version_weights", value)
-
-
-@pulumi.input_type
 class AliasProvisionedConcurrencyConfigurationArgs:
     def __init__(__self__, *,
                  provisioned_concurrent_executions: pulumi.Input[int]):
@@ -65,6 +49,22 @@ class AliasProvisionedConcurrencyConfigurationArgs:
     @provisioned_concurrent_executions.setter
     def provisioned_concurrent_executions(self, value: pulumi.Input[int]):
         pulumi.set(self, "provisioned_concurrent_executions", value)
+
+
+@pulumi.input_type
+class AliasRoutingConfigurationArgs:
+    def __init__(__self__, *,
+                 additional_version_weights: pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgs']]]):
+        pulumi.set(__self__, "additional_version_weights", additional_version_weights)
+
+    @property
+    @pulumi.getter(name="additionalVersionWeights")
+    def additional_version_weights(self) -> pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgs']]]:
+        return pulumi.get(self, "additional_version_weights")
+
+    @additional_version_weights.setter
+    def additional_version_weights(self, value: pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgs']]]):
+        pulumi.set(self, "additional_version_weights", value)
 
 
 @pulumi.input_type

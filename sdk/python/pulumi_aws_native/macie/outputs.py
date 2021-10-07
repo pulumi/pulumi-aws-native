@@ -13,7 +13,7 @@ from ._enums import *
 __all__ = [
     'FindingsFilterCriterion',
     'FindingsFilterFindingCriteria',
-    'FindingsFilterFindingsFilterListItem',
+    'FindingsFilterListItem',
 ]
 
 @pulumi.output_type
@@ -42,7 +42,7 @@ class FindingsFilterFindingCriteria(dict):
 
 
 @pulumi.output_type
-class FindingsFilterFindingsFilterListItem(dict):
+class FindingsFilterListItem(dict):
     """
     Returned by ListHandler representing filter name and ID.
     """

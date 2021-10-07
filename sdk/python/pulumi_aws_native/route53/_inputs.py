@@ -10,10 +10,10 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'HealthCheckHealthCheckTagArgs',
-    'HostedZoneHostedZoneConfigArgs',
-    'HostedZoneHostedZoneTagArgs',
+    'HealthCheckTagArgs',
+    'HostedZoneConfigArgs',
     'HostedZoneQueryLoggingConfigArgs',
+    'HostedZoneTagArgs',
     'HostedZoneVPCArgs',
     'RecordSetAliasTargetArgs',
     'RecordSetGeoLocationArgs',
@@ -23,7 +23,7 @@ __all__ = [
 ]
 
 @pulumi.input_type
-class HealthCheckHealthCheckTagArgs:
+class HealthCheckTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -61,7 +61,7 @@ class HealthCheckHealthCheckTagArgs:
 
 
 @pulumi.input_type
-class HostedZoneHostedZoneConfigArgs:
+class HostedZoneConfigArgs:
     def __init__(__self__, *,
                  comment: Optional[pulumi.Input[str]] = None):
         """
@@ -87,7 +87,30 @@ class HostedZoneHostedZoneConfigArgs:
 
 
 @pulumi.input_type
-class HostedZoneHostedZoneTagArgs:
+class HostedZoneQueryLoggingConfigArgs:
+    def __init__(__self__, *,
+                 cloud_watch_logs_log_group_arn: pulumi.Input[str]):
+        """
+        A complex type that contains information about a configuration for DNS query logging.
+        :param pulumi.Input[str] cloud_watch_logs_log_group_arn: The Amazon Resource Name (ARN) of the CloudWatch Logs log group that Amazon Route 53 is publishing logs to.
+        """
+        pulumi.set(__self__, "cloud_watch_logs_log_group_arn", cloud_watch_logs_log_group_arn)
+
+    @property
+    @pulumi.getter(name="cloudWatchLogsLogGroupArn")
+    def cloud_watch_logs_log_group_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the CloudWatch Logs log group that Amazon Route 53 is publishing logs to.
+        """
+        return pulumi.get(self, "cloud_watch_logs_log_group_arn")
+
+    @cloud_watch_logs_log_group_arn.setter
+    def cloud_watch_logs_log_group_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cloud_watch_logs_log_group_arn", value)
+
+
+@pulumi.input_type
+class HostedZoneTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -122,29 +145,6 @@ class HostedZoneHostedZoneTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class HostedZoneQueryLoggingConfigArgs:
-    def __init__(__self__, *,
-                 cloud_watch_logs_log_group_arn: pulumi.Input[str]):
-        """
-        A complex type that contains information about a configuration for DNS query logging.
-        :param pulumi.Input[str] cloud_watch_logs_log_group_arn: The Amazon Resource Name (ARN) of the CloudWatch Logs log group that Amazon Route 53 is publishing logs to.
-        """
-        pulumi.set(__self__, "cloud_watch_logs_log_group_arn", cloud_watch_logs_log_group_arn)
-
-    @property
-    @pulumi.getter(name="cloudWatchLogsLogGroupArn")
-    def cloud_watch_logs_log_group_arn(self) -> pulumi.Input[str]:
-        """
-        The Amazon Resource Name (ARN) of the CloudWatch Logs log group that Amazon Route 53 is publishing logs to.
-        """
-        return pulumi.get(self, "cloud_watch_logs_log_group_arn")
-
-    @cloud_watch_logs_log_group_arn.setter
-    def cloud_watch_logs_log_group_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "cloud_watch_logs_log_group_arn", value)
 
 
 @pulumi.input_type

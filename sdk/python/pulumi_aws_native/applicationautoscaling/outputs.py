@@ -10,7 +10,7 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'ScalableTargetScalableTargetAction',
+    'ScalableTargetAction',
     'ScalableTargetScheduledAction',
     'ScalableTargetSuspendedState',
     'ScalingPolicyCustomizedMetricSpecification',
@@ -22,7 +22,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ScalableTargetScalableTargetAction(dict):
+class ScalableTargetAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -32,14 +32,14 @@ class ScalableTargetScalableTargetAction(dict):
             suggest = "min_capacity"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ScalableTargetScalableTargetAction. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ScalableTargetAction. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ScalableTargetScalableTargetAction.__key_warning(key)
+        ScalableTargetAction.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ScalableTargetScalableTargetAction.__key_warning(key)
+        ScalableTargetAction.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -90,7 +90,7 @@ class ScalableTargetScheduledAction(dict):
                  schedule: str,
                  scheduled_action_name: str,
                  end_time: Optional[str] = None,
-                 scalable_target_action: Optional['outputs.ScalableTargetScalableTargetAction'] = None,
+                 scalable_target_action: Optional['outputs.ScalableTargetAction'] = None,
                  start_time: Optional[str] = None,
                  timezone: Optional[str] = None):
         pulumi.set(__self__, "schedule", schedule)
@@ -121,7 +121,7 @@ class ScalableTargetScheduledAction(dict):
 
     @property
     @pulumi.getter(name="scalableTargetAction")
-    def scalable_target_action(self) -> Optional['outputs.ScalableTargetScalableTargetAction']:
+    def scalable_target_action(self) -> Optional['outputs.ScalableTargetAction']:
         return pulumi.get(self, "scalable_target_action")
 
     @property

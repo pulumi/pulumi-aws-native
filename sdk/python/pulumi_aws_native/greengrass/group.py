@@ -16,7 +16,7 @@ __all__ = ['GroupArgs', 'Group']
 class GroupArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 initial_version: Optional[pulumi.Input['GroupGroupVersionArgs']] = None,
+                 initial_version: Optional[pulumi.Input['GroupVersionArgs']] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None):
         """
@@ -41,11 +41,11 @@ class GroupArgs:
 
     @property
     @pulumi.getter(name="initialVersion")
-    def initial_version(self) -> Optional[pulumi.Input['GroupGroupVersionArgs']]:
+    def initial_version(self) -> Optional[pulumi.Input['GroupVersionArgs']]:
         return pulumi.get(self, "initial_version")
 
     @initial_version.setter
-    def initial_version(self, value: Optional[pulumi.Input['GroupGroupVersionArgs']]):
+    def initial_version(self, value: Optional[pulumi.Input['GroupVersionArgs']]):
         pulumi.set(self, "initial_version", value)
 
     @property
@@ -77,7 +77,7 @@ class Group(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 initial_version: Optional[pulumi.Input[pulumi.InputType['GroupGroupVersionArgs']]] = None,
+                 initial_version: Optional[pulumi.Input[pulumi.InputType['GroupVersionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
@@ -112,7 +112,7 @@ class Group(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 initial_version: Optional[pulumi.Input[pulumi.InputType['GroupGroupVersionArgs']]] = None,
+                 initial_version: Optional[pulumi.Input[pulumi.InputType['GroupVersionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
@@ -176,7 +176,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="initialVersion")
-    def initial_version(self) -> pulumi.Output[Optional['outputs.GroupGroupVersion']]:
+    def initial_version(self) -> pulumi.Output[Optional['outputs.GroupVersion']]:
         return pulumi.get(self, "initial_version")
 
     @property

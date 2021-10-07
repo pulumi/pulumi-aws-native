@@ -16,7 +16,7 @@ __all__ = ['LoadBalancerArgs', 'LoadBalancer']
 class LoadBalancerArgs:
     def __init__(__self__, *,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
-                 load_balancer_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerLoadBalancerAttributeArgs']]]] = None,
+                 load_balancer_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerAttributeArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  scheme: Optional[pulumi.Input[str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -57,11 +57,11 @@ class LoadBalancerArgs:
 
     @property
     @pulumi.getter(name="loadBalancerAttributes")
-    def load_balancer_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerLoadBalancerAttributeArgs']]]]:
+    def load_balancer_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerAttributeArgs']]]]:
         return pulumi.get(self, "load_balancer_attributes")
 
     @load_balancer_attributes.setter
-    def load_balancer_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerLoadBalancerAttributeArgs']]]]):
+    def load_balancer_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerAttributeArgs']]]]):
         pulumi.set(self, "load_balancer_attributes", value)
 
     @property
@@ -139,7 +139,7 @@ class LoadBalancer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
-                 load_balancer_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerLoadBalancerAttributeArgs']]]]] = None,
+                 load_balancer_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerAttributeArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  scheme: Optional[pulumi.Input[str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -179,7 +179,7 @@ class LoadBalancer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
-                 load_balancer_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerLoadBalancerAttributeArgs']]]]] = None,
+                 load_balancer_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerAttributeArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  scheme: Optional[pulumi.Input[str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -267,7 +267,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancerAttributes")
-    def load_balancer_attributes(self) -> pulumi.Output[Optional[Sequence['outputs.LoadBalancerLoadBalancerAttribute']]]:
+    def load_balancer_attributes(self) -> pulumi.Output[Optional[Sequence['outputs.LoadBalancerAttribute']]]:
         return pulumi.get(self, "load_balancer_attributes")
 
     @property

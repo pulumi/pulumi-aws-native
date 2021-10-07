@@ -22,7 +22,7 @@ class WorkspaceArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceTagArgs']]]] = None,
                  user_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  volume_encryption_key: Optional[pulumi.Input[str]] = None,
-                 workspace_properties: Optional[pulumi.Input['WorkspaceWorkspacePropertiesArgs']] = None):
+                 workspace_properties: Optional[pulumi.Input['WorkspacePropertiesArgs']] = None):
         """
         The set of arguments for constructing a Workspace resource.
         """
@@ -105,11 +105,11 @@ class WorkspaceArgs:
 
     @property
     @pulumi.getter(name="workspaceProperties")
-    def workspace_properties(self) -> Optional[pulumi.Input['WorkspaceWorkspacePropertiesArgs']]:
+    def workspace_properties(self) -> Optional[pulumi.Input['WorkspacePropertiesArgs']]:
         return pulumi.get(self, "workspace_properties")
 
     @workspace_properties.setter
-    def workspace_properties(self, value: Optional[pulumi.Input['WorkspaceWorkspacePropertiesArgs']]):
+    def workspace_properties(self, value: Optional[pulumi.Input['WorkspacePropertiesArgs']]):
         pulumi.set(self, "workspace_properties", value)
 
 
@@ -130,7 +130,7 @@ class Workspace(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[str]] = None,
                  user_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  volume_encryption_key: Optional[pulumi.Input[str]] = None,
-                 workspace_properties: Optional[pulumi.Input[pulumi.InputType['WorkspaceWorkspacePropertiesArgs']]] = None,
+                 workspace_properties: Optional[pulumi.Input[pulumi.InputType['WorkspacePropertiesArgs']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::WorkSpaces::Workspace
@@ -169,7 +169,7 @@ class Workspace(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[str]] = None,
                  user_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  volume_encryption_key: Optional[pulumi.Input[str]] = None,
-                 workspace_properties: Optional[pulumi.Input[pulumi.InputType['WorkspaceWorkspacePropertiesArgs']]] = None,
+                 workspace_properties: Optional[pulumi.Input[pulumi.InputType['WorkspacePropertiesArgs']]] = None,
                  __props__=None):
         pulumi.log.warn("""Workspace is deprecated: Workspace is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
@@ -266,6 +266,6 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workspaceProperties")
-    def workspace_properties(self) -> pulumi.Output[Optional['outputs.WorkspaceWorkspaceProperties']]:
+    def workspace_properties(self) -> pulumi.Output[Optional['outputs.WorkspaceProperties']]:
         return pulumi.get(self, "workspace_properties")
 

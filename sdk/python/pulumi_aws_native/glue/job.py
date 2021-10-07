@@ -15,7 +15,7 @@ __all__ = ['JobArgs', 'Job']
 @pulumi.input_type
 class JobArgs:
     def __init__(__self__, *,
-                 command: pulumi.Input['JobJobCommandArgs'],
+                 command: pulumi.Input['JobCommandArgs'],
                  role: pulumi.Input[str],
                  allocated_capacity: Optional[pulumi.Input[float]] = None,
                  connections: Optional[pulumi.Input['JobConnectionsListArgs']] = None,
@@ -73,11 +73,11 @@ class JobArgs:
 
     @property
     @pulumi.getter
-    def command(self) -> pulumi.Input['JobJobCommandArgs']:
+    def command(self) -> pulumi.Input['JobCommandArgs']:
         return pulumi.get(self, "command")
 
     @command.setter
-    def command(self, value: pulumi.Input['JobJobCommandArgs']):
+    def command(self, value: pulumi.Input['JobCommandArgs']):
         pulumi.set(self, "command", value)
 
     @property
@@ -245,7 +245,7 @@ class Job(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocated_capacity: Optional[pulumi.Input[float]] = None,
-                 command: Optional[pulumi.Input[pulumi.InputType['JobJobCommandArgs']]] = None,
+                 command: Optional[pulumi.Input[pulumi.InputType['JobCommandArgs']]] = None,
                  connections: Optional[pulumi.Input[pulumi.InputType['JobConnectionsListArgs']]] = None,
                  default_arguments: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -294,7 +294,7 @@ class Job(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocated_capacity: Optional[pulumi.Input[float]] = None,
-                 command: Optional[pulumi.Input[pulumi.InputType['JobJobCommandArgs']]] = None,
+                 command: Optional[pulumi.Input[pulumi.InputType['JobCommandArgs']]] = None,
                  connections: Optional[pulumi.Input[pulumi.InputType['JobConnectionsListArgs']]] = None,
                  default_arguments: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -395,7 +395,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def command(self) -> pulumi.Output['outputs.JobJobCommand']:
+    def command(self) -> pulumi.Output['outputs.JobCommand']:
         return pulumi.get(self, "command")
 
     @property

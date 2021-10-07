@@ -26,7 +26,7 @@ __all__ = [
     'ReceiptRuleSNSActionArgs',
     'ReceiptRuleStopActionArgs',
     'ReceiptRuleWorkmailActionArgs',
-    'TemplateTemplateArgs',
+    'TemplateArgs',
 ]
 
 @pulumi.input_type
@@ -754,7 +754,7 @@ class ReceiptRuleWorkmailActionArgs:
 
 
 @pulumi.input_type
-class TemplateTemplateArgs:
+class TemplateArgs:
     def __init__(__self__, *,
                  html_part: Optional[pulumi.Input[str]] = None,
                  subject_part: Optional[pulumi.Input[str]] = None,

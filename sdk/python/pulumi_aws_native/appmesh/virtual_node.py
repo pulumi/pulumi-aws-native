@@ -16,7 +16,7 @@ __all__ = ['VirtualNodeArgs', 'VirtualNode']
 class VirtualNodeArgs:
     def __init__(__self__, *,
                  mesh_name: pulumi.Input[str],
-                 spec: pulumi.Input['VirtualNodeVirtualNodeSpecArgs'],
+                 spec: pulumi.Input['VirtualNodeSpecArgs'],
                  mesh_owner: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeTagArgs']]]] = None,
                  virtual_node_name: Optional[pulumi.Input[str]] = None):
@@ -43,11 +43,11 @@ class VirtualNodeArgs:
 
     @property
     @pulumi.getter
-    def spec(self) -> pulumi.Input['VirtualNodeVirtualNodeSpecArgs']:
+    def spec(self) -> pulumi.Input['VirtualNodeSpecArgs']:
         return pulumi.get(self, "spec")
 
     @spec.setter
-    def spec(self, value: pulumi.Input['VirtualNodeVirtualNodeSpecArgs']):
+    def spec(self, value: pulumi.Input['VirtualNodeSpecArgs']):
         pulumi.set(self, "spec", value)
 
     @property
@@ -90,7 +90,7 @@ class VirtualNode(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  mesh_name: Optional[pulumi.Input[str]] = None,
                  mesh_owner: Optional[pulumi.Input[str]] = None,
-                 spec: Optional[pulumi.Input[pulumi.InputType['VirtualNodeVirtualNodeSpecArgs']]] = None,
+                 spec: Optional[pulumi.Input[pulumi.InputType['VirtualNodeSpecArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNodeTagArgs']]]]] = None,
                  virtual_node_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -126,7 +126,7 @@ class VirtualNode(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  mesh_name: Optional[pulumi.Input[str]] = None,
                  mesh_owner: Optional[pulumi.Input[str]] = None,
-                 spec: Optional[pulumi.Input[pulumi.InputType['VirtualNodeVirtualNodeSpecArgs']]] = None,
+                 spec: Optional[pulumi.Input[pulumi.InputType['VirtualNodeSpecArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNodeTagArgs']]]]] = None,
                  virtual_node_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -208,7 +208,7 @@ class VirtualNode(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def spec(self) -> pulumi.Output['outputs.VirtualNodeVirtualNodeSpec']:
+    def spec(self) -> pulumi.Output['outputs.VirtualNodeSpec']:
         return pulumi.get(self, "spec")
 
     @property

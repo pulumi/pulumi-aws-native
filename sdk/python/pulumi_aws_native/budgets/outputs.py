@@ -11,8 +11,8 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'BudgetBudgetData',
     'BudgetCostTypes',
+    'BudgetData',
     'BudgetNotification',
     'BudgetNotificationWithSubscribers',
     'BudgetSpend',
@@ -25,104 +25,6 @@ __all__ = [
     'BudgetsActionSsmActionDefinition',
     'BudgetsActionSubscriber',
 ]
-
-@pulumi.output_type
-class BudgetBudgetData(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "budgetType":
-            suggest = "budget_type"
-        elif key == "timeUnit":
-            suggest = "time_unit"
-        elif key == "budgetLimit":
-            suggest = "budget_limit"
-        elif key == "budgetName":
-            suggest = "budget_name"
-        elif key == "costFilters":
-            suggest = "cost_filters"
-        elif key == "costTypes":
-            suggest = "cost_types"
-        elif key == "plannedBudgetLimits":
-            suggest = "planned_budget_limits"
-        elif key == "timePeriod":
-            suggest = "time_period"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in BudgetBudgetData. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        BudgetBudgetData.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        BudgetBudgetData.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 budget_type: str,
-                 time_unit: str,
-                 budget_limit: Optional['outputs.BudgetSpend'] = None,
-                 budget_name: Optional[str] = None,
-                 cost_filters: Optional[Any] = None,
-                 cost_types: Optional['outputs.BudgetCostTypes'] = None,
-                 planned_budget_limits: Optional[Any] = None,
-                 time_period: Optional['outputs.BudgetTimePeriod'] = None):
-        pulumi.set(__self__, "budget_type", budget_type)
-        pulumi.set(__self__, "time_unit", time_unit)
-        if budget_limit is not None:
-            pulumi.set(__self__, "budget_limit", budget_limit)
-        if budget_name is not None:
-            pulumi.set(__self__, "budget_name", budget_name)
-        if cost_filters is not None:
-            pulumi.set(__self__, "cost_filters", cost_filters)
-        if cost_types is not None:
-            pulumi.set(__self__, "cost_types", cost_types)
-        if planned_budget_limits is not None:
-            pulumi.set(__self__, "planned_budget_limits", planned_budget_limits)
-        if time_period is not None:
-            pulumi.set(__self__, "time_period", time_period)
-
-    @property
-    @pulumi.getter(name="budgetType")
-    def budget_type(self) -> str:
-        return pulumi.get(self, "budget_type")
-
-    @property
-    @pulumi.getter(name="timeUnit")
-    def time_unit(self) -> str:
-        return pulumi.get(self, "time_unit")
-
-    @property
-    @pulumi.getter(name="budgetLimit")
-    def budget_limit(self) -> Optional['outputs.BudgetSpend']:
-        return pulumi.get(self, "budget_limit")
-
-    @property
-    @pulumi.getter(name="budgetName")
-    def budget_name(self) -> Optional[str]:
-        return pulumi.get(self, "budget_name")
-
-    @property
-    @pulumi.getter(name="costFilters")
-    def cost_filters(self) -> Optional[Any]:
-        return pulumi.get(self, "cost_filters")
-
-    @property
-    @pulumi.getter(name="costTypes")
-    def cost_types(self) -> Optional['outputs.BudgetCostTypes']:
-        return pulumi.get(self, "cost_types")
-
-    @property
-    @pulumi.getter(name="plannedBudgetLimits")
-    def planned_budget_limits(self) -> Optional[Any]:
-        return pulumi.get(self, "planned_budget_limits")
-
-    @property
-    @pulumi.getter(name="timePeriod")
-    def time_period(self) -> Optional['outputs.BudgetTimePeriod']:
-        return pulumi.get(self, "time_period")
-
 
 @pulumi.output_type
 class BudgetCostTypes(dict):
@@ -252,6 +154,104 @@ class BudgetCostTypes(dict):
     @pulumi.getter(name="useBlended")
     def use_blended(self) -> Optional[bool]:
         return pulumi.get(self, "use_blended")
+
+
+@pulumi.output_type
+class BudgetData(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "budgetType":
+            suggest = "budget_type"
+        elif key == "timeUnit":
+            suggest = "time_unit"
+        elif key == "budgetLimit":
+            suggest = "budget_limit"
+        elif key == "budgetName":
+            suggest = "budget_name"
+        elif key == "costFilters":
+            suggest = "cost_filters"
+        elif key == "costTypes":
+            suggest = "cost_types"
+        elif key == "plannedBudgetLimits":
+            suggest = "planned_budget_limits"
+        elif key == "timePeriod":
+            suggest = "time_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BudgetData. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BudgetData.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BudgetData.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 budget_type: str,
+                 time_unit: str,
+                 budget_limit: Optional['outputs.BudgetSpend'] = None,
+                 budget_name: Optional[str] = None,
+                 cost_filters: Optional[Any] = None,
+                 cost_types: Optional['outputs.BudgetCostTypes'] = None,
+                 planned_budget_limits: Optional[Any] = None,
+                 time_period: Optional['outputs.BudgetTimePeriod'] = None):
+        pulumi.set(__self__, "budget_type", budget_type)
+        pulumi.set(__self__, "time_unit", time_unit)
+        if budget_limit is not None:
+            pulumi.set(__self__, "budget_limit", budget_limit)
+        if budget_name is not None:
+            pulumi.set(__self__, "budget_name", budget_name)
+        if cost_filters is not None:
+            pulumi.set(__self__, "cost_filters", cost_filters)
+        if cost_types is not None:
+            pulumi.set(__self__, "cost_types", cost_types)
+        if planned_budget_limits is not None:
+            pulumi.set(__self__, "planned_budget_limits", planned_budget_limits)
+        if time_period is not None:
+            pulumi.set(__self__, "time_period", time_period)
+
+    @property
+    @pulumi.getter(name="budgetType")
+    def budget_type(self) -> str:
+        return pulumi.get(self, "budget_type")
+
+    @property
+    @pulumi.getter(name="timeUnit")
+    def time_unit(self) -> str:
+        return pulumi.get(self, "time_unit")
+
+    @property
+    @pulumi.getter(name="budgetLimit")
+    def budget_limit(self) -> Optional['outputs.BudgetSpend']:
+        return pulumi.get(self, "budget_limit")
+
+    @property
+    @pulumi.getter(name="budgetName")
+    def budget_name(self) -> Optional[str]:
+        return pulumi.get(self, "budget_name")
+
+    @property
+    @pulumi.getter(name="costFilters")
+    def cost_filters(self) -> Optional[Any]:
+        return pulumi.get(self, "cost_filters")
+
+    @property
+    @pulumi.getter(name="costTypes")
+    def cost_types(self) -> Optional['outputs.BudgetCostTypes']:
+        return pulumi.get(self, "cost_types")
+
+    @property
+    @pulumi.getter(name="plannedBudgetLimits")
+    def planned_budget_limits(self) -> Optional[Any]:
+        return pulumi.get(self, "planned_budget_limits")
+
+    @property
+    @pulumi.getter(name="timePeriod")
+    def time_period(self) -> Optional['outputs.BudgetTimePeriod']:
+        return pulumi.get(self, "time_period")
 
 
 @pulumi.output_type

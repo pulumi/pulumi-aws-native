@@ -18,7 +18,6 @@ __all__ = [
     'ContainerRecipeTargetContainerRepository',
     'DistributionConfigurationDistribution',
     'DistributionConfigurationLaunchTemplateConfiguration',
-    'ImageImageTestsConfiguration',
     'ImagePipelineImageTestsConfiguration',
     'ImagePipelineSchedule',
     'ImageRecipeAdditionalInstanceConfiguration',
@@ -27,6 +26,7 @@ __all__ = [
     'ImageRecipeEbsInstanceBlockDeviceSpecification',
     'ImageRecipeInstanceBlockDeviceMapping',
     'ImageRecipeSystemsManagerAgent',
+    'ImageTestsConfiguration',
     'InfrastructureConfigurationLogging',
     'InfrastructureConfigurationS3Logs',
 ]
@@ -537,60 +537,6 @@ class DistributionConfigurationLaunchTemplateConfiguration(dict):
 
 
 @pulumi.output_type
-class ImageImageTestsConfiguration(dict):
-    """
-    The image tests configuration used when creating this image.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "imageTestsEnabled":
-            suggest = "image_tests_enabled"
-        elif key == "timeoutMinutes":
-            suggest = "timeout_minutes"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ImageImageTestsConfiguration. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ImageImageTestsConfiguration.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ImageImageTestsConfiguration.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 image_tests_enabled: Optional[bool] = None,
-                 timeout_minutes: Optional[int] = None):
-        """
-        The image tests configuration used when creating this image.
-        :param bool image_tests_enabled: ImageTestsEnabled
-        :param int timeout_minutes: TimeoutMinutes
-        """
-        if image_tests_enabled is not None:
-            pulumi.set(__self__, "image_tests_enabled", image_tests_enabled)
-        if timeout_minutes is not None:
-            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
-
-    @property
-    @pulumi.getter(name="imageTestsEnabled")
-    def image_tests_enabled(self) -> Optional[bool]:
-        """
-        ImageTestsEnabled
-        """
-        return pulumi.get(self, "image_tests_enabled")
-
-    @property
-    @pulumi.getter(name="timeoutMinutes")
-    def timeout_minutes(self) -> Optional[int]:
-        """
-        TimeoutMinutes
-        """
-        return pulumi.get(self, "timeout_minutes")
-
-
-@pulumi.output_type
 class ImagePipelineImageTestsConfiguration(dict):
     """
     Image tests configuration.
@@ -1075,6 +1021,60 @@ class ImageRecipeSystemsManagerAgent(dict):
         Controls whether the SSM agent is removed from your final build image, prior to creating the new AMI. If this is set to true, then the agent is removed from the final image. If it's set to false, then the agent is left in, so that it is included in the new AMI. The default value is false.
         """
         return pulumi.get(self, "uninstall_after_build")
+
+
+@pulumi.output_type
+class ImageTestsConfiguration(dict):
+    """
+    The image tests configuration used when creating this image.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageTestsEnabled":
+            suggest = "image_tests_enabled"
+        elif key == "timeoutMinutes":
+            suggest = "timeout_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageTestsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageTestsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageTestsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image_tests_enabled: Optional[bool] = None,
+                 timeout_minutes: Optional[int] = None):
+        """
+        The image tests configuration used when creating this image.
+        :param bool image_tests_enabled: ImageTestsEnabled
+        :param int timeout_minutes: TimeoutMinutes
+        """
+        if image_tests_enabled is not None:
+            pulumi.set(__self__, "image_tests_enabled", image_tests_enabled)
+        if timeout_minutes is not None:
+            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+
+    @property
+    @pulumi.getter(name="imageTestsEnabled")
+    def image_tests_enabled(self) -> Optional[bool]:
+        """
+        ImageTestsEnabled
+        """
+        return pulumi.get(self, "image_tests_enabled")
+
+    @property
+    @pulumi.getter(name="timeoutMinutes")
+    def timeout_minutes(self) -> Optional[int]:
+        """
+        TimeoutMinutes
+        """
+        return pulumi.get(self, "timeout_minutes")
 
 
 @pulumi.output_type

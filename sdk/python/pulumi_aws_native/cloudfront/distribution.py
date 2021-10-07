@@ -15,7 +15,7 @@ __all__ = ['DistributionArgs', 'Distribution']
 @pulumi.input_type
 class DistributionArgs:
     def __init__(__self__, *,
-                 distribution_config: pulumi.Input['DistributionDistributionConfigArgs'],
+                 distribution_config: pulumi.Input['DistributionConfigArgs'],
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTagArgs']]]] = None):
         """
         The set of arguments for constructing a Distribution resource.
@@ -26,11 +26,11 @@ class DistributionArgs:
 
     @property
     @pulumi.getter(name="distributionConfig")
-    def distribution_config(self) -> pulumi.Input['DistributionDistributionConfigArgs']:
+    def distribution_config(self) -> pulumi.Input['DistributionConfigArgs']:
         return pulumi.get(self, "distribution_config")
 
     @distribution_config.setter
-    def distribution_config(self, value: pulumi.Input['DistributionDistributionConfigArgs']):
+    def distribution_config(self, value: pulumi.Input['DistributionConfigArgs']):
         pulumi.set(self, "distribution_config", value)
 
     @property
@@ -48,7 +48,7 @@ class Distribution(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 distribution_config: Optional[pulumi.Input[pulumi.InputType['DistributionDistributionConfigArgs']]] = None,
+                 distribution_config: Optional[pulumi.Input[pulumi.InputType['DistributionConfigArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -81,7 +81,7 @@ class Distribution(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 distribution_config: Optional[pulumi.Input[pulumi.InputType['DistributionDistributionConfigArgs']]] = None,
+                 distribution_config: Optional[pulumi.Input[pulumi.InputType['DistributionConfigArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -129,7 +129,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="distributionConfig")
-    def distribution_config(self) -> pulumi.Output['outputs.DistributionDistributionConfig']:
+    def distribution_config(self) -> pulumi.Output['outputs.DistributionConfig']:
         return pulumi.get(self, "distribution_config")
 
     @property

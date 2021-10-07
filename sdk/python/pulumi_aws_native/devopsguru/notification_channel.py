@@ -15,7 +15,7 @@ __all__ = ['NotificationChannelArgs', 'NotificationChannel']
 @pulumi.input_type
 class NotificationChannelArgs:
     def __init__(__self__, *,
-                 config: pulumi.Input['NotificationChannelNotificationChannelConfigArgs']):
+                 config: pulumi.Input['NotificationChannelConfigArgs']):
         """
         The set of arguments for constructing a NotificationChannel resource.
         """
@@ -23,11 +23,11 @@ class NotificationChannelArgs:
 
     @property
     @pulumi.getter
-    def config(self) -> pulumi.Input['NotificationChannelNotificationChannelConfigArgs']:
+    def config(self) -> pulumi.Input['NotificationChannelConfigArgs']:
         return pulumi.get(self, "config")
 
     @config.setter
-    def config(self, value: pulumi.Input['NotificationChannelNotificationChannelConfigArgs']):
+    def config(self, value: pulumi.Input['NotificationChannelConfigArgs']):
         pulumi.set(self, "config", value)
 
 
@@ -36,7 +36,7 @@ class NotificationChannel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[pulumi.InputType['NotificationChannelNotificationChannelConfigArgs']]] = None,
+                 config: Optional[pulumi.Input[pulumi.InputType['NotificationChannelConfigArgs']]] = None,
                  __props__=None):
         """
         This resource schema represents the NotificationChannel resource in the Amazon DevOps Guru.
@@ -68,7 +68,7 @@ class NotificationChannel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[pulumi.InputType['NotificationChannelNotificationChannelConfigArgs']]] = None,
+                 config: Optional[pulumi.Input[pulumi.InputType['NotificationChannelConfigArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -111,6 +111,6 @@ class NotificationChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def config(self) -> pulumi.Output['outputs.NotificationChannelNotificationChannelConfig']:
+    def config(self) -> pulumi.Output['outputs.NotificationChannelConfig']:
         return pulumi.get(self, "config")
 

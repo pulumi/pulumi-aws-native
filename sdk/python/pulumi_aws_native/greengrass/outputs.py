@@ -11,22 +11,22 @@ from . import outputs
 
 __all__ = [
     'ConnectorDefinitionConnector',
-    'ConnectorDefinitionConnectorDefinitionVersion',
+    'ConnectorDefinitionVersion',
     'ConnectorDefinitionVersionConnector',
     'CoreDefinitionCore',
-    'CoreDefinitionCoreDefinitionVersion',
+    'CoreDefinitionVersion',
     'CoreDefinitionVersionCore',
     'DeviceDefinitionDevice',
-    'DeviceDefinitionDeviceDefinitionVersion',
+    'DeviceDefinitionVersion',
     'DeviceDefinitionVersionDevice',
     'FunctionDefinitionDefaultConfig',
     'FunctionDefinitionEnvironment',
     'FunctionDefinitionExecution',
     'FunctionDefinitionFunction',
     'FunctionDefinitionFunctionConfiguration',
-    'FunctionDefinitionFunctionDefinitionVersion',
     'FunctionDefinitionResourceAccessPolicy',
     'FunctionDefinitionRunAs',
+    'FunctionDefinitionVersion',
     'FunctionDefinitionVersionDefaultConfig',
     'FunctionDefinitionVersionEnvironment',
     'FunctionDefinitionVersionExecution',
@@ -34,20 +34,20 @@ __all__ = [
     'FunctionDefinitionVersionFunctionConfiguration',
     'FunctionDefinitionVersionResourceAccessPolicy',
     'FunctionDefinitionVersionRunAs',
-    'GroupGroupVersion',
+    'GroupVersion',
     'LoggerDefinitionLogger',
-    'LoggerDefinitionLoggerDefinitionVersion',
+    'LoggerDefinitionVersion',
     'LoggerDefinitionVersionLogger',
     'ResourceDefinitionGroupOwnerSetting',
     'ResourceDefinitionLocalDeviceResourceData',
     'ResourceDefinitionLocalVolumeResourceData',
     'ResourceDefinitionResourceDataContainer',
-    'ResourceDefinitionResourceDefinitionVersion',
     'ResourceDefinitionResourceDownloadOwnerSetting',
     'ResourceDefinitionResourceInstance',
     'ResourceDefinitionS3MachineLearningModelResourceData',
     'ResourceDefinitionSageMakerMachineLearningModelResourceData',
     'ResourceDefinitionSecretsManagerSecretResourceData',
+    'ResourceDefinitionVersion',
     'ResourceDefinitionVersionGroupOwnerSetting',
     'ResourceDefinitionVersionLocalDeviceResourceData',
     'ResourceDefinitionVersionLocalVolumeResourceData',
@@ -58,7 +58,7 @@ __all__ = [
     'ResourceDefinitionVersionSageMakerMachineLearningModelResourceData',
     'ResourceDefinitionVersionSecretsManagerSecretResourceData',
     'SubscriptionDefinitionSubscription',
-    'SubscriptionDefinitionSubscriptionDefinitionVersion',
+    'SubscriptionDefinitionVersion',
     'SubscriptionDefinitionVersionSubscription',
 ]
 
@@ -107,7 +107,7 @@ class ConnectorDefinitionConnector(dict):
 
 
 @pulumi.output_type
-class ConnectorDefinitionConnectorDefinitionVersion(dict):
+class ConnectorDefinitionVersion(dict):
     def __init__(__self__, *,
                  connectors: Sequence['outputs.ConnectorDefinitionConnector']):
         pulumi.set(__self__, "connectors", connectors)
@@ -218,7 +218,7 @@ class CoreDefinitionCore(dict):
 
 
 @pulumi.output_type
-class CoreDefinitionCoreDefinitionVersion(dict):
+class CoreDefinitionVersion(dict):
     def __init__(__self__, *,
                  cores: Sequence['outputs.CoreDefinitionCore']):
         pulumi.set(__self__, "cores", cores)
@@ -340,7 +340,7 @@ class DeviceDefinitionDevice(dict):
 
 
 @pulumi.output_type
-class DeviceDefinitionDeviceDefinitionVersion(dict):
+class DeviceDefinitionVersion(dict):
     def __init__(__self__, *,
                  devices: Sequence['outputs.DeviceDefinitionDevice']):
         pulumi.set(__self__, "devices", devices)
@@ -642,43 +642,6 @@ class FunctionDefinitionFunctionConfiguration(dict):
 
 
 @pulumi.output_type
-class FunctionDefinitionFunctionDefinitionVersion(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "defaultConfig":
-            suggest = "default_config"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FunctionDefinitionFunctionDefinitionVersion. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FunctionDefinitionFunctionDefinitionVersion.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FunctionDefinitionFunctionDefinitionVersion.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 functions: Sequence['outputs.FunctionDefinitionFunction'],
-                 default_config: Optional['outputs.FunctionDefinitionDefaultConfig'] = None):
-        pulumi.set(__self__, "functions", functions)
-        if default_config is not None:
-            pulumi.set(__self__, "default_config", default_config)
-
-    @property
-    @pulumi.getter
-    def functions(self) -> Sequence['outputs.FunctionDefinitionFunction']:
-        return pulumi.get(self, "functions")
-
-    @property
-    @pulumi.getter(name="defaultConfig")
-    def default_config(self) -> Optional['outputs.FunctionDefinitionDefaultConfig']:
-        return pulumi.get(self, "default_config")
-
-
-@pulumi.output_type
 class FunctionDefinitionResourceAccessPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -734,6 +697,43 @@ class FunctionDefinitionRunAs(dict):
     @pulumi.getter
     def uid(self) -> Optional[int]:
         return pulumi.get(self, "uid")
+
+
+@pulumi.output_type
+class FunctionDefinitionVersion(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultConfig":
+            suggest = "default_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionDefinitionVersion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionDefinitionVersion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionDefinitionVersion.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 functions: Sequence['outputs.FunctionDefinitionFunction'],
+                 default_config: Optional['outputs.FunctionDefinitionDefaultConfig'] = None):
+        pulumi.set(__self__, "functions", functions)
+        if default_config is not None:
+            pulumi.set(__self__, "default_config", default_config)
+
+    @property
+    @pulumi.getter
+    def functions(self) -> Sequence['outputs.FunctionDefinitionFunction']:
+        return pulumi.get(self, "functions")
+
+    @property
+    @pulumi.getter(name="defaultConfig")
+    def default_config(self) -> Optional['outputs.FunctionDefinitionDefaultConfig']:
+        return pulumi.get(self, "default_config")
 
 
 @pulumi.output_type
@@ -1030,7 +1030,7 @@ class FunctionDefinitionVersionRunAs(dict):
 
 
 @pulumi.output_type
-class GroupGroupVersion(dict):
+class GroupVersion(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1050,14 +1050,14 @@ class GroupGroupVersion(dict):
             suggest = "subscription_definition_version_arn"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GroupGroupVersion. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in GroupVersion. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        GroupGroupVersion.__key_warning(key)
+        GroupVersion.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        GroupGroupVersion.__key_warning(key)
+        GroupVersion.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1161,7 +1161,7 @@ class LoggerDefinitionLogger(dict):
 
 
 @pulumi.output_type
-class LoggerDefinitionLoggerDefinitionVersion(dict):
+class LoggerDefinitionVersion(dict):
     def __init__(__self__, *,
                  loggers: Sequence['outputs.LoggerDefinitionLogger']):
         pulumi.set(__self__, "loggers", loggers)
@@ -1410,18 +1410,6 @@ class ResourceDefinitionResourceDataContainer(dict):
 
 
 @pulumi.output_type
-class ResourceDefinitionResourceDefinitionVersion(dict):
-    def __init__(__self__, *,
-                 resources: Sequence['outputs.ResourceDefinitionResourceInstance']):
-        pulumi.set(__self__, "resources", resources)
-
-    @property
-    @pulumi.getter
-    def resources(self) -> Sequence['outputs.ResourceDefinitionResourceInstance']:
-        return pulumi.get(self, "resources")
-
-
-@pulumi.output_type
 class ResourceDefinitionResourceDownloadOwnerSetting(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1635,6 +1623,18 @@ class ResourceDefinitionSecretsManagerSecretResourceData(dict):
     @pulumi.getter(name="additionalStagingLabelsToDownload")
     def additional_staging_labels_to_download(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "additional_staging_labels_to_download")
+
+
+@pulumi.output_type
+class ResourceDefinitionVersion(dict):
+    def __init__(__self__, *,
+                 resources: Sequence['outputs.ResourceDefinitionResourceInstance']):
+        pulumi.set(__self__, "resources", resources)
+
+    @property
+    @pulumi.getter
+    def resources(self) -> Sequence['outputs.ResourceDefinitionResourceInstance']:
+        return pulumi.get(self, "resources")
 
 
 @pulumi.output_type
@@ -2083,7 +2083,7 @@ class SubscriptionDefinitionSubscription(dict):
 
 
 @pulumi.output_type
-class SubscriptionDefinitionSubscriptionDefinitionVersion(dict):
+class SubscriptionDefinitionVersion(dict):
     def __init__(__self__, *,
                  subscriptions: Sequence['outputs.SubscriptionDefinitionSubscription']):
         pulumi.set(__self__, "subscriptions", subscriptions)

@@ -20,7 +20,7 @@ class AliasArgs:
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  provisioned_concurrency_config: Optional[pulumi.Input['AliasProvisionedConcurrencyConfigurationArgs']] = None,
-                 routing_config: Optional[pulumi.Input['AliasAliasRoutingConfigurationArgs']] = None):
+                 routing_config: Optional[pulumi.Input['AliasRoutingConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Alias resource.
         """
@@ -81,11 +81,11 @@ class AliasArgs:
 
     @property
     @pulumi.getter(name="routingConfig")
-    def routing_config(self) -> Optional[pulumi.Input['AliasAliasRoutingConfigurationArgs']]:
+    def routing_config(self) -> Optional[pulumi.Input['AliasRoutingConfigurationArgs']]:
         return pulumi.get(self, "routing_config")
 
     @routing_config.setter
-    def routing_config(self, value: Optional[pulumi.Input['AliasAliasRoutingConfigurationArgs']]):
+    def routing_config(self, value: Optional[pulumi.Input['AliasRoutingConfigurationArgs']]):
         pulumi.set(self, "routing_config", value)
 
 
@@ -104,7 +104,7 @@ class Alias(pulumi.CustomResource):
                  function_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  provisioned_concurrency_config: Optional[pulumi.Input[pulumi.InputType['AliasProvisionedConcurrencyConfigurationArgs']]] = None,
-                 routing_config: Optional[pulumi.Input[pulumi.InputType['AliasAliasRoutingConfigurationArgs']]] = None,
+                 routing_config: Optional[pulumi.Input[pulumi.InputType['AliasRoutingConfigurationArgs']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Lambda::Alias
@@ -141,7 +141,7 @@ class Alias(pulumi.CustomResource):
                  function_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  provisioned_concurrency_config: Optional[pulumi.Input[pulumi.InputType['AliasProvisionedConcurrencyConfigurationArgs']]] = None,
-                 routing_config: Optional[pulumi.Input[pulumi.InputType['AliasAliasRoutingConfigurationArgs']]] = None,
+                 routing_config: Optional[pulumi.Input[pulumi.InputType['AliasRoutingConfigurationArgs']]] = None,
                  __props__=None):
         pulumi.log.warn("""Alias is deprecated: Alias is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
@@ -224,6 +224,6 @@ class Alias(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routingConfig")
-    def routing_config(self) -> pulumi.Output[Optional['outputs.AliasAliasRoutingConfiguration']]:
+    def routing_config(self) -> pulumi.Output[Optional['outputs.AliasRoutingConfiguration']]:
         return pulumi.get(self, "routing_config")
 

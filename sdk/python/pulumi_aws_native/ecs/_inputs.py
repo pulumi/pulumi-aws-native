@@ -15,10 +15,10 @@ __all__ = [
     'CapacityProviderTagArgs',
     'ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs',
     'ClusterCapacityProviderStrategyItemArgs',
-    'ClusterClusterConfigurationArgs',
-    'ClusterClusterSettingsArgs',
+    'ClusterConfigurationArgs',
     'ClusterExecuteCommandConfigurationArgs',
     'ClusterExecuteCommandLogConfigurationArgs',
+    'ClusterSettingsArgs',
     'ClusterTagArgs',
     'ServiceAwsVpcConfigurationArgs',
     'ServiceCapacityProviderStrategyItemArgs',
@@ -29,7 +29,7 @@ __all__ = [
     'ServiceNetworkConfigurationArgs',
     'ServicePlacementConstraintArgs',
     'ServicePlacementStrategyArgs',
-    'ServiceServiceRegistryArgs',
+    'ServiceRegistryArgs',
     'ServiceTagArgs',
     'TaskDefinitionAuthorizationConfigArgs',
     'TaskDefinitionContainerDefinitionArgs',
@@ -49,6 +49,7 @@ __all__ = [
     'TaskDefinitionLinuxParametersArgs',
     'TaskDefinitionLogConfigurationArgs',
     'TaskDefinitionMountPointArgs',
+    'TaskDefinitionPlacementConstraintArgs',
     'TaskDefinitionPortMappingArgs',
     'TaskDefinitionProxyConfigurationArgs',
     'TaskDefinitionRepositoryCredentialsArgs',
@@ -56,7 +57,6 @@ __all__ = [
     'TaskDefinitionSecretArgs',
     'TaskDefinitionSystemControlArgs',
     'TaskDefinitionTagArgs',
-    'TaskDefinitionTaskDefinitionPlacementConstraintArgs',
     'TaskDefinitionTmpfsArgs',
     'TaskDefinitionUlimitArgs',
     'TaskDefinitionVolumeFromArgs',
@@ -290,7 +290,7 @@ class ClusterCapacityProviderStrategyItemArgs:
 
 
 @pulumi.input_type
-class ClusterClusterConfigurationArgs:
+class ClusterConfigurationArgs:
     def __init__(__self__, *,
                  execute_command_configuration: Optional[pulumi.Input['ClusterExecuteCommandConfigurationArgs']] = None):
         """
@@ -307,38 +307,6 @@ class ClusterClusterConfigurationArgs:
     @execute_command_configuration.setter
     def execute_command_configuration(self, value: Optional[pulumi.Input['ClusterExecuteCommandConfigurationArgs']]):
         pulumi.set(self, "execute_command_configuration", value)
-
-
-@pulumi.input_type
-class ClusterClusterSettingsArgs:
-    def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
-        """
-        The setting to use when creating a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the containerInsights value set with PutAccountSetting or PutAccountSettingDefault.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -451,6 +419,38 @@ class ClusterExecuteCommandLogConfigurationArgs:
     @s3_key_prefix.setter
     def s3_key_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "s3_key_prefix", value)
+
+
+@pulumi.input_type
+class ClusterSettingsArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        The setting to use when creating a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the containerInsights value set with PutAccountSetting or PutAccountSettingDefault.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -779,7 +779,7 @@ class ServicePlacementStrategyArgs:
 
 
 @pulumi.input_type
-class ServiceServiceRegistryArgs:
+class ServiceRegistryArgs:
     def __init__(__self__, *,
                  container_name: Optional[pulumi.Input[str]] = None,
                  container_port: Optional[pulumi.Input[int]] = None,
@@ -2055,6 +2055,34 @@ class TaskDefinitionMountPointArgs:
 
 
 @pulumi.input_type
+class TaskDefinitionPlacementConstraintArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 expression: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "type", type)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expression", value)
+
+
+@pulumi.input_type
 class TaskDefinitionPortMappingArgs:
     def __init__(__self__, *,
                  container_port: Optional[pulumi.Input[int]] = None,
@@ -2262,34 +2290,6 @@ class TaskDefinitionTagArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class TaskDefinitionTaskDefinitionPlacementConstraintArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input[str],
-                 expression: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "type", type)
-        if expression is not None:
-            pulumi.set(__self__, "expression", expression)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def expression(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "expression")
-
-    @expression.setter
-    def expression(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "expression", value)
 
 
 @pulumi.input_type

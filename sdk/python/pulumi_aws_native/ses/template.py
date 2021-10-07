@@ -10,12 +10,12 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['TemplateArgs', 'Template']
+__all__ = ['TemplateInitArgs', 'Template']
 
 @pulumi.input_type
-class TemplateArgs:
+class TemplateInitArgs:
     def __init__(__self__, *,
-                 template: Optional[pulumi.Input['TemplateTemplateArgs']] = None):
+                 template: Optional[pulumi.Input['TemplateArgs']] = None):
         """
         The set of arguments for constructing a Template resource.
         """
@@ -24,11 +24,11 @@ class TemplateArgs:
 
     @property
     @pulumi.getter
-    def template(self) -> Optional[pulumi.Input['TemplateTemplateArgs']]:
+    def template(self) -> Optional[pulumi.Input['TemplateArgs']]:
         return pulumi.get(self, "template")
 
     @template.setter
-    def template(self, value: Optional[pulumi.Input['TemplateTemplateArgs']]):
+    def template(self, value: Optional[pulumi.Input['TemplateArgs']]):
         pulumi.set(self, "template", value)
 
 
@@ -42,7 +42,7 @@ class Template(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 template: Optional[pulumi.Input[pulumi.InputType['TemplateTemplateArgs']]] = None,
+                 template: Optional[pulumi.Input[pulumi.InputType['TemplateArgs']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SES::Template
@@ -54,18 +54,18 @@ class Template(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[TemplateArgs] = None,
+                 args: Optional[TemplateInitArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SES::Template
 
         :param str resource_name: The name of the resource.
-        :param TemplateArgs args: The arguments to use to populate this resource's properties.
+        :param TemplateInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TemplateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TemplateInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -74,7 +74,7 @@ class Template(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 template: Optional[pulumi.Input[pulumi.InputType['TemplateTemplateArgs']]] = None,
+                 template: Optional[pulumi.Input[pulumi.InputType['TemplateArgs']]] = None,
                  __props__=None):
         pulumi.log.warn("""Template is deprecated: Template is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
@@ -86,7 +86,7 @@ class Template(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TemplateArgs.__new__(TemplateArgs)
+            __props__ = TemplateInitArgs.__new__(TemplateInitArgs)
 
             __props__.__dict__["template"] = template
         super(Template, __self__).__init__(
@@ -109,13 +109,13 @@ class Template(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = TemplateArgs.__new__(TemplateArgs)
+        __props__ = TemplateInitArgs.__new__(TemplateInitArgs)
 
         __props__.__dict__["template"] = None
         return Template(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
-    def template(self) -> pulumi.Output[Optional['outputs.TemplateTemplate']]:
+    def template(self) -> pulumi.Output[Optional['outputs.Template']]:
         return pulumi.get(self, "template")
 

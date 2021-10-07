@@ -34,7 +34,7 @@ class ServiceArgs:
                  role: Optional[pulumi.Input[str]] = None,
                  scheduling_strategy: Optional[pulumi.Input['ServiceSchedulingStrategy']] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 service_registries: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceRegistryArgs']]]] = None,
+                 service_registries: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceRegistryArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]]] = None,
                  task_definition: Optional[pulumi.Input[str]] = None):
         """
@@ -247,11 +247,11 @@ class ServiceArgs:
 
     @property
     @pulumi.getter(name="serviceRegistries")
-    def service_registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceRegistryArgs']]]]:
+    def service_registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceRegistryArgs']]]]:
         return pulumi.get(self, "service_registries")
 
     @service_registries.setter
-    def service_registries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceRegistryArgs']]]]):
+    def service_registries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceRegistryArgs']]]]):
         pulumi.set(self, "service_registries", value)
 
     @property
@@ -296,7 +296,7 @@ class Service(pulumi.CustomResource):
                  role: Optional[pulumi.Input[str]] = None,
                  scheduling_strategy: Optional[pulumi.Input['ServiceSchedulingStrategy']] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 service_registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceServiceRegistryArgs']]]]] = None,
+                 service_registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceRegistryArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceTagArgs']]]]] = None,
                  task_definition: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -348,7 +348,7 @@ class Service(pulumi.CustomResource):
                  role: Optional[pulumi.Input[str]] = None,
                  scheduling_strategy: Optional[pulumi.Input['ServiceSchedulingStrategy']] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 service_registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceServiceRegistryArgs']]]]] = None,
+                 service_registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceRegistryArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceTagArgs']]]]] = None,
                  task_definition: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -535,7 +535,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceRegistries")
-    def service_registries(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceServiceRegistry']]]:
+    def service_registries(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceRegistry']]]:
         return pulumi.get(self, "service_registries")
 
     @property

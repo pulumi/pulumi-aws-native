@@ -7,9 +7,9 @@ from enum import Enum
 __all__ = [
     'AliasRoutingStrategyType',
     'FleetCertificateConfigurationCertificateType',
-    'FleetFleetType',
     'FleetIpPermissionProtocol',
     'FleetNewGameSessionProtectionPolicy',
+    'FleetType',
     'GameServerGroupBalancingStrategy',
     'GameServerGroupDeleteOption',
     'GameServerGroupGameServerProtectionPolicy',
@@ -29,14 +29,6 @@ class FleetCertificateConfigurationCertificateType(str, Enum):
     GENERATED = "GENERATED"
 
 
-class FleetFleetType(str, Enum):
-    """
-    Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
-    """
-    ON_DEMAND = "ON_DEMAND"
-    SPOT = "SPOT"
-
-
 class FleetIpPermissionProtocol(str, Enum):
     """
     The network communication protocol used by the fleet.
@@ -51,6 +43,14 @@ class FleetNewGameSessionProtectionPolicy(str, Enum):
     """
     FULL_PROTECTION = "FullProtection"
     NO_PROTECTION = "NoProtection"
+
+
+class FleetType(str, Enum):
+    """
+    Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
+    """
+    ON_DEMAND = "ON_DEMAND"
+    SPOT = "SPOT"
 
 
 class GameServerGroupBalancingStrategy(str, Enum):

@@ -10,10 +10,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['CoreDefinitionVersionArgs', 'CoreDefinitionVersion']
+__all__ = ['CoreDefinitionVersionInitArgs', 'CoreDefinitionVersion']
 
 @pulumi.input_type
-class CoreDefinitionVersionArgs:
+class CoreDefinitionVersionInitArgs:
     def __init__(__self__, *,
                  core_definition_id: pulumi.Input[str],
                  cores: pulumi.Input[Sequence[pulumi.Input['CoreDefinitionVersionCoreArgs']]]):
@@ -65,18 +65,18 @@ class CoreDefinitionVersion(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CoreDefinitionVersionArgs,
+                 args: CoreDefinitionVersionInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Greengrass::CoreDefinitionVersion
 
         :param str resource_name: The name of the resource.
-        :param CoreDefinitionVersionArgs args: The arguments to use to populate this resource's properties.
+        :param CoreDefinitionVersionInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CoreDefinitionVersionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CoreDefinitionVersionInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -98,7 +98,7 @@ class CoreDefinitionVersion(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CoreDefinitionVersionArgs.__new__(CoreDefinitionVersionArgs)
+            __props__ = CoreDefinitionVersionInitArgs.__new__(CoreDefinitionVersionInitArgs)
 
             if core_definition_id is None and not opts.urn:
                 raise TypeError("Missing required property 'core_definition_id'")
@@ -126,7 +126,7 @@ class CoreDefinitionVersion(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = CoreDefinitionVersionArgs.__new__(CoreDefinitionVersionArgs)
+        __props__ = CoreDefinitionVersionInitArgs.__new__(CoreDefinitionVersionInitArgs)
 
         __props__.__dict__["core_definition_id"] = None
         __props__.__dict__["cores"] = None

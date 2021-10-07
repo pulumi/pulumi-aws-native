@@ -15,8 +15,8 @@ __all__ = [
     'IntegrationTaskType',
     'IntegrationTriggerType',
     'IntegrationZendeskConnectorOperator',
-    'ObjectTypeObjectTypeFieldContentType',
-    'ObjectTypeObjectTypeKeyStandardIdentifiersItem',
+    'ObjectTypeFieldContentType',
+    'ObjectTypeKeyStandardIdentifiersItem',
 ]
 
 
@@ -173,7 +173,7 @@ class IntegrationZendeskConnectorOperator(str, Enum):
     NO_OP = "NO_OP"
 
 
-class ObjectTypeObjectTypeFieldContentType(str, Enum):
+class ObjectTypeFieldContentType(str, Enum):
     """
     The content type of the field. Used for determining equality when searching.
     """
@@ -184,7 +184,7 @@ class ObjectTypeObjectTypeFieldContentType(str, Enum):
     NAME = "NAME"
 
 
-class ObjectTypeObjectTypeKeyStandardIdentifiersItem(str, Enum):
+class ObjectTypeKeyStandardIdentifiersItem(str, Enum):
     PROFILE = "PROFILE"
     UNIQUE = "UNIQUE"
     SECONDARY = "SECONDARY"

@@ -16,7 +16,7 @@ __all__ = ['VirtualServiceArgs', 'VirtualService']
 class VirtualServiceArgs:
     def __init__(__self__, *,
                  mesh_name: pulumi.Input[str],
-                 spec: pulumi.Input['VirtualServiceVirtualServiceSpecArgs'],
+                 spec: pulumi.Input['VirtualServiceSpecArgs'],
                  virtual_service_name: pulumi.Input[str],
                  mesh_owner: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualServiceTagArgs']]]] = None):
@@ -42,11 +42,11 @@ class VirtualServiceArgs:
 
     @property
     @pulumi.getter
-    def spec(self) -> pulumi.Input['VirtualServiceVirtualServiceSpecArgs']:
+    def spec(self) -> pulumi.Input['VirtualServiceSpecArgs']:
         return pulumi.get(self, "spec")
 
     @spec.setter
-    def spec(self, value: pulumi.Input['VirtualServiceVirtualServiceSpecArgs']):
+    def spec(self, value: pulumi.Input['VirtualServiceSpecArgs']):
         pulumi.set(self, "spec", value)
 
     @property
@@ -89,7 +89,7 @@ class VirtualService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  mesh_name: Optional[pulumi.Input[str]] = None,
                  mesh_owner: Optional[pulumi.Input[str]] = None,
-                 spec: Optional[pulumi.Input[pulumi.InputType['VirtualServiceVirtualServiceSpecArgs']]] = None,
+                 spec: Optional[pulumi.Input[pulumi.InputType['VirtualServiceSpecArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualServiceTagArgs']]]]] = None,
                  virtual_service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -125,7 +125,7 @@ class VirtualService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  mesh_name: Optional[pulumi.Input[str]] = None,
                  mesh_owner: Optional[pulumi.Input[str]] = None,
-                 spec: Optional[pulumi.Input[pulumi.InputType['VirtualServiceVirtualServiceSpecArgs']]] = None,
+                 spec: Optional[pulumi.Input[pulumi.InputType['VirtualServiceSpecArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualServiceTagArgs']]]]] = None,
                  virtual_service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -209,7 +209,7 @@ class VirtualService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def spec(self) -> pulumi.Output['outputs.VirtualServiceVirtualServiceSpec']:
+    def spec(self) -> pulumi.Output['outputs.VirtualServiceSpec']:
         return pulumi.get(self, "spec")
 
     @property

@@ -11,14 +11,14 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'NotificationChannelNotificationChannelConfig',
+    'NotificationChannelConfig',
     'NotificationChannelSnsChannelConfig',
     'ResourceCollectionCloudFormationCollectionFilter',
-    'ResourceCollectionResourceCollectionFilter',
+    'ResourceCollectionFilter',
 ]
 
 @pulumi.output_type
-class NotificationChannelNotificationChannelConfig(dict):
+class NotificationChannelConfig(dict):
     """
     Information about notification channels you have configured with DevOps Guru.
     """
@@ -113,7 +113,7 @@ class ResourceCollectionCloudFormationCollectionFilter(dict):
 
 
 @pulumi.output_type
-class ResourceCollectionResourceCollectionFilter(dict):
+class ResourceCollectionFilter(dict):
     """
     Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
     """
@@ -124,14 +124,14 @@ class ResourceCollectionResourceCollectionFilter(dict):
             suggest = "cloud_formation"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ResourceCollectionResourceCollectionFilter. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ResourceCollectionFilter. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ResourceCollectionResourceCollectionFilter.__key_warning(key)
+        ResourceCollectionFilter.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ResourceCollectionResourceCollectionFilter.__key_warning(key)
+        ResourceCollectionFilter.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

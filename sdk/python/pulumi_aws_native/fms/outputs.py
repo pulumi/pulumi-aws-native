@@ -10,8 +10,8 @@ from .. import _utilities
 
 __all__ = [
     'PolicyIEMap',
-    'PolicyPolicyTag',
     'PolicyResourceTag',
+    'PolicyTag',
 ]
 
 @pulumi.output_type
@@ -61,31 +61,6 @@ class PolicyIEMap(dict):
 
 
 @pulumi.output_type
-class PolicyPolicyTag(dict):
-    """
-    A policy tag.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A policy tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class PolicyResourceTag(dict):
     """
     A resource tag.
@@ -108,6 +83,31 @@ class PolicyResourceTag(dict):
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class PolicyTag(dict):
+    """
+    A policy tag.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A policy tag.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
         return pulumi.get(self, "value")
 
 

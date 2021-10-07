@@ -16,8 +16,8 @@ __all__ = ['WebhookArgs', 'Webhook']
 class WebhookArgs:
     def __init__(__self__, *,
                  authentication: pulumi.Input[str],
-                 authentication_configuration: pulumi.Input['WebhookWebhookAuthConfigurationArgs'],
-                 filters: pulumi.Input[Sequence[pulumi.Input['WebhookWebhookFilterRuleArgs']]],
+                 authentication_configuration: pulumi.Input['WebhookAuthConfigurationArgs'],
+                 filters: pulumi.Input[Sequence[pulumi.Input['WebhookFilterRuleArgs']]],
                  target_action: pulumi.Input[str],
                  target_pipeline: pulumi.Input[str],
                  target_pipeline_version: pulumi.Input[int],
@@ -48,20 +48,20 @@ class WebhookArgs:
 
     @property
     @pulumi.getter(name="authenticationConfiguration")
-    def authentication_configuration(self) -> pulumi.Input['WebhookWebhookAuthConfigurationArgs']:
+    def authentication_configuration(self) -> pulumi.Input['WebhookAuthConfigurationArgs']:
         return pulumi.get(self, "authentication_configuration")
 
     @authentication_configuration.setter
-    def authentication_configuration(self, value: pulumi.Input['WebhookWebhookAuthConfigurationArgs']):
+    def authentication_configuration(self, value: pulumi.Input['WebhookAuthConfigurationArgs']):
         pulumi.set(self, "authentication_configuration", value)
 
     @property
     @pulumi.getter
-    def filters(self) -> pulumi.Input[Sequence[pulumi.Input['WebhookWebhookFilterRuleArgs']]]:
+    def filters(self) -> pulumi.Input[Sequence[pulumi.Input['WebhookFilterRuleArgs']]]:
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: pulumi.Input[Sequence[pulumi.Input['WebhookWebhookFilterRuleArgs']]]):
+    def filters(self, value: pulumi.Input[Sequence[pulumi.Input['WebhookFilterRuleArgs']]]):
         pulumi.set(self, "filters", value)
 
     @property
@@ -121,8 +121,8 @@ class Webhook(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authentication: Optional[pulumi.Input[str]] = None,
-                 authentication_configuration: Optional[pulumi.Input[pulumi.InputType['WebhookWebhookAuthConfigurationArgs']]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookWebhookFilterRuleArgs']]]]] = None,
+                 authentication_configuration: Optional[pulumi.Input[pulumi.InputType['WebhookAuthConfigurationArgs']]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookFilterRuleArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  register_with_third_party: Optional[pulumi.Input[bool]] = None,
                  target_action: Optional[pulumi.Input[str]] = None,
@@ -160,8 +160,8 @@ class Webhook(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authentication: Optional[pulumi.Input[str]] = None,
-                 authentication_configuration: Optional[pulumi.Input[pulumi.InputType['WebhookWebhookAuthConfigurationArgs']]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookWebhookFilterRuleArgs']]]]] = None,
+                 authentication_configuration: Optional[pulumi.Input[pulumi.InputType['WebhookAuthConfigurationArgs']]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookFilterRuleArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  register_with_third_party: Optional[pulumi.Input[bool]] = None,
                  target_action: Optional[pulumi.Input[str]] = None,
@@ -241,12 +241,12 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authenticationConfiguration")
-    def authentication_configuration(self) -> pulumi.Output['outputs.WebhookWebhookAuthConfiguration']:
+    def authentication_configuration(self) -> pulumi.Output['outputs.WebhookAuthConfiguration']:
         return pulumi.get(self, "authentication_configuration")
 
     @property
     @pulumi.getter
-    def filters(self) -> pulumi.Output[Sequence['outputs.WebhookWebhookFilterRule']]:
+    def filters(self) -> pulumi.Output[Sequence['outputs.WebhookFilterRule']]:
         return pulumi.get(self, "filters")
 
     @property

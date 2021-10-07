@@ -10,29 +10,29 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'AnalysisAnalysisErrorArgs',
-    'AnalysisAnalysisSourceEntityArgs',
-    'AnalysisAnalysisSourceTemplateArgs',
     'AnalysisDataSetReferenceArgs',
     'AnalysisDateTimeParameterArgs',
     'AnalysisDecimalParameterArgs',
+    'AnalysisErrorArgs',
     'AnalysisIntegerParameterArgs',
     'AnalysisParametersArgs',
     'AnalysisResourcePermissionArgs',
+    'AnalysisSourceEntityArgs',
+    'AnalysisSourceTemplateArgs',
     'AnalysisStringParameterArgs',
     'AnalysisTagArgs',
     'DashboardAdHocFilteringOptionArgs',
-    'DashboardDashboardPublishOptionsArgs',
-    'DashboardDashboardSourceEntityArgs',
-    'DashboardDashboardSourceTemplateArgs',
     'DashboardDataSetReferenceArgs',
     'DashboardDateTimeParameterArgs',
     'DashboardDecimalParameterArgs',
     'DashboardExportToCSVOptionArgs',
     'DashboardIntegerParameterArgs',
     'DashboardParametersArgs',
+    'DashboardPublishOptionsArgs',
     'DashboardResourcePermissionArgs',
     'DashboardSheetControlsOptionArgs',
+    'DashboardSourceEntityArgs',
+    'DashboardSourceTemplateArgs',
     'DashboardStringParameterArgs',
     'DashboardTagArgs',
     'DataSetColumnGroupArgs',
@@ -50,13 +50,13 @@ __all__ = [
     'DataSourceAuroraParametersArgs',
     'DataSourceAuroraPostgreSqlParametersArgs',
     'DataSourceCredentialPairArgs',
-    'DataSourceDataSourceCredentialsArgs',
-    'DataSourceDataSourceErrorInfoArgs',
-    'DataSourceDataSourceParametersArgs',
+    'DataSourceCredentialsArgs',
+    'DataSourceErrorInfoArgs',
     'DataSourceManifestFileLocationArgs',
     'DataSourceMariaDbParametersArgs',
     'DataSourceMySqlParametersArgs',
     'DataSourceOracleParametersArgs',
+    'DataSourceParametersArgs',
     'DataSourcePostgreSqlParametersArgs',
     'DataSourcePrestoParametersArgs',
     'DataSourceRdsParametersArgs',
@@ -72,11 +72,12 @@ __all__ = [
     'DataSourceVpcConnectionPropertiesArgs',
     'TemplateDataSetReferenceArgs',
     'TemplateResourcePermissionArgs',
+    'TemplateSourceAnalysisArgs',
+    'TemplateSourceEntityArgs',
+    'TemplateSourceTemplateArgs',
     'TemplateTagArgs',
-    'TemplateTemplateSourceAnalysisArgs',
-    'TemplateTemplateSourceEntityArgs',
-    'TemplateTemplateSourceTemplateArgs',
     'ThemeBorderStyleArgs',
+    'ThemeConfigurationArgs',
     'ThemeDataColorPaletteArgs',
     'ThemeFontArgs',
     'ThemeGutterStyleArgs',
@@ -84,106 +85,11 @@ __all__ = [
     'ThemeResourcePermissionArgs',
     'ThemeSheetStyleArgs',
     'ThemeTagArgs',
-    'ThemeThemeConfigurationArgs',
     'ThemeTileLayoutStyleArgs',
     'ThemeTileStyleArgs',
     'ThemeTypographyArgs',
     'ThemeUIColorPaletteArgs',
 ]
-
-@pulumi.input_type
-class AnalysisAnalysisErrorArgs:
-    def __init__(__self__, *,
-                 message: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input['AnalysisAnalysisErrorType']] = None):
-        """
-        <p>A metadata error structure for an analysis.</p>
-        :param pulumi.Input[str] message: <p>The message associated with the analysis error.</p>
-        """
-        if message is not None:
-            pulumi.set(__self__, "message", message)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[str]]:
-        """
-        <p>The message associated with the analysis error.</p>
-        """
-        return pulumi.get(self, "message")
-
-    @message.setter
-    def message(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "message", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['AnalysisAnalysisErrorType']]:
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input['AnalysisAnalysisErrorType']]):
-        pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
-class AnalysisAnalysisSourceEntityArgs:
-    def __init__(__self__, *,
-                 source_template: Optional[pulumi.Input['AnalysisAnalysisSourceTemplateArgs']] = None):
-        """
-        <p>The source entity of an analysis.</p>
-        """
-        if source_template is not None:
-            pulumi.set(__self__, "source_template", source_template)
-
-    @property
-    @pulumi.getter(name="sourceTemplate")
-    def source_template(self) -> Optional[pulumi.Input['AnalysisAnalysisSourceTemplateArgs']]:
-        return pulumi.get(self, "source_template")
-
-    @source_template.setter
-    def source_template(self, value: Optional[pulumi.Input['AnalysisAnalysisSourceTemplateArgs']]):
-        pulumi.set(self, "source_template", value)
-
-
-@pulumi.input_type
-class AnalysisAnalysisSourceTemplateArgs:
-    def __init__(__self__, *,
-                 arn: pulumi.Input[str],
-                 data_set_references: pulumi.Input[Sequence[pulumi.Input['AnalysisDataSetReferenceArgs']]]):
-        """
-        <p>The source template of an analysis.</p>
-        :param pulumi.Input[str] arn: <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
-        :param pulumi.Input[Sequence[pulumi.Input['AnalysisDataSetReferenceArgs']]] data_set_references: <p>The dataset references of the source template of an analysis.</p>
-        """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "data_set_references", data_set_references)
-
-    @property
-    @pulumi.getter
-    def arn(self) -> pulumi.Input[str]:
-        """
-        <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
-        """
-        return pulumi.get(self, "arn")
-
-    @arn.setter
-    def arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "arn", value)
-
-    @property
-    @pulumi.getter(name="dataSetReferences")
-    def data_set_references(self) -> pulumi.Input[Sequence[pulumi.Input['AnalysisDataSetReferenceArgs']]]:
-        """
-        <p>The dataset references of the source template of an analysis.</p>
-        """
-        return pulumi.get(self, "data_set_references")
-
-    @data_set_references.setter
-    def data_set_references(self, value: pulumi.Input[Sequence[pulumi.Input['AnalysisDataSetReferenceArgs']]]):
-        pulumi.set(self, "data_set_references", value)
-
 
 @pulumi.input_type
 class AnalysisDataSetReferenceArgs:
@@ -297,6 +203,42 @@ class AnalysisDecimalParameterArgs:
     @values.setter
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[float]]]):
         pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class AnalysisErrorArgs:
+    def __init__(__self__, *,
+                 message: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['AnalysisErrorType']] = None):
+        """
+        <p>A metadata error structure for an analysis.</p>
+        :param pulumi.Input[str] message: <p>The message associated with the analysis error.</p>
+        """
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The message associated with the analysis error.</p>
+        """
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "message", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['AnalysisErrorType']]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['AnalysisErrorType']]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -476,6 +418,64 @@ class AnalysisResourcePermissionArgs:
 
 
 @pulumi.input_type
+class AnalysisSourceEntityArgs:
+    def __init__(__self__, *,
+                 source_template: Optional[pulumi.Input['AnalysisSourceTemplateArgs']] = None):
+        """
+        <p>The source entity of an analysis.</p>
+        """
+        if source_template is not None:
+            pulumi.set(__self__, "source_template", source_template)
+
+    @property
+    @pulumi.getter(name="sourceTemplate")
+    def source_template(self) -> Optional[pulumi.Input['AnalysisSourceTemplateArgs']]:
+        return pulumi.get(self, "source_template")
+
+    @source_template.setter
+    def source_template(self, value: Optional[pulumi.Input['AnalysisSourceTemplateArgs']]):
+        pulumi.set(self, "source_template", value)
+
+
+@pulumi.input_type
+class AnalysisSourceTemplateArgs:
+    def __init__(__self__, *,
+                 arn: pulumi.Input[str],
+                 data_set_references: pulumi.Input[Sequence[pulumi.Input['AnalysisDataSetReferenceArgs']]]):
+        """
+        <p>The source template of an analysis.</p>
+        :param pulumi.Input[str] arn: <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['AnalysisDataSetReferenceArgs']]] data_set_references: <p>The dataset references of the source template of an analysis.</p>
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "data_set_references", data_set_references)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[str]:
+        """
+        <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="dataSetReferences")
+    def data_set_references(self) -> pulumi.Input[Sequence[pulumi.Input['AnalysisDataSetReferenceArgs']]]:
+        """
+        <p>The dataset references of the source template of an analysis.</p>
+        """
+        return pulumi.get(self, "data_set_references")
+
+    @data_set_references.setter
+    def data_set_references(self, value: pulumi.Input[Sequence[pulumi.Input['AnalysisDataSetReferenceArgs']]]):
+        pulumi.set(self, "data_set_references", value)
+
+
+@pulumi.input_type
 class AnalysisStringParameterArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -555,7 +555,7 @@ class AnalysisTagArgs:
 @pulumi.input_type
 class DashboardAdHocFilteringOptionArgs:
     def __init__(__self__, *,
-                 availability_status: Optional[pulumi.Input['DashboardDashboardBehavior']] = None):
+                 availability_status: Optional[pulumi.Input['DashboardBehavior']] = None):
         """
         <p>Ad hoc (one-time) filtering option.</p>
         """
@@ -564,114 +564,12 @@ class DashboardAdHocFilteringOptionArgs:
 
     @property
     @pulumi.getter(name="availabilityStatus")
-    def availability_status(self) -> Optional[pulumi.Input['DashboardDashboardBehavior']]:
+    def availability_status(self) -> Optional[pulumi.Input['DashboardBehavior']]:
         return pulumi.get(self, "availability_status")
 
     @availability_status.setter
-    def availability_status(self, value: Optional[pulumi.Input['DashboardDashboardBehavior']]):
+    def availability_status(self, value: Optional[pulumi.Input['DashboardBehavior']]):
         pulumi.set(self, "availability_status", value)
-
-
-@pulumi.input_type
-class DashboardDashboardPublishOptionsArgs:
-    def __init__(__self__, *,
-                 ad_hoc_filtering_option: Optional[pulumi.Input['DashboardAdHocFilteringOptionArgs']] = None,
-                 export_to_csv_option: Optional[pulumi.Input['DashboardExportToCSVOptionArgs']] = None,
-                 sheet_controls_option: Optional[pulumi.Input['DashboardSheetControlsOptionArgs']] = None):
-        """
-        <p>Dashboard publish options.</p>
-        """
-        if ad_hoc_filtering_option is not None:
-            pulumi.set(__self__, "ad_hoc_filtering_option", ad_hoc_filtering_option)
-        if export_to_csv_option is not None:
-            pulumi.set(__self__, "export_to_csv_option", export_to_csv_option)
-        if sheet_controls_option is not None:
-            pulumi.set(__self__, "sheet_controls_option", sheet_controls_option)
-
-    @property
-    @pulumi.getter(name="adHocFilteringOption")
-    def ad_hoc_filtering_option(self) -> Optional[pulumi.Input['DashboardAdHocFilteringOptionArgs']]:
-        return pulumi.get(self, "ad_hoc_filtering_option")
-
-    @ad_hoc_filtering_option.setter
-    def ad_hoc_filtering_option(self, value: Optional[pulumi.Input['DashboardAdHocFilteringOptionArgs']]):
-        pulumi.set(self, "ad_hoc_filtering_option", value)
-
-    @property
-    @pulumi.getter(name="exportToCSVOption")
-    def export_to_csv_option(self) -> Optional[pulumi.Input['DashboardExportToCSVOptionArgs']]:
-        return pulumi.get(self, "export_to_csv_option")
-
-    @export_to_csv_option.setter
-    def export_to_csv_option(self, value: Optional[pulumi.Input['DashboardExportToCSVOptionArgs']]):
-        pulumi.set(self, "export_to_csv_option", value)
-
-    @property
-    @pulumi.getter(name="sheetControlsOption")
-    def sheet_controls_option(self) -> Optional[pulumi.Input['DashboardSheetControlsOptionArgs']]:
-        return pulumi.get(self, "sheet_controls_option")
-
-    @sheet_controls_option.setter
-    def sheet_controls_option(self, value: Optional[pulumi.Input['DashboardSheetControlsOptionArgs']]):
-        pulumi.set(self, "sheet_controls_option", value)
-
-
-@pulumi.input_type
-class DashboardDashboardSourceEntityArgs:
-    def __init__(__self__, *,
-                 source_template: Optional[pulumi.Input['DashboardDashboardSourceTemplateArgs']] = None):
-        """
-        <p>Dashboard source entity.</p>
-        """
-        if source_template is not None:
-            pulumi.set(__self__, "source_template", source_template)
-
-    @property
-    @pulumi.getter(name="sourceTemplate")
-    def source_template(self) -> Optional[pulumi.Input['DashboardDashboardSourceTemplateArgs']]:
-        return pulumi.get(self, "source_template")
-
-    @source_template.setter
-    def source_template(self, value: Optional[pulumi.Input['DashboardDashboardSourceTemplateArgs']]):
-        pulumi.set(self, "source_template", value)
-
-
-@pulumi.input_type
-class DashboardDashboardSourceTemplateArgs:
-    def __init__(__self__, *,
-                 arn: pulumi.Input[str],
-                 data_set_references: pulumi.Input[Sequence[pulumi.Input['DashboardDataSetReferenceArgs']]]):
-        """
-        <p>Dashboard source template.</p>
-        :param pulumi.Input[str] arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardDataSetReferenceArgs']]] data_set_references: <p>Dataset references.</p>
-        """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "data_set_references", data_set_references)
-
-    @property
-    @pulumi.getter
-    def arn(self) -> pulumi.Input[str]:
-        """
-        <p>The Amazon Resource Name (ARN) of the resource.</p>
-        """
-        return pulumi.get(self, "arn")
-
-    @arn.setter
-    def arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "arn", value)
-
-    @property
-    @pulumi.getter(name="dataSetReferences")
-    def data_set_references(self) -> pulumi.Input[Sequence[pulumi.Input['DashboardDataSetReferenceArgs']]]:
-        """
-        <p>Dataset references.</p>
-        """
-        return pulumi.get(self, "data_set_references")
-
-    @data_set_references.setter
-    def data_set_references(self, value: pulumi.Input[Sequence[pulumi.Input['DashboardDataSetReferenceArgs']]]):
-        pulumi.set(self, "data_set_references", value)
 
 
 @pulumi.input_type
@@ -791,7 +689,7 @@ class DashboardDecimalParameterArgs:
 @pulumi.input_type
 class DashboardExportToCSVOptionArgs:
     def __init__(__self__, *,
-                 availability_status: Optional[pulumi.Input['DashboardDashboardBehavior']] = None):
+                 availability_status: Optional[pulumi.Input['DashboardBehavior']] = None):
         """
         <p>Export to .csv option.</p>
         """
@@ -800,11 +698,11 @@ class DashboardExportToCSVOptionArgs:
 
     @property
     @pulumi.getter(name="availabilityStatus")
-    def availability_status(self) -> Optional[pulumi.Input['DashboardDashboardBehavior']]:
+    def availability_status(self) -> Optional[pulumi.Input['DashboardBehavior']]:
         return pulumi.get(self, "availability_status")
 
     @availability_status.setter
-    def availability_status(self, value: Optional[pulumi.Input['DashboardDashboardBehavior']]):
+    def availability_status(self, value: Optional[pulumi.Input['DashboardBehavior']]):
         pulumi.set(self, "availability_status", value)
 
 
@@ -919,6 +817,50 @@ class DashboardParametersArgs:
 
 
 @pulumi.input_type
+class DashboardPublishOptionsArgs:
+    def __init__(__self__, *,
+                 ad_hoc_filtering_option: Optional[pulumi.Input['DashboardAdHocFilteringOptionArgs']] = None,
+                 export_to_csv_option: Optional[pulumi.Input['DashboardExportToCSVOptionArgs']] = None,
+                 sheet_controls_option: Optional[pulumi.Input['DashboardSheetControlsOptionArgs']] = None):
+        """
+        <p>Dashboard publish options.</p>
+        """
+        if ad_hoc_filtering_option is not None:
+            pulumi.set(__self__, "ad_hoc_filtering_option", ad_hoc_filtering_option)
+        if export_to_csv_option is not None:
+            pulumi.set(__self__, "export_to_csv_option", export_to_csv_option)
+        if sheet_controls_option is not None:
+            pulumi.set(__self__, "sheet_controls_option", sheet_controls_option)
+
+    @property
+    @pulumi.getter(name="adHocFilteringOption")
+    def ad_hoc_filtering_option(self) -> Optional[pulumi.Input['DashboardAdHocFilteringOptionArgs']]:
+        return pulumi.get(self, "ad_hoc_filtering_option")
+
+    @ad_hoc_filtering_option.setter
+    def ad_hoc_filtering_option(self, value: Optional[pulumi.Input['DashboardAdHocFilteringOptionArgs']]):
+        pulumi.set(self, "ad_hoc_filtering_option", value)
+
+    @property
+    @pulumi.getter(name="exportToCSVOption")
+    def export_to_csv_option(self) -> Optional[pulumi.Input['DashboardExportToCSVOptionArgs']]:
+        return pulumi.get(self, "export_to_csv_option")
+
+    @export_to_csv_option.setter
+    def export_to_csv_option(self, value: Optional[pulumi.Input['DashboardExportToCSVOptionArgs']]):
+        pulumi.set(self, "export_to_csv_option", value)
+
+    @property
+    @pulumi.getter(name="sheetControlsOption")
+    def sheet_controls_option(self) -> Optional[pulumi.Input['DashboardSheetControlsOptionArgs']]:
+        return pulumi.get(self, "sheet_controls_option")
+
+    @sheet_controls_option.setter
+    def sheet_controls_option(self, value: Optional[pulumi.Input['DashboardSheetControlsOptionArgs']]):
+        pulumi.set(self, "sheet_controls_option", value)
+
+
+@pulumi.input_type
 class DashboardResourcePermissionArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -987,7 +929,7 @@ class DashboardResourcePermissionArgs:
 @pulumi.input_type
 class DashboardSheetControlsOptionArgs:
     def __init__(__self__, *,
-                 visibility_state: Optional[pulumi.Input['DashboardDashboardUIState']] = None):
+                 visibility_state: Optional[pulumi.Input['DashboardUIState']] = None):
         """
         <p>Sheet controls option.</p>
         """
@@ -996,12 +938,70 @@ class DashboardSheetControlsOptionArgs:
 
     @property
     @pulumi.getter(name="visibilityState")
-    def visibility_state(self) -> Optional[pulumi.Input['DashboardDashboardUIState']]:
+    def visibility_state(self) -> Optional[pulumi.Input['DashboardUIState']]:
         return pulumi.get(self, "visibility_state")
 
     @visibility_state.setter
-    def visibility_state(self, value: Optional[pulumi.Input['DashboardDashboardUIState']]):
+    def visibility_state(self, value: Optional[pulumi.Input['DashboardUIState']]):
         pulumi.set(self, "visibility_state", value)
+
+
+@pulumi.input_type
+class DashboardSourceEntityArgs:
+    def __init__(__self__, *,
+                 source_template: Optional[pulumi.Input['DashboardSourceTemplateArgs']] = None):
+        """
+        <p>Dashboard source entity.</p>
+        """
+        if source_template is not None:
+            pulumi.set(__self__, "source_template", source_template)
+
+    @property
+    @pulumi.getter(name="sourceTemplate")
+    def source_template(self) -> Optional[pulumi.Input['DashboardSourceTemplateArgs']]:
+        return pulumi.get(self, "source_template")
+
+    @source_template.setter
+    def source_template(self, value: Optional[pulumi.Input['DashboardSourceTemplateArgs']]):
+        pulumi.set(self, "source_template", value)
+
+
+@pulumi.input_type
+class DashboardSourceTemplateArgs:
+    def __init__(__self__, *,
+                 arn: pulumi.Input[str],
+                 data_set_references: pulumi.Input[Sequence[pulumi.Input['DashboardDataSetReferenceArgs']]]):
+        """
+        <p>Dashboard source template.</p>
+        :param pulumi.Input[str] arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardDataSetReferenceArgs']]] data_set_references: <p>Dataset references.</p>
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "data_set_references", data_set_references)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[str]:
+        """
+        <p>The Amazon Resource Name (ARN) of the resource.</p>
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="dataSetReferences")
+    def data_set_references(self) -> pulumi.Input[Sequence[pulumi.Input['DashboardDataSetReferenceArgs']]]:
+        """
+        <p>Dataset references.</p>
+        """
+        return pulumi.get(self, "data_set_references")
+
+    @data_set_references.setter
+    def data_set_references(self, value: pulumi.Input[Sequence[pulumi.Input['DashboardDataSetReferenceArgs']]]):
+        pulumi.set(self, "data_set_references", value)
 
 
 @pulumi.input_type
@@ -1569,12 +1569,12 @@ class DataSourceCredentialPairArgs:
     def __init__(__self__, *,
                  password: pulumi.Input[str],
                  username: pulumi.Input[str],
-                 alternate_data_source_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceParametersArgs']]]] = None):
+                 alternate_data_source_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceParametersArgs']]]] = None):
         """
         <p>The combination of user name and password that are used as credentials.</p>
         :param pulumi.Input[str] password: <p>Password.</p>
         :param pulumi.Input[str] username: <p>User name.</p>
-        :param pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceParametersArgs']]] alternate_data_source_parameters: <p>A set of alternate data source parameters that you want to share for these
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceParametersArgs']]] alternate_data_source_parameters: <p>A set of alternate data source parameters that you want to share for these
                            credentials. The credentials are applied in tandem with the data source parameters when
                            you copy a data source by using a create or update request. The API operation compares
                            the <code>DataSourceParameters</code> structure that's in the request with the
@@ -1615,7 +1615,7 @@ class DataSourceCredentialPairArgs:
 
     @property
     @pulumi.getter(name="alternateDataSourceParameters")
-    def alternate_data_source_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceParametersArgs']]]]:
+    def alternate_data_source_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceParametersArgs']]]]:
         """
         <p>A set of alternate data source parameters that you want to share for these
                     credentials. The credentials are applied in tandem with the data source parameters when
@@ -1630,12 +1630,12 @@ class DataSourceCredentialPairArgs:
         return pulumi.get(self, "alternate_data_source_parameters")
 
     @alternate_data_source_parameters.setter
-    def alternate_data_source_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceParametersArgs']]]]):
+    def alternate_data_source_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceParametersArgs']]]]):
         pulumi.set(self, "alternate_data_source_parameters", value)
 
 
 @pulumi.input_type
-class DataSourceDataSourceCredentialsArgs:
+class DataSourceCredentialsArgs:
     def __init__(__self__, *,
                  copy_source_arn: Optional[pulumi.Input[str]] = None,
                  credential_pair: Optional[pulumi.Input['DataSourceCredentialPairArgs']] = None):
@@ -1678,10 +1678,10 @@ class DataSourceDataSourceCredentialsArgs:
 
 
 @pulumi.input_type
-class DataSourceDataSourceErrorInfoArgs:
+class DataSourceErrorInfoArgs:
     def __init__(__self__, *,
                  message: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input['DataSourceDataSourceErrorInfoType']] = None):
+                 type: Optional[pulumi.Input['DataSourceErrorInfoType']] = None):
         """
         <p>Error information for the data source creation or update.</p>
         :param pulumi.Input[str] message: <p>Error message.</p>
@@ -1705,16 +1705,198 @@ class DataSourceDataSourceErrorInfoArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['DataSourceDataSourceErrorInfoType']]:
+    def type(self) -> Optional[pulumi.Input['DataSourceErrorInfoType']]:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['DataSourceDataSourceErrorInfoType']]):
+    def type(self, value: Optional[pulumi.Input['DataSourceErrorInfoType']]):
         pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
-class DataSourceDataSourceParametersArgs:
+class DataSourceManifestFileLocationArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[str],
+                 key: pulumi.Input[str]):
+        """
+        <p>Amazon S3 manifest file location.</p>
+        :param pulumi.Input[str] bucket: <p>Amazon S3 bucket.</p>
+        :param pulumi.Input[str] key: <p>Amazon S3 key that identifies an object.</p>
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[str]:
+        """
+        <p>Amazon S3 bucket.</p>
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        <p>Amazon S3 key that identifies an object.</p>
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+
+@pulumi.input_type
+class DataSourceMariaDbParametersArgs:
+    def __init__(__self__, *,
+                 database: pulumi.Input[str],
+                 host: pulumi.Input[str],
+                 port: pulumi.Input[float]):
+        """
+        <p>MariaDB parameters.</p>
+        :param pulumi.Input[str] database: <p>Database.</p>
+        :param pulumi.Input[str] host: <p>Host.</p>
+        :param pulumi.Input[float] port: <p>Port.</p>
+        """
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def database(self) -> pulumi.Input[str]:
+        """
+        <p>Database.</p>
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter
+    def host(self) -> pulumi.Input[str]:
+        """
+        <p>Host.</p>
+        """
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: pulumi.Input[str]):
+        pulumi.set(self, "host", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[float]:
+        """
+        <p>Port.</p>
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[float]):
+        pulumi.set(self, "port", value)
+
+
+@pulumi.input_type
+class DataSourceMySqlParametersArgs:
+    def __init__(__self__, *,
+                 database: pulumi.Input[str],
+                 host: pulumi.Input[str],
+                 port: pulumi.Input[float]):
+        """
+        <p>MySQL parameters.</p>
+        :param pulumi.Input[str] database: <p>Database.</p>
+        :param pulumi.Input[str] host: <p>Host.</p>
+        :param pulumi.Input[float] port: <p>Port.</p>
+        """
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def database(self) -> pulumi.Input[str]:
+        """
+        <p>Database.</p>
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter
+    def host(self) -> pulumi.Input[str]:
+        """
+        <p>Host.</p>
+        """
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: pulumi.Input[str]):
+        pulumi.set(self, "host", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[float]:
+        """
+        <p>Port.</p>
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[float]):
+        pulumi.set(self, "port", value)
+
+
+@pulumi.input_type
+class DataSourceOracleParametersArgs:
+    def __init__(__self__, *,
+                 database: pulumi.Input[str],
+                 host: pulumi.Input[str],
+                 port: pulumi.Input[float]):
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def database(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter
+    def host(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: pulumi.Input[str]):
+        pulumi.set(self, "host", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[float]):
+        pulumi.set(self, "port", value)
+
+
+@pulumi.input_type
+class DataSourceParametersArgs:
     def __init__(__self__, *,
                  amazon_elasticsearch_parameters: Optional[pulumi.Input['DataSourceAmazonElasticsearchParametersArgs']] = None,
                  athena_parameters: Optional[pulumi.Input['DataSourceAthenaParametersArgs']] = None,
@@ -1913,188 +2095,6 @@ class DataSourceDataSourceParametersArgs:
     @teradata_parameters.setter
     def teradata_parameters(self, value: Optional[pulumi.Input['DataSourceTeradataParametersArgs']]):
         pulumi.set(self, "teradata_parameters", value)
-
-
-@pulumi.input_type
-class DataSourceManifestFileLocationArgs:
-    def __init__(__self__, *,
-                 bucket: pulumi.Input[str],
-                 key: pulumi.Input[str]):
-        """
-        <p>Amazon S3 manifest file location.</p>
-        :param pulumi.Input[str] bucket: <p>Amazon S3 bucket.</p>
-        :param pulumi.Input[str] key: <p>Amazon S3 key that identifies an object.</p>
-        """
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "key", key)
-
-    @property
-    @pulumi.getter
-    def bucket(self) -> pulumi.Input[str]:
-        """
-        <p>Amazon S3 bucket.</p>
-        """
-        return pulumi.get(self, "bucket")
-
-    @bucket.setter
-    def bucket(self, value: pulumi.Input[str]):
-        pulumi.set(self, "bucket", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        <p>Amazon S3 key that identifies an object.</p>
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-
-@pulumi.input_type
-class DataSourceMariaDbParametersArgs:
-    def __init__(__self__, *,
-                 database: pulumi.Input[str],
-                 host: pulumi.Input[str],
-                 port: pulumi.Input[float]):
-        """
-        <p>MariaDB parameters.</p>
-        :param pulumi.Input[str] database: <p>Database.</p>
-        :param pulumi.Input[str] host: <p>Host.</p>
-        :param pulumi.Input[float] port: <p>Port.</p>
-        """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "port", port)
-
-    @property
-    @pulumi.getter
-    def database(self) -> pulumi.Input[str]:
-        """
-        <p>Database.</p>
-        """
-        return pulumi.get(self, "database")
-
-    @database.setter
-    def database(self, value: pulumi.Input[str]):
-        pulumi.set(self, "database", value)
-
-    @property
-    @pulumi.getter
-    def host(self) -> pulumi.Input[str]:
-        """
-        <p>Host.</p>
-        """
-        return pulumi.get(self, "host")
-
-    @host.setter
-    def host(self, value: pulumi.Input[str]):
-        pulumi.set(self, "host", value)
-
-    @property
-    @pulumi.getter
-    def port(self) -> pulumi.Input[float]:
-        """
-        <p>Port.</p>
-        """
-        return pulumi.get(self, "port")
-
-    @port.setter
-    def port(self, value: pulumi.Input[float]):
-        pulumi.set(self, "port", value)
-
-
-@pulumi.input_type
-class DataSourceMySqlParametersArgs:
-    def __init__(__self__, *,
-                 database: pulumi.Input[str],
-                 host: pulumi.Input[str],
-                 port: pulumi.Input[float]):
-        """
-        <p>MySQL parameters.</p>
-        :param pulumi.Input[str] database: <p>Database.</p>
-        :param pulumi.Input[str] host: <p>Host.</p>
-        :param pulumi.Input[float] port: <p>Port.</p>
-        """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "port", port)
-
-    @property
-    @pulumi.getter
-    def database(self) -> pulumi.Input[str]:
-        """
-        <p>Database.</p>
-        """
-        return pulumi.get(self, "database")
-
-    @database.setter
-    def database(self, value: pulumi.Input[str]):
-        pulumi.set(self, "database", value)
-
-    @property
-    @pulumi.getter
-    def host(self) -> pulumi.Input[str]:
-        """
-        <p>Host.</p>
-        """
-        return pulumi.get(self, "host")
-
-    @host.setter
-    def host(self, value: pulumi.Input[str]):
-        pulumi.set(self, "host", value)
-
-    @property
-    @pulumi.getter
-    def port(self) -> pulumi.Input[float]:
-        """
-        <p>Port.</p>
-        """
-        return pulumi.get(self, "port")
-
-    @port.setter
-    def port(self, value: pulumi.Input[float]):
-        pulumi.set(self, "port", value)
-
-
-@pulumi.input_type
-class DataSourceOracleParametersArgs:
-    def __init__(__self__, *,
-                 database: pulumi.Input[str],
-                 host: pulumi.Input[str],
-                 port: pulumi.Input[float]):
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "port", port)
-
-    @property
-    @pulumi.getter
-    def database(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "database")
-
-    @database.setter
-    def database(self, value: pulumi.Input[str]):
-        pulumi.set(self, "database", value)
-
-    @property
-    @pulumi.getter
-    def host(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "host")
-
-    @host.setter
-    def host(self, value: pulumi.Input[str]):
-        pulumi.set(self, "host", value)
-
-    @property
-    @pulumi.getter
-    def port(self) -> pulumi.Input[float]:
-        return pulumi.get(self, "port")
-
-    @port.setter
-    def port(self, value: pulumi.Input[float]):
-        pulumi.set(self, "port", value)
 
 
 @pulumi.input_type
@@ -2790,46 +2790,7 @@ class TemplateResourcePermissionArgs:
 
 
 @pulumi.input_type
-class TemplateTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: pulumi.Input[str]):
-        """
-        <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
-                    resource.</p>
-        :param pulumi.Input[str] key: <p>Tag key.</p>
-        :param pulumi.Input[str] value: <p>Tag value.</p>
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        <p>Tag key.</p>
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        <p>Tag value.</p>
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class TemplateTemplateSourceAnalysisArgs:
+class TemplateSourceAnalysisArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[str],
                  data_set_references: pulumi.Input[Sequence[pulumi.Input['TemplateDataSetReferenceArgs']]]):
@@ -2869,10 +2830,10 @@ class TemplateTemplateSourceAnalysisArgs:
 
 
 @pulumi.input_type
-class TemplateTemplateSourceEntityArgs:
+class TemplateSourceEntityArgs:
     def __init__(__self__, *,
-                 source_analysis: Optional[pulumi.Input['TemplateTemplateSourceAnalysisArgs']] = None,
-                 source_template: Optional[pulumi.Input['TemplateTemplateSourceTemplateArgs']] = None):
+                 source_analysis: Optional[pulumi.Input['TemplateSourceAnalysisArgs']] = None,
+                 source_template: Optional[pulumi.Input['TemplateSourceTemplateArgs']] = None):
         """
         <p>The source entity of the template.</p>
         """
@@ -2883,25 +2844,25 @@ class TemplateTemplateSourceEntityArgs:
 
     @property
     @pulumi.getter(name="sourceAnalysis")
-    def source_analysis(self) -> Optional[pulumi.Input['TemplateTemplateSourceAnalysisArgs']]:
+    def source_analysis(self) -> Optional[pulumi.Input['TemplateSourceAnalysisArgs']]:
         return pulumi.get(self, "source_analysis")
 
     @source_analysis.setter
-    def source_analysis(self, value: Optional[pulumi.Input['TemplateTemplateSourceAnalysisArgs']]):
+    def source_analysis(self, value: Optional[pulumi.Input['TemplateSourceAnalysisArgs']]):
         pulumi.set(self, "source_analysis", value)
 
     @property
     @pulumi.getter(name="sourceTemplate")
-    def source_template(self) -> Optional[pulumi.Input['TemplateTemplateSourceTemplateArgs']]:
+    def source_template(self) -> Optional[pulumi.Input['TemplateSourceTemplateArgs']]:
         return pulumi.get(self, "source_template")
 
     @source_template.setter
-    def source_template(self, value: Optional[pulumi.Input['TemplateTemplateSourceTemplateArgs']]):
+    def source_template(self, value: Optional[pulumi.Input['TemplateSourceTemplateArgs']]):
         pulumi.set(self, "source_template", value)
 
 
 @pulumi.input_type
-class TemplateTemplateSourceTemplateArgs:
+class TemplateSourceTemplateArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[str]):
         """
@@ -2921,6 +2882,45 @@ class TemplateTemplateSourceTemplateArgs:
     @arn.setter
     def arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "arn", value)
+
+
+@pulumi.input_type
+class TemplateTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+                    resource.</p>
+        :param pulumi.Input[str] key: <p>Tag key.</p>
+        :param pulumi.Input[str] value: <p>Tag value.</p>
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        <p>Tag key.</p>
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        <p>Tag value.</p>
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -2945,6 +2945,63 @@ class ThemeBorderStyleArgs:
     @show.setter
     def show(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "show", value)
+
+
+@pulumi.input_type
+class ThemeConfigurationArgs:
+    def __init__(__self__, *,
+                 data_color_palette: Optional[pulumi.Input['ThemeDataColorPaletteArgs']] = None,
+                 sheet: Optional[pulumi.Input['ThemeSheetStyleArgs']] = None,
+                 typography: Optional[pulumi.Input['ThemeTypographyArgs']] = None,
+                 u_i_color_palette: Optional[pulumi.Input['ThemeUIColorPaletteArgs']] = None):
+        """
+        <p>The theme configuration. This configuration contains all of the display properties for
+                    a theme.</p>
+        """
+        if data_color_palette is not None:
+            pulumi.set(__self__, "data_color_palette", data_color_palette)
+        if sheet is not None:
+            pulumi.set(__self__, "sheet", sheet)
+        if typography is not None:
+            pulumi.set(__self__, "typography", typography)
+        if u_i_color_palette is not None:
+            pulumi.set(__self__, "u_i_color_palette", u_i_color_palette)
+
+    @property
+    @pulumi.getter(name="dataColorPalette")
+    def data_color_palette(self) -> Optional[pulumi.Input['ThemeDataColorPaletteArgs']]:
+        return pulumi.get(self, "data_color_palette")
+
+    @data_color_palette.setter
+    def data_color_palette(self, value: Optional[pulumi.Input['ThemeDataColorPaletteArgs']]):
+        pulumi.set(self, "data_color_palette", value)
+
+    @property
+    @pulumi.getter
+    def sheet(self) -> Optional[pulumi.Input['ThemeSheetStyleArgs']]:
+        return pulumi.get(self, "sheet")
+
+    @sheet.setter
+    def sheet(self, value: Optional[pulumi.Input['ThemeSheetStyleArgs']]):
+        pulumi.set(self, "sheet", value)
+
+    @property
+    @pulumi.getter
+    def typography(self) -> Optional[pulumi.Input['ThemeTypographyArgs']]:
+        return pulumi.get(self, "typography")
+
+    @typography.setter
+    def typography(self, value: Optional[pulumi.Input['ThemeTypographyArgs']]):
+        pulumi.set(self, "typography", value)
+
+    @property
+    @pulumi.getter(name="uIColorPalette")
+    def u_i_color_palette(self) -> Optional[pulumi.Input['ThemeUIColorPaletteArgs']]:
+        return pulumi.get(self, "u_i_color_palette")
+
+    @u_i_color_palette.setter
+    def u_i_color_palette(self, value: Optional[pulumi.Input['ThemeUIColorPaletteArgs']]):
+        pulumi.set(self, "u_i_color_palette", value)
 
 
 @pulumi.input_type
@@ -3209,63 +3266,6 @@ class ThemeTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class ThemeThemeConfigurationArgs:
-    def __init__(__self__, *,
-                 data_color_palette: Optional[pulumi.Input['ThemeDataColorPaletteArgs']] = None,
-                 sheet: Optional[pulumi.Input['ThemeSheetStyleArgs']] = None,
-                 typography: Optional[pulumi.Input['ThemeTypographyArgs']] = None,
-                 u_i_color_palette: Optional[pulumi.Input['ThemeUIColorPaletteArgs']] = None):
-        """
-        <p>The theme configuration. This configuration contains all of the display properties for
-                    a theme.</p>
-        """
-        if data_color_palette is not None:
-            pulumi.set(__self__, "data_color_palette", data_color_palette)
-        if sheet is not None:
-            pulumi.set(__self__, "sheet", sheet)
-        if typography is not None:
-            pulumi.set(__self__, "typography", typography)
-        if u_i_color_palette is not None:
-            pulumi.set(__self__, "u_i_color_palette", u_i_color_palette)
-
-    @property
-    @pulumi.getter(name="dataColorPalette")
-    def data_color_palette(self) -> Optional[pulumi.Input['ThemeDataColorPaletteArgs']]:
-        return pulumi.get(self, "data_color_palette")
-
-    @data_color_palette.setter
-    def data_color_palette(self, value: Optional[pulumi.Input['ThemeDataColorPaletteArgs']]):
-        pulumi.set(self, "data_color_palette", value)
-
-    @property
-    @pulumi.getter
-    def sheet(self) -> Optional[pulumi.Input['ThemeSheetStyleArgs']]:
-        return pulumi.get(self, "sheet")
-
-    @sheet.setter
-    def sheet(self, value: Optional[pulumi.Input['ThemeSheetStyleArgs']]):
-        pulumi.set(self, "sheet", value)
-
-    @property
-    @pulumi.getter
-    def typography(self) -> Optional[pulumi.Input['ThemeTypographyArgs']]:
-        return pulumi.get(self, "typography")
-
-    @typography.setter
-    def typography(self, value: Optional[pulumi.Input['ThemeTypographyArgs']]):
-        pulumi.set(self, "typography", value)
-
-    @property
-    @pulumi.getter(name="uIColorPalette")
-    def u_i_color_palette(self) -> Optional[pulumi.Input['ThemeUIColorPaletteArgs']]:
-        return pulumi.get(self, "u_i_color_palette")
-
-    @u_i_color_palette.setter
-    def u_i_color_palette(self, value: Optional[pulumi.Input['ThemeUIColorPaletteArgs']]):
-        pulumi.set(self, "u_i_color_palette", value)
 
 
 @pulumi.input_type

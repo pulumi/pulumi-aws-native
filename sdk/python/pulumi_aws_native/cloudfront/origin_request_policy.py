@@ -15,7 +15,7 @@ __all__ = ['OriginRequestPolicyArgs', 'OriginRequestPolicy']
 @pulumi.input_type
 class OriginRequestPolicyArgs:
     def __init__(__self__, *,
-                 origin_request_policy_config: pulumi.Input['OriginRequestPolicyOriginRequestPolicyConfigArgs']):
+                 origin_request_policy_config: pulumi.Input['OriginRequestPolicyConfigArgs']):
         """
         The set of arguments for constructing a OriginRequestPolicy resource.
         """
@@ -23,11 +23,11 @@ class OriginRequestPolicyArgs:
 
     @property
     @pulumi.getter(name="originRequestPolicyConfig")
-    def origin_request_policy_config(self) -> pulumi.Input['OriginRequestPolicyOriginRequestPolicyConfigArgs']:
+    def origin_request_policy_config(self) -> pulumi.Input['OriginRequestPolicyConfigArgs']:
         return pulumi.get(self, "origin_request_policy_config")
 
     @origin_request_policy_config.setter
-    def origin_request_policy_config(self, value: pulumi.Input['OriginRequestPolicyOriginRequestPolicyConfigArgs']):
+    def origin_request_policy_config(self, value: pulumi.Input['OriginRequestPolicyConfigArgs']):
         pulumi.set(self, "origin_request_policy_config", value)
 
 
@@ -36,7 +36,7 @@ class OriginRequestPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 origin_request_policy_config: Optional[pulumi.Input[pulumi.InputType['OriginRequestPolicyOriginRequestPolicyConfigArgs']]] = None,
+                 origin_request_policy_config: Optional[pulumi.Input[pulumi.InputType['OriginRequestPolicyConfigArgs']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CloudFront::OriginRequestPolicy
@@ -68,7 +68,7 @@ class OriginRequestPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 origin_request_policy_config: Optional[pulumi.Input[pulumi.InputType['OriginRequestPolicyOriginRequestPolicyConfigArgs']]] = None,
+                 origin_request_policy_config: Optional[pulumi.Input[pulumi.InputType['OriginRequestPolicyConfigArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -118,6 +118,6 @@ class OriginRequestPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="originRequestPolicyConfig")
-    def origin_request_policy_config(self) -> pulumi.Output['outputs.OriginRequestPolicyOriginRequestPolicyConfig']:
+    def origin_request_policy_config(self) -> pulumi.Output['outputs.OriginRequestPolicyConfig']:
         return pulumi.get(self, "origin_request_policy_config")
 

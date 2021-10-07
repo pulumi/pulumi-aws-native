@@ -5,29 +5,29 @@
 from enum import Enum
 
 __all__ = [
-    'AnalysisAnalysisErrorType',
+    'AnalysisErrorType',
     'AnalysisResourceStatus',
-    'DashboardDashboardBehavior',
-    'DashboardDashboardErrorType',
-    'DashboardDashboardUIState',
+    'DashboardBehavior',
+    'DashboardErrorType',
     'DashboardResourceStatus',
+    'DashboardUIState',
     'DataSetColumnDataType',
-    'DataSetDataSetImportMode',
     'DataSetGeoSpatialCountryCode',
+    'DataSetImportMode',
     'DataSetRowLevelPermissionFormatVersion',
     'DataSetRowLevelPermissionPolicy',
-    'DataSourceDataSourceErrorInfoType',
-    'DataSourceDataSourceType',
+    'DataSourceErrorInfoType',
     'DataSourceResourceStatus',
+    'DataSourceType',
+    'TemplateErrorType',
     'TemplateResourceStatus',
-    'TemplateTemplateErrorType',
+    'ThemeErrorType',
     'ThemeResourceStatus',
-    'ThemeThemeErrorType',
-    'ThemeThemeType',
+    'ThemeType',
 ]
 
 
-class AnalysisAnalysisErrorType(str, Enum):
+class AnalysisErrorType(str, Enum):
     ACCESS_DENIED = "ACCESS_DENIED"
     SOURCE_NOT_FOUND = "SOURCE_NOT_FOUND"
     DATA_SET_NOT_FOUND = "DATA_SET_NOT_FOUND"
@@ -50,12 +50,12 @@ class AnalysisResourceStatus(str, Enum):
     DELETED = "DELETED"
 
 
-class DashboardDashboardBehavior(str, Enum):
+class DashboardBehavior(str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
 
 
-class DashboardDashboardErrorType(str, Enum):
+class DashboardErrorType(str, Enum):
     ACCESS_DENIED = "ACCESS_DENIED"
     SOURCE_NOT_FOUND = "SOURCE_NOT_FOUND"
     DATA_SET_NOT_FOUND = "DATA_SET_NOT_FOUND"
@@ -68,11 +68,6 @@ class DashboardDashboardErrorType(str, Enum):
     COLUMN_REPLACEMENT_MISSING = "COLUMN_REPLACEMENT_MISSING"
 
 
-class DashboardDashboardUIState(str, Enum):
-    EXPANDED = "EXPANDED"
-    COLLAPSED = "COLLAPSED"
-
-
 class DashboardResourceStatus(str, Enum):
     CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS"
     CREATION_SUCCESSFUL = "CREATION_SUCCESSFUL"
@@ -83,6 +78,11 @@ class DashboardResourceStatus(str, Enum):
     DELETED = "DELETED"
 
 
+class DashboardUIState(str, Enum):
+    EXPANDED = "EXPANDED"
+    COLLAPSED = "COLLAPSED"
+
+
 class DataSetColumnDataType(str, Enum):
     STRING = "STRING"
     INTEGER = "INTEGER"
@@ -90,13 +90,13 @@ class DataSetColumnDataType(str, Enum):
     DATETIME = "DATETIME"
 
 
-class DataSetDataSetImportMode(str, Enum):
-    SPICE = "SPICE"
-    DIRECT_QUERY = "DIRECT_QUERY"
-
-
 class DataSetGeoSpatialCountryCode(str, Enum):
     US = "US"
+
+
+class DataSetImportMode(str, Enum):
+    SPICE = "SPICE"
+    DIRECT_QUERY = "DIRECT_QUERY"
 
 
 class DataSetRowLevelPermissionFormatVersion(str, Enum):
@@ -109,7 +109,7 @@ class DataSetRowLevelPermissionPolicy(str, Enum):
     DENY_ACCESS = "DENY_ACCESS"
 
 
-class DataSourceDataSourceErrorInfoType(str, Enum):
+class DataSourceErrorInfoType(str, Enum):
     ACCESS_DENIED = "ACCESS_DENIED"
     COPY_SOURCE_NOT_FOUND = "COPY_SOURCE_NOT_FOUND"
     TIMEOUT = "TIMEOUT"
@@ -120,7 +120,17 @@ class DataSourceDataSourceErrorInfoType(str, Enum):
     UNKNOWN = "UNKNOWN"
 
 
-class DataSourceDataSourceType(str, Enum):
+class DataSourceResourceStatus(str, Enum):
+    CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS"
+    CREATION_SUCCESSFUL = "CREATION_SUCCESSFUL"
+    CREATION_FAILED = "CREATION_FAILED"
+    UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS"
+    UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL"
+    UPDATE_FAILED = "UPDATE_FAILED"
+    DELETED = "DELETED"
+
+
+class DataSourceType(str, Enum):
     ADOBE_ANALYTICS = "ADOBE_ANALYTICS"
     AMAZON_ELASTICSEARCH = "AMAZON_ELASTICSEARCH"
     ATHENA = "ATHENA"
@@ -146,14 +156,11 @@ class DataSourceDataSourceType(str, Enum):
     TIMESTREAM = "TIMESTREAM"
 
 
-class DataSourceResourceStatus(str, Enum):
-    CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS"
-    CREATION_SUCCESSFUL = "CREATION_SUCCESSFUL"
-    CREATION_FAILED = "CREATION_FAILED"
-    UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS"
-    UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL"
-    UPDATE_FAILED = "UPDATE_FAILED"
-    DELETED = "DELETED"
+class TemplateErrorType(str, Enum):
+    SOURCE_NOT_FOUND = "SOURCE_NOT_FOUND"
+    DATA_SET_NOT_FOUND = "DATA_SET_NOT_FOUND"
+    INTERNAL_FAILURE = "INTERNAL_FAILURE"
+    ACCESS_DENIED = "ACCESS_DENIED"
 
 
 class TemplateResourceStatus(str, Enum):
@@ -166,11 +173,8 @@ class TemplateResourceStatus(str, Enum):
     DELETED = "DELETED"
 
 
-class TemplateTemplateErrorType(str, Enum):
-    SOURCE_NOT_FOUND = "SOURCE_NOT_FOUND"
-    DATA_SET_NOT_FOUND = "DATA_SET_NOT_FOUND"
+class ThemeErrorType(str, Enum):
     INTERNAL_FAILURE = "INTERNAL_FAILURE"
-    ACCESS_DENIED = "ACCESS_DENIED"
 
 
 class ThemeResourceStatus(str, Enum):
@@ -183,11 +187,7 @@ class ThemeResourceStatus(str, Enum):
     DELETED = "DELETED"
 
 
-class ThemeThemeErrorType(str, Enum):
-    INTERNAL_FAILURE = "INTERNAL_FAILURE"
-
-
-class ThemeThemeType(str, Enum):
+class ThemeType(str, Enum):
     QUICKSIGHT = "QUICKSIGHT"
     CUSTOM = "CUSTOM"
     ALL = "ALL"

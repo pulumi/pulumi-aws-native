@@ -24,8 +24,8 @@ __all__ = [
     'LocationSMBTag',
     'TaskFilterRule',
     'TaskOptions',
+    'TaskSchedule',
     'TaskTag',
-    'TaskTaskSchedule',
 ]
 
 @pulumi.output_type
@@ -702,6 +702,45 @@ class TaskOptions(dict):
 
 
 @pulumi.output_type
+class TaskSchedule(dict):
+    """
+    Specifies the schedule you want your task to use for repeated executions.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scheduleExpression":
+            suggest = "schedule_expression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskSchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 schedule_expression: str):
+        """
+        Specifies the schedule you want your task to use for repeated executions.
+        :param str schedule_expression: A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
+        """
+        pulumi.set(__self__, "schedule_expression", schedule_expression)
+
+    @property
+    @pulumi.getter(name="scheduleExpression")
+    def schedule_expression(self) -> str:
+        """
+        A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
+        """
+        return pulumi.get(self, "schedule_expression")
+
+
+@pulumi.output_type
 class TaskTag(dict):
     """
     A key-value pair to associate with a resource.
@@ -732,44 +771,5 @@ class TaskTag(dict):
         The value for an AWS resource tag.
         """
         return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class TaskTaskSchedule(dict):
-    """
-    Specifies the schedule you want your task to use for repeated executions.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "scheduleExpression":
-            suggest = "schedule_expression"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TaskTaskSchedule. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TaskTaskSchedule.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TaskTaskSchedule.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 schedule_expression: str):
-        """
-        Specifies the schedule you want your task to use for repeated executions.
-        :param str schedule_expression: A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
-        """
-        pulumi.set(__self__, "schedule_expression", schedule_expression)
-
-    @property
-    @pulumi.getter(name="scheduleExpression")
-    def schedule_expression(self) -> str:
-        """
-        A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
-        """
-        return pulumi.get(self, "schedule_expression")
 
 

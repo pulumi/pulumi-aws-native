@@ -11,11 +11,11 @@ from . import outputs
 
 __all__ = [
     'PipelineField',
+    'PipelineObject',
     'PipelineParameterAttribute',
     'PipelineParameterObject',
     'PipelineParameterValue',
-    'PipelinePipelineObject',
-    'PipelinePipelineTag',
+    'PipelineTag',
 ]
 
 @pulumi.output_type
@@ -63,6 +63,32 @@ class PipelineField(dict):
     @pulumi.getter(name="stringValue")
     def string_value(self) -> Optional[str]:
         return pulumi.get(self, "string_value")
+
+
+@pulumi.output_type
+class PipelineObject(dict):
+    def __init__(__self__, *,
+                 fields: Sequence['outputs.PipelineField'],
+                 id: str,
+                 name: str):
+        pulumi.set(__self__, "fields", fields)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def fields(self) -> Sequence['outputs.PipelineField']:
+        return pulumi.get(self, "fields")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -157,33 +183,7 @@ class PipelineParameterValue(dict):
 
 
 @pulumi.output_type
-class PipelinePipelineObject(dict):
-    def __init__(__self__, *,
-                 fields: Sequence['outputs.PipelineField'],
-                 id: str,
-                 name: str):
-        pulumi.set(__self__, "fields", fields)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def fields(self) -> Sequence['outputs.PipelineField']:
-        return pulumi.get(self, "fields")
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class PipelinePipelineTag(dict):
+class PipelineTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):

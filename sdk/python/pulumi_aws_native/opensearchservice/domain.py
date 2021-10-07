@@ -20,7 +20,7 @@ class DomainArgs:
                  advanced_security_options: Optional[pulumi.Input['DomainAdvancedSecurityOptionsInputArgs']] = None,
                  cluster_config: Optional[pulumi.Input['DomainClusterConfigArgs']] = None,
                  cognito_options: Optional[pulumi.Input['DomainCognitoOptionsArgs']] = None,
-                 domain_endpoint_options: Optional[pulumi.Input['DomainDomainEndpointOptionsArgs']] = None,
+                 domain_endpoint_options: Optional[pulumi.Input['DomainEndpointOptionsArgs']] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  e_bs_options: Optional[pulumi.Input['DomainEBSOptionsArgs']] = None,
                  encryption_at_rest_options: Optional[pulumi.Input['DomainEncryptionAtRestOptionsArgs']] = None,
@@ -112,11 +112,11 @@ class DomainArgs:
 
     @property
     @pulumi.getter(name="domainEndpointOptions")
-    def domain_endpoint_options(self) -> Optional[pulumi.Input['DomainDomainEndpointOptionsArgs']]:
+    def domain_endpoint_options(self) -> Optional[pulumi.Input['DomainEndpointOptionsArgs']]:
         return pulumi.get(self, "domain_endpoint_options")
 
     @domain_endpoint_options.setter
-    def domain_endpoint_options(self, value: Optional[pulumi.Input['DomainDomainEndpointOptionsArgs']]):
+    def domain_endpoint_options(self, value: Optional[pulumi.Input['DomainEndpointOptionsArgs']]):
         pulumi.set(self, "domain_endpoint_options", value)
 
     @property
@@ -214,7 +214,7 @@ class Domain(pulumi.CustomResource):
                  advanced_security_options: Optional[pulumi.Input[pulumi.InputType['DomainAdvancedSecurityOptionsInputArgs']]] = None,
                  cluster_config: Optional[pulumi.Input[pulumi.InputType['DomainClusterConfigArgs']]] = None,
                  cognito_options: Optional[pulumi.Input[pulumi.InputType['DomainCognitoOptionsArgs']]] = None,
-                 domain_endpoint_options: Optional[pulumi.Input[pulumi.InputType['DomainDomainEndpointOptionsArgs']]] = None,
+                 domain_endpoint_options: Optional[pulumi.Input[pulumi.InputType['DomainEndpointOptionsArgs']]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  e_bs_options: Optional[pulumi.Input[pulumi.InputType['DomainEBSOptionsArgs']]] = None,
                  encryption_at_rest_options: Optional[pulumi.Input[pulumi.InputType['DomainEncryptionAtRestOptionsArgs']]] = None,
@@ -261,7 +261,7 @@ class Domain(pulumi.CustomResource):
                  advanced_security_options: Optional[pulumi.Input[pulumi.InputType['DomainAdvancedSecurityOptionsInputArgs']]] = None,
                  cluster_config: Optional[pulumi.Input[pulumi.InputType['DomainClusterConfigArgs']]] = None,
                  cognito_options: Optional[pulumi.Input[pulumi.InputType['DomainCognitoOptionsArgs']]] = None,
-                 domain_endpoint_options: Optional[pulumi.Input[pulumi.InputType['DomainDomainEndpointOptionsArgs']]] = None,
+                 domain_endpoint_options: Optional[pulumi.Input[pulumi.InputType['DomainEndpointOptionsArgs']]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  e_bs_options: Optional[pulumi.Input[pulumi.InputType['DomainEBSOptionsArgs']]] = None,
                  encryption_at_rest_options: Optional[pulumi.Input[pulumi.InputType['DomainEncryptionAtRestOptionsArgs']]] = None,
@@ -389,7 +389,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainEndpointOptions")
-    def domain_endpoint_options(self) -> pulumi.Output[Optional['outputs.DomainDomainEndpointOptions']]:
+    def domain_endpoint_options(self) -> pulumi.Output[Optional['outputs.DomainEndpointOptions']]:
         return pulumi.get(self, "domain_endpoint_options")
 
     @property

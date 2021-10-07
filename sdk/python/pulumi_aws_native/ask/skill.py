@@ -16,7 +16,7 @@ __all__ = ['SkillArgs', 'Skill']
 class SkillArgs:
     def __init__(__self__, *,
                  authentication_configuration: pulumi.Input['SkillAuthenticationConfigurationArgs'],
-                 skill_package: pulumi.Input['SkillSkillPackageArgs'],
+                 skill_package: pulumi.Input['SkillPackageArgs'],
                  vendor_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a Skill resource.
@@ -36,11 +36,11 @@ class SkillArgs:
 
     @property
     @pulumi.getter(name="skillPackage")
-    def skill_package(self) -> pulumi.Input['SkillSkillPackageArgs']:
+    def skill_package(self) -> pulumi.Input['SkillPackageArgs']:
         return pulumi.get(self, "skill_package")
 
     @skill_package.setter
-    def skill_package(self, value: pulumi.Input['SkillSkillPackageArgs']):
+    def skill_package(self, value: pulumi.Input['SkillPackageArgs']):
         pulumi.set(self, "skill_package", value)
 
     @property
@@ -64,7 +64,7 @@ class Skill(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authentication_configuration: Optional[pulumi.Input[pulumi.InputType['SkillAuthenticationConfigurationArgs']]] = None,
-                 skill_package: Optional[pulumi.Input[pulumi.InputType['SkillSkillPackageArgs']]] = None,
+                 skill_package: Optional[pulumi.Input[pulumi.InputType['SkillPackageArgs']]] = None,
                  vendor_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -98,7 +98,7 @@ class Skill(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authentication_configuration: Optional[pulumi.Input[pulumi.InputType['SkillAuthenticationConfigurationArgs']]] = None,
-                 skill_package: Optional[pulumi.Input[pulumi.InputType['SkillSkillPackageArgs']]] = None,
+                 skill_package: Optional[pulumi.Input[pulumi.InputType['SkillPackageArgs']]] = None,
                  vendor_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""Skill is deprecated: Skill is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -156,7 +156,7 @@ class Skill(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="skillPackage")
-    def skill_package(self) -> pulumi.Output['outputs.SkillSkillPackage']:
+    def skill_package(self) -> pulumi.Output['outputs.SkillPackage']:
         return pulumi.get(self, "skill_package")
 
     @property

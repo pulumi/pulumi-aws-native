@@ -17,8 +17,8 @@ class SegmentArgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 dimensions: Optional[pulumi.Input['SegmentSegmentDimensionsArgs']] = None,
-                 segment_groups: Optional[pulumi.Input['SegmentSegmentGroupsArgs']] = None,
+                 dimensions: Optional[pulumi.Input['SegmentDimensionsArgs']] = None,
+                 segment_groups: Optional[pulumi.Input['SegmentGroupsArgs']] = None,
                  tags: Optional[Any] = None):
         """
         The set of arguments for constructing a Segment resource.
@@ -52,20 +52,20 @@ class SegmentArgs:
 
     @property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input['SegmentSegmentDimensionsArgs']]:
+    def dimensions(self) -> Optional[pulumi.Input['SegmentDimensionsArgs']]:
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input['SegmentSegmentDimensionsArgs']]):
+    def dimensions(self, value: Optional[pulumi.Input['SegmentDimensionsArgs']]):
         pulumi.set(self, "dimensions", value)
 
     @property
     @pulumi.getter(name="segmentGroups")
-    def segment_groups(self) -> Optional[pulumi.Input['SegmentSegmentGroupsArgs']]:
+    def segment_groups(self) -> Optional[pulumi.Input['SegmentGroupsArgs']]:
         return pulumi.get(self, "segment_groups")
 
     @segment_groups.setter
-    def segment_groups(self, value: Optional[pulumi.Input['SegmentSegmentGroupsArgs']]):
+    def segment_groups(self, value: Optional[pulumi.Input['SegmentGroupsArgs']]):
         pulumi.set(self, "segment_groups", value)
 
     @property
@@ -89,9 +89,9 @@ class Segment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
-                 dimensions: Optional[pulumi.Input[pulumi.InputType['SegmentSegmentDimensionsArgs']]] = None,
+                 dimensions: Optional[pulumi.Input[pulumi.InputType['SegmentDimensionsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 segment_groups: Optional[pulumi.Input[pulumi.InputType['SegmentSegmentGroupsArgs']]] = None,
+                 segment_groups: Optional[pulumi.Input[pulumi.InputType['SegmentGroupsArgs']]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
         """
@@ -125,9 +125,9 @@ class Segment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
-                 dimensions: Optional[pulumi.Input[pulumi.InputType['SegmentSegmentDimensionsArgs']]] = None,
+                 dimensions: Optional[pulumi.Input[pulumi.InputType['SegmentDimensionsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 segment_groups: Optional[pulumi.Input[pulumi.InputType['SegmentSegmentGroupsArgs']]] = None,
+                 segment_groups: Optional[pulumi.Input[pulumi.InputType['SegmentGroupsArgs']]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
         pulumi.log.warn("""Segment is deprecated: Segment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -196,7 +196,7 @@ class Segment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def dimensions(self) -> pulumi.Output[Optional['outputs.SegmentSegmentDimensions']]:
+    def dimensions(self) -> pulumi.Output[Optional['outputs.SegmentDimensions']]:
         return pulumi.get(self, "dimensions")
 
     @property
@@ -206,7 +206,7 @@ class Segment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="segmentGroups")
-    def segment_groups(self) -> pulumi.Output[Optional['outputs.SegmentSegmentGroups']]:
+    def segment_groups(self) -> pulumi.Output[Optional['outputs.SegmentGroups']]:
         return pulumi.get(self, "segment_groups")
 
     @property

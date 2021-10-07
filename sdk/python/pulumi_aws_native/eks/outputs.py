@@ -12,11 +12,9 @@ from ._enums import *
 
 __all__ = [
     'AddonTag',
-    'ClusterClusterLogging',
     'ClusterEncryptionConfig',
     'ClusterKubernetesNetworkConfig',
     'ClusterLogging',
-    'ClusterLoggingTypeConfig',
     'ClusterResourcesVpcConfig',
     'ClusterTag',
     'FargateProfileLabel',
@@ -60,42 +58,6 @@ class AddonTag(dict):
         The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
         return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class ClusterClusterLogging(dict):
-    """
-    The cluster control plane logging configuration for your cluster. 
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "enabledTypes":
-            suggest = "enabled_types"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ClusterClusterLogging. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ClusterClusterLogging.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ClusterClusterLogging.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 enabled_types: Optional[Sequence['outputs.ClusterLoggingTypeConfig']] = None):
-        """
-        The cluster control plane logging configuration for your cluster. 
-        """
-        if enabled_types is not None:
-            pulumi.set(__self__, "enabled_types", enabled_types)
-
-    @property
-    @pulumi.getter(name="enabledTypes")
-    def enabled_types(self) -> Optional[Sequence['outputs.ClusterLoggingTypeConfig']]:
-        return pulumi.get(self, "enabled_types")
 
 
 @pulumi.output_type
@@ -196,44 +158,21 @@ class ClusterLogging(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 cluster_logging: Optional['outputs.ClusterClusterLogging'] = None):
+                 cluster_logging: Optional['outputs.ClusterLogging'] = None):
         """
         Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
-        :param 'ClusterClusterLogging' cluster_logging: The cluster control plane logging configuration for your cluster. 
+        :param 'ClusterLogging' cluster_logging: The cluster control plane logging configuration for your cluster. 
         """
         if cluster_logging is not None:
             pulumi.set(__self__, "cluster_logging", cluster_logging)
 
     @property
     @pulumi.getter(name="clusterLogging")
-    def cluster_logging(self) -> Optional['outputs.ClusterClusterLogging']:
+    def cluster_logging(self) -> Optional['outputs.ClusterLogging']:
         """
         The cluster control plane logging configuration for your cluster. 
         """
         return pulumi.get(self, "cluster_logging")
-
-
-@pulumi.output_type
-class ClusterLoggingTypeConfig(dict):
-    """
-    Enabled Logging Type
-    """
-    def __init__(__self__, *,
-                 type: Optional['ClusterLoggingTypeConfigType'] = None):
-        """
-        Enabled Logging Type
-        :param 'ClusterLoggingTypeConfigType' type: name of the log type
-        """
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional['ClusterLoggingTypeConfigType']:
-        """
-        name of the log type
-        """
-        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

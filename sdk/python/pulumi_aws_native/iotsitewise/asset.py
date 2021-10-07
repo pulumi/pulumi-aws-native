@@ -18,8 +18,8 @@ class AssetArgs:
     def __init__(__self__, *,
                  asset_model_id: pulumi.Input[str],
                  asset_name: pulumi.Input[str],
-                 asset_hierarchies: Optional[pulumi.Input[Sequence[pulumi.Input['AssetAssetHierarchyArgs']]]] = None,
-                 asset_properties: Optional[pulumi.Input[Sequence[pulumi.Input['AssetAssetPropertyArgs']]]] = None,
+                 asset_hierarchies: Optional[pulumi.Input[Sequence[pulumi.Input['AssetHierarchyArgs']]]] = None,
+                 asset_properties: Optional[pulumi.Input[Sequence[pulumi.Input['AssetPropertyArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AssetTagArgs']]]] = None):
         """
         The set of arguments for constructing a Asset resource.
@@ -62,20 +62,20 @@ class AssetArgs:
 
     @property
     @pulumi.getter(name="assetHierarchies")
-    def asset_hierarchies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetAssetHierarchyArgs']]]]:
+    def asset_hierarchies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetHierarchyArgs']]]]:
         return pulumi.get(self, "asset_hierarchies")
 
     @asset_hierarchies.setter
-    def asset_hierarchies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssetAssetHierarchyArgs']]]]):
+    def asset_hierarchies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssetHierarchyArgs']]]]):
         pulumi.set(self, "asset_hierarchies", value)
 
     @property
     @pulumi.getter(name="assetProperties")
-    def asset_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetAssetPropertyArgs']]]]:
+    def asset_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetPropertyArgs']]]]:
         return pulumi.get(self, "asset_properties")
 
     @asset_properties.setter
-    def asset_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssetAssetPropertyArgs']]]]):
+    def asset_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssetPropertyArgs']]]]):
         pulumi.set(self, "asset_properties", value)
 
     @property
@@ -96,10 +96,10 @@ class Asset(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 asset_hierarchies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetAssetHierarchyArgs']]]]] = None,
+                 asset_hierarchies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetHierarchyArgs']]]]] = None,
                  asset_model_id: Optional[pulumi.Input[str]] = None,
                  asset_name: Optional[pulumi.Input[str]] = None,
-                 asset_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetAssetPropertyArgs']]]]] = None,
+                 asset_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetPropertyArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -135,10 +135,10 @@ class Asset(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 asset_hierarchies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetAssetHierarchyArgs']]]]] = None,
+                 asset_hierarchies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetHierarchyArgs']]]]] = None,
                  asset_model_id: Optional[pulumi.Input[str]] = None,
                  asset_name: Optional[pulumi.Input[str]] = None,
-                 asset_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetAssetPropertyArgs']]]]] = None,
+                 asset_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetPropertyArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -204,7 +204,7 @@ class Asset(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="assetHierarchies")
-    def asset_hierarchies(self) -> pulumi.Output[Optional[Sequence['outputs.AssetAssetHierarchy']]]:
+    def asset_hierarchies(self) -> pulumi.Output[Optional[Sequence['outputs.AssetHierarchy']]]:
         return pulumi.get(self, "asset_hierarchies")
 
     @property
@@ -233,7 +233,7 @@ class Asset(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="assetProperties")
-    def asset_properties(self) -> pulumi.Output[Optional[Sequence['outputs.AssetAssetProperty']]]:
+    def asset_properties(self) -> pulumi.Output[Optional[Sequence['outputs.AssetProperty']]]:
         return pulumi.get(self, "asset_properties")
 
     @property

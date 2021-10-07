@@ -10,12 +10,12 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['FirewallPolicyArgs', 'FirewallPolicy']
+__all__ = ['FirewallPolicyInitArgs', 'FirewallPolicy']
 
 @pulumi.input_type
-class FirewallPolicyArgs:
+class FirewallPolicyInitArgs:
     def __init__(__self__, *,
-                 firewall_policy: pulumi.Input['FirewallPolicyFirewallPolicyArgs'],
+                 firewall_policy: pulumi.Input['FirewallPolicyArgs'],
                  firewall_policy_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyTagArgs']]]] = None):
@@ -31,11 +31,11 @@ class FirewallPolicyArgs:
 
     @property
     @pulumi.getter(name="firewallPolicy")
-    def firewall_policy(self) -> pulumi.Input['FirewallPolicyFirewallPolicyArgs']:
+    def firewall_policy(self) -> pulumi.Input['FirewallPolicyArgs']:
         return pulumi.get(self, "firewall_policy")
 
     @firewall_policy.setter
-    def firewall_policy(self, value: pulumi.Input['FirewallPolicyFirewallPolicyArgs']):
+    def firewall_policy(self, value: pulumi.Input['FirewallPolicyArgs']):
         pulumi.set(self, "firewall_policy", value)
 
     @property
@@ -72,7 +72,7 @@ class FirewallPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 firewall_policy: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyFirewallPolicyArgs']]] = None,
+                 firewall_policy: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyArgs']]] = None,
                  firewall_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyTagArgs']]]]] = None,
                  __props__=None):
@@ -86,18 +86,18 @@ class FirewallPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FirewallPolicyArgs,
+                 args: FirewallPolicyInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource type definition for AWS::NetworkFirewall::FirewallPolicy
 
         :param str resource_name: The name of the resource.
-        :param FirewallPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param FirewallPolicyInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FirewallPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FirewallPolicyInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -107,7 +107,7 @@ class FirewallPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 firewall_policy: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyFirewallPolicyArgs']]] = None,
+                 firewall_policy: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyArgs']]] = None,
                  firewall_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyTagArgs']]]]] = None,
                  __props__=None):
@@ -120,7 +120,7 @@ class FirewallPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FirewallPolicyArgs.__new__(FirewallPolicyArgs)
+            __props__ = FirewallPolicyInitArgs.__new__(FirewallPolicyInitArgs)
 
             __props__.__dict__["description"] = description
             if firewall_policy is None and not opts.urn:
@@ -152,7 +152,7 @@ class FirewallPolicy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = FirewallPolicyArgs.__new__(FirewallPolicyArgs)
+        __props__ = FirewallPolicyInitArgs.__new__(FirewallPolicyInitArgs)
 
         __props__.__dict__["description"] = None
         __props__.__dict__["firewall_policy"] = None
@@ -169,7 +169,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="firewallPolicy")
-    def firewall_policy(self) -> pulumi.Output['outputs.FirewallPolicyFirewallPolicy']:
+    def firewall_policy(self) -> pulumi.Output['outputs.FirewallPolicy']:
         return pulumi.get(self, "firewall_policy")
 
     @property

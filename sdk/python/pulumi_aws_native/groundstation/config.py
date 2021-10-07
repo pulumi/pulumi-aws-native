@@ -16,7 +16,7 @@ __all__ = ['ConfigArgs', 'Config']
 @pulumi.input_type
 class ConfigArgs:
     def __init__(__self__, *,
-                 config_data: pulumi.Input['ConfigConfigDataArgs'],
+                 config_data: pulumi.Input['ConfigDataArgs'],
                  name: pulumi.Input[str],
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigTagArgs']]]] = None):
         """
@@ -29,11 +29,11 @@ class ConfigArgs:
 
     @property
     @pulumi.getter(name="configData")
-    def config_data(self) -> pulumi.Input['ConfigConfigDataArgs']:
+    def config_data(self) -> pulumi.Input['ConfigDataArgs']:
         return pulumi.get(self, "config_data")
 
     @config_data.setter
-    def config_data(self, value: pulumi.Input['ConfigConfigDataArgs']):
+    def config_data(self, value: pulumi.Input['ConfigDataArgs']):
         pulumi.set(self, "config_data", value)
 
     @property
@@ -60,7 +60,7 @@ class Config(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config_data: Optional[pulumi.Input[pulumi.InputType['ConfigConfigDataArgs']]] = None,
+                 config_data: Optional[pulumi.Input[pulumi.InputType['ConfigDataArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigTagArgs']]]]] = None,
                  __props__=None):
@@ -94,7 +94,7 @@ class Config(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config_data: Optional[pulumi.Input[pulumi.InputType['ConfigConfigDataArgs']]] = None,
+                 config_data: Optional[pulumi.Input[pulumi.InputType['ConfigDataArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigTagArgs']]]]] = None,
                  __props__=None):
@@ -154,7 +154,7 @@ class Config(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="configData")
-    def config_data(self) -> pulumi.Output['outputs.ConfigConfigData']:
+    def config_data(self) -> pulumi.Output['outputs.ConfigData']:
         return pulumi.get(self, "config_data")
 
     @property

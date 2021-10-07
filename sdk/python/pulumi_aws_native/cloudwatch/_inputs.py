@@ -17,7 +17,7 @@ __all__ = [
     'AnomalyDetectorDimensionArgs',
     'AnomalyDetectorRangeArgs',
     'InsightRuleTagsArgs',
-    'MetricStreamMetricStreamFilterArgs',
+    'MetricStreamFilterArgs',
     'MetricStreamTagArgs',
 ]
 
@@ -317,7 +317,7 @@ class InsightRuleTagsArgs:
 
 
 @pulumi.input_type
-class MetricStreamMetricStreamFilterArgs:
+class MetricStreamFilterArgs:
     def __init__(__self__, *,
                  namespace: pulumi.Input[str]):
         """

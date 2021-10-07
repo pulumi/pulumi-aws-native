@@ -19,7 +19,7 @@ class ImageArgs:
                  distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
                  enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
                  image_recipe_arn: Optional[pulumi.Input[str]] = None,
-                 image_tests_configuration: Optional[pulumi.Input['ImageImageTestsConfigurationArgs']] = None,
+                 image_tests_configuration: Optional[pulumi.Input['ImageTestsConfigurationArgs']] = None,
                  infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None):
         """
@@ -28,7 +28,7 @@ class ImageArgs:
         :param pulumi.Input[str] distribution_configuration_arn: The Amazon Resource Name (ARN) of the distribution configuration.
         :param pulumi.Input[bool] enhanced_image_metadata_enabled: Collects additional information about the image being created, including the operating system (OS) version and package list.
         :param pulumi.Input[str] image_recipe_arn: The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
-        :param pulumi.Input['ImageImageTestsConfigurationArgs'] image_tests_configuration: The image tests configuration used when creating this image.
+        :param pulumi.Input['ImageTestsConfigurationArgs'] image_tests_configuration: The image tests configuration used when creating this image.
         :param pulumi.Input[str] infrastructure_configuration_arn: The Amazon Resource Name (ARN) of the infrastructure configuration.
         :param Any tags: The tags associated with the image.
         """
@@ -97,14 +97,14 @@ class ImageArgs:
 
     @property
     @pulumi.getter(name="imageTestsConfiguration")
-    def image_tests_configuration(self) -> Optional[pulumi.Input['ImageImageTestsConfigurationArgs']]:
+    def image_tests_configuration(self) -> Optional[pulumi.Input['ImageTestsConfigurationArgs']]:
         """
         The image tests configuration used when creating this image.
         """
         return pulumi.get(self, "image_tests_configuration")
 
     @image_tests_configuration.setter
-    def image_tests_configuration(self, value: Optional[pulumi.Input['ImageImageTestsConfigurationArgs']]):
+    def image_tests_configuration(self, value: Optional[pulumi.Input['ImageTestsConfigurationArgs']]):
         pulumi.set(self, "image_tests_configuration", value)
 
     @property
@@ -141,7 +141,7 @@ class Image(pulumi.CustomResource):
                  distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
                  enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
                  image_recipe_arn: Optional[pulumi.Input[str]] = None,
-                 image_tests_configuration: Optional[pulumi.Input[pulumi.InputType['ImageImageTestsConfigurationArgs']]] = None,
+                 image_tests_configuration: Optional[pulumi.Input[pulumi.InputType['ImageTestsConfigurationArgs']]] = None,
                  infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
@@ -154,7 +154,7 @@ class Image(pulumi.CustomResource):
         :param pulumi.Input[str] distribution_configuration_arn: The Amazon Resource Name (ARN) of the distribution configuration.
         :param pulumi.Input[bool] enhanced_image_metadata_enabled: Collects additional information about the image being created, including the operating system (OS) version and package list.
         :param pulumi.Input[str] image_recipe_arn: The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
-        :param pulumi.Input[pulumi.InputType['ImageImageTestsConfigurationArgs']] image_tests_configuration: The image tests configuration used when creating this image.
+        :param pulumi.Input[pulumi.InputType['ImageTestsConfigurationArgs']] image_tests_configuration: The image tests configuration used when creating this image.
         :param pulumi.Input[str] infrastructure_configuration_arn: The Amazon Resource Name (ARN) of the infrastructure configuration.
         :param Any tags: The tags associated with the image.
         """
@@ -186,7 +186,7 @@ class Image(pulumi.CustomResource):
                  distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
                  enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
                  image_recipe_arn: Optional[pulumi.Input[str]] = None,
-                 image_tests_configuration: Optional[pulumi.Input[pulumi.InputType['ImageImageTestsConfigurationArgs']]] = None,
+                 image_tests_configuration: Optional[pulumi.Input[pulumi.InputType['ImageTestsConfigurationArgs']]] = None,
                  infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
@@ -295,7 +295,7 @@ class Image(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageTestsConfiguration")
-    def image_tests_configuration(self) -> pulumi.Output[Optional['outputs.ImageImageTestsConfiguration']]:
+    def image_tests_configuration(self) -> pulumi.Output[Optional['outputs.ImageTestsConfiguration']]:
         """
         The image tests configuration used when creating this image.
         """

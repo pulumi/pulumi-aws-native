@@ -16,7 +16,7 @@ __all__ = ['VirtualRouterArgs', 'VirtualRouter']
 class VirtualRouterArgs:
     def __init__(__self__, *,
                  mesh_name: pulumi.Input[str],
-                 spec: pulumi.Input['VirtualRouterVirtualRouterSpecArgs'],
+                 spec: pulumi.Input['VirtualRouterSpecArgs'],
                  mesh_owner: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualRouterTagArgs']]]] = None,
                  virtual_router_name: Optional[pulumi.Input[str]] = None):
@@ -43,11 +43,11 @@ class VirtualRouterArgs:
 
     @property
     @pulumi.getter
-    def spec(self) -> pulumi.Input['VirtualRouterVirtualRouterSpecArgs']:
+    def spec(self) -> pulumi.Input['VirtualRouterSpecArgs']:
         return pulumi.get(self, "spec")
 
     @spec.setter
-    def spec(self, value: pulumi.Input['VirtualRouterVirtualRouterSpecArgs']):
+    def spec(self, value: pulumi.Input['VirtualRouterSpecArgs']):
         pulumi.set(self, "spec", value)
 
     @property
@@ -90,7 +90,7 @@ class VirtualRouter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  mesh_name: Optional[pulumi.Input[str]] = None,
                  mesh_owner: Optional[pulumi.Input[str]] = None,
-                 spec: Optional[pulumi.Input[pulumi.InputType['VirtualRouterVirtualRouterSpecArgs']]] = None,
+                 spec: Optional[pulumi.Input[pulumi.InputType['VirtualRouterSpecArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualRouterTagArgs']]]]] = None,
                  virtual_router_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -126,7 +126,7 @@ class VirtualRouter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  mesh_name: Optional[pulumi.Input[str]] = None,
                  mesh_owner: Optional[pulumi.Input[str]] = None,
-                 spec: Optional[pulumi.Input[pulumi.InputType['VirtualRouterVirtualRouterSpecArgs']]] = None,
+                 spec: Optional[pulumi.Input[pulumi.InputType['VirtualRouterSpecArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualRouterTagArgs']]]]] = None,
                  virtual_router_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -208,7 +208,7 @@ class VirtualRouter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def spec(self) -> pulumi.Output['outputs.VirtualRouterVirtualRouterSpec']:
+    def spec(self) -> pulumi.Output['outputs.VirtualRouterSpec']:
         return pulumi.get(self, "spec")
 
     @property

@@ -15,7 +15,7 @@ __all__ = [
     'ClassifierGrokClassifier',
     'ClassifierJsonClassifier',
     'ClassifierXMLClassifier',
-    'ConnectionConnectionInput',
+    'ConnectionInput',
     'ConnectionPhysicalConnectionRequirements',
     'CrawlerCatalogTarget',
     'CrawlerDynamoDBTarget',
@@ -25,16 +25,16 @@ __all__ = [
     'CrawlerSchedule',
     'CrawlerSchemaChangePolicy',
     'CrawlerTargets',
+    'DataCatalogEncryptionSettings',
     'DataCatalogEncryptionSettingsConnectionPasswordEncryption',
-    'DataCatalogEncryptionSettingsDataCatalogEncryptionSettings',
     'DataCatalogEncryptionSettingsEncryptionAtRest',
     'DatabaseDataLakePrincipal',
-    'DatabaseDatabaseIdentifier',
-    'DatabaseDatabaseInput',
+    'DatabaseIdentifier',
+    'DatabaseInput',
     'DatabasePrincipalPrivileges',
+    'JobCommand',
     'JobConnectionsList',
     'JobExecutionProperty',
-    'JobJobCommand',
     'JobNotificationProperty',
     'MLTransformFindMatchesParameters',
     'MLTransformGlueTables',
@@ -43,8 +43,8 @@ __all__ = [
     'MLTransformTransformEncryption',
     'MLTransformTransformParameters',
     'PartitionColumn',
+    'PartitionInput',
     'PartitionOrder',
-    'PartitionPartitionInput',
     'PartitionSchemaId',
     'PartitionSchemaReference',
     'PartitionSerdeInfo',
@@ -52,22 +52,22 @@ __all__ = [
     'PartitionStorageDescriptor',
     'RegistryTag',
     'SchemaRegistry',
-    'SchemaSchemaVersion',
     'SchemaTag',
+    'SchemaVersion',
     'SchemaVersionSchema',
     'SecurityConfigurationCloudWatchEncryption',
     'SecurityConfigurationEncryptionConfiguration',
     'SecurityConfigurationJobBookmarksEncryption',
     'SecurityConfigurationS3Encryptions',
     'TableColumn',
+    'TableIdentifier',
+    'TableInput',
     'TableOrder',
     'TableSchemaId',
     'TableSchemaReference',
     'TableSerdeInfo',
     'TableSkewedInfo',
     'TableStorageDescriptor',
-    'TableTableIdentifier',
-    'TableTableInput',
     'TriggerAction',
     'TriggerCondition',
     'TriggerNotificationProperty',
@@ -294,7 +294,7 @@ class ClassifierXMLClassifier(dict):
 
 
 @pulumi.output_type
-class ConnectionConnectionInput(dict):
+class ConnectionInput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -308,14 +308,14 @@ class ConnectionConnectionInput(dict):
             suggest = "physical_connection_requirements"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ConnectionConnectionInput. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionInput. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ConnectionConnectionInput.__key_warning(key)
+        ConnectionInput.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ConnectionConnectionInput.__key_warning(key)
+        ConnectionInput.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -722,6 +722,46 @@ class CrawlerTargets(dict):
 
 
 @pulumi.output_type
+class DataCatalogEncryptionSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionPasswordEncryption":
+            suggest = "connection_password_encryption"
+        elif key == "encryptionAtRest":
+            suggest = "encryption_at_rest"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCatalogEncryptionSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCatalogEncryptionSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCatalogEncryptionSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_password_encryption: Optional['outputs.DataCatalogEncryptionSettingsConnectionPasswordEncryption'] = None,
+                 encryption_at_rest: Optional['outputs.DataCatalogEncryptionSettingsEncryptionAtRest'] = None):
+        if connection_password_encryption is not None:
+            pulumi.set(__self__, "connection_password_encryption", connection_password_encryption)
+        if encryption_at_rest is not None:
+            pulumi.set(__self__, "encryption_at_rest", encryption_at_rest)
+
+    @property
+    @pulumi.getter(name="connectionPasswordEncryption")
+    def connection_password_encryption(self) -> Optional['outputs.DataCatalogEncryptionSettingsConnectionPasswordEncryption']:
+        return pulumi.get(self, "connection_password_encryption")
+
+    @property
+    @pulumi.getter(name="encryptionAtRest")
+    def encryption_at_rest(self) -> Optional['outputs.DataCatalogEncryptionSettingsEncryptionAtRest']:
+        return pulumi.get(self, "encryption_at_rest")
+
+
+@pulumi.output_type
 class DataCatalogEncryptionSettingsConnectionPasswordEncryption(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -759,46 +799,6 @@ class DataCatalogEncryptionSettingsConnectionPasswordEncryption(dict):
     @pulumi.getter(name="returnConnectionPasswordEncrypted")
     def return_connection_password_encrypted(self) -> Optional[bool]:
         return pulumi.get(self, "return_connection_password_encrypted")
-
-
-@pulumi.output_type
-class DataCatalogEncryptionSettingsDataCatalogEncryptionSettings(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "connectionPasswordEncryption":
-            suggest = "connection_password_encryption"
-        elif key == "encryptionAtRest":
-            suggest = "encryption_at_rest"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DataCatalogEncryptionSettingsDataCatalogEncryptionSettings. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DataCatalogEncryptionSettingsDataCatalogEncryptionSettings.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DataCatalogEncryptionSettingsDataCatalogEncryptionSettings.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 connection_password_encryption: Optional['outputs.DataCatalogEncryptionSettingsConnectionPasswordEncryption'] = None,
-                 encryption_at_rest: Optional['outputs.DataCatalogEncryptionSettingsEncryptionAtRest'] = None):
-        if connection_password_encryption is not None:
-            pulumi.set(__self__, "connection_password_encryption", connection_password_encryption)
-        if encryption_at_rest is not None:
-            pulumi.set(__self__, "encryption_at_rest", encryption_at_rest)
-
-    @property
-    @pulumi.getter(name="connectionPasswordEncryption")
-    def connection_password_encryption(self) -> Optional['outputs.DataCatalogEncryptionSettingsConnectionPasswordEncryption']:
-        return pulumi.get(self, "connection_password_encryption")
-
-    @property
-    @pulumi.getter(name="encryptionAtRest")
-    def encryption_at_rest(self) -> Optional['outputs.DataCatalogEncryptionSettingsEncryptionAtRest']:
-        return pulumi.get(self, "encryption_at_rest")
 
 
 @pulumi.output_type
@@ -872,7 +872,7 @@ class DatabaseDataLakePrincipal(dict):
 
 
 @pulumi.output_type
-class DatabaseDatabaseIdentifier(dict):
+class DatabaseIdentifier(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -882,14 +882,14 @@ class DatabaseDatabaseIdentifier(dict):
             suggest = "database_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DatabaseDatabaseIdentifier. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseIdentifier. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DatabaseDatabaseIdentifier.__key_warning(key)
+        DatabaseIdentifier.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DatabaseDatabaseIdentifier.__key_warning(key)
+        DatabaseIdentifier.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -912,7 +912,7 @@ class DatabaseDatabaseIdentifier(dict):
 
 
 @pulumi.output_type
-class DatabaseDatabaseInput(dict):
+class DatabaseInput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -924,14 +924,14 @@ class DatabaseDatabaseInput(dict):
             suggest = "target_database"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DatabaseDatabaseInput. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseInput. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DatabaseDatabaseInput.__key_warning(key)
+        DatabaseInput.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DatabaseDatabaseInput.__key_warning(key)
+        DatabaseInput.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -940,7 +940,7 @@ class DatabaseDatabaseInput(dict):
                  location_uri: Optional[str] = None,
                  name: Optional[str] = None,
                  parameters: Optional[Any] = None,
-                 target_database: Optional['outputs.DatabaseDatabaseIdentifier'] = None):
+                 target_database: Optional['outputs.DatabaseIdentifier'] = None):
         if create_table_default_permissions is not None:
             pulumi.set(__self__, "create_table_default_permissions", create_table_default_permissions)
         if description is not None:
@@ -981,7 +981,7 @@ class DatabaseDatabaseInput(dict):
 
     @property
     @pulumi.getter(name="targetDatabase")
-    def target_database(self) -> Optional['outputs.DatabaseDatabaseIdentifier']:
+    def target_database(self) -> Optional['outputs.DatabaseIdentifier']:
         return pulumi.get(self, "target_database")
 
 
@@ -1004,6 +1004,54 @@ class DatabasePrincipalPrivileges(dict):
     @pulumi.getter
     def principal(self) -> Optional['outputs.DatabaseDataLakePrincipal']:
         return pulumi.get(self, "principal")
+
+
+@pulumi.output_type
+class JobCommand(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pythonVersion":
+            suggest = "python_version"
+        elif key == "scriptLocation":
+            suggest = "script_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobCommand. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobCommand.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobCommand.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 python_version: Optional[str] = None,
+                 script_location: Optional[str] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if python_version is not None:
+            pulumi.set(__self__, "python_version", python_version)
+        if script_location is not None:
+            pulumi.set(__self__, "script_location", script_location)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="pythonVersion")
+    def python_version(self) -> Optional[str]:
+        return pulumi.get(self, "python_version")
+
+    @property
+    @pulumi.getter(name="scriptLocation")
+    def script_location(self) -> Optional[str]:
+        return pulumi.get(self, "script_location")
 
 
 @pulumi.output_type
@@ -1047,54 +1095,6 @@ class JobExecutionProperty(dict):
     @pulumi.getter(name="maxConcurrentRuns")
     def max_concurrent_runs(self) -> Optional[float]:
         return pulumi.get(self, "max_concurrent_runs")
-
-
-@pulumi.output_type
-class JobJobCommand(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "pythonVersion":
-            suggest = "python_version"
-        elif key == "scriptLocation":
-            suggest = "script_location"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in JobJobCommand. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        JobJobCommand.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        JobJobCommand.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 name: Optional[str] = None,
-                 python_version: Optional[str] = None,
-                 script_location: Optional[str] = None):
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if python_version is not None:
-            pulumi.set(__self__, "python_version", python_version)
-        if script_location is not None:
-            pulumi.set(__self__, "script_location", script_location)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="pythonVersion")
-    def python_version(self) -> Optional[str]:
-        return pulumi.get(self, "python_version")
-
-    @property
-    @pulumi.getter(name="scriptLocation")
-    def script_location(self) -> Optional[str]:
-        return pulumi.get(self, "script_location")
 
 
 @pulumi.output_type
@@ -1421,6 +1421,51 @@ class PartitionColumn(dict):
 
 
 @pulumi.output_type
+class PartitionInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageDescriptor":
+            suggest = "storage_descriptor"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PartitionInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PartitionInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PartitionInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 values: Sequence[str],
+                 parameters: Optional[Any] = None,
+                 storage_descriptor: Optional['outputs.PartitionStorageDescriptor'] = None):
+        pulumi.set(__self__, "values", values)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if storage_descriptor is not None:
+            pulumi.set(__self__, "storage_descriptor", storage_descriptor)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Any]:
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="storageDescriptor")
+    def storage_descriptor(self) -> Optional['outputs.PartitionStorageDescriptor']:
+        return pulumi.get(self, "storage_descriptor")
+
+
+@pulumi.output_type
 class PartitionOrder(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1455,51 +1500,6 @@ class PartitionOrder(dict):
     @pulumi.getter(name="sortOrder")
     def sort_order(self) -> Optional[int]:
         return pulumi.get(self, "sort_order")
-
-
-@pulumi.output_type
-class PartitionPartitionInput(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "storageDescriptor":
-            suggest = "storage_descriptor"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PartitionPartitionInput. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PartitionPartitionInput.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PartitionPartitionInput.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 values: Sequence[str],
-                 parameters: Optional[Any] = None,
-                 storage_descriptor: Optional['outputs.PartitionStorageDescriptor'] = None):
-        pulumi.set(__self__, "values", values)
-        if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
-        if storage_descriptor is not None:
-            pulumi.set(__self__, "storage_descriptor", storage_descriptor)
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        return pulumi.get(self, "values")
-
-    @property
-    @pulumi.getter
-    def parameters(self) -> Optional[Any]:
-        return pulumi.get(self, "parameters")
-
-    @property
-    @pulumi.getter(name="storageDescriptor")
-    def storage_descriptor(self) -> Optional['outputs.PartitionStorageDescriptor']:
-        return pulumi.get(self, "storage_descriptor")
 
 
 @pulumi.output_type
@@ -1905,7 +1905,36 @@ class SchemaRegistry(dict):
 
 
 @pulumi.output_type
-class SchemaSchemaVersion(dict):
+class SchemaTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        :param str key: A key to identify the tag.
+        :param str value: Corresponding tag value for the key.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        A key to identify the tag.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Corresponding tag value for the key.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SchemaVersion(dict):
     """
     Specify checkpoint version for update. This is only required to update the Compatibility.
     """
@@ -1918,14 +1947,14 @@ class SchemaSchemaVersion(dict):
             suggest = "version_number"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SchemaSchemaVersion. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SchemaVersion. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        SchemaSchemaVersion.__key_warning(key)
+        SchemaVersion.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        SchemaSchemaVersion.__key_warning(key)
+        SchemaVersion.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1956,35 +1985,6 @@ class SchemaSchemaVersion(dict):
         Indicates the version number in the schema to update.
         """
         return pulumi.get(self, "version_number")
-
-
-@pulumi.output_type
-class SchemaTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        :param str key: A key to identify the tag.
-        :param str value: Corresponding tag value for the key.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        A key to identify the tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        Corresponding tag value for the key.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -2217,6 +2217,174 @@ class TableColumn(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class TableIdentifier(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "catalogId":
+            suggest = "catalog_id"
+        elif key == "databaseName":
+            suggest = "database_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableIdentifier. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableIdentifier.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableIdentifier.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 catalog_id: Optional[str] = None,
+                 database_name: Optional[str] = None,
+                 name: Optional[str] = None):
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[str]:
+        return pulumi.get(self, "catalog_id")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[str]:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class TableInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "partitionKeys":
+            suggest = "partition_keys"
+        elif key == "storageDescriptor":
+            suggest = "storage_descriptor"
+        elif key == "tableType":
+            suggest = "table_type"
+        elif key == "targetTable":
+            suggest = "target_table"
+        elif key == "viewExpandedText":
+            suggest = "view_expanded_text"
+        elif key == "viewOriginalText":
+            suggest = "view_original_text"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 name: Optional[str] = None,
+                 owner: Optional[str] = None,
+                 parameters: Optional[Any] = None,
+                 partition_keys: Optional[Sequence['outputs.TableColumn']] = None,
+                 retention: Optional[int] = None,
+                 storage_descriptor: Optional['outputs.TableStorageDescriptor'] = None,
+                 table_type: Optional[str] = None,
+                 target_table: Optional['outputs.TableIdentifier'] = None,
+                 view_expanded_text: Optional[str] = None,
+                 view_original_text: Optional[str] = None):
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if partition_keys is not None:
+            pulumi.set(__self__, "partition_keys", partition_keys)
+        if retention is not None:
+            pulumi.set(__self__, "retention", retention)
+        if storage_descriptor is not None:
+            pulumi.set(__self__, "storage_descriptor", storage_descriptor)
+        if table_type is not None:
+            pulumi.set(__self__, "table_type", table_type)
+        if target_table is not None:
+            pulumi.set(__self__, "target_table", target_table)
+        if view_expanded_text is not None:
+            pulumi.set(__self__, "view_expanded_text", view_expanded_text)
+        if view_original_text is not None:
+            pulumi.set(__self__, "view_original_text", view_original_text)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[str]:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Any]:
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="partitionKeys")
+    def partition_keys(self) -> Optional[Sequence['outputs.TableColumn']]:
+        return pulumi.get(self, "partition_keys")
+
+    @property
+    @pulumi.getter
+    def retention(self) -> Optional[int]:
+        return pulumi.get(self, "retention")
+
+    @property
+    @pulumi.getter(name="storageDescriptor")
+    def storage_descriptor(self) -> Optional['outputs.TableStorageDescriptor']:
+        return pulumi.get(self, "storage_descriptor")
+
+    @property
+    @pulumi.getter(name="tableType")
+    def table_type(self) -> Optional[str]:
+        return pulumi.get(self, "table_type")
+
+    @property
+    @pulumi.getter(name="targetTable")
+    def target_table(self) -> Optional['outputs.TableIdentifier']:
+        return pulumi.get(self, "target_table")
+
+    @property
+    @pulumi.getter(name="viewExpandedText")
+    def view_expanded_text(self) -> Optional[str]:
+        return pulumi.get(self, "view_expanded_text")
+
+    @property
+    @pulumi.getter(name="viewOriginalText")
+    def view_original_text(self) -> Optional[str]:
+        return pulumi.get(self, "view_original_text")
 
 
 @pulumi.output_type
@@ -2591,174 +2759,6 @@ class TableStorageDescriptor(dict):
     @pulumi.getter(name="storedAsSubDirectories")
     def stored_as_sub_directories(self) -> Optional[bool]:
         return pulumi.get(self, "stored_as_sub_directories")
-
-
-@pulumi.output_type
-class TableTableIdentifier(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "catalogId":
-            suggest = "catalog_id"
-        elif key == "databaseName":
-            suggest = "database_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TableTableIdentifier. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TableTableIdentifier.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TableTableIdentifier.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 catalog_id: Optional[str] = None,
-                 database_name: Optional[str] = None,
-                 name: Optional[str] = None):
-        if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
-        if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="catalogId")
-    def catalog_id(self) -> Optional[str]:
-        return pulumi.get(self, "catalog_id")
-
-    @property
-    @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[str]:
-        return pulumi.get(self, "database_name")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class TableTableInput(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "partitionKeys":
-            suggest = "partition_keys"
-        elif key == "storageDescriptor":
-            suggest = "storage_descriptor"
-        elif key == "tableType":
-            suggest = "table_type"
-        elif key == "targetTable":
-            suggest = "target_table"
-        elif key == "viewExpandedText":
-            suggest = "view_expanded_text"
-        elif key == "viewOriginalText":
-            suggest = "view_original_text"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TableTableInput. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TableTableInput.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TableTableInput.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 description: Optional[str] = None,
-                 name: Optional[str] = None,
-                 owner: Optional[str] = None,
-                 parameters: Optional[Any] = None,
-                 partition_keys: Optional[Sequence['outputs.TableColumn']] = None,
-                 retention: Optional[int] = None,
-                 storage_descriptor: Optional['outputs.TableStorageDescriptor'] = None,
-                 table_type: Optional[str] = None,
-                 target_table: Optional['outputs.TableTableIdentifier'] = None,
-                 view_expanded_text: Optional[str] = None,
-                 view_original_text: Optional[str] = None):
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if owner is not None:
-            pulumi.set(__self__, "owner", owner)
-        if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
-        if partition_keys is not None:
-            pulumi.set(__self__, "partition_keys", partition_keys)
-        if retention is not None:
-            pulumi.set(__self__, "retention", retention)
-        if storage_descriptor is not None:
-            pulumi.set(__self__, "storage_descriptor", storage_descriptor)
-        if table_type is not None:
-            pulumi.set(__self__, "table_type", table_type)
-        if target_table is not None:
-            pulumi.set(__self__, "target_table", target_table)
-        if view_expanded_text is not None:
-            pulumi.set(__self__, "view_expanded_text", view_expanded_text)
-        if view_original_text is not None:
-            pulumi.set(__self__, "view_original_text", view_original_text)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def owner(self) -> Optional[str]:
-        return pulumi.get(self, "owner")
-
-    @property
-    @pulumi.getter
-    def parameters(self) -> Optional[Any]:
-        return pulumi.get(self, "parameters")
-
-    @property
-    @pulumi.getter(name="partitionKeys")
-    def partition_keys(self) -> Optional[Sequence['outputs.TableColumn']]:
-        return pulumi.get(self, "partition_keys")
-
-    @property
-    @pulumi.getter
-    def retention(self) -> Optional[int]:
-        return pulumi.get(self, "retention")
-
-    @property
-    @pulumi.getter(name="storageDescriptor")
-    def storage_descriptor(self) -> Optional['outputs.TableStorageDescriptor']:
-        return pulumi.get(self, "storage_descriptor")
-
-    @property
-    @pulumi.getter(name="tableType")
-    def table_type(self) -> Optional[str]:
-        return pulumi.get(self, "table_type")
-
-    @property
-    @pulumi.getter(name="targetTable")
-    def target_table(self) -> Optional['outputs.TableTableIdentifier']:
-        return pulumi.get(self, "target_table")
-
-    @property
-    @pulumi.getter(name="viewExpandedText")
-    def view_expanded_text(self) -> Optional[str]:
-        return pulumi.get(self, "view_expanded_text")
-
-    @property
-    @pulumi.getter(name="viewOriginalText")
-    def view_original_text(self) -> Optional[str]:
-        return pulumi.get(self, "view_original_text")
 
 
 @pulumi.output_type

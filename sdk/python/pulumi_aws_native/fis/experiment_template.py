@@ -17,10 +17,10 @@ class ExperimentTemplateArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
-                 stop_conditions: pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateExperimentTemplateStopConditionArgs']]],
+                 stop_conditions: pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateStopConditionArgs']]],
                  tags: Any,
-                 targets: pulumi.Input['ExperimentTemplateExperimentTemplateTargetMapArgs'],
-                 actions: Optional[pulumi.Input['ExperimentTemplateExperimentTemplateActionMapArgs']] = None):
+                 targets: pulumi.Input['ExperimentTemplateTargetMapArgs'],
+                 actions: Optional[pulumi.Input['ExperimentTemplateActionMapArgs']] = None):
         """
         The set of arguments for constructing a ExperimentTemplate resource.
         """
@@ -52,11 +52,11 @@ class ExperimentTemplateArgs:
 
     @property
     @pulumi.getter(name="stopConditions")
-    def stop_conditions(self) -> pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateExperimentTemplateStopConditionArgs']]]:
+    def stop_conditions(self) -> pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateStopConditionArgs']]]:
         return pulumi.get(self, "stop_conditions")
 
     @stop_conditions.setter
-    def stop_conditions(self, value: pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateExperimentTemplateStopConditionArgs']]]):
+    def stop_conditions(self, value: pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateStopConditionArgs']]]):
         pulumi.set(self, "stop_conditions", value)
 
     @property
@@ -70,20 +70,20 @@ class ExperimentTemplateArgs:
 
     @property
     @pulumi.getter
-    def targets(self) -> pulumi.Input['ExperimentTemplateExperimentTemplateTargetMapArgs']:
+    def targets(self) -> pulumi.Input['ExperimentTemplateTargetMapArgs']:
         return pulumi.get(self, "targets")
 
     @targets.setter
-    def targets(self, value: pulumi.Input['ExperimentTemplateExperimentTemplateTargetMapArgs']):
+    def targets(self, value: pulumi.Input['ExperimentTemplateTargetMapArgs']):
         pulumi.set(self, "targets", value)
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input['ExperimentTemplateExperimentTemplateActionMapArgs']]:
+    def actions(self) -> Optional[pulumi.Input['ExperimentTemplateActionMapArgs']]:
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input['ExperimentTemplateExperimentTemplateActionMapArgs']]):
+    def actions(self, value: Optional[pulumi.Input['ExperimentTemplateActionMapArgs']]):
         pulumi.set(self, "actions", value)
 
 
@@ -92,12 +92,12 @@ class ExperimentTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[pulumi.InputType['ExperimentTemplateExperimentTemplateActionMapArgs']]] = None,
+                 actions: Optional[pulumi.Input[pulumi.InputType['ExperimentTemplateActionMapArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 stop_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTemplateExperimentTemplateStopConditionArgs']]]]] = None,
+                 stop_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTemplateStopConditionArgs']]]]] = None,
                  tags: Optional[Any] = None,
-                 targets: Optional[pulumi.Input[pulumi.InputType['ExperimentTemplateExperimentTemplateTargetMapArgs']]] = None,
+                 targets: Optional[pulumi.Input[pulumi.InputType['ExperimentTemplateTargetMapArgs']]] = None,
                  __props__=None):
         """
         Resource schema for AWS::FIS::ExperimentTemplate
@@ -129,12 +129,12 @@ class ExperimentTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[pulumi.InputType['ExperimentTemplateExperimentTemplateActionMapArgs']]] = None,
+                 actions: Optional[pulumi.Input[pulumi.InputType['ExperimentTemplateActionMapArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 stop_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTemplateExperimentTemplateStopConditionArgs']]]]] = None,
+                 stop_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTemplateStopConditionArgs']]]]] = None,
                  tags: Optional[Any] = None,
-                 targets: Optional[pulumi.Input[pulumi.InputType['ExperimentTemplateExperimentTemplateTargetMapArgs']]] = None,
+                 targets: Optional[pulumi.Input[pulumi.InputType['ExperimentTemplateTargetMapArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -195,7 +195,7 @@ class ExperimentTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def actions(self) -> pulumi.Output[Optional['outputs.ExperimentTemplateExperimentTemplateActionMap']]:
+    def actions(self) -> pulumi.Output[Optional['outputs.ExperimentTemplateActionMap']]:
         return pulumi.get(self, "actions")
 
     @property
@@ -210,7 +210,7 @@ class ExperimentTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stopConditions")
-    def stop_conditions(self) -> pulumi.Output[Sequence['outputs.ExperimentTemplateExperimentTemplateStopCondition']]:
+    def stop_conditions(self) -> pulumi.Output[Sequence['outputs.ExperimentTemplateStopCondition']]:
         return pulumi.get(self, "stop_conditions")
 
     @property
@@ -220,6 +220,6 @@ class ExperimentTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def targets(self) -> pulumi.Output['outputs.ExperimentTemplateExperimentTemplateTargetMap']:
+    def targets(self) -> pulumi.Output['outputs.ExperimentTemplateTargetMap']:
         return pulumi.get(self, "targets")
 

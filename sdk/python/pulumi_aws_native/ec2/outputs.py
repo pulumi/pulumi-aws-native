@@ -45,7 +45,7 @@ __all__ = [
     'InstanceElasticInferenceAccelerator',
     'InstanceEnclaveOptions',
     'InstanceHibernationOptions',
-    'InstanceInstanceIpv6Address',
+    'InstanceIpv6Address',
     'InstanceLaunchTemplateSpecification',
     'InstanceLicenseSpecification',
     'InstanceNetworkInterface',
@@ -60,16 +60,15 @@ __all__ = [
     'LaunchTemplateCapacityReservationTarget',
     'LaunchTemplateCpuOptions',
     'LaunchTemplateCreditSpecification',
+    'LaunchTemplateData',
     'LaunchTemplateEbs',
     'LaunchTemplateElasticGpuSpecification',
+    'LaunchTemplateElasticInferenceAccelerator',
     'LaunchTemplateEnclaveOptions',
     'LaunchTemplateHibernationOptions',
     'LaunchTemplateIamInstanceProfile',
     'LaunchTemplateInstanceMarketOptions',
     'LaunchTemplateIpv6Add',
-    'LaunchTemplateLaunchTemplateData',
-    'LaunchTemplateLaunchTemplateElasticInferenceAccelerator',
-    'LaunchTemplateLaunchTemplateTagSpecification',
     'LaunchTemplateLicenseSpecification',
     'LaunchTemplateMetadataOptions',
     'LaunchTemplateMonitoring',
@@ -115,18 +114,18 @@ __all__ = [
     'SpotFleetIamInstanceProfileSpecification',
     'SpotFleetInstanceIpv6Address',
     'SpotFleetInstanceNetworkInterfaceSpecification',
+    'SpotFleetLaunchSpecification',
     'SpotFleetLaunchTemplateConfig',
     'SpotFleetLaunchTemplateOverrides',
     'SpotFleetLoadBalancersConfig',
+    'SpotFleetMonitoring',
     'SpotFleetPrivateIpAddressSpecification',
+    'SpotFleetRequestConfigData',
     'SpotFleetSpotCapacityRebalance',
-    'SpotFleetSpotFleetLaunchSpecification',
-    'SpotFleetSpotFleetMonitoring',
-    'SpotFleetSpotFleetRequestConfigData',
-    'SpotFleetSpotFleetTagSpecification',
     'SpotFleetSpotMaintenanceStrategies',
     'SpotFleetSpotPlacement',
     'SpotFleetTag',
+    'SpotFleetTagSpecification',
     'SpotFleetTargetGroup',
     'SpotFleetTargetGroupsConfig',
     'SubnetTag',
@@ -135,8 +134,8 @@ __all__ = [
     'TrafficMirrorSessionTag',
     'TrafficMirrorTargetTag',
     'TransitGatewayAttachmentTag',
+    'TransitGatewayConnectOptions',
     'TransitGatewayConnectTag',
-    'TransitGatewayConnectTransitGatewayConnectOptions',
     'TransitGatewayMulticastDomainTag',
     'TransitGatewayPeeringAttachmentPeeringAttachmentStatus',
     'TransitGatewayPeeringAttachmentTag',
@@ -1473,7 +1472,7 @@ class InstanceHibernationOptions(dict):
 
 
 @pulumi.output_type
-class InstanceInstanceIpv6Address(dict):
+class InstanceIpv6Address(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1481,14 +1480,14 @@ class InstanceInstanceIpv6Address(dict):
             suggest = "ipv6_address"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in InstanceInstanceIpv6Address. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in InstanceIpv6Address. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        InstanceInstanceIpv6Address.__key_warning(key)
+        InstanceIpv6Address.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        InstanceInstanceIpv6Address.__key_warning(key)
+        InstanceIpv6Address.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1623,7 +1622,7 @@ class InstanceNetworkInterface(dict):
                  description: Optional[str] = None,
                  group_set: Optional[Sequence[str]] = None,
                  ipv6_address_count: Optional[int] = None,
-                 ipv6_addresses: Optional[Sequence['outputs.InstanceInstanceIpv6Address']] = None,
+                 ipv6_addresses: Optional[Sequence['outputs.InstanceIpv6Address']] = None,
                  network_interface_id: Optional[str] = None,
                  private_ip_address: Optional[str] = None,
                  private_ip_addresses: Optional[Sequence['outputs.InstancePrivateIpAddressSpecification']] = None,
@@ -1685,7 +1684,7 @@ class InstanceNetworkInterface(dict):
 
     @property
     @pulumi.getter(name="ipv6Addresses")
-    def ipv6_addresses(self) -> Optional[Sequence['outputs.InstanceInstanceIpv6Address']]:
+    def ipv6_addresses(self) -> Optional[Sequence['outputs.InstanceIpv6Address']]:
         return pulumi.get(self, "ipv6_addresses")
 
     @property
@@ -2078,6 +2077,292 @@ class LaunchTemplateCreditSpecification(dict):
 
 
 @pulumi.output_type
+class LaunchTemplateData(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blockDeviceMappings":
+            suggest = "block_device_mappings"
+        elif key == "capacityReservationSpecification":
+            suggest = "capacity_reservation_specification"
+        elif key == "cpuOptions":
+            suggest = "cpu_options"
+        elif key == "creditSpecification":
+            suggest = "credit_specification"
+        elif key == "disableApiTermination":
+            suggest = "disable_api_termination"
+        elif key == "ebsOptimized":
+            suggest = "ebs_optimized"
+        elif key == "elasticGpuSpecifications":
+            suggest = "elastic_gpu_specifications"
+        elif key == "elasticInferenceAccelerators":
+            suggest = "elastic_inference_accelerators"
+        elif key == "enclaveOptions":
+            suggest = "enclave_options"
+        elif key == "hibernationOptions":
+            suggest = "hibernation_options"
+        elif key == "iamInstanceProfile":
+            suggest = "iam_instance_profile"
+        elif key == "imageId":
+            suggest = "image_id"
+        elif key == "instanceInitiatedShutdownBehavior":
+            suggest = "instance_initiated_shutdown_behavior"
+        elif key == "instanceMarketOptions":
+            suggest = "instance_market_options"
+        elif key == "instanceType":
+            suggest = "instance_type"
+        elif key == "kernelId":
+            suggest = "kernel_id"
+        elif key == "keyName":
+            suggest = "key_name"
+        elif key == "licenseSpecifications":
+            suggest = "license_specifications"
+        elif key == "metadataOptions":
+            suggest = "metadata_options"
+        elif key == "networkInterfaces":
+            suggest = "network_interfaces"
+        elif key == "ramDiskId":
+            suggest = "ram_disk_id"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "securityGroups":
+            suggest = "security_groups"
+        elif key == "tagSpecifications":
+            suggest = "tag_specifications"
+        elif key == "userData":
+            suggest = "user_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateData. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchTemplateData.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchTemplateData.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 block_device_mappings: Optional[Sequence['outputs.LaunchTemplateBlockDeviceMapping']] = None,
+                 capacity_reservation_specification: Optional['outputs.LaunchTemplateCapacityReservationSpecification'] = None,
+                 cpu_options: Optional['outputs.LaunchTemplateCpuOptions'] = None,
+                 credit_specification: Optional['outputs.LaunchTemplateCreditSpecification'] = None,
+                 disable_api_termination: Optional[bool] = None,
+                 ebs_optimized: Optional[bool] = None,
+                 elastic_gpu_specifications: Optional[Sequence['outputs.LaunchTemplateElasticGpuSpecification']] = None,
+                 elastic_inference_accelerators: Optional[Sequence['outputs.LaunchTemplateElasticInferenceAccelerator']] = None,
+                 enclave_options: Optional['outputs.LaunchTemplateEnclaveOptions'] = None,
+                 hibernation_options: Optional['outputs.LaunchTemplateHibernationOptions'] = None,
+                 iam_instance_profile: Optional['outputs.LaunchTemplateIamInstanceProfile'] = None,
+                 image_id: Optional[str] = None,
+                 instance_initiated_shutdown_behavior: Optional[str] = None,
+                 instance_market_options: Optional['outputs.LaunchTemplateInstanceMarketOptions'] = None,
+                 instance_type: Optional[str] = None,
+                 kernel_id: Optional[str] = None,
+                 key_name: Optional[str] = None,
+                 license_specifications: Optional[Sequence['outputs.LaunchTemplateLicenseSpecification']] = None,
+                 metadata_options: Optional['outputs.LaunchTemplateMetadataOptions'] = None,
+                 monitoring: Optional['outputs.LaunchTemplateMonitoring'] = None,
+                 network_interfaces: Optional[Sequence['outputs.LaunchTemplateNetworkInterface']] = None,
+                 placement: Optional['outputs.LaunchTemplatePlacement'] = None,
+                 ram_disk_id: Optional[str] = None,
+                 security_group_ids: Optional[Sequence[str]] = None,
+                 security_groups: Optional[Sequence[str]] = None,
+                 tag_specifications: Optional[Sequence['outputs.LaunchTemplateTagSpecification']] = None,
+                 user_data: Optional[str] = None):
+        if block_device_mappings is not None:
+            pulumi.set(__self__, "block_device_mappings", block_device_mappings)
+        if capacity_reservation_specification is not None:
+            pulumi.set(__self__, "capacity_reservation_specification", capacity_reservation_specification)
+        if cpu_options is not None:
+            pulumi.set(__self__, "cpu_options", cpu_options)
+        if credit_specification is not None:
+            pulumi.set(__self__, "credit_specification", credit_specification)
+        if disable_api_termination is not None:
+            pulumi.set(__self__, "disable_api_termination", disable_api_termination)
+        if ebs_optimized is not None:
+            pulumi.set(__self__, "ebs_optimized", ebs_optimized)
+        if elastic_gpu_specifications is not None:
+            pulumi.set(__self__, "elastic_gpu_specifications", elastic_gpu_specifications)
+        if elastic_inference_accelerators is not None:
+            pulumi.set(__self__, "elastic_inference_accelerators", elastic_inference_accelerators)
+        if enclave_options is not None:
+            pulumi.set(__self__, "enclave_options", enclave_options)
+        if hibernation_options is not None:
+            pulumi.set(__self__, "hibernation_options", hibernation_options)
+        if iam_instance_profile is not None:
+            pulumi.set(__self__, "iam_instance_profile", iam_instance_profile)
+        if image_id is not None:
+            pulumi.set(__self__, "image_id", image_id)
+        if instance_initiated_shutdown_behavior is not None:
+            pulumi.set(__self__, "instance_initiated_shutdown_behavior", instance_initiated_shutdown_behavior)
+        if instance_market_options is not None:
+            pulumi.set(__self__, "instance_market_options", instance_market_options)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if kernel_id is not None:
+            pulumi.set(__self__, "kernel_id", kernel_id)
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
+        if license_specifications is not None:
+            pulumi.set(__self__, "license_specifications", license_specifications)
+        if metadata_options is not None:
+            pulumi.set(__self__, "metadata_options", metadata_options)
+        if monitoring is not None:
+            pulumi.set(__self__, "monitoring", monitoring)
+        if network_interfaces is not None:
+            pulumi.set(__self__, "network_interfaces", network_interfaces)
+        if placement is not None:
+            pulumi.set(__self__, "placement", placement)
+        if ram_disk_id is not None:
+            pulumi.set(__self__, "ram_disk_id", ram_disk_id)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if security_groups is not None:
+            pulumi.set(__self__, "security_groups", security_groups)
+        if tag_specifications is not None:
+            pulumi.set(__self__, "tag_specifications", tag_specifications)
+        if user_data is not None:
+            pulumi.set(__self__, "user_data", user_data)
+
+    @property
+    @pulumi.getter(name="blockDeviceMappings")
+    def block_device_mappings(self) -> Optional[Sequence['outputs.LaunchTemplateBlockDeviceMapping']]:
+        return pulumi.get(self, "block_device_mappings")
+
+    @property
+    @pulumi.getter(name="capacityReservationSpecification")
+    def capacity_reservation_specification(self) -> Optional['outputs.LaunchTemplateCapacityReservationSpecification']:
+        return pulumi.get(self, "capacity_reservation_specification")
+
+    @property
+    @pulumi.getter(name="cpuOptions")
+    def cpu_options(self) -> Optional['outputs.LaunchTemplateCpuOptions']:
+        return pulumi.get(self, "cpu_options")
+
+    @property
+    @pulumi.getter(name="creditSpecification")
+    def credit_specification(self) -> Optional['outputs.LaunchTemplateCreditSpecification']:
+        return pulumi.get(self, "credit_specification")
+
+    @property
+    @pulumi.getter(name="disableApiTermination")
+    def disable_api_termination(self) -> Optional[bool]:
+        return pulumi.get(self, "disable_api_termination")
+
+    @property
+    @pulumi.getter(name="ebsOptimized")
+    def ebs_optimized(self) -> Optional[bool]:
+        return pulumi.get(self, "ebs_optimized")
+
+    @property
+    @pulumi.getter(name="elasticGpuSpecifications")
+    def elastic_gpu_specifications(self) -> Optional[Sequence['outputs.LaunchTemplateElasticGpuSpecification']]:
+        return pulumi.get(self, "elastic_gpu_specifications")
+
+    @property
+    @pulumi.getter(name="elasticInferenceAccelerators")
+    def elastic_inference_accelerators(self) -> Optional[Sequence['outputs.LaunchTemplateElasticInferenceAccelerator']]:
+        return pulumi.get(self, "elastic_inference_accelerators")
+
+    @property
+    @pulumi.getter(name="enclaveOptions")
+    def enclave_options(self) -> Optional['outputs.LaunchTemplateEnclaveOptions']:
+        return pulumi.get(self, "enclave_options")
+
+    @property
+    @pulumi.getter(name="hibernationOptions")
+    def hibernation_options(self) -> Optional['outputs.LaunchTemplateHibernationOptions']:
+        return pulumi.get(self, "hibernation_options")
+
+    @property
+    @pulumi.getter(name="iamInstanceProfile")
+    def iam_instance_profile(self) -> Optional['outputs.LaunchTemplateIamInstanceProfile']:
+        return pulumi.get(self, "iam_instance_profile")
+
+    @property
+    @pulumi.getter(name="imageId")
+    def image_id(self) -> Optional[str]:
+        return pulumi.get(self, "image_id")
+
+    @property
+    @pulumi.getter(name="instanceInitiatedShutdownBehavior")
+    def instance_initiated_shutdown_behavior(self) -> Optional[str]:
+        return pulumi.get(self, "instance_initiated_shutdown_behavior")
+
+    @property
+    @pulumi.getter(name="instanceMarketOptions")
+    def instance_market_options(self) -> Optional['outputs.LaunchTemplateInstanceMarketOptions']:
+        return pulumi.get(self, "instance_market_options")
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[str]:
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="kernelId")
+    def kernel_id(self) -> Optional[str]:
+        return pulumi.get(self, "kernel_id")
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> Optional[str]:
+        return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter(name="licenseSpecifications")
+    def license_specifications(self) -> Optional[Sequence['outputs.LaunchTemplateLicenseSpecification']]:
+        return pulumi.get(self, "license_specifications")
+
+    @property
+    @pulumi.getter(name="metadataOptions")
+    def metadata_options(self) -> Optional['outputs.LaunchTemplateMetadataOptions']:
+        return pulumi.get(self, "metadata_options")
+
+    @property
+    @pulumi.getter
+    def monitoring(self) -> Optional['outputs.LaunchTemplateMonitoring']:
+        return pulumi.get(self, "monitoring")
+
+    @property
+    @pulumi.getter(name="networkInterfaces")
+    def network_interfaces(self) -> Optional[Sequence['outputs.LaunchTemplateNetworkInterface']]:
+        return pulumi.get(self, "network_interfaces")
+
+    @property
+    @pulumi.getter
+    def placement(self) -> Optional['outputs.LaunchTemplatePlacement']:
+        return pulumi.get(self, "placement")
+
+    @property
+    @pulumi.getter(name="ramDiskId")
+    def ram_disk_id(self) -> Optional[str]:
+        return pulumi.get(self, "ram_disk_id")
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "security_group_ids")
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "security_groups")
+
+    @property
+    @pulumi.getter(name="tagSpecifications")
+    def tag_specifications(self) -> Optional[Sequence['outputs.LaunchTemplateTagSpecification']]:
+        return pulumi.get(self, "tag_specifications")
+
+    @property
+    @pulumi.getter(name="userData")
+    def user_data(self) -> Optional[str]:
+        return pulumi.get(self, "user_data")
+
+
+@pulumi.output_type
 class LaunchTemplateEbs(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2177,6 +2462,27 @@ class LaunchTemplateElasticGpuSpecification(dict):
                  type: Optional[str] = None):
         if type is not None:
             pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class LaunchTemplateElasticInferenceAccelerator(dict):
+    def __init__(__self__, *,
+                 count: Optional[int] = None,
+                 type: Optional[str] = None):
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[int]:
+        return pulumi.get(self, "count")
 
     @property
     @pulumi.getter
@@ -2299,351 +2605,6 @@ class LaunchTemplateIpv6Add(dict):
     @pulumi.getter(name="ipv6Address")
     def ipv6_address(self) -> Optional[str]:
         return pulumi.get(self, "ipv6_address")
-
-
-@pulumi.output_type
-class LaunchTemplateLaunchTemplateData(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "blockDeviceMappings":
-            suggest = "block_device_mappings"
-        elif key == "capacityReservationSpecification":
-            suggest = "capacity_reservation_specification"
-        elif key == "cpuOptions":
-            suggest = "cpu_options"
-        elif key == "creditSpecification":
-            suggest = "credit_specification"
-        elif key == "disableApiTermination":
-            suggest = "disable_api_termination"
-        elif key == "ebsOptimized":
-            suggest = "ebs_optimized"
-        elif key == "elasticGpuSpecifications":
-            suggest = "elastic_gpu_specifications"
-        elif key == "elasticInferenceAccelerators":
-            suggest = "elastic_inference_accelerators"
-        elif key == "enclaveOptions":
-            suggest = "enclave_options"
-        elif key == "hibernationOptions":
-            suggest = "hibernation_options"
-        elif key == "iamInstanceProfile":
-            suggest = "iam_instance_profile"
-        elif key == "imageId":
-            suggest = "image_id"
-        elif key == "instanceInitiatedShutdownBehavior":
-            suggest = "instance_initiated_shutdown_behavior"
-        elif key == "instanceMarketOptions":
-            suggest = "instance_market_options"
-        elif key == "instanceType":
-            suggest = "instance_type"
-        elif key == "kernelId":
-            suggest = "kernel_id"
-        elif key == "keyName":
-            suggest = "key_name"
-        elif key == "licenseSpecifications":
-            suggest = "license_specifications"
-        elif key == "metadataOptions":
-            suggest = "metadata_options"
-        elif key == "networkInterfaces":
-            suggest = "network_interfaces"
-        elif key == "ramDiskId":
-            suggest = "ram_disk_id"
-        elif key == "securityGroupIds":
-            suggest = "security_group_ids"
-        elif key == "securityGroups":
-            suggest = "security_groups"
-        elif key == "tagSpecifications":
-            suggest = "tag_specifications"
-        elif key == "userData":
-            suggest = "user_data"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateLaunchTemplateData. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LaunchTemplateLaunchTemplateData.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LaunchTemplateLaunchTemplateData.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 block_device_mappings: Optional[Sequence['outputs.LaunchTemplateBlockDeviceMapping']] = None,
-                 capacity_reservation_specification: Optional['outputs.LaunchTemplateCapacityReservationSpecification'] = None,
-                 cpu_options: Optional['outputs.LaunchTemplateCpuOptions'] = None,
-                 credit_specification: Optional['outputs.LaunchTemplateCreditSpecification'] = None,
-                 disable_api_termination: Optional[bool] = None,
-                 ebs_optimized: Optional[bool] = None,
-                 elastic_gpu_specifications: Optional[Sequence['outputs.LaunchTemplateElasticGpuSpecification']] = None,
-                 elastic_inference_accelerators: Optional[Sequence['outputs.LaunchTemplateLaunchTemplateElasticInferenceAccelerator']] = None,
-                 enclave_options: Optional['outputs.LaunchTemplateEnclaveOptions'] = None,
-                 hibernation_options: Optional['outputs.LaunchTemplateHibernationOptions'] = None,
-                 iam_instance_profile: Optional['outputs.LaunchTemplateIamInstanceProfile'] = None,
-                 image_id: Optional[str] = None,
-                 instance_initiated_shutdown_behavior: Optional[str] = None,
-                 instance_market_options: Optional['outputs.LaunchTemplateInstanceMarketOptions'] = None,
-                 instance_type: Optional[str] = None,
-                 kernel_id: Optional[str] = None,
-                 key_name: Optional[str] = None,
-                 license_specifications: Optional[Sequence['outputs.LaunchTemplateLicenseSpecification']] = None,
-                 metadata_options: Optional['outputs.LaunchTemplateMetadataOptions'] = None,
-                 monitoring: Optional['outputs.LaunchTemplateMonitoring'] = None,
-                 network_interfaces: Optional[Sequence['outputs.LaunchTemplateNetworkInterface']] = None,
-                 placement: Optional['outputs.LaunchTemplatePlacement'] = None,
-                 ram_disk_id: Optional[str] = None,
-                 security_group_ids: Optional[Sequence[str]] = None,
-                 security_groups: Optional[Sequence[str]] = None,
-                 tag_specifications: Optional[Sequence['outputs.LaunchTemplateTagSpecification']] = None,
-                 user_data: Optional[str] = None):
-        if block_device_mappings is not None:
-            pulumi.set(__self__, "block_device_mappings", block_device_mappings)
-        if capacity_reservation_specification is not None:
-            pulumi.set(__self__, "capacity_reservation_specification", capacity_reservation_specification)
-        if cpu_options is not None:
-            pulumi.set(__self__, "cpu_options", cpu_options)
-        if credit_specification is not None:
-            pulumi.set(__self__, "credit_specification", credit_specification)
-        if disable_api_termination is not None:
-            pulumi.set(__self__, "disable_api_termination", disable_api_termination)
-        if ebs_optimized is not None:
-            pulumi.set(__self__, "ebs_optimized", ebs_optimized)
-        if elastic_gpu_specifications is not None:
-            pulumi.set(__self__, "elastic_gpu_specifications", elastic_gpu_specifications)
-        if elastic_inference_accelerators is not None:
-            pulumi.set(__self__, "elastic_inference_accelerators", elastic_inference_accelerators)
-        if enclave_options is not None:
-            pulumi.set(__self__, "enclave_options", enclave_options)
-        if hibernation_options is not None:
-            pulumi.set(__self__, "hibernation_options", hibernation_options)
-        if iam_instance_profile is not None:
-            pulumi.set(__self__, "iam_instance_profile", iam_instance_profile)
-        if image_id is not None:
-            pulumi.set(__self__, "image_id", image_id)
-        if instance_initiated_shutdown_behavior is not None:
-            pulumi.set(__self__, "instance_initiated_shutdown_behavior", instance_initiated_shutdown_behavior)
-        if instance_market_options is not None:
-            pulumi.set(__self__, "instance_market_options", instance_market_options)
-        if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
-        if kernel_id is not None:
-            pulumi.set(__self__, "kernel_id", kernel_id)
-        if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
-        if license_specifications is not None:
-            pulumi.set(__self__, "license_specifications", license_specifications)
-        if metadata_options is not None:
-            pulumi.set(__self__, "metadata_options", metadata_options)
-        if monitoring is not None:
-            pulumi.set(__self__, "monitoring", monitoring)
-        if network_interfaces is not None:
-            pulumi.set(__self__, "network_interfaces", network_interfaces)
-        if placement is not None:
-            pulumi.set(__self__, "placement", placement)
-        if ram_disk_id is not None:
-            pulumi.set(__self__, "ram_disk_id", ram_disk_id)
-        if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
-        if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
-        if tag_specifications is not None:
-            pulumi.set(__self__, "tag_specifications", tag_specifications)
-        if user_data is not None:
-            pulumi.set(__self__, "user_data", user_data)
-
-    @property
-    @pulumi.getter(name="blockDeviceMappings")
-    def block_device_mappings(self) -> Optional[Sequence['outputs.LaunchTemplateBlockDeviceMapping']]:
-        return pulumi.get(self, "block_device_mappings")
-
-    @property
-    @pulumi.getter(name="capacityReservationSpecification")
-    def capacity_reservation_specification(self) -> Optional['outputs.LaunchTemplateCapacityReservationSpecification']:
-        return pulumi.get(self, "capacity_reservation_specification")
-
-    @property
-    @pulumi.getter(name="cpuOptions")
-    def cpu_options(self) -> Optional['outputs.LaunchTemplateCpuOptions']:
-        return pulumi.get(self, "cpu_options")
-
-    @property
-    @pulumi.getter(name="creditSpecification")
-    def credit_specification(self) -> Optional['outputs.LaunchTemplateCreditSpecification']:
-        return pulumi.get(self, "credit_specification")
-
-    @property
-    @pulumi.getter(name="disableApiTermination")
-    def disable_api_termination(self) -> Optional[bool]:
-        return pulumi.get(self, "disable_api_termination")
-
-    @property
-    @pulumi.getter(name="ebsOptimized")
-    def ebs_optimized(self) -> Optional[bool]:
-        return pulumi.get(self, "ebs_optimized")
-
-    @property
-    @pulumi.getter(name="elasticGpuSpecifications")
-    def elastic_gpu_specifications(self) -> Optional[Sequence['outputs.LaunchTemplateElasticGpuSpecification']]:
-        return pulumi.get(self, "elastic_gpu_specifications")
-
-    @property
-    @pulumi.getter(name="elasticInferenceAccelerators")
-    def elastic_inference_accelerators(self) -> Optional[Sequence['outputs.LaunchTemplateLaunchTemplateElasticInferenceAccelerator']]:
-        return pulumi.get(self, "elastic_inference_accelerators")
-
-    @property
-    @pulumi.getter(name="enclaveOptions")
-    def enclave_options(self) -> Optional['outputs.LaunchTemplateEnclaveOptions']:
-        return pulumi.get(self, "enclave_options")
-
-    @property
-    @pulumi.getter(name="hibernationOptions")
-    def hibernation_options(self) -> Optional['outputs.LaunchTemplateHibernationOptions']:
-        return pulumi.get(self, "hibernation_options")
-
-    @property
-    @pulumi.getter(name="iamInstanceProfile")
-    def iam_instance_profile(self) -> Optional['outputs.LaunchTemplateIamInstanceProfile']:
-        return pulumi.get(self, "iam_instance_profile")
-
-    @property
-    @pulumi.getter(name="imageId")
-    def image_id(self) -> Optional[str]:
-        return pulumi.get(self, "image_id")
-
-    @property
-    @pulumi.getter(name="instanceInitiatedShutdownBehavior")
-    def instance_initiated_shutdown_behavior(self) -> Optional[str]:
-        return pulumi.get(self, "instance_initiated_shutdown_behavior")
-
-    @property
-    @pulumi.getter(name="instanceMarketOptions")
-    def instance_market_options(self) -> Optional['outputs.LaunchTemplateInstanceMarketOptions']:
-        return pulumi.get(self, "instance_market_options")
-
-    @property
-    @pulumi.getter(name="instanceType")
-    def instance_type(self) -> Optional[str]:
-        return pulumi.get(self, "instance_type")
-
-    @property
-    @pulumi.getter(name="kernelId")
-    def kernel_id(self) -> Optional[str]:
-        return pulumi.get(self, "kernel_id")
-
-    @property
-    @pulumi.getter(name="keyName")
-    def key_name(self) -> Optional[str]:
-        return pulumi.get(self, "key_name")
-
-    @property
-    @pulumi.getter(name="licenseSpecifications")
-    def license_specifications(self) -> Optional[Sequence['outputs.LaunchTemplateLicenseSpecification']]:
-        return pulumi.get(self, "license_specifications")
-
-    @property
-    @pulumi.getter(name="metadataOptions")
-    def metadata_options(self) -> Optional['outputs.LaunchTemplateMetadataOptions']:
-        return pulumi.get(self, "metadata_options")
-
-    @property
-    @pulumi.getter
-    def monitoring(self) -> Optional['outputs.LaunchTemplateMonitoring']:
-        return pulumi.get(self, "monitoring")
-
-    @property
-    @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[Sequence['outputs.LaunchTemplateNetworkInterface']]:
-        return pulumi.get(self, "network_interfaces")
-
-    @property
-    @pulumi.getter
-    def placement(self) -> Optional['outputs.LaunchTemplatePlacement']:
-        return pulumi.get(self, "placement")
-
-    @property
-    @pulumi.getter(name="ramDiskId")
-    def ram_disk_id(self) -> Optional[str]:
-        return pulumi.get(self, "ram_disk_id")
-
-    @property
-    @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "security_group_ids")
-
-    @property
-    @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "security_groups")
-
-    @property
-    @pulumi.getter(name="tagSpecifications")
-    def tag_specifications(self) -> Optional[Sequence['outputs.LaunchTemplateTagSpecification']]:
-        return pulumi.get(self, "tag_specifications")
-
-    @property
-    @pulumi.getter(name="userData")
-    def user_data(self) -> Optional[str]:
-        return pulumi.get(self, "user_data")
-
-
-@pulumi.output_type
-class LaunchTemplateLaunchTemplateElasticInferenceAccelerator(dict):
-    def __init__(__self__, *,
-                 count: Optional[int] = None,
-                 type: Optional[str] = None):
-        if count is not None:
-            pulumi.set(__self__, "count", count)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def count(self) -> Optional[int]:
-        return pulumi.get(self, "count")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class LaunchTemplateLaunchTemplateTagSpecification(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "resourceType":
-            suggest = "resource_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateLaunchTemplateTagSpecification. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LaunchTemplateLaunchTemplateTagSpecification.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LaunchTemplateLaunchTemplateTagSpecification.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 resource_type: Optional[str] = None,
-                 tags: Optional[Sequence['outputs.LaunchTemplateTag']] = None):
-        if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="resourceType")
-    def resource_type(self) -> Optional[str]:
-        return pulumi.get(self, "resource_type")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.LaunchTemplateTag']]:
-        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type
@@ -5216,6 +5177,190 @@ class SpotFleetInstanceNetworkInterfaceSpecification(dict):
 
 
 @pulumi.output_type
+class SpotFleetLaunchSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageId":
+            suggest = "image_id"
+        elif key == "instanceType":
+            suggest = "instance_type"
+        elif key == "blockDeviceMappings":
+            suggest = "block_device_mappings"
+        elif key == "ebsOptimized":
+            suggest = "ebs_optimized"
+        elif key == "iamInstanceProfile":
+            suggest = "iam_instance_profile"
+        elif key == "kernelId":
+            suggest = "kernel_id"
+        elif key == "keyName":
+            suggest = "key_name"
+        elif key == "networkInterfaces":
+            suggest = "network_interfaces"
+        elif key == "ramdiskId":
+            suggest = "ramdisk_id"
+        elif key == "securityGroups":
+            suggest = "security_groups"
+        elif key == "spotPrice":
+            suggest = "spot_price"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "tagSpecifications":
+            suggest = "tag_specifications"
+        elif key == "userData":
+            suggest = "user_data"
+        elif key == "weightedCapacity":
+            suggest = "weighted_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpotFleetLaunchSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpotFleetLaunchSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpotFleetLaunchSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image_id: str,
+                 instance_type: str,
+                 block_device_mappings: Optional[Sequence['outputs.SpotFleetBlockDeviceMapping']] = None,
+                 ebs_optimized: Optional[bool] = None,
+                 iam_instance_profile: Optional['outputs.SpotFleetIamInstanceProfileSpecification'] = None,
+                 kernel_id: Optional[str] = None,
+                 key_name: Optional[str] = None,
+                 monitoring: Optional['outputs.SpotFleetMonitoring'] = None,
+                 network_interfaces: Optional[Sequence['outputs.SpotFleetInstanceNetworkInterfaceSpecification']] = None,
+                 placement: Optional['outputs.SpotFleetSpotPlacement'] = None,
+                 ramdisk_id: Optional[str] = None,
+                 security_groups: Optional[Sequence['outputs.SpotFleetGroupIdentifier']] = None,
+                 spot_price: Optional[str] = None,
+                 subnet_id: Optional[str] = None,
+                 tag_specifications: Optional[Sequence['outputs.SpotFleetTagSpecification']] = None,
+                 user_data: Optional[str] = None,
+                 weighted_capacity: Optional[float] = None):
+        pulumi.set(__self__, "image_id", image_id)
+        pulumi.set(__self__, "instance_type", instance_type)
+        if block_device_mappings is not None:
+            pulumi.set(__self__, "block_device_mappings", block_device_mappings)
+        if ebs_optimized is not None:
+            pulumi.set(__self__, "ebs_optimized", ebs_optimized)
+        if iam_instance_profile is not None:
+            pulumi.set(__self__, "iam_instance_profile", iam_instance_profile)
+        if kernel_id is not None:
+            pulumi.set(__self__, "kernel_id", kernel_id)
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
+        if monitoring is not None:
+            pulumi.set(__self__, "monitoring", monitoring)
+        if network_interfaces is not None:
+            pulumi.set(__self__, "network_interfaces", network_interfaces)
+        if placement is not None:
+            pulumi.set(__self__, "placement", placement)
+        if ramdisk_id is not None:
+            pulumi.set(__self__, "ramdisk_id", ramdisk_id)
+        if security_groups is not None:
+            pulumi.set(__self__, "security_groups", security_groups)
+        if spot_price is not None:
+            pulumi.set(__self__, "spot_price", spot_price)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+        if tag_specifications is not None:
+            pulumi.set(__self__, "tag_specifications", tag_specifications)
+        if user_data is not None:
+            pulumi.set(__self__, "user_data", user_data)
+        if weighted_capacity is not None:
+            pulumi.set(__self__, "weighted_capacity", weighted_capacity)
+
+    @property
+    @pulumi.getter(name="imageId")
+    def image_id(self) -> str:
+        return pulumi.get(self, "image_id")
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> str:
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="blockDeviceMappings")
+    def block_device_mappings(self) -> Optional[Sequence['outputs.SpotFleetBlockDeviceMapping']]:
+        return pulumi.get(self, "block_device_mappings")
+
+    @property
+    @pulumi.getter(name="ebsOptimized")
+    def ebs_optimized(self) -> Optional[bool]:
+        return pulumi.get(self, "ebs_optimized")
+
+    @property
+    @pulumi.getter(name="iamInstanceProfile")
+    def iam_instance_profile(self) -> Optional['outputs.SpotFleetIamInstanceProfileSpecification']:
+        return pulumi.get(self, "iam_instance_profile")
+
+    @property
+    @pulumi.getter(name="kernelId")
+    def kernel_id(self) -> Optional[str]:
+        return pulumi.get(self, "kernel_id")
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> Optional[str]:
+        return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter
+    def monitoring(self) -> Optional['outputs.SpotFleetMonitoring']:
+        return pulumi.get(self, "monitoring")
+
+    @property
+    @pulumi.getter(name="networkInterfaces")
+    def network_interfaces(self) -> Optional[Sequence['outputs.SpotFleetInstanceNetworkInterfaceSpecification']]:
+        return pulumi.get(self, "network_interfaces")
+
+    @property
+    @pulumi.getter
+    def placement(self) -> Optional['outputs.SpotFleetSpotPlacement']:
+        return pulumi.get(self, "placement")
+
+    @property
+    @pulumi.getter(name="ramdiskId")
+    def ramdisk_id(self) -> Optional[str]:
+        return pulumi.get(self, "ramdisk_id")
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Optional[Sequence['outputs.SpotFleetGroupIdentifier']]:
+        return pulumi.get(self, "security_groups")
+
+    @property
+    @pulumi.getter(name="spotPrice")
+    def spot_price(self) -> Optional[str]:
+        return pulumi.get(self, "spot_price")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter(name="tagSpecifications")
+    def tag_specifications(self) -> Optional[Sequence['outputs.SpotFleetTagSpecification']]:
+        return pulumi.get(self, "tag_specifications")
+
+    @property
+    @pulumi.getter(name="userData")
+    def user_data(self) -> Optional[str]:
+        return pulumi.get(self, "user_data")
+
+    @property
+    @pulumi.getter(name="weightedCapacity")
+    def weighted_capacity(self) -> Optional[float]:
+        return pulumi.get(self, "weighted_capacity")
+
+
+@pulumi.output_type
 class SpotFleetLaunchTemplateConfig(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -5364,6 +5509,19 @@ class SpotFleetLoadBalancersConfig(dict):
 
 
 @pulumi.output_type
+class SpotFleetMonitoring(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
 class SpotFleetPrivateIpAddressSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -5401,234 +5559,7 @@ class SpotFleetPrivateIpAddressSpecification(dict):
 
 
 @pulumi.output_type
-class SpotFleetSpotCapacityRebalance(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "replacementStrategy":
-            suggest = "replacement_strategy"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SpotFleetSpotCapacityRebalance. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SpotFleetSpotCapacityRebalance.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SpotFleetSpotCapacityRebalance.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 replacement_strategy: Optional['SpotFleetSpotCapacityRebalanceReplacementStrategy'] = None):
-        if replacement_strategy is not None:
-            pulumi.set(__self__, "replacement_strategy", replacement_strategy)
-
-    @property
-    @pulumi.getter(name="replacementStrategy")
-    def replacement_strategy(self) -> Optional['SpotFleetSpotCapacityRebalanceReplacementStrategy']:
-        return pulumi.get(self, "replacement_strategy")
-
-
-@pulumi.output_type
-class SpotFleetSpotFleetLaunchSpecification(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "imageId":
-            suggest = "image_id"
-        elif key == "instanceType":
-            suggest = "instance_type"
-        elif key == "blockDeviceMappings":
-            suggest = "block_device_mappings"
-        elif key == "ebsOptimized":
-            suggest = "ebs_optimized"
-        elif key == "iamInstanceProfile":
-            suggest = "iam_instance_profile"
-        elif key == "kernelId":
-            suggest = "kernel_id"
-        elif key == "keyName":
-            suggest = "key_name"
-        elif key == "networkInterfaces":
-            suggest = "network_interfaces"
-        elif key == "ramdiskId":
-            suggest = "ramdisk_id"
-        elif key == "securityGroups":
-            suggest = "security_groups"
-        elif key == "spotPrice":
-            suggest = "spot_price"
-        elif key == "subnetId":
-            suggest = "subnet_id"
-        elif key == "tagSpecifications":
-            suggest = "tag_specifications"
-        elif key == "userData":
-            suggest = "user_data"
-        elif key == "weightedCapacity":
-            suggest = "weighted_capacity"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SpotFleetSpotFleetLaunchSpecification. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SpotFleetSpotFleetLaunchSpecification.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SpotFleetSpotFleetLaunchSpecification.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 image_id: str,
-                 instance_type: str,
-                 block_device_mappings: Optional[Sequence['outputs.SpotFleetBlockDeviceMapping']] = None,
-                 ebs_optimized: Optional[bool] = None,
-                 iam_instance_profile: Optional['outputs.SpotFleetIamInstanceProfileSpecification'] = None,
-                 kernel_id: Optional[str] = None,
-                 key_name: Optional[str] = None,
-                 monitoring: Optional['outputs.SpotFleetSpotFleetMonitoring'] = None,
-                 network_interfaces: Optional[Sequence['outputs.SpotFleetInstanceNetworkInterfaceSpecification']] = None,
-                 placement: Optional['outputs.SpotFleetSpotPlacement'] = None,
-                 ramdisk_id: Optional[str] = None,
-                 security_groups: Optional[Sequence['outputs.SpotFleetGroupIdentifier']] = None,
-                 spot_price: Optional[str] = None,
-                 subnet_id: Optional[str] = None,
-                 tag_specifications: Optional[Sequence['outputs.SpotFleetSpotFleetTagSpecification']] = None,
-                 user_data: Optional[str] = None,
-                 weighted_capacity: Optional[float] = None):
-        pulumi.set(__self__, "image_id", image_id)
-        pulumi.set(__self__, "instance_type", instance_type)
-        if block_device_mappings is not None:
-            pulumi.set(__self__, "block_device_mappings", block_device_mappings)
-        if ebs_optimized is not None:
-            pulumi.set(__self__, "ebs_optimized", ebs_optimized)
-        if iam_instance_profile is not None:
-            pulumi.set(__self__, "iam_instance_profile", iam_instance_profile)
-        if kernel_id is not None:
-            pulumi.set(__self__, "kernel_id", kernel_id)
-        if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
-        if monitoring is not None:
-            pulumi.set(__self__, "monitoring", monitoring)
-        if network_interfaces is not None:
-            pulumi.set(__self__, "network_interfaces", network_interfaces)
-        if placement is not None:
-            pulumi.set(__self__, "placement", placement)
-        if ramdisk_id is not None:
-            pulumi.set(__self__, "ramdisk_id", ramdisk_id)
-        if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
-        if spot_price is not None:
-            pulumi.set(__self__, "spot_price", spot_price)
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
-        if tag_specifications is not None:
-            pulumi.set(__self__, "tag_specifications", tag_specifications)
-        if user_data is not None:
-            pulumi.set(__self__, "user_data", user_data)
-        if weighted_capacity is not None:
-            pulumi.set(__self__, "weighted_capacity", weighted_capacity)
-
-    @property
-    @pulumi.getter(name="imageId")
-    def image_id(self) -> str:
-        return pulumi.get(self, "image_id")
-
-    @property
-    @pulumi.getter(name="instanceType")
-    def instance_type(self) -> str:
-        return pulumi.get(self, "instance_type")
-
-    @property
-    @pulumi.getter(name="blockDeviceMappings")
-    def block_device_mappings(self) -> Optional[Sequence['outputs.SpotFleetBlockDeviceMapping']]:
-        return pulumi.get(self, "block_device_mappings")
-
-    @property
-    @pulumi.getter(name="ebsOptimized")
-    def ebs_optimized(self) -> Optional[bool]:
-        return pulumi.get(self, "ebs_optimized")
-
-    @property
-    @pulumi.getter(name="iamInstanceProfile")
-    def iam_instance_profile(self) -> Optional['outputs.SpotFleetIamInstanceProfileSpecification']:
-        return pulumi.get(self, "iam_instance_profile")
-
-    @property
-    @pulumi.getter(name="kernelId")
-    def kernel_id(self) -> Optional[str]:
-        return pulumi.get(self, "kernel_id")
-
-    @property
-    @pulumi.getter(name="keyName")
-    def key_name(self) -> Optional[str]:
-        return pulumi.get(self, "key_name")
-
-    @property
-    @pulumi.getter
-    def monitoring(self) -> Optional['outputs.SpotFleetSpotFleetMonitoring']:
-        return pulumi.get(self, "monitoring")
-
-    @property
-    @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[Sequence['outputs.SpotFleetInstanceNetworkInterfaceSpecification']]:
-        return pulumi.get(self, "network_interfaces")
-
-    @property
-    @pulumi.getter
-    def placement(self) -> Optional['outputs.SpotFleetSpotPlacement']:
-        return pulumi.get(self, "placement")
-
-    @property
-    @pulumi.getter(name="ramdiskId")
-    def ramdisk_id(self) -> Optional[str]:
-        return pulumi.get(self, "ramdisk_id")
-
-    @property
-    @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> Optional[Sequence['outputs.SpotFleetGroupIdentifier']]:
-        return pulumi.get(self, "security_groups")
-
-    @property
-    @pulumi.getter(name="spotPrice")
-    def spot_price(self) -> Optional[str]:
-        return pulumi.get(self, "spot_price")
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[str]:
-        return pulumi.get(self, "subnet_id")
-
-    @property
-    @pulumi.getter(name="tagSpecifications")
-    def tag_specifications(self) -> Optional[Sequence['outputs.SpotFleetSpotFleetTagSpecification']]:
-        return pulumi.get(self, "tag_specifications")
-
-    @property
-    @pulumi.getter(name="userData")
-    def user_data(self) -> Optional[str]:
-        return pulumi.get(self, "user_data")
-
-    @property
-    @pulumi.getter(name="weightedCapacity")
-    def weighted_capacity(self) -> Optional[float]:
-        return pulumi.get(self, "weighted_capacity")
-
-
-@pulumi.output_type
-class SpotFleetSpotFleetMonitoring(dict):
-    def __init__(__self__, *,
-                 enabled: Optional[bool] = None):
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[bool]:
-        return pulumi.get(self, "enabled")
-
-
-@pulumi.output_type
-class SpotFleetSpotFleetRequestConfigData(dict):
+class SpotFleetRequestConfigData(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5672,25 +5603,25 @@ class SpotFleetSpotFleetRequestConfigData(dict):
             suggest = "valid_until"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SpotFleetSpotFleetRequestConfigData. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SpotFleetRequestConfigData. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        SpotFleetSpotFleetRequestConfigData.__key_warning(key)
+        SpotFleetRequestConfigData.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        SpotFleetSpotFleetRequestConfigData.__key_warning(key)
+        SpotFleetRequestConfigData.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  iam_fleet_role: str,
                  target_capacity: int,
-                 allocation_strategy: Optional['SpotFleetSpotFleetRequestConfigDataAllocationStrategy'] = None,
+                 allocation_strategy: Optional['SpotFleetRequestConfigDataAllocationStrategy'] = None,
                  context: Optional[str] = None,
-                 excess_capacity_termination_policy: Optional['SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy'] = None,
-                 instance_interruption_behavior: Optional['SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior'] = None,
+                 excess_capacity_termination_policy: Optional['SpotFleetRequestConfigDataExcessCapacityTerminationPolicy'] = None,
+                 instance_interruption_behavior: Optional['SpotFleetRequestConfigDataInstanceInterruptionBehavior'] = None,
                  instance_pools_to_use_count: Optional[int] = None,
-                 launch_specifications: Optional[Sequence['outputs.SpotFleetSpotFleetLaunchSpecification']] = None,
+                 launch_specifications: Optional[Sequence['outputs.SpotFleetLaunchSpecification']] = None,
                  launch_template_configs: Optional[Sequence['outputs.SpotFleetLaunchTemplateConfig']] = None,
                  load_balancers_config: Optional['outputs.SpotFleetLoadBalancersConfig'] = None,
                  on_demand_allocation_strategy: Optional[str] = None,
@@ -5701,7 +5632,7 @@ class SpotFleetSpotFleetRequestConfigData(dict):
                  spot_max_total_price: Optional[str] = None,
                  spot_price: Optional[str] = None,
                  terminate_instances_with_expiration: Optional[bool] = None,
-                 type: Optional['SpotFleetSpotFleetRequestConfigDataType'] = None,
+                 type: Optional['SpotFleetRequestConfigDataType'] = None,
                  valid_from: Optional[str] = None,
                  valid_until: Optional[str] = None):
         pulumi.set(__self__, "iam_fleet_role", iam_fleet_role)
@@ -5757,7 +5688,7 @@ class SpotFleetSpotFleetRequestConfigData(dict):
 
     @property
     @pulumi.getter(name="allocationStrategy")
-    def allocation_strategy(self) -> Optional['SpotFleetSpotFleetRequestConfigDataAllocationStrategy']:
+    def allocation_strategy(self) -> Optional['SpotFleetRequestConfigDataAllocationStrategy']:
         return pulumi.get(self, "allocation_strategy")
 
     @property
@@ -5767,12 +5698,12 @@ class SpotFleetSpotFleetRequestConfigData(dict):
 
     @property
     @pulumi.getter(name="excessCapacityTerminationPolicy")
-    def excess_capacity_termination_policy(self) -> Optional['SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy']:
+    def excess_capacity_termination_policy(self) -> Optional['SpotFleetRequestConfigDataExcessCapacityTerminationPolicy']:
         return pulumi.get(self, "excess_capacity_termination_policy")
 
     @property
     @pulumi.getter(name="instanceInterruptionBehavior")
-    def instance_interruption_behavior(self) -> Optional['SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior']:
+    def instance_interruption_behavior(self) -> Optional['SpotFleetRequestConfigDataInstanceInterruptionBehavior']:
         return pulumi.get(self, "instance_interruption_behavior")
 
     @property
@@ -5782,7 +5713,7 @@ class SpotFleetSpotFleetRequestConfigData(dict):
 
     @property
     @pulumi.getter(name="launchSpecifications")
-    def launch_specifications(self) -> Optional[Sequence['outputs.SpotFleetSpotFleetLaunchSpecification']]:
+    def launch_specifications(self) -> Optional[Sequence['outputs.SpotFleetLaunchSpecification']]:
         return pulumi.get(self, "launch_specifications")
 
     @property
@@ -5837,7 +5768,7 @@ class SpotFleetSpotFleetRequestConfigData(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional['SpotFleetSpotFleetRequestConfigDataType']:
+    def type(self) -> Optional['SpotFleetRequestConfigDataType']:
         return pulumi.get(self, "type")
 
     @property
@@ -5852,41 +5783,33 @@ class SpotFleetSpotFleetRequestConfigData(dict):
 
 
 @pulumi.output_type
-class SpotFleetSpotFleetTagSpecification(dict):
+class SpotFleetSpotCapacityRebalance(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "resourceType":
-            suggest = "resource_type"
+        if key == "replacementStrategy":
+            suggest = "replacement_strategy"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SpotFleetSpotFleetTagSpecification. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SpotFleetSpotCapacityRebalance. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        SpotFleetSpotFleetTagSpecification.__key_warning(key)
+        SpotFleetSpotCapacityRebalance.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        SpotFleetSpotFleetTagSpecification.__key_warning(key)
+        SpotFleetSpotCapacityRebalance.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 resource_type: Optional['SpotFleetSpotFleetTagSpecificationResourceType'] = None,
-                 tags: Optional[Sequence['outputs.SpotFleetTag']] = None):
-        if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+                 replacement_strategy: Optional['SpotFleetSpotCapacityRebalanceReplacementStrategy'] = None):
+        if replacement_strategy is not None:
+            pulumi.set(__self__, "replacement_strategy", replacement_strategy)
 
     @property
-    @pulumi.getter(name="resourceType")
-    def resource_type(self) -> Optional['SpotFleetSpotFleetTagSpecificationResourceType']:
-        return pulumi.get(self, "resource_type")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.SpotFleetTag']]:
-        return pulumi.get(self, "tags")
+    @pulumi.getter(name="replacementStrategy")
+    def replacement_strategy(self) -> Optional['SpotFleetSpotCapacityRebalanceReplacementStrategy']:
+        return pulumi.get(self, "replacement_strategy")
 
 
 @pulumi.output_type
@@ -5984,6 +5907,44 @@ class SpotFleetTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SpotFleetTagSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceType":
+            suggest = "resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpotFleetTagSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpotFleetTagSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpotFleetTagSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_type: Optional['SpotFleetTagSpecificationResourceType'] = None,
+                 tags: Optional[Sequence['outputs.SpotFleetTag']] = None):
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional['SpotFleetTagSpecificationResourceType']:
+        return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.SpotFleetTag']]:
+        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type
@@ -6161,6 +6122,25 @@ class TransitGatewayAttachmentTag(dict):
 
 
 @pulumi.output_type
+class TransitGatewayConnectOptions(dict):
+    def __init__(__self__, *,
+                 protocol: Optional[str] = None):
+        """
+        :param str protocol: The tunnel protocol.
+        """
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        """
+        The tunnel protocol.
+        """
+        return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
 class TransitGatewayConnectTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
@@ -6189,25 +6169,6 @@ class TransitGatewayConnectTag(dict):
         The value of the tag. Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
         """
         return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class TransitGatewayConnectTransitGatewayConnectOptions(dict):
-    def __init__(__self__, *,
-                 protocol: Optional[str] = None):
-        """
-        :param str protocol: The tunnel protocol.
-        """
-        if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
-
-    @property
-    @pulumi.getter
-    def protocol(self) -> Optional[str]:
-        """
-        The tunnel protocol.
-        """
-        return pulumi.get(self, "protocol")
 
 
 @pulumi.output_type

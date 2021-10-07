@@ -11,12 +11,12 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'DBClusterDBClusterRole',
     'DBClusterParameterGroupTag',
+    'DBClusterRole',
     'DBClusterScalingConfiguration',
     'DBClusterTag',
-    'DBInstanceDBInstanceRole',
     'DBInstanceProcessorFeature',
+    'DBInstanceRole',
     'DBInstanceTag',
     'DBParameterGroupTag',
     'DBProxyAuthFormat',
@@ -30,45 +30,6 @@ __all__ = [
     'OptionGroupOptionSetting',
     'OptionGroupTag',
 ]
-
-@pulumi.output_type
-class DBClusterDBClusterRole(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "roleArn":
-            suggest = "role_arn"
-        elif key == "featureName":
-            suggest = "feature_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DBClusterDBClusterRole. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DBClusterDBClusterRole.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DBClusterDBClusterRole.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 role_arn: str,
-                 feature_name: Optional[str] = None):
-        pulumi.set(__self__, "role_arn", role_arn)
-        if feature_name is not None:
-            pulumi.set(__self__, "feature_name", feature_name)
-
-    @property
-    @pulumi.getter(name="roleArn")
-    def role_arn(self) -> str:
-        return pulumi.get(self, "role_arn")
-
-    @property
-    @pulumi.getter(name="featureName")
-    def feature_name(self) -> Optional[str]:
-        return pulumi.get(self, "feature_name")
-
 
 @pulumi.output_type
 class DBClusterParameterGroupTag(dict):
@@ -87,6 +48,45 @@ class DBClusterParameterGroupTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DBClusterRole(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "featureName":
+            suggest = "feature_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DBClusterRole. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DBClusterRole.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DBClusterRole.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 role_arn: str,
+                 feature_name: Optional[str] = None):
+        pulumi.set(__self__, "role_arn", role_arn)
+        if feature_name is not None:
+            pulumi.set(__self__, "feature_name", feature_name)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="featureName")
+    def feature_name(self) -> Optional[str]:
+        return pulumi.get(self, "feature_name")
 
 
 @pulumi.output_type
@@ -169,44 +169,6 @@ class DBClusterTag(dict):
 
 
 @pulumi.output_type
-class DBInstanceDBInstanceRole(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "featureName":
-            suggest = "feature_name"
-        elif key == "roleArn":
-            suggest = "role_arn"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DBInstanceDBInstanceRole. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DBInstanceDBInstanceRole.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DBInstanceDBInstanceRole.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 feature_name: str,
-                 role_arn: str):
-        pulumi.set(__self__, "feature_name", feature_name)
-        pulumi.set(__self__, "role_arn", role_arn)
-
-    @property
-    @pulumi.getter(name="featureName")
-    def feature_name(self) -> str:
-        return pulumi.get(self, "feature_name")
-
-    @property
-    @pulumi.getter(name="roleArn")
-    def role_arn(self) -> str:
-        return pulumi.get(self, "role_arn")
-
-
-@pulumi.output_type
 class DBInstanceProcessorFeature(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
@@ -225,6 +187,44 @@ class DBInstanceProcessorFeature(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DBInstanceRole(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "featureName":
+            suggest = "feature_name"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DBInstanceRole. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DBInstanceRole.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DBInstanceRole.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 feature_name: str,
+                 role_arn: str):
+        pulumi.set(__self__, "feature_name", feature_name)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="featureName")
+    def feature_name(self) -> str:
+        return pulumi.get(self, "feature_name")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        return pulumi.get(self, "role_arn")
 
 
 @pulumi.output_type

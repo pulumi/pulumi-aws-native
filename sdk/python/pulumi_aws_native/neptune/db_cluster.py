@@ -15,7 +15,7 @@ __all__ = ['DBClusterArgs', 'DBCluster']
 @pulumi.input_type
 class DBClusterArgs:
     def __init__(__self__, *,
-                 associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input['DBClusterDBClusterRoleArgs']]]] = None,
+                 associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input['DBClusterRoleArgs']]]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
                  d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
@@ -87,11 +87,11 @@ class DBClusterArgs:
 
     @property
     @pulumi.getter(name="associatedRoles")
-    def associated_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DBClusterDBClusterRoleArgs']]]]:
+    def associated_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DBClusterRoleArgs']]]]:
         return pulumi.get(self, "associated_roles")
 
     @associated_roles.setter
-    def associated_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DBClusterDBClusterRoleArgs']]]]):
+    def associated_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DBClusterRoleArgs']]]]):
         pulumi.set(self, "associated_roles", value)
 
     @property
@@ -294,7 +294,7 @@ class DBCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBClusterDBClusterRoleArgs']]]]] = None,
+                 associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBClusterRoleArgs']]]]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
                  d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
@@ -347,7 +347,7 @@ class DBCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBClusterDBClusterRoleArgs']]]]] = None,
+                 associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBClusterRoleArgs']]]]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
                  d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
@@ -458,7 +458,7 @@ class DBCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="associatedRoles")
-    def associated_roles(self) -> pulumi.Output[Optional[Sequence['outputs.DBClusterDBClusterRole']]]:
+    def associated_roles(self) -> pulumi.Output[Optional[Sequence['outputs.DBClusterRole']]]:
         return pulumi.get(self, "associated_roles")
 
     @property

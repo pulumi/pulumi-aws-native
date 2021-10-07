@@ -36,13 +36,13 @@ __all__ = [
     'ListenerRuleTargetGroupTuple',
     'ListenerTargetGroupStickinessConfig',
     'ListenerTargetGroupTuple',
-    'LoadBalancerLoadBalancerAttribute',
+    'LoadBalancerAttribute',
     'LoadBalancerSubnetMapping',
     'LoadBalancerTag',
+    'TargetGroupAttribute',
     'TargetGroupMatcher',
     'TargetGroupTag',
     'TargetGroupTargetDescription',
-    'TargetGroupTargetGroupAttribute',
 ]
 
 @pulumi.output_type
@@ -1424,7 +1424,7 @@ class ListenerTargetGroupTuple(dict):
 
 
 @pulumi.output_type
-class LoadBalancerLoadBalancerAttribute(dict):
+class LoadBalancerAttribute(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
@@ -1519,6 +1519,27 @@ class LoadBalancerTag(dict):
     @property
     @pulumi.getter
     def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TargetGroupAttribute(dict):
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
 
 
@@ -1624,26 +1645,5 @@ class TargetGroupTargetDescription(dict):
     @pulumi.getter
     def port(self) -> Optional[int]:
         return pulumi.get(self, "port")
-
-
-@pulumi.output_type
-class TargetGroupTargetGroupAttribute(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
 
 

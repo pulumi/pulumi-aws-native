@@ -12,23 +12,23 @@ from . import outputs
 __all__ = [
     'ProjectArtifacts',
     'ProjectBatchRestrictions',
+    'ProjectBuildBatchConfig',
     'ProjectBuildStatusConfig',
+    'ProjectCache',
     'ProjectCloudWatchLogsConfig',
     'ProjectEnvironment',
     'ProjectEnvironmentVariable',
+    'ProjectFileSystemLocation',
     'ProjectFilterGroup',
     'ProjectGitSubmodulesConfig',
     'ProjectLogsConfig',
-    'ProjectProjectBuildBatchConfig',
-    'ProjectProjectCache',
-    'ProjectProjectFileSystemLocation',
-    'ProjectProjectSourceVersion',
-    'ProjectProjectTriggers',
     'ProjectRegistryCredential',
     'ProjectS3LogsConfig',
     'ProjectSource',
     'ProjectSourceAuth',
+    'ProjectSourceVersion',
     'ProjectTag',
+    'ProjectTriggers',
     'ProjectVpcConfig',
     'ReportGroupReportExportConfig',
     'ReportGroupS3ReportExportConfig',
@@ -175,6 +175,64 @@ class ProjectBatchRestrictions(dict):
 
 
 @pulumi.output_type
+class ProjectBuildBatchConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "combineArtifacts":
+            suggest = "combine_artifacts"
+        elif key == "serviceRole":
+            suggest = "service_role"
+        elif key == "timeoutInMins":
+            suggest = "timeout_in_mins"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectBuildBatchConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectBuildBatchConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectBuildBatchConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 combine_artifacts: Optional[bool] = None,
+                 restrictions: Optional['outputs.ProjectBatchRestrictions'] = None,
+                 service_role: Optional[str] = None,
+                 timeout_in_mins: Optional[int] = None):
+        if combine_artifacts is not None:
+            pulumi.set(__self__, "combine_artifacts", combine_artifacts)
+        if restrictions is not None:
+            pulumi.set(__self__, "restrictions", restrictions)
+        if service_role is not None:
+            pulumi.set(__self__, "service_role", service_role)
+        if timeout_in_mins is not None:
+            pulumi.set(__self__, "timeout_in_mins", timeout_in_mins)
+
+    @property
+    @pulumi.getter(name="combineArtifacts")
+    def combine_artifacts(self) -> Optional[bool]:
+        return pulumi.get(self, "combine_artifacts")
+
+    @property
+    @pulumi.getter
+    def restrictions(self) -> Optional['outputs.ProjectBatchRestrictions']:
+        return pulumi.get(self, "restrictions")
+
+    @property
+    @pulumi.getter(name="serviceRole")
+    def service_role(self) -> Optional[str]:
+        return pulumi.get(self, "service_role")
+
+    @property
+    @pulumi.getter(name="timeoutInMins")
+    def timeout_in_mins(self) -> Optional[int]:
+        return pulumi.get(self, "timeout_in_mins")
+
+
+@pulumi.output_type
 class ProjectBuildStatusConfig(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -210,6 +268,34 @@ class ProjectBuildStatusConfig(dict):
     @pulumi.getter(name="targetUrl")
     def target_url(self) -> Optional[str]:
         return pulumi.get(self, "target_url")
+
+
+@pulumi.output_type
+class ProjectCache(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 location: Optional[str] = None,
+                 modes: Optional[Sequence[str]] = None):
+        pulumi.set(__self__, "type", type)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if modes is not None:
+            pulumi.set(__self__, "modes", modes)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def modes(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "modes")
 
 
 @pulumi.output_type
@@ -378,6 +464,66 @@ class ProjectEnvironmentVariable(dict):
 
 
 @pulumi.output_type
+class ProjectFileSystemLocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mountPoint":
+            suggest = "mount_point"
+        elif key == "mountOptions":
+            suggest = "mount_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectFileSystemLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectFileSystemLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectFileSystemLocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identifier: str,
+                 location: str,
+                 mount_point: str,
+                 type: str,
+                 mount_options: Optional[str] = None):
+        pulumi.set(__self__, "identifier", identifier)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "mount_point", mount_point)
+        pulumi.set(__self__, "type", type)
+        if mount_options is not None:
+            pulumi.set(__self__, "mount_options", mount_options)
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> str:
+        return pulumi.get(self, "identifier")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="mountPoint")
+    def mount_point(self) -> str:
+        return pulumi.get(self, "mount_point")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="mountOptions")
+    def mount_options(self) -> Optional[str]:
+        return pulumi.get(self, "mount_options")
+
+
+@pulumi.output_type
 class ProjectFilterGroup(dict):
     def __init__(__self__):
         pass
@@ -450,239 +596,6 @@ class ProjectLogsConfig(dict):
     @pulumi.getter(name="s3Logs")
     def s3_logs(self) -> Optional['outputs.ProjectS3LogsConfig']:
         return pulumi.get(self, "s3_logs")
-
-
-@pulumi.output_type
-class ProjectProjectBuildBatchConfig(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "combineArtifacts":
-            suggest = "combine_artifacts"
-        elif key == "serviceRole":
-            suggest = "service_role"
-        elif key == "timeoutInMins":
-            suggest = "timeout_in_mins"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ProjectProjectBuildBatchConfig. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ProjectProjectBuildBatchConfig.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ProjectProjectBuildBatchConfig.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 combine_artifacts: Optional[bool] = None,
-                 restrictions: Optional['outputs.ProjectBatchRestrictions'] = None,
-                 service_role: Optional[str] = None,
-                 timeout_in_mins: Optional[int] = None):
-        if combine_artifacts is not None:
-            pulumi.set(__self__, "combine_artifacts", combine_artifacts)
-        if restrictions is not None:
-            pulumi.set(__self__, "restrictions", restrictions)
-        if service_role is not None:
-            pulumi.set(__self__, "service_role", service_role)
-        if timeout_in_mins is not None:
-            pulumi.set(__self__, "timeout_in_mins", timeout_in_mins)
-
-    @property
-    @pulumi.getter(name="combineArtifacts")
-    def combine_artifacts(self) -> Optional[bool]:
-        return pulumi.get(self, "combine_artifacts")
-
-    @property
-    @pulumi.getter
-    def restrictions(self) -> Optional['outputs.ProjectBatchRestrictions']:
-        return pulumi.get(self, "restrictions")
-
-    @property
-    @pulumi.getter(name="serviceRole")
-    def service_role(self) -> Optional[str]:
-        return pulumi.get(self, "service_role")
-
-    @property
-    @pulumi.getter(name="timeoutInMins")
-    def timeout_in_mins(self) -> Optional[int]:
-        return pulumi.get(self, "timeout_in_mins")
-
-
-@pulumi.output_type
-class ProjectProjectCache(dict):
-    def __init__(__self__, *,
-                 type: str,
-                 location: Optional[str] = None,
-                 modes: Optional[Sequence[str]] = None):
-        pulumi.set(__self__, "type", type)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
-        if modes is not None:
-            pulumi.set(__self__, "modes", modes)
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def location(self) -> Optional[str]:
-        return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter
-    def modes(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "modes")
-
-
-@pulumi.output_type
-class ProjectProjectFileSystemLocation(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "mountPoint":
-            suggest = "mount_point"
-        elif key == "mountOptions":
-            suggest = "mount_options"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ProjectProjectFileSystemLocation. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ProjectProjectFileSystemLocation.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ProjectProjectFileSystemLocation.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 identifier: str,
-                 location: str,
-                 mount_point: str,
-                 type: str,
-                 mount_options: Optional[str] = None):
-        pulumi.set(__self__, "identifier", identifier)
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "mount_point", mount_point)
-        pulumi.set(__self__, "type", type)
-        if mount_options is not None:
-            pulumi.set(__self__, "mount_options", mount_options)
-
-    @property
-    @pulumi.getter
-    def identifier(self) -> str:
-        return pulumi.get(self, "identifier")
-
-    @property
-    @pulumi.getter
-    def location(self) -> str:
-        return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter(name="mountPoint")
-    def mount_point(self) -> str:
-        return pulumi.get(self, "mount_point")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="mountOptions")
-    def mount_options(self) -> Optional[str]:
-        return pulumi.get(self, "mount_options")
-
-
-@pulumi.output_type
-class ProjectProjectSourceVersion(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "sourceIdentifier":
-            suggest = "source_identifier"
-        elif key == "sourceVersion":
-            suggest = "source_version"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ProjectProjectSourceVersion. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ProjectProjectSourceVersion.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ProjectProjectSourceVersion.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 source_identifier: str,
-                 source_version: Optional[str] = None):
-        pulumi.set(__self__, "source_identifier", source_identifier)
-        if source_version is not None:
-            pulumi.set(__self__, "source_version", source_version)
-
-    @property
-    @pulumi.getter(name="sourceIdentifier")
-    def source_identifier(self) -> str:
-        return pulumi.get(self, "source_identifier")
-
-    @property
-    @pulumi.getter(name="sourceVersion")
-    def source_version(self) -> Optional[str]:
-        return pulumi.get(self, "source_version")
-
-
-@pulumi.output_type
-class ProjectProjectTriggers(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "buildType":
-            suggest = "build_type"
-        elif key == "filterGroups":
-            suggest = "filter_groups"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ProjectProjectTriggers. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ProjectProjectTriggers.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ProjectProjectTriggers.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 build_type: Optional[str] = None,
-                 filter_groups: Optional[Sequence['outputs.ProjectFilterGroup']] = None,
-                 webhook: Optional[bool] = None):
-        if build_type is not None:
-            pulumi.set(__self__, "build_type", build_type)
-        if filter_groups is not None:
-            pulumi.set(__self__, "filter_groups", filter_groups)
-        if webhook is not None:
-            pulumi.set(__self__, "webhook", webhook)
-
-    @property
-    @pulumi.getter(name="buildType")
-    def build_type(self) -> Optional[str]:
-        return pulumi.get(self, "build_type")
-
-    @property
-    @pulumi.getter(name="filterGroups")
-    def filter_groups(self) -> Optional[Sequence['outputs.ProjectFilterGroup']]:
-        return pulumi.get(self, "filter_groups")
-
-    @property
-    @pulumi.getter
-    def webhook(self) -> Optional[bool]:
-        return pulumi.get(self, "webhook")
 
 
 @pulumi.output_type
@@ -900,6 +813,45 @@ class ProjectSourceAuth(dict):
 
 
 @pulumi.output_type
+class ProjectSourceVersion(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceIdentifier":
+            suggest = "source_identifier"
+        elif key == "sourceVersion":
+            suggest = "source_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectSourceVersion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectSourceVersion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectSourceVersion.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_identifier: str,
+                 source_version: Optional[str] = None):
+        pulumi.set(__self__, "source_identifier", source_identifier)
+        if source_version is not None:
+            pulumi.set(__self__, "source_version", source_version)
+
+    @property
+    @pulumi.getter(name="sourceIdentifier")
+    def source_identifier(self) -> str:
+        return pulumi.get(self, "source_identifier")
+
+    @property
+    @pulumi.getter(name="sourceVersion")
+    def source_version(self) -> Optional[str]:
+        return pulumi.get(self, "source_version")
+
+
+@pulumi.output_type
 class ProjectTag(dict):
     def __init__(__self__, *,
                  key: str,
@@ -916,6 +868,54 @@ class ProjectTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProjectTriggers(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "buildType":
+            suggest = "build_type"
+        elif key == "filterGroups":
+            suggest = "filter_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectTriggers. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectTriggers.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectTriggers.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 build_type: Optional[str] = None,
+                 filter_groups: Optional[Sequence['outputs.ProjectFilterGroup']] = None,
+                 webhook: Optional[bool] = None):
+        if build_type is not None:
+            pulumi.set(__self__, "build_type", build_type)
+        if filter_groups is not None:
+            pulumi.set(__self__, "filter_groups", filter_groups)
+        if webhook is not None:
+            pulumi.set(__self__, "webhook", webhook)
+
+    @property
+    @pulumi.getter(name="buildType")
+    def build_type(self) -> Optional[str]:
+        return pulumi.get(self, "build_type")
+
+    @property
+    @pulumi.getter(name="filterGroups")
+    def filter_groups(self) -> Optional[Sequence['outputs.ProjectFilterGroup']]:
+        return pulumi.get(self, "filter_groups")
+
+    @property
+    @pulumi.getter
+    def webhook(self) -> Optional[bool]:
+        return pulumi.get(self, "webhook")
 
 
 @pulumi.output_type

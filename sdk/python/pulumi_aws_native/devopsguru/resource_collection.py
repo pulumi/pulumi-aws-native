@@ -16,7 +16,7 @@ __all__ = ['ResourceCollectionArgs', 'ResourceCollection']
 @pulumi.input_type
 class ResourceCollectionArgs:
     def __init__(__self__, *,
-                 resource_collection_filter: pulumi.Input['ResourceCollectionResourceCollectionFilterArgs']):
+                 resource_collection_filter: pulumi.Input['ResourceCollectionFilterArgs']):
         """
         The set of arguments for constructing a ResourceCollection resource.
         """
@@ -24,11 +24,11 @@ class ResourceCollectionArgs:
 
     @property
     @pulumi.getter(name="resourceCollectionFilter")
-    def resource_collection_filter(self) -> pulumi.Input['ResourceCollectionResourceCollectionFilterArgs']:
+    def resource_collection_filter(self) -> pulumi.Input['ResourceCollectionFilterArgs']:
         return pulumi.get(self, "resource_collection_filter")
 
     @resource_collection_filter.setter
-    def resource_collection_filter(self, value: pulumi.Input['ResourceCollectionResourceCollectionFilterArgs']):
+    def resource_collection_filter(self, value: pulumi.Input['ResourceCollectionFilterArgs']):
         pulumi.set(self, "resource_collection_filter", value)
 
 
@@ -37,7 +37,7 @@ class ResourceCollection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_collection_filter: Optional[pulumi.Input[pulumi.InputType['ResourceCollectionResourceCollectionFilterArgs']]] = None,
+                 resource_collection_filter: Optional[pulumi.Input[pulumi.InputType['ResourceCollectionFilterArgs']]] = None,
                  __props__=None):
         """
         This resource schema represents the ResourceCollection resource in the Amazon DevOps Guru.
@@ -69,7 +69,7 @@ class ResourceCollection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_collection_filter: Optional[pulumi.Input[pulumi.InputType['ResourceCollectionResourceCollectionFilterArgs']]] = None,
+                 resource_collection_filter: Optional[pulumi.Input[pulumi.InputType['ResourceCollectionFilterArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -114,12 +114,12 @@ class ResourceCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceCollectionFilter")
-    def resource_collection_filter(self) -> pulumi.Output['outputs.ResourceCollectionResourceCollectionFilter']:
+    def resource_collection_filter(self) -> pulumi.Output['outputs.ResourceCollectionFilter']:
         return pulumi.get(self, "resource_collection_filter")
 
     @property
     @pulumi.getter(name="resourceCollectionType")
-    def resource_collection_type(self) -> pulumi.Output['ResourceCollectionResourceCollectionType']:
+    def resource_collection_type(self) -> pulumi.Output['ResourceCollectionType']:
         """
         The type of ResourceCollection
         """

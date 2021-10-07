@@ -12,17 +12,17 @@ __all__ = [
     'ApplicationSettingsCampaignHookArgs',
     'ApplicationSettingsLimitsArgs',
     'ApplicationSettingsQuietTimeArgs',
-    'CampaignCampaignEmailMessageArgs',
-    'CampaignCampaignEventFilterArgs',
-    'CampaignCampaignHookArgs',
-    'CampaignCampaignSmsMessageArgs',
+    'CampaignEmailMessageArgs',
     'CampaignEventDimensionsArgs',
+    'CampaignEventFilterArgs',
+    'CampaignHookArgs',
     'CampaignLimitsArgs',
     'CampaignMessageConfigurationArgs',
     'CampaignMessageArgs',
     'CampaignQuietTimeArgs',
     'CampaignScheduleArgs',
     'CampaignSetDimensionArgs',
+    'CampaignSmsMessageArgs',
     'CampaignWriteTreatmentResourceArgs',
     'PushTemplateAPNSPushNotificationTemplateArgs',
     'PushTemplateAndroidPushNotificationTemplateArgs',
@@ -30,14 +30,12 @@ __all__ = [
     'SegmentBehaviorArgs',
     'SegmentCoordinatesArgs',
     'SegmentDemographicArgs',
+    'SegmentDimensionsArgs',
     'SegmentGPSPointArgs',
     'SegmentGroupsArgs',
     'SegmentLocationArgs',
     'SegmentRecencyArgs',
-    'SegmentSegmentDimensionsArgs',
-    'SegmentSegmentGroupsArgs',
     'SegmentSetDimensionArgs',
-    'SegmentSourceSegmentsArgs',
 ]
 
 @pulumi.input_type
@@ -162,7 +160,7 @@ class ApplicationSettingsQuietTimeArgs:
 
 
 @pulumi.input_type
-class CampaignCampaignEmailMessageArgs:
+class CampaignEmailMessageArgs:
     def __init__(__self__, *,
                  body: Optional[pulumi.Input[str]] = None,
                  from_address: Optional[pulumi.Input[str]] = None,
@@ -215,153 +213,6 @@ class CampaignCampaignEmailMessageArgs:
 
 
 @pulumi.input_type
-class CampaignCampaignEventFilterArgs:
-    def __init__(__self__, *,
-                 dimensions: Optional[pulumi.Input['CampaignEventDimensionsArgs']] = None,
-                 filter_type: Optional[pulumi.Input[str]] = None):
-        if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
-        if filter_type is not None:
-            pulumi.set(__self__, "filter_type", filter_type)
-
-    @property
-    @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input['CampaignEventDimensionsArgs']]:
-        return pulumi.get(self, "dimensions")
-
-    @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input['CampaignEventDimensionsArgs']]):
-        pulumi.set(self, "dimensions", value)
-
-    @property
-    @pulumi.getter(name="filterType")
-    def filter_type(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "filter_type")
-
-    @filter_type.setter
-    def filter_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "filter_type", value)
-
-
-@pulumi.input_type
-class CampaignCampaignHookArgs:
-    def __init__(__self__, *,
-                 lambda_function_name: Optional[pulumi.Input[str]] = None,
-                 mode: Optional[pulumi.Input[str]] = None,
-                 web_url: Optional[pulumi.Input[str]] = None):
-        if lambda_function_name is not None:
-            pulumi.set(__self__, "lambda_function_name", lambda_function_name)
-        if mode is not None:
-            pulumi.set(__self__, "mode", mode)
-        if web_url is not None:
-            pulumi.set(__self__, "web_url", web_url)
-
-    @property
-    @pulumi.getter(name="lambdaFunctionName")
-    def lambda_function_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "lambda_function_name")
-
-    @lambda_function_name.setter
-    def lambda_function_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "lambda_function_name", value)
-
-    @property
-    @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "mode")
-
-    @mode.setter
-    def mode(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "mode", value)
-
-    @property
-    @pulumi.getter(name="webUrl")
-    def web_url(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "web_url")
-
-    @web_url.setter
-    def web_url(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "web_url", value)
-
-
-@pulumi.input_type
-class CampaignCampaignSmsMessageArgs:
-    def __init__(__self__, *,
-                 body: Optional[pulumi.Input[str]] = None,
-                 entity_id: Optional[pulumi.Input[str]] = None,
-                 message_type: Optional[pulumi.Input[str]] = None,
-                 origination_number: Optional[pulumi.Input[str]] = None,
-                 sender_id: Optional[pulumi.Input[str]] = None,
-                 template_id: Optional[pulumi.Input[str]] = None):
-        if body is not None:
-            pulumi.set(__self__, "body", body)
-        if entity_id is not None:
-            pulumi.set(__self__, "entity_id", entity_id)
-        if message_type is not None:
-            pulumi.set(__self__, "message_type", message_type)
-        if origination_number is not None:
-            pulumi.set(__self__, "origination_number", origination_number)
-        if sender_id is not None:
-            pulumi.set(__self__, "sender_id", sender_id)
-        if template_id is not None:
-            pulumi.set(__self__, "template_id", template_id)
-
-    @property
-    @pulumi.getter
-    def body(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "body")
-
-    @body.setter
-    def body(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "body", value)
-
-    @property
-    @pulumi.getter(name="entityId")
-    def entity_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "entity_id")
-
-    @entity_id.setter
-    def entity_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "entity_id", value)
-
-    @property
-    @pulumi.getter(name="messageType")
-    def message_type(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "message_type")
-
-    @message_type.setter
-    def message_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "message_type", value)
-
-    @property
-    @pulumi.getter(name="originationNumber")
-    def origination_number(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "origination_number")
-
-    @origination_number.setter
-    def origination_number(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "origination_number", value)
-
-    @property
-    @pulumi.getter(name="senderId")
-    def sender_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "sender_id")
-
-    @sender_id.setter
-    def sender_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "sender_id", value)
-
-    @property
-    @pulumi.getter(name="templateId")
-    def template_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "template_id")
-
-    @template_id.setter
-    def template_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "template_id", value)
-
-
-@pulumi.input_type
 class CampaignEventDimensionsArgs:
     def __init__(__self__, *,
                  attributes: Optional[Any] = None,
@@ -400,6 +251,76 @@ class CampaignEventDimensionsArgs:
     @metrics.setter
     def metrics(self, value: Optional[Any]):
         pulumi.set(self, "metrics", value)
+
+
+@pulumi.input_type
+class CampaignEventFilterArgs:
+    def __init__(__self__, *,
+                 dimensions: Optional[pulumi.Input['CampaignEventDimensionsArgs']] = None,
+                 filter_type: Optional[pulumi.Input[str]] = None):
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if filter_type is not None:
+            pulumi.set(__self__, "filter_type", filter_type)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional[pulumi.Input['CampaignEventDimensionsArgs']]:
+        return pulumi.get(self, "dimensions")
+
+    @dimensions.setter
+    def dimensions(self, value: Optional[pulumi.Input['CampaignEventDimensionsArgs']]):
+        pulumi.set(self, "dimensions", value)
+
+    @property
+    @pulumi.getter(name="filterType")
+    def filter_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "filter_type")
+
+    @filter_type.setter
+    def filter_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filter_type", value)
+
+
+@pulumi.input_type
+class CampaignHookArgs:
+    def __init__(__self__, *,
+                 lambda_function_name: Optional[pulumi.Input[str]] = None,
+                 mode: Optional[pulumi.Input[str]] = None,
+                 web_url: Optional[pulumi.Input[str]] = None):
+        if lambda_function_name is not None:
+            pulumi.set(__self__, "lambda_function_name", lambda_function_name)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if web_url is not None:
+            pulumi.set(__self__, "web_url", web_url)
+
+    @property
+    @pulumi.getter(name="lambdaFunctionName")
+    def lambda_function_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "lambda_function_name")
+
+    @lambda_function_name.setter
+    def lambda_function_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lambda_function_name", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="webUrl")
+    def web_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "web_url")
+
+    @web_url.setter
+    def web_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "web_url", value)
 
 
 @pulumi.input_type
@@ -462,9 +383,9 @@ class CampaignMessageConfigurationArgs:
                  a_pns_message: Optional[pulumi.Input['CampaignMessageArgs']] = None,
                  baidu_message: Optional[pulumi.Input['CampaignMessageArgs']] = None,
                  default_message: Optional[pulumi.Input['CampaignMessageArgs']] = None,
-                 email_message: Optional[pulumi.Input['CampaignCampaignEmailMessageArgs']] = None,
+                 email_message: Optional[pulumi.Input['CampaignEmailMessageArgs']] = None,
                  g_cm_message: Optional[pulumi.Input['CampaignMessageArgs']] = None,
-                 s_ms_message: Optional[pulumi.Input['CampaignCampaignSmsMessageArgs']] = None):
+                 s_ms_message: Optional[pulumi.Input['CampaignSmsMessageArgs']] = None):
         if a_dm_message is not None:
             pulumi.set(__self__, "a_dm_message", a_dm_message)
         if a_pns_message is not None:
@@ -518,11 +439,11 @@ class CampaignMessageConfigurationArgs:
 
     @property
     @pulumi.getter(name="emailMessage")
-    def email_message(self) -> Optional[pulumi.Input['CampaignCampaignEmailMessageArgs']]:
+    def email_message(self) -> Optional[pulumi.Input['CampaignEmailMessageArgs']]:
         return pulumi.get(self, "email_message")
 
     @email_message.setter
-    def email_message(self, value: Optional[pulumi.Input['CampaignCampaignEmailMessageArgs']]):
+    def email_message(self, value: Optional[pulumi.Input['CampaignEmailMessageArgs']]):
         pulumi.set(self, "email_message", value)
 
     @property
@@ -536,11 +457,11 @@ class CampaignMessageConfigurationArgs:
 
     @property
     @pulumi.getter(name="sMSMessage")
-    def s_ms_message(self) -> Optional[pulumi.Input['CampaignCampaignSmsMessageArgs']]:
+    def s_ms_message(self) -> Optional[pulumi.Input['CampaignSmsMessageArgs']]:
         return pulumi.get(self, "s_ms_message")
 
     @s_ms_message.setter
-    def s_ms_message(self, value: Optional[pulumi.Input['CampaignCampaignSmsMessageArgs']]):
+    def s_ms_message(self, value: Optional[pulumi.Input['CampaignSmsMessageArgs']]):
         pulumi.set(self, "s_ms_message", value)
 
 
@@ -724,7 +645,7 @@ class CampaignQuietTimeArgs:
 class CampaignScheduleArgs:
     def __init__(__self__, *,
                  end_time: Optional[pulumi.Input[str]] = None,
-                 event_filter: Optional[pulumi.Input['CampaignCampaignEventFilterArgs']] = None,
+                 event_filter: Optional[pulumi.Input['CampaignEventFilterArgs']] = None,
                  frequency: Optional[pulumi.Input[str]] = None,
                  is_local_time: Optional[pulumi.Input[bool]] = None,
                  quiet_time: Optional[pulumi.Input['CampaignQuietTimeArgs']] = None,
@@ -756,11 +677,11 @@ class CampaignScheduleArgs:
 
     @property
     @pulumi.getter(name="eventFilter")
-    def event_filter(self) -> Optional[pulumi.Input['CampaignCampaignEventFilterArgs']]:
+    def event_filter(self) -> Optional[pulumi.Input['CampaignEventFilterArgs']]:
         return pulumi.get(self, "event_filter")
 
     @event_filter.setter
-    def event_filter(self, value: Optional[pulumi.Input['CampaignCampaignEventFilterArgs']]):
+    def event_filter(self, value: Optional[pulumi.Input['CampaignEventFilterArgs']]):
         pulumi.set(self, "event_filter", value)
 
     @property
@@ -836,6 +757,83 @@ class CampaignSetDimensionArgs:
     @values.setter
     def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class CampaignSmsMessageArgs:
+    def __init__(__self__, *,
+                 body: Optional[pulumi.Input[str]] = None,
+                 entity_id: Optional[pulumi.Input[str]] = None,
+                 message_type: Optional[pulumi.Input[str]] = None,
+                 origination_number: Optional[pulumi.Input[str]] = None,
+                 sender_id: Optional[pulumi.Input[str]] = None,
+                 template_id: Optional[pulumi.Input[str]] = None):
+        if body is not None:
+            pulumi.set(__self__, "body", body)
+        if entity_id is not None:
+            pulumi.set(__self__, "entity_id", entity_id)
+        if message_type is not None:
+            pulumi.set(__self__, "message_type", message_type)
+        if origination_number is not None:
+            pulumi.set(__self__, "origination_number", origination_number)
+        if sender_id is not None:
+            pulumi.set(__self__, "sender_id", sender_id)
+        if template_id is not None:
+            pulumi.set(__self__, "template_id", template_id)
+
+    @property
+    @pulumi.getter
+    def body(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "body")
+
+    @body.setter
+    def body(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "body", value)
+
+    @property
+    @pulumi.getter(name="entityId")
+    def entity_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "entity_id")
+
+    @entity_id.setter
+    def entity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "entity_id", value)
+
+    @property
+    @pulumi.getter(name="messageType")
+    def message_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "message_type")
+
+    @message_type.setter
+    def message_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "message_type", value)
+
+    @property
+    @pulumi.getter(name="originationNumber")
+    def origination_number(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "origination_number")
+
+    @origination_number.setter
+    def origination_number(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "origination_number", value)
+
+    @property
+    @pulumi.getter(name="senderId")
+    def sender_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "sender_id")
+
+    @sender_id.setter
+    def sender_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sender_id", value)
+
+    @property
+    @pulumi.getter(name="templateId")
+    def template_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "template_id")
+
+    @template_id.setter
+    def template_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template_id", value)
 
 
 @pulumi.input_type
@@ -1268,143 +1266,7 @@ class SegmentDemographicArgs:
 
 
 @pulumi.input_type
-class SegmentGPSPointArgs:
-    def __init__(__self__, *,
-                 coordinates: pulumi.Input['SegmentCoordinatesArgs'],
-                 range_in_kilometers: pulumi.Input[float]):
-        pulumi.set(__self__, "coordinates", coordinates)
-        pulumi.set(__self__, "range_in_kilometers", range_in_kilometers)
-
-    @property
-    @pulumi.getter
-    def coordinates(self) -> pulumi.Input['SegmentCoordinatesArgs']:
-        return pulumi.get(self, "coordinates")
-
-    @coordinates.setter
-    def coordinates(self, value: pulumi.Input['SegmentCoordinatesArgs']):
-        pulumi.set(self, "coordinates", value)
-
-    @property
-    @pulumi.getter(name="rangeInKilometers")
-    def range_in_kilometers(self) -> pulumi.Input[float]:
-        return pulumi.get(self, "range_in_kilometers")
-
-    @range_in_kilometers.setter
-    def range_in_kilometers(self, value: pulumi.Input[float]):
-        pulumi.set(self, "range_in_kilometers", value)
-
-
-@pulumi.input_type
-class SegmentGroupsArgs:
-    def __init__(__self__, *,
-                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['SegmentSegmentDimensionsArgs']]]] = None,
-                 source_segments: Optional[pulumi.Input[Sequence[pulumi.Input['SegmentSourceSegmentsArgs']]]] = None,
-                 source_type: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
-        if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
-        if source_segments is not None:
-            pulumi.set(__self__, "source_segments", source_segments)
-        if source_type is not None:
-            pulumi.set(__self__, "source_type", source_type)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SegmentSegmentDimensionsArgs']]]]:
-        return pulumi.get(self, "dimensions")
-
-    @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SegmentSegmentDimensionsArgs']]]]):
-        pulumi.set(self, "dimensions", value)
-
-    @property
-    @pulumi.getter(name="sourceSegments")
-    def source_segments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SegmentSourceSegmentsArgs']]]]:
-        return pulumi.get(self, "source_segments")
-
-    @source_segments.setter
-    def source_segments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SegmentSourceSegmentsArgs']]]]):
-        pulumi.set(self, "source_segments", value)
-
-    @property
-    @pulumi.getter(name="sourceType")
-    def source_type(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "source_type")
-
-    @source_type.setter
-    def source_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "source_type", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
-class SegmentLocationArgs:
-    def __init__(__self__, *,
-                 country: Optional[pulumi.Input['SegmentSetDimensionArgs']] = None,
-                 g_ps_point: Optional[pulumi.Input['SegmentGPSPointArgs']] = None):
-        if country is not None:
-            pulumi.set(__self__, "country", country)
-        if g_ps_point is not None:
-            pulumi.set(__self__, "g_ps_point", g_ps_point)
-
-    @property
-    @pulumi.getter
-    def country(self) -> Optional[pulumi.Input['SegmentSetDimensionArgs']]:
-        return pulumi.get(self, "country")
-
-    @country.setter
-    def country(self, value: Optional[pulumi.Input['SegmentSetDimensionArgs']]):
-        pulumi.set(self, "country", value)
-
-    @property
-    @pulumi.getter(name="gPSPoint")
-    def g_ps_point(self) -> Optional[pulumi.Input['SegmentGPSPointArgs']]:
-        return pulumi.get(self, "g_ps_point")
-
-    @g_ps_point.setter
-    def g_ps_point(self, value: Optional[pulumi.Input['SegmentGPSPointArgs']]):
-        pulumi.set(self, "g_ps_point", value)
-
-
-@pulumi.input_type
-class SegmentRecencyArgs:
-    def __init__(__self__, *,
-                 duration: pulumi.Input[str],
-                 recency_type: pulumi.Input[str]):
-        pulumi.set(__self__, "duration", duration)
-        pulumi.set(__self__, "recency_type", recency_type)
-
-    @property
-    @pulumi.getter
-    def duration(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "duration")
-
-    @duration.setter
-    def duration(self, value: pulumi.Input[str]):
-        pulumi.set(self, "duration", value)
-
-    @property
-    @pulumi.getter(name="recencyType")
-    def recency_type(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "recency_type")
-
-    @recency_type.setter
-    def recency_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "recency_type", value)
-
-
-@pulumi.input_type
-class SegmentSegmentDimensionsArgs:
+class SegmentDimensionsArgs:
     def __init__(__self__, *,
                  attributes: Optional[Any] = None,
                  behavior: Optional[pulumi.Input['SegmentBehaviorArgs']] = None,
@@ -1481,7 +1343,34 @@ class SegmentSegmentDimensionsArgs:
 
 
 @pulumi.input_type
-class SegmentSegmentGroupsArgs:
+class SegmentGPSPointArgs:
+    def __init__(__self__, *,
+                 coordinates: pulumi.Input['SegmentCoordinatesArgs'],
+                 range_in_kilometers: pulumi.Input[float]):
+        pulumi.set(__self__, "coordinates", coordinates)
+        pulumi.set(__self__, "range_in_kilometers", range_in_kilometers)
+
+    @property
+    @pulumi.getter
+    def coordinates(self) -> pulumi.Input['SegmentCoordinatesArgs']:
+        return pulumi.get(self, "coordinates")
+
+    @coordinates.setter
+    def coordinates(self, value: pulumi.Input['SegmentCoordinatesArgs']):
+        pulumi.set(self, "coordinates", value)
+
+    @property
+    @pulumi.getter(name="rangeInKilometers")
+    def range_in_kilometers(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "range_in_kilometers")
+
+    @range_in_kilometers.setter
+    def range_in_kilometers(self, value: pulumi.Input[float]):
+        pulumi.set(self, "range_in_kilometers", value)
+
+
+@pulumi.input_type
+class SegmentGroupsArgs:
     def __init__(__self__, *,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input['SegmentGroupsArgs']]]] = None,
                  include: Optional[pulumi.Input[str]] = None):
@@ -1507,6 +1396,62 @@ class SegmentSegmentGroupsArgs:
     @include.setter
     def include(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "include", value)
+
+
+@pulumi.input_type
+class SegmentLocationArgs:
+    def __init__(__self__, *,
+                 country: Optional[pulumi.Input['SegmentSetDimensionArgs']] = None,
+                 g_ps_point: Optional[pulumi.Input['SegmentGPSPointArgs']] = None):
+        if country is not None:
+            pulumi.set(__self__, "country", country)
+        if g_ps_point is not None:
+            pulumi.set(__self__, "g_ps_point", g_ps_point)
+
+    @property
+    @pulumi.getter
+    def country(self) -> Optional[pulumi.Input['SegmentSetDimensionArgs']]:
+        return pulumi.get(self, "country")
+
+    @country.setter
+    def country(self, value: Optional[pulumi.Input['SegmentSetDimensionArgs']]):
+        pulumi.set(self, "country", value)
+
+    @property
+    @pulumi.getter(name="gPSPoint")
+    def g_ps_point(self) -> Optional[pulumi.Input['SegmentGPSPointArgs']]:
+        return pulumi.get(self, "g_ps_point")
+
+    @g_ps_point.setter
+    def g_ps_point(self, value: Optional[pulumi.Input['SegmentGPSPointArgs']]):
+        pulumi.set(self, "g_ps_point", value)
+
+
+@pulumi.input_type
+class SegmentRecencyArgs:
+    def __init__(__self__, *,
+                 duration: pulumi.Input[str],
+                 recency_type: pulumi.Input[str]):
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "recency_type", recency_type)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "duration")
+
+    @duration.setter
+    def duration(self, value: pulumi.Input[str]):
+        pulumi.set(self, "duration", value)
+
+    @property
+    @pulumi.getter(name="recencyType")
+    def recency_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "recency_type")
+
+    @recency_type.setter
+    def recency_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "recency_type", value)
 
 
 @pulumi.input_type
@@ -1536,33 +1481,5 @@ class SegmentSetDimensionArgs:
     @values.setter
     def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
-
-
-@pulumi.input_type
-class SegmentSourceSegmentsArgs:
-    def __init__(__self__, *,
-                 id: pulumi.Input[str],
-                 version: Optional[pulumi.Input[int]] = None):
-        pulumi.set(__self__, "id", id)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "version")
-
-    @version.setter
-    def version(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "version", value)
 
 

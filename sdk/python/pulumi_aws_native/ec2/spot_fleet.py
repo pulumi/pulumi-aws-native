@@ -16,7 +16,7 @@ __all__ = ['SpotFleetArgs', 'SpotFleet']
 @pulumi.input_type
 class SpotFleetArgs:
     def __init__(__self__, *,
-                 spot_fleet_request_config_data: pulumi.Input['SpotFleetSpotFleetRequestConfigDataArgs']):
+                 spot_fleet_request_config_data: pulumi.Input['SpotFleetRequestConfigDataArgs']):
         """
         The set of arguments for constructing a SpotFleet resource.
         """
@@ -24,11 +24,11 @@ class SpotFleetArgs:
 
     @property
     @pulumi.getter(name="spotFleetRequestConfigData")
-    def spot_fleet_request_config_data(self) -> pulumi.Input['SpotFleetSpotFleetRequestConfigDataArgs']:
+    def spot_fleet_request_config_data(self) -> pulumi.Input['SpotFleetRequestConfigDataArgs']:
         return pulumi.get(self, "spot_fleet_request_config_data")
 
     @spot_fleet_request_config_data.setter
-    def spot_fleet_request_config_data(self, value: pulumi.Input['SpotFleetSpotFleetRequestConfigDataArgs']):
+    def spot_fleet_request_config_data(self, value: pulumi.Input['SpotFleetRequestConfigDataArgs']):
         pulumi.set(self, "spot_fleet_request_config_data", value)
 
 
@@ -37,7 +37,7 @@ class SpotFleet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 spot_fleet_request_config_data: Optional[pulumi.Input[pulumi.InputType['SpotFleetSpotFleetRequestConfigDataArgs']]] = None,
+                 spot_fleet_request_config_data: Optional[pulumi.Input[pulumi.InputType['SpotFleetRequestConfigDataArgs']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::SpotFleet
@@ -69,7 +69,7 @@ class SpotFleet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 spot_fleet_request_config_data: Optional[pulumi.Input[pulumi.InputType['SpotFleetSpotFleetRequestConfigDataArgs']]] = None,
+                 spot_fleet_request_config_data: Optional[pulumi.Input[pulumi.InputType['SpotFleetRequestConfigDataArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -112,6 +112,6 @@ class SpotFleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="spotFleetRequestConfigData")
-    def spot_fleet_request_config_data(self) -> pulumi.Output['outputs.SpotFleetSpotFleetRequestConfigData']:
+    def spot_fleet_request_config_data(self) -> pulumi.Output['outputs.SpotFleetRequestConfigData']:
         return pulumi.get(self, "spot_fleet_request_config_data")
 

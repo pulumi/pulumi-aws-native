@@ -17,12 +17,12 @@ __all__ = [
     'DeliveryStreamCloudWatchLoggingOptionsArgs',
     'DeliveryStreamCopyCommandArgs',
     'DeliveryStreamDataFormatConversionConfigurationArgs',
-    'DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs',
     'DeliveryStreamDeserializerArgs',
     'DeliveryStreamDynamicPartitioningConfigurationArgs',
     'DeliveryStreamElasticsearchBufferingHintsArgs',
     'DeliveryStreamElasticsearchDestinationConfigurationArgs',
     'DeliveryStreamElasticsearchRetryOptionsArgs',
+    'DeliveryStreamEncryptionConfigurationInputArgs',
     'DeliveryStreamEncryptionConfigurationArgs',
     'DeliveryStreamExtendedS3DestinationConfigurationArgs',
     'DeliveryStreamHiveJsonSerDeArgs',
@@ -420,34 +420,6 @@ class DeliveryStreamDataFormatConversionConfigurationArgs:
 
 
 @pulumi.input_type
-class DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs:
-    def __init__(__self__, *,
-                 key_type: pulumi.Input['DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType'],
-                 key_arn: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "key_type", key_type)
-        if key_arn is not None:
-            pulumi.set(__self__, "key_arn", key_arn)
-
-    @property
-    @pulumi.getter(name="keyType")
-    def key_type(self) -> pulumi.Input['DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType']:
-        return pulumi.get(self, "key_type")
-
-    @key_type.setter
-    def key_type(self, value: pulumi.Input['DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType']):
-        pulumi.set(self, "key_type", value)
-
-    @property
-    @pulumi.getter(name="keyARN")
-    def key_arn(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "key_arn")
-
-    @key_arn.setter
-    def key_arn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "key_arn", value)
-
-
-@pulumi.input_type
 class DeliveryStreamDeserializerArgs:
     def __init__(__self__, *,
                  hive_json_ser_de: Optional[pulumi.Input['DeliveryStreamHiveJsonSerDeArgs']] = None,
@@ -707,6 +679,34 @@ class DeliveryStreamElasticsearchRetryOptionsArgs:
     @duration_in_seconds.setter
     def duration_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "duration_in_seconds", value)
+
+
+@pulumi.input_type
+class DeliveryStreamEncryptionConfigurationInputArgs:
+    def __init__(__self__, *,
+                 key_type: pulumi.Input['DeliveryStreamEncryptionConfigurationInputKeyType'],
+                 key_arn: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "key_type", key_type)
+        if key_arn is not None:
+            pulumi.set(__self__, "key_arn", key_arn)
+
+    @property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> pulumi.Input['DeliveryStreamEncryptionConfigurationInputKeyType']:
+        return pulumi.get(self, "key_type")
+
+    @key_type.setter
+    def key_type(self, value: pulumi.Input['DeliveryStreamEncryptionConfigurationInputKeyType']):
+        pulumi.set(self, "key_type", value)
+
+    @property
+    @pulumi.getter(name="keyARN")
+    def key_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key_arn")
+
+    @key_arn.setter
+    def key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_arn", value)
 
 
 @pulumi.input_type

@@ -12,10 +12,9 @@ from ._enums import *
 
 __all__ = [
     'ConnectorProfileAmplitudeConnectorProfileCredentials',
+    'ConnectorProfileConfig',
     'ConnectorProfileConnectorOAuthRequest',
-    'ConnectorProfileConnectorProfileConfig',
-    'ConnectorProfileConnectorProfileCredentials',
-    'ConnectorProfileConnectorProfileProperties',
+    'ConnectorProfileCredentials',
     'ConnectorProfileDatadogConnectorProfileCredentials',
     'ConnectorProfileDatadogConnectorProfileProperties',
     'ConnectorProfileDynatraceConnectorProfileCredentials',
@@ -25,6 +24,7 @@ __all__ = [
     'ConnectorProfileInforNexusConnectorProfileProperties',
     'ConnectorProfileMarketoConnectorProfileCredentials',
     'ConnectorProfileMarketoConnectorProfileProperties',
+    'ConnectorProfileProperties',
     'ConnectorProfileRedshiftConnectorProfileCredentials',
     'ConnectorProfileRedshiftConnectorProfileProperties',
     'ConnectorProfileSalesforceConnectorProfileCredentials',
@@ -126,6 +126,51 @@ class ConnectorProfileAmplitudeConnectorProfileCredentials(dict):
 
 
 @pulumi.output_type
+class ConnectorProfileConfig(dict):
+    """
+    Connector specific configurations needed to create connector profile
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectorProfileCredentials":
+            suggest = "connector_profile_credentials"
+        elif key == "connectorProfileProperties":
+            suggest = "connector_profile_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connector_profile_credentials: 'outputs.ConnectorProfileCredentials',
+                 connector_profile_properties: Optional['outputs.ConnectorProfileProperties'] = None):
+        """
+        Connector specific configurations needed to create connector profile
+        """
+        pulumi.set(__self__, "connector_profile_credentials", connector_profile_credentials)
+        if connector_profile_properties is not None:
+            pulumi.set(__self__, "connector_profile_properties", connector_profile_properties)
+
+    @property
+    @pulumi.getter(name="connectorProfileCredentials")
+    def connector_profile_credentials(self) -> 'outputs.ConnectorProfileCredentials':
+        return pulumi.get(self, "connector_profile_credentials")
+
+    @property
+    @pulumi.getter(name="connectorProfileProperties")
+    def connector_profile_properties(self) -> Optional['outputs.ConnectorProfileProperties']:
+        return pulumi.get(self, "connector_profile_properties")
+
+
+@pulumi.output_type
 class ConnectorProfileConnectorOAuthRequest(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -178,52 +223,7 @@ class ConnectorProfileConnectorOAuthRequest(dict):
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfig(dict):
-    """
-    Connector specific configurations needed to create connector profile
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "connectorProfileCredentials":
-            suggest = "connector_profile_credentials"
-        elif key == "connectorProfileProperties":
-            suggest = "connector_profile_properties"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileConnectorProfileConfig. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ConnectorProfileConnectorProfileConfig.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ConnectorProfileConnectorProfileConfig.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 connector_profile_credentials: 'outputs.ConnectorProfileConnectorProfileCredentials',
-                 connector_profile_properties: Optional['outputs.ConnectorProfileConnectorProfileProperties'] = None):
-        """
-        Connector specific configurations needed to create connector profile
-        """
-        pulumi.set(__self__, "connector_profile_credentials", connector_profile_credentials)
-        if connector_profile_properties is not None:
-            pulumi.set(__self__, "connector_profile_properties", connector_profile_properties)
-
-    @property
-    @pulumi.getter(name="connectorProfileCredentials")
-    def connector_profile_credentials(self) -> 'outputs.ConnectorProfileConnectorProfileCredentials':
-        return pulumi.get(self, "connector_profile_credentials")
-
-    @property
-    @pulumi.getter(name="connectorProfileProperties")
-    def connector_profile_properties(self) -> Optional['outputs.ConnectorProfileConnectorProfileProperties']:
-        return pulumi.get(self, "connector_profile_properties")
-
-
-@pulumi.output_type
-class ConnectorProfileConnectorProfileCredentials(dict):
+class ConnectorProfileCredentials(dict):
     """
     Connector specific configuration needed to create connector profile based on Authentication mechanism
     """
@@ -238,14 +238,14 @@ class ConnectorProfileConnectorProfileCredentials(dict):
             suggest = "service_now"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileConnectorProfileCredentials. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileCredentials. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ConnectorProfileConnectorProfileCredentials.__key_warning(key)
+        ConnectorProfileCredentials.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ConnectorProfileConnectorProfileCredentials.__key_warning(key)
+        ConnectorProfileCredentials.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -371,124 +371,6 @@ class ConnectorProfileConnectorProfileCredentials(dict):
     @property
     @pulumi.getter
     def zendesk(self) -> Optional['outputs.ConnectorProfileZendeskConnectorProfileCredentials']:
-        return pulumi.get(self, "zendesk")
-
-
-@pulumi.output_type
-class ConnectorProfileConnectorProfileProperties(dict):
-    """
-    Connector specific properties needed to create connector profile - currently not needed for Amplitude, Trendmicro, Googleanalytics and Singular
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "inforNexus":
-            suggest = "infor_nexus"
-        elif key == "serviceNow":
-            suggest = "service_now"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileConnectorProfileProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ConnectorProfileConnectorProfileProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ConnectorProfileConnectorProfileProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 datadog: Optional['outputs.ConnectorProfileDatadogConnectorProfileProperties'] = None,
-                 dynatrace: Optional['outputs.ConnectorProfileDynatraceConnectorProfileProperties'] = None,
-                 infor_nexus: Optional['outputs.ConnectorProfileInforNexusConnectorProfileProperties'] = None,
-                 marketo: Optional['outputs.ConnectorProfileMarketoConnectorProfileProperties'] = None,
-                 redshift: Optional['outputs.ConnectorProfileRedshiftConnectorProfileProperties'] = None,
-                 salesforce: Optional['outputs.ConnectorProfileSalesforceConnectorProfileProperties'] = None,
-                 service_now: Optional['outputs.ConnectorProfileServiceNowConnectorProfileProperties'] = None,
-                 slack: Optional['outputs.ConnectorProfileSlackConnectorProfileProperties'] = None,
-                 snowflake: Optional['outputs.ConnectorProfileSnowflakeConnectorProfileProperties'] = None,
-                 veeva: Optional['outputs.ConnectorProfileVeevaConnectorProfileProperties'] = None,
-                 zendesk: Optional['outputs.ConnectorProfileZendeskConnectorProfileProperties'] = None):
-        """
-        Connector specific properties needed to create connector profile - currently not needed for Amplitude, Trendmicro, Googleanalytics and Singular
-        """
-        if datadog is not None:
-            pulumi.set(__self__, "datadog", datadog)
-        if dynatrace is not None:
-            pulumi.set(__self__, "dynatrace", dynatrace)
-        if infor_nexus is not None:
-            pulumi.set(__self__, "infor_nexus", infor_nexus)
-        if marketo is not None:
-            pulumi.set(__self__, "marketo", marketo)
-        if redshift is not None:
-            pulumi.set(__self__, "redshift", redshift)
-        if salesforce is not None:
-            pulumi.set(__self__, "salesforce", salesforce)
-        if service_now is not None:
-            pulumi.set(__self__, "service_now", service_now)
-        if slack is not None:
-            pulumi.set(__self__, "slack", slack)
-        if snowflake is not None:
-            pulumi.set(__self__, "snowflake", snowflake)
-        if veeva is not None:
-            pulumi.set(__self__, "veeva", veeva)
-        if zendesk is not None:
-            pulumi.set(__self__, "zendesk", zendesk)
-
-    @property
-    @pulumi.getter
-    def datadog(self) -> Optional['outputs.ConnectorProfileDatadogConnectorProfileProperties']:
-        return pulumi.get(self, "datadog")
-
-    @property
-    @pulumi.getter
-    def dynatrace(self) -> Optional['outputs.ConnectorProfileDynatraceConnectorProfileProperties']:
-        return pulumi.get(self, "dynatrace")
-
-    @property
-    @pulumi.getter(name="inforNexus")
-    def infor_nexus(self) -> Optional['outputs.ConnectorProfileInforNexusConnectorProfileProperties']:
-        return pulumi.get(self, "infor_nexus")
-
-    @property
-    @pulumi.getter
-    def marketo(self) -> Optional['outputs.ConnectorProfileMarketoConnectorProfileProperties']:
-        return pulumi.get(self, "marketo")
-
-    @property
-    @pulumi.getter
-    def redshift(self) -> Optional['outputs.ConnectorProfileRedshiftConnectorProfileProperties']:
-        return pulumi.get(self, "redshift")
-
-    @property
-    @pulumi.getter
-    def salesforce(self) -> Optional['outputs.ConnectorProfileSalesforceConnectorProfileProperties']:
-        return pulumi.get(self, "salesforce")
-
-    @property
-    @pulumi.getter(name="serviceNow")
-    def service_now(self) -> Optional['outputs.ConnectorProfileServiceNowConnectorProfileProperties']:
-        return pulumi.get(self, "service_now")
-
-    @property
-    @pulumi.getter
-    def slack(self) -> Optional['outputs.ConnectorProfileSlackConnectorProfileProperties']:
-        return pulumi.get(self, "slack")
-
-    @property
-    @pulumi.getter
-    def snowflake(self) -> Optional['outputs.ConnectorProfileSnowflakeConnectorProfileProperties']:
-        return pulumi.get(self, "snowflake")
-
-    @property
-    @pulumi.getter
-    def veeva(self) -> Optional['outputs.ConnectorProfileVeevaConnectorProfileProperties']:
-        return pulumi.get(self, "veeva")
-
-    @property
-    @pulumi.getter
-    def zendesk(self) -> Optional['outputs.ConnectorProfileZendeskConnectorProfileProperties']:
         return pulumi.get(self, "zendesk")
 
 
@@ -951,6 +833,124 @@ class ConnectorProfileMarketoConnectorProfileProperties(dict):
         The location of the Marketo resource
         """
         return pulumi.get(self, "instance_url")
+
+
+@pulumi.output_type
+class ConnectorProfileProperties(dict):
+    """
+    Connector specific properties needed to create connector profile - currently not needed for Amplitude, Trendmicro, Googleanalytics and Singular
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inforNexus":
+            suggest = "infor_nexus"
+        elif key == "serviceNow":
+            suggest = "service_now"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 datadog: Optional['outputs.ConnectorProfileDatadogConnectorProfileProperties'] = None,
+                 dynatrace: Optional['outputs.ConnectorProfileDynatraceConnectorProfileProperties'] = None,
+                 infor_nexus: Optional['outputs.ConnectorProfileInforNexusConnectorProfileProperties'] = None,
+                 marketo: Optional['outputs.ConnectorProfileMarketoConnectorProfileProperties'] = None,
+                 redshift: Optional['outputs.ConnectorProfileRedshiftConnectorProfileProperties'] = None,
+                 salesforce: Optional['outputs.ConnectorProfileSalesforceConnectorProfileProperties'] = None,
+                 service_now: Optional['outputs.ConnectorProfileServiceNowConnectorProfileProperties'] = None,
+                 slack: Optional['outputs.ConnectorProfileSlackConnectorProfileProperties'] = None,
+                 snowflake: Optional['outputs.ConnectorProfileSnowflakeConnectorProfileProperties'] = None,
+                 veeva: Optional['outputs.ConnectorProfileVeevaConnectorProfileProperties'] = None,
+                 zendesk: Optional['outputs.ConnectorProfileZendeskConnectorProfileProperties'] = None):
+        """
+        Connector specific properties needed to create connector profile - currently not needed for Amplitude, Trendmicro, Googleanalytics and Singular
+        """
+        if datadog is not None:
+            pulumi.set(__self__, "datadog", datadog)
+        if dynatrace is not None:
+            pulumi.set(__self__, "dynatrace", dynatrace)
+        if infor_nexus is not None:
+            pulumi.set(__self__, "infor_nexus", infor_nexus)
+        if marketo is not None:
+            pulumi.set(__self__, "marketo", marketo)
+        if redshift is not None:
+            pulumi.set(__self__, "redshift", redshift)
+        if salesforce is not None:
+            pulumi.set(__self__, "salesforce", salesforce)
+        if service_now is not None:
+            pulumi.set(__self__, "service_now", service_now)
+        if slack is not None:
+            pulumi.set(__self__, "slack", slack)
+        if snowflake is not None:
+            pulumi.set(__self__, "snowflake", snowflake)
+        if veeva is not None:
+            pulumi.set(__self__, "veeva", veeva)
+        if zendesk is not None:
+            pulumi.set(__self__, "zendesk", zendesk)
+
+    @property
+    @pulumi.getter
+    def datadog(self) -> Optional['outputs.ConnectorProfileDatadogConnectorProfileProperties']:
+        return pulumi.get(self, "datadog")
+
+    @property
+    @pulumi.getter
+    def dynatrace(self) -> Optional['outputs.ConnectorProfileDynatraceConnectorProfileProperties']:
+        return pulumi.get(self, "dynatrace")
+
+    @property
+    @pulumi.getter(name="inforNexus")
+    def infor_nexus(self) -> Optional['outputs.ConnectorProfileInforNexusConnectorProfileProperties']:
+        return pulumi.get(self, "infor_nexus")
+
+    @property
+    @pulumi.getter
+    def marketo(self) -> Optional['outputs.ConnectorProfileMarketoConnectorProfileProperties']:
+        return pulumi.get(self, "marketo")
+
+    @property
+    @pulumi.getter
+    def redshift(self) -> Optional['outputs.ConnectorProfileRedshiftConnectorProfileProperties']:
+        return pulumi.get(self, "redshift")
+
+    @property
+    @pulumi.getter
+    def salesforce(self) -> Optional['outputs.ConnectorProfileSalesforceConnectorProfileProperties']:
+        return pulumi.get(self, "salesforce")
+
+    @property
+    @pulumi.getter(name="serviceNow")
+    def service_now(self) -> Optional['outputs.ConnectorProfileServiceNowConnectorProfileProperties']:
+        return pulumi.get(self, "service_now")
+
+    @property
+    @pulumi.getter
+    def slack(self) -> Optional['outputs.ConnectorProfileSlackConnectorProfileProperties']:
+        return pulumi.get(self, "slack")
+
+    @property
+    @pulumi.getter
+    def snowflake(self) -> Optional['outputs.ConnectorProfileSnowflakeConnectorProfileProperties']:
+        return pulumi.get(self, "snowflake")
+
+    @property
+    @pulumi.getter
+    def veeva(self) -> Optional['outputs.ConnectorProfileVeevaConnectorProfileProperties']:
+        return pulumi.get(self, "veeva")
+
+    @property
+    @pulumi.getter
+    def zendesk(self) -> Optional['outputs.ConnectorProfileZendeskConnectorProfileProperties']:
+        return pulumi.get(self, "zendesk")
 
 
 @pulumi.output_type

@@ -21,7 +21,7 @@ class DataSetArgs:
                  column_level_permission_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetColumnLevelPermissionRuleArgs']]]] = None,
                  data_set_id: Optional[pulumi.Input[str]] = None,
                  field_folders: Optional[pulumi.Input['DataSetFieldFolderMapArgs']] = None,
-                 import_mode: Optional[pulumi.Input['DataSetDataSetImportMode']] = None,
+                 import_mode: Optional[pulumi.Input['DataSetImportMode']] = None,
                  ingestion_wait_policy: Optional[pulumi.Input['DataSetIngestionWaitPolicyArgs']] = None,
                  logical_table_map: Optional[pulumi.Input['DataSetLogicalTableMapArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -113,11 +113,11 @@ class DataSetArgs:
 
     @property
     @pulumi.getter(name="importMode")
-    def import_mode(self) -> Optional[pulumi.Input['DataSetDataSetImportMode']]:
+    def import_mode(self) -> Optional[pulumi.Input['DataSetImportMode']]:
         return pulumi.get(self, "import_mode")
 
     @import_mode.setter
-    def import_mode(self, value: Optional[pulumi.Input['DataSetDataSetImportMode']]):
+    def import_mode(self, value: Optional[pulumi.Input['DataSetImportMode']]):
         pulumi.set(self, "import_mode", value)
 
     @property
@@ -203,7 +203,7 @@ class DataSet(pulumi.CustomResource):
                  column_level_permission_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetColumnLevelPermissionRuleArgs']]]]] = None,
                  data_set_id: Optional[pulumi.Input[str]] = None,
                  field_folders: Optional[pulumi.Input[pulumi.InputType['DataSetFieldFolderMapArgs']]] = None,
-                 import_mode: Optional[pulumi.Input['DataSetDataSetImportMode']] = None,
+                 import_mode: Optional[pulumi.Input['DataSetImportMode']] = None,
                  ingestion_wait_policy: Optional[pulumi.Input[pulumi.InputType['DataSetIngestionWaitPolicyArgs']]] = None,
                  logical_table_map: Optional[pulumi.Input[pulumi.InputType['DataSetLogicalTableMapArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -251,7 +251,7 @@ class DataSet(pulumi.CustomResource):
                  column_level_permission_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetColumnLevelPermissionRuleArgs']]]]] = None,
                  data_set_id: Optional[pulumi.Input[str]] = None,
                  field_folders: Optional[pulumi.Input[pulumi.InputType['DataSetFieldFolderMapArgs']]] = None,
-                 import_mode: Optional[pulumi.Input['DataSetDataSetImportMode']] = None,
+                 import_mode: Optional[pulumi.Input['DataSetImportMode']] = None,
                  ingestion_wait_policy: Optional[pulumi.Input[pulumi.InputType['DataSetIngestionWaitPolicyArgs']]] = None,
                  logical_table_map: Optional[pulumi.Input[pulumi.InputType['DataSetLogicalTableMapArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -386,7 +386,7 @@ class DataSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="importMode")
-    def import_mode(self) -> pulumi.Output[Optional['DataSetDataSetImportMode']]:
+    def import_mode(self) -> pulumi.Output[Optional['DataSetImportMode']]:
         return pulumi.get(self, "import_mode")
 
     @property

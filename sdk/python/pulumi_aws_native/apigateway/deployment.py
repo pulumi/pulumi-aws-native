@@ -16,7 +16,7 @@ __all__ = ['DeploymentArgs', 'Deployment']
 class DeploymentArgs:
     def __init__(__self__, *,
                  rest_api_id: pulumi.Input[str],
-                 deployment_canary_settings: Optional[pulumi.Input['DeploymentDeploymentCanarySettingsArgs']] = None,
+                 deployment_canary_settings: Optional[pulumi.Input['DeploymentCanarySettingsArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  stage_description: Optional[pulumi.Input['DeploymentStageDescriptionArgs']] = None,
                  stage_name: Optional[pulumi.Input[str]] = None):
@@ -44,11 +44,11 @@ class DeploymentArgs:
 
     @property
     @pulumi.getter(name="deploymentCanarySettings")
-    def deployment_canary_settings(self) -> Optional[pulumi.Input['DeploymentDeploymentCanarySettingsArgs']]:
+    def deployment_canary_settings(self) -> Optional[pulumi.Input['DeploymentCanarySettingsArgs']]:
         return pulumi.get(self, "deployment_canary_settings")
 
     @deployment_canary_settings.setter
-    def deployment_canary_settings(self, value: Optional[pulumi.Input['DeploymentDeploymentCanarySettingsArgs']]):
+    def deployment_canary_settings(self, value: Optional[pulumi.Input['DeploymentCanarySettingsArgs']]):
         pulumi.set(self, "deployment_canary_settings", value)
 
     @property
@@ -89,7 +89,7 @@ class Deployment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deployment_canary_settings: Optional[pulumi.Input[pulumi.InputType['DeploymentDeploymentCanarySettingsArgs']]] = None,
+                 deployment_canary_settings: Optional[pulumi.Input[pulumi.InputType['DeploymentCanarySettingsArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  rest_api_id: Optional[pulumi.Input[str]] = None,
                  stage_description: Optional[pulumi.Input[pulumi.InputType['DeploymentStageDescriptionArgs']]] = None,
@@ -125,7 +125,7 @@ class Deployment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deployment_canary_settings: Optional[pulumi.Input[pulumi.InputType['DeploymentDeploymentCanarySettingsArgs']]] = None,
+                 deployment_canary_settings: Optional[pulumi.Input[pulumi.InputType['DeploymentCanarySettingsArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  rest_api_id: Optional[pulumi.Input[str]] = None,
                  stage_description: Optional[pulumi.Input[pulumi.InputType['DeploymentStageDescriptionArgs']]] = None,
@@ -181,7 +181,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deploymentCanarySettings")
-    def deployment_canary_settings(self) -> pulumi.Output[Optional['outputs.DeploymentDeploymentCanarySettings']]:
+    def deployment_canary_settings(self) -> pulumi.Output[Optional['outputs.DeploymentCanarySettings']]:
         return pulumi.get(self, "deployment_canary_settings")
 
     @property

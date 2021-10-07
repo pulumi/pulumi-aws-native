@@ -11,7 +11,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ReplicationConfigurationReplicationConfiguration',
+    'ReplicationConfiguration',
     'ReplicationConfigurationReplicationDestination',
     'ReplicationConfigurationReplicationRule',
     'ReplicationConfigurationRepositoryFilter',
@@ -22,7 +22,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ReplicationConfigurationReplicationConfiguration(dict):
+class ReplicationConfiguration(dict):
     """
     An object representing the replication configuration for a registry.
     """

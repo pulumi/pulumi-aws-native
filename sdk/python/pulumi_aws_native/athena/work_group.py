@@ -21,8 +21,8 @@ class WorkGroupArgs:
                  recursive_delete_option: Optional[pulumi.Input[bool]] = None,
                  state: Optional[pulumi.Input['WorkGroupState']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['WorkGroupTagArgs']]]] = None,
-                 work_group_configuration: Optional[pulumi.Input['WorkGroupWorkGroupConfigurationArgs']] = None,
-                 work_group_configuration_updates: Optional[pulumi.Input['WorkGroupWorkGroupConfigurationUpdatesArgs']] = None):
+                 work_group_configuration: Optional[pulumi.Input['WorkGroupConfigurationArgs']] = None,
+                 work_group_configuration_updates: Optional[pulumi.Input['WorkGroupConfigurationUpdatesArgs']] = None):
         """
         The set of arguments for constructing a WorkGroup resource.
         :param pulumi.Input[str] name: The workGroup name.
@@ -30,8 +30,8 @@ class WorkGroupArgs:
         :param pulumi.Input[bool] recursive_delete_option: The option to delete the workgroup and its contents even if the workgroup contains any named queries.
         :param pulumi.Input['WorkGroupState'] state: The state of the workgroup: ENABLED or DISABLED.
         :param pulumi.Input[Sequence[pulumi.Input['WorkGroupTagArgs']]] tags: One or more tags, separated by commas, that you want to attach to the workgroup as you create it
-        :param pulumi.Input['WorkGroupWorkGroupConfigurationArgs'] work_group_configuration: The workgroup configuration
-        :param pulumi.Input['WorkGroupWorkGroupConfigurationUpdatesArgs'] work_group_configuration_updates: The workgroup configuration update object
+        :param pulumi.Input['WorkGroupConfigurationArgs'] work_group_configuration: The workgroup configuration
+        :param pulumi.Input['WorkGroupConfigurationUpdatesArgs'] work_group_configuration_updates: The workgroup configuration update object
         """
         pulumi.set(__self__, "name", name)
         if description is not None:
@@ -109,26 +109,26 @@ class WorkGroupArgs:
 
     @property
     @pulumi.getter(name="workGroupConfiguration")
-    def work_group_configuration(self) -> Optional[pulumi.Input['WorkGroupWorkGroupConfigurationArgs']]:
+    def work_group_configuration(self) -> Optional[pulumi.Input['WorkGroupConfigurationArgs']]:
         """
         The workgroup configuration
         """
         return pulumi.get(self, "work_group_configuration")
 
     @work_group_configuration.setter
-    def work_group_configuration(self, value: Optional[pulumi.Input['WorkGroupWorkGroupConfigurationArgs']]):
+    def work_group_configuration(self, value: Optional[pulumi.Input['WorkGroupConfigurationArgs']]):
         pulumi.set(self, "work_group_configuration", value)
 
     @property
     @pulumi.getter(name="workGroupConfigurationUpdates")
-    def work_group_configuration_updates(self) -> Optional[pulumi.Input['WorkGroupWorkGroupConfigurationUpdatesArgs']]:
+    def work_group_configuration_updates(self) -> Optional[pulumi.Input['WorkGroupConfigurationUpdatesArgs']]:
         """
         The workgroup configuration update object
         """
         return pulumi.get(self, "work_group_configuration_updates")
 
     @work_group_configuration_updates.setter
-    def work_group_configuration_updates(self, value: Optional[pulumi.Input['WorkGroupWorkGroupConfigurationUpdatesArgs']]):
+    def work_group_configuration_updates(self, value: Optional[pulumi.Input['WorkGroupConfigurationUpdatesArgs']]):
         pulumi.set(self, "work_group_configuration_updates", value)
 
 
@@ -142,8 +142,8 @@ class WorkGroup(pulumi.CustomResource):
                  recursive_delete_option: Optional[pulumi.Input[bool]] = None,
                  state: Optional[pulumi.Input['WorkGroupState']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkGroupTagArgs']]]]] = None,
-                 work_group_configuration: Optional[pulumi.Input[pulumi.InputType['WorkGroupWorkGroupConfigurationArgs']]] = None,
-                 work_group_configuration_updates: Optional[pulumi.Input[pulumi.InputType['WorkGroupWorkGroupConfigurationUpdatesArgs']]] = None,
+                 work_group_configuration: Optional[pulumi.Input[pulumi.InputType['WorkGroupConfigurationArgs']]] = None,
+                 work_group_configuration_updates: Optional[pulumi.Input[pulumi.InputType['WorkGroupConfigurationUpdatesArgs']]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Athena::WorkGroup
@@ -155,8 +155,8 @@ class WorkGroup(pulumi.CustomResource):
         :param pulumi.Input[bool] recursive_delete_option: The option to delete the workgroup and its contents even if the workgroup contains any named queries.
         :param pulumi.Input['WorkGroupState'] state: The state of the workgroup: ENABLED or DISABLED.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkGroupTagArgs']]]] tags: One or more tags, separated by commas, that you want to attach to the workgroup as you create it
-        :param pulumi.Input[pulumi.InputType['WorkGroupWorkGroupConfigurationArgs']] work_group_configuration: The workgroup configuration
-        :param pulumi.Input[pulumi.InputType['WorkGroupWorkGroupConfigurationUpdatesArgs']] work_group_configuration_updates: The workgroup configuration update object
+        :param pulumi.Input[pulumi.InputType['WorkGroupConfigurationArgs']] work_group_configuration: The workgroup configuration
+        :param pulumi.Input[pulumi.InputType['WorkGroupConfigurationUpdatesArgs']] work_group_configuration_updates: The workgroup configuration update object
         """
         ...
     @overload
@@ -187,8 +187,8 @@ class WorkGroup(pulumi.CustomResource):
                  recursive_delete_option: Optional[pulumi.Input[bool]] = None,
                  state: Optional[pulumi.Input['WorkGroupState']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkGroupTagArgs']]]]] = None,
-                 work_group_configuration: Optional[pulumi.Input[pulumi.InputType['WorkGroupWorkGroupConfigurationArgs']]] = None,
-                 work_group_configuration_updates: Optional[pulumi.Input[pulumi.InputType['WorkGroupWorkGroupConfigurationUpdatesArgs']]] = None,
+                 work_group_configuration: Optional[pulumi.Input[pulumi.InputType['WorkGroupConfigurationArgs']]] = None,
+                 work_group_configuration_updates: Optional[pulumi.Input[pulumi.InputType['WorkGroupConfigurationUpdatesArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -293,7 +293,7 @@ class WorkGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workGroupConfiguration")
-    def work_group_configuration(self) -> pulumi.Output[Optional['outputs.WorkGroupWorkGroupConfiguration']]:
+    def work_group_configuration(self) -> pulumi.Output[Optional['outputs.WorkGroupConfiguration']]:
         """
         The workgroup configuration
         """
@@ -301,7 +301,7 @@ class WorkGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workGroupConfigurationUpdates")
-    def work_group_configuration_updates(self) -> pulumi.Output[Optional['outputs.WorkGroupWorkGroupConfigurationUpdates']]:
+    def work_group_configuration_updates(self) -> pulumi.Output[Optional['outputs.WorkGroupConfigurationUpdates']]:
         """
         The workgroup configuration update object
         """

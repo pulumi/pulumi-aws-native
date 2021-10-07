@@ -16,7 +16,7 @@ __all__ = ['DatasetArgs', 'Dataset']
 class DatasetArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input[Sequence[pulumi.Input['DatasetActionArgs']]],
-                 content_delivery_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetDatasetContentDeliveryRuleArgs']]]] = None,
+                 content_delivery_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetContentDeliveryRuleArgs']]]] = None,
                  dataset_name: Optional[pulumi.Input[str]] = None,
                  late_data_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetLateDataRuleArgs']]]] = None,
                  retention_period: Optional[pulumi.Input['DatasetRetentionPeriodArgs']] = None,
@@ -53,11 +53,11 @@ class DatasetArgs:
 
     @property
     @pulumi.getter(name="contentDeliveryRules")
-    def content_delivery_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetDatasetContentDeliveryRuleArgs']]]]:
+    def content_delivery_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetContentDeliveryRuleArgs']]]]:
         return pulumi.get(self, "content_delivery_rules")
 
     @content_delivery_rules.setter
-    def content_delivery_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetDatasetContentDeliveryRuleArgs']]]]):
+    def content_delivery_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetContentDeliveryRuleArgs']]]]):
         pulumi.set(self, "content_delivery_rules", value)
 
     @property
@@ -126,7 +126,7 @@ class Dataset(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetActionArgs']]]]] = None,
-                 content_delivery_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetDatasetContentDeliveryRuleArgs']]]]] = None,
+                 content_delivery_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetContentDeliveryRuleArgs']]]]] = None,
                  dataset_name: Optional[pulumi.Input[str]] = None,
                  late_data_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetLateDataRuleArgs']]]]] = None,
                  retention_period: Optional[pulumi.Input[pulumi.InputType['DatasetRetentionPeriodArgs']]] = None,
@@ -165,7 +165,7 @@ class Dataset(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetActionArgs']]]]] = None,
-                 content_delivery_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetDatasetContentDeliveryRuleArgs']]]]] = None,
+                 content_delivery_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetContentDeliveryRuleArgs']]]]] = None,
                  dataset_name: Optional[pulumi.Input[str]] = None,
                  late_data_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetLateDataRuleArgs']]]]] = None,
                  retention_period: Optional[pulumi.Input[pulumi.InputType['DatasetRetentionPeriodArgs']]] = None,
@@ -234,7 +234,7 @@ class Dataset(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentDeliveryRules")
-    def content_delivery_rules(self) -> pulumi.Output[Optional[Sequence['outputs.DatasetDatasetContentDeliveryRule']]]:
+    def content_delivery_rules(self) -> pulumi.Output[Optional[Sequence['outputs.DatasetContentDeliveryRule']]]:
         return pulumi.get(self, "content_delivery_rules")
 
     @property

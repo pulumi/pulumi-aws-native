@@ -13,6 +13,7 @@ __all__ = [
     'IdentityPoolCognitoStreamsArgs',
     'IdentityPoolPushSyncArgs',
     'UserPoolAccountRecoverySettingArgs',
+    'UserPoolAddOnsArgs',
     'UserPoolAdminCreateUserConfigArgs',
     'UserPoolClientAnalyticsConfigurationArgs',
     'UserPoolClientTokenValidityUnitsArgs',
@@ -40,7 +41,6 @@ __all__ = [
     'UserPoolSmsConfigurationArgs',
     'UserPoolStringAttributeConstraintsArgs',
     'UserPoolUserAttributeTypeArgs',
-    'UserPoolUserPoolAddOnsArgs',
     'UserPoolUsernameConfigurationArgs',
     'UserPoolVerificationMessageTemplateArgs',
 ]
@@ -171,6 +171,23 @@ class UserPoolAccountRecoverySettingArgs:
     @recovery_mechanisms.setter
     def recovery_mechanisms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolRecoveryOptionArgs']]]]):
         pulumi.set(self, "recovery_mechanisms", value)
+
+
+@pulumi.input_type
+class UserPoolAddOnsArgs:
+    def __init__(__self__, *,
+                 advanced_security_mode: Optional[pulumi.Input[str]] = None):
+        if advanced_security_mode is not None:
+            pulumi.set(__self__, "advanced_security_mode", advanced_security_mode)
+
+    @property
+    @pulumi.getter(name="advancedSecurityMode")
+    def advanced_security_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "advanced_security_mode")
+
+    @advanced_security_mode.setter
+    def advanced_security_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "advanced_security_mode", value)
 
 
 @pulumi.input_type
@@ -1329,23 +1346,6 @@ class UserPoolUserAttributeTypeArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class UserPoolUserPoolAddOnsArgs:
-    def __init__(__self__, *,
-                 advanced_security_mode: Optional[pulumi.Input[str]] = None):
-        if advanced_security_mode is not None:
-            pulumi.set(__self__, "advanced_security_mode", advanced_security_mode)
-
-    @property
-    @pulumi.getter(name="advancedSecurityMode")
-    def advanced_security_mode(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "advanced_security_mode")
-
-    @advanced_security_mode.setter
-    def advanced_security_mode(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "advanced_security_mode", value)
 
 
 @pulumi.input_type

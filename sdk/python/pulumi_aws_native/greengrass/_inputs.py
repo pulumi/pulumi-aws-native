@@ -9,20 +9,19 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ConnectorDefinitionConnectorDefinitionVersionArgs',
     'ConnectorDefinitionConnectorArgs',
     'ConnectorDefinitionVersionConnectorArgs',
-    'CoreDefinitionCoreDefinitionVersionArgs',
+    'ConnectorDefinitionVersionArgs',
     'CoreDefinitionCoreArgs',
     'CoreDefinitionVersionCoreArgs',
-    'DeviceDefinitionDeviceDefinitionVersionArgs',
+    'CoreDefinitionVersionArgs',
     'DeviceDefinitionDeviceArgs',
     'DeviceDefinitionVersionDeviceArgs',
+    'DeviceDefinitionVersionArgs',
     'FunctionDefinitionDefaultConfigArgs',
     'FunctionDefinitionEnvironmentArgs',
     'FunctionDefinitionExecutionArgs',
     'FunctionDefinitionFunctionConfigurationArgs',
-    'FunctionDefinitionFunctionDefinitionVersionArgs',
     'FunctionDefinitionFunctionArgs',
     'FunctionDefinitionResourceAccessPolicyArgs',
     'FunctionDefinitionRunAsArgs',
@@ -33,15 +32,15 @@ __all__ = [
     'FunctionDefinitionVersionFunctionArgs',
     'FunctionDefinitionVersionResourceAccessPolicyArgs',
     'FunctionDefinitionVersionRunAsArgs',
-    'GroupGroupVersionArgs',
-    'LoggerDefinitionLoggerDefinitionVersionArgs',
+    'FunctionDefinitionVersionArgs',
+    'GroupVersionArgs',
     'LoggerDefinitionLoggerArgs',
     'LoggerDefinitionVersionLoggerArgs',
+    'LoggerDefinitionVersionArgs',
     'ResourceDefinitionGroupOwnerSettingArgs',
     'ResourceDefinitionLocalDeviceResourceDataArgs',
     'ResourceDefinitionLocalVolumeResourceDataArgs',
     'ResourceDefinitionResourceDataContainerArgs',
-    'ResourceDefinitionResourceDefinitionVersionArgs',
     'ResourceDefinitionResourceDownloadOwnerSettingArgs',
     'ResourceDefinitionResourceInstanceArgs',
     'ResourceDefinitionS3MachineLearningModelResourceDataArgs',
@@ -56,26 +55,11 @@ __all__ = [
     'ResourceDefinitionVersionS3MachineLearningModelResourceDataArgs',
     'ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataArgs',
     'ResourceDefinitionVersionSecretsManagerSecretResourceDataArgs',
-    'SubscriptionDefinitionSubscriptionDefinitionVersionArgs',
+    'ResourceDefinitionVersionArgs',
     'SubscriptionDefinitionSubscriptionArgs',
     'SubscriptionDefinitionVersionSubscriptionArgs',
+    'SubscriptionDefinitionVersionArgs',
 ]
-
-@pulumi.input_type
-class ConnectorDefinitionConnectorDefinitionVersionArgs:
-    def __init__(__self__, *,
-                 connectors: pulumi.Input[Sequence[pulumi.Input['ConnectorDefinitionConnectorArgs']]]):
-        pulumi.set(__self__, "connectors", connectors)
-
-    @property
-    @pulumi.getter
-    def connectors(self) -> pulumi.Input[Sequence[pulumi.Input['ConnectorDefinitionConnectorArgs']]]:
-        return pulumi.get(self, "connectors")
-
-    @connectors.setter
-    def connectors(self, value: pulumi.Input[Sequence[pulumi.Input['ConnectorDefinitionConnectorArgs']]]):
-        pulumi.set(self, "connectors", value)
-
 
 @pulumi.input_type
 class ConnectorDefinitionConnectorArgs:
@@ -156,19 +140,19 @@ class ConnectorDefinitionVersionConnectorArgs:
 
 
 @pulumi.input_type
-class CoreDefinitionCoreDefinitionVersionArgs:
+class ConnectorDefinitionVersionArgs:
     def __init__(__self__, *,
-                 cores: pulumi.Input[Sequence[pulumi.Input['CoreDefinitionCoreArgs']]]):
-        pulumi.set(__self__, "cores", cores)
+                 connectors: pulumi.Input[Sequence[pulumi.Input['ConnectorDefinitionConnectorArgs']]]):
+        pulumi.set(__self__, "connectors", connectors)
 
     @property
     @pulumi.getter
-    def cores(self) -> pulumi.Input[Sequence[pulumi.Input['CoreDefinitionCoreArgs']]]:
-        return pulumi.get(self, "cores")
+    def connectors(self) -> pulumi.Input[Sequence[pulumi.Input['ConnectorDefinitionConnectorArgs']]]:
+        return pulumi.get(self, "connectors")
 
-    @cores.setter
-    def cores(self, value: pulumi.Input[Sequence[pulumi.Input['CoreDefinitionCoreArgs']]]):
-        pulumi.set(self, "cores", value)
+    @connectors.setter
+    def connectors(self, value: pulumi.Input[Sequence[pulumi.Input['ConnectorDefinitionConnectorArgs']]]):
+        pulumi.set(self, "connectors", value)
 
 
 @pulumi.input_type
@@ -272,19 +256,19 @@ class CoreDefinitionVersionCoreArgs:
 
 
 @pulumi.input_type
-class DeviceDefinitionDeviceDefinitionVersionArgs:
+class CoreDefinitionVersionArgs:
     def __init__(__self__, *,
-                 devices: pulumi.Input[Sequence[pulumi.Input['DeviceDefinitionDeviceArgs']]]):
-        pulumi.set(__self__, "devices", devices)
+                 cores: pulumi.Input[Sequence[pulumi.Input['CoreDefinitionCoreArgs']]]):
+        pulumi.set(__self__, "cores", cores)
 
     @property
     @pulumi.getter
-    def devices(self) -> pulumi.Input[Sequence[pulumi.Input['DeviceDefinitionDeviceArgs']]]:
-        return pulumi.get(self, "devices")
+    def cores(self) -> pulumi.Input[Sequence[pulumi.Input['CoreDefinitionCoreArgs']]]:
+        return pulumi.get(self, "cores")
 
-    @devices.setter
-    def devices(self, value: pulumi.Input[Sequence[pulumi.Input['DeviceDefinitionDeviceArgs']]]):
-        pulumi.set(self, "devices", value)
+    @cores.setter
+    def cores(self, value: pulumi.Input[Sequence[pulumi.Input['CoreDefinitionCoreArgs']]]):
+        pulumi.set(self, "cores", value)
 
 
 @pulumi.input_type
@@ -385,6 +369,22 @@ class DeviceDefinitionVersionDeviceArgs:
     @sync_shadow.setter
     def sync_shadow(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "sync_shadow", value)
+
+
+@pulumi.input_type
+class DeviceDefinitionVersionArgs:
+    def __init__(__self__, *,
+                 devices: pulumi.Input[Sequence[pulumi.Input['DeviceDefinitionDeviceArgs']]]):
+        pulumi.set(__self__, "devices", devices)
+
+    @property
+    @pulumi.getter
+    def devices(self) -> pulumi.Input[Sequence[pulumi.Input['DeviceDefinitionDeviceArgs']]]:
+        return pulumi.get(self, "devices")
+
+    @devices.setter
+    def devices(self, value: pulumi.Input[Sequence[pulumi.Input['DeviceDefinitionDeviceArgs']]]):
+        pulumi.set(self, "devices", value)
 
 
 @pulumi.input_type
@@ -572,34 +572,6 @@ class FunctionDefinitionFunctionConfigurationArgs:
     @timeout.setter
     def timeout(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "timeout", value)
-
-
-@pulumi.input_type
-class FunctionDefinitionFunctionDefinitionVersionArgs:
-    def __init__(__self__, *,
-                 functions: pulumi.Input[Sequence[pulumi.Input['FunctionDefinitionFunctionArgs']]],
-                 default_config: Optional[pulumi.Input['FunctionDefinitionDefaultConfigArgs']] = None):
-        pulumi.set(__self__, "functions", functions)
-        if default_config is not None:
-            pulumi.set(__self__, "default_config", default_config)
-
-    @property
-    @pulumi.getter
-    def functions(self) -> pulumi.Input[Sequence[pulumi.Input['FunctionDefinitionFunctionArgs']]]:
-        return pulumi.get(self, "functions")
-
-    @functions.setter
-    def functions(self, value: pulumi.Input[Sequence[pulumi.Input['FunctionDefinitionFunctionArgs']]]):
-        pulumi.set(self, "functions", value)
-
-    @property
-    @pulumi.getter(name="defaultConfig")
-    def default_config(self) -> Optional[pulumi.Input['FunctionDefinitionDefaultConfigArgs']]:
-        return pulumi.get(self, "default_config")
-
-    @default_config.setter
-    def default_config(self, value: Optional[pulumi.Input['FunctionDefinitionDefaultConfigArgs']]):
-        pulumi.set(self, "default_config", value)
 
 
 @pulumi.input_type
@@ -980,7 +952,35 @@ class FunctionDefinitionVersionRunAsArgs:
 
 
 @pulumi.input_type
-class GroupGroupVersionArgs:
+class FunctionDefinitionVersionArgs:
+    def __init__(__self__, *,
+                 functions: pulumi.Input[Sequence[pulumi.Input['FunctionDefinitionFunctionArgs']]],
+                 default_config: Optional[pulumi.Input['FunctionDefinitionDefaultConfigArgs']] = None):
+        pulumi.set(__self__, "functions", functions)
+        if default_config is not None:
+            pulumi.set(__self__, "default_config", default_config)
+
+    @property
+    @pulumi.getter
+    def functions(self) -> pulumi.Input[Sequence[pulumi.Input['FunctionDefinitionFunctionArgs']]]:
+        return pulumi.get(self, "functions")
+
+    @functions.setter
+    def functions(self, value: pulumi.Input[Sequence[pulumi.Input['FunctionDefinitionFunctionArgs']]]):
+        pulumi.set(self, "functions", value)
+
+    @property
+    @pulumi.getter(name="defaultConfig")
+    def default_config(self) -> Optional[pulumi.Input['FunctionDefinitionDefaultConfigArgs']]:
+        return pulumi.get(self, "default_config")
+
+    @default_config.setter
+    def default_config(self, value: Optional[pulumi.Input['FunctionDefinitionDefaultConfigArgs']]):
+        pulumi.set(self, "default_config", value)
+
+
+@pulumi.input_type
+class GroupVersionArgs:
     def __init__(__self__, *,
                  connector_definition_version_arn: Optional[pulumi.Input[str]] = None,
                  core_definition_version_arn: Optional[pulumi.Input[str]] = None,
@@ -1066,22 +1066,6 @@ class GroupGroupVersionArgs:
     @subscription_definition_version_arn.setter
     def subscription_definition_version_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subscription_definition_version_arn", value)
-
-
-@pulumi.input_type
-class LoggerDefinitionLoggerDefinitionVersionArgs:
-    def __init__(__self__, *,
-                 loggers: pulumi.Input[Sequence[pulumi.Input['LoggerDefinitionLoggerArgs']]]):
-        pulumi.set(__self__, "loggers", loggers)
-
-    @property
-    @pulumi.getter
-    def loggers(self) -> pulumi.Input[Sequence[pulumi.Input['LoggerDefinitionLoggerArgs']]]:
-        return pulumi.get(self, "loggers")
-
-    @loggers.setter
-    def loggers(self, value: pulumi.Input[Sequence[pulumi.Input['LoggerDefinitionLoggerArgs']]]):
-        pulumi.set(self, "loggers", value)
 
 
 @pulumi.input_type
@@ -1204,6 +1188,22 @@ class LoggerDefinitionVersionLoggerArgs:
     @space.setter
     def space(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "space", value)
+
+
+@pulumi.input_type
+class LoggerDefinitionVersionArgs:
+    def __init__(__self__, *,
+                 loggers: pulumi.Input[Sequence[pulumi.Input['LoggerDefinitionLoggerArgs']]]):
+        pulumi.set(__self__, "loggers", loggers)
+
+    @property
+    @pulumi.getter
+    def loggers(self) -> pulumi.Input[Sequence[pulumi.Input['LoggerDefinitionLoggerArgs']]]:
+        return pulumi.get(self, "loggers")
+
+    @loggers.setter
+    def loggers(self, value: pulumi.Input[Sequence[pulumi.Input['LoggerDefinitionLoggerArgs']]]):
+        pulumi.set(self, "loggers", value)
 
 
 @pulumi.input_type
@@ -1364,22 +1364,6 @@ class ResourceDefinitionResourceDataContainerArgs:
     @secrets_manager_secret_resource_data.setter
     def secrets_manager_secret_resource_data(self, value: Optional[pulumi.Input['ResourceDefinitionSecretsManagerSecretResourceDataArgs']]):
         pulumi.set(self, "secrets_manager_secret_resource_data", value)
-
-
-@pulumi.input_type
-class ResourceDefinitionResourceDefinitionVersionArgs:
-    def __init__(__self__, *,
-                 resources: pulumi.Input[Sequence[pulumi.Input['ResourceDefinitionResourceInstanceArgs']]]):
-        pulumi.set(__self__, "resources", resources)
-
-    @property
-    @pulumi.getter
-    def resources(self) -> pulumi.Input[Sequence[pulumi.Input['ResourceDefinitionResourceInstanceArgs']]]:
-        return pulumi.get(self, "resources")
-
-    @resources.setter
-    def resources(self, value: pulumi.Input[Sequence[pulumi.Input['ResourceDefinitionResourceInstanceArgs']]]):
-        pulumi.set(self, "resources", value)
 
 
 @pulumi.input_type
@@ -1885,19 +1869,19 @@ class ResourceDefinitionVersionSecretsManagerSecretResourceDataArgs:
 
 
 @pulumi.input_type
-class SubscriptionDefinitionSubscriptionDefinitionVersionArgs:
+class ResourceDefinitionVersionArgs:
     def __init__(__self__, *,
-                 subscriptions: pulumi.Input[Sequence[pulumi.Input['SubscriptionDefinitionSubscriptionArgs']]]):
-        pulumi.set(__self__, "subscriptions", subscriptions)
+                 resources: pulumi.Input[Sequence[pulumi.Input['ResourceDefinitionResourceInstanceArgs']]]):
+        pulumi.set(__self__, "resources", resources)
 
     @property
     @pulumi.getter
-    def subscriptions(self) -> pulumi.Input[Sequence[pulumi.Input['SubscriptionDefinitionSubscriptionArgs']]]:
-        return pulumi.get(self, "subscriptions")
+    def resources(self) -> pulumi.Input[Sequence[pulumi.Input['ResourceDefinitionResourceInstanceArgs']]]:
+        return pulumi.get(self, "resources")
 
-    @subscriptions.setter
-    def subscriptions(self, value: pulumi.Input[Sequence[pulumi.Input['SubscriptionDefinitionSubscriptionArgs']]]):
-        pulumi.set(self, "subscriptions", value)
+    @resources.setter
+    def resources(self, value: pulumi.Input[Sequence[pulumi.Input['ResourceDefinitionResourceInstanceArgs']]]):
+        pulumi.set(self, "resources", value)
 
 
 @pulumi.input_type
@@ -1996,5 +1980,21 @@ class SubscriptionDefinitionVersionSubscriptionArgs:
     @target.setter
     def target(self, value: pulumi.Input[str]):
         pulumi.set(self, "target", value)
+
+
+@pulumi.input_type
+class SubscriptionDefinitionVersionArgs:
+    def __init__(__self__, *,
+                 subscriptions: pulumi.Input[Sequence[pulumi.Input['SubscriptionDefinitionSubscriptionArgs']]]):
+        pulumi.set(__self__, "subscriptions", subscriptions)
+
+    @property
+    @pulumi.getter
+    def subscriptions(self) -> pulumi.Input[Sequence[pulumi.Input['SubscriptionDefinitionSubscriptionArgs']]]:
+        return pulumi.get(self, "subscriptions")
+
+    @subscriptions.setter
+    def subscriptions(self, value: pulumi.Input[Sequence[pulumi.Input['SubscriptionDefinitionSubscriptionArgs']]]):
+        pulumi.set(self, "subscriptions", value)
 
 

@@ -16,14 +16,14 @@ __all__ = ['GatewayArgs', 'Gateway']
 class GatewayArgs:
     def __init__(__self__, *,
                  gateway_name: pulumi.Input[str],
-                 gateway_platform: pulumi.Input['GatewayGatewayPlatformArgs'],
-                 gateway_capability_summaries: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayGatewayCapabilitySummaryArgs']]]] = None,
+                 gateway_platform: pulumi.Input['GatewayPlatformArgs'],
+                 gateway_capability_summaries: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayCapabilitySummaryArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTagArgs']]]] = None):
         """
         The set of arguments for constructing a Gateway resource.
         :param pulumi.Input[str] gateway_name: A unique, friendly name for the gateway.
-        :param pulumi.Input['GatewayGatewayPlatformArgs'] gateway_platform: The gateway's platform. You can only specify one platform in a gateway.
-        :param pulumi.Input[Sequence[pulumi.Input['GatewayGatewayCapabilitySummaryArgs']]] gateway_capability_summaries: A list of gateway capability summaries that each contain a namespace and status.
+        :param pulumi.Input['GatewayPlatformArgs'] gateway_platform: The gateway's platform. You can only specify one platform in a gateway.
+        :param pulumi.Input[Sequence[pulumi.Input['GatewayCapabilitySummaryArgs']]] gateway_capability_summaries: A list of gateway capability summaries that each contain a namespace and status.
         :param pulumi.Input[Sequence[pulumi.Input['GatewayTagArgs']]] tags: A list of key-value pairs that contain metadata for the gateway.
         """
         pulumi.set(__self__, "gateway_name", gateway_name)
@@ -47,26 +47,26 @@ class GatewayArgs:
 
     @property
     @pulumi.getter(name="gatewayPlatform")
-    def gateway_platform(self) -> pulumi.Input['GatewayGatewayPlatformArgs']:
+    def gateway_platform(self) -> pulumi.Input['GatewayPlatformArgs']:
         """
         The gateway's platform. You can only specify one platform in a gateway.
         """
         return pulumi.get(self, "gateway_platform")
 
     @gateway_platform.setter
-    def gateway_platform(self, value: pulumi.Input['GatewayGatewayPlatformArgs']):
+    def gateway_platform(self, value: pulumi.Input['GatewayPlatformArgs']):
         pulumi.set(self, "gateway_platform", value)
 
     @property
     @pulumi.getter(name="gatewayCapabilitySummaries")
-    def gateway_capability_summaries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GatewayGatewayCapabilitySummaryArgs']]]]:
+    def gateway_capability_summaries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GatewayCapabilitySummaryArgs']]]]:
         """
         A list of gateway capability summaries that each contain a namespace and status.
         """
         return pulumi.get(self, "gateway_capability_summaries")
 
     @gateway_capability_summaries.setter
-    def gateway_capability_summaries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayGatewayCapabilitySummaryArgs']]]]):
+    def gateway_capability_summaries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayCapabilitySummaryArgs']]]]):
         pulumi.set(self, "gateway_capability_summaries", value)
 
     @property
@@ -87,9 +87,9 @@ class Gateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 gateway_capability_summaries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayGatewayCapabilitySummaryArgs']]]]] = None,
+                 gateway_capability_summaries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayCapabilitySummaryArgs']]]]] = None,
                  gateway_name: Optional[pulumi.Input[str]] = None,
-                 gateway_platform: Optional[pulumi.Input[pulumi.InputType['GatewayGatewayPlatformArgs']]] = None,
+                 gateway_platform: Optional[pulumi.Input[pulumi.InputType['GatewayPlatformArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -97,9 +97,9 @@ class Gateway(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayGatewayCapabilitySummaryArgs']]]] gateway_capability_summaries: A list of gateway capability summaries that each contain a namespace and status.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayCapabilitySummaryArgs']]]] gateway_capability_summaries: A list of gateway capability summaries that each contain a namespace and status.
         :param pulumi.Input[str] gateway_name: A unique, friendly name for the gateway.
-        :param pulumi.Input[pulumi.InputType['GatewayGatewayPlatformArgs']] gateway_platform: The gateway's platform. You can only specify one platform in a gateway.
+        :param pulumi.Input[pulumi.InputType['GatewayPlatformArgs']] gateway_platform: The gateway's platform. You can only specify one platform in a gateway.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayTagArgs']]]] tags: A list of key-value pairs that contain metadata for the gateway.
         """
         ...
@@ -126,9 +126,9 @@ class Gateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 gateway_capability_summaries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayGatewayCapabilitySummaryArgs']]]]] = None,
+                 gateway_capability_summaries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayCapabilitySummaryArgs']]]]] = None,
                  gateway_name: Optional[pulumi.Input[str]] = None,
-                 gateway_platform: Optional[pulumi.Input[pulumi.InputType['GatewayGatewayPlatformArgs']]] = None,
+                 gateway_platform: Optional[pulumi.Input[pulumi.InputType['GatewayPlatformArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -182,7 +182,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gatewayCapabilitySummaries")
-    def gateway_capability_summaries(self) -> pulumi.Output[Optional[Sequence['outputs.GatewayGatewayCapabilitySummary']]]:
+    def gateway_capability_summaries(self) -> pulumi.Output[Optional[Sequence['outputs.GatewayCapabilitySummary']]]:
         """
         A list of gateway capability summaries that each contain a namespace and status.
         """
@@ -206,7 +206,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gatewayPlatform")
-    def gateway_platform(self) -> pulumi.Output['outputs.GatewayGatewayPlatform']:
+    def gateway_platform(self) -> pulumi.Output['outputs.GatewayPlatform']:
         """
         The gateway's platform. You can only specify one platform in a gateway.
         """

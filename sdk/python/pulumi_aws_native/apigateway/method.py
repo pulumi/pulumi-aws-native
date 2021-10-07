@@ -23,7 +23,7 @@ class MethodArgs:
                  authorization_type: Optional[pulumi.Input[str]] = None,
                  authorizer_id: Optional[pulumi.Input[str]] = None,
                  integration: Optional[pulumi.Input['MethodIntegrationArgs']] = None,
-                 method_responses: Optional[pulumi.Input[Sequence[pulumi.Input['MethodMethodResponseArgs']]]] = None,
+                 method_responses: Optional[pulumi.Input[Sequence[pulumi.Input['MethodResponseArgs']]]] = None,
                  operation_name: Optional[pulumi.Input[str]] = None,
                  request_models: Optional[Any] = None,
                  request_parameters: Optional[Any] = None,
@@ -129,11 +129,11 @@ class MethodArgs:
 
     @property
     @pulumi.getter(name="methodResponses")
-    def method_responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MethodMethodResponseArgs']]]]:
+    def method_responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MethodResponseArgs']]]]:
         return pulumi.get(self, "method_responses")
 
     @method_responses.setter
-    def method_responses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MethodMethodResponseArgs']]]]):
+    def method_responses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MethodResponseArgs']]]]):
         pulumi.set(self, "method_responses", value)
 
     @property
@@ -184,7 +184,7 @@ class Method(pulumi.CustomResource):
                  authorizer_id: Optional[pulumi.Input[str]] = None,
                  http_method: Optional[pulumi.Input[str]] = None,
                  integration: Optional[pulumi.Input[pulumi.InputType['MethodIntegrationArgs']]] = None,
-                 method_responses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MethodMethodResponseArgs']]]]] = None,
+                 method_responses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MethodResponseArgs']]]]] = None,
                  operation_name: Optional[pulumi.Input[str]] = None,
                  request_models: Optional[Any] = None,
                  request_parameters: Optional[Any] = None,
@@ -228,7 +228,7 @@ class Method(pulumi.CustomResource):
                  authorizer_id: Optional[pulumi.Input[str]] = None,
                  http_method: Optional[pulumi.Input[str]] = None,
                  integration: Optional[pulumi.Input[pulumi.InputType['MethodIntegrationArgs']]] = None,
-                 method_responses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MethodMethodResponseArgs']]]]] = None,
+                 method_responses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MethodResponseArgs']]]]] = None,
                  operation_name: Optional[pulumi.Input[str]] = None,
                  request_models: Optional[Any] = None,
                  request_parameters: Optional[Any] = None,
@@ -335,7 +335,7 @@ class Method(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="methodResponses")
-    def method_responses(self) -> pulumi.Output[Optional[Sequence['outputs.MethodMethodResponse']]]:
+    def method_responses(self) -> pulumi.Output[Optional[Sequence['outputs.MethodResponse']]]:
         return pulumi.get(self, "method_responses")
 
     @property

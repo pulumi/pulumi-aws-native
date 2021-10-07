@@ -238,7 +238,7 @@ class FindingsFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="findingsFilterListItems")
-    def findings_filter_list_items(self) -> pulumi.Output[Sequence['outputs.FindingsFilterFindingsFilterListItem']]:
+    def findings_filter_list_items(self) -> pulumi.Output[Sequence['outputs.FindingsFilterListItem']]:
         """
         Findings filters list.
         """

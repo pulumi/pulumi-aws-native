@@ -14,7 +14,6 @@ __all__ = [
     'DatasetCsvOptions',
     'DatasetDataCatalogInputDefinition',
     'DatasetDatabaseInputDefinition',
-    'DatasetDatasetParameter',
     'DatasetDatetimeOptions',
     'DatasetExcelOptions',
     'DatasetFilesLimit',
@@ -23,6 +22,7 @@ __all__ = [
     'DatasetFormatOptions',
     'DatasetInput',
     'DatasetJsonOptions',
+    'DatasetParameter',
     'DatasetPathOptions',
     'DatasetPathParameter',
     'DatasetS3Location',
@@ -33,7 +33,6 @@ __all__ = [
     'JobDataCatalogOutput',
     'JobDatabaseOutput',
     'JobDatabaseTableOutputOptions',
-    'JobJobSample',
     'JobOutput',
     'JobOutputFormatOptions',
     'JobOutputLocation',
@@ -42,6 +41,7 @@ __all__ = [
     'JobRecipe',
     'JobS3Location',
     'JobS3TableOutputOptions',
+    'JobSample',
     'JobStatisticOverride',
     'JobStatisticsConfiguration',
     'JobTag',
@@ -51,10 +51,10 @@ __all__ = [
     'RecipeConditionExpression',
     'RecipeDataCatalogInputDefinition',
     'RecipeParameterMap',
-    'RecipeRecipeParameters',
-    'RecipeRecipeStep',
+    'RecipeParameters',
     'RecipeS3Location',
     'RecipeSecondaryInput',
+    'RecipeStep',
     'RecipeTag',
     'ScheduleTag',
 ]
@@ -235,78 +235,6 @@ class DatasetDatabaseInputDefinition(dict):
     @pulumi.getter(name="tempDirectory")
     def temp_directory(self) -> Optional['outputs.DatasetS3Location']:
         return pulumi.get(self, "temp_directory")
-
-
-@pulumi.output_type
-class DatasetDatasetParameter(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "createColumn":
-            suggest = "create_column"
-        elif key == "datetimeOptions":
-            suggest = "datetime_options"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DatasetDatasetParameter. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DatasetDatasetParameter.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DatasetDatasetParameter.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 name: str,
-                 type: 'DatasetDatasetParameterType',
-                 create_column: Optional[bool] = None,
-                 datetime_options: Optional['outputs.DatasetDatetimeOptions'] = None,
-                 filter: Optional['outputs.DatasetFilterExpression'] = None):
-        """
-        :param 'DatasetDatasetParameterType' type: Parameter type
-        :param bool create_column: Add the value of this parameter as a column in a dataset.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-        if create_column is not None:
-            pulumi.set(__self__, "create_column", create_column)
-        if datetime_options is not None:
-            pulumi.set(__self__, "datetime_options", datetime_options)
-        if filter is not None:
-            pulumi.set(__self__, "filter", filter)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> 'DatasetDatasetParameterType':
-        """
-        Parameter type
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="createColumn")
-    def create_column(self) -> Optional[bool]:
-        """
-        Add the value of this parameter as a column in a dataset.
-        """
-        return pulumi.get(self, "create_column")
-
-    @property
-    @pulumi.getter(name="datetimeOptions")
-    def datetime_options(self) -> Optional['outputs.DatasetDatetimeOptions']:
-        return pulumi.get(self, "datetime_options")
-
-    @property
-    @pulumi.getter
-    def filter(self) -> Optional['outputs.DatasetFilterExpression']:
-        return pulumi.get(self, "filter")
 
 
 @pulumi.output_type
@@ -697,6 +625,78 @@ class DatasetJsonOptions(dict):
 
 
 @pulumi.output_type
+class DatasetParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createColumn":
+            suggest = "create_column"
+        elif key == "datetimeOptions":
+            suggest = "datetime_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasetParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasetParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasetParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 type: 'DatasetParameterType',
+                 create_column: Optional[bool] = None,
+                 datetime_options: Optional['outputs.DatasetDatetimeOptions'] = None,
+                 filter: Optional['outputs.DatasetFilterExpression'] = None):
+        """
+        :param 'DatasetParameterType' type: Parameter type
+        :param bool create_column: Add the value of this parameter as a column in a dataset.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if create_column is not None:
+            pulumi.set(__self__, "create_column", create_column)
+        if datetime_options is not None:
+            pulumi.set(__self__, "datetime_options", datetime_options)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'DatasetParameterType':
+        """
+        Parameter type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="createColumn")
+    def create_column(self) -> Optional[bool]:
+        """
+        Add the value of this parameter as a column in a dataset.
+        """
+        return pulumi.get(self, "create_column")
+
+    @property
+    @pulumi.getter(name="datetimeOptions")
+    def datetime_options(self) -> Optional['outputs.DatasetDatetimeOptions']:
+        return pulumi.get(self, "datetime_options")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional['outputs.DatasetFilterExpression']:
+        return pulumi.get(self, "filter")
+
+
+@pulumi.output_type
 class DatasetPathOptions(dict):
     """
     Path options for dataset
@@ -775,7 +775,7 @@ class DatasetPathParameter(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 dataset_parameter: 'outputs.DatasetDatasetParameter',
+                 dataset_parameter: 'outputs.DatasetParameter',
                  path_parameter_name: str):
         """
         A key-value pair to associate dataset parameter name with its definition.
@@ -785,7 +785,7 @@ class DatasetPathParameter(dict):
 
     @property
     @pulumi.getter(name="datasetParameter")
-    def dataset_parameter(self) -> 'outputs.DatasetDatasetParameter':
+    def dataset_parameter(self) -> 'outputs.DatasetParameter':
         return pulumi.get(self, "dataset_parameter")
 
     @property
@@ -1079,33 +1079,6 @@ class JobDatabaseTableOutputOptions(dict):
 
 
 @pulumi.output_type
-class JobJobSample(dict):
-    """
-    Job Sample
-    """
-    def __init__(__self__, *,
-                 mode: Optional['JobSampleMode'] = None,
-                 size: Optional[int] = None):
-        """
-        Job Sample
-        """
-        if mode is not None:
-            pulumi.set(__self__, "mode", mode)
-        if size is not None:
-            pulumi.set(__self__, "size", size)
-
-    @property
-    @pulumi.getter
-    def mode(self) -> Optional['JobSampleMode']:
-        return pulumi.get(self, "mode")
-
-    @property
-    @pulumi.getter
-    def size(self) -> Optional[int]:
-        return pulumi.get(self, "size")
-
-
-@pulumi.output_type
 class JobOutput(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1345,6 +1318,33 @@ class JobS3TableOutputOptions(dict):
     @pulumi.getter
     def location(self) -> 'outputs.JobS3Location':
         return pulumi.get(self, "location")
+
+
+@pulumi.output_type
+class JobSample(dict):
+    """
+    Job Sample
+    """
+    def __init__(__self__, *,
+                 mode: Optional['JobSampleMode'] = None,
+                 size: Optional[int] = None):
+        """
+        Job Sample
+        """
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional['JobSampleMode']:
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[int]:
+        return pulumi.get(self, "size")
 
 
 @pulumi.output_type
@@ -1653,7 +1653,7 @@ class RecipeParameterMap(dict):
 
 
 @pulumi.output_type
-class RecipeRecipeParameters(dict):
+class RecipeParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1829,14 +1829,14 @@ class RecipeRecipeParameters(dict):
             suggest = "view_frame"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RecipeRecipeParameters. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in RecipeParameters. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        RecipeRecipeParameters.__key_warning(key)
+        RecipeParameters.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        RecipeRecipeParameters.__key_warning(key)
+        RecipeParameters.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -2657,49 +2657,6 @@ class RecipeRecipeParameters(dict):
 
 
 @pulumi.output_type
-class RecipeRecipeStep(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "conditionExpressions":
-            suggest = "condition_expressions"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RecipeRecipeStep. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RecipeRecipeStep.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RecipeRecipeStep.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 action: 'outputs.RecipeAction',
-                 condition_expressions: Optional[Sequence['outputs.RecipeConditionExpression']] = None):
-        """
-        :param Sequence['RecipeConditionExpression'] condition_expressions: Condition expressions applied to the step action
-        """
-        pulumi.set(__self__, "action", action)
-        if condition_expressions is not None:
-            pulumi.set(__self__, "condition_expressions", condition_expressions)
-
-    @property
-    @pulumi.getter
-    def action(self) -> 'outputs.RecipeAction':
-        return pulumi.get(self, "action")
-
-    @property
-    @pulumi.getter(name="conditionExpressions")
-    def condition_expressions(self) -> Optional[Sequence['outputs.RecipeConditionExpression']]:
-        """
-        Condition expressions applied to the step action
-        """
-        return pulumi.get(self, "condition_expressions")
-
-
-@pulumi.output_type
 class RecipeS3Location(dict):
     """
     Input location
@@ -2769,6 +2726,49 @@ class RecipeSecondaryInput(dict):
     @pulumi.getter(name="s3InputDefinition")
     def s3_input_definition(self) -> Optional['outputs.RecipeS3Location']:
         return pulumi.get(self, "s3_input_definition")
+
+
+@pulumi.output_type
+class RecipeStep(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "conditionExpressions":
+            suggest = "condition_expressions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecipeStep. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecipeStep.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecipeStep.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: 'outputs.RecipeAction',
+                 condition_expressions: Optional[Sequence['outputs.RecipeConditionExpression']] = None):
+        """
+        :param Sequence['RecipeConditionExpression'] condition_expressions: Condition expressions applied to the step action
+        """
+        pulumi.set(__self__, "action", action)
+        if condition_expressions is not None:
+            pulumi.set(__self__, "condition_expressions", condition_expressions)
+
+    @property
+    @pulumi.getter
+    def action(self) -> 'outputs.RecipeAction':
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="conditionExpressions")
+    def condition_expressions(self) -> Optional[Sequence['outputs.RecipeConditionExpression']]:
+        """
+        Condition expressions applied to the step action
+        """
+        return pulumi.get(self, "condition_expressions")
 
 
 @pulumi.output_type

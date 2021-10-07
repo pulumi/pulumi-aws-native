@@ -10,14 +10,14 @@ from .. import _utilities
 
 __all__ = [
     'MemberApprovalThresholdPolicyArgs',
-    'MemberMemberConfigurationArgs',
-    'MemberMemberFabricConfigurationArgs',
-    'MemberMemberFrameworkConfigurationArgs',
+    'MemberConfigurationArgs',
+    'MemberFabricConfigurationArgs',
+    'MemberFrameworkConfigurationArgs',
     'MemberNetworkConfigurationArgs',
     'MemberNetworkFabricConfigurationArgs',
     'MemberNetworkFrameworkConfigurationArgs',
     'MemberVotingPolicyArgs',
-    'NodeNodeConfigurationArgs',
+    'NodeConfigurationArgs',
 ]
 
 @pulumi.input_type
@@ -62,11 +62,11 @@ class MemberApprovalThresholdPolicyArgs:
 
 
 @pulumi.input_type
-class MemberMemberConfigurationArgs:
+class MemberConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 member_framework_configuration: Optional[pulumi.Input['MemberMemberFrameworkConfigurationArgs']] = None):
+                 member_framework_configuration: Optional[pulumi.Input['MemberFrameworkConfigurationArgs']] = None):
         pulumi.set(__self__, "name", name)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -93,16 +93,16 @@ class MemberMemberConfigurationArgs:
 
     @property
     @pulumi.getter(name="memberFrameworkConfiguration")
-    def member_framework_configuration(self) -> Optional[pulumi.Input['MemberMemberFrameworkConfigurationArgs']]:
+    def member_framework_configuration(self) -> Optional[pulumi.Input['MemberFrameworkConfigurationArgs']]:
         return pulumi.get(self, "member_framework_configuration")
 
     @member_framework_configuration.setter
-    def member_framework_configuration(self, value: Optional[pulumi.Input['MemberMemberFrameworkConfigurationArgs']]):
+    def member_framework_configuration(self, value: Optional[pulumi.Input['MemberFrameworkConfigurationArgs']]):
         pulumi.set(self, "member_framework_configuration", value)
 
 
 @pulumi.input_type
-class MemberMemberFabricConfigurationArgs:
+class MemberFabricConfigurationArgs:
     def __init__(__self__, *,
                  admin_password: pulumi.Input[str],
                  admin_username: pulumi.Input[str]):
@@ -129,19 +129,19 @@ class MemberMemberFabricConfigurationArgs:
 
 
 @pulumi.input_type
-class MemberMemberFrameworkConfigurationArgs:
+class MemberFrameworkConfigurationArgs:
     def __init__(__self__, *,
-                 member_fabric_configuration: Optional[pulumi.Input['MemberMemberFabricConfigurationArgs']] = None):
+                 member_fabric_configuration: Optional[pulumi.Input['MemberFabricConfigurationArgs']] = None):
         if member_fabric_configuration is not None:
             pulumi.set(__self__, "member_fabric_configuration", member_fabric_configuration)
 
     @property
     @pulumi.getter(name="memberFabricConfiguration")
-    def member_fabric_configuration(self) -> Optional[pulumi.Input['MemberMemberFabricConfigurationArgs']]:
+    def member_fabric_configuration(self) -> Optional[pulumi.Input['MemberFabricConfigurationArgs']]:
         return pulumi.get(self, "member_fabric_configuration")
 
     @member_fabric_configuration.setter
-    def member_fabric_configuration(self, value: Optional[pulumi.Input['MemberMemberFabricConfigurationArgs']]):
+    def member_fabric_configuration(self, value: Optional[pulumi.Input['MemberFabricConfigurationArgs']]):
         pulumi.set(self, "member_fabric_configuration", value)
 
 
@@ -269,7 +269,7 @@ class MemberVotingPolicyArgs:
 
 
 @pulumi.input_type
-class NodeNodeConfigurationArgs:
+class NodeConfigurationArgs:
     def __init__(__self__, *,
                  availability_zone: pulumi.Input[str],
                  instance_type: pulumi.Input[str]):

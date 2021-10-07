@@ -28,10 +28,10 @@ __all__ = [
     'IntegrationTriggerConfig',
     'IntegrationTriggerProperties',
     'IntegrationZendeskSourceProperties',
+    'ObjectTypeField',
     'ObjectTypeFieldMap',
+    'ObjectTypeKey',
     'ObjectTypeKeyMap',
-    'ObjectTypeObjectTypeField',
-    'ObjectTypeObjectTypeKey',
     'ObjectTypeTag',
 ]
 
@@ -722,83 +722,7 @@ class IntegrationZendeskSourceProperties(dict):
 
 
 @pulumi.output_type
-class ObjectTypeFieldMap(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "objectTypeField":
-            suggest = "object_type_field"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ObjectTypeFieldMap. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ObjectTypeFieldMap.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ObjectTypeFieldMap.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 name: Optional[str] = None,
-                 object_type_field: Optional['outputs.ObjectTypeObjectTypeField'] = None):
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if object_type_field is not None:
-            pulumi.set(__self__, "object_type_field", object_type_field)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="objectTypeField")
-    def object_type_field(self) -> Optional['outputs.ObjectTypeObjectTypeField']:
-        return pulumi.get(self, "object_type_field")
-
-
-@pulumi.output_type
-class ObjectTypeKeyMap(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "objectTypeKeyList":
-            suggest = "object_type_key_list"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ObjectTypeKeyMap. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ObjectTypeKeyMap.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ObjectTypeKeyMap.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 name: Optional[str] = None,
-                 object_type_key_list: Optional[Sequence['outputs.ObjectTypeObjectTypeKey']] = None):
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if object_type_key_list is not None:
-            pulumi.set(__self__, "object_type_key_list", object_type_key_list)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="objectTypeKeyList")
-    def object_type_key_list(self) -> Optional[Sequence['outputs.ObjectTypeObjectTypeKey']]:
-        return pulumi.get(self, "object_type_key_list")
-
-
-@pulumi.output_type
-class ObjectTypeObjectTypeField(dict):
+class ObjectTypeField(dict):
     """
     Represents a field in a ProfileObjectType.
     """
@@ -809,23 +733,23 @@ class ObjectTypeObjectTypeField(dict):
             suggest = "content_type"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ObjectTypeObjectTypeField. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ObjectTypeField. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ObjectTypeObjectTypeField.__key_warning(key)
+        ObjectTypeField.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ObjectTypeObjectTypeField.__key_warning(key)
+        ObjectTypeField.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 content_type: Optional['ObjectTypeObjectTypeFieldContentType'] = None,
+                 content_type: Optional['ObjectTypeFieldContentType'] = None,
                  source: Optional[str] = None,
                  target: Optional[str] = None):
         """
         Represents a field in a ProfileObjectType.
-        :param 'ObjectTypeObjectTypeFieldContentType' content_type: The content type of the field. Used for determining equality when searching.
+        :param 'ObjectTypeFieldContentType' content_type: The content type of the field. Used for determining equality when searching.
         :param str source: A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
         :param str target: The location of the data in the standard ProfileObject model. For example: _profile.Address.PostalCode.
         """
@@ -838,7 +762,7 @@ class ObjectTypeObjectTypeField(dict):
 
     @property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional['ObjectTypeObjectTypeFieldContentType']:
+    def content_type(self) -> Optional['ObjectTypeFieldContentType']:
         """
         The content type of the field. Used for determining equality when searching.
         """
@@ -862,7 +786,45 @@ class ObjectTypeObjectTypeField(dict):
 
 
 @pulumi.output_type
-class ObjectTypeObjectTypeKey(dict):
+class ObjectTypeFieldMap(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectTypeField":
+            suggest = "object_type_field"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObjectTypeFieldMap. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObjectTypeFieldMap.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObjectTypeFieldMap.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 object_type_field: Optional['outputs.ObjectTypeField'] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if object_type_field is not None:
+            pulumi.set(__self__, "object_type_field", object_type_field)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="objectTypeField")
+    def object_type_field(self) -> Optional['outputs.ObjectTypeField']:
+        return pulumi.get(self, "object_type_field")
+
+
+@pulumi.output_type
+class ObjectTypeKey(dict):
     """
     An object that defines the Key element of a ProfileObject. A Key is a special element that can be used to search for a customer profile.
     """
@@ -875,23 +837,23 @@ class ObjectTypeObjectTypeKey(dict):
             suggest = "standard_identifiers"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ObjectTypeObjectTypeKey. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ObjectTypeKey. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ObjectTypeObjectTypeKey.__key_warning(key)
+        ObjectTypeKey.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ObjectTypeObjectTypeKey.__key_warning(key)
+        ObjectTypeKey.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  field_names: Optional[Sequence[str]] = None,
-                 standard_identifiers: Optional[Sequence['ObjectTypeObjectTypeKeyStandardIdentifiersItem']] = None):
+                 standard_identifiers: Optional[Sequence['ObjectTypeKeyStandardIdentifiersItem']] = None):
         """
         An object that defines the Key element of a ProfileObject. A Key is a special element that can be used to search for a customer profile.
         :param Sequence[str] field_names: The reference for the key name of the fields map. 
-        :param Sequence['ObjectTypeObjectTypeKeyStandardIdentifiersItem'] standard_identifiers: The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
+        :param Sequence['ObjectTypeKeyStandardIdentifiersItem'] standard_identifiers: The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
         """
         if field_names is not None:
             pulumi.set(__self__, "field_names", field_names)
@@ -908,11 +870,49 @@ class ObjectTypeObjectTypeKey(dict):
 
     @property
     @pulumi.getter(name="standardIdentifiers")
-    def standard_identifiers(self) -> Optional[Sequence['ObjectTypeObjectTypeKeyStandardIdentifiersItem']]:
+    def standard_identifiers(self) -> Optional[Sequence['ObjectTypeKeyStandardIdentifiersItem']]:
         """
         The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
         """
         return pulumi.get(self, "standard_identifiers")
+
+
+@pulumi.output_type
+class ObjectTypeKeyMap(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectTypeKeyList":
+            suggest = "object_type_key_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObjectTypeKeyMap. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObjectTypeKeyMap.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObjectTypeKeyMap.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 object_type_key_list: Optional[Sequence['outputs.ObjectTypeKey']] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if object_type_key_list is not None:
+            pulumi.set(__self__, "object_type_key_list", object_type_key_list)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="objectTypeKeyList")
+    def object_type_key_list(self) -> Optional[Sequence['outputs.ObjectTypeKey']]:
+        return pulumi.get(self, "object_type_key_list")
 
 
 @pulumi.output_type

@@ -9,10 +9,10 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ApplicationApplicationResourceLifecycleConfigArgs',
-    'ApplicationApplicationVersionLifecycleConfigArgs',
     'ApplicationMaxAgeRuleArgs',
     'ApplicationMaxCountRuleArgs',
+    'ApplicationResourceLifecycleConfigArgs',
+    'ApplicationVersionLifecycleConfigArgs',
     'ApplicationVersionSourceBundleArgs',
     'ConfigurationTemplateConfigurationOptionSettingArgs',
     'ConfigurationTemplateSourceConfigurationArgs',
@@ -20,64 +20,6 @@ __all__ = [
     'EnvironmentTagArgs',
     'EnvironmentTierArgs',
 ]
-
-@pulumi.input_type
-class ApplicationApplicationResourceLifecycleConfigArgs:
-    def __init__(__self__, *,
-                 service_role: Optional[pulumi.Input[str]] = None,
-                 version_lifecycle_config: Optional[pulumi.Input['ApplicationApplicationVersionLifecycleConfigArgs']] = None):
-        if service_role is not None:
-            pulumi.set(__self__, "service_role", service_role)
-        if version_lifecycle_config is not None:
-            pulumi.set(__self__, "version_lifecycle_config", version_lifecycle_config)
-
-    @property
-    @pulumi.getter(name="serviceRole")
-    def service_role(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "service_role")
-
-    @service_role.setter
-    def service_role(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "service_role", value)
-
-    @property
-    @pulumi.getter(name="versionLifecycleConfig")
-    def version_lifecycle_config(self) -> Optional[pulumi.Input['ApplicationApplicationVersionLifecycleConfigArgs']]:
-        return pulumi.get(self, "version_lifecycle_config")
-
-    @version_lifecycle_config.setter
-    def version_lifecycle_config(self, value: Optional[pulumi.Input['ApplicationApplicationVersionLifecycleConfigArgs']]):
-        pulumi.set(self, "version_lifecycle_config", value)
-
-
-@pulumi.input_type
-class ApplicationApplicationVersionLifecycleConfigArgs:
-    def __init__(__self__, *,
-                 max_age_rule: Optional[pulumi.Input['ApplicationMaxAgeRuleArgs']] = None,
-                 max_count_rule: Optional[pulumi.Input['ApplicationMaxCountRuleArgs']] = None):
-        if max_age_rule is not None:
-            pulumi.set(__self__, "max_age_rule", max_age_rule)
-        if max_count_rule is not None:
-            pulumi.set(__self__, "max_count_rule", max_count_rule)
-
-    @property
-    @pulumi.getter(name="maxAgeRule")
-    def max_age_rule(self) -> Optional[pulumi.Input['ApplicationMaxAgeRuleArgs']]:
-        return pulumi.get(self, "max_age_rule")
-
-    @max_age_rule.setter
-    def max_age_rule(self, value: Optional[pulumi.Input['ApplicationMaxAgeRuleArgs']]):
-        pulumi.set(self, "max_age_rule", value)
-
-    @property
-    @pulumi.getter(name="maxCountRule")
-    def max_count_rule(self) -> Optional[pulumi.Input['ApplicationMaxCountRuleArgs']]:
-        return pulumi.get(self, "max_count_rule")
-
-    @max_count_rule.setter
-    def max_count_rule(self, value: Optional[pulumi.Input['ApplicationMaxCountRuleArgs']]):
-        pulumi.set(self, "max_count_rule", value)
-
 
 @pulumi.input_type
 class ApplicationMaxAgeRuleArgs:
@@ -159,6 +101,64 @@ class ApplicationMaxCountRuleArgs:
     @max_count.setter
     def max_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_count", value)
+
+
+@pulumi.input_type
+class ApplicationResourceLifecycleConfigArgs:
+    def __init__(__self__, *,
+                 service_role: Optional[pulumi.Input[str]] = None,
+                 version_lifecycle_config: Optional[pulumi.Input['ApplicationVersionLifecycleConfigArgs']] = None):
+        if service_role is not None:
+            pulumi.set(__self__, "service_role", service_role)
+        if version_lifecycle_config is not None:
+            pulumi.set(__self__, "version_lifecycle_config", version_lifecycle_config)
+
+    @property
+    @pulumi.getter(name="serviceRole")
+    def service_role(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "service_role")
+
+    @service_role.setter
+    def service_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_role", value)
+
+    @property
+    @pulumi.getter(name="versionLifecycleConfig")
+    def version_lifecycle_config(self) -> Optional[pulumi.Input['ApplicationVersionLifecycleConfigArgs']]:
+        return pulumi.get(self, "version_lifecycle_config")
+
+    @version_lifecycle_config.setter
+    def version_lifecycle_config(self, value: Optional[pulumi.Input['ApplicationVersionLifecycleConfigArgs']]):
+        pulumi.set(self, "version_lifecycle_config", value)
+
+
+@pulumi.input_type
+class ApplicationVersionLifecycleConfigArgs:
+    def __init__(__self__, *,
+                 max_age_rule: Optional[pulumi.Input['ApplicationMaxAgeRuleArgs']] = None,
+                 max_count_rule: Optional[pulumi.Input['ApplicationMaxCountRuleArgs']] = None):
+        if max_age_rule is not None:
+            pulumi.set(__self__, "max_age_rule", max_age_rule)
+        if max_count_rule is not None:
+            pulumi.set(__self__, "max_count_rule", max_count_rule)
+
+    @property
+    @pulumi.getter(name="maxAgeRule")
+    def max_age_rule(self) -> Optional[pulumi.Input['ApplicationMaxAgeRuleArgs']]:
+        return pulumi.get(self, "max_age_rule")
+
+    @max_age_rule.setter
+    def max_age_rule(self, value: Optional[pulumi.Input['ApplicationMaxAgeRuleArgs']]):
+        pulumi.set(self, "max_age_rule", value)
+
+    @property
+    @pulumi.getter(name="maxCountRule")
+    def max_count_rule(self) -> Optional[pulumi.Input['ApplicationMaxCountRuleArgs']]:
+        return pulumi.get(self, "max_count_rule")
+
+    @max_count_rule.setter
+    def max_count_rule(self, value: Optional[pulumi.Input['ApplicationMaxCountRuleArgs']]):
+        pulumi.set(self, "max_count_rule", value)
 
 
 @pulumi.input_type

@@ -13,8 +13,8 @@ from ._enums import *
 __all__ = [
     'AssessmentAWSAccount',
     'AssessmentAWSService',
-    'AssessmentAssessmentReportsDestination',
     'AssessmentDelegation',
+    'AssessmentReportsDestination',
     'AssessmentRole',
     'AssessmentScope',
     'AssessmentTag',
@@ -106,50 +106,6 @@ class AssessmentAWSService(dict):
     @pulumi.getter(name="serviceName")
     def service_name(self) -> Optional[str]:
         return pulumi.get(self, "service_name")
-
-
-@pulumi.output_type
-class AssessmentAssessmentReportsDestination(dict):
-    """
-    The destination in which evidence reports are stored for the specified assessment.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "destinationType":
-            suggest = "destination_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AssessmentAssessmentReportsDestination. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AssessmentAssessmentReportsDestination.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AssessmentAssessmentReportsDestination.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 destination: Optional[str] = None,
-                 destination_type: Optional['AssessmentAssessmentReportDestinationType'] = None):
-        """
-        The destination in which evidence reports are stored for the specified assessment.
-        """
-        if destination is not None:
-            pulumi.set(__self__, "destination", destination)
-        if destination_type is not None:
-            pulumi.set(__self__, "destination_type", destination_type)
-
-    @property
-    @pulumi.getter
-    def destination(self) -> Optional[str]:
-        return pulumi.get(self, "destination")
-
-    @property
-    @pulumi.getter(name="destinationType")
-    def destination_type(self) -> Optional['AssessmentAssessmentReportDestinationType']:
-        return pulumi.get(self, "destination_type")
 
 
 @pulumi.output_type
@@ -280,6 +236,50 @@ class AssessmentDelegation(dict):
     @pulumi.getter
     def status(self) -> Optional['AssessmentDelegationStatus']:
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class AssessmentReportsDestination(dict):
+    """
+    The destination in which evidence reports are stored for the specified assessment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationType":
+            suggest = "destination_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssessmentReportsDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssessmentReportsDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssessmentReportsDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination: Optional[str] = None,
+                 destination_type: Optional['AssessmentReportDestinationType'] = None):
+        """
+        The destination in which evidence reports are stored for the specified assessment.
+        """
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if destination_type is not None:
+            pulumi.set(__self__, "destination_type", destination_type)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[str]:
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="destinationType")
+    def destination_type(self) -> Optional['AssessmentReportDestinationType']:
+        return pulumi.get(self, "destination_type")
 
 
 @pulumi.output_type

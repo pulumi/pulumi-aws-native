@@ -16,18 +16,18 @@ __all__ = [
     'FlowLogResourceType',
     'FlowLogTrafficType',
     'HostAutoPlacement',
-    'HostHostRecovery',
+    'HostRecovery',
     'NetworkInsightsAnalysisStatus',
     'NetworkInsightsPathProtocol',
     'PrefixListAddressFamily',
     'SpotFleetEbsBlockDeviceVolumeType',
+    'SpotFleetRequestConfigDataAllocationStrategy',
+    'SpotFleetRequestConfigDataExcessCapacityTerminationPolicy',
+    'SpotFleetRequestConfigDataInstanceInterruptionBehavior',
+    'SpotFleetRequestConfigDataType',
     'SpotFleetSpotCapacityRebalanceReplacementStrategy',
-    'SpotFleetSpotFleetRequestConfigDataAllocationStrategy',
-    'SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy',
-    'SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior',
-    'SpotFleetSpotFleetRequestConfigDataType',
-    'SpotFleetSpotFleetTagSpecificationResourceType',
     'SpotFleetSpotPlacementTenancy',
+    'SpotFleetTagSpecificationResourceType',
 ]
 
 
@@ -148,7 +148,7 @@ class HostAutoPlacement(str, Enum):
     OFF = "off"
 
 
-class HostHostRecovery(str, Enum):
+class HostRecovery(str, Enum):
     """
     Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
     """
@@ -185,34 +185,40 @@ class SpotFleetEbsBlockDeviceVolumeType(str, Enum):
     STANDARD = "standard"
 
 
-class SpotFleetSpotCapacityRebalanceReplacementStrategy(str, Enum):
-    LAUNCH = "launch"
-
-
-class SpotFleetSpotFleetRequestConfigDataAllocationStrategy(str, Enum):
+class SpotFleetRequestConfigDataAllocationStrategy(str, Enum):
     CAPACITY_OPTIMIZED = "capacityOptimized"
     CAPACITY_OPTIMIZED_PRIORITIZED = "capacityOptimizedPrioritized"
     DIVERSIFIED = "diversified"
     LOWEST_PRICE = "lowestPrice"
 
 
-class SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy(str, Enum):
+class SpotFleetRequestConfigDataExcessCapacityTerminationPolicy(str, Enum):
     DEFAULT = "Default"
     NO_TERMINATION = "NoTermination"
 
 
-class SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior(str, Enum):
+class SpotFleetRequestConfigDataInstanceInterruptionBehavior(str, Enum):
     HIBERNATE = "hibernate"
     STOP = "stop"
     TERMINATE = "terminate"
 
 
-class SpotFleetSpotFleetRequestConfigDataType(str, Enum):
+class SpotFleetRequestConfigDataType(str, Enum):
     MAINTAIN = "maintain"
     REQUEST = "request"
 
 
-class SpotFleetSpotFleetTagSpecificationResourceType(str, Enum):
+class SpotFleetSpotCapacityRebalanceReplacementStrategy(str, Enum):
+    LAUNCH = "launch"
+
+
+class SpotFleetSpotPlacementTenancy(str, Enum):
+    DEDICATED = "dedicated"
+    DEFAULT = "default"
+    HOST = "host"
+
+
+class SpotFleetTagSpecificationResourceType(str, Enum):
     CLIENT_VPN_ENDPOINT = "client-vpn-endpoint"
     CUSTOMER_GATEWAY = "customer-gateway"
     DEDICATED_HOST = "dedicated-host"
@@ -260,9 +266,3 @@ class SpotFleetSpotFleetTagSpecificationResourceType(str, Enum):
     VPC_PEERING_CONNECTION = "vpc-peering-connection"
     VPN_CONNECTION = "vpn-connection"
     VPN_GATEWAY = "vpn-gateway"
-
-
-class SpotFleetSpotPlacementTenancy(str, Enum):
-    DEDICATED = "dedicated"
-    DEFAULT = "default"
-    HOST = "host"

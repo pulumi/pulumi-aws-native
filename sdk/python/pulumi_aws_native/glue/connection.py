@@ -16,7 +16,7 @@ __all__ = ['ConnectionArgs', 'Connection']
 class ConnectionArgs:
     def __init__(__self__, *,
                  catalog_id: pulumi.Input[str],
-                 connection_input: pulumi.Input['ConnectionConnectionInputArgs']):
+                 connection_input: pulumi.Input['ConnectionInputArgs']):
         """
         The set of arguments for constructing a Connection resource.
         """
@@ -34,11 +34,11 @@ class ConnectionArgs:
 
     @property
     @pulumi.getter(name="connectionInput")
-    def connection_input(self) -> pulumi.Input['ConnectionConnectionInputArgs']:
+    def connection_input(self) -> pulumi.Input['ConnectionInputArgs']:
         return pulumi.get(self, "connection_input")
 
     @connection_input.setter
-    def connection_input(self, value: pulumi.Input['ConnectionConnectionInputArgs']):
+    def connection_input(self, value: pulumi.Input['ConnectionInputArgs']):
         pulumi.set(self, "connection_input", value)
 
 
@@ -53,7 +53,7 @@ class Connection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
-                 connection_input: Optional[pulumi.Input[pulumi.InputType['ConnectionConnectionInputArgs']]] = None,
+                 connection_input: Optional[pulumi.Input[pulumi.InputType['ConnectionInputArgs']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Glue::Connection
@@ -86,7 +86,7 @@ class Connection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
-                 connection_input: Optional[pulumi.Input[pulumi.InputType['ConnectionConnectionInputArgs']]] = None,
+                 connection_input: Optional[pulumi.Input[pulumi.InputType['ConnectionInputArgs']]] = None,
                  __props__=None):
         pulumi.log.warn("""Connection is deprecated: Connection is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
@@ -139,6 +139,6 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionInput")
-    def connection_input(self) -> pulumi.Output['outputs.ConnectionConnectionInput']:
+    def connection_input(self) -> pulumi.Output['outputs.ConnectionInput']:
         return pulumi.get(self, "connection_input")
 

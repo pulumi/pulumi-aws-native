@@ -8,10 +8,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['GroupVersionArgs', 'GroupVersion']
+__all__ = ['GroupVersionInitArgs', 'GroupVersion']
 
 @pulumi.input_type
-class GroupVersionArgs:
+class GroupVersionInitArgs:
     def __init__(__self__, *,
                  group_id: pulumi.Input[str],
                  connector_definition_version_arn: Optional[pulumi.Input[str]] = None,
@@ -142,18 +142,18 @@ class GroupVersion(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: GroupVersionArgs,
+                 args: GroupVersionInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Greengrass::GroupVersion
 
         :param str resource_name: The name of the resource.
-        :param GroupVersionArgs args: The arguments to use to populate this resource's properties.
+        :param GroupVersionInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(GroupVersionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(GroupVersionInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -181,7 +181,7 @@ class GroupVersion(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = GroupVersionArgs.__new__(GroupVersionArgs)
+            __props__ = GroupVersionInitArgs.__new__(GroupVersionInitArgs)
 
             __props__.__dict__["connector_definition_version_arn"] = connector_definition_version_arn
             __props__.__dict__["core_definition_version_arn"] = core_definition_version_arn
@@ -213,7 +213,7 @@ class GroupVersion(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = GroupVersionArgs.__new__(GroupVersionArgs)
+        __props__ = GroupVersionInitArgs.__new__(GroupVersionInitArgs)
 
         __props__.__dict__["connector_definition_version_arn"] = None
         __props__.__dict__["core_definition_version_arn"] = None

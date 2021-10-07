@@ -10,12 +10,12 @@ from .. import _utilities
 
 __all__ = [
     'BackupPlanAdvancedBackupSettingResourceTypeArgs',
-    'BackupPlanBackupPlanResourceTypeArgs',
     'BackupPlanBackupRuleResourceTypeArgs',
     'BackupPlanCopyActionResourceTypeArgs',
     'BackupPlanLifecycleResourceTypeArgs',
-    'BackupSelectionBackupSelectionResourceTypeArgs',
+    'BackupPlanResourceTypeArgs',
     'BackupSelectionConditionResourceTypeArgs',
+    'BackupSelectionResourceTypeArgs',
     'BackupVaultLockConfigurationTypeArgs',
     'BackupVaultNotificationObjectTypeArgs',
 ]
@@ -45,45 +45,6 @@ class BackupPlanAdvancedBackupSettingResourceTypeArgs:
     @resource_type.setter
     def resource_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_type", value)
-
-
-@pulumi.input_type
-class BackupPlanBackupPlanResourceTypeArgs:
-    def __init__(__self__, *,
-                 backup_plan_name: pulumi.Input[str],
-                 backup_plan_rule: pulumi.Input[Sequence[pulumi.Input['BackupPlanBackupRuleResourceTypeArgs']]],
-                 advanced_backup_settings: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPlanAdvancedBackupSettingResourceTypeArgs']]]] = None):
-        pulumi.set(__self__, "backup_plan_name", backup_plan_name)
-        pulumi.set(__self__, "backup_plan_rule", backup_plan_rule)
-        if advanced_backup_settings is not None:
-            pulumi.set(__self__, "advanced_backup_settings", advanced_backup_settings)
-
-    @property
-    @pulumi.getter(name="backupPlanName")
-    def backup_plan_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "backup_plan_name")
-
-    @backup_plan_name.setter
-    def backup_plan_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "backup_plan_name", value)
-
-    @property
-    @pulumi.getter(name="backupPlanRule")
-    def backup_plan_rule(self) -> pulumi.Input[Sequence[pulumi.Input['BackupPlanBackupRuleResourceTypeArgs']]]:
-        return pulumi.get(self, "backup_plan_rule")
-
-    @backup_plan_rule.setter
-    def backup_plan_rule(self, value: pulumi.Input[Sequence[pulumi.Input['BackupPlanBackupRuleResourceTypeArgs']]]):
-        pulumi.set(self, "backup_plan_rule", value)
-
-    @property
-    @pulumi.getter(name="advancedBackupSettings")
-    def advanced_backup_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackupPlanAdvancedBackupSettingResourceTypeArgs']]]]:
-        return pulumi.get(self, "advanced_backup_settings")
-
-    @advanced_backup_settings.setter
-    def advanced_backup_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPlanAdvancedBackupSettingResourceTypeArgs']]]]):
-        pulumi.set(self, "advanced_backup_settings", value)
 
 
 @pulumi.input_type
@@ -255,7 +216,84 @@ class BackupPlanLifecycleResourceTypeArgs:
 
 
 @pulumi.input_type
-class BackupSelectionBackupSelectionResourceTypeArgs:
+class BackupPlanResourceTypeArgs:
+    def __init__(__self__, *,
+                 backup_plan_name: pulumi.Input[str],
+                 backup_plan_rule: pulumi.Input[Sequence[pulumi.Input['BackupPlanBackupRuleResourceTypeArgs']]],
+                 advanced_backup_settings: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPlanAdvancedBackupSettingResourceTypeArgs']]]] = None):
+        pulumi.set(__self__, "backup_plan_name", backup_plan_name)
+        pulumi.set(__self__, "backup_plan_rule", backup_plan_rule)
+        if advanced_backup_settings is not None:
+            pulumi.set(__self__, "advanced_backup_settings", advanced_backup_settings)
+
+    @property
+    @pulumi.getter(name="backupPlanName")
+    def backup_plan_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "backup_plan_name")
+
+    @backup_plan_name.setter
+    def backup_plan_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "backup_plan_name", value)
+
+    @property
+    @pulumi.getter(name="backupPlanRule")
+    def backup_plan_rule(self) -> pulumi.Input[Sequence[pulumi.Input['BackupPlanBackupRuleResourceTypeArgs']]]:
+        return pulumi.get(self, "backup_plan_rule")
+
+    @backup_plan_rule.setter
+    def backup_plan_rule(self, value: pulumi.Input[Sequence[pulumi.Input['BackupPlanBackupRuleResourceTypeArgs']]]):
+        pulumi.set(self, "backup_plan_rule", value)
+
+    @property
+    @pulumi.getter(name="advancedBackupSettings")
+    def advanced_backup_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackupPlanAdvancedBackupSettingResourceTypeArgs']]]]:
+        return pulumi.get(self, "advanced_backup_settings")
+
+    @advanced_backup_settings.setter
+    def advanced_backup_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPlanAdvancedBackupSettingResourceTypeArgs']]]]):
+        pulumi.set(self, "advanced_backup_settings", value)
+
+
+@pulumi.input_type
+class BackupSelectionConditionResourceTypeArgs:
+    def __init__(__self__, *,
+                 condition_key: pulumi.Input[str],
+                 condition_type: pulumi.Input[str],
+                 condition_value: pulumi.Input[str]):
+        pulumi.set(__self__, "condition_key", condition_key)
+        pulumi.set(__self__, "condition_type", condition_type)
+        pulumi.set(__self__, "condition_value", condition_value)
+
+    @property
+    @pulumi.getter(name="conditionKey")
+    def condition_key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "condition_key")
+
+    @condition_key.setter
+    def condition_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "condition_key", value)
+
+    @property
+    @pulumi.getter(name="conditionType")
+    def condition_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "condition_type")
+
+    @condition_type.setter
+    def condition_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "condition_type", value)
+
+    @property
+    @pulumi.getter(name="conditionValue")
+    def condition_value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "condition_value")
+
+    @condition_value.setter
+    def condition_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "condition_value", value)
+
+
+@pulumi.input_type
+class BackupSelectionResourceTypeArgs:
     def __init__(__self__, *,
                  iam_role_arn: pulumi.Input[str],
                  selection_name: pulumi.Input[str],
@@ -303,44 +341,6 @@ class BackupSelectionBackupSelectionResourceTypeArgs:
     @resources.setter
     def resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "resources", value)
-
-
-@pulumi.input_type
-class BackupSelectionConditionResourceTypeArgs:
-    def __init__(__self__, *,
-                 condition_key: pulumi.Input[str],
-                 condition_type: pulumi.Input[str],
-                 condition_value: pulumi.Input[str]):
-        pulumi.set(__self__, "condition_key", condition_key)
-        pulumi.set(__self__, "condition_type", condition_type)
-        pulumi.set(__self__, "condition_value", condition_value)
-
-    @property
-    @pulumi.getter(name="conditionKey")
-    def condition_key(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "condition_key")
-
-    @condition_key.setter
-    def condition_key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "condition_key", value)
-
-    @property
-    @pulumi.getter(name="conditionType")
-    def condition_type(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "condition_type")
-
-    @condition_type.setter
-    def condition_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "condition_type", value)
-
-    @property
-    @pulumi.getter(name="conditionValue")
-    def condition_value(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "condition_value")
-
-    @condition_value.setter
-    def condition_value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "condition_value", value)
 
 
 @pulumi.input_type

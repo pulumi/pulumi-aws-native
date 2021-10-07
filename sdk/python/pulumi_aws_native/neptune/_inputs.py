@@ -9,41 +9,13 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'DBClusterDBClusterRoleArgs',
     'DBClusterParameterGroupTagArgs',
+    'DBClusterRoleArgs',
     'DBClusterTagArgs',
     'DBInstanceTagArgs',
     'DBParameterGroupTagArgs',
     'DBSubnetGroupTagArgs',
 ]
-
-@pulumi.input_type
-class DBClusterDBClusterRoleArgs:
-    def __init__(__self__, *,
-                 role_arn: pulumi.Input[str],
-                 feature_name: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "role_arn", role_arn)
-        if feature_name is not None:
-            pulumi.set(__self__, "feature_name", feature_name)
-
-    @property
-    @pulumi.getter(name="roleArn")
-    def role_arn(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "role_arn")
-
-    @role_arn.setter
-    def role_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "role_arn", value)
-
-    @property
-    @pulumi.getter(name="featureName")
-    def feature_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "feature_name")
-
-    @feature_name.setter
-    def feature_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "feature_name", value)
-
 
 @pulumi.input_type
 class DBClusterParameterGroupTagArgs:
@@ -70,6 +42,34 @@ class DBClusterParameterGroupTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class DBClusterRoleArgs:
+    def __init__(__self__, *,
+                 role_arn: pulumi.Input[str],
+                 feature_name: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "role_arn", role_arn)
+        if feature_name is not None:
+            pulumi.set(__self__, "feature_name", feature_name)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="featureName")
+    def feature_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "feature_name")
+
+    @feature_name.setter
+    def feature_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "feature_name", value)
 
 
 @pulumi.input_type

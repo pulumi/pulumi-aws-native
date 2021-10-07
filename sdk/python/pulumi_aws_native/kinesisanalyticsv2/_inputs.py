@@ -9,14 +9,13 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ApplicationApplicationCodeConfigurationArgs',
-    'ApplicationApplicationConfigurationArgs',
-    'ApplicationApplicationSnapshotConfigurationArgs',
     'ApplicationCSVMappingParametersArgs',
     'ApplicationCatalogConfigurationArgs',
     'ApplicationCheckpointConfigurationArgs',
     'ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs',
+    'ApplicationCodeConfigurationArgs',
     'ApplicationCodeContentArgs',
+    'ApplicationConfigurationArgs',
     'ApplicationCustomArtifactsConfigurationArgs',
     'ApplicationDeployAsApplicationConfigurationArgs',
     'ApplicationEnvironmentPropertiesArgs',
@@ -51,131 +50,12 @@ __all__ = [
     'ApplicationReferenceDataSourceS3ReferenceDataSourceArgs',
     'ApplicationS3ContentBaseLocationArgs',
     'ApplicationS3ContentLocationArgs',
+    'ApplicationSnapshotConfigurationArgs',
     'ApplicationSqlApplicationConfigurationArgs',
     'ApplicationTagArgs',
     'ApplicationZeppelinApplicationConfigurationArgs',
     'ApplicationZeppelinMonitoringConfigurationArgs',
 ]
-
-@pulumi.input_type
-class ApplicationApplicationCodeConfigurationArgs:
-    def __init__(__self__, *,
-                 code_content: pulumi.Input['ApplicationCodeContentArgs'],
-                 code_content_type: pulumi.Input[str]):
-        pulumi.set(__self__, "code_content", code_content)
-        pulumi.set(__self__, "code_content_type", code_content_type)
-
-    @property
-    @pulumi.getter(name="codeContent")
-    def code_content(self) -> pulumi.Input['ApplicationCodeContentArgs']:
-        return pulumi.get(self, "code_content")
-
-    @code_content.setter
-    def code_content(self, value: pulumi.Input['ApplicationCodeContentArgs']):
-        pulumi.set(self, "code_content", value)
-
-    @property
-    @pulumi.getter(name="codeContentType")
-    def code_content_type(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "code_content_type")
-
-    @code_content_type.setter
-    def code_content_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "code_content_type", value)
-
-
-@pulumi.input_type
-class ApplicationApplicationConfigurationArgs:
-    def __init__(__self__, *,
-                 application_code_configuration: Optional[pulumi.Input['ApplicationApplicationCodeConfigurationArgs']] = None,
-                 application_snapshot_configuration: Optional[pulumi.Input['ApplicationApplicationSnapshotConfigurationArgs']] = None,
-                 environment_properties: Optional[pulumi.Input['ApplicationEnvironmentPropertiesArgs']] = None,
-                 flink_application_configuration: Optional[pulumi.Input['ApplicationFlinkApplicationConfigurationArgs']] = None,
-                 sql_application_configuration: Optional[pulumi.Input['ApplicationSqlApplicationConfigurationArgs']] = None,
-                 zeppelin_application_configuration: Optional[pulumi.Input['ApplicationZeppelinApplicationConfigurationArgs']] = None):
-        if application_code_configuration is not None:
-            pulumi.set(__self__, "application_code_configuration", application_code_configuration)
-        if application_snapshot_configuration is not None:
-            pulumi.set(__self__, "application_snapshot_configuration", application_snapshot_configuration)
-        if environment_properties is not None:
-            pulumi.set(__self__, "environment_properties", environment_properties)
-        if flink_application_configuration is not None:
-            pulumi.set(__self__, "flink_application_configuration", flink_application_configuration)
-        if sql_application_configuration is not None:
-            pulumi.set(__self__, "sql_application_configuration", sql_application_configuration)
-        if zeppelin_application_configuration is not None:
-            pulumi.set(__self__, "zeppelin_application_configuration", zeppelin_application_configuration)
-
-    @property
-    @pulumi.getter(name="applicationCodeConfiguration")
-    def application_code_configuration(self) -> Optional[pulumi.Input['ApplicationApplicationCodeConfigurationArgs']]:
-        return pulumi.get(self, "application_code_configuration")
-
-    @application_code_configuration.setter
-    def application_code_configuration(self, value: Optional[pulumi.Input['ApplicationApplicationCodeConfigurationArgs']]):
-        pulumi.set(self, "application_code_configuration", value)
-
-    @property
-    @pulumi.getter(name="applicationSnapshotConfiguration")
-    def application_snapshot_configuration(self) -> Optional[pulumi.Input['ApplicationApplicationSnapshotConfigurationArgs']]:
-        return pulumi.get(self, "application_snapshot_configuration")
-
-    @application_snapshot_configuration.setter
-    def application_snapshot_configuration(self, value: Optional[pulumi.Input['ApplicationApplicationSnapshotConfigurationArgs']]):
-        pulumi.set(self, "application_snapshot_configuration", value)
-
-    @property
-    @pulumi.getter(name="environmentProperties")
-    def environment_properties(self) -> Optional[pulumi.Input['ApplicationEnvironmentPropertiesArgs']]:
-        return pulumi.get(self, "environment_properties")
-
-    @environment_properties.setter
-    def environment_properties(self, value: Optional[pulumi.Input['ApplicationEnvironmentPropertiesArgs']]):
-        pulumi.set(self, "environment_properties", value)
-
-    @property
-    @pulumi.getter(name="flinkApplicationConfiguration")
-    def flink_application_configuration(self) -> Optional[pulumi.Input['ApplicationFlinkApplicationConfigurationArgs']]:
-        return pulumi.get(self, "flink_application_configuration")
-
-    @flink_application_configuration.setter
-    def flink_application_configuration(self, value: Optional[pulumi.Input['ApplicationFlinkApplicationConfigurationArgs']]):
-        pulumi.set(self, "flink_application_configuration", value)
-
-    @property
-    @pulumi.getter(name="sqlApplicationConfiguration")
-    def sql_application_configuration(self) -> Optional[pulumi.Input['ApplicationSqlApplicationConfigurationArgs']]:
-        return pulumi.get(self, "sql_application_configuration")
-
-    @sql_application_configuration.setter
-    def sql_application_configuration(self, value: Optional[pulumi.Input['ApplicationSqlApplicationConfigurationArgs']]):
-        pulumi.set(self, "sql_application_configuration", value)
-
-    @property
-    @pulumi.getter(name="zeppelinApplicationConfiguration")
-    def zeppelin_application_configuration(self) -> Optional[pulumi.Input['ApplicationZeppelinApplicationConfigurationArgs']]:
-        return pulumi.get(self, "zeppelin_application_configuration")
-
-    @zeppelin_application_configuration.setter
-    def zeppelin_application_configuration(self, value: Optional[pulumi.Input['ApplicationZeppelinApplicationConfigurationArgs']]):
-        pulumi.set(self, "zeppelin_application_configuration", value)
-
-
-@pulumi.input_type
-class ApplicationApplicationSnapshotConfigurationArgs:
-    def __init__(__self__, *,
-                 snapshots_enabled: pulumi.Input[bool]):
-        pulumi.set(__self__, "snapshots_enabled", snapshots_enabled)
-
-    @property
-    @pulumi.getter(name="snapshotsEnabled")
-    def snapshots_enabled(self) -> pulumi.Input[bool]:
-        return pulumi.get(self, "snapshots_enabled")
-
-    @snapshots_enabled.setter
-    def snapshots_enabled(self, value: pulumi.Input[bool]):
-        pulumi.set(self, "snapshots_enabled", value)
-
 
 @pulumi.input_type
 class ApplicationCSVMappingParametersArgs:
@@ -290,6 +170,33 @@ class ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs:
 
 
 @pulumi.input_type
+class ApplicationCodeConfigurationArgs:
+    def __init__(__self__, *,
+                 code_content: pulumi.Input['ApplicationCodeContentArgs'],
+                 code_content_type: pulumi.Input[str]):
+        pulumi.set(__self__, "code_content", code_content)
+        pulumi.set(__self__, "code_content_type", code_content_type)
+
+    @property
+    @pulumi.getter(name="codeContent")
+    def code_content(self) -> pulumi.Input['ApplicationCodeContentArgs']:
+        return pulumi.get(self, "code_content")
+
+    @code_content.setter
+    def code_content(self, value: pulumi.Input['ApplicationCodeContentArgs']):
+        pulumi.set(self, "code_content", value)
+
+    @property
+    @pulumi.getter(name="codeContentType")
+    def code_content_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "code_content_type")
+
+    @code_content_type.setter
+    def code_content_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "code_content_type", value)
+
+
+@pulumi.input_type
 class ApplicationCodeContentArgs:
     def __init__(__self__, *,
                  s3_content_location: Optional[pulumi.Input['ApplicationS3ContentLocationArgs']] = None,
@@ -328,6 +235,83 @@ class ApplicationCodeContentArgs:
     @zip_file_content.setter
     def zip_file_content(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "zip_file_content", value)
+
+
+@pulumi.input_type
+class ApplicationConfigurationArgs:
+    def __init__(__self__, *,
+                 application_code_configuration: Optional[pulumi.Input['ApplicationCodeConfigurationArgs']] = None,
+                 application_snapshot_configuration: Optional[pulumi.Input['ApplicationSnapshotConfigurationArgs']] = None,
+                 environment_properties: Optional[pulumi.Input['ApplicationEnvironmentPropertiesArgs']] = None,
+                 flink_application_configuration: Optional[pulumi.Input['ApplicationFlinkApplicationConfigurationArgs']] = None,
+                 sql_application_configuration: Optional[pulumi.Input['ApplicationSqlApplicationConfigurationArgs']] = None,
+                 zeppelin_application_configuration: Optional[pulumi.Input['ApplicationZeppelinApplicationConfigurationArgs']] = None):
+        if application_code_configuration is not None:
+            pulumi.set(__self__, "application_code_configuration", application_code_configuration)
+        if application_snapshot_configuration is not None:
+            pulumi.set(__self__, "application_snapshot_configuration", application_snapshot_configuration)
+        if environment_properties is not None:
+            pulumi.set(__self__, "environment_properties", environment_properties)
+        if flink_application_configuration is not None:
+            pulumi.set(__self__, "flink_application_configuration", flink_application_configuration)
+        if sql_application_configuration is not None:
+            pulumi.set(__self__, "sql_application_configuration", sql_application_configuration)
+        if zeppelin_application_configuration is not None:
+            pulumi.set(__self__, "zeppelin_application_configuration", zeppelin_application_configuration)
+
+    @property
+    @pulumi.getter(name="applicationCodeConfiguration")
+    def application_code_configuration(self) -> Optional[pulumi.Input['ApplicationCodeConfigurationArgs']]:
+        return pulumi.get(self, "application_code_configuration")
+
+    @application_code_configuration.setter
+    def application_code_configuration(self, value: Optional[pulumi.Input['ApplicationCodeConfigurationArgs']]):
+        pulumi.set(self, "application_code_configuration", value)
+
+    @property
+    @pulumi.getter(name="applicationSnapshotConfiguration")
+    def application_snapshot_configuration(self) -> Optional[pulumi.Input['ApplicationSnapshotConfigurationArgs']]:
+        return pulumi.get(self, "application_snapshot_configuration")
+
+    @application_snapshot_configuration.setter
+    def application_snapshot_configuration(self, value: Optional[pulumi.Input['ApplicationSnapshotConfigurationArgs']]):
+        pulumi.set(self, "application_snapshot_configuration", value)
+
+    @property
+    @pulumi.getter(name="environmentProperties")
+    def environment_properties(self) -> Optional[pulumi.Input['ApplicationEnvironmentPropertiesArgs']]:
+        return pulumi.get(self, "environment_properties")
+
+    @environment_properties.setter
+    def environment_properties(self, value: Optional[pulumi.Input['ApplicationEnvironmentPropertiesArgs']]):
+        pulumi.set(self, "environment_properties", value)
+
+    @property
+    @pulumi.getter(name="flinkApplicationConfiguration")
+    def flink_application_configuration(self) -> Optional[pulumi.Input['ApplicationFlinkApplicationConfigurationArgs']]:
+        return pulumi.get(self, "flink_application_configuration")
+
+    @flink_application_configuration.setter
+    def flink_application_configuration(self, value: Optional[pulumi.Input['ApplicationFlinkApplicationConfigurationArgs']]):
+        pulumi.set(self, "flink_application_configuration", value)
+
+    @property
+    @pulumi.getter(name="sqlApplicationConfiguration")
+    def sql_application_configuration(self) -> Optional[pulumi.Input['ApplicationSqlApplicationConfigurationArgs']]:
+        return pulumi.get(self, "sql_application_configuration")
+
+    @sql_application_configuration.setter
+    def sql_application_configuration(self, value: Optional[pulumi.Input['ApplicationSqlApplicationConfigurationArgs']]):
+        pulumi.set(self, "sql_application_configuration", value)
+
+    @property
+    @pulumi.getter(name="zeppelinApplicationConfiguration")
+    def zeppelin_application_configuration(self) -> Optional[pulumi.Input['ApplicationZeppelinApplicationConfigurationArgs']]:
+        return pulumi.get(self, "zeppelin_application_configuration")
+
+    @zeppelin_application_configuration.setter
+    def zeppelin_application_configuration(self, value: Optional[pulumi.Input['ApplicationZeppelinApplicationConfigurationArgs']]):
+        pulumi.set(self, "zeppelin_application_configuration", value)
 
 
 @pulumi.input_type
@@ -1296,6 +1280,22 @@ class ApplicationS3ContentLocationArgs:
     @object_version.setter
     def object_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "object_version", value)
+
+
+@pulumi.input_type
+class ApplicationSnapshotConfigurationArgs:
+    def __init__(__self__, *,
+                 snapshots_enabled: pulumi.Input[bool]):
+        pulumi.set(__self__, "snapshots_enabled", snapshots_enabled)
+
+    @property
+    @pulumi.getter(name="snapshotsEnabled")
+    def snapshots_enabled(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "snapshots_enabled")
+
+    @snapshots_enabled.setter
+    def snapshots_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "snapshots_enabled", value)
 
 
 @pulumi.input_type

@@ -16,7 +16,7 @@ __all__ = ['RecipeArgs', 'Recipe']
 class RecipeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 steps: pulumi.Input[Sequence[pulumi.Input['RecipeRecipeStepArgs']]],
+                 steps: pulumi.Input[Sequence[pulumi.Input['RecipeStepArgs']]],
                  description: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['RecipeTagArgs']]]] = None):
         """
@@ -45,11 +45,11 @@ class RecipeArgs:
 
     @property
     @pulumi.getter
-    def steps(self) -> pulumi.Input[Sequence[pulumi.Input['RecipeRecipeStepArgs']]]:
+    def steps(self) -> pulumi.Input[Sequence[pulumi.Input['RecipeStepArgs']]]:
         return pulumi.get(self, "steps")
 
     @steps.setter
-    def steps(self, value: pulumi.Input[Sequence[pulumi.Input['RecipeRecipeStepArgs']]]):
+    def steps(self, value: pulumi.Input[Sequence[pulumi.Input['RecipeStepArgs']]]):
         pulumi.set(self, "steps", value)
 
     @property
@@ -81,7 +81,7 @@ class Recipe(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecipeRecipeStepArgs']]]]] = None,
+                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecipeStepArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecipeTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -118,7 +118,7 @@ class Recipe(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecipeRecipeStepArgs']]]]] = None,
+                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecipeStepArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecipeTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -186,7 +186,7 @@ class Recipe(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def steps(self) -> pulumi.Output[Sequence['outputs.RecipeRecipeStep']]:
+    def steps(self) -> pulumi.Output[Sequence['outputs.RecipeStep']]:
         return pulumi.get(self, "steps")
 
     @property

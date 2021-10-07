@@ -16,7 +16,7 @@ __all__ = ['ConnectorDefinitionArgs', 'ConnectorDefinition']
 class ConnectorDefinitionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 initial_version: Optional[pulumi.Input['ConnectorDefinitionConnectorDefinitionVersionArgs']] = None,
+                 initial_version: Optional[pulumi.Input['ConnectorDefinitionVersionArgs']] = None,
                  tags: Optional[Any] = None):
         """
         The set of arguments for constructing a ConnectorDefinition resource.
@@ -38,11 +38,11 @@ class ConnectorDefinitionArgs:
 
     @property
     @pulumi.getter(name="initialVersion")
-    def initial_version(self) -> Optional[pulumi.Input['ConnectorDefinitionConnectorDefinitionVersionArgs']]:
+    def initial_version(self) -> Optional[pulumi.Input['ConnectorDefinitionVersionArgs']]:
         return pulumi.get(self, "initial_version")
 
     @initial_version.setter
-    def initial_version(self, value: Optional[pulumi.Input['ConnectorDefinitionConnectorDefinitionVersionArgs']]):
+    def initial_version(self, value: Optional[pulumi.Input['ConnectorDefinitionVersionArgs']]):
         pulumi.set(self, "initial_version", value)
 
     @property
@@ -65,7 +65,7 @@ class ConnectorDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 initial_version: Optional[pulumi.Input[pulumi.InputType['ConnectorDefinitionConnectorDefinitionVersionArgs']]] = None,
+                 initial_version: Optional[pulumi.Input[pulumi.InputType['ConnectorDefinitionVersionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
@@ -99,7 +99,7 @@ class ConnectorDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 initial_version: Optional[pulumi.Input[pulumi.InputType['ConnectorDefinitionConnectorDefinitionVersionArgs']]] = None,
+                 initial_version: Optional[pulumi.Input[pulumi.InputType['ConnectorDefinitionVersionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
@@ -158,7 +158,7 @@ class ConnectorDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="initialVersion")
-    def initial_version(self) -> pulumi.Output[Optional['outputs.ConnectorDefinitionConnectorDefinitionVersion']]:
+    def initial_version(self) -> pulumi.Output[Optional['outputs.ConnectorDefinitionVersion']]:
         return pulumi.get(self, "initial_version")
 
     @property

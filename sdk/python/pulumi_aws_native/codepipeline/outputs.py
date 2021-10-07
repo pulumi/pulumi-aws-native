@@ -25,8 +25,8 @@ __all__ = [
     'PipelineStageDeclaration',
     'PipelineStageTransition',
     'PipelineTag',
-    'WebhookWebhookAuthConfiguration',
-    'WebhookWebhookFilterRule',
+    'WebhookAuthConfiguration',
+    'WebhookFilterRule',
 ]
 
 @pulumi.output_type
@@ -561,7 +561,7 @@ class PipelineTag(dict):
 
 
 @pulumi.output_type
-class WebhookWebhookAuthConfiguration(dict):
+class WebhookAuthConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -571,14 +571,14 @@ class WebhookWebhookAuthConfiguration(dict):
             suggest = "secret_token"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebhookWebhookAuthConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebhookAuthConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebhookWebhookAuthConfiguration.__key_warning(key)
+        WebhookAuthConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebhookWebhookAuthConfiguration.__key_warning(key)
+        WebhookAuthConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -601,7 +601,7 @@ class WebhookWebhookAuthConfiguration(dict):
 
 
 @pulumi.output_type
-class WebhookWebhookFilterRule(dict):
+class WebhookFilterRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -611,14 +611,14 @@ class WebhookWebhookFilterRule(dict):
             suggest = "match_equals"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebhookWebhookFilterRule. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WebhookFilterRule. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WebhookWebhookFilterRule.__key_warning(key)
+        WebhookFilterRule.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WebhookWebhookFilterRule.__key_warning(key)
+        WebhookFilterRule.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

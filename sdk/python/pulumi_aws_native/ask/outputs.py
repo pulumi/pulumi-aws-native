@@ -12,7 +12,7 @@ from . import outputs
 __all__ = [
     'SkillAuthenticationConfiguration',
     'SkillOverrides',
-    'SkillSkillPackage',
+    'SkillPackage',
 ]
 
 @pulumi.output_type
@@ -76,7 +76,7 @@ class SkillOverrides(dict):
 
 
 @pulumi.output_type
-class SkillSkillPackage(dict):
+class SkillPackage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -90,14 +90,14 @@ class SkillSkillPackage(dict):
             suggest = "s3_object_version"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SkillSkillPackage. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SkillPackage. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        SkillSkillPackage.__key_warning(key)
+        SkillPackage.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        SkillSkillPackage.__key_warning(key)
+        SkillPackage.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

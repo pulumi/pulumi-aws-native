@@ -16,7 +16,7 @@ __all__ = ['GatewayRouteArgs', 'GatewayRoute']
 class GatewayRouteArgs:
     def __init__(__self__, *,
                  mesh_name: pulumi.Input[str],
-                 spec: pulumi.Input['GatewayRouteGatewayRouteSpecArgs'],
+                 spec: pulumi.Input['GatewayRouteSpecArgs'],
                  virtual_gateway_name: pulumi.Input[str],
                  gateway_route_name: Optional[pulumi.Input[str]] = None,
                  mesh_owner: Optional[pulumi.Input[str]] = None,
@@ -45,11 +45,11 @@ class GatewayRouteArgs:
 
     @property
     @pulumi.getter
-    def spec(self) -> pulumi.Input['GatewayRouteGatewayRouteSpecArgs']:
+    def spec(self) -> pulumi.Input['GatewayRouteSpecArgs']:
         return pulumi.get(self, "spec")
 
     @spec.setter
-    def spec(self, value: pulumi.Input['GatewayRouteGatewayRouteSpecArgs']):
+    def spec(self, value: pulumi.Input['GatewayRouteSpecArgs']):
         pulumi.set(self, "spec", value)
 
     @property
@@ -102,7 +102,7 @@ class GatewayRoute(pulumi.CustomResource):
                  gateway_route_name: Optional[pulumi.Input[str]] = None,
                  mesh_name: Optional[pulumi.Input[str]] = None,
                  mesh_owner: Optional[pulumi.Input[str]] = None,
-                 spec: Optional[pulumi.Input[pulumi.InputType['GatewayRouteGatewayRouteSpecArgs']]] = None,
+                 spec: Optional[pulumi.Input[pulumi.InputType['GatewayRouteSpecArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayRouteTagArgs']]]]] = None,
                  virtual_gateway_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -139,7 +139,7 @@ class GatewayRoute(pulumi.CustomResource):
                  gateway_route_name: Optional[pulumi.Input[str]] = None,
                  mesh_name: Optional[pulumi.Input[str]] = None,
                  mesh_owner: Optional[pulumi.Input[str]] = None,
-                 spec: Optional[pulumi.Input[pulumi.InputType['GatewayRouteGatewayRouteSpecArgs']]] = None,
+                 spec: Optional[pulumi.Input[pulumi.InputType['GatewayRouteSpecArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayRouteTagArgs']]]]] = None,
                  virtual_gateway_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -230,7 +230,7 @@ class GatewayRoute(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def spec(self) -> pulumi.Output['outputs.GatewayRouteGatewayRouteSpec']:
+    def spec(self) -> pulumi.Output['outputs.GatewayRouteSpec']:
         return pulumi.get(self, "spec")
 
     @property

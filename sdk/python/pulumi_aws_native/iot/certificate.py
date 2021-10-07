@@ -16,7 +16,7 @@ class CertificateArgs:
     def __init__(__self__, *,
                  status: pulumi.Input['CertificateStatus'],
                  c_a_certificate_pem: Optional[pulumi.Input[str]] = None,
-                 certificate_mode: Optional[pulumi.Input['CertificateCertificateMode']] = None,
+                 certificate_mode: Optional[pulumi.Input['CertificateMode']] = None,
                  certificate_pem: Optional[pulumi.Input[str]] = None,
                  certificate_signing_request: Optional[pulumi.Input[str]] = None):
         """
@@ -52,11 +52,11 @@ class CertificateArgs:
 
     @property
     @pulumi.getter(name="certificateMode")
-    def certificate_mode(self) -> Optional[pulumi.Input['CertificateCertificateMode']]:
+    def certificate_mode(self) -> Optional[pulumi.Input['CertificateMode']]:
         return pulumi.get(self, "certificate_mode")
 
     @certificate_mode.setter
-    def certificate_mode(self, value: Optional[pulumi.Input['CertificateCertificateMode']]):
+    def certificate_mode(self, value: Optional[pulumi.Input['CertificateMode']]):
         pulumi.set(self, "certificate_mode", value)
 
     @property
@@ -84,7 +84,7 @@ class Certificate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  c_a_certificate_pem: Optional[pulumi.Input[str]] = None,
-                 certificate_mode: Optional[pulumi.Input['CertificateCertificateMode']] = None,
+                 certificate_mode: Optional[pulumi.Input['CertificateMode']] = None,
                  certificate_pem: Optional[pulumi.Input[str]] = None,
                  certificate_signing_request: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['CertificateStatus']] = None,
@@ -120,7 +120,7 @@ class Certificate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  c_a_certificate_pem: Optional[pulumi.Input[str]] = None,
-                 certificate_mode: Optional[pulumi.Input['CertificateCertificateMode']] = None,
+                 certificate_mode: Optional[pulumi.Input['CertificateMode']] = None,
                  certificate_pem: Optional[pulumi.Input[str]] = None,
                  certificate_signing_request: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['CertificateStatus']] = None,
@@ -186,7 +186,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateMode")
-    def certificate_mode(self) -> pulumi.Output[Optional['CertificateCertificateMode']]:
+    def certificate_mode(self) -> pulumi.Output[Optional['CertificateMode']]:
         return pulumi.get(self, "certificate_mode")
 
     @property

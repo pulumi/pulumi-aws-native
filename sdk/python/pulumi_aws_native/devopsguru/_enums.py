@@ -5,11 +5,11 @@
 from enum import Enum
 
 __all__ = [
-    'ResourceCollectionResourceCollectionType',
+    'ResourceCollectionType',
 ]
 
 
-class ResourceCollectionResourceCollectionType(str, Enum):
+class ResourceCollectionType(str, Enum):
     """
     The type of ResourceCollection
     """

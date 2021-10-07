@@ -16,7 +16,7 @@ __all__ = ['ChannelArgs', 'Channel']
 class ChannelArgs:
     def __init__(__self__, *,
                  channel_name: Optional[pulumi.Input[str]] = None,
-                 channel_storage: Optional[pulumi.Input['ChannelChannelStorageArgs']] = None,
+                 channel_storage: Optional[pulumi.Input['ChannelStorageArgs']] = None,
                  retention_period: Optional[pulumi.Input['ChannelRetentionPeriodArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]]] = None):
         """
@@ -42,11 +42,11 @@ class ChannelArgs:
 
     @property
     @pulumi.getter(name="channelStorage")
-    def channel_storage(self) -> Optional[pulumi.Input['ChannelChannelStorageArgs']]:
+    def channel_storage(self) -> Optional[pulumi.Input['ChannelStorageArgs']]:
         return pulumi.get(self, "channel_storage")
 
     @channel_storage.setter
-    def channel_storage(self, value: Optional[pulumi.Input['ChannelChannelStorageArgs']]):
+    def channel_storage(self, value: Optional[pulumi.Input['ChannelStorageArgs']]):
         pulumi.set(self, "channel_storage", value)
 
     @property
@@ -79,7 +79,7 @@ class Channel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  channel_name: Optional[pulumi.Input[str]] = None,
-                 channel_storage: Optional[pulumi.Input[pulumi.InputType['ChannelChannelStorageArgs']]] = None,
+                 channel_storage: Optional[pulumi.Input[pulumi.InputType['ChannelStorageArgs']]] = None,
                  retention_period: Optional[pulumi.Input[pulumi.InputType['ChannelRetentionPeriodArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelTagArgs']]]]] = None,
                  __props__=None):
@@ -114,7 +114,7 @@ class Channel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  channel_name: Optional[pulumi.Input[str]] = None,
-                 channel_storage: Optional[pulumi.Input[pulumi.InputType['ChannelChannelStorageArgs']]] = None,
+                 channel_storage: Optional[pulumi.Input[pulumi.InputType['ChannelStorageArgs']]] = None,
                  retention_period: Optional[pulumi.Input[pulumi.InputType['ChannelRetentionPeriodArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelTagArgs']]]]] = None,
                  __props__=None):
@@ -169,7 +169,7 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="channelStorage")
-    def channel_storage(self) -> pulumi.Output[Optional['outputs.ChannelChannelStorage']]:
+    def channel_storage(self) -> pulumi.Output[Optional['outputs.ChannelStorage']]:
         return pulumi.get(self, "channel_storage")
 
     @property

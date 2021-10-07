@@ -5,12 +5,12 @@
 from enum import Enum
 
 __all__ = [
-    'ConnectionAliasConnectionAliasAssociationAssociationStatus',
-    'ConnectionAliasConnectionAliasState',
+    'ConnectionAliasAssociationAssociationStatus',
+    'ConnectionAliasState',
 ]
 
 
-class ConnectionAliasConnectionAliasAssociationAssociationStatus(str, Enum):
+class ConnectionAliasAssociationAssociationStatus(str, Enum):
     NOT_ASSOCIATED = "NOT_ASSOCIATED"
     PENDING_ASSOCIATION = "PENDING_ASSOCIATION"
     ASSOCIATED_WITH_OWNER_ACCOUNT = "ASSOCIATED_WITH_OWNER_ACCOUNT"
@@ -18,7 +18,7 @@ class ConnectionAliasConnectionAliasAssociationAssociationStatus(str, Enum):
     PENDING_DISASSOCIATION = "PENDING_DISASSOCIATION"
 
 
-class ConnectionAliasConnectionAliasState(str, Enum):
+class ConnectionAliasState(str, Enum):
     CREATING = "CREATING"
     CREATED = "CREATED"
     DELETING = "DELETING"

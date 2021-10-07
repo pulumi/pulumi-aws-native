@@ -11,8 +11,8 @@ from ._enums import *
 
 __all__ = [
     'ContactChannelTargetInfoArgs',
-    'ContactContactTargetInfoArgs',
     'ContactStageArgs',
+    'ContactTargetInfoArgs',
     'ContactTargetsArgs',
 ]
 
@@ -55,44 +55,6 @@ class ContactChannelTargetInfoArgs:
 
 
 @pulumi.input_type
-class ContactContactTargetInfoArgs:
-    def __init__(__self__, *,
-                 contact_id: pulumi.Input[str],
-                 is_essential: pulumi.Input[bool]):
-        """
-        The contact that SSM Incident Manager is engaging during an incident.
-        :param pulumi.Input[str] contact_id: The Amazon Resource Name (ARN) of the contact.
-        :param pulumi.Input[bool] is_essential: A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
-        """
-        pulumi.set(__self__, "contact_id", contact_id)
-        pulumi.set(__self__, "is_essential", is_essential)
-
-    @property
-    @pulumi.getter(name="contactId")
-    def contact_id(self) -> pulumi.Input[str]:
-        """
-        The Amazon Resource Name (ARN) of the contact.
-        """
-        return pulumi.get(self, "contact_id")
-
-    @contact_id.setter
-    def contact_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "contact_id", value)
-
-    @property
-    @pulumi.getter(name="isEssential")
-    def is_essential(self) -> pulumi.Input[bool]:
-        """
-        A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
-        """
-        return pulumi.get(self, "is_essential")
-
-    @is_essential.setter
-    def is_essential(self, value: pulumi.Input[bool]):
-        pulumi.set(self, "is_essential", value)
-
-
-@pulumi.input_type
 class ContactStageArgs:
     def __init__(__self__, *,
                  duration_in_minutes: pulumi.Input[int],
@@ -132,10 +94,48 @@ class ContactStageArgs:
 
 
 @pulumi.input_type
+class ContactTargetInfoArgs:
+    def __init__(__self__, *,
+                 contact_id: pulumi.Input[str],
+                 is_essential: pulumi.Input[bool]):
+        """
+        The contact that SSM Incident Manager is engaging during an incident.
+        :param pulumi.Input[str] contact_id: The Amazon Resource Name (ARN) of the contact.
+        :param pulumi.Input[bool] is_essential: A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
+        """
+        pulumi.set(__self__, "contact_id", contact_id)
+        pulumi.set(__self__, "is_essential", is_essential)
+
+    @property
+    @pulumi.getter(name="contactId")
+    def contact_id(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the contact.
+        """
+        return pulumi.get(self, "contact_id")
+
+    @contact_id.setter
+    def contact_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "contact_id", value)
+
+    @property
+    @pulumi.getter(name="isEssential")
+    def is_essential(self) -> pulumi.Input[bool]:
+        """
+        A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
+        """
+        return pulumi.get(self, "is_essential")
+
+    @is_essential.setter
+    def is_essential(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "is_essential", value)
+
+
+@pulumi.input_type
 class ContactTargetsArgs:
     def __init__(__self__, *,
                  channel_target_info: Optional[pulumi.Input['ContactChannelTargetInfoArgs']] = None,
-                 contact_target_info: Optional[pulumi.Input['ContactContactTargetInfoArgs']] = None):
+                 contact_target_info: Optional[pulumi.Input['ContactTargetInfoArgs']] = None):
         """
         The contacts or contact methods that the escalation plan or engagement plan is engaging.
         """
@@ -155,11 +155,11 @@ class ContactTargetsArgs:
 
     @property
     @pulumi.getter(name="contactTargetInfo")
-    def contact_target_info(self) -> Optional[pulumi.Input['ContactContactTargetInfoArgs']]:
+    def contact_target_info(self) -> Optional[pulumi.Input['ContactTargetInfoArgs']]:
         return pulumi.get(self, "contact_target_info")
 
     @contact_target_info.setter
-    def contact_target_info(self, value: Optional[pulumi.Input['ContactContactTargetInfoArgs']]):
+    def contact_target_info(self, value: Optional[pulumi.Input['ContactTargetInfoArgs']]):
         pulumi.set(self, "contact_target_info", value)
 
 

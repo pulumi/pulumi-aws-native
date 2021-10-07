@@ -14,7 +14,7 @@ __all__ = [
     'AssociationS3OutputLocationArgs',
     'AssociationTargetArgs',
     'DocumentAttachmentsSourceArgs',
-    'DocumentDocumentRequiresArgs',
+    'DocumentRequiresArgs',
     'DocumentTagArgs',
     'MaintenanceWindowTagArgs',
     'MaintenanceWindowTargetTargetsArgs',
@@ -179,7 +179,7 @@ class DocumentAttachmentsSourceArgs:
 
 
 @pulumi.input_type
-class DocumentDocumentRequiresArgs:
+class DocumentRequiresArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):

@@ -155,12 +155,12 @@ __all__ = [
     'ChannelVpcOutputSettings',
     'ChannelWavSettings',
     'ChannelWebvttDestinationSettings',
-    'InputInputDestinationRequest',
-    'InputInputDeviceSettings',
-    'InputInputSourceRequest',
-    'InputInputVpcRequest',
+    'InputDestinationRequest',
+    'InputDeviceSettings',
     'InputMediaConnectFlowRequest',
     'InputSecurityGroupInputWhitelistRuleCidr',
+    'InputSourceRequest',
+    'InputVpcRequest',
 ]
 
 @pulumi.output_type
@@ -8835,7 +8835,7 @@ class ChannelWebvttDestinationSettings(dict):
 
 
 @pulumi.output_type
-class InputInputDestinationRequest(dict):
+class InputDestinationRequest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8843,14 +8843,14 @@ class InputInputDestinationRequest(dict):
             suggest = "stream_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in InputInputDestinationRequest. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in InputDestinationRequest. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        InputInputDestinationRequest.__key_warning(key)
+        InputDestinationRequest.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        InputInputDestinationRequest.__key_warning(key)
+        InputDestinationRequest.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -8865,7 +8865,7 @@ class InputInputDestinationRequest(dict):
 
 
 @pulumi.output_type
-class InputInputDeviceSettings(dict):
+class InputDeviceSettings(dict):
     def __init__(__self__, *,
                  id: Optional[str] = None):
         if id is not None:
@@ -8875,92 +8875,6 @@ class InputInputDeviceSettings(dict):
     @pulumi.getter
     def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class InputInputSourceRequest(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "passwordParam":
-            suggest = "password_param"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in InputInputSourceRequest. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        InputInputSourceRequest.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        InputInputSourceRequest.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 password_param: Optional[str] = None,
-                 url: Optional[str] = None,
-                 username: Optional[str] = None):
-        if password_param is not None:
-            pulumi.set(__self__, "password_param", password_param)
-        if url is not None:
-            pulumi.set(__self__, "url", url)
-        if username is not None:
-            pulumi.set(__self__, "username", username)
-
-    @property
-    @pulumi.getter(name="passwordParam")
-    def password_param(self) -> Optional[str]:
-        return pulumi.get(self, "password_param")
-
-    @property
-    @pulumi.getter
-    def url(self) -> Optional[str]:
-        return pulumi.get(self, "url")
-
-    @property
-    @pulumi.getter
-    def username(self) -> Optional[str]:
-        return pulumi.get(self, "username")
-
-
-@pulumi.output_type
-class InputInputVpcRequest(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "securityGroupIds":
-            suggest = "security_group_ids"
-        elif key == "subnetIds":
-            suggest = "subnet_ids"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in InputInputVpcRequest. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        InputInputVpcRequest.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        InputInputVpcRequest.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 security_group_ids: Optional[Sequence[str]] = None,
-                 subnet_ids: Optional[Sequence[str]] = None):
-        if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
-        if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
-
-    @property
-    @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "security_group_ids")
-
-    @property
-    @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "subnet_ids")
 
 
 @pulumi.output_type
@@ -9004,5 +8918,91 @@ class InputSecurityGroupInputWhitelistRuleCidr(dict):
     @pulumi.getter
     def cidr(self) -> Optional[str]:
         return pulumi.get(self, "cidr")
+
+
+@pulumi.output_type
+class InputSourceRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "passwordParam":
+            suggest = "password_param"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InputSourceRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InputSourceRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InputSourceRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 password_param: Optional[str] = None,
+                 url: Optional[str] = None,
+                 username: Optional[str] = None):
+        if password_param is not None:
+            pulumi.set(__self__, "password_param", password_param)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter(name="passwordParam")
+    def password_param(self) -> Optional[str]:
+        return pulumi.get(self, "password_param")
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[str]:
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class InputVpcRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InputVpcRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InputVpcRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InputVpcRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_group_ids: Optional[Sequence[str]] = None,
+                 subnet_ids: Optional[Sequence[str]] = None):
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "security_group_ids")
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "subnet_ids")
 
 

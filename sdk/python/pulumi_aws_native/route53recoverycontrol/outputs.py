@@ -10,14 +10,14 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'ClusterClusterEndpoint',
+    'ClusterEndpoint',
     'SafetyRuleAssertionRule',
     'SafetyRuleGatingRule',
     'SafetyRuleRuleConfig',
 ]
 
 @pulumi.output_type
-class ClusterClusterEndpoint(dict):
+class ClusterEndpoint(dict):
     def __init__(__self__, *,
                  endpoint: Optional[str] = None,
                  region: Optional[str] = None):

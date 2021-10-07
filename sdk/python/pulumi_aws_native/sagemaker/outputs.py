@@ -34,7 +34,7 @@ __all__ = [
     'DataQualityJobDefinitionStoppingCondition',
     'DataQualityJobDefinitionTag',
     'DataQualityJobDefinitionVpcConfig',
-    'DeviceDevice',
+    'Device',
     'DeviceFleetEdgeOutputConfig',
     'DeviceFleetTag',
     'DeviceTag',
@@ -119,6 +119,7 @@ __all__ = [
     'ModelVpcConfig',
     'MonitoringScheduleBaselineConfig',
     'MonitoringScheduleClusterConfig',
+    'MonitoringScheduleConfig',
     'MonitoringScheduleConstraintsResource',
     'MonitoringScheduleEndpointInput',
     'MonitoringScheduleMonitoringAppSpecification',
@@ -128,7 +129,6 @@ __all__ = [
     'MonitoringScheduleMonitoringOutput',
     'MonitoringScheduleMonitoringOutputConfig',
     'MonitoringScheduleMonitoringResources',
-    'MonitoringScheduleMonitoringScheduleConfig',
     'MonitoringScheduleNetworkConfig',
     'MonitoringScheduleS3Output',
     'MonitoringScheduleScheduleConfig',
@@ -1298,7 +1298,7 @@ class DataQualityJobDefinitionVpcConfig(dict):
 
 
 @pulumi.output_type
-class DeviceDevice(dict):
+class Device(dict):
     """
     Edge device you want to create
     """
@@ -1311,14 +1311,14 @@ class DeviceDevice(dict):
             suggest = "iot_thing_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DeviceDevice. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in Device. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DeviceDevice.__key_warning(key)
+        Device.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DeviceDevice.__key_warning(key)
+        Device.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -5513,6 +5513,76 @@ class MonitoringScheduleClusterConfig(dict):
 
 
 @pulumi.output_type
+class MonitoringScheduleConfig(dict):
+    """
+    The configuration object that specifies the monitoring schedule and defines the monitoring job.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "monitoringJobDefinition":
+            suggest = "monitoring_job_definition"
+        elif key == "monitoringJobDefinitionName":
+            suggest = "monitoring_job_definition_name"
+        elif key == "monitoringType":
+            suggest = "monitoring_type"
+        elif key == "scheduleConfig":
+            suggest = "schedule_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 monitoring_job_definition: Optional['outputs.MonitoringScheduleMonitoringJobDefinition'] = None,
+                 monitoring_job_definition_name: Optional[str] = None,
+                 monitoring_type: Optional['MonitoringScheduleMonitoringType'] = None,
+                 schedule_config: Optional['outputs.MonitoringScheduleScheduleConfig'] = None):
+        """
+        The configuration object that specifies the monitoring schedule and defines the monitoring job.
+        :param str monitoring_job_definition_name: Name of the job definition
+        """
+        if monitoring_job_definition is not None:
+            pulumi.set(__self__, "monitoring_job_definition", monitoring_job_definition)
+        if monitoring_job_definition_name is not None:
+            pulumi.set(__self__, "monitoring_job_definition_name", monitoring_job_definition_name)
+        if monitoring_type is not None:
+            pulumi.set(__self__, "monitoring_type", monitoring_type)
+        if schedule_config is not None:
+            pulumi.set(__self__, "schedule_config", schedule_config)
+
+    @property
+    @pulumi.getter(name="monitoringJobDefinition")
+    def monitoring_job_definition(self) -> Optional['outputs.MonitoringScheduleMonitoringJobDefinition']:
+        return pulumi.get(self, "monitoring_job_definition")
+
+    @property
+    @pulumi.getter(name="monitoringJobDefinitionName")
+    def monitoring_job_definition_name(self) -> Optional[str]:
+        """
+        Name of the job definition
+        """
+        return pulumi.get(self, "monitoring_job_definition_name")
+
+    @property
+    @pulumi.getter(name="monitoringType")
+    def monitoring_type(self) -> Optional['MonitoringScheduleMonitoringType']:
+        return pulumi.get(self, "monitoring_type")
+
+    @property
+    @pulumi.getter(name="scheduleConfig")
+    def schedule_config(self) -> Optional['outputs.MonitoringScheduleScheduleConfig']:
+        return pulumi.get(self, "schedule_config")
+
+
+@pulumi.output_type
 class MonitoringScheduleConstraintsResource(dict):
     """
     The baseline constraints resource for a monitoring job.
@@ -6121,76 +6191,6 @@ class MonitoringScheduleMonitoringResources(dict):
     @pulumi.getter(name="clusterConfig")
     def cluster_config(self) -> 'outputs.MonitoringScheduleClusterConfig':
         return pulumi.get(self, "cluster_config")
-
-
-@pulumi.output_type
-class MonitoringScheduleMonitoringScheduleConfig(dict):
-    """
-    The configuration object that specifies the monitoring schedule and defines the monitoring job.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "monitoringJobDefinition":
-            suggest = "monitoring_job_definition"
-        elif key == "monitoringJobDefinitionName":
-            suggest = "monitoring_job_definition_name"
-        elif key == "monitoringType":
-            suggest = "monitoring_type"
-        elif key == "scheduleConfig":
-            suggest = "schedule_config"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleMonitoringScheduleConfig. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MonitoringScheduleMonitoringScheduleConfig.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MonitoringScheduleMonitoringScheduleConfig.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 monitoring_job_definition: Optional['outputs.MonitoringScheduleMonitoringJobDefinition'] = None,
-                 monitoring_job_definition_name: Optional[str] = None,
-                 monitoring_type: Optional['MonitoringScheduleMonitoringType'] = None,
-                 schedule_config: Optional['outputs.MonitoringScheduleScheduleConfig'] = None):
-        """
-        The configuration object that specifies the monitoring schedule and defines the monitoring job.
-        :param str monitoring_job_definition_name: Name of the job definition
-        """
-        if monitoring_job_definition is not None:
-            pulumi.set(__self__, "monitoring_job_definition", monitoring_job_definition)
-        if monitoring_job_definition_name is not None:
-            pulumi.set(__self__, "monitoring_job_definition_name", monitoring_job_definition_name)
-        if monitoring_type is not None:
-            pulumi.set(__self__, "monitoring_type", monitoring_type)
-        if schedule_config is not None:
-            pulumi.set(__self__, "schedule_config", schedule_config)
-
-    @property
-    @pulumi.getter(name="monitoringJobDefinition")
-    def monitoring_job_definition(self) -> Optional['outputs.MonitoringScheduleMonitoringJobDefinition']:
-        return pulumi.get(self, "monitoring_job_definition")
-
-    @property
-    @pulumi.getter(name="monitoringJobDefinitionName")
-    def monitoring_job_definition_name(self) -> Optional[str]:
-        """
-        Name of the job definition
-        """
-        return pulumi.get(self, "monitoring_job_definition_name")
-
-    @property
-    @pulumi.getter(name="monitoringType")
-    def monitoring_type(self) -> Optional['MonitoringScheduleMonitoringType']:
-        return pulumi.get(self, "monitoring_type")
-
-    @property
-    @pulumi.getter(name="scheduleConfig")
-    def schedule_config(self) -> Optional['outputs.MonitoringScheduleScheduleConfig']:
-        return pulumi.get(self, "schedule_config")
 
 
 @pulumi.output_type

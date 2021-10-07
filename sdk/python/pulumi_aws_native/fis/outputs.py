@@ -9,13 +9,13 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ExperimentTemplateExperimentTemplateActionMap',
-    'ExperimentTemplateExperimentTemplateStopCondition',
-    'ExperimentTemplateExperimentTemplateTargetMap',
+    'ExperimentTemplateActionMap',
+    'ExperimentTemplateStopCondition',
+    'ExperimentTemplateTargetMap',
 ]
 
 @pulumi.output_type
-class ExperimentTemplateExperimentTemplateActionMap(dict):
+class ExperimentTemplateActionMap(dict):
     """
     The actions for the experiment.
     """
@@ -27,7 +27,7 @@ class ExperimentTemplateExperimentTemplateActionMap(dict):
 
 
 @pulumi.output_type
-class ExperimentTemplateExperimentTemplateStopCondition(dict):
+class ExperimentTemplateStopCondition(dict):
     def __init__(__self__, *,
                  source: str,
                  value: Optional[str] = None):
@@ -47,7 +47,7 @@ class ExperimentTemplateExperimentTemplateStopCondition(dict):
 
 
 @pulumi.output_type
-class ExperimentTemplateExperimentTemplateTargetMap(dict):
+class ExperimentTemplateTargetMap(dict):
     """
     The targets for the experiment.
     """

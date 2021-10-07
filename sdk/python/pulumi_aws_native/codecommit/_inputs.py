@@ -10,9 +10,9 @@ from .. import _utilities
 
 __all__ = [
     'RepositoryCodeArgs',
-    'RepositoryRepositoryTriggerArgs',
     'RepositoryS3Args',
     'RepositoryTagArgs',
+    'RepositoryTriggerArgs',
 ]
 
 @pulumi.input_type
@@ -41,68 +41,6 @@ class RepositoryCodeArgs:
     @branch_name.setter
     def branch_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "branch_name", value)
-
-
-@pulumi.input_type
-class RepositoryRepositoryTriggerArgs:
-    def __init__(__self__, *,
-                 destination_arn: pulumi.Input[str],
-                 events: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 name: pulumi.Input[str],
-                 branches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 custom_data: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "destination_arn", destination_arn)
-        pulumi.set(__self__, "events", events)
-        pulumi.set(__self__, "name", name)
-        if branches is not None:
-            pulumi.set(__self__, "branches", branches)
-        if custom_data is not None:
-            pulumi.set(__self__, "custom_data", custom_data)
-
-    @property
-    @pulumi.getter(name="destinationArn")
-    def destination_arn(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "destination_arn")
-
-    @destination_arn.setter
-    def destination_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "destination_arn", value)
-
-    @property
-    @pulumi.getter
-    def events(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        return pulumi.get(self, "events")
-
-    @events.setter
-    def events(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "events", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def branches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "branches")
-
-    @branches.setter
-    def branches(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "branches", value)
-
-    @property
-    @pulumi.getter(name="customData")
-    def custom_data(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "custom_data")
-
-    @custom_data.setter
-    def custom_data(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "custom_data", value)
 
 
 @pulumi.input_type
@@ -169,5 +107,67 @@ class RepositoryTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class RepositoryTriggerArgs:
+    def __init__(__self__, *,
+                 destination_arn: pulumi.Input[str],
+                 events: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 name: pulumi.Input[str],
+                 branches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 custom_data: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "destination_arn", destination_arn)
+        pulumi.set(__self__, "events", events)
+        pulumi.set(__self__, "name", name)
+        if branches is not None:
+            pulumi.set(__self__, "branches", branches)
+        if custom_data is not None:
+            pulumi.set(__self__, "custom_data", custom_data)
+
+    @property
+    @pulumi.getter(name="destinationArn")
+    def destination_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "destination_arn")
+
+    @destination_arn.setter
+    def destination_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destination_arn", value)
+
+    @property
+    @pulumi.getter
+    def events(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "events")
+
+    @events.setter
+    def events(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "events", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def branches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "branches")
+
+    @branches.setter
+    def branches(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "branches", value)
+
+    @property
+    @pulumi.getter(name="customData")
+    def custom_data(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "custom_data")
+
+    @custom_data.setter
+    def custom_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_data", value)
 
 

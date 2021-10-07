@@ -17,7 +17,6 @@ __all__ = [
     'ContainerRecipeTargetContainerRepositoryArgs',
     'DistributionConfigurationDistributionArgs',
     'DistributionConfigurationLaunchTemplateConfigurationArgs',
-    'ImageImageTestsConfigurationArgs',
     'ImagePipelineImageTestsConfigurationArgs',
     'ImagePipelineScheduleArgs',
     'ImageRecipeAdditionalInstanceConfigurationArgs',
@@ -26,6 +25,7 @@ __all__ = [
     'ImageRecipeEbsInstanceBlockDeviceSpecificationArgs',
     'ImageRecipeInstanceBlockDeviceMappingArgs',
     'ImageRecipeSystemsManagerAgentArgs',
+    'ImageTestsConfigurationArgs',
     'InfrastructureConfigurationLoggingArgs',
     'InfrastructureConfigurationS3LogsArgs',
 ]
@@ -470,46 +470,6 @@ class DistributionConfigurationLaunchTemplateConfigurationArgs:
 
 
 @pulumi.input_type
-class ImageImageTestsConfigurationArgs:
-    def __init__(__self__, *,
-                 image_tests_enabled: Optional[pulumi.Input[bool]] = None,
-                 timeout_minutes: Optional[pulumi.Input[int]] = None):
-        """
-        The image tests configuration used when creating this image.
-        :param pulumi.Input[bool] image_tests_enabled: ImageTestsEnabled
-        :param pulumi.Input[int] timeout_minutes: TimeoutMinutes
-        """
-        if image_tests_enabled is not None:
-            pulumi.set(__self__, "image_tests_enabled", image_tests_enabled)
-        if timeout_minutes is not None:
-            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
-
-    @property
-    @pulumi.getter(name="imageTestsEnabled")
-    def image_tests_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        ImageTestsEnabled
-        """
-        return pulumi.get(self, "image_tests_enabled")
-
-    @image_tests_enabled.setter
-    def image_tests_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "image_tests_enabled", value)
-
-    @property
-    @pulumi.getter(name="timeoutMinutes")
-    def timeout_minutes(self) -> Optional[pulumi.Input[int]]:
-        """
-        TimeoutMinutes
-        """
-        return pulumi.get(self, "timeout_minutes")
-
-    @timeout_minutes.setter
-    def timeout_minutes(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "timeout_minutes", value)
-
-
-@pulumi.input_type
 class ImagePipelineImageTestsConfigurationArgs:
     def __init__(__self__, *,
                  image_tests_enabled: Optional[pulumi.Input[bool]] = None,
@@ -921,6 +881,46 @@ class ImageRecipeSystemsManagerAgentArgs:
     @uninstall_after_build.setter
     def uninstall_after_build(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "uninstall_after_build", value)
+
+
+@pulumi.input_type
+class ImageTestsConfigurationArgs:
+    def __init__(__self__, *,
+                 image_tests_enabled: Optional[pulumi.Input[bool]] = None,
+                 timeout_minutes: Optional[pulumi.Input[int]] = None):
+        """
+        The image tests configuration used when creating this image.
+        :param pulumi.Input[bool] image_tests_enabled: ImageTestsEnabled
+        :param pulumi.Input[int] timeout_minutes: TimeoutMinutes
+        """
+        if image_tests_enabled is not None:
+            pulumi.set(__self__, "image_tests_enabled", image_tests_enabled)
+        if timeout_minutes is not None:
+            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+
+    @property
+    @pulumi.getter(name="imageTestsEnabled")
+    def image_tests_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        ImageTestsEnabled
+        """
+        return pulumi.get(self, "image_tests_enabled")
+
+    @image_tests_enabled.setter
+    def image_tests_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "image_tests_enabled", value)
+
+    @property
+    @pulumi.getter(name="timeoutMinutes")
+    def timeout_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        TimeoutMinutes
+        """
+        return pulumi.get(self, "timeout_minutes")
+
+    @timeout_minutes.setter
+    def timeout_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout_minutes", value)
 
 
 @pulumi.input_type

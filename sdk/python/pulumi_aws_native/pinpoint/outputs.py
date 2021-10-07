@@ -13,17 +13,17 @@ __all__ = [
     'ApplicationSettingsCampaignHook',
     'ApplicationSettingsLimits',
     'ApplicationSettingsQuietTime',
-    'CampaignCampaignEmailMessage',
-    'CampaignCampaignEventFilter',
-    'CampaignCampaignHook',
-    'CampaignCampaignSmsMessage',
+    'CampaignEmailMessage',
     'CampaignEventDimensions',
+    'CampaignEventFilter',
+    'CampaignHook',
     'CampaignLimits',
     'CampaignMessage',
     'CampaignMessageConfiguration',
     'CampaignQuietTime',
     'CampaignSchedule',
     'CampaignSetDimension',
+    'CampaignSmsMessage',
     'CampaignWriteTreatmentResource',
     'PushTemplateAPNSPushNotificationTemplate',
     'PushTemplateAndroidPushNotificationTemplate',
@@ -31,14 +31,12 @@ __all__ = [
     'SegmentBehavior',
     'SegmentCoordinates',
     'SegmentDemographic',
+    'SegmentDimensions',
     'SegmentGPSPoint',
     'SegmentGroups',
     'SegmentLocation',
     'SegmentRecency',
-    'SegmentSegmentDimensions',
-    'SegmentSegmentGroups',
     'SegmentSetDimension',
-    'SegmentSourceSegments',
 ]
 
 @pulumi.output_type
@@ -165,7 +163,7 @@ class ApplicationSettingsQuietTime(dict):
 
 
 @pulumi.output_type
-class CampaignCampaignEmailMessage(dict):
+class CampaignEmailMessage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -175,14 +173,14 @@ class CampaignCampaignEmailMessage(dict):
             suggest = "html_body"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CampaignCampaignEmailMessage. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in CampaignEmailMessage. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        CampaignCampaignEmailMessage.__key_warning(key)
+        CampaignEmailMessage.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        CampaignCampaignEmailMessage.__key_warning(key)
+        CampaignEmailMessage.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -218,170 +216,6 @@ class CampaignCampaignEmailMessage(dict):
     @pulumi.getter
     def title(self) -> Optional[str]:
         return pulumi.get(self, "title")
-
-
-@pulumi.output_type
-class CampaignCampaignEventFilter(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "filterType":
-            suggest = "filter_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CampaignCampaignEventFilter. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CampaignCampaignEventFilter.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CampaignCampaignEventFilter.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 dimensions: Optional['outputs.CampaignEventDimensions'] = None,
-                 filter_type: Optional[str] = None):
-        if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
-        if filter_type is not None:
-            pulumi.set(__self__, "filter_type", filter_type)
-
-    @property
-    @pulumi.getter
-    def dimensions(self) -> Optional['outputs.CampaignEventDimensions']:
-        return pulumi.get(self, "dimensions")
-
-    @property
-    @pulumi.getter(name="filterType")
-    def filter_type(self) -> Optional[str]:
-        return pulumi.get(self, "filter_type")
-
-
-@pulumi.output_type
-class CampaignCampaignHook(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "lambdaFunctionName":
-            suggest = "lambda_function_name"
-        elif key == "webUrl":
-            suggest = "web_url"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CampaignCampaignHook. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CampaignCampaignHook.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CampaignCampaignHook.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 lambda_function_name: Optional[str] = None,
-                 mode: Optional[str] = None,
-                 web_url: Optional[str] = None):
-        if lambda_function_name is not None:
-            pulumi.set(__self__, "lambda_function_name", lambda_function_name)
-        if mode is not None:
-            pulumi.set(__self__, "mode", mode)
-        if web_url is not None:
-            pulumi.set(__self__, "web_url", web_url)
-
-    @property
-    @pulumi.getter(name="lambdaFunctionName")
-    def lambda_function_name(self) -> Optional[str]:
-        return pulumi.get(self, "lambda_function_name")
-
-    @property
-    @pulumi.getter
-    def mode(self) -> Optional[str]:
-        return pulumi.get(self, "mode")
-
-    @property
-    @pulumi.getter(name="webUrl")
-    def web_url(self) -> Optional[str]:
-        return pulumi.get(self, "web_url")
-
-
-@pulumi.output_type
-class CampaignCampaignSmsMessage(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "entityId":
-            suggest = "entity_id"
-        elif key == "messageType":
-            suggest = "message_type"
-        elif key == "originationNumber":
-            suggest = "origination_number"
-        elif key == "senderId":
-            suggest = "sender_id"
-        elif key == "templateId":
-            suggest = "template_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CampaignCampaignSmsMessage. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CampaignCampaignSmsMessage.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CampaignCampaignSmsMessage.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 body: Optional[str] = None,
-                 entity_id: Optional[str] = None,
-                 message_type: Optional[str] = None,
-                 origination_number: Optional[str] = None,
-                 sender_id: Optional[str] = None,
-                 template_id: Optional[str] = None):
-        if body is not None:
-            pulumi.set(__self__, "body", body)
-        if entity_id is not None:
-            pulumi.set(__self__, "entity_id", entity_id)
-        if message_type is not None:
-            pulumi.set(__self__, "message_type", message_type)
-        if origination_number is not None:
-            pulumi.set(__self__, "origination_number", origination_number)
-        if sender_id is not None:
-            pulumi.set(__self__, "sender_id", sender_id)
-        if template_id is not None:
-            pulumi.set(__self__, "template_id", template_id)
-
-    @property
-    @pulumi.getter
-    def body(self) -> Optional[str]:
-        return pulumi.get(self, "body")
-
-    @property
-    @pulumi.getter(name="entityId")
-    def entity_id(self) -> Optional[str]:
-        return pulumi.get(self, "entity_id")
-
-    @property
-    @pulumi.getter(name="messageType")
-    def message_type(self) -> Optional[str]:
-        return pulumi.get(self, "message_type")
-
-    @property
-    @pulumi.getter(name="originationNumber")
-    def origination_number(self) -> Optional[str]:
-        return pulumi.get(self, "origination_number")
-
-    @property
-    @pulumi.getter(name="senderId")
-    def sender_id(self) -> Optional[str]:
-        return pulumi.get(self, "sender_id")
-
-    @property
-    @pulumi.getter(name="templateId")
-    def template_id(self) -> Optional[str]:
-        return pulumi.get(self, "template_id")
 
 
 @pulumi.output_type
@@ -428,6 +262,92 @@ class CampaignEventDimensions(dict):
     @pulumi.getter
     def metrics(self) -> Optional[Any]:
         return pulumi.get(self, "metrics")
+
+
+@pulumi.output_type
+class CampaignEventFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterType":
+            suggest = "filter_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CampaignEventFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CampaignEventFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CampaignEventFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dimensions: Optional['outputs.CampaignEventDimensions'] = None,
+                 filter_type: Optional[str] = None):
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if filter_type is not None:
+            pulumi.set(__self__, "filter_type", filter_type)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional['outputs.CampaignEventDimensions']:
+        return pulumi.get(self, "dimensions")
+
+    @property
+    @pulumi.getter(name="filterType")
+    def filter_type(self) -> Optional[str]:
+        return pulumi.get(self, "filter_type")
+
+
+@pulumi.output_type
+class CampaignHook(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambdaFunctionName":
+            suggest = "lambda_function_name"
+        elif key == "webUrl":
+            suggest = "web_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CampaignHook. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CampaignHook.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CampaignHook.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lambda_function_name: Optional[str] = None,
+                 mode: Optional[str] = None,
+                 web_url: Optional[str] = None):
+        if lambda_function_name is not None:
+            pulumi.set(__self__, "lambda_function_name", lambda_function_name)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if web_url is not None:
+            pulumi.set(__self__, "web_url", web_url)
+
+    @property
+    @pulumi.getter(name="lambdaFunctionName")
+    def lambda_function_name(self) -> Optional[str]:
+        return pulumi.get(self, "lambda_function_name")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter(name="webUrl")
+    def web_url(self) -> Optional[str]:
+        return pulumi.get(self, "web_url")
 
 
 @pulumi.output_type
@@ -654,9 +574,9 @@ class CampaignMessageConfiguration(dict):
                  a_pns_message: Optional['outputs.CampaignMessage'] = None,
                  baidu_message: Optional['outputs.CampaignMessage'] = None,
                  default_message: Optional['outputs.CampaignMessage'] = None,
-                 email_message: Optional['outputs.CampaignCampaignEmailMessage'] = None,
+                 email_message: Optional['outputs.CampaignEmailMessage'] = None,
                  g_cm_message: Optional['outputs.CampaignMessage'] = None,
-                 s_ms_message: Optional['outputs.CampaignCampaignSmsMessage'] = None):
+                 s_ms_message: Optional['outputs.CampaignSmsMessage'] = None):
         if a_dm_message is not None:
             pulumi.set(__self__, "a_dm_message", a_dm_message)
         if a_pns_message is not None:
@@ -694,7 +614,7 @@ class CampaignMessageConfiguration(dict):
 
     @property
     @pulumi.getter(name="emailMessage")
-    def email_message(self) -> Optional['outputs.CampaignCampaignEmailMessage']:
+    def email_message(self) -> Optional['outputs.CampaignEmailMessage']:
         return pulumi.get(self, "email_message")
 
     @property
@@ -704,7 +624,7 @@ class CampaignMessageConfiguration(dict):
 
     @property
     @pulumi.getter(name="sMSMessage")
-    def s_ms_message(self) -> Optional['outputs.CampaignCampaignSmsMessage']:
+    def s_ms_message(self) -> Optional['outputs.CampaignSmsMessage']:
         return pulumi.get(self, "s_ms_message")
 
 
@@ -758,7 +678,7 @@ class CampaignSchedule(dict):
 
     def __init__(__self__, *,
                  end_time: Optional[str] = None,
-                 event_filter: Optional['outputs.CampaignCampaignEventFilter'] = None,
+                 event_filter: Optional['outputs.CampaignEventFilter'] = None,
                  frequency: Optional[str] = None,
                  is_local_time: Optional[bool] = None,
                  quiet_time: Optional['outputs.CampaignQuietTime'] = None,
@@ -786,7 +706,7 @@ class CampaignSchedule(dict):
 
     @property
     @pulumi.getter(name="eventFilter")
-    def event_filter(self) -> Optional['outputs.CampaignCampaignEventFilter']:
+    def event_filter(self) -> Optional['outputs.CampaignEventFilter']:
         return pulumi.get(self, "event_filter")
 
     @property
@@ -851,6 +771,84 @@ class CampaignSetDimension(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class CampaignSmsMessage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "entityId":
+            suggest = "entity_id"
+        elif key == "messageType":
+            suggest = "message_type"
+        elif key == "originationNumber":
+            suggest = "origination_number"
+        elif key == "senderId":
+            suggest = "sender_id"
+        elif key == "templateId":
+            suggest = "template_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CampaignSmsMessage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CampaignSmsMessage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CampaignSmsMessage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 body: Optional[str] = None,
+                 entity_id: Optional[str] = None,
+                 message_type: Optional[str] = None,
+                 origination_number: Optional[str] = None,
+                 sender_id: Optional[str] = None,
+                 template_id: Optional[str] = None):
+        if body is not None:
+            pulumi.set(__self__, "body", body)
+        if entity_id is not None:
+            pulumi.set(__self__, "entity_id", entity_id)
+        if message_type is not None:
+            pulumi.set(__self__, "message_type", message_type)
+        if origination_number is not None:
+            pulumi.set(__self__, "origination_number", origination_number)
+        if sender_id is not None:
+            pulumi.set(__self__, "sender_id", sender_id)
+        if template_id is not None:
+            pulumi.set(__self__, "template_id", template_id)
+
+    @property
+    @pulumi.getter
+    def body(self) -> Optional[str]:
+        return pulumi.get(self, "body")
+
+    @property
+    @pulumi.getter(name="entityId")
+    def entity_id(self) -> Optional[str]:
+        return pulumi.get(self, "entity_id")
+
+    @property
+    @pulumi.getter(name="messageType")
+    def message_type(self) -> Optional[str]:
+        return pulumi.get(self, "message_type")
+
+    @property
+    @pulumi.getter(name="originationNumber")
+    def origination_number(self) -> Optional[str]:
+        return pulumi.get(self, "origination_number")
+
+    @property
+    @pulumi.getter(name="senderId")
+    def sender_id(self) -> Optional[str]:
+        return pulumi.get(self, "sender_id")
+
+    @property
+    @pulumi.getter(name="templateId")
+    def template_id(self) -> Optional[str]:
+        return pulumi.get(self, "template_id")
 
 
 @pulumi.output_type
@@ -1231,6 +1229,76 @@ class SegmentDemographic(dict):
 
 
 @pulumi.output_type
+class SegmentDimensions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userAttributes":
+            suggest = "user_attributes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SegmentDimensions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SegmentDimensions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SegmentDimensions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attributes: Optional[Any] = None,
+                 behavior: Optional['outputs.SegmentBehavior'] = None,
+                 demographic: Optional['outputs.SegmentDemographic'] = None,
+                 location: Optional['outputs.SegmentLocation'] = None,
+                 metrics: Optional[Any] = None,
+                 user_attributes: Optional[Any] = None):
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
+        if behavior is not None:
+            pulumi.set(__self__, "behavior", behavior)
+        if demographic is not None:
+            pulumi.set(__self__, "demographic", demographic)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if metrics is not None:
+            pulumi.set(__self__, "metrics", metrics)
+        if user_attributes is not None:
+            pulumi.set(__self__, "user_attributes", user_attributes)
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> Optional[Any]:
+        return pulumi.get(self, "attributes")
+
+    @property
+    @pulumi.getter
+    def behavior(self) -> Optional['outputs.SegmentBehavior']:
+        return pulumi.get(self, "behavior")
+
+    @property
+    @pulumi.getter
+    def demographic(self) -> Optional['outputs.SegmentDemographic']:
+        return pulumi.get(self, "demographic")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional['outputs.SegmentLocation']:
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def metrics(self) -> Optional[Any]:
+        return pulumi.get(self, "metrics")
+
+    @property
+    @pulumi.getter(name="userAttributes")
+    def user_attributes(self) -> Optional[Any]:
+        return pulumi.get(self, "user_attributes")
+
+
+@pulumi.output_type
 class SegmentGPSPoint(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1268,58 +1336,23 @@ class SegmentGPSPoint(dict):
 
 @pulumi.output_type
 class SegmentGroups(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "sourceSegments":
-            suggest = "source_segments"
-        elif key == "sourceType":
-            suggest = "source_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SegmentGroups. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SegmentGroups.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SegmentGroups.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
-                 dimensions: Optional[Sequence['outputs.SegmentSegmentDimensions']] = None,
-                 source_segments: Optional[Sequence['outputs.SegmentSourceSegments']] = None,
-                 source_type: Optional[str] = None,
-                 type: Optional[str] = None):
-        if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
-        if source_segments is not None:
-            pulumi.set(__self__, "source_segments", source_segments)
-        if source_type is not None:
-            pulumi.set(__self__, "source_type", source_type)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+                 groups: Optional[Sequence['outputs.SegmentGroups']] = None,
+                 include: Optional[str] = None):
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if include is not None:
+            pulumi.set(__self__, "include", include)
 
     @property
     @pulumi.getter
-    def dimensions(self) -> Optional[Sequence['outputs.SegmentSegmentDimensions']]:
-        return pulumi.get(self, "dimensions")
-
-    @property
-    @pulumi.getter(name="sourceSegments")
-    def source_segments(self) -> Optional[Sequence['outputs.SegmentSourceSegments']]:
-        return pulumi.get(self, "source_segments")
-
-    @property
-    @pulumi.getter(name="sourceType")
-    def source_type(self) -> Optional[str]:
-        return pulumi.get(self, "source_type")
+    def groups(self) -> Optional[Sequence['outputs.SegmentGroups']]:
+        return pulumi.get(self, "groups")
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
-        return pulumi.get(self, "type")
+    def include(self) -> Optional[str]:
+        return pulumi.get(self, "include")
 
 
 @pulumi.output_type
@@ -1397,97 +1430,6 @@ class SegmentRecency(dict):
 
 
 @pulumi.output_type
-class SegmentSegmentDimensions(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "userAttributes":
-            suggest = "user_attributes"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SegmentSegmentDimensions. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SegmentSegmentDimensions.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SegmentSegmentDimensions.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 attributes: Optional[Any] = None,
-                 behavior: Optional['outputs.SegmentBehavior'] = None,
-                 demographic: Optional['outputs.SegmentDemographic'] = None,
-                 location: Optional['outputs.SegmentLocation'] = None,
-                 metrics: Optional[Any] = None,
-                 user_attributes: Optional[Any] = None):
-        if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
-        if behavior is not None:
-            pulumi.set(__self__, "behavior", behavior)
-        if demographic is not None:
-            pulumi.set(__self__, "demographic", demographic)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
-        if metrics is not None:
-            pulumi.set(__self__, "metrics", metrics)
-        if user_attributes is not None:
-            pulumi.set(__self__, "user_attributes", user_attributes)
-
-    @property
-    @pulumi.getter
-    def attributes(self) -> Optional[Any]:
-        return pulumi.get(self, "attributes")
-
-    @property
-    @pulumi.getter
-    def behavior(self) -> Optional['outputs.SegmentBehavior']:
-        return pulumi.get(self, "behavior")
-
-    @property
-    @pulumi.getter
-    def demographic(self) -> Optional['outputs.SegmentDemographic']:
-        return pulumi.get(self, "demographic")
-
-    @property
-    @pulumi.getter
-    def location(self) -> Optional['outputs.SegmentLocation']:
-        return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter
-    def metrics(self) -> Optional[Any]:
-        return pulumi.get(self, "metrics")
-
-    @property
-    @pulumi.getter(name="userAttributes")
-    def user_attributes(self) -> Optional[Any]:
-        return pulumi.get(self, "user_attributes")
-
-
-@pulumi.output_type
-class SegmentSegmentGroups(dict):
-    def __init__(__self__, *,
-                 groups: Optional[Sequence['outputs.SegmentGroups']] = None,
-                 include: Optional[str] = None):
-        if groups is not None:
-            pulumi.set(__self__, "groups", groups)
-        if include is not None:
-            pulumi.set(__self__, "include", include)
-
-    @property
-    @pulumi.getter
-    def groups(self) -> Optional[Sequence['outputs.SegmentGroups']]:
-        return pulumi.get(self, "groups")
-
-    @property
-    @pulumi.getter
-    def include(self) -> Optional[str]:
-        return pulumi.get(self, "include")
-
-
-@pulumi.output_type
 class SegmentSetDimension(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1523,25 +1465,5 @@ class SegmentSetDimension(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class SegmentSourceSegments(dict):
-    def __init__(__self__, *,
-                 id: str,
-                 version: Optional[int] = None):
-        pulumi.set(__self__, "id", id)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def version(self) -> Optional[int]:
-        return pulumi.get(self, "version")
 
 

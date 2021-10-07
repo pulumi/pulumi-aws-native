@@ -18,14 +18,14 @@ class QuickConnectArgs:
     def __init__(__self__, *,
                  instance_arn: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 quick_connect_config: pulumi.Input['QuickConnectQuickConnectConfigArgs'],
+                 quick_connect_config: pulumi.Input['QuickConnectConfigArgs'],
                  description: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectTagArgs']]]] = None):
         """
         The set of arguments for constructing a QuickConnect resource.
         :param pulumi.Input[str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[str] name: The name of the quick connect.
-        :param pulumi.Input['QuickConnectQuickConnectConfigArgs'] quick_connect_config: Configuration settings for the quick connect.
+        :param pulumi.Input['QuickConnectConfigArgs'] quick_connect_config: Configuration settings for the quick connect.
         :param pulumi.Input[str] description: The description of the quick connect.
         :param pulumi.Input[Sequence[pulumi.Input['QuickConnectTagArgs']]] tags: One or more tags.
         """
@@ -63,14 +63,14 @@ class QuickConnectArgs:
 
     @property
     @pulumi.getter(name="quickConnectConfig")
-    def quick_connect_config(self) -> pulumi.Input['QuickConnectQuickConnectConfigArgs']:
+    def quick_connect_config(self) -> pulumi.Input['QuickConnectConfigArgs']:
         """
         Configuration settings for the quick connect.
         """
         return pulumi.get(self, "quick_connect_config")
 
     @quick_connect_config.setter
-    def quick_connect_config(self, value: pulumi.Input['QuickConnectQuickConnectConfigArgs']):
+    def quick_connect_config(self, value: pulumi.Input['QuickConnectConfigArgs']):
         pulumi.set(self, "quick_connect_config", value)
 
     @property
@@ -106,7 +106,7 @@ class QuickConnect(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 quick_connect_config: Optional[pulumi.Input[pulumi.InputType['QuickConnectQuickConnectConfigArgs']]] = None,
+                 quick_connect_config: Optional[pulumi.Input[pulumi.InputType['QuickConnectConfigArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QuickConnectTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -117,7 +117,7 @@ class QuickConnect(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the quick connect.
         :param pulumi.Input[str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[str] name: The name of the quick connect.
-        :param pulumi.Input[pulumi.InputType['QuickConnectQuickConnectConfigArgs']] quick_connect_config: Configuration settings for the quick connect.
+        :param pulumi.Input[pulumi.InputType['QuickConnectConfigArgs']] quick_connect_config: Configuration settings for the quick connect.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QuickConnectTagArgs']]]] tags: One or more tags.
         """
         ...
@@ -147,7 +147,7 @@ class QuickConnect(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 quick_connect_config: Optional[pulumi.Input[pulumi.InputType['QuickConnectQuickConnectConfigArgs']]] = None,
+                 quick_connect_config: Optional[pulumi.Input[pulumi.InputType['QuickConnectConfigArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QuickConnectTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -237,7 +237,7 @@ class QuickConnect(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="quickConnectConfig")
-    def quick_connect_config(self) -> pulumi.Output['outputs.QuickConnectQuickConnectConfig']:
+    def quick_connect_config(self) -> pulumi.Output['outputs.QuickConnectConfig']:
         """
         Configuration settings for the quick connect.
         """

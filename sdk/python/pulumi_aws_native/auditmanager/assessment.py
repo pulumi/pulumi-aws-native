@@ -16,14 +16,14 @@ __all__ = ['AssessmentArgs', 'Assessment']
 @pulumi.input_type
 class AssessmentArgs:
     def __init__(__self__, *,
-                 assessment_reports_destination: Optional[pulumi.Input['AssessmentAssessmentReportsDestinationArgs']] = None,
+                 assessment_reports_destination: Optional[pulumi.Input['AssessmentReportsDestinationArgs']] = None,
                  aws_account: Optional[pulumi.Input['AssessmentAWSAccountArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  framework_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]]] = None,
                  scope: Optional[pulumi.Input['AssessmentScopeArgs']] = None,
-                 status: Optional[pulumi.Input['AssessmentAssessmentStatus']] = None,
+                 status: Optional[pulumi.Input['AssessmentStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentTagArgs']]]] = None):
         """
         The set of arguments for constructing a Assessment resource.
@@ -51,11 +51,11 @@ class AssessmentArgs:
 
     @property
     @pulumi.getter(name="assessmentReportsDestination")
-    def assessment_reports_destination(self) -> Optional[pulumi.Input['AssessmentAssessmentReportsDestinationArgs']]:
+    def assessment_reports_destination(self) -> Optional[pulumi.Input['AssessmentReportsDestinationArgs']]:
         return pulumi.get(self, "assessment_reports_destination")
 
     @assessment_reports_destination.setter
-    def assessment_reports_destination(self, value: Optional[pulumi.Input['AssessmentAssessmentReportsDestinationArgs']]):
+    def assessment_reports_destination(self, value: Optional[pulumi.Input['AssessmentReportsDestinationArgs']]):
         pulumi.set(self, "assessment_reports_destination", value)
 
     @property
@@ -117,11 +117,11 @@ class AssessmentArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['AssessmentAssessmentStatus']]:
+    def status(self) -> Optional[pulumi.Input['AssessmentStatus']]:
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['AssessmentAssessmentStatus']]):
+    def status(self, value: Optional[pulumi.Input['AssessmentStatus']]):
         pulumi.set(self, "status", value)
 
     @property
@@ -142,14 +142,14 @@ class Assessment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assessment_reports_destination: Optional[pulumi.Input[pulumi.InputType['AssessmentAssessmentReportsDestinationArgs']]] = None,
+                 assessment_reports_destination: Optional[pulumi.Input[pulumi.InputType['AssessmentReportsDestinationArgs']]] = None,
                  aws_account: Optional[pulumi.Input[pulumi.InputType['AssessmentAWSAccountArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  framework_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentRoleArgs']]]]] = None,
                  scope: Optional[pulumi.Input[pulumi.InputType['AssessmentScopeArgs']]] = None,
-                 status: Optional[pulumi.Input['AssessmentAssessmentStatus']] = None,
+                 status: Optional[pulumi.Input['AssessmentStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -184,14 +184,14 @@ class Assessment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assessment_reports_destination: Optional[pulumi.Input[pulumi.InputType['AssessmentAssessmentReportsDestinationArgs']]] = None,
+                 assessment_reports_destination: Optional[pulumi.Input[pulumi.InputType['AssessmentReportsDestinationArgs']]] = None,
                  aws_account: Optional[pulumi.Input[pulumi.InputType['AssessmentAWSAccountArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  framework_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentRoleArgs']]]]] = None,
                  scope: Optional[pulumi.Input[pulumi.InputType['AssessmentScopeArgs']]] = None,
-                 status: Optional[pulumi.Input['AssessmentAssessmentStatus']] = None,
+                 status: Optional[pulumi.Input['AssessmentStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -267,7 +267,7 @@ class Assessment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="assessmentReportsDestination")
-    def assessment_reports_destination(self) -> pulumi.Output[Optional['outputs.AssessmentAssessmentReportsDestination']]:
+    def assessment_reports_destination(self) -> pulumi.Output[Optional['outputs.AssessmentReportsDestination']]:
         return pulumi.get(self, "assessment_reports_destination")
 
     @property
@@ -318,7 +318,7 @@ class Assessment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[Optional['AssessmentAssessmentStatus']]:
+    def status(self) -> pulumi.Output[Optional['AssessmentStatus']]:
         return pulumi.get(self, "status")
 
     @property

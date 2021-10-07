@@ -8,8 +8,8 @@ __all__ = [
     'AssociationComplianceSeverity',
     'AssociationSyncCompliance',
     'DocumentAttachmentsSourceKey',
-    'DocumentDocumentFormat',
-    'DocumentDocumentType',
+    'DocumentFormat',
+    'DocumentType',
 ]
 
 
@@ -35,7 +35,7 @@ class DocumentAttachmentsSourceKey(str, Enum):
     ATTACHMENT_REFERENCE = "AttachmentReference"
 
 
-class DocumentDocumentFormat(str, Enum):
+class DocumentFormat(str, Enum):
     """
     Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
     """
@@ -44,7 +44,7 @@ class DocumentDocumentFormat(str, Enum):
     TEXT = "TEXT"
 
 
-class DocumentDocumentType(str, Enum):
+class DocumentType(str, Enum):
     """
     The type of document to create.
     """

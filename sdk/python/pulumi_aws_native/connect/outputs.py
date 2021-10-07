@@ -11,12 +11,77 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'QuickConnectConfig',
     'QuickConnectPhoneNumberQuickConnectConfig',
     'QuickConnectQueueQuickConnectConfig',
-    'QuickConnectQuickConnectConfig',
     'QuickConnectTag',
     'QuickConnectUserQuickConnectConfig',
 ]
+
+@pulumi.output_type
+class QuickConnectConfig(dict):
+    """
+    Configuration settings for the quick connect.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "quickConnectType":
+            suggest = "quick_connect_type"
+        elif key == "phoneConfig":
+            suggest = "phone_config"
+        elif key == "queueConfig":
+            suggest = "queue_config"
+        elif key == "userConfig":
+            suggest = "user_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QuickConnectConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QuickConnectConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QuickConnectConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 quick_connect_type: 'QuickConnectType',
+                 phone_config: Optional['outputs.QuickConnectPhoneNumberQuickConnectConfig'] = None,
+                 queue_config: Optional['outputs.QuickConnectQueueQuickConnectConfig'] = None,
+                 user_config: Optional['outputs.QuickConnectUserQuickConnectConfig'] = None):
+        """
+        Configuration settings for the quick connect.
+        """
+        pulumi.set(__self__, "quick_connect_type", quick_connect_type)
+        if phone_config is not None:
+            pulumi.set(__self__, "phone_config", phone_config)
+        if queue_config is not None:
+            pulumi.set(__self__, "queue_config", queue_config)
+        if user_config is not None:
+            pulumi.set(__self__, "user_config", user_config)
+
+    @property
+    @pulumi.getter(name="quickConnectType")
+    def quick_connect_type(self) -> 'QuickConnectType':
+        return pulumi.get(self, "quick_connect_type")
+
+    @property
+    @pulumi.getter(name="phoneConfig")
+    def phone_config(self) -> Optional['outputs.QuickConnectPhoneNumberQuickConnectConfig']:
+        return pulumi.get(self, "phone_config")
+
+    @property
+    @pulumi.getter(name="queueConfig")
+    def queue_config(self) -> Optional['outputs.QuickConnectQueueQuickConnectConfig']:
+        return pulumi.get(self, "queue_config")
+
+    @property
+    @pulumi.getter(name="userConfig")
+    def user_config(self) -> Optional['outputs.QuickConnectUserQuickConnectConfig']:
+        return pulumi.get(self, "user_config")
+
 
 @pulumi.output_type
 class QuickConnectPhoneNumberQuickConnectConfig(dict):
@@ -95,71 +160,6 @@ class QuickConnectQueueQuickConnectConfig(dict):
     @pulumi.getter(name="queueArn")
     def queue_arn(self) -> str:
         return pulumi.get(self, "queue_arn")
-
-
-@pulumi.output_type
-class QuickConnectQuickConnectConfig(dict):
-    """
-    Configuration settings for the quick connect.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "quickConnectType":
-            suggest = "quick_connect_type"
-        elif key == "phoneConfig":
-            suggest = "phone_config"
-        elif key == "queueConfig":
-            suggest = "queue_config"
-        elif key == "userConfig":
-            suggest = "user_config"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in QuickConnectQuickConnectConfig. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        QuickConnectQuickConnectConfig.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        QuickConnectQuickConnectConfig.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 quick_connect_type: 'QuickConnectQuickConnectType',
-                 phone_config: Optional['outputs.QuickConnectPhoneNumberQuickConnectConfig'] = None,
-                 queue_config: Optional['outputs.QuickConnectQueueQuickConnectConfig'] = None,
-                 user_config: Optional['outputs.QuickConnectUserQuickConnectConfig'] = None):
-        """
-        Configuration settings for the quick connect.
-        """
-        pulumi.set(__self__, "quick_connect_type", quick_connect_type)
-        if phone_config is not None:
-            pulumi.set(__self__, "phone_config", phone_config)
-        if queue_config is not None:
-            pulumi.set(__self__, "queue_config", queue_config)
-        if user_config is not None:
-            pulumi.set(__self__, "user_config", user_config)
-
-    @property
-    @pulumi.getter(name="quickConnectType")
-    def quick_connect_type(self) -> 'QuickConnectQuickConnectType':
-        return pulumi.get(self, "quick_connect_type")
-
-    @property
-    @pulumi.getter(name="phoneConfig")
-    def phone_config(self) -> Optional['outputs.QuickConnectPhoneNumberQuickConnectConfig']:
-        return pulumi.get(self, "phone_config")
-
-    @property
-    @pulumi.getter(name="queueConfig")
-    def queue_config(self) -> Optional['outputs.QuickConnectQueueQuickConnectConfig']:
-        return pulumi.get(self, "queue_config")
-
-    @property
-    @pulumi.getter(name="userConfig")
-    def user_config(self) -> Optional['outputs.QuickConnectUserQuickConnectConfig']:
-        return pulumi.get(self, "user_config")
 
 
 @pulumi.output_type

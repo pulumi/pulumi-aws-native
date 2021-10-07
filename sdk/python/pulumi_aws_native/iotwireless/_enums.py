@@ -6,7 +6,7 @@ from enum import Enum
 
 __all__ = [
     'DestinationExpressionType',
-    'TaskDefinitionTaskDefinitionType',
+    'TaskDefinitionType',
     'WirelessDeviceType',
 ]
 
@@ -19,7 +19,7 @@ class DestinationExpressionType(str, Enum):
     MQTT_TOPIC = "MqttTopic"
 
 
-class TaskDefinitionTaskDefinitionType(str, Enum):
+class TaskDefinitionType(str, Enum):
     """
     A filter to list only the wireless gateway task definitions that use this task definition type
     """

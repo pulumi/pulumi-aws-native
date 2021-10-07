@@ -14,8 +14,8 @@ __all__ = [
     'ApiKeyTagArgs',
     'ClientCertificateTagArgs',
     'DeploymentAccessLogSettingArgs',
+    'DeploymentCanarySettingsArgs',
     'DeploymentCanarySettingArgs',
-    'DeploymentDeploymentCanarySettingsArgs',
     'DeploymentMethodSettingArgs',
     'DeploymentStageDescriptionArgs',
     'DeploymentTagArgs',
@@ -25,7 +25,7 @@ __all__ = [
     'DomainNameTagArgs',
     'MethodIntegrationResponseArgs',
     'MethodIntegrationArgs',
-    'MethodMethodResponseArgs',
+    'MethodResponseArgs',
     'RestApiEndpointConfigurationArgs',
     'RestApiS3LocationArgs',
     'RestApiTagArgs',
@@ -172,7 +172,7 @@ class DeploymentAccessLogSettingArgs:
 
 
 @pulumi.input_type
-class DeploymentCanarySettingArgs:
+class DeploymentCanarySettingsArgs:
     def __init__(__self__, *,
                  percent_traffic: Optional[pulumi.Input[float]] = None,
                  stage_variable_overrides: Optional[Any] = None,
@@ -213,7 +213,7 @@ class DeploymentCanarySettingArgs:
 
 
 @pulumi.input_type
-class DeploymentDeploymentCanarySettingsArgs:
+class DeploymentCanarySettingArgs:
     def __init__(__self__, *,
                  percent_traffic: Optional[pulumi.Input[float]] = None,
                  stage_variable_overrides: Optional[Any] = None,
@@ -1016,7 +1016,7 @@ class MethodIntegrationArgs:
 
 
 @pulumi.input_type
-class MethodMethodResponseArgs:
+class MethodResponseArgs:
     def __init__(__self__, *,
                  status_code: pulumi.Input[str],
                  response_models: Optional[Any] = None,

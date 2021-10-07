@@ -19,7 +19,7 @@ class RepositoryArgs:
                  code: Optional[pulumi.Input['RepositoryCodeArgs']] = None,
                  repository_description: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryTagArgs']]]] = None,
-                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryRepositoryTriggerArgs']]]] = None):
+                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryTriggerArgs']]]] = None):
         """
         The set of arguments for constructing a Repository resource.
         """
@@ -71,11 +71,11 @@ class RepositoryArgs:
 
     @property
     @pulumi.getter
-    def triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryRepositoryTriggerArgs']]]]:
+    def triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryTriggerArgs']]]]:
         return pulumi.get(self, "triggers")
 
     @triggers.setter
-    def triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryRepositoryTriggerArgs']]]]):
+    def triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryTriggerArgs']]]]):
         pulumi.set(self, "triggers", value)
 
 
@@ -93,7 +93,7 @@ class Repository(pulumi.CustomResource):
                  repository_description: Optional[pulumi.Input[str]] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryTagArgs']]]]] = None,
-                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryRepositoryTriggerArgs']]]]] = None,
+                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryTriggerArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CodeCommit::Repository
@@ -129,7 +129,7 @@ class Repository(pulumi.CustomResource):
                  repository_description: Optional[pulumi.Input[str]] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryTagArgs']]]]] = None,
-                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryRepositoryTriggerArgs']]]]] = None,
+                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryTriggerArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""Repository is deprecated: Repository is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
@@ -229,6 +229,6 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def triggers(self) -> pulumi.Output[Optional[Sequence['outputs.RepositoryRepositoryTrigger']]]:
+    def triggers(self) -> pulumi.Output[Optional[Sequence['outputs.RepositoryTrigger']]]:
         return pulumi.get(self, "triggers")
 

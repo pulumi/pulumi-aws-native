@@ -33,10 +33,10 @@ __all__ = [
     'DataQualityJobDefinitionStoppingConditionArgs',
     'DataQualityJobDefinitionTagArgs',
     'DataQualityJobDefinitionVpcConfigArgs',
-    'DeviceDeviceArgs',
     'DeviceFleetEdgeOutputConfigArgs',
     'DeviceFleetTagArgs',
     'DeviceTagArgs',
+    'DeviceArgs',
     'DomainCustomImageArgs',
     'DomainJupyterServerAppSettingsArgs',
     'DomainKernelGatewayAppSettingsArgs',
@@ -118,6 +118,7 @@ __all__ = [
     'ModelVpcConfigArgs',
     'MonitoringScheduleBaselineConfigArgs',
     'MonitoringScheduleClusterConfigArgs',
+    'MonitoringScheduleConfigArgs',
     'MonitoringScheduleConstraintsResourceArgs',
     'MonitoringScheduleEndpointInputArgs',
     'MonitoringScheduleMonitoringAppSpecificationArgs',
@@ -127,7 +128,6 @@ __all__ = [
     'MonitoringScheduleMonitoringOutputConfigArgs',
     'MonitoringScheduleMonitoringOutputArgs',
     'MonitoringScheduleMonitoringResourcesArgs',
-    'MonitoringScheduleMonitoringScheduleConfigArgs',
     'MonitoringScheduleNetworkConfigArgs',
     'MonitoringScheduleS3OutputArgs',
     'MonitoringScheduleScheduleConfigArgs',
@@ -1093,61 +1093,6 @@ class DataQualityJobDefinitionVpcConfigArgs:
 
 
 @pulumi.input_type
-class DeviceDeviceArgs:
-    def __init__(__self__, *,
-                 device_name: pulumi.Input[str],
-                 description: Optional[pulumi.Input[str]] = None,
-                 iot_thing_name: Optional[pulumi.Input[str]] = None):
-        """
-        Edge device you want to create
-        :param pulumi.Input[str] device_name: The name of the device
-        :param pulumi.Input[str] description: Description of the device
-        :param pulumi.Input[str] iot_thing_name: AWS Internet of Things (IoT) object name.
-        """
-        pulumi.set(__self__, "device_name", device_name)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if iot_thing_name is not None:
-            pulumi.set(__self__, "iot_thing_name", iot_thing_name)
-
-    @property
-    @pulumi.getter(name="deviceName")
-    def device_name(self) -> pulumi.Input[str]:
-        """
-        The name of the device
-        """
-        return pulumi.get(self, "device_name")
-
-    @device_name.setter
-    def device_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "device_name", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the device
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="iotThingName")
-    def iot_thing_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        AWS Internet of Things (IoT) object name.
-        """
-        return pulumi.get(self, "iot_thing_name")
-
-    @iot_thing_name.setter
-    def iot_thing_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "iot_thing_name", value)
-
-
-@pulumi.input_type
 class DeviceFleetEdgeOutputConfigArgs:
     def __init__(__self__, *,
                  s3_output_location: pulumi.Input[str],
@@ -1258,6 +1203,61 @@ class DeviceTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class DeviceArgs:
+    def __init__(__self__, *,
+                 device_name: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 iot_thing_name: Optional[pulumi.Input[str]] = None):
+        """
+        Edge device you want to create
+        :param pulumi.Input[str] device_name: The name of the device
+        :param pulumi.Input[str] description: Description of the device
+        :param pulumi.Input[str] iot_thing_name: AWS Internet of Things (IoT) object name.
+        """
+        pulumi.set(__self__, "device_name", device_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if iot_thing_name is not None:
+            pulumi.set(__self__, "iot_thing_name", iot_thing_name)
+
+    @property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> pulumi.Input[str]:
+        """
+        The name of the device
+        """
+        return pulumi.get(self, "device_name")
+
+    @device_name.setter
+    def device_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "device_name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the device
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="iotThingName")
+    def iot_thing_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        AWS Internet of Things (IoT) object name.
+        """
+        return pulumi.get(self, "iot_thing_name")
+
+    @iot_thing_name.setter
+    def iot_thing_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "iot_thing_name", value)
 
 
 @pulumi.input_type
@@ -4592,6 +4592,66 @@ class MonitoringScheduleClusterConfigArgs:
 
 
 @pulumi.input_type
+class MonitoringScheduleConfigArgs:
+    def __init__(__self__, *,
+                 monitoring_job_definition: Optional[pulumi.Input['MonitoringScheduleMonitoringJobDefinitionArgs']] = None,
+                 monitoring_job_definition_name: Optional[pulumi.Input[str]] = None,
+                 monitoring_type: Optional[pulumi.Input['MonitoringScheduleMonitoringType']] = None,
+                 schedule_config: Optional[pulumi.Input['MonitoringScheduleScheduleConfigArgs']] = None):
+        """
+        The configuration object that specifies the monitoring schedule and defines the monitoring job.
+        :param pulumi.Input[str] monitoring_job_definition_name: Name of the job definition
+        """
+        if monitoring_job_definition is not None:
+            pulumi.set(__self__, "monitoring_job_definition", monitoring_job_definition)
+        if monitoring_job_definition_name is not None:
+            pulumi.set(__self__, "monitoring_job_definition_name", monitoring_job_definition_name)
+        if monitoring_type is not None:
+            pulumi.set(__self__, "monitoring_type", monitoring_type)
+        if schedule_config is not None:
+            pulumi.set(__self__, "schedule_config", schedule_config)
+
+    @property
+    @pulumi.getter(name="monitoringJobDefinition")
+    def monitoring_job_definition(self) -> Optional[pulumi.Input['MonitoringScheduleMonitoringJobDefinitionArgs']]:
+        return pulumi.get(self, "monitoring_job_definition")
+
+    @monitoring_job_definition.setter
+    def monitoring_job_definition(self, value: Optional[pulumi.Input['MonitoringScheduleMonitoringJobDefinitionArgs']]):
+        pulumi.set(self, "monitoring_job_definition", value)
+
+    @property
+    @pulumi.getter(name="monitoringJobDefinitionName")
+    def monitoring_job_definition_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the job definition
+        """
+        return pulumi.get(self, "monitoring_job_definition_name")
+
+    @monitoring_job_definition_name.setter
+    def monitoring_job_definition_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "monitoring_job_definition_name", value)
+
+    @property
+    @pulumi.getter(name="monitoringType")
+    def monitoring_type(self) -> Optional[pulumi.Input['MonitoringScheduleMonitoringType']]:
+        return pulumi.get(self, "monitoring_type")
+
+    @monitoring_type.setter
+    def monitoring_type(self, value: Optional[pulumi.Input['MonitoringScheduleMonitoringType']]):
+        pulumi.set(self, "monitoring_type", value)
+
+    @property
+    @pulumi.getter(name="scheduleConfig")
+    def schedule_config(self) -> Optional[pulumi.Input['MonitoringScheduleScheduleConfigArgs']]:
+        return pulumi.get(self, "schedule_config")
+
+    @schedule_config.setter
+    def schedule_config(self, value: Optional[pulumi.Input['MonitoringScheduleScheduleConfigArgs']]):
+        pulumi.set(self, "schedule_config", value)
+
+
+@pulumi.input_type
 class MonitoringScheduleConstraintsResourceArgs:
     def __init__(__self__, *,
                  s3_uri: Optional[pulumi.Input[str]] = None):
@@ -5104,66 +5164,6 @@ class MonitoringScheduleMonitoringResourcesArgs:
     @cluster_config.setter
     def cluster_config(self, value: pulumi.Input['MonitoringScheduleClusterConfigArgs']):
         pulumi.set(self, "cluster_config", value)
-
-
-@pulumi.input_type
-class MonitoringScheduleMonitoringScheduleConfigArgs:
-    def __init__(__self__, *,
-                 monitoring_job_definition: Optional[pulumi.Input['MonitoringScheduleMonitoringJobDefinitionArgs']] = None,
-                 monitoring_job_definition_name: Optional[pulumi.Input[str]] = None,
-                 monitoring_type: Optional[pulumi.Input['MonitoringScheduleMonitoringType']] = None,
-                 schedule_config: Optional[pulumi.Input['MonitoringScheduleScheduleConfigArgs']] = None):
-        """
-        The configuration object that specifies the monitoring schedule and defines the monitoring job.
-        :param pulumi.Input[str] monitoring_job_definition_name: Name of the job definition
-        """
-        if monitoring_job_definition is not None:
-            pulumi.set(__self__, "monitoring_job_definition", monitoring_job_definition)
-        if monitoring_job_definition_name is not None:
-            pulumi.set(__self__, "monitoring_job_definition_name", monitoring_job_definition_name)
-        if monitoring_type is not None:
-            pulumi.set(__self__, "monitoring_type", monitoring_type)
-        if schedule_config is not None:
-            pulumi.set(__self__, "schedule_config", schedule_config)
-
-    @property
-    @pulumi.getter(name="monitoringJobDefinition")
-    def monitoring_job_definition(self) -> Optional[pulumi.Input['MonitoringScheduleMonitoringJobDefinitionArgs']]:
-        return pulumi.get(self, "monitoring_job_definition")
-
-    @monitoring_job_definition.setter
-    def monitoring_job_definition(self, value: Optional[pulumi.Input['MonitoringScheduleMonitoringJobDefinitionArgs']]):
-        pulumi.set(self, "monitoring_job_definition", value)
-
-    @property
-    @pulumi.getter(name="monitoringJobDefinitionName")
-    def monitoring_job_definition_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the job definition
-        """
-        return pulumi.get(self, "monitoring_job_definition_name")
-
-    @monitoring_job_definition_name.setter
-    def monitoring_job_definition_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "monitoring_job_definition_name", value)
-
-    @property
-    @pulumi.getter(name="monitoringType")
-    def monitoring_type(self) -> Optional[pulumi.Input['MonitoringScheduleMonitoringType']]:
-        return pulumi.get(self, "monitoring_type")
-
-    @monitoring_type.setter
-    def monitoring_type(self, value: Optional[pulumi.Input['MonitoringScheduleMonitoringType']]):
-        pulumi.set(self, "monitoring_type", value)
-
-    @property
-    @pulumi.getter(name="scheduleConfig")
-    def schedule_config(self) -> Optional[pulumi.Input['MonitoringScheduleScheduleConfigArgs']]:
-        return pulumi.get(self, "schedule_config")
-
-    @schedule_config.setter
-    def schedule_config(self, value: Optional[pulumi.Input['MonitoringScheduleScheduleConfigArgs']]):
-        pulumi.set(self, "schedule_config", value)
 
 
 @pulumi.input_type

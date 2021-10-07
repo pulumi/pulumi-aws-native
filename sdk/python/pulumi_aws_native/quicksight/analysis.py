@@ -18,16 +18,16 @@ class AnalysisArgs:
     def __init__(__self__, *,
                  analysis_id: pulumi.Input[str],
                  aws_account_id: pulumi.Input[str],
-                 errors: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisAnalysisErrorArgs']]]] = None,
+                 errors: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisErrorArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input['AnalysisParametersArgs']] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisResourcePermissionArgs']]]] = None,
-                 source_entity: Optional[pulumi.Input['AnalysisAnalysisSourceEntityArgs']] = None,
+                 source_entity: Optional[pulumi.Input['AnalysisSourceEntityArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTagArgs']]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Analysis resource.
-        :param pulumi.Input[Sequence[pulumi.Input['AnalysisAnalysisErrorArgs']]] errors: <p>Errors associated with the analysis.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['AnalysisErrorArgs']]] errors: <p>Errors associated with the analysis.</p>
         :param pulumi.Input[str] name: <p>The descriptive name of the analysis.</p>
         :param pulumi.Input[Sequence[pulumi.Input['AnalysisResourcePermissionArgs']]] permissions: <p>A structure that describes the principals and the resource-level permissions on an
                            analysis. You can use the <code>Permissions</code> structure to grant permissions by
@@ -76,14 +76,14 @@ class AnalysisArgs:
 
     @property
     @pulumi.getter
-    def errors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisAnalysisErrorArgs']]]]:
+    def errors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisErrorArgs']]]]:
         """
         <p>Errors associated with the analysis.</p>
         """
         return pulumi.get(self, "errors")
 
     @errors.setter
-    def errors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisAnalysisErrorArgs']]]]):
+    def errors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisErrorArgs']]]]):
         pulumi.set(self, "errors", value)
 
     @property
@@ -126,11 +126,11 @@ class AnalysisArgs:
 
     @property
     @pulumi.getter(name="sourceEntity")
-    def source_entity(self) -> Optional[pulumi.Input['AnalysisAnalysisSourceEntityArgs']]:
+    def source_entity(self) -> Optional[pulumi.Input['AnalysisSourceEntityArgs']]:
         return pulumi.get(self, "source_entity")
 
     @source_entity.setter
-    def source_entity(self, value: Optional[pulumi.Input['AnalysisAnalysisSourceEntityArgs']]):
+    def source_entity(self, value: Optional[pulumi.Input['AnalysisSourceEntityArgs']]):
         pulumi.set(self, "source_entity", value)
 
     @property
@@ -166,11 +166,11 @@ class Analysis(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analysis_id: Optional[pulumi.Input[str]] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
-                 errors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisAnalysisErrorArgs']]]]] = None,
+                 errors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisErrorArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[pulumi.InputType['AnalysisParametersArgs']]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisResourcePermissionArgs']]]]] = None,
-                 source_entity: Optional[pulumi.Input[pulumi.InputType['AnalysisAnalysisSourceEntityArgs']]] = None,
+                 source_entity: Optional[pulumi.Input[pulumi.InputType['AnalysisSourceEntityArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisTagArgs']]]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -179,7 +179,7 @@ class Analysis(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisAnalysisErrorArgs']]]] errors: <p>Errors associated with the analysis.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisErrorArgs']]]] errors: <p>Errors associated with the analysis.</p>
         :param pulumi.Input[str] name: <p>The descriptive name of the analysis.</p>
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisResourcePermissionArgs']]]] permissions: <p>A structure that describes the principals and the resource-level permissions on an
                            analysis. You can use the <code>Permissions</code> structure to grant permissions by
@@ -217,11 +217,11 @@ class Analysis(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analysis_id: Optional[pulumi.Input[str]] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
-                 errors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisAnalysisErrorArgs']]]]] = None,
+                 errors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisErrorArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[pulumi.InputType['AnalysisParametersArgs']]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisResourcePermissionArgs']]]]] = None,
-                 source_entity: Optional[pulumi.Input[pulumi.InputType['AnalysisAnalysisSourceEntityArgs']]] = None,
+                 source_entity: Optional[pulumi.Input[pulumi.InputType['AnalysisSourceEntityArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisTagArgs']]]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -330,7 +330,7 @@ class Analysis(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def errors(self) -> pulumi.Output[Optional[Sequence['outputs.AnalysisAnalysisError']]]:
+    def errors(self) -> pulumi.Output[Optional[Sequence['outputs.AnalysisError']]]:
         """
         <p>Errors associated with the analysis.</p>
         """
@@ -380,7 +380,7 @@ class Analysis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceEntity")
-    def source_entity(self) -> pulumi.Output[Optional['outputs.AnalysisAnalysisSourceEntity']]:
+    def source_entity(self) -> pulumi.Output[Optional['outputs.AnalysisSourceEntity']]:
         return pulumi.get(self, "source_entity")
 
     @property

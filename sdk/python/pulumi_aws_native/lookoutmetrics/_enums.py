@@ -5,15 +5,20 @@
 from enum import Enum
 
 __all__ = [
-    'AnomalyDetectorAnomalyDetectorFrequency',
     'AnomalyDetectorCsvFormatDescriptorFileCompression',
+    'AnomalyDetectorFrequency',
     'AnomalyDetectorJsonFormatDescriptorFileCompression',
     'AnomalyDetectorMetricAggregationFunction',
     'AnomalyDetectorMetricSetMetricSetFrequency',
 ]
 
 
-class AnomalyDetectorAnomalyDetectorFrequency(str, Enum):
+class AnomalyDetectorCsvFormatDescriptorFileCompression(str, Enum):
+    NONE = "NONE"
+    GZIP = "GZIP"
+
+
+class AnomalyDetectorFrequency(str, Enum):
     """
     Frequency of anomaly detection
     """
@@ -21,11 +26,6 @@ class AnomalyDetectorAnomalyDetectorFrequency(str, Enum):
     PT10M = "PT10M"
     PT1H = "PT1H"
     P1D = "P1D"
-
-
-class AnomalyDetectorCsvFormatDescriptorFileCompression(str, Enum):
-    NONE = "NONE"
-    GZIP = "GZIP"
 
 
 class AnomalyDetectorJsonFormatDescriptorFileCompression(str, Enum):

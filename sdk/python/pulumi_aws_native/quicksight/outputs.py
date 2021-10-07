@@ -11,35 +11,35 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'AnalysisAnalysisError',
-    'AnalysisAnalysisSourceEntity',
-    'AnalysisAnalysisSourceTemplate',
     'AnalysisDataSetReference',
     'AnalysisDateTimeParameter',
     'AnalysisDecimalParameter',
+    'AnalysisError',
     'AnalysisIntegerParameter',
     'AnalysisParameters',
     'AnalysisResourcePermission',
     'AnalysisSheet',
+    'AnalysisSourceEntity',
+    'AnalysisSourceTemplate',
     'AnalysisStringParameter',
     'AnalysisTag',
     'DashboardAdHocFilteringOption',
-    'DashboardDashboardError',
-    'DashboardDashboardPublishOptions',
-    'DashboardDashboardSourceEntity',
-    'DashboardDashboardSourceTemplate',
-    'DashboardDashboardVersion',
     'DashboardDataSetReference',
     'DashboardDateTimeParameter',
     'DashboardDecimalParameter',
+    'DashboardError',
     'DashboardExportToCSVOption',
     'DashboardIntegerParameter',
     'DashboardParameters',
+    'DashboardPublishOptions',
     'DashboardResourcePermission',
     'DashboardSheet',
     'DashboardSheetControlsOption',
+    'DashboardSourceEntity',
+    'DashboardSourceTemplate',
     'DashboardStringParameter',
     'DashboardTag',
+    'DashboardVersion',
     'DataSetColumnGroup',
     'DataSetColumnLevelPermissionRule',
     'DataSetFieldFolderMap',
@@ -56,13 +56,13 @@ __all__ = [
     'DataSourceAuroraParameters',
     'DataSourceAuroraPostgreSqlParameters',
     'DataSourceCredentialPair',
-    'DataSourceDataSourceCredentials',
-    'DataSourceDataSourceErrorInfo',
-    'DataSourceDataSourceParameters',
+    'DataSourceCredentials',
+    'DataSourceErrorInfo',
     'DataSourceManifestFileLocation',
     'DataSourceMariaDbParameters',
     'DataSourceMySqlParameters',
     'DataSourceOracleParameters',
+    'DataSourceParameters',
     'DataSourcePostgreSqlParameters',
     'DataSourcePrestoParameters',
     'DataSourceRdsParameters',
@@ -82,147 +82,30 @@ __all__ = [
     'TemplateDataSetConfiguration',
     'TemplateDataSetReference',
     'TemplateDataSetSchema',
+    'TemplateError',
     'TemplateResourcePermission',
     'TemplateSheet',
+    'TemplateSourceAnalysis',
+    'TemplateSourceEntity',
+    'TemplateSourceTemplate',
     'TemplateTag',
-    'TemplateTemplateError',
-    'TemplateTemplateSourceAnalysis',
-    'TemplateTemplateSourceEntity',
-    'TemplateTemplateSourceTemplate',
-    'TemplateTemplateVersion',
+    'TemplateVersion',
     'ThemeBorderStyle',
+    'ThemeConfiguration',
     'ThemeDataColorPalette',
+    'ThemeError',
     'ThemeFont',
     'ThemeGutterStyle',
     'ThemeMarginStyle',
     'ThemeResourcePermission',
     'ThemeSheetStyle',
     'ThemeTag',
-    'ThemeThemeConfiguration',
-    'ThemeThemeError',
-    'ThemeThemeVersion',
     'ThemeTileLayoutStyle',
     'ThemeTileStyle',
     'ThemeTypography',
     'ThemeUIColorPalette',
+    'ThemeVersion',
 ]
-
-@pulumi.output_type
-class AnalysisAnalysisError(dict):
-    """
-    <p>A metadata error structure for an analysis.</p>
-    """
-    def __init__(__self__, *,
-                 message: Optional[str] = None,
-                 type: Optional['AnalysisAnalysisErrorType'] = None):
-        """
-        <p>A metadata error structure for an analysis.</p>
-        :param str message: <p>The message associated with the analysis error.</p>
-        """
-        if message is not None:
-            pulumi.set(__self__, "message", message)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def message(self) -> Optional[str]:
-        """
-        <p>The message associated with the analysis error.</p>
-        """
-        return pulumi.get(self, "message")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional['AnalysisAnalysisErrorType']:
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class AnalysisAnalysisSourceEntity(dict):
-    """
-    <p>The source entity of an analysis.</p>
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "sourceTemplate":
-            suggest = "source_template"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AnalysisAnalysisSourceEntity. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AnalysisAnalysisSourceEntity.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AnalysisAnalysisSourceEntity.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 source_template: Optional['outputs.AnalysisAnalysisSourceTemplate'] = None):
-        """
-        <p>The source entity of an analysis.</p>
-        """
-        if source_template is not None:
-            pulumi.set(__self__, "source_template", source_template)
-
-    @property
-    @pulumi.getter(name="sourceTemplate")
-    def source_template(self) -> Optional['outputs.AnalysisAnalysisSourceTemplate']:
-        return pulumi.get(self, "source_template")
-
-
-@pulumi.output_type
-class AnalysisAnalysisSourceTemplate(dict):
-    """
-    <p>The source template of an analysis.</p>
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "dataSetReferences":
-            suggest = "data_set_references"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AnalysisAnalysisSourceTemplate. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AnalysisAnalysisSourceTemplate.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AnalysisAnalysisSourceTemplate.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 arn: str,
-                 data_set_references: Sequence['outputs.AnalysisDataSetReference']):
-        """
-        <p>The source template of an analysis.</p>
-        :param str arn: <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
-        :param Sequence['AnalysisDataSetReference'] data_set_references: <p>The dataset references of the source template of an analysis.</p>
-        """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "data_set_references", data_set_references)
-
-    @property
-    @pulumi.getter
-    def arn(self) -> str:
-        """
-        <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
-        """
-        return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="dataSetReferences")
-    def data_set_references(self) -> Sequence['outputs.AnalysisDataSetReference']:
-        """
-        <p>The dataset references of the source template of an analysis.</p>
-        """
-        return pulumi.get(self, "data_set_references")
-
 
 @pulumi.output_type
 class AnalysisDataSetReference(dict):
@@ -340,6 +223,37 @@ class AnalysisDecimalParameter(dict):
         <p>The values for the decimal parameter.</p>
         """
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class AnalysisError(dict):
+    """
+    <p>A metadata error structure for an analysis.</p>
+    """
+    def __init__(__self__, *,
+                 message: Optional[str] = None,
+                 type: Optional['AnalysisErrorType'] = None):
+        """
+        <p>A metadata error structure for an analysis.</p>
+        :param str message: <p>The message associated with the analysis error.</p>
+        """
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        <p>The message associated with the analysis error.</p>
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional['AnalysisErrorType']:
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -581,6 +495,92 @@ class AnalysisSheet(dict):
 
 
 @pulumi.output_type
+class AnalysisSourceEntity(dict):
+    """
+    <p>The source entity of an analysis.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceTemplate":
+            suggest = "source_template"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisSourceEntity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisSourceEntity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisSourceEntity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_template: Optional['outputs.AnalysisSourceTemplate'] = None):
+        """
+        <p>The source entity of an analysis.</p>
+        """
+        if source_template is not None:
+            pulumi.set(__self__, "source_template", source_template)
+
+    @property
+    @pulumi.getter(name="sourceTemplate")
+    def source_template(self) -> Optional['outputs.AnalysisSourceTemplate']:
+        return pulumi.get(self, "source_template")
+
+
+@pulumi.output_type
+class AnalysisSourceTemplate(dict):
+    """
+    <p>The source template of an analysis.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSetReferences":
+            suggest = "data_set_references"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisSourceTemplate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisSourceTemplate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisSourceTemplate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arn: str,
+                 data_set_references: Sequence['outputs.AnalysisDataSetReference']):
+        """
+        <p>The source template of an analysis.</p>
+        :param str arn: <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
+        :param Sequence['AnalysisDataSetReference'] data_set_references: <p>The dataset references of the source template of an analysis.</p>
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "data_set_references", data_set_references)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="dataSetReferences")
+    def data_set_references(self) -> Sequence['outputs.AnalysisDataSetReference']:
+        """
+        <p>The dataset references of the source template of an analysis.</p>
+        """
+        return pulumi.get(self, "data_set_references")
+
+
+@pulumi.output_type
 class AnalysisStringParameter(dict):
     """
     <p>A string parameter.</p>
@@ -671,7 +671,7 @@ class DashboardAdHocFilteringOption(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 availability_status: Optional['DashboardDashboardBehavior'] = None):
+                 availability_status: Optional['DashboardBehavior'] = None):
         """
         <p>Ad hoc (one-time) filtering option.</p>
         """
@@ -680,335 +680,8 @@ class DashboardAdHocFilteringOption(dict):
 
     @property
     @pulumi.getter(name="availabilityStatus")
-    def availability_status(self) -> Optional['DashboardDashboardBehavior']:
+    def availability_status(self) -> Optional['DashboardBehavior']:
         return pulumi.get(self, "availability_status")
-
-
-@pulumi.output_type
-class DashboardDashboardError(dict):
-    """
-    <p>Dashboard error.</p>
-    """
-    def __init__(__self__, *,
-                 message: Optional[str] = None,
-                 type: Optional['DashboardDashboardErrorType'] = None):
-        """
-        <p>Dashboard error.</p>
-        :param str message: <p>Message.</p>
-        """
-        if message is not None:
-            pulumi.set(__self__, "message", message)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def message(self) -> Optional[str]:
-        """
-        <p>Message.</p>
-        """
-        return pulumi.get(self, "message")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional['DashboardDashboardErrorType']:
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class DashboardDashboardPublishOptions(dict):
-    """
-    <p>Dashboard publish options.</p>
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "adHocFilteringOption":
-            suggest = "ad_hoc_filtering_option"
-        elif key == "exportToCSVOption":
-            suggest = "export_to_csv_option"
-        elif key == "sheetControlsOption":
-            suggest = "sheet_controls_option"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardDashboardPublishOptions. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardDashboardPublishOptions.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardDashboardPublishOptions.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 ad_hoc_filtering_option: Optional['outputs.DashboardAdHocFilteringOption'] = None,
-                 export_to_csv_option: Optional['outputs.DashboardExportToCSVOption'] = None,
-                 sheet_controls_option: Optional['outputs.DashboardSheetControlsOption'] = None):
-        """
-        <p>Dashboard publish options.</p>
-        """
-        if ad_hoc_filtering_option is not None:
-            pulumi.set(__self__, "ad_hoc_filtering_option", ad_hoc_filtering_option)
-        if export_to_csv_option is not None:
-            pulumi.set(__self__, "export_to_csv_option", export_to_csv_option)
-        if sheet_controls_option is not None:
-            pulumi.set(__self__, "sheet_controls_option", sheet_controls_option)
-
-    @property
-    @pulumi.getter(name="adHocFilteringOption")
-    def ad_hoc_filtering_option(self) -> Optional['outputs.DashboardAdHocFilteringOption']:
-        return pulumi.get(self, "ad_hoc_filtering_option")
-
-    @property
-    @pulumi.getter(name="exportToCSVOption")
-    def export_to_csv_option(self) -> Optional['outputs.DashboardExportToCSVOption']:
-        return pulumi.get(self, "export_to_csv_option")
-
-    @property
-    @pulumi.getter(name="sheetControlsOption")
-    def sheet_controls_option(self) -> Optional['outputs.DashboardSheetControlsOption']:
-        return pulumi.get(self, "sheet_controls_option")
-
-
-@pulumi.output_type
-class DashboardDashboardSourceEntity(dict):
-    """
-    <p>Dashboard source entity.</p>
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "sourceTemplate":
-            suggest = "source_template"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardDashboardSourceEntity. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardDashboardSourceEntity.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardDashboardSourceEntity.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 source_template: Optional['outputs.DashboardDashboardSourceTemplate'] = None):
-        """
-        <p>Dashboard source entity.</p>
-        """
-        if source_template is not None:
-            pulumi.set(__self__, "source_template", source_template)
-
-    @property
-    @pulumi.getter(name="sourceTemplate")
-    def source_template(self) -> Optional['outputs.DashboardDashboardSourceTemplate']:
-        return pulumi.get(self, "source_template")
-
-
-@pulumi.output_type
-class DashboardDashboardSourceTemplate(dict):
-    """
-    <p>Dashboard source template.</p>
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "dataSetReferences":
-            suggest = "data_set_references"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardDashboardSourceTemplate. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardDashboardSourceTemplate.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardDashboardSourceTemplate.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 arn: str,
-                 data_set_references: Sequence['outputs.DashboardDataSetReference']):
-        """
-        <p>Dashboard source template.</p>
-        :param str arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
-        :param Sequence['DashboardDataSetReference'] data_set_references: <p>Dataset references.</p>
-        """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "data_set_references", data_set_references)
-
-    @property
-    @pulumi.getter
-    def arn(self) -> str:
-        """
-        <p>The Amazon Resource Name (ARN) of the resource.</p>
-        """
-        return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="dataSetReferences")
-    def data_set_references(self) -> Sequence['outputs.DashboardDataSetReference']:
-        """
-        <p>Dataset references.</p>
-        """
-        return pulumi.get(self, "data_set_references")
-
-
-@pulumi.output_type
-class DashboardDashboardVersion(dict):
-    """
-    <p>Dashboard version.</p>
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "createdTime":
-            suggest = "created_time"
-        elif key == "dataSetArns":
-            suggest = "data_set_arns"
-        elif key == "sourceEntityArn":
-            suggest = "source_entity_arn"
-        elif key == "themeArn":
-            suggest = "theme_arn"
-        elif key == "versionNumber":
-            suggest = "version_number"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardDashboardVersion. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardDashboardVersion.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardDashboardVersion.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 arn: Optional[str] = None,
-                 created_time: Optional[str] = None,
-                 data_set_arns: Optional[Sequence[str]] = None,
-                 description: Optional[str] = None,
-                 errors: Optional[Sequence['outputs.DashboardDashboardError']] = None,
-                 sheets: Optional[Sequence['outputs.DashboardSheet']] = None,
-                 source_entity_arn: Optional[str] = None,
-                 status: Optional['DashboardResourceStatus'] = None,
-                 theme_arn: Optional[str] = None,
-                 version_number: Optional[float] = None):
-        """
-        <p>Dashboard version.</p>
-        :param str arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
-        :param str created_time: <p>The time that this dashboard version was created.</p>
-        :param Sequence[str] data_set_arns: <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
-                           version of the dashboard.</p>
-        :param str description: <p>Description.</p>
-        :param Sequence['DashboardDashboardError'] errors: <p>Errors associated with this dashboard version.</p>
-        :param Sequence['DashboardSheet'] sheets: <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-        :param str source_entity_arn: <p>Source entity ARN.</p>
-        :param str theme_arn: <p>The ARN of the theme associated with a version of the dashboard.</p>
-        :param float version_number: <p>Version number for this version of the dashboard.</p>
-        """
-        if arn is not None:
-            pulumi.set(__self__, "arn", arn)
-        if created_time is not None:
-            pulumi.set(__self__, "created_time", created_time)
-        if data_set_arns is not None:
-            pulumi.set(__self__, "data_set_arns", data_set_arns)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if errors is not None:
-            pulumi.set(__self__, "errors", errors)
-        if sheets is not None:
-            pulumi.set(__self__, "sheets", sheets)
-        if source_entity_arn is not None:
-            pulumi.set(__self__, "source_entity_arn", source_entity_arn)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-        if theme_arn is not None:
-            pulumi.set(__self__, "theme_arn", theme_arn)
-        if version_number is not None:
-            pulumi.set(__self__, "version_number", version_number)
-
-    @property
-    @pulumi.getter
-    def arn(self) -> Optional[str]:
-        """
-        <p>The Amazon Resource Name (ARN) of the resource.</p>
-        """
-        return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="createdTime")
-    def created_time(self) -> Optional[str]:
-        """
-        <p>The time that this dashboard version was created.</p>
-        """
-        return pulumi.get(self, "created_time")
-
-    @property
-    @pulumi.getter(name="dataSetArns")
-    def data_set_arns(self) -> Optional[Sequence[str]]:
-        """
-        <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
-                    version of the dashboard.</p>
-        """
-        return pulumi.get(self, "data_set_arns")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        <p>Description.</p>
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def errors(self) -> Optional[Sequence['outputs.DashboardDashboardError']]:
-        """
-        <p>Errors associated with this dashboard version.</p>
-        """
-        return pulumi.get(self, "errors")
-
-    @property
-    @pulumi.getter
-    def sheets(self) -> Optional[Sequence['outputs.DashboardSheet']]:
-        """
-        <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-        """
-        return pulumi.get(self, "sheets")
-
-    @property
-    @pulumi.getter(name="sourceEntityArn")
-    def source_entity_arn(self) -> Optional[str]:
-        """
-        <p>Source entity ARN.</p>
-        """
-        return pulumi.get(self, "source_entity_arn")
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional['DashboardResourceStatus']:
-        return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="themeArn")
-    def theme_arn(self) -> Optional[str]:
-        """
-        <p>The ARN of the theme associated with a version of the dashboard.</p>
-        """
-        return pulumi.get(self, "theme_arn")
-
-    @property
-    @pulumi.getter(name="versionNumber")
-    def version_number(self) -> Optional[float]:
-        """
-        <p>Version number for this version of the dashboard.</p>
-        """
-        return pulumi.get(self, "version_number")
 
 
 @pulumi.output_type
@@ -1130,6 +803,37 @@ class DashboardDecimalParameter(dict):
 
 
 @pulumi.output_type
+class DashboardError(dict):
+    """
+    <p>Dashboard error.</p>
+    """
+    def __init__(__self__, *,
+                 message: Optional[str] = None,
+                 type: Optional['DashboardErrorType'] = None):
+        """
+        <p>Dashboard error.</p>
+        :param str message: <p>Message.</p>
+        """
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        <p>Message.</p>
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional['DashboardErrorType']:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class DashboardExportToCSVOption(dict):
     """
     <p>Export to .csv option.</p>
@@ -1152,7 +856,7 @@ class DashboardExportToCSVOption(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 availability_status: Optional['DashboardDashboardBehavior'] = None):
+                 availability_status: Optional['DashboardBehavior'] = None):
         """
         <p>Export to .csv option.</p>
         """
@@ -1161,7 +865,7 @@ class DashboardExportToCSVOption(dict):
 
     @property
     @pulumi.getter(name="availabilityStatus")
-    def availability_status(self) -> Optional['DashboardDashboardBehavior']:
+    def availability_status(self) -> Optional['DashboardBehavior']:
         return pulumi.get(self, "availability_status")
 
 
@@ -1278,6 +982,62 @@ class DashboardParameters(dict):
         <p>String parameters.</p>
         """
         return pulumi.get(self, "string_parameters")
+
+
+@pulumi.output_type
+class DashboardPublishOptions(dict):
+    """
+    <p>Dashboard publish options.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adHocFilteringOption":
+            suggest = "ad_hoc_filtering_option"
+        elif key == "exportToCSVOption":
+            suggest = "export_to_csv_option"
+        elif key == "sheetControlsOption":
+            suggest = "sheet_controls_option"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardPublishOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardPublishOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardPublishOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ad_hoc_filtering_option: Optional['outputs.DashboardAdHocFilteringOption'] = None,
+                 export_to_csv_option: Optional['outputs.DashboardExportToCSVOption'] = None,
+                 sheet_controls_option: Optional['outputs.DashboardSheetControlsOption'] = None):
+        """
+        <p>Dashboard publish options.</p>
+        """
+        if ad_hoc_filtering_option is not None:
+            pulumi.set(__self__, "ad_hoc_filtering_option", ad_hoc_filtering_option)
+        if export_to_csv_option is not None:
+            pulumi.set(__self__, "export_to_csv_option", export_to_csv_option)
+        if sheet_controls_option is not None:
+            pulumi.set(__self__, "sheet_controls_option", sheet_controls_option)
+
+    @property
+    @pulumi.getter(name="adHocFilteringOption")
+    def ad_hoc_filtering_option(self) -> Optional['outputs.DashboardAdHocFilteringOption']:
+        return pulumi.get(self, "ad_hoc_filtering_option")
+
+    @property
+    @pulumi.getter(name="exportToCSVOption")
+    def export_to_csv_option(self) -> Optional['outputs.DashboardExportToCSVOption']:
+        return pulumi.get(self, "export_to_csv_option")
+
+    @property
+    @pulumi.getter(name="sheetControlsOption")
+    def sheet_controls_option(self) -> Optional['outputs.DashboardSheetControlsOption']:
+        return pulumi.get(self, "sheet_controls_option")
 
 
 @pulumi.output_type
@@ -1426,7 +1186,7 @@ class DashboardSheetControlsOption(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 visibility_state: Optional['DashboardDashboardUIState'] = None):
+                 visibility_state: Optional['DashboardUIState'] = None):
         """
         <p>Sheet controls option.</p>
         """
@@ -1435,8 +1195,94 @@ class DashboardSheetControlsOption(dict):
 
     @property
     @pulumi.getter(name="visibilityState")
-    def visibility_state(self) -> Optional['DashboardDashboardUIState']:
+    def visibility_state(self) -> Optional['DashboardUIState']:
         return pulumi.get(self, "visibility_state")
+
+
+@pulumi.output_type
+class DashboardSourceEntity(dict):
+    """
+    <p>Dashboard source entity.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceTemplate":
+            suggest = "source_template"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardSourceEntity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardSourceEntity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardSourceEntity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_template: Optional['outputs.DashboardSourceTemplate'] = None):
+        """
+        <p>Dashboard source entity.</p>
+        """
+        if source_template is not None:
+            pulumi.set(__self__, "source_template", source_template)
+
+    @property
+    @pulumi.getter(name="sourceTemplate")
+    def source_template(self) -> Optional['outputs.DashboardSourceTemplate']:
+        return pulumi.get(self, "source_template")
+
+
+@pulumi.output_type
+class DashboardSourceTemplate(dict):
+    """
+    <p>Dashboard source template.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSetReferences":
+            suggest = "data_set_references"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardSourceTemplate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardSourceTemplate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardSourceTemplate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arn: str,
+                 data_set_references: Sequence['outputs.DashboardDataSetReference']):
+        """
+        <p>Dashboard source template.</p>
+        :param str arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+        :param Sequence['DashboardDataSetReference'] data_set_references: <p>Dataset references.</p>
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "data_set_references", data_set_references)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        <p>The Amazon Resource Name (ARN) of the resource.</p>
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="dataSetReferences")
+    def data_set_references(self) -> Sequence['outputs.DashboardDataSetReference']:
+        """
+        <p>Dataset references.</p>
+        """
+        return pulumi.get(self, "data_set_references")
 
 
 @pulumi.output_type
@@ -1505,6 +1351,160 @@ class DashboardTag(dict):
         <p>Tag value.</p>
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DashboardVersion(dict):
+    """
+    <p>Dashboard version.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdTime":
+            suggest = "created_time"
+        elif key == "dataSetArns":
+            suggest = "data_set_arns"
+        elif key == "sourceEntityArn":
+            suggest = "source_entity_arn"
+        elif key == "themeArn":
+            suggest = "theme_arn"
+        elif key == "versionNumber":
+            suggest = "version_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardVersion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardVersion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardVersion.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arn: Optional[str] = None,
+                 created_time: Optional[str] = None,
+                 data_set_arns: Optional[Sequence[str]] = None,
+                 description: Optional[str] = None,
+                 errors: Optional[Sequence['outputs.DashboardError']] = None,
+                 sheets: Optional[Sequence['outputs.DashboardSheet']] = None,
+                 source_entity_arn: Optional[str] = None,
+                 status: Optional['DashboardResourceStatus'] = None,
+                 theme_arn: Optional[str] = None,
+                 version_number: Optional[float] = None):
+        """
+        <p>Dashboard version.</p>
+        :param str arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+        :param str created_time: <p>The time that this dashboard version was created.</p>
+        :param Sequence[str] data_set_arns: <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
+                           version of the dashboard.</p>
+        :param str description: <p>Description.</p>
+        :param Sequence['DashboardError'] errors: <p>Errors associated with this dashboard version.</p>
+        :param Sequence['DashboardSheet'] sheets: <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+        :param str source_entity_arn: <p>Source entity ARN.</p>
+        :param str theme_arn: <p>The ARN of the theme associated with a version of the dashboard.</p>
+        :param float version_number: <p>Version number for this version of the dashboard.</p>
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if created_time is not None:
+            pulumi.set(__self__, "created_time", created_time)
+        if data_set_arns is not None:
+            pulumi.set(__self__, "data_set_arns", data_set_arns)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if errors is not None:
+            pulumi.set(__self__, "errors", errors)
+        if sheets is not None:
+            pulumi.set(__self__, "sheets", sheets)
+        if source_entity_arn is not None:
+            pulumi.set(__self__, "source_entity_arn", source_entity_arn)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if theme_arn is not None:
+            pulumi.set(__self__, "theme_arn", theme_arn)
+        if version_number is not None:
+            pulumi.set(__self__, "version_number", version_number)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[str]:
+        """
+        <p>The Amazon Resource Name (ARN) of the resource.</p>
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> Optional[str]:
+        """
+        <p>The time that this dashboard version was created.</p>
+        """
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter(name="dataSetArns")
+    def data_set_arns(self) -> Optional[Sequence[str]]:
+        """
+        <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
+                    version of the dashboard.</p>
+        """
+        return pulumi.get(self, "data_set_arns")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        <p>Description.</p>
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def errors(self) -> Optional[Sequence['outputs.DashboardError']]:
+        """
+        <p>Errors associated with this dashboard version.</p>
+        """
+        return pulumi.get(self, "errors")
+
+    @property
+    @pulumi.getter
+    def sheets(self) -> Optional[Sequence['outputs.DashboardSheet']]:
+        """
+        <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+        """
+        return pulumi.get(self, "sheets")
+
+    @property
+    @pulumi.getter(name="sourceEntityArn")
+    def source_entity_arn(self) -> Optional[str]:
+        """
+        <p>Source entity ARN.</p>
+        """
+        return pulumi.get(self, "source_entity_arn")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional['DashboardResourceStatus']:
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="themeArn")
+    def theme_arn(self) -> Optional[str]:
+        """
+        <p>The ARN of the theme associated with a version of the dashboard.</p>
+        """
+        return pulumi.get(self, "theme_arn")
+
+    @property
+    @pulumi.getter(name="versionNumber")
+    def version_number(self) -> Optional[float]:
+        """
+        <p>Version number for this version of the dashboard.</p>
+        """
+        return pulumi.get(self, "version_number")
 
 
 @pulumi.output_type
@@ -2101,12 +2101,12 @@ class DataSourceCredentialPair(dict):
     def __init__(__self__, *,
                  password: str,
                  username: str,
-                 alternate_data_source_parameters: Optional[Sequence['outputs.DataSourceDataSourceParameters']] = None):
+                 alternate_data_source_parameters: Optional[Sequence['outputs.DataSourceParameters']] = None):
         """
         <p>The combination of user name and password that are used as credentials.</p>
         :param str password: <p>Password.</p>
         :param str username: <p>User name.</p>
-        :param Sequence['DataSourceDataSourceParameters'] alternate_data_source_parameters: <p>A set of alternate data source parameters that you want to share for these
+        :param Sequence['DataSourceParameters'] alternate_data_source_parameters: <p>A set of alternate data source parameters that you want to share for these
                            credentials. The credentials are applied in tandem with the data source parameters when
                            you copy a data source by using a create or update request. The API operation compares
                            the <code>DataSourceParameters</code> structure that's in the request with the
@@ -2139,7 +2139,7 @@ class DataSourceCredentialPair(dict):
 
     @property
     @pulumi.getter(name="alternateDataSourceParameters")
-    def alternate_data_source_parameters(self) -> Optional[Sequence['outputs.DataSourceDataSourceParameters']]:
+    def alternate_data_source_parameters(self) -> Optional[Sequence['outputs.DataSourceParameters']]:
         """
         <p>A set of alternate data source parameters that you want to share for these
                     credentials. The credentials are applied in tandem with the data source parameters when
@@ -2155,7 +2155,7 @@ class DataSourceCredentialPair(dict):
 
 
 @pulumi.output_type
-class DataSourceDataSourceCredentials(dict):
+class DataSourceCredentials(dict):
     """
     <p>Data source credentials. This is a variant type structure. For this structure to be
                 valid, only one of the attributes can be non-null.</p>
@@ -2169,14 +2169,14 @@ class DataSourceDataSourceCredentials(dict):
             suggest = "credential_pair"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DataSourceDataSourceCredentials. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceCredentials. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DataSourceDataSourceCredentials.__key_warning(key)
+        DataSourceCredentials.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DataSourceDataSourceCredentials.__key_warning(key)
+        DataSourceCredentials.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -2213,13 +2213,13 @@ class DataSourceDataSourceCredentials(dict):
 
 
 @pulumi.output_type
-class DataSourceDataSourceErrorInfo(dict):
+class DataSourceErrorInfo(dict):
     """
     <p>Error information for the data source creation or update.</p>
     """
     def __init__(__self__, *,
                  message: Optional[str] = None,
-                 type: Optional['DataSourceDataSourceErrorInfoType'] = None):
+                 type: Optional['DataSourceErrorInfoType'] = None):
         """
         <p>Error information for the data source creation or update.</p>
         :param str message: <p>Error message.</p>
@@ -2239,198 +2239,8 @@ class DataSourceDataSourceErrorInfo(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional['DataSourceDataSourceErrorInfoType']:
+    def type(self) -> Optional['DataSourceErrorInfoType']:
         return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class DataSourceDataSourceParameters(dict):
-    """
-    <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
-                This is a variant type structure. For this structure to be valid, only one of the
-                attributes can be non-null.</p>
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "amazonElasticsearchParameters":
-            suggest = "amazon_elasticsearch_parameters"
-        elif key == "athenaParameters":
-            suggest = "athena_parameters"
-        elif key == "auroraParameters":
-            suggest = "aurora_parameters"
-        elif key == "auroraPostgreSqlParameters":
-            suggest = "aurora_postgre_sql_parameters"
-        elif key == "mariaDbParameters":
-            suggest = "maria_db_parameters"
-        elif key == "mySqlParameters":
-            suggest = "my_sql_parameters"
-        elif key == "oracleParameters":
-            suggest = "oracle_parameters"
-        elif key == "postgreSqlParameters":
-            suggest = "postgre_sql_parameters"
-        elif key == "prestoParameters":
-            suggest = "presto_parameters"
-        elif key == "rdsParameters":
-            suggest = "rds_parameters"
-        elif key == "redshiftParameters":
-            suggest = "redshift_parameters"
-        elif key == "s3Parameters":
-            suggest = "s3_parameters"
-        elif key == "snowflakeParameters":
-            suggest = "snowflake_parameters"
-        elif key == "sparkParameters":
-            suggest = "spark_parameters"
-        elif key == "sqlServerParameters":
-            suggest = "sql_server_parameters"
-        elif key == "teradataParameters":
-            suggest = "teradata_parameters"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DataSourceDataSourceParameters. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DataSourceDataSourceParameters.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DataSourceDataSourceParameters.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 amazon_elasticsearch_parameters: Optional['outputs.DataSourceAmazonElasticsearchParameters'] = None,
-                 athena_parameters: Optional['outputs.DataSourceAthenaParameters'] = None,
-                 aurora_parameters: Optional['outputs.DataSourceAuroraParameters'] = None,
-                 aurora_postgre_sql_parameters: Optional['outputs.DataSourceAuroraPostgreSqlParameters'] = None,
-                 maria_db_parameters: Optional['outputs.DataSourceMariaDbParameters'] = None,
-                 my_sql_parameters: Optional['outputs.DataSourceMySqlParameters'] = None,
-                 oracle_parameters: Optional['outputs.DataSourceOracleParameters'] = None,
-                 postgre_sql_parameters: Optional['outputs.DataSourcePostgreSqlParameters'] = None,
-                 presto_parameters: Optional['outputs.DataSourcePrestoParameters'] = None,
-                 rds_parameters: Optional['outputs.DataSourceRdsParameters'] = None,
-                 redshift_parameters: Optional['outputs.DataSourceRedshiftParameters'] = None,
-                 s3_parameters: Optional['outputs.DataSourceS3Parameters'] = None,
-                 snowflake_parameters: Optional['outputs.DataSourceSnowflakeParameters'] = None,
-                 spark_parameters: Optional['outputs.DataSourceSparkParameters'] = None,
-                 sql_server_parameters: Optional['outputs.DataSourceSqlServerParameters'] = None,
-                 teradata_parameters: Optional['outputs.DataSourceTeradataParameters'] = None):
-        """
-        <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
-                    This is a variant type structure. For this structure to be valid, only one of the
-                    attributes can be non-null.</p>
-        """
-        if amazon_elasticsearch_parameters is not None:
-            pulumi.set(__self__, "amazon_elasticsearch_parameters", amazon_elasticsearch_parameters)
-        if athena_parameters is not None:
-            pulumi.set(__self__, "athena_parameters", athena_parameters)
-        if aurora_parameters is not None:
-            pulumi.set(__self__, "aurora_parameters", aurora_parameters)
-        if aurora_postgre_sql_parameters is not None:
-            pulumi.set(__self__, "aurora_postgre_sql_parameters", aurora_postgre_sql_parameters)
-        if maria_db_parameters is not None:
-            pulumi.set(__self__, "maria_db_parameters", maria_db_parameters)
-        if my_sql_parameters is not None:
-            pulumi.set(__self__, "my_sql_parameters", my_sql_parameters)
-        if oracle_parameters is not None:
-            pulumi.set(__self__, "oracle_parameters", oracle_parameters)
-        if postgre_sql_parameters is not None:
-            pulumi.set(__self__, "postgre_sql_parameters", postgre_sql_parameters)
-        if presto_parameters is not None:
-            pulumi.set(__self__, "presto_parameters", presto_parameters)
-        if rds_parameters is not None:
-            pulumi.set(__self__, "rds_parameters", rds_parameters)
-        if redshift_parameters is not None:
-            pulumi.set(__self__, "redshift_parameters", redshift_parameters)
-        if s3_parameters is not None:
-            pulumi.set(__self__, "s3_parameters", s3_parameters)
-        if snowflake_parameters is not None:
-            pulumi.set(__self__, "snowflake_parameters", snowflake_parameters)
-        if spark_parameters is not None:
-            pulumi.set(__self__, "spark_parameters", spark_parameters)
-        if sql_server_parameters is not None:
-            pulumi.set(__self__, "sql_server_parameters", sql_server_parameters)
-        if teradata_parameters is not None:
-            pulumi.set(__self__, "teradata_parameters", teradata_parameters)
-
-    @property
-    @pulumi.getter(name="amazonElasticsearchParameters")
-    def amazon_elasticsearch_parameters(self) -> Optional['outputs.DataSourceAmazonElasticsearchParameters']:
-        return pulumi.get(self, "amazon_elasticsearch_parameters")
-
-    @property
-    @pulumi.getter(name="athenaParameters")
-    def athena_parameters(self) -> Optional['outputs.DataSourceAthenaParameters']:
-        return pulumi.get(self, "athena_parameters")
-
-    @property
-    @pulumi.getter(name="auroraParameters")
-    def aurora_parameters(self) -> Optional['outputs.DataSourceAuroraParameters']:
-        return pulumi.get(self, "aurora_parameters")
-
-    @property
-    @pulumi.getter(name="auroraPostgreSqlParameters")
-    def aurora_postgre_sql_parameters(self) -> Optional['outputs.DataSourceAuroraPostgreSqlParameters']:
-        return pulumi.get(self, "aurora_postgre_sql_parameters")
-
-    @property
-    @pulumi.getter(name="mariaDbParameters")
-    def maria_db_parameters(self) -> Optional['outputs.DataSourceMariaDbParameters']:
-        return pulumi.get(self, "maria_db_parameters")
-
-    @property
-    @pulumi.getter(name="mySqlParameters")
-    def my_sql_parameters(self) -> Optional['outputs.DataSourceMySqlParameters']:
-        return pulumi.get(self, "my_sql_parameters")
-
-    @property
-    @pulumi.getter(name="oracleParameters")
-    def oracle_parameters(self) -> Optional['outputs.DataSourceOracleParameters']:
-        return pulumi.get(self, "oracle_parameters")
-
-    @property
-    @pulumi.getter(name="postgreSqlParameters")
-    def postgre_sql_parameters(self) -> Optional['outputs.DataSourcePostgreSqlParameters']:
-        return pulumi.get(self, "postgre_sql_parameters")
-
-    @property
-    @pulumi.getter(name="prestoParameters")
-    def presto_parameters(self) -> Optional['outputs.DataSourcePrestoParameters']:
-        return pulumi.get(self, "presto_parameters")
-
-    @property
-    @pulumi.getter(name="rdsParameters")
-    def rds_parameters(self) -> Optional['outputs.DataSourceRdsParameters']:
-        return pulumi.get(self, "rds_parameters")
-
-    @property
-    @pulumi.getter(name="redshiftParameters")
-    def redshift_parameters(self) -> Optional['outputs.DataSourceRedshiftParameters']:
-        return pulumi.get(self, "redshift_parameters")
-
-    @property
-    @pulumi.getter(name="s3Parameters")
-    def s3_parameters(self) -> Optional['outputs.DataSourceS3Parameters']:
-        return pulumi.get(self, "s3_parameters")
-
-    @property
-    @pulumi.getter(name="snowflakeParameters")
-    def snowflake_parameters(self) -> Optional['outputs.DataSourceSnowflakeParameters']:
-        return pulumi.get(self, "snowflake_parameters")
-
-    @property
-    @pulumi.getter(name="sparkParameters")
-    def spark_parameters(self) -> Optional['outputs.DataSourceSparkParameters']:
-        return pulumi.get(self, "spark_parameters")
-
-    @property
-    @pulumi.getter(name="sqlServerParameters")
-    def sql_server_parameters(self) -> Optional['outputs.DataSourceSqlServerParameters']:
-        return pulumi.get(self, "sql_server_parameters")
-
-    @property
-    @pulumi.getter(name="teradataParameters")
-    def teradata_parameters(self) -> Optional['outputs.DataSourceTeradataParameters']:
-        return pulumi.get(self, "teradata_parameters")
 
 
 @pulumi.output_type
@@ -2578,6 +2388,196 @@ class DataSourceOracleParameters(dict):
     @pulumi.getter
     def port(self) -> float:
         return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class DataSourceParameters(dict):
+    """
+    <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
+                This is a variant type structure. For this structure to be valid, only one of the
+                attributes can be non-null.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "amazonElasticsearchParameters":
+            suggest = "amazon_elasticsearch_parameters"
+        elif key == "athenaParameters":
+            suggest = "athena_parameters"
+        elif key == "auroraParameters":
+            suggest = "aurora_parameters"
+        elif key == "auroraPostgreSqlParameters":
+            suggest = "aurora_postgre_sql_parameters"
+        elif key == "mariaDbParameters":
+            suggest = "maria_db_parameters"
+        elif key == "mySqlParameters":
+            suggest = "my_sql_parameters"
+        elif key == "oracleParameters":
+            suggest = "oracle_parameters"
+        elif key == "postgreSqlParameters":
+            suggest = "postgre_sql_parameters"
+        elif key == "prestoParameters":
+            suggest = "presto_parameters"
+        elif key == "rdsParameters":
+            suggest = "rds_parameters"
+        elif key == "redshiftParameters":
+            suggest = "redshift_parameters"
+        elif key == "s3Parameters":
+            suggest = "s3_parameters"
+        elif key == "snowflakeParameters":
+            suggest = "snowflake_parameters"
+        elif key == "sparkParameters":
+            suggest = "spark_parameters"
+        elif key == "sqlServerParameters":
+            suggest = "sql_server_parameters"
+        elif key == "teradataParameters":
+            suggest = "teradata_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 amazon_elasticsearch_parameters: Optional['outputs.DataSourceAmazonElasticsearchParameters'] = None,
+                 athena_parameters: Optional['outputs.DataSourceAthenaParameters'] = None,
+                 aurora_parameters: Optional['outputs.DataSourceAuroraParameters'] = None,
+                 aurora_postgre_sql_parameters: Optional['outputs.DataSourceAuroraPostgreSqlParameters'] = None,
+                 maria_db_parameters: Optional['outputs.DataSourceMariaDbParameters'] = None,
+                 my_sql_parameters: Optional['outputs.DataSourceMySqlParameters'] = None,
+                 oracle_parameters: Optional['outputs.DataSourceOracleParameters'] = None,
+                 postgre_sql_parameters: Optional['outputs.DataSourcePostgreSqlParameters'] = None,
+                 presto_parameters: Optional['outputs.DataSourcePrestoParameters'] = None,
+                 rds_parameters: Optional['outputs.DataSourceRdsParameters'] = None,
+                 redshift_parameters: Optional['outputs.DataSourceRedshiftParameters'] = None,
+                 s3_parameters: Optional['outputs.DataSourceS3Parameters'] = None,
+                 snowflake_parameters: Optional['outputs.DataSourceSnowflakeParameters'] = None,
+                 spark_parameters: Optional['outputs.DataSourceSparkParameters'] = None,
+                 sql_server_parameters: Optional['outputs.DataSourceSqlServerParameters'] = None,
+                 teradata_parameters: Optional['outputs.DataSourceTeradataParameters'] = None):
+        """
+        <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
+                    This is a variant type structure. For this structure to be valid, only one of the
+                    attributes can be non-null.</p>
+        """
+        if amazon_elasticsearch_parameters is not None:
+            pulumi.set(__self__, "amazon_elasticsearch_parameters", amazon_elasticsearch_parameters)
+        if athena_parameters is not None:
+            pulumi.set(__self__, "athena_parameters", athena_parameters)
+        if aurora_parameters is not None:
+            pulumi.set(__self__, "aurora_parameters", aurora_parameters)
+        if aurora_postgre_sql_parameters is not None:
+            pulumi.set(__self__, "aurora_postgre_sql_parameters", aurora_postgre_sql_parameters)
+        if maria_db_parameters is not None:
+            pulumi.set(__self__, "maria_db_parameters", maria_db_parameters)
+        if my_sql_parameters is not None:
+            pulumi.set(__self__, "my_sql_parameters", my_sql_parameters)
+        if oracle_parameters is not None:
+            pulumi.set(__self__, "oracle_parameters", oracle_parameters)
+        if postgre_sql_parameters is not None:
+            pulumi.set(__self__, "postgre_sql_parameters", postgre_sql_parameters)
+        if presto_parameters is not None:
+            pulumi.set(__self__, "presto_parameters", presto_parameters)
+        if rds_parameters is not None:
+            pulumi.set(__self__, "rds_parameters", rds_parameters)
+        if redshift_parameters is not None:
+            pulumi.set(__self__, "redshift_parameters", redshift_parameters)
+        if s3_parameters is not None:
+            pulumi.set(__self__, "s3_parameters", s3_parameters)
+        if snowflake_parameters is not None:
+            pulumi.set(__self__, "snowflake_parameters", snowflake_parameters)
+        if spark_parameters is not None:
+            pulumi.set(__self__, "spark_parameters", spark_parameters)
+        if sql_server_parameters is not None:
+            pulumi.set(__self__, "sql_server_parameters", sql_server_parameters)
+        if teradata_parameters is not None:
+            pulumi.set(__self__, "teradata_parameters", teradata_parameters)
+
+    @property
+    @pulumi.getter(name="amazonElasticsearchParameters")
+    def amazon_elasticsearch_parameters(self) -> Optional['outputs.DataSourceAmazonElasticsearchParameters']:
+        return pulumi.get(self, "amazon_elasticsearch_parameters")
+
+    @property
+    @pulumi.getter(name="athenaParameters")
+    def athena_parameters(self) -> Optional['outputs.DataSourceAthenaParameters']:
+        return pulumi.get(self, "athena_parameters")
+
+    @property
+    @pulumi.getter(name="auroraParameters")
+    def aurora_parameters(self) -> Optional['outputs.DataSourceAuroraParameters']:
+        return pulumi.get(self, "aurora_parameters")
+
+    @property
+    @pulumi.getter(name="auroraPostgreSqlParameters")
+    def aurora_postgre_sql_parameters(self) -> Optional['outputs.DataSourceAuroraPostgreSqlParameters']:
+        return pulumi.get(self, "aurora_postgre_sql_parameters")
+
+    @property
+    @pulumi.getter(name="mariaDbParameters")
+    def maria_db_parameters(self) -> Optional['outputs.DataSourceMariaDbParameters']:
+        return pulumi.get(self, "maria_db_parameters")
+
+    @property
+    @pulumi.getter(name="mySqlParameters")
+    def my_sql_parameters(self) -> Optional['outputs.DataSourceMySqlParameters']:
+        return pulumi.get(self, "my_sql_parameters")
+
+    @property
+    @pulumi.getter(name="oracleParameters")
+    def oracle_parameters(self) -> Optional['outputs.DataSourceOracleParameters']:
+        return pulumi.get(self, "oracle_parameters")
+
+    @property
+    @pulumi.getter(name="postgreSqlParameters")
+    def postgre_sql_parameters(self) -> Optional['outputs.DataSourcePostgreSqlParameters']:
+        return pulumi.get(self, "postgre_sql_parameters")
+
+    @property
+    @pulumi.getter(name="prestoParameters")
+    def presto_parameters(self) -> Optional['outputs.DataSourcePrestoParameters']:
+        return pulumi.get(self, "presto_parameters")
+
+    @property
+    @pulumi.getter(name="rdsParameters")
+    def rds_parameters(self) -> Optional['outputs.DataSourceRdsParameters']:
+        return pulumi.get(self, "rds_parameters")
+
+    @property
+    @pulumi.getter(name="redshiftParameters")
+    def redshift_parameters(self) -> Optional['outputs.DataSourceRedshiftParameters']:
+        return pulumi.get(self, "redshift_parameters")
+
+    @property
+    @pulumi.getter(name="s3Parameters")
+    def s3_parameters(self) -> Optional['outputs.DataSourceS3Parameters']:
+        return pulumi.get(self, "s3_parameters")
+
+    @property
+    @pulumi.getter(name="snowflakeParameters")
+    def snowflake_parameters(self) -> Optional['outputs.DataSourceSnowflakeParameters']:
+        return pulumi.get(self, "snowflake_parameters")
+
+    @property
+    @pulumi.getter(name="sparkParameters")
+    def spark_parameters(self) -> Optional['outputs.DataSourceSparkParameters']:
+        return pulumi.get(self, "spark_parameters")
+
+    @property
+    @pulumi.getter(name="sqlServerParameters")
+    def sql_server_parameters(self) -> Optional['outputs.DataSourceSqlServerParameters']:
+        return pulumi.get(self, "sql_server_parameters")
+
+    @property
+    @pulumi.getter(name="teradataParameters")
+    def teradata_parameters(self) -> Optional['outputs.DataSourceTeradataParameters']:
+        return pulumi.get(self, "teradata_parameters")
 
 
 @pulumi.output_type
@@ -3472,6 +3472,37 @@ class TemplateDataSetSchema(dict):
 
 
 @pulumi.output_type
+class TemplateError(dict):
+    """
+    <p>List of errors that occurred when the template version creation failed.</p>
+    """
+    def __init__(__self__, *,
+                 message: Optional[str] = None,
+                 type: Optional['TemplateErrorType'] = None):
+        """
+        <p>List of errors that occurred when the template version creation failed.</p>
+        :param str message: <p>Description of the error type.</p>
+        """
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        <p>Description of the error type.</p>
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional['TemplateErrorType']:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class TemplateResourcePermission(dict):
     """
     <p>Permission for the resource.</p>
@@ -3595,6 +3626,126 @@ class TemplateSheet(dict):
 
 
 @pulumi.output_type
+class TemplateSourceAnalysis(dict):
+    """
+    <p>The source analysis of the template.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSetReferences":
+            suggest = "data_set_references"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateSourceAnalysis. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateSourceAnalysis.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateSourceAnalysis.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arn: str,
+                 data_set_references: Sequence['outputs.TemplateDataSetReference']):
+        """
+        <p>The source analysis of the template.</p>
+        :param str arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+        :param Sequence['TemplateDataSetReference'] data_set_references: <p>A structure containing information about the dataset references used as placeholders
+                           in the template.</p>
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "data_set_references", data_set_references)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        <p>The Amazon Resource Name (ARN) of the resource.</p>
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="dataSetReferences")
+    def data_set_references(self) -> Sequence['outputs.TemplateDataSetReference']:
+        """
+        <p>A structure containing information about the dataset references used as placeholders
+                    in the template.</p>
+        """
+        return pulumi.get(self, "data_set_references")
+
+
+@pulumi.output_type
+class TemplateSourceEntity(dict):
+    """
+    <p>The source entity of the template.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceAnalysis":
+            suggest = "source_analysis"
+        elif key == "sourceTemplate":
+            suggest = "source_template"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateSourceEntity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateSourceEntity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateSourceEntity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_analysis: Optional['outputs.TemplateSourceAnalysis'] = None,
+                 source_template: Optional['outputs.TemplateSourceTemplate'] = None):
+        """
+        <p>The source entity of the template.</p>
+        """
+        if source_analysis is not None:
+            pulumi.set(__self__, "source_analysis", source_analysis)
+        if source_template is not None:
+            pulumi.set(__self__, "source_template", source_template)
+
+    @property
+    @pulumi.getter(name="sourceAnalysis")
+    def source_analysis(self) -> Optional['outputs.TemplateSourceAnalysis']:
+        return pulumi.get(self, "source_analysis")
+
+    @property
+    @pulumi.getter(name="sourceTemplate")
+    def source_template(self) -> Optional['outputs.TemplateSourceTemplate']:
+        return pulumi.get(self, "source_template")
+
+
+@pulumi.output_type
+class TemplateSourceTemplate(dict):
+    """
+    <p>The source template of the template.</p>
+    """
+    def __init__(__self__, *,
+                 arn: str):
+        """
+        <p>The source template of the template.</p>
+        :param str arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+        """
+        pulumi.set(__self__, "arn", arn)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        <p>The Amazon Resource Name (ARN) of the resource.</p>
+        """
+        return pulumi.get(self, "arn")
+
+
+@pulumi.output_type
 class TemplateTag(dict):
     """
     <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
@@ -3630,158 +3781,7 @@ class TemplateTag(dict):
 
 
 @pulumi.output_type
-class TemplateTemplateError(dict):
-    """
-    <p>List of errors that occurred when the template version creation failed.</p>
-    """
-    def __init__(__self__, *,
-                 message: Optional[str] = None,
-                 type: Optional['TemplateTemplateErrorType'] = None):
-        """
-        <p>List of errors that occurred when the template version creation failed.</p>
-        :param str message: <p>Description of the error type.</p>
-        """
-        if message is not None:
-            pulumi.set(__self__, "message", message)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def message(self) -> Optional[str]:
-        """
-        <p>Description of the error type.</p>
-        """
-        return pulumi.get(self, "message")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional['TemplateTemplateErrorType']:
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class TemplateTemplateSourceAnalysis(dict):
-    """
-    <p>The source analysis of the template.</p>
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "dataSetReferences":
-            suggest = "data_set_references"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TemplateTemplateSourceAnalysis. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TemplateTemplateSourceAnalysis.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TemplateTemplateSourceAnalysis.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 arn: str,
-                 data_set_references: Sequence['outputs.TemplateDataSetReference']):
-        """
-        <p>The source analysis of the template.</p>
-        :param str arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
-        :param Sequence['TemplateDataSetReference'] data_set_references: <p>A structure containing information about the dataset references used as placeholders
-                           in the template.</p>
-        """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "data_set_references", data_set_references)
-
-    @property
-    @pulumi.getter
-    def arn(self) -> str:
-        """
-        <p>The Amazon Resource Name (ARN) of the resource.</p>
-        """
-        return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="dataSetReferences")
-    def data_set_references(self) -> Sequence['outputs.TemplateDataSetReference']:
-        """
-        <p>A structure containing information about the dataset references used as placeholders
-                    in the template.</p>
-        """
-        return pulumi.get(self, "data_set_references")
-
-
-@pulumi.output_type
-class TemplateTemplateSourceEntity(dict):
-    """
-    <p>The source entity of the template.</p>
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "sourceAnalysis":
-            suggest = "source_analysis"
-        elif key == "sourceTemplate":
-            suggest = "source_template"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TemplateTemplateSourceEntity. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TemplateTemplateSourceEntity.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TemplateTemplateSourceEntity.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 source_analysis: Optional['outputs.TemplateTemplateSourceAnalysis'] = None,
-                 source_template: Optional['outputs.TemplateTemplateSourceTemplate'] = None):
-        """
-        <p>The source entity of the template.</p>
-        """
-        if source_analysis is not None:
-            pulumi.set(__self__, "source_analysis", source_analysis)
-        if source_template is not None:
-            pulumi.set(__self__, "source_template", source_template)
-
-    @property
-    @pulumi.getter(name="sourceAnalysis")
-    def source_analysis(self) -> Optional['outputs.TemplateTemplateSourceAnalysis']:
-        return pulumi.get(self, "source_analysis")
-
-    @property
-    @pulumi.getter(name="sourceTemplate")
-    def source_template(self) -> Optional['outputs.TemplateTemplateSourceTemplate']:
-        return pulumi.get(self, "source_template")
-
-
-@pulumi.output_type
-class TemplateTemplateSourceTemplate(dict):
-    """
-    <p>The source template of the template.</p>
-    """
-    def __init__(__self__, *,
-                 arn: str):
-        """
-        <p>The source template of the template.</p>
-        :param str arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
-        """
-        pulumi.set(__self__, "arn", arn)
-
-    @property
-    @pulumi.getter
-    def arn(self) -> str:
-        """
-        <p>The Amazon Resource Name (ARN) of the resource.</p>
-        """
-        return pulumi.get(self, "arn")
-
-
-@pulumi.output_type
-class TemplateTemplateVersion(dict):
+class TemplateVersion(dict):
     """
     <p>A version of a template.</p>
     """
@@ -3800,21 +3800,21 @@ class TemplateTemplateVersion(dict):
             suggest = "version_number"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TemplateTemplateVersion. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in TemplateVersion. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        TemplateTemplateVersion.__key_warning(key)
+        TemplateVersion.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        TemplateTemplateVersion.__key_warning(key)
+        TemplateVersion.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  created_time: Optional[str] = None,
                  data_set_configurations: Optional[Sequence['outputs.TemplateDataSetConfiguration']] = None,
                  description: Optional[str] = None,
-                 errors: Optional[Sequence['outputs.TemplateTemplateError']] = None,
+                 errors: Optional[Sequence['outputs.TemplateError']] = None,
                  sheets: Optional[Sequence['outputs.TemplateSheet']] = None,
                  source_entity_arn: Optional[str] = None,
                  status: Optional['TemplateResourceStatus'] = None,
@@ -3827,7 +3827,7 @@ class TemplateTemplateVersion(dict):
                            template should be bound to new datasets matching the same schema described through this
                            API operation.</p>
         :param str description: <p>The description of the template.</p>
-        :param Sequence['TemplateTemplateError'] errors: <p>Errors associated with this template version.</p>
+        :param Sequence['TemplateError'] errors: <p>Errors associated with this template version.</p>
         :param Sequence['TemplateSheet'] sheets: <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
         :param str source_entity_arn: <p>The Amazon Resource Name (ARN) of an analysis or template that was used to create this
                            template.</p>
@@ -3881,7 +3881,7 @@ class TemplateTemplateVersion(dict):
 
     @property
     @pulumi.getter
-    def errors(self) -> Optional[Sequence['outputs.TemplateTemplateError']]:
+    def errors(self) -> Optional[Sequence['outputs.TemplateError']]:
         """
         <p>Errors associated with this template version.</p>
         """
@@ -3947,6 +3947,70 @@ class ThemeBorderStyle(dict):
         <p>The option to enable display of borders for visuals.</p>
         """
         return pulumi.get(self, "show")
+
+
+@pulumi.output_type
+class ThemeConfiguration(dict):
+    """
+    <p>The theme configuration. This configuration contains all of the display properties for
+                a theme.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataColorPalette":
+            suggest = "data_color_palette"
+        elif key == "uIColorPalette":
+            suggest = "u_i_color_palette"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ThemeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ThemeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ThemeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_color_palette: Optional['outputs.ThemeDataColorPalette'] = None,
+                 sheet: Optional['outputs.ThemeSheetStyle'] = None,
+                 typography: Optional['outputs.ThemeTypography'] = None,
+                 u_i_color_palette: Optional['outputs.ThemeUIColorPalette'] = None):
+        """
+        <p>The theme configuration. This configuration contains all of the display properties for
+                    a theme.</p>
+        """
+        if data_color_palette is not None:
+            pulumi.set(__self__, "data_color_palette", data_color_palette)
+        if sheet is not None:
+            pulumi.set(__self__, "sheet", sheet)
+        if typography is not None:
+            pulumi.set(__self__, "typography", typography)
+        if u_i_color_palette is not None:
+            pulumi.set(__self__, "u_i_color_palette", u_i_color_palette)
+
+    @property
+    @pulumi.getter(name="dataColorPalette")
+    def data_color_palette(self) -> Optional['outputs.ThemeDataColorPalette']:
+        return pulumi.get(self, "data_color_palette")
+
+    @property
+    @pulumi.getter
+    def sheet(self) -> Optional['outputs.ThemeSheetStyle']:
+        return pulumi.get(self, "sheet")
+
+    @property
+    @pulumi.getter
+    def typography(self) -> Optional['outputs.ThemeTypography']:
+        return pulumi.get(self, "typography")
+
+    @property
+    @pulumi.getter(name="uIColorPalette")
+    def u_i_color_palette(self) -> Optional['outputs.ThemeUIColorPalette']:
+        return pulumi.get(self, "u_i_color_palette")
 
 
 @pulumi.output_type
@@ -4019,6 +4083,37 @@ class ThemeDataColorPalette(dict):
         <p>The minimum and maximum hexadecimal codes that describe a color gradient. </p>
         """
         return pulumi.get(self, "min_max_gradient")
+
+
+@pulumi.output_type
+class ThemeError(dict):
+    """
+    <p>Theme error.</p>
+    """
+    def __init__(__self__, *,
+                 message: Optional[str] = None,
+                 type: Optional['ThemeErrorType'] = None):
+        """
+        <p>Theme error.</p>
+        :param str message: <p>The error message.</p>
+        """
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        <p>The error message.</p>
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional['ThemeErrorType']:
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -4237,223 +4332,6 @@ class ThemeTag(dict):
         <p>Tag value.</p>
         """
         return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class ThemeThemeConfiguration(dict):
-    """
-    <p>The theme configuration. This configuration contains all of the display properties for
-                a theme.</p>
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "dataColorPalette":
-            suggest = "data_color_palette"
-        elif key == "uIColorPalette":
-            suggest = "u_i_color_palette"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ThemeThemeConfiguration. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ThemeThemeConfiguration.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ThemeThemeConfiguration.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 data_color_palette: Optional['outputs.ThemeDataColorPalette'] = None,
-                 sheet: Optional['outputs.ThemeSheetStyle'] = None,
-                 typography: Optional['outputs.ThemeTypography'] = None,
-                 u_i_color_palette: Optional['outputs.ThemeUIColorPalette'] = None):
-        """
-        <p>The theme configuration. This configuration contains all of the display properties for
-                    a theme.</p>
-        """
-        if data_color_palette is not None:
-            pulumi.set(__self__, "data_color_palette", data_color_palette)
-        if sheet is not None:
-            pulumi.set(__self__, "sheet", sheet)
-        if typography is not None:
-            pulumi.set(__self__, "typography", typography)
-        if u_i_color_palette is not None:
-            pulumi.set(__self__, "u_i_color_palette", u_i_color_palette)
-
-    @property
-    @pulumi.getter(name="dataColorPalette")
-    def data_color_palette(self) -> Optional['outputs.ThemeDataColorPalette']:
-        return pulumi.get(self, "data_color_palette")
-
-    @property
-    @pulumi.getter
-    def sheet(self) -> Optional['outputs.ThemeSheetStyle']:
-        return pulumi.get(self, "sheet")
-
-    @property
-    @pulumi.getter
-    def typography(self) -> Optional['outputs.ThemeTypography']:
-        return pulumi.get(self, "typography")
-
-    @property
-    @pulumi.getter(name="uIColorPalette")
-    def u_i_color_palette(self) -> Optional['outputs.ThemeUIColorPalette']:
-        return pulumi.get(self, "u_i_color_palette")
-
-
-@pulumi.output_type
-class ThemeThemeError(dict):
-    """
-    <p>Theme error.</p>
-    """
-    def __init__(__self__, *,
-                 message: Optional[str] = None,
-                 type: Optional['ThemeThemeErrorType'] = None):
-        """
-        <p>Theme error.</p>
-        :param str message: <p>The error message.</p>
-        """
-        if message is not None:
-            pulumi.set(__self__, "message", message)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def message(self) -> Optional[str]:
-        """
-        <p>The error message.</p>
-        """
-        return pulumi.get(self, "message")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional['ThemeThemeErrorType']:
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class ThemeThemeVersion(dict):
-    """
-    <p>A version of a theme.</p>
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "baseThemeId":
-            suggest = "base_theme_id"
-        elif key == "createdTime":
-            suggest = "created_time"
-        elif key == "versionNumber":
-            suggest = "version_number"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ThemeThemeVersion. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ThemeThemeVersion.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ThemeThemeVersion.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 arn: Optional[str] = None,
-                 base_theme_id: Optional[str] = None,
-                 configuration: Optional['outputs.ThemeThemeConfiguration'] = None,
-                 created_time: Optional[str] = None,
-                 description: Optional[str] = None,
-                 errors: Optional[Sequence['outputs.ThemeThemeError']] = None,
-                 status: Optional['ThemeResourceStatus'] = None,
-                 version_number: Optional[float] = None):
-        """
-        <p>A version of a theme.</p>
-        :param str arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
-        :param str base_theme_id: <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
-                           themes initially inherit from a default QuickSight theme.</p>
-        :param str created_time: <p>The date and time that this theme version was created.</p>
-        :param str description: <p>The description of the theme.</p>
-        :param Sequence['ThemeThemeError'] errors: <p>Errors associated with the theme.</p>
-        :param float version_number: <p>The version number of the theme.</p>
-        """
-        if arn is not None:
-            pulumi.set(__self__, "arn", arn)
-        if base_theme_id is not None:
-            pulumi.set(__self__, "base_theme_id", base_theme_id)
-        if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
-        if created_time is not None:
-            pulumi.set(__self__, "created_time", created_time)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if errors is not None:
-            pulumi.set(__self__, "errors", errors)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-        if version_number is not None:
-            pulumi.set(__self__, "version_number", version_number)
-
-    @property
-    @pulumi.getter
-    def arn(self) -> Optional[str]:
-        """
-        <p>The Amazon Resource Name (ARN) of the resource.</p>
-        """
-        return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="baseThemeId")
-    def base_theme_id(self) -> Optional[str]:
-        """
-        <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
-                    themes initially inherit from a default QuickSight theme.</p>
-        """
-        return pulumi.get(self, "base_theme_id")
-
-    @property
-    @pulumi.getter
-    def configuration(self) -> Optional['outputs.ThemeThemeConfiguration']:
-        return pulumi.get(self, "configuration")
-
-    @property
-    @pulumi.getter(name="createdTime")
-    def created_time(self) -> Optional[str]:
-        """
-        <p>The date and time that this theme version was created.</p>
-        """
-        return pulumi.get(self, "created_time")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        <p>The description of the theme.</p>
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def errors(self) -> Optional[Sequence['outputs.ThemeThemeError']]:
-        """
-        <p>Errors associated with the theme.</p>
-        """
-        return pulumi.get(self, "errors")
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional['ThemeResourceStatus']:
-        return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="versionNumber")
-    def version_number(self) -> Optional[float]:
-        """
-        <p>The version number of the theme.</p>
-        """
-        return pulumi.get(self, "version_number")
 
 
 @pulumi.output_type
@@ -4796,5 +4674,127 @@ class ThemeUIColorPalette(dict):
                     warning color.</p>
         """
         return pulumi.get(self, "warning_foreground")
+
+
+@pulumi.output_type
+class ThemeVersion(dict):
+    """
+    <p>A version of a theme.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseThemeId":
+            suggest = "base_theme_id"
+        elif key == "createdTime":
+            suggest = "created_time"
+        elif key == "versionNumber":
+            suggest = "version_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ThemeVersion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ThemeVersion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ThemeVersion.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arn: Optional[str] = None,
+                 base_theme_id: Optional[str] = None,
+                 configuration: Optional['outputs.ThemeConfiguration'] = None,
+                 created_time: Optional[str] = None,
+                 description: Optional[str] = None,
+                 errors: Optional[Sequence['outputs.ThemeError']] = None,
+                 status: Optional['ThemeResourceStatus'] = None,
+                 version_number: Optional[float] = None):
+        """
+        <p>A version of a theme.</p>
+        :param str arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+        :param str base_theme_id: <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
+                           themes initially inherit from a default QuickSight theme.</p>
+        :param str created_time: <p>The date and time that this theme version was created.</p>
+        :param str description: <p>The description of the theme.</p>
+        :param Sequence['ThemeError'] errors: <p>Errors associated with the theme.</p>
+        :param float version_number: <p>The version number of the theme.</p>
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if base_theme_id is not None:
+            pulumi.set(__self__, "base_theme_id", base_theme_id)
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+        if created_time is not None:
+            pulumi.set(__self__, "created_time", created_time)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if errors is not None:
+            pulumi.set(__self__, "errors", errors)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if version_number is not None:
+            pulumi.set(__self__, "version_number", version_number)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[str]:
+        """
+        <p>The Amazon Resource Name (ARN) of the resource.</p>
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="baseThemeId")
+    def base_theme_id(self) -> Optional[str]:
+        """
+        <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
+                    themes initially inherit from a default QuickSight theme.</p>
+        """
+        return pulumi.get(self, "base_theme_id")
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional['outputs.ThemeConfiguration']:
+        return pulumi.get(self, "configuration")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> Optional[str]:
+        """
+        <p>The date and time that this theme version was created.</p>
+        """
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        <p>The description of the theme.</p>
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def errors(self) -> Optional[Sequence['outputs.ThemeError']]:
+        """
+        <p>Errors associated with the theme.</p>
+        """
+        return pulumi.get(self, "errors")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional['ThemeResourceStatus']:
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="versionNumber")
+    def version_number(self) -> Optional[float]:
+        """
+        <p>The version number of the theme.</p>
+        """
+        return pulumi.get(self, "version_number")
 
 

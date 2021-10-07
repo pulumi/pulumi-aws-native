@@ -13,10 +13,10 @@ __all__ = [
     'DomainAdvancedSecurityOptionsInput',
     'DomainCognitoOptions',
     'DomainColdStorageOptions',
-    'DomainDomainEndpointOptions',
     'DomainEBSOptions',
     'DomainElasticsearchClusterConfig',
     'DomainEncryptionAtRestOptions',
+    'DomainEndpointOptions',
     'DomainMasterUserOptions',
     'DomainNodeToNodeEncryptionOptions',
     'DomainSnapshotOptions',
@@ -142,76 +142,6 @@ class DomainColdStorageOptions(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         return pulumi.get(self, "enabled")
-
-
-@pulumi.output_type
-class DomainDomainEndpointOptions(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "customEndpoint":
-            suggest = "custom_endpoint"
-        elif key == "customEndpointCertificateArn":
-            suggest = "custom_endpoint_certificate_arn"
-        elif key == "customEndpointEnabled":
-            suggest = "custom_endpoint_enabled"
-        elif key == "enforceHTTPS":
-            suggest = "enforce_https"
-        elif key == "tLSSecurityPolicy":
-            suggest = "t_ls_security_policy"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DomainDomainEndpointOptions. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DomainDomainEndpointOptions.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DomainDomainEndpointOptions.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 custom_endpoint: Optional[str] = None,
-                 custom_endpoint_certificate_arn: Optional[str] = None,
-                 custom_endpoint_enabled: Optional[bool] = None,
-                 enforce_https: Optional[bool] = None,
-                 t_ls_security_policy: Optional[str] = None):
-        if custom_endpoint is not None:
-            pulumi.set(__self__, "custom_endpoint", custom_endpoint)
-        if custom_endpoint_certificate_arn is not None:
-            pulumi.set(__self__, "custom_endpoint_certificate_arn", custom_endpoint_certificate_arn)
-        if custom_endpoint_enabled is not None:
-            pulumi.set(__self__, "custom_endpoint_enabled", custom_endpoint_enabled)
-        if enforce_https is not None:
-            pulumi.set(__self__, "enforce_https", enforce_https)
-        if t_ls_security_policy is not None:
-            pulumi.set(__self__, "t_ls_security_policy", t_ls_security_policy)
-
-    @property
-    @pulumi.getter(name="customEndpoint")
-    def custom_endpoint(self) -> Optional[str]:
-        return pulumi.get(self, "custom_endpoint")
-
-    @property
-    @pulumi.getter(name="customEndpointCertificateArn")
-    def custom_endpoint_certificate_arn(self) -> Optional[str]:
-        return pulumi.get(self, "custom_endpoint_certificate_arn")
-
-    @property
-    @pulumi.getter(name="customEndpointEnabled")
-    def custom_endpoint_enabled(self) -> Optional[bool]:
-        return pulumi.get(self, "custom_endpoint_enabled")
-
-    @property
-    @pulumi.getter(name="enforceHTTPS")
-    def enforce_https(self) -> Optional[bool]:
-        return pulumi.get(self, "enforce_https")
-
-    @property
-    @pulumi.getter(name="tLSSecurityPolicy")
-    def t_ls_security_policy(self) -> Optional[str]:
-        return pulumi.get(self, "t_ls_security_policy")
 
 
 @pulumi.output_type
@@ -438,6 +368,76 @@ class DomainEncryptionAtRestOptions(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[str]:
         return pulumi.get(self, "kms_key_id")
+
+
+@pulumi.output_type
+class DomainEndpointOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customEndpoint":
+            suggest = "custom_endpoint"
+        elif key == "customEndpointCertificateArn":
+            suggest = "custom_endpoint_certificate_arn"
+        elif key == "customEndpointEnabled":
+            suggest = "custom_endpoint_enabled"
+        elif key == "enforceHTTPS":
+            suggest = "enforce_https"
+        elif key == "tLSSecurityPolicy":
+            suggest = "t_ls_security_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainEndpointOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainEndpointOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainEndpointOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_endpoint: Optional[str] = None,
+                 custom_endpoint_certificate_arn: Optional[str] = None,
+                 custom_endpoint_enabled: Optional[bool] = None,
+                 enforce_https: Optional[bool] = None,
+                 t_ls_security_policy: Optional[str] = None):
+        if custom_endpoint is not None:
+            pulumi.set(__self__, "custom_endpoint", custom_endpoint)
+        if custom_endpoint_certificate_arn is not None:
+            pulumi.set(__self__, "custom_endpoint_certificate_arn", custom_endpoint_certificate_arn)
+        if custom_endpoint_enabled is not None:
+            pulumi.set(__self__, "custom_endpoint_enabled", custom_endpoint_enabled)
+        if enforce_https is not None:
+            pulumi.set(__self__, "enforce_https", enforce_https)
+        if t_ls_security_policy is not None:
+            pulumi.set(__self__, "t_ls_security_policy", t_ls_security_policy)
+
+    @property
+    @pulumi.getter(name="customEndpoint")
+    def custom_endpoint(self) -> Optional[str]:
+        return pulumi.get(self, "custom_endpoint")
+
+    @property
+    @pulumi.getter(name="customEndpointCertificateArn")
+    def custom_endpoint_certificate_arn(self) -> Optional[str]:
+        return pulumi.get(self, "custom_endpoint_certificate_arn")
+
+    @property
+    @pulumi.getter(name="customEndpointEnabled")
+    def custom_endpoint_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "custom_endpoint_enabled")
+
+    @property
+    @pulumi.getter(name="enforceHTTPS")
+    def enforce_https(self) -> Optional[bool]:
+        return pulumi.get(self, "enforce_https")
+
+    @property
+    @pulumi.getter(name="tLSSecurityPolicy")
+    def t_ls_security_policy(self) -> Optional[str]:
+        return pulumi.get(self, "t_ls_security_policy")
 
 
 @pulumi.output_type

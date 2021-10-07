@@ -18,7 +18,7 @@ class DomainConfigurationArgs:
     def __init__(__self__, *,
                  authorizer_config: Optional[pulumi.Input['DomainConfigurationAuthorizerConfigArgs']] = None,
                  domain_configuration_name: Optional[pulumi.Input[str]] = None,
-                 domain_configuration_status: Optional[pulumi.Input['DomainConfigurationDomainConfigurationStatus']] = None,
+                 domain_configuration_status: Optional[pulumi.Input['DomainConfigurationStatus']] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  server_certificate_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_type: Optional[pulumi.Input['DomainConfigurationServiceType']] = None,
@@ -64,11 +64,11 @@ class DomainConfigurationArgs:
 
     @property
     @pulumi.getter(name="domainConfigurationStatus")
-    def domain_configuration_status(self) -> Optional[pulumi.Input['DomainConfigurationDomainConfigurationStatus']]:
+    def domain_configuration_status(self) -> Optional[pulumi.Input['DomainConfigurationStatus']]:
         return pulumi.get(self, "domain_configuration_status")
 
     @domain_configuration_status.setter
-    def domain_configuration_status(self, value: Optional[pulumi.Input['DomainConfigurationDomainConfigurationStatus']]):
+    def domain_configuration_status(self, value: Optional[pulumi.Input['DomainConfigurationStatus']]):
         pulumi.set(self, "domain_configuration_status", value)
 
     @property
@@ -124,7 +124,7 @@ class DomainConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorizer_config: Optional[pulumi.Input[pulumi.InputType['DomainConfigurationAuthorizerConfigArgs']]] = None,
                  domain_configuration_name: Optional[pulumi.Input[str]] = None,
-                 domain_configuration_status: Optional[pulumi.Input['DomainConfigurationDomainConfigurationStatus']] = None,
+                 domain_configuration_status: Optional[pulumi.Input['DomainConfigurationStatus']] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  server_certificate_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_type: Optional[pulumi.Input['DomainConfigurationServiceType']] = None,
@@ -163,7 +163,7 @@ class DomainConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorizer_config: Optional[pulumi.Input[pulumi.InputType['DomainConfigurationAuthorizerConfigArgs']]] = None,
                  domain_configuration_name: Optional[pulumi.Input[str]] = None,
-                 domain_configuration_status: Optional[pulumi.Input['DomainConfigurationDomainConfigurationStatus']] = None,
+                 domain_configuration_status: Optional[pulumi.Input['DomainConfigurationStatus']] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  server_certificate_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_type: Optional[pulumi.Input['DomainConfigurationServiceType']] = None,
@@ -244,7 +244,7 @@ class DomainConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainConfigurationStatus")
-    def domain_configuration_status(self) -> pulumi.Output[Optional['DomainConfigurationDomainConfigurationStatus']]:
+    def domain_configuration_status(self) -> pulumi.Output[Optional['DomainConfigurationStatus']]:
         return pulumi.get(self, "domain_configuration_status")
 
     @property

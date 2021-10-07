@@ -16,7 +16,7 @@ __all__ = ['TopicRuleArgs', 'TopicRule']
 @pulumi.input_type
 class TopicRuleArgs:
     def __init__(__self__, *,
-                 topic_rule_payload: pulumi.Input['TopicRuleTopicRulePayloadArgs'],
+                 topic_rule_payload: pulumi.Input['TopicRulePayloadArgs'],
                  rule_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleTagArgs']]]] = None):
         """
@@ -30,11 +30,11 @@ class TopicRuleArgs:
 
     @property
     @pulumi.getter(name="topicRulePayload")
-    def topic_rule_payload(self) -> pulumi.Input['TopicRuleTopicRulePayloadArgs']:
+    def topic_rule_payload(self) -> pulumi.Input['TopicRulePayloadArgs']:
         return pulumi.get(self, "topic_rule_payload")
 
     @topic_rule_payload.setter
-    def topic_rule_payload(self, value: pulumi.Input['TopicRuleTopicRulePayloadArgs']):
+    def topic_rule_payload(self, value: pulumi.Input['TopicRulePayloadArgs']):
         pulumi.set(self, "topic_rule_payload", value)
 
     @property
@@ -63,7 +63,7 @@ class TopicRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleTagArgs']]]]] = None,
-                 topic_rule_payload: Optional[pulumi.Input[pulumi.InputType['TopicRuleTopicRulePayloadArgs']]] = None,
+                 topic_rule_payload: Optional[pulumi.Input[pulumi.InputType['TopicRulePayloadArgs']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IoT::TopicRule
@@ -97,7 +97,7 @@ class TopicRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleTagArgs']]]]] = None,
-                 topic_rule_payload: Optional[pulumi.Input[pulumi.InputType['TopicRuleTopicRulePayloadArgs']]] = None,
+                 topic_rule_payload: Optional[pulumi.Input[pulumi.InputType['TopicRulePayloadArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -161,6 +161,6 @@ class TopicRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="topicRulePayload")
-    def topic_rule_payload(self) -> pulumi.Output['outputs.TopicRuleTopicRulePayload']:
+    def topic_rule_payload(self) -> pulumi.Output['outputs.TopicRulePayload']:
         return pulumi.get(self, "topic_rule_payload")
 

@@ -17,7 +17,7 @@ class ApplicationArgs:
     def __init__(__self__, *,
                  runtime_environment: pulumi.Input[str],
                  service_execution_role: pulumi.Input[str],
-                 application_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationArgs']] = None,
+                 application_configuration: Optional[pulumi.Input['ApplicationConfigurationArgs']] = None,
                  application_description: Optional[pulumi.Input[str]] = None,
                  application_mode: Optional[pulumi.Input[str]] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
@@ -58,11 +58,11 @@ class ApplicationArgs:
 
     @property
     @pulumi.getter(name="applicationConfiguration")
-    def application_configuration(self) -> Optional[pulumi.Input['ApplicationApplicationConfigurationArgs']]:
+    def application_configuration(self) -> Optional[pulumi.Input['ApplicationConfigurationArgs']]:
         return pulumi.get(self, "application_configuration")
 
     @application_configuration.setter
-    def application_configuration(self, value: Optional[pulumi.Input['ApplicationApplicationConfigurationArgs']]):
+    def application_configuration(self, value: Optional[pulumi.Input['ApplicationConfigurationArgs']]):
         pulumi.set(self, "application_configuration", value)
 
     @property
@@ -112,7 +112,7 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationApplicationConfigurationArgs']]] = None,
+                 application_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationConfigurationArgs']]] = None,
                  application_description: Optional[pulumi.Input[str]] = None,
                  application_mode: Optional[pulumi.Input[str]] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
@@ -150,7 +150,7 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationApplicationConfigurationArgs']]] = None,
+                 application_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationConfigurationArgs']]] = None,
                  application_description: Optional[pulumi.Input[str]] = None,
                  application_mode: Optional[pulumi.Input[str]] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
@@ -214,7 +214,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationConfiguration")
-    def application_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationApplicationConfiguration']]:
+    def application_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationConfiguration']]:
         return pulumi.get(self, "application_configuration")
 
     @property

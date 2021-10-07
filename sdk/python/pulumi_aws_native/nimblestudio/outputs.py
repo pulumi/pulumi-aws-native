@@ -11,16 +11,16 @@ from . import outputs
 
 __all__ = [
     'LaunchProfileStreamConfiguration',
-    'StreamingImageStreamingImageEncryptionConfiguration',
+    'StreamingImageEncryptionConfiguration',
     'StudioComponentActiveDirectoryComputerAttribute',
     'StudioComponentActiveDirectoryConfiguration',
     'StudioComponentComputeFarmConfiguration',
+    'StudioComponentConfiguration',
+    'StudioComponentInitializationScript',
     'StudioComponentLicenseServiceConfiguration',
     'StudioComponentScriptParameterKeyValue',
     'StudioComponentSharedFileSystemConfiguration',
-    'StudioComponentStudioComponentConfiguration',
-    'StudioComponentStudioComponentInitializationScript',
-    'StudioStudioEncryptionConfiguration',
+    'StudioEncryptionConfiguration',
 ]
 
 @pulumi.output_type
@@ -81,7 +81,7 @@ class LaunchProfileStreamConfiguration(dict):
 
 
 @pulumi.output_type
-class StreamingImageStreamingImageEncryptionConfiguration(dict):
+class StreamingImageEncryptionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -91,14 +91,14 @@ class StreamingImageStreamingImageEncryptionConfiguration(dict):
             suggest = "key_arn"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StreamingImageStreamingImageEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in StreamingImageEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        StreamingImageStreamingImageEncryptionConfiguration.__key_warning(key)
+        StreamingImageEncryptionConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        StreamingImageStreamingImageEncryptionConfiguration.__key_warning(key)
+        StreamingImageEncryptionConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -229,6 +229,122 @@ class StudioComponentComputeFarmConfiguration(dict):
 
 
 @pulumi.output_type
+class StudioComponentConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activeDirectoryConfiguration":
+            suggest = "active_directory_configuration"
+        elif key == "computeFarmConfiguration":
+            suggest = "compute_farm_configuration"
+        elif key == "licenseServiceConfiguration":
+            suggest = "license_service_configuration"
+        elif key == "sharedFileSystemConfiguration":
+            suggest = "shared_file_system_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StudioComponentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StudioComponentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StudioComponentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 active_directory_configuration: Optional['outputs.StudioComponentActiveDirectoryConfiguration'] = None,
+                 compute_farm_configuration: Optional['outputs.StudioComponentComputeFarmConfiguration'] = None,
+                 license_service_configuration: Optional['outputs.StudioComponentLicenseServiceConfiguration'] = None,
+                 shared_file_system_configuration: Optional['outputs.StudioComponentSharedFileSystemConfiguration'] = None):
+        if active_directory_configuration is not None:
+            pulumi.set(__self__, "active_directory_configuration", active_directory_configuration)
+        if compute_farm_configuration is not None:
+            pulumi.set(__self__, "compute_farm_configuration", compute_farm_configuration)
+        if license_service_configuration is not None:
+            pulumi.set(__self__, "license_service_configuration", license_service_configuration)
+        if shared_file_system_configuration is not None:
+            pulumi.set(__self__, "shared_file_system_configuration", shared_file_system_configuration)
+
+    @property
+    @pulumi.getter(name="activeDirectoryConfiguration")
+    def active_directory_configuration(self) -> Optional['outputs.StudioComponentActiveDirectoryConfiguration']:
+        return pulumi.get(self, "active_directory_configuration")
+
+    @property
+    @pulumi.getter(name="computeFarmConfiguration")
+    def compute_farm_configuration(self) -> Optional['outputs.StudioComponentComputeFarmConfiguration']:
+        return pulumi.get(self, "compute_farm_configuration")
+
+    @property
+    @pulumi.getter(name="licenseServiceConfiguration")
+    def license_service_configuration(self) -> Optional['outputs.StudioComponentLicenseServiceConfiguration']:
+        return pulumi.get(self, "license_service_configuration")
+
+    @property
+    @pulumi.getter(name="sharedFileSystemConfiguration")
+    def shared_file_system_configuration(self) -> Optional['outputs.StudioComponentSharedFileSystemConfiguration']:
+        return pulumi.get(self, "shared_file_system_configuration")
+
+
+@pulumi.output_type
+class StudioComponentInitializationScript(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "launchProfileProtocolVersion":
+            suggest = "launch_profile_protocol_version"
+        elif key == "runContext":
+            suggest = "run_context"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StudioComponentInitializationScript. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StudioComponentInitializationScript.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StudioComponentInitializationScript.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 launch_profile_protocol_version: Optional[str] = None,
+                 platform: Optional[str] = None,
+                 run_context: Optional[str] = None,
+                 script: Optional[str] = None):
+        if launch_profile_protocol_version is not None:
+            pulumi.set(__self__, "launch_profile_protocol_version", launch_profile_protocol_version)
+        if platform is not None:
+            pulumi.set(__self__, "platform", platform)
+        if run_context is not None:
+            pulumi.set(__self__, "run_context", run_context)
+        if script is not None:
+            pulumi.set(__self__, "script", script)
+
+    @property
+    @pulumi.getter(name="launchProfileProtocolVersion")
+    def launch_profile_protocol_version(self) -> Optional[str]:
+        return pulumi.get(self, "launch_profile_protocol_version")
+
+    @property
+    @pulumi.getter
+    def platform(self) -> Optional[str]:
+        return pulumi.get(self, "platform")
+
+    @property
+    @pulumi.getter(name="runContext")
+    def run_context(self) -> Optional[str]:
+        return pulumi.get(self, "run_context")
+
+    @property
+    @pulumi.getter
+    def script(self) -> Optional[str]:
+        return pulumi.get(self, "script")
+
+
+@pulumi.output_type
 class StudioComponentLicenseServiceConfiguration(dict):
     def __init__(__self__, *,
                  endpoint: Optional[str] = None):
@@ -331,123 +447,7 @@ class StudioComponentSharedFileSystemConfiguration(dict):
 
 
 @pulumi.output_type
-class StudioComponentStudioComponentConfiguration(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "activeDirectoryConfiguration":
-            suggest = "active_directory_configuration"
-        elif key == "computeFarmConfiguration":
-            suggest = "compute_farm_configuration"
-        elif key == "licenseServiceConfiguration":
-            suggest = "license_service_configuration"
-        elif key == "sharedFileSystemConfiguration":
-            suggest = "shared_file_system_configuration"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StudioComponentStudioComponentConfiguration. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StudioComponentStudioComponentConfiguration.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StudioComponentStudioComponentConfiguration.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 active_directory_configuration: Optional['outputs.StudioComponentActiveDirectoryConfiguration'] = None,
-                 compute_farm_configuration: Optional['outputs.StudioComponentComputeFarmConfiguration'] = None,
-                 license_service_configuration: Optional['outputs.StudioComponentLicenseServiceConfiguration'] = None,
-                 shared_file_system_configuration: Optional['outputs.StudioComponentSharedFileSystemConfiguration'] = None):
-        if active_directory_configuration is not None:
-            pulumi.set(__self__, "active_directory_configuration", active_directory_configuration)
-        if compute_farm_configuration is not None:
-            pulumi.set(__self__, "compute_farm_configuration", compute_farm_configuration)
-        if license_service_configuration is not None:
-            pulumi.set(__self__, "license_service_configuration", license_service_configuration)
-        if shared_file_system_configuration is not None:
-            pulumi.set(__self__, "shared_file_system_configuration", shared_file_system_configuration)
-
-    @property
-    @pulumi.getter(name="activeDirectoryConfiguration")
-    def active_directory_configuration(self) -> Optional['outputs.StudioComponentActiveDirectoryConfiguration']:
-        return pulumi.get(self, "active_directory_configuration")
-
-    @property
-    @pulumi.getter(name="computeFarmConfiguration")
-    def compute_farm_configuration(self) -> Optional['outputs.StudioComponentComputeFarmConfiguration']:
-        return pulumi.get(self, "compute_farm_configuration")
-
-    @property
-    @pulumi.getter(name="licenseServiceConfiguration")
-    def license_service_configuration(self) -> Optional['outputs.StudioComponentLicenseServiceConfiguration']:
-        return pulumi.get(self, "license_service_configuration")
-
-    @property
-    @pulumi.getter(name="sharedFileSystemConfiguration")
-    def shared_file_system_configuration(self) -> Optional['outputs.StudioComponentSharedFileSystemConfiguration']:
-        return pulumi.get(self, "shared_file_system_configuration")
-
-
-@pulumi.output_type
-class StudioComponentStudioComponentInitializationScript(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "launchProfileProtocolVersion":
-            suggest = "launch_profile_protocol_version"
-        elif key == "runContext":
-            suggest = "run_context"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StudioComponentStudioComponentInitializationScript. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        StudioComponentStudioComponentInitializationScript.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        StudioComponentStudioComponentInitializationScript.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 launch_profile_protocol_version: Optional[str] = None,
-                 platform: Optional[str] = None,
-                 run_context: Optional[str] = None,
-                 script: Optional[str] = None):
-        if launch_profile_protocol_version is not None:
-            pulumi.set(__self__, "launch_profile_protocol_version", launch_profile_protocol_version)
-        if platform is not None:
-            pulumi.set(__self__, "platform", platform)
-        if run_context is not None:
-            pulumi.set(__self__, "run_context", run_context)
-        if script is not None:
-            pulumi.set(__self__, "script", script)
-
-    @property
-    @pulumi.getter(name="launchProfileProtocolVersion")
-    def launch_profile_protocol_version(self) -> Optional[str]:
-        return pulumi.get(self, "launch_profile_protocol_version")
-
-    @property
-    @pulumi.getter
-    def platform(self) -> Optional[str]:
-        return pulumi.get(self, "platform")
-
-    @property
-    @pulumi.getter(name="runContext")
-    def run_context(self) -> Optional[str]:
-        return pulumi.get(self, "run_context")
-
-    @property
-    @pulumi.getter
-    def script(self) -> Optional[str]:
-        return pulumi.get(self, "script")
-
-
-@pulumi.output_type
-class StudioStudioEncryptionConfiguration(dict):
+class StudioEncryptionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -457,14 +457,14 @@ class StudioStudioEncryptionConfiguration(dict):
             suggest = "key_arn"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StudioStudioEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in StudioEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        StudioStudioEncryptionConfiguration.__key_warning(key)
+        StudioEncryptionConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        StudioStudioEncryptionConfiguration.__key_warning(key)
+        StudioEncryptionConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

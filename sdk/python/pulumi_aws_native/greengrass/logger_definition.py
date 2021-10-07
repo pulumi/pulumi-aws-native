@@ -16,7 +16,7 @@ __all__ = ['LoggerDefinitionArgs', 'LoggerDefinition']
 class LoggerDefinitionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 initial_version: Optional[pulumi.Input['LoggerDefinitionLoggerDefinitionVersionArgs']] = None,
+                 initial_version: Optional[pulumi.Input['LoggerDefinitionVersionArgs']] = None,
                  tags: Optional[Any] = None):
         """
         The set of arguments for constructing a LoggerDefinition resource.
@@ -38,11 +38,11 @@ class LoggerDefinitionArgs:
 
     @property
     @pulumi.getter(name="initialVersion")
-    def initial_version(self) -> Optional[pulumi.Input['LoggerDefinitionLoggerDefinitionVersionArgs']]:
+    def initial_version(self) -> Optional[pulumi.Input['LoggerDefinitionVersionArgs']]:
         return pulumi.get(self, "initial_version")
 
     @initial_version.setter
-    def initial_version(self, value: Optional[pulumi.Input['LoggerDefinitionLoggerDefinitionVersionArgs']]):
+    def initial_version(self, value: Optional[pulumi.Input['LoggerDefinitionVersionArgs']]):
         pulumi.set(self, "initial_version", value)
 
     @property
@@ -65,7 +65,7 @@ class LoggerDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 initial_version: Optional[pulumi.Input[pulumi.InputType['LoggerDefinitionLoggerDefinitionVersionArgs']]] = None,
+                 initial_version: Optional[pulumi.Input[pulumi.InputType['LoggerDefinitionVersionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
@@ -99,7 +99,7 @@ class LoggerDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 initial_version: Optional[pulumi.Input[pulumi.InputType['LoggerDefinitionLoggerDefinitionVersionArgs']]] = None,
+                 initial_version: Optional[pulumi.Input[pulumi.InputType['LoggerDefinitionVersionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
@@ -158,7 +158,7 @@ class LoggerDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="initialVersion")
-    def initial_version(self) -> pulumi.Output[Optional['outputs.LoggerDefinitionLoggerDefinitionVersion']]:
+    def initial_version(self) -> pulumi.Output[Optional['outputs.LoggerDefinitionVersion']]:
         return pulumi.get(self, "initial_version")
 
     @property

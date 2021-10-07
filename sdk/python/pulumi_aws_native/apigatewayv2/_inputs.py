@@ -17,7 +17,7 @@ __all__ = [
     'ApiGatewayManagedOverridesRouteSettingsArgs',
     'ApiGatewayManagedOverridesStageOverridesArgs',
     'AuthorizerJWTConfigurationArgs',
-    'DomainNameDomainNameConfigurationArgs',
+    'DomainNameConfigurationArgs',
     'DomainNameMutualTlsAuthenticationArgs',
     'IntegrationTlsConfigArgs',
     'StageAccessLogSettingsArgs',
@@ -473,7 +473,7 @@ class AuthorizerJWTConfigurationArgs:
 
 
 @pulumi.input_type
-class DomainNameDomainNameConfigurationArgs:
+class DomainNameConfigurationArgs:
     def __init__(__self__, *,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  certificate_name: Optional[pulumi.Input[str]] = None,

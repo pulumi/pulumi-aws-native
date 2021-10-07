@@ -14,9 +14,9 @@ __all__ = [
     'AlertAction',
     'AlertLambdaConfiguration',
     'AlertSNSConfiguration',
-    'AnomalyDetectorAnomalyDetectorConfig',
     'AnomalyDetectorAppFlowConfig',
     'AnomalyDetectorCloudwatchConfig',
+    'AnomalyDetectorConfig',
     'AnomalyDetectorCsvFormatDescriptor',
     'AnomalyDetectorFileFormatDescriptor',
     'AnomalyDetectorJsonFormatDescriptor',
@@ -175,41 +175,6 @@ class AlertSNSConfiguration(dict):
 
 
 @pulumi.output_type
-class AnomalyDetectorAnomalyDetectorConfig(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "anomalyDetectorFrequency":
-            suggest = "anomaly_detector_frequency"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AnomalyDetectorAnomalyDetectorConfig. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AnomalyDetectorAnomalyDetectorConfig.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AnomalyDetectorAnomalyDetectorConfig.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 anomaly_detector_frequency: 'AnomalyDetectorAnomalyDetectorFrequency'):
-        """
-        :param 'AnomalyDetectorAnomalyDetectorFrequency' anomaly_detector_frequency: Frequency of anomaly detection
-        """
-        pulumi.set(__self__, "anomaly_detector_frequency", anomaly_detector_frequency)
-
-    @property
-    @pulumi.getter(name="anomalyDetectorFrequency")
-    def anomaly_detector_frequency(self) -> 'AnomalyDetectorAnomalyDetectorFrequency':
-        """
-        Frequency of anomaly detection
-        """
-        return pulumi.get(self, "anomaly_detector_frequency")
-
-
-@pulumi.output_type
 class AnomalyDetectorAppFlowConfig(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -274,6 +239,41 @@ class AnomalyDetectorCloudwatchConfig(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         return pulumi.get(self, "role_arn")
+
+
+@pulumi.output_type
+class AnomalyDetectorConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "anomalyDetectorFrequency":
+            suggest = "anomaly_detector_frequency"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnomalyDetectorConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnomalyDetectorConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnomalyDetectorConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 anomaly_detector_frequency: 'AnomalyDetectorFrequency'):
+        """
+        :param 'AnomalyDetectorFrequency' anomaly_detector_frequency: Frequency of anomaly detection
+        """
+        pulumi.set(__self__, "anomaly_detector_frequency", anomaly_detector_frequency)
+
+    @property
+    @pulumi.getter(name="anomalyDetectorFrequency")
+    def anomaly_detector_frequency(self) -> 'AnomalyDetectorFrequency':
+        """
+        Frequency of anomaly detection
+        """
+        return pulumi.get(self, "anomaly_detector_frequency")
 
 
 @pulumi.output_type

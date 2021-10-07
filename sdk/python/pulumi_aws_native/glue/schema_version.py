@@ -10,10 +10,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SchemaVersionArgs', 'SchemaVersion']
+__all__ = ['SchemaVersionInitArgs', 'SchemaVersion']
 
 @pulumi.input_type
-class SchemaVersionArgs:
+class SchemaVersionInitArgs:
     def __init__(__self__, *,
                  schema: pulumi.Input['SchemaVersionSchemaArgs'],
                  schema_definition: pulumi.Input[str]):
@@ -65,18 +65,18 @@ class SchemaVersion(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SchemaVersionArgs,
+                 args: SchemaVersionInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource represents an individual schema version of a schema defined in Glue Schema Registry.
 
         :param str resource_name: The name of the resource.
-        :param SchemaVersionArgs args: The arguments to use to populate this resource's properties.
+        :param SchemaVersionInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SchemaVersionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SchemaVersionInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -97,7 +97,7 @@ class SchemaVersion(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SchemaVersionArgs.__new__(SchemaVersionArgs)
+            __props__ = SchemaVersionInitArgs.__new__(SchemaVersionInitArgs)
 
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
@@ -126,7 +126,7 @@ class SchemaVersion(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = SchemaVersionArgs.__new__(SchemaVersionArgs)
+        __props__ = SchemaVersionInitArgs.__new__(SchemaVersionInitArgs)
 
         __props__.__dict__["schema"] = None
         __props__.__dict__["schema_definition"] = None

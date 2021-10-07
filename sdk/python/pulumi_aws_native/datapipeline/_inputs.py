@@ -10,11 +10,11 @@ from .. import _utilities
 
 __all__ = [
     'PipelineFieldArgs',
+    'PipelineObjectArgs',
     'PipelineParameterAttributeArgs',
     'PipelineParameterObjectArgs',
     'PipelineParameterValueArgs',
-    'PipelinePipelineObjectArgs',
-    'PipelinePipelineTagArgs',
+    'PipelineTagArgs',
 ]
 
 @pulumi.input_type
@@ -55,6 +55,44 @@ class PipelineFieldArgs:
     @string_value.setter
     def string_value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "string_value", value)
+
+
+@pulumi.input_type
+class PipelineObjectArgs:
+    def __init__(__self__, *,
+                 fields: pulumi.Input[Sequence[pulumi.Input['PipelineFieldArgs']]],
+                 id: pulumi.Input[str],
+                 name: pulumi.Input[str]):
+        pulumi.set(__self__, "fields", fields)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def fields(self) -> pulumi.Input[Sequence[pulumi.Input['PipelineFieldArgs']]]:
+        return pulumi.get(self, "fields")
+
+    @fields.setter
+    def fields(self, value: pulumi.Input[Sequence[pulumi.Input['PipelineFieldArgs']]]):
+        pulumi.set(self, "fields", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
@@ -139,45 +177,7 @@ class PipelineParameterValueArgs:
 
 
 @pulumi.input_type
-class PipelinePipelineObjectArgs:
-    def __init__(__self__, *,
-                 fields: pulumi.Input[Sequence[pulumi.Input['PipelineFieldArgs']]],
-                 id: pulumi.Input[str],
-                 name: pulumi.Input[str]):
-        pulumi.set(__self__, "fields", fields)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def fields(self) -> pulumi.Input[Sequence[pulumi.Input['PipelineFieldArgs']]]:
-        return pulumi.get(self, "fields")
-
-    @fields.setter
-    def fields(self, value: pulumi.Input[Sequence[pulumi.Input['PipelineFieldArgs']]]):
-        pulumi.set(self, "fields", value)
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-
-@pulumi.input_type
-class PipelinePipelineTagArgs:
+class PipelineTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):

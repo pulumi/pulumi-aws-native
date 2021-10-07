@@ -18,11 +18,11 @@ class DashboardArgs:
     def __init__(__self__, *,
                  aws_account_id: pulumi.Input[str],
                  dashboard_id: pulumi.Input[str],
-                 dashboard_publish_options: Optional[pulumi.Input['DashboardDashboardPublishOptionsArgs']] = None,
+                 dashboard_publish_options: Optional[pulumi.Input['DashboardPublishOptionsArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input['DashboardParametersArgs']] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardResourcePermissionArgs']]]] = None,
-                 source_entity: Optional[pulumi.Input['DashboardDashboardSourceEntityArgs']] = None,
+                 source_entity: Optional[pulumi.Input['DashboardSourceEntityArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTagArgs']]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None,
                  version_description: Optional[pulumi.Input[str]] = None):
@@ -81,11 +81,11 @@ class DashboardArgs:
 
     @property
     @pulumi.getter(name="dashboardPublishOptions")
-    def dashboard_publish_options(self) -> Optional[pulumi.Input['DashboardDashboardPublishOptionsArgs']]:
+    def dashboard_publish_options(self) -> Optional[pulumi.Input['DashboardPublishOptionsArgs']]:
         return pulumi.get(self, "dashboard_publish_options")
 
     @dashboard_publish_options.setter
-    def dashboard_publish_options(self, value: Optional[pulumi.Input['DashboardDashboardPublishOptionsArgs']]):
+    def dashboard_publish_options(self, value: Optional[pulumi.Input['DashboardPublishOptionsArgs']]):
         pulumi.set(self, "dashboard_publish_options", value)
 
     @property
@@ -127,11 +127,11 @@ class DashboardArgs:
 
     @property
     @pulumi.getter(name="sourceEntity")
-    def source_entity(self) -> Optional[pulumi.Input['DashboardDashboardSourceEntityArgs']]:
+    def source_entity(self) -> Optional[pulumi.Input['DashboardSourceEntityArgs']]:
         return pulumi.get(self, "source_entity")
 
     @source_entity.setter
-    def source_entity(self, value: Optional[pulumi.Input['DashboardDashboardSourceEntityArgs']]):
+    def source_entity(self, value: Optional[pulumi.Input['DashboardSourceEntityArgs']]):
         pulumi.set(self, "source_entity", value)
 
     @property
@@ -182,11 +182,11 @@ class Dashboard(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  dashboard_id: Optional[pulumi.Input[str]] = None,
-                 dashboard_publish_options: Optional[pulumi.Input[pulumi.InputType['DashboardDashboardPublishOptionsArgs']]] = None,
+                 dashboard_publish_options: Optional[pulumi.Input[pulumi.InputType['DashboardPublishOptionsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[pulumi.InputType['DashboardParametersArgs']]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardResourcePermissionArgs']]]]] = None,
-                 source_entity: Optional[pulumi.Input[pulumi.InputType['DashboardDashboardSourceEntityArgs']]] = None,
+                 source_entity: Optional[pulumi.Input[pulumi.InputType['DashboardSourceEntityArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTagArgs']]]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None,
                  version_description: Optional[pulumi.Input[str]] = None,
@@ -236,11 +236,11 @@ class Dashboard(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  dashboard_id: Optional[pulumi.Input[str]] = None,
-                 dashboard_publish_options: Optional[pulumi.Input[pulumi.InputType['DashboardDashboardPublishOptionsArgs']]] = None,
+                 dashboard_publish_options: Optional[pulumi.Input[pulumi.InputType['DashboardPublishOptionsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[pulumi.InputType['DashboardParametersArgs']]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardResourcePermissionArgs']]]]] = None,
-                 source_entity: Optional[pulumi.Input[pulumi.InputType['DashboardDashboardSourceEntityArgs']]] = None,
+                 source_entity: Optional[pulumi.Input[pulumi.InputType['DashboardSourceEntityArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTagArgs']]]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None,
                  version_description: Optional[pulumi.Input[str]] = None,
@@ -342,7 +342,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dashboardPublishOptions")
-    def dashboard_publish_options(self) -> pulumi.Output[Optional['outputs.DashboardDashboardPublishOptions']]:
+    def dashboard_publish_options(self) -> pulumi.Output[Optional['outputs.DashboardPublishOptions']]:
         return pulumi.get(self, "dashboard_publish_options")
 
     @property
@@ -388,7 +388,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceEntity")
-    def source_entity(self) -> pulumi.Output[Optional['outputs.DashboardDashboardSourceEntity']]:
+    def source_entity(self) -> pulumi.Output[Optional['outputs.DashboardSourceEntity']]:
         return pulumi.get(self, "source_entity")
 
     @property
@@ -413,7 +413,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output['outputs.DashboardDashboardVersion']:
+    def version(self) -> pulumi.Output['outputs.DashboardVersion']:
         return pulumi.get(self, "version")
 
     @property
