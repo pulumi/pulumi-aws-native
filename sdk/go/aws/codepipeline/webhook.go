@@ -17,15 +17,15 @@ import (
 type Webhook struct {
 	pulumi.CustomResourceState
 
-	Authentication              pulumi.StringOutput                   `pulumi:"authentication"`
-	AuthenticationConfiguration WebhookWebhookAuthConfigurationOutput `pulumi:"authenticationConfiguration"`
-	Filters                     WebhookWebhookFilterRuleArrayOutput   `pulumi:"filters"`
-	Name                        pulumi.StringPtrOutput                `pulumi:"name"`
-	RegisterWithThirdParty      pulumi.BoolPtrOutput                  `pulumi:"registerWithThirdParty"`
-	TargetAction                pulumi.StringOutput                   `pulumi:"targetAction"`
-	TargetPipeline              pulumi.StringOutput                   `pulumi:"targetPipeline"`
-	TargetPipelineVersion       pulumi.IntOutput                      `pulumi:"targetPipelineVersion"`
-	Url                         pulumi.StringOutput                   `pulumi:"url"`
+	Authentication              pulumi.StringOutput            `pulumi:"authentication"`
+	AuthenticationConfiguration WebhookAuthConfigurationOutput `pulumi:"authenticationConfiguration"`
+	Filters                     WebhookFilterRuleArrayOutput   `pulumi:"filters"`
+	Name                        pulumi.StringPtrOutput         `pulumi:"name"`
+	RegisterWithThirdParty      pulumi.BoolPtrOutput           `pulumi:"registerWithThirdParty"`
+	TargetAction                pulumi.StringOutput            `pulumi:"targetAction"`
+	TargetPipeline              pulumi.StringOutput            `pulumi:"targetPipeline"`
+	TargetPipelineVersion       pulumi.IntOutput               `pulumi:"targetPipelineVersion"`
+	Url                         pulumi.StringOutput            `pulumi:"url"`
 }
 
 // NewWebhook registers a new resource with the given unique name, arguments, and options.
@@ -85,21 +85,21 @@ func (WebhookState) ElementType() reflect.Type {
 }
 
 type webhookArgs struct {
-	Authentication              string                          `pulumi:"authentication"`
-	AuthenticationConfiguration WebhookWebhookAuthConfiguration `pulumi:"authenticationConfiguration"`
-	Filters                     []WebhookWebhookFilterRule      `pulumi:"filters"`
-	Name                        *string                         `pulumi:"name"`
-	RegisterWithThirdParty      *bool                           `pulumi:"registerWithThirdParty"`
-	TargetAction                string                          `pulumi:"targetAction"`
-	TargetPipeline              string                          `pulumi:"targetPipeline"`
-	TargetPipelineVersion       int                             `pulumi:"targetPipelineVersion"`
+	Authentication              string                   `pulumi:"authentication"`
+	AuthenticationConfiguration WebhookAuthConfiguration `pulumi:"authenticationConfiguration"`
+	Filters                     []WebhookFilterRule      `pulumi:"filters"`
+	Name                        *string                  `pulumi:"name"`
+	RegisterWithThirdParty      *bool                    `pulumi:"registerWithThirdParty"`
+	TargetAction                string                   `pulumi:"targetAction"`
+	TargetPipeline              string                   `pulumi:"targetPipeline"`
+	TargetPipelineVersion       int                      `pulumi:"targetPipelineVersion"`
 }
 
 // The set of arguments for constructing a Webhook resource.
 type WebhookArgs struct {
 	Authentication              pulumi.StringInput
-	AuthenticationConfiguration WebhookWebhookAuthConfigurationInput
-	Filters                     WebhookWebhookFilterRuleArrayInput
+	AuthenticationConfiguration WebhookAuthConfigurationInput
+	Filters                     WebhookFilterRuleArrayInput
 	Name                        pulumi.StringPtrInput
 	RegisterWithThirdParty      pulumi.BoolPtrInput
 	TargetAction                pulumi.StringInput

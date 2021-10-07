@@ -10,507 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type ApplicationApplicationCodeConfiguration struct {
-	CodeContent     ApplicationCodeContent `pulumi:"codeContent"`
-	CodeContentType string                 `pulumi:"codeContentType"`
-}
-
-// ApplicationApplicationCodeConfigurationInput is an input type that accepts ApplicationApplicationCodeConfigurationArgs and ApplicationApplicationCodeConfigurationOutput values.
-// You can construct a concrete instance of `ApplicationApplicationCodeConfigurationInput` via:
-//
-//          ApplicationApplicationCodeConfigurationArgs{...}
-type ApplicationApplicationCodeConfigurationInput interface {
-	pulumi.Input
-
-	ToApplicationApplicationCodeConfigurationOutput() ApplicationApplicationCodeConfigurationOutput
-	ToApplicationApplicationCodeConfigurationOutputWithContext(context.Context) ApplicationApplicationCodeConfigurationOutput
-}
-
-type ApplicationApplicationCodeConfigurationArgs struct {
-	CodeContent     ApplicationCodeContentInput `pulumi:"codeContent"`
-	CodeContentType pulumi.StringInput          `pulumi:"codeContentType"`
-}
-
-func (ApplicationApplicationCodeConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationApplicationCodeConfiguration)(nil)).Elem()
-}
-
-func (i ApplicationApplicationCodeConfigurationArgs) ToApplicationApplicationCodeConfigurationOutput() ApplicationApplicationCodeConfigurationOutput {
-	return i.ToApplicationApplicationCodeConfigurationOutputWithContext(context.Background())
-}
-
-func (i ApplicationApplicationCodeConfigurationArgs) ToApplicationApplicationCodeConfigurationOutputWithContext(ctx context.Context) ApplicationApplicationCodeConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationCodeConfigurationOutput)
-}
-
-func (i ApplicationApplicationCodeConfigurationArgs) ToApplicationApplicationCodeConfigurationPtrOutput() ApplicationApplicationCodeConfigurationPtrOutput {
-	return i.ToApplicationApplicationCodeConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationApplicationCodeConfigurationArgs) ToApplicationApplicationCodeConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationCodeConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationCodeConfigurationOutput).ToApplicationApplicationCodeConfigurationPtrOutputWithContext(ctx)
-}
-
-// ApplicationApplicationCodeConfigurationPtrInput is an input type that accepts ApplicationApplicationCodeConfigurationArgs, ApplicationApplicationCodeConfigurationPtr and ApplicationApplicationCodeConfigurationPtrOutput values.
-// You can construct a concrete instance of `ApplicationApplicationCodeConfigurationPtrInput` via:
-//
-//          ApplicationApplicationCodeConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type ApplicationApplicationCodeConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToApplicationApplicationCodeConfigurationPtrOutput() ApplicationApplicationCodeConfigurationPtrOutput
-	ToApplicationApplicationCodeConfigurationPtrOutputWithContext(context.Context) ApplicationApplicationCodeConfigurationPtrOutput
-}
-
-type applicationApplicationCodeConfigurationPtrType ApplicationApplicationCodeConfigurationArgs
-
-func ApplicationApplicationCodeConfigurationPtr(v *ApplicationApplicationCodeConfigurationArgs) ApplicationApplicationCodeConfigurationPtrInput {
-	return (*applicationApplicationCodeConfigurationPtrType)(v)
-}
-
-func (*applicationApplicationCodeConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationApplicationCodeConfiguration)(nil)).Elem()
-}
-
-func (i *applicationApplicationCodeConfigurationPtrType) ToApplicationApplicationCodeConfigurationPtrOutput() ApplicationApplicationCodeConfigurationPtrOutput {
-	return i.ToApplicationApplicationCodeConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationApplicationCodeConfigurationPtrType) ToApplicationApplicationCodeConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationCodeConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationCodeConfigurationPtrOutput)
-}
-
-type ApplicationApplicationCodeConfigurationOutput struct{ *pulumi.OutputState }
-
-func (ApplicationApplicationCodeConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationApplicationCodeConfiguration)(nil)).Elem()
-}
-
-func (o ApplicationApplicationCodeConfigurationOutput) ToApplicationApplicationCodeConfigurationOutput() ApplicationApplicationCodeConfigurationOutput {
-	return o
-}
-
-func (o ApplicationApplicationCodeConfigurationOutput) ToApplicationApplicationCodeConfigurationOutputWithContext(ctx context.Context) ApplicationApplicationCodeConfigurationOutput {
-	return o
-}
-
-func (o ApplicationApplicationCodeConfigurationOutput) ToApplicationApplicationCodeConfigurationPtrOutput() ApplicationApplicationCodeConfigurationPtrOutput {
-	return o.ToApplicationApplicationCodeConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationApplicationCodeConfigurationOutput) ToApplicationApplicationCodeConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationCodeConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationCodeConfiguration) *ApplicationApplicationCodeConfiguration {
-		return &v
-	}).(ApplicationApplicationCodeConfigurationPtrOutput)
-}
-
-func (o ApplicationApplicationCodeConfigurationOutput) CodeContent() ApplicationCodeContentOutput {
-	return o.ApplyT(func(v ApplicationApplicationCodeConfiguration) ApplicationCodeContent { return v.CodeContent }).(ApplicationCodeContentOutput)
-}
-
-func (o ApplicationApplicationCodeConfigurationOutput) CodeContentType() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationApplicationCodeConfiguration) string { return v.CodeContentType }).(pulumi.StringOutput)
-}
-
-type ApplicationApplicationCodeConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationApplicationCodeConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationApplicationCodeConfiguration)(nil)).Elem()
-}
-
-func (o ApplicationApplicationCodeConfigurationPtrOutput) ToApplicationApplicationCodeConfigurationPtrOutput() ApplicationApplicationCodeConfigurationPtrOutput {
-	return o
-}
-
-func (o ApplicationApplicationCodeConfigurationPtrOutput) ToApplicationApplicationCodeConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationCodeConfigurationPtrOutput {
-	return o
-}
-
-func (o ApplicationApplicationCodeConfigurationPtrOutput) Elem() ApplicationApplicationCodeConfigurationOutput {
-	return o.ApplyT(func(v *ApplicationApplicationCodeConfiguration) ApplicationApplicationCodeConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationApplicationCodeConfiguration
-		return ret
-	}).(ApplicationApplicationCodeConfigurationOutput)
-}
-
-func (o ApplicationApplicationCodeConfigurationPtrOutput) CodeContent() ApplicationCodeContentPtrOutput {
-	return o.ApplyT(func(v *ApplicationApplicationCodeConfiguration) *ApplicationCodeContent {
-		if v == nil {
-			return nil
-		}
-		return &v.CodeContent
-	}).(ApplicationCodeContentPtrOutput)
-}
-
-func (o ApplicationApplicationCodeConfigurationPtrOutput) CodeContentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationApplicationCodeConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CodeContentType
-	}).(pulumi.StringPtrOutput)
-}
-
-type ApplicationApplicationConfiguration struct {
-	ApplicationCodeConfiguration     *ApplicationApplicationCodeConfiguration     `pulumi:"applicationCodeConfiguration"`
-	ApplicationSnapshotConfiguration *ApplicationApplicationSnapshotConfiguration `pulumi:"applicationSnapshotConfiguration"`
-	EnvironmentProperties            *ApplicationEnvironmentProperties            `pulumi:"environmentProperties"`
-	FlinkApplicationConfiguration    *ApplicationFlinkApplicationConfiguration    `pulumi:"flinkApplicationConfiguration"`
-	SqlApplicationConfiguration      *ApplicationSqlApplicationConfiguration      `pulumi:"sqlApplicationConfiguration"`
-	ZeppelinApplicationConfiguration *ApplicationZeppelinApplicationConfiguration `pulumi:"zeppelinApplicationConfiguration"`
-}
-
-// ApplicationApplicationConfigurationInput is an input type that accepts ApplicationApplicationConfigurationArgs and ApplicationApplicationConfigurationOutput values.
-// You can construct a concrete instance of `ApplicationApplicationConfigurationInput` via:
-//
-//          ApplicationApplicationConfigurationArgs{...}
-type ApplicationApplicationConfigurationInput interface {
-	pulumi.Input
-
-	ToApplicationApplicationConfigurationOutput() ApplicationApplicationConfigurationOutput
-	ToApplicationApplicationConfigurationOutputWithContext(context.Context) ApplicationApplicationConfigurationOutput
-}
-
-type ApplicationApplicationConfigurationArgs struct {
-	ApplicationCodeConfiguration     ApplicationApplicationCodeConfigurationPtrInput     `pulumi:"applicationCodeConfiguration"`
-	ApplicationSnapshotConfiguration ApplicationApplicationSnapshotConfigurationPtrInput `pulumi:"applicationSnapshotConfiguration"`
-	EnvironmentProperties            ApplicationEnvironmentPropertiesPtrInput            `pulumi:"environmentProperties"`
-	FlinkApplicationConfiguration    ApplicationFlinkApplicationConfigurationPtrInput    `pulumi:"flinkApplicationConfiguration"`
-	SqlApplicationConfiguration      ApplicationSqlApplicationConfigurationPtrInput      `pulumi:"sqlApplicationConfiguration"`
-	ZeppelinApplicationConfiguration ApplicationZeppelinApplicationConfigurationPtrInput `pulumi:"zeppelinApplicationConfiguration"`
-}
-
-func (ApplicationApplicationConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationApplicationConfiguration)(nil)).Elem()
-}
-
-func (i ApplicationApplicationConfigurationArgs) ToApplicationApplicationConfigurationOutput() ApplicationApplicationConfigurationOutput {
-	return i.ToApplicationApplicationConfigurationOutputWithContext(context.Background())
-}
-
-func (i ApplicationApplicationConfigurationArgs) ToApplicationApplicationConfigurationOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationOutput)
-}
-
-func (i ApplicationApplicationConfigurationArgs) ToApplicationApplicationConfigurationPtrOutput() ApplicationApplicationConfigurationPtrOutput {
-	return i.ToApplicationApplicationConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationApplicationConfigurationArgs) ToApplicationApplicationConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationOutput).ToApplicationApplicationConfigurationPtrOutputWithContext(ctx)
-}
-
-// ApplicationApplicationConfigurationPtrInput is an input type that accepts ApplicationApplicationConfigurationArgs, ApplicationApplicationConfigurationPtr and ApplicationApplicationConfigurationPtrOutput values.
-// You can construct a concrete instance of `ApplicationApplicationConfigurationPtrInput` via:
-//
-//          ApplicationApplicationConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type ApplicationApplicationConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToApplicationApplicationConfigurationPtrOutput() ApplicationApplicationConfigurationPtrOutput
-	ToApplicationApplicationConfigurationPtrOutputWithContext(context.Context) ApplicationApplicationConfigurationPtrOutput
-}
-
-type applicationApplicationConfigurationPtrType ApplicationApplicationConfigurationArgs
-
-func ApplicationApplicationConfigurationPtr(v *ApplicationApplicationConfigurationArgs) ApplicationApplicationConfigurationPtrInput {
-	return (*applicationApplicationConfigurationPtrType)(v)
-}
-
-func (*applicationApplicationConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationApplicationConfiguration)(nil)).Elem()
-}
-
-func (i *applicationApplicationConfigurationPtrType) ToApplicationApplicationConfigurationPtrOutput() ApplicationApplicationConfigurationPtrOutput {
-	return i.ToApplicationApplicationConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationApplicationConfigurationPtrType) ToApplicationApplicationConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationPtrOutput)
-}
-
-type ApplicationApplicationConfigurationOutput struct{ *pulumi.OutputState }
-
-func (ApplicationApplicationConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationApplicationConfiguration)(nil)).Elem()
-}
-
-func (o ApplicationApplicationConfigurationOutput) ToApplicationApplicationConfigurationOutput() ApplicationApplicationConfigurationOutput {
-	return o
-}
-
-func (o ApplicationApplicationConfigurationOutput) ToApplicationApplicationConfigurationOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationOutput {
-	return o
-}
-
-func (o ApplicationApplicationConfigurationOutput) ToApplicationApplicationConfigurationPtrOutput() ApplicationApplicationConfigurationPtrOutput {
-	return o.ToApplicationApplicationConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationApplicationConfigurationOutput) ToApplicationApplicationConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfiguration) *ApplicationApplicationConfiguration {
-		return &v
-	}).(ApplicationApplicationConfigurationPtrOutput)
-}
-
-func (o ApplicationApplicationConfigurationOutput) ApplicationCodeConfiguration() ApplicationApplicationCodeConfigurationPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfiguration) *ApplicationApplicationCodeConfiguration {
-		return v.ApplicationCodeConfiguration
-	}).(ApplicationApplicationCodeConfigurationPtrOutput)
-}
-
-func (o ApplicationApplicationConfigurationOutput) ApplicationSnapshotConfiguration() ApplicationApplicationSnapshotConfigurationPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfiguration) *ApplicationApplicationSnapshotConfiguration {
-		return v.ApplicationSnapshotConfiguration
-	}).(ApplicationApplicationSnapshotConfigurationPtrOutput)
-}
-
-func (o ApplicationApplicationConfigurationOutput) EnvironmentProperties() ApplicationEnvironmentPropertiesPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfiguration) *ApplicationEnvironmentProperties {
-		return v.EnvironmentProperties
-	}).(ApplicationEnvironmentPropertiesPtrOutput)
-}
-
-func (o ApplicationApplicationConfigurationOutput) FlinkApplicationConfiguration() ApplicationFlinkApplicationConfigurationPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfiguration) *ApplicationFlinkApplicationConfiguration {
-		return v.FlinkApplicationConfiguration
-	}).(ApplicationFlinkApplicationConfigurationPtrOutput)
-}
-
-func (o ApplicationApplicationConfigurationOutput) SqlApplicationConfiguration() ApplicationSqlApplicationConfigurationPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfiguration) *ApplicationSqlApplicationConfiguration {
-		return v.SqlApplicationConfiguration
-	}).(ApplicationSqlApplicationConfigurationPtrOutput)
-}
-
-func (o ApplicationApplicationConfigurationOutput) ZeppelinApplicationConfiguration() ApplicationZeppelinApplicationConfigurationPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfiguration) *ApplicationZeppelinApplicationConfiguration {
-		return v.ZeppelinApplicationConfiguration
-	}).(ApplicationZeppelinApplicationConfigurationPtrOutput)
-}
-
-type ApplicationApplicationConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationApplicationConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationApplicationConfiguration)(nil)).Elem()
-}
-
-func (o ApplicationApplicationConfigurationPtrOutput) ToApplicationApplicationConfigurationPtrOutput() ApplicationApplicationConfigurationPtrOutput {
-	return o
-}
-
-func (o ApplicationApplicationConfigurationPtrOutput) ToApplicationApplicationConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationPtrOutput {
-	return o
-}
-
-func (o ApplicationApplicationConfigurationPtrOutput) Elem() ApplicationApplicationConfigurationOutput {
-	return o.ApplyT(func(v *ApplicationApplicationConfiguration) ApplicationApplicationConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationApplicationConfiguration
-		return ret
-	}).(ApplicationApplicationConfigurationOutput)
-}
-
-func (o ApplicationApplicationConfigurationPtrOutput) ApplicationCodeConfiguration() ApplicationApplicationCodeConfigurationPtrOutput {
-	return o.ApplyT(func(v *ApplicationApplicationConfiguration) *ApplicationApplicationCodeConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.ApplicationCodeConfiguration
-	}).(ApplicationApplicationCodeConfigurationPtrOutput)
-}
-
-func (o ApplicationApplicationConfigurationPtrOutput) ApplicationSnapshotConfiguration() ApplicationApplicationSnapshotConfigurationPtrOutput {
-	return o.ApplyT(func(v *ApplicationApplicationConfiguration) *ApplicationApplicationSnapshotConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.ApplicationSnapshotConfiguration
-	}).(ApplicationApplicationSnapshotConfigurationPtrOutput)
-}
-
-func (o ApplicationApplicationConfigurationPtrOutput) EnvironmentProperties() ApplicationEnvironmentPropertiesPtrOutput {
-	return o.ApplyT(func(v *ApplicationApplicationConfiguration) *ApplicationEnvironmentProperties {
-		if v == nil {
-			return nil
-		}
-		return v.EnvironmentProperties
-	}).(ApplicationEnvironmentPropertiesPtrOutput)
-}
-
-func (o ApplicationApplicationConfigurationPtrOutput) FlinkApplicationConfiguration() ApplicationFlinkApplicationConfigurationPtrOutput {
-	return o.ApplyT(func(v *ApplicationApplicationConfiguration) *ApplicationFlinkApplicationConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.FlinkApplicationConfiguration
-	}).(ApplicationFlinkApplicationConfigurationPtrOutput)
-}
-
-func (o ApplicationApplicationConfigurationPtrOutput) SqlApplicationConfiguration() ApplicationSqlApplicationConfigurationPtrOutput {
-	return o.ApplyT(func(v *ApplicationApplicationConfiguration) *ApplicationSqlApplicationConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.SqlApplicationConfiguration
-	}).(ApplicationSqlApplicationConfigurationPtrOutput)
-}
-
-func (o ApplicationApplicationConfigurationPtrOutput) ZeppelinApplicationConfiguration() ApplicationZeppelinApplicationConfigurationPtrOutput {
-	return o.ApplyT(func(v *ApplicationApplicationConfiguration) *ApplicationZeppelinApplicationConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.ZeppelinApplicationConfiguration
-	}).(ApplicationZeppelinApplicationConfigurationPtrOutput)
-}
-
-type ApplicationApplicationSnapshotConfiguration struct {
-	SnapshotsEnabled bool `pulumi:"snapshotsEnabled"`
-}
-
-// ApplicationApplicationSnapshotConfigurationInput is an input type that accepts ApplicationApplicationSnapshotConfigurationArgs and ApplicationApplicationSnapshotConfigurationOutput values.
-// You can construct a concrete instance of `ApplicationApplicationSnapshotConfigurationInput` via:
-//
-//          ApplicationApplicationSnapshotConfigurationArgs{...}
-type ApplicationApplicationSnapshotConfigurationInput interface {
-	pulumi.Input
-
-	ToApplicationApplicationSnapshotConfigurationOutput() ApplicationApplicationSnapshotConfigurationOutput
-	ToApplicationApplicationSnapshotConfigurationOutputWithContext(context.Context) ApplicationApplicationSnapshotConfigurationOutput
-}
-
-type ApplicationApplicationSnapshotConfigurationArgs struct {
-	SnapshotsEnabled pulumi.BoolInput `pulumi:"snapshotsEnabled"`
-}
-
-func (ApplicationApplicationSnapshotConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationApplicationSnapshotConfiguration)(nil)).Elem()
-}
-
-func (i ApplicationApplicationSnapshotConfigurationArgs) ToApplicationApplicationSnapshotConfigurationOutput() ApplicationApplicationSnapshotConfigurationOutput {
-	return i.ToApplicationApplicationSnapshotConfigurationOutputWithContext(context.Background())
-}
-
-func (i ApplicationApplicationSnapshotConfigurationArgs) ToApplicationApplicationSnapshotConfigurationOutputWithContext(ctx context.Context) ApplicationApplicationSnapshotConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationSnapshotConfigurationOutput)
-}
-
-func (i ApplicationApplicationSnapshotConfigurationArgs) ToApplicationApplicationSnapshotConfigurationPtrOutput() ApplicationApplicationSnapshotConfigurationPtrOutput {
-	return i.ToApplicationApplicationSnapshotConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationApplicationSnapshotConfigurationArgs) ToApplicationApplicationSnapshotConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationSnapshotConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationSnapshotConfigurationOutput).ToApplicationApplicationSnapshotConfigurationPtrOutputWithContext(ctx)
-}
-
-// ApplicationApplicationSnapshotConfigurationPtrInput is an input type that accepts ApplicationApplicationSnapshotConfigurationArgs, ApplicationApplicationSnapshotConfigurationPtr and ApplicationApplicationSnapshotConfigurationPtrOutput values.
-// You can construct a concrete instance of `ApplicationApplicationSnapshotConfigurationPtrInput` via:
-//
-//          ApplicationApplicationSnapshotConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type ApplicationApplicationSnapshotConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToApplicationApplicationSnapshotConfigurationPtrOutput() ApplicationApplicationSnapshotConfigurationPtrOutput
-	ToApplicationApplicationSnapshotConfigurationPtrOutputWithContext(context.Context) ApplicationApplicationSnapshotConfigurationPtrOutput
-}
-
-type applicationApplicationSnapshotConfigurationPtrType ApplicationApplicationSnapshotConfigurationArgs
-
-func ApplicationApplicationSnapshotConfigurationPtr(v *ApplicationApplicationSnapshotConfigurationArgs) ApplicationApplicationSnapshotConfigurationPtrInput {
-	return (*applicationApplicationSnapshotConfigurationPtrType)(v)
-}
-
-func (*applicationApplicationSnapshotConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationApplicationSnapshotConfiguration)(nil)).Elem()
-}
-
-func (i *applicationApplicationSnapshotConfigurationPtrType) ToApplicationApplicationSnapshotConfigurationPtrOutput() ApplicationApplicationSnapshotConfigurationPtrOutput {
-	return i.ToApplicationApplicationSnapshotConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationApplicationSnapshotConfigurationPtrType) ToApplicationApplicationSnapshotConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationSnapshotConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationSnapshotConfigurationPtrOutput)
-}
-
-type ApplicationApplicationSnapshotConfigurationOutput struct{ *pulumi.OutputState }
-
-func (ApplicationApplicationSnapshotConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationApplicationSnapshotConfiguration)(nil)).Elem()
-}
-
-func (o ApplicationApplicationSnapshotConfigurationOutput) ToApplicationApplicationSnapshotConfigurationOutput() ApplicationApplicationSnapshotConfigurationOutput {
-	return o
-}
-
-func (o ApplicationApplicationSnapshotConfigurationOutput) ToApplicationApplicationSnapshotConfigurationOutputWithContext(ctx context.Context) ApplicationApplicationSnapshotConfigurationOutput {
-	return o
-}
-
-func (o ApplicationApplicationSnapshotConfigurationOutput) ToApplicationApplicationSnapshotConfigurationPtrOutput() ApplicationApplicationSnapshotConfigurationPtrOutput {
-	return o.ToApplicationApplicationSnapshotConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationApplicationSnapshotConfigurationOutput) ToApplicationApplicationSnapshotConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationSnapshotConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationSnapshotConfiguration) *ApplicationApplicationSnapshotConfiguration {
-		return &v
-	}).(ApplicationApplicationSnapshotConfigurationPtrOutput)
-}
-
-func (o ApplicationApplicationSnapshotConfigurationOutput) SnapshotsEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v ApplicationApplicationSnapshotConfiguration) bool { return v.SnapshotsEnabled }).(pulumi.BoolOutput)
-}
-
-type ApplicationApplicationSnapshotConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationApplicationSnapshotConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationApplicationSnapshotConfiguration)(nil)).Elem()
-}
-
-func (o ApplicationApplicationSnapshotConfigurationPtrOutput) ToApplicationApplicationSnapshotConfigurationPtrOutput() ApplicationApplicationSnapshotConfigurationPtrOutput {
-	return o
-}
-
-func (o ApplicationApplicationSnapshotConfigurationPtrOutput) ToApplicationApplicationSnapshotConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationSnapshotConfigurationPtrOutput {
-	return o
-}
-
-func (o ApplicationApplicationSnapshotConfigurationPtrOutput) Elem() ApplicationApplicationSnapshotConfigurationOutput {
-	return o.ApplyT(func(v *ApplicationApplicationSnapshotConfiguration) ApplicationApplicationSnapshotConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationApplicationSnapshotConfiguration
-		return ret
-	}).(ApplicationApplicationSnapshotConfigurationOutput)
-}
-
-func (o ApplicationApplicationSnapshotConfigurationPtrOutput) SnapshotsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ApplicationApplicationSnapshotConfiguration) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.SnapshotsEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
 type ApplicationCSVMappingParameters struct {
 	RecordColumnDelimiter string `pulumi:"recordColumnDelimiter"`
 	RecordRowDelimiter    string `pulumi:"recordRowDelimiter"`
@@ -1105,6 +604,154 @@ func (o ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput) LogS
 	}).(pulumi.StringPtrOutput)
 }
 
+type ApplicationCodeConfiguration struct {
+	CodeContent     ApplicationCodeContent `pulumi:"codeContent"`
+	CodeContentType string                 `pulumi:"codeContentType"`
+}
+
+// ApplicationCodeConfigurationInput is an input type that accepts ApplicationCodeConfigurationArgs and ApplicationCodeConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationCodeConfigurationInput` via:
+//
+//          ApplicationCodeConfigurationArgs{...}
+type ApplicationCodeConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationCodeConfigurationOutput() ApplicationCodeConfigurationOutput
+	ToApplicationCodeConfigurationOutputWithContext(context.Context) ApplicationCodeConfigurationOutput
+}
+
+type ApplicationCodeConfigurationArgs struct {
+	CodeContent     ApplicationCodeContentInput `pulumi:"codeContent"`
+	CodeContentType pulumi.StringInput          `pulumi:"codeContentType"`
+}
+
+func (ApplicationCodeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationCodeConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationCodeConfigurationArgs) ToApplicationCodeConfigurationOutput() ApplicationCodeConfigurationOutput {
+	return i.ToApplicationCodeConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationCodeConfigurationArgs) ToApplicationCodeConfigurationOutputWithContext(ctx context.Context) ApplicationCodeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCodeConfigurationOutput)
+}
+
+func (i ApplicationCodeConfigurationArgs) ToApplicationCodeConfigurationPtrOutput() ApplicationCodeConfigurationPtrOutput {
+	return i.ToApplicationCodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationCodeConfigurationArgs) ToApplicationCodeConfigurationPtrOutputWithContext(ctx context.Context) ApplicationCodeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCodeConfigurationOutput).ToApplicationCodeConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationCodeConfigurationPtrInput is an input type that accepts ApplicationCodeConfigurationArgs, ApplicationCodeConfigurationPtr and ApplicationCodeConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationCodeConfigurationPtrInput` via:
+//
+//          ApplicationCodeConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ApplicationCodeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationCodeConfigurationPtrOutput() ApplicationCodeConfigurationPtrOutput
+	ToApplicationCodeConfigurationPtrOutputWithContext(context.Context) ApplicationCodeConfigurationPtrOutput
+}
+
+type applicationCodeConfigurationPtrType ApplicationCodeConfigurationArgs
+
+func ApplicationCodeConfigurationPtr(v *ApplicationCodeConfigurationArgs) ApplicationCodeConfigurationPtrInput {
+	return (*applicationCodeConfigurationPtrType)(v)
+}
+
+func (*applicationCodeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationCodeConfiguration)(nil)).Elem()
+}
+
+func (i *applicationCodeConfigurationPtrType) ToApplicationCodeConfigurationPtrOutput() ApplicationCodeConfigurationPtrOutput {
+	return i.ToApplicationCodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationCodeConfigurationPtrType) ToApplicationCodeConfigurationPtrOutputWithContext(ctx context.Context) ApplicationCodeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCodeConfigurationPtrOutput)
+}
+
+type ApplicationCodeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationCodeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationCodeConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationCodeConfigurationOutput) ToApplicationCodeConfigurationOutput() ApplicationCodeConfigurationOutput {
+	return o
+}
+
+func (o ApplicationCodeConfigurationOutput) ToApplicationCodeConfigurationOutputWithContext(ctx context.Context) ApplicationCodeConfigurationOutput {
+	return o
+}
+
+func (o ApplicationCodeConfigurationOutput) ToApplicationCodeConfigurationPtrOutput() ApplicationCodeConfigurationPtrOutput {
+	return o.ToApplicationCodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationCodeConfigurationOutput) ToApplicationCodeConfigurationPtrOutputWithContext(ctx context.Context) ApplicationCodeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationCodeConfiguration) *ApplicationCodeConfiguration {
+		return &v
+	}).(ApplicationCodeConfigurationPtrOutput)
+}
+
+func (o ApplicationCodeConfigurationOutput) CodeContent() ApplicationCodeContentOutput {
+	return o.ApplyT(func(v ApplicationCodeConfiguration) ApplicationCodeContent { return v.CodeContent }).(ApplicationCodeContentOutput)
+}
+
+func (o ApplicationCodeConfigurationOutput) CodeContentType() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationCodeConfiguration) string { return v.CodeContentType }).(pulumi.StringOutput)
+}
+
+type ApplicationCodeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationCodeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationCodeConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationCodeConfigurationPtrOutput) ToApplicationCodeConfigurationPtrOutput() ApplicationCodeConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationCodeConfigurationPtrOutput) ToApplicationCodeConfigurationPtrOutputWithContext(ctx context.Context) ApplicationCodeConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationCodeConfigurationPtrOutput) Elem() ApplicationCodeConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationCodeConfiguration) ApplicationCodeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationCodeConfiguration
+		return ret
+	}).(ApplicationCodeConfigurationOutput)
+}
+
+func (o ApplicationCodeConfigurationPtrOutput) CodeContent() ApplicationCodeContentPtrOutput {
+	return o.ApplyT(func(v *ApplicationCodeConfiguration) *ApplicationCodeContent {
+		if v == nil {
+			return nil
+		}
+		return &v.CodeContent
+	}).(ApplicationCodeContentPtrOutput)
+}
+
+func (o ApplicationCodeConfigurationPtrOutput) CodeContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationCodeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CodeContentType
+	}).(pulumi.StringPtrOutput)
+}
+
 type ApplicationCodeContent struct {
 	S3ContentLocation *ApplicationS3ContentLocation `pulumi:"s3ContentLocation"`
 	TextContent       *string                       `pulumi:"textContent"`
@@ -1266,6 +913,222 @@ func (o ApplicationCodeContentPtrOutput) ZipFileContent() pulumi.StringPtrOutput
 		}
 		return v.ZipFileContent
 	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationConfiguration struct {
+	ApplicationCodeConfiguration     *ApplicationCodeConfiguration                `pulumi:"applicationCodeConfiguration"`
+	ApplicationSnapshotConfiguration *ApplicationSnapshotConfiguration            `pulumi:"applicationSnapshotConfiguration"`
+	EnvironmentProperties            *ApplicationEnvironmentProperties            `pulumi:"environmentProperties"`
+	FlinkApplicationConfiguration    *ApplicationFlinkApplicationConfiguration    `pulumi:"flinkApplicationConfiguration"`
+	SqlApplicationConfiguration      *ApplicationSqlApplicationConfiguration      `pulumi:"sqlApplicationConfiguration"`
+	ZeppelinApplicationConfiguration *ApplicationZeppelinApplicationConfiguration `pulumi:"zeppelinApplicationConfiguration"`
+}
+
+// ApplicationConfigurationInput is an input type that accepts ApplicationConfigurationArgs and ApplicationConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationConfigurationInput` via:
+//
+//          ApplicationConfigurationArgs{...}
+type ApplicationConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationConfigurationOutput() ApplicationConfigurationOutput
+	ToApplicationConfigurationOutputWithContext(context.Context) ApplicationConfigurationOutput
+}
+
+type ApplicationConfigurationArgs struct {
+	ApplicationCodeConfiguration     ApplicationCodeConfigurationPtrInput                `pulumi:"applicationCodeConfiguration"`
+	ApplicationSnapshotConfiguration ApplicationSnapshotConfigurationPtrInput            `pulumi:"applicationSnapshotConfiguration"`
+	EnvironmentProperties            ApplicationEnvironmentPropertiesPtrInput            `pulumi:"environmentProperties"`
+	FlinkApplicationConfiguration    ApplicationFlinkApplicationConfigurationPtrInput    `pulumi:"flinkApplicationConfiguration"`
+	SqlApplicationConfiguration      ApplicationSqlApplicationConfigurationPtrInput      `pulumi:"sqlApplicationConfiguration"`
+	ZeppelinApplicationConfiguration ApplicationZeppelinApplicationConfigurationPtrInput `pulumi:"zeppelinApplicationConfiguration"`
+}
+
+func (ApplicationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationConfigurationArgs) ToApplicationConfigurationOutput() ApplicationConfigurationOutput {
+	return i.ToApplicationConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationConfigurationArgs) ToApplicationConfigurationOutputWithContext(ctx context.Context) ApplicationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationConfigurationOutput)
+}
+
+func (i ApplicationConfigurationArgs) ToApplicationConfigurationPtrOutput() ApplicationConfigurationPtrOutput {
+	return i.ToApplicationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationConfigurationArgs) ToApplicationConfigurationPtrOutputWithContext(ctx context.Context) ApplicationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationConfigurationOutput).ToApplicationConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationConfigurationPtrInput is an input type that accepts ApplicationConfigurationArgs, ApplicationConfigurationPtr and ApplicationConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationConfigurationPtrInput` via:
+//
+//          ApplicationConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ApplicationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationConfigurationPtrOutput() ApplicationConfigurationPtrOutput
+	ToApplicationConfigurationPtrOutputWithContext(context.Context) ApplicationConfigurationPtrOutput
+}
+
+type applicationConfigurationPtrType ApplicationConfigurationArgs
+
+func ApplicationConfigurationPtr(v *ApplicationConfigurationArgs) ApplicationConfigurationPtrInput {
+	return (*applicationConfigurationPtrType)(v)
+}
+
+func (*applicationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationConfiguration)(nil)).Elem()
+}
+
+func (i *applicationConfigurationPtrType) ToApplicationConfigurationPtrOutput() ApplicationConfigurationPtrOutput {
+	return i.ToApplicationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationConfigurationPtrType) ToApplicationConfigurationPtrOutputWithContext(ctx context.Context) ApplicationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationConfigurationPtrOutput)
+}
+
+type ApplicationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationConfigurationOutput) ToApplicationConfigurationOutput() ApplicationConfigurationOutput {
+	return o
+}
+
+func (o ApplicationConfigurationOutput) ToApplicationConfigurationOutputWithContext(ctx context.Context) ApplicationConfigurationOutput {
+	return o
+}
+
+func (o ApplicationConfigurationOutput) ToApplicationConfigurationPtrOutput() ApplicationConfigurationPtrOutput {
+	return o.ToApplicationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationConfigurationOutput) ToApplicationConfigurationPtrOutputWithContext(ctx context.Context) ApplicationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationConfiguration) *ApplicationConfiguration {
+		return &v
+	}).(ApplicationConfigurationPtrOutput)
+}
+
+func (o ApplicationConfigurationOutput) ApplicationCodeConfiguration() ApplicationCodeConfigurationPtrOutput {
+	return o.ApplyT(func(v ApplicationConfiguration) *ApplicationCodeConfiguration { return v.ApplicationCodeConfiguration }).(ApplicationCodeConfigurationPtrOutput)
+}
+
+func (o ApplicationConfigurationOutput) ApplicationSnapshotConfiguration() ApplicationSnapshotConfigurationPtrOutput {
+	return o.ApplyT(func(v ApplicationConfiguration) *ApplicationSnapshotConfiguration {
+		return v.ApplicationSnapshotConfiguration
+	}).(ApplicationSnapshotConfigurationPtrOutput)
+}
+
+func (o ApplicationConfigurationOutput) EnvironmentProperties() ApplicationEnvironmentPropertiesPtrOutput {
+	return o.ApplyT(func(v ApplicationConfiguration) *ApplicationEnvironmentProperties { return v.EnvironmentProperties }).(ApplicationEnvironmentPropertiesPtrOutput)
+}
+
+func (o ApplicationConfigurationOutput) FlinkApplicationConfiguration() ApplicationFlinkApplicationConfigurationPtrOutput {
+	return o.ApplyT(func(v ApplicationConfiguration) *ApplicationFlinkApplicationConfiguration {
+		return v.FlinkApplicationConfiguration
+	}).(ApplicationFlinkApplicationConfigurationPtrOutput)
+}
+
+func (o ApplicationConfigurationOutput) SqlApplicationConfiguration() ApplicationSqlApplicationConfigurationPtrOutput {
+	return o.ApplyT(func(v ApplicationConfiguration) *ApplicationSqlApplicationConfiguration {
+		return v.SqlApplicationConfiguration
+	}).(ApplicationSqlApplicationConfigurationPtrOutput)
+}
+
+func (o ApplicationConfigurationOutput) ZeppelinApplicationConfiguration() ApplicationZeppelinApplicationConfigurationPtrOutput {
+	return o.ApplyT(func(v ApplicationConfiguration) *ApplicationZeppelinApplicationConfiguration {
+		return v.ZeppelinApplicationConfiguration
+	}).(ApplicationZeppelinApplicationConfigurationPtrOutput)
+}
+
+type ApplicationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationConfigurationPtrOutput) ToApplicationConfigurationPtrOutput() ApplicationConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationConfigurationPtrOutput) ToApplicationConfigurationPtrOutputWithContext(ctx context.Context) ApplicationConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationConfigurationPtrOutput) Elem() ApplicationConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationConfiguration) ApplicationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationConfiguration
+		return ret
+	}).(ApplicationConfigurationOutput)
+}
+
+func (o ApplicationConfigurationPtrOutput) ApplicationCodeConfiguration() ApplicationCodeConfigurationPtrOutput {
+	return o.ApplyT(func(v *ApplicationConfiguration) *ApplicationCodeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationCodeConfiguration
+	}).(ApplicationCodeConfigurationPtrOutput)
+}
+
+func (o ApplicationConfigurationPtrOutput) ApplicationSnapshotConfiguration() ApplicationSnapshotConfigurationPtrOutput {
+	return o.ApplyT(func(v *ApplicationConfiguration) *ApplicationSnapshotConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationSnapshotConfiguration
+	}).(ApplicationSnapshotConfigurationPtrOutput)
+}
+
+func (o ApplicationConfigurationPtrOutput) EnvironmentProperties() ApplicationEnvironmentPropertiesPtrOutput {
+	return o.ApplyT(func(v *ApplicationConfiguration) *ApplicationEnvironmentProperties {
+		if v == nil {
+			return nil
+		}
+		return v.EnvironmentProperties
+	}).(ApplicationEnvironmentPropertiesPtrOutput)
+}
+
+func (o ApplicationConfigurationPtrOutput) FlinkApplicationConfiguration() ApplicationFlinkApplicationConfigurationPtrOutput {
+	return o.ApplyT(func(v *ApplicationConfiguration) *ApplicationFlinkApplicationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.FlinkApplicationConfiguration
+	}).(ApplicationFlinkApplicationConfigurationPtrOutput)
+}
+
+func (o ApplicationConfigurationPtrOutput) SqlApplicationConfiguration() ApplicationSqlApplicationConfigurationPtrOutput {
+	return o.ApplyT(func(v *ApplicationConfiguration) *ApplicationSqlApplicationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SqlApplicationConfiguration
+	}).(ApplicationSqlApplicationConfigurationPtrOutput)
+}
+
+func (o ApplicationConfigurationPtrOutput) ZeppelinApplicationConfiguration() ApplicationZeppelinApplicationConfigurationPtrOutput {
+	return o.ApplyT(func(v *ApplicationConfiguration) *ApplicationZeppelinApplicationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ZeppelinApplicationConfiguration
+	}).(ApplicationZeppelinApplicationConfigurationPtrOutput)
 }
 
 type ApplicationCustomArtifactsConfiguration struct {
@@ -5908,6 +5771,139 @@ func (o ApplicationS3ContentLocationPtrOutput) ObjectVersion() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+type ApplicationSnapshotConfiguration struct {
+	SnapshotsEnabled bool `pulumi:"snapshotsEnabled"`
+}
+
+// ApplicationSnapshotConfigurationInput is an input type that accepts ApplicationSnapshotConfigurationArgs and ApplicationSnapshotConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationSnapshotConfigurationInput` via:
+//
+//          ApplicationSnapshotConfigurationArgs{...}
+type ApplicationSnapshotConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationSnapshotConfigurationOutput() ApplicationSnapshotConfigurationOutput
+	ToApplicationSnapshotConfigurationOutputWithContext(context.Context) ApplicationSnapshotConfigurationOutput
+}
+
+type ApplicationSnapshotConfigurationArgs struct {
+	SnapshotsEnabled pulumi.BoolInput `pulumi:"snapshotsEnabled"`
+}
+
+func (ApplicationSnapshotConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSnapshotConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationSnapshotConfigurationArgs) ToApplicationSnapshotConfigurationOutput() ApplicationSnapshotConfigurationOutput {
+	return i.ToApplicationSnapshotConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationSnapshotConfigurationArgs) ToApplicationSnapshotConfigurationOutputWithContext(ctx context.Context) ApplicationSnapshotConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSnapshotConfigurationOutput)
+}
+
+func (i ApplicationSnapshotConfigurationArgs) ToApplicationSnapshotConfigurationPtrOutput() ApplicationSnapshotConfigurationPtrOutput {
+	return i.ToApplicationSnapshotConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationSnapshotConfigurationArgs) ToApplicationSnapshotConfigurationPtrOutputWithContext(ctx context.Context) ApplicationSnapshotConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSnapshotConfigurationOutput).ToApplicationSnapshotConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationSnapshotConfigurationPtrInput is an input type that accepts ApplicationSnapshotConfigurationArgs, ApplicationSnapshotConfigurationPtr and ApplicationSnapshotConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationSnapshotConfigurationPtrInput` via:
+//
+//          ApplicationSnapshotConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ApplicationSnapshotConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationSnapshotConfigurationPtrOutput() ApplicationSnapshotConfigurationPtrOutput
+	ToApplicationSnapshotConfigurationPtrOutputWithContext(context.Context) ApplicationSnapshotConfigurationPtrOutput
+}
+
+type applicationSnapshotConfigurationPtrType ApplicationSnapshotConfigurationArgs
+
+func ApplicationSnapshotConfigurationPtr(v *ApplicationSnapshotConfigurationArgs) ApplicationSnapshotConfigurationPtrInput {
+	return (*applicationSnapshotConfigurationPtrType)(v)
+}
+
+func (*applicationSnapshotConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSnapshotConfiguration)(nil)).Elem()
+}
+
+func (i *applicationSnapshotConfigurationPtrType) ToApplicationSnapshotConfigurationPtrOutput() ApplicationSnapshotConfigurationPtrOutput {
+	return i.ToApplicationSnapshotConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationSnapshotConfigurationPtrType) ToApplicationSnapshotConfigurationPtrOutputWithContext(ctx context.Context) ApplicationSnapshotConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSnapshotConfigurationPtrOutput)
+}
+
+type ApplicationSnapshotConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSnapshotConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSnapshotConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationSnapshotConfigurationOutput) ToApplicationSnapshotConfigurationOutput() ApplicationSnapshotConfigurationOutput {
+	return o
+}
+
+func (o ApplicationSnapshotConfigurationOutput) ToApplicationSnapshotConfigurationOutputWithContext(ctx context.Context) ApplicationSnapshotConfigurationOutput {
+	return o
+}
+
+func (o ApplicationSnapshotConfigurationOutput) ToApplicationSnapshotConfigurationPtrOutput() ApplicationSnapshotConfigurationPtrOutput {
+	return o.ToApplicationSnapshotConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationSnapshotConfigurationOutput) ToApplicationSnapshotConfigurationPtrOutputWithContext(ctx context.Context) ApplicationSnapshotConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSnapshotConfiguration) *ApplicationSnapshotConfiguration {
+		return &v
+	}).(ApplicationSnapshotConfigurationPtrOutput)
+}
+
+func (o ApplicationSnapshotConfigurationOutput) SnapshotsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ApplicationSnapshotConfiguration) bool { return v.SnapshotsEnabled }).(pulumi.BoolOutput)
+}
+
+type ApplicationSnapshotConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSnapshotConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSnapshotConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationSnapshotConfigurationPtrOutput) ToApplicationSnapshotConfigurationPtrOutput() ApplicationSnapshotConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationSnapshotConfigurationPtrOutput) ToApplicationSnapshotConfigurationPtrOutputWithContext(ctx context.Context) ApplicationSnapshotConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationSnapshotConfigurationPtrOutput) Elem() ApplicationSnapshotConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationSnapshotConfiguration) ApplicationSnapshotConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationSnapshotConfiguration
+		return ret
+	}).(ApplicationSnapshotConfigurationOutput)
+}
+
+func (o ApplicationSnapshotConfigurationPtrOutput) SnapshotsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationSnapshotConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.SnapshotsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ApplicationSqlApplicationConfiguration struct {
 	Inputs []ApplicationInputType `pulumi:"inputs"`
 }
@@ -6461,12 +6457,6 @@ func (o ApplicationZeppelinMonitoringConfigurationPtrOutput) LogLevel() pulumi.S
 }
 
 func init() {
-	pulumi.RegisterOutputType(ApplicationApplicationCodeConfigurationOutput{})
-	pulumi.RegisterOutputType(ApplicationApplicationCodeConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationApplicationConfigurationOutput{})
-	pulumi.RegisterOutputType(ApplicationApplicationConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationApplicationSnapshotConfigurationOutput{})
-	pulumi.RegisterOutputType(ApplicationApplicationSnapshotConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationCSVMappingParametersOutput{})
 	pulumi.RegisterOutputType(ApplicationCSVMappingParametersPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationCatalogConfigurationOutput{})
@@ -6475,8 +6465,12 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationCheckpointConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutput{})
 	pulumi.RegisterOutputType(ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationCodeConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationCodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationCodeContentOutput{})
 	pulumi.RegisterOutputType(ApplicationCodeContentPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationCustomArtifactsConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationCustomArtifactsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationDeployAsApplicationConfigurationOutput{})
@@ -6543,6 +6537,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationS3ContentBaseLocationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationS3ContentLocationOutput{})
 	pulumi.RegisterOutputType(ApplicationS3ContentLocationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationSnapshotConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationSnapshotConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationSqlApplicationConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationSqlApplicationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationTagOutput{})

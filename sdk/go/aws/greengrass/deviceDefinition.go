@@ -17,11 +17,11 @@ import (
 type DeviceDefinition struct {
 	pulumi.CustomResourceState
 
-	Arn              pulumi.StringOutput                              `pulumi:"arn"`
-	InitialVersion   DeviceDefinitionDeviceDefinitionVersionPtrOutput `pulumi:"initialVersion"`
-	LatestVersionArn pulumi.StringOutput                              `pulumi:"latestVersionArn"`
-	Name             pulumi.StringOutput                              `pulumi:"name"`
-	Tags             pulumi.AnyOutput                                 `pulumi:"tags"`
+	Arn              pulumi.StringOutput                  `pulumi:"arn"`
+	InitialVersion   DeviceDefinitionVersionTypePtrOutput `pulumi:"initialVersion"`
+	LatestVersionArn pulumi.StringOutput                  `pulumi:"latestVersionArn"`
+	Name             pulumi.StringOutput                  `pulumi:"name"`
+	Tags             pulumi.AnyOutput                     `pulumi:"tags"`
 }
 
 // NewDeviceDefinition registers a new resource with the given unique name, arguments, and options.
@@ -66,14 +66,14 @@ func (DeviceDefinitionState) ElementType() reflect.Type {
 }
 
 type deviceDefinitionArgs struct {
-	InitialVersion *DeviceDefinitionDeviceDefinitionVersion `pulumi:"initialVersion"`
-	Name           string                                   `pulumi:"name"`
-	Tags           interface{}                              `pulumi:"tags"`
+	InitialVersion *DeviceDefinitionVersionType `pulumi:"initialVersion"`
+	Name           string                       `pulumi:"name"`
+	Tags           interface{}                  `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DeviceDefinition resource.
 type DeviceDefinitionArgs struct {
-	InitialVersion DeviceDefinitionDeviceDefinitionVersionPtrInput
+	InitialVersion DeviceDefinitionVersionTypePtrInput
 	Name           pulumi.StringInput
 	Tags           pulumi.Input
 }

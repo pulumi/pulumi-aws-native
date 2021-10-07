@@ -26,11 +26,11 @@ type Template struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// <p>A list of resource permissions to be set on the template. </p>
 	Permissions  TemplateResourcePermissionArrayOutput `pulumi:"permissions"`
-	SourceEntity TemplateTemplateSourceEntityPtrOutput `pulumi:"sourceEntity"`
+	SourceEntity TemplateSourceEntityPtrOutput         `pulumi:"sourceEntity"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
-	Tags       TemplateTagArrayOutput        `pulumi:"tags"`
-	TemplateId pulumi.StringOutput           `pulumi:"templateId"`
-	Version    TemplateTemplateVersionOutput `pulumi:"version"`
+	Tags       TemplateTagArrayOutput `pulumi:"tags"`
+	TemplateId pulumi.StringOutput    `pulumi:"templateId"`
+	Version    TemplateVersionOutput  `pulumi:"version"`
 	// <p>A description of the current template version being created. This API operation creates the
 	// 			first version of the template. Every time <code>UpdateTemplate</code> is called, a new
 	// 			version is created. Each version of the template maintains a description of the version
@@ -87,8 +87,8 @@ type templateArgs struct {
 	// <p>A display name for the template.</p>
 	Name *string `pulumi:"name"`
 	// <p>A list of resource permissions to be set on the template. </p>
-	Permissions  []TemplateResourcePermission  `pulumi:"permissions"`
-	SourceEntity *TemplateTemplateSourceEntity `pulumi:"sourceEntity"`
+	Permissions  []TemplateResourcePermission `pulumi:"permissions"`
+	SourceEntity *TemplateSourceEntity        `pulumi:"sourceEntity"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
 	Tags       []TemplateTag `pulumi:"tags"`
 	TemplateId string        `pulumi:"templateId"`
@@ -106,7 +106,7 @@ type TemplateArgs struct {
 	Name pulumi.StringPtrInput
 	// <p>A list of resource permissions to be set on the template. </p>
 	Permissions  TemplateResourcePermissionArrayInput
-	SourceEntity TemplateTemplateSourceEntityPtrInput
+	SourceEntity TemplateSourceEntityPtrInput
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
 	Tags       TemplateTagArrayInput
 	TemplateId pulumi.StringInput

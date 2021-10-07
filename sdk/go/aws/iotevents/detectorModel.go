@@ -15,7 +15,7 @@ import (
 type DetectorModel struct {
 	pulumi.CustomResourceState
 
-	DetectorModelDefinition DetectorModelDetectorModelDefinitionOutput `pulumi:"detectorModelDefinition"`
+	DetectorModelDefinition DetectorModelDefinitionOutput `pulumi:"detectorModelDefinition"`
 	// A brief description of the detector model.
 	DetectorModelDescription pulumi.StringPtrOutput `pulumi:"detectorModelDescription"`
 	// The name of the detector model.
@@ -79,7 +79,7 @@ func (DetectorModelState) ElementType() reflect.Type {
 }
 
 type detectorModelArgs struct {
-	DetectorModelDefinition DetectorModelDetectorModelDefinition `pulumi:"detectorModelDefinition"`
+	DetectorModelDefinition DetectorModelDefinition `pulumi:"detectorModelDefinition"`
 	// A brief description of the detector model.
 	DetectorModelDescription *string `pulumi:"detectorModelDescription"`
 	// The name of the detector model.
@@ -100,7 +100,7 @@ type detectorModelArgs struct {
 
 // The set of arguments for constructing a DetectorModel resource.
 type DetectorModelArgs struct {
-	DetectorModelDefinition DetectorModelDetectorModelDefinitionInput
+	DetectorModelDefinition DetectorModelDefinitionInput
 	// A brief description of the detector model.
 	DetectorModelDescription pulumi.StringPtrInput
 	// The name of the detector model.

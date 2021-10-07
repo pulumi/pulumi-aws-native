@@ -22,7 +22,7 @@ type Domain struct {
 	CognitoOptions              DomainCognitoOptionsPtrOutput               `pulumi:"cognitoOptions"`
 	DomainArn                   pulumi.StringOutput                         `pulumi:"domainArn"`
 	DomainEndpoint              pulumi.StringOutput                         `pulumi:"domainEndpoint"`
-	DomainEndpointOptions       DomainDomainEndpointOptionsPtrOutput        `pulumi:"domainEndpointOptions"`
+	DomainEndpointOptions       DomainEndpointOptionsPtrOutput              `pulumi:"domainEndpointOptions"`
 	DomainEndpoints             pulumi.AnyOutput                            `pulumi:"domainEndpoints"`
 	DomainName                  pulumi.StringPtrOutput                      `pulumi:"domainName"`
 	EBSOptions                  DomainEBSOptionsPtrOutput                   `pulumi:"eBSOptions"`
@@ -81,7 +81,7 @@ type domainArgs struct {
 	AdvancedSecurityOptions     *DomainAdvancedSecurityOptionsInput `pulumi:"advancedSecurityOptions"`
 	ClusterConfig               *DomainClusterConfig                `pulumi:"clusterConfig"`
 	CognitoOptions              *DomainCognitoOptions               `pulumi:"cognitoOptions"`
-	DomainEndpointOptions       *DomainDomainEndpointOptions        `pulumi:"domainEndpointOptions"`
+	DomainEndpointOptions       *DomainEndpointOptions              `pulumi:"domainEndpointOptions"`
 	DomainName                  *string                             `pulumi:"domainName"`
 	EBSOptions                  *DomainEBSOptions                   `pulumi:"eBSOptions"`
 	EncryptionAtRestOptions     *DomainEncryptionAtRestOptions      `pulumi:"encryptionAtRestOptions"`
@@ -101,7 +101,7 @@ type DomainArgs struct {
 	AdvancedSecurityOptions     DomainAdvancedSecurityOptionsInputPtrInput
 	ClusterConfig               DomainClusterConfigPtrInput
 	CognitoOptions              DomainCognitoOptionsPtrInput
-	DomainEndpointOptions       DomainDomainEndpointOptionsPtrInput
+	DomainEndpointOptions       DomainEndpointOptionsPtrInput
 	DomainName                  pulumi.StringPtrInput
 	EBSOptions                  DomainEBSOptionsPtrInput
 	EncryptionAtRestOptions     DomainEncryptionAtRestOptionsPtrInput

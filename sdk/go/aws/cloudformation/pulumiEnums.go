@@ -510,124 +510,124 @@ func (in *publisherIdentityProviderPtr) ToPublisherIdentityProviderPtrOutputWith
 }
 
 // Whether the publisher is verified.
-type PublisherPublisherStatus string
+type PublisherStatus string
 
 const (
-	PublisherPublisherStatusVerified   = PublisherPublisherStatus("VERIFIED")
-	PublisherPublisherStatusUnverified = PublisherPublisherStatus("UNVERIFIED")
+	PublisherStatusVerified   = PublisherStatus("VERIFIED")
+	PublisherStatusUnverified = PublisherStatus("UNVERIFIED")
 )
 
-func (PublisherPublisherStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublisherPublisherStatus)(nil)).Elem()
+func (PublisherStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublisherStatus)(nil)).Elem()
 }
 
-func (e PublisherPublisherStatus) ToPublisherPublisherStatusOutput() PublisherPublisherStatusOutput {
-	return pulumi.ToOutput(e).(PublisherPublisherStatusOutput)
+func (e PublisherStatus) ToPublisherStatusOutput() PublisherStatusOutput {
+	return pulumi.ToOutput(e).(PublisherStatusOutput)
 }
 
-func (e PublisherPublisherStatus) ToPublisherPublisherStatusOutputWithContext(ctx context.Context) PublisherPublisherStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(PublisherPublisherStatusOutput)
+func (e PublisherStatus) ToPublisherStatusOutputWithContext(ctx context.Context) PublisherStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PublisherStatusOutput)
 }
 
-func (e PublisherPublisherStatus) ToPublisherPublisherStatusPtrOutput() PublisherPublisherStatusPtrOutput {
-	return e.ToPublisherPublisherStatusPtrOutputWithContext(context.Background())
+func (e PublisherStatus) ToPublisherStatusPtrOutput() PublisherStatusPtrOutput {
+	return e.ToPublisherStatusPtrOutputWithContext(context.Background())
 }
 
-func (e PublisherPublisherStatus) ToPublisherPublisherStatusPtrOutputWithContext(ctx context.Context) PublisherPublisherStatusPtrOutput {
-	return PublisherPublisherStatus(e).ToPublisherPublisherStatusOutputWithContext(ctx).ToPublisherPublisherStatusPtrOutputWithContext(ctx)
+func (e PublisherStatus) ToPublisherStatusPtrOutputWithContext(ctx context.Context) PublisherStatusPtrOutput {
+	return PublisherStatus(e).ToPublisherStatusOutputWithContext(ctx).ToPublisherStatusPtrOutputWithContext(ctx)
 }
 
-func (e PublisherPublisherStatus) ToStringOutput() pulumi.StringOutput {
+func (e PublisherStatus) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e PublisherPublisherStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e PublisherStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e PublisherPublisherStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e PublisherStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e PublisherPublisherStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e PublisherStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type PublisherPublisherStatusOutput struct{ *pulumi.OutputState }
+type PublisherStatusOutput struct{ *pulumi.OutputState }
 
-func (PublisherPublisherStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublisherPublisherStatus)(nil)).Elem()
+func (PublisherStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublisherStatus)(nil)).Elem()
 }
 
-func (o PublisherPublisherStatusOutput) ToPublisherPublisherStatusOutput() PublisherPublisherStatusOutput {
+func (o PublisherStatusOutput) ToPublisherStatusOutput() PublisherStatusOutput {
 	return o
 }
 
-func (o PublisherPublisherStatusOutput) ToPublisherPublisherStatusOutputWithContext(ctx context.Context) PublisherPublisherStatusOutput {
+func (o PublisherStatusOutput) ToPublisherStatusOutputWithContext(ctx context.Context) PublisherStatusOutput {
 	return o
 }
 
-func (o PublisherPublisherStatusOutput) ToPublisherPublisherStatusPtrOutput() PublisherPublisherStatusPtrOutput {
-	return o.ToPublisherPublisherStatusPtrOutputWithContext(context.Background())
+func (o PublisherStatusOutput) ToPublisherStatusPtrOutput() PublisherStatusPtrOutput {
+	return o.ToPublisherStatusPtrOutputWithContext(context.Background())
 }
 
-func (o PublisherPublisherStatusOutput) ToPublisherPublisherStatusPtrOutputWithContext(ctx context.Context) PublisherPublisherStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PublisherPublisherStatus) *PublisherPublisherStatus {
+func (o PublisherStatusOutput) ToPublisherStatusPtrOutputWithContext(ctx context.Context) PublisherStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PublisherStatus) *PublisherStatus {
 		return &v
-	}).(PublisherPublisherStatusPtrOutput)
+	}).(PublisherStatusPtrOutput)
 }
 
-func (o PublisherPublisherStatusOutput) ToStringOutput() pulumi.StringOutput {
+func (o PublisherStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o PublisherPublisherStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PublisherPublisherStatus) string {
+func (o PublisherStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PublisherStatus) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o PublisherPublisherStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o PublisherStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o PublisherPublisherStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PublisherPublisherStatus) *string {
+func (o PublisherStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PublisherStatus) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type PublisherPublisherStatusPtrOutput struct{ *pulumi.OutputState }
+type PublisherStatusPtrOutput struct{ *pulumi.OutputState }
 
-func (PublisherPublisherStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PublisherPublisherStatus)(nil)).Elem()
+func (PublisherStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublisherStatus)(nil)).Elem()
 }
 
-func (o PublisherPublisherStatusPtrOutput) ToPublisherPublisherStatusPtrOutput() PublisherPublisherStatusPtrOutput {
+func (o PublisherStatusPtrOutput) ToPublisherStatusPtrOutput() PublisherStatusPtrOutput {
 	return o
 }
 
-func (o PublisherPublisherStatusPtrOutput) ToPublisherPublisherStatusPtrOutputWithContext(ctx context.Context) PublisherPublisherStatusPtrOutput {
+func (o PublisherStatusPtrOutput) ToPublisherStatusPtrOutputWithContext(ctx context.Context) PublisherStatusPtrOutput {
 	return o
 }
 
-func (o PublisherPublisherStatusPtrOutput) Elem() PublisherPublisherStatusOutput {
-	return o.ApplyT(func(v *PublisherPublisherStatus) PublisherPublisherStatus {
+func (o PublisherStatusPtrOutput) Elem() PublisherStatusOutput {
+	return o.ApplyT(func(v *PublisherStatus) PublisherStatus {
 		if v != nil {
 			return *v
 		}
-		var ret PublisherPublisherStatus
+		var ret PublisherStatus
 		return ret
-	}).(PublisherPublisherStatusOutput)
+	}).(PublisherStatusOutput)
 }
 
-func (o PublisherPublisherStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o PublisherStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o PublisherPublisherStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PublisherPublisherStatus) *string {
+func (o PublisherStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PublisherStatus) *string {
 		if e == nil {
 			return nil
 		}
@@ -636,42 +636,42 @@ func (o PublisherPublisherStatusPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// PublisherPublisherStatusInput is an input type that accepts PublisherPublisherStatusArgs and PublisherPublisherStatusOutput values.
-// You can construct a concrete instance of `PublisherPublisherStatusInput` via:
+// PublisherStatusInput is an input type that accepts PublisherStatusArgs and PublisherStatusOutput values.
+// You can construct a concrete instance of `PublisherStatusInput` via:
 //
-//          PublisherPublisherStatusArgs{...}
-type PublisherPublisherStatusInput interface {
+//          PublisherStatusArgs{...}
+type PublisherStatusInput interface {
 	pulumi.Input
 
-	ToPublisherPublisherStatusOutput() PublisherPublisherStatusOutput
-	ToPublisherPublisherStatusOutputWithContext(context.Context) PublisherPublisherStatusOutput
+	ToPublisherStatusOutput() PublisherStatusOutput
+	ToPublisherStatusOutputWithContext(context.Context) PublisherStatusOutput
 }
 
-var publisherPublisherStatusPtrType = reflect.TypeOf((**PublisherPublisherStatus)(nil)).Elem()
+var publisherStatusPtrType = reflect.TypeOf((**PublisherStatus)(nil)).Elem()
 
-type PublisherPublisherStatusPtrInput interface {
+type PublisherStatusPtrInput interface {
 	pulumi.Input
 
-	ToPublisherPublisherStatusPtrOutput() PublisherPublisherStatusPtrOutput
-	ToPublisherPublisherStatusPtrOutputWithContext(context.Context) PublisherPublisherStatusPtrOutput
+	ToPublisherStatusPtrOutput() PublisherStatusPtrOutput
+	ToPublisherStatusPtrOutputWithContext(context.Context) PublisherStatusPtrOutput
 }
 
-type publisherPublisherStatusPtr string
+type publisherStatusPtr string
 
-func PublisherPublisherStatusPtr(v string) PublisherPublisherStatusPtrInput {
-	return (*publisherPublisherStatusPtr)(&v)
+func PublisherStatusPtr(v string) PublisherStatusPtrInput {
+	return (*publisherStatusPtr)(&v)
 }
 
-func (*publisherPublisherStatusPtr) ElementType() reflect.Type {
-	return publisherPublisherStatusPtrType
+func (*publisherStatusPtr) ElementType() reflect.Type {
+	return publisherStatusPtrType
 }
 
-func (in *publisherPublisherStatusPtr) ToPublisherPublisherStatusPtrOutput() PublisherPublisherStatusPtrOutput {
-	return pulumi.ToOutput(in).(PublisherPublisherStatusPtrOutput)
+func (in *publisherStatusPtr) ToPublisherStatusPtrOutput() PublisherStatusPtrOutput {
+	return pulumi.ToOutput(in).(PublisherStatusPtrOutput)
 }
 
-func (in *publisherPublisherStatusPtr) ToPublisherPublisherStatusPtrOutputWithContext(ctx context.Context) PublisherPublisherStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(PublisherPublisherStatusPtrOutput)
+func (in *publisherStatusPtr) ToPublisherStatusPtrOutputWithContext(ctx context.Context) PublisherStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PublisherStatusPtrOutput)
 }
 
 // The provisioning behavior of the type. AWS CloudFormation determines the provisioning type during registration, based on the types of handlers in the schema handler package submitted.
@@ -2053,8 +2053,8 @@ func init() {
 	pulumi.RegisterOutputType(PublicTypeVersionTypePtrOutput{})
 	pulumi.RegisterOutputType(PublisherIdentityProviderOutput{})
 	pulumi.RegisterOutputType(PublisherIdentityProviderPtrOutput{})
-	pulumi.RegisterOutputType(PublisherPublisherStatusOutput{})
-	pulumi.RegisterOutputType(PublisherPublisherStatusPtrOutput{})
+	pulumi.RegisterOutputType(PublisherStatusOutput{})
+	pulumi.RegisterOutputType(PublisherStatusPtrOutput{})
 	pulumi.RegisterOutputType(ResourceVersionProvisioningTypeOutput{})
 	pulumi.RegisterOutputType(ResourceVersionProvisioningTypePtrOutput{})
 	pulumi.RegisterOutputType(ResourceVersionVisibilityOutput{})

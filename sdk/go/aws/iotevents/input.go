@@ -15,7 +15,7 @@ import (
 type Input struct {
 	pulumi.CustomResourceState
 
-	InputDefinition InputInputDefinitionOutput `pulumi:"inputDefinition"`
+	InputDefinition InputDefinitionOutput `pulumi:"inputDefinition"`
 	// A brief description of the input.
 	InputDescription pulumi.StringPtrOutput `pulumi:"inputDescription"`
 	// The name of the input.
@@ -68,7 +68,7 @@ func (InputState) ElementType() reflect.Type {
 }
 
 type inputArgs struct {
-	InputDefinition InputInputDefinition `pulumi:"inputDefinition"`
+	InputDefinition InputDefinition `pulumi:"inputDefinition"`
 	// A brief description of the input.
 	InputDescription *string `pulumi:"inputDescription"`
 	// The name of the input.
@@ -81,7 +81,7 @@ type inputArgs struct {
 
 // The set of arguments for constructing a Input resource.
 type InputArgs struct {
-	InputDefinition InputInputDefinitionInput
+	InputDefinition InputDefinitionInput
 	// A brief description of the input.
 	InputDescription pulumi.StringPtrInput
 	// The name of the input.

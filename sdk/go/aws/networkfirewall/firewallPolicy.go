@@ -15,12 +15,12 @@ import (
 type FirewallPolicy struct {
 	pulumi.CustomResourceState
 
-	Description        pulumi.StringPtrOutput             `pulumi:"description"`
-	FirewallPolicy     FirewallPolicyFirewallPolicyOutput `pulumi:"firewallPolicy"`
-	FirewallPolicyArn  pulumi.StringOutput                `pulumi:"firewallPolicyArn"`
-	FirewallPolicyId   pulumi.StringOutput                `pulumi:"firewallPolicyId"`
-	FirewallPolicyName pulumi.StringOutput                `pulumi:"firewallPolicyName"`
-	Tags               FirewallPolicyTagArrayOutput       `pulumi:"tags"`
+	Description        pulumi.StringPtrOutput       `pulumi:"description"`
+	FirewallPolicy     FirewallPolicyTypeOutput     `pulumi:"firewallPolicy"`
+	FirewallPolicyArn  pulumi.StringOutput          `pulumi:"firewallPolicyArn"`
+	FirewallPolicyId   pulumi.StringOutput          `pulumi:"firewallPolicyId"`
+	FirewallPolicyName pulumi.StringOutput          `pulumi:"firewallPolicyName"`
+	Tags               FirewallPolicyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewFirewallPolicy registers a new resource with the given unique name, arguments, and options.
@@ -68,16 +68,16 @@ func (FirewallPolicyState) ElementType() reflect.Type {
 }
 
 type firewallPolicyArgs struct {
-	Description        *string                      `pulumi:"description"`
-	FirewallPolicy     FirewallPolicyFirewallPolicy `pulumi:"firewallPolicy"`
-	FirewallPolicyName string                       `pulumi:"firewallPolicyName"`
-	Tags               []FirewallPolicyTag          `pulumi:"tags"`
+	Description        *string             `pulumi:"description"`
+	FirewallPolicy     FirewallPolicyType  `pulumi:"firewallPolicy"`
+	FirewallPolicyName string              `pulumi:"firewallPolicyName"`
+	Tags               []FirewallPolicyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FirewallPolicy resource.
 type FirewallPolicyArgs struct {
 	Description        pulumi.StringPtrInput
-	FirewallPolicy     FirewallPolicyFirewallPolicyInput
+	FirewallPolicy     FirewallPolicyTypeInput
 	FirewallPolicyName pulumi.StringInput
 	Tags               FirewallPolicyTagArrayInput
 }

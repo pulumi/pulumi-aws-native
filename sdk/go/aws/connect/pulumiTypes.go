@@ -10,6 +10,187 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Configuration settings for the quick connect.
+type QuickConnectConfig struct {
+	PhoneConfig      *QuickConnectPhoneNumberQuickConnectConfig `pulumi:"phoneConfig"`
+	QueueConfig      *QuickConnectQueueQuickConnectConfig       `pulumi:"queueConfig"`
+	QuickConnectType QuickConnectType                           `pulumi:"quickConnectType"`
+	UserConfig       *QuickConnectUserQuickConnectConfig        `pulumi:"userConfig"`
+}
+
+// QuickConnectConfigInput is an input type that accepts QuickConnectConfigArgs and QuickConnectConfigOutput values.
+// You can construct a concrete instance of `QuickConnectConfigInput` via:
+//
+//          QuickConnectConfigArgs{...}
+type QuickConnectConfigInput interface {
+	pulumi.Input
+
+	ToQuickConnectConfigOutput() QuickConnectConfigOutput
+	ToQuickConnectConfigOutputWithContext(context.Context) QuickConnectConfigOutput
+}
+
+// Configuration settings for the quick connect.
+type QuickConnectConfigArgs struct {
+	PhoneConfig      QuickConnectPhoneNumberQuickConnectConfigPtrInput `pulumi:"phoneConfig"`
+	QueueConfig      QuickConnectQueueQuickConnectConfigPtrInput       `pulumi:"queueConfig"`
+	QuickConnectType QuickConnectTypeInput                             `pulumi:"quickConnectType"`
+	UserConfig       QuickConnectUserQuickConnectConfigPtrInput        `pulumi:"userConfig"`
+}
+
+func (QuickConnectConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuickConnectConfig)(nil)).Elem()
+}
+
+func (i QuickConnectConfigArgs) ToQuickConnectConfigOutput() QuickConnectConfigOutput {
+	return i.ToQuickConnectConfigOutputWithContext(context.Background())
+}
+
+func (i QuickConnectConfigArgs) ToQuickConnectConfigOutputWithContext(ctx context.Context) QuickConnectConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuickConnectConfigOutput)
+}
+
+func (i QuickConnectConfigArgs) ToQuickConnectConfigPtrOutput() QuickConnectConfigPtrOutput {
+	return i.ToQuickConnectConfigPtrOutputWithContext(context.Background())
+}
+
+func (i QuickConnectConfigArgs) ToQuickConnectConfigPtrOutputWithContext(ctx context.Context) QuickConnectConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuickConnectConfigOutput).ToQuickConnectConfigPtrOutputWithContext(ctx)
+}
+
+// QuickConnectConfigPtrInput is an input type that accepts QuickConnectConfigArgs, QuickConnectConfigPtr and QuickConnectConfigPtrOutput values.
+// You can construct a concrete instance of `QuickConnectConfigPtrInput` via:
+//
+//          QuickConnectConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type QuickConnectConfigPtrInput interface {
+	pulumi.Input
+
+	ToQuickConnectConfigPtrOutput() QuickConnectConfigPtrOutput
+	ToQuickConnectConfigPtrOutputWithContext(context.Context) QuickConnectConfigPtrOutput
+}
+
+type quickConnectConfigPtrType QuickConnectConfigArgs
+
+func QuickConnectConfigPtr(v *QuickConnectConfigArgs) QuickConnectConfigPtrInput {
+	return (*quickConnectConfigPtrType)(v)
+}
+
+func (*quickConnectConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**QuickConnectConfig)(nil)).Elem()
+}
+
+func (i *quickConnectConfigPtrType) ToQuickConnectConfigPtrOutput() QuickConnectConfigPtrOutput {
+	return i.ToQuickConnectConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *quickConnectConfigPtrType) ToQuickConnectConfigPtrOutputWithContext(ctx context.Context) QuickConnectConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuickConnectConfigPtrOutput)
+}
+
+// Configuration settings for the quick connect.
+type QuickConnectConfigOutput struct{ *pulumi.OutputState }
+
+func (QuickConnectConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuickConnectConfig)(nil)).Elem()
+}
+
+func (o QuickConnectConfigOutput) ToQuickConnectConfigOutput() QuickConnectConfigOutput {
+	return o
+}
+
+func (o QuickConnectConfigOutput) ToQuickConnectConfigOutputWithContext(ctx context.Context) QuickConnectConfigOutput {
+	return o
+}
+
+func (o QuickConnectConfigOutput) ToQuickConnectConfigPtrOutput() QuickConnectConfigPtrOutput {
+	return o.ToQuickConnectConfigPtrOutputWithContext(context.Background())
+}
+
+func (o QuickConnectConfigOutput) ToQuickConnectConfigPtrOutputWithContext(ctx context.Context) QuickConnectConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QuickConnectConfig) *QuickConnectConfig {
+		return &v
+	}).(QuickConnectConfigPtrOutput)
+}
+
+func (o QuickConnectConfigOutput) PhoneConfig() QuickConnectPhoneNumberQuickConnectConfigPtrOutput {
+	return o.ApplyT(func(v QuickConnectConfig) *QuickConnectPhoneNumberQuickConnectConfig { return v.PhoneConfig }).(QuickConnectPhoneNumberQuickConnectConfigPtrOutput)
+}
+
+func (o QuickConnectConfigOutput) QueueConfig() QuickConnectQueueQuickConnectConfigPtrOutput {
+	return o.ApplyT(func(v QuickConnectConfig) *QuickConnectQueueQuickConnectConfig { return v.QueueConfig }).(QuickConnectQueueQuickConnectConfigPtrOutput)
+}
+
+func (o QuickConnectConfigOutput) QuickConnectType() QuickConnectTypeOutput {
+	return o.ApplyT(func(v QuickConnectConfig) QuickConnectType { return v.QuickConnectType }).(QuickConnectTypeOutput)
+}
+
+func (o QuickConnectConfigOutput) UserConfig() QuickConnectUserQuickConnectConfigPtrOutput {
+	return o.ApplyT(func(v QuickConnectConfig) *QuickConnectUserQuickConnectConfig { return v.UserConfig }).(QuickConnectUserQuickConnectConfigPtrOutput)
+}
+
+type QuickConnectConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (QuickConnectConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QuickConnectConfig)(nil)).Elem()
+}
+
+func (o QuickConnectConfigPtrOutput) ToQuickConnectConfigPtrOutput() QuickConnectConfigPtrOutput {
+	return o
+}
+
+func (o QuickConnectConfigPtrOutput) ToQuickConnectConfigPtrOutputWithContext(ctx context.Context) QuickConnectConfigPtrOutput {
+	return o
+}
+
+func (o QuickConnectConfigPtrOutput) Elem() QuickConnectConfigOutput {
+	return o.ApplyT(func(v *QuickConnectConfig) QuickConnectConfig {
+		if v != nil {
+			return *v
+		}
+		var ret QuickConnectConfig
+		return ret
+	}).(QuickConnectConfigOutput)
+}
+
+func (o QuickConnectConfigPtrOutput) PhoneConfig() QuickConnectPhoneNumberQuickConnectConfigPtrOutput {
+	return o.ApplyT(func(v *QuickConnectConfig) *QuickConnectPhoneNumberQuickConnectConfig {
+		if v == nil {
+			return nil
+		}
+		return v.PhoneConfig
+	}).(QuickConnectPhoneNumberQuickConnectConfigPtrOutput)
+}
+
+func (o QuickConnectConfigPtrOutput) QueueConfig() QuickConnectQueueQuickConnectConfigPtrOutput {
+	return o.ApplyT(func(v *QuickConnectConfig) *QuickConnectQueueQuickConnectConfig {
+		if v == nil {
+			return nil
+		}
+		return v.QueueConfig
+	}).(QuickConnectQueueQuickConnectConfigPtrOutput)
+}
+
+func (o QuickConnectConfigPtrOutput) QuickConnectType() QuickConnectTypePtrOutput {
+	return o.ApplyT(func(v *QuickConnectConfig) *QuickConnectType {
+		if v == nil {
+			return nil
+		}
+		return &v.QuickConnectType
+	}).(QuickConnectTypePtrOutput)
+}
+
+func (o QuickConnectConfigPtrOutput) UserConfig() QuickConnectUserQuickConnectConfigPtrOutput {
+	return o.ApplyT(func(v *QuickConnectConfig) *QuickConnectUserQuickConnectConfig {
+		if v == nil {
+			return nil
+		}
+		return v.UserConfig
+	}).(QuickConnectUserQuickConnectConfigPtrOutput)
+}
+
 // The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
 type QuickConnectPhoneNumberQuickConnectConfig struct {
 	PhoneNumber string `pulumi:"phoneNumber"`
@@ -297,189 +478,6 @@ func (o QuickConnectQueueQuickConnectConfigPtrOutput) QueueArn() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration settings for the quick connect.
-type QuickConnectQuickConnectConfig struct {
-	PhoneConfig      *QuickConnectPhoneNumberQuickConnectConfig `pulumi:"phoneConfig"`
-	QueueConfig      *QuickConnectQueueQuickConnectConfig       `pulumi:"queueConfig"`
-	QuickConnectType QuickConnectQuickConnectType               `pulumi:"quickConnectType"`
-	UserConfig       *QuickConnectUserQuickConnectConfig        `pulumi:"userConfig"`
-}
-
-// QuickConnectQuickConnectConfigInput is an input type that accepts QuickConnectQuickConnectConfigArgs and QuickConnectQuickConnectConfigOutput values.
-// You can construct a concrete instance of `QuickConnectQuickConnectConfigInput` via:
-//
-//          QuickConnectQuickConnectConfigArgs{...}
-type QuickConnectQuickConnectConfigInput interface {
-	pulumi.Input
-
-	ToQuickConnectQuickConnectConfigOutput() QuickConnectQuickConnectConfigOutput
-	ToQuickConnectQuickConnectConfigOutputWithContext(context.Context) QuickConnectQuickConnectConfigOutput
-}
-
-// Configuration settings for the quick connect.
-type QuickConnectQuickConnectConfigArgs struct {
-	PhoneConfig      QuickConnectPhoneNumberQuickConnectConfigPtrInput `pulumi:"phoneConfig"`
-	QueueConfig      QuickConnectQueueQuickConnectConfigPtrInput       `pulumi:"queueConfig"`
-	QuickConnectType QuickConnectQuickConnectTypeInput                 `pulumi:"quickConnectType"`
-	UserConfig       QuickConnectUserQuickConnectConfigPtrInput        `pulumi:"userConfig"`
-}
-
-func (QuickConnectQuickConnectConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*QuickConnectQuickConnectConfig)(nil)).Elem()
-}
-
-func (i QuickConnectQuickConnectConfigArgs) ToQuickConnectQuickConnectConfigOutput() QuickConnectQuickConnectConfigOutput {
-	return i.ToQuickConnectQuickConnectConfigOutputWithContext(context.Background())
-}
-
-func (i QuickConnectQuickConnectConfigArgs) ToQuickConnectQuickConnectConfigOutputWithContext(ctx context.Context) QuickConnectQuickConnectConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QuickConnectQuickConnectConfigOutput)
-}
-
-func (i QuickConnectQuickConnectConfigArgs) ToQuickConnectQuickConnectConfigPtrOutput() QuickConnectQuickConnectConfigPtrOutput {
-	return i.ToQuickConnectQuickConnectConfigPtrOutputWithContext(context.Background())
-}
-
-func (i QuickConnectQuickConnectConfigArgs) ToQuickConnectQuickConnectConfigPtrOutputWithContext(ctx context.Context) QuickConnectQuickConnectConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QuickConnectQuickConnectConfigOutput).ToQuickConnectQuickConnectConfigPtrOutputWithContext(ctx)
-}
-
-// QuickConnectQuickConnectConfigPtrInput is an input type that accepts QuickConnectQuickConnectConfigArgs, QuickConnectQuickConnectConfigPtr and QuickConnectQuickConnectConfigPtrOutput values.
-// You can construct a concrete instance of `QuickConnectQuickConnectConfigPtrInput` via:
-//
-//          QuickConnectQuickConnectConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type QuickConnectQuickConnectConfigPtrInput interface {
-	pulumi.Input
-
-	ToQuickConnectQuickConnectConfigPtrOutput() QuickConnectQuickConnectConfigPtrOutput
-	ToQuickConnectQuickConnectConfigPtrOutputWithContext(context.Context) QuickConnectQuickConnectConfigPtrOutput
-}
-
-type quickConnectQuickConnectConfigPtrType QuickConnectQuickConnectConfigArgs
-
-func QuickConnectQuickConnectConfigPtr(v *QuickConnectQuickConnectConfigArgs) QuickConnectQuickConnectConfigPtrInput {
-	return (*quickConnectQuickConnectConfigPtrType)(v)
-}
-
-func (*quickConnectQuickConnectConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**QuickConnectQuickConnectConfig)(nil)).Elem()
-}
-
-func (i *quickConnectQuickConnectConfigPtrType) ToQuickConnectQuickConnectConfigPtrOutput() QuickConnectQuickConnectConfigPtrOutput {
-	return i.ToQuickConnectQuickConnectConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *quickConnectQuickConnectConfigPtrType) ToQuickConnectQuickConnectConfigPtrOutputWithContext(ctx context.Context) QuickConnectQuickConnectConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QuickConnectQuickConnectConfigPtrOutput)
-}
-
-// Configuration settings for the quick connect.
-type QuickConnectQuickConnectConfigOutput struct{ *pulumi.OutputState }
-
-func (QuickConnectQuickConnectConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*QuickConnectQuickConnectConfig)(nil)).Elem()
-}
-
-func (o QuickConnectQuickConnectConfigOutput) ToQuickConnectQuickConnectConfigOutput() QuickConnectQuickConnectConfigOutput {
-	return o
-}
-
-func (o QuickConnectQuickConnectConfigOutput) ToQuickConnectQuickConnectConfigOutputWithContext(ctx context.Context) QuickConnectQuickConnectConfigOutput {
-	return o
-}
-
-func (o QuickConnectQuickConnectConfigOutput) ToQuickConnectQuickConnectConfigPtrOutput() QuickConnectQuickConnectConfigPtrOutput {
-	return o.ToQuickConnectQuickConnectConfigPtrOutputWithContext(context.Background())
-}
-
-func (o QuickConnectQuickConnectConfigOutput) ToQuickConnectQuickConnectConfigPtrOutputWithContext(ctx context.Context) QuickConnectQuickConnectConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v QuickConnectQuickConnectConfig) *QuickConnectQuickConnectConfig {
-		return &v
-	}).(QuickConnectQuickConnectConfigPtrOutput)
-}
-
-func (o QuickConnectQuickConnectConfigOutput) PhoneConfig() QuickConnectPhoneNumberQuickConnectConfigPtrOutput {
-	return o.ApplyT(func(v QuickConnectQuickConnectConfig) *QuickConnectPhoneNumberQuickConnectConfig {
-		return v.PhoneConfig
-	}).(QuickConnectPhoneNumberQuickConnectConfigPtrOutput)
-}
-
-func (o QuickConnectQuickConnectConfigOutput) QueueConfig() QuickConnectQueueQuickConnectConfigPtrOutput {
-	return o.ApplyT(func(v QuickConnectQuickConnectConfig) *QuickConnectQueueQuickConnectConfig { return v.QueueConfig }).(QuickConnectQueueQuickConnectConfigPtrOutput)
-}
-
-func (o QuickConnectQuickConnectConfigOutput) QuickConnectType() QuickConnectQuickConnectTypeOutput {
-	return o.ApplyT(func(v QuickConnectQuickConnectConfig) QuickConnectQuickConnectType { return v.QuickConnectType }).(QuickConnectQuickConnectTypeOutput)
-}
-
-func (o QuickConnectQuickConnectConfigOutput) UserConfig() QuickConnectUserQuickConnectConfigPtrOutput {
-	return o.ApplyT(func(v QuickConnectQuickConnectConfig) *QuickConnectUserQuickConnectConfig { return v.UserConfig }).(QuickConnectUserQuickConnectConfigPtrOutput)
-}
-
-type QuickConnectQuickConnectConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (QuickConnectQuickConnectConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**QuickConnectQuickConnectConfig)(nil)).Elem()
-}
-
-func (o QuickConnectQuickConnectConfigPtrOutput) ToQuickConnectQuickConnectConfigPtrOutput() QuickConnectQuickConnectConfigPtrOutput {
-	return o
-}
-
-func (o QuickConnectQuickConnectConfigPtrOutput) ToQuickConnectQuickConnectConfigPtrOutputWithContext(ctx context.Context) QuickConnectQuickConnectConfigPtrOutput {
-	return o
-}
-
-func (o QuickConnectQuickConnectConfigPtrOutput) Elem() QuickConnectQuickConnectConfigOutput {
-	return o.ApplyT(func(v *QuickConnectQuickConnectConfig) QuickConnectQuickConnectConfig {
-		if v != nil {
-			return *v
-		}
-		var ret QuickConnectQuickConnectConfig
-		return ret
-	}).(QuickConnectQuickConnectConfigOutput)
-}
-
-func (o QuickConnectQuickConnectConfigPtrOutput) PhoneConfig() QuickConnectPhoneNumberQuickConnectConfigPtrOutput {
-	return o.ApplyT(func(v *QuickConnectQuickConnectConfig) *QuickConnectPhoneNumberQuickConnectConfig {
-		if v == nil {
-			return nil
-		}
-		return v.PhoneConfig
-	}).(QuickConnectPhoneNumberQuickConnectConfigPtrOutput)
-}
-
-func (o QuickConnectQuickConnectConfigPtrOutput) QueueConfig() QuickConnectQueueQuickConnectConfigPtrOutput {
-	return o.ApplyT(func(v *QuickConnectQuickConnectConfig) *QuickConnectQueueQuickConnectConfig {
-		if v == nil {
-			return nil
-		}
-		return v.QueueConfig
-	}).(QuickConnectQueueQuickConnectConfigPtrOutput)
-}
-
-func (o QuickConnectQuickConnectConfigPtrOutput) QuickConnectType() QuickConnectQuickConnectTypePtrOutput {
-	return o.ApplyT(func(v *QuickConnectQuickConnectConfig) *QuickConnectQuickConnectType {
-		if v == nil {
-			return nil
-		}
-		return &v.QuickConnectType
-	}).(QuickConnectQuickConnectTypePtrOutput)
-}
-
-func (o QuickConnectQuickConnectConfigPtrOutput) UserConfig() QuickConnectUserQuickConnectConfigPtrOutput {
-	return o.ApplyT(func(v *QuickConnectQuickConnectConfig) *QuickConnectUserQuickConnectConfig {
-		if v == nil {
-			return nil
-		}
-		return v.UserConfig
-	}).(QuickConnectUserQuickConnectConfigPtrOutput)
-}
-
 // A key-value pair to associate with a resource.
 type QuickConnectTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -741,12 +739,12 @@ func (o QuickConnectUserQuickConnectConfigPtrOutput) UserArn() pulumi.StringPtrO
 }
 
 func init() {
+	pulumi.RegisterOutputType(QuickConnectConfigOutput{})
+	pulumi.RegisterOutputType(QuickConnectConfigPtrOutput{})
 	pulumi.RegisterOutputType(QuickConnectPhoneNumberQuickConnectConfigOutput{})
 	pulumi.RegisterOutputType(QuickConnectPhoneNumberQuickConnectConfigPtrOutput{})
 	pulumi.RegisterOutputType(QuickConnectQueueQuickConnectConfigOutput{})
 	pulumi.RegisterOutputType(QuickConnectQueueQuickConnectConfigPtrOutput{})
-	pulumi.RegisterOutputType(QuickConnectQuickConnectConfigOutput{})
-	pulumi.RegisterOutputType(QuickConnectQuickConnectConfigPtrOutput{})
 	pulumi.RegisterOutputType(QuickConnectTagOutput{})
 	pulumi.RegisterOutputType(QuickConnectTagArrayOutput{})
 	pulumi.RegisterOutputType(QuickConnectUserQuickConnectConfigOutput{})

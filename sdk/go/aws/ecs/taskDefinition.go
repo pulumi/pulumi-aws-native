@@ -14,20 +14,20 @@ import (
 type TaskDefinition struct {
 	pulumi.CustomResourceState
 
-	ContainerDefinitions    TaskDefinitionContainerDefinitionArrayOutput               `pulumi:"containerDefinitions"`
-	Cpu                     pulumi.StringPtrOutput                                     `pulumi:"cpu"`
-	EphemeralStorage        TaskDefinitionEphemeralStoragePtrOutput                    `pulumi:"ephemeralStorage"`
-	ExecutionRoleArn        pulumi.StringPtrOutput                                     `pulumi:"executionRoleArn"`
-	Family                  pulumi.StringPtrOutput                                     `pulumi:"family"`
-	InferenceAccelerators   TaskDefinitionInferenceAcceleratorArrayOutput              `pulumi:"inferenceAccelerators"`
-	IpcMode                 pulumi.StringPtrOutput                                     `pulumi:"ipcMode"`
-	Memory                  pulumi.StringPtrOutput                                     `pulumi:"memory"`
-	NetworkMode             pulumi.StringPtrOutput                                     `pulumi:"networkMode"`
-	PidMode                 pulumi.StringPtrOutput                                     `pulumi:"pidMode"`
-	PlacementConstraints    TaskDefinitionTaskDefinitionPlacementConstraintArrayOutput `pulumi:"placementConstraints"`
-	ProxyConfiguration      TaskDefinitionProxyConfigurationPtrOutput                  `pulumi:"proxyConfiguration"`
-	RequiresCompatibilities pulumi.StringArrayOutput                                   `pulumi:"requiresCompatibilities"`
-	Tags                    TaskDefinitionTagArrayOutput                               `pulumi:"tags"`
+	ContainerDefinitions    TaskDefinitionContainerDefinitionArrayOutput  `pulumi:"containerDefinitions"`
+	Cpu                     pulumi.StringPtrOutput                        `pulumi:"cpu"`
+	EphemeralStorage        TaskDefinitionEphemeralStoragePtrOutput       `pulumi:"ephemeralStorage"`
+	ExecutionRoleArn        pulumi.StringPtrOutput                        `pulumi:"executionRoleArn"`
+	Family                  pulumi.StringPtrOutput                        `pulumi:"family"`
+	InferenceAccelerators   TaskDefinitionInferenceAcceleratorArrayOutput `pulumi:"inferenceAccelerators"`
+	IpcMode                 pulumi.StringPtrOutput                        `pulumi:"ipcMode"`
+	Memory                  pulumi.StringPtrOutput                        `pulumi:"memory"`
+	NetworkMode             pulumi.StringPtrOutput                        `pulumi:"networkMode"`
+	PidMode                 pulumi.StringPtrOutput                        `pulumi:"pidMode"`
+	PlacementConstraints    TaskDefinitionPlacementConstraintArrayOutput  `pulumi:"placementConstraints"`
+	ProxyConfiguration      TaskDefinitionProxyConfigurationPtrOutput     `pulumi:"proxyConfiguration"`
+	RequiresCompatibilities pulumi.StringArrayOutput                      `pulumi:"requiresCompatibilities"`
+	Tags                    TaskDefinitionTagArrayOutput                  `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) of the Amazon ECS task definition
 	TaskDefinitionArn pulumi.StringOutput             `pulumi:"taskDefinitionArn"`
 	TaskRoleArn       pulumi.StringPtrOutput          `pulumi:"taskRoleArn"`
@@ -73,22 +73,22 @@ func (TaskDefinitionState) ElementType() reflect.Type {
 }
 
 type taskDefinitionArgs struct {
-	ContainerDefinitions    []TaskDefinitionContainerDefinition               `pulumi:"containerDefinitions"`
-	Cpu                     *string                                           `pulumi:"cpu"`
-	EphemeralStorage        *TaskDefinitionEphemeralStorage                   `pulumi:"ephemeralStorage"`
-	ExecutionRoleArn        *string                                           `pulumi:"executionRoleArn"`
-	Family                  *string                                           `pulumi:"family"`
-	InferenceAccelerators   []TaskDefinitionInferenceAccelerator              `pulumi:"inferenceAccelerators"`
-	IpcMode                 *string                                           `pulumi:"ipcMode"`
-	Memory                  *string                                           `pulumi:"memory"`
-	NetworkMode             *string                                           `pulumi:"networkMode"`
-	PidMode                 *string                                           `pulumi:"pidMode"`
-	PlacementConstraints    []TaskDefinitionTaskDefinitionPlacementConstraint `pulumi:"placementConstraints"`
-	ProxyConfiguration      *TaskDefinitionProxyConfiguration                 `pulumi:"proxyConfiguration"`
-	RequiresCompatibilities []string                                          `pulumi:"requiresCompatibilities"`
-	Tags                    []TaskDefinitionTag                               `pulumi:"tags"`
-	TaskRoleArn             *string                                           `pulumi:"taskRoleArn"`
-	Volumes                 []TaskDefinitionVolume                            `pulumi:"volumes"`
+	ContainerDefinitions    []TaskDefinitionContainerDefinition  `pulumi:"containerDefinitions"`
+	Cpu                     *string                              `pulumi:"cpu"`
+	EphemeralStorage        *TaskDefinitionEphemeralStorage      `pulumi:"ephemeralStorage"`
+	ExecutionRoleArn        *string                              `pulumi:"executionRoleArn"`
+	Family                  *string                              `pulumi:"family"`
+	InferenceAccelerators   []TaskDefinitionInferenceAccelerator `pulumi:"inferenceAccelerators"`
+	IpcMode                 *string                              `pulumi:"ipcMode"`
+	Memory                  *string                              `pulumi:"memory"`
+	NetworkMode             *string                              `pulumi:"networkMode"`
+	PidMode                 *string                              `pulumi:"pidMode"`
+	PlacementConstraints    []TaskDefinitionPlacementConstraint  `pulumi:"placementConstraints"`
+	ProxyConfiguration      *TaskDefinitionProxyConfiguration    `pulumi:"proxyConfiguration"`
+	RequiresCompatibilities []string                             `pulumi:"requiresCompatibilities"`
+	Tags                    []TaskDefinitionTag                  `pulumi:"tags"`
+	TaskRoleArn             *string                              `pulumi:"taskRoleArn"`
+	Volumes                 []TaskDefinitionVolume               `pulumi:"volumes"`
 }
 
 // The set of arguments for constructing a TaskDefinition resource.
@@ -103,7 +103,7 @@ type TaskDefinitionArgs struct {
 	Memory                  pulumi.StringPtrInput
 	NetworkMode             pulumi.StringPtrInput
 	PidMode                 pulumi.StringPtrInput
-	PlacementConstraints    TaskDefinitionTaskDefinitionPlacementConstraintArrayInput
+	PlacementConstraints    TaskDefinitionPlacementConstraintArrayInput
 	ProxyConfiguration      TaskDefinitionProxyConfigurationPtrInput
 	RequiresCompatibilities pulumi.StringArrayInput
 	Tags                    TaskDefinitionTagArrayInput

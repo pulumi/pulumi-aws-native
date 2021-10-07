@@ -26,7 +26,7 @@ type Policy struct {
 	ResourceType              pulumi.StringOutput          `pulumi:"resourceType"`
 	ResourceTypeList          pulumi.StringArrayOutput     `pulumi:"resourceTypeList"`
 	SecurityServicePolicyData pulumi.AnyOutput             `pulumi:"securityServicePolicyData"`
-	Tags                      PolicyPolicyTagArrayOutput   `pulumi:"tags"`
+	Tags                      PolicyTagArrayOutput         `pulumi:"tags"`
 }
 
 // NewPolicy registers a new resource with the given unique name, arguments, and options.
@@ -93,7 +93,7 @@ type policyArgs struct {
 	ResourceType              string              `pulumi:"resourceType"`
 	ResourceTypeList          []string            `pulumi:"resourceTypeList"`
 	SecurityServicePolicyData interface{}         `pulumi:"securityServicePolicyData"`
-	Tags                      []PolicyPolicyTag   `pulumi:"tags"`
+	Tags                      []PolicyTag         `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Policy resource.
@@ -108,7 +108,7 @@ type PolicyArgs struct {
 	ResourceType              pulumi.StringInput
 	ResourceTypeList          pulumi.StringArrayInput
 	SecurityServicePolicyData pulumi.Input
-	Tags                      PolicyPolicyTagArrayInput
+	Tags                      PolicyTagArrayInput
 }
 
 func (PolicyArgs) ElementType() reflect.Type {

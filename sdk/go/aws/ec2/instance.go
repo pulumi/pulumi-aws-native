@@ -35,7 +35,7 @@ type Instance struct {
 	InstanceInitiatedShutdownBehavior pulumi.StringPtrOutput                         `pulumi:"instanceInitiatedShutdownBehavior"`
 	InstanceType                      pulumi.StringPtrOutput                         `pulumi:"instanceType"`
 	Ipv6AddressCount                  pulumi.IntPtrOutput                            `pulumi:"ipv6AddressCount"`
-	Ipv6Addresses                     InstanceInstanceIpv6AddressArrayOutput         `pulumi:"ipv6Addresses"`
+	Ipv6Addresses                     InstanceIpv6AddressArrayOutput                 `pulumi:"ipv6Addresses"`
 	KernelId                          pulumi.StringPtrOutput                         `pulumi:"kernelId"`
 	KeyName                           pulumi.StringPtrOutput                         `pulumi:"keyName"`
 	LaunchTemplate                    InstanceLaunchTemplateSpecificationPtrOutput   `pulumi:"launchTemplate"`
@@ -118,7 +118,7 @@ type instanceArgs struct {
 	InstanceInitiatedShutdownBehavior *string                               `pulumi:"instanceInitiatedShutdownBehavior"`
 	InstanceType                      *string                               `pulumi:"instanceType"`
 	Ipv6AddressCount                  *int                                  `pulumi:"ipv6AddressCount"`
-	Ipv6Addresses                     []InstanceInstanceIpv6Address         `pulumi:"ipv6Addresses"`
+	Ipv6Addresses                     []InstanceIpv6Address                 `pulumi:"ipv6Addresses"`
 	KernelId                          *string                               `pulumi:"kernelId"`
 	KeyName                           *string                               `pulumi:"keyName"`
 	LaunchTemplate                    *InstanceLaunchTemplateSpecification  `pulumi:"launchTemplate"`
@@ -160,7 +160,7 @@ type InstanceArgs struct {
 	InstanceInitiatedShutdownBehavior pulumi.StringPtrInput
 	InstanceType                      pulumi.StringPtrInput
 	Ipv6AddressCount                  pulumi.IntPtrInput
-	Ipv6Addresses                     InstanceInstanceIpv6AddressArrayInput
+	Ipv6Addresses                     InstanceIpv6AddressArrayInput
 	KernelId                          pulumi.StringPtrInput
 	KeyName                           pulumi.StringPtrInput
 	LaunchTemplate                    InstanceLaunchTemplateSpecificationPtrInput

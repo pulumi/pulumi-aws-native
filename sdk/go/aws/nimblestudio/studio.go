@@ -15,16 +15,16 @@ import (
 type Studio struct {
 	pulumi.CustomResourceState
 
-	AdminRoleArn                  pulumi.StringOutput                          `pulumi:"adminRoleArn"`
-	DisplayName                   pulumi.StringOutput                          `pulumi:"displayName"`
-	HomeRegion                    pulumi.StringOutput                          `pulumi:"homeRegion"`
-	SsoClientId                   pulumi.StringOutput                          `pulumi:"ssoClientId"`
-	StudioEncryptionConfiguration StudioStudioEncryptionConfigurationPtrOutput `pulumi:"studioEncryptionConfiguration"`
-	StudioId                      pulumi.StringOutput                          `pulumi:"studioId"`
-	StudioName                    pulumi.StringOutput                          `pulumi:"studioName"`
-	StudioUrl                     pulumi.StringOutput                          `pulumi:"studioUrl"`
-	Tags                          pulumi.AnyOutput                             `pulumi:"tags"`
-	UserRoleArn                   pulumi.StringOutput                          `pulumi:"userRoleArn"`
+	AdminRoleArn                  pulumi.StringOutput                    `pulumi:"adminRoleArn"`
+	DisplayName                   pulumi.StringOutput                    `pulumi:"displayName"`
+	HomeRegion                    pulumi.StringOutput                    `pulumi:"homeRegion"`
+	SsoClientId                   pulumi.StringOutput                    `pulumi:"ssoClientId"`
+	StudioEncryptionConfiguration StudioEncryptionConfigurationPtrOutput `pulumi:"studioEncryptionConfiguration"`
+	StudioId                      pulumi.StringOutput                    `pulumi:"studioId"`
+	StudioName                    pulumi.StringOutput                    `pulumi:"studioName"`
+	StudioUrl                     pulumi.StringOutput                    `pulumi:"studioUrl"`
+	Tags                          pulumi.AnyOutput                       `pulumi:"tags"`
+	UserRoleArn                   pulumi.StringOutput                    `pulumi:"userRoleArn"`
 }
 
 // NewStudio registers a new resource with the given unique name, arguments, and options.
@@ -78,19 +78,19 @@ func (StudioState) ElementType() reflect.Type {
 }
 
 type studioArgs struct {
-	AdminRoleArn                  string                               `pulumi:"adminRoleArn"`
-	DisplayName                   string                               `pulumi:"displayName"`
-	StudioEncryptionConfiguration *StudioStudioEncryptionConfiguration `pulumi:"studioEncryptionConfiguration"`
-	StudioName                    string                               `pulumi:"studioName"`
-	Tags                          interface{}                          `pulumi:"tags"`
-	UserRoleArn                   string                               `pulumi:"userRoleArn"`
+	AdminRoleArn                  string                         `pulumi:"adminRoleArn"`
+	DisplayName                   string                         `pulumi:"displayName"`
+	StudioEncryptionConfiguration *StudioEncryptionConfiguration `pulumi:"studioEncryptionConfiguration"`
+	StudioName                    string                         `pulumi:"studioName"`
+	Tags                          interface{}                    `pulumi:"tags"`
+	UserRoleArn                   string                         `pulumi:"userRoleArn"`
 }
 
 // The set of arguments for constructing a Studio resource.
 type StudioArgs struct {
 	AdminRoleArn                  pulumi.StringInput
 	DisplayName                   pulumi.StringInput
-	StudioEncryptionConfiguration StudioStudioEncryptionConfigurationPtrInput
+	StudioEncryptionConfiguration StudioEncryptionConfigurationPtrInput
 	StudioName                    pulumi.StringInput
 	Tags                          pulumi.Input
 	UserRoleArn                   pulumi.StringInput

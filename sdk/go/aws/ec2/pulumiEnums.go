@@ -1869,124 +1869,124 @@ func (in *hostAutoPlacementPtr) ToHostAutoPlacementPtrOutputWithContext(ctx cont
 }
 
 // Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
-type HostHostRecovery string
+type HostRecovery string
 
 const (
-	HostHostRecoveryOn  = HostHostRecovery("on")
-	HostHostRecoveryOff = HostHostRecovery("off")
+	HostRecoveryOn  = HostRecovery("on")
+	HostRecoveryOff = HostRecovery("off")
 )
 
-func (HostHostRecovery) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostHostRecovery)(nil)).Elem()
+func (HostRecovery) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostRecovery)(nil)).Elem()
 }
 
-func (e HostHostRecovery) ToHostHostRecoveryOutput() HostHostRecoveryOutput {
-	return pulumi.ToOutput(e).(HostHostRecoveryOutput)
+func (e HostRecovery) ToHostRecoveryOutput() HostRecoveryOutput {
+	return pulumi.ToOutput(e).(HostRecoveryOutput)
 }
 
-func (e HostHostRecovery) ToHostHostRecoveryOutputWithContext(ctx context.Context) HostHostRecoveryOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(HostHostRecoveryOutput)
+func (e HostRecovery) ToHostRecoveryOutputWithContext(ctx context.Context) HostRecoveryOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HostRecoveryOutput)
 }
 
-func (e HostHostRecovery) ToHostHostRecoveryPtrOutput() HostHostRecoveryPtrOutput {
-	return e.ToHostHostRecoveryPtrOutputWithContext(context.Background())
+func (e HostRecovery) ToHostRecoveryPtrOutput() HostRecoveryPtrOutput {
+	return e.ToHostRecoveryPtrOutputWithContext(context.Background())
 }
 
-func (e HostHostRecovery) ToHostHostRecoveryPtrOutputWithContext(ctx context.Context) HostHostRecoveryPtrOutput {
-	return HostHostRecovery(e).ToHostHostRecoveryOutputWithContext(ctx).ToHostHostRecoveryPtrOutputWithContext(ctx)
+func (e HostRecovery) ToHostRecoveryPtrOutputWithContext(ctx context.Context) HostRecoveryPtrOutput {
+	return HostRecovery(e).ToHostRecoveryOutputWithContext(ctx).ToHostRecoveryPtrOutputWithContext(ctx)
 }
 
-func (e HostHostRecovery) ToStringOutput() pulumi.StringOutput {
+func (e HostRecovery) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e HostHostRecovery) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e HostRecovery) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e HostHostRecovery) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e HostRecovery) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e HostHostRecovery) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e HostRecovery) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type HostHostRecoveryOutput struct{ *pulumi.OutputState }
+type HostRecoveryOutput struct{ *pulumi.OutputState }
 
-func (HostHostRecoveryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostHostRecovery)(nil)).Elem()
+func (HostRecoveryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostRecovery)(nil)).Elem()
 }
 
-func (o HostHostRecoveryOutput) ToHostHostRecoveryOutput() HostHostRecoveryOutput {
+func (o HostRecoveryOutput) ToHostRecoveryOutput() HostRecoveryOutput {
 	return o
 }
 
-func (o HostHostRecoveryOutput) ToHostHostRecoveryOutputWithContext(ctx context.Context) HostHostRecoveryOutput {
+func (o HostRecoveryOutput) ToHostRecoveryOutputWithContext(ctx context.Context) HostRecoveryOutput {
 	return o
 }
 
-func (o HostHostRecoveryOutput) ToHostHostRecoveryPtrOutput() HostHostRecoveryPtrOutput {
-	return o.ToHostHostRecoveryPtrOutputWithContext(context.Background())
+func (o HostRecoveryOutput) ToHostRecoveryPtrOutput() HostRecoveryPtrOutput {
+	return o.ToHostRecoveryPtrOutputWithContext(context.Background())
 }
 
-func (o HostHostRecoveryOutput) ToHostHostRecoveryPtrOutputWithContext(ctx context.Context) HostHostRecoveryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostHostRecovery) *HostHostRecovery {
+func (o HostRecoveryOutput) ToHostRecoveryPtrOutputWithContext(ctx context.Context) HostRecoveryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostRecovery) *HostRecovery {
 		return &v
-	}).(HostHostRecoveryPtrOutput)
+	}).(HostRecoveryPtrOutput)
 }
 
-func (o HostHostRecoveryOutput) ToStringOutput() pulumi.StringOutput {
+func (o HostRecoveryOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o HostHostRecoveryOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e HostHostRecovery) string {
+func (o HostRecoveryOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HostRecovery) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o HostHostRecoveryOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o HostRecoveryOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o HostHostRecoveryOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e HostHostRecovery) *string {
+func (o HostRecoveryOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HostRecovery) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type HostHostRecoveryPtrOutput struct{ *pulumi.OutputState }
+type HostRecoveryPtrOutput struct{ *pulumi.OutputState }
 
-func (HostHostRecoveryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HostHostRecovery)(nil)).Elem()
+func (HostRecoveryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HostRecovery)(nil)).Elem()
 }
 
-func (o HostHostRecoveryPtrOutput) ToHostHostRecoveryPtrOutput() HostHostRecoveryPtrOutput {
+func (o HostRecoveryPtrOutput) ToHostRecoveryPtrOutput() HostRecoveryPtrOutput {
 	return o
 }
 
-func (o HostHostRecoveryPtrOutput) ToHostHostRecoveryPtrOutputWithContext(ctx context.Context) HostHostRecoveryPtrOutput {
+func (o HostRecoveryPtrOutput) ToHostRecoveryPtrOutputWithContext(ctx context.Context) HostRecoveryPtrOutput {
 	return o
 }
 
-func (o HostHostRecoveryPtrOutput) Elem() HostHostRecoveryOutput {
-	return o.ApplyT(func(v *HostHostRecovery) HostHostRecovery {
+func (o HostRecoveryPtrOutput) Elem() HostRecoveryOutput {
+	return o.ApplyT(func(v *HostRecovery) HostRecovery {
 		if v != nil {
 			return *v
 		}
-		var ret HostHostRecovery
+		var ret HostRecovery
 		return ret
-	}).(HostHostRecoveryOutput)
+	}).(HostRecoveryOutput)
 }
 
-func (o HostHostRecoveryPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o HostRecoveryPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o HostHostRecoveryPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HostHostRecovery) *string {
+func (o HostRecoveryPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HostRecovery) *string {
 		if e == nil {
 			return nil
 		}
@@ -1995,42 +1995,42 @@ func (o HostHostRecoveryPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// HostHostRecoveryInput is an input type that accepts HostHostRecoveryArgs and HostHostRecoveryOutput values.
-// You can construct a concrete instance of `HostHostRecoveryInput` via:
+// HostRecoveryInput is an input type that accepts HostRecoveryArgs and HostRecoveryOutput values.
+// You can construct a concrete instance of `HostRecoveryInput` via:
 //
-//          HostHostRecoveryArgs{...}
-type HostHostRecoveryInput interface {
+//          HostRecoveryArgs{...}
+type HostRecoveryInput interface {
 	pulumi.Input
 
-	ToHostHostRecoveryOutput() HostHostRecoveryOutput
-	ToHostHostRecoveryOutputWithContext(context.Context) HostHostRecoveryOutput
+	ToHostRecoveryOutput() HostRecoveryOutput
+	ToHostRecoveryOutputWithContext(context.Context) HostRecoveryOutput
 }
 
-var hostHostRecoveryPtrType = reflect.TypeOf((**HostHostRecovery)(nil)).Elem()
+var hostRecoveryPtrType = reflect.TypeOf((**HostRecovery)(nil)).Elem()
 
-type HostHostRecoveryPtrInput interface {
+type HostRecoveryPtrInput interface {
 	pulumi.Input
 
-	ToHostHostRecoveryPtrOutput() HostHostRecoveryPtrOutput
-	ToHostHostRecoveryPtrOutputWithContext(context.Context) HostHostRecoveryPtrOutput
+	ToHostRecoveryPtrOutput() HostRecoveryPtrOutput
+	ToHostRecoveryPtrOutputWithContext(context.Context) HostRecoveryPtrOutput
 }
 
-type hostHostRecoveryPtr string
+type hostRecoveryPtr string
 
-func HostHostRecoveryPtr(v string) HostHostRecoveryPtrInput {
-	return (*hostHostRecoveryPtr)(&v)
+func HostRecoveryPtr(v string) HostRecoveryPtrInput {
+	return (*hostRecoveryPtr)(&v)
 }
 
-func (*hostHostRecoveryPtr) ElementType() reflect.Type {
-	return hostHostRecoveryPtrType
+func (*hostRecoveryPtr) ElementType() reflect.Type {
+	return hostRecoveryPtrType
 }
 
-func (in *hostHostRecoveryPtr) ToHostHostRecoveryPtrOutput() HostHostRecoveryPtrOutput {
-	return pulumi.ToOutput(in).(HostHostRecoveryPtrOutput)
+func (in *hostRecoveryPtr) ToHostRecoveryPtrOutput() HostRecoveryPtrOutput {
+	return pulumi.ToOutput(in).(HostRecoveryPtrOutput)
 }
 
-func (in *hostHostRecoveryPtr) ToHostHostRecoveryPtrOutputWithContext(ctx context.Context) HostHostRecoveryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(HostHostRecoveryPtrOutput)
+func (in *hostRecoveryPtr) ToHostRecoveryPtrOutputWithContext(ctx context.Context) HostRecoveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HostRecoveryPtrOutput)
 }
 
 type NetworkInsightsAnalysisStatus string
@@ -2696,6 +2696,665 @@ func (in *spotFleetEbsBlockDeviceVolumeTypePtr) ToSpotFleetEbsBlockDeviceVolumeT
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetEbsBlockDeviceVolumeTypePtrOutput)
 }
 
+type SpotFleetRequestConfigDataAllocationStrategy string
+
+const (
+	SpotFleetRequestConfigDataAllocationStrategyCapacityOptimized            = SpotFleetRequestConfigDataAllocationStrategy("capacityOptimized")
+	SpotFleetRequestConfigDataAllocationStrategyCapacityOptimizedPrioritized = SpotFleetRequestConfigDataAllocationStrategy("capacityOptimizedPrioritized")
+	SpotFleetRequestConfigDataAllocationStrategyDiversified                  = SpotFleetRequestConfigDataAllocationStrategy("diversified")
+	SpotFleetRequestConfigDataAllocationStrategyLowestPrice                  = SpotFleetRequestConfigDataAllocationStrategy("lowestPrice")
+)
+
+func (SpotFleetRequestConfigDataAllocationStrategy) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestConfigDataAllocationStrategy)(nil)).Elem()
+}
+
+func (e SpotFleetRequestConfigDataAllocationStrategy) ToSpotFleetRequestConfigDataAllocationStrategyOutput() SpotFleetRequestConfigDataAllocationStrategyOutput {
+	return pulumi.ToOutput(e).(SpotFleetRequestConfigDataAllocationStrategyOutput)
+}
+
+func (e SpotFleetRequestConfigDataAllocationStrategy) ToSpotFleetRequestConfigDataAllocationStrategyOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataAllocationStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SpotFleetRequestConfigDataAllocationStrategyOutput)
+}
+
+func (e SpotFleetRequestConfigDataAllocationStrategy) ToSpotFleetRequestConfigDataAllocationStrategyPtrOutput() SpotFleetRequestConfigDataAllocationStrategyPtrOutput {
+	return e.ToSpotFleetRequestConfigDataAllocationStrategyPtrOutputWithContext(context.Background())
+}
+
+func (e SpotFleetRequestConfigDataAllocationStrategy) ToSpotFleetRequestConfigDataAllocationStrategyPtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataAllocationStrategyPtrOutput {
+	return SpotFleetRequestConfigDataAllocationStrategy(e).ToSpotFleetRequestConfigDataAllocationStrategyOutputWithContext(ctx).ToSpotFleetRequestConfigDataAllocationStrategyPtrOutputWithContext(ctx)
+}
+
+func (e SpotFleetRequestConfigDataAllocationStrategy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpotFleetRequestConfigDataAllocationStrategy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpotFleetRequestConfigDataAllocationStrategy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SpotFleetRequestConfigDataAllocationStrategy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SpotFleetRequestConfigDataAllocationStrategyOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestConfigDataAllocationStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestConfigDataAllocationStrategy)(nil)).Elem()
+}
+
+func (o SpotFleetRequestConfigDataAllocationStrategyOutput) ToSpotFleetRequestConfigDataAllocationStrategyOutput() SpotFleetRequestConfigDataAllocationStrategyOutput {
+	return o
+}
+
+func (o SpotFleetRequestConfigDataAllocationStrategyOutput) ToSpotFleetRequestConfigDataAllocationStrategyOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataAllocationStrategyOutput {
+	return o
+}
+
+func (o SpotFleetRequestConfigDataAllocationStrategyOutput) ToSpotFleetRequestConfigDataAllocationStrategyPtrOutput() SpotFleetRequestConfigDataAllocationStrategyPtrOutput {
+	return o.ToSpotFleetRequestConfigDataAllocationStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestConfigDataAllocationStrategyOutput) ToSpotFleetRequestConfigDataAllocationStrategyPtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataAllocationStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetRequestConfigDataAllocationStrategy) *SpotFleetRequestConfigDataAllocationStrategy {
+		return &v
+	}).(SpotFleetRequestConfigDataAllocationStrategyPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataAllocationStrategyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestConfigDataAllocationStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetRequestConfigDataAllocationStrategy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SpotFleetRequestConfigDataAllocationStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestConfigDataAllocationStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetRequestConfigDataAllocationStrategy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpotFleetRequestConfigDataAllocationStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestConfigDataAllocationStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetRequestConfigDataAllocationStrategy)(nil)).Elem()
+}
+
+func (o SpotFleetRequestConfigDataAllocationStrategyPtrOutput) ToSpotFleetRequestConfigDataAllocationStrategyPtrOutput() SpotFleetRequestConfigDataAllocationStrategyPtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestConfigDataAllocationStrategyPtrOutput) ToSpotFleetRequestConfigDataAllocationStrategyPtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataAllocationStrategyPtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestConfigDataAllocationStrategyPtrOutput) Elem() SpotFleetRequestConfigDataAllocationStrategyOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigDataAllocationStrategy) SpotFleetRequestConfigDataAllocationStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetRequestConfigDataAllocationStrategy
+		return ret
+	}).(SpotFleetRequestConfigDataAllocationStrategyOutput)
+}
+
+func (o SpotFleetRequestConfigDataAllocationStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestConfigDataAllocationStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SpotFleetRequestConfigDataAllocationStrategy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SpotFleetRequestConfigDataAllocationStrategyInput is an input type that accepts SpotFleetRequestConfigDataAllocationStrategyArgs and SpotFleetRequestConfigDataAllocationStrategyOutput values.
+// You can construct a concrete instance of `SpotFleetRequestConfigDataAllocationStrategyInput` via:
+//
+//          SpotFleetRequestConfigDataAllocationStrategyArgs{...}
+type SpotFleetRequestConfigDataAllocationStrategyInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestConfigDataAllocationStrategyOutput() SpotFleetRequestConfigDataAllocationStrategyOutput
+	ToSpotFleetRequestConfigDataAllocationStrategyOutputWithContext(context.Context) SpotFleetRequestConfigDataAllocationStrategyOutput
+}
+
+var spotFleetRequestConfigDataAllocationStrategyPtrType = reflect.TypeOf((**SpotFleetRequestConfigDataAllocationStrategy)(nil)).Elem()
+
+type SpotFleetRequestConfigDataAllocationStrategyPtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestConfigDataAllocationStrategyPtrOutput() SpotFleetRequestConfigDataAllocationStrategyPtrOutput
+	ToSpotFleetRequestConfigDataAllocationStrategyPtrOutputWithContext(context.Context) SpotFleetRequestConfigDataAllocationStrategyPtrOutput
+}
+
+type spotFleetRequestConfigDataAllocationStrategyPtr string
+
+func SpotFleetRequestConfigDataAllocationStrategyPtr(v string) SpotFleetRequestConfigDataAllocationStrategyPtrInput {
+	return (*spotFleetRequestConfigDataAllocationStrategyPtr)(&v)
+}
+
+func (*spotFleetRequestConfigDataAllocationStrategyPtr) ElementType() reflect.Type {
+	return spotFleetRequestConfigDataAllocationStrategyPtrType
+}
+
+func (in *spotFleetRequestConfigDataAllocationStrategyPtr) ToSpotFleetRequestConfigDataAllocationStrategyPtrOutput() SpotFleetRequestConfigDataAllocationStrategyPtrOutput {
+	return pulumi.ToOutput(in).(SpotFleetRequestConfigDataAllocationStrategyPtrOutput)
+}
+
+func (in *spotFleetRequestConfigDataAllocationStrategyPtr) ToSpotFleetRequestConfigDataAllocationStrategyPtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataAllocationStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetRequestConfigDataAllocationStrategyPtrOutput)
+}
+
+type SpotFleetRequestConfigDataExcessCapacityTerminationPolicy string
+
+const (
+	SpotFleetRequestConfigDataExcessCapacityTerminationPolicyDefault       = SpotFleetRequestConfigDataExcessCapacityTerminationPolicy("Default")
+	SpotFleetRequestConfigDataExcessCapacityTerminationPolicyNoTermination = SpotFleetRequestConfigDataExcessCapacityTerminationPolicy("NoTermination")
+)
+
+func (SpotFleetRequestConfigDataExcessCapacityTerminationPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestConfigDataExcessCapacityTerminationPolicy)(nil)).Elem()
+}
+
+func (e SpotFleetRequestConfigDataExcessCapacityTerminationPolicy) ToSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput() SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput {
+	return pulumi.ToOutput(e).(SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput)
+}
+
+func (e SpotFleetRequestConfigDataExcessCapacityTerminationPolicy) ToSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput)
+}
+
+func (e SpotFleetRequestConfigDataExcessCapacityTerminationPolicy) ToSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput() SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput {
+	return e.ToSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (e SpotFleetRequestConfigDataExcessCapacityTerminationPolicy) ToSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput {
+	return SpotFleetRequestConfigDataExcessCapacityTerminationPolicy(e).ToSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutputWithContext(ctx).ToSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutputWithContext(ctx)
+}
+
+func (e SpotFleetRequestConfigDataExcessCapacityTerminationPolicy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpotFleetRequestConfigDataExcessCapacityTerminationPolicy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpotFleetRequestConfigDataExcessCapacityTerminationPolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SpotFleetRequestConfigDataExcessCapacityTerminationPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestConfigDataExcessCapacityTerminationPolicy)(nil)).Elem()
+}
+
+func (o SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput) ToSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput() SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput {
+	return o
+}
+
+func (o SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput) ToSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput {
+	return o
+}
+
+func (o SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput) ToSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput() SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput {
+	return o.ToSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput) ToSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetRequestConfigDataExcessCapacityTerminationPolicy) *SpotFleetRequestConfigDataExcessCapacityTerminationPolicy {
+		return &v
+	}).(SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetRequestConfigDataExcessCapacityTerminationPolicy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetRequestConfigDataExcessCapacityTerminationPolicy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetRequestConfigDataExcessCapacityTerminationPolicy)(nil)).Elem()
+}
+
+func (o SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput) ToSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput() SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput) ToSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput) Elem() SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigDataExcessCapacityTerminationPolicy) SpotFleetRequestConfigDataExcessCapacityTerminationPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetRequestConfigDataExcessCapacityTerminationPolicy
+		return ret
+	}).(SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput)
+}
+
+func (o SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SpotFleetRequestConfigDataExcessCapacityTerminationPolicy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SpotFleetRequestConfigDataExcessCapacityTerminationPolicyInput is an input type that accepts SpotFleetRequestConfigDataExcessCapacityTerminationPolicyArgs and SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput values.
+// You can construct a concrete instance of `SpotFleetRequestConfigDataExcessCapacityTerminationPolicyInput` via:
+//
+//          SpotFleetRequestConfigDataExcessCapacityTerminationPolicyArgs{...}
+type SpotFleetRequestConfigDataExcessCapacityTerminationPolicyInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput() SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput
+	ToSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutputWithContext(context.Context) SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput
+}
+
+var spotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrType = reflect.TypeOf((**SpotFleetRequestConfigDataExcessCapacityTerminationPolicy)(nil)).Elem()
+
+type SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput() SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput
+	ToSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutputWithContext(context.Context) SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput
+}
+
+type spotFleetRequestConfigDataExcessCapacityTerminationPolicyPtr string
+
+func SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtr(v string) SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrInput {
+	return (*spotFleetRequestConfigDataExcessCapacityTerminationPolicyPtr)(&v)
+}
+
+func (*spotFleetRequestConfigDataExcessCapacityTerminationPolicyPtr) ElementType() reflect.Type {
+	return spotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrType
+}
+
+func (in *spotFleetRequestConfigDataExcessCapacityTerminationPolicyPtr) ToSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput() SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput {
+	return pulumi.ToOutput(in).(SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput)
+}
+
+func (in *spotFleetRequestConfigDataExcessCapacityTerminationPolicyPtr) ToSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput)
+}
+
+type SpotFleetRequestConfigDataInstanceInterruptionBehavior string
+
+const (
+	SpotFleetRequestConfigDataInstanceInterruptionBehaviorHibernate = SpotFleetRequestConfigDataInstanceInterruptionBehavior("hibernate")
+	SpotFleetRequestConfigDataInstanceInterruptionBehaviorStop      = SpotFleetRequestConfigDataInstanceInterruptionBehavior("stop")
+	SpotFleetRequestConfigDataInstanceInterruptionBehaviorTerminate = SpotFleetRequestConfigDataInstanceInterruptionBehavior("terminate")
+)
+
+func (SpotFleetRequestConfigDataInstanceInterruptionBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestConfigDataInstanceInterruptionBehavior)(nil)).Elem()
+}
+
+func (e SpotFleetRequestConfigDataInstanceInterruptionBehavior) ToSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput() SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput {
+	return pulumi.ToOutput(e).(SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput)
+}
+
+func (e SpotFleetRequestConfigDataInstanceInterruptionBehavior) ToSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput)
+}
+
+func (e SpotFleetRequestConfigDataInstanceInterruptionBehavior) ToSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput() SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput {
+	return e.ToSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (e SpotFleetRequestConfigDataInstanceInterruptionBehavior) ToSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput {
+	return SpotFleetRequestConfigDataInstanceInterruptionBehavior(e).ToSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutputWithContext(ctx).ToSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutputWithContext(ctx)
+}
+
+func (e SpotFleetRequestConfigDataInstanceInterruptionBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpotFleetRequestConfigDataInstanceInterruptionBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpotFleetRequestConfigDataInstanceInterruptionBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SpotFleetRequestConfigDataInstanceInterruptionBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestConfigDataInstanceInterruptionBehavior)(nil)).Elem()
+}
+
+func (o SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput) ToSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput() SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput {
+	return o
+}
+
+func (o SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput) ToSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput {
+	return o
+}
+
+func (o SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput) ToSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput() SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput {
+	return o.ToSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput) ToSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetRequestConfigDataInstanceInterruptionBehavior) *SpotFleetRequestConfigDataInstanceInterruptionBehavior {
+		return &v
+	}).(SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetRequestConfigDataInstanceInterruptionBehavior) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetRequestConfigDataInstanceInterruptionBehavior) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetRequestConfigDataInstanceInterruptionBehavior)(nil)).Elem()
+}
+
+func (o SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput) ToSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput() SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput) ToSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput) Elem() SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigDataInstanceInterruptionBehavior) SpotFleetRequestConfigDataInstanceInterruptionBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetRequestConfigDataInstanceInterruptionBehavior
+		return ret
+	}).(SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput)
+}
+
+func (o SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SpotFleetRequestConfigDataInstanceInterruptionBehavior) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SpotFleetRequestConfigDataInstanceInterruptionBehaviorInput is an input type that accepts SpotFleetRequestConfigDataInstanceInterruptionBehaviorArgs and SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput values.
+// You can construct a concrete instance of `SpotFleetRequestConfigDataInstanceInterruptionBehaviorInput` via:
+//
+//          SpotFleetRequestConfigDataInstanceInterruptionBehaviorArgs{...}
+type SpotFleetRequestConfigDataInstanceInterruptionBehaviorInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput() SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput
+	ToSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutputWithContext(context.Context) SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput
+}
+
+var spotFleetRequestConfigDataInstanceInterruptionBehaviorPtrType = reflect.TypeOf((**SpotFleetRequestConfigDataInstanceInterruptionBehavior)(nil)).Elem()
+
+type SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput() SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput
+	ToSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutputWithContext(context.Context) SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput
+}
+
+type spotFleetRequestConfigDataInstanceInterruptionBehaviorPtr string
+
+func SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtr(v string) SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrInput {
+	return (*spotFleetRequestConfigDataInstanceInterruptionBehaviorPtr)(&v)
+}
+
+func (*spotFleetRequestConfigDataInstanceInterruptionBehaviorPtr) ElementType() reflect.Type {
+	return spotFleetRequestConfigDataInstanceInterruptionBehaviorPtrType
+}
+
+func (in *spotFleetRequestConfigDataInstanceInterruptionBehaviorPtr) ToSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput() SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput)
+}
+
+func (in *spotFleetRequestConfigDataInstanceInterruptionBehaviorPtr) ToSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput)
+}
+
+type SpotFleetRequestConfigDataType string
+
+const (
+	SpotFleetRequestConfigDataTypeMaintain = SpotFleetRequestConfigDataType("maintain")
+	SpotFleetRequestConfigDataTypeRequest  = SpotFleetRequestConfigDataType("request")
+)
+
+func (SpotFleetRequestConfigDataType) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestConfigDataType)(nil)).Elem()
+}
+
+func (e SpotFleetRequestConfigDataType) ToSpotFleetRequestConfigDataTypeOutput() SpotFleetRequestConfigDataTypeOutput {
+	return pulumi.ToOutput(e).(SpotFleetRequestConfigDataTypeOutput)
+}
+
+func (e SpotFleetRequestConfigDataType) ToSpotFleetRequestConfigDataTypeOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SpotFleetRequestConfigDataTypeOutput)
+}
+
+func (e SpotFleetRequestConfigDataType) ToSpotFleetRequestConfigDataTypePtrOutput() SpotFleetRequestConfigDataTypePtrOutput {
+	return e.ToSpotFleetRequestConfigDataTypePtrOutputWithContext(context.Background())
+}
+
+func (e SpotFleetRequestConfigDataType) ToSpotFleetRequestConfigDataTypePtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataTypePtrOutput {
+	return SpotFleetRequestConfigDataType(e).ToSpotFleetRequestConfigDataTypeOutputWithContext(ctx).ToSpotFleetRequestConfigDataTypePtrOutputWithContext(ctx)
+}
+
+func (e SpotFleetRequestConfigDataType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpotFleetRequestConfigDataType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpotFleetRequestConfigDataType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SpotFleetRequestConfigDataType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SpotFleetRequestConfigDataTypeOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestConfigDataTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestConfigDataType)(nil)).Elem()
+}
+
+func (o SpotFleetRequestConfigDataTypeOutput) ToSpotFleetRequestConfigDataTypeOutput() SpotFleetRequestConfigDataTypeOutput {
+	return o
+}
+
+func (o SpotFleetRequestConfigDataTypeOutput) ToSpotFleetRequestConfigDataTypeOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataTypeOutput {
+	return o
+}
+
+func (o SpotFleetRequestConfigDataTypeOutput) ToSpotFleetRequestConfigDataTypePtrOutput() SpotFleetRequestConfigDataTypePtrOutput {
+	return o.ToSpotFleetRequestConfigDataTypePtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestConfigDataTypeOutput) ToSpotFleetRequestConfigDataTypePtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetRequestConfigDataType) *SpotFleetRequestConfigDataType {
+		return &v
+	}).(SpotFleetRequestConfigDataTypePtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestConfigDataTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetRequestConfigDataType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SpotFleetRequestConfigDataTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestConfigDataTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetRequestConfigDataType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpotFleetRequestConfigDataTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestConfigDataTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetRequestConfigDataType)(nil)).Elem()
+}
+
+func (o SpotFleetRequestConfigDataTypePtrOutput) ToSpotFleetRequestConfigDataTypePtrOutput() SpotFleetRequestConfigDataTypePtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestConfigDataTypePtrOutput) ToSpotFleetRequestConfigDataTypePtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataTypePtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestConfigDataTypePtrOutput) Elem() SpotFleetRequestConfigDataTypeOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigDataType) SpotFleetRequestConfigDataType {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetRequestConfigDataType
+		return ret
+	}).(SpotFleetRequestConfigDataTypeOutput)
+}
+
+func (o SpotFleetRequestConfigDataTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestConfigDataTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SpotFleetRequestConfigDataType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SpotFleetRequestConfigDataTypeInput is an input type that accepts SpotFleetRequestConfigDataTypeArgs and SpotFleetRequestConfigDataTypeOutput values.
+// You can construct a concrete instance of `SpotFleetRequestConfigDataTypeInput` via:
+//
+//          SpotFleetRequestConfigDataTypeArgs{...}
+type SpotFleetRequestConfigDataTypeInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestConfigDataTypeOutput() SpotFleetRequestConfigDataTypeOutput
+	ToSpotFleetRequestConfigDataTypeOutputWithContext(context.Context) SpotFleetRequestConfigDataTypeOutput
+}
+
+var spotFleetRequestConfigDataTypePtrType = reflect.TypeOf((**SpotFleetRequestConfigDataType)(nil)).Elem()
+
+type SpotFleetRequestConfigDataTypePtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestConfigDataTypePtrOutput() SpotFleetRequestConfigDataTypePtrOutput
+	ToSpotFleetRequestConfigDataTypePtrOutputWithContext(context.Context) SpotFleetRequestConfigDataTypePtrOutput
+}
+
+type spotFleetRequestConfigDataTypePtr string
+
+func SpotFleetRequestConfigDataTypePtr(v string) SpotFleetRequestConfigDataTypePtrInput {
+	return (*spotFleetRequestConfigDataTypePtr)(&v)
+}
+
+func (*spotFleetRequestConfigDataTypePtr) ElementType() reflect.Type {
+	return spotFleetRequestConfigDataTypePtrType
+}
+
+func (in *spotFleetRequestConfigDataTypePtr) ToSpotFleetRequestConfigDataTypePtrOutput() SpotFleetRequestConfigDataTypePtrOutput {
+	return pulumi.ToOutput(in).(SpotFleetRequestConfigDataTypePtrOutput)
+}
+
+func (in *spotFleetRequestConfigDataTypePtr) ToSpotFleetRequestConfigDataTypePtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetRequestConfigDataTypePtrOutput)
+}
+
 type SpotFleetSpotCapacityRebalanceReplacementStrategy string
 
 const (
@@ -2857,874 +3516,6 @@ func (in *spotFleetSpotCapacityRebalanceReplacementStrategyPtr) ToSpotFleetSpotC
 
 func (in *spotFleetSpotCapacityRebalanceReplacementStrategyPtr) ToSpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutputWithContext(ctx context.Context) SpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutput)
-}
-
-type SpotFleetSpotFleetRequestConfigDataAllocationStrategy string
-
-const (
-	SpotFleetSpotFleetRequestConfigDataAllocationStrategyCapacityOptimized            = SpotFleetSpotFleetRequestConfigDataAllocationStrategy("capacityOptimized")
-	SpotFleetSpotFleetRequestConfigDataAllocationStrategyCapacityOptimizedPrioritized = SpotFleetSpotFleetRequestConfigDataAllocationStrategy("capacityOptimizedPrioritized")
-	SpotFleetSpotFleetRequestConfigDataAllocationStrategyDiversified                  = SpotFleetSpotFleetRequestConfigDataAllocationStrategy("diversified")
-	SpotFleetSpotFleetRequestConfigDataAllocationStrategyLowestPrice                  = SpotFleetSpotFleetRequestConfigDataAllocationStrategy("lowestPrice")
-)
-
-func (SpotFleetSpotFleetRequestConfigDataAllocationStrategy) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotFleetSpotFleetRequestConfigDataAllocationStrategy)(nil)).Elem()
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataAllocationStrategy) ToSpotFleetSpotFleetRequestConfigDataAllocationStrategyOutput() SpotFleetSpotFleetRequestConfigDataAllocationStrategyOutput {
-	return pulumi.ToOutput(e).(SpotFleetSpotFleetRequestConfigDataAllocationStrategyOutput)
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataAllocationStrategy) ToSpotFleetSpotFleetRequestConfigDataAllocationStrategyOutputWithContext(ctx context.Context) SpotFleetSpotFleetRequestConfigDataAllocationStrategyOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(SpotFleetSpotFleetRequestConfigDataAllocationStrategyOutput)
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataAllocationStrategy) ToSpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput() SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput {
-	return e.ToSpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutputWithContext(context.Background())
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataAllocationStrategy) ToSpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutputWithContext(ctx context.Context) SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput {
-	return SpotFleetSpotFleetRequestConfigDataAllocationStrategy(e).ToSpotFleetSpotFleetRequestConfigDataAllocationStrategyOutputWithContext(ctx).ToSpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutputWithContext(ctx)
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataAllocationStrategy) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataAllocationStrategy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataAllocationStrategy) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataAllocationStrategy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type SpotFleetSpotFleetRequestConfigDataAllocationStrategyOutput struct{ *pulumi.OutputState }
-
-func (SpotFleetSpotFleetRequestConfigDataAllocationStrategyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotFleetSpotFleetRequestConfigDataAllocationStrategy)(nil)).Elem()
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataAllocationStrategyOutput) ToSpotFleetSpotFleetRequestConfigDataAllocationStrategyOutput() SpotFleetSpotFleetRequestConfigDataAllocationStrategyOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataAllocationStrategyOutput) ToSpotFleetSpotFleetRequestConfigDataAllocationStrategyOutputWithContext(ctx context.Context) SpotFleetSpotFleetRequestConfigDataAllocationStrategyOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataAllocationStrategyOutput) ToSpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput() SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput {
-	return o.ToSpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutputWithContext(context.Background())
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataAllocationStrategyOutput) ToSpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutputWithContext(ctx context.Context) SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetSpotFleetRequestConfigDataAllocationStrategy) *SpotFleetSpotFleetRequestConfigDataAllocationStrategy {
-		return &v
-	}).(SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataAllocationStrategyOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataAllocationStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetSpotFleetRequestConfigDataAllocationStrategy) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataAllocationStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataAllocationStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetSpotFleetRequestConfigDataAllocationStrategy) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput struct{ *pulumi.OutputState }
-
-func (SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpotFleetSpotFleetRequestConfigDataAllocationStrategy)(nil)).Elem()
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput) ToSpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput() SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput) ToSpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutputWithContext(ctx context.Context) SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput) Elem() SpotFleetSpotFleetRequestConfigDataAllocationStrategyOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigDataAllocationStrategy) SpotFleetSpotFleetRequestConfigDataAllocationStrategy {
-		if v != nil {
-			return *v
-		}
-		var ret SpotFleetSpotFleetRequestConfigDataAllocationStrategy
-		return ret
-	}).(SpotFleetSpotFleetRequestConfigDataAllocationStrategyOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SpotFleetSpotFleetRequestConfigDataAllocationStrategy) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// SpotFleetSpotFleetRequestConfigDataAllocationStrategyInput is an input type that accepts SpotFleetSpotFleetRequestConfigDataAllocationStrategyArgs and SpotFleetSpotFleetRequestConfigDataAllocationStrategyOutput values.
-// You can construct a concrete instance of `SpotFleetSpotFleetRequestConfigDataAllocationStrategyInput` via:
-//
-//          SpotFleetSpotFleetRequestConfigDataAllocationStrategyArgs{...}
-type SpotFleetSpotFleetRequestConfigDataAllocationStrategyInput interface {
-	pulumi.Input
-
-	ToSpotFleetSpotFleetRequestConfigDataAllocationStrategyOutput() SpotFleetSpotFleetRequestConfigDataAllocationStrategyOutput
-	ToSpotFleetSpotFleetRequestConfigDataAllocationStrategyOutputWithContext(context.Context) SpotFleetSpotFleetRequestConfigDataAllocationStrategyOutput
-}
-
-var spotFleetSpotFleetRequestConfigDataAllocationStrategyPtrType = reflect.TypeOf((**SpotFleetSpotFleetRequestConfigDataAllocationStrategy)(nil)).Elem()
-
-type SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrInput interface {
-	pulumi.Input
-
-	ToSpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput() SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput
-	ToSpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutputWithContext(context.Context) SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput
-}
-
-type spotFleetSpotFleetRequestConfigDataAllocationStrategyPtr string
-
-func SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtr(v string) SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrInput {
-	return (*spotFleetSpotFleetRequestConfigDataAllocationStrategyPtr)(&v)
-}
-
-func (*spotFleetSpotFleetRequestConfigDataAllocationStrategyPtr) ElementType() reflect.Type {
-	return spotFleetSpotFleetRequestConfigDataAllocationStrategyPtrType
-}
-
-func (in *spotFleetSpotFleetRequestConfigDataAllocationStrategyPtr) ToSpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput() SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput {
-	return pulumi.ToOutput(in).(SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput)
-}
-
-func (in *spotFleetSpotFleetRequestConfigDataAllocationStrategyPtr) ToSpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutputWithContext(ctx context.Context) SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput)
-}
-
-type SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy string
-
-const (
-	SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyDefault       = SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy("Default")
-	SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyNoTermination = SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy("NoTermination")
-)
-
-func (SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy)(nil)).Elem()
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy) ToSpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput() SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput {
-	return pulumi.ToOutput(e).(SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput)
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy) ToSpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutputWithContext(ctx context.Context) SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput)
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy) ToSpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput() SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput {
-	return e.ToSpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutputWithContext(context.Background())
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy) ToSpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutputWithContext(ctx context.Context) SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput {
-	return SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy(e).ToSpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutputWithContext(ctx).ToSpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutputWithContext(ctx)
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput struct{ *pulumi.OutputState }
-
-func (SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy)(nil)).Elem()
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput) ToSpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput() SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput) ToSpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutputWithContext(ctx context.Context) SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput) ToSpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput() SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput {
-	return o.ToSpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput) ToSpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutputWithContext(ctx context.Context) SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy) *SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy {
-		return &v
-	}).(SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy)(nil)).Elem()
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput) ToSpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput() SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput) ToSpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutputWithContext(ctx context.Context) SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput) Elem() SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy) SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy
-		return ret
-	}).(SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyInput is an input type that accepts SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyArgs and SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput values.
-// You can construct a concrete instance of `SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyInput` via:
-//
-//          SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyArgs{...}
-type SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyInput interface {
-	pulumi.Input
-
-	ToSpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput() SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput
-	ToSpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutputWithContext(context.Context) SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput
-}
-
-var spotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrType = reflect.TypeOf((**SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy)(nil)).Elem()
-
-type SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrInput interface {
-	pulumi.Input
-
-	ToSpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput() SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput
-	ToSpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutputWithContext(context.Context) SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput
-}
-
-type spotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtr string
-
-func SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtr(v string) SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrInput {
-	return (*spotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtr)(&v)
-}
-
-func (*spotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtr) ElementType() reflect.Type {
-	return spotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrType
-}
-
-func (in *spotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtr) ToSpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput() SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput {
-	return pulumi.ToOutput(in).(SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput)
-}
-
-func (in *spotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtr) ToSpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutputWithContext(ctx context.Context) SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput)
-}
-
-type SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior string
-
-const (
-	SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorHibernate = SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior("hibernate")
-	SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorStop      = SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior("stop")
-	SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorTerminate = SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior("terminate")
-)
-
-func (SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior)(nil)).Elem()
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior) ToSpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput() SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput {
-	return pulumi.ToOutput(e).(SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput)
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior) ToSpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutputWithContext(ctx context.Context) SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput)
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior) ToSpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput() SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput {
-	return e.ToSpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutputWithContext(context.Background())
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior) ToSpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutputWithContext(ctx context.Context) SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput {
-	return SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior(e).ToSpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutputWithContext(ctx).ToSpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutputWithContext(ctx)
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput struct{ *pulumi.OutputState }
-
-func (SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior)(nil)).Elem()
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput) ToSpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput() SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput) ToSpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutputWithContext(ctx context.Context) SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput) ToSpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput() SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput {
-	return o.ToSpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutputWithContext(context.Background())
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput) ToSpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutputWithContext(ctx context.Context) SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior) *SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior {
-		return &v
-	}).(SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput struct{ *pulumi.OutputState }
-
-func (SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior)(nil)).Elem()
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput) ToSpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput() SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput) ToSpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutputWithContext(ctx context.Context) SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput) Elem() SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior) SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior {
-		if v != nil {
-			return *v
-		}
-		var ret SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior
-		return ret
-	}).(SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorInput is an input type that accepts SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorArgs and SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput values.
-// You can construct a concrete instance of `SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorInput` via:
-//
-//          SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorArgs{...}
-type SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorInput interface {
-	pulumi.Input
-
-	ToSpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput() SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput
-	ToSpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutputWithContext(context.Context) SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput
-}
-
-var spotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrType = reflect.TypeOf((**SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior)(nil)).Elem()
-
-type SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrInput interface {
-	pulumi.Input
-
-	ToSpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput() SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput
-	ToSpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutputWithContext(context.Context) SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput
-}
-
-type spotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtr string
-
-func SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtr(v string) SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrInput {
-	return (*spotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtr)(&v)
-}
-
-func (*spotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtr) ElementType() reflect.Type {
-	return spotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrType
-}
-
-func (in *spotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtr) ToSpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput() SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput {
-	return pulumi.ToOutput(in).(SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput)
-}
-
-func (in *spotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtr) ToSpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutputWithContext(ctx context.Context) SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput)
-}
-
-type SpotFleetSpotFleetRequestConfigDataType string
-
-const (
-	SpotFleetSpotFleetRequestConfigDataTypeMaintain = SpotFleetSpotFleetRequestConfigDataType("maintain")
-	SpotFleetSpotFleetRequestConfigDataTypeRequest  = SpotFleetSpotFleetRequestConfigDataType("request")
-)
-
-func (SpotFleetSpotFleetRequestConfigDataType) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotFleetSpotFleetRequestConfigDataType)(nil)).Elem()
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataType) ToSpotFleetSpotFleetRequestConfigDataTypeOutput() SpotFleetSpotFleetRequestConfigDataTypeOutput {
-	return pulumi.ToOutput(e).(SpotFleetSpotFleetRequestConfigDataTypeOutput)
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataType) ToSpotFleetSpotFleetRequestConfigDataTypeOutputWithContext(ctx context.Context) SpotFleetSpotFleetRequestConfigDataTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(SpotFleetSpotFleetRequestConfigDataTypeOutput)
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataType) ToSpotFleetSpotFleetRequestConfigDataTypePtrOutput() SpotFleetSpotFleetRequestConfigDataTypePtrOutput {
-	return e.ToSpotFleetSpotFleetRequestConfigDataTypePtrOutputWithContext(context.Background())
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataType) ToSpotFleetSpotFleetRequestConfigDataTypePtrOutputWithContext(ctx context.Context) SpotFleetSpotFleetRequestConfigDataTypePtrOutput {
-	return SpotFleetSpotFleetRequestConfigDataType(e).ToSpotFleetSpotFleetRequestConfigDataTypeOutputWithContext(ctx).ToSpotFleetSpotFleetRequestConfigDataTypePtrOutputWithContext(ctx)
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e SpotFleetSpotFleetRequestConfigDataType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type SpotFleetSpotFleetRequestConfigDataTypeOutput struct{ *pulumi.OutputState }
-
-func (SpotFleetSpotFleetRequestConfigDataTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotFleetSpotFleetRequestConfigDataType)(nil)).Elem()
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataTypeOutput) ToSpotFleetSpotFleetRequestConfigDataTypeOutput() SpotFleetSpotFleetRequestConfigDataTypeOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataTypeOutput) ToSpotFleetSpotFleetRequestConfigDataTypeOutputWithContext(ctx context.Context) SpotFleetSpotFleetRequestConfigDataTypeOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataTypeOutput) ToSpotFleetSpotFleetRequestConfigDataTypePtrOutput() SpotFleetSpotFleetRequestConfigDataTypePtrOutput {
-	return o.ToSpotFleetSpotFleetRequestConfigDataTypePtrOutputWithContext(context.Background())
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataTypeOutput) ToSpotFleetSpotFleetRequestConfigDataTypePtrOutputWithContext(ctx context.Context) SpotFleetSpotFleetRequestConfigDataTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetSpotFleetRequestConfigDataType) *SpotFleetSpotFleetRequestConfigDataType {
-		return &v
-	}).(SpotFleetSpotFleetRequestConfigDataTypePtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetSpotFleetRequestConfigDataType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetSpotFleetRequestConfigDataType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type SpotFleetSpotFleetRequestConfigDataTypePtrOutput struct{ *pulumi.OutputState }
-
-func (SpotFleetSpotFleetRequestConfigDataTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpotFleetSpotFleetRequestConfigDataType)(nil)).Elem()
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataTypePtrOutput) ToSpotFleetSpotFleetRequestConfigDataTypePtrOutput() SpotFleetSpotFleetRequestConfigDataTypePtrOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataTypePtrOutput) ToSpotFleetSpotFleetRequestConfigDataTypePtrOutputWithContext(ctx context.Context) SpotFleetSpotFleetRequestConfigDataTypePtrOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataTypePtrOutput) Elem() SpotFleetSpotFleetRequestConfigDataTypeOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigDataType) SpotFleetSpotFleetRequestConfigDataType {
-		if v != nil {
-			return *v
-		}
-		var ret SpotFleetSpotFleetRequestConfigDataType
-		return ret
-	}).(SpotFleetSpotFleetRequestConfigDataTypeOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SpotFleetSpotFleetRequestConfigDataType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// SpotFleetSpotFleetRequestConfigDataTypeInput is an input type that accepts SpotFleetSpotFleetRequestConfigDataTypeArgs and SpotFleetSpotFleetRequestConfigDataTypeOutput values.
-// You can construct a concrete instance of `SpotFleetSpotFleetRequestConfigDataTypeInput` via:
-//
-//          SpotFleetSpotFleetRequestConfigDataTypeArgs{...}
-type SpotFleetSpotFleetRequestConfigDataTypeInput interface {
-	pulumi.Input
-
-	ToSpotFleetSpotFleetRequestConfigDataTypeOutput() SpotFleetSpotFleetRequestConfigDataTypeOutput
-	ToSpotFleetSpotFleetRequestConfigDataTypeOutputWithContext(context.Context) SpotFleetSpotFleetRequestConfigDataTypeOutput
-}
-
-var spotFleetSpotFleetRequestConfigDataTypePtrType = reflect.TypeOf((**SpotFleetSpotFleetRequestConfigDataType)(nil)).Elem()
-
-type SpotFleetSpotFleetRequestConfigDataTypePtrInput interface {
-	pulumi.Input
-
-	ToSpotFleetSpotFleetRequestConfigDataTypePtrOutput() SpotFleetSpotFleetRequestConfigDataTypePtrOutput
-	ToSpotFleetSpotFleetRequestConfigDataTypePtrOutputWithContext(context.Context) SpotFleetSpotFleetRequestConfigDataTypePtrOutput
-}
-
-type spotFleetSpotFleetRequestConfigDataTypePtr string
-
-func SpotFleetSpotFleetRequestConfigDataTypePtr(v string) SpotFleetSpotFleetRequestConfigDataTypePtrInput {
-	return (*spotFleetSpotFleetRequestConfigDataTypePtr)(&v)
-}
-
-func (*spotFleetSpotFleetRequestConfigDataTypePtr) ElementType() reflect.Type {
-	return spotFleetSpotFleetRequestConfigDataTypePtrType
-}
-
-func (in *spotFleetSpotFleetRequestConfigDataTypePtr) ToSpotFleetSpotFleetRequestConfigDataTypePtrOutput() SpotFleetSpotFleetRequestConfigDataTypePtrOutput {
-	return pulumi.ToOutput(in).(SpotFleetSpotFleetRequestConfigDataTypePtrOutput)
-}
-
-func (in *spotFleetSpotFleetRequestConfigDataTypePtr) ToSpotFleetSpotFleetRequestConfigDataTypePtrOutputWithContext(ctx context.Context) SpotFleetSpotFleetRequestConfigDataTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetSpotFleetRequestConfigDataTypePtrOutput)
-}
-
-type SpotFleetSpotFleetTagSpecificationResourceType string
-
-const (
-	SpotFleetSpotFleetTagSpecificationResourceTypeClientVpnEndpoint                    = SpotFleetSpotFleetTagSpecificationResourceType("client-vpn-endpoint")
-	SpotFleetSpotFleetTagSpecificationResourceTypeCustomerGateway                      = SpotFleetSpotFleetTagSpecificationResourceType("customer-gateway")
-	SpotFleetSpotFleetTagSpecificationResourceTypeDedicatedHost                        = SpotFleetSpotFleetTagSpecificationResourceType("dedicated-host")
-	SpotFleetSpotFleetTagSpecificationResourceTypeDhcpOptions                          = SpotFleetSpotFleetTagSpecificationResourceType("dhcp-options")
-	SpotFleetSpotFleetTagSpecificationResourceTypeEgressOnlyInternetGateway            = SpotFleetSpotFleetTagSpecificationResourceType("egress-only-internet-gateway")
-	SpotFleetSpotFleetTagSpecificationResourceTypeElasticGpu                           = SpotFleetSpotFleetTagSpecificationResourceType("elastic-gpu")
-	SpotFleetSpotFleetTagSpecificationResourceTypeElasticIp                            = SpotFleetSpotFleetTagSpecificationResourceType("elastic-ip")
-	SpotFleetSpotFleetTagSpecificationResourceTypeExportImageTask                      = SpotFleetSpotFleetTagSpecificationResourceType("export-image-task")
-	SpotFleetSpotFleetTagSpecificationResourceTypeExportInstanceTask                   = SpotFleetSpotFleetTagSpecificationResourceType("export-instance-task")
-	SpotFleetSpotFleetTagSpecificationResourceTypeFleet                                = SpotFleetSpotFleetTagSpecificationResourceType("fleet")
-	SpotFleetSpotFleetTagSpecificationResourceTypeFpgaImage                            = SpotFleetSpotFleetTagSpecificationResourceType("fpga-image")
-	SpotFleetSpotFleetTagSpecificationResourceTypeHostReservation                      = SpotFleetSpotFleetTagSpecificationResourceType("host-reservation")
-	SpotFleetSpotFleetTagSpecificationResourceTypeImage                                = SpotFleetSpotFleetTagSpecificationResourceType("image")
-	SpotFleetSpotFleetTagSpecificationResourceTypeImportImageTask                      = SpotFleetSpotFleetTagSpecificationResourceType("import-image-task")
-	SpotFleetSpotFleetTagSpecificationResourceTypeImportSnapshotTask                   = SpotFleetSpotFleetTagSpecificationResourceType("import-snapshot-task")
-	SpotFleetSpotFleetTagSpecificationResourceTypeInstance                             = SpotFleetSpotFleetTagSpecificationResourceType("instance")
-	SpotFleetSpotFleetTagSpecificationResourceTypeInternetGateway                      = SpotFleetSpotFleetTagSpecificationResourceType("internet-gateway")
-	SpotFleetSpotFleetTagSpecificationResourceTypeKeyPair                              = SpotFleetSpotFleetTagSpecificationResourceType("key-pair")
-	SpotFleetSpotFleetTagSpecificationResourceTypeLaunchTemplate                       = SpotFleetSpotFleetTagSpecificationResourceType("launch-template")
-	SpotFleetSpotFleetTagSpecificationResourceTypeLocalGatewayRouteTableVpcAssociation = SpotFleetSpotFleetTagSpecificationResourceType("local-gateway-route-table-vpc-association")
-	SpotFleetSpotFleetTagSpecificationResourceTypeNatgateway                           = SpotFleetSpotFleetTagSpecificationResourceType("natgateway")
-	SpotFleetSpotFleetTagSpecificationResourceTypeNetworkAcl                           = SpotFleetSpotFleetTagSpecificationResourceType("network-acl")
-	SpotFleetSpotFleetTagSpecificationResourceTypeNetworkInsightsAnalysis              = SpotFleetSpotFleetTagSpecificationResourceType("network-insights-analysis")
-	SpotFleetSpotFleetTagSpecificationResourceTypeNetworkInsightsPath                  = SpotFleetSpotFleetTagSpecificationResourceType("network-insights-path")
-	SpotFleetSpotFleetTagSpecificationResourceTypeNetworkInterface                     = SpotFleetSpotFleetTagSpecificationResourceType("network-interface")
-	SpotFleetSpotFleetTagSpecificationResourceTypePlacementGroup                       = SpotFleetSpotFleetTagSpecificationResourceType("placement-group")
-	SpotFleetSpotFleetTagSpecificationResourceTypeReservedInstances                    = SpotFleetSpotFleetTagSpecificationResourceType("reserved-instances")
-	SpotFleetSpotFleetTagSpecificationResourceTypeRouteTable                           = SpotFleetSpotFleetTagSpecificationResourceType("route-table")
-	SpotFleetSpotFleetTagSpecificationResourceTypeSecurityGroup                        = SpotFleetSpotFleetTagSpecificationResourceType("security-group")
-	SpotFleetSpotFleetTagSpecificationResourceTypeSnapshot                             = SpotFleetSpotFleetTagSpecificationResourceType("snapshot")
-	SpotFleetSpotFleetTagSpecificationResourceTypeSpotFleetRequest                     = SpotFleetSpotFleetTagSpecificationResourceType("spot-fleet-request")
-	SpotFleetSpotFleetTagSpecificationResourceTypeSpotInstancesRequest                 = SpotFleetSpotFleetTagSpecificationResourceType("spot-instances-request")
-	SpotFleetSpotFleetTagSpecificationResourceTypeSubnet                               = SpotFleetSpotFleetTagSpecificationResourceType("subnet")
-	SpotFleetSpotFleetTagSpecificationResourceTypeTrafficMirrorFilter                  = SpotFleetSpotFleetTagSpecificationResourceType("traffic-mirror-filter")
-	SpotFleetSpotFleetTagSpecificationResourceTypeTrafficMirrorSession                 = SpotFleetSpotFleetTagSpecificationResourceType("traffic-mirror-session")
-	SpotFleetSpotFleetTagSpecificationResourceTypeTrafficMirrorTarget                  = SpotFleetSpotFleetTagSpecificationResourceType("traffic-mirror-target")
-	SpotFleetSpotFleetTagSpecificationResourceTypeTransitGateway                       = SpotFleetSpotFleetTagSpecificationResourceType("transit-gateway")
-	SpotFleetSpotFleetTagSpecificationResourceTypeTransitGatewayAttachment             = SpotFleetSpotFleetTagSpecificationResourceType("transit-gateway-attachment")
-	SpotFleetSpotFleetTagSpecificationResourceTypeTransitGatewayConnectPeer            = SpotFleetSpotFleetTagSpecificationResourceType("transit-gateway-connect-peer")
-	SpotFleetSpotFleetTagSpecificationResourceTypeTransitGatewayMulticastDomain        = SpotFleetSpotFleetTagSpecificationResourceType("transit-gateway-multicast-domain")
-	SpotFleetSpotFleetTagSpecificationResourceTypeTransitGatewayRouteTable             = SpotFleetSpotFleetTagSpecificationResourceType("transit-gateway-route-table")
-	SpotFleetSpotFleetTagSpecificationResourceTypeVolume                               = SpotFleetSpotFleetTagSpecificationResourceType("volume")
-	SpotFleetSpotFleetTagSpecificationResourceTypeVpc                                  = SpotFleetSpotFleetTagSpecificationResourceType("vpc")
-	SpotFleetSpotFleetTagSpecificationResourceTypeVpcFlowLog                           = SpotFleetSpotFleetTagSpecificationResourceType("vpc-flow-log")
-	SpotFleetSpotFleetTagSpecificationResourceTypeVpcPeeringConnection                 = SpotFleetSpotFleetTagSpecificationResourceType("vpc-peering-connection")
-	SpotFleetSpotFleetTagSpecificationResourceTypeVpnConnection                        = SpotFleetSpotFleetTagSpecificationResourceType("vpn-connection")
-	SpotFleetSpotFleetTagSpecificationResourceTypeVpnGateway                           = SpotFleetSpotFleetTagSpecificationResourceType("vpn-gateway")
-)
-
-func (SpotFleetSpotFleetTagSpecificationResourceType) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotFleetSpotFleetTagSpecificationResourceType)(nil)).Elem()
-}
-
-func (e SpotFleetSpotFleetTagSpecificationResourceType) ToSpotFleetSpotFleetTagSpecificationResourceTypeOutput() SpotFleetSpotFleetTagSpecificationResourceTypeOutput {
-	return pulumi.ToOutput(e).(SpotFleetSpotFleetTagSpecificationResourceTypeOutput)
-}
-
-func (e SpotFleetSpotFleetTagSpecificationResourceType) ToSpotFleetSpotFleetTagSpecificationResourceTypeOutputWithContext(ctx context.Context) SpotFleetSpotFleetTagSpecificationResourceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(SpotFleetSpotFleetTagSpecificationResourceTypeOutput)
-}
-
-func (e SpotFleetSpotFleetTagSpecificationResourceType) ToSpotFleetSpotFleetTagSpecificationResourceTypePtrOutput() SpotFleetSpotFleetTagSpecificationResourceTypePtrOutput {
-	return e.ToSpotFleetSpotFleetTagSpecificationResourceTypePtrOutputWithContext(context.Background())
-}
-
-func (e SpotFleetSpotFleetTagSpecificationResourceType) ToSpotFleetSpotFleetTagSpecificationResourceTypePtrOutputWithContext(ctx context.Context) SpotFleetSpotFleetTagSpecificationResourceTypePtrOutput {
-	return SpotFleetSpotFleetTagSpecificationResourceType(e).ToSpotFleetSpotFleetTagSpecificationResourceTypeOutputWithContext(ctx).ToSpotFleetSpotFleetTagSpecificationResourceTypePtrOutputWithContext(ctx)
-}
-
-func (e SpotFleetSpotFleetTagSpecificationResourceType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SpotFleetSpotFleetTagSpecificationResourceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SpotFleetSpotFleetTagSpecificationResourceType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e SpotFleetSpotFleetTagSpecificationResourceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type SpotFleetSpotFleetTagSpecificationResourceTypeOutput struct{ *pulumi.OutputState }
-
-func (SpotFleetSpotFleetTagSpecificationResourceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotFleetSpotFleetTagSpecificationResourceType)(nil)).Elem()
-}
-
-func (o SpotFleetSpotFleetTagSpecificationResourceTypeOutput) ToSpotFleetSpotFleetTagSpecificationResourceTypeOutput() SpotFleetSpotFleetTagSpecificationResourceTypeOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetTagSpecificationResourceTypeOutput) ToSpotFleetSpotFleetTagSpecificationResourceTypeOutputWithContext(ctx context.Context) SpotFleetSpotFleetTagSpecificationResourceTypeOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetTagSpecificationResourceTypeOutput) ToSpotFleetSpotFleetTagSpecificationResourceTypePtrOutput() SpotFleetSpotFleetTagSpecificationResourceTypePtrOutput {
-	return o.ToSpotFleetSpotFleetTagSpecificationResourceTypePtrOutputWithContext(context.Background())
-}
-
-func (o SpotFleetSpotFleetTagSpecificationResourceTypeOutput) ToSpotFleetSpotFleetTagSpecificationResourceTypePtrOutputWithContext(ctx context.Context) SpotFleetSpotFleetTagSpecificationResourceTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetSpotFleetTagSpecificationResourceType) *SpotFleetSpotFleetTagSpecificationResourceType {
-		return &v
-	}).(SpotFleetSpotFleetTagSpecificationResourceTypePtrOutput)
-}
-
-func (o SpotFleetSpotFleetTagSpecificationResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o SpotFleetSpotFleetTagSpecificationResourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetSpotFleetTagSpecificationResourceType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o SpotFleetSpotFleetTagSpecificationResourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SpotFleetSpotFleetTagSpecificationResourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetSpotFleetTagSpecificationResourceType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type SpotFleetSpotFleetTagSpecificationResourceTypePtrOutput struct{ *pulumi.OutputState }
-
-func (SpotFleetSpotFleetTagSpecificationResourceTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpotFleetSpotFleetTagSpecificationResourceType)(nil)).Elem()
-}
-
-func (o SpotFleetSpotFleetTagSpecificationResourceTypePtrOutput) ToSpotFleetSpotFleetTagSpecificationResourceTypePtrOutput() SpotFleetSpotFleetTagSpecificationResourceTypePtrOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetTagSpecificationResourceTypePtrOutput) ToSpotFleetSpotFleetTagSpecificationResourceTypePtrOutputWithContext(ctx context.Context) SpotFleetSpotFleetTagSpecificationResourceTypePtrOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetTagSpecificationResourceTypePtrOutput) Elem() SpotFleetSpotFleetTagSpecificationResourceTypeOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetTagSpecificationResourceType) SpotFleetSpotFleetTagSpecificationResourceType {
-		if v != nil {
-			return *v
-		}
-		var ret SpotFleetSpotFleetTagSpecificationResourceType
-		return ret
-	}).(SpotFleetSpotFleetTagSpecificationResourceTypeOutput)
-}
-
-func (o SpotFleetSpotFleetTagSpecificationResourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SpotFleetSpotFleetTagSpecificationResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SpotFleetSpotFleetTagSpecificationResourceType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// SpotFleetSpotFleetTagSpecificationResourceTypeInput is an input type that accepts SpotFleetSpotFleetTagSpecificationResourceTypeArgs and SpotFleetSpotFleetTagSpecificationResourceTypeOutput values.
-// You can construct a concrete instance of `SpotFleetSpotFleetTagSpecificationResourceTypeInput` via:
-//
-//          SpotFleetSpotFleetTagSpecificationResourceTypeArgs{...}
-type SpotFleetSpotFleetTagSpecificationResourceTypeInput interface {
-	pulumi.Input
-
-	ToSpotFleetSpotFleetTagSpecificationResourceTypeOutput() SpotFleetSpotFleetTagSpecificationResourceTypeOutput
-	ToSpotFleetSpotFleetTagSpecificationResourceTypeOutputWithContext(context.Context) SpotFleetSpotFleetTagSpecificationResourceTypeOutput
-}
-
-var spotFleetSpotFleetTagSpecificationResourceTypePtrType = reflect.TypeOf((**SpotFleetSpotFleetTagSpecificationResourceType)(nil)).Elem()
-
-type SpotFleetSpotFleetTagSpecificationResourceTypePtrInput interface {
-	pulumi.Input
-
-	ToSpotFleetSpotFleetTagSpecificationResourceTypePtrOutput() SpotFleetSpotFleetTagSpecificationResourceTypePtrOutput
-	ToSpotFleetSpotFleetTagSpecificationResourceTypePtrOutputWithContext(context.Context) SpotFleetSpotFleetTagSpecificationResourceTypePtrOutput
-}
-
-type spotFleetSpotFleetTagSpecificationResourceTypePtr string
-
-func SpotFleetSpotFleetTagSpecificationResourceTypePtr(v string) SpotFleetSpotFleetTagSpecificationResourceTypePtrInput {
-	return (*spotFleetSpotFleetTagSpecificationResourceTypePtr)(&v)
-}
-
-func (*spotFleetSpotFleetTagSpecificationResourceTypePtr) ElementType() reflect.Type {
-	return spotFleetSpotFleetTagSpecificationResourceTypePtrType
-}
-
-func (in *spotFleetSpotFleetTagSpecificationResourceTypePtr) ToSpotFleetSpotFleetTagSpecificationResourceTypePtrOutput() SpotFleetSpotFleetTagSpecificationResourceTypePtrOutput {
-	return pulumi.ToOutput(in).(SpotFleetSpotFleetTagSpecificationResourceTypePtrOutput)
-}
-
-func (in *spotFleetSpotFleetTagSpecificationResourceTypePtr) ToSpotFleetSpotFleetTagSpecificationResourceTypePtrOutputWithContext(ctx context.Context) SpotFleetSpotFleetTagSpecificationResourceTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetSpotFleetTagSpecificationResourceTypePtrOutput)
 }
 
 type SpotFleetSpotPlacementTenancy string
@@ -3892,6 +3683,215 @@ func (in *spotFleetSpotPlacementTenancyPtr) ToSpotFleetSpotPlacementTenancyPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetSpotPlacementTenancyPtrOutput)
 }
 
+type SpotFleetTagSpecificationResourceType string
+
+const (
+	SpotFleetTagSpecificationResourceTypeClientVpnEndpoint                    = SpotFleetTagSpecificationResourceType("client-vpn-endpoint")
+	SpotFleetTagSpecificationResourceTypeCustomerGateway                      = SpotFleetTagSpecificationResourceType("customer-gateway")
+	SpotFleetTagSpecificationResourceTypeDedicatedHost                        = SpotFleetTagSpecificationResourceType("dedicated-host")
+	SpotFleetTagSpecificationResourceTypeDhcpOptions                          = SpotFleetTagSpecificationResourceType("dhcp-options")
+	SpotFleetTagSpecificationResourceTypeEgressOnlyInternetGateway            = SpotFleetTagSpecificationResourceType("egress-only-internet-gateway")
+	SpotFleetTagSpecificationResourceTypeElasticGpu                           = SpotFleetTagSpecificationResourceType("elastic-gpu")
+	SpotFleetTagSpecificationResourceTypeElasticIp                            = SpotFleetTagSpecificationResourceType("elastic-ip")
+	SpotFleetTagSpecificationResourceTypeExportImageTask                      = SpotFleetTagSpecificationResourceType("export-image-task")
+	SpotFleetTagSpecificationResourceTypeExportInstanceTask                   = SpotFleetTagSpecificationResourceType("export-instance-task")
+	SpotFleetTagSpecificationResourceTypeFleet                                = SpotFleetTagSpecificationResourceType("fleet")
+	SpotFleetTagSpecificationResourceTypeFpgaImage                            = SpotFleetTagSpecificationResourceType("fpga-image")
+	SpotFleetTagSpecificationResourceTypeHostReservation                      = SpotFleetTagSpecificationResourceType("host-reservation")
+	SpotFleetTagSpecificationResourceTypeImage                                = SpotFleetTagSpecificationResourceType("image")
+	SpotFleetTagSpecificationResourceTypeImportImageTask                      = SpotFleetTagSpecificationResourceType("import-image-task")
+	SpotFleetTagSpecificationResourceTypeImportSnapshotTask                   = SpotFleetTagSpecificationResourceType("import-snapshot-task")
+	SpotFleetTagSpecificationResourceTypeInstance                             = SpotFleetTagSpecificationResourceType("instance")
+	SpotFleetTagSpecificationResourceTypeInternetGateway                      = SpotFleetTagSpecificationResourceType("internet-gateway")
+	SpotFleetTagSpecificationResourceTypeKeyPair                              = SpotFleetTagSpecificationResourceType("key-pair")
+	SpotFleetTagSpecificationResourceTypeLaunchTemplate                       = SpotFleetTagSpecificationResourceType("launch-template")
+	SpotFleetTagSpecificationResourceTypeLocalGatewayRouteTableVpcAssociation = SpotFleetTagSpecificationResourceType("local-gateway-route-table-vpc-association")
+	SpotFleetTagSpecificationResourceTypeNatgateway                           = SpotFleetTagSpecificationResourceType("natgateway")
+	SpotFleetTagSpecificationResourceTypeNetworkAcl                           = SpotFleetTagSpecificationResourceType("network-acl")
+	SpotFleetTagSpecificationResourceTypeNetworkInsightsAnalysis              = SpotFleetTagSpecificationResourceType("network-insights-analysis")
+	SpotFleetTagSpecificationResourceTypeNetworkInsightsPath                  = SpotFleetTagSpecificationResourceType("network-insights-path")
+	SpotFleetTagSpecificationResourceTypeNetworkInterface                     = SpotFleetTagSpecificationResourceType("network-interface")
+	SpotFleetTagSpecificationResourceTypePlacementGroup                       = SpotFleetTagSpecificationResourceType("placement-group")
+	SpotFleetTagSpecificationResourceTypeReservedInstances                    = SpotFleetTagSpecificationResourceType("reserved-instances")
+	SpotFleetTagSpecificationResourceTypeRouteTable                           = SpotFleetTagSpecificationResourceType("route-table")
+	SpotFleetTagSpecificationResourceTypeSecurityGroup                        = SpotFleetTagSpecificationResourceType("security-group")
+	SpotFleetTagSpecificationResourceTypeSnapshot                             = SpotFleetTagSpecificationResourceType("snapshot")
+	SpotFleetTagSpecificationResourceTypeSpotFleetRequest                     = SpotFleetTagSpecificationResourceType("spot-fleet-request")
+	SpotFleetTagSpecificationResourceTypeSpotInstancesRequest                 = SpotFleetTagSpecificationResourceType("spot-instances-request")
+	SpotFleetTagSpecificationResourceTypeSubnet                               = SpotFleetTagSpecificationResourceType("subnet")
+	SpotFleetTagSpecificationResourceTypeTrafficMirrorFilter                  = SpotFleetTagSpecificationResourceType("traffic-mirror-filter")
+	SpotFleetTagSpecificationResourceTypeTrafficMirrorSession                 = SpotFleetTagSpecificationResourceType("traffic-mirror-session")
+	SpotFleetTagSpecificationResourceTypeTrafficMirrorTarget                  = SpotFleetTagSpecificationResourceType("traffic-mirror-target")
+	SpotFleetTagSpecificationResourceTypeTransitGateway                       = SpotFleetTagSpecificationResourceType("transit-gateway")
+	SpotFleetTagSpecificationResourceTypeTransitGatewayAttachment             = SpotFleetTagSpecificationResourceType("transit-gateway-attachment")
+	SpotFleetTagSpecificationResourceTypeTransitGatewayConnectPeer            = SpotFleetTagSpecificationResourceType("transit-gateway-connect-peer")
+	SpotFleetTagSpecificationResourceTypeTransitGatewayMulticastDomain        = SpotFleetTagSpecificationResourceType("transit-gateway-multicast-domain")
+	SpotFleetTagSpecificationResourceTypeTransitGatewayRouteTable             = SpotFleetTagSpecificationResourceType("transit-gateway-route-table")
+	SpotFleetTagSpecificationResourceTypeVolume                               = SpotFleetTagSpecificationResourceType("volume")
+	SpotFleetTagSpecificationResourceTypeVpc                                  = SpotFleetTagSpecificationResourceType("vpc")
+	SpotFleetTagSpecificationResourceTypeVpcFlowLog                           = SpotFleetTagSpecificationResourceType("vpc-flow-log")
+	SpotFleetTagSpecificationResourceTypeVpcPeeringConnection                 = SpotFleetTagSpecificationResourceType("vpc-peering-connection")
+	SpotFleetTagSpecificationResourceTypeVpnConnection                        = SpotFleetTagSpecificationResourceType("vpn-connection")
+	SpotFleetTagSpecificationResourceTypeVpnGateway                           = SpotFleetTagSpecificationResourceType("vpn-gateway")
+)
+
+func (SpotFleetTagSpecificationResourceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetTagSpecificationResourceType)(nil)).Elem()
+}
+
+func (e SpotFleetTagSpecificationResourceType) ToSpotFleetTagSpecificationResourceTypeOutput() SpotFleetTagSpecificationResourceTypeOutput {
+	return pulumi.ToOutput(e).(SpotFleetTagSpecificationResourceTypeOutput)
+}
+
+func (e SpotFleetTagSpecificationResourceType) ToSpotFleetTagSpecificationResourceTypeOutputWithContext(ctx context.Context) SpotFleetTagSpecificationResourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SpotFleetTagSpecificationResourceTypeOutput)
+}
+
+func (e SpotFleetTagSpecificationResourceType) ToSpotFleetTagSpecificationResourceTypePtrOutput() SpotFleetTagSpecificationResourceTypePtrOutput {
+	return e.ToSpotFleetTagSpecificationResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (e SpotFleetTagSpecificationResourceType) ToSpotFleetTagSpecificationResourceTypePtrOutputWithContext(ctx context.Context) SpotFleetTagSpecificationResourceTypePtrOutput {
+	return SpotFleetTagSpecificationResourceType(e).ToSpotFleetTagSpecificationResourceTypeOutputWithContext(ctx).ToSpotFleetTagSpecificationResourceTypePtrOutputWithContext(ctx)
+}
+
+func (e SpotFleetTagSpecificationResourceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpotFleetTagSpecificationResourceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpotFleetTagSpecificationResourceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SpotFleetTagSpecificationResourceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SpotFleetTagSpecificationResourceTypeOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetTagSpecificationResourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetTagSpecificationResourceType)(nil)).Elem()
+}
+
+func (o SpotFleetTagSpecificationResourceTypeOutput) ToSpotFleetTagSpecificationResourceTypeOutput() SpotFleetTagSpecificationResourceTypeOutput {
+	return o
+}
+
+func (o SpotFleetTagSpecificationResourceTypeOutput) ToSpotFleetTagSpecificationResourceTypeOutputWithContext(ctx context.Context) SpotFleetTagSpecificationResourceTypeOutput {
+	return o
+}
+
+func (o SpotFleetTagSpecificationResourceTypeOutput) ToSpotFleetTagSpecificationResourceTypePtrOutput() SpotFleetTagSpecificationResourceTypePtrOutput {
+	return o.ToSpotFleetTagSpecificationResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetTagSpecificationResourceTypeOutput) ToSpotFleetTagSpecificationResourceTypePtrOutputWithContext(ctx context.Context) SpotFleetTagSpecificationResourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetTagSpecificationResourceType) *SpotFleetTagSpecificationResourceType {
+		return &v
+	}).(SpotFleetTagSpecificationResourceTypePtrOutput)
+}
+
+func (o SpotFleetTagSpecificationResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SpotFleetTagSpecificationResourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetTagSpecificationResourceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SpotFleetTagSpecificationResourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetTagSpecificationResourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetTagSpecificationResourceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpotFleetTagSpecificationResourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetTagSpecificationResourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetTagSpecificationResourceType)(nil)).Elem()
+}
+
+func (o SpotFleetTagSpecificationResourceTypePtrOutput) ToSpotFleetTagSpecificationResourceTypePtrOutput() SpotFleetTagSpecificationResourceTypePtrOutput {
+	return o
+}
+
+func (o SpotFleetTagSpecificationResourceTypePtrOutput) ToSpotFleetTagSpecificationResourceTypePtrOutputWithContext(ctx context.Context) SpotFleetTagSpecificationResourceTypePtrOutput {
+	return o
+}
+
+func (o SpotFleetTagSpecificationResourceTypePtrOutput) Elem() SpotFleetTagSpecificationResourceTypeOutput {
+	return o.ApplyT(func(v *SpotFleetTagSpecificationResourceType) SpotFleetTagSpecificationResourceType {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetTagSpecificationResourceType
+		return ret
+	}).(SpotFleetTagSpecificationResourceTypeOutput)
+}
+
+func (o SpotFleetTagSpecificationResourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetTagSpecificationResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SpotFleetTagSpecificationResourceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SpotFleetTagSpecificationResourceTypeInput is an input type that accepts SpotFleetTagSpecificationResourceTypeArgs and SpotFleetTagSpecificationResourceTypeOutput values.
+// You can construct a concrete instance of `SpotFleetTagSpecificationResourceTypeInput` via:
+//
+//          SpotFleetTagSpecificationResourceTypeArgs{...}
+type SpotFleetTagSpecificationResourceTypeInput interface {
+	pulumi.Input
+
+	ToSpotFleetTagSpecificationResourceTypeOutput() SpotFleetTagSpecificationResourceTypeOutput
+	ToSpotFleetTagSpecificationResourceTypeOutputWithContext(context.Context) SpotFleetTagSpecificationResourceTypeOutput
+}
+
+var spotFleetTagSpecificationResourceTypePtrType = reflect.TypeOf((**SpotFleetTagSpecificationResourceType)(nil)).Elem()
+
+type SpotFleetTagSpecificationResourceTypePtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetTagSpecificationResourceTypePtrOutput() SpotFleetTagSpecificationResourceTypePtrOutput
+	ToSpotFleetTagSpecificationResourceTypePtrOutputWithContext(context.Context) SpotFleetTagSpecificationResourceTypePtrOutput
+}
+
+type spotFleetTagSpecificationResourceTypePtr string
+
+func SpotFleetTagSpecificationResourceTypePtr(v string) SpotFleetTagSpecificationResourceTypePtrInput {
+	return (*spotFleetTagSpecificationResourceTypePtr)(&v)
+}
+
+func (*spotFleetTagSpecificationResourceTypePtr) ElementType() reflect.Type {
+	return spotFleetTagSpecificationResourceTypePtrType
+}
+
+func (in *spotFleetTagSpecificationResourceTypePtr) ToSpotFleetTagSpecificationResourceTypePtrOutput() SpotFleetTagSpecificationResourceTypePtrOutput {
+	return pulumi.ToOutput(in).(SpotFleetTagSpecificationResourceTypePtrOutput)
+}
+
+func (in *spotFleetTagSpecificationResourceTypePtr) ToSpotFleetTagSpecificationResourceTypePtrOutputWithContext(ctx context.Context) SpotFleetTagSpecificationResourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetTagSpecificationResourceTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EC2FleetCapacityReservationOptionsRequestUsageStrategyOutput{})
 	pulumi.RegisterOutputType(EC2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput{})
@@ -3915,8 +3915,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowLogTrafficTypePtrOutput{})
 	pulumi.RegisterOutputType(HostAutoPlacementOutput{})
 	pulumi.RegisterOutputType(HostAutoPlacementPtrOutput{})
-	pulumi.RegisterOutputType(HostHostRecoveryOutput{})
-	pulumi.RegisterOutputType(HostHostRecoveryPtrOutput{})
+	pulumi.RegisterOutputType(HostRecoveryOutput{})
+	pulumi.RegisterOutputType(HostRecoveryPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisStatusOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisStatusPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsPathProtocolOutput{})
@@ -3925,18 +3925,18 @@ func init() {
 	pulumi.RegisterOutputType(PrefixListAddressFamilyPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetEbsBlockDeviceVolumeTypeOutput{})
 	pulumi.RegisterOutputType(SpotFleetEbsBlockDeviceVolumeTypePtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestConfigDataAllocationStrategyOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestConfigDataAllocationStrategyPtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestConfigDataTypeOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestConfigDataTypePtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetSpotCapacityRebalanceReplacementStrategyOutput{})
 	pulumi.RegisterOutputType(SpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutput{})
-	pulumi.RegisterOutputType(SpotFleetSpotFleetRequestConfigDataAllocationStrategyOutput{})
-	pulumi.RegisterOutputType(SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput{})
-	pulumi.RegisterOutputType(SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput{})
-	pulumi.RegisterOutputType(SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput{})
-	pulumi.RegisterOutputType(SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput{})
-	pulumi.RegisterOutputType(SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput{})
-	pulumi.RegisterOutputType(SpotFleetSpotFleetRequestConfigDataTypeOutput{})
-	pulumi.RegisterOutputType(SpotFleetSpotFleetRequestConfigDataTypePtrOutput{})
-	pulumi.RegisterOutputType(SpotFleetSpotFleetTagSpecificationResourceTypeOutput{})
-	pulumi.RegisterOutputType(SpotFleetSpotFleetTagSpecificationResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetSpotPlacementTenancyOutput{})
 	pulumi.RegisterOutputType(SpotFleetSpotPlacementTenancyPtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetTagSpecificationResourceTypeOutput{})
+	pulumi.RegisterOutputType(SpotFleetTagSpecificationResourceTypePtrOutput{})
 }

@@ -17,14 +17,14 @@ import (
 type VirtualNode struct {
 	pulumi.CustomResourceState
 
-	Arn             pulumi.StringOutput              `pulumi:"arn"`
-	MeshName        pulumi.StringOutput              `pulumi:"meshName"`
-	MeshOwner       pulumi.StringPtrOutput           `pulumi:"meshOwner"`
-	ResourceOwner   pulumi.StringOutput              `pulumi:"resourceOwner"`
-	Spec            VirtualNodeVirtualNodeSpecOutput `pulumi:"spec"`
-	Tags            VirtualNodeTagArrayOutput        `pulumi:"tags"`
-	Uid             pulumi.StringOutput              `pulumi:"uid"`
-	VirtualNodeName pulumi.StringPtrOutput           `pulumi:"virtualNodeName"`
+	Arn             pulumi.StringOutput       `pulumi:"arn"`
+	MeshName        pulumi.StringOutput       `pulumi:"meshName"`
+	MeshOwner       pulumi.StringPtrOutput    `pulumi:"meshOwner"`
+	ResourceOwner   pulumi.StringOutput       `pulumi:"resourceOwner"`
+	Spec            VirtualNodeSpecOutput     `pulumi:"spec"`
+	Tags            VirtualNodeTagArrayOutput `pulumi:"tags"`
+	Uid             pulumi.StringOutput       `pulumi:"uid"`
+	VirtualNodeName pulumi.StringPtrOutput    `pulumi:"virtualNodeName"`
 }
 
 // NewVirtualNode registers a new resource with the given unique name, arguments, and options.
@@ -72,18 +72,18 @@ func (VirtualNodeState) ElementType() reflect.Type {
 }
 
 type virtualNodeArgs struct {
-	MeshName        string                     `pulumi:"meshName"`
-	MeshOwner       *string                    `pulumi:"meshOwner"`
-	Spec            VirtualNodeVirtualNodeSpec `pulumi:"spec"`
-	Tags            []VirtualNodeTag           `pulumi:"tags"`
-	VirtualNodeName *string                    `pulumi:"virtualNodeName"`
+	MeshName        string           `pulumi:"meshName"`
+	MeshOwner       *string          `pulumi:"meshOwner"`
+	Spec            VirtualNodeSpec  `pulumi:"spec"`
+	Tags            []VirtualNodeTag `pulumi:"tags"`
+	VirtualNodeName *string          `pulumi:"virtualNodeName"`
 }
 
 // The set of arguments for constructing a VirtualNode resource.
 type VirtualNodeArgs struct {
 	MeshName        pulumi.StringInput
 	MeshOwner       pulumi.StringPtrInput
-	Spec            VirtualNodeVirtualNodeSpecInput
+	Spec            VirtualNodeSpecInput
 	Tags            VirtualNodeTagArrayInput
 	VirtualNodeName pulumi.StringPtrInput
 }

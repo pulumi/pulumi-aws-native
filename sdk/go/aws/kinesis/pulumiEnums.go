@@ -11,123 +11,123 @@ import (
 )
 
 // The encryption type to use. The only valid value is KMS.
-type StreamStreamEncryptionEncryptionType string
+type StreamEncryptionEncryptionType string
 
 const (
-	StreamStreamEncryptionEncryptionTypeKms = StreamStreamEncryptionEncryptionType("KMS")
+	StreamEncryptionEncryptionTypeKms = StreamEncryptionEncryptionType("KMS")
 )
 
-func (StreamStreamEncryptionEncryptionType) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamStreamEncryptionEncryptionType)(nil)).Elem()
+func (StreamEncryptionEncryptionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamEncryptionEncryptionType)(nil)).Elem()
 }
 
-func (e StreamStreamEncryptionEncryptionType) ToStreamStreamEncryptionEncryptionTypeOutput() StreamStreamEncryptionEncryptionTypeOutput {
-	return pulumi.ToOutput(e).(StreamStreamEncryptionEncryptionTypeOutput)
+func (e StreamEncryptionEncryptionType) ToStreamEncryptionEncryptionTypeOutput() StreamEncryptionEncryptionTypeOutput {
+	return pulumi.ToOutput(e).(StreamEncryptionEncryptionTypeOutput)
 }
 
-func (e StreamStreamEncryptionEncryptionType) ToStreamStreamEncryptionEncryptionTypeOutputWithContext(ctx context.Context) StreamStreamEncryptionEncryptionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(StreamStreamEncryptionEncryptionTypeOutput)
+func (e StreamEncryptionEncryptionType) ToStreamEncryptionEncryptionTypeOutputWithContext(ctx context.Context) StreamEncryptionEncryptionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(StreamEncryptionEncryptionTypeOutput)
 }
 
-func (e StreamStreamEncryptionEncryptionType) ToStreamStreamEncryptionEncryptionTypePtrOutput() StreamStreamEncryptionEncryptionTypePtrOutput {
-	return e.ToStreamStreamEncryptionEncryptionTypePtrOutputWithContext(context.Background())
+func (e StreamEncryptionEncryptionType) ToStreamEncryptionEncryptionTypePtrOutput() StreamEncryptionEncryptionTypePtrOutput {
+	return e.ToStreamEncryptionEncryptionTypePtrOutputWithContext(context.Background())
 }
 
-func (e StreamStreamEncryptionEncryptionType) ToStreamStreamEncryptionEncryptionTypePtrOutputWithContext(ctx context.Context) StreamStreamEncryptionEncryptionTypePtrOutput {
-	return StreamStreamEncryptionEncryptionType(e).ToStreamStreamEncryptionEncryptionTypeOutputWithContext(ctx).ToStreamStreamEncryptionEncryptionTypePtrOutputWithContext(ctx)
+func (e StreamEncryptionEncryptionType) ToStreamEncryptionEncryptionTypePtrOutputWithContext(ctx context.Context) StreamEncryptionEncryptionTypePtrOutput {
+	return StreamEncryptionEncryptionType(e).ToStreamEncryptionEncryptionTypeOutputWithContext(ctx).ToStreamEncryptionEncryptionTypePtrOutputWithContext(ctx)
 }
 
-func (e StreamStreamEncryptionEncryptionType) ToStringOutput() pulumi.StringOutput {
+func (e StreamEncryptionEncryptionType) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e StreamStreamEncryptionEncryptionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e StreamEncryptionEncryptionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e StreamStreamEncryptionEncryptionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e StreamEncryptionEncryptionType) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e StreamStreamEncryptionEncryptionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e StreamEncryptionEncryptionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type StreamStreamEncryptionEncryptionTypeOutput struct{ *pulumi.OutputState }
+type StreamEncryptionEncryptionTypeOutput struct{ *pulumi.OutputState }
 
-func (StreamStreamEncryptionEncryptionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamStreamEncryptionEncryptionType)(nil)).Elem()
+func (StreamEncryptionEncryptionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamEncryptionEncryptionType)(nil)).Elem()
 }
 
-func (o StreamStreamEncryptionEncryptionTypeOutput) ToStreamStreamEncryptionEncryptionTypeOutput() StreamStreamEncryptionEncryptionTypeOutput {
+func (o StreamEncryptionEncryptionTypeOutput) ToStreamEncryptionEncryptionTypeOutput() StreamEncryptionEncryptionTypeOutput {
 	return o
 }
 
-func (o StreamStreamEncryptionEncryptionTypeOutput) ToStreamStreamEncryptionEncryptionTypeOutputWithContext(ctx context.Context) StreamStreamEncryptionEncryptionTypeOutput {
+func (o StreamEncryptionEncryptionTypeOutput) ToStreamEncryptionEncryptionTypeOutputWithContext(ctx context.Context) StreamEncryptionEncryptionTypeOutput {
 	return o
 }
 
-func (o StreamStreamEncryptionEncryptionTypeOutput) ToStreamStreamEncryptionEncryptionTypePtrOutput() StreamStreamEncryptionEncryptionTypePtrOutput {
-	return o.ToStreamStreamEncryptionEncryptionTypePtrOutputWithContext(context.Background())
+func (o StreamEncryptionEncryptionTypeOutput) ToStreamEncryptionEncryptionTypePtrOutput() StreamEncryptionEncryptionTypePtrOutput {
+	return o.ToStreamEncryptionEncryptionTypePtrOutputWithContext(context.Background())
 }
 
-func (o StreamStreamEncryptionEncryptionTypeOutput) ToStreamStreamEncryptionEncryptionTypePtrOutputWithContext(ctx context.Context) StreamStreamEncryptionEncryptionTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamStreamEncryptionEncryptionType) *StreamStreamEncryptionEncryptionType {
+func (o StreamEncryptionEncryptionTypeOutput) ToStreamEncryptionEncryptionTypePtrOutputWithContext(ctx context.Context) StreamEncryptionEncryptionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamEncryptionEncryptionType) *StreamEncryptionEncryptionType {
 		return &v
-	}).(StreamStreamEncryptionEncryptionTypePtrOutput)
+	}).(StreamEncryptionEncryptionTypePtrOutput)
 }
 
-func (o StreamStreamEncryptionEncryptionTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o StreamEncryptionEncryptionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o StreamStreamEncryptionEncryptionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e StreamStreamEncryptionEncryptionType) string {
+func (o StreamEncryptionEncryptionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StreamEncryptionEncryptionType) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o StreamStreamEncryptionEncryptionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o StreamEncryptionEncryptionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o StreamStreamEncryptionEncryptionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e StreamStreamEncryptionEncryptionType) *string {
+func (o StreamEncryptionEncryptionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StreamEncryptionEncryptionType) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type StreamStreamEncryptionEncryptionTypePtrOutput struct{ *pulumi.OutputState }
+type StreamEncryptionEncryptionTypePtrOutput struct{ *pulumi.OutputState }
 
-func (StreamStreamEncryptionEncryptionTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StreamStreamEncryptionEncryptionType)(nil)).Elem()
+func (StreamEncryptionEncryptionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamEncryptionEncryptionType)(nil)).Elem()
 }
 
-func (o StreamStreamEncryptionEncryptionTypePtrOutput) ToStreamStreamEncryptionEncryptionTypePtrOutput() StreamStreamEncryptionEncryptionTypePtrOutput {
+func (o StreamEncryptionEncryptionTypePtrOutput) ToStreamEncryptionEncryptionTypePtrOutput() StreamEncryptionEncryptionTypePtrOutput {
 	return o
 }
 
-func (o StreamStreamEncryptionEncryptionTypePtrOutput) ToStreamStreamEncryptionEncryptionTypePtrOutputWithContext(ctx context.Context) StreamStreamEncryptionEncryptionTypePtrOutput {
+func (o StreamEncryptionEncryptionTypePtrOutput) ToStreamEncryptionEncryptionTypePtrOutputWithContext(ctx context.Context) StreamEncryptionEncryptionTypePtrOutput {
 	return o
 }
 
-func (o StreamStreamEncryptionEncryptionTypePtrOutput) Elem() StreamStreamEncryptionEncryptionTypeOutput {
-	return o.ApplyT(func(v *StreamStreamEncryptionEncryptionType) StreamStreamEncryptionEncryptionType {
+func (o StreamEncryptionEncryptionTypePtrOutput) Elem() StreamEncryptionEncryptionTypeOutput {
+	return o.ApplyT(func(v *StreamEncryptionEncryptionType) StreamEncryptionEncryptionType {
 		if v != nil {
 			return *v
 		}
-		var ret StreamStreamEncryptionEncryptionType
+		var ret StreamEncryptionEncryptionType
 		return ret
-	}).(StreamStreamEncryptionEncryptionTypeOutput)
+	}).(StreamEncryptionEncryptionTypeOutput)
 }
 
-func (o StreamStreamEncryptionEncryptionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o StreamEncryptionEncryptionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o StreamStreamEncryptionEncryptionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StreamStreamEncryptionEncryptionType) *string {
+func (o StreamEncryptionEncryptionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StreamEncryptionEncryptionType) *string {
 		if e == nil {
 			return nil
 		}
@@ -136,45 +136,45 @@ func (o StreamStreamEncryptionEncryptionTypePtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// StreamStreamEncryptionEncryptionTypeInput is an input type that accepts StreamStreamEncryptionEncryptionTypeArgs and StreamStreamEncryptionEncryptionTypeOutput values.
-// You can construct a concrete instance of `StreamStreamEncryptionEncryptionTypeInput` via:
+// StreamEncryptionEncryptionTypeInput is an input type that accepts StreamEncryptionEncryptionTypeArgs and StreamEncryptionEncryptionTypeOutput values.
+// You can construct a concrete instance of `StreamEncryptionEncryptionTypeInput` via:
 //
-//          StreamStreamEncryptionEncryptionTypeArgs{...}
-type StreamStreamEncryptionEncryptionTypeInput interface {
+//          StreamEncryptionEncryptionTypeArgs{...}
+type StreamEncryptionEncryptionTypeInput interface {
 	pulumi.Input
 
-	ToStreamStreamEncryptionEncryptionTypeOutput() StreamStreamEncryptionEncryptionTypeOutput
-	ToStreamStreamEncryptionEncryptionTypeOutputWithContext(context.Context) StreamStreamEncryptionEncryptionTypeOutput
+	ToStreamEncryptionEncryptionTypeOutput() StreamEncryptionEncryptionTypeOutput
+	ToStreamEncryptionEncryptionTypeOutputWithContext(context.Context) StreamEncryptionEncryptionTypeOutput
 }
 
-var streamStreamEncryptionEncryptionTypePtrType = reflect.TypeOf((**StreamStreamEncryptionEncryptionType)(nil)).Elem()
+var streamEncryptionEncryptionTypePtrType = reflect.TypeOf((**StreamEncryptionEncryptionType)(nil)).Elem()
 
-type StreamStreamEncryptionEncryptionTypePtrInput interface {
+type StreamEncryptionEncryptionTypePtrInput interface {
 	pulumi.Input
 
-	ToStreamStreamEncryptionEncryptionTypePtrOutput() StreamStreamEncryptionEncryptionTypePtrOutput
-	ToStreamStreamEncryptionEncryptionTypePtrOutputWithContext(context.Context) StreamStreamEncryptionEncryptionTypePtrOutput
+	ToStreamEncryptionEncryptionTypePtrOutput() StreamEncryptionEncryptionTypePtrOutput
+	ToStreamEncryptionEncryptionTypePtrOutputWithContext(context.Context) StreamEncryptionEncryptionTypePtrOutput
 }
 
-type streamStreamEncryptionEncryptionTypePtr string
+type streamEncryptionEncryptionTypePtr string
 
-func StreamStreamEncryptionEncryptionTypePtr(v string) StreamStreamEncryptionEncryptionTypePtrInput {
-	return (*streamStreamEncryptionEncryptionTypePtr)(&v)
+func StreamEncryptionEncryptionTypePtr(v string) StreamEncryptionEncryptionTypePtrInput {
+	return (*streamEncryptionEncryptionTypePtr)(&v)
 }
 
-func (*streamStreamEncryptionEncryptionTypePtr) ElementType() reflect.Type {
-	return streamStreamEncryptionEncryptionTypePtrType
+func (*streamEncryptionEncryptionTypePtr) ElementType() reflect.Type {
+	return streamEncryptionEncryptionTypePtrType
 }
 
-func (in *streamStreamEncryptionEncryptionTypePtr) ToStreamStreamEncryptionEncryptionTypePtrOutput() StreamStreamEncryptionEncryptionTypePtrOutput {
-	return pulumi.ToOutput(in).(StreamStreamEncryptionEncryptionTypePtrOutput)
+func (in *streamEncryptionEncryptionTypePtr) ToStreamEncryptionEncryptionTypePtrOutput() StreamEncryptionEncryptionTypePtrOutput {
+	return pulumi.ToOutput(in).(StreamEncryptionEncryptionTypePtrOutput)
 }
 
-func (in *streamStreamEncryptionEncryptionTypePtr) ToStreamStreamEncryptionEncryptionTypePtrOutputWithContext(ctx context.Context) StreamStreamEncryptionEncryptionTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(StreamStreamEncryptionEncryptionTypePtrOutput)
+func (in *streamEncryptionEncryptionTypePtr) ToStreamEncryptionEncryptionTypePtrOutputWithContext(ctx context.Context) StreamEncryptionEncryptionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(StreamEncryptionEncryptionTypePtrOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(StreamStreamEncryptionEncryptionTypeOutput{})
-	pulumi.RegisterOutputType(StreamStreamEncryptionEncryptionTypePtrOutput{})
+	pulumi.RegisterOutputType(StreamEncryptionEncryptionTypeOutput{})
+	pulumi.RegisterOutputType(StreamEncryptionEncryptionTypePtrOutput{})
 }

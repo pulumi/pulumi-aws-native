@@ -1780,138 +1780,138 @@ func (o PipelineTagArrayOutput) Index(i pulumi.IntInput) PipelineTagOutput {
 	}).(PipelineTagOutput)
 }
 
-type WebhookWebhookAuthConfiguration struct {
+type WebhookAuthConfiguration struct {
 	AllowedIPRange *string `pulumi:"allowedIPRange"`
 	SecretToken    *string `pulumi:"secretToken"`
 }
 
-// WebhookWebhookAuthConfigurationInput is an input type that accepts WebhookWebhookAuthConfigurationArgs and WebhookWebhookAuthConfigurationOutput values.
-// You can construct a concrete instance of `WebhookWebhookAuthConfigurationInput` via:
+// WebhookAuthConfigurationInput is an input type that accepts WebhookAuthConfigurationArgs and WebhookAuthConfigurationOutput values.
+// You can construct a concrete instance of `WebhookAuthConfigurationInput` via:
 //
-//          WebhookWebhookAuthConfigurationArgs{...}
-type WebhookWebhookAuthConfigurationInput interface {
+//          WebhookAuthConfigurationArgs{...}
+type WebhookAuthConfigurationInput interface {
 	pulumi.Input
 
-	ToWebhookWebhookAuthConfigurationOutput() WebhookWebhookAuthConfigurationOutput
-	ToWebhookWebhookAuthConfigurationOutputWithContext(context.Context) WebhookWebhookAuthConfigurationOutput
+	ToWebhookAuthConfigurationOutput() WebhookAuthConfigurationOutput
+	ToWebhookAuthConfigurationOutputWithContext(context.Context) WebhookAuthConfigurationOutput
 }
 
-type WebhookWebhookAuthConfigurationArgs struct {
+type WebhookAuthConfigurationArgs struct {
 	AllowedIPRange pulumi.StringPtrInput `pulumi:"allowedIPRange"`
 	SecretToken    pulumi.StringPtrInput `pulumi:"secretToken"`
 }
 
-func (WebhookWebhookAuthConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebhookWebhookAuthConfiguration)(nil)).Elem()
+func (WebhookAuthConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebhookAuthConfiguration)(nil)).Elem()
 }
 
-func (i WebhookWebhookAuthConfigurationArgs) ToWebhookWebhookAuthConfigurationOutput() WebhookWebhookAuthConfigurationOutput {
-	return i.ToWebhookWebhookAuthConfigurationOutputWithContext(context.Background())
+func (i WebhookAuthConfigurationArgs) ToWebhookAuthConfigurationOutput() WebhookAuthConfigurationOutput {
+	return i.ToWebhookAuthConfigurationOutputWithContext(context.Background())
 }
 
-func (i WebhookWebhookAuthConfigurationArgs) ToWebhookWebhookAuthConfigurationOutputWithContext(ctx context.Context) WebhookWebhookAuthConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebhookWebhookAuthConfigurationOutput)
+func (i WebhookAuthConfigurationArgs) ToWebhookAuthConfigurationOutputWithContext(ctx context.Context) WebhookAuthConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebhookAuthConfigurationOutput)
 }
 
-func (i WebhookWebhookAuthConfigurationArgs) ToWebhookWebhookAuthConfigurationPtrOutput() WebhookWebhookAuthConfigurationPtrOutput {
-	return i.ToWebhookWebhookAuthConfigurationPtrOutputWithContext(context.Background())
+func (i WebhookAuthConfigurationArgs) ToWebhookAuthConfigurationPtrOutput() WebhookAuthConfigurationPtrOutput {
+	return i.ToWebhookAuthConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i WebhookWebhookAuthConfigurationArgs) ToWebhookWebhookAuthConfigurationPtrOutputWithContext(ctx context.Context) WebhookWebhookAuthConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebhookWebhookAuthConfigurationOutput).ToWebhookWebhookAuthConfigurationPtrOutputWithContext(ctx)
+func (i WebhookAuthConfigurationArgs) ToWebhookAuthConfigurationPtrOutputWithContext(ctx context.Context) WebhookAuthConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebhookAuthConfigurationOutput).ToWebhookAuthConfigurationPtrOutputWithContext(ctx)
 }
 
-// WebhookWebhookAuthConfigurationPtrInput is an input type that accepts WebhookWebhookAuthConfigurationArgs, WebhookWebhookAuthConfigurationPtr and WebhookWebhookAuthConfigurationPtrOutput values.
-// You can construct a concrete instance of `WebhookWebhookAuthConfigurationPtrInput` via:
+// WebhookAuthConfigurationPtrInput is an input type that accepts WebhookAuthConfigurationArgs, WebhookAuthConfigurationPtr and WebhookAuthConfigurationPtrOutput values.
+// You can construct a concrete instance of `WebhookAuthConfigurationPtrInput` via:
 //
-//          WebhookWebhookAuthConfigurationArgs{...}
+//          WebhookAuthConfigurationArgs{...}
 //
 //  or:
 //
 //          nil
-type WebhookWebhookAuthConfigurationPtrInput interface {
+type WebhookAuthConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToWebhookWebhookAuthConfigurationPtrOutput() WebhookWebhookAuthConfigurationPtrOutput
-	ToWebhookWebhookAuthConfigurationPtrOutputWithContext(context.Context) WebhookWebhookAuthConfigurationPtrOutput
+	ToWebhookAuthConfigurationPtrOutput() WebhookAuthConfigurationPtrOutput
+	ToWebhookAuthConfigurationPtrOutputWithContext(context.Context) WebhookAuthConfigurationPtrOutput
 }
 
-type webhookWebhookAuthConfigurationPtrType WebhookWebhookAuthConfigurationArgs
+type webhookAuthConfigurationPtrType WebhookAuthConfigurationArgs
 
-func WebhookWebhookAuthConfigurationPtr(v *WebhookWebhookAuthConfigurationArgs) WebhookWebhookAuthConfigurationPtrInput {
-	return (*webhookWebhookAuthConfigurationPtrType)(v)
+func WebhookAuthConfigurationPtr(v *WebhookAuthConfigurationArgs) WebhookAuthConfigurationPtrInput {
+	return (*webhookAuthConfigurationPtrType)(v)
 }
 
-func (*webhookWebhookAuthConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebhookWebhookAuthConfiguration)(nil)).Elem()
+func (*webhookAuthConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebhookAuthConfiguration)(nil)).Elem()
 }
 
-func (i *webhookWebhookAuthConfigurationPtrType) ToWebhookWebhookAuthConfigurationPtrOutput() WebhookWebhookAuthConfigurationPtrOutput {
-	return i.ToWebhookWebhookAuthConfigurationPtrOutputWithContext(context.Background())
+func (i *webhookAuthConfigurationPtrType) ToWebhookAuthConfigurationPtrOutput() WebhookAuthConfigurationPtrOutput {
+	return i.ToWebhookAuthConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *webhookWebhookAuthConfigurationPtrType) ToWebhookWebhookAuthConfigurationPtrOutputWithContext(ctx context.Context) WebhookWebhookAuthConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebhookWebhookAuthConfigurationPtrOutput)
+func (i *webhookAuthConfigurationPtrType) ToWebhookAuthConfigurationPtrOutputWithContext(ctx context.Context) WebhookAuthConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebhookAuthConfigurationPtrOutput)
 }
 
-type WebhookWebhookAuthConfigurationOutput struct{ *pulumi.OutputState }
+type WebhookAuthConfigurationOutput struct{ *pulumi.OutputState }
 
-func (WebhookWebhookAuthConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebhookWebhookAuthConfiguration)(nil)).Elem()
+func (WebhookAuthConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebhookAuthConfiguration)(nil)).Elem()
 }
 
-func (o WebhookWebhookAuthConfigurationOutput) ToWebhookWebhookAuthConfigurationOutput() WebhookWebhookAuthConfigurationOutput {
+func (o WebhookAuthConfigurationOutput) ToWebhookAuthConfigurationOutput() WebhookAuthConfigurationOutput {
 	return o
 }
 
-func (o WebhookWebhookAuthConfigurationOutput) ToWebhookWebhookAuthConfigurationOutputWithContext(ctx context.Context) WebhookWebhookAuthConfigurationOutput {
+func (o WebhookAuthConfigurationOutput) ToWebhookAuthConfigurationOutputWithContext(ctx context.Context) WebhookAuthConfigurationOutput {
 	return o
 }
 
-func (o WebhookWebhookAuthConfigurationOutput) ToWebhookWebhookAuthConfigurationPtrOutput() WebhookWebhookAuthConfigurationPtrOutput {
-	return o.ToWebhookWebhookAuthConfigurationPtrOutputWithContext(context.Background())
+func (o WebhookAuthConfigurationOutput) ToWebhookAuthConfigurationPtrOutput() WebhookAuthConfigurationPtrOutput {
+	return o.ToWebhookAuthConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o WebhookWebhookAuthConfigurationOutput) ToWebhookWebhookAuthConfigurationPtrOutputWithContext(ctx context.Context) WebhookWebhookAuthConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebhookWebhookAuthConfiguration) *WebhookWebhookAuthConfiguration {
+func (o WebhookAuthConfigurationOutput) ToWebhookAuthConfigurationPtrOutputWithContext(ctx context.Context) WebhookAuthConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebhookAuthConfiguration) *WebhookAuthConfiguration {
 		return &v
-	}).(WebhookWebhookAuthConfigurationPtrOutput)
+	}).(WebhookAuthConfigurationPtrOutput)
 }
 
-func (o WebhookWebhookAuthConfigurationOutput) AllowedIPRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebhookWebhookAuthConfiguration) *string { return v.AllowedIPRange }).(pulumi.StringPtrOutput)
+func (o WebhookAuthConfigurationOutput) AllowedIPRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebhookAuthConfiguration) *string { return v.AllowedIPRange }).(pulumi.StringPtrOutput)
 }
 
-func (o WebhookWebhookAuthConfigurationOutput) SecretToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebhookWebhookAuthConfiguration) *string { return v.SecretToken }).(pulumi.StringPtrOutput)
+func (o WebhookAuthConfigurationOutput) SecretToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebhookAuthConfiguration) *string { return v.SecretToken }).(pulumi.StringPtrOutput)
 }
 
-type WebhookWebhookAuthConfigurationPtrOutput struct{ *pulumi.OutputState }
+type WebhookAuthConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (WebhookWebhookAuthConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebhookWebhookAuthConfiguration)(nil)).Elem()
+func (WebhookAuthConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebhookAuthConfiguration)(nil)).Elem()
 }
 
-func (o WebhookWebhookAuthConfigurationPtrOutput) ToWebhookWebhookAuthConfigurationPtrOutput() WebhookWebhookAuthConfigurationPtrOutput {
+func (o WebhookAuthConfigurationPtrOutput) ToWebhookAuthConfigurationPtrOutput() WebhookAuthConfigurationPtrOutput {
 	return o
 }
 
-func (o WebhookWebhookAuthConfigurationPtrOutput) ToWebhookWebhookAuthConfigurationPtrOutputWithContext(ctx context.Context) WebhookWebhookAuthConfigurationPtrOutput {
+func (o WebhookAuthConfigurationPtrOutput) ToWebhookAuthConfigurationPtrOutputWithContext(ctx context.Context) WebhookAuthConfigurationPtrOutput {
 	return o
 }
 
-func (o WebhookWebhookAuthConfigurationPtrOutput) Elem() WebhookWebhookAuthConfigurationOutput {
-	return o.ApplyT(func(v *WebhookWebhookAuthConfiguration) WebhookWebhookAuthConfiguration {
+func (o WebhookAuthConfigurationPtrOutput) Elem() WebhookAuthConfigurationOutput {
+	return o.ApplyT(func(v *WebhookAuthConfiguration) WebhookAuthConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret WebhookWebhookAuthConfiguration
+		var ret WebhookAuthConfiguration
 		return ret
-	}).(WebhookWebhookAuthConfigurationOutput)
+	}).(WebhookAuthConfigurationOutput)
 }
 
-func (o WebhookWebhookAuthConfigurationPtrOutput) AllowedIPRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebhookWebhookAuthConfiguration) *string {
+func (o WebhookAuthConfigurationPtrOutput) AllowedIPRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebhookAuthConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -1919,8 +1919,8 @@ func (o WebhookWebhookAuthConfigurationPtrOutput) AllowedIPRange() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o WebhookWebhookAuthConfigurationPtrOutput) SecretToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebhookWebhookAuthConfiguration) *string {
+func (o WebhookAuthConfigurationPtrOutput) SecretToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebhookAuthConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -1928,104 +1928,104 @@ func (o WebhookWebhookAuthConfigurationPtrOutput) SecretToken() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-type WebhookWebhookFilterRule struct {
+type WebhookFilterRule struct {
 	JsonPath    string  `pulumi:"jsonPath"`
 	MatchEquals *string `pulumi:"matchEquals"`
 }
 
-// WebhookWebhookFilterRuleInput is an input type that accepts WebhookWebhookFilterRuleArgs and WebhookWebhookFilterRuleOutput values.
-// You can construct a concrete instance of `WebhookWebhookFilterRuleInput` via:
+// WebhookFilterRuleInput is an input type that accepts WebhookFilterRuleArgs and WebhookFilterRuleOutput values.
+// You can construct a concrete instance of `WebhookFilterRuleInput` via:
 //
-//          WebhookWebhookFilterRuleArgs{...}
-type WebhookWebhookFilterRuleInput interface {
+//          WebhookFilterRuleArgs{...}
+type WebhookFilterRuleInput interface {
 	pulumi.Input
 
-	ToWebhookWebhookFilterRuleOutput() WebhookWebhookFilterRuleOutput
-	ToWebhookWebhookFilterRuleOutputWithContext(context.Context) WebhookWebhookFilterRuleOutput
+	ToWebhookFilterRuleOutput() WebhookFilterRuleOutput
+	ToWebhookFilterRuleOutputWithContext(context.Context) WebhookFilterRuleOutput
 }
 
-type WebhookWebhookFilterRuleArgs struct {
+type WebhookFilterRuleArgs struct {
 	JsonPath    pulumi.StringInput    `pulumi:"jsonPath"`
 	MatchEquals pulumi.StringPtrInput `pulumi:"matchEquals"`
 }
 
-func (WebhookWebhookFilterRuleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebhookWebhookFilterRule)(nil)).Elem()
+func (WebhookFilterRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebhookFilterRule)(nil)).Elem()
 }
 
-func (i WebhookWebhookFilterRuleArgs) ToWebhookWebhookFilterRuleOutput() WebhookWebhookFilterRuleOutput {
-	return i.ToWebhookWebhookFilterRuleOutputWithContext(context.Background())
+func (i WebhookFilterRuleArgs) ToWebhookFilterRuleOutput() WebhookFilterRuleOutput {
+	return i.ToWebhookFilterRuleOutputWithContext(context.Background())
 }
 
-func (i WebhookWebhookFilterRuleArgs) ToWebhookWebhookFilterRuleOutputWithContext(ctx context.Context) WebhookWebhookFilterRuleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebhookWebhookFilterRuleOutput)
+func (i WebhookFilterRuleArgs) ToWebhookFilterRuleOutputWithContext(ctx context.Context) WebhookFilterRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebhookFilterRuleOutput)
 }
 
-// WebhookWebhookFilterRuleArrayInput is an input type that accepts WebhookWebhookFilterRuleArray and WebhookWebhookFilterRuleArrayOutput values.
-// You can construct a concrete instance of `WebhookWebhookFilterRuleArrayInput` via:
+// WebhookFilterRuleArrayInput is an input type that accepts WebhookFilterRuleArray and WebhookFilterRuleArrayOutput values.
+// You can construct a concrete instance of `WebhookFilterRuleArrayInput` via:
 //
-//          WebhookWebhookFilterRuleArray{ WebhookWebhookFilterRuleArgs{...} }
-type WebhookWebhookFilterRuleArrayInput interface {
+//          WebhookFilterRuleArray{ WebhookFilterRuleArgs{...} }
+type WebhookFilterRuleArrayInput interface {
 	pulumi.Input
 
-	ToWebhookWebhookFilterRuleArrayOutput() WebhookWebhookFilterRuleArrayOutput
-	ToWebhookWebhookFilterRuleArrayOutputWithContext(context.Context) WebhookWebhookFilterRuleArrayOutput
+	ToWebhookFilterRuleArrayOutput() WebhookFilterRuleArrayOutput
+	ToWebhookFilterRuleArrayOutputWithContext(context.Context) WebhookFilterRuleArrayOutput
 }
 
-type WebhookWebhookFilterRuleArray []WebhookWebhookFilterRuleInput
+type WebhookFilterRuleArray []WebhookFilterRuleInput
 
-func (WebhookWebhookFilterRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebhookWebhookFilterRule)(nil)).Elem()
+func (WebhookFilterRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebhookFilterRule)(nil)).Elem()
 }
 
-func (i WebhookWebhookFilterRuleArray) ToWebhookWebhookFilterRuleArrayOutput() WebhookWebhookFilterRuleArrayOutput {
-	return i.ToWebhookWebhookFilterRuleArrayOutputWithContext(context.Background())
+func (i WebhookFilterRuleArray) ToWebhookFilterRuleArrayOutput() WebhookFilterRuleArrayOutput {
+	return i.ToWebhookFilterRuleArrayOutputWithContext(context.Background())
 }
 
-func (i WebhookWebhookFilterRuleArray) ToWebhookWebhookFilterRuleArrayOutputWithContext(ctx context.Context) WebhookWebhookFilterRuleArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebhookWebhookFilterRuleArrayOutput)
+func (i WebhookFilterRuleArray) ToWebhookFilterRuleArrayOutputWithContext(ctx context.Context) WebhookFilterRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebhookFilterRuleArrayOutput)
 }
 
-type WebhookWebhookFilterRuleOutput struct{ *pulumi.OutputState }
+type WebhookFilterRuleOutput struct{ *pulumi.OutputState }
 
-func (WebhookWebhookFilterRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebhookWebhookFilterRule)(nil)).Elem()
+func (WebhookFilterRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebhookFilterRule)(nil)).Elem()
 }
 
-func (o WebhookWebhookFilterRuleOutput) ToWebhookWebhookFilterRuleOutput() WebhookWebhookFilterRuleOutput {
+func (o WebhookFilterRuleOutput) ToWebhookFilterRuleOutput() WebhookFilterRuleOutput {
 	return o
 }
 
-func (o WebhookWebhookFilterRuleOutput) ToWebhookWebhookFilterRuleOutputWithContext(ctx context.Context) WebhookWebhookFilterRuleOutput {
+func (o WebhookFilterRuleOutput) ToWebhookFilterRuleOutputWithContext(ctx context.Context) WebhookFilterRuleOutput {
 	return o
 }
 
-func (o WebhookWebhookFilterRuleOutput) JsonPath() pulumi.StringOutput {
-	return o.ApplyT(func(v WebhookWebhookFilterRule) string { return v.JsonPath }).(pulumi.StringOutput)
+func (o WebhookFilterRuleOutput) JsonPath() pulumi.StringOutput {
+	return o.ApplyT(func(v WebhookFilterRule) string { return v.JsonPath }).(pulumi.StringOutput)
 }
 
-func (o WebhookWebhookFilterRuleOutput) MatchEquals() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebhookWebhookFilterRule) *string { return v.MatchEquals }).(pulumi.StringPtrOutput)
+func (o WebhookFilterRuleOutput) MatchEquals() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebhookFilterRule) *string { return v.MatchEquals }).(pulumi.StringPtrOutput)
 }
 
-type WebhookWebhookFilterRuleArrayOutput struct{ *pulumi.OutputState }
+type WebhookFilterRuleArrayOutput struct{ *pulumi.OutputState }
 
-func (WebhookWebhookFilterRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebhookWebhookFilterRule)(nil)).Elem()
+func (WebhookFilterRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebhookFilterRule)(nil)).Elem()
 }
 
-func (o WebhookWebhookFilterRuleArrayOutput) ToWebhookWebhookFilterRuleArrayOutput() WebhookWebhookFilterRuleArrayOutput {
+func (o WebhookFilterRuleArrayOutput) ToWebhookFilterRuleArrayOutput() WebhookFilterRuleArrayOutput {
 	return o
 }
 
-func (o WebhookWebhookFilterRuleArrayOutput) ToWebhookWebhookFilterRuleArrayOutputWithContext(ctx context.Context) WebhookWebhookFilterRuleArrayOutput {
+func (o WebhookFilterRuleArrayOutput) ToWebhookFilterRuleArrayOutputWithContext(ctx context.Context) WebhookFilterRuleArrayOutput {
 	return o
 }
 
-func (o WebhookWebhookFilterRuleArrayOutput) Index(i pulumi.IntInput) WebhookWebhookFilterRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebhookWebhookFilterRule {
-		return vs[0].([]WebhookWebhookFilterRule)[vs[1].(int)]
-	}).(WebhookWebhookFilterRuleOutput)
+func (o WebhookFilterRuleArrayOutput) Index(i pulumi.IntInput) WebhookFilterRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebhookFilterRule {
+		return vs[0].([]WebhookFilterRule)[vs[1].(int)]
+	}).(WebhookFilterRuleOutput)
 }
 
 func init() {
@@ -2058,8 +2058,8 @@ func init() {
 	pulumi.RegisterOutputType(PipelineStageTransitionArrayOutput{})
 	pulumi.RegisterOutputType(PipelineTagOutput{})
 	pulumi.RegisterOutputType(PipelineTagArrayOutput{})
-	pulumi.RegisterOutputType(WebhookWebhookAuthConfigurationOutput{})
-	pulumi.RegisterOutputType(WebhookWebhookAuthConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(WebhookWebhookFilterRuleOutput{})
-	pulumi.RegisterOutputType(WebhookWebhookFilterRuleArrayOutput{})
+	pulumi.RegisterOutputType(WebhookAuthConfigurationOutput{})
+	pulumi.RegisterOutputType(WebhookAuthConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WebhookFilterRuleOutput{})
+	pulumi.RegisterOutputType(WebhookFilterRuleArrayOutput{})
 }

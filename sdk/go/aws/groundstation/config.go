@@ -15,11 +15,11 @@ import (
 type Config struct {
 	pulumi.CustomResourceState
 
-	Arn        pulumi.StringOutput    `pulumi:"arn"`
-	ConfigData ConfigConfigDataOutput `pulumi:"configData"`
-	Name       pulumi.StringOutput    `pulumi:"name"`
-	Tags       ConfigTagArrayOutput   `pulumi:"tags"`
-	Type       pulumi.StringOutput    `pulumi:"type"`
+	Arn        pulumi.StringOutput  `pulumi:"arn"`
+	ConfigData ConfigDataOutput     `pulumi:"configData"`
+	Name       pulumi.StringOutput  `pulumi:"name"`
+	Tags       ConfigTagArrayOutput `pulumi:"tags"`
+	Type       pulumi.StringOutput  `pulumi:"type"`
 }
 
 // NewConfig registers a new resource with the given unique name, arguments, and options.
@@ -67,14 +67,14 @@ func (ConfigState) ElementType() reflect.Type {
 }
 
 type configArgs struct {
-	ConfigData ConfigConfigData `pulumi:"configData"`
-	Name       string           `pulumi:"name"`
-	Tags       []ConfigTag      `pulumi:"tags"`
+	ConfigData ConfigData  `pulumi:"configData"`
+	Name       string      `pulumi:"name"`
+	Tags       []ConfigTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Config resource.
 type ConfigArgs struct {
-	ConfigData ConfigConfigDataInput
+	ConfigData ConfigDataInput
 	Name       pulumi.StringInput
 	Tags       ConfigTagArrayInput
 }

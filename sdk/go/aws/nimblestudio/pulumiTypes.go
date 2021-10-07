@@ -188,138 +188,138 @@ func (o LaunchProfileStreamConfigurationPtrOutput) StreamingImageIds() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
-type StreamingImageStreamingImageEncryptionConfiguration struct {
+type StreamingImageEncryptionConfiguration struct {
 	KeyArn  *string `pulumi:"keyArn"`
 	KeyType string  `pulumi:"keyType"`
 }
 
-// StreamingImageStreamingImageEncryptionConfigurationInput is an input type that accepts StreamingImageStreamingImageEncryptionConfigurationArgs and StreamingImageStreamingImageEncryptionConfigurationOutput values.
-// You can construct a concrete instance of `StreamingImageStreamingImageEncryptionConfigurationInput` via:
+// StreamingImageEncryptionConfigurationInput is an input type that accepts StreamingImageEncryptionConfigurationArgs and StreamingImageEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `StreamingImageEncryptionConfigurationInput` via:
 //
-//          StreamingImageStreamingImageEncryptionConfigurationArgs{...}
-type StreamingImageStreamingImageEncryptionConfigurationInput interface {
+//          StreamingImageEncryptionConfigurationArgs{...}
+type StreamingImageEncryptionConfigurationInput interface {
 	pulumi.Input
 
-	ToStreamingImageStreamingImageEncryptionConfigurationOutput() StreamingImageStreamingImageEncryptionConfigurationOutput
-	ToStreamingImageStreamingImageEncryptionConfigurationOutputWithContext(context.Context) StreamingImageStreamingImageEncryptionConfigurationOutput
+	ToStreamingImageEncryptionConfigurationOutput() StreamingImageEncryptionConfigurationOutput
+	ToStreamingImageEncryptionConfigurationOutputWithContext(context.Context) StreamingImageEncryptionConfigurationOutput
 }
 
-type StreamingImageStreamingImageEncryptionConfigurationArgs struct {
+type StreamingImageEncryptionConfigurationArgs struct {
 	KeyArn  pulumi.StringPtrInput `pulumi:"keyArn"`
 	KeyType pulumi.StringInput    `pulumi:"keyType"`
 }
 
-func (StreamingImageStreamingImageEncryptionConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingImageStreamingImageEncryptionConfiguration)(nil)).Elem()
+func (StreamingImageEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingImageEncryptionConfiguration)(nil)).Elem()
 }
 
-func (i StreamingImageStreamingImageEncryptionConfigurationArgs) ToStreamingImageStreamingImageEncryptionConfigurationOutput() StreamingImageStreamingImageEncryptionConfigurationOutput {
-	return i.ToStreamingImageStreamingImageEncryptionConfigurationOutputWithContext(context.Background())
+func (i StreamingImageEncryptionConfigurationArgs) ToStreamingImageEncryptionConfigurationOutput() StreamingImageEncryptionConfigurationOutput {
+	return i.ToStreamingImageEncryptionConfigurationOutputWithContext(context.Background())
 }
 
-func (i StreamingImageStreamingImageEncryptionConfigurationArgs) ToStreamingImageStreamingImageEncryptionConfigurationOutputWithContext(ctx context.Context) StreamingImageStreamingImageEncryptionConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamingImageStreamingImageEncryptionConfigurationOutput)
+func (i StreamingImageEncryptionConfigurationArgs) ToStreamingImageEncryptionConfigurationOutputWithContext(ctx context.Context) StreamingImageEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingImageEncryptionConfigurationOutput)
 }
 
-func (i StreamingImageStreamingImageEncryptionConfigurationArgs) ToStreamingImageStreamingImageEncryptionConfigurationPtrOutput() StreamingImageStreamingImageEncryptionConfigurationPtrOutput {
-	return i.ToStreamingImageStreamingImageEncryptionConfigurationPtrOutputWithContext(context.Background())
+func (i StreamingImageEncryptionConfigurationArgs) ToStreamingImageEncryptionConfigurationPtrOutput() StreamingImageEncryptionConfigurationPtrOutput {
+	return i.ToStreamingImageEncryptionConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i StreamingImageStreamingImageEncryptionConfigurationArgs) ToStreamingImageStreamingImageEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StreamingImageStreamingImageEncryptionConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamingImageStreamingImageEncryptionConfigurationOutput).ToStreamingImageStreamingImageEncryptionConfigurationPtrOutputWithContext(ctx)
+func (i StreamingImageEncryptionConfigurationArgs) ToStreamingImageEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StreamingImageEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingImageEncryptionConfigurationOutput).ToStreamingImageEncryptionConfigurationPtrOutputWithContext(ctx)
 }
 
-// StreamingImageStreamingImageEncryptionConfigurationPtrInput is an input type that accepts StreamingImageStreamingImageEncryptionConfigurationArgs, StreamingImageStreamingImageEncryptionConfigurationPtr and StreamingImageStreamingImageEncryptionConfigurationPtrOutput values.
-// You can construct a concrete instance of `StreamingImageStreamingImageEncryptionConfigurationPtrInput` via:
+// StreamingImageEncryptionConfigurationPtrInput is an input type that accepts StreamingImageEncryptionConfigurationArgs, StreamingImageEncryptionConfigurationPtr and StreamingImageEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `StreamingImageEncryptionConfigurationPtrInput` via:
 //
-//          StreamingImageStreamingImageEncryptionConfigurationArgs{...}
+//          StreamingImageEncryptionConfigurationArgs{...}
 //
 //  or:
 //
 //          nil
-type StreamingImageStreamingImageEncryptionConfigurationPtrInput interface {
+type StreamingImageEncryptionConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToStreamingImageStreamingImageEncryptionConfigurationPtrOutput() StreamingImageStreamingImageEncryptionConfigurationPtrOutput
-	ToStreamingImageStreamingImageEncryptionConfigurationPtrOutputWithContext(context.Context) StreamingImageStreamingImageEncryptionConfigurationPtrOutput
+	ToStreamingImageEncryptionConfigurationPtrOutput() StreamingImageEncryptionConfigurationPtrOutput
+	ToStreamingImageEncryptionConfigurationPtrOutputWithContext(context.Context) StreamingImageEncryptionConfigurationPtrOutput
 }
 
-type streamingImageStreamingImageEncryptionConfigurationPtrType StreamingImageStreamingImageEncryptionConfigurationArgs
+type streamingImageEncryptionConfigurationPtrType StreamingImageEncryptionConfigurationArgs
 
-func StreamingImageStreamingImageEncryptionConfigurationPtr(v *StreamingImageStreamingImageEncryptionConfigurationArgs) StreamingImageStreamingImageEncryptionConfigurationPtrInput {
-	return (*streamingImageStreamingImageEncryptionConfigurationPtrType)(v)
+func StreamingImageEncryptionConfigurationPtr(v *StreamingImageEncryptionConfigurationArgs) StreamingImageEncryptionConfigurationPtrInput {
+	return (*streamingImageEncryptionConfigurationPtrType)(v)
 }
 
-func (*streamingImageStreamingImageEncryptionConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StreamingImageStreamingImageEncryptionConfiguration)(nil)).Elem()
+func (*streamingImageEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingImageEncryptionConfiguration)(nil)).Elem()
 }
 
-func (i *streamingImageStreamingImageEncryptionConfigurationPtrType) ToStreamingImageStreamingImageEncryptionConfigurationPtrOutput() StreamingImageStreamingImageEncryptionConfigurationPtrOutput {
-	return i.ToStreamingImageStreamingImageEncryptionConfigurationPtrOutputWithContext(context.Background())
+func (i *streamingImageEncryptionConfigurationPtrType) ToStreamingImageEncryptionConfigurationPtrOutput() StreamingImageEncryptionConfigurationPtrOutput {
+	return i.ToStreamingImageEncryptionConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *streamingImageStreamingImageEncryptionConfigurationPtrType) ToStreamingImageStreamingImageEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StreamingImageStreamingImageEncryptionConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamingImageStreamingImageEncryptionConfigurationPtrOutput)
+func (i *streamingImageEncryptionConfigurationPtrType) ToStreamingImageEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StreamingImageEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingImageEncryptionConfigurationPtrOutput)
 }
 
-type StreamingImageStreamingImageEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+type StreamingImageEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
-func (StreamingImageStreamingImageEncryptionConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingImageStreamingImageEncryptionConfiguration)(nil)).Elem()
+func (StreamingImageEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingImageEncryptionConfiguration)(nil)).Elem()
 }
 
-func (o StreamingImageStreamingImageEncryptionConfigurationOutput) ToStreamingImageStreamingImageEncryptionConfigurationOutput() StreamingImageStreamingImageEncryptionConfigurationOutput {
+func (o StreamingImageEncryptionConfigurationOutput) ToStreamingImageEncryptionConfigurationOutput() StreamingImageEncryptionConfigurationOutput {
 	return o
 }
 
-func (o StreamingImageStreamingImageEncryptionConfigurationOutput) ToStreamingImageStreamingImageEncryptionConfigurationOutputWithContext(ctx context.Context) StreamingImageStreamingImageEncryptionConfigurationOutput {
+func (o StreamingImageEncryptionConfigurationOutput) ToStreamingImageEncryptionConfigurationOutputWithContext(ctx context.Context) StreamingImageEncryptionConfigurationOutput {
 	return o
 }
 
-func (o StreamingImageStreamingImageEncryptionConfigurationOutput) ToStreamingImageStreamingImageEncryptionConfigurationPtrOutput() StreamingImageStreamingImageEncryptionConfigurationPtrOutput {
-	return o.ToStreamingImageStreamingImageEncryptionConfigurationPtrOutputWithContext(context.Background())
+func (o StreamingImageEncryptionConfigurationOutput) ToStreamingImageEncryptionConfigurationPtrOutput() StreamingImageEncryptionConfigurationPtrOutput {
+	return o.ToStreamingImageEncryptionConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o StreamingImageStreamingImageEncryptionConfigurationOutput) ToStreamingImageStreamingImageEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StreamingImageStreamingImageEncryptionConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingImageStreamingImageEncryptionConfiguration) *StreamingImageStreamingImageEncryptionConfiguration {
+func (o StreamingImageEncryptionConfigurationOutput) ToStreamingImageEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StreamingImageEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingImageEncryptionConfiguration) *StreamingImageEncryptionConfiguration {
 		return &v
-	}).(StreamingImageStreamingImageEncryptionConfigurationPtrOutput)
+	}).(StreamingImageEncryptionConfigurationPtrOutput)
 }
 
-func (o StreamingImageStreamingImageEncryptionConfigurationOutput) KeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StreamingImageStreamingImageEncryptionConfiguration) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
+func (o StreamingImageEncryptionConfigurationOutput) KeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingImageEncryptionConfiguration) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
 }
 
-func (o StreamingImageStreamingImageEncryptionConfigurationOutput) KeyType() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamingImageStreamingImageEncryptionConfiguration) string { return v.KeyType }).(pulumi.StringOutput)
+func (o StreamingImageEncryptionConfigurationOutput) KeyType() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingImageEncryptionConfiguration) string { return v.KeyType }).(pulumi.StringOutput)
 }
 
-type StreamingImageStreamingImageEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+type StreamingImageEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (StreamingImageStreamingImageEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StreamingImageStreamingImageEncryptionConfiguration)(nil)).Elem()
+func (StreamingImageEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingImageEncryptionConfiguration)(nil)).Elem()
 }
 
-func (o StreamingImageStreamingImageEncryptionConfigurationPtrOutput) ToStreamingImageStreamingImageEncryptionConfigurationPtrOutput() StreamingImageStreamingImageEncryptionConfigurationPtrOutput {
+func (o StreamingImageEncryptionConfigurationPtrOutput) ToStreamingImageEncryptionConfigurationPtrOutput() StreamingImageEncryptionConfigurationPtrOutput {
 	return o
 }
 
-func (o StreamingImageStreamingImageEncryptionConfigurationPtrOutput) ToStreamingImageStreamingImageEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StreamingImageStreamingImageEncryptionConfigurationPtrOutput {
+func (o StreamingImageEncryptionConfigurationPtrOutput) ToStreamingImageEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StreamingImageEncryptionConfigurationPtrOutput {
 	return o
 }
 
-func (o StreamingImageStreamingImageEncryptionConfigurationPtrOutput) Elem() StreamingImageStreamingImageEncryptionConfigurationOutput {
-	return o.ApplyT(func(v *StreamingImageStreamingImageEncryptionConfiguration) StreamingImageStreamingImageEncryptionConfiguration {
+func (o StreamingImageEncryptionConfigurationPtrOutput) Elem() StreamingImageEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *StreamingImageEncryptionConfiguration) StreamingImageEncryptionConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret StreamingImageStreamingImageEncryptionConfiguration
+		var ret StreamingImageEncryptionConfiguration
 		return ret
-	}).(StreamingImageStreamingImageEncryptionConfigurationOutput)
+	}).(StreamingImageEncryptionConfigurationOutput)
 }
 
-func (o StreamingImageStreamingImageEncryptionConfigurationPtrOutput) KeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StreamingImageStreamingImageEncryptionConfiguration) *string {
+func (o StreamingImageEncryptionConfigurationPtrOutput) KeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingImageEncryptionConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -327,8 +327,8 @@ func (o StreamingImageStreamingImageEncryptionConfigurationPtrOutput) KeyArn() p
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o StreamingImageStreamingImageEncryptionConfigurationPtrOutput) KeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StreamingImageStreamingImageEncryptionConfiguration) *string {
+func (o StreamingImageEncryptionConfigurationPtrOutput) KeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingImageEncryptionConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -749,6 +749,304 @@ func (o StudioComponentComputeFarmConfigurationPtrOutput) Endpoint() pulumi.Stri
 		}
 		return v.Endpoint
 	}).(pulumi.StringPtrOutput)
+}
+
+type StudioComponentConfiguration struct {
+	ActiveDirectoryConfiguration  *StudioComponentActiveDirectoryConfiguration  `pulumi:"activeDirectoryConfiguration"`
+	ComputeFarmConfiguration      *StudioComponentComputeFarmConfiguration      `pulumi:"computeFarmConfiguration"`
+	LicenseServiceConfiguration   *StudioComponentLicenseServiceConfiguration   `pulumi:"licenseServiceConfiguration"`
+	SharedFileSystemConfiguration *StudioComponentSharedFileSystemConfiguration `pulumi:"sharedFileSystemConfiguration"`
+}
+
+// StudioComponentConfigurationInput is an input type that accepts StudioComponentConfigurationArgs and StudioComponentConfigurationOutput values.
+// You can construct a concrete instance of `StudioComponentConfigurationInput` via:
+//
+//          StudioComponentConfigurationArgs{...}
+type StudioComponentConfigurationInput interface {
+	pulumi.Input
+
+	ToStudioComponentConfigurationOutput() StudioComponentConfigurationOutput
+	ToStudioComponentConfigurationOutputWithContext(context.Context) StudioComponentConfigurationOutput
+}
+
+type StudioComponentConfigurationArgs struct {
+	ActiveDirectoryConfiguration  StudioComponentActiveDirectoryConfigurationPtrInput  `pulumi:"activeDirectoryConfiguration"`
+	ComputeFarmConfiguration      StudioComponentComputeFarmConfigurationPtrInput      `pulumi:"computeFarmConfiguration"`
+	LicenseServiceConfiguration   StudioComponentLicenseServiceConfigurationPtrInput   `pulumi:"licenseServiceConfiguration"`
+	SharedFileSystemConfiguration StudioComponentSharedFileSystemConfigurationPtrInput `pulumi:"sharedFileSystemConfiguration"`
+}
+
+func (StudioComponentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StudioComponentConfiguration)(nil)).Elem()
+}
+
+func (i StudioComponentConfigurationArgs) ToStudioComponentConfigurationOutput() StudioComponentConfigurationOutput {
+	return i.ToStudioComponentConfigurationOutputWithContext(context.Background())
+}
+
+func (i StudioComponentConfigurationArgs) ToStudioComponentConfigurationOutputWithContext(ctx context.Context) StudioComponentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentConfigurationOutput)
+}
+
+func (i StudioComponentConfigurationArgs) ToStudioComponentConfigurationPtrOutput() StudioComponentConfigurationPtrOutput {
+	return i.ToStudioComponentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i StudioComponentConfigurationArgs) ToStudioComponentConfigurationPtrOutputWithContext(ctx context.Context) StudioComponentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentConfigurationOutput).ToStudioComponentConfigurationPtrOutputWithContext(ctx)
+}
+
+// StudioComponentConfigurationPtrInput is an input type that accepts StudioComponentConfigurationArgs, StudioComponentConfigurationPtr and StudioComponentConfigurationPtrOutput values.
+// You can construct a concrete instance of `StudioComponentConfigurationPtrInput` via:
+//
+//          StudioComponentConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type StudioComponentConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToStudioComponentConfigurationPtrOutput() StudioComponentConfigurationPtrOutput
+	ToStudioComponentConfigurationPtrOutputWithContext(context.Context) StudioComponentConfigurationPtrOutput
+}
+
+type studioComponentConfigurationPtrType StudioComponentConfigurationArgs
+
+func StudioComponentConfigurationPtr(v *StudioComponentConfigurationArgs) StudioComponentConfigurationPtrInput {
+	return (*studioComponentConfigurationPtrType)(v)
+}
+
+func (*studioComponentConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StudioComponentConfiguration)(nil)).Elem()
+}
+
+func (i *studioComponentConfigurationPtrType) ToStudioComponentConfigurationPtrOutput() StudioComponentConfigurationPtrOutput {
+	return i.ToStudioComponentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *studioComponentConfigurationPtrType) ToStudioComponentConfigurationPtrOutputWithContext(ctx context.Context) StudioComponentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentConfigurationPtrOutput)
+}
+
+type StudioComponentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (StudioComponentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StudioComponentConfiguration)(nil)).Elem()
+}
+
+func (o StudioComponentConfigurationOutput) ToStudioComponentConfigurationOutput() StudioComponentConfigurationOutput {
+	return o
+}
+
+func (o StudioComponentConfigurationOutput) ToStudioComponentConfigurationOutputWithContext(ctx context.Context) StudioComponentConfigurationOutput {
+	return o
+}
+
+func (o StudioComponentConfigurationOutput) ToStudioComponentConfigurationPtrOutput() StudioComponentConfigurationPtrOutput {
+	return o.ToStudioComponentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o StudioComponentConfigurationOutput) ToStudioComponentConfigurationPtrOutputWithContext(ctx context.Context) StudioComponentConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StudioComponentConfiguration) *StudioComponentConfiguration {
+		return &v
+	}).(StudioComponentConfigurationPtrOutput)
+}
+
+func (o StudioComponentConfigurationOutput) ActiveDirectoryConfiguration() StudioComponentActiveDirectoryConfigurationPtrOutput {
+	return o.ApplyT(func(v StudioComponentConfiguration) *StudioComponentActiveDirectoryConfiguration {
+		return v.ActiveDirectoryConfiguration
+	}).(StudioComponentActiveDirectoryConfigurationPtrOutput)
+}
+
+func (o StudioComponentConfigurationOutput) ComputeFarmConfiguration() StudioComponentComputeFarmConfigurationPtrOutput {
+	return o.ApplyT(func(v StudioComponentConfiguration) *StudioComponentComputeFarmConfiguration {
+		return v.ComputeFarmConfiguration
+	}).(StudioComponentComputeFarmConfigurationPtrOutput)
+}
+
+func (o StudioComponentConfigurationOutput) LicenseServiceConfiguration() StudioComponentLicenseServiceConfigurationPtrOutput {
+	return o.ApplyT(func(v StudioComponentConfiguration) *StudioComponentLicenseServiceConfiguration {
+		return v.LicenseServiceConfiguration
+	}).(StudioComponentLicenseServiceConfigurationPtrOutput)
+}
+
+func (o StudioComponentConfigurationOutput) SharedFileSystemConfiguration() StudioComponentSharedFileSystemConfigurationPtrOutput {
+	return o.ApplyT(func(v StudioComponentConfiguration) *StudioComponentSharedFileSystemConfiguration {
+		return v.SharedFileSystemConfiguration
+	}).(StudioComponentSharedFileSystemConfigurationPtrOutput)
+}
+
+type StudioComponentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (StudioComponentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StudioComponentConfiguration)(nil)).Elem()
+}
+
+func (o StudioComponentConfigurationPtrOutput) ToStudioComponentConfigurationPtrOutput() StudioComponentConfigurationPtrOutput {
+	return o
+}
+
+func (o StudioComponentConfigurationPtrOutput) ToStudioComponentConfigurationPtrOutputWithContext(ctx context.Context) StudioComponentConfigurationPtrOutput {
+	return o
+}
+
+func (o StudioComponentConfigurationPtrOutput) Elem() StudioComponentConfigurationOutput {
+	return o.ApplyT(func(v *StudioComponentConfiguration) StudioComponentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret StudioComponentConfiguration
+		return ret
+	}).(StudioComponentConfigurationOutput)
+}
+
+func (o StudioComponentConfigurationPtrOutput) ActiveDirectoryConfiguration() StudioComponentActiveDirectoryConfigurationPtrOutput {
+	return o.ApplyT(func(v *StudioComponentConfiguration) *StudioComponentActiveDirectoryConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ActiveDirectoryConfiguration
+	}).(StudioComponentActiveDirectoryConfigurationPtrOutput)
+}
+
+func (o StudioComponentConfigurationPtrOutput) ComputeFarmConfiguration() StudioComponentComputeFarmConfigurationPtrOutput {
+	return o.ApplyT(func(v *StudioComponentConfiguration) *StudioComponentComputeFarmConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeFarmConfiguration
+	}).(StudioComponentComputeFarmConfigurationPtrOutput)
+}
+
+func (o StudioComponentConfigurationPtrOutput) LicenseServiceConfiguration() StudioComponentLicenseServiceConfigurationPtrOutput {
+	return o.ApplyT(func(v *StudioComponentConfiguration) *StudioComponentLicenseServiceConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.LicenseServiceConfiguration
+	}).(StudioComponentLicenseServiceConfigurationPtrOutput)
+}
+
+func (o StudioComponentConfigurationPtrOutput) SharedFileSystemConfiguration() StudioComponentSharedFileSystemConfigurationPtrOutput {
+	return o.ApplyT(func(v *StudioComponentConfiguration) *StudioComponentSharedFileSystemConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SharedFileSystemConfiguration
+	}).(StudioComponentSharedFileSystemConfigurationPtrOutput)
+}
+
+type StudioComponentInitializationScript struct {
+	LaunchProfileProtocolVersion *string `pulumi:"launchProfileProtocolVersion"`
+	Platform                     *string `pulumi:"platform"`
+	RunContext                   *string `pulumi:"runContext"`
+	Script                       *string `pulumi:"script"`
+}
+
+// StudioComponentInitializationScriptInput is an input type that accepts StudioComponentInitializationScriptArgs and StudioComponentInitializationScriptOutput values.
+// You can construct a concrete instance of `StudioComponentInitializationScriptInput` via:
+//
+//          StudioComponentInitializationScriptArgs{...}
+type StudioComponentInitializationScriptInput interface {
+	pulumi.Input
+
+	ToStudioComponentInitializationScriptOutput() StudioComponentInitializationScriptOutput
+	ToStudioComponentInitializationScriptOutputWithContext(context.Context) StudioComponentInitializationScriptOutput
+}
+
+type StudioComponentInitializationScriptArgs struct {
+	LaunchProfileProtocolVersion pulumi.StringPtrInput `pulumi:"launchProfileProtocolVersion"`
+	Platform                     pulumi.StringPtrInput `pulumi:"platform"`
+	RunContext                   pulumi.StringPtrInput `pulumi:"runContext"`
+	Script                       pulumi.StringPtrInput `pulumi:"script"`
+}
+
+func (StudioComponentInitializationScriptArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StudioComponentInitializationScript)(nil)).Elem()
+}
+
+func (i StudioComponentInitializationScriptArgs) ToStudioComponentInitializationScriptOutput() StudioComponentInitializationScriptOutput {
+	return i.ToStudioComponentInitializationScriptOutputWithContext(context.Background())
+}
+
+func (i StudioComponentInitializationScriptArgs) ToStudioComponentInitializationScriptOutputWithContext(ctx context.Context) StudioComponentInitializationScriptOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentInitializationScriptOutput)
+}
+
+// StudioComponentInitializationScriptArrayInput is an input type that accepts StudioComponentInitializationScriptArray and StudioComponentInitializationScriptArrayOutput values.
+// You can construct a concrete instance of `StudioComponentInitializationScriptArrayInput` via:
+//
+//          StudioComponentInitializationScriptArray{ StudioComponentInitializationScriptArgs{...} }
+type StudioComponentInitializationScriptArrayInput interface {
+	pulumi.Input
+
+	ToStudioComponentInitializationScriptArrayOutput() StudioComponentInitializationScriptArrayOutput
+	ToStudioComponentInitializationScriptArrayOutputWithContext(context.Context) StudioComponentInitializationScriptArrayOutput
+}
+
+type StudioComponentInitializationScriptArray []StudioComponentInitializationScriptInput
+
+func (StudioComponentInitializationScriptArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StudioComponentInitializationScript)(nil)).Elem()
+}
+
+func (i StudioComponentInitializationScriptArray) ToStudioComponentInitializationScriptArrayOutput() StudioComponentInitializationScriptArrayOutput {
+	return i.ToStudioComponentInitializationScriptArrayOutputWithContext(context.Background())
+}
+
+func (i StudioComponentInitializationScriptArray) ToStudioComponentInitializationScriptArrayOutputWithContext(ctx context.Context) StudioComponentInitializationScriptArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentInitializationScriptArrayOutput)
+}
+
+type StudioComponentInitializationScriptOutput struct{ *pulumi.OutputState }
+
+func (StudioComponentInitializationScriptOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StudioComponentInitializationScript)(nil)).Elem()
+}
+
+func (o StudioComponentInitializationScriptOutput) ToStudioComponentInitializationScriptOutput() StudioComponentInitializationScriptOutput {
+	return o
+}
+
+func (o StudioComponentInitializationScriptOutput) ToStudioComponentInitializationScriptOutputWithContext(ctx context.Context) StudioComponentInitializationScriptOutput {
+	return o
+}
+
+func (o StudioComponentInitializationScriptOutput) LaunchProfileProtocolVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StudioComponentInitializationScript) *string { return v.LaunchProfileProtocolVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o StudioComponentInitializationScriptOutput) Platform() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StudioComponentInitializationScript) *string { return v.Platform }).(pulumi.StringPtrOutput)
+}
+
+func (o StudioComponentInitializationScriptOutput) RunContext() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StudioComponentInitializationScript) *string { return v.RunContext }).(pulumi.StringPtrOutput)
+}
+
+func (o StudioComponentInitializationScriptOutput) Script() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StudioComponentInitializationScript) *string { return v.Script }).(pulumi.StringPtrOutput)
+}
+
+type StudioComponentInitializationScriptArrayOutput struct{ *pulumi.OutputState }
+
+func (StudioComponentInitializationScriptArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StudioComponentInitializationScript)(nil)).Elem()
+}
+
+func (o StudioComponentInitializationScriptArrayOutput) ToStudioComponentInitializationScriptArrayOutput() StudioComponentInitializationScriptArrayOutput {
+	return o
+}
+
+func (o StudioComponentInitializationScriptArrayOutput) ToStudioComponentInitializationScriptArrayOutputWithContext(ctx context.Context) StudioComponentInitializationScriptArrayOutput {
+	return o
+}
+
+func (o StudioComponentInitializationScriptArrayOutput) Index(i pulumi.IntInput) StudioComponentInitializationScriptOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StudioComponentInitializationScript {
+		return vs[0].([]StudioComponentInitializationScript)[vs[1].(int)]
+	}).(StudioComponentInitializationScriptOutput)
 }
 
 type StudioComponentLicenseServiceConfiguration struct {
@@ -1177,438 +1475,138 @@ func (o StudioComponentSharedFileSystemConfigurationPtrOutput) WindowsMountDrive
 	}).(pulumi.StringPtrOutput)
 }
 
-type StudioComponentStudioComponentConfiguration struct {
-	ActiveDirectoryConfiguration  *StudioComponentActiveDirectoryConfiguration  `pulumi:"activeDirectoryConfiguration"`
-	ComputeFarmConfiguration      *StudioComponentComputeFarmConfiguration      `pulumi:"computeFarmConfiguration"`
-	LicenseServiceConfiguration   *StudioComponentLicenseServiceConfiguration   `pulumi:"licenseServiceConfiguration"`
-	SharedFileSystemConfiguration *StudioComponentSharedFileSystemConfiguration `pulumi:"sharedFileSystemConfiguration"`
-}
-
-// StudioComponentStudioComponentConfigurationInput is an input type that accepts StudioComponentStudioComponentConfigurationArgs and StudioComponentStudioComponentConfigurationOutput values.
-// You can construct a concrete instance of `StudioComponentStudioComponentConfigurationInput` via:
-//
-//          StudioComponentStudioComponentConfigurationArgs{...}
-type StudioComponentStudioComponentConfigurationInput interface {
-	pulumi.Input
-
-	ToStudioComponentStudioComponentConfigurationOutput() StudioComponentStudioComponentConfigurationOutput
-	ToStudioComponentStudioComponentConfigurationOutputWithContext(context.Context) StudioComponentStudioComponentConfigurationOutput
-}
-
-type StudioComponentStudioComponentConfigurationArgs struct {
-	ActiveDirectoryConfiguration  StudioComponentActiveDirectoryConfigurationPtrInput  `pulumi:"activeDirectoryConfiguration"`
-	ComputeFarmConfiguration      StudioComponentComputeFarmConfigurationPtrInput      `pulumi:"computeFarmConfiguration"`
-	LicenseServiceConfiguration   StudioComponentLicenseServiceConfigurationPtrInput   `pulumi:"licenseServiceConfiguration"`
-	SharedFileSystemConfiguration StudioComponentSharedFileSystemConfigurationPtrInput `pulumi:"sharedFileSystemConfiguration"`
-}
-
-func (StudioComponentStudioComponentConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StudioComponentStudioComponentConfiguration)(nil)).Elem()
-}
-
-func (i StudioComponentStudioComponentConfigurationArgs) ToStudioComponentStudioComponentConfigurationOutput() StudioComponentStudioComponentConfigurationOutput {
-	return i.ToStudioComponentStudioComponentConfigurationOutputWithContext(context.Background())
-}
-
-func (i StudioComponentStudioComponentConfigurationArgs) ToStudioComponentStudioComponentConfigurationOutputWithContext(ctx context.Context) StudioComponentStudioComponentConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentStudioComponentConfigurationOutput)
-}
-
-func (i StudioComponentStudioComponentConfigurationArgs) ToStudioComponentStudioComponentConfigurationPtrOutput() StudioComponentStudioComponentConfigurationPtrOutput {
-	return i.ToStudioComponentStudioComponentConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i StudioComponentStudioComponentConfigurationArgs) ToStudioComponentStudioComponentConfigurationPtrOutputWithContext(ctx context.Context) StudioComponentStudioComponentConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentStudioComponentConfigurationOutput).ToStudioComponentStudioComponentConfigurationPtrOutputWithContext(ctx)
-}
-
-// StudioComponentStudioComponentConfigurationPtrInput is an input type that accepts StudioComponentStudioComponentConfigurationArgs, StudioComponentStudioComponentConfigurationPtr and StudioComponentStudioComponentConfigurationPtrOutput values.
-// You can construct a concrete instance of `StudioComponentStudioComponentConfigurationPtrInput` via:
-//
-//          StudioComponentStudioComponentConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type StudioComponentStudioComponentConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToStudioComponentStudioComponentConfigurationPtrOutput() StudioComponentStudioComponentConfigurationPtrOutput
-	ToStudioComponentStudioComponentConfigurationPtrOutputWithContext(context.Context) StudioComponentStudioComponentConfigurationPtrOutput
-}
-
-type studioComponentStudioComponentConfigurationPtrType StudioComponentStudioComponentConfigurationArgs
-
-func StudioComponentStudioComponentConfigurationPtr(v *StudioComponentStudioComponentConfigurationArgs) StudioComponentStudioComponentConfigurationPtrInput {
-	return (*studioComponentStudioComponentConfigurationPtrType)(v)
-}
-
-func (*studioComponentStudioComponentConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StudioComponentStudioComponentConfiguration)(nil)).Elem()
-}
-
-func (i *studioComponentStudioComponentConfigurationPtrType) ToStudioComponentStudioComponentConfigurationPtrOutput() StudioComponentStudioComponentConfigurationPtrOutput {
-	return i.ToStudioComponentStudioComponentConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *studioComponentStudioComponentConfigurationPtrType) ToStudioComponentStudioComponentConfigurationPtrOutputWithContext(ctx context.Context) StudioComponentStudioComponentConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentStudioComponentConfigurationPtrOutput)
-}
-
-type StudioComponentStudioComponentConfigurationOutput struct{ *pulumi.OutputState }
-
-func (StudioComponentStudioComponentConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StudioComponentStudioComponentConfiguration)(nil)).Elem()
-}
-
-func (o StudioComponentStudioComponentConfigurationOutput) ToStudioComponentStudioComponentConfigurationOutput() StudioComponentStudioComponentConfigurationOutput {
-	return o
-}
-
-func (o StudioComponentStudioComponentConfigurationOutput) ToStudioComponentStudioComponentConfigurationOutputWithContext(ctx context.Context) StudioComponentStudioComponentConfigurationOutput {
-	return o
-}
-
-func (o StudioComponentStudioComponentConfigurationOutput) ToStudioComponentStudioComponentConfigurationPtrOutput() StudioComponentStudioComponentConfigurationPtrOutput {
-	return o.ToStudioComponentStudioComponentConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o StudioComponentStudioComponentConfigurationOutput) ToStudioComponentStudioComponentConfigurationPtrOutputWithContext(ctx context.Context) StudioComponentStudioComponentConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StudioComponentStudioComponentConfiguration) *StudioComponentStudioComponentConfiguration {
-		return &v
-	}).(StudioComponentStudioComponentConfigurationPtrOutput)
-}
-
-func (o StudioComponentStudioComponentConfigurationOutput) ActiveDirectoryConfiguration() StudioComponentActiveDirectoryConfigurationPtrOutput {
-	return o.ApplyT(func(v StudioComponentStudioComponentConfiguration) *StudioComponentActiveDirectoryConfiguration {
-		return v.ActiveDirectoryConfiguration
-	}).(StudioComponentActiveDirectoryConfigurationPtrOutput)
-}
-
-func (o StudioComponentStudioComponentConfigurationOutput) ComputeFarmConfiguration() StudioComponentComputeFarmConfigurationPtrOutput {
-	return o.ApplyT(func(v StudioComponentStudioComponentConfiguration) *StudioComponentComputeFarmConfiguration {
-		return v.ComputeFarmConfiguration
-	}).(StudioComponentComputeFarmConfigurationPtrOutput)
-}
-
-func (o StudioComponentStudioComponentConfigurationOutput) LicenseServiceConfiguration() StudioComponentLicenseServiceConfigurationPtrOutput {
-	return o.ApplyT(func(v StudioComponentStudioComponentConfiguration) *StudioComponentLicenseServiceConfiguration {
-		return v.LicenseServiceConfiguration
-	}).(StudioComponentLicenseServiceConfigurationPtrOutput)
-}
-
-func (o StudioComponentStudioComponentConfigurationOutput) SharedFileSystemConfiguration() StudioComponentSharedFileSystemConfigurationPtrOutput {
-	return o.ApplyT(func(v StudioComponentStudioComponentConfiguration) *StudioComponentSharedFileSystemConfiguration {
-		return v.SharedFileSystemConfiguration
-	}).(StudioComponentSharedFileSystemConfigurationPtrOutput)
-}
-
-type StudioComponentStudioComponentConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (StudioComponentStudioComponentConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StudioComponentStudioComponentConfiguration)(nil)).Elem()
-}
-
-func (o StudioComponentStudioComponentConfigurationPtrOutput) ToStudioComponentStudioComponentConfigurationPtrOutput() StudioComponentStudioComponentConfigurationPtrOutput {
-	return o
-}
-
-func (o StudioComponentStudioComponentConfigurationPtrOutput) ToStudioComponentStudioComponentConfigurationPtrOutputWithContext(ctx context.Context) StudioComponentStudioComponentConfigurationPtrOutput {
-	return o
-}
-
-func (o StudioComponentStudioComponentConfigurationPtrOutput) Elem() StudioComponentStudioComponentConfigurationOutput {
-	return o.ApplyT(func(v *StudioComponentStudioComponentConfiguration) StudioComponentStudioComponentConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret StudioComponentStudioComponentConfiguration
-		return ret
-	}).(StudioComponentStudioComponentConfigurationOutput)
-}
-
-func (o StudioComponentStudioComponentConfigurationPtrOutput) ActiveDirectoryConfiguration() StudioComponentActiveDirectoryConfigurationPtrOutput {
-	return o.ApplyT(func(v *StudioComponentStudioComponentConfiguration) *StudioComponentActiveDirectoryConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.ActiveDirectoryConfiguration
-	}).(StudioComponentActiveDirectoryConfigurationPtrOutput)
-}
-
-func (o StudioComponentStudioComponentConfigurationPtrOutput) ComputeFarmConfiguration() StudioComponentComputeFarmConfigurationPtrOutput {
-	return o.ApplyT(func(v *StudioComponentStudioComponentConfiguration) *StudioComponentComputeFarmConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.ComputeFarmConfiguration
-	}).(StudioComponentComputeFarmConfigurationPtrOutput)
-}
-
-func (o StudioComponentStudioComponentConfigurationPtrOutput) LicenseServiceConfiguration() StudioComponentLicenseServiceConfigurationPtrOutput {
-	return o.ApplyT(func(v *StudioComponentStudioComponentConfiguration) *StudioComponentLicenseServiceConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.LicenseServiceConfiguration
-	}).(StudioComponentLicenseServiceConfigurationPtrOutput)
-}
-
-func (o StudioComponentStudioComponentConfigurationPtrOutput) SharedFileSystemConfiguration() StudioComponentSharedFileSystemConfigurationPtrOutput {
-	return o.ApplyT(func(v *StudioComponentStudioComponentConfiguration) *StudioComponentSharedFileSystemConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.SharedFileSystemConfiguration
-	}).(StudioComponentSharedFileSystemConfigurationPtrOutput)
-}
-
-type StudioComponentStudioComponentInitializationScript struct {
-	LaunchProfileProtocolVersion *string `pulumi:"launchProfileProtocolVersion"`
-	Platform                     *string `pulumi:"platform"`
-	RunContext                   *string `pulumi:"runContext"`
-	Script                       *string `pulumi:"script"`
-}
-
-// StudioComponentStudioComponentInitializationScriptInput is an input type that accepts StudioComponentStudioComponentInitializationScriptArgs and StudioComponentStudioComponentInitializationScriptOutput values.
-// You can construct a concrete instance of `StudioComponentStudioComponentInitializationScriptInput` via:
-//
-//          StudioComponentStudioComponentInitializationScriptArgs{...}
-type StudioComponentStudioComponentInitializationScriptInput interface {
-	pulumi.Input
-
-	ToStudioComponentStudioComponentInitializationScriptOutput() StudioComponentStudioComponentInitializationScriptOutput
-	ToStudioComponentStudioComponentInitializationScriptOutputWithContext(context.Context) StudioComponentStudioComponentInitializationScriptOutput
-}
-
-type StudioComponentStudioComponentInitializationScriptArgs struct {
-	LaunchProfileProtocolVersion pulumi.StringPtrInput `pulumi:"launchProfileProtocolVersion"`
-	Platform                     pulumi.StringPtrInput `pulumi:"platform"`
-	RunContext                   pulumi.StringPtrInput `pulumi:"runContext"`
-	Script                       pulumi.StringPtrInput `pulumi:"script"`
-}
-
-func (StudioComponentStudioComponentInitializationScriptArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StudioComponentStudioComponentInitializationScript)(nil)).Elem()
-}
-
-func (i StudioComponentStudioComponentInitializationScriptArgs) ToStudioComponentStudioComponentInitializationScriptOutput() StudioComponentStudioComponentInitializationScriptOutput {
-	return i.ToStudioComponentStudioComponentInitializationScriptOutputWithContext(context.Background())
-}
-
-func (i StudioComponentStudioComponentInitializationScriptArgs) ToStudioComponentStudioComponentInitializationScriptOutputWithContext(ctx context.Context) StudioComponentStudioComponentInitializationScriptOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentStudioComponentInitializationScriptOutput)
-}
-
-// StudioComponentStudioComponentInitializationScriptArrayInput is an input type that accepts StudioComponentStudioComponentInitializationScriptArray and StudioComponentStudioComponentInitializationScriptArrayOutput values.
-// You can construct a concrete instance of `StudioComponentStudioComponentInitializationScriptArrayInput` via:
-//
-//          StudioComponentStudioComponentInitializationScriptArray{ StudioComponentStudioComponentInitializationScriptArgs{...} }
-type StudioComponentStudioComponentInitializationScriptArrayInput interface {
-	pulumi.Input
-
-	ToStudioComponentStudioComponentInitializationScriptArrayOutput() StudioComponentStudioComponentInitializationScriptArrayOutput
-	ToStudioComponentStudioComponentInitializationScriptArrayOutputWithContext(context.Context) StudioComponentStudioComponentInitializationScriptArrayOutput
-}
-
-type StudioComponentStudioComponentInitializationScriptArray []StudioComponentStudioComponentInitializationScriptInput
-
-func (StudioComponentStudioComponentInitializationScriptArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StudioComponentStudioComponentInitializationScript)(nil)).Elem()
-}
-
-func (i StudioComponentStudioComponentInitializationScriptArray) ToStudioComponentStudioComponentInitializationScriptArrayOutput() StudioComponentStudioComponentInitializationScriptArrayOutput {
-	return i.ToStudioComponentStudioComponentInitializationScriptArrayOutputWithContext(context.Background())
-}
-
-func (i StudioComponentStudioComponentInitializationScriptArray) ToStudioComponentStudioComponentInitializationScriptArrayOutputWithContext(ctx context.Context) StudioComponentStudioComponentInitializationScriptArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentStudioComponentInitializationScriptArrayOutput)
-}
-
-type StudioComponentStudioComponentInitializationScriptOutput struct{ *pulumi.OutputState }
-
-func (StudioComponentStudioComponentInitializationScriptOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StudioComponentStudioComponentInitializationScript)(nil)).Elem()
-}
-
-func (o StudioComponentStudioComponentInitializationScriptOutput) ToStudioComponentStudioComponentInitializationScriptOutput() StudioComponentStudioComponentInitializationScriptOutput {
-	return o
-}
-
-func (o StudioComponentStudioComponentInitializationScriptOutput) ToStudioComponentStudioComponentInitializationScriptOutputWithContext(ctx context.Context) StudioComponentStudioComponentInitializationScriptOutput {
-	return o
-}
-
-func (o StudioComponentStudioComponentInitializationScriptOutput) LaunchProfileProtocolVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StudioComponentStudioComponentInitializationScript) *string {
-		return v.LaunchProfileProtocolVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o StudioComponentStudioComponentInitializationScriptOutput) Platform() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StudioComponentStudioComponentInitializationScript) *string { return v.Platform }).(pulumi.StringPtrOutput)
-}
-
-func (o StudioComponentStudioComponentInitializationScriptOutput) RunContext() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StudioComponentStudioComponentInitializationScript) *string { return v.RunContext }).(pulumi.StringPtrOutput)
-}
-
-func (o StudioComponentStudioComponentInitializationScriptOutput) Script() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StudioComponentStudioComponentInitializationScript) *string { return v.Script }).(pulumi.StringPtrOutput)
-}
-
-type StudioComponentStudioComponentInitializationScriptArrayOutput struct{ *pulumi.OutputState }
-
-func (StudioComponentStudioComponentInitializationScriptArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StudioComponentStudioComponentInitializationScript)(nil)).Elem()
-}
-
-func (o StudioComponentStudioComponentInitializationScriptArrayOutput) ToStudioComponentStudioComponentInitializationScriptArrayOutput() StudioComponentStudioComponentInitializationScriptArrayOutput {
-	return o
-}
-
-func (o StudioComponentStudioComponentInitializationScriptArrayOutput) ToStudioComponentStudioComponentInitializationScriptArrayOutputWithContext(ctx context.Context) StudioComponentStudioComponentInitializationScriptArrayOutput {
-	return o
-}
-
-func (o StudioComponentStudioComponentInitializationScriptArrayOutput) Index(i pulumi.IntInput) StudioComponentStudioComponentInitializationScriptOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StudioComponentStudioComponentInitializationScript {
-		return vs[0].([]StudioComponentStudioComponentInitializationScript)[vs[1].(int)]
-	}).(StudioComponentStudioComponentInitializationScriptOutput)
-}
-
-type StudioStudioEncryptionConfiguration struct {
+type StudioEncryptionConfiguration struct {
 	KeyArn  *string `pulumi:"keyArn"`
 	KeyType string  `pulumi:"keyType"`
 }
 
-// StudioStudioEncryptionConfigurationInput is an input type that accepts StudioStudioEncryptionConfigurationArgs and StudioStudioEncryptionConfigurationOutput values.
-// You can construct a concrete instance of `StudioStudioEncryptionConfigurationInput` via:
+// StudioEncryptionConfigurationInput is an input type that accepts StudioEncryptionConfigurationArgs and StudioEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `StudioEncryptionConfigurationInput` via:
 //
-//          StudioStudioEncryptionConfigurationArgs{...}
-type StudioStudioEncryptionConfigurationInput interface {
+//          StudioEncryptionConfigurationArgs{...}
+type StudioEncryptionConfigurationInput interface {
 	pulumi.Input
 
-	ToStudioStudioEncryptionConfigurationOutput() StudioStudioEncryptionConfigurationOutput
-	ToStudioStudioEncryptionConfigurationOutputWithContext(context.Context) StudioStudioEncryptionConfigurationOutput
+	ToStudioEncryptionConfigurationOutput() StudioEncryptionConfigurationOutput
+	ToStudioEncryptionConfigurationOutputWithContext(context.Context) StudioEncryptionConfigurationOutput
 }
 
-type StudioStudioEncryptionConfigurationArgs struct {
+type StudioEncryptionConfigurationArgs struct {
 	KeyArn  pulumi.StringPtrInput `pulumi:"keyArn"`
 	KeyType pulumi.StringInput    `pulumi:"keyType"`
 }
 
-func (StudioStudioEncryptionConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StudioStudioEncryptionConfiguration)(nil)).Elem()
+func (StudioEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StudioEncryptionConfiguration)(nil)).Elem()
 }
 
-func (i StudioStudioEncryptionConfigurationArgs) ToStudioStudioEncryptionConfigurationOutput() StudioStudioEncryptionConfigurationOutput {
-	return i.ToStudioStudioEncryptionConfigurationOutputWithContext(context.Background())
+func (i StudioEncryptionConfigurationArgs) ToStudioEncryptionConfigurationOutput() StudioEncryptionConfigurationOutput {
+	return i.ToStudioEncryptionConfigurationOutputWithContext(context.Background())
 }
 
-func (i StudioStudioEncryptionConfigurationArgs) ToStudioStudioEncryptionConfigurationOutputWithContext(ctx context.Context) StudioStudioEncryptionConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioStudioEncryptionConfigurationOutput)
+func (i StudioEncryptionConfigurationArgs) ToStudioEncryptionConfigurationOutputWithContext(ctx context.Context) StudioEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioEncryptionConfigurationOutput)
 }
 
-func (i StudioStudioEncryptionConfigurationArgs) ToStudioStudioEncryptionConfigurationPtrOutput() StudioStudioEncryptionConfigurationPtrOutput {
-	return i.ToStudioStudioEncryptionConfigurationPtrOutputWithContext(context.Background())
+func (i StudioEncryptionConfigurationArgs) ToStudioEncryptionConfigurationPtrOutput() StudioEncryptionConfigurationPtrOutput {
+	return i.ToStudioEncryptionConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i StudioStudioEncryptionConfigurationArgs) ToStudioStudioEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StudioStudioEncryptionConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioStudioEncryptionConfigurationOutput).ToStudioStudioEncryptionConfigurationPtrOutputWithContext(ctx)
+func (i StudioEncryptionConfigurationArgs) ToStudioEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StudioEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioEncryptionConfigurationOutput).ToStudioEncryptionConfigurationPtrOutputWithContext(ctx)
 }
 
-// StudioStudioEncryptionConfigurationPtrInput is an input type that accepts StudioStudioEncryptionConfigurationArgs, StudioStudioEncryptionConfigurationPtr and StudioStudioEncryptionConfigurationPtrOutput values.
-// You can construct a concrete instance of `StudioStudioEncryptionConfigurationPtrInput` via:
+// StudioEncryptionConfigurationPtrInput is an input type that accepts StudioEncryptionConfigurationArgs, StudioEncryptionConfigurationPtr and StudioEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `StudioEncryptionConfigurationPtrInput` via:
 //
-//          StudioStudioEncryptionConfigurationArgs{...}
+//          StudioEncryptionConfigurationArgs{...}
 //
 //  or:
 //
 //          nil
-type StudioStudioEncryptionConfigurationPtrInput interface {
+type StudioEncryptionConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToStudioStudioEncryptionConfigurationPtrOutput() StudioStudioEncryptionConfigurationPtrOutput
-	ToStudioStudioEncryptionConfigurationPtrOutputWithContext(context.Context) StudioStudioEncryptionConfigurationPtrOutput
+	ToStudioEncryptionConfigurationPtrOutput() StudioEncryptionConfigurationPtrOutput
+	ToStudioEncryptionConfigurationPtrOutputWithContext(context.Context) StudioEncryptionConfigurationPtrOutput
 }
 
-type studioStudioEncryptionConfigurationPtrType StudioStudioEncryptionConfigurationArgs
+type studioEncryptionConfigurationPtrType StudioEncryptionConfigurationArgs
 
-func StudioStudioEncryptionConfigurationPtr(v *StudioStudioEncryptionConfigurationArgs) StudioStudioEncryptionConfigurationPtrInput {
-	return (*studioStudioEncryptionConfigurationPtrType)(v)
+func StudioEncryptionConfigurationPtr(v *StudioEncryptionConfigurationArgs) StudioEncryptionConfigurationPtrInput {
+	return (*studioEncryptionConfigurationPtrType)(v)
 }
 
-func (*studioStudioEncryptionConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StudioStudioEncryptionConfiguration)(nil)).Elem()
+func (*studioEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StudioEncryptionConfiguration)(nil)).Elem()
 }
 
-func (i *studioStudioEncryptionConfigurationPtrType) ToStudioStudioEncryptionConfigurationPtrOutput() StudioStudioEncryptionConfigurationPtrOutput {
-	return i.ToStudioStudioEncryptionConfigurationPtrOutputWithContext(context.Background())
+func (i *studioEncryptionConfigurationPtrType) ToStudioEncryptionConfigurationPtrOutput() StudioEncryptionConfigurationPtrOutput {
+	return i.ToStudioEncryptionConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *studioStudioEncryptionConfigurationPtrType) ToStudioStudioEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StudioStudioEncryptionConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioStudioEncryptionConfigurationPtrOutput)
+func (i *studioEncryptionConfigurationPtrType) ToStudioEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StudioEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioEncryptionConfigurationPtrOutput)
 }
 
-type StudioStudioEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+type StudioEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
-func (StudioStudioEncryptionConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StudioStudioEncryptionConfiguration)(nil)).Elem()
+func (StudioEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StudioEncryptionConfiguration)(nil)).Elem()
 }
 
-func (o StudioStudioEncryptionConfigurationOutput) ToStudioStudioEncryptionConfigurationOutput() StudioStudioEncryptionConfigurationOutput {
+func (o StudioEncryptionConfigurationOutput) ToStudioEncryptionConfigurationOutput() StudioEncryptionConfigurationOutput {
 	return o
 }
 
-func (o StudioStudioEncryptionConfigurationOutput) ToStudioStudioEncryptionConfigurationOutputWithContext(ctx context.Context) StudioStudioEncryptionConfigurationOutput {
+func (o StudioEncryptionConfigurationOutput) ToStudioEncryptionConfigurationOutputWithContext(ctx context.Context) StudioEncryptionConfigurationOutput {
 	return o
 }
 
-func (o StudioStudioEncryptionConfigurationOutput) ToStudioStudioEncryptionConfigurationPtrOutput() StudioStudioEncryptionConfigurationPtrOutput {
-	return o.ToStudioStudioEncryptionConfigurationPtrOutputWithContext(context.Background())
+func (o StudioEncryptionConfigurationOutput) ToStudioEncryptionConfigurationPtrOutput() StudioEncryptionConfigurationPtrOutput {
+	return o.ToStudioEncryptionConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o StudioStudioEncryptionConfigurationOutput) ToStudioStudioEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StudioStudioEncryptionConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StudioStudioEncryptionConfiguration) *StudioStudioEncryptionConfiguration {
+func (o StudioEncryptionConfigurationOutput) ToStudioEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StudioEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StudioEncryptionConfiguration) *StudioEncryptionConfiguration {
 		return &v
-	}).(StudioStudioEncryptionConfigurationPtrOutput)
+	}).(StudioEncryptionConfigurationPtrOutput)
 }
 
-func (o StudioStudioEncryptionConfigurationOutput) KeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StudioStudioEncryptionConfiguration) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
+func (o StudioEncryptionConfigurationOutput) KeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StudioEncryptionConfiguration) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
 }
 
-func (o StudioStudioEncryptionConfigurationOutput) KeyType() pulumi.StringOutput {
-	return o.ApplyT(func(v StudioStudioEncryptionConfiguration) string { return v.KeyType }).(pulumi.StringOutput)
+func (o StudioEncryptionConfigurationOutput) KeyType() pulumi.StringOutput {
+	return o.ApplyT(func(v StudioEncryptionConfiguration) string { return v.KeyType }).(pulumi.StringOutput)
 }
 
-type StudioStudioEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+type StudioEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (StudioStudioEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StudioStudioEncryptionConfiguration)(nil)).Elem()
+func (StudioEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StudioEncryptionConfiguration)(nil)).Elem()
 }
 
-func (o StudioStudioEncryptionConfigurationPtrOutput) ToStudioStudioEncryptionConfigurationPtrOutput() StudioStudioEncryptionConfigurationPtrOutput {
+func (o StudioEncryptionConfigurationPtrOutput) ToStudioEncryptionConfigurationPtrOutput() StudioEncryptionConfigurationPtrOutput {
 	return o
 }
 
-func (o StudioStudioEncryptionConfigurationPtrOutput) ToStudioStudioEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StudioStudioEncryptionConfigurationPtrOutput {
+func (o StudioEncryptionConfigurationPtrOutput) ToStudioEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StudioEncryptionConfigurationPtrOutput {
 	return o
 }
 
-func (o StudioStudioEncryptionConfigurationPtrOutput) Elem() StudioStudioEncryptionConfigurationOutput {
-	return o.ApplyT(func(v *StudioStudioEncryptionConfiguration) StudioStudioEncryptionConfiguration {
+func (o StudioEncryptionConfigurationPtrOutput) Elem() StudioEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *StudioEncryptionConfiguration) StudioEncryptionConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret StudioStudioEncryptionConfiguration
+		var ret StudioEncryptionConfiguration
 		return ret
-	}).(StudioStudioEncryptionConfigurationOutput)
+	}).(StudioEncryptionConfigurationOutput)
 }
 
-func (o StudioStudioEncryptionConfigurationPtrOutput) KeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StudioStudioEncryptionConfiguration) *string {
+func (o StudioEncryptionConfigurationPtrOutput) KeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StudioEncryptionConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -1616,8 +1614,8 @@ func (o StudioStudioEncryptionConfigurationPtrOutput) KeyArn() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o StudioStudioEncryptionConfigurationPtrOutput) KeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StudioStudioEncryptionConfiguration) *string {
+func (o StudioEncryptionConfigurationPtrOutput) KeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StudioEncryptionConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -1628,24 +1626,24 @@ func (o StudioStudioEncryptionConfigurationPtrOutput) KeyType() pulumi.StringPtr
 func init() {
 	pulumi.RegisterOutputType(LaunchProfileStreamConfigurationOutput{})
 	pulumi.RegisterOutputType(LaunchProfileStreamConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(StreamingImageStreamingImageEncryptionConfigurationOutput{})
-	pulumi.RegisterOutputType(StreamingImageStreamingImageEncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(StreamingImageEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(StreamingImageEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StudioComponentActiveDirectoryComputerAttributeOutput{})
 	pulumi.RegisterOutputType(StudioComponentActiveDirectoryComputerAttributeArrayOutput{})
 	pulumi.RegisterOutputType(StudioComponentActiveDirectoryConfigurationOutput{})
 	pulumi.RegisterOutputType(StudioComponentActiveDirectoryConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StudioComponentComputeFarmConfigurationOutput{})
 	pulumi.RegisterOutputType(StudioComponentComputeFarmConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(StudioComponentConfigurationOutput{})
+	pulumi.RegisterOutputType(StudioComponentConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(StudioComponentInitializationScriptOutput{})
+	pulumi.RegisterOutputType(StudioComponentInitializationScriptArrayOutput{})
 	pulumi.RegisterOutputType(StudioComponentLicenseServiceConfigurationOutput{})
 	pulumi.RegisterOutputType(StudioComponentLicenseServiceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StudioComponentScriptParameterKeyValueOutput{})
 	pulumi.RegisterOutputType(StudioComponentScriptParameterKeyValueArrayOutput{})
 	pulumi.RegisterOutputType(StudioComponentSharedFileSystemConfigurationOutput{})
 	pulumi.RegisterOutputType(StudioComponentSharedFileSystemConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(StudioComponentStudioComponentConfigurationOutput{})
-	pulumi.RegisterOutputType(StudioComponentStudioComponentConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(StudioComponentStudioComponentInitializationScriptOutput{})
-	pulumi.RegisterOutputType(StudioComponentStudioComponentInitializationScriptArrayOutput{})
-	pulumi.RegisterOutputType(StudioStudioEncryptionConfigurationOutput{})
-	pulumi.RegisterOutputType(StudioStudioEncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(StudioEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(StudioEncryptionConfigurationPtrOutput{})
 }

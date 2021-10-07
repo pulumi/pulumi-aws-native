@@ -166,7 +166,7 @@ func (o GroupInsightsConfigurationPtrOutput) NotificationsEnabled() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-type SamplingRuleSamplingRule struct {
+type SamplingRuleType struct {
 	// Matches attributes derived from the request.
 	Attributes interface{} `pulumi:"attributes"`
 	// The percentage of matching requests to instrument, after the reservoir is exhausted.
@@ -193,18 +193,18 @@ type SamplingRuleSamplingRule struct {
 	Version *int `pulumi:"version"`
 }
 
-// SamplingRuleSamplingRuleInput is an input type that accepts SamplingRuleSamplingRuleArgs and SamplingRuleSamplingRuleOutput values.
-// You can construct a concrete instance of `SamplingRuleSamplingRuleInput` via:
+// SamplingRuleTypeInput is an input type that accepts SamplingRuleTypeArgs and SamplingRuleTypeOutput values.
+// You can construct a concrete instance of `SamplingRuleTypeInput` via:
 //
-//          SamplingRuleSamplingRuleArgs{...}
-type SamplingRuleSamplingRuleInput interface {
+//          SamplingRuleTypeArgs{...}
+type SamplingRuleTypeInput interface {
 	pulumi.Input
 
-	ToSamplingRuleSamplingRuleOutput() SamplingRuleSamplingRuleOutput
-	ToSamplingRuleSamplingRuleOutputWithContext(context.Context) SamplingRuleSamplingRuleOutput
+	ToSamplingRuleTypeOutput() SamplingRuleTypeOutput
+	ToSamplingRuleTypeOutputWithContext(context.Context) SamplingRuleTypeOutput
 }
 
-type SamplingRuleSamplingRuleArgs struct {
+type SamplingRuleTypeArgs struct {
 	// Matches attributes derived from the request.
 	Attributes pulumi.Input `pulumi:"attributes"`
 	// The percentage of matching requests to instrument, after the reservoir is exhausted.
@@ -231,173 +231,173 @@ type SamplingRuleSamplingRuleArgs struct {
 	Version pulumi.IntPtrInput `pulumi:"version"`
 }
 
-func (SamplingRuleSamplingRuleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SamplingRuleSamplingRule)(nil)).Elem()
+func (SamplingRuleTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamplingRuleType)(nil)).Elem()
 }
 
-func (i SamplingRuleSamplingRuleArgs) ToSamplingRuleSamplingRuleOutput() SamplingRuleSamplingRuleOutput {
-	return i.ToSamplingRuleSamplingRuleOutputWithContext(context.Background())
+func (i SamplingRuleTypeArgs) ToSamplingRuleTypeOutput() SamplingRuleTypeOutput {
+	return i.ToSamplingRuleTypeOutputWithContext(context.Background())
 }
 
-func (i SamplingRuleSamplingRuleArgs) ToSamplingRuleSamplingRuleOutputWithContext(ctx context.Context) SamplingRuleSamplingRuleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleSamplingRuleOutput)
+func (i SamplingRuleTypeArgs) ToSamplingRuleTypeOutputWithContext(ctx context.Context) SamplingRuleTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleTypeOutput)
 }
 
-func (i SamplingRuleSamplingRuleArgs) ToSamplingRuleSamplingRulePtrOutput() SamplingRuleSamplingRulePtrOutput {
-	return i.ToSamplingRuleSamplingRulePtrOutputWithContext(context.Background())
+func (i SamplingRuleTypeArgs) ToSamplingRuleTypePtrOutput() SamplingRuleTypePtrOutput {
+	return i.ToSamplingRuleTypePtrOutputWithContext(context.Background())
 }
 
-func (i SamplingRuleSamplingRuleArgs) ToSamplingRuleSamplingRulePtrOutputWithContext(ctx context.Context) SamplingRuleSamplingRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleSamplingRuleOutput).ToSamplingRuleSamplingRulePtrOutputWithContext(ctx)
+func (i SamplingRuleTypeArgs) ToSamplingRuleTypePtrOutputWithContext(ctx context.Context) SamplingRuleTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleTypeOutput).ToSamplingRuleTypePtrOutputWithContext(ctx)
 }
 
-// SamplingRuleSamplingRulePtrInput is an input type that accepts SamplingRuleSamplingRuleArgs, SamplingRuleSamplingRulePtr and SamplingRuleSamplingRulePtrOutput values.
-// You can construct a concrete instance of `SamplingRuleSamplingRulePtrInput` via:
+// SamplingRuleTypePtrInput is an input type that accepts SamplingRuleTypeArgs, SamplingRuleTypePtr and SamplingRuleTypePtrOutput values.
+// You can construct a concrete instance of `SamplingRuleTypePtrInput` via:
 //
-//          SamplingRuleSamplingRuleArgs{...}
+//          SamplingRuleTypeArgs{...}
 //
 //  or:
 //
 //          nil
-type SamplingRuleSamplingRulePtrInput interface {
+type SamplingRuleTypePtrInput interface {
 	pulumi.Input
 
-	ToSamplingRuleSamplingRulePtrOutput() SamplingRuleSamplingRulePtrOutput
-	ToSamplingRuleSamplingRulePtrOutputWithContext(context.Context) SamplingRuleSamplingRulePtrOutput
+	ToSamplingRuleTypePtrOutput() SamplingRuleTypePtrOutput
+	ToSamplingRuleTypePtrOutputWithContext(context.Context) SamplingRuleTypePtrOutput
 }
 
-type samplingRuleSamplingRulePtrType SamplingRuleSamplingRuleArgs
+type samplingRuleTypePtrType SamplingRuleTypeArgs
 
-func SamplingRuleSamplingRulePtr(v *SamplingRuleSamplingRuleArgs) SamplingRuleSamplingRulePtrInput {
-	return (*samplingRuleSamplingRulePtrType)(v)
+func SamplingRuleTypePtr(v *SamplingRuleTypeArgs) SamplingRuleTypePtrInput {
+	return (*samplingRuleTypePtrType)(v)
 }
 
-func (*samplingRuleSamplingRulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SamplingRuleSamplingRule)(nil)).Elem()
+func (*samplingRuleTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SamplingRuleType)(nil)).Elem()
 }
 
-func (i *samplingRuleSamplingRulePtrType) ToSamplingRuleSamplingRulePtrOutput() SamplingRuleSamplingRulePtrOutput {
-	return i.ToSamplingRuleSamplingRulePtrOutputWithContext(context.Background())
+func (i *samplingRuleTypePtrType) ToSamplingRuleTypePtrOutput() SamplingRuleTypePtrOutput {
+	return i.ToSamplingRuleTypePtrOutputWithContext(context.Background())
 }
 
-func (i *samplingRuleSamplingRulePtrType) ToSamplingRuleSamplingRulePtrOutputWithContext(ctx context.Context) SamplingRuleSamplingRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleSamplingRulePtrOutput)
+func (i *samplingRuleTypePtrType) ToSamplingRuleTypePtrOutputWithContext(ctx context.Context) SamplingRuleTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleTypePtrOutput)
 }
 
-type SamplingRuleSamplingRuleOutput struct{ *pulumi.OutputState }
+type SamplingRuleTypeOutput struct{ *pulumi.OutputState }
 
-func (SamplingRuleSamplingRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SamplingRuleSamplingRule)(nil)).Elem()
+func (SamplingRuleTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamplingRuleType)(nil)).Elem()
 }
 
-func (o SamplingRuleSamplingRuleOutput) ToSamplingRuleSamplingRuleOutput() SamplingRuleSamplingRuleOutput {
+func (o SamplingRuleTypeOutput) ToSamplingRuleTypeOutput() SamplingRuleTypeOutput {
 	return o
 }
 
-func (o SamplingRuleSamplingRuleOutput) ToSamplingRuleSamplingRuleOutputWithContext(ctx context.Context) SamplingRuleSamplingRuleOutput {
+func (o SamplingRuleTypeOutput) ToSamplingRuleTypeOutputWithContext(ctx context.Context) SamplingRuleTypeOutput {
 	return o
 }
 
-func (o SamplingRuleSamplingRuleOutput) ToSamplingRuleSamplingRulePtrOutput() SamplingRuleSamplingRulePtrOutput {
-	return o.ToSamplingRuleSamplingRulePtrOutputWithContext(context.Background())
+func (o SamplingRuleTypeOutput) ToSamplingRuleTypePtrOutput() SamplingRuleTypePtrOutput {
+	return o.ToSamplingRuleTypePtrOutputWithContext(context.Background())
 }
 
-func (o SamplingRuleSamplingRuleOutput) ToSamplingRuleSamplingRulePtrOutputWithContext(ctx context.Context) SamplingRuleSamplingRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SamplingRuleSamplingRule) *SamplingRuleSamplingRule {
+func (o SamplingRuleTypeOutput) ToSamplingRuleTypePtrOutputWithContext(ctx context.Context) SamplingRuleTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SamplingRuleType) *SamplingRuleType {
 		return &v
-	}).(SamplingRuleSamplingRulePtrOutput)
+	}).(SamplingRuleTypePtrOutput)
 }
 
 // Matches attributes derived from the request.
-func (o SamplingRuleSamplingRuleOutput) Attributes() pulumi.AnyOutput {
-	return o.ApplyT(func(v SamplingRuleSamplingRule) interface{} { return v.Attributes }).(pulumi.AnyOutput)
+func (o SamplingRuleTypeOutput) Attributes() pulumi.AnyOutput {
+	return o.ApplyT(func(v SamplingRuleType) interface{} { return v.Attributes }).(pulumi.AnyOutput)
 }
 
 // The percentage of matching requests to instrument, after the reservoir is exhausted.
-func (o SamplingRuleSamplingRuleOutput) FixedRate() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v SamplingRuleSamplingRule) *float64 { return v.FixedRate }).(pulumi.Float64PtrOutput)
+func (o SamplingRuleTypeOutput) FixedRate() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SamplingRuleType) *float64 { return v.FixedRate }).(pulumi.Float64PtrOutput)
 }
 
 // Matches the HTTP method from a request URL.
-func (o SamplingRuleSamplingRuleOutput) HTTPMethod() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SamplingRuleSamplingRule) *string { return v.HTTPMethod }).(pulumi.StringPtrOutput)
+func (o SamplingRuleTypeOutput) HTTPMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamplingRuleType) *string { return v.HTTPMethod }).(pulumi.StringPtrOutput)
 }
 
 // Matches the hostname from a request URL.
-func (o SamplingRuleSamplingRuleOutput) Host() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SamplingRuleSamplingRule) *string { return v.Host }).(pulumi.StringPtrOutput)
+func (o SamplingRuleTypeOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamplingRuleType) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
 // The priority of the sampling rule.
-func (o SamplingRuleSamplingRuleOutput) Priority() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SamplingRuleSamplingRule) *int { return v.Priority }).(pulumi.IntPtrOutput)
+func (o SamplingRuleTypeOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SamplingRuleType) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
 // A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
-func (o SamplingRuleSamplingRuleOutput) ReservoirSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SamplingRuleSamplingRule) *int { return v.ReservoirSize }).(pulumi.IntPtrOutput)
+func (o SamplingRuleTypeOutput) ReservoirSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SamplingRuleType) *int { return v.ReservoirSize }).(pulumi.IntPtrOutput)
 }
 
 // Matches the ARN of the AWS resource on which the service runs.
-func (o SamplingRuleSamplingRuleOutput) ResourceARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SamplingRuleSamplingRule) *string { return v.ResourceARN }).(pulumi.StringPtrOutput)
+func (o SamplingRuleTypeOutput) ResourceARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamplingRuleType) *string { return v.ResourceARN }).(pulumi.StringPtrOutput)
 }
 
-func (o SamplingRuleSamplingRuleOutput) RuleARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SamplingRuleSamplingRule) *string { return v.RuleARN }).(pulumi.StringPtrOutput)
+func (o SamplingRuleTypeOutput) RuleARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamplingRuleType) *string { return v.RuleARN }).(pulumi.StringPtrOutput)
 }
 
-func (o SamplingRuleSamplingRuleOutput) RuleName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SamplingRuleSamplingRule) *string { return v.RuleName }).(pulumi.StringPtrOutput)
+func (o SamplingRuleTypeOutput) RuleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamplingRuleType) *string { return v.RuleName }).(pulumi.StringPtrOutput)
 }
 
 // Matches the name that the service uses to identify itself in segments.
-func (o SamplingRuleSamplingRuleOutput) ServiceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SamplingRuleSamplingRule) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
+func (o SamplingRuleTypeOutput) ServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamplingRuleType) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
 }
 
 // Matches the origin that the service uses to identify its type in segments.
-func (o SamplingRuleSamplingRuleOutput) ServiceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SamplingRuleSamplingRule) *string { return v.ServiceType }).(pulumi.StringPtrOutput)
+func (o SamplingRuleTypeOutput) ServiceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamplingRuleType) *string { return v.ServiceType }).(pulumi.StringPtrOutput)
 }
 
 // Matches the path from a request URL.
-func (o SamplingRuleSamplingRuleOutput) URLPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SamplingRuleSamplingRule) *string { return v.URLPath }).(pulumi.StringPtrOutput)
+func (o SamplingRuleTypeOutput) URLPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamplingRuleType) *string { return v.URLPath }).(pulumi.StringPtrOutput)
 }
 
 // The version of the sampling rule format (1)
-func (o SamplingRuleSamplingRuleOutput) Version() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SamplingRuleSamplingRule) *int { return v.Version }).(pulumi.IntPtrOutput)
+func (o SamplingRuleTypeOutput) Version() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SamplingRuleType) *int { return v.Version }).(pulumi.IntPtrOutput)
 }
 
-type SamplingRuleSamplingRulePtrOutput struct{ *pulumi.OutputState }
+type SamplingRuleTypePtrOutput struct{ *pulumi.OutputState }
 
-func (SamplingRuleSamplingRulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SamplingRuleSamplingRule)(nil)).Elem()
+func (SamplingRuleTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SamplingRuleType)(nil)).Elem()
 }
 
-func (o SamplingRuleSamplingRulePtrOutput) ToSamplingRuleSamplingRulePtrOutput() SamplingRuleSamplingRulePtrOutput {
+func (o SamplingRuleTypePtrOutput) ToSamplingRuleTypePtrOutput() SamplingRuleTypePtrOutput {
 	return o
 }
 
-func (o SamplingRuleSamplingRulePtrOutput) ToSamplingRuleSamplingRulePtrOutputWithContext(ctx context.Context) SamplingRuleSamplingRulePtrOutput {
+func (o SamplingRuleTypePtrOutput) ToSamplingRuleTypePtrOutputWithContext(ctx context.Context) SamplingRuleTypePtrOutput {
 	return o
 }
 
-func (o SamplingRuleSamplingRulePtrOutput) Elem() SamplingRuleSamplingRuleOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRule) SamplingRuleSamplingRule {
+func (o SamplingRuleTypePtrOutput) Elem() SamplingRuleTypeOutput {
+	return o.ApplyT(func(v *SamplingRuleType) SamplingRuleType {
 		if v != nil {
 			return *v
 		}
-		var ret SamplingRuleSamplingRule
+		var ret SamplingRuleType
 		return ret
-	}).(SamplingRuleSamplingRuleOutput)
+	}).(SamplingRuleTypeOutput)
 }
 
 // Matches attributes derived from the request.
-func (o SamplingRuleSamplingRulePtrOutput) Attributes() pulumi.AnyOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRule) interface{} {
+func (o SamplingRuleTypePtrOutput) Attributes() pulumi.AnyOutput {
+	return o.ApplyT(func(v *SamplingRuleType) interface{} {
 		if v == nil {
 			return nil
 		}
@@ -406,8 +406,8 @@ func (o SamplingRuleSamplingRulePtrOutput) Attributes() pulumi.AnyOutput {
 }
 
 // The percentage of matching requests to instrument, after the reservoir is exhausted.
-func (o SamplingRuleSamplingRulePtrOutput) FixedRate() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRule) *float64 {
+func (o SamplingRuleTypePtrOutput) FixedRate() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SamplingRuleType) *float64 {
 		if v == nil {
 			return nil
 		}
@@ -416,8 +416,8 @@ func (o SamplingRuleSamplingRulePtrOutput) FixedRate() pulumi.Float64PtrOutput {
 }
 
 // Matches the HTTP method from a request URL.
-func (o SamplingRuleSamplingRulePtrOutput) HTTPMethod() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRule) *string {
+func (o SamplingRuleTypePtrOutput) HTTPMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamplingRuleType) *string {
 		if v == nil {
 			return nil
 		}
@@ -426,8 +426,8 @@ func (o SamplingRuleSamplingRulePtrOutput) HTTPMethod() pulumi.StringPtrOutput {
 }
 
 // Matches the hostname from a request URL.
-func (o SamplingRuleSamplingRulePtrOutput) Host() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRule) *string {
+func (o SamplingRuleTypePtrOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamplingRuleType) *string {
 		if v == nil {
 			return nil
 		}
@@ -436,8 +436,8 @@ func (o SamplingRuleSamplingRulePtrOutput) Host() pulumi.StringPtrOutput {
 }
 
 // The priority of the sampling rule.
-func (o SamplingRuleSamplingRulePtrOutput) Priority() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRule) *int {
+func (o SamplingRuleTypePtrOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SamplingRuleType) *int {
 		if v == nil {
 			return nil
 		}
@@ -446,8 +446,8 @@ func (o SamplingRuleSamplingRulePtrOutput) Priority() pulumi.IntPtrOutput {
 }
 
 // A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
-func (o SamplingRuleSamplingRulePtrOutput) ReservoirSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRule) *int {
+func (o SamplingRuleTypePtrOutput) ReservoirSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SamplingRuleType) *int {
 		if v == nil {
 			return nil
 		}
@@ -456,8 +456,8 @@ func (o SamplingRuleSamplingRulePtrOutput) ReservoirSize() pulumi.IntPtrOutput {
 }
 
 // Matches the ARN of the AWS resource on which the service runs.
-func (o SamplingRuleSamplingRulePtrOutput) ResourceARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRule) *string {
+func (o SamplingRuleTypePtrOutput) ResourceARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamplingRuleType) *string {
 		if v == nil {
 			return nil
 		}
@@ -465,8 +465,8 @@ func (o SamplingRuleSamplingRulePtrOutput) ResourceARN() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o SamplingRuleSamplingRulePtrOutput) RuleARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRule) *string {
+func (o SamplingRuleTypePtrOutput) RuleARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamplingRuleType) *string {
 		if v == nil {
 			return nil
 		}
@@ -474,8 +474,8 @@ func (o SamplingRuleSamplingRulePtrOutput) RuleARN() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o SamplingRuleSamplingRulePtrOutput) RuleName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRule) *string {
+func (o SamplingRuleTypePtrOutput) RuleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamplingRuleType) *string {
 		if v == nil {
 			return nil
 		}
@@ -484,8 +484,8 @@ func (o SamplingRuleSamplingRulePtrOutput) RuleName() pulumi.StringPtrOutput {
 }
 
 // Matches the name that the service uses to identify itself in segments.
-func (o SamplingRuleSamplingRulePtrOutput) ServiceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRule) *string {
+func (o SamplingRuleTypePtrOutput) ServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamplingRuleType) *string {
 		if v == nil {
 			return nil
 		}
@@ -494,8 +494,8 @@ func (o SamplingRuleSamplingRulePtrOutput) ServiceName() pulumi.StringPtrOutput 
 }
 
 // Matches the origin that the service uses to identify its type in segments.
-func (o SamplingRuleSamplingRulePtrOutput) ServiceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRule) *string {
+func (o SamplingRuleTypePtrOutput) ServiceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamplingRuleType) *string {
 		if v == nil {
 			return nil
 		}
@@ -504,8 +504,8 @@ func (o SamplingRuleSamplingRulePtrOutput) ServiceType() pulumi.StringPtrOutput 
 }
 
 // Matches the path from a request URL.
-func (o SamplingRuleSamplingRulePtrOutput) URLPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRule) *string {
+func (o SamplingRuleTypePtrOutput) URLPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamplingRuleType) *string {
 		if v == nil {
 			return nil
 		}
@@ -514,8 +514,8 @@ func (o SamplingRuleSamplingRulePtrOutput) URLPath() pulumi.StringPtrOutput {
 }
 
 // The version of the sampling rule format (1)
-func (o SamplingRuleSamplingRulePtrOutput) Version() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRule) *int {
+func (o SamplingRuleTypePtrOutput) Version() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SamplingRuleType) *int {
 		if v == nil {
 			return nil
 		}
@@ -523,151 +523,151 @@ func (o SamplingRuleSamplingRulePtrOutput) Version() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-type SamplingRuleSamplingRuleRecord struct {
+type SamplingRuleRecord struct {
 	// When the rule was created, in Unix time seconds.
 	CreatedAt *string `pulumi:"createdAt"`
 	// When the rule was modified, in Unix time seconds.
-	ModifiedAt   *string                   `pulumi:"modifiedAt"`
-	SamplingRule *SamplingRuleSamplingRule `pulumi:"samplingRule"`
+	ModifiedAt   *string           `pulumi:"modifiedAt"`
+	SamplingRule *SamplingRuleType `pulumi:"samplingRule"`
 }
 
-// SamplingRuleSamplingRuleRecordInput is an input type that accepts SamplingRuleSamplingRuleRecordArgs and SamplingRuleSamplingRuleRecordOutput values.
-// You can construct a concrete instance of `SamplingRuleSamplingRuleRecordInput` via:
+// SamplingRuleRecordInput is an input type that accepts SamplingRuleRecordArgs and SamplingRuleRecordOutput values.
+// You can construct a concrete instance of `SamplingRuleRecordInput` via:
 //
-//          SamplingRuleSamplingRuleRecordArgs{...}
-type SamplingRuleSamplingRuleRecordInput interface {
+//          SamplingRuleRecordArgs{...}
+type SamplingRuleRecordInput interface {
 	pulumi.Input
 
-	ToSamplingRuleSamplingRuleRecordOutput() SamplingRuleSamplingRuleRecordOutput
-	ToSamplingRuleSamplingRuleRecordOutputWithContext(context.Context) SamplingRuleSamplingRuleRecordOutput
+	ToSamplingRuleRecordOutput() SamplingRuleRecordOutput
+	ToSamplingRuleRecordOutputWithContext(context.Context) SamplingRuleRecordOutput
 }
 
-type SamplingRuleSamplingRuleRecordArgs struct {
+type SamplingRuleRecordArgs struct {
 	// When the rule was created, in Unix time seconds.
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
 	// When the rule was modified, in Unix time seconds.
-	ModifiedAt   pulumi.StringPtrInput            `pulumi:"modifiedAt"`
-	SamplingRule SamplingRuleSamplingRulePtrInput `pulumi:"samplingRule"`
+	ModifiedAt   pulumi.StringPtrInput    `pulumi:"modifiedAt"`
+	SamplingRule SamplingRuleTypePtrInput `pulumi:"samplingRule"`
 }
 
-func (SamplingRuleSamplingRuleRecordArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SamplingRuleSamplingRuleRecord)(nil)).Elem()
+func (SamplingRuleRecordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamplingRuleRecord)(nil)).Elem()
 }
 
-func (i SamplingRuleSamplingRuleRecordArgs) ToSamplingRuleSamplingRuleRecordOutput() SamplingRuleSamplingRuleRecordOutput {
-	return i.ToSamplingRuleSamplingRuleRecordOutputWithContext(context.Background())
+func (i SamplingRuleRecordArgs) ToSamplingRuleRecordOutput() SamplingRuleRecordOutput {
+	return i.ToSamplingRuleRecordOutputWithContext(context.Background())
 }
 
-func (i SamplingRuleSamplingRuleRecordArgs) ToSamplingRuleSamplingRuleRecordOutputWithContext(ctx context.Context) SamplingRuleSamplingRuleRecordOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleSamplingRuleRecordOutput)
+func (i SamplingRuleRecordArgs) ToSamplingRuleRecordOutputWithContext(ctx context.Context) SamplingRuleRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleRecordOutput)
 }
 
-func (i SamplingRuleSamplingRuleRecordArgs) ToSamplingRuleSamplingRuleRecordPtrOutput() SamplingRuleSamplingRuleRecordPtrOutput {
-	return i.ToSamplingRuleSamplingRuleRecordPtrOutputWithContext(context.Background())
+func (i SamplingRuleRecordArgs) ToSamplingRuleRecordPtrOutput() SamplingRuleRecordPtrOutput {
+	return i.ToSamplingRuleRecordPtrOutputWithContext(context.Background())
 }
 
-func (i SamplingRuleSamplingRuleRecordArgs) ToSamplingRuleSamplingRuleRecordPtrOutputWithContext(ctx context.Context) SamplingRuleSamplingRuleRecordPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleSamplingRuleRecordOutput).ToSamplingRuleSamplingRuleRecordPtrOutputWithContext(ctx)
+func (i SamplingRuleRecordArgs) ToSamplingRuleRecordPtrOutputWithContext(ctx context.Context) SamplingRuleRecordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleRecordOutput).ToSamplingRuleRecordPtrOutputWithContext(ctx)
 }
 
-// SamplingRuleSamplingRuleRecordPtrInput is an input type that accepts SamplingRuleSamplingRuleRecordArgs, SamplingRuleSamplingRuleRecordPtr and SamplingRuleSamplingRuleRecordPtrOutput values.
-// You can construct a concrete instance of `SamplingRuleSamplingRuleRecordPtrInput` via:
+// SamplingRuleRecordPtrInput is an input type that accepts SamplingRuleRecordArgs, SamplingRuleRecordPtr and SamplingRuleRecordPtrOutput values.
+// You can construct a concrete instance of `SamplingRuleRecordPtrInput` via:
 //
-//          SamplingRuleSamplingRuleRecordArgs{...}
+//          SamplingRuleRecordArgs{...}
 //
 //  or:
 //
 //          nil
-type SamplingRuleSamplingRuleRecordPtrInput interface {
+type SamplingRuleRecordPtrInput interface {
 	pulumi.Input
 
-	ToSamplingRuleSamplingRuleRecordPtrOutput() SamplingRuleSamplingRuleRecordPtrOutput
-	ToSamplingRuleSamplingRuleRecordPtrOutputWithContext(context.Context) SamplingRuleSamplingRuleRecordPtrOutput
+	ToSamplingRuleRecordPtrOutput() SamplingRuleRecordPtrOutput
+	ToSamplingRuleRecordPtrOutputWithContext(context.Context) SamplingRuleRecordPtrOutput
 }
 
-type samplingRuleSamplingRuleRecordPtrType SamplingRuleSamplingRuleRecordArgs
+type samplingRuleRecordPtrType SamplingRuleRecordArgs
 
-func SamplingRuleSamplingRuleRecordPtr(v *SamplingRuleSamplingRuleRecordArgs) SamplingRuleSamplingRuleRecordPtrInput {
-	return (*samplingRuleSamplingRuleRecordPtrType)(v)
+func SamplingRuleRecordPtr(v *SamplingRuleRecordArgs) SamplingRuleRecordPtrInput {
+	return (*samplingRuleRecordPtrType)(v)
 }
 
-func (*samplingRuleSamplingRuleRecordPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SamplingRuleSamplingRuleRecord)(nil)).Elem()
+func (*samplingRuleRecordPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SamplingRuleRecord)(nil)).Elem()
 }
 
-func (i *samplingRuleSamplingRuleRecordPtrType) ToSamplingRuleSamplingRuleRecordPtrOutput() SamplingRuleSamplingRuleRecordPtrOutput {
-	return i.ToSamplingRuleSamplingRuleRecordPtrOutputWithContext(context.Background())
+func (i *samplingRuleRecordPtrType) ToSamplingRuleRecordPtrOutput() SamplingRuleRecordPtrOutput {
+	return i.ToSamplingRuleRecordPtrOutputWithContext(context.Background())
 }
 
-func (i *samplingRuleSamplingRuleRecordPtrType) ToSamplingRuleSamplingRuleRecordPtrOutputWithContext(ctx context.Context) SamplingRuleSamplingRuleRecordPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleSamplingRuleRecordPtrOutput)
+func (i *samplingRuleRecordPtrType) ToSamplingRuleRecordPtrOutputWithContext(ctx context.Context) SamplingRuleRecordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleRecordPtrOutput)
 }
 
-type SamplingRuleSamplingRuleRecordOutput struct{ *pulumi.OutputState }
+type SamplingRuleRecordOutput struct{ *pulumi.OutputState }
 
-func (SamplingRuleSamplingRuleRecordOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SamplingRuleSamplingRuleRecord)(nil)).Elem()
+func (SamplingRuleRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamplingRuleRecord)(nil)).Elem()
 }
 
-func (o SamplingRuleSamplingRuleRecordOutput) ToSamplingRuleSamplingRuleRecordOutput() SamplingRuleSamplingRuleRecordOutput {
+func (o SamplingRuleRecordOutput) ToSamplingRuleRecordOutput() SamplingRuleRecordOutput {
 	return o
 }
 
-func (o SamplingRuleSamplingRuleRecordOutput) ToSamplingRuleSamplingRuleRecordOutputWithContext(ctx context.Context) SamplingRuleSamplingRuleRecordOutput {
+func (o SamplingRuleRecordOutput) ToSamplingRuleRecordOutputWithContext(ctx context.Context) SamplingRuleRecordOutput {
 	return o
 }
 
-func (o SamplingRuleSamplingRuleRecordOutput) ToSamplingRuleSamplingRuleRecordPtrOutput() SamplingRuleSamplingRuleRecordPtrOutput {
-	return o.ToSamplingRuleSamplingRuleRecordPtrOutputWithContext(context.Background())
+func (o SamplingRuleRecordOutput) ToSamplingRuleRecordPtrOutput() SamplingRuleRecordPtrOutput {
+	return o.ToSamplingRuleRecordPtrOutputWithContext(context.Background())
 }
 
-func (o SamplingRuleSamplingRuleRecordOutput) ToSamplingRuleSamplingRuleRecordPtrOutputWithContext(ctx context.Context) SamplingRuleSamplingRuleRecordPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SamplingRuleSamplingRuleRecord) *SamplingRuleSamplingRuleRecord {
+func (o SamplingRuleRecordOutput) ToSamplingRuleRecordPtrOutputWithContext(ctx context.Context) SamplingRuleRecordPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SamplingRuleRecord) *SamplingRuleRecord {
 		return &v
-	}).(SamplingRuleSamplingRuleRecordPtrOutput)
+	}).(SamplingRuleRecordPtrOutput)
 }
 
 // When the rule was created, in Unix time seconds.
-func (o SamplingRuleSamplingRuleRecordOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SamplingRuleSamplingRuleRecord) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+func (o SamplingRuleRecordOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamplingRuleRecord) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
 // When the rule was modified, in Unix time seconds.
-func (o SamplingRuleSamplingRuleRecordOutput) ModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SamplingRuleSamplingRuleRecord) *string { return v.ModifiedAt }).(pulumi.StringPtrOutput)
+func (o SamplingRuleRecordOutput) ModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamplingRuleRecord) *string { return v.ModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-func (o SamplingRuleSamplingRuleRecordOutput) SamplingRule() SamplingRuleSamplingRulePtrOutput {
-	return o.ApplyT(func(v SamplingRuleSamplingRuleRecord) *SamplingRuleSamplingRule { return v.SamplingRule }).(SamplingRuleSamplingRulePtrOutput)
+func (o SamplingRuleRecordOutput) SamplingRule() SamplingRuleTypePtrOutput {
+	return o.ApplyT(func(v SamplingRuleRecord) *SamplingRuleType { return v.SamplingRule }).(SamplingRuleTypePtrOutput)
 }
 
-type SamplingRuleSamplingRuleRecordPtrOutput struct{ *pulumi.OutputState }
+type SamplingRuleRecordPtrOutput struct{ *pulumi.OutputState }
 
-func (SamplingRuleSamplingRuleRecordPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SamplingRuleSamplingRuleRecord)(nil)).Elem()
+func (SamplingRuleRecordPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SamplingRuleRecord)(nil)).Elem()
 }
 
-func (o SamplingRuleSamplingRuleRecordPtrOutput) ToSamplingRuleSamplingRuleRecordPtrOutput() SamplingRuleSamplingRuleRecordPtrOutput {
+func (o SamplingRuleRecordPtrOutput) ToSamplingRuleRecordPtrOutput() SamplingRuleRecordPtrOutput {
 	return o
 }
 
-func (o SamplingRuleSamplingRuleRecordPtrOutput) ToSamplingRuleSamplingRuleRecordPtrOutputWithContext(ctx context.Context) SamplingRuleSamplingRuleRecordPtrOutput {
+func (o SamplingRuleRecordPtrOutput) ToSamplingRuleRecordPtrOutputWithContext(ctx context.Context) SamplingRuleRecordPtrOutput {
 	return o
 }
 
-func (o SamplingRuleSamplingRuleRecordPtrOutput) Elem() SamplingRuleSamplingRuleRecordOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRuleRecord) SamplingRuleSamplingRuleRecord {
+func (o SamplingRuleRecordPtrOutput) Elem() SamplingRuleRecordOutput {
+	return o.ApplyT(func(v *SamplingRuleRecord) SamplingRuleRecord {
 		if v != nil {
 			return *v
 		}
-		var ret SamplingRuleSamplingRuleRecord
+		var ret SamplingRuleRecord
 		return ret
-	}).(SamplingRuleSamplingRuleRecordOutput)
+	}).(SamplingRuleRecordOutput)
 }
 
 // When the rule was created, in Unix time seconds.
-func (o SamplingRuleSamplingRuleRecordPtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRuleRecord) *string {
+func (o SamplingRuleRecordPtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamplingRuleRecord) *string {
 		if v == nil {
 			return nil
 		}
@@ -676,8 +676,8 @@ func (o SamplingRuleSamplingRuleRecordPtrOutput) CreatedAt() pulumi.StringPtrOut
 }
 
 // When the rule was modified, in Unix time seconds.
-func (o SamplingRuleSamplingRuleRecordPtrOutput) ModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRuleRecord) *string {
+func (o SamplingRuleRecordPtrOutput) ModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamplingRuleRecord) *string {
 		if v == nil {
 			return nil
 		}
@@ -685,16 +685,16 @@ func (o SamplingRuleSamplingRuleRecordPtrOutput) ModifiedAt() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o SamplingRuleSamplingRuleRecordPtrOutput) SamplingRule() SamplingRuleSamplingRulePtrOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRuleRecord) *SamplingRuleSamplingRule {
+func (o SamplingRuleRecordPtrOutput) SamplingRule() SamplingRuleTypePtrOutput {
+	return o.ApplyT(func(v *SamplingRuleRecord) *SamplingRuleType {
 		if v == nil {
 			return nil
 		}
 		return v.SamplingRule
-	}).(SamplingRuleSamplingRulePtrOutput)
+	}).(SamplingRuleTypePtrOutput)
 }
 
-type SamplingRuleSamplingRuleUpdate struct {
+type SamplingRuleUpdate struct {
 	// Matches attributes derived from the request.
 	Attributes interface{} `pulumi:"attributes"`
 	// The percentage of matching requests to instrument, after the reservoir is exhausted.
@@ -719,18 +719,18 @@ type SamplingRuleSamplingRuleUpdate struct {
 	URLPath *string `pulumi:"uRLPath"`
 }
 
-// SamplingRuleSamplingRuleUpdateInput is an input type that accepts SamplingRuleSamplingRuleUpdateArgs and SamplingRuleSamplingRuleUpdateOutput values.
-// You can construct a concrete instance of `SamplingRuleSamplingRuleUpdateInput` via:
+// SamplingRuleUpdateInput is an input type that accepts SamplingRuleUpdateArgs and SamplingRuleUpdateOutput values.
+// You can construct a concrete instance of `SamplingRuleUpdateInput` via:
 //
-//          SamplingRuleSamplingRuleUpdateArgs{...}
-type SamplingRuleSamplingRuleUpdateInput interface {
+//          SamplingRuleUpdateArgs{...}
+type SamplingRuleUpdateInput interface {
 	pulumi.Input
 
-	ToSamplingRuleSamplingRuleUpdateOutput() SamplingRuleSamplingRuleUpdateOutput
-	ToSamplingRuleSamplingRuleUpdateOutputWithContext(context.Context) SamplingRuleSamplingRuleUpdateOutput
+	ToSamplingRuleUpdateOutput() SamplingRuleUpdateOutput
+	ToSamplingRuleUpdateOutputWithContext(context.Context) SamplingRuleUpdateOutput
 }
 
-type SamplingRuleSamplingRuleUpdateArgs struct {
+type SamplingRuleUpdateArgs struct {
 	// Matches attributes derived from the request.
 	Attributes pulumi.Input `pulumi:"attributes"`
 	// The percentage of matching requests to instrument, after the reservoir is exhausted.
@@ -755,168 +755,168 @@ type SamplingRuleSamplingRuleUpdateArgs struct {
 	URLPath pulumi.StringPtrInput `pulumi:"uRLPath"`
 }
 
-func (SamplingRuleSamplingRuleUpdateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SamplingRuleSamplingRuleUpdate)(nil)).Elem()
+func (SamplingRuleUpdateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamplingRuleUpdate)(nil)).Elem()
 }
 
-func (i SamplingRuleSamplingRuleUpdateArgs) ToSamplingRuleSamplingRuleUpdateOutput() SamplingRuleSamplingRuleUpdateOutput {
-	return i.ToSamplingRuleSamplingRuleUpdateOutputWithContext(context.Background())
+func (i SamplingRuleUpdateArgs) ToSamplingRuleUpdateOutput() SamplingRuleUpdateOutput {
+	return i.ToSamplingRuleUpdateOutputWithContext(context.Background())
 }
 
-func (i SamplingRuleSamplingRuleUpdateArgs) ToSamplingRuleSamplingRuleUpdateOutputWithContext(ctx context.Context) SamplingRuleSamplingRuleUpdateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleSamplingRuleUpdateOutput)
+func (i SamplingRuleUpdateArgs) ToSamplingRuleUpdateOutputWithContext(ctx context.Context) SamplingRuleUpdateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleUpdateOutput)
 }
 
-func (i SamplingRuleSamplingRuleUpdateArgs) ToSamplingRuleSamplingRuleUpdatePtrOutput() SamplingRuleSamplingRuleUpdatePtrOutput {
-	return i.ToSamplingRuleSamplingRuleUpdatePtrOutputWithContext(context.Background())
+func (i SamplingRuleUpdateArgs) ToSamplingRuleUpdatePtrOutput() SamplingRuleUpdatePtrOutput {
+	return i.ToSamplingRuleUpdatePtrOutputWithContext(context.Background())
 }
 
-func (i SamplingRuleSamplingRuleUpdateArgs) ToSamplingRuleSamplingRuleUpdatePtrOutputWithContext(ctx context.Context) SamplingRuleSamplingRuleUpdatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleSamplingRuleUpdateOutput).ToSamplingRuleSamplingRuleUpdatePtrOutputWithContext(ctx)
+func (i SamplingRuleUpdateArgs) ToSamplingRuleUpdatePtrOutputWithContext(ctx context.Context) SamplingRuleUpdatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleUpdateOutput).ToSamplingRuleUpdatePtrOutputWithContext(ctx)
 }
 
-// SamplingRuleSamplingRuleUpdatePtrInput is an input type that accepts SamplingRuleSamplingRuleUpdateArgs, SamplingRuleSamplingRuleUpdatePtr and SamplingRuleSamplingRuleUpdatePtrOutput values.
-// You can construct a concrete instance of `SamplingRuleSamplingRuleUpdatePtrInput` via:
+// SamplingRuleUpdatePtrInput is an input type that accepts SamplingRuleUpdateArgs, SamplingRuleUpdatePtr and SamplingRuleUpdatePtrOutput values.
+// You can construct a concrete instance of `SamplingRuleUpdatePtrInput` via:
 //
-//          SamplingRuleSamplingRuleUpdateArgs{...}
+//          SamplingRuleUpdateArgs{...}
 //
 //  or:
 //
 //          nil
-type SamplingRuleSamplingRuleUpdatePtrInput interface {
+type SamplingRuleUpdatePtrInput interface {
 	pulumi.Input
 
-	ToSamplingRuleSamplingRuleUpdatePtrOutput() SamplingRuleSamplingRuleUpdatePtrOutput
-	ToSamplingRuleSamplingRuleUpdatePtrOutputWithContext(context.Context) SamplingRuleSamplingRuleUpdatePtrOutput
+	ToSamplingRuleUpdatePtrOutput() SamplingRuleUpdatePtrOutput
+	ToSamplingRuleUpdatePtrOutputWithContext(context.Context) SamplingRuleUpdatePtrOutput
 }
 
-type samplingRuleSamplingRuleUpdatePtrType SamplingRuleSamplingRuleUpdateArgs
+type samplingRuleUpdatePtrType SamplingRuleUpdateArgs
 
-func SamplingRuleSamplingRuleUpdatePtr(v *SamplingRuleSamplingRuleUpdateArgs) SamplingRuleSamplingRuleUpdatePtrInput {
-	return (*samplingRuleSamplingRuleUpdatePtrType)(v)
+func SamplingRuleUpdatePtr(v *SamplingRuleUpdateArgs) SamplingRuleUpdatePtrInput {
+	return (*samplingRuleUpdatePtrType)(v)
 }
 
-func (*samplingRuleSamplingRuleUpdatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SamplingRuleSamplingRuleUpdate)(nil)).Elem()
+func (*samplingRuleUpdatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SamplingRuleUpdate)(nil)).Elem()
 }
 
-func (i *samplingRuleSamplingRuleUpdatePtrType) ToSamplingRuleSamplingRuleUpdatePtrOutput() SamplingRuleSamplingRuleUpdatePtrOutput {
-	return i.ToSamplingRuleSamplingRuleUpdatePtrOutputWithContext(context.Background())
+func (i *samplingRuleUpdatePtrType) ToSamplingRuleUpdatePtrOutput() SamplingRuleUpdatePtrOutput {
+	return i.ToSamplingRuleUpdatePtrOutputWithContext(context.Background())
 }
 
-func (i *samplingRuleSamplingRuleUpdatePtrType) ToSamplingRuleSamplingRuleUpdatePtrOutputWithContext(ctx context.Context) SamplingRuleSamplingRuleUpdatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleSamplingRuleUpdatePtrOutput)
+func (i *samplingRuleUpdatePtrType) ToSamplingRuleUpdatePtrOutputWithContext(ctx context.Context) SamplingRuleUpdatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleUpdatePtrOutput)
 }
 
-type SamplingRuleSamplingRuleUpdateOutput struct{ *pulumi.OutputState }
+type SamplingRuleUpdateOutput struct{ *pulumi.OutputState }
 
-func (SamplingRuleSamplingRuleUpdateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SamplingRuleSamplingRuleUpdate)(nil)).Elem()
+func (SamplingRuleUpdateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamplingRuleUpdate)(nil)).Elem()
 }
 
-func (o SamplingRuleSamplingRuleUpdateOutput) ToSamplingRuleSamplingRuleUpdateOutput() SamplingRuleSamplingRuleUpdateOutput {
+func (o SamplingRuleUpdateOutput) ToSamplingRuleUpdateOutput() SamplingRuleUpdateOutput {
 	return o
 }
 
-func (o SamplingRuleSamplingRuleUpdateOutput) ToSamplingRuleSamplingRuleUpdateOutputWithContext(ctx context.Context) SamplingRuleSamplingRuleUpdateOutput {
+func (o SamplingRuleUpdateOutput) ToSamplingRuleUpdateOutputWithContext(ctx context.Context) SamplingRuleUpdateOutput {
 	return o
 }
 
-func (o SamplingRuleSamplingRuleUpdateOutput) ToSamplingRuleSamplingRuleUpdatePtrOutput() SamplingRuleSamplingRuleUpdatePtrOutput {
-	return o.ToSamplingRuleSamplingRuleUpdatePtrOutputWithContext(context.Background())
+func (o SamplingRuleUpdateOutput) ToSamplingRuleUpdatePtrOutput() SamplingRuleUpdatePtrOutput {
+	return o.ToSamplingRuleUpdatePtrOutputWithContext(context.Background())
 }
 
-func (o SamplingRuleSamplingRuleUpdateOutput) ToSamplingRuleSamplingRuleUpdatePtrOutputWithContext(ctx context.Context) SamplingRuleSamplingRuleUpdatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SamplingRuleSamplingRuleUpdate) *SamplingRuleSamplingRuleUpdate {
+func (o SamplingRuleUpdateOutput) ToSamplingRuleUpdatePtrOutputWithContext(ctx context.Context) SamplingRuleUpdatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SamplingRuleUpdate) *SamplingRuleUpdate {
 		return &v
-	}).(SamplingRuleSamplingRuleUpdatePtrOutput)
+	}).(SamplingRuleUpdatePtrOutput)
 }
 
 // Matches attributes derived from the request.
-func (o SamplingRuleSamplingRuleUpdateOutput) Attributes() pulumi.AnyOutput {
-	return o.ApplyT(func(v SamplingRuleSamplingRuleUpdate) interface{} { return v.Attributes }).(pulumi.AnyOutput)
+func (o SamplingRuleUpdateOutput) Attributes() pulumi.AnyOutput {
+	return o.ApplyT(func(v SamplingRuleUpdate) interface{} { return v.Attributes }).(pulumi.AnyOutput)
 }
 
 // The percentage of matching requests to instrument, after the reservoir is exhausted.
-func (o SamplingRuleSamplingRuleUpdateOutput) FixedRate() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v SamplingRuleSamplingRuleUpdate) *float64 { return v.FixedRate }).(pulumi.Float64PtrOutput)
+func (o SamplingRuleUpdateOutput) FixedRate() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SamplingRuleUpdate) *float64 { return v.FixedRate }).(pulumi.Float64PtrOutput)
 }
 
 // Matches the HTTP method from a request URL.
-func (o SamplingRuleSamplingRuleUpdateOutput) HTTPMethod() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SamplingRuleSamplingRuleUpdate) *string { return v.HTTPMethod }).(pulumi.StringPtrOutput)
+func (o SamplingRuleUpdateOutput) HTTPMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamplingRuleUpdate) *string { return v.HTTPMethod }).(pulumi.StringPtrOutput)
 }
 
 // Matches the hostname from a request URL.
-func (o SamplingRuleSamplingRuleUpdateOutput) Host() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SamplingRuleSamplingRuleUpdate) *string { return v.Host }).(pulumi.StringPtrOutput)
+func (o SamplingRuleUpdateOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamplingRuleUpdate) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
 // The priority of the sampling rule.
-func (o SamplingRuleSamplingRuleUpdateOutput) Priority() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SamplingRuleSamplingRuleUpdate) *int { return v.Priority }).(pulumi.IntPtrOutput)
+func (o SamplingRuleUpdateOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SamplingRuleUpdate) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
 // A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
-func (o SamplingRuleSamplingRuleUpdateOutput) ReservoirSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SamplingRuleSamplingRuleUpdate) *int { return v.ReservoirSize }).(pulumi.IntPtrOutput)
+func (o SamplingRuleUpdateOutput) ReservoirSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SamplingRuleUpdate) *int { return v.ReservoirSize }).(pulumi.IntPtrOutput)
 }
 
 // Matches the ARN of the AWS resource on which the service runs.
-func (o SamplingRuleSamplingRuleUpdateOutput) ResourceARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SamplingRuleSamplingRuleUpdate) *string { return v.ResourceARN }).(pulumi.StringPtrOutput)
+func (o SamplingRuleUpdateOutput) ResourceARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamplingRuleUpdate) *string { return v.ResourceARN }).(pulumi.StringPtrOutput)
 }
 
-func (o SamplingRuleSamplingRuleUpdateOutput) RuleARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SamplingRuleSamplingRuleUpdate) *string { return v.RuleARN }).(pulumi.StringPtrOutput)
+func (o SamplingRuleUpdateOutput) RuleARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamplingRuleUpdate) *string { return v.RuleARN }).(pulumi.StringPtrOutput)
 }
 
-func (o SamplingRuleSamplingRuleUpdateOutput) RuleName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SamplingRuleSamplingRuleUpdate) *string { return v.RuleName }).(pulumi.StringPtrOutput)
+func (o SamplingRuleUpdateOutput) RuleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamplingRuleUpdate) *string { return v.RuleName }).(pulumi.StringPtrOutput)
 }
 
 // Matches the name that the service uses to identify itself in segments.
-func (o SamplingRuleSamplingRuleUpdateOutput) ServiceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SamplingRuleSamplingRuleUpdate) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
+func (o SamplingRuleUpdateOutput) ServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamplingRuleUpdate) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
 }
 
 // Matches the origin that the service uses to identify its type in segments.
-func (o SamplingRuleSamplingRuleUpdateOutput) ServiceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SamplingRuleSamplingRuleUpdate) *string { return v.ServiceType }).(pulumi.StringPtrOutput)
+func (o SamplingRuleUpdateOutput) ServiceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamplingRuleUpdate) *string { return v.ServiceType }).(pulumi.StringPtrOutput)
 }
 
 // Matches the path from a request URL.
-func (o SamplingRuleSamplingRuleUpdateOutput) URLPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SamplingRuleSamplingRuleUpdate) *string { return v.URLPath }).(pulumi.StringPtrOutput)
+func (o SamplingRuleUpdateOutput) URLPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SamplingRuleUpdate) *string { return v.URLPath }).(pulumi.StringPtrOutput)
 }
 
-type SamplingRuleSamplingRuleUpdatePtrOutput struct{ *pulumi.OutputState }
+type SamplingRuleUpdatePtrOutput struct{ *pulumi.OutputState }
 
-func (SamplingRuleSamplingRuleUpdatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SamplingRuleSamplingRuleUpdate)(nil)).Elem()
+func (SamplingRuleUpdatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SamplingRuleUpdate)(nil)).Elem()
 }
 
-func (o SamplingRuleSamplingRuleUpdatePtrOutput) ToSamplingRuleSamplingRuleUpdatePtrOutput() SamplingRuleSamplingRuleUpdatePtrOutput {
+func (o SamplingRuleUpdatePtrOutput) ToSamplingRuleUpdatePtrOutput() SamplingRuleUpdatePtrOutput {
 	return o
 }
 
-func (o SamplingRuleSamplingRuleUpdatePtrOutput) ToSamplingRuleSamplingRuleUpdatePtrOutputWithContext(ctx context.Context) SamplingRuleSamplingRuleUpdatePtrOutput {
+func (o SamplingRuleUpdatePtrOutput) ToSamplingRuleUpdatePtrOutputWithContext(ctx context.Context) SamplingRuleUpdatePtrOutput {
 	return o
 }
 
-func (o SamplingRuleSamplingRuleUpdatePtrOutput) Elem() SamplingRuleSamplingRuleUpdateOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRuleUpdate) SamplingRuleSamplingRuleUpdate {
+func (o SamplingRuleUpdatePtrOutput) Elem() SamplingRuleUpdateOutput {
+	return o.ApplyT(func(v *SamplingRuleUpdate) SamplingRuleUpdate {
 		if v != nil {
 			return *v
 		}
-		var ret SamplingRuleSamplingRuleUpdate
+		var ret SamplingRuleUpdate
 		return ret
-	}).(SamplingRuleSamplingRuleUpdateOutput)
+	}).(SamplingRuleUpdateOutput)
 }
 
 // Matches attributes derived from the request.
-func (o SamplingRuleSamplingRuleUpdatePtrOutput) Attributes() pulumi.AnyOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRuleUpdate) interface{} {
+func (o SamplingRuleUpdatePtrOutput) Attributes() pulumi.AnyOutput {
+	return o.ApplyT(func(v *SamplingRuleUpdate) interface{} {
 		if v == nil {
 			return nil
 		}
@@ -925,8 +925,8 @@ func (o SamplingRuleSamplingRuleUpdatePtrOutput) Attributes() pulumi.AnyOutput {
 }
 
 // The percentage of matching requests to instrument, after the reservoir is exhausted.
-func (o SamplingRuleSamplingRuleUpdatePtrOutput) FixedRate() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRuleUpdate) *float64 {
+func (o SamplingRuleUpdatePtrOutput) FixedRate() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SamplingRuleUpdate) *float64 {
 		if v == nil {
 			return nil
 		}
@@ -935,8 +935,8 @@ func (o SamplingRuleSamplingRuleUpdatePtrOutput) FixedRate() pulumi.Float64PtrOu
 }
 
 // Matches the HTTP method from a request URL.
-func (o SamplingRuleSamplingRuleUpdatePtrOutput) HTTPMethod() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRuleUpdate) *string {
+func (o SamplingRuleUpdatePtrOutput) HTTPMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamplingRuleUpdate) *string {
 		if v == nil {
 			return nil
 		}
@@ -945,8 +945,8 @@ func (o SamplingRuleSamplingRuleUpdatePtrOutput) HTTPMethod() pulumi.StringPtrOu
 }
 
 // Matches the hostname from a request URL.
-func (o SamplingRuleSamplingRuleUpdatePtrOutput) Host() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRuleUpdate) *string {
+func (o SamplingRuleUpdatePtrOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamplingRuleUpdate) *string {
 		if v == nil {
 			return nil
 		}
@@ -955,8 +955,8 @@ func (o SamplingRuleSamplingRuleUpdatePtrOutput) Host() pulumi.StringPtrOutput {
 }
 
 // The priority of the sampling rule.
-func (o SamplingRuleSamplingRuleUpdatePtrOutput) Priority() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRuleUpdate) *int {
+func (o SamplingRuleUpdatePtrOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SamplingRuleUpdate) *int {
 		if v == nil {
 			return nil
 		}
@@ -965,8 +965,8 @@ func (o SamplingRuleSamplingRuleUpdatePtrOutput) Priority() pulumi.IntPtrOutput 
 }
 
 // A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
-func (o SamplingRuleSamplingRuleUpdatePtrOutput) ReservoirSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRuleUpdate) *int {
+func (o SamplingRuleUpdatePtrOutput) ReservoirSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SamplingRuleUpdate) *int {
 		if v == nil {
 			return nil
 		}
@@ -975,8 +975,8 @@ func (o SamplingRuleSamplingRuleUpdatePtrOutput) ReservoirSize() pulumi.IntPtrOu
 }
 
 // Matches the ARN of the AWS resource on which the service runs.
-func (o SamplingRuleSamplingRuleUpdatePtrOutput) ResourceARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRuleUpdate) *string {
+func (o SamplingRuleUpdatePtrOutput) ResourceARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamplingRuleUpdate) *string {
 		if v == nil {
 			return nil
 		}
@@ -984,8 +984,8 @@ func (o SamplingRuleSamplingRuleUpdatePtrOutput) ResourceARN() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o SamplingRuleSamplingRuleUpdatePtrOutput) RuleARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRuleUpdate) *string {
+func (o SamplingRuleUpdatePtrOutput) RuleARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamplingRuleUpdate) *string {
 		if v == nil {
 			return nil
 		}
@@ -993,8 +993,8 @@ func (o SamplingRuleSamplingRuleUpdatePtrOutput) RuleARN() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o SamplingRuleSamplingRuleUpdatePtrOutput) RuleName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRuleUpdate) *string {
+func (o SamplingRuleUpdatePtrOutput) RuleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamplingRuleUpdate) *string {
 		if v == nil {
 			return nil
 		}
@@ -1003,8 +1003,8 @@ func (o SamplingRuleSamplingRuleUpdatePtrOutput) RuleName() pulumi.StringPtrOutp
 }
 
 // Matches the name that the service uses to identify itself in segments.
-func (o SamplingRuleSamplingRuleUpdatePtrOutput) ServiceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRuleUpdate) *string {
+func (o SamplingRuleUpdatePtrOutput) ServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamplingRuleUpdate) *string {
 		if v == nil {
 			return nil
 		}
@@ -1013,8 +1013,8 @@ func (o SamplingRuleSamplingRuleUpdatePtrOutput) ServiceName() pulumi.StringPtrO
 }
 
 // Matches the origin that the service uses to identify its type in segments.
-func (o SamplingRuleSamplingRuleUpdatePtrOutput) ServiceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRuleUpdate) *string {
+func (o SamplingRuleUpdatePtrOutput) ServiceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamplingRuleUpdate) *string {
 		if v == nil {
 			return nil
 		}
@@ -1023,8 +1023,8 @@ func (o SamplingRuleSamplingRuleUpdatePtrOutput) ServiceType() pulumi.StringPtrO
 }
 
 // Matches the path from a request URL.
-func (o SamplingRuleSamplingRuleUpdatePtrOutput) URLPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRuleUpdate) *string {
+func (o SamplingRuleUpdatePtrOutput) URLPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SamplingRuleUpdate) *string {
 		if v == nil {
 			return nil
 		}
@@ -1035,10 +1035,10 @@ func (o SamplingRuleSamplingRuleUpdatePtrOutput) URLPath() pulumi.StringPtrOutpu
 func init() {
 	pulumi.RegisterOutputType(GroupInsightsConfigurationOutput{})
 	pulumi.RegisterOutputType(GroupInsightsConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(SamplingRuleSamplingRuleOutput{})
-	pulumi.RegisterOutputType(SamplingRuleSamplingRulePtrOutput{})
-	pulumi.RegisterOutputType(SamplingRuleSamplingRuleRecordOutput{})
-	pulumi.RegisterOutputType(SamplingRuleSamplingRuleRecordPtrOutput{})
-	pulumi.RegisterOutputType(SamplingRuleSamplingRuleUpdateOutput{})
-	pulumi.RegisterOutputType(SamplingRuleSamplingRuleUpdatePtrOutput{})
+	pulumi.RegisterOutputType(SamplingRuleTypeOutput{})
+	pulumi.RegisterOutputType(SamplingRuleTypePtrOutput{})
+	pulumi.RegisterOutputType(SamplingRuleRecordOutput{})
+	pulumi.RegisterOutputType(SamplingRuleRecordPtrOutput{})
+	pulumi.RegisterOutputType(SamplingRuleUpdateOutput{})
+	pulumi.RegisterOutputType(SamplingRuleUpdatePtrOutput{})
 }

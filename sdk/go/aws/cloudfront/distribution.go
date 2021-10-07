@@ -15,9 +15,9 @@ import (
 type Distribution struct {
 	pulumi.CustomResourceState
 
-	DistributionConfig DistributionDistributionConfigOutput `pulumi:"distributionConfig"`
-	DomainName         pulumi.StringOutput                  `pulumi:"domainName"`
-	Tags               DistributionTagArrayOutput           `pulumi:"tags"`
+	DistributionConfig DistributionConfigOutput   `pulumi:"distributionConfig"`
+	DomainName         pulumi.StringOutput        `pulumi:"domainName"`
+	Tags               DistributionTagArrayOutput `pulumi:"tags"`
 }
 
 // NewDistribution registers a new resource with the given unique name, arguments, and options.
@@ -62,13 +62,13 @@ func (DistributionState) ElementType() reflect.Type {
 }
 
 type distributionArgs struct {
-	DistributionConfig DistributionDistributionConfig `pulumi:"distributionConfig"`
-	Tags               []DistributionTag              `pulumi:"tags"`
+	DistributionConfig DistributionConfig `pulumi:"distributionConfig"`
+	Tags               []DistributionTag  `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Distribution resource.
 type DistributionArgs struct {
-	DistributionConfig DistributionDistributionConfigInput
+	DistributionConfig DistributionConfigInput
 	Tags               DistributionTagArrayInput
 }
 

@@ -469,7 +469,7 @@ func (o ConfigAntennaUplinkConfigPtrOutput) TransmitDisabled() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-type ConfigConfigData struct {
+type ConfigData struct {
 	AntennaDownlinkConfig            *ConfigAntennaDownlinkConfig            `pulumi:"antennaDownlinkConfig"`
 	AntennaDownlinkDemodDecodeConfig *ConfigAntennaDownlinkDemodDecodeConfig `pulumi:"antennaDownlinkDemodDecodeConfig"`
 	AntennaUplinkConfig              *ConfigAntennaUplinkConfig              `pulumi:"antennaUplinkConfig"`
@@ -479,18 +479,18 @@ type ConfigConfigData struct {
 	UplinkEchoConfig                 *ConfigUplinkEchoConfig                 `pulumi:"uplinkEchoConfig"`
 }
 
-// ConfigConfigDataInput is an input type that accepts ConfigConfigDataArgs and ConfigConfigDataOutput values.
-// You can construct a concrete instance of `ConfigConfigDataInput` via:
+// ConfigDataInput is an input type that accepts ConfigDataArgs and ConfigDataOutput values.
+// You can construct a concrete instance of `ConfigDataInput` via:
 //
-//          ConfigConfigDataArgs{...}
-type ConfigConfigDataInput interface {
+//          ConfigDataArgs{...}
+type ConfigDataInput interface {
 	pulumi.Input
 
-	ToConfigConfigDataOutput() ConfigConfigDataOutput
-	ToConfigConfigDataOutputWithContext(context.Context) ConfigConfigDataOutput
+	ToConfigDataOutput() ConfigDataOutput
+	ToConfigDataOutputWithContext(context.Context) ConfigDataOutput
 }
 
-type ConfigConfigDataArgs struct {
+type ConfigDataArgs struct {
 	AntennaDownlinkConfig            ConfigAntennaDownlinkConfigPtrInput            `pulumi:"antennaDownlinkConfig"`
 	AntennaDownlinkDemodDecodeConfig ConfigAntennaDownlinkDemodDecodeConfigPtrInput `pulumi:"antennaDownlinkDemodDecodeConfig"`
 	AntennaUplinkConfig              ConfigAntennaUplinkConfigPtrInput              `pulumi:"antennaUplinkConfig"`
@@ -500,139 +500,137 @@ type ConfigConfigDataArgs struct {
 	UplinkEchoConfig                 ConfigUplinkEchoConfigPtrInput                 `pulumi:"uplinkEchoConfig"`
 }
 
-func (ConfigConfigDataArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigConfigData)(nil)).Elem()
+func (ConfigDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigData)(nil)).Elem()
 }
 
-func (i ConfigConfigDataArgs) ToConfigConfigDataOutput() ConfigConfigDataOutput {
-	return i.ToConfigConfigDataOutputWithContext(context.Background())
+func (i ConfigDataArgs) ToConfigDataOutput() ConfigDataOutput {
+	return i.ToConfigDataOutputWithContext(context.Background())
 }
 
-func (i ConfigConfigDataArgs) ToConfigConfigDataOutputWithContext(ctx context.Context) ConfigConfigDataOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigConfigDataOutput)
+func (i ConfigDataArgs) ToConfigDataOutputWithContext(ctx context.Context) ConfigDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigDataOutput)
 }
 
-func (i ConfigConfigDataArgs) ToConfigConfigDataPtrOutput() ConfigConfigDataPtrOutput {
-	return i.ToConfigConfigDataPtrOutputWithContext(context.Background())
+func (i ConfigDataArgs) ToConfigDataPtrOutput() ConfigDataPtrOutput {
+	return i.ToConfigDataPtrOutputWithContext(context.Background())
 }
 
-func (i ConfigConfigDataArgs) ToConfigConfigDataPtrOutputWithContext(ctx context.Context) ConfigConfigDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigConfigDataOutput).ToConfigConfigDataPtrOutputWithContext(ctx)
+func (i ConfigDataArgs) ToConfigDataPtrOutputWithContext(ctx context.Context) ConfigDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigDataOutput).ToConfigDataPtrOutputWithContext(ctx)
 }
 
-// ConfigConfigDataPtrInput is an input type that accepts ConfigConfigDataArgs, ConfigConfigDataPtr and ConfigConfigDataPtrOutput values.
-// You can construct a concrete instance of `ConfigConfigDataPtrInput` via:
+// ConfigDataPtrInput is an input type that accepts ConfigDataArgs, ConfigDataPtr and ConfigDataPtrOutput values.
+// You can construct a concrete instance of `ConfigDataPtrInput` via:
 //
-//          ConfigConfigDataArgs{...}
+//          ConfigDataArgs{...}
 //
 //  or:
 //
 //          nil
-type ConfigConfigDataPtrInput interface {
+type ConfigDataPtrInput interface {
 	pulumi.Input
 
-	ToConfigConfigDataPtrOutput() ConfigConfigDataPtrOutput
-	ToConfigConfigDataPtrOutputWithContext(context.Context) ConfigConfigDataPtrOutput
+	ToConfigDataPtrOutput() ConfigDataPtrOutput
+	ToConfigDataPtrOutputWithContext(context.Context) ConfigDataPtrOutput
 }
 
-type configConfigDataPtrType ConfigConfigDataArgs
+type configDataPtrType ConfigDataArgs
 
-func ConfigConfigDataPtr(v *ConfigConfigDataArgs) ConfigConfigDataPtrInput {
-	return (*configConfigDataPtrType)(v)
+func ConfigDataPtr(v *ConfigDataArgs) ConfigDataPtrInput {
+	return (*configDataPtrType)(v)
 }
 
-func (*configConfigDataPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigConfigData)(nil)).Elem()
+func (*configDataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigData)(nil)).Elem()
 }
 
-func (i *configConfigDataPtrType) ToConfigConfigDataPtrOutput() ConfigConfigDataPtrOutput {
-	return i.ToConfigConfigDataPtrOutputWithContext(context.Background())
+func (i *configDataPtrType) ToConfigDataPtrOutput() ConfigDataPtrOutput {
+	return i.ToConfigDataPtrOutputWithContext(context.Background())
 }
 
-func (i *configConfigDataPtrType) ToConfigConfigDataPtrOutputWithContext(ctx context.Context) ConfigConfigDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigConfigDataPtrOutput)
+func (i *configDataPtrType) ToConfigDataPtrOutputWithContext(ctx context.Context) ConfigDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigDataPtrOutput)
 }
 
-type ConfigConfigDataOutput struct{ *pulumi.OutputState }
+type ConfigDataOutput struct{ *pulumi.OutputState }
 
-func (ConfigConfigDataOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigConfigData)(nil)).Elem()
+func (ConfigDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigData)(nil)).Elem()
 }
 
-func (o ConfigConfigDataOutput) ToConfigConfigDataOutput() ConfigConfigDataOutput {
+func (o ConfigDataOutput) ToConfigDataOutput() ConfigDataOutput {
 	return o
 }
 
-func (o ConfigConfigDataOutput) ToConfigConfigDataOutputWithContext(ctx context.Context) ConfigConfigDataOutput {
+func (o ConfigDataOutput) ToConfigDataOutputWithContext(ctx context.Context) ConfigDataOutput {
 	return o
 }
 
-func (o ConfigConfigDataOutput) ToConfigConfigDataPtrOutput() ConfigConfigDataPtrOutput {
-	return o.ToConfigConfigDataPtrOutputWithContext(context.Background())
+func (o ConfigDataOutput) ToConfigDataPtrOutput() ConfigDataPtrOutput {
+	return o.ToConfigDataPtrOutputWithContext(context.Background())
 }
 
-func (o ConfigConfigDataOutput) ToConfigConfigDataPtrOutputWithContext(ctx context.Context) ConfigConfigDataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigConfigData) *ConfigConfigData {
+func (o ConfigDataOutput) ToConfigDataPtrOutputWithContext(ctx context.Context) ConfigDataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigData) *ConfigData {
 		return &v
-	}).(ConfigConfigDataPtrOutput)
+	}).(ConfigDataPtrOutput)
 }
 
-func (o ConfigConfigDataOutput) AntennaDownlinkConfig() ConfigAntennaDownlinkConfigPtrOutput {
-	return o.ApplyT(func(v ConfigConfigData) *ConfigAntennaDownlinkConfig { return v.AntennaDownlinkConfig }).(ConfigAntennaDownlinkConfigPtrOutput)
+func (o ConfigDataOutput) AntennaDownlinkConfig() ConfigAntennaDownlinkConfigPtrOutput {
+	return o.ApplyT(func(v ConfigData) *ConfigAntennaDownlinkConfig { return v.AntennaDownlinkConfig }).(ConfigAntennaDownlinkConfigPtrOutput)
 }
 
-func (o ConfigConfigDataOutput) AntennaDownlinkDemodDecodeConfig() ConfigAntennaDownlinkDemodDecodeConfigPtrOutput {
-	return o.ApplyT(func(v ConfigConfigData) *ConfigAntennaDownlinkDemodDecodeConfig {
-		return v.AntennaDownlinkDemodDecodeConfig
-	}).(ConfigAntennaDownlinkDemodDecodeConfigPtrOutput)
+func (o ConfigDataOutput) AntennaDownlinkDemodDecodeConfig() ConfigAntennaDownlinkDemodDecodeConfigPtrOutput {
+	return o.ApplyT(func(v ConfigData) *ConfigAntennaDownlinkDemodDecodeConfig { return v.AntennaDownlinkDemodDecodeConfig }).(ConfigAntennaDownlinkDemodDecodeConfigPtrOutput)
 }
 
-func (o ConfigConfigDataOutput) AntennaUplinkConfig() ConfigAntennaUplinkConfigPtrOutput {
-	return o.ApplyT(func(v ConfigConfigData) *ConfigAntennaUplinkConfig { return v.AntennaUplinkConfig }).(ConfigAntennaUplinkConfigPtrOutput)
+func (o ConfigDataOutput) AntennaUplinkConfig() ConfigAntennaUplinkConfigPtrOutput {
+	return o.ApplyT(func(v ConfigData) *ConfigAntennaUplinkConfig { return v.AntennaUplinkConfig }).(ConfigAntennaUplinkConfigPtrOutput)
 }
 
-func (o ConfigConfigDataOutput) DataflowEndpointConfig() ConfigDataflowEndpointConfigPtrOutput {
-	return o.ApplyT(func(v ConfigConfigData) *ConfigDataflowEndpointConfig { return v.DataflowEndpointConfig }).(ConfigDataflowEndpointConfigPtrOutput)
+func (o ConfigDataOutput) DataflowEndpointConfig() ConfigDataflowEndpointConfigPtrOutput {
+	return o.ApplyT(func(v ConfigData) *ConfigDataflowEndpointConfig { return v.DataflowEndpointConfig }).(ConfigDataflowEndpointConfigPtrOutput)
 }
 
-func (o ConfigConfigDataOutput) S3RecordingConfig() ConfigS3RecordingConfigPtrOutput {
-	return o.ApplyT(func(v ConfigConfigData) *ConfigS3RecordingConfig { return v.S3RecordingConfig }).(ConfigS3RecordingConfigPtrOutput)
+func (o ConfigDataOutput) S3RecordingConfig() ConfigS3RecordingConfigPtrOutput {
+	return o.ApplyT(func(v ConfigData) *ConfigS3RecordingConfig { return v.S3RecordingConfig }).(ConfigS3RecordingConfigPtrOutput)
 }
 
-func (o ConfigConfigDataOutput) TrackingConfig() ConfigTrackingConfigPtrOutput {
-	return o.ApplyT(func(v ConfigConfigData) *ConfigTrackingConfig { return v.TrackingConfig }).(ConfigTrackingConfigPtrOutput)
+func (o ConfigDataOutput) TrackingConfig() ConfigTrackingConfigPtrOutput {
+	return o.ApplyT(func(v ConfigData) *ConfigTrackingConfig { return v.TrackingConfig }).(ConfigTrackingConfigPtrOutput)
 }
 
-func (o ConfigConfigDataOutput) UplinkEchoConfig() ConfigUplinkEchoConfigPtrOutput {
-	return o.ApplyT(func(v ConfigConfigData) *ConfigUplinkEchoConfig { return v.UplinkEchoConfig }).(ConfigUplinkEchoConfigPtrOutput)
+func (o ConfigDataOutput) UplinkEchoConfig() ConfigUplinkEchoConfigPtrOutput {
+	return o.ApplyT(func(v ConfigData) *ConfigUplinkEchoConfig { return v.UplinkEchoConfig }).(ConfigUplinkEchoConfigPtrOutput)
 }
 
-type ConfigConfigDataPtrOutput struct{ *pulumi.OutputState }
+type ConfigDataPtrOutput struct{ *pulumi.OutputState }
 
-func (ConfigConfigDataPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigConfigData)(nil)).Elem()
+func (ConfigDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigData)(nil)).Elem()
 }
 
-func (o ConfigConfigDataPtrOutput) ToConfigConfigDataPtrOutput() ConfigConfigDataPtrOutput {
+func (o ConfigDataPtrOutput) ToConfigDataPtrOutput() ConfigDataPtrOutput {
 	return o
 }
 
-func (o ConfigConfigDataPtrOutput) ToConfigConfigDataPtrOutputWithContext(ctx context.Context) ConfigConfigDataPtrOutput {
+func (o ConfigDataPtrOutput) ToConfigDataPtrOutputWithContext(ctx context.Context) ConfigDataPtrOutput {
 	return o
 }
 
-func (o ConfigConfigDataPtrOutput) Elem() ConfigConfigDataOutput {
-	return o.ApplyT(func(v *ConfigConfigData) ConfigConfigData {
+func (o ConfigDataPtrOutput) Elem() ConfigDataOutput {
+	return o.ApplyT(func(v *ConfigData) ConfigData {
 		if v != nil {
 			return *v
 		}
-		var ret ConfigConfigData
+		var ret ConfigData
 		return ret
-	}).(ConfigConfigDataOutput)
+	}).(ConfigDataOutput)
 }
 
-func (o ConfigConfigDataPtrOutput) AntennaDownlinkConfig() ConfigAntennaDownlinkConfigPtrOutput {
-	return o.ApplyT(func(v *ConfigConfigData) *ConfigAntennaDownlinkConfig {
+func (o ConfigDataPtrOutput) AntennaDownlinkConfig() ConfigAntennaDownlinkConfigPtrOutput {
+	return o.ApplyT(func(v *ConfigData) *ConfigAntennaDownlinkConfig {
 		if v == nil {
 			return nil
 		}
@@ -640,8 +638,8 @@ func (o ConfigConfigDataPtrOutput) AntennaDownlinkConfig() ConfigAntennaDownlink
 	}).(ConfigAntennaDownlinkConfigPtrOutput)
 }
 
-func (o ConfigConfigDataPtrOutput) AntennaDownlinkDemodDecodeConfig() ConfigAntennaDownlinkDemodDecodeConfigPtrOutput {
-	return o.ApplyT(func(v *ConfigConfigData) *ConfigAntennaDownlinkDemodDecodeConfig {
+func (o ConfigDataPtrOutput) AntennaDownlinkDemodDecodeConfig() ConfigAntennaDownlinkDemodDecodeConfigPtrOutput {
+	return o.ApplyT(func(v *ConfigData) *ConfigAntennaDownlinkDemodDecodeConfig {
 		if v == nil {
 			return nil
 		}
@@ -649,8 +647,8 @@ func (o ConfigConfigDataPtrOutput) AntennaDownlinkDemodDecodeConfig() ConfigAnte
 	}).(ConfigAntennaDownlinkDemodDecodeConfigPtrOutput)
 }
 
-func (o ConfigConfigDataPtrOutput) AntennaUplinkConfig() ConfigAntennaUplinkConfigPtrOutput {
-	return o.ApplyT(func(v *ConfigConfigData) *ConfigAntennaUplinkConfig {
+func (o ConfigDataPtrOutput) AntennaUplinkConfig() ConfigAntennaUplinkConfigPtrOutput {
+	return o.ApplyT(func(v *ConfigData) *ConfigAntennaUplinkConfig {
 		if v == nil {
 			return nil
 		}
@@ -658,8 +656,8 @@ func (o ConfigConfigDataPtrOutput) AntennaUplinkConfig() ConfigAntennaUplinkConf
 	}).(ConfigAntennaUplinkConfigPtrOutput)
 }
 
-func (o ConfigConfigDataPtrOutput) DataflowEndpointConfig() ConfigDataflowEndpointConfigPtrOutput {
-	return o.ApplyT(func(v *ConfigConfigData) *ConfigDataflowEndpointConfig {
+func (o ConfigDataPtrOutput) DataflowEndpointConfig() ConfigDataflowEndpointConfigPtrOutput {
+	return o.ApplyT(func(v *ConfigData) *ConfigDataflowEndpointConfig {
 		if v == nil {
 			return nil
 		}
@@ -667,8 +665,8 @@ func (o ConfigConfigDataPtrOutput) DataflowEndpointConfig() ConfigDataflowEndpoi
 	}).(ConfigDataflowEndpointConfigPtrOutput)
 }
 
-func (o ConfigConfigDataPtrOutput) S3RecordingConfig() ConfigS3RecordingConfigPtrOutput {
-	return o.ApplyT(func(v *ConfigConfigData) *ConfigS3RecordingConfig {
+func (o ConfigDataPtrOutput) S3RecordingConfig() ConfigS3RecordingConfigPtrOutput {
+	return o.ApplyT(func(v *ConfigData) *ConfigS3RecordingConfig {
 		if v == nil {
 			return nil
 		}
@@ -676,8 +674,8 @@ func (o ConfigConfigDataPtrOutput) S3RecordingConfig() ConfigS3RecordingConfigPt
 	}).(ConfigS3RecordingConfigPtrOutput)
 }
 
-func (o ConfigConfigDataPtrOutput) TrackingConfig() ConfigTrackingConfigPtrOutput {
-	return o.ApplyT(func(v *ConfigConfigData) *ConfigTrackingConfig {
+func (o ConfigDataPtrOutput) TrackingConfig() ConfigTrackingConfigPtrOutput {
+	return o.ApplyT(func(v *ConfigData) *ConfigTrackingConfig {
 		if v == nil {
 			return nil
 		}
@@ -685,8 +683,8 @@ func (o ConfigConfigDataPtrOutput) TrackingConfig() ConfigTrackingConfigPtrOutpu
 	}).(ConfigTrackingConfigPtrOutput)
 }
 
-func (o ConfigConfigDataPtrOutput) UplinkEchoConfig() ConfigUplinkEchoConfigPtrOutput {
-	return o.ApplyT(func(v *ConfigConfigData) *ConfigUplinkEchoConfig {
+func (o ConfigDataPtrOutput) UplinkEchoConfig() ConfigUplinkEchoConfigPtrOutput {
+	return o.ApplyT(func(v *ConfigData) *ConfigUplinkEchoConfig {
 		if v == nil {
 			return nil
 		}
@@ -3290,8 +3288,8 @@ func init() {
 	pulumi.RegisterOutputType(ConfigAntennaDownlinkDemodDecodeConfigPtrOutput{})
 	pulumi.RegisterOutputType(ConfigAntennaUplinkConfigOutput{})
 	pulumi.RegisterOutputType(ConfigAntennaUplinkConfigPtrOutput{})
-	pulumi.RegisterOutputType(ConfigConfigDataOutput{})
-	pulumi.RegisterOutputType(ConfigConfigDataPtrOutput{})
+	pulumi.RegisterOutputType(ConfigDataOutput{})
+	pulumi.RegisterOutputType(ConfigDataPtrOutput{})
 	pulumi.RegisterOutputType(ConfigDataflowEndpointConfigOutput{})
 	pulumi.RegisterOutputType(ConfigDataflowEndpointConfigPtrOutput{})
 	pulumi.RegisterOutputType(ConfigDecodeConfigOutput{})

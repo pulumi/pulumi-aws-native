@@ -10,104 +10,104 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type ClusterClusterEndpoint struct {
+type ClusterEndpoint struct {
 	Endpoint *string `pulumi:"endpoint"`
 	Region   *string `pulumi:"region"`
 }
 
-// ClusterClusterEndpointInput is an input type that accepts ClusterClusterEndpointArgs and ClusterClusterEndpointOutput values.
-// You can construct a concrete instance of `ClusterClusterEndpointInput` via:
+// ClusterEndpointInput is an input type that accepts ClusterEndpointArgs and ClusterEndpointOutput values.
+// You can construct a concrete instance of `ClusterEndpointInput` via:
 //
-//          ClusterClusterEndpointArgs{...}
-type ClusterClusterEndpointInput interface {
+//          ClusterEndpointArgs{...}
+type ClusterEndpointInput interface {
 	pulumi.Input
 
-	ToClusterClusterEndpointOutput() ClusterClusterEndpointOutput
-	ToClusterClusterEndpointOutputWithContext(context.Context) ClusterClusterEndpointOutput
+	ToClusterEndpointOutput() ClusterEndpointOutput
+	ToClusterEndpointOutputWithContext(context.Context) ClusterEndpointOutput
 }
 
-type ClusterClusterEndpointArgs struct {
+type ClusterEndpointArgs struct {
 	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
 	Region   pulumi.StringPtrInput `pulumi:"region"`
 }
 
-func (ClusterClusterEndpointArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterClusterEndpoint)(nil)).Elem()
+func (ClusterEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterEndpoint)(nil)).Elem()
 }
 
-func (i ClusterClusterEndpointArgs) ToClusterClusterEndpointOutput() ClusterClusterEndpointOutput {
-	return i.ToClusterClusterEndpointOutputWithContext(context.Background())
+func (i ClusterEndpointArgs) ToClusterEndpointOutput() ClusterEndpointOutput {
+	return i.ToClusterEndpointOutputWithContext(context.Background())
 }
 
-func (i ClusterClusterEndpointArgs) ToClusterClusterEndpointOutputWithContext(ctx context.Context) ClusterClusterEndpointOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterEndpointOutput)
+func (i ClusterEndpointArgs) ToClusterEndpointOutputWithContext(ctx context.Context) ClusterEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEndpointOutput)
 }
 
-// ClusterClusterEndpointArrayInput is an input type that accepts ClusterClusterEndpointArray and ClusterClusterEndpointArrayOutput values.
-// You can construct a concrete instance of `ClusterClusterEndpointArrayInput` via:
+// ClusterEndpointArrayInput is an input type that accepts ClusterEndpointArray and ClusterEndpointArrayOutput values.
+// You can construct a concrete instance of `ClusterEndpointArrayInput` via:
 //
-//          ClusterClusterEndpointArray{ ClusterClusterEndpointArgs{...} }
-type ClusterClusterEndpointArrayInput interface {
+//          ClusterEndpointArray{ ClusterEndpointArgs{...} }
+type ClusterEndpointArrayInput interface {
 	pulumi.Input
 
-	ToClusterClusterEndpointArrayOutput() ClusterClusterEndpointArrayOutput
-	ToClusterClusterEndpointArrayOutputWithContext(context.Context) ClusterClusterEndpointArrayOutput
+	ToClusterEndpointArrayOutput() ClusterEndpointArrayOutput
+	ToClusterEndpointArrayOutputWithContext(context.Context) ClusterEndpointArrayOutput
 }
 
-type ClusterClusterEndpointArray []ClusterClusterEndpointInput
+type ClusterEndpointArray []ClusterEndpointInput
 
-func (ClusterClusterEndpointArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClusterClusterEndpoint)(nil)).Elem()
+func (ClusterEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterEndpoint)(nil)).Elem()
 }
 
-func (i ClusterClusterEndpointArray) ToClusterClusterEndpointArrayOutput() ClusterClusterEndpointArrayOutput {
-	return i.ToClusterClusterEndpointArrayOutputWithContext(context.Background())
+func (i ClusterEndpointArray) ToClusterEndpointArrayOutput() ClusterEndpointArrayOutput {
+	return i.ToClusterEndpointArrayOutputWithContext(context.Background())
 }
 
-func (i ClusterClusterEndpointArray) ToClusterClusterEndpointArrayOutputWithContext(ctx context.Context) ClusterClusterEndpointArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterEndpointArrayOutput)
+func (i ClusterEndpointArray) ToClusterEndpointArrayOutputWithContext(ctx context.Context) ClusterEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEndpointArrayOutput)
 }
 
-type ClusterClusterEndpointOutput struct{ *pulumi.OutputState }
+type ClusterEndpointOutput struct{ *pulumi.OutputState }
 
-func (ClusterClusterEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterClusterEndpoint)(nil)).Elem()
+func (ClusterEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterEndpoint)(nil)).Elem()
 }
 
-func (o ClusterClusterEndpointOutput) ToClusterClusterEndpointOutput() ClusterClusterEndpointOutput {
+func (o ClusterEndpointOutput) ToClusterEndpointOutput() ClusterEndpointOutput {
 	return o
 }
 
-func (o ClusterClusterEndpointOutput) ToClusterClusterEndpointOutputWithContext(ctx context.Context) ClusterClusterEndpointOutput {
+func (o ClusterEndpointOutput) ToClusterEndpointOutputWithContext(ctx context.Context) ClusterEndpointOutput {
 	return o
 }
 
-func (o ClusterClusterEndpointOutput) Endpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterClusterEndpoint) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+func (o ClusterEndpointOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterEndpoint) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
-func (o ClusterClusterEndpointOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterClusterEndpoint) *string { return v.Region }).(pulumi.StringPtrOutput)
+func (o ClusterEndpointOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterEndpoint) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
-type ClusterClusterEndpointArrayOutput struct{ *pulumi.OutputState }
+type ClusterEndpointArrayOutput struct{ *pulumi.OutputState }
 
-func (ClusterClusterEndpointArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClusterClusterEndpoint)(nil)).Elem()
+func (ClusterEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterEndpoint)(nil)).Elem()
 }
 
-func (o ClusterClusterEndpointArrayOutput) ToClusterClusterEndpointArrayOutput() ClusterClusterEndpointArrayOutput {
+func (o ClusterEndpointArrayOutput) ToClusterEndpointArrayOutput() ClusterEndpointArrayOutput {
 	return o
 }
 
-func (o ClusterClusterEndpointArrayOutput) ToClusterClusterEndpointArrayOutputWithContext(ctx context.Context) ClusterClusterEndpointArrayOutput {
+func (o ClusterEndpointArrayOutput) ToClusterEndpointArrayOutputWithContext(ctx context.Context) ClusterEndpointArrayOutput {
 	return o
 }
 
-func (o ClusterClusterEndpointArrayOutput) Index(i pulumi.IntInput) ClusterClusterEndpointOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterClusterEndpoint {
-		return vs[0].([]ClusterClusterEndpoint)[vs[1].(int)]
-	}).(ClusterClusterEndpointOutput)
+func (o ClusterEndpointArrayOutput) Index(i pulumi.IntInput) ClusterEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterEndpoint {
+		return vs[0].([]ClusterEndpoint)[vs[1].(int)]
+	}).(ClusterEndpointOutput)
 }
 
 // An assertion rule enforces that, when a routing control state is changed, that the criteria set by the rule configuration is met. Otherwise, the change to the routing control is not accepted.
@@ -626,8 +626,8 @@ func (o SafetyRuleRuleConfigPtrOutput) Type() SafetyRuleRuleTypePtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(ClusterClusterEndpointOutput{})
-	pulumi.RegisterOutputType(ClusterClusterEndpointArrayOutput{})
+	pulumi.RegisterOutputType(ClusterEndpointOutput{})
+	pulumi.RegisterOutputType(ClusterEndpointArrayOutput{})
 	pulumi.RegisterOutputType(SafetyRuleAssertionRuleOutput{})
 	pulumi.RegisterOutputType(SafetyRuleAssertionRulePtrOutput{})
 	pulumi.RegisterOutputType(SafetyRuleGatingRuleOutput{})

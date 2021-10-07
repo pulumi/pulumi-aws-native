@@ -15,13 +15,13 @@ import (
 type Function struct {
 	pulumi.CustomResourceState
 
-	AutoPublish      pulumi.BoolPtrOutput              `pulumi:"autoPublish"`
-	FunctionARN      pulumi.StringOutput               `pulumi:"functionARN"`
-	FunctionCode     pulumi.StringPtrOutput            `pulumi:"functionCode"`
-	FunctionConfig   FunctionFunctionConfigPtrOutput   `pulumi:"functionConfig"`
-	FunctionMetadata FunctionFunctionMetadataPtrOutput `pulumi:"functionMetadata"`
-	Name             pulumi.StringOutput               `pulumi:"name"`
-	Stage            pulumi.StringOutput               `pulumi:"stage"`
+	AutoPublish      pulumi.BoolPtrOutput      `pulumi:"autoPublish"`
+	FunctionARN      pulumi.StringOutput       `pulumi:"functionARN"`
+	FunctionCode     pulumi.StringPtrOutput    `pulumi:"functionCode"`
+	FunctionConfig   FunctionConfigPtrOutput   `pulumi:"functionConfig"`
+	FunctionMetadata FunctionMetadataPtrOutput `pulumi:"functionMetadata"`
+	Name             pulumi.StringOutput       `pulumi:"name"`
+	Stage            pulumi.StringOutput       `pulumi:"stage"`
 }
 
 // NewFunction registers a new resource with the given unique name, arguments, and options.
@@ -66,19 +66,19 @@ func (FunctionState) ElementType() reflect.Type {
 }
 
 type functionArgs struct {
-	AutoPublish      *bool                     `pulumi:"autoPublish"`
-	FunctionCode     *string                   `pulumi:"functionCode"`
-	FunctionConfig   *FunctionFunctionConfig   `pulumi:"functionConfig"`
-	FunctionMetadata *FunctionFunctionMetadata `pulumi:"functionMetadata"`
-	Name             string                    `pulumi:"name"`
+	AutoPublish      *bool             `pulumi:"autoPublish"`
+	FunctionCode     *string           `pulumi:"functionCode"`
+	FunctionConfig   *FunctionConfig   `pulumi:"functionConfig"`
+	FunctionMetadata *FunctionMetadata `pulumi:"functionMetadata"`
+	Name             string            `pulumi:"name"`
 }
 
 // The set of arguments for constructing a Function resource.
 type FunctionArgs struct {
 	AutoPublish      pulumi.BoolPtrInput
 	FunctionCode     pulumi.StringPtrInput
-	FunctionConfig   FunctionFunctionConfigPtrInput
-	FunctionMetadata FunctionFunctionMetadataPtrInput
+	FunctionConfig   FunctionConfigPtrInput
+	FunctionMetadata FunctionMetadataPtrInput
 	Name             pulumi.StringInput
 }
 

@@ -161,109 +161,6 @@ func (o PolicyIEMapPtrOutput) ORGUNIT() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// A policy tag.
-type PolicyPolicyTag struct {
-	Key   string `pulumi:"key"`
-	Value string `pulumi:"value"`
-}
-
-// PolicyPolicyTagInput is an input type that accepts PolicyPolicyTagArgs and PolicyPolicyTagOutput values.
-// You can construct a concrete instance of `PolicyPolicyTagInput` via:
-//
-//          PolicyPolicyTagArgs{...}
-type PolicyPolicyTagInput interface {
-	pulumi.Input
-
-	ToPolicyPolicyTagOutput() PolicyPolicyTagOutput
-	ToPolicyPolicyTagOutputWithContext(context.Context) PolicyPolicyTagOutput
-}
-
-// A policy tag.
-type PolicyPolicyTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (PolicyPolicyTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyPolicyTag)(nil)).Elem()
-}
-
-func (i PolicyPolicyTagArgs) ToPolicyPolicyTagOutput() PolicyPolicyTagOutput {
-	return i.ToPolicyPolicyTagOutputWithContext(context.Background())
-}
-
-func (i PolicyPolicyTagArgs) ToPolicyPolicyTagOutputWithContext(ctx context.Context) PolicyPolicyTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyPolicyTagOutput)
-}
-
-// PolicyPolicyTagArrayInput is an input type that accepts PolicyPolicyTagArray and PolicyPolicyTagArrayOutput values.
-// You can construct a concrete instance of `PolicyPolicyTagArrayInput` via:
-//
-//          PolicyPolicyTagArray{ PolicyPolicyTagArgs{...} }
-type PolicyPolicyTagArrayInput interface {
-	pulumi.Input
-
-	ToPolicyPolicyTagArrayOutput() PolicyPolicyTagArrayOutput
-	ToPolicyPolicyTagArrayOutputWithContext(context.Context) PolicyPolicyTagArrayOutput
-}
-
-type PolicyPolicyTagArray []PolicyPolicyTagInput
-
-func (PolicyPolicyTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PolicyPolicyTag)(nil)).Elem()
-}
-
-func (i PolicyPolicyTagArray) ToPolicyPolicyTagArrayOutput() PolicyPolicyTagArrayOutput {
-	return i.ToPolicyPolicyTagArrayOutputWithContext(context.Background())
-}
-
-func (i PolicyPolicyTagArray) ToPolicyPolicyTagArrayOutputWithContext(ctx context.Context) PolicyPolicyTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyPolicyTagArrayOutput)
-}
-
-// A policy tag.
-type PolicyPolicyTagOutput struct{ *pulumi.OutputState }
-
-func (PolicyPolicyTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyPolicyTag)(nil)).Elem()
-}
-
-func (o PolicyPolicyTagOutput) ToPolicyPolicyTagOutput() PolicyPolicyTagOutput {
-	return o
-}
-
-func (o PolicyPolicyTagOutput) ToPolicyPolicyTagOutputWithContext(ctx context.Context) PolicyPolicyTagOutput {
-	return o
-}
-
-func (o PolicyPolicyTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicyPolicyTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o PolicyPolicyTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicyPolicyTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type PolicyPolicyTagArrayOutput struct{ *pulumi.OutputState }
-
-func (PolicyPolicyTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PolicyPolicyTag)(nil)).Elem()
-}
-
-func (o PolicyPolicyTagArrayOutput) ToPolicyPolicyTagArrayOutput() PolicyPolicyTagArrayOutput {
-	return o
-}
-
-func (o PolicyPolicyTagArrayOutput) ToPolicyPolicyTagArrayOutputWithContext(ctx context.Context) PolicyPolicyTagArrayOutput {
-	return o
-}
-
-func (o PolicyPolicyTagArrayOutput) Index(i pulumi.IntInput) PolicyPolicyTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyPolicyTag {
-		return vs[0].([]PolicyPolicyTag)[vs[1].(int)]
-	}).(PolicyPolicyTagOutput)
-}
-
 // A resource tag.
 type PolicyResourceTag struct {
 	Key   string  `pulumi:"key"`
@@ -367,11 +264,114 @@ func (o PolicyResourceTagArrayOutput) Index(i pulumi.IntInput) PolicyResourceTag
 	}).(PolicyResourceTagOutput)
 }
 
+// A policy tag.
+type PolicyTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// PolicyTagInput is an input type that accepts PolicyTagArgs and PolicyTagOutput values.
+// You can construct a concrete instance of `PolicyTagInput` via:
+//
+//          PolicyTagArgs{...}
+type PolicyTagInput interface {
+	pulumi.Input
+
+	ToPolicyTagOutput() PolicyTagOutput
+	ToPolicyTagOutputWithContext(context.Context) PolicyTagOutput
+}
+
+// A policy tag.
+type PolicyTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (PolicyTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyTag)(nil)).Elem()
+}
+
+func (i PolicyTagArgs) ToPolicyTagOutput() PolicyTagOutput {
+	return i.ToPolicyTagOutputWithContext(context.Background())
+}
+
+func (i PolicyTagArgs) ToPolicyTagOutputWithContext(ctx context.Context) PolicyTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyTagOutput)
+}
+
+// PolicyTagArrayInput is an input type that accepts PolicyTagArray and PolicyTagArrayOutput values.
+// You can construct a concrete instance of `PolicyTagArrayInput` via:
+//
+//          PolicyTagArray{ PolicyTagArgs{...} }
+type PolicyTagArrayInput interface {
+	pulumi.Input
+
+	ToPolicyTagArrayOutput() PolicyTagArrayOutput
+	ToPolicyTagArrayOutputWithContext(context.Context) PolicyTagArrayOutput
+}
+
+type PolicyTagArray []PolicyTagInput
+
+func (PolicyTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyTag)(nil)).Elem()
+}
+
+func (i PolicyTagArray) ToPolicyTagArrayOutput() PolicyTagArrayOutput {
+	return i.ToPolicyTagArrayOutputWithContext(context.Background())
+}
+
+func (i PolicyTagArray) ToPolicyTagArrayOutputWithContext(ctx context.Context) PolicyTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyTagArrayOutput)
+}
+
+// A policy tag.
+type PolicyTagOutput struct{ *pulumi.OutputState }
+
+func (PolicyTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyTag)(nil)).Elem()
+}
+
+func (o PolicyTagOutput) ToPolicyTagOutput() PolicyTagOutput {
+	return o
+}
+
+func (o PolicyTagOutput) ToPolicyTagOutputWithContext(ctx context.Context) PolicyTagOutput {
+	return o
+}
+
+func (o PolicyTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o PolicyTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type PolicyTagArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicyTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyTag)(nil)).Elem()
+}
+
+func (o PolicyTagArrayOutput) ToPolicyTagArrayOutput() PolicyTagArrayOutput {
+	return o
+}
+
+func (o PolicyTagArrayOutput) ToPolicyTagArrayOutputWithContext(ctx context.Context) PolicyTagArrayOutput {
+	return o
+}
+
+func (o PolicyTagArrayOutput) Index(i pulumi.IntInput) PolicyTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyTag {
+		return vs[0].([]PolicyTag)[vs[1].(int)]
+	}).(PolicyTagOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PolicyIEMapOutput{})
 	pulumi.RegisterOutputType(PolicyIEMapPtrOutput{})
-	pulumi.RegisterOutputType(PolicyPolicyTagOutput{})
-	pulumi.RegisterOutputType(PolicyPolicyTagArrayOutput{})
 	pulumi.RegisterOutputType(PolicyResourceTagOutput{})
 	pulumi.RegisterOutputType(PolicyResourceTagArrayOutput{})
+	pulumi.RegisterOutputType(PolicyTagOutput{})
+	pulumi.RegisterOutputType(PolicyTagArrayOutput{})
 }

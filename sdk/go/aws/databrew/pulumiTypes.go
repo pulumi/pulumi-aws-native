@@ -522,85 +522,6 @@ func (o DatasetDatabaseInputDefinitionPtrOutput) TempDirectory() DatasetS3Locati
 	}).(DatasetS3LocationPtrOutput)
 }
 
-type DatasetDatasetParameter struct {
-	// Add the value of this parameter as a column in a dataset.
-	CreateColumn    *bool                    `pulumi:"createColumn"`
-	DatetimeOptions *DatasetDatetimeOptions  `pulumi:"datetimeOptions"`
-	Filter          *DatasetFilterExpression `pulumi:"filter"`
-	Name            string                   `pulumi:"name"`
-	// Parameter type
-	Type DatasetDatasetParameterType `pulumi:"type"`
-}
-
-// DatasetDatasetParameterInput is an input type that accepts DatasetDatasetParameterArgs and DatasetDatasetParameterOutput values.
-// You can construct a concrete instance of `DatasetDatasetParameterInput` via:
-//
-//          DatasetDatasetParameterArgs{...}
-type DatasetDatasetParameterInput interface {
-	pulumi.Input
-
-	ToDatasetDatasetParameterOutput() DatasetDatasetParameterOutput
-	ToDatasetDatasetParameterOutputWithContext(context.Context) DatasetDatasetParameterOutput
-}
-
-type DatasetDatasetParameterArgs struct {
-	// Add the value of this parameter as a column in a dataset.
-	CreateColumn    pulumi.BoolPtrInput             `pulumi:"createColumn"`
-	DatetimeOptions DatasetDatetimeOptionsPtrInput  `pulumi:"datetimeOptions"`
-	Filter          DatasetFilterExpressionPtrInput `pulumi:"filter"`
-	Name            pulumi.StringInput              `pulumi:"name"`
-	// Parameter type
-	Type DatasetDatasetParameterTypeInput `pulumi:"type"`
-}
-
-func (DatasetDatasetParameterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetDatasetParameter)(nil)).Elem()
-}
-
-func (i DatasetDatasetParameterArgs) ToDatasetDatasetParameterOutput() DatasetDatasetParameterOutput {
-	return i.ToDatasetDatasetParameterOutputWithContext(context.Background())
-}
-
-func (i DatasetDatasetParameterArgs) ToDatasetDatasetParameterOutputWithContext(ctx context.Context) DatasetDatasetParameterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetDatasetParameterOutput)
-}
-
-type DatasetDatasetParameterOutput struct{ *pulumi.OutputState }
-
-func (DatasetDatasetParameterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetDatasetParameter)(nil)).Elem()
-}
-
-func (o DatasetDatasetParameterOutput) ToDatasetDatasetParameterOutput() DatasetDatasetParameterOutput {
-	return o
-}
-
-func (o DatasetDatasetParameterOutput) ToDatasetDatasetParameterOutputWithContext(ctx context.Context) DatasetDatasetParameterOutput {
-	return o
-}
-
-// Add the value of this parameter as a column in a dataset.
-func (o DatasetDatasetParameterOutput) CreateColumn() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DatasetDatasetParameter) *bool { return v.CreateColumn }).(pulumi.BoolPtrOutput)
-}
-
-func (o DatasetDatasetParameterOutput) DatetimeOptions() DatasetDatetimeOptionsPtrOutput {
-	return o.ApplyT(func(v DatasetDatasetParameter) *DatasetDatetimeOptions { return v.DatetimeOptions }).(DatasetDatetimeOptionsPtrOutput)
-}
-
-func (o DatasetDatasetParameterOutput) Filter() DatasetFilterExpressionPtrOutput {
-	return o.ApplyT(func(v DatasetDatasetParameter) *DatasetFilterExpression { return v.Filter }).(DatasetFilterExpressionPtrOutput)
-}
-
-func (o DatasetDatasetParameterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetDatasetParameter) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Parameter type
-func (o DatasetDatasetParameterOutput) Type() DatasetDatasetParameterTypeOutput {
-	return o.ApplyT(func(v DatasetDatasetParameter) DatasetDatasetParameterType { return v.Type }).(DatasetDatasetParameterTypeOutput)
-}
-
 type DatasetDatetimeOptions struct {
 	// Date/time format of a date parameter
 	Format string `pulumi:"format"`
@@ -1840,6 +1761,85 @@ func (o DatasetJsonOptionsPtrOutput) MultiLine() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type DatasetParameter struct {
+	// Add the value of this parameter as a column in a dataset.
+	CreateColumn    *bool                    `pulumi:"createColumn"`
+	DatetimeOptions *DatasetDatetimeOptions  `pulumi:"datetimeOptions"`
+	Filter          *DatasetFilterExpression `pulumi:"filter"`
+	Name            string                   `pulumi:"name"`
+	// Parameter type
+	Type DatasetParameterType `pulumi:"type"`
+}
+
+// DatasetParameterInput is an input type that accepts DatasetParameterArgs and DatasetParameterOutput values.
+// You can construct a concrete instance of `DatasetParameterInput` via:
+//
+//          DatasetParameterArgs{...}
+type DatasetParameterInput interface {
+	pulumi.Input
+
+	ToDatasetParameterOutput() DatasetParameterOutput
+	ToDatasetParameterOutputWithContext(context.Context) DatasetParameterOutput
+}
+
+type DatasetParameterArgs struct {
+	// Add the value of this parameter as a column in a dataset.
+	CreateColumn    pulumi.BoolPtrInput             `pulumi:"createColumn"`
+	DatetimeOptions DatasetDatetimeOptionsPtrInput  `pulumi:"datetimeOptions"`
+	Filter          DatasetFilterExpressionPtrInput `pulumi:"filter"`
+	Name            pulumi.StringInput              `pulumi:"name"`
+	// Parameter type
+	Type DatasetParameterTypeInput `pulumi:"type"`
+}
+
+func (DatasetParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetParameter)(nil)).Elem()
+}
+
+func (i DatasetParameterArgs) ToDatasetParameterOutput() DatasetParameterOutput {
+	return i.ToDatasetParameterOutputWithContext(context.Background())
+}
+
+func (i DatasetParameterArgs) ToDatasetParameterOutputWithContext(ctx context.Context) DatasetParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetParameterOutput)
+}
+
+type DatasetParameterOutput struct{ *pulumi.OutputState }
+
+func (DatasetParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetParameter)(nil)).Elem()
+}
+
+func (o DatasetParameterOutput) ToDatasetParameterOutput() DatasetParameterOutput {
+	return o
+}
+
+func (o DatasetParameterOutput) ToDatasetParameterOutputWithContext(ctx context.Context) DatasetParameterOutput {
+	return o
+}
+
+// Add the value of this parameter as a column in a dataset.
+func (o DatasetParameterOutput) CreateColumn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatasetParameter) *bool { return v.CreateColumn }).(pulumi.BoolPtrOutput)
+}
+
+func (o DatasetParameterOutput) DatetimeOptions() DatasetDatetimeOptionsPtrOutput {
+	return o.ApplyT(func(v DatasetParameter) *DatasetDatetimeOptions { return v.DatetimeOptions }).(DatasetDatetimeOptionsPtrOutput)
+}
+
+func (o DatasetParameterOutput) Filter() DatasetFilterExpressionPtrOutput {
+	return o.ApplyT(func(v DatasetParameter) *DatasetFilterExpression { return v.Filter }).(DatasetFilterExpressionPtrOutput)
+}
+
+func (o DatasetParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Parameter type
+func (o DatasetParameterOutput) Type() DatasetParameterTypeOutput {
+	return o.ApplyT(func(v DatasetParameter) DatasetParameterType { return v.Type }).(DatasetParameterTypeOutput)
+}
+
 // Path options for dataset
 type DatasetPathOptions struct {
 	FilesLimit                *DatasetFilesLimit       `pulumi:"filesLimit"`
@@ -2008,8 +2008,8 @@ func (o DatasetPathOptionsPtrOutput) Parameters() DatasetPathParameterArrayOutpu
 
 // A key-value pair to associate dataset parameter name with its definition.
 type DatasetPathParameter struct {
-	DatasetParameter  DatasetDatasetParameter `pulumi:"datasetParameter"`
-	PathParameterName string                  `pulumi:"pathParameterName"`
+	DatasetParameter  DatasetParameter `pulumi:"datasetParameter"`
+	PathParameterName string           `pulumi:"pathParameterName"`
 }
 
 // DatasetPathParameterInput is an input type that accepts DatasetPathParameterArgs and DatasetPathParameterOutput values.
@@ -2025,8 +2025,8 @@ type DatasetPathParameterInput interface {
 
 // A key-value pair to associate dataset parameter name with its definition.
 type DatasetPathParameterArgs struct {
-	DatasetParameter  DatasetDatasetParameterInput `pulumi:"datasetParameter"`
-	PathParameterName pulumi.StringInput           `pulumi:"pathParameterName"`
+	DatasetParameter  DatasetParameterInput `pulumi:"datasetParameter"`
+	PathParameterName pulumi.StringInput    `pulumi:"pathParameterName"`
 }
 
 func (DatasetPathParameterArgs) ElementType() reflect.Type {
@@ -2081,8 +2081,8 @@ func (o DatasetPathParameterOutput) ToDatasetPathParameterOutputWithContext(ctx 
 	return o
 }
 
-func (o DatasetPathParameterOutput) DatasetParameter() DatasetDatasetParameterOutput {
-	return o.ApplyT(func(v DatasetPathParameter) DatasetDatasetParameter { return v.DatasetParameter }).(DatasetDatasetParameterOutput)
+func (o DatasetPathParameterOutput) DatasetParameter() DatasetParameterOutput {
+	return o.ApplyT(func(v DatasetPathParameter) DatasetParameter { return v.DatasetParameter }).(DatasetParameterOutput)
 }
 
 func (o DatasetPathParameterOutput) PathParameterName() pulumi.StringOutput {
@@ -3081,157 +3081,6 @@ func (o JobDatabaseTableOutputOptionsPtrOutput) TempDirectory() JobS3LocationPtr
 		}
 		return v.TempDirectory
 	}).(JobS3LocationPtrOutput)
-}
-
-// Job Sample
-type JobJobSample struct {
-	Mode *JobSampleMode `pulumi:"mode"`
-	Size *int           `pulumi:"size"`
-}
-
-// JobJobSampleInput is an input type that accepts JobJobSampleArgs and JobJobSampleOutput values.
-// You can construct a concrete instance of `JobJobSampleInput` via:
-//
-//          JobJobSampleArgs{...}
-type JobJobSampleInput interface {
-	pulumi.Input
-
-	ToJobJobSampleOutput() JobJobSampleOutput
-	ToJobJobSampleOutputWithContext(context.Context) JobJobSampleOutput
-}
-
-// Job Sample
-type JobJobSampleArgs struct {
-	Mode JobSampleModePtrInput `pulumi:"mode"`
-	Size pulumi.IntPtrInput    `pulumi:"size"`
-}
-
-func (JobJobSampleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobJobSample)(nil)).Elem()
-}
-
-func (i JobJobSampleArgs) ToJobJobSampleOutput() JobJobSampleOutput {
-	return i.ToJobJobSampleOutputWithContext(context.Background())
-}
-
-func (i JobJobSampleArgs) ToJobJobSampleOutputWithContext(ctx context.Context) JobJobSampleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobJobSampleOutput)
-}
-
-func (i JobJobSampleArgs) ToJobJobSamplePtrOutput() JobJobSamplePtrOutput {
-	return i.ToJobJobSamplePtrOutputWithContext(context.Background())
-}
-
-func (i JobJobSampleArgs) ToJobJobSamplePtrOutputWithContext(ctx context.Context) JobJobSamplePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobJobSampleOutput).ToJobJobSamplePtrOutputWithContext(ctx)
-}
-
-// JobJobSamplePtrInput is an input type that accepts JobJobSampleArgs, JobJobSamplePtr and JobJobSamplePtrOutput values.
-// You can construct a concrete instance of `JobJobSamplePtrInput` via:
-//
-//          JobJobSampleArgs{...}
-//
-//  or:
-//
-//          nil
-type JobJobSamplePtrInput interface {
-	pulumi.Input
-
-	ToJobJobSamplePtrOutput() JobJobSamplePtrOutput
-	ToJobJobSamplePtrOutputWithContext(context.Context) JobJobSamplePtrOutput
-}
-
-type jobJobSamplePtrType JobJobSampleArgs
-
-func JobJobSamplePtr(v *JobJobSampleArgs) JobJobSamplePtrInput {
-	return (*jobJobSamplePtrType)(v)
-}
-
-func (*jobJobSamplePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobJobSample)(nil)).Elem()
-}
-
-func (i *jobJobSamplePtrType) ToJobJobSamplePtrOutput() JobJobSamplePtrOutput {
-	return i.ToJobJobSamplePtrOutputWithContext(context.Background())
-}
-
-func (i *jobJobSamplePtrType) ToJobJobSamplePtrOutputWithContext(ctx context.Context) JobJobSamplePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobJobSamplePtrOutput)
-}
-
-// Job Sample
-type JobJobSampleOutput struct{ *pulumi.OutputState }
-
-func (JobJobSampleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobJobSample)(nil)).Elem()
-}
-
-func (o JobJobSampleOutput) ToJobJobSampleOutput() JobJobSampleOutput {
-	return o
-}
-
-func (o JobJobSampleOutput) ToJobJobSampleOutputWithContext(ctx context.Context) JobJobSampleOutput {
-	return o
-}
-
-func (o JobJobSampleOutput) ToJobJobSamplePtrOutput() JobJobSamplePtrOutput {
-	return o.ToJobJobSamplePtrOutputWithContext(context.Background())
-}
-
-func (o JobJobSampleOutput) ToJobJobSamplePtrOutputWithContext(ctx context.Context) JobJobSamplePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobJobSample) *JobJobSample {
-		return &v
-	}).(JobJobSamplePtrOutput)
-}
-
-func (o JobJobSampleOutput) Mode() JobSampleModePtrOutput {
-	return o.ApplyT(func(v JobJobSample) *JobSampleMode { return v.Mode }).(JobSampleModePtrOutput)
-}
-
-func (o JobJobSampleOutput) Size() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v JobJobSample) *int { return v.Size }).(pulumi.IntPtrOutput)
-}
-
-type JobJobSamplePtrOutput struct{ *pulumi.OutputState }
-
-func (JobJobSamplePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobJobSample)(nil)).Elem()
-}
-
-func (o JobJobSamplePtrOutput) ToJobJobSamplePtrOutput() JobJobSamplePtrOutput {
-	return o
-}
-
-func (o JobJobSamplePtrOutput) ToJobJobSamplePtrOutputWithContext(ctx context.Context) JobJobSamplePtrOutput {
-	return o
-}
-
-func (o JobJobSamplePtrOutput) Elem() JobJobSampleOutput {
-	return o.ApplyT(func(v *JobJobSample) JobJobSample {
-		if v != nil {
-			return *v
-		}
-		var ret JobJobSample
-		return ret
-	}).(JobJobSampleOutput)
-}
-
-func (o JobJobSamplePtrOutput) Mode() JobSampleModePtrOutput {
-	return o.ApplyT(func(v *JobJobSample) *JobSampleMode {
-		if v == nil {
-			return nil
-		}
-		return v.Mode
-	}).(JobSampleModePtrOutput)
-}
-
-func (o JobJobSamplePtrOutput) Size() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *JobJobSample) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Size
-	}).(pulumi.IntPtrOutput)
 }
 
 type JobOutputType struct {
@@ -4293,6 +4142,157 @@ func (o JobS3TableOutputOptionsPtrOutput) Location() JobS3LocationPtrOutput {
 	}).(JobS3LocationPtrOutput)
 }
 
+// Job Sample
+type JobSample struct {
+	Mode *JobSampleMode `pulumi:"mode"`
+	Size *int           `pulumi:"size"`
+}
+
+// JobSampleInput is an input type that accepts JobSampleArgs and JobSampleOutput values.
+// You can construct a concrete instance of `JobSampleInput` via:
+//
+//          JobSampleArgs{...}
+type JobSampleInput interface {
+	pulumi.Input
+
+	ToJobSampleOutput() JobSampleOutput
+	ToJobSampleOutputWithContext(context.Context) JobSampleOutput
+}
+
+// Job Sample
+type JobSampleArgs struct {
+	Mode JobSampleModePtrInput `pulumi:"mode"`
+	Size pulumi.IntPtrInput    `pulumi:"size"`
+}
+
+func (JobSampleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobSample)(nil)).Elem()
+}
+
+func (i JobSampleArgs) ToJobSampleOutput() JobSampleOutput {
+	return i.ToJobSampleOutputWithContext(context.Background())
+}
+
+func (i JobSampleArgs) ToJobSampleOutputWithContext(ctx context.Context) JobSampleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobSampleOutput)
+}
+
+func (i JobSampleArgs) ToJobSamplePtrOutput() JobSamplePtrOutput {
+	return i.ToJobSamplePtrOutputWithContext(context.Background())
+}
+
+func (i JobSampleArgs) ToJobSamplePtrOutputWithContext(ctx context.Context) JobSamplePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobSampleOutput).ToJobSamplePtrOutputWithContext(ctx)
+}
+
+// JobSamplePtrInput is an input type that accepts JobSampleArgs, JobSamplePtr and JobSamplePtrOutput values.
+// You can construct a concrete instance of `JobSamplePtrInput` via:
+//
+//          JobSampleArgs{...}
+//
+//  or:
+//
+//          nil
+type JobSamplePtrInput interface {
+	pulumi.Input
+
+	ToJobSamplePtrOutput() JobSamplePtrOutput
+	ToJobSamplePtrOutputWithContext(context.Context) JobSamplePtrOutput
+}
+
+type jobSamplePtrType JobSampleArgs
+
+func JobSamplePtr(v *JobSampleArgs) JobSamplePtrInput {
+	return (*jobSamplePtrType)(v)
+}
+
+func (*jobSamplePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobSample)(nil)).Elem()
+}
+
+func (i *jobSamplePtrType) ToJobSamplePtrOutput() JobSamplePtrOutput {
+	return i.ToJobSamplePtrOutputWithContext(context.Background())
+}
+
+func (i *jobSamplePtrType) ToJobSamplePtrOutputWithContext(ctx context.Context) JobSamplePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobSamplePtrOutput)
+}
+
+// Job Sample
+type JobSampleOutput struct{ *pulumi.OutputState }
+
+func (JobSampleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobSample)(nil)).Elem()
+}
+
+func (o JobSampleOutput) ToJobSampleOutput() JobSampleOutput {
+	return o
+}
+
+func (o JobSampleOutput) ToJobSampleOutputWithContext(ctx context.Context) JobSampleOutput {
+	return o
+}
+
+func (o JobSampleOutput) ToJobSamplePtrOutput() JobSamplePtrOutput {
+	return o.ToJobSamplePtrOutputWithContext(context.Background())
+}
+
+func (o JobSampleOutput) ToJobSamplePtrOutputWithContext(ctx context.Context) JobSamplePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobSample) *JobSample {
+		return &v
+	}).(JobSamplePtrOutput)
+}
+
+func (o JobSampleOutput) Mode() JobSampleModePtrOutput {
+	return o.ApplyT(func(v JobSample) *JobSampleMode { return v.Mode }).(JobSampleModePtrOutput)
+}
+
+func (o JobSampleOutput) Size() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobSample) *int { return v.Size }).(pulumi.IntPtrOutput)
+}
+
+type JobSamplePtrOutput struct{ *pulumi.OutputState }
+
+func (JobSamplePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobSample)(nil)).Elem()
+}
+
+func (o JobSamplePtrOutput) ToJobSamplePtrOutput() JobSamplePtrOutput {
+	return o
+}
+
+func (o JobSamplePtrOutput) ToJobSamplePtrOutputWithContext(ctx context.Context) JobSamplePtrOutput {
+	return o
+}
+
+func (o JobSamplePtrOutput) Elem() JobSampleOutput {
+	return o.ApplyT(func(v *JobSample) JobSample {
+		if v != nil {
+			return *v
+		}
+		var ret JobSample
+		return ret
+	}).(JobSampleOutput)
+}
+
+func (o JobSamplePtrOutput) Mode() JobSampleModePtrOutput {
+	return o.ApplyT(func(v *JobSample) *JobSampleMode {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(JobSampleModePtrOutput)
+}
+
+func (o JobSamplePtrOutput) Size() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobSample) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Size
+	}).(pulumi.IntPtrOutput)
+}
+
 type JobStatisticOverride struct {
 	Parameters JobParameterMap `pulumi:"parameters"`
 	Statistic  string          `pulumi:"statistic"`
@@ -5312,7 +5312,7 @@ func (o RecipeParameterMapOutput) ToRecipeParameterMapOutputWithContext(ctx cont
 	return o
 }
 
-type RecipeRecipeParameters struct {
+type RecipeParameters struct {
 	AggregateFunction             *string `pulumi:"aggregateFunction"`
 	Base                          *string `pulumi:"base"`
 	CaseStatement                 *string `pulumi:"caseStatement"`
@@ -5417,18 +5417,18 @@ type RecipeRecipeParameters struct {
 	ViewFrame                           *string                `pulumi:"viewFrame"`
 }
 
-// RecipeRecipeParametersInput is an input type that accepts RecipeRecipeParametersArgs and RecipeRecipeParametersOutput values.
-// You can construct a concrete instance of `RecipeRecipeParametersInput` via:
+// RecipeParametersInput is an input type that accepts RecipeParametersArgs and RecipeParametersOutput values.
+// You can construct a concrete instance of `RecipeParametersInput` via:
 //
-//          RecipeRecipeParametersArgs{...}
-type RecipeRecipeParametersInput interface {
+//          RecipeParametersArgs{...}
+type RecipeParametersInput interface {
 	pulumi.Input
 
-	ToRecipeRecipeParametersOutput() RecipeRecipeParametersOutput
-	ToRecipeRecipeParametersOutputWithContext(context.Context) RecipeRecipeParametersOutput
+	ToRecipeParametersOutput() RecipeParametersOutput
+	ToRecipeParametersOutputWithContext(context.Context) RecipeParametersOutput
 }
 
-type RecipeRecipeParametersArgs struct {
+type RecipeParametersArgs struct {
 	AggregateFunction             pulumi.StringPtrInput `pulumi:"aggregateFunction"`
 	Base                          pulumi.StringPtrInput `pulumi:"base"`
 	CaseStatement                 pulumi.StringPtrInput `pulumi:"caseStatement"`
@@ -5533,538 +5533,435 @@ type RecipeRecipeParametersArgs struct {
 	ViewFrame                           pulumi.StringPtrInput          `pulumi:"viewFrame"`
 }
 
-func (RecipeRecipeParametersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecipeRecipeParameters)(nil)).Elem()
+func (RecipeParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecipeParameters)(nil)).Elem()
 }
 
-func (i RecipeRecipeParametersArgs) ToRecipeRecipeParametersOutput() RecipeRecipeParametersOutput {
-	return i.ToRecipeRecipeParametersOutputWithContext(context.Background())
+func (i RecipeParametersArgs) ToRecipeParametersOutput() RecipeParametersOutput {
+	return i.ToRecipeParametersOutputWithContext(context.Background())
 }
 
-func (i RecipeRecipeParametersArgs) ToRecipeRecipeParametersOutputWithContext(ctx context.Context) RecipeRecipeParametersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecipeRecipeParametersOutput)
+func (i RecipeParametersArgs) ToRecipeParametersOutputWithContext(ctx context.Context) RecipeParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecipeParametersOutput)
 }
 
-type RecipeRecipeParametersOutput struct{ *pulumi.OutputState }
+type RecipeParametersOutput struct{ *pulumi.OutputState }
 
-func (RecipeRecipeParametersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecipeRecipeParameters)(nil)).Elem()
+func (RecipeParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecipeParameters)(nil)).Elem()
 }
 
-func (o RecipeRecipeParametersOutput) ToRecipeRecipeParametersOutput() RecipeRecipeParametersOutput {
+func (o RecipeParametersOutput) ToRecipeParametersOutput() RecipeParametersOutput {
 	return o
 }
 
-func (o RecipeRecipeParametersOutput) ToRecipeRecipeParametersOutputWithContext(ctx context.Context) RecipeRecipeParametersOutput {
+func (o RecipeParametersOutput) ToRecipeParametersOutputWithContext(ctx context.Context) RecipeParametersOutput {
 	return o
 }
 
-func (o RecipeRecipeParametersOutput) AggregateFunction() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.AggregateFunction }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) AggregateFunction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.AggregateFunction }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) Base() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.Base }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) Base() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.Base }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) CaseStatement() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.CaseStatement }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) CaseStatement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.CaseStatement }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) CategoryMap() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.CategoryMap }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) CategoryMap() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.CategoryMap }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) CharsToRemove() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.CharsToRemove }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) CharsToRemove() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.CharsToRemove }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) CollapseConsecutiveWhitespace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.CollapseConsecutiveWhitespace }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) CollapseConsecutiveWhitespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.CollapseConsecutiveWhitespace }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) ColumnDataType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.ColumnDataType }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) ColumnDataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.ColumnDataType }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) ColumnRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.ColumnRange }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) ColumnRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.ColumnRange }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) Count() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.Count }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) Count() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.Count }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) CustomCharacters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.CustomCharacters }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) CustomCharacters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.CustomCharacters }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) CustomStopWords() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.CustomStopWords }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) CustomStopWords() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.CustomStopWords }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) CustomValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.CustomValue }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) CustomValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.CustomValue }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) DatasetsColumns() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.DatasetsColumns }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) DatasetsColumns() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.DatasetsColumns }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) DateAddValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.DateAddValue }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) DateAddValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.DateAddValue }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) DateTimeFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.DateTimeFormat }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) DateTimeFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.DateTimeFormat }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) DateTimeParameters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.DateTimeParameters }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) DateTimeParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.DateTimeParameters }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) DeleteOtherRows() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.DeleteOtherRows }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) DeleteOtherRows() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.DeleteOtherRows }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) Delimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.Delimiter }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) Delimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.Delimiter }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) EndPattern() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.EndPattern }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) EndPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.EndPattern }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) EndPosition() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.EndPosition }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) EndPosition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.EndPosition }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) EndValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.EndValue }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) EndValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.EndValue }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) ExpandContractions() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.ExpandContractions }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) ExpandContractions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.ExpandContractions }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) Exponent() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.Exponent }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) Exponent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.Exponent }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) FalseString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.FalseString }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) FalseString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.FalseString }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) GroupByAggFunctionOptions() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.GroupByAggFunctionOptions }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) GroupByAggFunctionOptions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.GroupByAggFunctionOptions }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) GroupByColumns() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.GroupByColumns }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) GroupByColumns() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.GroupByColumns }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) HiddenColumns() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.HiddenColumns }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) HiddenColumns() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.HiddenColumns }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) IgnoreCase() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.IgnoreCase }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) IgnoreCase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.IgnoreCase }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) IncludeInSplit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.IncludeInSplit }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) IncludeInSplit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.IncludeInSplit }).(pulumi.StringPtrOutput)
 }
 
 // Input
-func (o RecipeRecipeParametersOutput) Input() pulumi.AnyOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) interface{} { return v.Input }).(pulumi.AnyOutput)
+func (o RecipeParametersOutput) Input() pulumi.AnyOutput {
+	return o.ApplyT(func(v RecipeParameters) interface{} { return v.Input }).(pulumi.AnyOutput)
 }
 
-func (o RecipeRecipeParametersOutput) Interval() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.Interval }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) Interval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.Interval }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) IsText() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.IsText }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) IsText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.IsText }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) JoinKeys() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.JoinKeys }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) JoinKeys() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.JoinKeys }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) JoinType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.JoinType }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) JoinType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.JoinType }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) LeftColumns() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.LeftColumns }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) LeftColumns() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.LeftColumns }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) Limit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.Limit }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) Limit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.Limit }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) LowerBound() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.LowerBound }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) LowerBound() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.LowerBound }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) MapType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.MapType }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) MapType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.MapType }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) ModeType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.ModeType }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) ModeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.ModeType }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) MultiLine() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *bool { return v.MultiLine }).(pulumi.BoolPtrOutput)
+func (o RecipeParametersOutput) MultiLine() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *bool { return v.MultiLine }).(pulumi.BoolPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) NumRows() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.NumRows }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) NumRows() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.NumRows }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) NumRowsAfter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.NumRowsAfter }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) NumRowsAfter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.NumRowsAfter }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) NumRowsBefore() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.NumRowsBefore }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) NumRowsBefore() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.NumRowsBefore }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) OrderByColumn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.OrderByColumn }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) OrderByColumn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.OrderByColumn }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) OrderByColumns() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.OrderByColumns }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) OrderByColumns() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.OrderByColumns }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) Other() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.Other }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) Other() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.Other }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) Pattern() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.Pattern }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) Pattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.Pattern }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) PatternOption1() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.PatternOption1 }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) PatternOption1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.PatternOption1 }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) PatternOption2() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.PatternOption2 }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) PatternOption2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.PatternOption2 }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) PatternOptions() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.PatternOptions }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) PatternOptions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.PatternOptions }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) Period() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.Period }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) Period() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.Period }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) Position() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.Position }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) Position() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.Position }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) RemoveAllPunctuation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.RemoveAllPunctuation }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) RemoveAllPunctuation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.RemoveAllPunctuation }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) RemoveAllQuotes() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.RemoveAllQuotes }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) RemoveAllQuotes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.RemoveAllQuotes }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) RemoveAllWhitespace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.RemoveAllWhitespace }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) RemoveAllWhitespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.RemoveAllWhitespace }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) RemoveCustomCharacters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.RemoveCustomCharacters }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) RemoveCustomCharacters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.RemoveCustomCharacters }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) RemoveCustomValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.RemoveCustomValue }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) RemoveCustomValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.RemoveCustomValue }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) RemoveLeadingAndTrailingPunctuation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.RemoveLeadingAndTrailingPunctuation }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) RemoveLeadingAndTrailingPunctuation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.RemoveLeadingAndTrailingPunctuation }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) RemoveLeadingAndTrailingQuotes() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.RemoveLeadingAndTrailingQuotes }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) RemoveLeadingAndTrailingQuotes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.RemoveLeadingAndTrailingQuotes }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) RemoveLeadingAndTrailingWhitespace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.RemoveLeadingAndTrailingWhitespace }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) RemoveLeadingAndTrailingWhitespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.RemoveLeadingAndTrailingWhitespace }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) RemoveLetters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.RemoveLetters }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) RemoveLetters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.RemoveLetters }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) RemoveNumbers() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.RemoveNumbers }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) RemoveNumbers() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.RemoveNumbers }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) RemoveSourceColumn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.RemoveSourceColumn }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) RemoveSourceColumn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.RemoveSourceColumn }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) RemoveSpecialCharacters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.RemoveSpecialCharacters }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) RemoveSpecialCharacters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.RemoveSpecialCharacters }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) RightColumns() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.RightColumns }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) RightColumns() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.RightColumns }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) SampleSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.SampleSize }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) SampleSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.SampleSize }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) SampleType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.SampleType }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) SampleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.SampleType }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) SecondInput() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.SecondInput }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) SecondInput() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.SecondInput }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) SecondaryInputs() RecipeSecondaryInputArrayOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) []RecipeSecondaryInput { return v.SecondaryInputs }).(RecipeSecondaryInputArrayOutput)
+func (o RecipeParametersOutput) SecondaryInputs() RecipeSecondaryInputArrayOutput {
+	return o.ApplyT(func(v RecipeParameters) []RecipeSecondaryInput { return v.SecondaryInputs }).(RecipeSecondaryInputArrayOutput)
 }
 
-func (o RecipeRecipeParametersOutput) SheetIndexes() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) []int { return v.SheetIndexes }).(pulumi.IntArrayOutput)
+func (o RecipeParametersOutput) SheetIndexes() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v RecipeParameters) []int { return v.SheetIndexes }).(pulumi.IntArrayOutput)
 }
 
-func (o RecipeRecipeParametersOutput) SheetNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) []string { return v.SheetNames }).(pulumi.StringArrayOutput)
+func (o RecipeParametersOutput) SheetNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RecipeParameters) []string { return v.SheetNames }).(pulumi.StringArrayOutput)
 }
 
-func (o RecipeRecipeParametersOutput) SourceColumn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.SourceColumn }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) SourceColumn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.SourceColumn }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) SourceColumn1() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.SourceColumn1 }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) SourceColumn1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.SourceColumn1 }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) SourceColumn2() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.SourceColumn2 }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) SourceColumn2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.SourceColumn2 }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) SourceColumns() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.SourceColumns }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) SourceColumns() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.SourceColumns }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) StartColumnIndex() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.StartColumnIndex }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) StartColumnIndex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.StartColumnIndex }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) StartPattern() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.StartPattern }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) StartPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.StartPattern }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) StartPosition() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.StartPosition }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) StartPosition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.StartPosition }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) StartValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.StartValue }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) StartValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.StartValue }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) StemmingMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.StemmingMode }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) StemmingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.StemmingMode }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) StepCount() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.StepCount }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) StepCount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.StepCount }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) StepIndex() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.StepIndex }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) StepIndex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.StepIndex }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) StopWordsMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.StopWordsMode }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) StopWordsMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.StopWordsMode }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) Strategy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.Strategy }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) Strategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.Strategy }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) TargetColumn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.TargetColumn }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) TargetColumn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.TargetColumn }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) TargetColumnNames() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.TargetColumnNames }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) TargetColumnNames() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.TargetColumnNames }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) TargetDateFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.TargetDateFormat }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) TargetDateFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.TargetDateFormat }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) TargetIndex() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.TargetIndex }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) TargetIndex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.TargetIndex }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) TimeZone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) TokenizerPattern() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.TokenizerPattern }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) TokenizerPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.TokenizerPattern }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) TrueString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.TrueString }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) TrueString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.TrueString }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) UdfLang() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.UdfLang }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) UdfLang() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.UdfLang }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) Units() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.Units }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) Units() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.Units }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) UnpivotColumn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.UnpivotColumn }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) UnpivotColumn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.UnpivotColumn }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) UpperBound() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.UpperBound }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) UpperBound() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.UpperBound }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) UseNewDataFrame() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.UseNewDataFrame }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) UseNewDataFrame() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.UseNewDataFrame }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.Value }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) Value1() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.Value1 }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) Value1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.Value1 }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) Value2() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.Value2 }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) Value2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.Value2 }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) ValueColumn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.ValueColumn }).(pulumi.StringPtrOutput)
+func (o RecipeParametersOutput) ValueColumn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.ValueColumn }).(pulumi.StringPtrOutput)
 }
 
-func (o RecipeRecipeParametersOutput) ViewFrame() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.ViewFrame }).(pulumi.StringPtrOutput)
-}
-
-type RecipeRecipeStep struct {
-	Action RecipeAction `pulumi:"action"`
-	// Condition expressions applied to the step action
-	ConditionExpressions []RecipeConditionExpression `pulumi:"conditionExpressions"`
-}
-
-// RecipeRecipeStepInput is an input type that accepts RecipeRecipeStepArgs and RecipeRecipeStepOutput values.
-// You can construct a concrete instance of `RecipeRecipeStepInput` via:
-//
-//          RecipeRecipeStepArgs{...}
-type RecipeRecipeStepInput interface {
-	pulumi.Input
-
-	ToRecipeRecipeStepOutput() RecipeRecipeStepOutput
-	ToRecipeRecipeStepOutputWithContext(context.Context) RecipeRecipeStepOutput
-}
-
-type RecipeRecipeStepArgs struct {
-	Action RecipeActionInput `pulumi:"action"`
-	// Condition expressions applied to the step action
-	ConditionExpressions RecipeConditionExpressionArrayInput `pulumi:"conditionExpressions"`
-}
-
-func (RecipeRecipeStepArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecipeRecipeStep)(nil)).Elem()
-}
-
-func (i RecipeRecipeStepArgs) ToRecipeRecipeStepOutput() RecipeRecipeStepOutput {
-	return i.ToRecipeRecipeStepOutputWithContext(context.Background())
-}
-
-func (i RecipeRecipeStepArgs) ToRecipeRecipeStepOutputWithContext(ctx context.Context) RecipeRecipeStepOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecipeRecipeStepOutput)
-}
-
-// RecipeRecipeStepArrayInput is an input type that accepts RecipeRecipeStepArray and RecipeRecipeStepArrayOutput values.
-// You can construct a concrete instance of `RecipeRecipeStepArrayInput` via:
-//
-//          RecipeRecipeStepArray{ RecipeRecipeStepArgs{...} }
-type RecipeRecipeStepArrayInput interface {
-	pulumi.Input
-
-	ToRecipeRecipeStepArrayOutput() RecipeRecipeStepArrayOutput
-	ToRecipeRecipeStepArrayOutputWithContext(context.Context) RecipeRecipeStepArrayOutput
-}
-
-type RecipeRecipeStepArray []RecipeRecipeStepInput
-
-func (RecipeRecipeStepArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RecipeRecipeStep)(nil)).Elem()
-}
-
-func (i RecipeRecipeStepArray) ToRecipeRecipeStepArrayOutput() RecipeRecipeStepArrayOutput {
-	return i.ToRecipeRecipeStepArrayOutputWithContext(context.Background())
-}
-
-func (i RecipeRecipeStepArray) ToRecipeRecipeStepArrayOutputWithContext(ctx context.Context) RecipeRecipeStepArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecipeRecipeStepArrayOutput)
-}
-
-type RecipeRecipeStepOutput struct{ *pulumi.OutputState }
-
-func (RecipeRecipeStepOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecipeRecipeStep)(nil)).Elem()
-}
-
-func (o RecipeRecipeStepOutput) ToRecipeRecipeStepOutput() RecipeRecipeStepOutput {
-	return o
-}
-
-func (o RecipeRecipeStepOutput) ToRecipeRecipeStepOutputWithContext(ctx context.Context) RecipeRecipeStepOutput {
-	return o
-}
-
-func (o RecipeRecipeStepOutput) Action() RecipeActionOutput {
-	return o.ApplyT(func(v RecipeRecipeStep) RecipeAction { return v.Action }).(RecipeActionOutput)
-}
-
-// Condition expressions applied to the step action
-func (o RecipeRecipeStepOutput) ConditionExpressions() RecipeConditionExpressionArrayOutput {
-	return o.ApplyT(func(v RecipeRecipeStep) []RecipeConditionExpression { return v.ConditionExpressions }).(RecipeConditionExpressionArrayOutput)
-}
-
-type RecipeRecipeStepArrayOutput struct{ *pulumi.OutputState }
-
-func (RecipeRecipeStepArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RecipeRecipeStep)(nil)).Elem()
-}
-
-func (o RecipeRecipeStepArrayOutput) ToRecipeRecipeStepArrayOutput() RecipeRecipeStepArrayOutput {
-	return o
-}
-
-func (o RecipeRecipeStepArrayOutput) ToRecipeRecipeStepArrayOutputWithContext(ctx context.Context) RecipeRecipeStepArrayOutput {
-	return o
-}
-
-func (o RecipeRecipeStepArrayOutput) Index(i pulumi.IntInput) RecipeRecipeStepOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecipeRecipeStep {
-		return vs[0].([]RecipeRecipeStep)[vs[1].(int)]
-	}).(RecipeRecipeStepOutput)
+func (o RecipeParametersOutput) ViewFrame() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *string { return v.ViewFrame }).(pulumi.StringPtrOutput)
 }
 
 // Input location
@@ -6321,6 +6218,109 @@ func (o RecipeSecondaryInputArrayOutput) Index(i pulumi.IntInput) RecipeSecondar
 	}).(RecipeSecondaryInputOutput)
 }
 
+type RecipeStep struct {
+	Action RecipeAction `pulumi:"action"`
+	// Condition expressions applied to the step action
+	ConditionExpressions []RecipeConditionExpression `pulumi:"conditionExpressions"`
+}
+
+// RecipeStepInput is an input type that accepts RecipeStepArgs and RecipeStepOutput values.
+// You can construct a concrete instance of `RecipeStepInput` via:
+//
+//          RecipeStepArgs{...}
+type RecipeStepInput interface {
+	pulumi.Input
+
+	ToRecipeStepOutput() RecipeStepOutput
+	ToRecipeStepOutputWithContext(context.Context) RecipeStepOutput
+}
+
+type RecipeStepArgs struct {
+	Action RecipeActionInput `pulumi:"action"`
+	// Condition expressions applied to the step action
+	ConditionExpressions RecipeConditionExpressionArrayInput `pulumi:"conditionExpressions"`
+}
+
+func (RecipeStepArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecipeStep)(nil)).Elem()
+}
+
+func (i RecipeStepArgs) ToRecipeStepOutput() RecipeStepOutput {
+	return i.ToRecipeStepOutputWithContext(context.Background())
+}
+
+func (i RecipeStepArgs) ToRecipeStepOutputWithContext(ctx context.Context) RecipeStepOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecipeStepOutput)
+}
+
+// RecipeStepArrayInput is an input type that accepts RecipeStepArray and RecipeStepArrayOutput values.
+// You can construct a concrete instance of `RecipeStepArrayInput` via:
+//
+//          RecipeStepArray{ RecipeStepArgs{...} }
+type RecipeStepArrayInput interface {
+	pulumi.Input
+
+	ToRecipeStepArrayOutput() RecipeStepArrayOutput
+	ToRecipeStepArrayOutputWithContext(context.Context) RecipeStepArrayOutput
+}
+
+type RecipeStepArray []RecipeStepInput
+
+func (RecipeStepArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecipeStep)(nil)).Elem()
+}
+
+func (i RecipeStepArray) ToRecipeStepArrayOutput() RecipeStepArrayOutput {
+	return i.ToRecipeStepArrayOutputWithContext(context.Background())
+}
+
+func (i RecipeStepArray) ToRecipeStepArrayOutputWithContext(ctx context.Context) RecipeStepArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecipeStepArrayOutput)
+}
+
+type RecipeStepOutput struct{ *pulumi.OutputState }
+
+func (RecipeStepOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecipeStep)(nil)).Elem()
+}
+
+func (o RecipeStepOutput) ToRecipeStepOutput() RecipeStepOutput {
+	return o
+}
+
+func (o RecipeStepOutput) ToRecipeStepOutputWithContext(ctx context.Context) RecipeStepOutput {
+	return o
+}
+
+func (o RecipeStepOutput) Action() RecipeActionOutput {
+	return o.ApplyT(func(v RecipeStep) RecipeAction { return v.Action }).(RecipeActionOutput)
+}
+
+// Condition expressions applied to the step action
+func (o RecipeStepOutput) ConditionExpressions() RecipeConditionExpressionArrayOutput {
+	return o.ApplyT(func(v RecipeStep) []RecipeConditionExpression { return v.ConditionExpressions }).(RecipeConditionExpressionArrayOutput)
+}
+
+type RecipeStepArrayOutput struct{ *pulumi.OutputState }
+
+func (RecipeStepArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecipeStep)(nil)).Elem()
+}
+
+func (o RecipeStepArrayOutput) ToRecipeStepArrayOutput() RecipeStepArrayOutput {
+	return o
+}
+
+func (o RecipeStepArrayOutput) ToRecipeStepArrayOutputWithContext(ctx context.Context) RecipeStepArrayOutput {
+	return o
+}
+
+func (o RecipeStepArrayOutput) Index(i pulumi.IntInput) RecipeStepOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecipeStep {
+		return vs[0].([]RecipeStep)[vs[1].(int)]
+	}).(RecipeStepOutput)
+}
+
 // A key-value pair to associate with a resource.
 type RecipeTag struct {
 	Key   string `pulumi:"key"`
@@ -6534,7 +6534,6 @@ func init() {
 	pulumi.RegisterOutputType(DatasetDataCatalogInputDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(DatasetDatabaseInputDefinitionOutput{})
 	pulumi.RegisterOutputType(DatasetDatabaseInputDefinitionPtrOutput{})
-	pulumi.RegisterOutputType(DatasetDatasetParameterOutput{})
 	pulumi.RegisterOutputType(DatasetDatetimeOptionsOutput{})
 	pulumi.RegisterOutputType(DatasetDatetimeOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DatasetExcelOptionsOutput{})
@@ -6551,6 +6550,7 @@ func init() {
 	pulumi.RegisterOutputType(DatasetInputTypePtrOutput{})
 	pulumi.RegisterOutputType(DatasetJsonOptionsOutput{})
 	pulumi.RegisterOutputType(DatasetJsonOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DatasetParameterOutput{})
 	pulumi.RegisterOutputType(DatasetPathOptionsOutput{})
 	pulumi.RegisterOutputType(DatasetPathOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DatasetPathParameterOutput{})
@@ -6571,8 +6571,6 @@ func init() {
 	pulumi.RegisterOutputType(JobDatabaseOutputArrayOutput{})
 	pulumi.RegisterOutputType(JobDatabaseTableOutputOptionsOutput{})
 	pulumi.RegisterOutputType(JobDatabaseTableOutputOptionsPtrOutput{})
-	pulumi.RegisterOutputType(JobJobSampleOutput{})
-	pulumi.RegisterOutputType(JobJobSamplePtrOutput{})
 	pulumi.RegisterOutputType(JobOutputTypeOutput{})
 	pulumi.RegisterOutputType(JobOutputTypeArrayOutput{})
 	pulumi.RegisterOutputType(JobOutputFormatOptionsOutput{})
@@ -6588,6 +6586,8 @@ func init() {
 	pulumi.RegisterOutputType(JobS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(JobS3TableOutputOptionsOutput{})
 	pulumi.RegisterOutputType(JobS3TableOutputOptionsPtrOutput{})
+	pulumi.RegisterOutputType(JobSampleOutput{})
+	pulumi.RegisterOutputType(JobSamplePtrOutput{})
 	pulumi.RegisterOutputType(JobStatisticOverrideOutput{})
 	pulumi.RegisterOutputType(JobStatisticOverrideArrayOutput{})
 	pulumi.RegisterOutputType(JobStatisticsConfigurationOutput{})
@@ -6604,13 +6604,13 @@ func init() {
 	pulumi.RegisterOutputType(RecipeDataCatalogInputDefinitionOutput{})
 	pulumi.RegisterOutputType(RecipeDataCatalogInputDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(RecipeParameterMapOutput{})
-	pulumi.RegisterOutputType(RecipeRecipeParametersOutput{})
-	pulumi.RegisterOutputType(RecipeRecipeStepOutput{})
-	pulumi.RegisterOutputType(RecipeRecipeStepArrayOutput{})
+	pulumi.RegisterOutputType(RecipeParametersOutput{})
 	pulumi.RegisterOutputType(RecipeS3LocationOutput{})
 	pulumi.RegisterOutputType(RecipeS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(RecipeSecondaryInputOutput{})
 	pulumi.RegisterOutputType(RecipeSecondaryInputArrayOutput{})
+	pulumi.RegisterOutputType(RecipeStepOutput{})
+	pulumi.RegisterOutputType(RecipeStepArrayOutput{})
 	pulumi.RegisterOutputType(RecipeTagOutput{})
 	pulumi.RegisterOutputType(RecipeTagArrayOutput{})
 	pulumi.RegisterOutputType(ScheduleTagOutput{})

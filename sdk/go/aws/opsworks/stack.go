@@ -17,31 +17,31 @@ import (
 type Stack struct {
 	pulumi.CustomResourceState
 
-	AgentVersion              pulumi.StringPtrOutput                  `pulumi:"agentVersion"`
-	Attributes                pulumi.AnyOutput                        `pulumi:"attributes"`
-	ChefConfiguration         StackChefConfigurationPtrOutput         `pulumi:"chefConfiguration"`
-	CloneAppIds               pulumi.StringArrayOutput                `pulumi:"cloneAppIds"`
-	ClonePermissions          pulumi.BoolPtrOutput                    `pulumi:"clonePermissions"`
-	ConfigurationManager      StackStackConfigurationManagerPtrOutput `pulumi:"configurationManager"`
-	CustomCookbooksSource     StackSourcePtrOutput                    `pulumi:"customCookbooksSource"`
-	CustomJson                pulumi.AnyOutput                        `pulumi:"customJson"`
-	DefaultAvailabilityZone   pulumi.StringPtrOutput                  `pulumi:"defaultAvailabilityZone"`
-	DefaultInstanceProfileArn pulumi.StringOutput                     `pulumi:"defaultInstanceProfileArn"`
-	DefaultOs                 pulumi.StringPtrOutput                  `pulumi:"defaultOs"`
-	DefaultRootDeviceType     pulumi.StringPtrOutput                  `pulumi:"defaultRootDeviceType"`
-	DefaultSshKeyName         pulumi.StringPtrOutput                  `pulumi:"defaultSshKeyName"`
-	DefaultSubnetId           pulumi.StringPtrOutput                  `pulumi:"defaultSubnetId"`
-	EcsClusterArn             pulumi.StringPtrOutput                  `pulumi:"ecsClusterArn"`
-	ElasticIps                StackElasticIpArrayOutput               `pulumi:"elasticIps"`
-	HostnameTheme             pulumi.StringPtrOutput                  `pulumi:"hostnameTheme"`
-	Name                      pulumi.StringOutput                     `pulumi:"name"`
-	RdsDbInstances            StackRdsDbInstanceArrayOutput           `pulumi:"rdsDbInstances"`
-	ServiceRoleArn            pulumi.StringOutput                     `pulumi:"serviceRoleArn"`
-	SourceStackId             pulumi.StringPtrOutput                  `pulumi:"sourceStackId"`
-	Tags                      StackTagArrayOutput                     `pulumi:"tags"`
-	UseCustomCookbooks        pulumi.BoolPtrOutput                    `pulumi:"useCustomCookbooks"`
-	UseOpsworksSecurityGroups pulumi.BoolPtrOutput                    `pulumi:"useOpsworksSecurityGroups"`
-	VpcId                     pulumi.StringPtrOutput                  `pulumi:"vpcId"`
+	AgentVersion              pulumi.StringPtrOutput             `pulumi:"agentVersion"`
+	Attributes                pulumi.AnyOutput                   `pulumi:"attributes"`
+	ChefConfiguration         StackChefConfigurationPtrOutput    `pulumi:"chefConfiguration"`
+	CloneAppIds               pulumi.StringArrayOutput           `pulumi:"cloneAppIds"`
+	ClonePermissions          pulumi.BoolPtrOutput               `pulumi:"clonePermissions"`
+	ConfigurationManager      StackConfigurationManagerPtrOutput `pulumi:"configurationManager"`
+	CustomCookbooksSource     StackSourcePtrOutput               `pulumi:"customCookbooksSource"`
+	CustomJson                pulumi.AnyOutput                   `pulumi:"customJson"`
+	DefaultAvailabilityZone   pulumi.StringPtrOutput             `pulumi:"defaultAvailabilityZone"`
+	DefaultInstanceProfileArn pulumi.StringOutput                `pulumi:"defaultInstanceProfileArn"`
+	DefaultOs                 pulumi.StringPtrOutput             `pulumi:"defaultOs"`
+	DefaultRootDeviceType     pulumi.StringPtrOutput             `pulumi:"defaultRootDeviceType"`
+	DefaultSshKeyName         pulumi.StringPtrOutput             `pulumi:"defaultSshKeyName"`
+	DefaultSubnetId           pulumi.StringPtrOutput             `pulumi:"defaultSubnetId"`
+	EcsClusterArn             pulumi.StringPtrOutput             `pulumi:"ecsClusterArn"`
+	ElasticIps                StackElasticIpArrayOutput          `pulumi:"elasticIps"`
+	HostnameTheme             pulumi.StringPtrOutput             `pulumi:"hostnameTheme"`
+	Name                      pulumi.StringOutput                `pulumi:"name"`
+	RdsDbInstances            StackRdsDbInstanceArrayOutput      `pulumi:"rdsDbInstances"`
+	ServiceRoleArn            pulumi.StringOutput                `pulumi:"serviceRoleArn"`
+	SourceStackId             pulumi.StringPtrOutput             `pulumi:"sourceStackId"`
+	Tags                      StackTagArrayOutput                `pulumi:"tags"`
+	UseCustomCookbooks        pulumi.BoolPtrOutput               `pulumi:"useCustomCookbooks"`
+	UseOpsworksSecurityGroups pulumi.BoolPtrOutput               `pulumi:"useOpsworksSecurityGroups"`
+	VpcId                     pulumi.StringPtrOutput             `pulumi:"vpcId"`
 }
 
 // NewStack registers a new resource with the given unique name, arguments, and options.
@@ -92,31 +92,31 @@ func (StackState) ElementType() reflect.Type {
 }
 
 type stackArgs struct {
-	AgentVersion              *string                         `pulumi:"agentVersion"`
-	Attributes                interface{}                     `pulumi:"attributes"`
-	ChefConfiguration         *StackChefConfiguration         `pulumi:"chefConfiguration"`
-	CloneAppIds               []string                        `pulumi:"cloneAppIds"`
-	ClonePermissions          *bool                           `pulumi:"clonePermissions"`
-	ConfigurationManager      *StackStackConfigurationManager `pulumi:"configurationManager"`
-	CustomCookbooksSource     *StackSource                    `pulumi:"customCookbooksSource"`
-	CustomJson                interface{}                     `pulumi:"customJson"`
-	DefaultAvailabilityZone   *string                         `pulumi:"defaultAvailabilityZone"`
-	DefaultInstanceProfileArn string                          `pulumi:"defaultInstanceProfileArn"`
-	DefaultOs                 *string                         `pulumi:"defaultOs"`
-	DefaultRootDeviceType     *string                         `pulumi:"defaultRootDeviceType"`
-	DefaultSshKeyName         *string                         `pulumi:"defaultSshKeyName"`
-	DefaultSubnetId           *string                         `pulumi:"defaultSubnetId"`
-	EcsClusterArn             *string                         `pulumi:"ecsClusterArn"`
-	ElasticIps                []StackElasticIp                `pulumi:"elasticIps"`
-	HostnameTheme             *string                         `pulumi:"hostnameTheme"`
-	Name                      string                          `pulumi:"name"`
-	RdsDbInstances            []StackRdsDbInstance            `pulumi:"rdsDbInstances"`
-	ServiceRoleArn            string                          `pulumi:"serviceRoleArn"`
-	SourceStackId             *string                         `pulumi:"sourceStackId"`
-	Tags                      []StackTag                      `pulumi:"tags"`
-	UseCustomCookbooks        *bool                           `pulumi:"useCustomCookbooks"`
-	UseOpsworksSecurityGroups *bool                           `pulumi:"useOpsworksSecurityGroups"`
-	VpcId                     *string                         `pulumi:"vpcId"`
+	AgentVersion              *string                    `pulumi:"agentVersion"`
+	Attributes                interface{}                `pulumi:"attributes"`
+	ChefConfiguration         *StackChefConfiguration    `pulumi:"chefConfiguration"`
+	CloneAppIds               []string                   `pulumi:"cloneAppIds"`
+	ClonePermissions          *bool                      `pulumi:"clonePermissions"`
+	ConfigurationManager      *StackConfigurationManager `pulumi:"configurationManager"`
+	CustomCookbooksSource     *StackSource               `pulumi:"customCookbooksSource"`
+	CustomJson                interface{}                `pulumi:"customJson"`
+	DefaultAvailabilityZone   *string                    `pulumi:"defaultAvailabilityZone"`
+	DefaultInstanceProfileArn string                     `pulumi:"defaultInstanceProfileArn"`
+	DefaultOs                 *string                    `pulumi:"defaultOs"`
+	DefaultRootDeviceType     *string                    `pulumi:"defaultRootDeviceType"`
+	DefaultSshKeyName         *string                    `pulumi:"defaultSshKeyName"`
+	DefaultSubnetId           *string                    `pulumi:"defaultSubnetId"`
+	EcsClusterArn             *string                    `pulumi:"ecsClusterArn"`
+	ElasticIps                []StackElasticIp           `pulumi:"elasticIps"`
+	HostnameTheme             *string                    `pulumi:"hostnameTheme"`
+	Name                      string                     `pulumi:"name"`
+	RdsDbInstances            []StackRdsDbInstance       `pulumi:"rdsDbInstances"`
+	ServiceRoleArn            string                     `pulumi:"serviceRoleArn"`
+	SourceStackId             *string                    `pulumi:"sourceStackId"`
+	Tags                      []StackTag                 `pulumi:"tags"`
+	UseCustomCookbooks        *bool                      `pulumi:"useCustomCookbooks"`
+	UseOpsworksSecurityGroups *bool                      `pulumi:"useOpsworksSecurityGroups"`
+	VpcId                     *string                    `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a Stack resource.
@@ -126,7 +126,7 @@ type StackArgs struct {
 	ChefConfiguration         StackChefConfigurationPtrInput
 	CloneAppIds               pulumi.StringArrayInput
 	ClonePermissions          pulumi.BoolPtrInput
-	ConfigurationManager      StackStackConfigurationManagerPtrInput
+	ConfigurationManager      StackConfigurationManagerPtrInput
 	CustomCookbooksSource     StackSourcePtrInput
 	CustomJson                pulumi.Input
 	DefaultAvailabilityZone   pulumi.StringPtrInput

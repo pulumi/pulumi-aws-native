@@ -28,7 +28,7 @@ type Detector struct {
 	// The active version ID of the detector
 	DetectorVersionId pulumi.StringOutput `pulumi:"detectorVersionId"`
 	// The desired detector version status for the detector
-	DetectorVersionStatus DetectorDetectorVersionStatusPtrOutput `pulumi:"detectorVersionStatus"`
+	DetectorVersionStatus DetectorVersionStatusPtrOutput `pulumi:"detectorVersionStatus"`
 	// The event type to associate this detector with.
 	EventType DetectorEventTypeOutput `pulumi:"eventType"`
 	// The time when the detector was last updated.
@@ -94,7 +94,7 @@ type detectorArgs struct {
 	// The ID of the detector
 	DetectorId string `pulumi:"detectorId"`
 	// The desired detector version status for the detector
-	DetectorVersionStatus *DetectorDetectorVersionStatus `pulumi:"detectorVersionStatus"`
+	DetectorVersionStatus *DetectorVersionStatus `pulumi:"detectorVersionStatus"`
 	// The event type to associate this detector with.
 	EventType         DetectorEventType          `pulumi:"eventType"`
 	RuleExecutionMode *DetectorRuleExecutionMode `pulumi:"ruleExecutionMode"`
@@ -112,7 +112,7 @@ type DetectorArgs struct {
 	// The ID of the detector
 	DetectorId pulumi.StringInput
 	// The desired detector version status for the detector
-	DetectorVersionStatus DetectorDetectorVersionStatusPtrInput
+	DetectorVersionStatus DetectorVersionStatusPtrInput
 	// The event type to associate this detector with.
 	EventType         DetectorEventTypeInput
 	RuleExecutionMode DetectorRuleExecutionModePtrInput

@@ -15,8 +15,8 @@ import (
 type PublicKey struct {
 	pulumi.CustomResourceState
 
-	CreatedTime     pulumi.StringOutput            `pulumi:"createdTime"`
-	PublicKeyConfig PublicKeyPublicKeyConfigOutput `pulumi:"publicKeyConfig"`
+	CreatedTime     pulumi.StringOutput   `pulumi:"createdTime"`
+	PublicKeyConfig PublicKeyConfigOutput `pulumi:"publicKeyConfig"`
 }
 
 // NewPublicKey registers a new resource with the given unique name, arguments, and options.
@@ -61,12 +61,12 @@ func (PublicKeyState) ElementType() reflect.Type {
 }
 
 type publicKeyArgs struct {
-	PublicKeyConfig PublicKeyPublicKeyConfig `pulumi:"publicKeyConfig"`
+	PublicKeyConfig PublicKeyConfig `pulumi:"publicKeyConfig"`
 }
 
 // The set of arguments for constructing a PublicKey resource.
 type PublicKeyArgs struct {
-	PublicKeyConfig PublicKeyPublicKeyConfigInput
+	PublicKeyConfig PublicKeyConfigInput
 }
 
 func (PublicKeyArgs) ElementType() reflect.Type {

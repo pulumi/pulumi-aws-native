@@ -15,8 +15,8 @@ import (
 type KeyGroup struct {
 	pulumi.CustomResourceState
 
-	KeyGroupConfig   KeyGroupKeyGroupConfigOutput `pulumi:"keyGroupConfig"`
-	LastModifiedTime pulumi.StringOutput          `pulumi:"lastModifiedTime"`
+	KeyGroupConfig   KeyGroupConfigOutput `pulumi:"keyGroupConfig"`
+	LastModifiedTime pulumi.StringOutput  `pulumi:"lastModifiedTime"`
 }
 
 // NewKeyGroup registers a new resource with the given unique name, arguments, and options.
@@ -61,12 +61,12 @@ func (KeyGroupState) ElementType() reflect.Type {
 }
 
 type keyGroupArgs struct {
-	KeyGroupConfig KeyGroupKeyGroupConfig `pulumi:"keyGroupConfig"`
+	KeyGroupConfig KeyGroupConfig `pulumi:"keyGroupConfig"`
 }
 
 // The set of arguments for constructing a KeyGroup resource.
 type KeyGroupArgs struct {
-	KeyGroupConfig KeyGroupKeyGroupConfigInput
+	KeyGroupConfig KeyGroupConfigInput
 }
 
 func (KeyGroupArgs) ElementType() reflect.Type {

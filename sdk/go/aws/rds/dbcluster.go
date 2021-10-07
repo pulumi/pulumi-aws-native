@@ -17,7 +17,7 @@ import (
 type DBCluster struct {
 	pulumi.CustomResourceState
 
-	AssociatedRoles                 DBClusterDBClusterRoleArrayOutput      `pulumi:"associatedRoles"`
+	AssociatedRoles                 DBClusterRoleArrayOutput               `pulumi:"associatedRoles"`
 	AvailabilityZones               pulumi.StringArrayOutput               `pulumi:"availabilityZones"`
 	BacktrackWindow                 pulumi.IntPtrOutput                    `pulumi:"backtrackWindow"`
 	BackupRetentionPeriod           pulumi.IntPtrOutput                    `pulumi:"backupRetentionPeriod"`
@@ -97,7 +97,7 @@ func (DBClusterState) ElementType() reflect.Type {
 }
 
 type dbclusterArgs struct {
-	AssociatedRoles                 []DBClusterDBClusterRole       `pulumi:"associatedRoles"`
+	AssociatedRoles                 []DBClusterRole                `pulumi:"associatedRoles"`
 	AvailabilityZones               []string                       `pulumi:"availabilityZones"`
 	BacktrackWindow                 *int                           `pulumi:"backtrackWindow"`
 	BackupRetentionPeriod           *int                           `pulumi:"backupRetentionPeriod"`
@@ -137,7 +137,7 @@ type dbclusterArgs struct {
 
 // The set of arguments for constructing a DBCluster resource.
 type DBClusterArgs struct {
-	AssociatedRoles                 DBClusterDBClusterRoleArrayInput
+	AssociatedRoles                 DBClusterRoleArrayInput
 	AvailabilityZones               pulumi.StringArrayInput
 	BacktrackWindow                 pulumi.IntPtrInput
 	BackupRetentionPeriod           pulumi.IntPtrInput

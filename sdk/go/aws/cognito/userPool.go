@@ -35,7 +35,7 @@ type UserPool struct {
 	SmsAuthenticationMessage    pulumi.StringPtrOutput                       `pulumi:"smsAuthenticationMessage"`
 	SmsConfiguration            UserPoolSmsConfigurationPtrOutput            `pulumi:"smsConfiguration"`
 	SmsVerificationMessage      pulumi.StringPtrOutput                       `pulumi:"smsVerificationMessage"`
-	UserPoolAddOns              UserPoolUserPoolAddOnsPtrOutput              `pulumi:"userPoolAddOns"`
+	UserPoolAddOns              UserPoolAddOnsPtrOutput                      `pulumi:"userPoolAddOns"`
 	UserPoolName                pulumi.StringPtrOutput                       `pulumi:"userPoolName"`
 	UserPoolTags                pulumi.AnyOutput                             `pulumi:"userPoolTags"`
 	UsernameAttributes          pulumi.StringArrayOutput                     `pulumi:"usernameAttributes"`
@@ -98,7 +98,7 @@ type userPoolArgs struct {
 	SmsAuthenticationMessage    *string                              `pulumi:"smsAuthenticationMessage"`
 	SmsConfiguration            *UserPoolSmsConfiguration            `pulumi:"smsConfiguration"`
 	SmsVerificationMessage      *string                              `pulumi:"smsVerificationMessage"`
-	UserPoolAddOns              *UserPoolUserPoolAddOns              `pulumi:"userPoolAddOns"`
+	UserPoolAddOns              *UserPoolAddOns                      `pulumi:"userPoolAddOns"`
 	UserPoolName                *string                              `pulumi:"userPoolName"`
 	UserPoolTags                interface{}                          `pulumi:"userPoolTags"`
 	UsernameAttributes          []string                             `pulumi:"usernameAttributes"`
@@ -124,7 +124,7 @@ type UserPoolArgs struct {
 	SmsAuthenticationMessage    pulumi.StringPtrInput
 	SmsConfiguration            UserPoolSmsConfigurationPtrInput
 	SmsVerificationMessage      pulumi.StringPtrInput
-	UserPoolAddOns              UserPoolUserPoolAddOnsPtrInput
+	UserPoolAddOns              UserPoolAddOnsPtrInput
 	UserPoolName                pulumi.StringPtrInput
 	UserPoolTags                pulumi.Input
 	UsernameAttributes          pulumi.StringArrayInput

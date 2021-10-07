@@ -15,7 +15,7 @@ import (
 type SpotFleet struct {
 	pulumi.CustomResourceState
 
-	SpotFleetRequestConfigData SpotFleetSpotFleetRequestConfigDataOutput `pulumi:"spotFleetRequestConfigData"`
+	SpotFleetRequestConfigData SpotFleetRequestConfigDataOutput `pulumi:"spotFleetRequestConfigData"`
 }
 
 // NewSpotFleet registers a new resource with the given unique name, arguments, and options.
@@ -60,12 +60,12 @@ func (SpotFleetState) ElementType() reflect.Type {
 }
 
 type spotFleetArgs struct {
-	SpotFleetRequestConfigData SpotFleetSpotFleetRequestConfigData `pulumi:"spotFleetRequestConfigData"`
+	SpotFleetRequestConfigData SpotFleetRequestConfigData `pulumi:"spotFleetRequestConfigData"`
 }
 
 // The set of arguments for constructing a SpotFleet resource.
 type SpotFleetArgs struct {
-	SpotFleetRequestConfigData SpotFleetSpotFleetRequestConfigDataInput
+	SpotFleetRequestConfigData SpotFleetRequestConfigDataInput
 }
 
 func (SpotFleetArgs) ElementType() reflect.Type {

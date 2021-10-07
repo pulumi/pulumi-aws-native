@@ -521,110 +521,110 @@ func (o DocumentAttachmentsSourceArrayOutput) Index(i pulumi.IntInput) DocumentA
 	}).(DocumentAttachmentsSourceOutput)
 }
 
-type DocumentDocumentRequires struct {
+type DocumentRequires struct {
 	// The name of the required SSM document. The name can be an Amazon Resource Name (ARN).
 	Name *string `pulumi:"name"`
 	// The document version required by the current document.
 	Version *string `pulumi:"version"`
 }
 
-// DocumentDocumentRequiresInput is an input type that accepts DocumentDocumentRequiresArgs and DocumentDocumentRequiresOutput values.
-// You can construct a concrete instance of `DocumentDocumentRequiresInput` via:
+// DocumentRequiresInput is an input type that accepts DocumentRequiresArgs and DocumentRequiresOutput values.
+// You can construct a concrete instance of `DocumentRequiresInput` via:
 //
-//          DocumentDocumentRequiresArgs{...}
-type DocumentDocumentRequiresInput interface {
+//          DocumentRequiresArgs{...}
+type DocumentRequiresInput interface {
 	pulumi.Input
 
-	ToDocumentDocumentRequiresOutput() DocumentDocumentRequiresOutput
-	ToDocumentDocumentRequiresOutputWithContext(context.Context) DocumentDocumentRequiresOutput
+	ToDocumentRequiresOutput() DocumentRequiresOutput
+	ToDocumentRequiresOutputWithContext(context.Context) DocumentRequiresOutput
 }
 
-type DocumentDocumentRequiresArgs struct {
+type DocumentRequiresArgs struct {
 	// The name of the required SSM document. The name can be an Amazon Resource Name (ARN).
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The document version required by the current document.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
-func (DocumentDocumentRequiresArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DocumentDocumentRequires)(nil)).Elem()
+func (DocumentRequiresArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentRequires)(nil)).Elem()
 }
 
-func (i DocumentDocumentRequiresArgs) ToDocumentDocumentRequiresOutput() DocumentDocumentRequiresOutput {
-	return i.ToDocumentDocumentRequiresOutputWithContext(context.Background())
+func (i DocumentRequiresArgs) ToDocumentRequiresOutput() DocumentRequiresOutput {
+	return i.ToDocumentRequiresOutputWithContext(context.Background())
 }
 
-func (i DocumentDocumentRequiresArgs) ToDocumentDocumentRequiresOutputWithContext(ctx context.Context) DocumentDocumentRequiresOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DocumentDocumentRequiresOutput)
+func (i DocumentRequiresArgs) ToDocumentRequiresOutputWithContext(ctx context.Context) DocumentRequiresOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentRequiresOutput)
 }
 
-// DocumentDocumentRequiresArrayInput is an input type that accepts DocumentDocumentRequiresArray and DocumentDocumentRequiresArrayOutput values.
-// You can construct a concrete instance of `DocumentDocumentRequiresArrayInput` via:
+// DocumentRequiresArrayInput is an input type that accepts DocumentRequiresArray and DocumentRequiresArrayOutput values.
+// You can construct a concrete instance of `DocumentRequiresArrayInput` via:
 //
-//          DocumentDocumentRequiresArray{ DocumentDocumentRequiresArgs{...} }
-type DocumentDocumentRequiresArrayInput interface {
+//          DocumentRequiresArray{ DocumentRequiresArgs{...} }
+type DocumentRequiresArrayInput interface {
 	pulumi.Input
 
-	ToDocumentDocumentRequiresArrayOutput() DocumentDocumentRequiresArrayOutput
-	ToDocumentDocumentRequiresArrayOutputWithContext(context.Context) DocumentDocumentRequiresArrayOutput
+	ToDocumentRequiresArrayOutput() DocumentRequiresArrayOutput
+	ToDocumentRequiresArrayOutputWithContext(context.Context) DocumentRequiresArrayOutput
 }
 
-type DocumentDocumentRequiresArray []DocumentDocumentRequiresInput
+type DocumentRequiresArray []DocumentRequiresInput
 
-func (DocumentDocumentRequiresArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DocumentDocumentRequires)(nil)).Elem()
+func (DocumentRequiresArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DocumentRequires)(nil)).Elem()
 }
 
-func (i DocumentDocumentRequiresArray) ToDocumentDocumentRequiresArrayOutput() DocumentDocumentRequiresArrayOutput {
-	return i.ToDocumentDocumentRequiresArrayOutputWithContext(context.Background())
+func (i DocumentRequiresArray) ToDocumentRequiresArrayOutput() DocumentRequiresArrayOutput {
+	return i.ToDocumentRequiresArrayOutputWithContext(context.Background())
 }
 
-func (i DocumentDocumentRequiresArray) ToDocumentDocumentRequiresArrayOutputWithContext(ctx context.Context) DocumentDocumentRequiresArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DocumentDocumentRequiresArrayOutput)
+func (i DocumentRequiresArray) ToDocumentRequiresArrayOutputWithContext(ctx context.Context) DocumentRequiresArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentRequiresArrayOutput)
 }
 
-type DocumentDocumentRequiresOutput struct{ *pulumi.OutputState }
+type DocumentRequiresOutput struct{ *pulumi.OutputState }
 
-func (DocumentDocumentRequiresOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DocumentDocumentRequires)(nil)).Elem()
+func (DocumentRequiresOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentRequires)(nil)).Elem()
 }
 
-func (o DocumentDocumentRequiresOutput) ToDocumentDocumentRequiresOutput() DocumentDocumentRequiresOutput {
+func (o DocumentRequiresOutput) ToDocumentRequiresOutput() DocumentRequiresOutput {
 	return o
 }
 
-func (o DocumentDocumentRequiresOutput) ToDocumentDocumentRequiresOutputWithContext(ctx context.Context) DocumentDocumentRequiresOutput {
+func (o DocumentRequiresOutput) ToDocumentRequiresOutputWithContext(ctx context.Context) DocumentRequiresOutput {
 	return o
 }
 
 // The name of the required SSM document. The name can be an Amazon Resource Name (ARN).
-func (o DocumentDocumentRequiresOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DocumentDocumentRequires) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o DocumentRequiresOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentRequires) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The document version required by the current document.
-func (o DocumentDocumentRequiresOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DocumentDocumentRequires) *string { return v.Version }).(pulumi.StringPtrOutput)
+func (o DocumentRequiresOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentRequires) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
-type DocumentDocumentRequiresArrayOutput struct{ *pulumi.OutputState }
+type DocumentRequiresArrayOutput struct{ *pulumi.OutputState }
 
-func (DocumentDocumentRequiresArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DocumentDocumentRequires)(nil)).Elem()
+func (DocumentRequiresArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DocumentRequires)(nil)).Elem()
 }
 
-func (o DocumentDocumentRequiresArrayOutput) ToDocumentDocumentRequiresArrayOutput() DocumentDocumentRequiresArrayOutput {
+func (o DocumentRequiresArrayOutput) ToDocumentRequiresArrayOutput() DocumentRequiresArrayOutput {
 	return o
 }
 
-func (o DocumentDocumentRequiresArrayOutput) ToDocumentDocumentRequiresArrayOutputWithContext(ctx context.Context) DocumentDocumentRequiresArrayOutput {
+func (o DocumentRequiresArrayOutput) ToDocumentRequiresArrayOutputWithContext(ctx context.Context) DocumentRequiresArrayOutput {
 	return o
 }
 
-func (o DocumentDocumentRequiresArrayOutput) Index(i pulumi.IntInput) DocumentDocumentRequiresOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DocumentDocumentRequires {
-		return vs[0].([]DocumentDocumentRequires)[vs[1].(int)]
-	}).(DocumentDocumentRequiresOutput)
+func (o DocumentRequiresArrayOutput) Index(i pulumi.IntInput) DocumentRequiresOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DocumentRequires {
+		return vs[0].([]DocumentRequires)[vs[1].(int)]
+	}).(DocumentRequiresOutput)
 }
 
 type DocumentTag struct {
@@ -3599,8 +3599,8 @@ func init() {
 	pulumi.RegisterOutputType(AssociationTargetArrayOutput{})
 	pulumi.RegisterOutputType(DocumentAttachmentsSourceOutput{})
 	pulumi.RegisterOutputType(DocumentAttachmentsSourceArrayOutput{})
-	pulumi.RegisterOutputType(DocumentDocumentRequiresOutput{})
-	pulumi.RegisterOutputType(DocumentDocumentRequiresArrayOutput{})
+	pulumi.RegisterOutputType(DocumentRequiresOutput{})
+	pulumi.RegisterOutputType(DocumentRequiresArrayOutput{})
 	pulumi.RegisterOutputType(DocumentTagOutput{})
 	pulumi.RegisterOutputType(DocumentTagArrayOutput{})
 	pulumi.RegisterOutputType(MaintenanceWindowTagOutput{})

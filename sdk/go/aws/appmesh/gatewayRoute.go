@@ -17,15 +17,15 @@ import (
 type GatewayRoute struct {
 	pulumi.CustomResourceState
 
-	Arn                pulumi.StringOutput                `pulumi:"arn"`
-	GatewayRouteName   pulumi.StringPtrOutput             `pulumi:"gatewayRouteName"`
-	MeshName           pulumi.StringOutput                `pulumi:"meshName"`
-	MeshOwner          pulumi.StringPtrOutput             `pulumi:"meshOwner"`
-	ResourceOwner      pulumi.StringOutput                `pulumi:"resourceOwner"`
-	Spec               GatewayRouteGatewayRouteSpecOutput `pulumi:"spec"`
-	Tags               GatewayRouteTagArrayOutput         `pulumi:"tags"`
-	Uid                pulumi.StringOutput                `pulumi:"uid"`
-	VirtualGatewayName pulumi.StringOutput                `pulumi:"virtualGatewayName"`
+	Arn                pulumi.StringOutput        `pulumi:"arn"`
+	GatewayRouteName   pulumi.StringPtrOutput     `pulumi:"gatewayRouteName"`
+	MeshName           pulumi.StringOutput        `pulumi:"meshName"`
+	MeshOwner          pulumi.StringPtrOutput     `pulumi:"meshOwner"`
+	ResourceOwner      pulumi.StringOutput        `pulumi:"resourceOwner"`
+	Spec               GatewayRouteSpecOutput     `pulumi:"spec"`
+	Tags               GatewayRouteTagArrayOutput `pulumi:"tags"`
+	Uid                pulumi.StringOutput        `pulumi:"uid"`
+	VirtualGatewayName pulumi.StringOutput        `pulumi:"virtualGatewayName"`
 }
 
 // NewGatewayRoute registers a new resource with the given unique name, arguments, and options.
@@ -76,12 +76,12 @@ func (GatewayRouteState) ElementType() reflect.Type {
 }
 
 type gatewayRouteArgs struct {
-	GatewayRouteName   *string                      `pulumi:"gatewayRouteName"`
-	MeshName           string                       `pulumi:"meshName"`
-	MeshOwner          *string                      `pulumi:"meshOwner"`
-	Spec               GatewayRouteGatewayRouteSpec `pulumi:"spec"`
-	Tags               []GatewayRouteTag            `pulumi:"tags"`
-	VirtualGatewayName string                       `pulumi:"virtualGatewayName"`
+	GatewayRouteName   *string           `pulumi:"gatewayRouteName"`
+	MeshName           string            `pulumi:"meshName"`
+	MeshOwner          *string           `pulumi:"meshOwner"`
+	Spec               GatewayRouteSpec  `pulumi:"spec"`
+	Tags               []GatewayRouteTag `pulumi:"tags"`
+	VirtualGatewayName string            `pulumi:"virtualGatewayName"`
 }
 
 // The set of arguments for constructing a GatewayRoute resource.
@@ -89,7 +89,7 @@ type GatewayRouteArgs struct {
 	GatewayRouteName   pulumi.StringPtrInput
 	MeshName           pulumi.StringInput
 	MeshOwner          pulumi.StringPtrInput
-	Spec               GatewayRouteGatewayRouteSpecInput
+	Spec               GatewayRouteSpecInput
 	Tags               GatewayRouteTagArrayInput
 	VirtualGatewayName pulumi.StringInput
 }

@@ -17,14 +17,14 @@ import (
 type Workspace struct {
 	pulumi.CustomResourceState
 
-	BundleId                    pulumi.StringOutput                   `pulumi:"bundleId"`
-	DirectoryId                 pulumi.StringOutput                   `pulumi:"directoryId"`
-	RootVolumeEncryptionEnabled pulumi.BoolPtrOutput                  `pulumi:"rootVolumeEncryptionEnabled"`
-	Tags                        WorkspaceTagArrayOutput               `pulumi:"tags"`
-	UserName                    pulumi.StringOutput                   `pulumi:"userName"`
-	UserVolumeEncryptionEnabled pulumi.BoolPtrOutput                  `pulumi:"userVolumeEncryptionEnabled"`
-	VolumeEncryptionKey         pulumi.StringPtrOutput                `pulumi:"volumeEncryptionKey"`
-	WorkspaceProperties         WorkspaceWorkspacePropertiesPtrOutput `pulumi:"workspaceProperties"`
+	BundleId                    pulumi.StringOutput          `pulumi:"bundleId"`
+	DirectoryId                 pulumi.StringOutput          `pulumi:"directoryId"`
+	RootVolumeEncryptionEnabled pulumi.BoolPtrOutput         `pulumi:"rootVolumeEncryptionEnabled"`
+	Tags                        WorkspaceTagArrayOutput      `pulumi:"tags"`
+	UserName                    pulumi.StringOutput          `pulumi:"userName"`
+	UserVolumeEncryptionEnabled pulumi.BoolPtrOutput         `pulumi:"userVolumeEncryptionEnabled"`
+	VolumeEncryptionKey         pulumi.StringPtrOutput       `pulumi:"volumeEncryptionKey"`
+	WorkspaceProperties         WorkspacePropertiesPtrOutput `pulumi:"workspaceProperties"`
 }
 
 // NewWorkspace registers a new resource with the given unique name, arguments, and options.
@@ -75,14 +75,14 @@ func (WorkspaceState) ElementType() reflect.Type {
 }
 
 type workspaceArgs struct {
-	BundleId                    string                        `pulumi:"bundleId"`
-	DirectoryId                 string                        `pulumi:"directoryId"`
-	RootVolumeEncryptionEnabled *bool                         `pulumi:"rootVolumeEncryptionEnabled"`
-	Tags                        []WorkspaceTag                `pulumi:"tags"`
-	UserName                    string                        `pulumi:"userName"`
-	UserVolumeEncryptionEnabled *bool                         `pulumi:"userVolumeEncryptionEnabled"`
-	VolumeEncryptionKey         *string                       `pulumi:"volumeEncryptionKey"`
-	WorkspaceProperties         *WorkspaceWorkspaceProperties `pulumi:"workspaceProperties"`
+	BundleId                    string               `pulumi:"bundleId"`
+	DirectoryId                 string               `pulumi:"directoryId"`
+	RootVolumeEncryptionEnabled *bool                `pulumi:"rootVolumeEncryptionEnabled"`
+	Tags                        []WorkspaceTag       `pulumi:"tags"`
+	UserName                    string               `pulumi:"userName"`
+	UserVolumeEncryptionEnabled *bool                `pulumi:"userVolumeEncryptionEnabled"`
+	VolumeEncryptionKey         *string              `pulumi:"volumeEncryptionKey"`
+	WorkspaceProperties         *WorkspaceProperties `pulumi:"workspaceProperties"`
 }
 
 // The set of arguments for constructing a Workspace resource.
@@ -94,7 +94,7 @@ type WorkspaceArgs struct {
 	UserName                    pulumi.StringInput
 	UserVolumeEncryptionEnabled pulumi.BoolPtrInput
 	VolumeEncryptionKey         pulumi.StringPtrInput
-	WorkspaceProperties         WorkspaceWorkspacePropertiesPtrInput
+	WorkspaceProperties         WorkspacePropertiesPtrInput
 }
 
 func (WorkspaceArgs) ElementType() reflect.Type {

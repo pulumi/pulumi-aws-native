@@ -15,16 +15,16 @@ import (
 type StreamingImage struct {
 	pulumi.CustomResourceState
 
-	Description             pulumi.StringPtrOutput                                    `pulumi:"description"`
-	Ec2ImageId              pulumi.StringOutput                                       `pulumi:"ec2ImageId"`
-	EncryptionConfiguration StreamingImageStreamingImageEncryptionConfigurationOutput `pulumi:"encryptionConfiguration"`
-	EulaIds                 pulumi.StringArrayOutput                                  `pulumi:"eulaIds"`
-	Name                    pulumi.StringOutput                                       `pulumi:"name"`
-	Owner                   pulumi.StringOutput                                       `pulumi:"owner"`
-	Platform                pulumi.StringOutput                                       `pulumi:"platform"`
-	StreamingImageId        pulumi.StringOutput                                       `pulumi:"streamingImageId"`
-	StudioId                pulumi.StringOutput                                       `pulumi:"studioId"`
-	Tags                    pulumi.AnyOutput                                          `pulumi:"tags"`
+	Description             pulumi.StringPtrOutput                      `pulumi:"description"`
+	Ec2ImageId              pulumi.StringOutput                         `pulumi:"ec2ImageId"`
+	EncryptionConfiguration StreamingImageEncryptionConfigurationOutput `pulumi:"encryptionConfiguration"`
+	EulaIds                 pulumi.StringArrayOutput                    `pulumi:"eulaIds"`
+	Name                    pulumi.StringOutput                         `pulumi:"name"`
+	Owner                   pulumi.StringOutput                         `pulumi:"owner"`
+	Platform                pulumi.StringOutput                         `pulumi:"platform"`
+	StreamingImageId        pulumi.StringOutput                         `pulumi:"streamingImageId"`
+	StudioId                pulumi.StringOutput                         `pulumi:"studioId"`
+	Tags                    pulumi.AnyOutput                            `pulumi:"tags"`
 }
 
 // NewStreamingImage registers a new resource with the given unique name, arguments, and options.

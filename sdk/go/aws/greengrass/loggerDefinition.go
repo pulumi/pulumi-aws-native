@@ -17,11 +17,11 @@ import (
 type LoggerDefinition struct {
 	pulumi.CustomResourceState
 
-	Arn              pulumi.StringOutput                              `pulumi:"arn"`
-	InitialVersion   LoggerDefinitionLoggerDefinitionVersionPtrOutput `pulumi:"initialVersion"`
-	LatestVersionArn pulumi.StringOutput                              `pulumi:"latestVersionArn"`
-	Name             pulumi.StringOutput                              `pulumi:"name"`
-	Tags             pulumi.AnyOutput                                 `pulumi:"tags"`
+	Arn              pulumi.StringOutput                  `pulumi:"arn"`
+	InitialVersion   LoggerDefinitionVersionTypePtrOutput `pulumi:"initialVersion"`
+	LatestVersionArn pulumi.StringOutput                  `pulumi:"latestVersionArn"`
+	Name             pulumi.StringOutput                  `pulumi:"name"`
+	Tags             pulumi.AnyOutput                     `pulumi:"tags"`
 }
 
 // NewLoggerDefinition registers a new resource with the given unique name, arguments, and options.
@@ -66,14 +66,14 @@ func (LoggerDefinitionState) ElementType() reflect.Type {
 }
 
 type loggerDefinitionArgs struct {
-	InitialVersion *LoggerDefinitionLoggerDefinitionVersion `pulumi:"initialVersion"`
-	Name           string                                   `pulumi:"name"`
-	Tags           interface{}                              `pulumi:"tags"`
+	InitialVersion *LoggerDefinitionVersionType `pulumi:"initialVersion"`
+	Name           string                       `pulumi:"name"`
+	Tags           interface{}                  `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LoggerDefinition resource.
 type LoggerDefinitionArgs struct {
-	InitialVersion LoggerDefinitionLoggerDefinitionVersionPtrInput
+	InitialVersion LoggerDefinitionVersionTypePtrInput
 	Name           pulumi.StringInput
 	Tags           pulumi.Input
 }

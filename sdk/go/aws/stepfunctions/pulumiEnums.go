@@ -176,124 +176,124 @@ func (in *stateMachineLoggingConfigurationLevelPtr) ToStateMachineLoggingConfigu
 	return pulumi.ToOutputWithContext(ctx, in).(StateMachineLoggingConfigurationLevelPtrOutput)
 }
 
-type StateMachineStateMachineType string
+type StateMachineType string
 
 const (
-	StateMachineStateMachineTypeStandard = StateMachineStateMachineType("STANDARD")
-	StateMachineStateMachineTypeExpress  = StateMachineStateMachineType("EXPRESS")
+	StateMachineTypeStandard = StateMachineType("STANDARD")
+	StateMachineTypeExpress  = StateMachineType("EXPRESS")
 )
 
-func (StateMachineStateMachineType) ElementType() reflect.Type {
-	return reflect.TypeOf((*StateMachineStateMachineType)(nil)).Elem()
+func (StateMachineType) ElementType() reflect.Type {
+	return reflect.TypeOf((*StateMachineType)(nil)).Elem()
 }
 
-func (e StateMachineStateMachineType) ToStateMachineStateMachineTypeOutput() StateMachineStateMachineTypeOutput {
-	return pulumi.ToOutput(e).(StateMachineStateMachineTypeOutput)
+func (e StateMachineType) ToStateMachineTypeOutput() StateMachineTypeOutput {
+	return pulumi.ToOutput(e).(StateMachineTypeOutput)
 }
 
-func (e StateMachineStateMachineType) ToStateMachineStateMachineTypeOutputWithContext(ctx context.Context) StateMachineStateMachineTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(StateMachineStateMachineTypeOutput)
+func (e StateMachineType) ToStateMachineTypeOutputWithContext(ctx context.Context) StateMachineTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(StateMachineTypeOutput)
 }
 
-func (e StateMachineStateMachineType) ToStateMachineStateMachineTypePtrOutput() StateMachineStateMachineTypePtrOutput {
-	return e.ToStateMachineStateMachineTypePtrOutputWithContext(context.Background())
+func (e StateMachineType) ToStateMachineTypePtrOutput() StateMachineTypePtrOutput {
+	return e.ToStateMachineTypePtrOutputWithContext(context.Background())
 }
 
-func (e StateMachineStateMachineType) ToStateMachineStateMachineTypePtrOutputWithContext(ctx context.Context) StateMachineStateMachineTypePtrOutput {
-	return StateMachineStateMachineType(e).ToStateMachineStateMachineTypeOutputWithContext(ctx).ToStateMachineStateMachineTypePtrOutputWithContext(ctx)
+func (e StateMachineType) ToStateMachineTypePtrOutputWithContext(ctx context.Context) StateMachineTypePtrOutput {
+	return StateMachineType(e).ToStateMachineTypeOutputWithContext(ctx).ToStateMachineTypePtrOutputWithContext(ctx)
 }
 
-func (e StateMachineStateMachineType) ToStringOutput() pulumi.StringOutput {
+func (e StateMachineType) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e StateMachineStateMachineType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e StateMachineType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e StateMachineStateMachineType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e StateMachineType) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e StateMachineStateMachineType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e StateMachineType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type StateMachineStateMachineTypeOutput struct{ *pulumi.OutputState }
+type StateMachineTypeOutput struct{ *pulumi.OutputState }
 
-func (StateMachineStateMachineTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StateMachineStateMachineType)(nil)).Elem()
+func (StateMachineTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StateMachineType)(nil)).Elem()
 }
 
-func (o StateMachineStateMachineTypeOutput) ToStateMachineStateMachineTypeOutput() StateMachineStateMachineTypeOutput {
+func (o StateMachineTypeOutput) ToStateMachineTypeOutput() StateMachineTypeOutput {
 	return o
 }
 
-func (o StateMachineStateMachineTypeOutput) ToStateMachineStateMachineTypeOutputWithContext(ctx context.Context) StateMachineStateMachineTypeOutput {
+func (o StateMachineTypeOutput) ToStateMachineTypeOutputWithContext(ctx context.Context) StateMachineTypeOutput {
 	return o
 }
 
-func (o StateMachineStateMachineTypeOutput) ToStateMachineStateMachineTypePtrOutput() StateMachineStateMachineTypePtrOutput {
-	return o.ToStateMachineStateMachineTypePtrOutputWithContext(context.Background())
+func (o StateMachineTypeOutput) ToStateMachineTypePtrOutput() StateMachineTypePtrOutput {
+	return o.ToStateMachineTypePtrOutputWithContext(context.Background())
 }
 
-func (o StateMachineStateMachineTypeOutput) ToStateMachineStateMachineTypePtrOutputWithContext(ctx context.Context) StateMachineStateMachineTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StateMachineStateMachineType) *StateMachineStateMachineType {
+func (o StateMachineTypeOutput) ToStateMachineTypePtrOutputWithContext(ctx context.Context) StateMachineTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StateMachineType) *StateMachineType {
 		return &v
-	}).(StateMachineStateMachineTypePtrOutput)
+	}).(StateMachineTypePtrOutput)
 }
 
-func (o StateMachineStateMachineTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o StateMachineTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o StateMachineStateMachineTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e StateMachineStateMachineType) string {
+func (o StateMachineTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StateMachineType) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o StateMachineStateMachineTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o StateMachineTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o StateMachineStateMachineTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e StateMachineStateMachineType) *string {
+func (o StateMachineTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StateMachineType) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type StateMachineStateMachineTypePtrOutput struct{ *pulumi.OutputState }
+type StateMachineTypePtrOutput struct{ *pulumi.OutputState }
 
-func (StateMachineStateMachineTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StateMachineStateMachineType)(nil)).Elem()
+func (StateMachineTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StateMachineType)(nil)).Elem()
 }
 
-func (o StateMachineStateMachineTypePtrOutput) ToStateMachineStateMachineTypePtrOutput() StateMachineStateMachineTypePtrOutput {
+func (o StateMachineTypePtrOutput) ToStateMachineTypePtrOutput() StateMachineTypePtrOutput {
 	return o
 }
 
-func (o StateMachineStateMachineTypePtrOutput) ToStateMachineStateMachineTypePtrOutputWithContext(ctx context.Context) StateMachineStateMachineTypePtrOutput {
+func (o StateMachineTypePtrOutput) ToStateMachineTypePtrOutputWithContext(ctx context.Context) StateMachineTypePtrOutput {
 	return o
 }
 
-func (o StateMachineStateMachineTypePtrOutput) Elem() StateMachineStateMachineTypeOutput {
-	return o.ApplyT(func(v *StateMachineStateMachineType) StateMachineStateMachineType {
+func (o StateMachineTypePtrOutput) Elem() StateMachineTypeOutput {
+	return o.ApplyT(func(v *StateMachineType) StateMachineType {
 		if v != nil {
 			return *v
 		}
-		var ret StateMachineStateMachineType
+		var ret StateMachineType
 		return ret
-	}).(StateMachineStateMachineTypeOutput)
+	}).(StateMachineTypeOutput)
 }
 
-func (o StateMachineStateMachineTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o StateMachineTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o StateMachineStateMachineTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StateMachineStateMachineType) *string {
+func (o StateMachineTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StateMachineType) *string {
 		if e == nil {
 			return nil
 		}
@@ -302,47 +302,47 @@ func (o StateMachineStateMachineTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// StateMachineStateMachineTypeInput is an input type that accepts StateMachineStateMachineTypeArgs and StateMachineStateMachineTypeOutput values.
-// You can construct a concrete instance of `StateMachineStateMachineTypeInput` via:
+// StateMachineTypeInput is an input type that accepts StateMachineTypeArgs and StateMachineTypeOutput values.
+// You can construct a concrete instance of `StateMachineTypeInput` via:
 //
-//          StateMachineStateMachineTypeArgs{...}
-type StateMachineStateMachineTypeInput interface {
+//          StateMachineTypeArgs{...}
+type StateMachineTypeInput interface {
 	pulumi.Input
 
-	ToStateMachineStateMachineTypeOutput() StateMachineStateMachineTypeOutput
-	ToStateMachineStateMachineTypeOutputWithContext(context.Context) StateMachineStateMachineTypeOutput
+	ToStateMachineTypeOutput() StateMachineTypeOutput
+	ToStateMachineTypeOutputWithContext(context.Context) StateMachineTypeOutput
 }
 
-var stateMachineStateMachineTypePtrType = reflect.TypeOf((**StateMachineStateMachineType)(nil)).Elem()
+var stateMachineTypePtrType = reflect.TypeOf((**StateMachineType)(nil)).Elem()
 
-type StateMachineStateMachineTypePtrInput interface {
+type StateMachineTypePtrInput interface {
 	pulumi.Input
 
-	ToStateMachineStateMachineTypePtrOutput() StateMachineStateMachineTypePtrOutput
-	ToStateMachineStateMachineTypePtrOutputWithContext(context.Context) StateMachineStateMachineTypePtrOutput
+	ToStateMachineTypePtrOutput() StateMachineTypePtrOutput
+	ToStateMachineTypePtrOutputWithContext(context.Context) StateMachineTypePtrOutput
 }
 
-type stateMachineStateMachineTypePtr string
+type stateMachineTypePtr string
 
-func StateMachineStateMachineTypePtr(v string) StateMachineStateMachineTypePtrInput {
-	return (*stateMachineStateMachineTypePtr)(&v)
+func StateMachineTypePtr(v string) StateMachineTypePtrInput {
+	return (*stateMachineTypePtr)(&v)
 }
 
-func (*stateMachineStateMachineTypePtr) ElementType() reflect.Type {
-	return stateMachineStateMachineTypePtrType
+func (*stateMachineTypePtr) ElementType() reflect.Type {
+	return stateMachineTypePtrType
 }
 
-func (in *stateMachineStateMachineTypePtr) ToStateMachineStateMachineTypePtrOutput() StateMachineStateMachineTypePtrOutput {
-	return pulumi.ToOutput(in).(StateMachineStateMachineTypePtrOutput)
+func (in *stateMachineTypePtr) ToStateMachineTypePtrOutput() StateMachineTypePtrOutput {
+	return pulumi.ToOutput(in).(StateMachineTypePtrOutput)
 }
 
-func (in *stateMachineStateMachineTypePtr) ToStateMachineStateMachineTypePtrOutputWithContext(ctx context.Context) StateMachineStateMachineTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(StateMachineStateMachineTypePtrOutput)
+func (in *stateMachineTypePtr) ToStateMachineTypePtrOutputWithContext(ctx context.Context) StateMachineTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(StateMachineTypePtrOutput)
 }
 
 func init() {
 	pulumi.RegisterOutputType(StateMachineLoggingConfigurationLevelOutput{})
 	pulumi.RegisterOutputType(StateMachineLoggingConfigurationLevelPtrOutput{})
-	pulumi.RegisterOutputType(StateMachineStateMachineTypeOutput{})
-	pulumi.RegisterOutputType(StateMachineStateMachineTypePtrOutput{})
+	pulumi.RegisterOutputType(StateMachineTypeOutput{})
+	pulumi.RegisterOutputType(StateMachineTypePtrOutput{})
 }

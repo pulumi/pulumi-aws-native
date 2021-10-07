@@ -27,9 +27,9 @@ type Task struct {
 	Excludes    TaskFilterRuleArrayOutput `pulumi:"excludes"`
 	Includes    TaskFilterRuleArrayOutput `pulumi:"includes"`
 	// The name of a task. This value is a text reference that is used to identify the task in the console.
-	Name     pulumi.StringPtrOutput    `pulumi:"name"`
-	Options  TaskOptionsPtrOutput      `pulumi:"options"`
-	Schedule TaskTaskSchedulePtrOutput `pulumi:"schedule"`
+	Name     pulumi.StringPtrOutput `pulumi:"name"`
+	Options  TaskOptionsPtrOutput   `pulumi:"options"`
+	Schedule TaskSchedulePtrOutput  `pulumi:"schedule"`
 	// The ARN of the source location for the task.
 	SourceLocationArn          pulumi.StringOutput      `pulumi:"sourceLocationArn"`
 	SourceNetworkInterfaceArns pulumi.StringArrayOutput `pulumi:"sourceNetworkInterfaceArns"`
@@ -93,9 +93,9 @@ type taskArgs struct {
 	Excludes               []TaskFilterRule `pulumi:"excludes"`
 	Includes               []TaskFilterRule `pulumi:"includes"`
 	// The name of a task. This value is a text reference that is used to identify the task in the console.
-	Name     *string           `pulumi:"name"`
-	Options  *TaskOptions      `pulumi:"options"`
-	Schedule *TaskTaskSchedule `pulumi:"schedule"`
+	Name     *string       `pulumi:"name"`
+	Options  *TaskOptions  `pulumi:"options"`
+	Schedule *TaskSchedule `pulumi:"schedule"`
 	// The ARN of the source location for the task.
 	SourceLocationArn string `pulumi:"sourceLocationArn"`
 	// An array of key-value pairs to apply to this resource.
@@ -113,7 +113,7 @@ type TaskArgs struct {
 	// The name of a task. This value is a text reference that is used to identify the task in the console.
 	Name     pulumi.StringPtrInput
 	Options  TaskOptionsPtrInput
-	Schedule TaskTaskSchedulePtrInput
+	Schedule TaskSchedulePtrInput
 	// The ARN of the source location for the task.
 	SourceLocationArn pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.

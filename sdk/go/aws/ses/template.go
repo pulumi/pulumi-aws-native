@@ -16,7 +16,7 @@ import (
 type Template struct {
 	pulumi.CustomResourceState
 
-	Template TemplateTemplatePtrOutput `pulumi:"template"`
+	Template TemplateTypePtrOutput `pulumi:"template"`
 }
 
 // NewTemplate registers a new resource with the given unique name, arguments, and options.
@@ -58,12 +58,12 @@ func (TemplateState) ElementType() reflect.Type {
 }
 
 type templateArgs struct {
-	Template *TemplateTemplate `pulumi:"template"`
+	Template *TemplateType `pulumi:"template"`
 }
 
 // The set of arguments for constructing a Template resource.
 type TemplateArgs struct {
-	Template TemplateTemplatePtrInput
+	Template TemplateTypePtrInput
 }
 
 func (TemplateArgs) ElementType() reflect.Type {

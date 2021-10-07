@@ -17,11 +17,11 @@ import (
 type CoreDefinition struct {
 	pulumi.CustomResourceState
 
-	Arn              pulumi.StringOutput                          `pulumi:"arn"`
-	InitialVersion   CoreDefinitionCoreDefinitionVersionPtrOutput `pulumi:"initialVersion"`
-	LatestVersionArn pulumi.StringOutput                          `pulumi:"latestVersionArn"`
-	Name             pulumi.StringOutput                          `pulumi:"name"`
-	Tags             pulumi.AnyOutput                             `pulumi:"tags"`
+	Arn              pulumi.StringOutput                `pulumi:"arn"`
+	InitialVersion   CoreDefinitionVersionTypePtrOutput `pulumi:"initialVersion"`
+	LatestVersionArn pulumi.StringOutput                `pulumi:"latestVersionArn"`
+	Name             pulumi.StringOutput                `pulumi:"name"`
+	Tags             pulumi.AnyOutput                   `pulumi:"tags"`
 }
 
 // NewCoreDefinition registers a new resource with the given unique name, arguments, and options.
@@ -66,14 +66,14 @@ func (CoreDefinitionState) ElementType() reflect.Type {
 }
 
 type coreDefinitionArgs struct {
-	InitialVersion *CoreDefinitionCoreDefinitionVersion `pulumi:"initialVersion"`
-	Name           string                               `pulumi:"name"`
-	Tags           interface{}                          `pulumi:"tags"`
+	InitialVersion *CoreDefinitionVersionType `pulumi:"initialVersion"`
+	Name           string                     `pulumi:"name"`
+	Tags           interface{}                `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CoreDefinition resource.
 type CoreDefinitionArgs struct {
-	InitialVersion CoreDefinitionCoreDefinitionVersionPtrInput
+	InitialVersion CoreDefinitionVersionTypePtrInput
 	Name           pulumi.StringInput
 	Tags           pulumi.Input
 }

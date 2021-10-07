@@ -22,7 +22,7 @@ type Project struct {
 	ProjectId          pulumi.StringOutput    `pulumi:"projectId"`
 	ProjectName        pulumi.StringOutput    `pulumi:"projectName"`
 	// The status of a project.
-	ProjectStatus ProjectProjectStatusOutput `pulumi:"projectStatus"`
+	ProjectStatus ProjectStatusOutput `pulumi:"projectStatus"`
 	// Provisioned ServiceCatalog  Details
 	ServiceCatalogProvisionedProductDetails pulumi.AnyOutput `pulumi:"serviceCatalogProvisionedProductDetails"`
 	// Input ServiceCatalog Provisioning Details

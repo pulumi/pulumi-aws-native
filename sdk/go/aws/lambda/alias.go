@@ -22,7 +22,7 @@ type Alias struct {
 	FunctionVersion              pulumi.StringOutput                               `pulumi:"functionVersion"`
 	Name                         pulumi.StringOutput                               `pulumi:"name"`
 	ProvisionedConcurrencyConfig AliasProvisionedConcurrencyConfigurationPtrOutput `pulumi:"provisionedConcurrencyConfig"`
-	RoutingConfig                AliasAliasRoutingConfigurationPtrOutput           `pulumi:"routingConfig"`
+	RoutingConfig                AliasRoutingConfigurationPtrOutput                `pulumi:"routingConfig"`
 }
 
 // NewAlias registers a new resource with the given unique name, arguments, and options.
@@ -78,7 +78,7 @@ type aliasArgs struct {
 	FunctionVersion              string                                    `pulumi:"functionVersion"`
 	Name                         string                                    `pulumi:"name"`
 	ProvisionedConcurrencyConfig *AliasProvisionedConcurrencyConfiguration `pulumi:"provisionedConcurrencyConfig"`
-	RoutingConfig                *AliasAliasRoutingConfiguration           `pulumi:"routingConfig"`
+	RoutingConfig                *AliasRoutingConfiguration                `pulumi:"routingConfig"`
 }
 
 // The set of arguments for constructing a Alias resource.
@@ -88,7 +88,7 @@ type AliasArgs struct {
 	FunctionVersion              pulumi.StringInput
 	Name                         pulumi.StringInput
 	ProvisionedConcurrencyConfig AliasProvisionedConcurrencyConfigurationPtrInput
-	RoutingConfig                AliasAliasRoutingConfigurationPtrInput
+	RoutingConfig                AliasRoutingConfigurationPtrInput
 }
 
 func (AliasArgs) ElementType() reflect.Type {

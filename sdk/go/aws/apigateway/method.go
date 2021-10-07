@@ -15,19 +15,19 @@ import (
 type Method struct {
 	pulumi.CustomResourceState
 
-	ApiKeyRequired      pulumi.BoolPtrOutput            `pulumi:"apiKeyRequired"`
-	AuthorizationScopes pulumi.StringArrayOutput        `pulumi:"authorizationScopes"`
-	AuthorizationType   pulumi.StringPtrOutput          `pulumi:"authorizationType"`
-	AuthorizerId        pulumi.StringPtrOutput          `pulumi:"authorizerId"`
-	HttpMethod          pulumi.StringOutput             `pulumi:"httpMethod"`
-	Integration         MethodIntegrationPtrOutput      `pulumi:"integration"`
-	MethodResponses     MethodMethodResponseArrayOutput `pulumi:"methodResponses"`
-	OperationName       pulumi.StringPtrOutput          `pulumi:"operationName"`
-	RequestModels       pulumi.AnyOutput                `pulumi:"requestModels"`
-	RequestParameters   pulumi.AnyOutput                `pulumi:"requestParameters"`
-	RequestValidatorId  pulumi.StringPtrOutput          `pulumi:"requestValidatorId"`
-	ResourceId          pulumi.StringOutput             `pulumi:"resourceId"`
-	RestApiId           pulumi.StringOutput             `pulumi:"restApiId"`
+	ApiKeyRequired      pulumi.BoolPtrOutput       `pulumi:"apiKeyRequired"`
+	AuthorizationScopes pulumi.StringArrayOutput   `pulumi:"authorizationScopes"`
+	AuthorizationType   pulumi.StringPtrOutput     `pulumi:"authorizationType"`
+	AuthorizerId        pulumi.StringPtrOutput     `pulumi:"authorizerId"`
+	HttpMethod          pulumi.StringOutput        `pulumi:"httpMethod"`
+	Integration         MethodIntegrationPtrOutput `pulumi:"integration"`
+	MethodResponses     MethodResponseArrayOutput  `pulumi:"methodResponses"`
+	OperationName       pulumi.StringPtrOutput     `pulumi:"operationName"`
+	RequestModels       pulumi.AnyOutput           `pulumi:"requestModels"`
+	RequestParameters   pulumi.AnyOutput           `pulumi:"requestParameters"`
+	RequestValidatorId  pulumi.StringPtrOutput     `pulumi:"requestValidatorId"`
+	ResourceId          pulumi.StringOutput        `pulumi:"resourceId"`
+	RestApiId           pulumi.StringOutput        `pulumi:"restApiId"`
 }
 
 // NewMethod registers a new resource with the given unique name, arguments, and options.
@@ -78,19 +78,19 @@ func (MethodState) ElementType() reflect.Type {
 }
 
 type methodArgs struct {
-	ApiKeyRequired      *bool                  `pulumi:"apiKeyRequired"`
-	AuthorizationScopes []string               `pulumi:"authorizationScopes"`
-	AuthorizationType   *string                `pulumi:"authorizationType"`
-	AuthorizerId        *string                `pulumi:"authorizerId"`
-	HttpMethod          string                 `pulumi:"httpMethod"`
-	Integration         *MethodIntegration     `pulumi:"integration"`
-	MethodResponses     []MethodMethodResponse `pulumi:"methodResponses"`
-	OperationName       *string                `pulumi:"operationName"`
-	RequestModels       interface{}            `pulumi:"requestModels"`
-	RequestParameters   interface{}            `pulumi:"requestParameters"`
-	RequestValidatorId  *string                `pulumi:"requestValidatorId"`
-	ResourceId          string                 `pulumi:"resourceId"`
-	RestApiId           string                 `pulumi:"restApiId"`
+	ApiKeyRequired      *bool              `pulumi:"apiKeyRequired"`
+	AuthorizationScopes []string           `pulumi:"authorizationScopes"`
+	AuthorizationType   *string            `pulumi:"authorizationType"`
+	AuthorizerId        *string            `pulumi:"authorizerId"`
+	HttpMethod          string             `pulumi:"httpMethod"`
+	Integration         *MethodIntegration `pulumi:"integration"`
+	MethodResponses     []MethodResponse   `pulumi:"methodResponses"`
+	OperationName       *string            `pulumi:"operationName"`
+	RequestModels       interface{}        `pulumi:"requestModels"`
+	RequestParameters   interface{}        `pulumi:"requestParameters"`
+	RequestValidatorId  *string            `pulumi:"requestValidatorId"`
+	ResourceId          string             `pulumi:"resourceId"`
+	RestApiId           string             `pulumi:"restApiId"`
 }
 
 // The set of arguments for constructing a Method resource.
@@ -101,7 +101,7 @@ type MethodArgs struct {
 	AuthorizerId        pulumi.StringPtrInput
 	HttpMethod          pulumi.StringInput
 	Integration         MethodIntegrationPtrInput
-	MethodResponses     MethodMethodResponseArrayInput
+	MethodResponses     MethodResponseArrayInput
 	OperationName       pulumi.StringPtrInput
 	RequestModels       pulumi.Input
 	RequestParameters   pulumi.Input

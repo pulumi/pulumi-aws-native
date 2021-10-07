@@ -158,124 +158,6 @@ func (o RepositoryCodePtrOutput) S3() RepositoryS3PtrOutput {
 	}).(RepositoryS3PtrOutput)
 }
 
-type RepositoryRepositoryTrigger struct {
-	Branches       []string `pulumi:"branches"`
-	CustomData     *string  `pulumi:"customData"`
-	DestinationArn string   `pulumi:"destinationArn"`
-	Events         []string `pulumi:"events"`
-	Name           string   `pulumi:"name"`
-}
-
-// RepositoryRepositoryTriggerInput is an input type that accepts RepositoryRepositoryTriggerArgs and RepositoryRepositoryTriggerOutput values.
-// You can construct a concrete instance of `RepositoryRepositoryTriggerInput` via:
-//
-//          RepositoryRepositoryTriggerArgs{...}
-type RepositoryRepositoryTriggerInput interface {
-	pulumi.Input
-
-	ToRepositoryRepositoryTriggerOutput() RepositoryRepositoryTriggerOutput
-	ToRepositoryRepositoryTriggerOutputWithContext(context.Context) RepositoryRepositoryTriggerOutput
-}
-
-type RepositoryRepositoryTriggerArgs struct {
-	Branches       pulumi.StringArrayInput `pulumi:"branches"`
-	CustomData     pulumi.StringPtrInput   `pulumi:"customData"`
-	DestinationArn pulumi.StringInput      `pulumi:"destinationArn"`
-	Events         pulumi.StringArrayInput `pulumi:"events"`
-	Name           pulumi.StringInput      `pulumi:"name"`
-}
-
-func (RepositoryRepositoryTriggerArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryRepositoryTrigger)(nil)).Elem()
-}
-
-func (i RepositoryRepositoryTriggerArgs) ToRepositoryRepositoryTriggerOutput() RepositoryRepositoryTriggerOutput {
-	return i.ToRepositoryRepositoryTriggerOutputWithContext(context.Background())
-}
-
-func (i RepositoryRepositoryTriggerArgs) ToRepositoryRepositoryTriggerOutputWithContext(ctx context.Context) RepositoryRepositoryTriggerOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRepositoryTriggerOutput)
-}
-
-// RepositoryRepositoryTriggerArrayInput is an input type that accepts RepositoryRepositoryTriggerArray and RepositoryRepositoryTriggerArrayOutput values.
-// You can construct a concrete instance of `RepositoryRepositoryTriggerArrayInput` via:
-//
-//          RepositoryRepositoryTriggerArray{ RepositoryRepositoryTriggerArgs{...} }
-type RepositoryRepositoryTriggerArrayInput interface {
-	pulumi.Input
-
-	ToRepositoryRepositoryTriggerArrayOutput() RepositoryRepositoryTriggerArrayOutput
-	ToRepositoryRepositoryTriggerArrayOutputWithContext(context.Context) RepositoryRepositoryTriggerArrayOutput
-}
-
-type RepositoryRepositoryTriggerArray []RepositoryRepositoryTriggerInput
-
-func (RepositoryRepositoryTriggerArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RepositoryRepositoryTrigger)(nil)).Elem()
-}
-
-func (i RepositoryRepositoryTriggerArray) ToRepositoryRepositoryTriggerArrayOutput() RepositoryRepositoryTriggerArrayOutput {
-	return i.ToRepositoryRepositoryTriggerArrayOutputWithContext(context.Background())
-}
-
-func (i RepositoryRepositoryTriggerArray) ToRepositoryRepositoryTriggerArrayOutputWithContext(ctx context.Context) RepositoryRepositoryTriggerArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryRepositoryTriggerArrayOutput)
-}
-
-type RepositoryRepositoryTriggerOutput struct{ *pulumi.OutputState }
-
-func (RepositoryRepositoryTriggerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryRepositoryTrigger)(nil)).Elem()
-}
-
-func (o RepositoryRepositoryTriggerOutput) ToRepositoryRepositoryTriggerOutput() RepositoryRepositoryTriggerOutput {
-	return o
-}
-
-func (o RepositoryRepositoryTriggerOutput) ToRepositoryRepositoryTriggerOutputWithContext(ctx context.Context) RepositoryRepositoryTriggerOutput {
-	return o
-}
-
-func (o RepositoryRepositoryTriggerOutput) Branches() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RepositoryRepositoryTrigger) []string { return v.Branches }).(pulumi.StringArrayOutput)
-}
-
-func (o RepositoryRepositoryTriggerOutput) CustomData() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RepositoryRepositoryTrigger) *string { return v.CustomData }).(pulumi.StringPtrOutput)
-}
-
-func (o RepositoryRepositoryTriggerOutput) DestinationArn() pulumi.StringOutput {
-	return o.ApplyT(func(v RepositoryRepositoryTrigger) string { return v.DestinationArn }).(pulumi.StringOutput)
-}
-
-func (o RepositoryRepositoryTriggerOutput) Events() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RepositoryRepositoryTrigger) []string { return v.Events }).(pulumi.StringArrayOutput)
-}
-
-func (o RepositoryRepositoryTriggerOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v RepositoryRepositoryTrigger) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type RepositoryRepositoryTriggerArrayOutput struct{ *pulumi.OutputState }
-
-func (RepositoryRepositoryTriggerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RepositoryRepositoryTrigger)(nil)).Elem()
-}
-
-func (o RepositoryRepositoryTriggerArrayOutput) ToRepositoryRepositoryTriggerArrayOutput() RepositoryRepositoryTriggerArrayOutput {
-	return o
-}
-
-func (o RepositoryRepositoryTriggerArrayOutput) ToRepositoryRepositoryTriggerArrayOutputWithContext(ctx context.Context) RepositoryRepositoryTriggerArrayOutput {
-	return o
-}
-
-func (o RepositoryRepositoryTriggerArrayOutput) Index(i pulumi.IntInput) RepositoryRepositoryTriggerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryRepositoryTrigger {
-		return vs[0].([]RepositoryRepositoryTrigger)[vs[1].(int)]
-	}).(RepositoryRepositoryTriggerOutput)
-}
-
 type RepositoryS3 struct {
 	Bucket        string  `pulumi:"bucket"`
 	Key           string  `pulumi:"key"`
@@ -539,13 +421,131 @@ func (o RepositoryTagArrayOutput) Index(i pulumi.IntInput) RepositoryTagOutput {
 	}).(RepositoryTagOutput)
 }
 
+type RepositoryTrigger struct {
+	Branches       []string `pulumi:"branches"`
+	CustomData     *string  `pulumi:"customData"`
+	DestinationArn string   `pulumi:"destinationArn"`
+	Events         []string `pulumi:"events"`
+	Name           string   `pulumi:"name"`
+}
+
+// RepositoryTriggerInput is an input type that accepts RepositoryTriggerArgs and RepositoryTriggerOutput values.
+// You can construct a concrete instance of `RepositoryTriggerInput` via:
+//
+//          RepositoryTriggerArgs{...}
+type RepositoryTriggerInput interface {
+	pulumi.Input
+
+	ToRepositoryTriggerOutput() RepositoryTriggerOutput
+	ToRepositoryTriggerOutputWithContext(context.Context) RepositoryTriggerOutput
+}
+
+type RepositoryTriggerArgs struct {
+	Branches       pulumi.StringArrayInput `pulumi:"branches"`
+	CustomData     pulumi.StringPtrInput   `pulumi:"customData"`
+	DestinationArn pulumi.StringInput      `pulumi:"destinationArn"`
+	Events         pulumi.StringArrayInput `pulumi:"events"`
+	Name           pulumi.StringInput      `pulumi:"name"`
+}
+
+func (RepositoryTriggerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryTrigger)(nil)).Elem()
+}
+
+func (i RepositoryTriggerArgs) ToRepositoryTriggerOutput() RepositoryTriggerOutput {
+	return i.ToRepositoryTriggerOutputWithContext(context.Background())
+}
+
+func (i RepositoryTriggerArgs) ToRepositoryTriggerOutputWithContext(ctx context.Context) RepositoryTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryTriggerOutput)
+}
+
+// RepositoryTriggerArrayInput is an input type that accepts RepositoryTriggerArray and RepositoryTriggerArrayOutput values.
+// You can construct a concrete instance of `RepositoryTriggerArrayInput` via:
+//
+//          RepositoryTriggerArray{ RepositoryTriggerArgs{...} }
+type RepositoryTriggerArrayInput interface {
+	pulumi.Input
+
+	ToRepositoryTriggerArrayOutput() RepositoryTriggerArrayOutput
+	ToRepositoryTriggerArrayOutputWithContext(context.Context) RepositoryTriggerArrayOutput
+}
+
+type RepositoryTriggerArray []RepositoryTriggerInput
+
+func (RepositoryTriggerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryTrigger)(nil)).Elem()
+}
+
+func (i RepositoryTriggerArray) ToRepositoryTriggerArrayOutput() RepositoryTriggerArrayOutput {
+	return i.ToRepositoryTriggerArrayOutputWithContext(context.Background())
+}
+
+func (i RepositoryTriggerArray) ToRepositoryTriggerArrayOutputWithContext(ctx context.Context) RepositoryTriggerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryTriggerArrayOutput)
+}
+
+type RepositoryTriggerOutput struct{ *pulumi.OutputState }
+
+func (RepositoryTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryTrigger)(nil)).Elem()
+}
+
+func (o RepositoryTriggerOutput) ToRepositoryTriggerOutput() RepositoryTriggerOutput {
+	return o
+}
+
+func (o RepositoryTriggerOutput) ToRepositoryTriggerOutputWithContext(ctx context.Context) RepositoryTriggerOutput {
+	return o
+}
+
+func (o RepositoryTriggerOutput) Branches() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RepositoryTrigger) []string { return v.Branches }).(pulumi.StringArrayOutput)
+}
+
+func (o RepositoryTriggerOutput) CustomData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryTrigger) *string { return v.CustomData }).(pulumi.StringPtrOutput)
+}
+
+func (o RepositoryTriggerOutput) DestinationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryTrigger) string { return v.DestinationArn }).(pulumi.StringOutput)
+}
+
+func (o RepositoryTriggerOutput) Events() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RepositoryTrigger) []string { return v.Events }).(pulumi.StringArrayOutput)
+}
+
+func (o RepositoryTriggerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryTrigger) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type RepositoryTriggerArrayOutput struct{ *pulumi.OutputState }
+
+func (RepositoryTriggerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryTrigger)(nil)).Elem()
+}
+
+func (o RepositoryTriggerArrayOutput) ToRepositoryTriggerArrayOutput() RepositoryTriggerArrayOutput {
+	return o
+}
+
+func (o RepositoryTriggerArrayOutput) ToRepositoryTriggerArrayOutputWithContext(ctx context.Context) RepositoryTriggerArrayOutput {
+	return o
+}
+
+func (o RepositoryTriggerArrayOutput) Index(i pulumi.IntInput) RepositoryTriggerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryTrigger {
+		return vs[0].([]RepositoryTrigger)[vs[1].(int)]
+	}).(RepositoryTriggerOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RepositoryCodeOutput{})
 	pulumi.RegisterOutputType(RepositoryCodePtrOutput{})
-	pulumi.RegisterOutputType(RepositoryRepositoryTriggerOutput{})
-	pulumi.RegisterOutputType(RepositoryRepositoryTriggerArrayOutput{})
 	pulumi.RegisterOutputType(RepositoryS3Output{})
 	pulumi.RegisterOutputType(RepositoryS3PtrOutput{})
 	pulumi.RegisterOutputType(RepositoryTagOutput{})
 	pulumi.RegisterOutputType(RepositoryTagArrayOutput{})
+	pulumi.RegisterOutputType(RepositoryTriggerOutput{})
+	pulumi.RegisterOutputType(RepositoryTriggerArrayOutput{})
 }

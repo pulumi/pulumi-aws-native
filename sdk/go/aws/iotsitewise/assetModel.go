@@ -18,17 +18,17 @@ type AssetModel struct {
 	// The ARN of the asset model, which has the following format.
 	AssetModelArn pulumi.StringOutput `pulumi:"assetModelArn"`
 	// The composite asset models that are part of this asset model. Composite asset models are asset models that contain specific properties.
-	AssetModelCompositeModels AssetModelAssetModelCompositeModelArrayOutput `pulumi:"assetModelCompositeModels"`
+	AssetModelCompositeModels AssetModelCompositeModelArrayOutput `pulumi:"assetModelCompositeModels"`
 	// A description for the asset model.
 	AssetModelDescription pulumi.StringPtrOutput `pulumi:"assetModelDescription"`
 	// The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.
-	AssetModelHierarchies AssetModelAssetModelHierarchyArrayOutput `pulumi:"assetModelHierarchies"`
+	AssetModelHierarchies AssetModelHierarchyArrayOutput `pulumi:"assetModelHierarchies"`
 	// The ID of the asset model.
 	AssetModelId pulumi.StringOutput `pulumi:"assetModelId"`
 	// A unique, friendly name for the asset model.
 	AssetModelName pulumi.StringOutput `pulumi:"assetModelName"`
 	// The property definitions of the asset model. You can specify up to 200 properties per asset model.
-	AssetModelProperties AssetModelAssetModelPropertyArrayOutput `pulumi:"assetModelProperties"`
+	AssetModelProperties AssetModelPropertyArrayOutput `pulumi:"assetModelProperties"`
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags AssetModelTagArrayOutput `pulumi:"tags"`
 }
@@ -76,15 +76,15 @@ func (AssetModelState) ElementType() reflect.Type {
 
 type assetModelArgs struct {
 	// The composite asset models that are part of this asset model. Composite asset models are asset models that contain specific properties.
-	AssetModelCompositeModels []AssetModelAssetModelCompositeModel `pulumi:"assetModelCompositeModels"`
+	AssetModelCompositeModels []AssetModelCompositeModel `pulumi:"assetModelCompositeModels"`
 	// A description for the asset model.
 	AssetModelDescription *string `pulumi:"assetModelDescription"`
 	// The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.
-	AssetModelHierarchies []AssetModelAssetModelHierarchy `pulumi:"assetModelHierarchies"`
+	AssetModelHierarchies []AssetModelHierarchy `pulumi:"assetModelHierarchies"`
 	// A unique, friendly name for the asset model.
 	AssetModelName string `pulumi:"assetModelName"`
 	// The property definitions of the asset model. You can specify up to 200 properties per asset model.
-	AssetModelProperties []AssetModelAssetModelProperty `pulumi:"assetModelProperties"`
+	AssetModelProperties []AssetModelProperty `pulumi:"assetModelProperties"`
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags []AssetModelTag `pulumi:"tags"`
 }
@@ -92,15 +92,15 @@ type assetModelArgs struct {
 // The set of arguments for constructing a AssetModel resource.
 type AssetModelArgs struct {
 	// The composite asset models that are part of this asset model. Composite asset models are asset models that contain specific properties.
-	AssetModelCompositeModels AssetModelAssetModelCompositeModelArrayInput
+	AssetModelCompositeModels AssetModelCompositeModelArrayInput
 	// A description for the asset model.
 	AssetModelDescription pulumi.StringPtrInput
 	// The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.
-	AssetModelHierarchies AssetModelAssetModelHierarchyArrayInput
+	AssetModelHierarchies AssetModelHierarchyArrayInput
 	// A unique, friendly name for the asset model.
 	AssetModelName pulumi.StringInput
 	// The property definitions of the asset model. You can specify up to 200 properties per asset model.
-	AssetModelProperties AssetModelAssetModelPropertyArrayInput
+	AssetModelProperties AssetModelPropertyArrayInput
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags AssetModelTagArrayInput
 }

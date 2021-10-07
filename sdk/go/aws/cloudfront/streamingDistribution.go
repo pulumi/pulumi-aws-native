@@ -17,9 +17,9 @@ import (
 type StreamingDistribution struct {
 	pulumi.CustomResourceState
 
-	DomainName                  pulumi.StringOutput                                    `pulumi:"domainName"`
-	StreamingDistributionConfig StreamingDistributionStreamingDistributionConfigOutput `pulumi:"streamingDistributionConfig"`
-	Tags                        StreamingDistributionTagArrayOutput                    `pulumi:"tags"`
+	DomainName                  pulumi.StringOutput                 `pulumi:"domainName"`
+	StreamingDistributionConfig StreamingDistributionConfigOutput   `pulumi:"streamingDistributionConfig"`
+	Tags                        StreamingDistributionTagArrayOutput `pulumi:"tags"`
 }
 
 // NewStreamingDistribution registers a new resource with the given unique name, arguments, and options.
@@ -67,13 +67,13 @@ func (StreamingDistributionState) ElementType() reflect.Type {
 }
 
 type streamingDistributionArgs struct {
-	StreamingDistributionConfig StreamingDistributionStreamingDistributionConfig `pulumi:"streamingDistributionConfig"`
-	Tags                        []StreamingDistributionTag                       `pulumi:"tags"`
+	StreamingDistributionConfig StreamingDistributionConfig `pulumi:"streamingDistributionConfig"`
+	Tags                        []StreamingDistributionTag  `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a StreamingDistribution resource.
 type StreamingDistributionArgs struct {
-	StreamingDistributionConfig StreamingDistributionStreamingDistributionConfigInput
+	StreamingDistributionConfig StreamingDistributionConfigInput
 	Tags                        StreamingDistributionTagArrayInput
 }
 

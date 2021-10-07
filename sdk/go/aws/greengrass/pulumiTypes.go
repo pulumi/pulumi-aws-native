@@ -116,134 +116,132 @@ func (o ConnectorDefinitionConnectorArrayOutput) Index(i pulumi.IntInput) Connec
 	}).(ConnectorDefinitionConnectorOutput)
 }
 
-type ConnectorDefinitionConnectorDefinitionVersion struct {
+type ConnectorDefinitionVersionType struct {
 	Connectors []ConnectorDefinitionConnector `pulumi:"connectors"`
 }
 
-// ConnectorDefinitionConnectorDefinitionVersionInput is an input type that accepts ConnectorDefinitionConnectorDefinitionVersionArgs and ConnectorDefinitionConnectorDefinitionVersionOutput values.
-// You can construct a concrete instance of `ConnectorDefinitionConnectorDefinitionVersionInput` via:
+// ConnectorDefinitionVersionTypeInput is an input type that accepts ConnectorDefinitionVersionTypeArgs and ConnectorDefinitionVersionTypeOutput values.
+// You can construct a concrete instance of `ConnectorDefinitionVersionTypeInput` via:
 //
-//          ConnectorDefinitionConnectorDefinitionVersionArgs{...}
-type ConnectorDefinitionConnectorDefinitionVersionInput interface {
+//          ConnectorDefinitionVersionTypeArgs{...}
+type ConnectorDefinitionVersionTypeInput interface {
 	pulumi.Input
 
-	ToConnectorDefinitionConnectorDefinitionVersionOutput() ConnectorDefinitionConnectorDefinitionVersionOutput
-	ToConnectorDefinitionConnectorDefinitionVersionOutputWithContext(context.Context) ConnectorDefinitionConnectorDefinitionVersionOutput
+	ToConnectorDefinitionVersionTypeOutput() ConnectorDefinitionVersionTypeOutput
+	ToConnectorDefinitionVersionTypeOutputWithContext(context.Context) ConnectorDefinitionVersionTypeOutput
 }
 
-type ConnectorDefinitionConnectorDefinitionVersionArgs struct {
+type ConnectorDefinitionVersionTypeArgs struct {
 	Connectors ConnectorDefinitionConnectorArrayInput `pulumi:"connectors"`
 }
 
-func (ConnectorDefinitionConnectorDefinitionVersionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorDefinitionConnectorDefinitionVersion)(nil)).Elem()
+func (ConnectorDefinitionVersionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorDefinitionVersionType)(nil)).Elem()
 }
 
-func (i ConnectorDefinitionConnectorDefinitionVersionArgs) ToConnectorDefinitionConnectorDefinitionVersionOutput() ConnectorDefinitionConnectorDefinitionVersionOutput {
-	return i.ToConnectorDefinitionConnectorDefinitionVersionOutputWithContext(context.Background())
+func (i ConnectorDefinitionVersionTypeArgs) ToConnectorDefinitionVersionTypeOutput() ConnectorDefinitionVersionTypeOutput {
+	return i.ToConnectorDefinitionVersionTypeOutputWithContext(context.Background())
 }
 
-func (i ConnectorDefinitionConnectorDefinitionVersionArgs) ToConnectorDefinitionConnectorDefinitionVersionOutputWithContext(ctx context.Context) ConnectorDefinitionConnectorDefinitionVersionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorDefinitionConnectorDefinitionVersionOutput)
+func (i ConnectorDefinitionVersionTypeArgs) ToConnectorDefinitionVersionTypeOutputWithContext(ctx context.Context) ConnectorDefinitionVersionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorDefinitionVersionTypeOutput)
 }
 
-func (i ConnectorDefinitionConnectorDefinitionVersionArgs) ToConnectorDefinitionConnectorDefinitionVersionPtrOutput() ConnectorDefinitionConnectorDefinitionVersionPtrOutput {
-	return i.ToConnectorDefinitionConnectorDefinitionVersionPtrOutputWithContext(context.Background())
+func (i ConnectorDefinitionVersionTypeArgs) ToConnectorDefinitionVersionTypePtrOutput() ConnectorDefinitionVersionTypePtrOutput {
+	return i.ToConnectorDefinitionVersionTypePtrOutputWithContext(context.Background())
 }
 
-func (i ConnectorDefinitionConnectorDefinitionVersionArgs) ToConnectorDefinitionConnectorDefinitionVersionPtrOutputWithContext(ctx context.Context) ConnectorDefinitionConnectorDefinitionVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorDefinitionConnectorDefinitionVersionOutput).ToConnectorDefinitionConnectorDefinitionVersionPtrOutputWithContext(ctx)
+func (i ConnectorDefinitionVersionTypeArgs) ToConnectorDefinitionVersionTypePtrOutputWithContext(ctx context.Context) ConnectorDefinitionVersionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorDefinitionVersionTypeOutput).ToConnectorDefinitionVersionTypePtrOutputWithContext(ctx)
 }
 
-// ConnectorDefinitionConnectorDefinitionVersionPtrInput is an input type that accepts ConnectorDefinitionConnectorDefinitionVersionArgs, ConnectorDefinitionConnectorDefinitionVersionPtr and ConnectorDefinitionConnectorDefinitionVersionPtrOutput values.
-// You can construct a concrete instance of `ConnectorDefinitionConnectorDefinitionVersionPtrInput` via:
+// ConnectorDefinitionVersionTypePtrInput is an input type that accepts ConnectorDefinitionVersionTypeArgs, ConnectorDefinitionVersionTypePtr and ConnectorDefinitionVersionTypePtrOutput values.
+// You can construct a concrete instance of `ConnectorDefinitionVersionTypePtrInput` via:
 //
-//          ConnectorDefinitionConnectorDefinitionVersionArgs{...}
+//          ConnectorDefinitionVersionTypeArgs{...}
 //
 //  or:
 //
 //          nil
-type ConnectorDefinitionConnectorDefinitionVersionPtrInput interface {
+type ConnectorDefinitionVersionTypePtrInput interface {
 	pulumi.Input
 
-	ToConnectorDefinitionConnectorDefinitionVersionPtrOutput() ConnectorDefinitionConnectorDefinitionVersionPtrOutput
-	ToConnectorDefinitionConnectorDefinitionVersionPtrOutputWithContext(context.Context) ConnectorDefinitionConnectorDefinitionVersionPtrOutput
+	ToConnectorDefinitionVersionTypePtrOutput() ConnectorDefinitionVersionTypePtrOutput
+	ToConnectorDefinitionVersionTypePtrOutputWithContext(context.Context) ConnectorDefinitionVersionTypePtrOutput
 }
 
-type connectorDefinitionConnectorDefinitionVersionPtrType ConnectorDefinitionConnectorDefinitionVersionArgs
+type connectorDefinitionVersionTypePtrType ConnectorDefinitionVersionTypeArgs
 
-func ConnectorDefinitionConnectorDefinitionVersionPtr(v *ConnectorDefinitionConnectorDefinitionVersionArgs) ConnectorDefinitionConnectorDefinitionVersionPtrInput {
-	return (*connectorDefinitionConnectorDefinitionVersionPtrType)(v)
+func ConnectorDefinitionVersionTypePtr(v *ConnectorDefinitionVersionTypeArgs) ConnectorDefinitionVersionTypePtrInput {
+	return (*connectorDefinitionVersionTypePtrType)(v)
 }
 
-func (*connectorDefinitionConnectorDefinitionVersionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorDefinitionConnectorDefinitionVersion)(nil)).Elem()
+func (*connectorDefinitionVersionTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorDefinitionVersionType)(nil)).Elem()
 }
 
-func (i *connectorDefinitionConnectorDefinitionVersionPtrType) ToConnectorDefinitionConnectorDefinitionVersionPtrOutput() ConnectorDefinitionConnectorDefinitionVersionPtrOutput {
-	return i.ToConnectorDefinitionConnectorDefinitionVersionPtrOutputWithContext(context.Background())
+func (i *connectorDefinitionVersionTypePtrType) ToConnectorDefinitionVersionTypePtrOutput() ConnectorDefinitionVersionTypePtrOutput {
+	return i.ToConnectorDefinitionVersionTypePtrOutputWithContext(context.Background())
 }
 
-func (i *connectorDefinitionConnectorDefinitionVersionPtrType) ToConnectorDefinitionConnectorDefinitionVersionPtrOutputWithContext(ctx context.Context) ConnectorDefinitionConnectorDefinitionVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorDefinitionConnectorDefinitionVersionPtrOutput)
+func (i *connectorDefinitionVersionTypePtrType) ToConnectorDefinitionVersionTypePtrOutputWithContext(ctx context.Context) ConnectorDefinitionVersionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorDefinitionVersionTypePtrOutput)
 }
 
-type ConnectorDefinitionConnectorDefinitionVersionOutput struct{ *pulumi.OutputState }
+type ConnectorDefinitionVersionTypeOutput struct{ *pulumi.OutputState }
 
-func (ConnectorDefinitionConnectorDefinitionVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorDefinitionConnectorDefinitionVersion)(nil)).Elem()
+func (ConnectorDefinitionVersionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorDefinitionVersionType)(nil)).Elem()
 }
 
-func (o ConnectorDefinitionConnectorDefinitionVersionOutput) ToConnectorDefinitionConnectorDefinitionVersionOutput() ConnectorDefinitionConnectorDefinitionVersionOutput {
+func (o ConnectorDefinitionVersionTypeOutput) ToConnectorDefinitionVersionTypeOutput() ConnectorDefinitionVersionTypeOutput {
 	return o
 }
 
-func (o ConnectorDefinitionConnectorDefinitionVersionOutput) ToConnectorDefinitionConnectorDefinitionVersionOutputWithContext(ctx context.Context) ConnectorDefinitionConnectorDefinitionVersionOutput {
+func (o ConnectorDefinitionVersionTypeOutput) ToConnectorDefinitionVersionTypeOutputWithContext(ctx context.Context) ConnectorDefinitionVersionTypeOutput {
 	return o
 }
 
-func (o ConnectorDefinitionConnectorDefinitionVersionOutput) ToConnectorDefinitionConnectorDefinitionVersionPtrOutput() ConnectorDefinitionConnectorDefinitionVersionPtrOutput {
-	return o.ToConnectorDefinitionConnectorDefinitionVersionPtrOutputWithContext(context.Background())
+func (o ConnectorDefinitionVersionTypeOutput) ToConnectorDefinitionVersionTypePtrOutput() ConnectorDefinitionVersionTypePtrOutput {
+	return o.ToConnectorDefinitionVersionTypePtrOutputWithContext(context.Background())
 }
 
-func (o ConnectorDefinitionConnectorDefinitionVersionOutput) ToConnectorDefinitionConnectorDefinitionVersionPtrOutputWithContext(ctx context.Context) ConnectorDefinitionConnectorDefinitionVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorDefinitionConnectorDefinitionVersion) *ConnectorDefinitionConnectorDefinitionVersion {
+func (o ConnectorDefinitionVersionTypeOutput) ToConnectorDefinitionVersionTypePtrOutputWithContext(ctx context.Context) ConnectorDefinitionVersionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorDefinitionVersionType) *ConnectorDefinitionVersionType {
 		return &v
-	}).(ConnectorDefinitionConnectorDefinitionVersionPtrOutput)
+	}).(ConnectorDefinitionVersionTypePtrOutput)
 }
 
-func (o ConnectorDefinitionConnectorDefinitionVersionOutput) Connectors() ConnectorDefinitionConnectorArrayOutput {
-	return o.ApplyT(func(v ConnectorDefinitionConnectorDefinitionVersion) []ConnectorDefinitionConnector {
-		return v.Connectors
-	}).(ConnectorDefinitionConnectorArrayOutput)
+func (o ConnectorDefinitionVersionTypeOutput) Connectors() ConnectorDefinitionConnectorArrayOutput {
+	return o.ApplyT(func(v ConnectorDefinitionVersionType) []ConnectorDefinitionConnector { return v.Connectors }).(ConnectorDefinitionConnectorArrayOutput)
 }
 
-type ConnectorDefinitionConnectorDefinitionVersionPtrOutput struct{ *pulumi.OutputState }
+type ConnectorDefinitionVersionTypePtrOutput struct{ *pulumi.OutputState }
 
-func (ConnectorDefinitionConnectorDefinitionVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorDefinitionConnectorDefinitionVersion)(nil)).Elem()
+func (ConnectorDefinitionVersionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorDefinitionVersionType)(nil)).Elem()
 }
 
-func (o ConnectorDefinitionConnectorDefinitionVersionPtrOutput) ToConnectorDefinitionConnectorDefinitionVersionPtrOutput() ConnectorDefinitionConnectorDefinitionVersionPtrOutput {
+func (o ConnectorDefinitionVersionTypePtrOutput) ToConnectorDefinitionVersionTypePtrOutput() ConnectorDefinitionVersionTypePtrOutput {
 	return o
 }
 
-func (o ConnectorDefinitionConnectorDefinitionVersionPtrOutput) ToConnectorDefinitionConnectorDefinitionVersionPtrOutputWithContext(ctx context.Context) ConnectorDefinitionConnectorDefinitionVersionPtrOutput {
+func (o ConnectorDefinitionVersionTypePtrOutput) ToConnectorDefinitionVersionTypePtrOutputWithContext(ctx context.Context) ConnectorDefinitionVersionTypePtrOutput {
 	return o
 }
 
-func (o ConnectorDefinitionConnectorDefinitionVersionPtrOutput) Elem() ConnectorDefinitionConnectorDefinitionVersionOutput {
-	return o.ApplyT(func(v *ConnectorDefinitionConnectorDefinitionVersion) ConnectorDefinitionConnectorDefinitionVersion {
+func (o ConnectorDefinitionVersionTypePtrOutput) Elem() ConnectorDefinitionVersionTypeOutput {
+	return o.ApplyT(func(v *ConnectorDefinitionVersionType) ConnectorDefinitionVersionType {
 		if v != nil {
 			return *v
 		}
-		var ret ConnectorDefinitionConnectorDefinitionVersion
+		var ret ConnectorDefinitionVersionType
 		return ret
-	}).(ConnectorDefinitionConnectorDefinitionVersionOutput)
+	}).(ConnectorDefinitionVersionTypeOutput)
 }
 
-func (o ConnectorDefinitionConnectorDefinitionVersionPtrOutput) Connectors() ConnectorDefinitionConnectorArrayOutput {
-	return o.ApplyT(func(v *ConnectorDefinitionConnectorDefinitionVersion) []ConnectorDefinitionConnector {
+func (o ConnectorDefinitionVersionTypePtrOutput) Connectors() ConnectorDefinitionConnectorArrayOutput {
+	return o.ApplyT(func(v *ConnectorDefinitionVersionType) []ConnectorDefinitionConnector {
 		if v == nil {
 			return nil
 		}
@@ -469,132 +467,132 @@ func (o CoreDefinitionCoreArrayOutput) Index(i pulumi.IntInput) CoreDefinitionCo
 	}).(CoreDefinitionCoreOutput)
 }
 
-type CoreDefinitionCoreDefinitionVersion struct {
+type CoreDefinitionVersionType struct {
 	Cores []CoreDefinitionCore `pulumi:"cores"`
 }
 
-// CoreDefinitionCoreDefinitionVersionInput is an input type that accepts CoreDefinitionCoreDefinitionVersionArgs and CoreDefinitionCoreDefinitionVersionOutput values.
-// You can construct a concrete instance of `CoreDefinitionCoreDefinitionVersionInput` via:
+// CoreDefinitionVersionTypeInput is an input type that accepts CoreDefinitionVersionTypeArgs and CoreDefinitionVersionTypeOutput values.
+// You can construct a concrete instance of `CoreDefinitionVersionTypeInput` via:
 //
-//          CoreDefinitionCoreDefinitionVersionArgs{...}
-type CoreDefinitionCoreDefinitionVersionInput interface {
+//          CoreDefinitionVersionTypeArgs{...}
+type CoreDefinitionVersionTypeInput interface {
 	pulumi.Input
 
-	ToCoreDefinitionCoreDefinitionVersionOutput() CoreDefinitionCoreDefinitionVersionOutput
-	ToCoreDefinitionCoreDefinitionVersionOutputWithContext(context.Context) CoreDefinitionCoreDefinitionVersionOutput
+	ToCoreDefinitionVersionTypeOutput() CoreDefinitionVersionTypeOutput
+	ToCoreDefinitionVersionTypeOutputWithContext(context.Context) CoreDefinitionVersionTypeOutput
 }
 
-type CoreDefinitionCoreDefinitionVersionArgs struct {
+type CoreDefinitionVersionTypeArgs struct {
 	Cores CoreDefinitionCoreArrayInput `pulumi:"cores"`
 }
 
-func (CoreDefinitionCoreDefinitionVersionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CoreDefinitionCoreDefinitionVersion)(nil)).Elem()
+func (CoreDefinitionVersionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CoreDefinitionVersionType)(nil)).Elem()
 }
 
-func (i CoreDefinitionCoreDefinitionVersionArgs) ToCoreDefinitionCoreDefinitionVersionOutput() CoreDefinitionCoreDefinitionVersionOutput {
-	return i.ToCoreDefinitionCoreDefinitionVersionOutputWithContext(context.Background())
+func (i CoreDefinitionVersionTypeArgs) ToCoreDefinitionVersionTypeOutput() CoreDefinitionVersionTypeOutput {
+	return i.ToCoreDefinitionVersionTypeOutputWithContext(context.Background())
 }
 
-func (i CoreDefinitionCoreDefinitionVersionArgs) ToCoreDefinitionCoreDefinitionVersionOutputWithContext(ctx context.Context) CoreDefinitionCoreDefinitionVersionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CoreDefinitionCoreDefinitionVersionOutput)
+func (i CoreDefinitionVersionTypeArgs) ToCoreDefinitionVersionTypeOutputWithContext(ctx context.Context) CoreDefinitionVersionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CoreDefinitionVersionTypeOutput)
 }
 
-func (i CoreDefinitionCoreDefinitionVersionArgs) ToCoreDefinitionCoreDefinitionVersionPtrOutput() CoreDefinitionCoreDefinitionVersionPtrOutput {
-	return i.ToCoreDefinitionCoreDefinitionVersionPtrOutputWithContext(context.Background())
+func (i CoreDefinitionVersionTypeArgs) ToCoreDefinitionVersionTypePtrOutput() CoreDefinitionVersionTypePtrOutput {
+	return i.ToCoreDefinitionVersionTypePtrOutputWithContext(context.Background())
 }
 
-func (i CoreDefinitionCoreDefinitionVersionArgs) ToCoreDefinitionCoreDefinitionVersionPtrOutputWithContext(ctx context.Context) CoreDefinitionCoreDefinitionVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CoreDefinitionCoreDefinitionVersionOutput).ToCoreDefinitionCoreDefinitionVersionPtrOutputWithContext(ctx)
+func (i CoreDefinitionVersionTypeArgs) ToCoreDefinitionVersionTypePtrOutputWithContext(ctx context.Context) CoreDefinitionVersionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CoreDefinitionVersionTypeOutput).ToCoreDefinitionVersionTypePtrOutputWithContext(ctx)
 }
 
-// CoreDefinitionCoreDefinitionVersionPtrInput is an input type that accepts CoreDefinitionCoreDefinitionVersionArgs, CoreDefinitionCoreDefinitionVersionPtr and CoreDefinitionCoreDefinitionVersionPtrOutput values.
-// You can construct a concrete instance of `CoreDefinitionCoreDefinitionVersionPtrInput` via:
+// CoreDefinitionVersionTypePtrInput is an input type that accepts CoreDefinitionVersionTypeArgs, CoreDefinitionVersionTypePtr and CoreDefinitionVersionTypePtrOutput values.
+// You can construct a concrete instance of `CoreDefinitionVersionTypePtrInput` via:
 //
-//          CoreDefinitionCoreDefinitionVersionArgs{...}
+//          CoreDefinitionVersionTypeArgs{...}
 //
 //  or:
 //
 //          nil
-type CoreDefinitionCoreDefinitionVersionPtrInput interface {
+type CoreDefinitionVersionTypePtrInput interface {
 	pulumi.Input
 
-	ToCoreDefinitionCoreDefinitionVersionPtrOutput() CoreDefinitionCoreDefinitionVersionPtrOutput
-	ToCoreDefinitionCoreDefinitionVersionPtrOutputWithContext(context.Context) CoreDefinitionCoreDefinitionVersionPtrOutput
+	ToCoreDefinitionVersionTypePtrOutput() CoreDefinitionVersionTypePtrOutput
+	ToCoreDefinitionVersionTypePtrOutputWithContext(context.Context) CoreDefinitionVersionTypePtrOutput
 }
 
-type coreDefinitionCoreDefinitionVersionPtrType CoreDefinitionCoreDefinitionVersionArgs
+type coreDefinitionVersionTypePtrType CoreDefinitionVersionTypeArgs
 
-func CoreDefinitionCoreDefinitionVersionPtr(v *CoreDefinitionCoreDefinitionVersionArgs) CoreDefinitionCoreDefinitionVersionPtrInput {
-	return (*coreDefinitionCoreDefinitionVersionPtrType)(v)
+func CoreDefinitionVersionTypePtr(v *CoreDefinitionVersionTypeArgs) CoreDefinitionVersionTypePtrInput {
+	return (*coreDefinitionVersionTypePtrType)(v)
 }
 
-func (*coreDefinitionCoreDefinitionVersionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CoreDefinitionCoreDefinitionVersion)(nil)).Elem()
+func (*coreDefinitionVersionTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CoreDefinitionVersionType)(nil)).Elem()
 }
 
-func (i *coreDefinitionCoreDefinitionVersionPtrType) ToCoreDefinitionCoreDefinitionVersionPtrOutput() CoreDefinitionCoreDefinitionVersionPtrOutput {
-	return i.ToCoreDefinitionCoreDefinitionVersionPtrOutputWithContext(context.Background())
+func (i *coreDefinitionVersionTypePtrType) ToCoreDefinitionVersionTypePtrOutput() CoreDefinitionVersionTypePtrOutput {
+	return i.ToCoreDefinitionVersionTypePtrOutputWithContext(context.Background())
 }
 
-func (i *coreDefinitionCoreDefinitionVersionPtrType) ToCoreDefinitionCoreDefinitionVersionPtrOutputWithContext(ctx context.Context) CoreDefinitionCoreDefinitionVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CoreDefinitionCoreDefinitionVersionPtrOutput)
+func (i *coreDefinitionVersionTypePtrType) ToCoreDefinitionVersionTypePtrOutputWithContext(ctx context.Context) CoreDefinitionVersionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CoreDefinitionVersionTypePtrOutput)
 }
 
-type CoreDefinitionCoreDefinitionVersionOutput struct{ *pulumi.OutputState }
+type CoreDefinitionVersionTypeOutput struct{ *pulumi.OutputState }
 
-func (CoreDefinitionCoreDefinitionVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CoreDefinitionCoreDefinitionVersion)(nil)).Elem()
+func (CoreDefinitionVersionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CoreDefinitionVersionType)(nil)).Elem()
 }
 
-func (o CoreDefinitionCoreDefinitionVersionOutput) ToCoreDefinitionCoreDefinitionVersionOutput() CoreDefinitionCoreDefinitionVersionOutput {
+func (o CoreDefinitionVersionTypeOutput) ToCoreDefinitionVersionTypeOutput() CoreDefinitionVersionTypeOutput {
 	return o
 }
 
-func (o CoreDefinitionCoreDefinitionVersionOutput) ToCoreDefinitionCoreDefinitionVersionOutputWithContext(ctx context.Context) CoreDefinitionCoreDefinitionVersionOutput {
+func (o CoreDefinitionVersionTypeOutput) ToCoreDefinitionVersionTypeOutputWithContext(ctx context.Context) CoreDefinitionVersionTypeOutput {
 	return o
 }
 
-func (o CoreDefinitionCoreDefinitionVersionOutput) ToCoreDefinitionCoreDefinitionVersionPtrOutput() CoreDefinitionCoreDefinitionVersionPtrOutput {
-	return o.ToCoreDefinitionCoreDefinitionVersionPtrOutputWithContext(context.Background())
+func (o CoreDefinitionVersionTypeOutput) ToCoreDefinitionVersionTypePtrOutput() CoreDefinitionVersionTypePtrOutput {
+	return o.ToCoreDefinitionVersionTypePtrOutputWithContext(context.Background())
 }
 
-func (o CoreDefinitionCoreDefinitionVersionOutput) ToCoreDefinitionCoreDefinitionVersionPtrOutputWithContext(ctx context.Context) CoreDefinitionCoreDefinitionVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CoreDefinitionCoreDefinitionVersion) *CoreDefinitionCoreDefinitionVersion {
+func (o CoreDefinitionVersionTypeOutput) ToCoreDefinitionVersionTypePtrOutputWithContext(ctx context.Context) CoreDefinitionVersionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CoreDefinitionVersionType) *CoreDefinitionVersionType {
 		return &v
-	}).(CoreDefinitionCoreDefinitionVersionPtrOutput)
+	}).(CoreDefinitionVersionTypePtrOutput)
 }
 
-func (o CoreDefinitionCoreDefinitionVersionOutput) Cores() CoreDefinitionCoreArrayOutput {
-	return o.ApplyT(func(v CoreDefinitionCoreDefinitionVersion) []CoreDefinitionCore { return v.Cores }).(CoreDefinitionCoreArrayOutput)
+func (o CoreDefinitionVersionTypeOutput) Cores() CoreDefinitionCoreArrayOutput {
+	return o.ApplyT(func(v CoreDefinitionVersionType) []CoreDefinitionCore { return v.Cores }).(CoreDefinitionCoreArrayOutput)
 }
 
-type CoreDefinitionCoreDefinitionVersionPtrOutput struct{ *pulumi.OutputState }
+type CoreDefinitionVersionTypePtrOutput struct{ *pulumi.OutputState }
 
-func (CoreDefinitionCoreDefinitionVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CoreDefinitionCoreDefinitionVersion)(nil)).Elem()
+func (CoreDefinitionVersionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CoreDefinitionVersionType)(nil)).Elem()
 }
 
-func (o CoreDefinitionCoreDefinitionVersionPtrOutput) ToCoreDefinitionCoreDefinitionVersionPtrOutput() CoreDefinitionCoreDefinitionVersionPtrOutput {
+func (o CoreDefinitionVersionTypePtrOutput) ToCoreDefinitionVersionTypePtrOutput() CoreDefinitionVersionTypePtrOutput {
 	return o
 }
 
-func (o CoreDefinitionCoreDefinitionVersionPtrOutput) ToCoreDefinitionCoreDefinitionVersionPtrOutputWithContext(ctx context.Context) CoreDefinitionCoreDefinitionVersionPtrOutput {
+func (o CoreDefinitionVersionTypePtrOutput) ToCoreDefinitionVersionTypePtrOutputWithContext(ctx context.Context) CoreDefinitionVersionTypePtrOutput {
 	return o
 }
 
-func (o CoreDefinitionCoreDefinitionVersionPtrOutput) Elem() CoreDefinitionCoreDefinitionVersionOutput {
-	return o.ApplyT(func(v *CoreDefinitionCoreDefinitionVersion) CoreDefinitionCoreDefinitionVersion {
+func (o CoreDefinitionVersionTypePtrOutput) Elem() CoreDefinitionVersionTypeOutput {
+	return o.ApplyT(func(v *CoreDefinitionVersionType) CoreDefinitionVersionType {
 		if v != nil {
 			return *v
 		}
-		var ret CoreDefinitionCoreDefinitionVersion
+		var ret CoreDefinitionVersionType
 		return ret
-	}).(CoreDefinitionCoreDefinitionVersionOutput)
+	}).(CoreDefinitionVersionTypeOutput)
 }
 
-func (o CoreDefinitionCoreDefinitionVersionPtrOutput) Cores() CoreDefinitionCoreArrayOutput {
-	return o.ApplyT(func(v *CoreDefinitionCoreDefinitionVersion) []CoreDefinitionCore {
+func (o CoreDefinitionVersionTypePtrOutput) Cores() CoreDefinitionCoreArrayOutput {
+	return o.ApplyT(func(v *CoreDefinitionVersionType) []CoreDefinitionCore {
 		if v == nil {
 			return nil
 		}
@@ -826,132 +824,132 @@ func (o DeviceDefinitionDeviceArrayOutput) Index(i pulumi.IntInput) DeviceDefini
 	}).(DeviceDefinitionDeviceOutput)
 }
 
-type DeviceDefinitionDeviceDefinitionVersion struct {
+type DeviceDefinitionVersionType struct {
 	Devices []DeviceDefinitionDevice `pulumi:"devices"`
 }
 
-// DeviceDefinitionDeviceDefinitionVersionInput is an input type that accepts DeviceDefinitionDeviceDefinitionVersionArgs and DeviceDefinitionDeviceDefinitionVersionOutput values.
-// You can construct a concrete instance of `DeviceDefinitionDeviceDefinitionVersionInput` via:
+// DeviceDefinitionVersionTypeInput is an input type that accepts DeviceDefinitionVersionTypeArgs and DeviceDefinitionVersionTypeOutput values.
+// You can construct a concrete instance of `DeviceDefinitionVersionTypeInput` via:
 //
-//          DeviceDefinitionDeviceDefinitionVersionArgs{...}
-type DeviceDefinitionDeviceDefinitionVersionInput interface {
+//          DeviceDefinitionVersionTypeArgs{...}
+type DeviceDefinitionVersionTypeInput interface {
 	pulumi.Input
 
-	ToDeviceDefinitionDeviceDefinitionVersionOutput() DeviceDefinitionDeviceDefinitionVersionOutput
-	ToDeviceDefinitionDeviceDefinitionVersionOutputWithContext(context.Context) DeviceDefinitionDeviceDefinitionVersionOutput
+	ToDeviceDefinitionVersionTypeOutput() DeviceDefinitionVersionTypeOutput
+	ToDeviceDefinitionVersionTypeOutputWithContext(context.Context) DeviceDefinitionVersionTypeOutput
 }
 
-type DeviceDefinitionDeviceDefinitionVersionArgs struct {
+type DeviceDefinitionVersionTypeArgs struct {
 	Devices DeviceDefinitionDeviceArrayInput `pulumi:"devices"`
 }
 
-func (DeviceDefinitionDeviceDefinitionVersionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceDefinitionDeviceDefinitionVersion)(nil)).Elem()
+func (DeviceDefinitionVersionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceDefinitionVersionType)(nil)).Elem()
 }
 
-func (i DeviceDefinitionDeviceDefinitionVersionArgs) ToDeviceDefinitionDeviceDefinitionVersionOutput() DeviceDefinitionDeviceDefinitionVersionOutput {
-	return i.ToDeviceDefinitionDeviceDefinitionVersionOutputWithContext(context.Background())
+func (i DeviceDefinitionVersionTypeArgs) ToDeviceDefinitionVersionTypeOutput() DeviceDefinitionVersionTypeOutput {
+	return i.ToDeviceDefinitionVersionTypeOutputWithContext(context.Background())
 }
 
-func (i DeviceDefinitionDeviceDefinitionVersionArgs) ToDeviceDefinitionDeviceDefinitionVersionOutputWithContext(ctx context.Context) DeviceDefinitionDeviceDefinitionVersionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeviceDefinitionDeviceDefinitionVersionOutput)
+func (i DeviceDefinitionVersionTypeArgs) ToDeviceDefinitionVersionTypeOutputWithContext(ctx context.Context) DeviceDefinitionVersionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceDefinitionVersionTypeOutput)
 }
 
-func (i DeviceDefinitionDeviceDefinitionVersionArgs) ToDeviceDefinitionDeviceDefinitionVersionPtrOutput() DeviceDefinitionDeviceDefinitionVersionPtrOutput {
-	return i.ToDeviceDefinitionDeviceDefinitionVersionPtrOutputWithContext(context.Background())
+func (i DeviceDefinitionVersionTypeArgs) ToDeviceDefinitionVersionTypePtrOutput() DeviceDefinitionVersionTypePtrOutput {
+	return i.ToDeviceDefinitionVersionTypePtrOutputWithContext(context.Background())
 }
 
-func (i DeviceDefinitionDeviceDefinitionVersionArgs) ToDeviceDefinitionDeviceDefinitionVersionPtrOutputWithContext(ctx context.Context) DeviceDefinitionDeviceDefinitionVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeviceDefinitionDeviceDefinitionVersionOutput).ToDeviceDefinitionDeviceDefinitionVersionPtrOutputWithContext(ctx)
+func (i DeviceDefinitionVersionTypeArgs) ToDeviceDefinitionVersionTypePtrOutputWithContext(ctx context.Context) DeviceDefinitionVersionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceDefinitionVersionTypeOutput).ToDeviceDefinitionVersionTypePtrOutputWithContext(ctx)
 }
 
-// DeviceDefinitionDeviceDefinitionVersionPtrInput is an input type that accepts DeviceDefinitionDeviceDefinitionVersionArgs, DeviceDefinitionDeviceDefinitionVersionPtr and DeviceDefinitionDeviceDefinitionVersionPtrOutput values.
-// You can construct a concrete instance of `DeviceDefinitionDeviceDefinitionVersionPtrInput` via:
+// DeviceDefinitionVersionTypePtrInput is an input type that accepts DeviceDefinitionVersionTypeArgs, DeviceDefinitionVersionTypePtr and DeviceDefinitionVersionTypePtrOutput values.
+// You can construct a concrete instance of `DeviceDefinitionVersionTypePtrInput` via:
 //
-//          DeviceDefinitionDeviceDefinitionVersionArgs{...}
+//          DeviceDefinitionVersionTypeArgs{...}
 //
 //  or:
 //
 //          nil
-type DeviceDefinitionDeviceDefinitionVersionPtrInput interface {
+type DeviceDefinitionVersionTypePtrInput interface {
 	pulumi.Input
 
-	ToDeviceDefinitionDeviceDefinitionVersionPtrOutput() DeviceDefinitionDeviceDefinitionVersionPtrOutput
-	ToDeviceDefinitionDeviceDefinitionVersionPtrOutputWithContext(context.Context) DeviceDefinitionDeviceDefinitionVersionPtrOutput
+	ToDeviceDefinitionVersionTypePtrOutput() DeviceDefinitionVersionTypePtrOutput
+	ToDeviceDefinitionVersionTypePtrOutputWithContext(context.Context) DeviceDefinitionVersionTypePtrOutput
 }
 
-type deviceDefinitionDeviceDefinitionVersionPtrType DeviceDefinitionDeviceDefinitionVersionArgs
+type deviceDefinitionVersionTypePtrType DeviceDefinitionVersionTypeArgs
 
-func DeviceDefinitionDeviceDefinitionVersionPtr(v *DeviceDefinitionDeviceDefinitionVersionArgs) DeviceDefinitionDeviceDefinitionVersionPtrInput {
-	return (*deviceDefinitionDeviceDefinitionVersionPtrType)(v)
+func DeviceDefinitionVersionTypePtr(v *DeviceDefinitionVersionTypeArgs) DeviceDefinitionVersionTypePtrInput {
+	return (*deviceDefinitionVersionTypePtrType)(v)
 }
 
-func (*deviceDefinitionDeviceDefinitionVersionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeviceDefinitionDeviceDefinitionVersion)(nil)).Elem()
+func (*deviceDefinitionVersionTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeviceDefinitionVersionType)(nil)).Elem()
 }
 
-func (i *deviceDefinitionDeviceDefinitionVersionPtrType) ToDeviceDefinitionDeviceDefinitionVersionPtrOutput() DeviceDefinitionDeviceDefinitionVersionPtrOutput {
-	return i.ToDeviceDefinitionDeviceDefinitionVersionPtrOutputWithContext(context.Background())
+func (i *deviceDefinitionVersionTypePtrType) ToDeviceDefinitionVersionTypePtrOutput() DeviceDefinitionVersionTypePtrOutput {
+	return i.ToDeviceDefinitionVersionTypePtrOutputWithContext(context.Background())
 }
 
-func (i *deviceDefinitionDeviceDefinitionVersionPtrType) ToDeviceDefinitionDeviceDefinitionVersionPtrOutputWithContext(ctx context.Context) DeviceDefinitionDeviceDefinitionVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeviceDefinitionDeviceDefinitionVersionPtrOutput)
+func (i *deviceDefinitionVersionTypePtrType) ToDeviceDefinitionVersionTypePtrOutputWithContext(ctx context.Context) DeviceDefinitionVersionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceDefinitionVersionTypePtrOutput)
 }
 
-type DeviceDefinitionDeviceDefinitionVersionOutput struct{ *pulumi.OutputState }
+type DeviceDefinitionVersionTypeOutput struct{ *pulumi.OutputState }
 
-func (DeviceDefinitionDeviceDefinitionVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceDefinitionDeviceDefinitionVersion)(nil)).Elem()
+func (DeviceDefinitionVersionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceDefinitionVersionType)(nil)).Elem()
 }
 
-func (o DeviceDefinitionDeviceDefinitionVersionOutput) ToDeviceDefinitionDeviceDefinitionVersionOutput() DeviceDefinitionDeviceDefinitionVersionOutput {
+func (o DeviceDefinitionVersionTypeOutput) ToDeviceDefinitionVersionTypeOutput() DeviceDefinitionVersionTypeOutput {
 	return o
 }
 
-func (o DeviceDefinitionDeviceDefinitionVersionOutput) ToDeviceDefinitionDeviceDefinitionVersionOutputWithContext(ctx context.Context) DeviceDefinitionDeviceDefinitionVersionOutput {
+func (o DeviceDefinitionVersionTypeOutput) ToDeviceDefinitionVersionTypeOutputWithContext(ctx context.Context) DeviceDefinitionVersionTypeOutput {
 	return o
 }
 
-func (o DeviceDefinitionDeviceDefinitionVersionOutput) ToDeviceDefinitionDeviceDefinitionVersionPtrOutput() DeviceDefinitionDeviceDefinitionVersionPtrOutput {
-	return o.ToDeviceDefinitionDeviceDefinitionVersionPtrOutputWithContext(context.Background())
+func (o DeviceDefinitionVersionTypeOutput) ToDeviceDefinitionVersionTypePtrOutput() DeviceDefinitionVersionTypePtrOutput {
+	return o.ToDeviceDefinitionVersionTypePtrOutputWithContext(context.Background())
 }
 
-func (o DeviceDefinitionDeviceDefinitionVersionOutput) ToDeviceDefinitionDeviceDefinitionVersionPtrOutputWithContext(ctx context.Context) DeviceDefinitionDeviceDefinitionVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeviceDefinitionDeviceDefinitionVersion) *DeviceDefinitionDeviceDefinitionVersion {
+func (o DeviceDefinitionVersionTypeOutput) ToDeviceDefinitionVersionTypePtrOutputWithContext(ctx context.Context) DeviceDefinitionVersionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeviceDefinitionVersionType) *DeviceDefinitionVersionType {
 		return &v
-	}).(DeviceDefinitionDeviceDefinitionVersionPtrOutput)
+	}).(DeviceDefinitionVersionTypePtrOutput)
 }
 
-func (o DeviceDefinitionDeviceDefinitionVersionOutput) Devices() DeviceDefinitionDeviceArrayOutput {
-	return o.ApplyT(func(v DeviceDefinitionDeviceDefinitionVersion) []DeviceDefinitionDevice { return v.Devices }).(DeviceDefinitionDeviceArrayOutput)
+func (o DeviceDefinitionVersionTypeOutput) Devices() DeviceDefinitionDeviceArrayOutput {
+	return o.ApplyT(func(v DeviceDefinitionVersionType) []DeviceDefinitionDevice { return v.Devices }).(DeviceDefinitionDeviceArrayOutput)
 }
 
-type DeviceDefinitionDeviceDefinitionVersionPtrOutput struct{ *pulumi.OutputState }
+type DeviceDefinitionVersionTypePtrOutput struct{ *pulumi.OutputState }
 
-func (DeviceDefinitionDeviceDefinitionVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeviceDefinitionDeviceDefinitionVersion)(nil)).Elem()
+func (DeviceDefinitionVersionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeviceDefinitionVersionType)(nil)).Elem()
 }
 
-func (o DeviceDefinitionDeviceDefinitionVersionPtrOutput) ToDeviceDefinitionDeviceDefinitionVersionPtrOutput() DeviceDefinitionDeviceDefinitionVersionPtrOutput {
+func (o DeviceDefinitionVersionTypePtrOutput) ToDeviceDefinitionVersionTypePtrOutput() DeviceDefinitionVersionTypePtrOutput {
 	return o
 }
 
-func (o DeviceDefinitionDeviceDefinitionVersionPtrOutput) ToDeviceDefinitionDeviceDefinitionVersionPtrOutputWithContext(ctx context.Context) DeviceDefinitionDeviceDefinitionVersionPtrOutput {
+func (o DeviceDefinitionVersionTypePtrOutput) ToDeviceDefinitionVersionTypePtrOutputWithContext(ctx context.Context) DeviceDefinitionVersionTypePtrOutput {
 	return o
 }
 
-func (o DeviceDefinitionDeviceDefinitionVersionPtrOutput) Elem() DeviceDefinitionDeviceDefinitionVersionOutput {
-	return o.ApplyT(func(v *DeviceDefinitionDeviceDefinitionVersion) DeviceDefinitionDeviceDefinitionVersion {
+func (o DeviceDefinitionVersionTypePtrOutput) Elem() DeviceDefinitionVersionTypeOutput {
+	return o.ApplyT(func(v *DeviceDefinitionVersionType) DeviceDefinitionVersionType {
 		if v != nil {
 			return *v
 		}
-		var ret DeviceDefinitionDeviceDefinitionVersion
+		var ret DeviceDefinitionVersionType
 		return ret
-	}).(DeviceDefinitionDeviceDefinitionVersionOutput)
+	}).(DeviceDefinitionVersionTypeOutput)
 }
 
-func (o DeviceDefinitionDeviceDefinitionVersionPtrOutput) Devices() DeviceDefinitionDeviceArrayOutput {
-	return o.ApplyT(func(v *DeviceDefinitionDeviceDefinitionVersion) []DeviceDefinitionDevice {
+func (o DeviceDefinitionVersionTypePtrOutput) Devices() DeviceDefinitionDeviceArrayOutput {
+	return o.ApplyT(func(v *DeviceDefinitionVersionType) []DeviceDefinitionDevice {
 		if v == nil {
 			return nil
 		}
@@ -1725,156 +1723,6 @@ func (o FunctionDefinitionFunctionConfigurationOutput) Timeout() pulumi.IntPtrOu
 	return o.ApplyT(func(v FunctionDefinitionFunctionConfiguration) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
 
-type FunctionDefinitionFunctionDefinitionVersion struct {
-	DefaultConfig *FunctionDefinitionDefaultConfig `pulumi:"defaultConfig"`
-	Functions     []FunctionDefinitionFunction     `pulumi:"functions"`
-}
-
-// FunctionDefinitionFunctionDefinitionVersionInput is an input type that accepts FunctionDefinitionFunctionDefinitionVersionArgs and FunctionDefinitionFunctionDefinitionVersionOutput values.
-// You can construct a concrete instance of `FunctionDefinitionFunctionDefinitionVersionInput` via:
-//
-//          FunctionDefinitionFunctionDefinitionVersionArgs{...}
-type FunctionDefinitionFunctionDefinitionVersionInput interface {
-	pulumi.Input
-
-	ToFunctionDefinitionFunctionDefinitionVersionOutput() FunctionDefinitionFunctionDefinitionVersionOutput
-	ToFunctionDefinitionFunctionDefinitionVersionOutputWithContext(context.Context) FunctionDefinitionFunctionDefinitionVersionOutput
-}
-
-type FunctionDefinitionFunctionDefinitionVersionArgs struct {
-	DefaultConfig FunctionDefinitionDefaultConfigPtrInput `pulumi:"defaultConfig"`
-	Functions     FunctionDefinitionFunctionArrayInput    `pulumi:"functions"`
-}
-
-func (FunctionDefinitionFunctionDefinitionVersionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionDefinitionFunctionDefinitionVersion)(nil)).Elem()
-}
-
-func (i FunctionDefinitionFunctionDefinitionVersionArgs) ToFunctionDefinitionFunctionDefinitionVersionOutput() FunctionDefinitionFunctionDefinitionVersionOutput {
-	return i.ToFunctionDefinitionFunctionDefinitionVersionOutputWithContext(context.Background())
-}
-
-func (i FunctionDefinitionFunctionDefinitionVersionArgs) ToFunctionDefinitionFunctionDefinitionVersionOutputWithContext(ctx context.Context) FunctionDefinitionFunctionDefinitionVersionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionFunctionDefinitionVersionOutput)
-}
-
-func (i FunctionDefinitionFunctionDefinitionVersionArgs) ToFunctionDefinitionFunctionDefinitionVersionPtrOutput() FunctionDefinitionFunctionDefinitionVersionPtrOutput {
-	return i.ToFunctionDefinitionFunctionDefinitionVersionPtrOutputWithContext(context.Background())
-}
-
-func (i FunctionDefinitionFunctionDefinitionVersionArgs) ToFunctionDefinitionFunctionDefinitionVersionPtrOutputWithContext(ctx context.Context) FunctionDefinitionFunctionDefinitionVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionFunctionDefinitionVersionOutput).ToFunctionDefinitionFunctionDefinitionVersionPtrOutputWithContext(ctx)
-}
-
-// FunctionDefinitionFunctionDefinitionVersionPtrInput is an input type that accepts FunctionDefinitionFunctionDefinitionVersionArgs, FunctionDefinitionFunctionDefinitionVersionPtr and FunctionDefinitionFunctionDefinitionVersionPtrOutput values.
-// You can construct a concrete instance of `FunctionDefinitionFunctionDefinitionVersionPtrInput` via:
-//
-//          FunctionDefinitionFunctionDefinitionVersionArgs{...}
-//
-//  or:
-//
-//          nil
-type FunctionDefinitionFunctionDefinitionVersionPtrInput interface {
-	pulumi.Input
-
-	ToFunctionDefinitionFunctionDefinitionVersionPtrOutput() FunctionDefinitionFunctionDefinitionVersionPtrOutput
-	ToFunctionDefinitionFunctionDefinitionVersionPtrOutputWithContext(context.Context) FunctionDefinitionFunctionDefinitionVersionPtrOutput
-}
-
-type functionDefinitionFunctionDefinitionVersionPtrType FunctionDefinitionFunctionDefinitionVersionArgs
-
-func FunctionDefinitionFunctionDefinitionVersionPtr(v *FunctionDefinitionFunctionDefinitionVersionArgs) FunctionDefinitionFunctionDefinitionVersionPtrInput {
-	return (*functionDefinitionFunctionDefinitionVersionPtrType)(v)
-}
-
-func (*functionDefinitionFunctionDefinitionVersionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FunctionDefinitionFunctionDefinitionVersion)(nil)).Elem()
-}
-
-func (i *functionDefinitionFunctionDefinitionVersionPtrType) ToFunctionDefinitionFunctionDefinitionVersionPtrOutput() FunctionDefinitionFunctionDefinitionVersionPtrOutput {
-	return i.ToFunctionDefinitionFunctionDefinitionVersionPtrOutputWithContext(context.Background())
-}
-
-func (i *functionDefinitionFunctionDefinitionVersionPtrType) ToFunctionDefinitionFunctionDefinitionVersionPtrOutputWithContext(ctx context.Context) FunctionDefinitionFunctionDefinitionVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionFunctionDefinitionVersionPtrOutput)
-}
-
-type FunctionDefinitionFunctionDefinitionVersionOutput struct{ *pulumi.OutputState }
-
-func (FunctionDefinitionFunctionDefinitionVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionDefinitionFunctionDefinitionVersion)(nil)).Elem()
-}
-
-func (o FunctionDefinitionFunctionDefinitionVersionOutput) ToFunctionDefinitionFunctionDefinitionVersionOutput() FunctionDefinitionFunctionDefinitionVersionOutput {
-	return o
-}
-
-func (o FunctionDefinitionFunctionDefinitionVersionOutput) ToFunctionDefinitionFunctionDefinitionVersionOutputWithContext(ctx context.Context) FunctionDefinitionFunctionDefinitionVersionOutput {
-	return o
-}
-
-func (o FunctionDefinitionFunctionDefinitionVersionOutput) ToFunctionDefinitionFunctionDefinitionVersionPtrOutput() FunctionDefinitionFunctionDefinitionVersionPtrOutput {
-	return o.ToFunctionDefinitionFunctionDefinitionVersionPtrOutputWithContext(context.Background())
-}
-
-func (o FunctionDefinitionFunctionDefinitionVersionOutput) ToFunctionDefinitionFunctionDefinitionVersionPtrOutputWithContext(ctx context.Context) FunctionDefinitionFunctionDefinitionVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionDefinitionFunctionDefinitionVersion) *FunctionDefinitionFunctionDefinitionVersion {
-		return &v
-	}).(FunctionDefinitionFunctionDefinitionVersionPtrOutput)
-}
-
-func (o FunctionDefinitionFunctionDefinitionVersionOutput) DefaultConfig() FunctionDefinitionDefaultConfigPtrOutput {
-	return o.ApplyT(func(v FunctionDefinitionFunctionDefinitionVersion) *FunctionDefinitionDefaultConfig {
-		return v.DefaultConfig
-	}).(FunctionDefinitionDefaultConfigPtrOutput)
-}
-
-func (o FunctionDefinitionFunctionDefinitionVersionOutput) Functions() FunctionDefinitionFunctionArrayOutput {
-	return o.ApplyT(func(v FunctionDefinitionFunctionDefinitionVersion) []FunctionDefinitionFunction { return v.Functions }).(FunctionDefinitionFunctionArrayOutput)
-}
-
-type FunctionDefinitionFunctionDefinitionVersionPtrOutput struct{ *pulumi.OutputState }
-
-func (FunctionDefinitionFunctionDefinitionVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FunctionDefinitionFunctionDefinitionVersion)(nil)).Elem()
-}
-
-func (o FunctionDefinitionFunctionDefinitionVersionPtrOutput) ToFunctionDefinitionFunctionDefinitionVersionPtrOutput() FunctionDefinitionFunctionDefinitionVersionPtrOutput {
-	return o
-}
-
-func (o FunctionDefinitionFunctionDefinitionVersionPtrOutput) ToFunctionDefinitionFunctionDefinitionVersionPtrOutputWithContext(ctx context.Context) FunctionDefinitionFunctionDefinitionVersionPtrOutput {
-	return o
-}
-
-func (o FunctionDefinitionFunctionDefinitionVersionPtrOutput) Elem() FunctionDefinitionFunctionDefinitionVersionOutput {
-	return o.ApplyT(func(v *FunctionDefinitionFunctionDefinitionVersion) FunctionDefinitionFunctionDefinitionVersion {
-		if v != nil {
-			return *v
-		}
-		var ret FunctionDefinitionFunctionDefinitionVersion
-		return ret
-	}).(FunctionDefinitionFunctionDefinitionVersionOutput)
-}
-
-func (o FunctionDefinitionFunctionDefinitionVersionPtrOutput) DefaultConfig() FunctionDefinitionDefaultConfigPtrOutput {
-	return o.ApplyT(func(v *FunctionDefinitionFunctionDefinitionVersion) *FunctionDefinitionDefaultConfig {
-		if v == nil {
-			return nil
-		}
-		return v.DefaultConfig
-	}).(FunctionDefinitionDefaultConfigPtrOutput)
-}
-
-func (o FunctionDefinitionFunctionDefinitionVersionPtrOutput) Functions() FunctionDefinitionFunctionArrayOutput {
-	return o.ApplyT(func(v *FunctionDefinitionFunctionDefinitionVersion) []FunctionDefinitionFunction {
-		if v == nil {
-			return nil
-		}
-		return v.Functions
-	}).(FunctionDefinitionFunctionArrayOutput)
-}
-
 type FunctionDefinitionResourceAccessPolicy struct {
 	Permission *string `pulumi:"permission"`
 	ResourceId string  `pulumi:"resourceId"`
@@ -2121,6 +1969,154 @@ func (o FunctionDefinitionRunAsPtrOutput) Uid() pulumi.IntPtrOutput {
 		}
 		return v.Uid
 	}).(pulumi.IntPtrOutput)
+}
+
+type FunctionDefinitionVersionType struct {
+	DefaultConfig *FunctionDefinitionDefaultConfig `pulumi:"defaultConfig"`
+	Functions     []FunctionDefinitionFunction     `pulumi:"functions"`
+}
+
+// FunctionDefinitionVersionTypeInput is an input type that accepts FunctionDefinitionVersionTypeArgs and FunctionDefinitionVersionTypeOutput values.
+// You can construct a concrete instance of `FunctionDefinitionVersionTypeInput` via:
+//
+//          FunctionDefinitionVersionTypeArgs{...}
+type FunctionDefinitionVersionTypeInput interface {
+	pulumi.Input
+
+	ToFunctionDefinitionVersionTypeOutput() FunctionDefinitionVersionTypeOutput
+	ToFunctionDefinitionVersionTypeOutputWithContext(context.Context) FunctionDefinitionVersionTypeOutput
+}
+
+type FunctionDefinitionVersionTypeArgs struct {
+	DefaultConfig FunctionDefinitionDefaultConfigPtrInput `pulumi:"defaultConfig"`
+	Functions     FunctionDefinitionFunctionArrayInput    `pulumi:"functions"`
+}
+
+func (FunctionDefinitionVersionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionDefinitionVersionType)(nil)).Elem()
+}
+
+func (i FunctionDefinitionVersionTypeArgs) ToFunctionDefinitionVersionTypeOutput() FunctionDefinitionVersionTypeOutput {
+	return i.ToFunctionDefinitionVersionTypeOutputWithContext(context.Background())
+}
+
+func (i FunctionDefinitionVersionTypeArgs) ToFunctionDefinitionVersionTypeOutputWithContext(ctx context.Context) FunctionDefinitionVersionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionVersionTypeOutput)
+}
+
+func (i FunctionDefinitionVersionTypeArgs) ToFunctionDefinitionVersionTypePtrOutput() FunctionDefinitionVersionTypePtrOutput {
+	return i.ToFunctionDefinitionVersionTypePtrOutputWithContext(context.Background())
+}
+
+func (i FunctionDefinitionVersionTypeArgs) ToFunctionDefinitionVersionTypePtrOutputWithContext(ctx context.Context) FunctionDefinitionVersionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionVersionTypeOutput).ToFunctionDefinitionVersionTypePtrOutputWithContext(ctx)
+}
+
+// FunctionDefinitionVersionTypePtrInput is an input type that accepts FunctionDefinitionVersionTypeArgs, FunctionDefinitionVersionTypePtr and FunctionDefinitionVersionTypePtrOutput values.
+// You can construct a concrete instance of `FunctionDefinitionVersionTypePtrInput` via:
+//
+//          FunctionDefinitionVersionTypeArgs{...}
+//
+//  or:
+//
+//          nil
+type FunctionDefinitionVersionTypePtrInput interface {
+	pulumi.Input
+
+	ToFunctionDefinitionVersionTypePtrOutput() FunctionDefinitionVersionTypePtrOutput
+	ToFunctionDefinitionVersionTypePtrOutputWithContext(context.Context) FunctionDefinitionVersionTypePtrOutput
+}
+
+type functionDefinitionVersionTypePtrType FunctionDefinitionVersionTypeArgs
+
+func FunctionDefinitionVersionTypePtr(v *FunctionDefinitionVersionTypeArgs) FunctionDefinitionVersionTypePtrInput {
+	return (*functionDefinitionVersionTypePtrType)(v)
+}
+
+func (*functionDefinitionVersionTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionDefinitionVersionType)(nil)).Elem()
+}
+
+func (i *functionDefinitionVersionTypePtrType) ToFunctionDefinitionVersionTypePtrOutput() FunctionDefinitionVersionTypePtrOutput {
+	return i.ToFunctionDefinitionVersionTypePtrOutputWithContext(context.Background())
+}
+
+func (i *functionDefinitionVersionTypePtrType) ToFunctionDefinitionVersionTypePtrOutputWithContext(ctx context.Context) FunctionDefinitionVersionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionVersionTypePtrOutput)
+}
+
+type FunctionDefinitionVersionTypeOutput struct{ *pulumi.OutputState }
+
+func (FunctionDefinitionVersionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionDefinitionVersionType)(nil)).Elem()
+}
+
+func (o FunctionDefinitionVersionTypeOutput) ToFunctionDefinitionVersionTypeOutput() FunctionDefinitionVersionTypeOutput {
+	return o
+}
+
+func (o FunctionDefinitionVersionTypeOutput) ToFunctionDefinitionVersionTypeOutputWithContext(ctx context.Context) FunctionDefinitionVersionTypeOutput {
+	return o
+}
+
+func (o FunctionDefinitionVersionTypeOutput) ToFunctionDefinitionVersionTypePtrOutput() FunctionDefinitionVersionTypePtrOutput {
+	return o.ToFunctionDefinitionVersionTypePtrOutputWithContext(context.Background())
+}
+
+func (o FunctionDefinitionVersionTypeOutput) ToFunctionDefinitionVersionTypePtrOutputWithContext(ctx context.Context) FunctionDefinitionVersionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionDefinitionVersionType) *FunctionDefinitionVersionType {
+		return &v
+	}).(FunctionDefinitionVersionTypePtrOutput)
+}
+
+func (o FunctionDefinitionVersionTypeOutput) DefaultConfig() FunctionDefinitionDefaultConfigPtrOutput {
+	return o.ApplyT(func(v FunctionDefinitionVersionType) *FunctionDefinitionDefaultConfig { return v.DefaultConfig }).(FunctionDefinitionDefaultConfigPtrOutput)
+}
+
+func (o FunctionDefinitionVersionTypeOutput) Functions() FunctionDefinitionFunctionArrayOutput {
+	return o.ApplyT(func(v FunctionDefinitionVersionType) []FunctionDefinitionFunction { return v.Functions }).(FunctionDefinitionFunctionArrayOutput)
+}
+
+type FunctionDefinitionVersionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionDefinitionVersionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionDefinitionVersionType)(nil)).Elem()
+}
+
+func (o FunctionDefinitionVersionTypePtrOutput) ToFunctionDefinitionVersionTypePtrOutput() FunctionDefinitionVersionTypePtrOutput {
+	return o
+}
+
+func (o FunctionDefinitionVersionTypePtrOutput) ToFunctionDefinitionVersionTypePtrOutputWithContext(ctx context.Context) FunctionDefinitionVersionTypePtrOutput {
+	return o
+}
+
+func (o FunctionDefinitionVersionTypePtrOutput) Elem() FunctionDefinitionVersionTypeOutput {
+	return o.ApplyT(func(v *FunctionDefinitionVersionType) FunctionDefinitionVersionType {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionDefinitionVersionType
+		return ret
+	}).(FunctionDefinitionVersionTypeOutput)
+}
+
+func (o FunctionDefinitionVersionTypePtrOutput) DefaultConfig() FunctionDefinitionDefaultConfigPtrOutput {
+	return o.ApplyT(func(v *FunctionDefinitionVersionType) *FunctionDefinitionDefaultConfig {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultConfig
+	}).(FunctionDefinitionDefaultConfigPtrOutput)
+}
+
+func (o FunctionDefinitionVersionTypePtrOutput) Functions() FunctionDefinitionFunctionArrayOutput {
+	return o.ApplyT(func(v *FunctionDefinitionVersionType) []FunctionDefinitionFunction {
+		if v == nil {
+			return nil
+		}
+		return v.Functions
+	}).(FunctionDefinitionFunctionArrayOutput)
 }
 
 type FunctionDefinitionVersionDefaultConfig struct {
@@ -3027,7 +3023,7 @@ func (o FunctionDefinitionVersionRunAsPtrOutput) Uid() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-type GroupGroupVersion struct {
+type GroupVersionType struct {
 	ConnectorDefinitionVersionArn    *string `pulumi:"connectorDefinitionVersionArn"`
 	CoreDefinitionVersionArn         *string `pulumi:"coreDefinitionVersionArn"`
 	DeviceDefinitionVersionArn       *string `pulumi:"deviceDefinitionVersionArn"`
@@ -3037,18 +3033,18 @@ type GroupGroupVersion struct {
 	SubscriptionDefinitionVersionArn *string `pulumi:"subscriptionDefinitionVersionArn"`
 }
 
-// GroupGroupVersionInput is an input type that accepts GroupGroupVersionArgs and GroupGroupVersionOutput values.
-// You can construct a concrete instance of `GroupGroupVersionInput` via:
+// GroupVersionTypeInput is an input type that accepts GroupVersionTypeArgs and GroupVersionTypeOutput values.
+// You can construct a concrete instance of `GroupVersionTypeInput` via:
 //
-//          GroupGroupVersionArgs{...}
-type GroupGroupVersionInput interface {
+//          GroupVersionTypeArgs{...}
+type GroupVersionTypeInput interface {
 	pulumi.Input
 
-	ToGroupGroupVersionOutput() GroupGroupVersionOutput
-	ToGroupGroupVersionOutputWithContext(context.Context) GroupGroupVersionOutput
+	ToGroupVersionTypeOutput() GroupVersionTypeOutput
+	ToGroupVersionTypeOutputWithContext(context.Context) GroupVersionTypeOutput
 }
 
-type GroupGroupVersionArgs struct {
+type GroupVersionTypeArgs struct {
 	ConnectorDefinitionVersionArn    pulumi.StringPtrInput `pulumi:"connectorDefinitionVersionArn"`
 	CoreDefinitionVersionArn         pulumi.StringPtrInput `pulumi:"coreDefinitionVersionArn"`
 	DeviceDefinitionVersionArn       pulumi.StringPtrInput `pulumi:"deviceDefinitionVersionArn"`
@@ -3058,137 +3054,137 @@ type GroupGroupVersionArgs struct {
 	SubscriptionDefinitionVersionArn pulumi.StringPtrInput `pulumi:"subscriptionDefinitionVersionArn"`
 }
 
-func (GroupGroupVersionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupGroupVersion)(nil)).Elem()
+func (GroupVersionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupVersionType)(nil)).Elem()
 }
 
-func (i GroupGroupVersionArgs) ToGroupGroupVersionOutput() GroupGroupVersionOutput {
-	return i.ToGroupGroupVersionOutputWithContext(context.Background())
+func (i GroupVersionTypeArgs) ToGroupVersionTypeOutput() GroupVersionTypeOutput {
+	return i.ToGroupVersionTypeOutputWithContext(context.Background())
 }
 
-func (i GroupGroupVersionArgs) ToGroupGroupVersionOutputWithContext(ctx context.Context) GroupGroupVersionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupGroupVersionOutput)
+func (i GroupVersionTypeArgs) ToGroupVersionTypeOutputWithContext(ctx context.Context) GroupVersionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupVersionTypeOutput)
 }
 
-func (i GroupGroupVersionArgs) ToGroupGroupVersionPtrOutput() GroupGroupVersionPtrOutput {
-	return i.ToGroupGroupVersionPtrOutputWithContext(context.Background())
+func (i GroupVersionTypeArgs) ToGroupVersionTypePtrOutput() GroupVersionTypePtrOutput {
+	return i.ToGroupVersionTypePtrOutputWithContext(context.Background())
 }
 
-func (i GroupGroupVersionArgs) ToGroupGroupVersionPtrOutputWithContext(ctx context.Context) GroupGroupVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupGroupVersionOutput).ToGroupGroupVersionPtrOutputWithContext(ctx)
+func (i GroupVersionTypeArgs) ToGroupVersionTypePtrOutputWithContext(ctx context.Context) GroupVersionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupVersionTypeOutput).ToGroupVersionTypePtrOutputWithContext(ctx)
 }
 
-// GroupGroupVersionPtrInput is an input type that accepts GroupGroupVersionArgs, GroupGroupVersionPtr and GroupGroupVersionPtrOutput values.
-// You can construct a concrete instance of `GroupGroupVersionPtrInput` via:
+// GroupVersionTypePtrInput is an input type that accepts GroupVersionTypeArgs, GroupVersionTypePtr and GroupVersionTypePtrOutput values.
+// You can construct a concrete instance of `GroupVersionTypePtrInput` via:
 //
-//          GroupGroupVersionArgs{...}
+//          GroupVersionTypeArgs{...}
 //
 //  or:
 //
 //          nil
-type GroupGroupVersionPtrInput interface {
+type GroupVersionTypePtrInput interface {
 	pulumi.Input
 
-	ToGroupGroupVersionPtrOutput() GroupGroupVersionPtrOutput
-	ToGroupGroupVersionPtrOutputWithContext(context.Context) GroupGroupVersionPtrOutput
+	ToGroupVersionTypePtrOutput() GroupVersionTypePtrOutput
+	ToGroupVersionTypePtrOutputWithContext(context.Context) GroupVersionTypePtrOutput
 }
 
-type groupGroupVersionPtrType GroupGroupVersionArgs
+type groupVersionTypePtrType GroupVersionTypeArgs
 
-func GroupGroupVersionPtr(v *GroupGroupVersionArgs) GroupGroupVersionPtrInput {
-	return (*groupGroupVersionPtrType)(v)
+func GroupVersionTypePtr(v *GroupVersionTypeArgs) GroupVersionTypePtrInput {
+	return (*groupVersionTypePtrType)(v)
 }
 
-func (*groupGroupVersionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GroupGroupVersion)(nil)).Elem()
+func (*groupVersionTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupVersionType)(nil)).Elem()
 }
 
-func (i *groupGroupVersionPtrType) ToGroupGroupVersionPtrOutput() GroupGroupVersionPtrOutput {
-	return i.ToGroupGroupVersionPtrOutputWithContext(context.Background())
+func (i *groupVersionTypePtrType) ToGroupVersionTypePtrOutput() GroupVersionTypePtrOutput {
+	return i.ToGroupVersionTypePtrOutputWithContext(context.Background())
 }
 
-func (i *groupGroupVersionPtrType) ToGroupGroupVersionPtrOutputWithContext(ctx context.Context) GroupGroupVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupGroupVersionPtrOutput)
+func (i *groupVersionTypePtrType) ToGroupVersionTypePtrOutputWithContext(ctx context.Context) GroupVersionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupVersionTypePtrOutput)
 }
 
-type GroupGroupVersionOutput struct{ *pulumi.OutputState }
+type GroupVersionTypeOutput struct{ *pulumi.OutputState }
 
-func (GroupGroupVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupGroupVersion)(nil)).Elem()
+func (GroupVersionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupVersionType)(nil)).Elem()
 }
 
-func (o GroupGroupVersionOutput) ToGroupGroupVersionOutput() GroupGroupVersionOutput {
+func (o GroupVersionTypeOutput) ToGroupVersionTypeOutput() GroupVersionTypeOutput {
 	return o
 }
 
-func (o GroupGroupVersionOutput) ToGroupGroupVersionOutputWithContext(ctx context.Context) GroupGroupVersionOutput {
+func (o GroupVersionTypeOutput) ToGroupVersionTypeOutputWithContext(ctx context.Context) GroupVersionTypeOutput {
 	return o
 }
 
-func (o GroupGroupVersionOutput) ToGroupGroupVersionPtrOutput() GroupGroupVersionPtrOutput {
-	return o.ToGroupGroupVersionPtrOutputWithContext(context.Background())
+func (o GroupVersionTypeOutput) ToGroupVersionTypePtrOutput() GroupVersionTypePtrOutput {
+	return o.ToGroupVersionTypePtrOutputWithContext(context.Background())
 }
 
-func (o GroupGroupVersionOutput) ToGroupGroupVersionPtrOutputWithContext(ctx context.Context) GroupGroupVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupGroupVersion) *GroupGroupVersion {
+func (o GroupVersionTypeOutput) ToGroupVersionTypePtrOutputWithContext(ctx context.Context) GroupVersionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupVersionType) *GroupVersionType {
 		return &v
-	}).(GroupGroupVersionPtrOutput)
+	}).(GroupVersionTypePtrOutput)
 }
 
-func (o GroupGroupVersionOutput) ConnectorDefinitionVersionArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GroupGroupVersion) *string { return v.ConnectorDefinitionVersionArn }).(pulumi.StringPtrOutput)
+func (o GroupVersionTypeOutput) ConnectorDefinitionVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupVersionType) *string { return v.ConnectorDefinitionVersionArn }).(pulumi.StringPtrOutput)
 }
 
-func (o GroupGroupVersionOutput) CoreDefinitionVersionArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GroupGroupVersion) *string { return v.CoreDefinitionVersionArn }).(pulumi.StringPtrOutput)
+func (o GroupVersionTypeOutput) CoreDefinitionVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupVersionType) *string { return v.CoreDefinitionVersionArn }).(pulumi.StringPtrOutput)
 }
 
-func (o GroupGroupVersionOutput) DeviceDefinitionVersionArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GroupGroupVersion) *string { return v.DeviceDefinitionVersionArn }).(pulumi.StringPtrOutput)
+func (o GroupVersionTypeOutput) DeviceDefinitionVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupVersionType) *string { return v.DeviceDefinitionVersionArn }).(pulumi.StringPtrOutput)
 }
 
-func (o GroupGroupVersionOutput) FunctionDefinitionVersionArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GroupGroupVersion) *string { return v.FunctionDefinitionVersionArn }).(pulumi.StringPtrOutput)
+func (o GroupVersionTypeOutput) FunctionDefinitionVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupVersionType) *string { return v.FunctionDefinitionVersionArn }).(pulumi.StringPtrOutput)
 }
 
-func (o GroupGroupVersionOutput) LoggerDefinitionVersionArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GroupGroupVersion) *string { return v.LoggerDefinitionVersionArn }).(pulumi.StringPtrOutput)
+func (o GroupVersionTypeOutput) LoggerDefinitionVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupVersionType) *string { return v.LoggerDefinitionVersionArn }).(pulumi.StringPtrOutput)
 }
 
-func (o GroupGroupVersionOutput) ResourceDefinitionVersionArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GroupGroupVersion) *string { return v.ResourceDefinitionVersionArn }).(pulumi.StringPtrOutput)
+func (o GroupVersionTypeOutput) ResourceDefinitionVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupVersionType) *string { return v.ResourceDefinitionVersionArn }).(pulumi.StringPtrOutput)
 }
 
-func (o GroupGroupVersionOutput) SubscriptionDefinitionVersionArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GroupGroupVersion) *string { return v.SubscriptionDefinitionVersionArn }).(pulumi.StringPtrOutput)
+func (o GroupVersionTypeOutput) SubscriptionDefinitionVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupVersionType) *string { return v.SubscriptionDefinitionVersionArn }).(pulumi.StringPtrOutput)
 }
 
-type GroupGroupVersionPtrOutput struct{ *pulumi.OutputState }
+type GroupVersionTypePtrOutput struct{ *pulumi.OutputState }
 
-func (GroupGroupVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GroupGroupVersion)(nil)).Elem()
+func (GroupVersionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupVersionType)(nil)).Elem()
 }
 
-func (o GroupGroupVersionPtrOutput) ToGroupGroupVersionPtrOutput() GroupGroupVersionPtrOutput {
+func (o GroupVersionTypePtrOutput) ToGroupVersionTypePtrOutput() GroupVersionTypePtrOutput {
 	return o
 }
 
-func (o GroupGroupVersionPtrOutput) ToGroupGroupVersionPtrOutputWithContext(ctx context.Context) GroupGroupVersionPtrOutput {
+func (o GroupVersionTypePtrOutput) ToGroupVersionTypePtrOutputWithContext(ctx context.Context) GroupVersionTypePtrOutput {
 	return o
 }
 
-func (o GroupGroupVersionPtrOutput) Elem() GroupGroupVersionOutput {
-	return o.ApplyT(func(v *GroupGroupVersion) GroupGroupVersion {
+func (o GroupVersionTypePtrOutput) Elem() GroupVersionTypeOutput {
+	return o.ApplyT(func(v *GroupVersionType) GroupVersionType {
 		if v != nil {
 			return *v
 		}
-		var ret GroupGroupVersion
+		var ret GroupVersionType
 		return ret
-	}).(GroupGroupVersionOutput)
+	}).(GroupVersionTypeOutput)
 }
 
-func (o GroupGroupVersionPtrOutput) ConnectorDefinitionVersionArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GroupGroupVersion) *string {
+func (o GroupVersionTypePtrOutput) ConnectorDefinitionVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupVersionType) *string {
 		if v == nil {
 			return nil
 		}
@@ -3196,8 +3192,8 @@ func (o GroupGroupVersionPtrOutput) ConnectorDefinitionVersionArn() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o GroupGroupVersionPtrOutput) CoreDefinitionVersionArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GroupGroupVersion) *string {
+func (o GroupVersionTypePtrOutput) CoreDefinitionVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupVersionType) *string {
 		if v == nil {
 			return nil
 		}
@@ -3205,8 +3201,8 @@ func (o GroupGroupVersionPtrOutput) CoreDefinitionVersionArn() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o GroupGroupVersionPtrOutput) DeviceDefinitionVersionArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GroupGroupVersion) *string {
+func (o GroupVersionTypePtrOutput) DeviceDefinitionVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupVersionType) *string {
 		if v == nil {
 			return nil
 		}
@@ -3214,8 +3210,8 @@ func (o GroupGroupVersionPtrOutput) DeviceDefinitionVersionArn() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o GroupGroupVersionPtrOutput) FunctionDefinitionVersionArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GroupGroupVersion) *string {
+func (o GroupVersionTypePtrOutput) FunctionDefinitionVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupVersionType) *string {
 		if v == nil {
 			return nil
 		}
@@ -3223,8 +3219,8 @@ func (o GroupGroupVersionPtrOutput) FunctionDefinitionVersionArn() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o GroupGroupVersionPtrOutput) LoggerDefinitionVersionArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GroupGroupVersion) *string {
+func (o GroupVersionTypePtrOutput) LoggerDefinitionVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupVersionType) *string {
 		if v == nil {
 			return nil
 		}
@@ -3232,8 +3228,8 @@ func (o GroupGroupVersionPtrOutput) LoggerDefinitionVersionArn() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o GroupGroupVersionPtrOutput) ResourceDefinitionVersionArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GroupGroupVersion) *string {
+func (o GroupVersionTypePtrOutput) ResourceDefinitionVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupVersionType) *string {
 		if v == nil {
 			return nil
 		}
@@ -3241,8 +3237,8 @@ func (o GroupGroupVersionPtrOutput) ResourceDefinitionVersionArn() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o GroupGroupVersionPtrOutput) SubscriptionDefinitionVersionArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GroupGroupVersion) *string {
+func (o GroupVersionTypePtrOutput) SubscriptionDefinitionVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupVersionType) *string {
 		if v == nil {
 			return nil
 		}
@@ -3368,132 +3364,132 @@ func (o LoggerDefinitionLoggerArrayOutput) Index(i pulumi.IntInput) LoggerDefini
 	}).(LoggerDefinitionLoggerOutput)
 }
 
-type LoggerDefinitionLoggerDefinitionVersion struct {
+type LoggerDefinitionVersionType struct {
 	Loggers []LoggerDefinitionLogger `pulumi:"loggers"`
 }
 
-// LoggerDefinitionLoggerDefinitionVersionInput is an input type that accepts LoggerDefinitionLoggerDefinitionVersionArgs and LoggerDefinitionLoggerDefinitionVersionOutput values.
-// You can construct a concrete instance of `LoggerDefinitionLoggerDefinitionVersionInput` via:
+// LoggerDefinitionVersionTypeInput is an input type that accepts LoggerDefinitionVersionTypeArgs and LoggerDefinitionVersionTypeOutput values.
+// You can construct a concrete instance of `LoggerDefinitionVersionTypeInput` via:
 //
-//          LoggerDefinitionLoggerDefinitionVersionArgs{...}
-type LoggerDefinitionLoggerDefinitionVersionInput interface {
+//          LoggerDefinitionVersionTypeArgs{...}
+type LoggerDefinitionVersionTypeInput interface {
 	pulumi.Input
 
-	ToLoggerDefinitionLoggerDefinitionVersionOutput() LoggerDefinitionLoggerDefinitionVersionOutput
-	ToLoggerDefinitionLoggerDefinitionVersionOutputWithContext(context.Context) LoggerDefinitionLoggerDefinitionVersionOutput
+	ToLoggerDefinitionVersionTypeOutput() LoggerDefinitionVersionTypeOutput
+	ToLoggerDefinitionVersionTypeOutputWithContext(context.Context) LoggerDefinitionVersionTypeOutput
 }
 
-type LoggerDefinitionLoggerDefinitionVersionArgs struct {
+type LoggerDefinitionVersionTypeArgs struct {
 	Loggers LoggerDefinitionLoggerArrayInput `pulumi:"loggers"`
 }
 
-func (LoggerDefinitionLoggerDefinitionVersionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoggerDefinitionLoggerDefinitionVersion)(nil)).Elem()
+func (LoggerDefinitionVersionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggerDefinitionVersionType)(nil)).Elem()
 }
 
-func (i LoggerDefinitionLoggerDefinitionVersionArgs) ToLoggerDefinitionLoggerDefinitionVersionOutput() LoggerDefinitionLoggerDefinitionVersionOutput {
-	return i.ToLoggerDefinitionLoggerDefinitionVersionOutputWithContext(context.Background())
+func (i LoggerDefinitionVersionTypeArgs) ToLoggerDefinitionVersionTypeOutput() LoggerDefinitionVersionTypeOutput {
+	return i.ToLoggerDefinitionVersionTypeOutputWithContext(context.Background())
 }
 
-func (i LoggerDefinitionLoggerDefinitionVersionArgs) ToLoggerDefinitionLoggerDefinitionVersionOutputWithContext(ctx context.Context) LoggerDefinitionLoggerDefinitionVersionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoggerDefinitionLoggerDefinitionVersionOutput)
+func (i LoggerDefinitionVersionTypeArgs) ToLoggerDefinitionVersionTypeOutputWithContext(ctx context.Context) LoggerDefinitionVersionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggerDefinitionVersionTypeOutput)
 }
 
-func (i LoggerDefinitionLoggerDefinitionVersionArgs) ToLoggerDefinitionLoggerDefinitionVersionPtrOutput() LoggerDefinitionLoggerDefinitionVersionPtrOutput {
-	return i.ToLoggerDefinitionLoggerDefinitionVersionPtrOutputWithContext(context.Background())
+func (i LoggerDefinitionVersionTypeArgs) ToLoggerDefinitionVersionTypePtrOutput() LoggerDefinitionVersionTypePtrOutput {
+	return i.ToLoggerDefinitionVersionTypePtrOutputWithContext(context.Background())
 }
 
-func (i LoggerDefinitionLoggerDefinitionVersionArgs) ToLoggerDefinitionLoggerDefinitionVersionPtrOutputWithContext(ctx context.Context) LoggerDefinitionLoggerDefinitionVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoggerDefinitionLoggerDefinitionVersionOutput).ToLoggerDefinitionLoggerDefinitionVersionPtrOutputWithContext(ctx)
+func (i LoggerDefinitionVersionTypeArgs) ToLoggerDefinitionVersionTypePtrOutputWithContext(ctx context.Context) LoggerDefinitionVersionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggerDefinitionVersionTypeOutput).ToLoggerDefinitionVersionTypePtrOutputWithContext(ctx)
 }
 
-// LoggerDefinitionLoggerDefinitionVersionPtrInput is an input type that accepts LoggerDefinitionLoggerDefinitionVersionArgs, LoggerDefinitionLoggerDefinitionVersionPtr and LoggerDefinitionLoggerDefinitionVersionPtrOutput values.
-// You can construct a concrete instance of `LoggerDefinitionLoggerDefinitionVersionPtrInput` via:
+// LoggerDefinitionVersionTypePtrInput is an input type that accepts LoggerDefinitionVersionTypeArgs, LoggerDefinitionVersionTypePtr and LoggerDefinitionVersionTypePtrOutput values.
+// You can construct a concrete instance of `LoggerDefinitionVersionTypePtrInput` via:
 //
-//          LoggerDefinitionLoggerDefinitionVersionArgs{...}
+//          LoggerDefinitionVersionTypeArgs{...}
 //
 //  or:
 //
 //          nil
-type LoggerDefinitionLoggerDefinitionVersionPtrInput interface {
+type LoggerDefinitionVersionTypePtrInput interface {
 	pulumi.Input
 
-	ToLoggerDefinitionLoggerDefinitionVersionPtrOutput() LoggerDefinitionLoggerDefinitionVersionPtrOutput
-	ToLoggerDefinitionLoggerDefinitionVersionPtrOutputWithContext(context.Context) LoggerDefinitionLoggerDefinitionVersionPtrOutput
+	ToLoggerDefinitionVersionTypePtrOutput() LoggerDefinitionVersionTypePtrOutput
+	ToLoggerDefinitionVersionTypePtrOutputWithContext(context.Context) LoggerDefinitionVersionTypePtrOutput
 }
 
-type loggerDefinitionLoggerDefinitionVersionPtrType LoggerDefinitionLoggerDefinitionVersionArgs
+type loggerDefinitionVersionTypePtrType LoggerDefinitionVersionTypeArgs
 
-func LoggerDefinitionLoggerDefinitionVersionPtr(v *LoggerDefinitionLoggerDefinitionVersionArgs) LoggerDefinitionLoggerDefinitionVersionPtrInput {
-	return (*loggerDefinitionLoggerDefinitionVersionPtrType)(v)
+func LoggerDefinitionVersionTypePtr(v *LoggerDefinitionVersionTypeArgs) LoggerDefinitionVersionTypePtrInput {
+	return (*loggerDefinitionVersionTypePtrType)(v)
 }
 
-func (*loggerDefinitionLoggerDefinitionVersionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoggerDefinitionLoggerDefinitionVersion)(nil)).Elem()
+func (*loggerDefinitionVersionTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoggerDefinitionVersionType)(nil)).Elem()
 }
 
-func (i *loggerDefinitionLoggerDefinitionVersionPtrType) ToLoggerDefinitionLoggerDefinitionVersionPtrOutput() LoggerDefinitionLoggerDefinitionVersionPtrOutput {
-	return i.ToLoggerDefinitionLoggerDefinitionVersionPtrOutputWithContext(context.Background())
+func (i *loggerDefinitionVersionTypePtrType) ToLoggerDefinitionVersionTypePtrOutput() LoggerDefinitionVersionTypePtrOutput {
+	return i.ToLoggerDefinitionVersionTypePtrOutputWithContext(context.Background())
 }
 
-func (i *loggerDefinitionLoggerDefinitionVersionPtrType) ToLoggerDefinitionLoggerDefinitionVersionPtrOutputWithContext(ctx context.Context) LoggerDefinitionLoggerDefinitionVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoggerDefinitionLoggerDefinitionVersionPtrOutput)
+func (i *loggerDefinitionVersionTypePtrType) ToLoggerDefinitionVersionTypePtrOutputWithContext(ctx context.Context) LoggerDefinitionVersionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggerDefinitionVersionTypePtrOutput)
 }
 
-type LoggerDefinitionLoggerDefinitionVersionOutput struct{ *pulumi.OutputState }
+type LoggerDefinitionVersionTypeOutput struct{ *pulumi.OutputState }
 
-func (LoggerDefinitionLoggerDefinitionVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoggerDefinitionLoggerDefinitionVersion)(nil)).Elem()
+func (LoggerDefinitionVersionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggerDefinitionVersionType)(nil)).Elem()
 }
 
-func (o LoggerDefinitionLoggerDefinitionVersionOutput) ToLoggerDefinitionLoggerDefinitionVersionOutput() LoggerDefinitionLoggerDefinitionVersionOutput {
+func (o LoggerDefinitionVersionTypeOutput) ToLoggerDefinitionVersionTypeOutput() LoggerDefinitionVersionTypeOutput {
 	return o
 }
 
-func (o LoggerDefinitionLoggerDefinitionVersionOutput) ToLoggerDefinitionLoggerDefinitionVersionOutputWithContext(ctx context.Context) LoggerDefinitionLoggerDefinitionVersionOutput {
+func (o LoggerDefinitionVersionTypeOutput) ToLoggerDefinitionVersionTypeOutputWithContext(ctx context.Context) LoggerDefinitionVersionTypeOutput {
 	return o
 }
 
-func (o LoggerDefinitionLoggerDefinitionVersionOutput) ToLoggerDefinitionLoggerDefinitionVersionPtrOutput() LoggerDefinitionLoggerDefinitionVersionPtrOutput {
-	return o.ToLoggerDefinitionLoggerDefinitionVersionPtrOutputWithContext(context.Background())
+func (o LoggerDefinitionVersionTypeOutput) ToLoggerDefinitionVersionTypePtrOutput() LoggerDefinitionVersionTypePtrOutput {
+	return o.ToLoggerDefinitionVersionTypePtrOutputWithContext(context.Background())
 }
 
-func (o LoggerDefinitionLoggerDefinitionVersionOutput) ToLoggerDefinitionLoggerDefinitionVersionPtrOutputWithContext(ctx context.Context) LoggerDefinitionLoggerDefinitionVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoggerDefinitionLoggerDefinitionVersion) *LoggerDefinitionLoggerDefinitionVersion {
+func (o LoggerDefinitionVersionTypeOutput) ToLoggerDefinitionVersionTypePtrOutputWithContext(ctx context.Context) LoggerDefinitionVersionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoggerDefinitionVersionType) *LoggerDefinitionVersionType {
 		return &v
-	}).(LoggerDefinitionLoggerDefinitionVersionPtrOutput)
+	}).(LoggerDefinitionVersionTypePtrOutput)
 }
 
-func (o LoggerDefinitionLoggerDefinitionVersionOutput) Loggers() LoggerDefinitionLoggerArrayOutput {
-	return o.ApplyT(func(v LoggerDefinitionLoggerDefinitionVersion) []LoggerDefinitionLogger { return v.Loggers }).(LoggerDefinitionLoggerArrayOutput)
+func (o LoggerDefinitionVersionTypeOutput) Loggers() LoggerDefinitionLoggerArrayOutput {
+	return o.ApplyT(func(v LoggerDefinitionVersionType) []LoggerDefinitionLogger { return v.Loggers }).(LoggerDefinitionLoggerArrayOutput)
 }
 
-type LoggerDefinitionLoggerDefinitionVersionPtrOutput struct{ *pulumi.OutputState }
+type LoggerDefinitionVersionTypePtrOutput struct{ *pulumi.OutputState }
 
-func (LoggerDefinitionLoggerDefinitionVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoggerDefinitionLoggerDefinitionVersion)(nil)).Elem()
+func (LoggerDefinitionVersionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoggerDefinitionVersionType)(nil)).Elem()
 }
 
-func (o LoggerDefinitionLoggerDefinitionVersionPtrOutput) ToLoggerDefinitionLoggerDefinitionVersionPtrOutput() LoggerDefinitionLoggerDefinitionVersionPtrOutput {
+func (o LoggerDefinitionVersionTypePtrOutput) ToLoggerDefinitionVersionTypePtrOutput() LoggerDefinitionVersionTypePtrOutput {
 	return o
 }
 
-func (o LoggerDefinitionLoggerDefinitionVersionPtrOutput) ToLoggerDefinitionLoggerDefinitionVersionPtrOutputWithContext(ctx context.Context) LoggerDefinitionLoggerDefinitionVersionPtrOutput {
+func (o LoggerDefinitionVersionTypePtrOutput) ToLoggerDefinitionVersionTypePtrOutputWithContext(ctx context.Context) LoggerDefinitionVersionTypePtrOutput {
 	return o
 }
 
-func (o LoggerDefinitionLoggerDefinitionVersionPtrOutput) Elem() LoggerDefinitionLoggerDefinitionVersionOutput {
-	return o.ApplyT(func(v *LoggerDefinitionLoggerDefinitionVersion) LoggerDefinitionLoggerDefinitionVersion {
+func (o LoggerDefinitionVersionTypePtrOutput) Elem() LoggerDefinitionVersionTypeOutput {
+	return o.ApplyT(func(v *LoggerDefinitionVersionType) LoggerDefinitionVersionType {
 		if v != nil {
 			return *v
 		}
-		var ret LoggerDefinitionLoggerDefinitionVersion
+		var ret LoggerDefinitionVersionType
 		return ret
-	}).(LoggerDefinitionLoggerDefinitionVersionOutput)
+	}).(LoggerDefinitionVersionTypeOutput)
 }
 
-func (o LoggerDefinitionLoggerDefinitionVersionPtrOutput) Loggers() LoggerDefinitionLoggerArrayOutput {
-	return o.ApplyT(func(v *LoggerDefinitionLoggerDefinitionVersion) []LoggerDefinitionLogger {
+func (o LoggerDefinitionVersionTypePtrOutput) Loggers() LoggerDefinitionLoggerArrayOutput {
+	return o.ApplyT(func(v *LoggerDefinitionVersionType) []LoggerDefinitionLogger {
 		if v == nil {
 			return nil
 		}
@@ -4163,141 +4159,6 @@ func (o ResourceDefinitionResourceDataContainerOutput) SecretsManagerSecretResou
 	return o.ApplyT(func(v ResourceDefinitionResourceDataContainer) *ResourceDefinitionSecretsManagerSecretResourceData {
 		return v.SecretsManagerSecretResourceData
 	}).(ResourceDefinitionSecretsManagerSecretResourceDataPtrOutput)
-}
-
-type ResourceDefinitionResourceDefinitionVersion struct {
-	Resources []ResourceDefinitionResourceInstance `pulumi:"resources"`
-}
-
-// ResourceDefinitionResourceDefinitionVersionInput is an input type that accepts ResourceDefinitionResourceDefinitionVersionArgs and ResourceDefinitionResourceDefinitionVersionOutput values.
-// You can construct a concrete instance of `ResourceDefinitionResourceDefinitionVersionInput` via:
-//
-//          ResourceDefinitionResourceDefinitionVersionArgs{...}
-type ResourceDefinitionResourceDefinitionVersionInput interface {
-	pulumi.Input
-
-	ToResourceDefinitionResourceDefinitionVersionOutput() ResourceDefinitionResourceDefinitionVersionOutput
-	ToResourceDefinitionResourceDefinitionVersionOutputWithContext(context.Context) ResourceDefinitionResourceDefinitionVersionOutput
-}
-
-type ResourceDefinitionResourceDefinitionVersionArgs struct {
-	Resources ResourceDefinitionResourceInstanceArrayInput `pulumi:"resources"`
-}
-
-func (ResourceDefinitionResourceDefinitionVersionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceDefinitionResourceDefinitionVersion)(nil)).Elem()
-}
-
-func (i ResourceDefinitionResourceDefinitionVersionArgs) ToResourceDefinitionResourceDefinitionVersionOutput() ResourceDefinitionResourceDefinitionVersionOutput {
-	return i.ToResourceDefinitionResourceDefinitionVersionOutputWithContext(context.Background())
-}
-
-func (i ResourceDefinitionResourceDefinitionVersionArgs) ToResourceDefinitionResourceDefinitionVersionOutputWithContext(ctx context.Context) ResourceDefinitionResourceDefinitionVersionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionResourceDefinitionVersionOutput)
-}
-
-func (i ResourceDefinitionResourceDefinitionVersionArgs) ToResourceDefinitionResourceDefinitionVersionPtrOutput() ResourceDefinitionResourceDefinitionVersionPtrOutput {
-	return i.ToResourceDefinitionResourceDefinitionVersionPtrOutputWithContext(context.Background())
-}
-
-func (i ResourceDefinitionResourceDefinitionVersionArgs) ToResourceDefinitionResourceDefinitionVersionPtrOutputWithContext(ctx context.Context) ResourceDefinitionResourceDefinitionVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionResourceDefinitionVersionOutput).ToResourceDefinitionResourceDefinitionVersionPtrOutputWithContext(ctx)
-}
-
-// ResourceDefinitionResourceDefinitionVersionPtrInput is an input type that accepts ResourceDefinitionResourceDefinitionVersionArgs, ResourceDefinitionResourceDefinitionVersionPtr and ResourceDefinitionResourceDefinitionVersionPtrOutput values.
-// You can construct a concrete instance of `ResourceDefinitionResourceDefinitionVersionPtrInput` via:
-//
-//          ResourceDefinitionResourceDefinitionVersionArgs{...}
-//
-//  or:
-//
-//          nil
-type ResourceDefinitionResourceDefinitionVersionPtrInput interface {
-	pulumi.Input
-
-	ToResourceDefinitionResourceDefinitionVersionPtrOutput() ResourceDefinitionResourceDefinitionVersionPtrOutput
-	ToResourceDefinitionResourceDefinitionVersionPtrOutputWithContext(context.Context) ResourceDefinitionResourceDefinitionVersionPtrOutput
-}
-
-type resourceDefinitionResourceDefinitionVersionPtrType ResourceDefinitionResourceDefinitionVersionArgs
-
-func ResourceDefinitionResourceDefinitionVersionPtr(v *ResourceDefinitionResourceDefinitionVersionArgs) ResourceDefinitionResourceDefinitionVersionPtrInput {
-	return (*resourceDefinitionResourceDefinitionVersionPtrType)(v)
-}
-
-func (*resourceDefinitionResourceDefinitionVersionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceDefinitionResourceDefinitionVersion)(nil)).Elem()
-}
-
-func (i *resourceDefinitionResourceDefinitionVersionPtrType) ToResourceDefinitionResourceDefinitionVersionPtrOutput() ResourceDefinitionResourceDefinitionVersionPtrOutput {
-	return i.ToResourceDefinitionResourceDefinitionVersionPtrOutputWithContext(context.Background())
-}
-
-func (i *resourceDefinitionResourceDefinitionVersionPtrType) ToResourceDefinitionResourceDefinitionVersionPtrOutputWithContext(ctx context.Context) ResourceDefinitionResourceDefinitionVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionResourceDefinitionVersionPtrOutput)
-}
-
-type ResourceDefinitionResourceDefinitionVersionOutput struct{ *pulumi.OutputState }
-
-func (ResourceDefinitionResourceDefinitionVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceDefinitionResourceDefinitionVersion)(nil)).Elem()
-}
-
-func (o ResourceDefinitionResourceDefinitionVersionOutput) ToResourceDefinitionResourceDefinitionVersionOutput() ResourceDefinitionResourceDefinitionVersionOutput {
-	return o
-}
-
-func (o ResourceDefinitionResourceDefinitionVersionOutput) ToResourceDefinitionResourceDefinitionVersionOutputWithContext(ctx context.Context) ResourceDefinitionResourceDefinitionVersionOutput {
-	return o
-}
-
-func (o ResourceDefinitionResourceDefinitionVersionOutput) ToResourceDefinitionResourceDefinitionVersionPtrOutput() ResourceDefinitionResourceDefinitionVersionPtrOutput {
-	return o.ToResourceDefinitionResourceDefinitionVersionPtrOutputWithContext(context.Background())
-}
-
-func (o ResourceDefinitionResourceDefinitionVersionOutput) ToResourceDefinitionResourceDefinitionVersionPtrOutputWithContext(ctx context.Context) ResourceDefinitionResourceDefinitionVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceDefinitionResourceDefinitionVersion) *ResourceDefinitionResourceDefinitionVersion {
-		return &v
-	}).(ResourceDefinitionResourceDefinitionVersionPtrOutput)
-}
-
-func (o ResourceDefinitionResourceDefinitionVersionOutput) Resources() ResourceDefinitionResourceInstanceArrayOutput {
-	return o.ApplyT(func(v ResourceDefinitionResourceDefinitionVersion) []ResourceDefinitionResourceInstance {
-		return v.Resources
-	}).(ResourceDefinitionResourceInstanceArrayOutput)
-}
-
-type ResourceDefinitionResourceDefinitionVersionPtrOutput struct{ *pulumi.OutputState }
-
-func (ResourceDefinitionResourceDefinitionVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceDefinitionResourceDefinitionVersion)(nil)).Elem()
-}
-
-func (o ResourceDefinitionResourceDefinitionVersionPtrOutput) ToResourceDefinitionResourceDefinitionVersionPtrOutput() ResourceDefinitionResourceDefinitionVersionPtrOutput {
-	return o
-}
-
-func (o ResourceDefinitionResourceDefinitionVersionPtrOutput) ToResourceDefinitionResourceDefinitionVersionPtrOutputWithContext(ctx context.Context) ResourceDefinitionResourceDefinitionVersionPtrOutput {
-	return o
-}
-
-func (o ResourceDefinitionResourceDefinitionVersionPtrOutput) Elem() ResourceDefinitionResourceDefinitionVersionOutput {
-	return o.ApplyT(func(v *ResourceDefinitionResourceDefinitionVersion) ResourceDefinitionResourceDefinitionVersion {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceDefinitionResourceDefinitionVersion
-		return ret
-	}).(ResourceDefinitionResourceDefinitionVersionOutput)
-}
-
-func (o ResourceDefinitionResourceDefinitionVersionPtrOutput) Resources() ResourceDefinitionResourceInstanceArrayOutput {
-	return o.ApplyT(func(v *ResourceDefinitionResourceDefinitionVersion) []ResourceDefinitionResourceInstance {
-		if v == nil {
-			return nil
-		}
-		return v.Resources
-	}).(ResourceDefinitionResourceInstanceArrayOutput)
 }
 
 type ResourceDefinitionResourceDownloadOwnerSetting struct {
@@ -5034,6 +4895,139 @@ func (o ResourceDefinitionSecretsManagerSecretResourceDataPtrOutput) AdditionalS
 		}
 		return v.AdditionalStagingLabelsToDownload
 	}).(pulumi.StringArrayOutput)
+}
+
+type ResourceDefinitionVersionType struct {
+	Resources []ResourceDefinitionResourceInstance `pulumi:"resources"`
+}
+
+// ResourceDefinitionVersionTypeInput is an input type that accepts ResourceDefinitionVersionTypeArgs and ResourceDefinitionVersionTypeOutput values.
+// You can construct a concrete instance of `ResourceDefinitionVersionTypeInput` via:
+//
+//          ResourceDefinitionVersionTypeArgs{...}
+type ResourceDefinitionVersionTypeInput interface {
+	pulumi.Input
+
+	ToResourceDefinitionVersionTypeOutput() ResourceDefinitionVersionTypeOutput
+	ToResourceDefinitionVersionTypeOutputWithContext(context.Context) ResourceDefinitionVersionTypeOutput
+}
+
+type ResourceDefinitionVersionTypeArgs struct {
+	Resources ResourceDefinitionResourceInstanceArrayInput `pulumi:"resources"`
+}
+
+func (ResourceDefinitionVersionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDefinitionVersionType)(nil)).Elem()
+}
+
+func (i ResourceDefinitionVersionTypeArgs) ToResourceDefinitionVersionTypeOutput() ResourceDefinitionVersionTypeOutput {
+	return i.ToResourceDefinitionVersionTypeOutputWithContext(context.Background())
+}
+
+func (i ResourceDefinitionVersionTypeArgs) ToResourceDefinitionVersionTypeOutputWithContext(ctx context.Context) ResourceDefinitionVersionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionVersionTypeOutput)
+}
+
+func (i ResourceDefinitionVersionTypeArgs) ToResourceDefinitionVersionTypePtrOutput() ResourceDefinitionVersionTypePtrOutput {
+	return i.ToResourceDefinitionVersionTypePtrOutputWithContext(context.Background())
+}
+
+func (i ResourceDefinitionVersionTypeArgs) ToResourceDefinitionVersionTypePtrOutputWithContext(ctx context.Context) ResourceDefinitionVersionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionVersionTypeOutput).ToResourceDefinitionVersionTypePtrOutputWithContext(ctx)
+}
+
+// ResourceDefinitionVersionTypePtrInput is an input type that accepts ResourceDefinitionVersionTypeArgs, ResourceDefinitionVersionTypePtr and ResourceDefinitionVersionTypePtrOutput values.
+// You can construct a concrete instance of `ResourceDefinitionVersionTypePtrInput` via:
+//
+//          ResourceDefinitionVersionTypeArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceDefinitionVersionTypePtrInput interface {
+	pulumi.Input
+
+	ToResourceDefinitionVersionTypePtrOutput() ResourceDefinitionVersionTypePtrOutput
+	ToResourceDefinitionVersionTypePtrOutputWithContext(context.Context) ResourceDefinitionVersionTypePtrOutput
+}
+
+type resourceDefinitionVersionTypePtrType ResourceDefinitionVersionTypeArgs
+
+func ResourceDefinitionVersionTypePtr(v *ResourceDefinitionVersionTypeArgs) ResourceDefinitionVersionTypePtrInput {
+	return (*resourceDefinitionVersionTypePtrType)(v)
+}
+
+func (*resourceDefinitionVersionTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceDefinitionVersionType)(nil)).Elem()
+}
+
+func (i *resourceDefinitionVersionTypePtrType) ToResourceDefinitionVersionTypePtrOutput() ResourceDefinitionVersionTypePtrOutput {
+	return i.ToResourceDefinitionVersionTypePtrOutputWithContext(context.Background())
+}
+
+func (i *resourceDefinitionVersionTypePtrType) ToResourceDefinitionVersionTypePtrOutputWithContext(ctx context.Context) ResourceDefinitionVersionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionVersionTypePtrOutput)
+}
+
+type ResourceDefinitionVersionTypeOutput struct{ *pulumi.OutputState }
+
+func (ResourceDefinitionVersionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDefinitionVersionType)(nil)).Elem()
+}
+
+func (o ResourceDefinitionVersionTypeOutput) ToResourceDefinitionVersionTypeOutput() ResourceDefinitionVersionTypeOutput {
+	return o
+}
+
+func (o ResourceDefinitionVersionTypeOutput) ToResourceDefinitionVersionTypeOutputWithContext(ctx context.Context) ResourceDefinitionVersionTypeOutput {
+	return o
+}
+
+func (o ResourceDefinitionVersionTypeOutput) ToResourceDefinitionVersionTypePtrOutput() ResourceDefinitionVersionTypePtrOutput {
+	return o.ToResourceDefinitionVersionTypePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceDefinitionVersionTypeOutput) ToResourceDefinitionVersionTypePtrOutputWithContext(ctx context.Context) ResourceDefinitionVersionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceDefinitionVersionType) *ResourceDefinitionVersionType {
+		return &v
+	}).(ResourceDefinitionVersionTypePtrOutput)
+}
+
+func (o ResourceDefinitionVersionTypeOutput) Resources() ResourceDefinitionResourceInstanceArrayOutput {
+	return o.ApplyT(func(v ResourceDefinitionVersionType) []ResourceDefinitionResourceInstance { return v.Resources }).(ResourceDefinitionResourceInstanceArrayOutput)
+}
+
+type ResourceDefinitionVersionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceDefinitionVersionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceDefinitionVersionType)(nil)).Elem()
+}
+
+func (o ResourceDefinitionVersionTypePtrOutput) ToResourceDefinitionVersionTypePtrOutput() ResourceDefinitionVersionTypePtrOutput {
+	return o
+}
+
+func (o ResourceDefinitionVersionTypePtrOutput) ToResourceDefinitionVersionTypePtrOutputWithContext(ctx context.Context) ResourceDefinitionVersionTypePtrOutput {
+	return o
+}
+
+func (o ResourceDefinitionVersionTypePtrOutput) Elem() ResourceDefinitionVersionTypeOutput {
+	return o.ApplyT(func(v *ResourceDefinitionVersionType) ResourceDefinitionVersionType {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceDefinitionVersionType
+		return ret
+	}).(ResourceDefinitionVersionTypeOutput)
+}
+
+func (o ResourceDefinitionVersionTypePtrOutput) Resources() ResourceDefinitionResourceInstanceArrayOutput {
+	return o.ApplyT(func(v *ResourceDefinitionVersionType) []ResourceDefinitionResourceInstance {
+		if v == nil {
+			return nil
+		}
+		return v.Resources
+	}).(ResourceDefinitionResourceInstanceArrayOutput)
 }
 
 type ResourceDefinitionVersionGroupOwnerSetting struct {
@@ -6434,134 +6428,132 @@ func (o SubscriptionDefinitionSubscriptionArrayOutput) Index(i pulumi.IntInput) 
 	}).(SubscriptionDefinitionSubscriptionOutput)
 }
 
-type SubscriptionDefinitionSubscriptionDefinitionVersion struct {
+type SubscriptionDefinitionVersionType struct {
 	Subscriptions []SubscriptionDefinitionSubscription `pulumi:"subscriptions"`
 }
 
-// SubscriptionDefinitionSubscriptionDefinitionVersionInput is an input type that accepts SubscriptionDefinitionSubscriptionDefinitionVersionArgs and SubscriptionDefinitionSubscriptionDefinitionVersionOutput values.
-// You can construct a concrete instance of `SubscriptionDefinitionSubscriptionDefinitionVersionInput` via:
+// SubscriptionDefinitionVersionTypeInput is an input type that accepts SubscriptionDefinitionVersionTypeArgs and SubscriptionDefinitionVersionTypeOutput values.
+// You can construct a concrete instance of `SubscriptionDefinitionVersionTypeInput` via:
 //
-//          SubscriptionDefinitionSubscriptionDefinitionVersionArgs{...}
-type SubscriptionDefinitionSubscriptionDefinitionVersionInput interface {
+//          SubscriptionDefinitionVersionTypeArgs{...}
+type SubscriptionDefinitionVersionTypeInput interface {
 	pulumi.Input
 
-	ToSubscriptionDefinitionSubscriptionDefinitionVersionOutput() SubscriptionDefinitionSubscriptionDefinitionVersionOutput
-	ToSubscriptionDefinitionSubscriptionDefinitionVersionOutputWithContext(context.Context) SubscriptionDefinitionSubscriptionDefinitionVersionOutput
+	ToSubscriptionDefinitionVersionTypeOutput() SubscriptionDefinitionVersionTypeOutput
+	ToSubscriptionDefinitionVersionTypeOutputWithContext(context.Context) SubscriptionDefinitionVersionTypeOutput
 }
 
-type SubscriptionDefinitionSubscriptionDefinitionVersionArgs struct {
+type SubscriptionDefinitionVersionTypeArgs struct {
 	Subscriptions SubscriptionDefinitionSubscriptionArrayInput `pulumi:"subscriptions"`
 }
 
-func (SubscriptionDefinitionSubscriptionDefinitionVersionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriptionDefinitionSubscriptionDefinitionVersion)(nil)).Elem()
+func (SubscriptionDefinitionVersionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionDefinitionVersionType)(nil)).Elem()
 }
 
-func (i SubscriptionDefinitionSubscriptionDefinitionVersionArgs) ToSubscriptionDefinitionSubscriptionDefinitionVersionOutput() SubscriptionDefinitionSubscriptionDefinitionVersionOutput {
-	return i.ToSubscriptionDefinitionSubscriptionDefinitionVersionOutputWithContext(context.Background())
+func (i SubscriptionDefinitionVersionTypeArgs) ToSubscriptionDefinitionVersionTypeOutput() SubscriptionDefinitionVersionTypeOutput {
+	return i.ToSubscriptionDefinitionVersionTypeOutputWithContext(context.Background())
 }
 
-func (i SubscriptionDefinitionSubscriptionDefinitionVersionArgs) ToSubscriptionDefinitionSubscriptionDefinitionVersionOutputWithContext(ctx context.Context) SubscriptionDefinitionSubscriptionDefinitionVersionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionDefinitionSubscriptionDefinitionVersionOutput)
+func (i SubscriptionDefinitionVersionTypeArgs) ToSubscriptionDefinitionVersionTypeOutputWithContext(ctx context.Context) SubscriptionDefinitionVersionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionDefinitionVersionTypeOutput)
 }
 
-func (i SubscriptionDefinitionSubscriptionDefinitionVersionArgs) ToSubscriptionDefinitionSubscriptionDefinitionVersionPtrOutput() SubscriptionDefinitionSubscriptionDefinitionVersionPtrOutput {
-	return i.ToSubscriptionDefinitionSubscriptionDefinitionVersionPtrOutputWithContext(context.Background())
+func (i SubscriptionDefinitionVersionTypeArgs) ToSubscriptionDefinitionVersionTypePtrOutput() SubscriptionDefinitionVersionTypePtrOutput {
+	return i.ToSubscriptionDefinitionVersionTypePtrOutputWithContext(context.Background())
 }
 
-func (i SubscriptionDefinitionSubscriptionDefinitionVersionArgs) ToSubscriptionDefinitionSubscriptionDefinitionVersionPtrOutputWithContext(ctx context.Context) SubscriptionDefinitionSubscriptionDefinitionVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionDefinitionSubscriptionDefinitionVersionOutput).ToSubscriptionDefinitionSubscriptionDefinitionVersionPtrOutputWithContext(ctx)
+func (i SubscriptionDefinitionVersionTypeArgs) ToSubscriptionDefinitionVersionTypePtrOutputWithContext(ctx context.Context) SubscriptionDefinitionVersionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionDefinitionVersionTypeOutput).ToSubscriptionDefinitionVersionTypePtrOutputWithContext(ctx)
 }
 
-// SubscriptionDefinitionSubscriptionDefinitionVersionPtrInput is an input type that accepts SubscriptionDefinitionSubscriptionDefinitionVersionArgs, SubscriptionDefinitionSubscriptionDefinitionVersionPtr and SubscriptionDefinitionSubscriptionDefinitionVersionPtrOutput values.
-// You can construct a concrete instance of `SubscriptionDefinitionSubscriptionDefinitionVersionPtrInput` via:
+// SubscriptionDefinitionVersionTypePtrInput is an input type that accepts SubscriptionDefinitionVersionTypeArgs, SubscriptionDefinitionVersionTypePtr and SubscriptionDefinitionVersionTypePtrOutput values.
+// You can construct a concrete instance of `SubscriptionDefinitionVersionTypePtrInput` via:
 //
-//          SubscriptionDefinitionSubscriptionDefinitionVersionArgs{...}
+//          SubscriptionDefinitionVersionTypeArgs{...}
 //
 //  or:
 //
 //          nil
-type SubscriptionDefinitionSubscriptionDefinitionVersionPtrInput interface {
+type SubscriptionDefinitionVersionTypePtrInput interface {
 	pulumi.Input
 
-	ToSubscriptionDefinitionSubscriptionDefinitionVersionPtrOutput() SubscriptionDefinitionSubscriptionDefinitionVersionPtrOutput
-	ToSubscriptionDefinitionSubscriptionDefinitionVersionPtrOutputWithContext(context.Context) SubscriptionDefinitionSubscriptionDefinitionVersionPtrOutput
+	ToSubscriptionDefinitionVersionTypePtrOutput() SubscriptionDefinitionVersionTypePtrOutput
+	ToSubscriptionDefinitionVersionTypePtrOutputWithContext(context.Context) SubscriptionDefinitionVersionTypePtrOutput
 }
 
-type subscriptionDefinitionSubscriptionDefinitionVersionPtrType SubscriptionDefinitionSubscriptionDefinitionVersionArgs
+type subscriptionDefinitionVersionTypePtrType SubscriptionDefinitionVersionTypeArgs
 
-func SubscriptionDefinitionSubscriptionDefinitionVersionPtr(v *SubscriptionDefinitionSubscriptionDefinitionVersionArgs) SubscriptionDefinitionSubscriptionDefinitionVersionPtrInput {
-	return (*subscriptionDefinitionSubscriptionDefinitionVersionPtrType)(v)
+func SubscriptionDefinitionVersionTypePtr(v *SubscriptionDefinitionVersionTypeArgs) SubscriptionDefinitionVersionTypePtrInput {
+	return (*subscriptionDefinitionVersionTypePtrType)(v)
 }
 
-func (*subscriptionDefinitionSubscriptionDefinitionVersionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriptionDefinitionSubscriptionDefinitionVersion)(nil)).Elem()
+func (*subscriptionDefinitionVersionTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriptionDefinitionVersionType)(nil)).Elem()
 }
 
-func (i *subscriptionDefinitionSubscriptionDefinitionVersionPtrType) ToSubscriptionDefinitionSubscriptionDefinitionVersionPtrOutput() SubscriptionDefinitionSubscriptionDefinitionVersionPtrOutput {
-	return i.ToSubscriptionDefinitionSubscriptionDefinitionVersionPtrOutputWithContext(context.Background())
+func (i *subscriptionDefinitionVersionTypePtrType) ToSubscriptionDefinitionVersionTypePtrOutput() SubscriptionDefinitionVersionTypePtrOutput {
+	return i.ToSubscriptionDefinitionVersionTypePtrOutputWithContext(context.Background())
 }
 
-func (i *subscriptionDefinitionSubscriptionDefinitionVersionPtrType) ToSubscriptionDefinitionSubscriptionDefinitionVersionPtrOutputWithContext(ctx context.Context) SubscriptionDefinitionSubscriptionDefinitionVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionDefinitionSubscriptionDefinitionVersionPtrOutput)
+func (i *subscriptionDefinitionVersionTypePtrType) ToSubscriptionDefinitionVersionTypePtrOutputWithContext(ctx context.Context) SubscriptionDefinitionVersionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionDefinitionVersionTypePtrOutput)
 }
 
-type SubscriptionDefinitionSubscriptionDefinitionVersionOutput struct{ *pulumi.OutputState }
+type SubscriptionDefinitionVersionTypeOutput struct{ *pulumi.OutputState }
 
-func (SubscriptionDefinitionSubscriptionDefinitionVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriptionDefinitionSubscriptionDefinitionVersion)(nil)).Elem()
+func (SubscriptionDefinitionVersionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionDefinitionVersionType)(nil)).Elem()
 }
 
-func (o SubscriptionDefinitionSubscriptionDefinitionVersionOutput) ToSubscriptionDefinitionSubscriptionDefinitionVersionOutput() SubscriptionDefinitionSubscriptionDefinitionVersionOutput {
+func (o SubscriptionDefinitionVersionTypeOutput) ToSubscriptionDefinitionVersionTypeOutput() SubscriptionDefinitionVersionTypeOutput {
 	return o
 }
 
-func (o SubscriptionDefinitionSubscriptionDefinitionVersionOutput) ToSubscriptionDefinitionSubscriptionDefinitionVersionOutputWithContext(ctx context.Context) SubscriptionDefinitionSubscriptionDefinitionVersionOutput {
+func (o SubscriptionDefinitionVersionTypeOutput) ToSubscriptionDefinitionVersionTypeOutputWithContext(ctx context.Context) SubscriptionDefinitionVersionTypeOutput {
 	return o
 }
 
-func (o SubscriptionDefinitionSubscriptionDefinitionVersionOutput) ToSubscriptionDefinitionSubscriptionDefinitionVersionPtrOutput() SubscriptionDefinitionSubscriptionDefinitionVersionPtrOutput {
-	return o.ToSubscriptionDefinitionSubscriptionDefinitionVersionPtrOutputWithContext(context.Background())
+func (o SubscriptionDefinitionVersionTypeOutput) ToSubscriptionDefinitionVersionTypePtrOutput() SubscriptionDefinitionVersionTypePtrOutput {
+	return o.ToSubscriptionDefinitionVersionTypePtrOutputWithContext(context.Background())
 }
 
-func (o SubscriptionDefinitionSubscriptionDefinitionVersionOutput) ToSubscriptionDefinitionSubscriptionDefinitionVersionPtrOutputWithContext(ctx context.Context) SubscriptionDefinitionSubscriptionDefinitionVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionDefinitionSubscriptionDefinitionVersion) *SubscriptionDefinitionSubscriptionDefinitionVersion {
+func (o SubscriptionDefinitionVersionTypeOutput) ToSubscriptionDefinitionVersionTypePtrOutputWithContext(ctx context.Context) SubscriptionDefinitionVersionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionDefinitionVersionType) *SubscriptionDefinitionVersionType {
 		return &v
-	}).(SubscriptionDefinitionSubscriptionDefinitionVersionPtrOutput)
+	}).(SubscriptionDefinitionVersionTypePtrOutput)
 }
 
-func (o SubscriptionDefinitionSubscriptionDefinitionVersionOutput) Subscriptions() SubscriptionDefinitionSubscriptionArrayOutput {
-	return o.ApplyT(func(v SubscriptionDefinitionSubscriptionDefinitionVersion) []SubscriptionDefinitionSubscription {
-		return v.Subscriptions
-	}).(SubscriptionDefinitionSubscriptionArrayOutput)
+func (o SubscriptionDefinitionVersionTypeOutput) Subscriptions() SubscriptionDefinitionSubscriptionArrayOutput {
+	return o.ApplyT(func(v SubscriptionDefinitionVersionType) []SubscriptionDefinitionSubscription { return v.Subscriptions }).(SubscriptionDefinitionSubscriptionArrayOutput)
 }
 
-type SubscriptionDefinitionSubscriptionDefinitionVersionPtrOutput struct{ *pulumi.OutputState }
+type SubscriptionDefinitionVersionTypePtrOutput struct{ *pulumi.OutputState }
 
-func (SubscriptionDefinitionSubscriptionDefinitionVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriptionDefinitionSubscriptionDefinitionVersion)(nil)).Elem()
+func (SubscriptionDefinitionVersionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriptionDefinitionVersionType)(nil)).Elem()
 }
 
-func (o SubscriptionDefinitionSubscriptionDefinitionVersionPtrOutput) ToSubscriptionDefinitionSubscriptionDefinitionVersionPtrOutput() SubscriptionDefinitionSubscriptionDefinitionVersionPtrOutput {
+func (o SubscriptionDefinitionVersionTypePtrOutput) ToSubscriptionDefinitionVersionTypePtrOutput() SubscriptionDefinitionVersionTypePtrOutput {
 	return o
 }
 
-func (o SubscriptionDefinitionSubscriptionDefinitionVersionPtrOutput) ToSubscriptionDefinitionSubscriptionDefinitionVersionPtrOutputWithContext(ctx context.Context) SubscriptionDefinitionSubscriptionDefinitionVersionPtrOutput {
+func (o SubscriptionDefinitionVersionTypePtrOutput) ToSubscriptionDefinitionVersionTypePtrOutputWithContext(ctx context.Context) SubscriptionDefinitionVersionTypePtrOutput {
 	return o
 }
 
-func (o SubscriptionDefinitionSubscriptionDefinitionVersionPtrOutput) Elem() SubscriptionDefinitionSubscriptionDefinitionVersionOutput {
-	return o.ApplyT(func(v *SubscriptionDefinitionSubscriptionDefinitionVersion) SubscriptionDefinitionSubscriptionDefinitionVersion {
+func (o SubscriptionDefinitionVersionTypePtrOutput) Elem() SubscriptionDefinitionVersionTypeOutput {
+	return o.ApplyT(func(v *SubscriptionDefinitionVersionType) SubscriptionDefinitionVersionType {
 		if v != nil {
 			return *v
 		}
-		var ret SubscriptionDefinitionSubscriptionDefinitionVersion
+		var ret SubscriptionDefinitionVersionType
 		return ret
-	}).(SubscriptionDefinitionSubscriptionDefinitionVersionOutput)
+	}).(SubscriptionDefinitionVersionTypeOutput)
 }
 
-func (o SubscriptionDefinitionSubscriptionDefinitionVersionPtrOutput) Subscriptions() SubscriptionDefinitionSubscriptionArrayOutput {
-	return o.ApplyT(func(v *SubscriptionDefinitionSubscriptionDefinitionVersion) []SubscriptionDefinitionSubscription {
+func (o SubscriptionDefinitionVersionTypePtrOutput) Subscriptions() SubscriptionDefinitionSubscriptionArrayOutput {
+	return o.ApplyT(func(v *SubscriptionDefinitionVersionType) []SubscriptionDefinitionSubscription {
 		if v == nil {
 			return nil
 		}
@@ -6684,20 +6676,20 @@ func (o SubscriptionDefinitionVersionSubscriptionArrayOutput) Index(i pulumi.Int
 func init() {
 	pulumi.RegisterOutputType(ConnectorDefinitionConnectorOutput{})
 	pulumi.RegisterOutputType(ConnectorDefinitionConnectorArrayOutput{})
-	pulumi.RegisterOutputType(ConnectorDefinitionConnectorDefinitionVersionOutput{})
-	pulumi.RegisterOutputType(ConnectorDefinitionConnectorDefinitionVersionPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorDefinitionVersionTypeOutput{})
+	pulumi.RegisterOutputType(ConnectorDefinitionVersionTypePtrOutput{})
 	pulumi.RegisterOutputType(ConnectorDefinitionVersionConnectorOutput{})
 	pulumi.RegisterOutputType(ConnectorDefinitionVersionConnectorArrayOutput{})
 	pulumi.RegisterOutputType(CoreDefinitionCoreOutput{})
 	pulumi.RegisterOutputType(CoreDefinitionCoreArrayOutput{})
-	pulumi.RegisterOutputType(CoreDefinitionCoreDefinitionVersionOutput{})
-	pulumi.RegisterOutputType(CoreDefinitionCoreDefinitionVersionPtrOutput{})
+	pulumi.RegisterOutputType(CoreDefinitionVersionTypeOutput{})
+	pulumi.RegisterOutputType(CoreDefinitionVersionTypePtrOutput{})
 	pulumi.RegisterOutputType(CoreDefinitionVersionCoreOutput{})
 	pulumi.RegisterOutputType(CoreDefinitionVersionCoreArrayOutput{})
 	pulumi.RegisterOutputType(DeviceDefinitionDeviceOutput{})
 	pulumi.RegisterOutputType(DeviceDefinitionDeviceArrayOutput{})
-	pulumi.RegisterOutputType(DeviceDefinitionDeviceDefinitionVersionOutput{})
-	pulumi.RegisterOutputType(DeviceDefinitionDeviceDefinitionVersionPtrOutput{})
+	pulumi.RegisterOutputType(DeviceDefinitionVersionTypeOutput{})
+	pulumi.RegisterOutputType(DeviceDefinitionVersionTypePtrOutput{})
 	pulumi.RegisterOutputType(DeviceDefinitionVersionDeviceOutput{})
 	pulumi.RegisterOutputType(DeviceDefinitionVersionDeviceArrayOutput{})
 	pulumi.RegisterOutputType(FunctionDefinitionDefaultConfigOutput{})
@@ -6709,12 +6701,12 @@ func init() {
 	pulumi.RegisterOutputType(FunctionDefinitionFunctionOutput{})
 	pulumi.RegisterOutputType(FunctionDefinitionFunctionArrayOutput{})
 	pulumi.RegisterOutputType(FunctionDefinitionFunctionConfigurationOutput{})
-	pulumi.RegisterOutputType(FunctionDefinitionFunctionDefinitionVersionOutput{})
-	pulumi.RegisterOutputType(FunctionDefinitionFunctionDefinitionVersionPtrOutput{})
 	pulumi.RegisterOutputType(FunctionDefinitionResourceAccessPolicyOutput{})
 	pulumi.RegisterOutputType(FunctionDefinitionResourceAccessPolicyArrayOutput{})
 	pulumi.RegisterOutputType(FunctionDefinitionRunAsOutput{})
 	pulumi.RegisterOutputType(FunctionDefinitionRunAsPtrOutput{})
+	pulumi.RegisterOutputType(FunctionDefinitionVersionTypeOutput{})
+	pulumi.RegisterOutputType(FunctionDefinitionVersionTypePtrOutput{})
 	pulumi.RegisterOutputType(FunctionDefinitionVersionDefaultConfigOutput{})
 	pulumi.RegisterOutputType(FunctionDefinitionVersionDefaultConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionDefinitionVersionEnvironmentOutput{})
@@ -6728,12 +6720,12 @@ func init() {
 	pulumi.RegisterOutputType(FunctionDefinitionVersionResourceAccessPolicyArrayOutput{})
 	pulumi.RegisterOutputType(FunctionDefinitionVersionRunAsOutput{})
 	pulumi.RegisterOutputType(FunctionDefinitionVersionRunAsPtrOutput{})
-	pulumi.RegisterOutputType(GroupGroupVersionOutput{})
-	pulumi.RegisterOutputType(GroupGroupVersionPtrOutput{})
+	pulumi.RegisterOutputType(GroupVersionTypeOutput{})
+	pulumi.RegisterOutputType(GroupVersionTypePtrOutput{})
 	pulumi.RegisterOutputType(LoggerDefinitionLoggerOutput{})
 	pulumi.RegisterOutputType(LoggerDefinitionLoggerArrayOutput{})
-	pulumi.RegisterOutputType(LoggerDefinitionLoggerDefinitionVersionOutput{})
-	pulumi.RegisterOutputType(LoggerDefinitionLoggerDefinitionVersionPtrOutput{})
+	pulumi.RegisterOutputType(LoggerDefinitionVersionTypeOutput{})
+	pulumi.RegisterOutputType(LoggerDefinitionVersionTypePtrOutput{})
 	pulumi.RegisterOutputType(LoggerDefinitionVersionLoggerOutput{})
 	pulumi.RegisterOutputType(LoggerDefinitionVersionLoggerArrayOutput{})
 	pulumi.RegisterOutputType(ResourceDefinitionGroupOwnerSettingOutput{})
@@ -6743,8 +6735,6 @@ func init() {
 	pulumi.RegisterOutputType(ResourceDefinitionLocalVolumeResourceDataOutput{})
 	pulumi.RegisterOutputType(ResourceDefinitionLocalVolumeResourceDataPtrOutput{})
 	pulumi.RegisterOutputType(ResourceDefinitionResourceDataContainerOutput{})
-	pulumi.RegisterOutputType(ResourceDefinitionResourceDefinitionVersionOutput{})
-	pulumi.RegisterOutputType(ResourceDefinitionResourceDefinitionVersionPtrOutput{})
 	pulumi.RegisterOutputType(ResourceDefinitionResourceDownloadOwnerSettingOutput{})
 	pulumi.RegisterOutputType(ResourceDefinitionResourceDownloadOwnerSettingPtrOutput{})
 	pulumi.RegisterOutputType(ResourceDefinitionResourceInstanceOutput{})
@@ -6755,6 +6745,8 @@ func init() {
 	pulumi.RegisterOutputType(ResourceDefinitionSageMakerMachineLearningModelResourceDataPtrOutput{})
 	pulumi.RegisterOutputType(ResourceDefinitionSecretsManagerSecretResourceDataOutput{})
 	pulumi.RegisterOutputType(ResourceDefinitionSecretsManagerSecretResourceDataPtrOutput{})
+	pulumi.RegisterOutputType(ResourceDefinitionVersionTypeOutput{})
+	pulumi.RegisterOutputType(ResourceDefinitionVersionTypePtrOutput{})
 	pulumi.RegisterOutputType(ResourceDefinitionVersionGroupOwnerSettingOutput{})
 	pulumi.RegisterOutputType(ResourceDefinitionVersionGroupOwnerSettingPtrOutput{})
 	pulumi.RegisterOutputType(ResourceDefinitionVersionLocalDeviceResourceDataOutput{})
@@ -6774,8 +6766,8 @@ func init() {
 	pulumi.RegisterOutputType(ResourceDefinitionVersionSecretsManagerSecretResourceDataPtrOutput{})
 	pulumi.RegisterOutputType(SubscriptionDefinitionSubscriptionOutput{})
 	pulumi.RegisterOutputType(SubscriptionDefinitionSubscriptionArrayOutput{})
-	pulumi.RegisterOutputType(SubscriptionDefinitionSubscriptionDefinitionVersionOutput{})
-	pulumi.RegisterOutputType(SubscriptionDefinitionSubscriptionDefinitionVersionPtrOutput{})
+	pulumi.RegisterOutputType(SubscriptionDefinitionVersionTypeOutput{})
+	pulumi.RegisterOutputType(SubscriptionDefinitionVersionTypePtrOutput{})
 	pulumi.RegisterOutputType(SubscriptionDefinitionVersionSubscriptionOutput{})
 	pulumi.RegisterOutputType(SubscriptionDefinitionVersionSubscriptionArrayOutput{})
 }

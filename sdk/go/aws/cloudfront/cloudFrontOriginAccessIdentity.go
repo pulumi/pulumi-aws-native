@@ -15,8 +15,8 @@ import (
 type CloudFrontOriginAccessIdentity struct {
 	pulumi.CustomResourceState
 
-	CloudFrontOriginAccessIdentityConfig CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput `pulumi:"cloudFrontOriginAccessIdentityConfig"`
-	S3CanonicalUserId                    pulumi.StringOutput                                                      `pulumi:"s3CanonicalUserId"`
+	CloudFrontOriginAccessIdentityConfig CloudFrontOriginAccessIdentityConfigOutput `pulumi:"cloudFrontOriginAccessIdentityConfig"`
+	S3CanonicalUserId                    pulumi.StringOutput                        `pulumi:"s3CanonicalUserId"`
 }
 
 // NewCloudFrontOriginAccessIdentity registers a new resource with the given unique name, arguments, and options.
@@ -61,12 +61,12 @@ func (CloudFrontOriginAccessIdentityState) ElementType() reflect.Type {
 }
 
 type cloudFrontOriginAccessIdentityArgs struct {
-	CloudFrontOriginAccessIdentityConfig CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig `pulumi:"cloudFrontOriginAccessIdentityConfig"`
+	CloudFrontOriginAccessIdentityConfig CloudFrontOriginAccessIdentityConfig `pulumi:"cloudFrontOriginAccessIdentityConfig"`
 }
 
 // The set of arguments for constructing a CloudFrontOriginAccessIdentity resource.
 type CloudFrontOriginAccessIdentityArgs struct {
-	CloudFrontOriginAccessIdentityConfig CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigInput
+	CloudFrontOriginAccessIdentityConfig CloudFrontOriginAccessIdentityConfigInput
 }
 
 func (CloudFrontOriginAccessIdentityArgs) ElementType() reflect.Type {

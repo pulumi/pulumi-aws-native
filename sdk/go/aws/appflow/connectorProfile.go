@@ -20,7 +20,7 @@ type ConnectorProfile struct {
 	// Unique identifier for connector profile resources
 	ConnectorProfileArn pulumi.StringOutput `pulumi:"connectorProfileArn"`
 	// Connector specific configurations needed to create connector profile
-	ConnectorProfileConfig ConnectorProfileConnectorProfileConfigPtrOutput `pulumi:"connectorProfileConfig"`
+	ConnectorProfileConfig ConnectorProfileConfigPtrOutput `pulumi:"connectorProfileConfig"`
 	// The maximum number of items to retrieve in a single batch.
 	ConnectorProfileName pulumi.StringOutput `pulumi:"connectorProfileName"`
 	// List of Saas providers that need connector profile to be created
@@ -82,7 +82,7 @@ type connectorProfileArgs struct {
 	// Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
 	ConnectionMode ConnectorProfileConnectionMode `pulumi:"connectionMode"`
 	// Connector specific configurations needed to create connector profile
-	ConnectorProfileConfig *ConnectorProfileConnectorProfileConfig `pulumi:"connectorProfileConfig"`
+	ConnectorProfileConfig *ConnectorProfileConfig `pulumi:"connectorProfileConfig"`
 	// The maximum number of items to retrieve in a single batch.
 	ConnectorProfileName string `pulumi:"connectorProfileName"`
 	// List of Saas providers that need connector profile to be created
@@ -96,7 +96,7 @@ type ConnectorProfileArgs struct {
 	// Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
 	ConnectionMode ConnectorProfileConnectionModeInput
 	// Connector specific configurations needed to create connector profile
-	ConnectorProfileConfig ConnectorProfileConnectorProfileConfigPtrInput
+	ConnectorProfileConfig ConnectorProfileConfigPtrInput
 	// The maximum number of items to retrieve in a single batch.
 	ConnectorProfileName pulumi.StringInput
 	// List of Saas providers that need connector profile to be created

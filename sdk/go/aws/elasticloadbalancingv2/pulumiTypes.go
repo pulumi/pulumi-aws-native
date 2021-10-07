@@ -4116,104 +4116,104 @@ func (o ListenerTargetGroupTupleArrayOutput) Index(i pulumi.IntInput) ListenerTa
 	}).(ListenerTargetGroupTupleOutput)
 }
 
-type LoadBalancerLoadBalancerAttribute struct {
+type LoadBalancerAttribute struct {
 	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
 }
 
-// LoadBalancerLoadBalancerAttributeInput is an input type that accepts LoadBalancerLoadBalancerAttributeArgs and LoadBalancerLoadBalancerAttributeOutput values.
-// You can construct a concrete instance of `LoadBalancerLoadBalancerAttributeInput` via:
+// LoadBalancerAttributeInput is an input type that accepts LoadBalancerAttributeArgs and LoadBalancerAttributeOutput values.
+// You can construct a concrete instance of `LoadBalancerAttributeInput` via:
 //
-//          LoadBalancerLoadBalancerAttributeArgs{...}
-type LoadBalancerLoadBalancerAttributeInput interface {
+//          LoadBalancerAttributeArgs{...}
+type LoadBalancerAttributeInput interface {
 	pulumi.Input
 
-	ToLoadBalancerLoadBalancerAttributeOutput() LoadBalancerLoadBalancerAttributeOutput
-	ToLoadBalancerLoadBalancerAttributeOutputWithContext(context.Context) LoadBalancerLoadBalancerAttributeOutput
+	ToLoadBalancerAttributeOutput() LoadBalancerAttributeOutput
+	ToLoadBalancerAttributeOutputWithContext(context.Context) LoadBalancerAttributeOutput
 }
 
-type LoadBalancerLoadBalancerAttributeArgs struct {
+type LoadBalancerAttributeArgs struct {
 	Key   pulumi.StringPtrInput `pulumi:"key"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
-func (LoadBalancerLoadBalancerAttributeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerLoadBalancerAttribute)(nil)).Elem()
+func (LoadBalancerAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerAttribute)(nil)).Elem()
 }
 
-func (i LoadBalancerLoadBalancerAttributeArgs) ToLoadBalancerLoadBalancerAttributeOutput() LoadBalancerLoadBalancerAttributeOutput {
-	return i.ToLoadBalancerLoadBalancerAttributeOutputWithContext(context.Background())
+func (i LoadBalancerAttributeArgs) ToLoadBalancerAttributeOutput() LoadBalancerAttributeOutput {
+	return i.ToLoadBalancerAttributeOutputWithContext(context.Background())
 }
 
-func (i LoadBalancerLoadBalancerAttributeArgs) ToLoadBalancerLoadBalancerAttributeOutputWithContext(ctx context.Context) LoadBalancerLoadBalancerAttributeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerLoadBalancerAttributeOutput)
+func (i LoadBalancerAttributeArgs) ToLoadBalancerAttributeOutputWithContext(ctx context.Context) LoadBalancerAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerAttributeOutput)
 }
 
-// LoadBalancerLoadBalancerAttributeArrayInput is an input type that accepts LoadBalancerLoadBalancerAttributeArray and LoadBalancerLoadBalancerAttributeArrayOutput values.
-// You can construct a concrete instance of `LoadBalancerLoadBalancerAttributeArrayInput` via:
+// LoadBalancerAttributeArrayInput is an input type that accepts LoadBalancerAttributeArray and LoadBalancerAttributeArrayOutput values.
+// You can construct a concrete instance of `LoadBalancerAttributeArrayInput` via:
 //
-//          LoadBalancerLoadBalancerAttributeArray{ LoadBalancerLoadBalancerAttributeArgs{...} }
-type LoadBalancerLoadBalancerAttributeArrayInput interface {
+//          LoadBalancerAttributeArray{ LoadBalancerAttributeArgs{...} }
+type LoadBalancerAttributeArrayInput interface {
 	pulumi.Input
 
-	ToLoadBalancerLoadBalancerAttributeArrayOutput() LoadBalancerLoadBalancerAttributeArrayOutput
-	ToLoadBalancerLoadBalancerAttributeArrayOutputWithContext(context.Context) LoadBalancerLoadBalancerAttributeArrayOutput
+	ToLoadBalancerAttributeArrayOutput() LoadBalancerAttributeArrayOutput
+	ToLoadBalancerAttributeArrayOutputWithContext(context.Context) LoadBalancerAttributeArrayOutput
 }
 
-type LoadBalancerLoadBalancerAttributeArray []LoadBalancerLoadBalancerAttributeInput
+type LoadBalancerAttributeArray []LoadBalancerAttributeInput
 
-func (LoadBalancerLoadBalancerAttributeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LoadBalancerLoadBalancerAttribute)(nil)).Elem()
+func (LoadBalancerAttributeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancerAttribute)(nil)).Elem()
 }
 
-func (i LoadBalancerLoadBalancerAttributeArray) ToLoadBalancerLoadBalancerAttributeArrayOutput() LoadBalancerLoadBalancerAttributeArrayOutput {
-	return i.ToLoadBalancerLoadBalancerAttributeArrayOutputWithContext(context.Background())
+func (i LoadBalancerAttributeArray) ToLoadBalancerAttributeArrayOutput() LoadBalancerAttributeArrayOutput {
+	return i.ToLoadBalancerAttributeArrayOutputWithContext(context.Background())
 }
 
-func (i LoadBalancerLoadBalancerAttributeArray) ToLoadBalancerLoadBalancerAttributeArrayOutputWithContext(ctx context.Context) LoadBalancerLoadBalancerAttributeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerLoadBalancerAttributeArrayOutput)
+func (i LoadBalancerAttributeArray) ToLoadBalancerAttributeArrayOutputWithContext(ctx context.Context) LoadBalancerAttributeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerAttributeArrayOutput)
 }
 
-type LoadBalancerLoadBalancerAttributeOutput struct{ *pulumi.OutputState }
+type LoadBalancerAttributeOutput struct{ *pulumi.OutputState }
 
-func (LoadBalancerLoadBalancerAttributeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerLoadBalancerAttribute)(nil)).Elem()
+func (LoadBalancerAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerAttribute)(nil)).Elem()
 }
 
-func (o LoadBalancerLoadBalancerAttributeOutput) ToLoadBalancerLoadBalancerAttributeOutput() LoadBalancerLoadBalancerAttributeOutput {
+func (o LoadBalancerAttributeOutput) ToLoadBalancerAttributeOutput() LoadBalancerAttributeOutput {
 	return o
 }
 
-func (o LoadBalancerLoadBalancerAttributeOutput) ToLoadBalancerLoadBalancerAttributeOutputWithContext(ctx context.Context) LoadBalancerLoadBalancerAttributeOutput {
+func (o LoadBalancerAttributeOutput) ToLoadBalancerAttributeOutputWithContext(ctx context.Context) LoadBalancerAttributeOutput {
 	return o
 }
 
-func (o LoadBalancerLoadBalancerAttributeOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancerLoadBalancerAttribute) *string { return v.Key }).(pulumi.StringPtrOutput)
+func (o LoadBalancerAttributeOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerAttribute) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-func (o LoadBalancerLoadBalancerAttributeOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancerLoadBalancerAttribute) *string { return v.Value }).(pulumi.StringPtrOutput)
+func (o LoadBalancerAttributeOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerAttribute) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-type LoadBalancerLoadBalancerAttributeArrayOutput struct{ *pulumi.OutputState }
+type LoadBalancerAttributeArrayOutput struct{ *pulumi.OutputState }
 
-func (LoadBalancerLoadBalancerAttributeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LoadBalancerLoadBalancerAttribute)(nil)).Elem()
+func (LoadBalancerAttributeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancerAttribute)(nil)).Elem()
 }
 
-func (o LoadBalancerLoadBalancerAttributeArrayOutput) ToLoadBalancerLoadBalancerAttributeArrayOutput() LoadBalancerLoadBalancerAttributeArrayOutput {
+func (o LoadBalancerAttributeArrayOutput) ToLoadBalancerAttributeArrayOutput() LoadBalancerAttributeArrayOutput {
 	return o
 }
 
-func (o LoadBalancerLoadBalancerAttributeArrayOutput) ToLoadBalancerLoadBalancerAttributeArrayOutputWithContext(ctx context.Context) LoadBalancerLoadBalancerAttributeArrayOutput {
+func (o LoadBalancerAttributeArrayOutput) ToLoadBalancerAttributeArrayOutputWithContext(ctx context.Context) LoadBalancerAttributeArrayOutput {
 	return o
 }
 
-func (o LoadBalancerLoadBalancerAttributeArrayOutput) Index(i pulumi.IntInput) LoadBalancerLoadBalancerAttributeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancerLoadBalancerAttribute {
-		return vs[0].([]LoadBalancerLoadBalancerAttribute)[vs[1].(int)]
-	}).(LoadBalancerLoadBalancerAttributeOutput)
+func (o LoadBalancerAttributeArrayOutput) Index(i pulumi.IntInput) LoadBalancerAttributeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancerAttribute {
+		return vs[0].([]LoadBalancerAttribute)[vs[1].(int)]
+	}).(LoadBalancerAttributeOutput)
 }
 
 type LoadBalancerSubnetMapping struct {
@@ -4426,6 +4426,106 @@ func (o LoadBalancerTagArrayOutput) Index(i pulumi.IntInput) LoadBalancerTagOutp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancerTag {
 		return vs[0].([]LoadBalancerTag)[vs[1].(int)]
 	}).(LoadBalancerTagOutput)
+}
+
+type TargetGroupAttribute struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// TargetGroupAttributeInput is an input type that accepts TargetGroupAttributeArgs and TargetGroupAttributeOutput values.
+// You can construct a concrete instance of `TargetGroupAttributeInput` via:
+//
+//          TargetGroupAttributeArgs{...}
+type TargetGroupAttributeInput interface {
+	pulumi.Input
+
+	ToTargetGroupAttributeOutput() TargetGroupAttributeOutput
+	ToTargetGroupAttributeOutputWithContext(context.Context) TargetGroupAttributeOutput
+}
+
+type TargetGroupAttributeArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TargetGroupAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupAttribute)(nil)).Elem()
+}
+
+func (i TargetGroupAttributeArgs) ToTargetGroupAttributeOutput() TargetGroupAttributeOutput {
+	return i.ToTargetGroupAttributeOutputWithContext(context.Background())
+}
+
+func (i TargetGroupAttributeArgs) ToTargetGroupAttributeOutputWithContext(ctx context.Context) TargetGroupAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupAttributeOutput)
+}
+
+// TargetGroupAttributeArrayInput is an input type that accepts TargetGroupAttributeArray and TargetGroupAttributeArrayOutput values.
+// You can construct a concrete instance of `TargetGroupAttributeArrayInput` via:
+//
+//          TargetGroupAttributeArray{ TargetGroupAttributeArgs{...} }
+type TargetGroupAttributeArrayInput interface {
+	pulumi.Input
+
+	ToTargetGroupAttributeArrayOutput() TargetGroupAttributeArrayOutput
+	ToTargetGroupAttributeArrayOutputWithContext(context.Context) TargetGroupAttributeArrayOutput
+}
+
+type TargetGroupAttributeArray []TargetGroupAttributeInput
+
+func (TargetGroupAttributeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TargetGroupAttribute)(nil)).Elem()
+}
+
+func (i TargetGroupAttributeArray) ToTargetGroupAttributeArrayOutput() TargetGroupAttributeArrayOutput {
+	return i.ToTargetGroupAttributeArrayOutputWithContext(context.Background())
+}
+
+func (i TargetGroupAttributeArray) ToTargetGroupAttributeArrayOutputWithContext(ctx context.Context) TargetGroupAttributeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupAttributeArrayOutput)
+}
+
+type TargetGroupAttributeOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupAttribute)(nil)).Elem()
+}
+
+func (o TargetGroupAttributeOutput) ToTargetGroupAttributeOutput() TargetGroupAttributeOutput {
+	return o
+}
+
+func (o TargetGroupAttributeOutput) ToTargetGroupAttributeOutputWithContext(ctx context.Context) TargetGroupAttributeOutput {
+	return o
+}
+
+func (o TargetGroupAttributeOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetGroupAttribute) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o TargetGroupAttributeOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetGroupAttribute) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TargetGroupAttributeArrayOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupAttributeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TargetGroupAttribute)(nil)).Elem()
+}
+
+func (o TargetGroupAttributeArrayOutput) ToTargetGroupAttributeArrayOutput() TargetGroupAttributeArrayOutput {
+	return o
+}
+
+func (o TargetGroupAttributeArrayOutput) ToTargetGroupAttributeArrayOutputWithContext(ctx context.Context) TargetGroupAttributeArrayOutput {
+	return o
+}
+
+func (o TargetGroupAttributeArrayOutput) Index(i pulumi.IntInput) TargetGroupAttributeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TargetGroupAttribute {
+		return vs[0].([]TargetGroupAttribute)[vs[1].(int)]
+	}).(TargetGroupAttributeOutput)
 }
 
 type TargetGroupMatcher struct {
@@ -4782,106 +4882,6 @@ func (o TargetGroupTargetDescriptionArrayOutput) Index(i pulumi.IntInput) Target
 	}).(TargetGroupTargetDescriptionOutput)
 }
 
-type TargetGroupTargetGroupAttribute struct {
-	Key   *string `pulumi:"key"`
-	Value *string `pulumi:"value"`
-}
-
-// TargetGroupTargetGroupAttributeInput is an input type that accepts TargetGroupTargetGroupAttributeArgs and TargetGroupTargetGroupAttributeOutput values.
-// You can construct a concrete instance of `TargetGroupTargetGroupAttributeInput` via:
-//
-//          TargetGroupTargetGroupAttributeArgs{...}
-type TargetGroupTargetGroupAttributeInput interface {
-	pulumi.Input
-
-	ToTargetGroupTargetGroupAttributeOutput() TargetGroupTargetGroupAttributeOutput
-	ToTargetGroupTargetGroupAttributeOutputWithContext(context.Context) TargetGroupTargetGroupAttributeOutput
-}
-
-type TargetGroupTargetGroupAttributeArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TargetGroupTargetGroupAttributeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TargetGroupTargetGroupAttribute)(nil)).Elem()
-}
-
-func (i TargetGroupTargetGroupAttributeArgs) ToTargetGroupTargetGroupAttributeOutput() TargetGroupTargetGroupAttributeOutput {
-	return i.ToTargetGroupTargetGroupAttributeOutputWithContext(context.Background())
-}
-
-func (i TargetGroupTargetGroupAttributeArgs) ToTargetGroupTargetGroupAttributeOutputWithContext(ctx context.Context) TargetGroupTargetGroupAttributeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupTargetGroupAttributeOutput)
-}
-
-// TargetGroupTargetGroupAttributeArrayInput is an input type that accepts TargetGroupTargetGroupAttributeArray and TargetGroupTargetGroupAttributeArrayOutput values.
-// You can construct a concrete instance of `TargetGroupTargetGroupAttributeArrayInput` via:
-//
-//          TargetGroupTargetGroupAttributeArray{ TargetGroupTargetGroupAttributeArgs{...} }
-type TargetGroupTargetGroupAttributeArrayInput interface {
-	pulumi.Input
-
-	ToTargetGroupTargetGroupAttributeArrayOutput() TargetGroupTargetGroupAttributeArrayOutput
-	ToTargetGroupTargetGroupAttributeArrayOutputWithContext(context.Context) TargetGroupTargetGroupAttributeArrayOutput
-}
-
-type TargetGroupTargetGroupAttributeArray []TargetGroupTargetGroupAttributeInput
-
-func (TargetGroupTargetGroupAttributeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TargetGroupTargetGroupAttribute)(nil)).Elem()
-}
-
-func (i TargetGroupTargetGroupAttributeArray) ToTargetGroupTargetGroupAttributeArrayOutput() TargetGroupTargetGroupAttributeArrayOutput {
-	return i.ToTargetGroupTargetGroupAttributeArrayOutputWithContext(context.Background())
-}
-
-func (i TargetGroupTargetGroupAttributeArray) ToTargetGroupTargetGroupAttributeArrayOutputWithContext(ctx context.Context) TargetGroupTargetGroupAttributeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupTargetGroupAttributeArrayOutput)
-}
-
-type TargetGroupTargetGroupAttributeOutput struct{ *pulumi.OutputState }
-
-func (TargetGroupTargetGroupAttributeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TargetGroupTargetGroupAttribute)(nil)).Elem()
-}
-
-func (o TargetGroupTargetGroupAttributeOutput) ToTargetGroupTargetGroupAttributeOutput() TargetGroupTargetGroupAttributeOutput {
-	return o
-}
-
-func (o TargetGroupTargetGroupAttributeOutput) ToTargetGroupTargetGroupAttributeOutputWithContext(ctx context.Context) TargetGroupTargetGroupAttributeOutput {
-	return o
-}
-
-func (o TargetGroupTargetGroupAttributeOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TargetGroupTargetGroupAttribute) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o TargetGroupTargetGroupAttributeOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TargetGroupTargetGroupAttribute) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TargetGroupTargetGroupAttributeArrayOutput struct{ *pulumi.OutputState }
-
-func (TargetGroupTargetGroupAttributeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TargetGroupTargetGroupAttribute)(nil)).Elem()
-}
-
-func (o TargetGroupTargetGroupAttributeArrayOutput) ToTargetGroupTargetGroupAttributeArrayOutput() TargetGroupTargetGroupAttributeArrayOutput {
-	return o
-}
-
-func (o TargetGroupTargetGroupAttributeArrayOutput) ToTargetGroupTargetGroupAttributeArrayOutputWithContext(ctx context.Context) TargetGroupTargetGroupAttributeArrayOutput {
-	return o
-}
-
-func (o TargetGroupTargetGroupAttributeArrayOutput) Index(i pulumi.IntInput) TargetGroupTargetGroupAttributeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TargetGroupTargetGroupAttribute {
-		return vs[0].([]TargetGroupTargetGroupAttribute)[vs[1].(int)]
-	}).(TargetGroupTargetGroupAttributeOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(ListenerActionOutput{})
 	pulumi.RegisterOutputType(ListenerActionArrayOutput{})
@@ -4935,18 +4935,18 @@ func init() {
 	pulumi.RegisterOutputType(ListenerTargetGroupStickinessConfigPtrOutput{})
 	pulumi.RegisterOutputType(ListenerTargetGroupTupleOutput{})
 	pulumi.RegisterOutputType(ListenerTargetGroupTupleArrayOutput{})
-	pulumi.RegisterOutputType(LoadBalancerLoadBalancerAttributeOutput{})
-	pulumi.RegisterOutputType(LoadBalancerLoadBalancerAttributeArrayOutput{})
+	pulumi.RegisterOutputType(LoadBalancerAttributeOutput{})
+	pulumi.RegisterOutputType(LoadBalancerAttributeArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancerSubnetMappingOutput{})
 	pulumi.RegisterOutputType(LoadBalancerSubnetMappingArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancerTagOutput{})
 	pulumi.RegisterOutputType(LoadBalancerTagArrayOutput{})
+	pulumi.RegisterOutputType(TargetGroupAttributeOutput{})
+	pulumi.RegisterOutputType(TargetGroupAttributeArrayOutput{})
 	pulumi.RegisterOutputType(TargetGroupMatcherOutput{})
 	pulumi.RegisterOutputType(TargetGroupMatcherPtrOutput{})
 	pulumi.RegisterOutputType(TargetGroupTagOutput{})
 	pulumi.RegisterOutputType(TargetGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(TargetGroupTargetDescriptionOutput{})
 	pulumi.RegisterOutputType(TargetGroupTargetDescriptionArrayOutput{})
-	pulumi.RegisterOutputType(TargetGroupTargetGroupAttributeOutput{})
-	pulumi.RegisterOutputType(TargetGroupTargetGroupAttributeArrayOutput{})
 }

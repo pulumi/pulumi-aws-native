@@ -11,130 +11,130 @@ import (
 )
 
 // Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
-type KeyKeySpec string
+type KeySpec string
 
 const (
-	KeyKeySpecSymmetricDefault = KeyKeySpec("SYMMETRIC_DEFAULT")
-	KeyKeySpecRsa2048          = KeyKeySpec("RSA_2048")
-	KeyKeySpecRsa3072          = KeyKeySpec("RSA_3072")
-	KeyKeySpecRsa4096          = KeyKeySpec("RSA_4096")
-	KeyKeySpecEccNistP256      = KeyKeySpec("ECC_NIST_P256")
-	KeyKeySpecEccNistP384      = KeyKeySpec("ECC_NIST_P384")
-	KeyKeySpecEccNistP521      = KeyKeySpec("ECC_NIST_P521")
-	KeyKeySpecEccSecgP256k1    = KeyKeySpec("ECC_SECG_P256K1")
+	KeySpecSymmetricDefault = KeySpec("SYMMETRIC_DEFAULT")
+	KeySpecRsa2048          = KeySpec("RSA_2048")
+	KeySpecRsa3072          = KeySpec("RSA_3072")
+	KeySpecRsa4096          = KeySpec("RSA_4096")
+	KeySpecEccNistP256      = KeySpec("ECC_NIST_P256")
+	KeySpecEccNistP384      = KeySpec("ECC_NIST_P384")
+	KeySpecEccNistP521      = KeySpec("ECC_NIST_P521")
+	KeySpecEccSecgP256k1    = KeySpec("ECC_SECG_P256K1")
 )
 
-func (KeyKeySpec) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyKeySpec)(nil)).Elem()
+func (KeySpec) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeySpec)(nil)).Elem()
 }
 
-func (e KeyKeySpec) ToKeyKeySpecOutput() KeyKeySpecOutput {
-	return pulumi.ToOutput(e).(KeyKeySpecOutput)
+func (e KeySpec) ToKeySpecOutput() KeySpecOutput {
+	return pulumi.ToOutput(e).(KeySpecOutput)
 }
 
-func (e KeyKeySpec) ToKeyKeySpecOutputWithContext(ctx context.Context) KeyKeySpecOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(KeyKeySpecOutput)
+func (e KeySpec) ToKeySpecOutputWithContext(ctx context.Context) KeySpecOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KeySpecOutput)
 }
 
-func (e KeyKeySpec) ToKeyKeySpecPtrOutput() KeyKeySpecPtrOutput {
-	return e.ToKeyKeySpecPtrOutputWithContext(context.Background())
+func (e KeySpec) ToKeySpecPtrOutput() KeySpecPtrOutput {
+	return e.ToKeySpecPtrOutputWithContext(context.Background())
 }
 
-func (e KeyKeySpec) ToKeyKeySpecPtrOutputWithContext(ctx context.Context) KeyKeySpecPtrOutput {
-	return KeyKeySpec(e).ToKeyKeySpecOutputWithContext(ctx).ToKeyKeySpecPtrOutputWithContext(ctx)
+func (e KeySpec) ToKeySpecPtrOutputWithContext(ctx context.Context) KeySpecPtrOutput {
+	return KeySpec(e).ToKeySpecOutputWithContext(ctx).ToKeySpecPtrOutputWithContext(ctx)
 }
 
-func (e KeyKeySpec) ToStringOutput() pulumi.StringOutput {
+func (e KeySpec) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e KeyKeySpec) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e KeySpec) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e KeyKeySpec) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e KeySpec) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e KeyKeySpec) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e KeySpec) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type KeyKeySpecOutput struct{ *pulumi.OutputState }
+type KeySpecOutput struct{ *pulumi.OutputState }
 
-func (KeyKeySpecOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyKeySpec)(nil)).Elem()
+func (KeySpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeySpec)(nil)).Elem()
 }
 
-func (o KeyKeySpecOutput) ToKeyKeySpecOutput() KeyKeySpecOutput {
+func (o KeySpecOutput) ToKeySpecOutput() KeySpecOutput {
 	return o
 }
 
-func (o KeyKeySpecOutput) ToKeyKeySpecOutputWithContext(ctx context.Context) KeyKeySpecOutput {
+func (o KeySpecOutput) ToKeySpecOutputWithContext(ctx context.Context) KeySpecOutput {
 	return o
 }
 
-func (o KeyKeySpecOutput) ToKeyKeySpecPtrOutput() KeyKeySpecPtrOutput {
-	return o.ToKeyKeySpecPtrOutputWithContext(context.Background())
+func (o KeySpecOutput) ToKeySpecPtrOutput() KeySpecPtrOutput {
+	return o.ToKeySpecPtrOutputWithContext(context.Background())
 }
 
-func (o KeyKeySpecOutput) ToKeyKeySpecPtrOutputWithContext(ctx context.Context) KeyKeySpecPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyKeySpec) *KeyKeySpec {
+func (o KeySpecOutput) ToKeySpecPtrOutputWithContext(ctx context.Context) KeySpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeySpec) *KeySpec {
 		return &v
-	}).(KeyKeySpecPtrOutput)
+	}).(KeySpecPtrOutput)
 }
 
-func (o KeyKeySpecOutput) ToStringOutput() pulumi.StringOutput {
+func (o KeySpecOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o KeyKeySpecOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeyKeySpec) string {
+func (o KeySpecOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeySpec) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o KeyKeySpecOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o KeySpecOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o KeyKeySpecOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeyKeySpec) *string {
+func (o KeySpecOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeySpec) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type KeyKeySpecPtrOutput struct{ *pulumi.OutputState }
+type KeySpecPtrOutput struct{ *pulumi.OutputState }
 
-func (KeyKeySpecPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyKeySpec)(nil)).Elem()
+func (KeySpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeySpec)(nil)).Elem()
 }
 
-func (o KeyKeySpecPtrOutput) ToKeyKeySpecPtrOutput() KeyKeySpecPtrOutput {
+func (o KeySpecPtrOutput) ToKeySpecPtrOutput() KeySpecPtrOutput {
 	return o
 }
 
-func (o KeyKeySpecPtrOutput) ToKeyKeySpecPtrOutputWithContext(ctx context.Context) KeyKeySpecPtrOutput {
+func (o KeySpecPtrOutput) ToKeySpecPtrOutputWithContext(ctx context.Context) KeySpecPtrOutput {
 	return o
 }
 
-func (o KeyKeySpecPtrOutput) Elem() KeyKeySpecOutput {
-	return o.ApplyT(func(v *KeyKeySpec) KeyKeySpec {
+func (o KeySpecPtrOutput) Elem() KeySpecOutput {
+	return o.ApplyT(func(v *KeySpec) KeySpec {
 		if v != nil {
 			return *v
 		}
-		var ret KeyKeySpec
+		var ret KeySpec
 		return ret
-	}).(KeyKeySpecOutput)
+	}).(KeySpecOutput)
 }
 
-func (o KeyKeySpecPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o KeySpecPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o KeyKeySpecPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KeyKeySpec) *string {
+func (o KeySpecPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KeySpec) *string {
 		if e == nil {
 			return nil
 		}
@@ -143,163 +143,163 @@ func (o KeyKeySpecPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 	}).(pulumi.StringPtrOutput)
 }
 
-// KeyKeySpecInput is an input type that accepts KeyKeySpecArgs and KeyKeySpecOutput values.
-// You can construct a concrete instance of `KeyKeySpecInput` via:
+// KeySpecInput is an input type that accepts KeySpecArgs and KeySpecOutput values.
+// You can construct a concrete instance of `KeySpecInput` via:
 //
-//          KeyKeySpecArgs{...}
-type KeyKeySpecInput interface {
+//          KeySpecArgs{...}
+type KeySpecInput interface {
 	pulumi.Input
 
-	ToKeyKeySpecOutput() KeyKeySpecOutput
-	ToKeyKeySpecOutputWithContext(context.Context) KeyKeySpecOutput
+	ToKeySpecOutput() KeySpecOutput
+	ToKeySpecOutputWithContext(context.Context) KeySpecOutput
 }
 
-var keyKeySpecPtrType = reflect.TypeOf((**KeyKeySpec)(nil)).Elem()
+var keySpecPtrType = reflect.TypeOf((**KeySpec)(nil)).Elem()
 
-type KeyKeySpecPtrInput interface {
+type KeySpecPtrInput interface {
 	pulumi.Input
 
-	ToKeyKeySpecPtrOutput() KeyKeySpecPtrOutput
-	ToKeyKeySpecPtrOutputWithContext(context.Context) KeyKeySpecPtrOutput
+	ToKeySpecPtrOutput() KeySpecPtrOutput
+	ToKeySpecPtrOutputWithContext(context.Context) KeySpecPtrOutput
 }
 
-type keyKeySpecPtr string
+type keySpecPtr string
 
-func KeyKeySpecPtr(v string) KeyKeySpecPtrInput {
-	return (*keyKeySpecPtr)(&v)
+func KeySpecPtr(v string) KeySpecPtrInput {
+	return (*keySpecPtr)(&v)
 }
 
-func (*keyKeySpecPtr) ElementType() reflect.Type {
-	return keyKeySpecPtrType
+func (*keySpecPtr) ElementType() reflect.Type {
+	return keySpecPtrType
 }
 
-func (in *keyKeySpecPtr) ToKeyKeySpecPtrOutput() KeyKeySpecPtrOutput {
-	return pulumi.ToOutput(in).(KeyKeySpecPtrOutput)
+func (in *keySpecPtr) ToKeySpecPtrOutput() KeySpecPtrOutput {
+	return pulumi.ToOutput(in).(KeySpecPtrOutput)
 }
 
-func (in *keyKeySpecPtr) ToKeyKeySpecPtrOutputWithContext(ctx context.Context) KeyKeySpecPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(KeyKeySpecPtrOutput)
+func (in *keySpecPtr) ToKeySpecPtrOutputWithContext(ctx context.Context) KeySpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KeySpecPtrOutput)
 }
 
 // Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
-type KeyKeyUsage string
+type KeyUsage string
 
 const (
-	KeyKeyUsageEncryptDecrypt = KeyKeyUsage("ENCRYPT_DECRYPT")
-	KeyKeyUsageSignVerify     = KeyKeyUsage("SIGN_VERIFY")
+	KeyUsageEncryptDecrypt = KeyUsage("ENCRYPT_DECRYPT")
+	KeyUsageSignVerify     = KeyUsage("SIGN_VERIFY")
 )
 
-func (KeyKeyUsage) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyKeyUsage)(nil)).Elem()
+func (KeyUsage) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyUsage)(nil)).Elem()
 }
 
-func (e KeyKeyUsage) ToKeyKeyUsageOutput() KeyKeyUsageOutput {
-	return pulumi.ToOutput(e).(KeyKeyUsageOutput)
+func (e KeyUsage) ToKeyUsageOutput() KeyUsageOutput {
+	return pulumi.ToOutput(e).(KeyUsageOutput)
 }
 
-func (e KeyKeyUsage) ToKeyKeyUsageOutputWithContext(ctx context.Context) KeyKeyUsageOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(KeyKeyUsageOutput)
+func (e KeyUsage) ToKeyUsageOutputWithContext(ctx context.Context) KeyUsageOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KeyUsageOutput)
 }
 
-func (e KeyKeyUsage) ToKeyKeyUsagePtrOutput() KeyKeyUsagePtrOutput {
-	return e.ToKeyKeyUsagePtrOutputWithContext(context.Background())
+func (e KeyUsage) ToKeyUsagePtrOutput() KeyUsagePtrOutput {
+	return e.ToKeyUsagePtrOutputWithContext(context.Background())
 }
 
-func (e KeyKeyUsage) ToKeyKeyUsagePtrOutputWithContext(ctx context.Context) KeyKeyUsagePtrOutput {
-	return KeyKeyUsage(e).ToKeyKeyUsageOutputWithContext(ctx).ToKeyKeyUsagePtrOutputWithContext(ctx)
+func (e KeyUsage) ToKeyUsagePtrOutputWithContext(ctx context.Context) KeyUsagePtrOutput {
+	return KeyUsage(e).ToKeyUsageOutputWithContext(ctx).ToKeyUsagePtrOutputWithContext(ctx)
 }
 
-func (e KeyKeyUsage) ToStringOutput() pulumi.StringOutput {
+func (e KeyUsage) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e KeyKeyUsage) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e KeyUsage) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e KeyKeyUsage) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e KeyUsage) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e KeyKeyUsage) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e KeyUsage) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type KeyKeyUsageOutput struct{ *pulumi.OutputState }
+type KeyUsageOutput struct{ *pulumi.OutputState }
 
-func (KeyKeyUsageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyKeyUsage)(nil)).Elem()
+func (KeyUsageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyUsage)(nil)).Elem()
 }
 
-func (o KeyKeyUsageOutput) ToKeyKeyUsageOutput() KeyKeyUsageOutput {
+func (o KeyUsageOutput) ToKeyUsageOutput() KeyUsageOutput {
 	return o
 }
 
-func (o KeyKeyUsageOutput) ToKeyKeyUsageOutputWithContext(ctx context.Context) KeyKeyUsageOutput {
+func (o KeyUsageOutput) ToKeyUsageOutputWithContext(ctx context.Context) KeyUsageOutput {
 	return o
 }
 
-func (o KeyKeyUsageOutput) ToKeyKeyUsagePtrOutput() KeyKeyUsagePtrOutput {
-	return o.ToKeyKeyUsagePtrOutputWithContext(context.Background())
+func (o KeyUsageOutput) ToKeyUsagePtrOutput() KeyUsagePtrOutput {
+	return o.ToKeyUsagePtrOutputWithContext(context.Background())
 }
 
-func (o KeyKeyUsageOutput) ToKeyKeyUsagePtrOutputWithContext(ctx context.Context) KeyKeyUsagePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyKeyUsage) *KeyKeyUsage {
+func (o KeyUsageOutput) ToKeyUsagePtrOutputWithContext(ctx context.Context) KeyUsagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyUsage) *KeyUsage {
 		return &v
-	}).(KeyKeyUsagePtrOutput)
+	}).(KeyUsagePtrOutput)
 }
 
-func (o KeyKeyUsageOutput) ToStringOutput() pulumi.StringOutput {
+func (o KeyUsageOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o KeyKeyUsageOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeyKeyUsage) string {
+func (o KeyUsageOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeyUsage) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o KeyKeyUsageOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o KeyUsageOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o KeyKeyUsageOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeyKeyUsage) *string {
+func (o KeyUsageOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeyUsage) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type KeyKeyUsagePtrOutput struct{ *pulumi.OutputState }
+type KeyUsagePtrOutput struct{ *pulumi.OutputState }
 
-func (KeyKeyUsagePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyKeyUsage)(nil)).Elem()
+func (KeyUsagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyUsage)(nil)).Elem()
 }
 
-func (o KeyKeyUsagePtrOutput) ToKeyKeyUsagePtrOutput() KeyKeyUsagePtrOutput {
+func (o KeyUsagePtrOutput) ToKeyUsagePtrOutput() KeyUsagePtrOutput {
 	return o
 }
 
-func (o KeyKeyUsagePtrOutput) ToKeyKeyUsagePtrOutputWithContext(ctx context.Context) KeyKeyUsagePtrOutput {
+func (o KeyUsagePtrOutput) ToKeyUsagePtrOutputWithContext(ctx context.Context) KeyUsagePtrOutput {
 	return o
 }
 
-func (o KeyKeyUsagePtrOutput) Elem() KeyKeyUsageOutput {
-	return o.ApplyT(func(v *KeyKeyUsage) KeyKeyUsage {
+func (o KeyUsagePtrOutput) Elem() KeyUsageOutput {
+	return o.ApplyT(func(v *KeyUsage) KeyUsage {
 		if v != nil {
 			return *v
 		}
-		var ret KeyKeyUsage
+		var ret KeyUsage
 		return ret
-	}).(KeyKeyUsageOutput)
+	}).(KeyUsageOutput)
 }
 
-func (o KeyKeyUsagePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o KeyUsagePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o KeyKeyUsagePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KeyKeyUsage) *string {
+func (o KeyUsagePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KeyUsage) *string {
 		if e == nil {
 			return nil
 		}
@@ -308,47 +308,47 @@ func (o KeyKeyUsagePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// KeyKeyUsageInput is an input type that accepts KeyKeyUsageArgs and KeyKeyUsageOutput values.
-// You can construct a concrete instance of `KeyKeyUsageInput` via:
+// KeyUsageInput is an input type that accepts KeyUsageArgs and KeyUsageOutput values.
+// You can construct a concrete instance of `KeyUsageInput` via:
 //
-//          KeyKeyUsageArgs{...}
-type KeyKeyUsageInput interface {
+//          KeyUsageArgs{...}
+type KeyUsageInput interface {
 	pulumi.Input
 
-	ToKeyKeyUsageOutput() KeyKeyUsageOutput
-	ToKeyKeyUsageOutputWithContext(context.Context) KeyKeyUsageOutput
+	ToKeyUsageOutput() KeyUsageOutput
+	ToKeyUsageOutputWithContext(context.Context) KeyUsageOutput
 }
 
-var keyKeyUsagePtrType = reflect.TypeOf((**KeyKeyUsage)(nil)).Elem()
+var keyUsagePtrType = reflect.TypeOf((**KeyUsage)(nil)).Elem()
 
-type KeyKeyUsagePtrInput interface {
+type KeyUsagePtrInput interface {
 	pulumi.Input
 
-	ToKeyKeyUsagePtrOutput() KeyKeyUsagePtrOutput
-	ToKeyKeyUsagePtrOutputWithContext(context.Context) KeyKeyUsagePtrOutput
+	ToKeyUsagePtrOutput() KeyUsagePtrOutput
+	ToKeyUsagePtrOutputWithContext(context.Context) KeyUsagePtrOutput
 }
 
-type keyKeyUsagePtr string
+type keyUsagePtr string
 
-func KeyKeyUsagePtr(v string) KeyKeyUsagePtrInput {
-	return (*keyKeyUsagePtr)(&v)
+func KeyUsagePtr(v string) KeyUsagePtrInput {
+	return (*keyUsagePtr)(&v)
 }
 
-func (*keyKeyUsagePtr) ElementType() reflect.Type {
-	return keyKeyUsagePtrType
+func (*keyUsagePtr) ElementType() reflect.Type {
+	return keyUsagePtrType
 }
 
-func (in *keyKeyUsagePtr) ToKeyKeyUsagePtrOutput() KeyKeyUsagePtrOutput {
-	return pulumi.ToOutput(in).(KeyKeyUsagePtrOutput)
+func (in *keyUsagePtr) ToKeyUsagePtrOutput() KeyUsagePtrOutput {
+	return pulumi.ToOutput(in).(KeyUsagePtrOutput)
 }
 
-func (in *keyKeyUsagePtr) ToKeyKeyUsagePtrOutputWithContext(ctx context.Context) KeyKeyUsagePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(KeyKeyUsagePtrOutput)
+func (in *keyUsagePtr) ToKeyUsagePtrOutputWithContext(ctx context.Context) KeyUsagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KeyUsagePtrOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(KeyKeySpecOutput{})
-	pulumi.RegisterOutputType(KeyKeySpecPtrOutput{})
-	pulumi.RegisterOutputType(KeyKeyUsageOutput{})
-	pulumi.RegisterOutputType(KeyKeyUsagePtrOutput{})
+	pulumi.RegisterOutputType(KeySpecOutput{})
+	pulumi.RegisterOutputType(KeySpecPtrOutput{})
+	pulumi.RegisterOutputType(KeyUsageOutput{})
+	pulumi.RegisterOutputType(KeyUsagePtrOutput{})
 }

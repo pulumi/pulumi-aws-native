@@ -722,7 +722,7 @@ func (o ClassifierXMLClassifierPtrOutput) RowTag() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type ConnectionConnectionInput struct {
+type ConnectionInputType struct {
 	ConnectionProperties           interface{}                               `pulumi:"connectionProperties"`
 	ConnectionType                 string                                    `pulumi:"connectionType"`
 	Description                    *string                                   `pulumi:"description"`
@@ -731,18 +731,18 @@ type ConnectionConnectionInput struct {
 	PhysicalConnectionRequirements *ConnectionPhysicalConnectionRequirements `pulumi:"physicalConnectionRequirements"`
 }
 
-// ConnectionConnectionInputInput is an input type that accepts ConnectionConnectionInputArgs and ConnectionConnectionInputOutput values.
-// You can construct a concrete instance of `ConnectionConnectionInputInput` via:
+// ConnectionInputTypeInput is an input type that accepts ConnectionInputTypeArgs and ConnectionInputTypeOutput values.
+// You can construct a concrete instance of `ConnectionInputTypeInput` via:
 //
-//          ConnectionConnectionInputArgs{...}
-type ConnectionConnectionInputInput interface {
+//          ConnectionInputTypeArgs{...}
+type ConnectionInputTypeInput interface {
 	pulumi.Input
 
-	ToConnectionConnectionInputOutput() ConnectionConnectionInputOutput
-	ToConnectionConnectionInputOutputWithContext(context.Context) ConnectionConnectionInputOutput
+	ToConnectionInputTypeOutput() ConnectionInputTypeOutput
+	ToConnectionInputTypeOutputWithContext(context.Context) ConnectionInputTypeOutput
 }
 
-type ConnectionConnectionInputArgs struct {
+type ConnectionInputTypeArgs struct {
 	ConnectionProperties           pulumi.Input                                     `pulumi:"connectionProperties"`
 	ConnectionType                 pulumi.StringInput                               `pulumi:"connectionType"`
 	Description                    pulumi.StringPtrInput                            `pulumi:"description"`
@@ -751,135 +751,135 @@ type ConnectionConnectionInputArgs struct {
 	PhysicalConnectionRequirements ConnectionPhysicalConnectionRequirementsPtrInput `pulumi:"physicalConnectionRequirements"`
 }
 
-func (ConnectionConnectionInputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionConnectionInput)(nil)).Elem()
+func (ConnectionInputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionInputType)(nil)).Elem()
 }
 
-func (i ConnectionConnectionInputArgs) ToConnectionConnectionInputOutput() ConnectionConnectionInputOutput {
-	return i.ToConnectionConnectionInputOutputWithContext(context.Background())
+func (i ConnectionInputTypeArgs) ToConnectionInputTypeOutput() ConnectionInputTypeOutput {
+	return i.ToConnectionInputTypeOutputWithContext(context.Background())
 }
 
-func (i ConnectionConnectionInputArgs) ToConnectionConnectionInputOutputWithContext(ctx context.Context) ConnectionConnectionInputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectionConnectionInputOutput)
+func (i ConnectionInputTypeArgs) ToConnectionInputTypeOutputWithContext(ctx context.Context) ConnectionInputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionInputTypeOutput)
 }
 
-func (i ConnectionConnectionInputArgs) ToConnectionConnectionInputPtrOutput() ConnectionConnectionInputPtrOutput {
-	return i.ToConnectionConnectionInputPtrOutputWithContext(context.Background())
+func (i ConnectionInputTypeArgs) ToConnectionInputTypePtrOutput() ConnectionInputTypePtrOutput {
+	return i.ToConnectionInputTypePtrOutputWithContext(context.Background())
 }
 
-func (i ConnectionConnectionInputArgs) ToConnectionConnectionInputPtrOutputWithContext(ctx context.Context) ConnectionConnectionInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectionConnectionInputOutput).ToConnectionConnectionInputPtrOutputWithContext(ctx)
+func (i ConnectionInputTypeArgs) ToConnectionInputTypePtrOutputWithContext(ctx context.Context) ConnectionInputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionInputTypeOutput).ToConnectionInputTypePtrOutputWithContext(ctx)
 }
 
-// ConnectionConnectionInputPtrInput is an input type that accepts ConnectionConnectionInputArgs, ConnectionConnectionInputPtr and ConnectionConnectionInputPtrOutput values.
-// You can construct a concrete instance of `ConnectionConnectionInputPtrInput` via:
+// ConnectionInputTypePtrInput is an input type that accepts ConnectionInputTypeArgs, ConnectionInputTypePtr and ConnectionInputTypePtrOutput values.
+// You can construct a concrete instance of `ConnectionInputTypePtrInput` via:
 //
-//          ConnectionConnectionInputArgs{...}
+//          ConnectionInputTypeArgs{...}
 //
 //  or:
 //
 //          nil
-type ConnectionConnectionInputPtrInput interface {
+type ConnectionInputTypePtrInput interface {
 	pulumi.Input
 
-	ToConnectionConnectionInputPtrOutput() ConnectionConnectionInputPtrOutput
-	ToConnectionConnectionInputPtrOutputWithContext(context.Context) ConnectionConnectionInputPtrOutput
+	ToConnectionInputTypePtrOutput() ConnectionInputTypePtrOutput
+	ToConnectionInputTypePtrOutputWithContext(context.Context) ConnectionInputTypePtrOutput
 }
 
-type connectionConnectionInputPtrType ConnectionConnectionInputArgs
+type connectionInputTypePtrType ConnectionInputTypeArgs
 
-func ConnectionConnectionInputPtr(v *ConnectionConnectionInputArgs) ConnectionConnectionInputPtrInput {
-	return (*connectionConnectionInputPtrType)(v)
+func ConnectionInputTypePtr(v *ConnectionInputTypeArgs) ConnectionInputTypePtrInput {
+	return (*connectionInputTypePtrType)(v)
 }
 
-func (*connectionConnectionInputPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectionConnectionInput)(nil)).Elem()
+func (*connectionInputTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionInputType)(nil)).Elem()
 }
 
-func (i *connectionConnectionInputPtrType) ToConnectionConnectionInputPtrOutput() ConnectionConnectionInputPtrOutput {
-	return i.ToConnectionConnectionInputPtrOutputWithContext(context.Background())
+func (i *connectionInputTypePtrType) ToConnectionInputTypePtrOutput() ConnectionInputTypePtrOutput {
+	return i.ToConnectionInputTypePtrOutputWithContext(context.Background())
 }
 
-func (i *connectionConnectionInputPtrType) ToConnectionConnectionInputPtrOutputWithContext(ctx context.Context) ConnectionConnectionInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectionConnectionInputPtrOutput)
+func (i *connectionInputTypePtrType) ToConnectionInputTypePtrOutputWithContext(ctx context.Context) ConnectionInputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionInputTypePtrOutput)
 }
 
-type ConnectionConnectionInputOutput struct{ *pulumi.OutputState }
+type ConnectionInputTypeOutput struct{ *pulumi.OutputState }
 
-func (ConnectionConnectionInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionConnectionInput)(nil)).Elem()
+func (ConnectionInputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionInputType)(nil)).Elem()
 }
 
-func (o ConnectionConnectionInputOutput) ToConnectionConnectionInputOutput() ConnectionConnectionInputOutput {
+func (o ConnectionInputTypeOutput) ToConnectionInputTypeOutput() ConnectionInputTypeOutput {
 	return o
 }
 
-func (o ConnectionConnectionInputOutput) ToConnectionConnectionInputOutputWithContext(ctx context.Context) ConnectionConnectionInputOutput {
+func (o ConnectionInputTypeOutput) ToConnectionInputTypeOutputWithContext(ctx context.Context) ConnectionInputTypeOutput {
 	return o
 }
 
-func (o ConnectionConnectionInputOutput) ToConnectionConnectionInputPtrOutput() ConnectionConnectionInputPtrOutput {
-	return o.ToConnectionConnectionInputPtrOutputWithContext(context.Background())
+func (o ConnectionInputTypeOutput) ToConnectionInputTypePtrOutput() ConnectionInputTypePtrOutput {
+	return o.ToConnectionInputTypePtrOutputWithContext(context.Background())
 }
 
-func (o ConnectionConnectionInputOutput) ToConnectionConnectionInputPtrOutputWithContext(ctx context.Context) ConnectionConnectionInputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionConnectionInput) *ConnectionConnectionInput {
+func (o ConnectionInputTypeOutput) ToConnectionInputTypePtrOutputWithContext(ctx context.Context) ConnectionInputTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionInputType) *ConnectionInputType {
 		return &v
-	}).(ConnectionConnectionInputPtrOutput)
+	}).(ConnectionInputTypePtrOutput)
 }
 
-func (o ConnectionConnectionInputOutput) ConnectionProperties() pulumi.AnyOutput {
-	return o.ApplyT(func(v ConnectionConnectionInput) interface{} { return v.ConnectionProperties }).(pulumi.AnyOutput)
+func (o ConnectionInputTypeOutput) ConnectionProperties() pulumi.AnyOutput {
+	return o.ApplyT(func(v ConnectionInputType) interface{} { return v.ConnectionProperties }).(pulumi.AnyOutput)
 }
 
-func (o ConnectionConnectionInputOutput) ConnectionType() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectionConnectionInput) string { return v.ConnectionType }).(pulumi.StringOutput)
+func (o ConnectionInputTypeOutput) ConnectionType() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionInputType) string { return v.ConnectionType }).(pulumi.StringOutput)
 }
 
-func (o ConnectionConnectionInputOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectionConnectionInput) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o ConnectionInputTypeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionInputType) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o ConnectionConnectionInputOutput) MatchCriteria() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ConnectionConnectionInput) []string { return v.MatchCriteria }).(pulumi.StringArrayOutput)
+func (o ConnectionInputTypeOutput) MatchCriteria() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConnectionInputType) []string { return v.MatchCriteria }).(pulumi.StringArrayOutput)
 }
 
-func (o ConnectionConnectionInputOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectionConnectionInput) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o ConnectionInputTypeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionInputType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o ConnectionConnectionInputOutput) PhysicalConnectionRequirements() ConnectionPhysicalConnectionRequirementsPtrOutput {
-	return o.ApplyT(func(v ConnectionConnectionInput) *ConnectionPhysicalConnectionRequirements {
+func (o ConnectionInputTypeOutput) PhysicalConnectionRequirements() ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return o.ApplyT(func(v ConnectionInputType) *ConnectionPhysicalConnectionRequirements {
 		return v.PhysicalConnectionRequirements
 	}).(ConnectionPhysicalConnectionRequirementsPtrOutput)
 }
 
-type ConnectionConnectionInputPtrOutput struct{ *pulumi.OutputState }
+type ConnectionInputTypePtrOutput struct{ *pulumi.OutputState }
 
-func (ConnectionConnectionInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectionConnectionInput)(nil)).Elem()
+func (ConnectionInputTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionInputType)(nil)).Elem()
 }
 
-func (o ConnectionConnectionInputPtrOutput) ToConnectionConnectionInputPtrOutput() ConnectionConnectionInputPtrOutput {
+func (o ConnectionInputTypePtrOutput) ToConnectionInputTypePtrOutput() ConnectionInputTypePtrOutput {
 	return o
 }
 
-func (o ConnectionConnectionInputPtrOutput) ToConnectionConnectionInputPtrOutputWithContext(ctx context.Context) ConnectionConnectionInputPtrOutput {
+func (o ConnectionInputTypePtrOutput) ToConnectionInputTypePtrOutputWithContext(ctx context.Context) ConnectionInputTypePtrOutput {
 	return o
 }
 
-func (o ConnectionConnectionInputPtrOutput) Elem() ConnectionConnectionInputOutput {
-	return o.ApplyT(func(v *ConnectionConnectionInput) ConnectionConnectionInput {
+func (o ConnectionInputTypePtrOutput) Elem() ConnectionInputTypeOutput {
+	return o.ApplyT(func(v *ConnectionInputType) ConnectionInputType {
 		if v != nil {
 			return *v
 		}
-		var ret ConnectionConnectionInput
+		var ret ConnectionInputType
 		return ret
-	}).(ConnectionConnectionInputOutput)
+	}).(ConnectionInputTypeOutput)
 }
 
-func (o ConnectionConnectionInputPtrOutput) ConnectionProperties() pulumi.AnyOutput {
-	return o.ApplyT(func(v *ConnectionConnectionInput) interface{} {
+func (o ConnectionInputTypePtrOutput) ConnectionProperties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ConnectionInputType) interface{} {
 		if v == nil {
 			return nil
 		}
@@ -887,8 +887,8 @@ func (o ConnectionConnectionInputPtrOutput) ConnectionProperties() pulumi.AnyOut
 	}).(pulumi.AnyOutput)
 }
 
-func (o ConnectionConnectionInputPtrOutput) ConnectionType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectionConnectionInput) *string {
+func (o ConnectionInputTypePtrOutput) ConnectionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionInputType) *string {
 		if v == nil {
 			return nil
 		}
@@ -896,8 +896,8 @@ func (o ConnectionConnectionInputPtrOutput) ConnectionType() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ConnectionConnectionInputPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectionConnectionInput) *string {
+func (o ConnectionInputTypePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionInputType) *string {
 		if v == nil {
 			return nil
 		}
@@ -905,8 +905,8 @@ func (o ConnectionConnectionInputPtrOutput) Description() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ConnectionConnectionInputPtrOutput) MatchCriteria() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ConnectionConnectionInput) []string {
+func (o ConnectionInputTypePtrOutput) MatchCriteria() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConnectionInputType) []string {
 		if v == nil {
 			return nil
 		}
@@ -914,8 +914,8 @@ func (o ConnectionConnectionInputPtrOutput) MatchCriteria() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o ConnectionConnectionInputPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectionConnectionInput) *string {
+func (o ConnectionInputTypePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionInputType) *string {
 		if v == nil {
 			return nil
 		}
@@ -923,8 +923,8 @@ func (o ConnectionConnectionInputPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ConnectionConnectionInputPtrOutput) PhysicalConnectionRequirements() ConnectionPhysicalConnectionRequirementsPtrOutput {
-	return o.ApplyT(func(v *ConnectionConnectionInput) *ConnectionPhysicalConnectionRequirements {
+func (o ConnectionInputTypePtrOutput) PhysicalConnectionRequirements() ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return o.ApplyT(func(v *ConnectionInputType) *ConnectionPhysicalConnectionRequirements {
 		if v == nil {
 			return nil
 		}
@@ -2093,6 +2093,158 @@ func (o CrawlerTargetsPtrOutput) S3Targets() CrawlerS3TargetArrayOutput {
 	}).(CrawlerS3TargetArrayOutput)
 }
 
+type DataCatalogEncryptionSettingsType struct {
+	ConnectionPasswordEncryption *DataCatalogEncryptionSettingsConnectionPasswordEncryption `pulumi:"connectionPasswordEncryption"`
+	EncryptionAtRest             *DataCatalogEncryptionSettingsEncryptionAtRest             `pulumi:"encryptionAtRest"`
+}
+
+// DataCatalogEncryptionSettingsTypeInput is an input type that accepts DataCatalogEncryptionSettingsTypeArgs and DataCatalogEncryptionSettingsTypeOutput values.
+// You can construct a concrete instance of `DataCatalogEncryptionSettingsTypeInput` via:
+//
+//          DataCatalogEncryptionSettingsTypeArgs{...}
+type DataCatalogEncryptionSettingsTypeInput interface {
+	pulumi.Input
+
+	ToDataCatalogEncryptionSettingsTypeOutput() DataCatalogEncryptionSettingsTypeOutput
+	ToDataCatalogEncryptionSettingsTypeOutputWithContext(context.Context) DataCatalogEncryptionSettingsTypeOutput
+}
+
+type DataCatalogEncryptionSettingsTypeArgs struct {
+	ConnectionPasswordEncryption DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrInput `pulumi:"connectionPasswordEncryption"`
+	EncryptionAtRest             DataCatalogEncryptionSettingsEncryptionAtRestPtrInput             `pulumi:"encryptionAtRest"`
+}
+
+func (DataCatalogEncryptionSettingsTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCatalogEncryptionSettingsType)(nil)).Elem()
+}
+
+func (i DataCatalogEncryptionSettingsTypeArgs) ToDataCatalogEncryptionSettingsTypeOutput() DataCatalogEncryptionSettingsTypeOutput {
+	return i.ToDataCatalogEncryptionSettingsTypeOutputWithContext(context.Background())
+}
+
+func (i DataCatalogEncryptionSettingsTypeArgs) ToDataCatalogEncryptionSettingsTypeOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsTypeOutput)
+}
+
+func (i DataCatalogEncryptionSettingsTypeArgs) ToDataCatalogEncryptionSettingsTypePtrOutput() DataCatalogEncryptionSettingsTypePtrOutput {
+	return i.ToDataCatalogEncryptionSettingsTypePtrOutputWithContext(context.Background())
+}
+
+func (i DataCatalogEncryptionSettingsTypeArgs) ToDataCatalogEncryptionSettingsTypePtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsTypeOutput).ToDataCatalogEncryptionSettingsTypePtrOutputWithContext(ctx)
+}
+
+// DataCatalogEncryptionSettingsTypePtrInput is an input type that accepts DataCatalogEncryptionSettingsTypeArgs, DataCatalogEncryptionSettingsTypePtr and DataCatalogEncryptionSettingsTypePtrOutput values.
+// You can construct a concrete instance of `DataCatalogEncryptionSettingsTypePtrInput` via:
+//
+//          DataCatalogEncryptionSettingsTypeArgs{...}
+//
+//  or:
+//
+//          nil
+type DataCatalogEncryptionSettingsTypePtrInput interface {
+	pulumi.Input
+
+	ToDataCatalogEncryptionSettingsTypePtrOutput() DataCatalogEncryptionSettingsTypePtrOutput
+	ToDataCatalogEncryptionSettingsTypePtrOutputWithContext(context.Context) DataCatalogEncryptionSettingsTypePtrOutput
+}
+
+type dataCatalogEncryptionSettingsTypePtrType DataCatalogEncryptionSettingsTypeArgs
+
+func DataCatalogEncryptionSettingsTypePtr(v *DataCatalogEncryptionSettingsTypeArgs) DataCatalogEncryptionSettingsTypePtrInput {
+	return (*dataCatalogEncryptionSettingsTypePtrType)(v)
+}
+
+func (*dataCatalogEncryptionSettingsTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCatalogEncryptionSettingsType)(nil)).Elem()
+}
+
+func (i *dataCatalogEncryptionSettingsTypePtrType) ToDataCatalogEncryptionSettingsTypePtrOutput() DataCatalogEncryptionSettingsTypePtrOutput {
+	return i.ToDataCatalogEncryptionSettingsTypePtrOutputWithContext(context.Background())
+}
+
+func (i *dataCatalogEncryptionSettingsTypePtrType) ToDataCatalogEncryptionSettingsTypePtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsTypePtrOutput)
+}
+
+type DataCatalogEncryptionSettingsTypeOutput struct{ *pulumi.OutputState }
+
+func (DataCatalogEncryptionSettingsTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCatalogEncryptionSettingsType)(nil)).Elem()
+}
+
+func (o DataCatalogEncryptionSettingsTypeOutput) ToDataCatalogEncryptionSettingsTypeOutput() DataCatalogEncryptionSettingsTypeOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsTypeOutput) ToDataCatalogEncryptionSettingsTypeOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsTypeOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsTypeOutput) ToDataCatalogEncryptionSettingsTypePtrOutput() DataCatalogEncryptionSettingsTypePtrOutput {
+	return o.ToDataCatalogEncryptionSettingsTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataCatalogEncryptionSettingsTypeOutput) ToDataCatalogEncryptionSettingsTypePtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCatalogEncryptionSettingsType) *DataCatalogEncryptionSettingsType {
+		return &v
+	}).(DataCatalogEncryptionSettingsTypePtrOutput)
+}
+
+func (o DataCatalogEncryptionSettingsTypeOutput) ConnectionPasswordEncryption() DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return o.ApplyT(func(v DataCatalogEncryptionSettingsType) *DataCatalogEncryptionSettingsConnectionPasswordEncryption {
+		return v.ConnectionPasswordEncryption
+	}).(DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput)
+}
+
+func (o DataCatalogEncryptionSettingsTypeOutput) EncryptionAtRest() DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return o.ApplyT(func(v DataCatalogEncryptionSettingsType) *DataCatalogEncryptionSettingsEncryptionAtRest {
+		return v.EncryptionAtRest
+	}).(DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput)
+}
+
+type DataCatalogEncryptionSettingsTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataCatalogEncryptionSettingsTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCatalogEncryptionSettingsType)(nil)).Elem()
+}
+
+func (o DataCatalogEncryptionSettingsTypePtrOutput) ToDataCatalogEncryptionSettingsTypePtrOutput() DataCatalogEncryptionSettingsTypePtrOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsTypePtrOutput) ToDataCatalogEncryptionSettingsTypePtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsTypePtrOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsTypePtrOutput) Elem() DataCatalogEncryptionSettingsTypeOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsType) DataCatalogEncryptionSettingsType {
+		if v != nil {
+			return *v
+		}
+		var ret DataCatalogEncryptionSettingsType
+		return ret
+	}).(DataCatalogEncryptionSettingsTypeOutput)
+}
+
+func (o DataCatalogEncryptionSettingsTypePtrOutput) ConnectionPasswordEncryption() DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsType) *DataCatalogEncryptionSettingsConnectionPasswordEncryption {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionPasswordEncryption
+	}).(DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput)
+}
+
+func (o DataCatalogEncryptionSettingsTypePtrOutput) EncryptionAtRest() DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsType) *DataCatalogEncryptionSettingsEncryptionAtRest {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionAtRest
+	}).(DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput)
+}
+
 type DataCatalogEncryptionSettingsConnectionPasswordEncryption struct {
 	KmsKeyId                          *string `pulumi:"kmsKeyId"`
 	ReturnConnectionPasswordEncrypted *bool   `pulumi:"returnConnectionPasswordEncrypted"`
@@ -2241,158 +2393,6 @@ func (o DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput) Retu
 		}
 		return v.ReturnConnectionPasswordEncrypted
 	}).(pulumi.BoolPtrOutput)
-}
-
-type DataCatalogEncryptionSettingsDataCatalogEncryptionSettings struct {
-	ConnectionPasswordEncryption *DataCatalogEncryptionSettingsConnectionPasswordEncryption `pulumi:"connectionPasswordEncryption"`
-	EncryptionAtRest             *DataCatalogEncryptionSettingsEncryptionAtRest             `pulumi:"encryptionAtRest"`
-}
-
-// DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsInput is an input type that accepts DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs and DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput values.
-// You can construct a concrete instance of `DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsInput` via:
-//
-//          DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs{...}
-type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsInput interface {
-	pulumi.Input
-
-	ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput
-	ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutputWithContext(context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput
-}
-
-type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs struct {
-	ConnectionPasswordEncryption DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrInput `pulumi:"connectionPasswordEncryption"`
-	EncryptionAtRest             DataCatalogEncryptionSettingsEncryptionAtRestPtrInput             `pulumi:"encryptionAtRest"`
-}
-
-func (DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCatalogEncryptionSettingsDataCatalogEncryptionSettings)(nil)).Elem()
-}
-
-func (i DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput {
-	return i.ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutputWithContext(context.Background())
-}
-
-func (i DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput)
-}
-
-func (i DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
-	return i.ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput).ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(ctx)
-}
-
-// DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrInput is an input type that accepts DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs, DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtr and DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput values.
-// You can construct a concrete instance of `DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrInput` via:
-//
-//          DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs{...}
-//
-//  or:
-//
-//          nil
-type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrInput interface {
-	pulumi.Input
-
-	ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput
-	ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput
-}
-
-type dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrType DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs
-
-func DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtr(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrInput {
-	return (*dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrType)(v)
-}
-
-func (*dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataCatalogEncryptionSettingsDataCatalogEncryptionSettings)(nil)).Elem()
-}
-
-func (i *dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrType) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
-	return i.ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrType) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput)
-}
-
-type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput struct{ *pulumi.OutputState }
-
-func (DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCatalogEncryptionSettingsDataCatalogEncryptionSettings)(nil)).Elem()
-}
-
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput {
-	return o
-}
-
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput {
-	return o
-}
-
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
-	return o.ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(context.Background())
-}
-
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCatalogEncryptionSettingsDataCatalogEncryptionSettings) *DataCatalogEncryptionSettingsDataCatalogEncryptionSettings {
-		return &v
-	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput)
-}
-
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) ConnectionPasswordEncryption() DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
-	return o.ApplyT(func(v DataCatalogEncryptionSettingsDataCatalogEncryptionSettings) *DataCatalogEncryptionSettingsConnectionPasswordEncryption {
-		return v.ConnectionPasswordEncryption
-	}).(DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput)
-}
-
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) EncryptionAtRest() DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
-	return o.ApplyT(func(v DataCatalogEncryptionSettingsDataCatalogEncryptionSettings) *DataCatalogEncryptionSettingsEncryptionAtRest {
-		return v.EncryptionAtRest
-	}).(DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput)
-}
-
-type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput struct{ *pulumi.OutputState }
-
-func (DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataCatalogEncryptionSettingsDataCatalogEncryptionSettings)(nil)).Elem()
-}
-
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
-	return o
-}
-
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
-	return o
-}
-
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput) Elem() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput {
-	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettings) DataCatalogEncryptionSettingsDataCatalogEncryptionSettings {
-		if v != nil {
-			return *v
-		}
-		var ret DataCatalogEncryptionSettingsDataCatalogEncryptionSettings
-		return ret
-	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput)
-}
-
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput) ConnectionPasswordEncryption() DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
-	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettings) *DataCatalogEncryptionSettingsConnectionPasswordEncryption {
-		if v == nil {
-			return nil
-		}
-		return v.ConnectionPasswordEncryption
-	}).(DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput)
-}
-
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput) EncryptionAtRest() DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
-	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettings) *DataCatalogEncryptionSettingsEncryptionAtRest {
-		if v == nil {
-			return nil
-		}
-		return v.EncryptionAtRest
-	}).(DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput)
 }
 
 type DataCatalogEncryptionSettingsEncryptionAtRest struct {
@@ -2676,138 +2676,138 @@ func (o DatabaseDataLakePrincipalPtrOutput) DataLakePrincipalIdentifier() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-type DatabaseDatabaseIdentifier struct {
+type DatabaseIdentifier struct {
 	CatalogId    *string `pulumi:"catalogId"`
 	DatabaseName *string `pulumi:"databaseName"`
 }
 
-// DatabaseDatabaseIdentifierInput is an input type that accepts DatabaseDatabaseIdentifierArgs and DatabaseDatabaseIdentifierOutput values.
-// You can construct a concrete instance of `DatabaseDatabaseIdentifierInput` via:
+// DatabaseIdentifierInput is an input type that accepts DatabaseIdentifierArgs and DatabaseIdentifierOutput values.
+// You can construct a concrete instance of `DatabaseIdentifierInput` via:
 //
-//          DatabaseDatabaseIdentifierArgs{...}
-type DatabaseDatabaseIdentifierInput interface {
+//          DatabaseIdentifierArgs{...}
+type DatabaseIdentifierInput interface {
 	pulumi.Input
 
-	ToDatabaseDatabaseIdentifierOutput() DatabaseDatabaseIdentifierOutput
-	ToDatabaseDatabaseIdentifierOutputWithContext(context.Context) DatabaseDatabaseIdentifierOutput
+	ToDatabaseIdentifierOutput() DatabaseIdentifierOutput
+	ToDatabaseIdentifierOutputWithContext(context.Context) DatabaseIdentifierOutput
 }
 
-type DatabaseDatabaseIdentifierArgs struct {
+type DatabaseIdentifierArgs struct {
 	CatalogId    pulumi.StringPtrInput `pulumi:"catalogId"`
 	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
 }
 
-func (DatabaseDatabaseIdentifierArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseDatabaseIdentifier)(nil)).Elem()
+func (DatabaseIdentifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseIdentifier)(nil)).Elem()
 }
 
-func (i DatabaseDatabaseIdentifierArgs) ToDatabaseDatabaseIdentifierOutput() DatabaseDatabaseIdentifierOutput {
-	return i.ToDatabaseDatabaseIdentifierOutputWithContext(context.Background())
+func (i DatabaseIdentifierArgs) ToDatabaseIdentifierOutput() DatabaseIdentifierOutput {
+	return i.ToDatabaseIdentifierOutputWithContext(context.Background())
 }
 
-func (i DatabaseDatabaseIdentifierArgs) ToDatabaseDatabaseIdentifierOutputWithContext(ctx context.Context) DatabaseDatabaseIdentifierOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseDatabaseIdentifierOutput)
+func (i DatabaseIdentifierArgs) ToDatabaseIdentifierOutputWithContext(ctx context.Context) DatabaseIdentifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseIdentifierOutput)
 }
 
-func (i DatabaseDatabaseIdentifierArgs) ToDatabaseDatabaseIdentifierPtrOutput() DatabaseDatabaseIdentifierPtrOutput {
-	return i.ToDatabaseDatabaseIdentifierPtrOutputWithContext(context.Background())
+func (i DatabaseIdentifierArgs) ToDatabaseIdentifierPtrOutput() DatabaseIdentifierPtrOutput {
+	return i.ToDatabaseIdentifierPtrOutputWithContext(context.Background())
 }
 
-func (i DatabaseDatabaseIdentifierArgs) ToDatabaseDatabaseIdentifierPtrOutputWithContext(ctx context.Context) DatabaseDatabaseIdentifierPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseDatabaseIdentifierOutput).ToDatabaseDatabaseIdentifierPtrOutputWithContext(ctx)
+func (i DatabaseIdentifierArgs) ToDatabaseIdentifierPtrOutputWithContext(ctx context.Context) DatabaseIdentifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseIdentifierOutput).ToDatabaseIdentifierPtrOutputWithContext(ctx)
 }
 
-// DatabaseDatabaseIdentifierPtrInput is an input type that accepts DatabaseDatabaseIdentifierArgs, DatabaseDatabaseIdentifierPtr and DatabaseDatabaseIdentifierPtrOutput values.
-// You can construct a concrete instance of `DatabaseDatabaseIdentifierPtrInput` via:
+// DatabaseIdentifierPtrInput is an input type that accepts DatabaseIdentifierArgs, DatabaseIdentifierPtr and DatabaseIdentifierPtrOutput values.
+// You can construct a concrete instance of `DatabaseIdentifierPtrInput` via:
 //
-//          DatabaseDatabaseIdentifierArgs{...}
+//          DatabaseIdentifierArgs{...}
 //
 //  or:
 //
 //          nil
-type DatabaseDatabaseIdentifierPtrInput interface {
+type DatabaseIdentifierPtrInput interface {
 	pulumi.Input
 
-	ToDatabaseDatabaseIdentifierPtrOutput() DatabaseDatabaseIdentifierPtrOutput
-	ToDatabaseDatabaseIdentifierPtrOutputWithContext(context.Context) DatabaseDatabaseIdentifierPtrOutput
+	ToDatabaseIdentifierPtrOutput() DatabaseIdentifierPtrOutput
+	ToDatabaseIdentifierPtrOutputWithContext(context.Context) DatabaseIdentifierPtrOutput
 }
 
-type databaseDatabaseIdentifierPtrType DatabaseDatabaseIdentifierArgs
+type databaseIdentifierPtrType DatabaseIdentifierArgs
 
-func DatabaseDatabaseIdentifierPtr(v *DatabaseDatabaseIdentifierArgs) DatabaseDatabaseIdentifierPtrInput {
-	return (*databaseDatabaseIdentifierPtrType)(v)
+func DatabaseIdentifierPtr(v *DatabaseIdentifierArgs) DatabaseIdentifierPtrInput {
+	return (*databaseIdentifierPtrType)(v)
 }
 
-func (*databaseDatabaseIdentifierPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatabaseDatabaseIdentifier)(nil)).Elem()
+func (*databaseIdentifierPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseIdentifier)(nil)).Elem()
 }
 
-func (i *databaseDatabaseIdentifierPtrType) ToDatabaseDatabaseIdentifierPtrOutput() DatabaseDatabaseIdentifierPtrOutput {
-	return i.ToDatabaseDatabaseIdentifierPtrOutputWithContext(context.Background())
+func (i *databaseIdentifierPtrType) ToDatabaseIdentifierPtrOutput() DatabaseIdentifierPtrOutput {
+	return i.ToDatabaseIdentifierPtrOutputWithContext(context.Background())
 }
 
-func (i *databaseDatabaseIdentifierPtrType) ToDatabaseDatabaseIdentifierPtrOutputWithContext(ctx context.Context) DatabaseDatabaseIdentifierPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseDatabaseIdentifierPtrOutput)
+func (i *databaseIdentifierPtrType) ToDatabaseIdentifierPtrOutputWithContext(ctx context.Context) DatabaseIdentifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseIdentifierPtrOutput)
 }
 
-type DatabaseDatabaseIdentifierOutput struct{ *pulumi.OutputState }
+type DatabaseIdentifierOutput struct{ *pulumi.OutputState }
 
-func (DatabaseDatabaseIdentifierOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseDatabaseIdentifier)(nil)).Elem()
+func (DatabaseIdentifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseIdentifier)(nil)).Elem()
 }
 
-func (o DatabaseDatabaseIdentifierOutput) ToDatabaseDatabaseIdentifierOutput() DatabaseDatabaseIdentifierOutput {
+func (o DatabaseIdentifierOutput) ToDatabaseIdentifierOutput() DatabaseIdentifierOutput {
 	return o
 }
 
-func (o DatabaseDatabaseIdentifierOutput) ToDatabaseDatabaseIdentifierOutputWithContext(ctx context.Context) DatabaseDatabaseIdentifierOutput {
+func (o DatabaseIdentifierOutput) ToDatabaseIdentifierOutputWithContext(ctx context.Context) DatabaseIdentifierOutput {
 	return o
 }
 
-func (o DatabaseDatabaseIdentifierOutput) ToDatabaseDatabaseIdentifierPtrOutput() DatabaseDatabaseIdentifierPtrOutput {
-	return o.ToDatabaseDatabaseIdentifierPtrOutputWithContext(context.Background())
+func (o DatabaseIdentifierOutput) ToDatabaseIdentifierPtrOutput() DatabaseIdentifierPtrOutput {
+	return o.ToDatabaseIdentifierPtrOutputWithContext(context.Background())
 }
 
-func (o DatabaseDatabaseIdentifierOutput) ToDatabaseDatabaseIdentifierPtrOutputWithContext(ctx context.Context) DatabaseDatabaseIdentifierPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseDatabaseIdentifier) *DatabaseDatabaseIdentifier {
+func (o DatabaseIdentifierOutput) ToDatabaseIdentifierPtrOutputWithContext(ctx context.Context) DatabaseIdentifierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseIdentifier) *DatabaseIdentifier {
 		return &v
-	}).(DatabaseDatabaseIdentifierPtrOutput)
+	}).(DatabaseIdentifierPtrOutput)
 }
 
-func (o DatabaseDatabaseIdentifierOutput) CatalogId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseDatabaseIdentifier) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+func (o DatabaseIdentifierOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseIdentifier) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
-func (o DatabaseDatabaseIdentifierOutput) DatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseDatabaseIdentifier) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+func (o DatabaseIdentifierOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseIdentifier) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
 }
 
-type DatabaseDatabaseIdentifierPtrOutput struct{ *pulumi.OutputState }
+type DatabaseIdentifierPtrOutput struct{ *pulumi.OutputState }
 
-func (DatabaseDatabaseIdentifierPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatabaseDatabaseIdentifier)(nil)).Elem()
+func (DatabaseIdentifierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseIdentifier)(nil)).Elem()
 }
 
-func (o DatabaseDatabaseIdentifierPtrOutput) ToDatabaseDatabaseIdentifierPtrOutput() DatabaseDatabaseIdentifierPtrOutput {
+func (o DatabaseIdentifierPtrOutput) ToDatabaseIdentifierPtrOutput() DatabaseIdentifierPtrOutput {
 	return o
 }
 
-func (o DatabaseDatabaseIdentifierPtrOutput) ToDatabaseDatabaseIdentifierPtrOutputWithContext(ctx context.Context) DatabaseDatabaseIdentifierPtrOutput {
+func (o DatabaseIdentifierPtrOutput) ToDatabaseIdentifierPtrOutputWithContext(ctx context.Context) DatabaseIdentifierPtrOutput {
 	return o
 }
 
-func (o DatabaseDatabaseIdentifierPtrOutput) Elem() DatabaseDatabaseIdentifierOutput {
-	return o.ApplyT(func(v *DatabaseDatabaseIdentifier) DatabaseDatabaseIdentifier {
+func (o DatabaseIdentifierPtrOutput) Elem() DatabaseIdentifierOutput {
+	return o.ApplyT(func(v *DatabaseIdentifier) DatabaseIdentifier {
 		if v != nil {
 			return *v
 		}
-		var ret DatabaseDatabaseIdentifier
+		var ret DatabaseIdentifier
 		return ret
-	}).(DatabaseDatabaseIdentifierOutput)
+	}).(DatabaseIdentifierOutput)
 }
 
-func (o DatabaseDatabaseIdentifierPtrOutput) CatalogId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabaseDatabaseIdentifier) *string {
+func (o DatabaseIdentifierPtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseIdentifier) *string {
 		if v == nil {
 			return nil
 		}
@@ -2815,8 +2815,8 @@ func (o DatabaseDatabaseIdentifierPtrOutput) CatalogId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o DatabaseDatabaseIdentifierPtrOutput) DatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabaseDatabaseIdentifier) *string {
+func (o DatabaseIdentifierPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseIdentifier) *string {
 		if v == nil {
 			return nil
 		}
@@ -2824,162 +2824,162 @@ func (o DatabaseDatabaseIdentifierPtrOutput) DatabaseName() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-type DatabaseDatabaseInput struct {
+type DatabaseInputType struct {
 	CreateTableDefaultPermissions []DatabasePrincipalPrivileges `pulumi:"createTableDefaultPermissions"`
 	Description                   *string                       `pulumi:"description"`
 	LocationUri                   *string                       `pulumi:"locationUri"`
 	Name                          *string                       `pulumi:"name"`
 	Parameters                    interface{}                   `pulumi:"parameters"`
-	TargetDatabase                *DatabaseDatabaseIdentifier   `pulumi:"targetDatabase"`
+	TargetDatabase                *DatabaseIdentifier           `pulumi:"targetDatabase"`
 }
 
-// DatabaseDatabaseInputInput is an input type that accepts DatabaseDatabaseInputArgs and DatabaseDatabaseInputOutput values.
-// You can construct a concrete instance of `DatabaseDatabaseInputInput` via:
+// DatabaseInputTypeInput is an input type that accepts DatabaseInputTypeArgs and DatabaseInputTypeOutput values.
+// You can construct a concrete instance of `DatabaseInputTypeInput` via:
 //
-//          DatabaseDatabaseInputArgs{...}
-type DatabaseDatabaseInputInput interface {
+//          DatabaseInputTypeArgs{...}
+type DatabaseInputTypeInput interface {
 	pulumi.Input
 
-	ToDatabaseDatabaseInputOutput() DatabaseDatabaseInputOutput
-	ToDatabaseDatabaseInputOutputWithContext(context.Context) DatabaseDatabaseInputOutput
+	ToDatabaseInputTypeOutput() DatabaseInputTypeOutput
+	ToDatabaseInputTypeOutputWithContext(context.Context) DatabaseInputTypeOutput
 }
 
-type DatabaseDatabaseInputArgs struct {
+type DatabaseInputTypeArgs struct {
 	CreateTableDefaultPermissions DatabasePrincipalPrivilegesArrayInput `pulumi:"createTableDefaultPermissions"`
 	Description                   pulumi.StringPtrInput                 `pulumi:"description"`
 	LocationUri                   pulumi.StringPtrInput                 `pulumi:"locationUri"`
 	Name                          pulumi.StringPtrInput                 `pulumi:"name"`
 	Parameters                    pulumi.Input                          `pulumi:"parameters"`
-	TargetDatabase                DatabaseDatabaseIdentifierPtrInput    `pulumi:"targetDatabase"`
+	TargetDatabase                DatabaseIdentifierPtrInput            `pulumi:"targetDatabase"`
 }
 
-func (DatabaseDatabaseInputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseDatabaseInput)(nil)).Elem()
+func (DatabaseInputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseInputType)(nil)).Elem()
 }
 
-func (i DatabaseDatabaseInputArgs) ToDatabaseDatabaseInputOutput() DatabaseDatabaseInputOutput {
-	return i.ToDatabaseDatabaseInputOutputWithContext(context.Background())
+func (i DatabaseInputTypeArgs) ToDatabaseInputTypeOutput() DatabaseInputTypeOutput {
+	return i.ToDatabaseInputTypeOutputWithContext(context.Background())
 }
 
-func (i DatabaseDatabaseInputArgs) ToDatabaseDatabaseInputOutputWithContext(ctx context.Context) DatabaseDatabaseInputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseDatabaseInputOutput)
+func (i DatabaseInputTypeArgs) ToDatabaseInputTypeOutputWithContext(ctx context.Context) DatabaseInputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseInputTypeOutput)
 }
 
-func (i DatabaseDatabaseInputArgs) ToDatabaseDatabaseInputPtrOutput() DatabaseDatabaseInputPtrOutput {
-	return i.ToDatabaseDatabaseInputPtrOutputWithContext(context.Background())
+func (i DatabaseInputTypeArgs) ToDatabaseInputTypePtrOutput() DatabaseInputTypePtrOutput {
+	return i.ToDatabaseInputTypePtrOutputWithContext(context.Background())
 }
 
-func (i DatabaseDatabaseInputArgs) ToDatabaseDatabaseInputPtrOutputWithContext(ctx context.Context) DatabaseDatabaseInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseDatabaseInputOutput).ToDatabaseDatabaseInputPtrOutputWithContext(ctx)
+func (i DatabaseInputTypeArgs) ToDatabaseInputTypePtrOutputWithContext(ctx context.Context) DatabaseInputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseInputTypeOutput).ToDatabaseInputTypePtrOutputWithContext(ctx)
 }
 
-// DatabaseDatabaseInputPtrInput is an input type that accepts DatabaseDatabaseInputArgs, DatabaseDatabaseInputPtr and DatabaseDatabaseInputPtrOutput values.
-// You can construct a concrete instance of `DatabaseDatabaseInputPtrInput` via:
+// DatabaseInputTypePtrInput is an input type that accepts DatabaseInputTypeArgs, DatabaseInputTypePtr and DatabaseInputTypePtrOutput values.
+// You can construct a concrete instance of `DatabaseInputTypePtrInput` via:
 //
-//          DatabaseDatabaseInputArgs{...}
+//          DatabaseInputTypeArgs{...}
 //
 //  or:
 //
 //          nil
-type DatabaseDatabaseInputPtrInput interface {
+type DatabaseInputTypePtrInput interface {
 	pulumi.Input
 
-	ToDatabaseDatabaseInputPtrOutput() DatabaseDatabaseInputPtrOutput
-	ToDatabaseDatabaseInputPtrOutputWithContext(context.Context) DatabaseDatabaseInputPtrOutput
+	ToDatabaseInputTypePtrOutput() DatabaseInputTypePtrOutput
+	ToDatabaseInputTypePtrOutputWithContext(context.Context) DatabaseInputTypePtrOutput
 }
 
-type databaseDatabaseInputPtrType DatabaseDatabaseInputArgs
+type databaseInputTypePtrType DatabaseInputTypeArgs
 
-func DatabaseDatabaseInputPtr(v *DatabaseDatabaseInputArgs) DatabaseDatabaseInputPtrInput {
-	return (*databaseDatabaseInputPtrType)(v)
+func DatabaseInputTypePtr(v *DatabaseInputTypeArgs) DatabaseInputTypePtrInput {
+	return (*databaseInputTypePtrType)(v)
 }
 
-func (*databaseDatabaseInputPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatabaseDatabaseInput)(nil)).Elem()
+func (*databaseInputTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseInputType)(nil)).Elem()
 }
 
-func (i *databaseDatabaseInputPtrType) ToDatabaseDatabaseInputPtrOutput() DatabaseDatabaseInputPtrOutput {
-	return i.ToDatabaseDatabaseInputPtrOutputWithContext(context.Background())
+func (i *databaseInputTypePtrType) ToDatabaseInputTypePtrOutput() DatabaseInputTypePtrOutput {
+	return i.ToDatabaseInputTypePtrOutputWithContext(context.Background())
 }
 
-func (i *databaseDatabaseInputPtrType) ToDatabaseDatabaseInputPtrOutputWithContext(ctx context.Context) DatabaseDatabaseInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseDatabaseInputPtrOutput)
+func (i *databaseInputTypePtrType) ToDatabaseInputTypePtrOutputWithContext(ctx context.Context) DatabaseInputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseInputTypePtrOutput)
 }
 
-type DatabaseDatabaseInputOutput struct{ *pulumi.OutputState }
+type DatabaseInputTypeOutput struct{ *pulumi.OutputState }
 
-func (DatabaseDatabaseInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseDatabaseInput)(nil)).Elem()
+func (DatabaseInputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseInputType)(nil)).Elem()
 }
 
-func (o DatabaseDatabaseInputOutput) ToDatabaseDatabaseInputOutput() DatabaseDatabaseInputOutput {
+func (o DatabaseInputTypeOutput) ToDatabaseInputTypeOutput() DatabaseInputTypeOutput {
 	return o
 }
 
-func (o DatabaseDatabaseInputOutput) ToDatabaseDatabaseInputOutputWithContext(ctx context.Context) DatabaseDatabaseInputOutput {
+func (o DatabaseInputTypeOutput) ToDatabaseInputTypeOutputWithContext(ctx context.Context) DatabaseInputTypeOutput {
 	return o
 }
 
-func (o DatabaseDatabaseInputOutput) ToDatabaseDatabaseInputPtrOutput() DatabaseDatabaseInputPtrOutput {
-	return o.ToDatabaseDatabaseInputPtrOutputWithContext(context.Background())
+func (o DatabaseInputTypeOutput) ToDatabaseInputTypePtrOutput() DatabaseInputTypePtrOutput {
+	return o.ToDatabaseInputTypePtrOutputWithContext(context.Background())
 }
 
-func (o DatabaseDatabaseInputOutput) ToDatabaseDatabaseInputPtrOutputWithContext(ctx context.Context) DatabaseDatabaseInputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseDatabaseInput) *DatabaseDatabaseInput {
+func (o DatabaseInputTypeOutput) ToDatabaseInputTypePtrOutputWithContext(ctx context.Context) DatabaseInputTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseInputType) *DatabaseInputType {
 		return &v
-	}).(DatabaseDatabaseInputPtrOutput)
+	}).(DatabaseInputTypePtrOutput)
 }
 
-func (o DatabaseDatabaseInputOutput) CreateTableDefaultPermissions() DatabasePrincipalPrivilegesArrayOutput {
-	return o.ApplyT(func(v DatabaseDatabaseInput) []DatabasePrincipalPrivileges { return v.CreateTableDefaultPermissions }).(DatabasePrincipalPrivilegesArrayOutput)
+func (o DatabaseInputTypeOutput) CreateTableDefaultPermissions() DatabasePrincipalPrivilegesArrayOutput {
+	return o.ApplyT(func(v DatabaseInputType) []DatabasePrincipalPrivileges { return v.CreateTableDefaultPermissions }).(DatabasePrincipalPrivilegesArrayOutput)
 }
 
-func (o DatabaseDatabaseInputOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseDatabaseInput) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o DatabaseInputTypeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseInputType) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o DatabaseDatabaseInputOutput) LocationUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseDatabaseInput) *string { return v.LocationUri }).(pulumi.StringPtrOutput)
+func (o DatabaseInputTypeOutput) LocationUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseInputType) *string { return v.LocationUri }).(pulumi.StringPtrOutput)
 }
 
-func (o DatabaseDatabaseInputOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseDatabaseInput) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o DatabaseInputTypeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseInputType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o DatabaseDatabaseInputOutput) Parameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v DatabaseDatabaseInput) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+func (o DatabaseInputTypeOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v DatabaseInputType) interface{} { return v.Parameters }).(pulumi.AnyOutput)
 }
 
-func (o DatabaseDatabaseInputOutput) TargetDatabase() DatabaseDatabaseIdentifierPtrOutput {
-	return o.ApplyT(func(v DatabaseDatabaseInput) *DatabaseDatabaseIdentifier { return v.TargetDatabase }).(DatabaseDatabaseIdentifierPtrOutput)
+func (o DatabaseInputTypeOutput) TargetDatabase() DatabaseIdentifierPtrOutput {
+	return o.ApplyT(func(v DatabaseInputType) *DatabaseIdentifier { return v.TargetDatabase }).(DatabaseIdentifierPtrOutput)
 }
 
-type DatabaseDatabaseInputPtrOutput struct{ *pulumi.OutputState }
+type DatabaseInputTypePtrOutput struct{ *pulumi.OutputState }
 
-func (DatabaseDatabaseInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatabaseDatabaseInput)(nil)).Elem()
+func (DatabaseInputTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseInputType)(nil)).Elem()
 }
 
-func (o DatabaseDatabaseInputPtrOutput) ToDatabaseDatabaseInputPtrOutput() DatabaseDatabaseInputPtrOutput {
+func (o DatabaseInputTypePtrOutput) ToDatabaseInputTypePtrOutput() DatabaseInputTypePtrOutput {
 	return o
 }
 
-func (o DatabaseDatabaseInputPtrOutput) ToDatabaseDatabaseInputPtrOutputWithContext(ctx context.Context) DatabaseDatabaseInputPtrOutput {
+func (o DatabaseInputTypePtrOutput) ToDatabaseInputTypePtrOutputWithContext(ctx context.Context) DatabaseInputTypePtrOutput {
 	return o
 }
 
-func (o DatabaseDatabaseInputPtrOutput) Elem() DatabaseDatabaseInputOutput {
-	return o.ApplyT(func(v *DatabaseDatabaseInput) DatabaseDatabaseInput {
+func (o DatabaseInputTypePtrOutput) Elem() DatabaseInputTypeOutput {
+	return o.ApplyT(func(v *DatabaseInputType) DatabaseInputType {
 		if v != nil {
 			return *v
 		}
-		var ret DatabaseDatabaseInput
+		var ret DatabaseInputType
 		return ret
-	}).(DatabaseDatabaseInputOutput)
+	}).(DatabaseInputTypeOutput)
 }
 
-func (o DatabaseDatabaseInputPtrOutput) CreateTableDefaultPermissions() DatabasePrincipalPrivilegesArrayOutput {
-	return o.ApplyT(func(v *DatabaseDatabaseInput) []DatabasePrincipalPrivileges {
+func (o DatabaseInputTypePtrOutput) CreateTableDefaultPermissions() DatabasePrincipalPrivilegesArrayOutput {
+	return o.ApplyT(func(v *DatabaseInputType) []DatabasePrincipalPrivileges {
 		if v == nil {
 			return nil
 		}
@@ -2987,8 +2987,8 @@ func (o DatabaseDatabaseInputPtrOutput) CreateTableDefaultPermissions() Database
 	}).(DatabasePrincipalPrivilegesArrayOutput)
 }
 
-func (o DatabaseDatabaseInputPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabaseDatabaseInput) *string {
+func (o DatabaseInputTypePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseInputType) *string {
 		if v == nil {
 			return nil
 		}
@@ -2996,8 +2996,8 @@ func (o DatabaseDatabaseInputPtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o DatabaseDatabaseInputPtrOutput) LocationUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabaseDatabaseInput) *string {
+func (o DatabaseInputTypePtrOutput) LocationUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseInputType) *string {
 		if v == nil {
 			return nil
 		}
@@ -3005,8 +3005,8 @@ func (o DatabaseDatabaseInputPtrOutput) LocationUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o DatabaseDatabaseInputPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabaseDatabaseInput) *string {
+func (o DatabaseInputTypePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseInputType) *string {
 		if v == nil {
 			return nil
 		}
@@ -3014,8 +3014,8 @@ func (o DatabaseDatabaseInputPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o DatabaseDatabaseInputPtrOutput) Parameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v *DatabaseDatabaseInput) interface{} {
+func (o DatabaseInputTypePtrOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DatabaseInputType) interface{} {
 		if v == nil {
 			return nil
 		}
@@ -3023,13 +3023,13 @@ func (o DatabaseDatabaseInputPtrOutput) Parameters() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-func (o DatabaseDatabaseInputPtrOutput) TargetDatabase() DatabaseDatabaseIdentifierPtrOutput {
-	return o.ApplyT(func(v *DatabaseDatabaseInput) *DatabaseDatabaseIdentifier {
+func (o DatabaseInputTypePtrOutput) TargetDatabase() DatabaseIdentifierPtrOutput {
+	return o.ApplyT(func(v *DatabaseInputType) *DatabaseIdentifier {
 		if v == nil {
 			return nil
 		}
 		return v.TargetDatabase
-	}).(DatabaseDatabaseIdentifierPtrOutput)
+	}).(DatabaseIdentifierPtrOutput)
 }
 
 type DatabasePrincipalPrivileges struct {
@@ -3130,6 +3130,169 @@ func (o DatabasePrincipalPrivilegesArrayOutput) Index(i pulumi.IntInput) Databas
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabasePrincipalPrivileges {
 		return vs[0].([]DatabasePrincipalPrivileges)[vs[1].(int)]
 	}).(DatabasePrincipalPrivilegesOutput)
+}
+
+type JobCommand struct {
+	Name           *string `pulumi:"name"`
+	PythonVersion  *string `pulumi:"pythonVersion"`
+	ScriptLocation *string `pulumi:"scriptLocation"`
+}
+
+// JobCommandInput is an input type that accepts JobCommandArgs and JobCommandOutput values.
+// You can construct a concrete instance of `JobCommandInput` via:
+//
+//          JobCommandArgs{...}
+type JobCommandInput interface {
+	pulumi.Input
+
+	ToJobCommandOutput() JobCommandOutput
+	ToJobCommandOutputWithContext(context.Context) JobCommandOutput
+}
+
+type JobCommandArgs struct {
+	Name           pulumi.StringPtrInput `pulumi:"name"`
+	PythonVersion  pulumi.StringPtrInput `pulumi:"pythonVersion"`
+	ScriptLocation pulumi.StringPtrInput `pulumi:"scriptLocation"`
+}
+
+func (JobCommandArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobCommand)(nil)).Elem()
+}
+
+func (i JobCommandArgs) ToJobCommandOutput() JobCommandOutput {
+	return i.ToJobCommandOutputWithContext(context.Background())
+}
+
+func (i JobCommandArgs) ToJobCommandOutputWithContext(ctx context.Context) JobCommandOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobCommandOutput)
+}
+
+func (i JobCommandArgs) ToJobCommandPtrOutput() JobCommandPtrOutput {
+	return i.ToJobCommandPtrOutputWithContext(context.Background())
+}
+
+func (i JobCommandArgs) ToJobCommandPtrOutputWithContext(ctx context.Context) JobCommandPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobCommandOutput).ToJobCommandPtrOutputWithContext(ctx)
+}
+
+// JobCommandPtrInput is an input type that accepts JobCommandArgs, JobCommandPtr and JobCommandPtrOutput values.
+// You can construct a concrete instance of `JobCommandPtrInput` via:
+//
+//          JobCommandArgs{...}
+//
+//  or:
+//
+//          nil
+type JobCommandPtrInput interface {
+	pulumi.Input
+
+	ToJobCommandPtrOutput() JobCommandPtrOutput
+	ToJobCommandPtrOutputWithContext(context.Context) JobCommandPtrOutput
+}
+
+type jobCommandPtrType JobCommandArgs
+
+func JobCommandPtr(v *JobCommandArgs) JobCommandPtrInput {
+	return (*jobCommandPtrType)(v)
+}
+
+func (*jobCommandPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobCommand)(nil)).Elem()
+}
+
+func (i *jobCommandPtrType) ToJobCommandPtrOutput() JobCommandPtrOutput {
+	return i.ToJobCommandPtrOutputWithContext(context.Background())
+}
+
+func (i *jobCommandPtrType) ToJobCommandPtrOutputWithContext(ctx context.Context) JobCommandPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobCommandPtrOutput)
+}
+
+type JobCommandOutput struct{ *pulumi.OutputState }
+
+func (JobCommandOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobCommand)(nil)).Elem()
+}
+
+func (o JobCommandOutput) ToJobCommandOutput() JobCommandOutput {
+	return o
+}
+
+func (o JobCommandOutput) ToJobCommandOutputWithContext(ctx context.Context) JobCommandOutput {
+	return o
+}
+
+func (o JobCommandOutput) ToJobCommandPtrOutput() JobCommandPtrOutput {
+	return o.ToJobCommandPtrOutputWithContext(context.Background())
+}
+
+func (o JobCommandOutput) ToJobCommandPtrOutputWithContext(ctx context.Context) JobCommandPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobCommand) *JobCommand {
+		return &v
+	}).(JobCommandPtrOutput)
+}
+
+func (o JobCommandOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobCommand) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o JobCommandOutput) PythonVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobCommand) *string { return v.PythonVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o JobCommandOutput) ScriptLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobCommand) *string { return v.ScriptLocation }).(pulumi.StringPtrOutput)
+}
+
+type JobCommandPtrOutput struct{ *pulumi.OutputState }
+
+func (JobCommandPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobCommand)(nil)).Elem()
+}
+
+func (o JobCommandPtrOutput) ToJobCommandPtrOutput() JobCommandPtrOutput {
+	return o
+}
+
+func (o JobCommandPtrOutput) ToJobCommandPtrOutputWithContext(ctx context.Context) JobCommandPtrOutput {
+	return o
+}
+
+func (o JobCommandPtrOutput) Elem() JobCommandOutput {
+	return o.ApplyT(func(v *JobCommand) JobCommand {
+		if v != nil {
+			return *v
+		}
+		var ret JobCommand
+		return ret
+	}).(JobCommandOutput)
+}
+
+func (o JobCommandPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobCommand) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobCommandPtrOutput) PythonVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobCommand) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PythonVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobCommandPtrOutput) ScriptLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobCommand) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptLocation
+	}).(pulumi.StringPtrOutput)
 }
 
 type JobConnectionsList struct {
@@ -3396,169 +3559,6 @@ func (o JobExecutionPropertyPtrOutput) MaxConcurrentRuns() pulumi.Float64PtrOutp
 		}
 		return v.MaxConcurrentRuns
 	}).(pulumi.Float64PtrOutput)
-}
-
-type JobJobCommand struct {
-	Name           *string `pulumi:"name"`
-	PythonVersion  *string `pulumi:"pythonVersion"`
-	ScriptLocation *string `pulumi:"scriptLocation"`
-}
-
-// JobJobCommandInput is an input type that accepts JobJobCommandArgs and JobJobCommandOutput values.
-// You can construct a concrete instance of `JobJobCommandInput` via:
-//
-//          JobJobCommandArgs{...}
-type JobJobCommandInput interface {
-	pulumi.Input
-
-	ToJobJobCommandOutput() JobJobCommandOutput
-	ToJobJobCommandOutputWithContext(context.Context) JobJobCommandOutput
-}
-
-type JobJobCommandArgs struct {
-	Name           pulumi.StringPtrInput `pulumi:"name"`
-	PythonVersion  pulumi.StringPtrInput `pulumi:"pythonVersion"`
-	ScriptLocation pulumi.StringPtrInput `pulumi:"scriptLocation"`
-}
-
-func (JobJobCommandArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobJobCommand)(nil)).Elem()
-}
-
-func (i JobJobCommandArgs) ToJobJobCommandOutput() JobJobCommandOutput {
-	return i.ToJobJobCommandOutputWithContext(context.Background())
-}
-
-func (i JobJobCommandArgs) ToJobJobCommandOutputWithContext(ctx context.Context) JobJobCommandOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobJobCommandOutput)
-}
-
-func (i JobJobCommandArgs) ToJobJobCommandPtrOutput() JobJobCommandPtrOutput {
-	return i.ToJobJobCommandPtrOutputWithContext(context.Background())
-}
-
-func (i JobJobCommandArgs) ToJobJobCommandPtrOutputWithContext(ctx context.Context) JobJobCommandPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobJobCommandOutput).ToJobJobCommandPtrOutputWithContext(ctx)
-}
-
-// JobJobCommandPtrInput is an input type that accepts JobJobCommandArgs, JobJobCommandPtr and JobJobCommandPtrOutput values.
-// You can construct a concrete instance of `JobJobCommandPtrInput` via:
-//
-//          JobJobCommandArgs{...}
-//
-//  or:
-//
-//          nil
-type JobJobCommandPtrInput interface {
-	pulumi.Input
-
-	ToJobJobCommandPtrOutput() JobJobCommandPtrOutput
-	ToJobJobCommandPtrOutputWithContext(context.Context) JobJobCommandPtrOutput
-}
-
-type jobJobCommandPtrType JobJobCommandArgs
-
-func JobJobCommandPtr(v *JobJobCommandArgs) JobJobCommandPtrInput {
-	return (*jobJobCommandPtrType)(v)
-}
-
-func (*jobJobCommandPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobJobCommand)(nil)).Elem()
-}
-
-func (i *jobJobCommandPtrType) ToJobJobCommandPtrOutput() JobJobCommandPtrOutput {
-	return i.ToJobJobCommandPtrOutputWithContext(context.Background())
-}
-
-func (i *jobJobCommandPtrType) ToJobJobCommandPtrOutputWithContext(ctx context.Context) JobJobCommandPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobJobCommandPtrOutput)
-}
-
-type JobJobCommandOutput struct{ *pulumi.OutputState }
-
-func (JobJobCommandOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobJobCommand)(nil)).Elem()
-}
-
-func (o JobJobCommandOutput) ToJobJobCommandOutput() JobJobCommandOutput {
-	return o
-}
-
-func (o JobJobCommandOutput) ToJobJobCommandOutputWithContext(ctx context.Context) JobJobCommandOutput {
-	return o
-}
-
-func (o JobJobCommandOutput) ToJobJobCommandPtrOutput() JobJobCommandPtrOutput {
-	return o.ToJobJobCommandPtrOutputWithContext(context.Background())
-}
-
-func (o JobJobCommandOutput) ToJobJobCommandPtrOutputWithContext(ctx context.Context) JobJobCommandPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobJobCommand) *JobJobCommand {
-		return &v
-	}).(JobJobCommandPtrOutput)
-}
-
-func (o JobJobCommandOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobJobCommand) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o JobJobCommandOutput) PythonVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobJobCommand) *string { return v.PythonVersion }).(pulumi.StringPtrOutput)
-}
-
-func (o JobJobCommandOutput) ScriptLocation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobJobCommand) *string { return v.ScriptLocation }).(pulumi.StringPtrOutput)
-}
-
-type JobJobCommandPtrOutput struct{ *pulumi.OutputState }
-
-func (JobJobCommandPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobJobCommand)(nil)).Elem()
-}
-
-func (o JobJobCommandPtrOutput) ToJobJobCommandPtrOutput() JobJobCommandPtrOutput {
-	return o
-}
-
-func (o JobJobCommandPtrOutput) ToJobJobCommandPtrOutputWithContext(ctx context.Context) JobJobCommandPtrOutput {
-	return o
-}
-
-func (o JobJobCommandPtrOutput) Elem() JobJobCommandOutput {
-	return o.ApplyT(func(v *JobJobCommand) JobJobCommand {
-		if v != nil {
-			return *v
-		}
-		var ret JobJobCommand
-		return ret
-	}).(JobJobCommandOutput)
-}
-
-func (o JobJobCommandPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobJobCommand) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o JobJobCommandPtrOutput) PythonVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobJobCommand) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PythonVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o JobJobCommandPtrOutput) ScriptLocation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobJobCommand) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ScriptLocation
-	}).(pulumi.StringPtrOutput)
 }
 
 type JobNotificationProperty struct {
@@ -4669,6 +4669,169 @@ func (o PartitionColumnArrayOutput) Index(i pulumi.IntInput) PartitionColumnOutp
 	}).(PartitionColumnOutput)
 }
 
+type PartitionInputType struct {
+	Parameters        interface{}                 `pulumi:"parameters"`
+	StorageDescriptor *PartitionStorageDescriptor `pulumi:"storageDescriptor"`
+	Values            []string                    `pulumi:"values"`
+}
+
+// PartitionInputTypeInput is an input type that accepts PartitionInputTypeArgs and PartitionInputTypeOutput values.
+// You can construct a concrete instance of `PartitionInputTypeInput` via:
+//
+//          PartitionInputTypeArgs{...}
+type PartitionInputTypeInput interface {
+	pulumi.Input
+
+	ToPartitionInputTypeOutput() PartitionInputTypeOutput
+	ToPartitionInputTypeOutputWithContext(context.Context) PartitionInputTypeOutput
+}
+
+type PartitionInputTypeArgs struct {
+	Parameters        pulumi.Input                       `pulumi:"parameters"`
+	StorageDescriptor PartitionStorageDescriptorPtrInput `pulumi:"storageDescriptor"`
+	Values            pulumi.StringArrayInput            `pulumi:"values"`
+}
+
+func (PartitionInputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionInputType)(nil)).Elem()
+}
+
+func (i PartitionInputTypeArgs) ToPartitionInputTypeOutput() PartitionInputTypeOutput {
+	return i.ToPartitionInputTypeOutputWithContext(context.Background())
+}
+
+func (i PartitionInputTypeArgs) ToPartitionInputTypeOutputWithContext(ctx context.Context) PartitionInputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionInputTypeOutput)
+}
+
+func (i PartitionInputTypeArgs) ToPartitionInputTypePtrOutput() PartitionInputTypePtrOutput {
+	return i.ToPartitionInputTypePtrOutputWithContext(context.Background())
+}
+
+func (i PartitionInputTypeArgs) ToPartitionInputTypePtrOutputWithContext(ctx context.Context) PartitionInputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionInputTypeOutput).ToPartitionInputTypePtrOutputWithContext(ctx)
+}
+
+// PartitionInputTypePtrInput is an input type that accepts PartitionInputTypeArgs, PartitionInputTypePtr and PartitionInputTypePtrOutput values.
+// You can construct a concrete instance of `PartitionInputTypePtrInput` via:
+//
+//          PartitionInputTypeArgs{...}
+//
+//  or:
+//
+//          nil
+type PartitionInputTypePtrInput interface {
+	pulumi.Input
+
+	ToPartitionInputTypePtrOutput() PartitionInputTypePtrOutput
+	ToPartitionInputTypePtrOutputWithContext(context.Context) PartitionInputTypePtrOutput
+}
+
+type partitionInputTypePtrType PartitionInputTypeArgs
+
+func PartitionInputTypePtr(v *PartitionInputTypeArgs) PartitionInputTypePtrInput {
+	return (*partitionInputTypePtrType)(v)
+}
+
+func (*partitionInputTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionInputType)(nil)).Elem()
+}
+
+func (i *partitionInputTypePtrType) ToPartitionInputTypePtrOutput() PartitionInputTypePtrOutput {
+	return i.ToPartitionInputTypePtrOutputWithContext(context.Background())
+}
+
+func (i *partitionInputTypePtrType) ToPartitionInputTypePtrOutputWithContext(ctx context.Context) PartitionInputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionInputTypePtrOutput)
+}
+
+type PartitionInputTypeOutput struct{ *pulumi.OutputState }
+
+func (PartitionInputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionInputType)(nil)).Elem()
+}
+
+func (o PartitionInputTypeOutput) ToPartitionInputTypeOutput() PartitionInputTypeOutput {
+	return o
+}
+
+func (o PartitionInputTypeOutput) ToPartitionInputTypeOutputWithContext(ctx context.Context) PartitionInputTypeOutput {
+	return o
+}
+
+func (o PartitionInputTypeOutput) ToPartitionInputTypePtrOutput() PartitionInputTypePtrOutput {
+	return o.ToPartitionInputTypePtrOutputWithContext(context.Background())
+}
+
+func (o PartitionInputTypeOutput) ToPartitionInputTypePtrOutputWithContext(ctx context.Context) PartitionInputTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartitionInputType) *PartitionInputType {
+		return &v
+	}).(PartitionInputTypePtrOutput)
+}
+
+func (o PartitionInputTypeOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v PartitionInputType) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+func (o PartitionInputTypeOutput) StorageDescriptor() PartitionStorageDescriptorPtrOutput {
+	return o.ApplyT(func(v PartitionInputType) *PartitionStorageDescriptor { return v.StorageDescriptor }).(PartitionStorageDescriptorPtrOutput)
+}
+
+func (o PartitionInputTypeOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PartitionInputType) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type PartitionInputTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PartitionInputTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionInputType)(nil)).Elem()
+}
+
+func (o PartitionInputTypePtrOutput) ToPartitionInputTypePtrOutput() PartitionInputTypePtrOutput {
+	return o
+}
+
+func (o PartitionInputTypePtrOutput) ToPartitionInputTypePtrOutputWithContext(ctx context.Context) PartitionInputTypePtrOutput {
+	return o
+}
+
+func (o PartitionInputTypePtrOutput) Elem() PartitionInputTypeOutput {
+	return o.ApplyT(func(v *PartitionInputType) PartitionInputType {
+		if v != nil {
+			return *v
+		}
+		var ret PartitionInputType
+		return ret
+	}).(PartitionInputTypeOutput)
+}
+
+func (o PartitionInputTypePtrOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PartitionInputType) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.AnyOutput)
+}
+
+func (o PartitionInputTypePtrOutput) StorageDescriptor() PartitionStorageDescriptorPtrOutput {
+	return o.ApplyT(func(v *PartitionInputType) *PartitionStorageDescriptor {
+		if v == nil {
+			return nil
+		}
+		return v.StorageDescriptor
+	}).(PartitionStorageDescriptorPtrOutput)
+}
+
+func (o PartitionInputTypePtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PartitionInputType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
 type PartitionOrder struct {
 	Column    string `pulumi:"column"`
 	SortOrder *int   `pulumi:"sortOrder"`
@@ -4767,169 +4930,6 @@ func (o PartitionOrderArrayOutput) Index(i pulumi.IntInput) PartitionOrderOutput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PartitionOrder {
 		return vs[0].([]PartitionOrder)[vs[1].(int)]
 	}).(PartitionOrderOutput)
-}
-
-type PartitionPartitionInput struct {
-	Parameters        interface{}                 `pulumi:"parameters"`
-	StorageDescriptor *PartitionStorageDescriptor `pulumi:"storageDescriptor"`
-	Values            []string                    `pulumi:"values"`
-}
-
-// PartitionPartitionInputInput is an input type that accepts PartitionPartitionInputArgs and PartitionPartitionInputOutput values.
-// You can construct a concrete instance of `PartitionPartitionInputInput` via:
-//
-//          PartitionPartitionInputArgs{...}
-type PartitionPartitionInputInput interface {
-	pulumi.Input
-
-	ToPartitionPartitionInputOutput() PartitionPartitionInputOutput
-	ToPartitionPartitionInputOutputWithContext(context.Context) PartitionPartitionInputOutput
-}
-
-type PartitionPartitionInputArgs struct {
-	Parameters        pulumi.Input                       `pulumi:"parameters"`
-	StorageDescriptor PartitionStorageDescriptorPtrInput `pulumi:"storageDescriptor"`
-	Values            pulumi.StringArrayInput            `pulumi:"values"`
-}
-
-func (PartitionPartitionInputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PartitionPartitionInput)(nil)).Elem()
-}
-
-func (i PartitionPartitionInputArgs) ToPartitionPartitionInputOutput() PartitionPartitionInputOutput {
-	return i.ToPartitionPartitionInputOutputWithContext(context.Background())
-}
-
-func (i PartitionPartitionInputArgs) ToPartitionPartitionInputOutputWithContext(ctx context.Context) PartitionPartitionInputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PartitionPartitionInputOutput)
-}
-
-func (i PartitionPartitionInputArgs) ToPartitionPartitionInputPtrOutput() PartitionPartitionInputPtrOutput {
-	return i.ToPartitionPartitionInputPtrOutputWithContext(context.Background())
-}
-
-func (i PartitionPartitionInputArgs) ToPartitionPartitionInputPtrOutputWithContext(ctx context.Context) PartitionPartitionInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PartitionPartitionInputOutput).ToPartitionPartitionInputPtrOutputWithContext(ctx)
-}
-
-// PartitionPartitionInputPtrInput is an input type that accepts PartitionPartitionInputArgs, PartitionPartitionInputPtr and PartitionPartitionInputPtrOutput values.
-// You can construct a concrete instance of `PartitionPartitionInputPtrInput` via:
-//
-//          PartitionPartitionInputArgs{...}
-//
-//  or:
-//
-//          nil
-type PartitionPartitionInputPtrInput interface {
-	pulumi.Input
-
-	ToPartitionPartitionInputPtrOutput() PartitionPartitionInputPtrOutput
-	ToPartitionPartitionInputPtrOutputWithContext(context.Context) PartitionPartitionInputPtrOutput
-}
-
-type partitionPartitionInputPtrType PartitionPartitionInputArgs
-
-func PartitionPartitionInputPtr(v *PartitionPartitionInputArgs) PartitionPartitionInputPtrInput {
-	return (*partitionPartitionInputPtrType)(v)
-}
-
-func (*partitionPartitionInputPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PartitionPartitionInput)(nil)).Elem()
-}
-
-func (i *partitionPartitionInputPtrType) ToPartitionPartitionInputPtrOutput() PartitionPartitionInputPtrOutput {
-	return i.ToPartitionPartitionInputPtrOutputWithContext(context.Background())
-}
-
-func (i *partitionPartitionInputPtrType) ToPartitionPartitionInputPtrOutputWithContext(ctx context.Context) PartitionPartitionInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PartitionPartitionInputPtrOutput)
-}
-
-type PartitionPartitionInputOutput struct{ *pulumi.OutputState }
-
-func (PartitionPartitionInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PartitionPartitionInput)(nil)).Elem()
-}
-
-func (o PartitionPartitionInputOutput) ToPartitionPartitionInputOutput() PartitionPartitionInputOutput {
-	return o
-}
-
-func (o PartitionPartitionInputOutput) ToPartitionPartitionInputOutputWithContext(ctx context.Context) PartitionPartitionInputOutput {
-	return o
-}
-
-func (o PartitionPartitionInputOutput) ToPartitionPartitionInputPtrOutput() PartitionPartitionInputPtrOutput {
-	return o.ToPartitionPartitionInputPtrOutputWithContext(context.Background())
-}
-
-func (o PartitionPartitionInputOutput) ToPartitionPartitionInputPtrOutputWithContext(ctx context.Context) PartitionPartitionInputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartitionPartitionInput) *PartitionPartitionInput {
-		return &v
-	}).(PartitionPartitionInputPtrOutput)
-}
-
-func (o PartitionPartitionInputOutput) Parameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v PartitionPartitionInput) interface{} { return v.Parameters }).(pulumi.AnyOutput)
-}
-
-func (o PartitionPartitionInputOutput) StorageDescriptor() PartitionStorageDescriptorPtrOutput {
-	return o.ApplyT(func(v PartitionPartitionInput) *PartitionStorageDescriptor { return v.StorageDescriptor }).(PartitionStorageDescriptorPtrOutput)
-}
-
-func (o PartitionPartitionInputOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PartitionPartitionInput) []string { return v.Values }).(pulumi.StringArrayOutput)
-}
-
-type PartitionPartitionInputPtrOutput struct{ *pulumi.OutputState }
-
-func (PartitionPartitionInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PartitionPartitionInput)(nil)).Elem()
-}
-
-func (o PartitionPartitionInputPtrOutput) ToPartitionPartitionInputPtrOutput() PartitionPartitionInputPtrOutput {
-	return o
-}
-
-func (o PartitionPartitionInputPtrOutput) ToPartitionPartitionInputPtrOutputWithContext(ctx context.Context) PartitionPartitionInputPtrOutput {
-	return o
-}
-
-func (o PartitionPartitionInputPtrOutput) Elem() PartitionPartitionInputOutput {
-	return o.ApplyT(func(v *PartitionPartitionInput) PartitionPartitionInput {
-		if v != nil {
-			return *v
-		}
-		var ret PartitionPartitionInput
-		return ret
-	}).(PartitionPartitionInputOutput)
-}
-
-func (o PartitionPartitionInputPtrOutput) Parameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v *PartitionPartitionInput) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Parameters
-	}).(pulumi.AnyOutput)
-}
-
-func (o PartitionPartitionInputPtrOutput) StorageDescriptor() PartitionStorageDescriptorPtrOutput {
-	return o.ApplyT(func(v *PartitionPartitionInput) *PartitionStorageDescriptor {
-		if v == nil {
-			return nil
-		}
-		return v.StorageDescriptor
-	}).(PartitionStorageDescriptorPtrOutput)
-}
-
-func (o PartitionPartitionInputPtrOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *PartitionPartitionInput) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Values
-	}).(pulumi.StringArrayOutput)
 }
 
 type PartitionSchemaId struct {
@@ -6162,165 +6162,6 @@ func (o SchemaRegistryPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify checkpoint version for update. This is only required to update the Compatibility.
-type SchemaSchemaVersion struct {
-	// Indicates if the latest version needs to be updated.
-	IsLatest *bool `pulumi:"isLatest"`
-	// Indicates the version number in the schema to update.
-	VersionNumber *int `pulumi:"versionNumber"`
-}
-
-// SchemaSchemaVersionInput is an input type that accepts SchemaSchemaVersionArgs and SchemaSchemaVersionOutput values.
-// You can construct a concrete instance of `SchemaSchemaVersionInput` via:
-//
-//          SchemaSchemaVersionArgs{...}
-type SchemaSchemaVersionInput interface {
-	pulumi.Input
-
-	ToSchemaSchemaVersionOutput() SchemaSchemaVersionOutput
-	ToSchemaSchemaVersionOutputWithContext(context.Context) SchemaSchemaVersionOutput
-}
-
-// Specify checkpoint version for update. This is only required to update the Compatibility.
-type SchemaSchemaVersionArgs struct {
-	// Indicates if the latest version needs to be updated.
-	IsLatest pulumi.BoolPtrInput `pulumi:"isLatest"`
-	// Indicates the version number in the schema to update.
-	VersionNumber pulumi.IntPtrInput `pulumi:"versionNumber"`
-}
-
-func (SchemaSchemaVersionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaSchemaVersion)(nil)).Elem()
-}
-
-func (i SchemaSchemaVersionArgs) ToSchemaSchemaVersionOutput() SchemaSchemaVersionOutput {
-	return i.ToSchemaSchemaVersionOutputWithContext(context.Background())
-}
-
-func (i SchemaSchemaVersionArgs) ToSchemaSchemaVersionOutputWithContext(ctx context.Context) SchemaSchemaVersionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaSchemaVersionOutput)
-}
-
-func (i SchemaSchemaVersionArgs) ToSchemaSchemaVersionPtrOutput() SchemaSchemaVersionPtrOutput {
-	return i.ToSchemaSchemaVersionPtrOutputWithContext(context.Background())
-}
-
-func (i SchemaSchemaVersionArgs) ToSchemaSchemaVersionPtrOutputWithContext(ctx context.Context) SchemaSchemaVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaSchemaVersionOutput).ToSchemaSchemaVersionPtrOutputWithContext(ctx)
-}
-
-// SchemaSchemaVersionPtrInput is an input type that accepts SchemaSchemaVersionArgs, SchemaSchemaVersionPtr and SchemaSchemaVersionPtrOutput values.
-// You can construct a concrete instance of `SchemaSchemaVersionPtrInput` via:
-//
-//          SchemaSchemaVersionArgs{...}
-//
-//  or:
-//
-//          nil
-type SchemaSchemaVersionPtrInput interface {
-	pulumi.Input
-
-	ToSchemaSchemaVersionPtrOutput() SchemaSchemaVersionPtrOutput
-	ToSchemaSchemaVersionPtrOutputWithContext(context.Context) SchemaSchemaVersionPtrOutput
-}
-
-type schemaSchemaVersionPtrType SchemaSchemaVersionArgs
-
-func SchemaSchemaVersionPtr(v *SchemaSchemaVersionArgs) SchemaSchemaVersionPtrInput {
-	return (*schemaSchemaVersionPtrType)(v)
-}
-
-func (*schemaSchemaVersionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SchemaSchemaVersion)(nil)).Elem()
-}
-
-func (i *schemaSchemaVersionPtrType) ToSchemaSchemaVersionPtrOutput() SchemaSchemaVersionPtrOutput {
-	return i.ToSchemaSchemaVersionPtrOutputWithContext(context.Background())
-}
-
-func (i *schemaSchemaVersionPtrType) ToSchemaSchemaVersionPtrOutputWithContext(ctx context.Context) SchemaSchemaVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaSchemaVersionPtrOutput)
-}
-
-// Specify checkpoint version for update. This is only required to update the Compatibility.
-type SchemaSchemaVersionOutput struct{ *pulumi.OutputState }
-
-func (SchemaSchemaVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaSchemaVersion)(nil)).Elem()
-}
-
-func (o SchemaSchemaVersionOutput) ToSchemaSchemaVersionOutput() SchemaSchemaVersionOutput {
-	return o
-}
-
-func (o SchemaSchemaVersionOutput) ToSchemaSchemaVersionOutputWithContext(ctx context.Context) SchemaSchemaVersionOutput {
-	return o
-}
-
-func (o SchemaSchemaVersionOutput) ToSchemaSchemaVersionPtrOutput() SchemaSchemaVersionPtrOutput {
-	return o.ToSchemaSchemaVersionPtrOutputWithContext(context.Background())
-}
-
-func (o SchemaSchemaVersionOutput) ToSchemaSchemaVersionPtrOutputWithContext(ctx context.Context) SchemaSchemaVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SchemaSchemaVersion) *SchemaSchemaVersion {
-		return &v
-	}).(SchemaSchemaVersionPtrOutput)
-}
-
-// Indicates if the latest version needs to be updated.
-func (o SchemaSchemaVersionOutput) IsLatest() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SchemaSchemaVersion) *bool { return v.IsLatest }).(pulumi.BoolPtrOutput)
-}
-
-// Indicates the version number in the schema to update.
-func (o SchemaSchemaVersionOutput) VersionNumber() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SchemaSchemaVersion) *int { return v.VersionNumber }).(pulumi.IntPtrOutput)
-}
-
-type SchemaSchemaVersionPtrOutput struct{ *pulumi.OutputState }
-
-func (SchemaSchemaVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SchemaSchemaVersion)(nil)).Elem()
-}
-
-func (o SchemaSchemaVersionPtrOutput) ToSchemaSchemaVersionPtrOutput() SchemaSchemaVersionPtrOutput {
-	return o
-}
-
-func (o SchemaSchemaVersionPtrOutput) ToSchemaSchemaVersionPtrOutputWithContext(ctx context.Context) SchemaSchemaVersionPtrOutput {
-	return o
-}
-
-func (o SchemaSchemaVersionPtrOutput) Elem() SchemaSchemaVersionOutput {
-	return o.ApplyT(func(v *SchemaSchemaVersion) SchemaSchemaVersion {
-		if v != nil {
-			return *v
-		}
-		var ret SchemaSchemaVersion
-		return ret
-	}).(SchemaSchemaVersionOutput)
-}
-
-// Indicates if the latest version needs to be updated.
-func (o SchemaSchemaVersionPtrOutput) IsLatest() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SchemaSchemaVersion) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsLatest
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Indicates the version number in the schema to update.
-func (o SchemaSchemaVersionPtrOutput) VersionNumber() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SchemaSchemaVersion) *int {
-		if v == nil {
-			return nil
-		}
-		return v.VersionNumber
-	}).(pulumi.IntPtrOutput)
-}
-
 type SchemaTag struct {
 	// A key to identify the tag.
 	Key string `pulumi:"key"`
@@ -6425,6 +6266,165 @@ func (o SchemaTagArrayOutput) Index(i pulumi.IntInput) SchemaTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SchemaTag {
 		return vs[0].([]SchemaTag)[vs[1].(int)]
 	}).(SchemaTagOutput)
+}
+
+// Specify checkpoint version for update. This is only required to update the Compatibility.
+type SchemaVersionType struct {
+	// Indicates if the latest version needs to be updated.
+	IsLatest *bool `pulumi:"isLatest"`
+	// Indicates the version number in the schema to update.
+	VersionNumber *int `pulumi:"versionNumber"`
+}
+
+// SchemaVersionTypeInput is an input type that accepts SchemaVersionTypeArgs and SchemaVersionTypeOutput values.
+// You can construct a concrete instance of `SchemaVersionTypeInput` via:
+//
+//          SchemaVersionTypeArgs{...}
+type SchemaVersionTypeInput interface {
+	pulumi.Input
+
+	ToSchemaVersionTypeOutput() SchemaVersionTypeOutput
+	ToSchemaVersionTypeOutputWithContext(context.Context) SchemaVersionTypeOutput
+}
+
+// Specify checkpoint version for update. This is only required to update the Compatibility.
+type SchemaVersionTypeArgs struct {
+	// Indicates if the latest version needs to be updated.
+	IsLatest pulumi.BoolPtrInput `pulumi:"isLatest"`
+	// Indicates the version number in the schema to update.
+	VersionNumber pulumi.IntPtrInput `pulumi:"versionNumber"`
+}
+
+func (SchemaVersionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaVersionType)(nil)).Elem()
+}
+
+func (i SchemaVersionTypeArgs) ToSchemaVersionTypeOutput() SchemaVersionTypeOutput {
+	return i.ToSchemaVersionTypeOutputWithContext(context.Background())
+}
+
+func (i SchemaVersionTypeArgs) ToSchemaVersionTypeOutputWithContext(ctx context.Context) SchemaVersionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaVersionTypeOutput)
+}
+
+func (i SchemaVersionTypeArgs) ToSchemaVersionTypePtrOutput() SchemaVersionTypePtrOutput {
+	return i.ToSchemaVersionTypePtrOutputWithContext(context.Background())
+}
+
+func (i SchemaVersionTypeArgs) ToSchemaVersionTypePtrOutputWithContext(ctx context.Context) SchemaVersionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaVersionTypeOutput).ToSchemaVersionTypePtrOutputWithContext(ctx)
+}
+
+// SchemaVersionTypePtrInput is an input type that accepts SchemaVersionTypeArgs, SchemaVersionTypePtr and SchemaVersionTypePtrOutput values.
+// You can construct a concrete instance of `SchemaVersionTypePtrInput` via:
+//
+//          SchemaVersionTypeArgs{...}
+//
+//  or:
+//
+//          nil
+type SchemaVersionTypePtrInput interface {
+	pulumi.Input
+
+	ToSchemaVersionTypePtrOutput() SchemaVersionTypePtrOutput
+	ToSchemaVersionTypePtrOutputWithContext(context.Context) SchemaVersionTypePtrOutput
+}
+
+type schemaVersionTypePtrType SchemaVersionTypeArgs
+
+func SchemaVersionTypePtr(v *SchemaVersionTypeArgs) SchemaVersionTypePtrInput {
+	return (*schemaVersionTypePtrType)(v)
+}
+
+func (*schemaVersionTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaVersionType)(nil)).Elem()
+}
+
+func (i *schemaVersionTypePtrType) ToSchemaVersionTypePtrOutput() SchemaVersionTypePtrOutput {
+	return i.ToSchemaVersionTypePtrOutputWithContext(context.Background())
+}
+
+func (i *schemaVersionTypePtrType) ToSchemaVersionTypePtrOutputWithContext(ctx context.Context) SchemaVersionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaVersionTypePtrOutput)
+}
+
+// Specify checkpoint version for update. This is only required to update the Compatibility.
+type SchemaVersionTypeOutput struct{ *pulumi.OutputState }
+
+func (SchemaVersionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaVersionType)(nil)).Elem()
+}
+
+func (o SchemaVersionTypeOutput) ToSchemaVersionTypeOutput() SchemaVersionTypeOutput {
+	return o
+}
+
+func (o SchemaVersionTypeOutput) ToSchemaVersionTypeOutputWithContext(ctx context.Context) SchemaVersionTypeOutput {
+	return o
+}
+
+func (o SchemaVersionTypeOutput) ToSchemaVersionTypePtrOutput() SchemaVersionTypePtrOutput {
+	return o.ToSchemaVersionTypePtrOutputWithContext(context.Background())
+}
+
+func (o SchemaVersionTypeOutput) ToSchemaVersionTypePtrOutputWithContext(ctx context.Context) SchemaVersionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SchemaVersionType) *SchemaVersionType {
+		return &v
+	}).(SchemaVersionTypePtrOutput)
+}
+
+// Indicates if the latest version needs to be updated.
+func (o SchemaVersionTypeOutput) IsLatest() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SchemaVersionType) *bool { return v.IsLatest }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates the version number in the schema to update.
+func (o SchemaVersionTypeOutput) VersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SchemaVersionType) *int { return v.VersionNumber }).(pulumi.IntPtrOutput)
+}
+
+type SchemaVersionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SchemaVersionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaVersionType)(nil)).Elem()
+}
+
+func (o SchemaVersionTypePtrOutput) ToSchemaVersionTypePtrOutput() SchemaVersionTypePtrOutput {
+	return o
+}
+
+func (o SchemaVersionTypePtrOutput) ToSchemaVersionTypePtrOutputWithContext(ctx context.Context) SchemaVersionTypePtrOutput {
+	return o
+}
+
+func (o SchemaVersionTypePtrOutput) Elem() SchemaVersionTypeOutput {
+	return o.ApplyT(func(v *SchemaVersionType) SchemaVersionType {
+		if v != nil {
+			return *v
+		}
+		var ret SchemaVersionType
+		return ret
+	}).(SchemaVersionTypeOutput)
+}
+
+// Indicates if the latest version needs to be updated.
+func (o SchemaVersionTypePtrOutput) IsLatest() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SchemaVersionType) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsLatest
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Indicates the version number in the schema to update.
+func (o SchemaVersionTypePtrOutput) VersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SchemaVersionType) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VersionNumber
+	}).(pulumi.IntPtrOutput)
 }
 
 // Identifier for the schema where the schema version will be created.
@@ -7292,6 +7292,452 @@ func (o TableColumnArrayOutput) Index(i pulumi.IntInput) TableColumnOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableColumn {
 		return vs[0].([]TableColumn)[vs[1].(int)]
 	}).(TableColumnOutput)
+}
+
+type TableIdentifier struct {
+	CatalogId    *string `pulumi:"catalogId"`
+	DatabaseName *string `pulumi:"databaseName"`
+	Name         *string `pulumi:"name"`
+}
+
+// TableIdentifierInput is an input type that accepts TableIdentifierArgs and TableIdentifierOutput values.
+// You can construct a concrete instance of `TableIdentifierInput` via:
+//
+//          TableIdentifierArgs{...}
+type TableIdentifierInput interface {
+	pulumi.Input
+
+	ToTableIdentifierOutput() TableIdentifierOutput
+	ToTableIdentifierOutputWithContext(context.Context) TableIdentifierOutput
+}
+
+type TableIdentifierArgs struct {
+	CatalogId    pulumi.StringPtrInput `pulumi:"catalogId"`
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	Name         pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (TableIdentifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIdentifier)(nil)).Elem()
+}
+
+func (i TableIdentifierArgs) ToTableIdentifierOutput() TableIdentifierOutput {
+	return i.ToTableIdentifierOutputWithContext(context.Background())
+}
+
+func (i TableIdentifierArgs) ToTableIdentifierOutputWithContext(ctx context.Context) TableIdentifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIdentifierOutput)
+}
+
+func (i TableIdentifierArgs) ToTableIdentifierPtrOutput() TableIdentifierPtrOutput {
+	return i.ToTableIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (i TableIdentifierArgs) ToTableIdentifierPtrOutputWithContext(ctx context.Context) TableIdentifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIdentifierOutput).ToTableIdentifierPtrOutputWithContext(ctx)
+}
+
+// TableIdentifierPtrInput is an input type that accepts TableIdentifierArgs, TableIdentifierPtr and TableIdentifierPtrOutput values.
+// You can construct a concrete instance of `TableIdentifierPtrInput` via:
+//
+//          TableIdentifierArgs{...}
+//
+//  or:
+//
+//          nil
+type TableIdentifierPtrInput interface {
+	pulumi.Input
+
+	ToTableIdentifierPtrOutput() TableIdentifierPtrOutput
+	ToTableIdentifierPtrOutputWithContext(context.Context) TableIdentifierPtrOutput
+}
+
+type tableIdentifierPtrType TableIdentifierArgs
+
+func TableIdentifierPtr(v *TableIdentifierArgs) TableIdentifierPtrInput {
+	return (*tableIdentifierPtrType)(v)
+}
+
+func (*tableIdentifierPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableIdentifier)(nil)).Elem()
+}
+
+func (i *tableIdentifierPtrType) ToTableIdentifierPtrOutput() TableIdentifierPtrOutput {
+	return i.ToTableIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (i *tableIdentifierPtrType) ToTableIdentifierPtrOutputWithContext(ctx context.Context) TableIdentifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableIdentifierPtrOutput)
+}
+
+type TableIdentifierOutput struct{ *pulumi.OutputState }
+
+func (TableIdentifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableIdentifier)(nil)).Elem()
+}
+
+func (o TableIdentifierOutput) ToTableIdentifierOutput() TableIdentifierOutput {
+	return o
+}
+
+func (o TableIdentifierOutput) ToTableIdentifierOutputWithContext(ctx context.Context) TableIdentifierOutput {
+	return o
+}
+
+func (o TableIdentifierOutput) ToTableIdentifierPtrOutput() TableIdentifierPtrOutput {
+	return o.ToTableIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (o TableIdentifierOutput) ToTableIdentifierPtrOutputWithContext(ctx context.Context) TableIdentifierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableIdentifier) *TableIdentifier {
+		return &v
+	}).(TableIdentifierPtrOutput)
+}
+
+func (o TableIdentifierOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableIdentifier) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
+func (o TableIdentifierOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableIdentifier) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o TableIdentifierOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableIdentifier) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type TableIdentifierPtrOutput struct{ *pulumi.OutputState }
+
+func (TableIdentifierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableIdentifier)(nil)).Elem()
+}
+
+func (o TableIdentifierPtrOutput) ToTableIdentifierPtrOutput() TableIdentifierPtrOutput {
+	return o
+}
+
+func (o TableIdentifierPtrOutput) ToTableIdentifierPtrOutputWithContext(ctx context.Context) TableIdentifierPtrOutput {
+	return o
+}
+
+func (o TableIdentifierPtrOutput) Elem() TableIdentifierOutput {
+	return o.ApplyT(func(v *TableIdentifier) TableIdentifier {
+		if v != nil {
+			return *v
+		}
+		var ret TableIdentifier
+		return ret
+	}).(TableIdentifierOutput)
+}
+
+func (o TableIdentifierPtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableIdentifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TableIdentifierPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableIdentifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TableIdentifierPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableIdentifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type TableInputType struct {
+	Description       *string                 `pulumi:"description"`
+	Name              *string                 `pulumi:"name"`
+	Owner             *string                 `pulumi:"owner"`
+	Parameters        interface{}             `pulumi:"parameters"`
+	PartitionKeys     []TableColumn           `pulumi:"partitionKeys"`
+	Retention         *int                    `pulumi:"retention"`
+	StorageDescriptor *TableStorageDescriptor `pulumi:"storageDescriptor"`
+	TableType         *string                 `pulumi:"tableType"`
+	TargetTable       *TableIdentifier        `pulumi:"targetTable"`
+	ViewExpandedText  *string                 `pulumi:"viewExpandedText"`
+	ViewOriginalText  *string                 `pulumi:"viewOriginalText"`
+}
+
+// TableInputTypeInput is an input type that accepts TableInputTypeArgs and TableInputTypeOutput values.
+// You can construct a concrete instance of `TableInputTypeInput` via:
+//
+//          TableInputTypeArgs{...}
+type TableInputTypeInput interface {
+	pulumi.Input
+
+	ToTableInputTypeOutput() TableInputTypeOutput
+	ToTableInputTypeOutputWithContext(context.Context) TableInputTypeOutput
+}
+
+type TableInputTypeArgs struct {
+	Description       pulumi.StringPtrInput          `pulumi:"description"`
+	Name              pulumi.StringPtrInput          `pulumi:"name"`
+	Owner             pulumi.StringPtrInput          `pulumi:"owner"`
+	Parameters        pulumi.Input                   `pulumi:"parameters"`
+	PartitionKeys     TableColumnArrayInput          `pulumi:"partitionKeys"`
+	Retention         pulumi.IntPtrInput             `pulumi:"retention"`
+	StorageDescriptor TableStorageDescriptorPtrInput `pulumi:"storageDescriptor"`
+	TableType         pulumi.StringPtrInput          `pulumi:"tableType"`
+	TargetTable       TableIdentifierPtrInput        `pulumi:"targetTable"`
+	ViewExpandedText  pulumi.StringPtrInput          `pulumi:"viewExpandedText"`
+	ViewOriginalText  pulumi.StringPtrInput          `pulumi:"viewOriginalText"`
+}
+
+func (TableInputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableInputType)(nil)).Elem()
+}
+
+func (i TableInputTypeArgs) ToTableInputTypeOutput() TableInputTypeOutput {
+	return i.ToTableInputTypeOutputWithContext(context.Background())
+}
+
+func (i TableInputTypeArgs) ToTableInputTypeOutputWithContext(ctx context.Context) TableInputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableInputTypeOutput)
+}
+
+func (i TableInputTypeArgs) ToTableInputTypePtrOutput() TableInputTypePtrOutput {
+	return i.ToTableInputTypePtrOutputWithContext(context.Background())
+}
+
+func (i TableInputTypeArgs) ToTableInputTypePtrOutputWithContext(ctx context.Context) TableInputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableInputTypeOutput).ToTableInputTypePtrOutputWithContext(ctx)
+}
+
+// TableInputTypePtrInput is an input type that accepts TableInputTypeArgs, TableInputTypePtr and TableInputTypePtrOutput values.
+// You can construct a concrete instance of `TableInputTypePtrInput` via:
+//
+//          TableInputTypeArgs{...}
+//
+//  or:
+//
+//          nil
+type TableInputTypePtrInput interface {
+	pulumi.Input
+
+	ToTableInputTypePtrOutput() TableInputTypePtrOutput
+	ToTableInputTypePtrOutputWithContext(context.Context) TableInputTypePtrOutput
+}
+
+type tableInputTypePtrType TableInputTypeArgs
+
+func TableInputTypePtr(v *TableInputTypeArgs) TableInputTypePtrInput {
+	return (*tableInputTypePtrType)(v)
+}
+
+func (*tableInputTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableInputType)(nil)).Elem()
+}
+
+func (i *tableInputTypePtrType) ToTableInputTypePtrOutput() TableInputTypePtrOutput {
+	return i.ToTableInputTypePtrOutputWithContext(context.Background())
+}
+
+func (i *tableInputTypePtrType) ToTableInputTypePtrOutputWithContext(ctx context.Context) TableInputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableInputTypePtrOutput)
+}
+
+type TableInputTypeOutput struct{ *pulumi.OutputState }
+
+func (TableInputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableInputType)(nil)).Elem()
+}
+
+func (o TableInputTypeOutput) ToTableInputTypeOutput() TableInputTypeOutput {
+	return o
+}
+
+func (o TableInputTypeOutput) ToTableInputTypeOutputWithContext(ctx context.Context) TableInputTypeOutput {
+	return o
+}
+
+func (o TableInputTypeOutput) ToTableInputTypePtrOutput() TableInputTypePtrOutput {
+	return o.ToTableInputTypePtrOutputWithContext(context.Background())
+}
+
+func (o TableInputTypeOutput) ToTableInputTypePtrOutputWithContext(ctx context.Context) TableInputTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableInputType) *TableInputType {
+		return &v
+	}).(TableInputTypePtrOutput)
+}
+
+func (o TableInputTypeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableInputType) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TableInputTypeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableInputType) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o TableInputTypeOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableInputType) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o TableInputTypeOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v TableInputType) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+func (o TableInputTypeOutput) PartitionKeys() TableColumnArrayOutput {
+	return o.ApplyT(func(v TableInputType) []TableColumn { return v.PartitionKeys }).(TableColumnArrayOutput)
+}
+
+func (o TableInputTypeOutput) Retention() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableInputType) *int { return v.Retention }).(pulumi.IntPtrOutput)
+}
+
+func (o TableInputTypeOutput) StorageDescriptor() TableStorageDescriptorPtrOutput {
+	return o.ApplyT(func(v TableInputType) *TableStorageDescriptor { return v.StorageDescriptor }).(TableStorageDescriptorPtrOutput)
+}
+
+func (o TableInputTypeOutput) TableType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableInputType) *string { return v.TableType }).(pulumi.StringPtrOutput)
+}
+
+func (o TableInputTypeOutput) TargetTable() TableIdentifierPtrOutput {
+	return o.ApplyT(func(v TableInputType) *TableIdentifier { return v.TargetTable }).(TableIdentifierPtrOutput)
+}
+
+func (o TableInputTypeOutput) ViewExpandedText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableInputType) *string { return v.ViewExpandedText }).(pulumi.StringPtrOutput)
+}
+
+func (o TableInputTypeOutput) ViewOriginalText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableInputType) *string { return v.ViewOriginalText }).(pulumi.StringPtrOutput)
+}
+
+type TableInputTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TableInputTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableInputType)(nil)).Elem()
+}
+
+func (o TableInputTypePtrOutput) ToTableInputTypePtrOutput() TableInputTypePtrOutput {
+	return o
+}
+
+func (o TableInputTypePtrOutput) ToTableInputTypePtrOutputWithContext(ctx context.Context) TableInputTypePtrOutput {
+	return o
+}
+
+func (o TableInputTypePtrOutput) Elem() TableInputTypeOutput {
+	return o.ApplyT(func(v *TableInputType) TableInputType {
+		if v != nil {
+			return *v
+		}
+		var ret TableInputType
+		return ret
+	}).(TableInputTypeOutput)
+}
+
+func (o TableInputTypePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TableInputTypePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TableInputTypePtrOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Owner
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TableInputTypePtrOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TableInputType) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.AnyOutput)
+}
+
+func (o TableInputTypePtrOutput) PartitionKeys() TableColumnArrayOutput {
+	return o.ApplyT(func(v *TableInputType) []TableColumn {
+		if v == nil {
+			return nil
+		}
+		return v.PartitionKeys
+	}).(TableColumnArrayOutput)
+}
+
+func (o TableInputTypePtrOutput) Retention() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableInputType) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Retention
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o TableInputTypePtrOutput) StorageDescriptor() TableStorageDescriptorPtrOutput {
+	return o.ApplyT(func(v *TableInputType) *TableStorageDescriptor {
+		if v == nil {
+			return nil
+		}
+		return v.StorageDescriptor
+	}).(TableStorageDescriptorPtrOutput)
+}
+
+func (o TableInputTypePtrOutput) TableType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TableType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TableInputTypePtrOutput) TargetTable() TableIdentifierPtrOutput {
+	return o.ApplyT(func(v *TableInputType) *TableIdentifier {
+		if v == nil {
+			return nil
+		}
+		return v.TargetTable
+	}).(TableIdentifierPtrOutput)
+}
+
+func (o TableInputTypePtrOutput) ViewExpandedText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ViewExpandedText
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TableInputTypePtrOutput) ViewOriginalText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ViewOriginalText
+	}).(pulumi.StringPtrOutput)
 }
 
 type TableOrder struct {
@@ -8359,452 +8805,6 @@ func (o TableStorageDescriptorPtrOutput) StoredAsSubDirectories() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-type TableTableIdentifier struct {
-	CatalogId    *string `pulumi:"catalogId"`
-	DatabaseName *string `pulumi:"databaseName"`
-	Name         *string `pulumi:"name"`
-}
-
-// TableTableIdentifierInput is an input type that accepts TableTableIdentifierArgs and TableTableIdentifierOutput values.
-// You can construct a concrete instance of `TableTableIdentifierInput` via:
-//
-//          TableTableIdentifierArgs{...}
-type TableTableIdentifierInput interface {
-	pulumi.Input
-
-	ToTableTableIdentifierOutput() TableTableIdentifierOutput
-	ToTableTableIdentifierOutputWithContext(context.Context) TableTableIdentifierOutput
-}
-
-type TableTableIdentifierArgs struct {
-	CatalogId    pulumi.StringPtrInput `pulumi:"catalogId"`
-	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
-	Name         pulumi.StringPtrInput `pulumi:"name"`
-}
-
-func (TableTableIdentifierArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableTableIdentifier)(nil)).Elem()
-}
-
-func (i TableTableIdentifierArgs) ToTableTableIdentifierOutput() TableTableIdentifierOutput {
-	return i.ToTableTableIdentifierOutputWithContext(context.Background())
-}
-
-func (i TableTableIdentifierArgs) ToTableTableIdentifierOutputWithContext(ctx context.Context) TableTableIdentifierOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TableTableIdentifierOutput)
-}
-
-func (i TableTableIdentifierArgs) ToTableTableIdentifierPtrOutput() TableTableIdentifierPtrOutput {
-	return i.ToTableTableIdentifierPtrOutputWithContext(context.Background())
-}
-
-func (i TableTableIdentifierArgs) ToTableTableIdentifierPtrOutputWithContext(ctx context.Context) TableTableIdentifierPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TableTableIdentifierOutput).ToTableTableIdentifierPtrOutputWithContext(ctx)
-}
-
-// TableTableIdentifierPtrInput is an input type that accepts TableTableIdentifierArgs, TableTableIdentifierPtr and TableTableIdentifierPtrOutput values.
-// You can construct a concrete instance of `TableTableIdentifierPtrInput` via:
-//
-//          TableTableIdentifierArgs{...}
-//
-//  or:
-//
-//          nil
-type TableTableIdentifierPtrInput interface {
-	pulumi.Input
-
-	ToTableTableIdentifierPtrOutput() TableTableIdentifierPtrOutput
-	ToTableTableIdentifierPtrOutputWithContext(context.Context) TableTableIdentifierPtrOutput
-}
-
-type tableTableIdentifierPtrType TableTableIdentifierArgs
-
-func TableTableIdentifierPtr(v *TableTableIdentifierArgs) TableTableIdentifierPtrInput {
-	return (*tableTableIdentifierPtrType)(v)
-}
-
-func (*tableTableIdentifierPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TableTableIdentifier)(nil)).Elem()
-}
-
-func (i *tableTableIdentifierPtrType) ToTableTableIdentifierPtrOutput() TableTableIdentifierPtrOutput {
-	return i.ToTableTableIdentifierPtrOutputWithContext(context.Background())
-}
-
-func (i *tableTableIdentifierPtrType) ToTableTableIdentifierPtrOutputWithContext(ctx context.Context) TableTableIdentifierPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TableTableIdentifierPtrOutput)
-}
-
-type TableTableIdentifierOutput struct{ *pulumi.OutputState }
-
-func (TableTableIdentifierOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableTableIdentifier)(nil)).Elem()
-}
-
-func (o TableTableIdentifierOutput) ToTableTableIdentifierOutput() TableTableIdentifierOutput {
-	return o
-}
-
-func (o TableTableIdentifierOutput) ToTableTableIdentifierOutputWithContext(ctx context.Context) TableTableIdentifierOutput {
-	return o
-}
-
-func (o TableTableIdentifierOutput) ToTableTableIdentifierPtrOutput() TableTableIdentifierPtrOutput {
-	return o.ToTableTableIdentifierPtrOutputWithContext(context.Background())
-}
-
-func (o TableTableIdentifierOutput) ToTableTableIdentifierPtrOutputWithContext(ctx context.Context) TableTableIdentifierPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableTableIdentifier) *TableTableIdentifier {
-		return &v
-	}).(TableTableIdentifierPtrOutput)
-}
-
-func (o TableTableIdentifierOutput) CatalogId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TableTableIdentifier) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
-}
-
-func (o TableTableIdentifierOutput) DatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TableTableIdentifier) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
-}
-
-func (o TableTableIdentifierOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TableTableIdentifier) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-type TableTableIdentifierPtrOutput struct{ *pulumi.OutputState }
-
-func (TableTableIdentifierPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TableTableIdentifier)(nil)).Elem()
-}
-
-func (o TableTableIdentifierPtrOutput) ToTableTableIdentifierPtrOutput() TableTableIdentifierPtrOutput {
-	return o
-}
-
-func (o TableTableIdentifierPtrOutput) ToTableTableIdentifierPtrOutputWithContext(ctx context.Context) TableTableIdentifierPtrOutput {
-	return o
-}
-
-func (o TableTableIdentifierPtrOutput) Elem() TableTableIdentifierOutput {
-	return o.ApplyT(func(v *TableTableIdentifier) TableTableIdentifier {
-		if v != nil {
-			return *v
-		}
-		var ret TableTableIdentifier
-		return ret
-	}).(TableTableIdentifierOutput)
-}
-
-func (o TableTableIdentifierPtrOutput) CatalogId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TableTableIdentifier) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CatalogId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o TableTableIdentifierPtrOutput) DatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TableTableIdentifier) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DatabaseName
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o TableTableIdentifierPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TableTableIdentifier) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-type TableTableInput struct {
-	Description       *string                 `pulumi:"description"`
-	Name              *string                 `pulumi:"name"`
-	Owner             *string                 `pulumi:"owner"`
-	Parameters        interface{}             `pulumi:"parameters"`
-	PartitionKeys     []TableColumn           `pulumi:"partitionKeys"`
-	Retention         *int                    `pulumi:"retention"`
-	StorageDescriptor *TableStorageDescriptor `pulumi:"storageDescriptor"`
-	TableType         *string                 `pulumi:"tableType"`
-	TargetTable       *TableTableIdentifier   `pulumi:"targetTable"`
-	ViewExpandedText  *string                 `pulumi:"viewExpandedText"`
-	ViewOriginalText  *string                 `pulumi:"viewOriginalText"`
-}
-
-// TableTableInputInput is an input type that accepts TableTableInputArgs and TableTableInputOutput values.
-// You can construct a concrete instance of `TableTableInputInput` via:
-//
-//          TableTableInputArgs{...}
-type TableTableInputInput interface {
-	pulumi.Input
-
-	ToTableTableInputOutput() TableTableInputOutput
-	ToTableTableInputOutputWithContext(context.Context) TableTableInputOutput
-}
-
-type TableTableInputArgs struct {
-	Description       pulumi.StringPtrInput          `pulumi:"description"`
-	Name              pulumi.StringPtrInput          `pulumi:"name"`
-	Owner             pulumi.StringPtrInput          `pulumi:"owner"`
-	Parameters        pulumi.Input                   `pulumi:"parameters"`
-	PartitionKeys     TableColumnArrayInput          `pulumi:"partitionKeys"`
-	Retention         pulumi.IntPtrInput             `pulumi:"retention"`
-	StorageDescriptor TableStorageDescriptorPtrInput `pulumi:"storageDescriptor"`
-	TableType         pulumi.StringPtrInput          `pulumi:"tableType"`
-	TargetTable       TableTableIdentifierPtrInput   `pulumi:"targetTable"`
-	ViewExpandedText  pulumi.StringPtrInput          `pulumi:"viewExpandedText"`
-	ViewOriginalText  pulumi.StringPtrInput          `pulumi:"viewOriginalText"`
-}
-
-func (TableTableInputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableTableInput)(nil)).Elem()
-}
-
-func (i TableTableInputArgs) ToTableTableInputOutput() TableTableInputOutput {
-	return i.ToTableTableInputOutputWithContext(context.Background())
-}
-
-func (i TableTableInputArgs) ToTableTableInputOutputWithContext(ctx context.Context) TableTableInputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TableTableInputOutput)
-}
-
-func (i TableTableInputArgs) ToTableTableInputPtrOutput() TableTableInputPtrOutput {
-	return i.ToTableTableInputPtrOutputWithContext(context.Background())
-}
-
-func (i TableTableInputArgs) ToTableTableInputPtrOutputWithContext(ctx context.Context) TableTableInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TableTableInputOutput).ToTableTableInputPtrOutputWithContext(ctx)
-}
-
-// TableTableInputPtrInput is an input type that accepts TableTableInputArgs, TableTableInputPtr and TableTableInputPtrOutput values.
-// You can construct a concrete instance of `TableTableInputPtrInput` via:
-//
-//          TableTableInputArgs{...}
-//
-//  or:
-//
-//          nil
-type TableTableInputPtrInput interface {
-	pulumi.Input
-
-	ToTableTableInputPtrOutput() TableTableInputPtrOutput
-	ToTableTableInputPtrOutputWithContext(context.Context) TableTableInputPtrOutput
-}
-
-type tableTableInputPtrType TableTableInputArgs
-
-func TableTableInputPtr(v *TableTableInputArgs) TableTableInputPtrInput {
-	return (*tableTableInputPtrType)(v)
-}
-
-func (*tableTableInputPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TableTableInput)(nil)).Elem()
-}
-
-func (i *tableTableInputPtrType) ToTableTableInputPtrOutput() TableTableInputPtrOutput {
-	return i.ToTableTableInputPtrOutputWithContext(context.Background())
-}
-
-func (i *tableTableInputPtrType) ToTableTableInputPtrOutputWithContext(ctx context.Context) TableTableInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TableTableInputPtrOutput)
-}
-
-type TableTableInputOutput struct{ *pulumi.OutputState }
-
-func (TableTableInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableTableInput)(nil)).Elem()
-}
-
-func (o TableTableInputOutput) ToTableTableInputOutput() TableTableInputOutput {
-	return o
-}
-
-func (o TableTableInputOutput) ToTableTableInputOutputWithContext(ctx context.Context) TableTableInputOutput {
-	return o
-}
-
-func (o TableTableInputOutput) ToTableTableInputPtrOutput() TableTableInputPtrOutput {
-	return o.ToTableTableInputPtrOutputWithContext(context.Background())
-}
-
-func (o TableTableInputOutput) ToTableTableInputPtrOutputWithContext(ctx context.Context) TableTableInputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableTableInput) *TableTableInput {
-		return &v
-	}).(TableTableInputPtrOutput)
-}
-
-func (o TableTableInputOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TableTableInput) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o TableTableInputOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TableTableInput) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o TableTableInputOutput) Owner() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TableTableInput) *string { return v.Owner }).(pulumi.StringPtrOutput)
-}
-
-func (o TableTableInputOutput) Parameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v TableTableInput) interface{} { return v.Parameters }).(pulumi.AnyOutput)
-}
-
-func (o TableTableInputOutput) PartitionKeys() TableColumnArrayOutput {
-	return o.ApplyT(func(v TableTableInput) []TableColumn { return v.PartitionKeys }).(TableColumnArrayOutput)
-}
-
-func (o TableTableInputOutput) Retention() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v TableTableInput) *int { return v.Retention }).(pulumi.IntPtrOutput)
-}
-
-func (o TableTableInputOutput) StorageDescriptor() TableStorageDescriptorPtrOutput {
-	return o.ApplyT(func(v TableTableInput) *TableStorageDescriptor { return v.StorageDescriptor }).(TableStorageDescriptorPtrOutput)
-}
-
-func (o TableTableInputOutput) TableType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TableTableInput) *string { return v.TableType }).(pulumi.StringPtrOutput)
-}
-
-func (o TableTableInputOutput) TargetTable() TableTableIdentifierPtrOutput {
-	return o.ApplyT(func(v TableTableInput) *TableTableIdentifier { return v.TargetTable }).(TableTableIdentifierPtrOutput)
-}
-
-func (o TableTableInputOutput) ViewExpandedText() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TableTableInput) *string { return v.ViewExpandedText }).(pulumi.StringPtrOutput)
-}
-
-func (o TableTableInputOutput) ViewOriginalText() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TableTableInput) *string { return v.ViewOriginalText }).(pulumi.StringPtrOutput)
-}
-
-type TableTableInputPtrOutput struct{ *pulumi.OutputState }
-
-func (TableTableInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TableTableInput)(nil)).Elem()
-}
-
-func (o TableTableInputPtrOutput) ToTableTableInputPtrOutput() TableTableInputPtrOutput {
-	return o
-}
-
-func (o TableTableInputPtrOutput) ToTableTableInputPtrOutputWithContext(ctx context.Context) TableTableInputPtrOutput {
-	return o
-}
-
-func (o TableTableInputPtrOutput) Elem() TableTableInputOutput {
-	return o.ApplyT(func(v *TableTableInput) TableTableInput {
-		if v != nil {
-			return *v
-		}
-		var ret TableTableInput
-		return ret
-	}).(TableTableInputOutput)
-}
-
-func (o TableTableInputPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TableTableInput) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o TableTableInputPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TableTableInput) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o TableTableInputPtrOutput) Owner() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TableTableInput) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Owner
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o TableTableInputPtrOutput) Parameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v *TableTableInput) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Parameters
-	}).(pulumi.AnyOutput)
-}
-
-func (o TableTableInputPtrOutput) PartitionKeys() TableColumnArrayOutput {
-	return o.ApplyT(func(v *TableTableInput) []TableColumn {
-		if v == nil {
-			return nil
-		}
-		return v.PartitionKeys
-	}).(TableColumnArrayOutput)
-}
-
-func (o TableTableInputPtrOutput) Retention() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *TableTableInput) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Retention
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o TableTableInputPtrOutput) StorageDescriptor() TableStorageDescriptorPtrOutput {
-	return o.ApplyT(func(v *TableTableInput) *TableStorageDescriptor {
-		if v == nil {
-			return nil
-		}
-		return v.StorageDescriptor
-	}).(TableStorageDescriptorPtrOutput)
-}
-
-func (o TableTableInputPtrOutput) TableType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TableTableInput) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TableType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o TableTableInputPtrOutput) TargetTable() TableTableIdentifierPtrOutput {
-	return o.ApplyT(func(v *TableTableInput) *TableTableIdentifier {
-		if v == nil {
-			return nil
-		}
-		return v.TargetTable
-	}).(TableTableIdentifierPtrOutput)
-}
-
-func (o TableTableInputPtrOutput) ViewExpandedText() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TableTableInput) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ViewExpandedText
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o TableTableInputPtrOutput) ViewOriginalText() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TableTableInput) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ViewOriginalText
-	}).(pulumi.StringPtrOutput)
-}
-
 type TriggerAction struct {
 	Arguments             interface{}                  `pulumi:"arguments"`
 	CrawlerName           *string                      `pulumi:"crawlerName"`
@@ -9337,8 +9337,8 @@ func init() {
 	pulumi.RegisterOutputType(ClassifierJsonClassifierPtrOutput{})
 	pulumi.RegisterOutputType(ClassifierXMLClassifierOutput{})
 	pulumi.RegisterOutputType(ClassifierXMLClassifierPtrOutput{})
-	pulumi.RegisterOutputType(ConnectionConnectionInputOutput{})
-	pulumi.RegisterOutputType(ConnectionConnectionInputPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionInputTypeOutput{})
+	pulumi.RegisterOutputType(ConnectionInputTypePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionPhysicalConnectionRequirementsOutput{})
 	pulumi.RegisterOutputType(ConnectionPhysicalConnectionRequirementsPtrOutput{})
 	pulumi.RegisterOutputType(CrawlerCatalogTargetOutput{})
@@ -9357,26 +9357,26 @@ func init() {
 	pulumi.RegisterOutputType(CrawlerSchemaChangePolicyPtrOutput{})
 	pulumi.RegisterOutputType(CrawlerTargetsOutput{})
 	pulumi.RegisterOutputType(CrawlerTargetsPtrOutput{})
+	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsTypeOutput{})
+	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsTypePtrOutput{})
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput{})
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput{})
-	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput{})
-	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsEncryptionAtRestOutput{})
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseDataLakePrincipalOutput{})
 	pulumi.RegisterOutputType(DatabaseDataLakePrincipalPtrOutput{})
-	pulumi.RegisterOutputType(DatabaseDatabaseIdentifierOutput{})
-	pulumi.RegisterOutputType(DatabaseDatabaseIdentifierPtrOutput{})
-	pulumi.RegisterOutputType(DatabaseDatabaseInputOutput{})
-	pulumi.RegisterOutputType(DatabaseDatabaseInputPtrOutput{})
+	pulumi.RegisterOutputType(DatabaseIdentifierOutput{})
+	pulumi.RegisterOutputType(DatabaseIdentifierPtrOutput{})
+	pulumi.RegisterOutputType(DatabaseInputTypeOutput{})
+	pulumi.RegisterOutputType(DatabaseInputTypePtrOutput{})
 	pulumi.RegisterOutputType(DatabasePrincipalPrivilegesOutput{})
 	pulumi.RegisterOutputType(DatabasePrincipalPrivilegesArrayOutput{})
+	pulumi.RegisterOutputType(JobCommandOutput{})
+	pulumi.RegisterOutputType(JobCommandPtrOutput{})
 	pulumi.RegisterOutputType(JobConnectionsListOutput{})
 	pulumi.RegisterOutputType(JobConnectionsListPtrOutput{})
 	pulumi.RegisterOutputType(JobExecutionPropertyOutput{})
 	pulumi.RegisterOutputType(JobExecutionPropertyPtrOutput{})
-	pulumi.RegisterOutputType(JobJobCommandOutput{})
-	pulumi.RegisterOutputType(JobJobCommandPtrOutput{})
 	pulumi.RegisterOutputType(JobNotificationPropertyOutput{})
 	pulumi.RegisterOutputType(JobNotificationPropertyPtrOutput{})
 	pulumi.RegisterOutputType(MLTransformFindMatchesParametersOutput{})
@@ -9393,10 +9393,10 @@ func init() {
 	pulumi.RegisterOutputType(MLTransformTransformParametersPtrOutput{})
 	pulumi.RegisterOutputType(PartitionColumnOutput{})
 	pulumi.RegisterOutputType(PartitionColumnArrayOutput{})
+	pulumi.RegisterOutputType(PartitionInputTypeOutput{})
+	pulumi.RegisterOutputType(PartitionInputTypePtrOutput{})
 	pulumi.RegisterOutputType(PartitionOrderOutput{})
 	pulumi.RegisterOutputType(PartitionOrderArrayOutput{})
-	pulumi.RegisterOutputType(PartitionPartitionInputOutput{})
-	pulumi.RegisterOutputType(PartitionPartitionInputPtrOutput{})
 	pulumi.RegisterOutputType(PartitionSchemaIdOutput{})
 	pulumi.RegisterOutputType(PartitionSchemaIdPtrOutput{})
 	pulumi.RegisterOutputType(PartitionSchemaReferenceOutput{})
@@ -9411,10 +9411,10 @@ func init() {
 	pulumi.RegisterOutputType(RegistryTagArrayOutput{})
 	pulumi.RegisterOutputType(SchemaRegistryOutput{})
 	pulumi.RegisterOutputType(SchemaRegistryPtrOutput{})
-	pulumi.RegisterOutputType(SchemaSchemaVersionOutput{})
-	pulumi.RegisterOutputType(SchemaSchemaVersionPtrOutput{})
 	pulumi.RegisterOutputType(SchemaTagOutput{})
 	pulumi.RegisterOutputType(SchemaTagArrayOutput{})
+	pulumi.RegisterOutputType(SchemaVersionTypeOutput{})
+	pulumi.RegisterOutputType(SchemaVersionTypePtrOutput{})
 	pulumi.RegisterOutputType(SchemaVersionSchemaOutput{})
 	pulumi.RegisterOutputType(SchemaVersionSchemaPtrOutput{})
 	pulumi.RegisterOutputType(SecurityConfigurationCloudWatchEncryptionOutput{})
@@ -9427,6 +9427,10 @@ func init() {
 	pulumi.RegisterOutputType(SecurityConfigurationS3EncryptionsPtrOutput{})
 	pulumi.RegisterOutputType(TableColumnOutput{})
 	pulumi.RegisterOutputType(TableColumnArrayOutput{})
+	pulumi.RegisterOutputType(TableIdentifierOutput{})
+	pulumi.RegisterOutputType(TableIdentifierPtrOutput{})
+	pulumi.RegisterOutputType(TableInputTypeOutput{})
+	pulumi.RegisterOutputType(TableInputTypePtrOutput{})
 	pulumi.RegisterOutputType(TableOrderOutput{})
 	pulumi.RegisterOutputType(TableOrderArrayOutput{})
 	pulumi.RegisterOutputType(TableSchemaIdOutput{})
@@ -9439,10 +9443,6 @@ func init() {
 	pulumi.RegisterOutputType(TableSkewedInfoPtrOutput{})
 	pulumi.RegisterOutputType(TableStorageDescriptorOutput{})
 	pulumi.RegisterOutputType(TableStorageDescriptorPtrOutput{})
-	pulumi.RegisterOutputType(TableTableIdentifierOutput{})
-	pulumi.RegisterOutputType(TableTableIdentifierPtrOutput{})
-	pulumi.RegisterOutputType(TableTableInputOutput{})
-	pulumi.RegisterOutputType(TableTableInputPtrOutput{})
 	pulumi.RegisterOutputType(TriggerActionOutput{})
 	pulumi.RegisterOutputType(TriggerActionArrayOutput{})
 	pulumi.RegisterOutputType(TriggerConditionOutput{})

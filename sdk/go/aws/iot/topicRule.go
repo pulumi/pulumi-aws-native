@@ -15,10 +15,10 @@ import (
 type TopicRule struct {
 	pulumi.CustomResourceState
 
-	Arn              pulumi.StringOutput             `pulumi:"arn"`
-	RuleName         pulumi.StringPtrOutput          `pulumi:"ruleName"`
-	Tags             TopicRuleTagArrayOutput         `pulumi:"tags"`
-	TopicRulePayload TopicRuleTopicRulePayloadOutput `pulumi:"topicRulePayload"`
+	Arn              pulumi.StringOutput     `pulumi:"arn"`
+	RuleName         pulumi.StringPtrOutput  `pulumi:"ruleName"`
+	Tags             TopicRuleTagArrayOutput `pulumi:"tags"`
+	TopicRulePayload TopicRulePayloadOutput  `pulumi:"topicRulePayload"`
 }
 
 // NewTopicRule registers a new resource with the given unique name, arguments, and options.
@@ -63,16 +63,16 @@ func (TopicRuleState) ElementType() reflect.Type {
 }
 
 type topicRuleArgs struct {
-	RuleName         *string                   `pulumi:"ruleName"`
-	Tags             []TopicRuleTag            `pulumi:"tags"`
-	TopicRulePayload TopicRuleTopicRulePayload `pulumi:"topicRulePayload"`
+	RuleName         *string          `pulumi:"ruleName"`
+	Tags             []TopicRuleTag   `pulumi:"tags"`
+	TopicRulePayload TopicRulePayload `pulumi:"topicRulePayload"`
 }
 
 // The set of arguments for constructing a TopicRule resource.
 type TopicRuleArgs struct {
 	RuleName         pulumi.StringPtrInput
 	Tags             TopicRuleTagArrayInput
-	TopicRulePayload TopicRuleTopicRulePayloadInput
+	TopicRulePayload TopicRulePayloadInput
 }
 
 func (TopicRuleArgs) ElementType() reflect.Type {

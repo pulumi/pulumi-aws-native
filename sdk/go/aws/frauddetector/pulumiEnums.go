@@ -10,171 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The desired detector version status for the detector
-type DetectorDetectorVersionStatus string
-
-const (
-	DetectorDetectorVersionStatusDraft  = DetectorDetectorVersionStatus("DRAFT")
-	DetectorDetectorVersionStatusActive = DetectorDetectorVersionStatus("ACTIVE")
-)
-
-func (DetectorDetectorVersionStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*DetectorDetectorVersionStatus)(nil)).Elem()
-}
-
-func (e DetectorDetectorVersionStatus) ToDetectorDetectorVersionStatusOutput() DetectorDetectorVersionStatusOutput {
-	return pulumi.ToOutput(e).(DetectorDetectorVersionStatusOutput)
-}
-
-func (e DetectorDetectorVersionStatus) ToDetectorDetectorVersionStatusOutputWithContext(ctx context.Context) DetectorDetectorVersionStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DetectorDetectorVersionStatusOutput)
-}
-
-func (e DetectorDetectorVersionStatus) ToDetectorDetectorVersionStatusPtrOutput() DetectorDetectorVersionStatusPtrOutput {
-	return e.ToDetectorDetectorVersionStatusPtrOutputWithContext(context.Background())
-}
-
-func (e DetectorDetectorVersionStatus) ToDetectorDetectorVersionStatusPtrOutputWithContext(ctx context.Context) DetectorDetectorVersionStatusPtrOutput {
-	return DetectorDetectorVersionStatus(e).ToDetectorDetectorVersionStatusOutputWithContext(ctx).ToDetectorDetectorVersionStatusPtrOutputWithContext(ctx)
-}
-
-func (e DetectorDetectorVersionStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DetectorDetectorVersionStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DetectorDetectorVersionStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DetectorDetectorVersionStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type DetectorDetectorVersionStatusOutput struct{ *pulumi.OutputState }
-
-func (DetectorDetectorVersionStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DetectorDetectorVersionStatus)(nil)).Elem()
-}
-
-func (o DetectorDetectorVersionStatusOutput) ToDetectorDetectorVersionStatusOutput() DetectorDetectorVersionStatusOutput {
-	return o
-}
-
-func (o DetectorDetectorVersionStatusOutput) ToDetectorDetectorVersionStatusOutputWithContext(ctx context.Context) DetectorDetectorVersionStatusOutput {
-	return o
-}
-
-func (o DetectorDetectorVersionStatusOutput) ToDetectorDetectorVersionStatusPtrOutput() DetectorDetectorVersionStatusPtrOutput {
-	return o.ToDetectorDetectorVersionStatusPtrOutputWithContext(context.Background())
-}
-
-func (o DetectorDetectorVersionStatusOutput) ToDetectorDetectorVersionStatusPtrOutputWithContext(ctx context.Context) DetectorDetectorVersionStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DetectorDetectorVersionStatus) *DetectorDetectorVersionStatus {
-		return &v
-	}).(DetectorDetectorVersionStatusPtrOutput)
-}
-
-func (o DetectorDetectorVersionStatusOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o DetectorDetectorVersionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DetectorDetectorVersionStatus) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o DetectorDetectorVersionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DetectorDetectorVersionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DetectorDetectorVersionStatus) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type DetectorDetectorVersionStatusPtrOutput struct{ *pulumi.OutputState }
-
-func (DetectorDetectorVersionStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DetectorDetectorVersionStatus)(nil)).Elem()
-}
-
-func (o DetectorDetectorVersionStatusPtrOutput) ToDetectorDetectorVersionStatusPtrOutput() DetectorDetectorVersionStatusPtrOutput {
-	return o
-}
-
-func (o DetectorDetectorVersionStatusPtrOutput) ToDetectorDetectorVersionStatusPtrOutputWithContext(ctx context.Context) DetectorDetectorVersionStatusPtrOutput {
-	return o
-}
-
-func (o DetectorDetectorVersionStatusPtrOutput) Elem() DetectorDetectorVersionStatusOutput {
-	return o.ApplyT(func(v *DetectorDetectorVersionStatus) DetectorDetectorVersionStatus {
-		if v != nil {
-			return *v
-		}
-		var ret DetectorDetectorVersionStatus
-		return ret
-	}).(DetectorDetectorVersionStatusOutput)
-}
-
-func (o DetectorDetectorVersionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DetectorDetectorVersionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DetectorDetectorVersionStatus) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// DetectorDetectorVersionStatusInput is an input type that accepts DetectorDetectorVersionStatusArgs and DetectorDetectorVersionStatusOutput values.
-// You can construct a concrete instance of `DetectorDetectorVersionStatusInput` via:
-//
-//          DetectorDetectorVersionStatusArgs{...}
-type DetectorDetectorVersionStatusInput interface {
-	pulumi.Input
-
-	ToDetectorDetectorVersionStatusOutput() DetectorDetectorVersionStatusOutput
-	ToDetectorDetectorVersionStatusOutputWithContext(context.Context) DetectorDetectorVersionStatusOutput
-}
-
-var detectorDetectorVersionStatusPtrType = reflect.TypeOf((**DetectorDetectorVersionStatus)(nil)).Elem()
-
-type DetectorDetectorVersionStatusPtrInput interface {
-	pulumi.Input
-
-	ToDetectorDetectorVersionStatusPtrOutput() DetectorDetectorVersionStatusPtrOutput
-	ToDetectorDetectorVersionStatusPtrOutputWithContext(context.Context) DetectorDetectorVersionStatusPtrOutput
-}
-
-type detectorDetectorVersionStatusPtr string
-
-func DetectorDetectorVersionStatusPtr(v string) DetectorDetectorVersionStatusPtrInput {
-	return (*detectorDetectorVersionStatusPtr)(&v)
-}
-
-func (*detectorDetectorVersionStatusPtr) ElementType() reflect.Type {
-	return detectorDetectorVersionStatusPtrType
-}
-
-func (in *detectorDetectorVersionStatusPtr) ToDetectorDetectorVersionStatusPtrOutput() DetectorDetectorVersionStatusPtrOutput {
-	return pulumi.ToOutput(in).(DetectorDetectorVersionStatusPtrOutput)
-}
-
-func (in *detectorDetectorVersionStatusPtr) ToDetectorDetectorVersionStatusPtrOutputWithContext(ctx context.Context) DetectorDetectorVersionStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DetectorDetectorVersionStatusPtrOutput)
-}
-
 type DetectorEventVariableDataSource string
 
 const (
@@ -1024,6 +859,171 @@ func (in *detectorRuleLanguagePtr) ToDetectorRuleLanguagePtrOutput() DetectorRul
 
 func (in *detectorRuleLanguagePtr) ToDetectorRuleLanguagePtrOutputWithContext(ctx context.Context) DetectorRuleLanguagePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DetectorRuleLanguagePtrOutput)
+}
+
+// The desired detector version status for the detector
+type DetectorVersionStatus string
+
+const (
+	DetectorVersionStatusDraft  = DetectorVersionStatus("DRAFT")
+	DetectorVersionStatusActive = DetectorVersionStatus("ACTIVE")
+)
+
+func (DetectorVersionStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorVersionStatus)(nil)).Elem()
+}
+
+func (e DetectorVersionStatus) ToDetectorVersionStatusOutput() DetectorVersionStatusOutput {
+	return pulumi.ToOutput(e).(DetectorVersionStatusOutput)
+}
+
+func (e DetectorVersionStatus) ToDetectorVersionStatusOutputWithContext(ctx context.Context) DetectorVersionStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DetectorVersionStatusOutput)
+}
+
+func (e DetectorVersionStatus) ToDetectorVersionStatusPtrOutput() DetectorVersionStatusPtrOutput {
+	return e.ToDetectorVersionStatusPtrOutputWithContext(context.Background())
+}
+
+func (e DetectorVersionStatus) ToDetectorVersionStatusPtrOutputWithContext(ctx context.Context) DetectorVersionStatusPtrOutput {
+	return DetectorVersionStatus(e).ToDetectorVersionStatusOutputWithContext(ctx).ToDetectorVersionStatusPtrOutputWithContext(ctx)
+}
+
+func (e DetectorVersionStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DetectorVersionStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DetectorVersionStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DetectorVersionStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DetectorVersionStatusOutput struct{ *pulumi.OutputState }
+
+func (DetectorVersionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorVersionStatus)(nil)).Elem()
+}
+
+func (o DetectorVersionStatusOutput) ToDetectorVersionStatusOutput() DetectorVersionStatusOutput {
+	return o
+}
+
+func (o DetectorVersionStatusOutput) ToDetectorVersionStatusOutputWithContext(ctx context.Context) DetectorVersionStatusOutput {
+	return o
+}
+
+func (o DetectorVersionStatusOutput) ToDetectorVersionStatusPtrOutput() DetectorVersionStatusPtrOutput {
+	return o.ToDetectorVersionStatusPtrOutputWithContext(context.Background())
+}
+
+func (o DetectorVersionStatusOutput) ToDetectorVersionStatusPtrOutputWithContext(ctx context.Context) DetectorVersionStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DetectorVersionStatus) *DetectorVersionStatus {
+		return &v
+	}).(DetectorVersionStatusPtrOutput)
+}
+
+func (o DetectorVersionStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DetectorVersionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DetectorVersionStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DetectorVersionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DetectorVersionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DetectorVersionStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DetectorVersionStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (DetectorVersionStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DetectorVersionStatus)(nil)).Elem()
+}
+
+func (o DetectorVersionStatusPtrOutput) ToDetectorVersionStatusPtrOutput() DetectorVersionStatusPtrOutput {
+	return o
+}
+
+func (o DetectorVersionStatusPtrOutput) ToDetectorVersionStatusPtrOutputWithContext(ctx context.Context) DetectorVersionStatusPtrOutput {
+	return o
+}
+
+func (o DetectorVersionStatusPtrOutput) Elem() DetectorVersionStatusOutput {
+	return o.ApplyT(func(v *DetectorVersionStatus) DetectorVersionStatus {
+		if v != nil {
+			return *v
+		}
+		var ret DetectorVersionStatus
+		return ret
+	}).(DetectorVersionStatusOutput)
+}
+
+func (o DetectorVersionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DetectorVersionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DetectorVersionStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DetectorVersionStatusInput is an input type that accepts DetectorVersionStatusArgs and DetectorVersionStatusOutput values.
+// You can construct a concrete instance of `DetectorVersionStatusInput` via:
+//
+//          DetectorVersionStatusArgs{...}
+type DetectorVersionStatusInput interface {
+	pulumi.Input
+
+	ToDetectorVersionStatusOutput() DetectorVersionStatusOutput
+	ToDetectorVersionStatusOutputWithContext(context.Context) DetectorVersionStatusOutput
+}
+
+var detectorVersionStatusPtrType = reflect.TypeOf((**DetectorVersionStatus)(nil)).Elem()
+
+type DetectorVersionStatusPtrInput interface {
+	pulumi.Input
+
+	ToDetectorVersionStatusPtrOutput() DetectorVersionStatusPtrOutput
+	ToDetectorVersionStatusPtrOutputWithContext(context.Context) DetectorVersionStatusPtrOutput
+}
+
+type detectorVersionStatusPtr string
+
+func DetectorVersionStatusPtr(v string) DetectorVersionStatusPtrInput {
+	return (*detectorVersionStatusPtr)(&v)
+}
+
+func (*detectorVersionStatusPtr) ElementType() reflect.Type {
+	return detectorVersionStatusPtrType
+}
+
+func (in *detectorVersionStatusPtr) ToDetectorVersionStatusPtrOutput() DetectorVersionStatusPtrOutput {
+	return pulumi.ToOutput(in).(DetectorVersionStatusPtrOutput)
+}
+
+func (in *detectorVersionStatusPtr) ToDetectorVersionStatusPtrOutputWithContext(ctx context.Context) DetectorVersionStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DetectorVersionStatusPtrOutput)
 }
 
 type EventTypeEventVariableDataSource string
@@ -1883,155 +1883,155 @@ func (in *variableDataTypePtr) ToVariableDataTypePtrOutputWithContext(ctx contex
 }
 
 // The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
-type VariableVariableType string
+type VariableType string
 
 const (
-	VariableVariableTypeAuthCode          = VariableVariableType("AUTH_CODE")
-	VariableVariableTypeAvs               = VariableVariableType("AVS")
-	VariableVariableTypeBillingAddressL1  = VariableVariableType("BILLING_ADDRESS_L1")
-	VariableVariableTypeBillingAddressL2  = VariableVariableType("BILLING_ADDRESS_L2")
-	VariableVariableTypeBillingCity       = VariableVariableType("BILLING_CITY")
-	VariableVariableTypeBillingCountry    = VariableVariableType("BILLING_COUNTRY")
-	VariableVariableTypeBillingName       = VariableVariableType("BILLING_NAME")
-	VariableVariableTypeBillingPhone      = VariableVariableType("BILLING_PHONE")
-	VariableVariableTypeBillingState      = VariableVariableType("BILLING_STATE")
-	VariableVariableTypeBillingZip        = VariableVariableType("BILLING_ZIP")
-	VariableVariableTypeCardBin           = VariableVariableType("CARD_BIN")
-	VariableVariableTypeCategorical       = VariableVariableType("CATEGORICAL")
-	VariableVariableTypeCurrencyCode      = VariableVariableType("CURRENCY_CODE")
-	VariableVariableTypeEmailAddress      = VariableVariableType("EMAIL_ADDRESS")
-	VariableVariableTypeFingerprint       = VariableVariableType("FINGERPRINT")
-	VariableVariableTypeFraudLabel        = VariableVariableType("FRAUD_LABEL")
-	VariableVariableTypeFreeFormText      = VariableVariableType("FREE_FORM_TEXT")
-	VariableVariableTypeIpAddress         = VariableVariableType("IP_ADDRESS")
-	VariableVariableTypeNumeric           = VariableVariableType("NUMERIC")
-	VariableVariableTypeOrderId           = VariableVariableType("ORDER_ID")
-	VariableVariableTypePaymentType       = VariableVariableType("PAYMENT_TYPE")
-	VariableVariableTypePhoneNumber       = VariableVariableType("PHONE_NUMBER")
-	VariableVariableTypePrice             = VariableVariableType("PRICE")
-	VariableVariableTypeProductCategory   = VariableVariableType("PRODUCT_CATEGORY")
-	VariableVariableTypeShippingAddressL1 = VariableVariableType("SHIPPING_ADDRESS_L1")
-	VariableVariableTypeShippingAddressL2 = VariableVariableType("SHIPPING_ADDRESS_L2")
-	VariableVariableTypeShippingCity      = VariableVariableType("SHIPPING_CITY")
-	VariableVariableTypeShippingCountry   = VariableVariableType("SHIPPING_COUNTRY")
-	VariableVariableTypeShippingName      = VariableVariableType("SHIPPING_NAME")
-	VariableVariableTypeShippingPhone     = VariableVariableType("SHIPPING_PHONE")
-	VariableVariableTypeShippingState     = VariableVariableType("SHIPPING_STATE")
-	VariableVariableTypeShippingZip       = VariableVariableType("SHIPPING_ZIP")
-	VariableVariableTypeUseragent         = VariableVariableType("USERAGENT")
+	VariableTypeAuthCode          = VariableType("AUTH_CODE")
+	VariableTypeAvs               = VariableType("AVS")
+	VariableTypeBillingAddressL1  = VariableType("BILLING_ADDRESS_L1")
+	VariableTypeBillingAddressL2  = VariableType("BILLING_ADDRESS_L2")
+	VariableTypeBillingCity       = VariableType("BILLING_CITY")
+	VariableTypeBillingCountry    = VariableType("BILLING_COUNTRY")
+	VariableTypeBillingName       = VariableType("BILLING_NAME")
+	VariableTypeBillingPhone      = VariableType("BILLING_PHONE")
+	VariableTypeBillingState      = VariableType("BILLING_STATE")
+	VariableTypeBillingZip        = VariableType("BILLING_ZIP")
+	VariableTypeCardBin           = VariableType("CARD_BIN")
+	VariableTypeCategorical       = VariableType("CATEGORICAL")
+	VariableTypeCurrencyCode      = VariableType("CURRENCY_CODE")
+	VariableTypeEmailAddress      = VariableType("EMAIL_ADDRESS")
+	VariableTypeFingerprint       = VariableType("FINGERPRINT")
+	VariableTypeFraudLabel        = VariableType("FRAUD_LABEL")
+	VariableTypeFreeFormText      = VariableType("FREE_FORM_TEXT")
+	VariableTypeIpAddress         = VariableType("IP_ADDRESS")
+	VariableTypeNumeric           = VariableType("NUMERIC")
+	VariableTypeOrderId           = VariableType("ORDER_ID")
+	VariableTypePaymentType       = VariableType("PAYMENT_TYPE")
+	VariableTypePhoneNumber       = VariableType("PHONE_NUMBER")
+	VariableTypePrice             = VariableType("PRICE")
+	VariableTypeProductCategory   = VariableType("PRODUCT_CATEGORY")
+	VariableTypeShippingAddressL1 = VariableType("SHIPPING_ADDRESS_L1")
+	VariableTypeShippingAddressL2 = VariableType("SHIPPING_ADDRESS_L2")
+	VariableTypeShippingCity      = VariableType("SHIPPING_CITY")
+	VariableTypeShippingCountry   = VariableType("SHIPPING_COUNTRY")
+	VariableTypeShippingName      = VariableType("SHIPPING_NAME")
+	VariableTypeShippingPhone     = VariableType("SHIPPING_PHONE")
+	VariableTypeShippingState     = VariableType("SHIPPING_STATE")
+	VariableTypeShippingZip       = VariableType("SHIPPING_ZIP")
+	VariableTypeUseragent         = VariableType("USERAGENT")
 )
 
-func (VariableVariableType) ElementType() reflect.Type {
-	return reflect.TypeOf((*VariableVariableType)(nil)).Elem()
+func (VariableType) ElementType() reflect.Type {
+	return reflect.TypeOf((*VariableType)(nil)).Elem()
 }
 
-func (e VariableVariableType) ToVariableVariableTypeOutput() VariableVariableTypeOutput {
-	return pulumi.ToOutput(e).(VariableVariableTypeOutput)
+func (e VariableType) ToVariableTypeOutput() VariableTypeOutput {
+	return pulumi.ToOutput(e).(VariableTypeOutput)
 }
 
-func (e VariableVariableType) ToVariableVariableTypeOutputWithContext(ctx context.Context) VariableVariableTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(VariableVariableTypeOutput)
+func (e VariableType) ToVariableTypeOutputWithContext(ctx context.Context) VariableTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VariableTypeOutput)
 }
 
-func (e VariableVariableType) ToVariableVariableTypePtrOutput() VariableVariableTypePtrOutput {
-	return e.ToVariableVariableTypePtrOutputWithContext(context.Background())
+func (e VariableType) ToVariableTypePtrOutput() VariableTypePtrOutput {
+	return e.ToVariableTypePtrOutputWithContext(context.Background())
 }
 
-func (e VariableVariableType) ToVariableVariableTypePtrOutputWithContext(ctx context.Context) VariableVariableTypePtrOutput {
-	return VariableVariableType(e).ToVariableVariableTypeOutputWithContext(ctx).ToVariableVariableTypePtrOutputWithContext(ctx)
+func (e VariableType) ToVariableTypePtrOutputWithContext(ctx context.Context) VariableTypePtrOutput {
+	return VariableType(e).ToVariableTypeOutputWithContext(ctx).ToVariableTypePtrOutputWithContext(ctx)
 }
 
-func (e VariableVariableType) ToStringOutput() pulumi.StringOutput {
+func (e VariableType) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e VariableVariableType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e VariableType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e VariableVariableType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e VariableType) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e VariableVariableType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e VariableType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type VariableVariableTypeOutput struct{ *pulumi.OutputState }
+type VariableTypeOutput struct{ *pulumi.OutputState }
 
-func (VariableVariableTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VariableVariableType)(nil)).Elem()
+func (VariableTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VariableType)(nil)).Elem()
 }
 
-func (o VariableVariableTypeOutput) ToVariableVariableTypeOutput() VariableVariableTypeOutput {
+func (o VariableTypeOutput) ToVariableTypeOutput() VariableTypeOutput {
 	return o
 }
 
-func (o VariableVariableTypeOutput) ToVariableVariableTypeOutputWithContext(ctx context.Context) VariableVariableTypeOutput {
+func (o VariableTypeOutput) ToVariableTypeOutputWithContext(ctx context.Context) VariableTypeOutput {
 	return o
 }
 
-func (o VariableVariableTypeOutput) ToVariableVariableTypePtrOutput() VariableVariableTypePtrOutput {
-	return o.ToVariableVariableTypePtrOutputWithContext(context.Background())
+func (o VariableTypeOutput) ToVariableTypePtrOutput() VariableTypePtrOutput {
+	return o.ToVariableTypePtrOutputWithContext(context.Background())
 }
 
-func (o VariableVariableTypeOutput) ToVariableVariableTypePtrOutputWithContext(ctx context.Context) VariableVariableTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VariableVariableType) *VariableVariableType {
+func (o VariableTypeOutput) ToVariableTypePtrOutputWithContext(ctx context.Context) VariableTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VariableType) *VariableType {
 		return &v
-	}).(VariableVariableTypePtrOutput)
+	}).(VariableTypePtrOutput)
 }
 
-func (o VariableVariableTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o VariableTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o VariableVariableTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e VariableVariableType) string {
+func (o VariableTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VariableType) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o VariableVariableTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o VariableTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o VariableVariableTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e VariableVariableType) *string {
+func (o VariableTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VariableType) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type VariableVariableTypePtrOutput struct{ *pulumi.OutputState }
+type VariableTypePtrOutput struct{ *pulumi.OutputState }
 
-func (VariableVariableTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VariableVariableType)(nil)).Elem()
+func (VariableTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VariableType)(nil)).Elem()
 }
 
-func (o VariableVariableTypePtrOutput) ToVariableVariableTypePtrOutput() VariableVariableTypePtrOutput {
+func (o VariableTypePtrOutput) ToVariableTypePtrOutput() VariableTypePtrOutput {
 	return o
 }
 
-func (o VariableVariableTypePtrOutput) ToVariableVariableTypePtrOutputWithContext(ctx context.Context) VariableVariableTypePtrOutput {
+func (o VariableTypePtrOutput) ToVariableTypePtrOutputWithContext(ctx context.Context) VariableTypePtrOutput {
 	return o
 }
 
-func (o VariableVariableTypePtrOutput) Elem() VariableVariableTypeOutput {
-	return o.ApplyT(func(v *VariableVariableType) VariableVariableType {
+func (o VariableTypePtrOutput) Elem() VariableTypeOutput {
+	return o.ApplyT(func(v *VariableType) VariableType {
 		if v != nil {
 			return *v
 		}
-		var ret VariableVariableType
+		var ret VariableType
 		return ret
-	}).(VariableVariableTypeOutput)
+	}).(VariableTypeOutput)
 }
 
-func (o VariableVariableTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o VariableTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o VariableVariableTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VariableVariableType) *string {
+func (o VariableTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VariableType) *string {
 		if e == nil {
 			return nil
 		}
@@ -2040,47 +2040,45 @@ func (o VariableVariableTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// VariableVariableTypeInput is an input type that accepts VariableVariableTypeArgs and VariableVariableTypeOutput values.
-// You can construct a concrete instance of `VariableVariableTypeInput` via:
+// VariableTypeInput is an input type that accepts VariableTypeArgs and VariableTypeOutput values.
+// You can construct a concrete instance of `VariableTypeInput` via:
 //
-//          VariableVariableTypeArgs{...}
-type VariableVariableTypeInput interface {
+//          VariableTypeArgs{...}
+type VariableTypeInput interface {
 	pulumi.Input
 
-	ToVariableVariableTypeOutput() VariableVariableTypeOutput
-	ToVariableVariableTypeOutputWithContext(context.Context) VariableVariableTypeOutput
+	ToVariableTypeOutput() VariableTypeOutput
+	ToVariableTypeOutputWithContext(context.Context) VariableTypeOutput
 }
 
-var variableVariableTypePtrType = reflect.TypeOf((**VariableVariableType)(nil)).Elem()
+var variableTypePtrType = reflect.TypeOf((**VariableType)(nil)).Elem()
 
-type VariableVariableTypePtrInput interface {
+type VariableTypePtrInput interface {
 	pulumi.Input
 
-	ToVariableVariableTypePtrOutput() VariableVariableTypePtrOutput
-	ToVariableVariableTypePtrOutputWithContext(context.Context) VariableVariableTypePtrOutput
+	ToVariableTypePtrOutput() VariableTypePtrOutput
+	ToVariableTypePtrOutputWithContext(context.Context) VariableTypePtrOutput
 }
 
-type variableVariableTypePtr string
+type variableTypePtr string
 
-func VariableVariableTypePtr(v string) VariableVariableTypePtrInput {
-	return (*variableVariableTypePtr)(&v)
+func VariableTypePtr(v string) VariableTypePtrInput {
+	return (*variableTypePtr)(&v)
 }
 
-func (*variableVariableTypePtr) ElementType() reflect.Type {
-	return variableVariableTypePtrType
+func (*variableTypePtr) ElementType() reflect.Type {
+	return variableTypePtrType
 }
 
-func (in *variableVariableTypePtr) ToVariableVariableTypePtrOutput() VariableVariableTypePtrOutput {
-	return pulumi.ToOutput(in).(VariableVariableTypePtrOutput)
+func (in *variableTypePtr) ToVariableTypePtrOutput() VariableTypePtrOutput {
+	return pulumi.ToOutput(in).(VariableTypePtrOutput)
 }
 
-func (in *variableVariableTypePtr) ToVariableVariableTypePtrOutputWithContext(ctx context.Context) VariableVariableTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(VariableVariableTypePtrOutput)
+func (in *variableTypePtr) ToVariableTypePtrOutputWithContext(ctx context.Context) VariableTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VariableTypePtrOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(DetectorDetectorVersionStatusOutput{})
-	pulumi.RegisterOutputType(DetectorDetectorVersionStatusPtrOutput{})
 	pulumi.RegisterOutputType(DetectorEventVariableDataSourceOutput{})
 	pulumi.RegisterOutputType(DetectorEventVariableDataSourcePtrOutput{})
 	pulumi.RegisterOutputType(DetectorEventVariableDataTypeOutput{})
@@ -2091,6 +2089,8 @@ func init() {
 	pulumi.RegisterOutputType(DetectorRuleExecutionModePtrOutput{})
 	pulumi.RegisterOutputType(DetectorRuleLanguageOutput{})
 	pulumi.RegisterOutputType(DetectorRuleLanguagePtrOutput{})
+	pulumi.RegisterOutputType(DetectorVersionStatusOutput{})
+	pulumi.RegisterOutputType(DetectorVersionStatusPtrOutput{})
 	pulumi.RegisterOutputType(EventTypeEventVariableDataSourceOutput{})
 	pulumi.RegisterOutputType(EventTypeEventVariableDataSourcePtrOutput{})
 	pulumi.RegisterOutputType(EventTypeEventVariableDataTypeOutput{})
@@ -2101,6 +2101,6 @@ func init() {
 	pulumi.RegisterOutputType(VariableDataSourcePtrOutput{})
 	pulumi.RegisterOutputType(VariableDataTypeOutput{})
 	pulumi.RegisterOutputType(VariableDataTypePtrOutput{})
-	pulumi.RegisterOutputType(VariableVariableTypeOutput{})
-	pulumi.RegisterOutputType(VariableVariableTypePtrOutput{})
+	pulumi.RegisterOutputType(VariableTypeOutput{})
+	pulumi.RegisterOutputType(VariableTypePtrOutput{})
 }

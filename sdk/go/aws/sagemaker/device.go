@@ -16,7 +16,7 @@ type Device struct {
 	pulumi.CustomResourceState
 
 	// The Edge Device you want to register against a device fleet
-	Device DeviceDevicePtrOutput `pulumi:"device"`
+	Device DeviceTypePtrOutput `pulumi:"device"`
 	// The name of the edge device fleet
 	DeviceFleetName pulumi.StringOutput `pulumi:"deviceFleetName"`
 	// Associate tags with the resource
@@ -66,7 +66,7 @@ func (DeviceState) ElementType() reflect.Type {
 
 type deviceArgs struct {
 	// The Edge Device you want to register against a device fleet
-	Device *DeviceDevice `pulumi:"device"`
+	Device *DeviceType `pulumi:"device"`
 	// The name of the edge device fleet
 	DeviceFleetName string `pulumi:"deviceFleetName"`
 	// Associate tags with the resource
@@ -76,7 +76,7 @@ type deviceArgs struct {
 // The set of arguments for constructing a Device resource.
 type DeviceArgs struct {
 	// The Edge Device you want to register against a device fleet
-	Device DeviceDevicePtrInput
+	Device DeviceTypePtrInput
 	// The name of the edge device fleet
 	DeviceFleetName pulumi.StringInput
 	// Associate tags with the resource

@@ -22,7 +22,7 @@ type Route struct {
 	MeshOwner         pulumi.StringPtrOutput `pulumi:"meshOwner"`
 	ResourceOwner     pulumi.StringOutput    `pulumi:"resourceOwner"`
 	RouteName         pulumi.StringPtrOutput `pulumi:"routeName"`
-	Spec              RouteRouteSpecOutput   `pulumi:"spec"`
+	Spec              RouteSpecOutput        `pulumi:"spec"`
 	Tags              RouteTagArrayOutput    `pulumi:"tags"`
 	Uid               pulumi.StringOutput    `pulumi:"uid"`
 	VirtualRouterName pulumi.StringOutput    `pulumi:"virtualRouterName"`
@@ -76,12 +76,12 @@ func (RouteState) ElementType() reflect.Type {
 }
 
 type routeArgs struct {
-	MeshName          string         `pulumi:"meshName"`
-	MeshOwner         *string        `pulumi:"meshOwner"`
-	RouteName         *string        `pulumi:"routeName"`
-	Spec              RouteRouteSpec `pulumi:"spec"`
-	Tags              []RouteTag     `pulumi:"tags"`
-	VirtualRouterName string         `pulumi:"virtualRouterName"`
+	MeshName          string     `pulumi:"meshName"`
+	MeshOwner         *string    `pulumi:"meshOwner"`
+	RouteName         *string    `pulumi:"routeName"`
+	Spec              RouteSpec  `pulumi:"spec"`
+	Tags              []RouteTag `pulumi:"tags"`
+	VirtualRouterName string     `pulumi:"virtualRouterName"`
 }
 
 // The set of arguments for constructing a Route resource.
@@ -89,7 +89,7 @@ type RouteArgs struct {
 	MeshName          pulumi.StringInput
 	MeshOwner         pulumi.StringPtrInput
 	RouteName         pulumi.StringPtrInput
-	Spec              RouteRouteSpecInput
+	Spec              RouteSpecInput
 	Tags              RouteTagArrayInput
 	VirtualRouterName pulumi.StringInput
 }

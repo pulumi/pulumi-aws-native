@@ -23,16 +23,16 @@ type DataSource struct {
 	//             existing data source. If the <code>AlternateDataSourceParameters</code> list is null,
 	//             the <code>Credentials</code> originally used with this <code>DataSourceParameters</code>
 	//             are automatically allowed.</p>
-	AlternateDataSourceParameters DataSourceDataSourceParametersArrayOutput `pulumi:"alternateDataSourceParameters"`
+	AlternateDataSourceParameters DataSourceParametersArrayOutput `pulumi:"alternateDataSourceParameters"`
 	// <p>The Amazon Resource Name (ARN) of the data source.</p>
 	Arn          pulumi.StringOutput    `pulumi:"arn"`
 	AwsAccountId pulumi.StringPtrOutput `pulumi:"awsAccountId"`
 	// <p>The time that this data source was created.</p>
-	CreatedTime          pulumi.StringOutput                      `pulumi:"createdTime"`
-	Credentials          DataSourceDataSourceCredentialsPtrOutput `pulumi:"credentials"`
-	DataSourceId         pulumi.StringPtrOutput                   `pulumi:"dataSourceId"`
-	DataSourceParameters DataSourceDataSourceParametersPtrOutput  `pulumi:"dataSourceParameters"`
-	ErrorInfo            DataSourceDataSourceErrorInfoPtrOutput   `pulumi:"errorInfo"`
+	CreatedTime          pulumi.StringOutput            `pulumi:"createdTime"`
+	Credentials          DataSourceCredentialsPtrOutput `pulumi:"credentials"`
+	DataSourceId         pulumi.StringPtrOutput         `pulumi:"dataSourceId"`
+	DataSourceParameters DataSourceParametersPtrOutput  `pulumi:"dataSourceParameters"`
+	ErrorInfo            DataSourceErrorInfoPtrOutput   `pulumi:"errorInfo"`
 	// <p>The last time that this data source was updated.</p>
 	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
 	// <p>A display name for the data source.</p>
@@ -43,7 +43,7 @@ type DataSource struct {
 	Status        DataSourceResourceStatusOutput          `pulumi:"status"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
 	Tags                    DataSourceTagArrayOutput                   `pulumi:"tags"`
-	Type                    DataSourceDataSourceTypePtrOutput          `pulumi:"type"`
+	Type                    DataSourceTypePtrOutput                    `pulumi:"type"`
 	VpcConnectionProperties DataSourceVpcConnectionPropertiesPtrOutput `pulumi:"vpcConnectionProperties"`
 }
 
@@ -95,12 +95,12 @@ type dataSourceArgs struct {
 	//             existing data source. If the <code>AlternateDataSourceParameters</code> list is null,
 	//             the <code>Credentials</code> originally used with this <code>DataSourceParameters</code>
 	//             are automatically allowed.</p>
-	AlternateDataSourceParameters []DataSourceDataSourceParameters `pulumi:"alternateDataSourceParameters"`
-	AwsAccountId                  *string                          `pulumi:"awsAccountId"`
-	Credentials                   *DataSourceDataSourceCredentials `pulumi:"credentials"`
-	DataSourceId                  *string                          `pulumi:"dataSourceId"`
-	DataSourceParameters          *DataSourceDataSourceParameters  `pulumi:"dataSourceParameters"`
-	ErrorInfo                     *DataSourceDataSourceErrorInfo   `pulumi:"errorInfo"`
+	AlternateDataSourceParameters []DataSourceParameters `pulumi:"alternateDataSourceParameters"`
+	AwsAccountId                  *string                `pulumi:"awsAccountId"`
+	Credentials                   *DataSourceCredentials `pulumi:"credentials"`
+	DataSourceId                  *string                `pulumi:"dataSourceId"`
+	DataSourceParameters          *DataSourceParameters  `pulumi:"dataSourceParameters"`
+	ErrorInfo                     *DataSourceErrorInfo   `pulumi:"errorInfo"`
 	// <p>A display name for the data source.</p>
 	Name *string `pulumi:"name"`
 	// <p>A list of resource permissions on the data source.</p>
@@ -108,7 +108,7 @@ type dataSourceArgs struct {
 	SslProperties *DataSourceSslProperties       `pulumi:"sslProperties"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
 	Tags                    []DataSourceTag                    `pulumi:"tags"`
-	Type                    *DataSourceDataSourceType          `pulumi:"type"`
+	Type                    *DataSourceType                    `pulumi:"type"`
 	VpcConnectionProperties *DataSourceVpcConnectionProperties `pulumi:"vpcConnectionProperties"`
 }
 
@@ -123,12 +123,12 @@ type DataSourceArgs struct {
 	//             existing data source. If the <code>AlternateDataSourceParameters</code> list is null,
 	//             the <code>Credentials</code> originally used with this <code>DataSourceParameters</code>
 	//             are automatically allowed.</p>
-	AlternateDataSourceParameters DataSourceDataSourceParametersArrayInput
+	AlternateDataSourceParameters DataSourceParametersArrayInput
 	AwsAccountId                  pulumi.StringPtrInput
-	Credentials                   DataSourceDataSourceCredentialsPtrInput
+	Credentials                   DataSourceCredentialsPtrInput
 	DataSourceId                  pulumi.StringPtrInput
-	DataSourceParameters          DataSourceDataSourceParametersPtrInput
-	ErrorInfo                     DataSourceDataSourceErrorInfoPtrInput
+	DataSourceParameters          DataSourceParametersPtrInput
+	ErrorInfo                     DataSourceErrorInfoPtrInput
 	// <p>A display name for the data source.</p>
 	Name pulumi.StringPtrInput
 	// <p>A list of resource permissions on the data source.</p>
@@ -136,7 +136,7 @@ type DataSourceArgs struct {
 	SslProperties DataSourceSslPropertiesPtrInput
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
 	Tags                    DataSourceTagArrayInput
-	Type                    DataSourceDataSourceTypePtrInput
+	Type                    DataSourceTypePtrInput
 	VpcConnectionProperties DataSourceVpcConnectionPropertiesPtrInput
 }
 

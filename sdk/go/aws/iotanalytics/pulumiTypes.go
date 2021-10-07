@@ -10,154 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type ChannelChannelStorage struct {
-	CustomerManagedS3 *ChannelCustomerManagedS3 `pulumi:"customerManagedS3"`
-	ServiceManagedS3  *ChannelServiceManagedS3  `pulumi:"serviceManagedS3"`
-}
-
-// ChannelChannelStorageInput is an input type that accepts ChannelChannelStorageArgs and ChannelChannelStorageOutput values.
-// You can construct a concrete instance of `ChannelChannelStorageInput` via:
-//
-//          ChannelChannelStorageArgs{...}
-type ChannelChannelStorageInput interface {
-	pulumi.Input
-
-	ToChannelChannelStorageOutput() ChannelChannelStorageOutput
-	ToChannelChannelStorageOutputWithContext(context.Context) ChannelChannelStorageOutput
-}
-
-type ChannelChannelStorageArgs struct {
-	CustomerManagedS3 ChannelCustomerManagedS3PtrInput `pulumi:"customerManagedS3"`
-	ServiceManagedS3  ChannelServiceManagedS3PtrInput  `pulumi:"serviceManagedS3"`
-}
-
-func (ChannelChannelStorageArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelChannelStorage)(nil)).Elem()
-}
-
-func (i ChannelChannelStorageArgs) ToChannelChannelStorageOutput() ChannelChannelStorageOutput {
-	return i.ToChannelChannelStorageOutputWithContext(context.Background())
-}
-
-func (i ChannelChannelStorageArgs) ToChannelChannelStorageOutputWithContext(ctx context.Context) ChannelChannelStorageOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelChannelStorageOutput)
-}
-
-func (i ChannelChannelStorageArgs) ToChannelChannelStoragePtrOutput() ChannelChannelStoragePtrOutput {
-	return i.ToChannelChannelStoragePtrOutputWithContext(context.Background())
-}
-
-func (i ChannelChannelStorageArgs) ToChannelChannelStoragePtrOutputWithContext(ctx context.Context) ChannelChannelStoragePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelChannelStorageOutput).ToChannelChannelStoragePtrOutputWithContext(ctx)
-}
-
-// ChannelChannelStoragePtrInput is an input type that accepts ChannelChannelStorageArgs, ChannelChannelStoragePtr and ChannelChannelStoragePtrOutput values.
-// You can construct a concrete instance of `ChannelChannelStoragePtrInput` via:
-//
-//          ChannelChannelStorageArgs{...}
-//
-//  or:
-//
-//          nil
-type ChannelChannelStoragePtrInput interface {
-	pulumi.Input
-
-	ToChannelChannelStoragePtrOutput() ChannelChannelStoragePtrOutput
-	ToChannelChannelStoragePtrOutputWithContext(context.Context) ChannelChannelStoragePtrOutput
-}
-
-type channelChannelStoragePtrType ChannelChannelStorageArgs
-
-func ChannelChannelStoragePtr(v *ChannelChannelStorageArgs) ChannelChannelStoragePtrInput {
-	return (*channelChannelStoragePtrType)(v)
-}
-
-func (*channelChannelStoragePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ChannelChannelStorage)(nil)).Elem()
-}
-
-func (i *channelChannelStoragePtrType) ToChannelChannelStoragePtrOutput() ChannelChannelStoragePtrOutput {
-	return i.ToChannelChannelStoragePtrOutputWithContext(context.Background())
-}
-
-func (i *channelChannelStoragePtrType) ToChannelChannelStoragePtrOutputWithContext(ctx context.Context) ChannelChannelStoragePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelChannelStoragePtrOutput)
-}
-
-type ChannelChannelStorageOutput struct{ *pulumi.OutputState }
-
-func (ChannelChannelStorageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelChannelStorage)(nil)).Elem()
-}
-
-func (o ChannelChannelStorageOutput) ToChannelChannelStorageOutput() ChannelChannelStorageOutput {
-	return o
-}
-
-func (o ChannelChannelStorageOutput) ToChannelChannelStorageOutputWithContext(ctx context.Context) ChannelChannelStorageOutput {
-	return o
-}
-
-func (o ChannelChannelStorageOutput) ToChannelChannelStoragePtrOutput() ChannelChannelStoragePtrOutput {
-	return o.ToChannelChannelStoragePtrOutputWithContext(context.Background())
-}
-
-func (o ChannelChannelStorageOutput) ToChannelChannelStoragePtrOutputWithContext(ctx context.Context) ChannelChannelStoragePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelChannelStorage) *ChannelChannelStorage {
-		return &v
-	}).(ChannelChannelStoragePtrOutput)
-}
-
-func (o ChannelChannelStorageOutput) CustomerManagedS3() ChannelCustomerManagedS3PtrOutput {
-	return o.ApplyT(func(v ChannelChannelStorage) *ChannelCustomerManagedS3 { return v.CustomerManagedS3 }).(ChannelCustomerManagedS3PtrOutput)
-}
-
-func (o ChannelChannelStorageOutput) ServiceManagedS3() ChannelServiceManagedS3PtrOutput {
-	return o.ApplyT(func(v ChannelChannelStorage) *ChannelServiceManagedS3 { return v.ServiceManagedS3 }).(ChannelServiceManagedS3PtrOutput)
-}
-
-type ChannelChannelStoragePtrOutput struct{ *pulumi.OutputState }
-
-func (ChannelChannelStoragePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ChannelChannelStorage)(nil)).Elem()
-}
-
-func (o ChannelChannelStoragePtrOutput) ToChannelChannelStoragePtrOutput() ChannelChannelStoragePtrOutput {
-	return o
-}
-
-func (o ChannelChannelStoragePtrOutput) ToChannelChannelStoragePtrOutputWithContext(ctx context.Context) ChannelChannelStoragePtrOutput {
-	return o
-}
-
-func (o ChannelChannelStoragePtrOutput) Elem() ChannelChannelStorageOutput {
-	return o.ApplyT(func(v *ChannelChannelStorage) ChannelChannelStorage {
-		if v != nil {
-			return *v
-		}
-		var ret ChannelChannelStorage
-		return ret
-	}).(ChannelChannelStorageOutput)
-}
-
-func (o ChannelChannelStoragePtrOutput) CustomerManagedS3() ChannelCustomerManagedS3PtrOutput {
-	return o.ApplyT(func(v *ChannelChannelStorage) *ChannelCustomerManagedS3 {
-		if v == nil {
-			return nil
-		}
-		return v.CustomerManagedS3
-	}).(ChannelCustomerManagedS3PtrOutput)
-}
-
-func (o ChannelChannelStoragePtrOutput) ServiceManagedS3() ChannelServiceManagedS3PtrOutput {
-	return o.ApplyT(func(v *ChannelChannelStorage) *ChannelServiceManagedS3 {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceManagedS3
-	}).(ChannelServiceManagedS3PtrOutput)
-}
-
 type ChannelCustomerManagedS3 struct {
 	Bucket    string  `pulumi:"bucket"`
 	KeyPrefix *string `pulumi:"keyPrefix"`
@@ -587,6 +439,154 @@ func (o ChannelServiceManagedS3PtrOutput) Elem() ChannelServiceManagedS3Output {
 	}).(ChannelServiceManagedS3Output)
 }
 
+type ChannelStorage struct {
+	CustomerManagedS3 *ChannelCustomerManagedS3 `pulumi:"customerManagedS3"`
+	ServiceManagedS3  *ChannelServiceManagedS3  `pulumi:"serviceManagedS3"`
+}
+
+// ChannelStorageInput is an input type that accepts ChannelStorageArgs and ChannelStorageOutput values.
+// You can construct a concrete instance of `ChannelStorageInput` via:
+//
+//          ChannelStorageArgs{...}
+type ChannelStorageInput interface {
+	pulumi.Input
+
+	ToChannelStorageOutput() ChannelStorageOutput
+	ToChannelStorageOutputWithContext(context.Context) ChannelStorageOutput
+}
+
+type ChannelStorageArgs struct {
+	CustomerManagedS3 ChannelCustomerManagedS3PtrInput `pulumi:"customerManagedS3"`
+	ServiceManagedS3  ChannelServiceManagedS3PtrInput  `pulumi:"serviceManagedS3"`
+}
+
+func (ChannelStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelStorage)(nil)).Elem()
+}
+
+func (i ChannelStorageArgs) ToChannelStorageOutput() ChannelStorageOutput {
+	return i.ToChannelStorageOutputWithContext(context.Background())
+}
+
+func (i ChannelStorageArgs) ToChannelStorageOutputWithContext(ctx context.Context) ChannelStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelStorageOutput)
+}
+
+func (i ChannelStorageArgs) ToChannelStoragePtrOutput() ChannelStoragePtrOutput {
+	return i.ToChannelStoragePtrOutputWithContext(context.Background())
+}
+
+func (i ChannelStorageArgs) ToChannelStoragePtrOutputWithContext(ctx context.Context) ChannelStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelStorageOutput).ToChannelStoragePtrOutputWithContext(ctx)
+}
+
+// ChannelStoragePtrInput is an input type that accepts ChannelStorageArgs, ChannelStoragePtr and ChannelStoragePtrOutput values.
+// You can construct a concrete instance of `ChannelStoragePtrInput` via:
+//
+//          ChannelStorageArgs{...}
+//
+//  or:
+//
+//          nil
+type ChannelStoragePtrInput interface {
+	pulumi.Input
+
+	ToChannelStoragePtrOutput() ChannelStoragePtrOutput
+	ToChannelStoragePtrOutputWithContext(context.Context) ChannelStoragePtrOutput
+}
+
+type channelStoragePtrType ChannelStorageArgs
+
+func ChannelStoragePtr(v *ChannelStorageArgs) ChannelStoragePtrInput {
+	return (*channelStoragePtrType)(v)
+}
+
+func (*channelStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelStorage)(nil)).Elem()
+}
+
+func (i *channelStoragePtrType) ToChannelStoragePtrOutput() ChannelStoragePtrOutput {
+	return i.ToChannelStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *channelStoragePtrType) ToChannelStoragePtrOutputWithContext(ctx context.Context) ChannelStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelStoragePtrOutput)
+}
+
+type ChannelStorageOutput struct{ *pulumi.OutputState }
+
+func (ChannelStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelStorage)(nil)).Elem()
+}
+
+func (o ChannelStorageOutput) ToChannelStorageOutput() ChannelStorageOutput {
+	return o
+}
+
+func (o ChannelStorageOutput) ToChannelStorageOutputWithContext(ctx context.Context) ChannelStorageOutput {
+	return o
+}
+
+func (o ChannelStorageOutput) ToChannelStoragePtrOutput() ChannelStoragePtrOutput {
+	return o.ToChannelStoragePtrOutputWithContext(context.Background())
+}
+
+func (o ChannelStorageOutput) ToChannelStoragePtrOutputWithContext(ctx context.Context) ChannelStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelStorage) *ChannelStorage {
+		return &v
+	}).(ChannelStoragePtrOutput)
+}
+
+func (o ChannelStorageOutput) CustomerManagedS3() ChannelCustomerManagedS3PtrOutput {
+	return o.ApplyT(func(v ChannelStorage) *ChannelCustomerManagedS3 { return v.CustomerManagedS3 }).(ChannelCustomerManagedS3PtrOutput)
+}
+
+func (o ChannelStorageOutput) ServiceManagedS3() ChannelServiceManagedS3PtrOutput {
+	return o.ApplyT(func(v ChannelStorage) *ChannelServiceManagedS3 { return v.ServiceManagedS3 }).(ChannelServiceManagedS3PtrOutput)
+}
+
+type ChannelStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelStorage)(nil)).Elem()
+}
+
+func (o ChannelStoragePtrOutput) ToChannelStoragePtrOutput() ChannelStoragePtrOutput {
+	return o
+}
+
+func (o ChannelStoragePtrOutput) ToChannelStoragePtrOutputWithContext(ctx context.Context) ChannelStoragePtrOutput {
+	return o
+}
+
+func (o ChannelStoragePtrOutput) Elem() ChannelStorageOutput {
+	return o.ApplyT(func(v *ChannelStorage) ChannelStorage {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelStorage
+		return ret
+	}).(ChannelStorageOutput)
+}
+
+func (o ChannelStoragePtrOutput) CustomerManagedS3() ChannelCustomerManagedS3PtrOutput {
+	return o.ApplyT(func(v *ChannelStorage) *ChannelCustomerManagedS3 {
+		if v == nil {
+			return nil
+		}
+		return v.CustomerManagedS3
+	}).(ChannelCustomerManagedS3PtrOutput)
+}
+
+func (o ChannelStoragePtrOutput) ServiceManagedS3() ChannelServiceManagedS3PtrOutput {
+	return o.ApplyT(func(v *ChannelStorage) *ChannelServiceManagedS3 {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceManagedS3
+	}).(ChannelServiceManagedS3PtrOutput)
+}
+
 type ChannelTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -971,293 +971,291 @@ func (o DatasetContainerActionPtrOutput) Variables() DatasetVariableArrayOutput 
 	}).(DatasetVariableArrayOutput)
 }
 
-type DatasetDatasetContentDeliveryRule struct {
-	Destination DatasetDatasetContentDeliveryRuleDestination `pulumi:"destination"`
-	EntryName   *string                                      `pulumi:"entryName"`
+type DatasetContentDeliveryRule struct {
+	Destination DatasetContentDeliveryRuleDestination `pulumi:"destination"`
+	EntryName   *string                               `pulumi:"entryName"`
 }
 
-// DatasetDatasetContentDeliveryRuleInput is an input type that accepts DatasetDatasetContentDeliveryRuleArgs and DatasetDatasetContentDeliveryRuleOutput values.
-// You can construct a concrete instance of `DatasetDatasetContentDeliveryRuleInput` via:
+// DatasetContentDeliveryRuleInput is an input type that accepts DatasetContentDeliveryRuleArgs and DatasetContentDeliveryRuleOutput values.
+// You can construct a concrete instance of `DatasetContentDeliveryRuleInput` via:
 //
-//          DatasetDatasetContentDeliveryRuleArgs{...}
-type DatasetDatasetContentDeliveryRuleInput interface {
+//          DatasetContentDeliveryRuleArgs{...}
+type DatasetContentDeliveryRuleInput interface {
 	pulumi.Input
 
-	ToDatasetDatasetContentDeliveryRuleOutput() DatasetDatasetContentDeliveryRuleOutput
-	ToDatasetDatasetContentDeliveryRuleOutputWithContext(context.Context) DatasetDatasetContentDeliveryRuleOutput
+	ToDatasetContentDeliveryRuleOutput() DatasetContentDeliveryRuleOutput
+	ToDatasetContentDeliveryRuleOutputWithContext(context.Context) DatasetContentDeliveryRuleOutput
 }
 
-type DatasetDatasetContentDeliveryRuleArgs struct {
-	Destination DatasetDatasetContentDeliveryRuleDestinationInput `pulumi:"destination"`
-	EntryName   pulumi.StringPtrInput                             `pulumi:"entryName"`
+type DatasetContentDeliveryRuleArgs struct {
+	Destination DatasetContentDeliveryRuleDestinationInput `pulumi:"destination"`
+	EntryName   pulumi.StringPtrInput                      `pulumi:"entryName"`
 }
 
-func (DatasetDatasetContentDeliveryRuleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetDatasetContentDeliveryRule)(nil)).Elem()
+func (DatasetContentDeliveryRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetContentDeliveryRule)(nil)).Elem()
 }
 
-func (i DatasetDatasetContentDeliveryRuleArgs) ToDatasetDatasetContentDeliveryRuleOutput() DatasetDatasetContentDeliveryRuleOutput {
-	return i.ToDatasetDatasetContentDeliveryRuleOutputWithContext(context.Background())
+func (i DatasetContentDeliveryRuleArgs) ToDatasetContentDeliveryRuleOutput() DatasetContentDeliveryRuleOutput {
+	return i.ToDatasetContentDeliveryRuleOutputWithContext(context.Background())
 }
 
-func (i DatasetDatasetContentDeliveryRuleArgs) ToDatasetDatasetContentDeliveryRuleOutputWithContext(ctx context.Context) DatasetDatasetContentDeliveryRuleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetDatasetContentDeliveryRuleOutput)
+func (i DatasetContentDeliveryRuleArgs) ToDatasetContentDeliveryRuleOutputWithContext(ctx context.Context) DatasetContentDeliveryRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetContentDeliveryRuleOutput)
 }
 
-// DatasetDatasetContentDeliveryRuleArrayInput is an input type that accepts DatasetDatasetContentDeliveryRuleArray and DatasetDatasetContentDeliveryRuleArrayOutput values.
-// You can construct a concrete instance of `DatasetDatasetContentDeliveryRuleArrayInput` via:
+// DatasetContentDeliveryRuleArrayInput is an input type that accepts DatasetContentDeliveryRuleArray and DatasetContentDeliveryRuleArrayOutput values.
+// You can construct a concrete instance of `DatasetContentDeliveryRuleArrayInput` via:
 //
-//          DatasetDatasetContentDeliveryRuleArray{ DatasetDatasetContentDeliveryRuleArgs{...} }
-type DatasetDatasetContentDeliveryRuleArrayInput interface {
+//          DatasetContentDeliveryRuleArray{ DatasetContentDeliveryRuleArgs{...} }
+type DatasetContentDeliveryRuleArrayInput interface {
 	pulumi.Input
 
-	ToDatasetDatasetContentDeliveryRuleArrayOutput() DatasetDatasetContentDeliveryRuleArrayOutput
-	ToDatasetDatasetContentDeliveryRuleArrayOutputWithContext(context.Context) DatasetDatasetContentDeliveryRuleArrayOutput
+	ToDatasetContentDeliveryRuleArrayOutput() DatasetContentDeliveryRuleArrayOutput
+	ToDatasetContentDeliveryRuleArrayOutputWithContext(context.Context) DatasetContentDeliveryRuleArrayOutput
 }
 
-type DatasetDatasetContentDeliveryRuleArray []DatasetDatasetContentDeliveryRuleInput
+type DatasetContentDeliveryRuleArray []DatasetContentDeliveryRuleInput
 
-func (DatasetDatasetContentDeliveryRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatasetDatasetContentDeliveryRule)(nil)).Elem()
+func (DatasetContentDeliveryRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatasetContentDeliveryRule)(nil)).Elem()
 }
 
-func (i DatasetDatasetContentDeliveryRuleArray) ToDatasetDatasetContentDeliveryRuleArrayOutput() DatasetDatasetContentDeliveryRuleArrayOutput {
-	return i.ToDatasetDatasetContentDeliveryRuleArrayOutputWithContext(context.Background())
+func (i DatasetContentDeliveryRuleArray) ToDatasetContentDeliveryRuleArrayOutput() DatasetContentDeliveryRuleArrayOutput {
+	return i.ToDatasetContentDeliveryRuleArrayOutputWithContext(context.Background())
 }
 
-func (i DatasetDatasetContentDeliveryRuleArray) ToDatasetDatasetContentDeliveryRuleArrayOutputWithContext(ctx context.Context) DatasetDatasetContentDeliveryRuleArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetDatasetContentDeliveryRuleArrayOutput)
+func (i DatasetContentDeliveryRuleArray) ToDatasetContentDeliveryRuleArrayOutputWithContext(ctx context.Context) DatasetContentDeliveryRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetContentDeliveryRuleArrayOutput)
 }
 
-type DatasetDatasetContentDeliveryRuleOutput struct{ *pulumi.OutputState }
+type DatasetContentDeliveryRuleOutput struct{ *pulumi.OutputState }
 
-func (DatasetDatasetContentDeliveryRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetDatasetContentDeliveryRule)(nil)).Elem()
+func (DatasetContentDeliveryRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetContentDeliveryRule)(nil)).Elem()
 }
 
-func (o DatasetDatasetContentDeliveryRuleOutput) ToDatasetDatasetContentDeliveryRuleOutput() DatasetDatasetContentDeliveryRuleOutput {
+func (o DatasetContentDeliveryRuleOutput) ToDatasetContentDeliveryRuleOutput() DatasetContentDeliveryRuleOutput {
 	return o
 }
 
-func (o DatasetDatasetContentDeliveryRuleOutput) ToDatasetDatasetContentDeliveryRuleOutputWithContext(ctx context.Context) DatasetDatasetContentDeliveryRuleOutput {
+func (o DatasetContentDeliveryRuleOutput) ToDatasetContentDeliveryRuleOutputWithContext(ctx context.Context) DatasetContentDeliveryRuleOutput {
 	return o
 }
 
-func (o DatasetDatasetContentDeliveryRuleOutput) Destination() DatasetDatasetContentDeliveryRuleDestinationOutput {
-	return o.ApplyT(func(v DatasetDatasetContentDeliveryRule) DatasetDatasetContentDeliveryRuleDestination {
-		return v.Destination
-	}).(DatasetDatasetContentDeliveryRuleDestinationOutput)
+func (o DatasetContentDeliveryRuleOutput) Destination() DatasetContentDeliveryRuleDestinationOutput {
+	return o.ApplyT(func(v DatasetContentDeliveryRule) DatasetContentDeliveryRuleDestination { return v.Destination }).(DatasetContentDeliveryRuleDestinationOutput)
 }
 
-func (o DatasetDatasetContentDeliveryRuleOutput) EntryName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatasetDatasetContentDeliveryRule) *string { return v.EntryName }).(pulumi.StringPtrOutput)
+func (o DatasetContentDeliveryRuleOutput) EntryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetContentDeliveryRule) *string { return v.EntryName }).(pulumi.StringPtrOutput)
 }
 
-type DatasetDatasetContentDeliveryRuleArrayOutput struct{ *pulumi.OutputState }
+type DatasetContentDeliveryRuleArrayOutput struct{ *pulumi.OutputState }
 
-func (DatasetDatasetContentDeliveryRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatasetDatasetContentDeliveryRule)(nil)).Elem()
+func (DatasetContentDeliveryRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatasetContentDeliveryRule)(nil)).Elem()
 }
 
-func (o DatasetDatasetContentDeliveryRuleArrayOutput) ToDatasetDatasetContentDeliveryRuleArrayOutput() DatasetDatasetContentDeliveryRuleArrayOutput {
+func (o DatasetContentDeliveryRuleArrayOutput) ToDatasetContentDeliveryRuleArrayOutput() DatasetContentDeliveryRuleArrayOutput {
 	return o
 }
 
-func (o DatasetDatasetContentDeliveryRuleArrayOutput) ToDatasetDatasetContentDeliveryRuleArrayOutputWithContext(ctx context.Context) DatasetDatasetContentDeliveryRuleArrayOutput {
+func (o DatasetContentDeliveryRuleArrayOutput) ToDatasetContentDeliveryRuleArrayOutputWithContext(ctx context.Context) DatasetContentDeliveryRuleArrayOutput {
 	return o
 }
 
-func (o DatasetDatasetContentDeliveryRuleArrayOutput) Index(i pulumi.IntInput) DatasetDatasetContentDeliveryRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetDatasetContentDeliveryRule {
-		return vs[0].([]DatasetDatasetContentDeliveryRule)[vs[1].(int)]
-	}).(DatasetDatasetContentDeliveryRuleOutput)
+func (o DatasetContentDeliveryRuleArrayOutput) Index(i pulumi.IntInput) DatasetContentDeliveryRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetContentDeliveryRule {
+		return vs[0].([]DatasetContentDeliveryRule)[vs[1].(int)]
+	}).(DatasetContentDeliveryRuleOutput)
 }
 
-type DatasetDatasetContentDeliveryRuleDestination struct {
+type DatasetContentDeliveryRuleDestination struct {
 	IotEventsDestinationConfiguration *DatasetIotEventsDestinationConfiguration `pulumi:"iotEventsDestinationConfiguration"`
 	S3DestinationConfiguration        *DatasetS3DestinationConfiguration        `pulumi:"s3DestinationConfiguration"`
 }
 
-// DatasetDatasetContentDeliveryRuleDestinationInput is an input type that accepts DatasetDatasetContentDeliveryRuleDestinationArgs and DatasetDatasetContentDeliveryRuleDestinationOutput values.
-// You can construct a concrete instance of `DatasetDatasetContentDeliveryRuleDestinationInput` via:
+// DatasetContentDeliveryRuleDestinationInput is an input type that accepts DatasetContentDeliveryRuleDestinationArgs and DatasetContentDeliveryRuleDestinationOutput values.
+// You can construct a concrete instance of `DatasetContentDeliveryRuleDestinationInput` via:
 //
-//          DatasetDatasetContentDeliveryRuleDestinationArgs{...}
-type DatasetDatasetContentDeliveryRuleDestinationInput interface {
+//          DatasetContentDeliveryRuleDestinationArgs{...}
+type DatasetContentDeliveryRuleDestinationInput interface {
 	pulumi.Input
 
-	ToDatasetDatasetContentDeliveryRuleDestinationOutput() DatasetDatasetContentDeliveryRuleDestinationOutput
-	ToDatasetDatasetContentDeliveryRuleDestinationOutputWithContext(context.Context) DatasetDatasetContentDeliveryRuleDestinationOutput
+	ToDatasetContentDeliveryRuleDestinationOutput() DatasetContentDeliveryRuleDestinationOutput
+	ToDatasetContentDeliveryRuleDestinationOutputWithContext(context.Context) DatasetContentDeliveryRuleDestinationOutput
 }
 
-type DatasetDatasetContentDeliveryRuleDestinationArgs struct {
+type DatasetContentDeliveryRuleDestinationArgs struct {
 	IotEventsDestinationConfiguration DatasetIotEventsDestinationConfigurationPtrInput `pulumi:"iotEventsDestinationConfiguration"`
 	S3DestinationConfiguration        DatasetS3DestinationConfigurationPtrInput        `pulumi:"s3DestinationConfiguration"`
 }
 
-func (DatasetDatasetContentDeliveryRuleDestinationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetDatasetContentDeliveryRuleDestination)(nil)).Elem()
+func (DatasetContentDeliveryRuleDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetContentDeliveryRuleDestination)(nil)).Elem()
 }
 
-func (i DatasetDatasetContentDeliveryRuleDestinationArgs) ToDatasetDatasetContentDeliveryRuleDestinationOutput() DatasetDatasetContentDeliveryRuleDestinationOutput {
-	return i.ToDatasetDatasetContentDeliveryRuleDestinationOutputWithContext(context.Background())
+func (i DatasetContentDeliveryRuleDestinationArgs) ToDatasetContentDeliveryRuleDestinationOutput() DatasetContentDeliveryRuleDestinationOutput {
+	return i.ToDatasetContentDeliveryRuleDestinationOutputWithContext(context.Background())
 }
 
-func (i DatasetDatasetContentDeliveryRuleDestinationArgs) ToDatasetDatasetContentDeliveryRuleDestinationOutputWithContext(ctx context.Context) DatasetDatasetContentDeliveryRuleDestinationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetDatasetContentDeliveryRuleDestinationOutput)
+func (i DatasetContentDeliveryRuleDestinationArgs) ToDatasetContentDeliveryRuleDestinationOutputWithContext(ctx context.Context) DatasetContentDeliveryRuleDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetContentDeliveryRuleDestinationOutput)
 }
 
-type DatasetDatasetContentDeliveryRuleDestinationOutput struct{ *pulumi.OutputState }
+type DatasetContentDeliveryRuleDestinationOutput struct{ *pulumi.OutputState }
 
-func (DatasetDatasetContentDeliveryRuleDestinationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetDatasetContentDeliveryRuleDestination)(nil)).Elem()
+func (DatasetContentDeliveryRuleDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetContentDeliveryRuleDestination)(nil)).Elem()
 }
 
-func (o DatasetDatasetContentDeliveryRuleDestinationOutput) ToDatasetDatasetContentDeliveryRuleDestinationOutput() DatasetDatasetContentDeliveryRuleDestinationOutput {
+func (o DatasetContentDeliveryRuleDestinationOutput) ToDatasetContentDeliveryRuleDestinationOutput() DatasetContentDeliveryRuleDestinationOutput {
 	return o
 }
 
-func (o DatasetDatasetContentDeliveryRuleDestinationOutput) ToDatasetDatasetContentDeliveryRuleDestinationOutputWithContext(ctx context.Context) DatasetDatasetContentDeliveryRuleDestinationOutput {
+func (o DatasetContentDeliveryRuleDestinationOutput) ToDatasetContentDeliveryRuleDestinationOutputWithContext(ctx context.Context) DatasetContentDeliveryRuleDestinationOutput {
 	return o
 }
 
-func (o DatasetDatasetContentDeliveryRuleDestinationOutput) IotEventsDestinationConfiguration() DatasetIotEventsDestinationConfigurationPtrOutput {
-	return o.ApplyT(func(v DatasetDatasetContentDeliveryRuleDestination) *DatasetIotEventsDestinationConfiguration {
+func (o DatasetContentDeliveryRuleDestinationOutput) IotEventsDestinationConfiguration() DatasetIotEventsDestinationConfigurationPtrOutput {
+	return o.ApplyT(func(v DatasetContentDeliveryRuleDestination) *DatasetIotEventsDestinationConfiguration {
 		return v.IotEventsDestinationConfiguration
 	}).(DatasetIotEventsDestinationConfigurationPtrOutput)
 }
 
-func (o DatasetDatasetContentDeliveryRuleDestinationOutput) S3DestinationConfiguration() DatasetS3DestinationConfigurationPtrOutput {
-	return o.ApplyT(func(v DatasetDatasetContentDeliveryRuleDestination) *DatasetS3DestinationConfiguration {
+func (o DatasetContentDeliveryRuleDestinationOutput) S3DestinationConfiguration() DatasetS3DestinationConfigurationPtrOutput {
+	return o.ApplyT(func(v DatasetContentDeliveryRuleDestination) *DatasetS3DestinationConfiguration {
 		return v.S3DestinationConfiguration
 	}).(DatasetS3DestinationConfigurationPtrOutput)
 }
 
-type DatasetDatasetContentVersionValue struct {
+type DatasetContentVersionValue struct {
 	DatasetName *string `pulumi:"datasetName"`
 }
 
-// DatasetDatasetContentVersionValueInput is an input type that accepts DatasetDatasetContentVersionValueArgs and DatasetDatasetContentVersionValueOutput values.
-// You can construct a concrete instance of `DatasetDatasetContentVersionValueInput` via:
+// DatasetContentVersionValueInput is an input type that accepts DatasetContentVersionValueArgs and DatasetContentVersionValueOutput values.
+// You can construct a concrete instance of `DatasetContentVersionValueInput` via:
 //
-//          DatasetDatasetContentVersionValueArgs{...}
-type DatasetDatasetContentVersionValueInput interface {
+//          DatasetContentVersionValueArgs{...}
+type DatasetContentVersionValueInput interface {
 	pulumi.Input
 
-	ToDatasetDatasetContentVersionValueOutput() DatasetDatasetContentVersionValueOutput
-	ToDatasetDatasetContentVersionValueOutputWithContext(context.Context) DatasetDatasetContentVersionValueOutput
+	ToDatasetContentVersionValueOutput() DatasetContentVersionValueOutput
+	ToDatasetContentVersionValueOutputWithContext(context.Context) DatasetContentVersionValueOutput
 }
 
-type DatasetDatasetContentVersionValueArgs struct {
+type DatasetContentVersionValueArgs struct {
 	DatasetName pulumi.StringPtrInput `pulumi:"datasetName"`
 }
 
-func (DatasetDatasetContentVersionValueArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetDatasetContentVersionValue)(nil)).Elem()
+func (DatasetContentVersionValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetContentVersionValue)(nil)).Elem()
 }
 
-func (i DatasetDatasetContentVersionValueArgs) ToDatasetDatasetContentVersionValueOutput() DatasetDatasetContentVersionValueOutput {
-	return i.ToDatasetDatasetContentVersionValueOutputWithContext(context.Background())
+func (i DatasetContentVersionValueArgs) ToDatasetContentVersionValueOutput() DatasetContentVersionValueOutput {
+	return i.ToDatasetContentVersionValueOutputWithContext(context.Background())
 }
 
-func (i DatasetDatasetContentVersionValueArgs) ToDatasetDatasetContentVersionValueOutputWithContext(ctx context.Context) DatasetDatasetContentVersionValueOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetDatasetContentVersionValueOutput)
+func (i DatasetContentVersionValueArgs) ToDatasetContentVersionValueOutputWithContext(ctx context.Context) DatasetContentVersionValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetContentVersionValueOutput)
 }
 
-func (i DatasetDatasetContentVersionValueArgs) ToDatasetDatasetContentVersionValuePtrOutput() DatasetDatasetContentVersionValuePtrOutput {
-	return i.ToDatasetDatasetContentVersionValuePtrOutputWithContext(context.Background())
+func (i DatasetContentVersionValueArgs) ToDatasetContentVersionValuePtrOutput() DatasetContentVersionValuePtrOutput {
+	return i.ToDatasetContentVersionValuePtrOutputWithContext(context.Background())
 }
 
-func (i DatasetDatasetContentVersionValueArgs) ToDatasetDatasetContentVersionValuePtrOutputWithContext(ctx context.Context) DatasetDatasetContentVersionValuePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetDatasetContentVersionValueOutput).ToDatasetDatasetContentVersionValuePtrOutputWithContext(ctx)
+func (i DatasetContentVersionValueArgs) ToDatasetContentVersionValuePtrOutputWithContext(ctx context.Context) DatasetContentVersionValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetContentVersionValueOutput).ToDatasetContentVersionValuePtrOutputWithContext(ctx)
 }
 
-// DatasetDatasetContentVersionValuePtrInput is an input type that accepts DatasetDatasetContentVersionValueArgs, DatasetDatasetContentVersionValuePtr and DatasetDatasetContentVersionValuePtrOutput values.
-// You can construct a concrete instance of `DatasetDatasetContentVersionValuePtrInput` via:
+// DatasetContentVersionValuePtrInput is an input type that accepts DatasetContentVersionValueArgs, DatasetContentVersionValuePtr and DatasetContentVersionValuePtrOutput values.
+// You can construct a concrete instance of `DatasetContentVersionValuePtrInput` via:
 //
-//          DatasetDatasetContentVersionValueArgs{...}
+//          DatasetContentVersionValueArgs{...}
 //
 //  or:
 //
 //          nil
-type DatasetDatasetContentVersionValuePtrInput interface {
+type DatasetContentVersionValuePtrInput interface {
 	pulumi.Input
 
-	ToDatasetDatasetContentVersionValuePtrOutput() DatasetDatasetContentVersionValuePtrOutput
-	ToDatasetDatasetContentVersionValuePtrOutputWithContext(context.Context) DatasetDatasetContentVersionValuePtrOutput
+	ToDatasetContentVersionValuePtrOutput() DatasetContentVersionValuePtrOutput
+	ToDatasetContentVersionValuePtrOutputWithContext(context.Context) DatasetContentVersionValuePtrOutput
 }
 
-type datasetDatasetContentVersionValuePtrType DatasetDatasetContentVersionValueArgs
+type datasetContentVersionValuePtrType DatasetContentVersionValueArgs
 
-func DatasetDatasetContentVersionValuePtr(v *DatasetDatasetContentVersionValueArgs) DatasetDatasetContentVersionValuePtrInput {
-	return (*datasetDatasetContentVersionValuePtrType)(v)
+func DatasetContentVersionValuePtr(v *DatasetContentVersionValueArgs) DatasetContentVersionValuePtrInput {
+	return (*datasetContentVersionValuePtrType)(v)
 }
 
-func (*datasetDatasetContentVersionValuePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetDatasetContentVersionValue)(nil)).Elem()
+func (*datasetContentVersionValuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetContentVersionValue)(nil)).Elem()
 }
 
-func (i *datasetDatasetContentVersionValuePtrType) ToDatasetDatasetContentVersionValuePtrOutput() DatasetDatasetContentVersionValuePtrOutput {
-	return i.ToDatasetDatasetContentVersionValuePtrOutputWithContext(context.Background())
+func (i *datasetContentVersionValuePtrType) ToDatasetContentVersionValuePtrOutput() DatasetContentVersionValuePtrOutput {
+	return i.ToDatasetContentVersionValuePtrOutputWithContext(context.Background())
 }
 
-func (i *datasetDatasetContentVersionValuePtrType) ToDatasetDatasetContentVersionValuePtrOutputWithContext(ctx context.Context) DatasetDatasetContentVersionValuePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetDatasetContentVersionValuePtrOutput)
+func (i *datasetContentVersionValuePtrType) ToDatasetContentVersionValuePtrOutputWithContext(ctx context.Context) DatasetContentVersionValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetContentVersionValuePtrOutput)
 }
 
-type DatasetDatasetContentVersionValueOutput struct{ *pulumi.OutputState }
+type DatasetContentVersionValueOutput struct{ *pulumi.OutputState }
 
-func (DatasetDatasetContentVersionValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetDatasetContentVersionValue)(nil)).Elem()
+func (DatasetContentVersionValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetContentVersionValue)(nil)).Elem()
 }
 
-func (o DatasetDatasetContentVersionValueOutput) ToDatasetDatasetContentVersionValueOutput() DatasetDatasetContentVersionValueOutput {
+func (o DatasetContentVersionValueOutput) ToDatasetContentVersionValueOutput() DatasetContentVersionValueOutput {
 	return o
 }
 
-func (o DatasetDatasetContentVersionValueOutput) ToDatasetDatasetContentVersionValueOutputWithContext(ctx context.Context) DatasetDatasetContentVersionValueOutput {
+func (o DatasetContentVersionValueOutput) ToDatasetContentVersionValueOutputWithContext(ctx context.Context) DatasetContentVersionValueOutput {
 	return o
 }
 
-func (o DatasetDatasetContentVersionValueOutput) ToDatasetDatasetContentVersionValuePtrOutput() DatasetDatasetContentVersionValuePtrOutput {
-	return o.ToDatasetDatasetContentVersionValuePtrOutputWithContext(context.Background())
+func (o DatasetContentVersionValueOutput) ToDatasetContentVersionValuePtrOutput() DatasetContentVersionValuePtrOutput {
+	return o.ToDatasetContentVersionValuePtrOutputWithContext(context.Background())
 }
 
-func (o DatasetDatasetContentVersionValueOutput) ToDatasetDatasetContentVersionValuePtrOutputWithContext(ctx context.Context) DatasetDatasetContentVersionValuePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetDatasetContentVersionValue) *DatasetDatasetContentVersionValue {
+func (o DatasetContentVersionValueOutput) ToDatasetContentVersionValuePtrOutputWithContext(ctx context.Context) DatasetContentVersionValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetContentVersionValue) *DatasetContentVersionValue {
 		return &v
-	}).(DatasetDatasetContentVersionValuePtrOutput)
+	}).(DatasetContentVersionValuePtrOutput)
 }
 
-func (o DatasetDatasetContentVersionValueOutput) DatasetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatasetDatasetContentVersionValue) *string { return v.DatasetName }).(pulumi.StringPtrOutput)
+func (o DatasetContentVersionValueOutput) DatasetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetContentVersionValue) *string { return v.DatasetName }).(pulumi.StringPtrOutput)
 }
 
-type DatasetDatasetContentVersionValuePtrOutput struct{ *pulumi.OutputState }
+type DatasetContentVersionValuePtrOutput struct{ *pulumi.OutputState }
 
-func (DatasetDatasetContentVersionValuePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetDatasetContentVersionValue)(nil)).Elem()
+func (DatasetContentVersionValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetContentVersionValue)(nil)).Elem()
 }
 
-func (o DatasetDatasetContentVersionValuePtrOutput) ToDatasetDatasetContentVersionValuePtrOutput() DatasetDatasetContentVersionValuePtrOutput {
+func (o DatasetContentVersionValuePtrOutput) ToDatasetContentVersionValuePtrOutput() DatasetContentVersionValuePtrOutput {
 	return o
 }
 
-func (o DatasetDatasetContentVersionValuePtrOutput) ToDatasetDatasetContentVersionValuePtrOutputWithContext(ctx context.Context) DatasetDatasetContentVersionValuePtrOutput {
+func (o DatasetContentVersionValuePtrOutput) ToDatasetContentVersionValuePtrOutputWithContext(ctx context.Context) DatasetContentVersionValuePtrOutput {
 	return o
 }
 
-func (o DatasetDatasetContentVersionValuePtrOutput) Elem() DatasetDatasetContentVersionValueOutput {
-	return o.ApplyT(func(v *DatasetDatasetContentVersionValue) DatasetDatasetContentVersionValue {
+func (o DatasetContentVersionValuePtrOutput) Elem() DatasetContentVersionValueOutput {
+	return o.ApplyT(func(v *DatasetContentVersionValue) DatasetContentVersionValue {
 		if v != nil {
 			return *v
 		}
-		var ret DatasetDatasetContentVersionValue
+		var ret DatasetContentVersionValue
 		return ret
-	}).(DatasetDatasetContentVersionValueOutput)
+	}).(DatasetContentVersionValueOutput)
 }
 
-func (o DatasetDatasetContentVersionValuePtrOutput) DatasetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetDatasetContentVersionValue) *string {
+func (o DatasetContentVersionValuePtrOutput) DatasetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetContentVersionValue) *string {
 		if v == nil {
 			return nil
 		}
@@ -3309,11 +3307,11 @@ func (o DatasetTriggeringDatasetPtrOutput) DatasetName() pulumi.StringPtrOutput 
 }
 
 type DatasetVariable struct {
-	DatasetContentVersionValue *DatasetDatasetContentVersionValue `pulumi:"datasetContentVersionValue"`
-	DoubleValue                *float64                           `pulumi:"doubleValue"`
-	OutputFileUriValue         *DatasetOutputFileUriValue         `pulumi:"outputFileUriValue"`
-	StringValue                *string                            `pulumi:"stringValue"`
-	VariableName               string                             `pulumi:"variableName"`
+	DatasetContentVersionValue *DatasetContentVersionValue `pulumi:"datasetContentVersionValue"`
+	DoubleValue                *float64                    `pulumi:"doubleValue"`
+	OutputFileUriValue         *DatasetOutputFileUriValue  `pulumi:"outputFileUriValue"`
+	StringValue                *string                     `pulumi:"stringValue"`
+	VariableName               string                      `pulumi:"variableName"`
 }
 
 // DatasetVariableInput is an input type that accepts DatasetVariableArgs and DatasetVariableOutput values.
@@ -3328,11 +3326,11 @@ type DatasetVariableInput interface {
 }
 
 type DatasetVariableArgs struct {
-	DatasetContentVersionValue DatasetDatasetContentVersionValuePtrInput `pulumi:"datasetContentVersionValue"`
-	DoubleValue                pulumi.Float64PtrInput                    `pulumi:"doubleValue"`
-	OutputFileUriValue         DatasetOutputFileUriValuePtrInput         `pulumi:"outputFileUriValue"`
-	StringValue                pulumi.StringPtrInput                     `pulumi:"stringValue"`
-	VariableName               pulumi.StringInput                        `pulumi:"variableName"`
+	DatasetContentVersionValue DatasetContentVersionValuePtrInput `pulumi:"datasetContentVersionValue"`
+	DoubleValue                pulumi.Float64PtrInput             `pulumi:"doubleValue"`
+	OutputFileUriValue         DatasetOutputFileUriValuePtrInput  `pulumi:"outputFileUriValue"`
+	StringValue                pulumi.StringPtrInput              `pulumi:"stringValue"`
+	VariableName               pulumi.StringInput                 `pulumi:"variableName"`
 }
 
 func (DatasetVariableArgs) ElementType() reflect.Type {
@@ -3386,8 +3384,8 @@ func (o DatasetVariableOutput) ToDatasetVariableOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o DatasetVariableOutput) DatasetContentVersionValue() DatasetDatasetContentVersionValuePtrOutput {
-	return o.ApplyT(func(v DatasetVariable) *DatasetDatasetContentVersionValue { return v.DatasetContentVersionValue }).(DatasetDatasetContentVersionValuePtrOutput)
+func (o DatasetVariableOutput) DatasetContentVersionValue() DatasetContentVersionValuePtrOutput {
+	return o.ApplyT(func(v DatasetVariable) *DatasetContentVersionValue { return v.DatasetContentVersionValue }).(DatasetContentVersionValuePtrOutput)
 }
 
 func (o DatasetVariableOutput) DoubleValue() pulumi.Float64PtrOutput {
@@ -3985,404 +3983,6 @@ func (o DatastoreCustomerManagedS3StoragePtrOutput) KeyPrefix() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-type DatastoreDatastorePartition struct {
-	Partition          *DatastorePartition          `pulumi:"partition"`
-	TimestampPartition *DatastoreTimestampPartition `pulumi:"timestampPartition"`
-}
-
-// DatastoreDatastorePartitionInput is an input type that accepts DatastoreDatastorePartitionArgs and DatastoreDatastorePartitionOutput values.
-// You can construct a concrete instance of `DatastoreDatastorePartitionInput` via:
-//
-//          DatastoreDatastorePartitionArgs{...}
-type DatastoreDatastorePartitionInput interface {
-	pulumi.Input
-
-	ToDatastoreDatastorePartitionOutput() DatastoreDatastorePartitionOutput
-	ToDatastoreDatastorePartitionOutputWithContext(context.Context) DatastoreDatastorePartitionOutput
-}
-
-type DatastoreDatastorePartitionArgs struct {
-	Partition          DatastorePartitionPtrInput          `pulumi:"partition"`
-	TimestampPartition DatastoreTimestampPartitionPtrInput `pulumi:"timestampPartition"`
-}
-
-func (DatastoreDatastorePartitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatastoreDatastorePartition)(nil)).Elem()
-}
-
-func (i DatastoreDatastorePartitionArgs) ToDatastoreDatastorePartitionOutput() DatastoreDatastorePartitionOutput {
-	return i.ToDatastoreDatastorePartitionOutputWithContext(context.Background())
-}
-
-func (i DatastoreDatastorePartitionArgs) ToDatastoreDatastorePartitionOutputWithContext(ctx context.Context) DatastoreDatastorePartitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatastoreDatastorePartitionOutput)
-}
-
-// DatastoreDatastorePartitionArrayInput is an input type that accepts DatastoreDatastorePartitionArray and DatastoreDatastorePartitionArrayOutput values.
-// You can construct a concrete instance of `DatastoreDatastorePartitionArrayInput` via:
-//
-//          DatastoreDatastorePartitionArray{ DatastoreDatastorePartitionArgs{...} }
-type DatastoreDatastorePartitionArrayInput interface {
-	pulumi.Input
-
-	ToDatastoreDatastorePartitionArrayOutput() DatastoreDatastorePartitionArrayOutput
-	ToDatastoreDatastorePartitionArrayOutputWithContext(context.Context) DatastoreDatastorePartitionArrayOutput
-}
-
-type DatastoreDatastorePartitionArray []DatastoreDatastorePartitionInput
-
-func (DatastoreDatastorePartitionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatastoreDatastorePartition)(nil)).Elem()
-}
-
-func (i DatastoreDatastorePartitionArray) ToDatastoreDatastorePartitionArrayOutput() DatastoreDatastorePartitionArrayOutput {
-	return i.ToDatastoreDatastorePartitionArrayOutputWithContext(context.Background())
-}
-
-func (i DatastoreDatastorePartitionArray) ToDatastoreDatastorePartitionArrayOutputWithContext(ctx context.Context) DatastoreDatastorePartitionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatastoreDatastorePartitionArrayOutput)
-}
-
-type DatastoreDatastorePartitionOutput struct{ *pulumi.OutputState }
-
-func (DatastoreDatastorePartitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatastoreDatastorePartition)(nil)).Elem()
-}
-
-func (o DatastoreDatastorePartitionOutput) ToDatastoreDatastorePartitionOutput() DatastoreDatastorePartitionOutput {
-	return o
-}
-
-func (o DatastoreDatastorePartitionOutput) ToDatastoreDatastorePartitionOutputWithContext(ctx context.Context) DatastoreDatastorePartitionOutput {
-	return o
-}
-
-func (o DatastoreDatastorePartitionOutput) Partition() DatastorePartitionPtrOutput {
-	return o.ApplyT(func(v DatastoreDatastorePartition) *DatastorePartition { return v.Partition }).(DatastorePartitionPtrOutput)
-}
-
-func (o DatastoreDatastorePartitionOutput) TimestampPartition() DatastoreTimestampPartitionPtrOutput {
-	return o.ApplyT(func(v DatastoreDatastorePartition) *DatastoreTimestampPartition { return v.TimestampPartition }).(DatastoreTimestampPartitionPtrOutput)
-}
-
-type DatastoreDatastorePartitionArrayOutput struct{ *pulumi.OutputState }
-
-func (DatastoreDatastorePartitionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatastoreDatastorePartition)(nil)).Elem()
-}
-
-func (o DatastoreDatastorePartitionArrayOutput) ToDatastoreDatastorePartitionArrayOutput() DatastoreDatastorePartitionArrayOutput {
-	return o
-}
-
-func (o DatastoreDatastorePartitionArrayOutput) ToDatastoreDatastorePartitionArrayOutputWithContext(ctx context.Context) DatastoreDatastorePartitionArrayOutput {
-	return o
-}
-
-func (o DatastoreDatastorePartitionArrayOutput) Index(i pulumi.IntInput) DatastoreDatastorePartitionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatastoreDatastorePartition {
-		return vs[0].([]DatastoreDatastorePartition)[vs[1].(int)]
-	}).(DatastoreDatastorePartitionOutput)
-}
-
-type DatastoreDatastorePartitions struct {
-	Partitions []DatastoreDatastorePartition `pulumi:"partitions"`
-}
-
-// DatastoreDatastorePartitionsInput is an input type that accepts DatastoreDatastorePartitionsArgs and DatastoreDatastorePartitionsOutput values.
-// You can construct a concrete instance of `DatastoreDatastorePartitionsInput` via:
-//
-//          DatastoreDatastorePartitionsArgs{...}
-type DatastoreDatastorePartitionsInput interface {
-	pulumi.Input
-
-	ToDatastoreDatastorePartitionsOutput() DatastoreDatastorePartitionsOutput
-	ToDatastoreDatastorePartitionsOutputWithContext(context.Context) DatastoreDatastorePartitionsOutput
-}
-
-type DatastoreDatastorePartitionsArgs struct {
-	Partitions DatastoreDatastorePartitionArrayInput `pulumi:"partitions"`
-}
-
-func (DatastoreDatastorePartitionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatastoreDatastorePartitions)(nil)).Elem()
-}
-
-func (i DatastoreDatastorePartitionsArgs) ToDatastoreDatastorePartitionsOutput() DatastoreDatastorePartitionsOutput {
-	return i.ToDatastoreDatastorePartitionsOutputWithContext(context.Background())
-}
-
-func (i DatastoreDatastorePartitionsArgs) ToDatastoreDatastorePartitionsOutputWithContext(ctx context.Context) DatastoreDatastorePartitionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatastoreDatastorePartitionsOutput)
-}
-
-func (i DatastoreDatastorePartitionsArgs) ToDatastoreDatastorePartitionsPtrOutput() DatastoreDatastorePartitionsPtrOutput {
-	return i.ToDatastoreDatastorePartitionsPtrOutputWithContext(context.Background())
-}
-
-func (i DatastoreDatastorePartitionsArgs) ToDatastoreDatastorePartitionsPtrOutputWithContext(ctx context.Context) DatastoreDatastorePartitionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatastoreDatastorePartitionsOutput).ToDatastoreDatastorePartitionsPtrOutputWithContext(ctx)
-}
-
-// DatastoreDatastorePartitionsPtrInput is an input type that accepts DatastoreDatastorePartitionsArgs, DatastoreDatastorePartitionsPtr and DatastoreDatastorePartitionsPtrOutput values.
-// You can construct a concrete instance of `DatastoreDatastorePartitionsPtrInput` via:
-//
-//          DatastoreDatastorePartitionsArgs{...}
-//
-//  or:
-//
-//          nil
-type DatastoreDatastorePartitionsPtrInput interface {
-	pulumi.Input
-
-	ToDatastoreDatastorePartitionsPtrOutput() DatastoreDatastorePartitionsPtrOutput
-	ToDatastoreDatastorePartitionsPtrOutputWithContext(context.Context) DatastoreDatastorePartitionsPtrOutput
-}
-
-type datastoreDatastorePartitionsPtrType DatastoreDatastorePartitionsArgs
-
-func DatastoreDatastorePartitionsPtr(v *DatastoreDatastorePartitionsArgs) DatastoreDatastorePartitionsPtrInput {
-	return (*datastoreDatastorePartitionsPtrType)(v)
-}
-
-func (*datastoreDatastorePartitionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatastoreDatastorePartitions)(nil)).Elem()
-}
-
-func (i *datastoreDatastorePartitionsPtrType) ToDatastoreDatastorePartitionsPtrOutput() DatastoreDatastorePartitionsPtrOutput {
-	return i.ToDatastoreDatastorePartitionsPtrOutputWithContext(context.Background())
-}
-
-func (i *datastoreDatastorePartitionsPtrType) ToDatastoreDatastorePartitionsPtrOutputWithContext(ctx context.Context) DatastoreDatastorePartitionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatastoreDatastorePartitionsPtrOutput)
-}
-
-type DatastoreDatastorePartitionsOutput struct{ *pulumi.OutputState }
-
-func (DatastoreDatastorePartitionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatastoreDatastorePartitions)(nil)).Elem()
-}
-
-func (o DatastoreDatastorePartitionsOutput) ToDatastoreDatastorePartitionsOutput() DatastoreDatastorePartitionsOutput {
-	return o
-}
-
-func (o DatastoreDatastorePartitionsOutput) ToDatastoreDatastorePartitionsOutputWithContext(ctx context.Context) DatastoreDatastorePartitionsOutput {
-	return o
-}
-
-func (o DatastoreDatastorePartitionsOutput) ToDatastoreDatastorePartitionsPtrOutput() DatastoreDatastorePartitionsPtrOutput {
-	return o.ToDatastoreDatastorePartitionsPtrOutputWithContext(context.Background())
-}
-
-func (o DatastoreDatastorePartitionsOutput) ToDatastoreDatastorePartitionsPtrOutputWithContext(ctx context.Context) DatastoreDatastorePartitionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatastoreDatastorePartitions) *DatastoreDatastorePartitions {
-		return &v
-	}).(DatastoreDatastorePartitionsPtrOutput)
-}
-
-func (o DatastoreDatastorePartitionsOutput) Partitions() DatastoreDatastorePartitionArrayOutput {
-	return o.ApplyT(func(v DatastoreDatastorePartitions) []DatastoreDatastorePartition { return v.Partitions }).(DatastoreDatastorePartitionArrayOutput)
-}
-
-type DatastoreDatastorePartitionsPtrOutput struct{ *pulumi.OutputState }
-
-func (DatastoreDatastorePartitionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatastoreDatastorePartitions)(nil)).Elem()
-}
-
-func (o DatastoreDatastorePartitionsPtrOutput) ToDatastoreDatastorePartitionsPtrOutput() DatastoreDatastorePartitionsPtrOutput {
-	return o
-}
-
-func (o DatastoreDatastorePartitionsPtrOutput) ToDatastoreDatastorePartitionsPtrOutputWithContext(ctx context.Context) DatastoreDatastorePartitionsPtrOutput {
-	return o
-}
-
-func (o DatastoreDatastorePartitionsPtrOutput) Elem() DatastoreDatastorePartitionsOutput {
-	return o.ApplyT(func(v *DatastoreDatastorePartitions) DatastoreDatastorePartitions {
-		if v != nil {
-			return *v
-		}
-		var ret DatastoreDatastorePartitions
-		return ret
-	}).(DatastoreDatastorePartitionsOutput)
-}
-
-func (o DatastoreDatastorePartitionsPtrOutput) Partitions() DatastoreDatastorePartitionArrayOutput {
-	return o.ApplyT(func(v *DatastoreDatastorePartitions) []DatastoreDatastorePartition {
-		if v == nil {
-			return nil
-		}
-		return v.Partitions
-	}).(DatastoreDatastorePartitionArrayOutput)
-}
-
-type DatastoreDatastoreStorage struct {
-	CustomerManagedS3            *DatastoreCustomerManagedS3            `pulumi:"customerManagedS3"`
-	IotSiteWiseMultiLayerStorage *DatastoreIotSiteWiseMultiLayerStorage `pulumi:"iotSiteWiseMultiLayerStorage"`
-	ServiceManagedS3             *DatastoreServiceManagedS3             `pulumi:"serviceManagedS3"`
-}
-
-// DatastoreDatastoreStorageInput is an input type that accepts DatastoreDatastoreStorageArgs and DatastoreDatastoreStorageOutput values.
-// You can construct a concrete instance of `DatastoreDatastoreStorageInput` via:
-//
-//          DatastoreDatastoreStorageArgs{...}
-type DatastoreDatastoreStorageInput interface {
-	pulumi.Input
-
-	ToDatastoreDatastoreStorageOutput() DatastoreDatastoreStorageOutput
-	ToDatastoreDatastoreStorageOutputWithContext(context.Context) DatastoreDatastoreStorageOutput
-}
-
-type DatastoreDatastoreStorageArgs struct {
-	CustomerManagedS3            DatastoreCustomerManagedS3PtrInput            `pulumi:"customerManagedS3"`
-	IotSiteWiseMultiLayerStorage DatastoreIotSiteWiseMultiLayerStoragePtrInput `pulumi:"iotSiteWiseMultiLayerStorage"`
-	ServiceManagedS3             DatastoreServiceManagedS3PtrInput             `pulumi:"serviceManagedS3"`
-}
-
-func (DatastoreDatastoreStorageArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatastoreDatastoreStorage)(nil)).Elem()
-}
-
-func (i DatastoreDatastoreStorageArgs) ToDatastoreDatastoreStorageOutput() DatastoreDatastoreStorageOutput {
-	return i.ToDatastoreDatastoreStorageOutputWithContext(context.Background())
-}
-
-func (i DatastoreDatastoreStorageArgs) ToDatastoreDatastoreStorageOutputWithContext(ctx context.Context) DatastoreDatastoreStorageOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatastoreDatastoreStorageOutput)
-}
-
-func (i DatastoreDatastoreStorageArgs) ToDatastoreDatastoreStoragePtrOutput() DatastoreDatastoreStoragePtrOutput {
-	return i.ToDatastoreDatastoreStoragePtrOutputWithContext(context.Background())
-}
-
-func (i DatastoreDatastoreStorageArgs) ToDatastoreDatastoreStoragePtrOutputWithContext(ctx context.Context) DatastoreDatastoreStoragePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatastoreDatastoreStorageOutput).ToDatastoreDatastoreStoragePtrOutputWithContext(ctx)
-}
-
-// DatastoreDatastoreStoragePtrInput is an input type that accepts DatastoreDatastoreStorageArgs, DatastoreDatastoreStoragePtr and DatastoreDatastoreStoragePtrOutput values.
-// You can construct a concrete instance of `DatastoreDatastoreStoragePtrInput` via:
-//
-//          DatastoreDatastoreStorageArgs{...}
-//
-//  or:
-//
-//          nil
-type DatastoreDatastoreStoragePtrInput interface {
-	pulumi.Input
-
-	ToDatastoreDatastoreStoragePtrOutput() DatastoreDatastoreStoragePtrOutput
-	ToDatastoreDatastoreStoragePtrOutputWithContext(context.Context) DatastoreDatastoreStoragePtrOutput
-}
-
-type datastoreDatastoreStoragePtrType DatastoreDatastoreStorageArgs
-
-func DatastoreDatastoreStoragePtr(v *DatastoreDatastoreStorageArgs) DatastoreDatastoreStoragePtrInput {
-	return (*datastoreDatastoreStoragePtrType)(v)
-}
-
-func (*datastoreDatastoreStoragePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatastoreDatastoreStorage)(nil)).Elem()
-}
-
-func (i *datastoreDatastoreStoragePtrType) ToDatastoreDatastoreStoragePtrOutput() DatastoreDatastoreStoragePtrOutput {
-	return i.ToDatastoreDatastoreStoragePtrOutputWithContext(context.Background())
-}
-
-func (i *datastoreDatastoreStoragePtrType) ToDatastoreDatastoreStoragePtrOutputWithContext(ctx context.Context) DatastoreDatastoreStoragePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatastoreDatastoreStoragePtrOutput)
-}
-
-type DatastoreDatastoreStorageOutput struct{ *pulumi.OutputState }
-
-func (DatastoreDatastoreStorageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatastoreDatastoreStorage)(nil)).Elem()
-}
-
-func (o DatastoreDatastoreStorageOutput) ToDatastoreDatastoreStorageOutput() DatastoreDatastoreStorageOutput {
-	return o
-}
-
-func (o DatastoreDatastoreStorageOutput) ToDatastoreDatastoreStorageOutputWithContext(ctx context.Context) DatastoreDatastoreStorageOutput {
-	return o
-}
-
-func (o DatastoreDatastoreStorageOutput) ToDatastoreDatastoreStoragePtrOutput() DatastoreDatastoreStoragePtrOutput {
-	return o.ToDatastoreDatastoreStoragePtrOutputWithContext(context.Background())
-}
-
-func (o DatastoreDatastoreStorageOutput) ToDatastoreDatastoreStoragePtrOutputWithContext(ctx context.Context) DatastoreDatastoreStoragePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatastoreDatastoreStorage) *DatastoreDatastoreStorage {
-		return &v
-	}).(DatastoreDatastoreStoragePtrOutput)
-}
-
-func (o DatastoreDatastoreStorageOutput) CustomerManagedS3() DatastoreCustomerManagedS3PtrOutput {
-	return o.ApplyT(func(v DatastoreDatastoreStorage) *DatastoreCustomerManagedS3 { return v.CustomerManagedS3 }).(DatastoreCustomerManagedS3PtrOutput)
-}
-
-func (o DatastoreDatastoreStorageOutput) IotSiteWiseMultiLayerStorage() DatastoreIotSiteWiseMultiLayerStoragePtrOutput {
-	return o.ApplyT(func(v DatastoreDatastoreStorage) *DatastoreIotSiteWiseMultiLayerStorage {
-		return v.IotSiteWiseMultiLayerStorage
-	}).(DatastoreIotSiteWiseMultiLayerStoragePtrOutput)
-}
-
-func (o DatastoreDatastoreStorageOutput) ServiceManagedS3() DatastoreServiceManagedS3PtrOutput {
-	return o.ApplyT(func(v DatastoreDatastoreStorage) *DatastoreServiceManagedS3 { return v.ServiceManagedS3 }).(DatastoreServiceManagedS3PtrOutput)
-}
-
-type DatastoreDatastoreStoragePtrOutput struct{ *pulumi.OutputState }
-
-func (DatastoreDatastoreStoragePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatastoreDatastoreStorage)(nil)).Elem()
-}
-
-func (o DatastoreDatastoreStoragePtrOutput) ToDatastoreDatastoreStoragePtrOutput() DatastoreDatastoreStoragePtrOutput {
-	return o
-}
-
-func (o DatastoreDatastoreStoragePtrOutput) ToDatastoreDatastoreStoragePtrOutputWithContext(ctx context.Context) DatastoreDatastoreStoragePtrOutput {
-	return o
-}
-
-func (o DatastoreDatastoreStoragePtrOutput) Elem() DatastoreDatastoreStorageOutput {
-	return o.ApplyT(func(v *DatastoreDatastoreStorage) DatastoreDatastoreStorage {
-		if v != nil {
-			return *v
-		}
-		var ret DatastoreDatastoreStorage
-		return ret
-	}).(DatastoreDatastoreStorageOutput)
-}
-
-func (o DatastoreDatastoreStoragePtrOutput) CustomerManagedS3() DatastoreCustomerManagedS3PtrOutput {
-	return o.ApplyT(func(v *DatastoreDatastoreStorage) *DatastoreCustomerManagedS3 {
-		if v == nil {
-			return nil
-		}
-		return v.CustomerManagedS3
-	}).(DatastoreCustomerManagedS3PtrOutput)
-}
-
-func (o DatastoreDatastoreStoragePtrOutput) IotSiteWiseMultiLayerStorage() DatastoreIotSiteWiseMultiLayerStoragePtrOutput {
-	return o.ApplyT(func(v *DatastoreDatastoreStorage) *DatastoreIotSiteWiseMultiLayerStorage {
-		if v == nil {
-			return nil
-		}
-		return v.IotSiteWiseMultiLayerStorage
-	}).(DatastoreIotSiteWiseMultiLayerStoragePtrOutput)
-}
-
-func (o DatastoreDatastoreStoragePtrOutput) ServiceManagedS3() DatastoreServiceManagedS3PtrOutput {
-	return o.ApplyT(func(v *DatastoreDatastoreStorage) *DatastoreServiceManagedS3 {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceManagedS3
-	}).(DatastoreServiceManagedS3PtrOutput)
-}
-
 type DatastoreFileFormatConfiguration struct {
 	JsonConfiguration    *DatastoreJsonConfiguration    `pulumi:"jsonConfiguration"`
 	ParquetConfiguration *DatastoreParquetConfiguration `pulumi:"parquetConfiguration"`
@@ -4918,7 +4518,8 @@ func (o DatastoreParquetConfigurationPtrOutput) SchemaDefinition() DatastoreSche
 }
 
 type DatastorePartition struct {
-	AttributeName string `pulumi:"attributeName"`
+	Partition          *DatastorePartition          `pulumi:"partition"`
+	TimestampPartition *DatastoreTimestampPartition `pulumi:"timestampPartition"`
 }
 
 // DatastorePartitionInput is an input type that accepts DatastorePartitionArgs and DatastorePartitionOutput values.
@@ -4933,7 +4534,8 @@ type DatastorePartitionInput interface {
 }
 
 type DatastorePartitionArgs struct {
-	AttributeName pulumi.StringInput `pulumi:"attributeName"`
+	Partition          DatastorePartitionPtrInput          `pulumi:"partition"`
+	TimestampPartition DatastoreTimestampPartitionPtrInput `pulumi:"timestampPartition"`
 }
 
 func (DatastorePartitionArgs) ElementType() reflect.Type {
@@ -4989,6 +4591,31 @@ func (i *datastorePartitionPtrType) ToDatastorePartitionPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DatastorePartitionPtrOutput)
 }
 
+// DatastorePartitionArrayInput is an input type that accepts DatastorePartitionArray and DatastorePartitionArrayOutput values.
+// You can construct a concrete instance of `DatastorePartitionArrayInput` via:
+//
+//          DatastorePartitionArray{ DatastorePartitionArgs{...} }
+type DatastorePartitionArrayInput interface {
+	pulumi.Input
+
+	ToDatastorePartitionArrayOutput() DatastorePartitionArrayOutput
+	ToDatastorePartitionArrayOutputWithContext(context.Context) DatastorePartitionArrayOutput
+}
+
+type DatastorePartitionArray []DatastorePartitionInput
+
+func (DatastorePartitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatastorePartition)(nil)).Elem()
+}
+
+func (i DatastorePartitionArray) ToDatastorePartitionArrayOutput() DatastorePartitionArrayOutput {
+	return i.ToDatastorePartitionArrayOutputWithContext(context.Background())
+}
+
+func (i DatastorePartitionArray) ToDatastorePartitionArrayOutputWithContext(ctx context.Context) DatastorePartitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatastorePartitionArrayOutput)
+}
+
 type DatastorePartitionOutput struct{ *pulumi.OutputState }
 
 func (DatastorePartitionOutput) ElementType() reflect.Type {
@@ -5013,8 +4640,12 @@ func (o DatastorePartitionOutput) ToDatastorePartitionPtrOutputWithContext(ctx c
 	}).(DatastorePartitionPtrOutput)
 }
 
-func (o DatastorePartitionOutput) AttributeName() pulumi.StringOutput {
-	return o.ApplyT(func(v DatastorePartition) string { return v.AttributeName }).(pulumi.StringOutput)
+func (o DatastorePartitionOutput) Partition() DatastorePartitionPtrOutput {
+	return o.ApplyT(func(v DatastorePartition) *DatastorePartition { return v.Partition }).(DatastorePartitionPtrOutput)
+}
+
+func (o DatastorePartitionOutput) TimestampPartition() DatastoreTimestampPartitionPtrOutput {
+	return o.ApplyT(func(v DatastorePartition) *DatastoreTimestampPartition { return v.TimestampPartition }).(DatastoreTimestampPartitionPtrOutput)
 }
 
 type DatastorePartitionPtrOutput struct{ *pulumi.OutputState }
@@ -5041,13 +4672,175 @@ func (o DatastorePartitionPtrOutput) Elem() DatastorePartitionOutput {
 	}).(DatastorePartitionOutput)
 }
 
-func (o DatastorePartitionPtrOutput) AttributeName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatastorePartition) *string {
+func (o DatastorePartitionPtrOutput) Partition() DatastorePartitionPtrOutput {
+	return o.ApplyT(func(v *DatastorePartition) *DatastorePartition {
 		if v == nil {
 			return nil
 		}
-		return &v.AttributeName
-	}).(pulumi.StringPtrOutput)
+		return v.Partition
+	}).(DatastorePartitionPtrOutput)
+}
+
+func (o DatastorePartitionPtrOutput) TimestampPartition() DatastoreTimestampPartitionPtrOutput {
+	return o.ApplyT(func(v *DatastorePartition) *DatastoreTimestampPartition {
+		if v == nil {
+			return nil
+		}
+		return v.TimestampPartition
+	}).(DatastoreTimestampPartitionPtrOutput)
+}
+
+type DatastorePartitionArrayOutput struct{ *pulumi.OutputState }
+
+func (DatastorePartitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatastorePartition)(nil)).Elem()
+}
+
+func (o DatastorePartitionArrayOutput) ToDatastorePartitionArrayOutput() DatastorePartitionArrayOutput {
+	return o
+}
+
+func (o DatastorePartitionArrayOutput) ToDatastorePartitionArrayOutputWithContext(ctx context.Context) DatastorePartitionArrayOutput {
+	return o
+}
+
+func (o DatastorePartitionArrayOutput) Index(i pulumi.IntInput) DatastorePartitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatastorePartition {
+		return vs[0].([]DatastorePartition)[vs[1].(int)]
+	}).(DatastorePartitionOutput)
+}
+
+type DatastorePartitions struct {
+	Partitions []DatastorePartition `pulumi:"partitions"`
+}
+
+// DatastorePartitionsInput is an input type that accepts DatastorePartitionsArgs and DatastorePartitionsOutput values.
+// You can construct a concrete instance of `DatastorePartitionsInput` via:
+//
+//          DatastorePartitionsArgs{...}
+type DatastorePartitionsInput interface {
+	pulumi.Input
+
+	ToDatastorePartitionsOutput() DatastorePartitionsOutput
+	ToDatastorePartitionsOutputWithContext(context.Context) DatastorePartitionsOutput
+}
+
+type DatastorePartitionsArgs struct {
+	Partitions DatastorePartitionArrayInput `pulumi:"partitions"`
+}
+
+func (DatastorePartitionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatastorePartitions)(nil)).Elem()
+}
+
+func (i DatastorePartitionsArgs) ToDatastorePartitionsOutput() DatastorePartitionsOutput {
+	return i.ToDatastorePartitionsOutputWithContext(context.Background())
+}
+
+func (i DatastorePartitionsArgs) ToDatastorePartitionsOutputWithContext(ctx context.Context) DatastorePartitionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatastorePartitionsOutput)
+}
+
+func (i DatastorePartitionsArgs) ToDatastorePartitionsPtrOutput() DatastorePartitionsPtrOutput {
+	return i.ToDatastorePartitionsPtrOutputWithContext(context.Background())
+}
+
+func (i DatastorePartitionsArgs) ToDatastorePartitionsPtrOutputWithContext(ctx context.Context) DatastorePartitionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatastorePartitionsOutput).ToDatastorePartitionsPtrOutputWithContext(ctx)
+}
+
+// DatastorePartitionsPtrInput is an input type that accepts DatastorePartitionsArgs, DatastorePartitionsPtr and DatastorePartitionsPtrOutput values.
+// You can construct a concrete instance of `DatastorePartitionsPtrInput` via:
+//
+//          DatastorePartitionsArgs{...}
+//
+//  or:
+//
+//          nil
+type DatastorePartitionsPtrInput interface {
+	pulumi.Input
+
+	ToDatastorePartitionsPtrOutput() DatastorePartitionsPtrOutput
+	ToDatastorePartitionsPtrOutputWithContext(context.Context) DatastorePartitionsPtrOutput
+}
+
+type datastorePartitionsPtrType DatastorePartitionsArgs
+
+func DatastorePartitionsPtr(v *DatastorePartitionsArgs) DatastorePartitionsPtrInput {
+	return (*datastorePartitionsPtrType)(v)
+}
+
+func (*datastorePartitionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatastorePartitions)(nil)).Elem()
+}
+
+func (i *datastorePartitionsPtrType) ToDatastorePartitionsPtrOutput() DatastorePartitionsPtrOutput {
+	return i.ToDatastorePartitionsPtrOutputWithContext(context.Background())
+}
+
+func (i *datastorePartitionsPtrType) ToDatastorePartitionsPtrOutputWithContext(ctx context.Context) DatastorePartitionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatastorePartitionsPtrOutput)
+}
+
+type DatastorePartitionsOutput struct{ *pulumi.OutputState }
+
+func (DatastorePartitionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatastorePartitions)(nil)).Elem()
+}
+
+func (o DatastorePartitionsOutput) ToDatastorePartitionsOutput() DatastorePartitionsOutput {
+	return o
+}
+
+func (o DatastorePartitionsOutput) ToDatastorePartitionsOutputWithContext(ctx context.Context) DatastorePartitionsOutput {
+	return o
+}
+
+func (o DatastorePartitionsOutput) ToDatastorePartitionsPtrOutput() DatastorePartitionsPtrOutput {
+	return o.ToDatastorePartitionsPtrOutputWithContext(context.Background())
+}
+
+func (o DatastorePartitionsOutput) ToDatastorePartitionsPtrOutputWithContext(ctx context.Context) DatastorePartitionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatastorePartitions) *DatastorePartitions {
+		return &v
+	}).(DatastorePartitionsPtrOutput)
+}
+
+func (o DatastorePartitionsOutput) Partitions() DatastorePartitionArrayOutput {
+	return o.ApplyT(func(v DatastorePartitions) []DatastorePartition { return v.Partitions }).(DatastorePartitionArrayOutput)
+}
+
+type DatastorePartitionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DatastorePartitionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatastorePartitions)(nil)).Elem()
+}
+
+func (o DatastorePartitionsPtrOutput) ToDatastorePartitionsPtrOutput() DatastorePartitionsPtrOutput {
+	return o
+}
+
+func (o DatastorePartitionsPtrOutput) ToDatastorePartitionsPtrOutputWithContext(ctx context.Context) DatastorePartitionsPtrOutput {
+	return o
+}
+
+func (o DatastorePartitionsPtrOutput) Elem() DatastorePartitionsOutput {
+	return o.ApplyT(func(v *DatastorePartitions) DatastorePartitions {
+		if v != nil {
+			return *v
+		}
+		var ret DatastorePartitions
+		return ret
+	}).(DatastorePartitionsOutput)
+}
+
+func (o DatastorePartitionsPtrOutput) Partitions() DatastorePartitionArrayOutput {
+	return o.ApplyT(func(v *DatastorePartitions) []DatastorePartition {
+		if v == nil {
+			return nil
+		}
+		return v.Partitions
+	}).(DatastorePartitionArrayOutput)
 }
 
 type DatastoreRetentionPeriod struct {
@@ -5447,6 +5240,169 @@ func (o DatastoreServiceManagedS3PtrOutput) Elem() DatastoreServiceManagedS3Outp
 		var ret DatastoreServiceManagedS3
 		return ret
 	}).(DatastoreServiceManagedS3Output)
+}
+
+type DatastoreStorage struct {
+	CustomerManagedS3            *DatastoreCustomerManagedS3            `pulumi:"customerManagedS3"`
+	IotSiteWiseMultiLayerStorage *DatastoreIotSiteWiseMultiLayerStorage `pulumi:"iotSiteWiseMultiLayerStorage"`
+	ServiceManagedS3             *DatastoreServiceManagedS3             `pulumi:"serviceManagedS3"`
+}
+
+// DatastoreStorageInput is an input type that accepts DatastoreStorageArgs and DatastoreStorageOutput values.
+// You can construct a concrete instance of `DatastoreStorageInput` via:
+//
+//          DatastoreStorageArgs{...}
+type DatastoreStorageInput interface {
+	pulumi.Input
+
+	ToDatastoreStorageOutput() DatastoreStorageOutput
+	ToDatastoreStorageOutputWithContext(context.Context) DatastoreStorageOutput
+}
+
+type DatastoreStorageArgs struct {
+	CustomerManagedS3            DatastoreCustomerManagedS3PtrInput            `pulumi:"customerManagedS3"`
+	IotSiteWiseMultiLayerStorage DatastoreIotSiteWiseMultiLayerStoragePtrInput `pulumi:"iotSiteWiseMultiLayerStorage"`
+	ServiceManagedS3             DatastoreServiceManagedS3PtrInput             `pulumi:"serviceManagedS3"`
+}
+
+func (DatastoreStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatastoreStorage)(nil)).Elem()
+}
+
+func (i DatastoreStorageArgs) ToDatastoreStorageOutput() DatastoreStorageOutput {
+	return i.ToDatastoreStorageOutputWithContext(context.Background())
+}
+
+func (i DatastoreStorageArgs) ToDatastoreStorageOutputWithContext(ctx context.Context) DatastoreStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatastoreStorageOutput)
+}
+
+func (i DatastoreStorageArgs) ToDatastoreStoragePtrOutput() DatastoreStoragePtrOutput {
+	return i.ToDatastoreStoragePtrOutputWithContext(context.Background())
+}
+
+func (i DatastoreStorageArgs) ToDatastoreStoragePtrOutputWithContext(ctx context.Context) DatastoreStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatastoreStorageOutput).ToDatastoreStoragePtrOutputWithContext(ctx)
+}
+
+// DatastoreStoragePtrInput is an input type that accepts DatastoreStorageArgs, DatastoreStoragePtr and DatastoreStoragePtrOutput values.
+// You can construct a concrete instance of `DatastoreStoragePtrInput` via:
+//
+//          DatastoreStorageArgs{...}
+//
+//  or:
+//
+//          nil
+type DatastoreStoragePtrInput interface {
+	pulumi.Input
+
+	ToDatastoreStoragePtrOutput() DatastoreStoragePtrOutput
+	ToDatastoreStoragePtrOutputWithContext(context.Context) DatastoreStoragePtrOutput
+}
+
+type datastoreStoragePtrType DatastoreStorageArgs
+
+func DatastoreStoragePtr(v *DatastoreStorageArgs) DatastoreStoragePtrInput {
+	return (*datastoreStoragePtrType)(v)
+}
+
+func (*datastoreStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatastoreStorage)(nil)).Elem()
+}
+
+func (i *datastoreStoragePtrType) ToDatastoreStoragePtrOutput() DatastoreStoragePtrOutput {
+	return i.ToDatastoreStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *datastoreStoragePtrType) ToDatastoreStoragePtrOutputWithContext(ctx context.Context) DatastoreStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatastoreStoragePtrOutput)
+}
+
+type DatastoreStorageOutput struct{ *pulumi.OutputState }
+
+func (DatastoreStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatastoreStorage)(nil)).Elem()
+}
+
+func (o DatastoreStorageOutput) ToDatastoreStorageOutput() DatastoreStorageOutput {
+	return o
+}
+
+func (o DatastoreStorageOutput) ToDatastoreStorageOutputWithContext(ctx context.Context) DatastoreStorageOutput {
+	return o
+}
+
+func (o DatastoreStorageOutput) ToDatastoreStoragePtrOutput() DatastoreStoragePtrOutput {
+	return o.ToDatastoreStoragePtrOutputWithContext(context.Background())
+}
+
+func (o DatastoreStorageOutput) ToDatastoreStoragePtrOutputWithContext(ctx context.Context) DatastoreStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatastoreStorage) *DatastoreStorage {
+		return &v
+	}).(DatastoreStoragePtrOutput)
+}
+
+func (o DatastoreStorageOutput) CustomerManagedS3() DatastoreCustomerManagedS3PtrOutput {
+	return o.ApplyT(func(v DatastoreStorage) *DatastoreCustomerManagedS3 { return v.CustomerManagedS3 }).(DatastoreCustomerManagedS3PtrOutput)
+}
+
+func (o DatastoreStorageOutput) IotSiteWiseMultiLayerStorage() DatastoreIotSiteWiseMultiLayerStoragePtrOutput {
+	return o.ApplyT(func(v DatastoreStorage) *DatastoreIotSiteWiseMultiLayerStorage { return v.IotSiteWiseMultiLayerStorage }).(DatastoreIotSiteWiseMultiLayerStoragePtrOutput)
+}
+
+func (o DatastoreStorageOutput) ServiceManagedS3() DatastoreServiceManagedS3PtrOutput {
+	return o.ApplyT(func(v DatastoreStorage) *DatastoreServiceManagedS3 { return v.ServiceManagedS3 }).(DatastoreServiceManagedS3PtrOutput)
+}
+
+type DatastoreStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (DatastoreStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatastoreStorage)(nil)).Elem()
+}
+
+func (o DatastoreStoragePtrOutput) ToDatastoreStoragePtrOutput() DatastoreStoragePtrOutput {
+	return o
+}
+
+func (o DatastoreStoragePtrOutput) ToDatastoreStoragePtrOutputWithContext(ctx context.Context) DatastoreStoragePtrOutput {
+	return o
+}
+
+func (o DatastoreStoragePtrOutput) Elem() DatastoreStorageOutput {
+	return o.ApplyT(func(v *DatastoreStorage) DatastoreStorage {
+		if v != nil {
+			return *v
+		}
+		var ret DatastoreStorage
+		return ret
+	}).(DatastoreStorageOutput)
+}
+
+func (o DatastoreStoragePtrOutput) CustomerManagedS3() DatastoreCustomerManagedS3PtrOutput {
+	return o.ApplyT(func(v *DatastoreStorage) *DatastoreCustomerManagedS3 {
+		if v == nil {
+			return nil
+		}
+		return v.CustomerManagedS3
+	}).(DatastoreCustomerManagedS3PtrOutput)
+}
+
+func (o DatastoreStoragePtrOutput) IotSiteWiseMultiLayerStorage() DatastoreIotSiteWiseMultiLayerStoragePtrOutput {
+	return o.ApplyT(func(v *DatastoreStorage) *DatastoreIotSiteWiseMultiLayerStorage {
+		if v == nil {
+			return nil
+		}
+		return v.IotSiteWiseMultiLayerStorage
+	}).(DatastoreIotSiteWiseMultiLayerStoragePtrOutput)
+}
+
+func (o DatastoreStoragePtrOutput) ServiceManagedS3() DatastoreServiceManagedS3PtrOutput {
+	return o.ApplyT(func(v *DatastoreStorage) *DatastoreServiceManagedS3 {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceManagedS3
+	}).(DatastoreServiceManagedS3PtrOutput)
 }
 
 type DatastoreTag struct {
@@ -7651,25 +7607,25 @@ func (o PipelineTagArrayOutput) Index(i pulumi.IntInput) PipelineTagOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(ChannelChannelStorageOutput{})
-	pulumi.RegisterOutputType(ChannelChannelStoragePtrOutput{})
 	pulumi.RegisterOutputType(ChannelCustomerManagedS3Output{})
 	pulumi.RegisterOutputType(ChannelCustomerManagedS3PtrOutput{})
 	pulumi.RegisterOutputType(ChannelRetentionPeriodOutput{})
 	pulumi.RegisterOutputType(ChannelRetentionPeriodPtrOutput{})
 	pulumi.RegisterOutputType(ChannelServiceManagedS3Output{})
 	pulumi.RegisterOutputType(ChannelServiceManagedS3PtrOutput{})
+	pulumi.RegisterOutputType(ChannelStorageOutput{})
+	pulumi.RegisterOutputType(ChannelStoragePtrOutput{})
 	pulumi.RegisterOutputType(ChannelTagOutput{})
 	pulumi.RegisterOutputType(ChannelTagArrayOutput{})
 	pulumi.RegisterOutputType(DatasetActionOutput{})
 	pulumi.RegisterOutputType(DatasetActionArrayOutput{})
 	pulumi.RegisterOutputType(DatasetContainerActionOutput{})
 	pulumi.RegisterOutputType(DatasetContainerActionPtrOutput{})
-	pulumi.RegisterOutputType(DatasetDatasetContentDeliveryRuleOutput{})
-	pulumi.RegisterOutputType(DatasetDatasetContentDeliveryRuleArrayOutput{})
-	pulumi.RegisterOutputType(DatasetDatasetContentDeliveryRuleDestinationOutput{})
-	pulumi.RegisterOutputType(DatasetDatasetContentVersionValueOutput{})
-	pulumi.RegisterOutputType(DatasetDatasetContentVersionValuePtrOutput{})
+	pulumi.RegisterOutputType(DatasetContentDeliveryRuleOutput{})
+	pulumi.RegisterOutputType(DatasetContentDeliveryRuleArrayOutput{})
+	pulumi.RegisterOutputType(DatasetContentDeliveryRuleDestinationOutput{})
+	pulumi.RegisterOutputType(DatasetContentVersionValueOutput{})
+	pulumi.RegisterOutputType(DatasetContentVersionValuePtrOutput{})
 	pulumi.RegisterOutputType(DatasetDeltaTimeOutput{})
 	pulumi.RegisterOutputType(DatasetDeltaTimePtrOutput{})
 	pulumi.RegisterOutputType(DatasetDeltaTimeSessionWindowConfigurationOutput{})
@@ -7711,12 +7667,6 @@ func init() {
 	pulumi.RegisterOutputType(DatastoreCustomerManagedS3PtrOutput{})
 	pulumi.RegisterOutputType(DatastoreCustomerManagedS3StorageOutput{})
 	pulumi.RegisterOutputType(DatastoreCustomerManagedS3StoragePtrOutput{})
-	pulumi.RegisterOutputType(DatastoreDatastorePartitionOutput{})
-	pulumi.RegisterOutputType(DatastoreDatastorePartitionArrayOutput{})
-	pulumi.RegisterOutputType(DatastoreDatastorePartitionsOutput{})
-	pulumi.RegisterOutputType(DatastoreDatastorePartitionsPtrOutput{})
-	pulumi.RegisterOutputType(DatastoreDatastoreStorageOutput{})
-	pulumi.RegisterOutputType(DatastoreDatastoreStoragePtrOutput{})
 	pulumi.RegisterOutputType(DatastoreFileFormatConfigurationOutput{})
 	pulumi.RegisterOutputType(DatastoreFileFormatConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DatastoreIotSiteWiseMultiLayerStorageOutput{})
@@ -7727,12 +7677,17 @@ func init() {
 	pulumi.RegisterOutputType(DatastoreParquetConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DatastorePartitionOutput{})
 	pulumi.RegisterOutputType(DatastorePartitionPtrOutput{})
+	pulumi.RegisterOutputType(DatastorePartitionArrayOutput{})
+	pulumi.RegisterOutputType(DatastorePartitionsOutput{})
+	pulumi.RegisterOutputType(DatastorePartitionsPtrOutput{})
 	pulumi.RegisterOutputType(DatastoreRetentionPeriodOutput{})
 	pulumi.RegisterOutputType(DatastoreRetentionPeriodPtrOutput{})
 	pulumi.RegisterOutputType(DatastoreSchemaDefinitionOutput{})
 	pulumi.RegisterOutputType(DatastoreSchemaDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(DatastoreServiceManagedS3Output{})
 	pulumi.RegisterOutputType(DatastoreServiceManagedS3PtrOutput{})
+	pulumi.RegisterOutputType(DatastoreStorageOutput{})
+	pulumi.RegisterOutputType(DatastoreStoragePtrOutput{})
 	pulumi.RegisterOutputType(DatastoreTagOutput{})
 	pulumi.RegisterOutputType(DatastoreTagArrayOutput{})
 	pulumi.RegisterOutputType(DatastoreTimestampPartitionOutput{})

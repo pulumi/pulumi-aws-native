@@ -16,9 +16,9 @@ type DeliveryStream struct {
 
 	AmazonopensearchserviceDestinationConfiguration DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput `pulumi:"amazonopensearchserviceDestinationConfiguration"`
 	Arn                                             pulumi.StringOutput                                                    `pulumi:"arn"`
-	DeliveryStreamEncryptionConfigurationInput      DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput      `pulumi:"deliveryStreamEncryptionConfigurationInput"`
+	DeliveryStreamEncryptionConfigurationInput      DeliveryStreamEncryptionConfigurationInputTypePtrOutput                `pulumi:"deliveryStreamEncryptionConfigurationInput"`
 	DeliveryStreamName                              pulumi.StringPtrOutput                                                 `pulumi:"deliveryStreamName"`
-	DeliveryStreamType                              DeliveryStreamDeliveryStreamTypePtrOutput                              `pulumi:"deliveryStreamType"`
+	DeliveryStreamType                              DeliveryStreamTypePtrOutput                                            `pulumi:"deliveryStreamType"`
 	ElasticsearchDestinationConfiguration           DeliveryStreamElasticsearchDestinationConfigurationPtrOutput           `pulumi:"elasticsearchDestinationConfiguration"`
 	ExtendedS3DestinationConfiguration              DeliveryStreamExtendedS3DestinationConfigurationPtrOutput              `pulumi:"extendedS3DestinationConfiguration"`
 	HttpEndpointDestinationConfiguration            DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput            `pulumi:"httpEndpointDestinationConfiguration"`
@@ -69,9 +69,9 @@ func (DeliveryStreamState) ElementType() reflect.Type {
 
 type deliveryStreamArgs struct {
 	AmazonopensearchserviceDestinationConfiguration *DeliveryStreamAmazonopensearchserviceDestinationConfiguration `pulumi:"amazonopensearchserviceDestinationConfiguration"`
-	DeliveryStreamEncryptionConfigurationInput      *DeliveryStreamDeliveryStreamEncryptionConfigurationInput      `pulumi:"deliveryStreamEncryptionConfigurationInput"`
+	DeliveryStreamEncryptionConfigurationInput      *DeliveryStreamEncryptionConfigurationInputType                `pulumi:"deliveryStreamEncryptionConfigurationInput"`
 	DeliveryStreamName                              *string                                                        `pulumi:"deliveryStreamName"`
-	DeliveryStreamType                              *DeliveryStreamDeliveryStreamType                              `pulumi:"deliveryStreamType"`
+	DeliveryStreamType                              *DeliveryStreamType                                            `pulumi:"deliveryStreamType"`
 	ElasticsearchDestinationConfiguration           *DeliveryStreamElasticsearchDestinationConfiguration           `pulumi:"elasticsearchDestinationConfiguration"`
 	ExtendedS3DestinationConfiguration              *DeliveryStreamExtendedS3DestinationConfiguration              `pulumi:"extendedS3DestinationConfiguration"`
 	HttpEndpointDestinationConfiguration            *DeliveryStreamHttpEndpointDestinationConfiguration            `pulumi:"httpEndpointDestinationConfiguration"`
@@ -85,9 +85,9 @@ type deliveryStreamArgs struct {
 // The set of arguments for constructing a DeliveryStream resource.
 type DeliveryStreamArgs struct {
 	AmazonopensearchserviceDestinationConfiguration DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrInput
-	DeliveryStreamEncryptionConfigurationInput      DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrInput
+	DeliveryStreamEncryptionConfigurationInput      DeliveryStreamEncryptionConfigurationInputTypePtrInput
 	DeliveryStreamName                              pulumi.StringPtrInput
-	DeliveryStreamType                              DeliveryStreamDeliveryStreamTypePtrInput
+	DeliveryStreamType                              DeliveryStreamTypePtrInput
 	ElasticsearchDestinationConfiguration           DeliveryStreamElasticsearchDestinationConfigurationPtrInput
 	ExtendedS3DestinationConfiguration              DeliveryStreamExtendedS3DestinationConfigurationPtrInput
 	HttpEndpointDestinationConfiguration            DeliveryStreamHttpEndpointDestinationConfigurationPtrInput

@@ -283,104 +283,104 @@ func (o GeoMatchSetGeoMatchConstraintArrayOutput) Index(i pulumi.IntInput) GeoMa
 	}).(GeoMatchSetGeoMatchConstraintOutput)
 }
 
-type IPSetIPSetDescriptor struct {
+type IPSetDescriptor struct {
 	Type  string `pulumi:"type"`
 	Value string `pulumi:"value"`
 }
 
-// IPSetIPSetDescriptorInput is an input type that accepts IPSetIPSetDescriptorArgs and IPSetIPSetDescriptorOutput values.
-// You can construct a concrete instance of `IPSetIPSetDescriptorInput` via:
+// IPSetDescriptorInput is an input type that accepts IPSetDescriptorArgs and IPSetDescriptorOutput values.
+// You can construct a concrete instance of `IPSetDescriptorInput` via:
 //
-//          IPSetIPSetDescriptorArgs{...}
-type IPSetIPSetDescriptorInput interface {
+//          IPSetDescriptorArgs{...}
+type IPSetDescriptorInput interface {
 	pulumi.Input
 
-	ToIPSetIPSetDescriptorOutput() IPSetIPSetDescriptorOutput
-	ToIPSetIPSetDescriptorOutputWithContext(context.Context) IPSetIPSetDescriptorOutput
+	ToIPSetDescriptorOutput() IPSetDescriptorOutput
+	ToIPSetDescriptorOutputWithContext(context.Context) IPSetDescriptorOutput
 }
 
-type IPSetIPSetDescriptorArgs struct {
+type IPSetDescriptorArgs struct {
 	Type  pulumi.StringInput `pulumi:"type"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (IPSetIPSetDescriptorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPSetIPSetDescriptor)(nil)).Elem()
+func (IPSetDescriptorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSetDescriptor)(nil)).Elem()
 }
 
-func (i IPSetIPSetDescriptorArgs) ToIPSetIPSetDescriptorOutput() IPSetIPSetDescriptorOutput {
-	return i.ToIPSetIPSetDescriptorOutputWithContext(context.Background())
+func (i IPSetDescriptorArgs) ToIPSetDescriptorOutput() IPSetDescriptorOutput {
+	return i.ToIPSetDescriptorOutputWithContext(context.Background())
 }
 
-func (i IPSetIPSetDescriptorArgs) ToIPSetIPSetDescriptorOutputWithContext(ctx context.Context) IPSetIPSetDescriptorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IPSetIPSetDescriptorOutput)
+func (i IPSetDescriptorArgs) ToIPSetDescriptorOutputWithContext(ctx context.Context) IPSetDescriptorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSetDescriptorOutput)
 }
 
-// IPSetIPSetDescriptorArrayInput is an input type that accepts IPSetIPSetDescriptorArray and IPSetIPSetDescriptorArrayOutput values.
-// You can construct a concrete instance of `IPSetIPSetDescriptorArrayInput` via:
+// IPSetDescriptorArrayInput is an input type that accepts IPSetDescriptorArray and IPSetDescriptorArrayOutput values.
+// You can construct a concrete instance of `IPSetDescriptorArrayInput` via:
 //
-//          IPSetIPSetDescriptorArray{ IPSetIPSetDescriptorArgs{...} }
-type IPSetIPSetDescriptorArrayInput interface {
+//          IPSetDescriptorArray{ IPSetDescriptorArgs{...} }
+type IPSetDescriptorArrayInput interface {
 	pulumi.Input
 
-	ToIPSetIPSetDescriptorArrayOutput() IPSetIPSetDescriptorArrayOutput
-	ToIPSetIPSetDescriptorArrayOutputWithContext(context.Context) IPSetIPSetDescriptorArrayOutput
+	ToIPSetDescriptorArrayOutput() IPSetDescriptorArrayOutput
+	ToIPSetDescriptorArrayOutputWithContext(context.Context) IPSetDescriptorArrayOutput
 }
 
-type IPSetIPSetDescriptorArray []IPSetIPSetDescriptorInput
+type IPSetDescriptorArray []IPSetDescriptorInput
 
-func (IPSetIPSetDescriptorArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IPSetIPSetDescriptor)(nil)).Elem()
+func (IPSetDescriptorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPSetDescriptor)(nil)).Elem()
 }
 
-func (i IPSetIPSetDescriptorArray) ToIPSetIPSetDescriptorArrayOutput() IPSetIPSetDescriptorArrayOutput {
-	return i.ToIPSetIPSetDescriptorArrayOutputWithContext(context.Background())
+func (i IPSetDescriptorArray) ToIPSetDescriptorArrayOutput() IPSetDescriptorArrayOutput {
+	return i.ToIPSetDescriptorArrayOutputWithContext(context.Background())
 }
 
-func (i IPSetIPSetDescriptorArray) ToIPSetIPSetDescriptorArrayOutputWithContext(ctx context.Context) IPSetIPSetDescriptorArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IPSetIPSetDescriptorArrayOutput)
+func (i IPSetDescriptorArray) ToIPSetDescriptorArrayOutputWithContext(ctx context.Context) IPSetDescriptorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSetDescriptorArrayOutput)
 }
 
-type IPSetIPSetDescriptorOutput struct{ *pulumi.OutputState }
+type IPSetDescriptorOutput struct{ *pulumi.OutputState }
 
-func (IPSetIPSetDescriptorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPSetIPSetDescriptor)(nil)).Elem()
+func (IPSetDescriptorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSetDescriptor)(nil)).Elem()
 }
 
-func (o IPSetIPSetDescriptorOutput) ToIPSetIPSetDescriptorOutput() IPSetIPSetDescriptorOutput {
+func (o IPSetDescriptorOutput) ToIPSetDescriptorOutput() IPSetDescriptorOutput {
 	return o
 }
 
-func (o IPSetIPSetDescriptorOutput) ToIPSetIPSetDescriptorOutputWithContext(ctx context.Context) IPSetIPSetDescriptorOutput {
+func (o IPSetDescriptorOutput) ToIPSetDescriptorOutputWithContext(ctx context.Context) IPSetDescriptorOutput {
 	return o
 }
 
-func (o IPSetIPSetDescriptorOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v IPSetIPSetDescriptor) string { return v.Type }).(pulumi.StringOutput)
+func (o IPSetDescriptorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IPSetDescriptor) string { return v.Type }).(pulumi.StringOutput)
 }
 
-func (o IPSetIPSetDescriptorOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v IPSetIPSetDescriptor) string { return v.Value }).(pulumi.StringOutput)
+func (o IPSetDescriptorOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v IPSetDescriptor) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type IPSetIPSetDescriptorArrayOutput struct{ *pulumi.OutputState }
+type IPSetDescriptorArrayOutput struct{ *pulumi.OutputState }
 
-func (IPSetIPSetDescriptorArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IPSetIPSetDescriptor)(nil)).Elem()
+func (IPSetDescriptorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPSetDescriptor)(nil)).Elem()
 }
 
-func (o IPSetIPSetDescriptorArrayOutput) ToIPSetIPSetDescriptorArrayOutput() IPSetIPSetDescriptorArrayOutput {
+func (o IPSetDescriptorArrayOutput) ToIPSetDescriptorArrayOutput() IPSetDescriptorArrayOutput {
 	return o
 }
 
-func (o IPSetIPSetDescriptorArrayOutput) ToIPSetIPSetDescriptorArrayOutputWithContext(ctx context.Context) IPSetIPSetDescriptorArrayOutput {
+func (o IPSetDescriptorArrayOutput) ToIPSetDescriptorArrayOutputWithContext(ctx context.Context) IPSetDescriptorArrayOutput {
 	return o
 }
 
-func (o IPSetIPSetDescriptorArrayOutput) Index(i pulumi.IntInput) IPSetIPSetDescriptorOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPSetIPSetDescriptor {
-		return vs[0].([]IPSetIPSetDescriptor)[vs[1].(int)]
-	}).(IPSetIPSetDescriptorOutput)
+func (o IPSetDescriptorArrayOutput) Index(i pulumi.IntInput) IPSetDescriptorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPSetDescriptor {
+		return vs[0].([]IPSetDescriptor)[vs[1].(int)]
+	}).(IPSetDescriptorOutput)
 }
 
 type RateBasedRulePredicate struct {
@@ -1319,8 +1319,8 @@ func init() {
 	pulumi.RegisterOutputType(ByteMatchSetFieldToMatchOutput{})
 	pulumi.RegisterOutputType(GeoMatchSetGeoMatchConstraintOutput{})
 	pulumi.RegisterOutputType(GeoMatchSetGeoMatchConstraintArrayOutput{})
-	pulumi.RegisterOutputType(IPSetIPSetDescriptorOutput{})
-	pulumi.RegisterOutputType(IPSetIPSetDescriptorArrayOutput{})
+	pulumi.RegisterOutputType(IPSetDescriptorOutput{})
+	pulumi.RegisterOutputType(IPSetDescriptorArrayOutput{})
 	pulumi.RegisterOutputType(RateBasedRulePredicateOutput{})
 	pulumi.RegisterOutputType(RateBasedRulePredicateArrayOutput{})
 	pulumi.RegisterOutputType(RulePredicateOutput{})

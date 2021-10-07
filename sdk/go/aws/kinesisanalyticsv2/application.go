@@ -17,13 +17,13 @@ import (
 type Application struct {
 	pulumi.CustomResourceState
 
-	ApplicationConfiguration ApplicationApplicationConfigurationPtrOutput `pulumi:"applicationConfiguration"`
-	ApplicationDescription   pulumi.StringPtrOutput                       `pulumi:"applicationDescription"`
-	ApplicationMode          pulumi.StringPtrOutput                       `pulumi:"applicationMode"`
-	ApplicationName          pulumi.StringPtrOutput                       `pulumi:"applicationName"`
-	RuntimeEnvironment       pulumi.StringOutput                          `pulumi:"runtimeEnvironment"`
-	ServiceExecutionRole     pulumi.StringOutput                          `pulumi:"serviceExecutionRole"`
-	Tags                     ApplicationTagArrayOutput                    `pulumi:"tags"`
+	ApplicationConfiguration ApplicationConfigurationPtrOutput `pulumi:"applicationConfiguration"`
+	ApplicationDescription   pulumi.StringPtrOutput            `pulumi:"applicationDescription"`
+	ApplicationMode          pulumi.StringPtrOutput            `pulumi:"applicationMode"`
+	ApplicationName          pulumi.StringPtrOutput            `pulumi:"applicationName"`
+	RuntimeEnvironment       pulumi.StringOutput               `pulumi:"runtimeEnvironment"`
+	ServiceExecutionRole     pulumi.StringOutput               `pulumi:"serviceExecutionRole"`
+	Tags                     ApplicationTagArrayOutput         `pulumi:"tags"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -71,18 +71,18 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	ApplicationConfiguration *ApplicationApplicationConfiguration `pulumi:"applicationConfiguration"`
-	ApplicationDescription   *string                              `pulumi:"applicationDescription"`
-	ApplicationMode          *string                              `pulumi:"applicationMode"`
-	ApplicationName          *string                              `pulumi:"applicationName"`
-	RuntimeEnvironment       string                               `pulumi:"runtimeEnvironment"`
-	ServiceExecutionRole     string                               `pulumi:"serviceExecutionRole"`
-	Tags                     []ApplicationTag                     `pulumi:"tags"`
+	ApplicationConfiguration *ApplicationConfiguration `pulumi:"applicationConfiguration"`
+	ApplicationDescription   *string                   `pulumi:"applicationDescription"`
+	ApplicationMode          *string                   `pulumi:"applicationMode"`
+	ApplicationName          *string                   `pulumi:"applicationName"`
+	RuntimeEnvironment       string                    `pulumi:"runtimeEnvironment"`
+	ServiceExecutionRole     string                    `pulumi:"serviceExecutionRole"`
+	Tags                     []ApplicationTag          `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	ApplicationConfiguration ApplicationApplicationConfigurationPtrInput
+	ApplicationConfiguration ApplicationConfigurationPtrInput
 	ApplicationDescription   pulumi.StringPtrInput
 	ApplicationMode          pulumi.StringPtrInput
 	ApplicationName          pulumi.StringPtrInput

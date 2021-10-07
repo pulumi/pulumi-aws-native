@@ -16,31 +16,31 @@ import (
 type DBCluster struct {
 	pulumi.CustomResourceState
 
-	AssociatedRoles             DBClusterDBClusterRoleArrayOutput `pulumi:"associatedRoles"`
-	AvailabilityZones           pulumi.StringArrayOutput          `pulumi:"availabilityZones"`
-	BackupRetentionPeriod       pulumi.IntPtrOutput               `pulumi:"backupRetentionPeriod"`
-	ClusterResourceId           pulumi.StringOutput               `pulumi:"clusterResourceId"`
-	DBClusterIdentifier         pulumi.StringPtrOutput            `pulumi:"dBClusterIdentifier"`
-	DBClusterParameterGroupName pulumi.StringPtrOutput            `pulumi:"dBClusterParameterGroupName"`
-	DBSubnetGroupName           pulumi.StringPtrOutput            `pulumi:"dBSubnetGroupName"`
-	DeletionProtection          pulumi.BoolPtrOutput              `pulumi:"deletionProtection"`
-	EnableCloudwatchLogsExports pulumi.StringArrayOutput          `pulumi:"enableCloudwatchLogsExports"`
-	Endpoint                    pulumi.StringOutput               `pulumi:"endpoint"`
-	EngineVersion               pulumi.StringPtrOutput            `pulumi:"engineVersion"`
-	IamAuthEnabled              pulumi.BoolPtrOutput              `pulumi:"iamAuthEnabled"`
-	KmsKeyId                    pulumi.StringPtrOutput            `pulumi:"kmsKeyId"`
-	Port                        pulumi.IntPtrOutput               `pulumi:"port"`
-	PreferredBackupWindow       pulumi.StringPtrOutput            `pulumi:"preferredBackupWindow"`
-	PreferredMaintenanceWindow  pulumi.StringPtrOutput            `pulumi:"preferredMaintenanceWindow"`
-	ReadEndpoint                pulumi.StringOutput               `pulumi:"readEndpoint"`
-	RestoreToTime               pulumi.StringPtrOutput            `pulumi:"restoreToTime"`
-	RestoreType                 pulumi.StringPtrOutput            `pulumi:"restoreType"`
-	SnapshotIdentifier          pulumi.StringPtrOutput            `pulumi:"snapshotIdentifier"`
-	SourceDBClusterIdentifier   pulumi.StringPtrOutput            `pulumi:"sourceDBClusterIdentifier"`
-	StorageEncrypted            pulumi.BoolPtrOutput              `pulumi:"storageEncrypted"`
-	Tags                        DBClusterTagArrayOutput           `pulumi:"tags"`
-	UseLatestRestorableTime     pulumi.BoolPtrOutput              `pulumi:"useLatestRestorableTime"`
-	VpcSecurityGroupIds         pulumi.StringArrayOutput          `pulumi:"vpcSecurityGroupIds"`
+	AssociatedRoles             DBClusterRoleArrayOutput `pulumi:"associatedRoles"`
+	AvailabilityZones           pulumi.StringArrayOutput `pulumi:"availabilityZones"`
+	BackupRetentionPeriod       pulumi.IntPtrOutput      `pulumi:"backupRetentionPeriod"`
+	ClusterResourceId           pulumi.StringOutput      `pulumi:"clusterResourceId"`
+	DBClusterIdentifier         pulumi.StringPtrOutput   `pulumi:"dBClusterIdentifier"`
+	DBClusterParameterGroupName pulumi.StringPtrOutput   `pulumi:"dBClusterParameterGroupName"`
+	DBSubnetGroupName           pulumi.StringPtrOutput   `pulumi:"dBSubnetGroupName"`
+	DeletionProtection          pulumi.BoolPtrOutput     `pulumi:"deletionProtection"`
+	EnableCloudwatchLogsExports pulumi.StringArrayOutput `pulumi:"enableCloudwatchLogsExports"`
+	Endpoint                    pulumi.StringOutput      `pulumi:"endpoint"`
+	EngineVersion               pulumi.StringPtrOutput   `pulumi:"engineVersion"`
+	IamAuthEnabled              pulumi.BoolPtrOutput     `pulumi:"iamAuthEnabled"`
+	KmsKeyId                    pulumi.StringPtrOutput   `pulumi:"kmsKeyId"`
+	Port                        pulumi.IntPtrOutput      `pulumi:"port"`
+	PreferredBackupWindow       pulumi.StringPtrOutput   `pulumi:"preferredBackupWindow"`
+	PreferredMaintenanceWindow  pulumi.StringPtrOutput   `pulumi:"preferredMaintenanceWindow"`
+	ReadEndpoint                pulumi.StringOutput      `pulumi:"readEndpoint"`
+	RestoreToTime               pulumi.StringPtrOutput   `pulumi:"restoreToTime"`
+	RestoreType                 pulumi.StringPtrOutput   `pulumi:"restoreType"`
+	SnapshotIdentifier          pulumi.StringPtrOutput   `pulumi:"snapshotIdentifier"`
+	SourceDBClusterIdentifier   pulumi.StringPtrOutput   `pulumi:"sourceDBClusterIdentifier"`
+	StorageEncrypted            pulumi.BoolPtrOutput     `pulumi:"storageEncrypted"`
+	Tags                        DBClusterTagArrayOutput  `pulumi:"tags"`
+	UseLatestRestorableTime     pulumi.BoolPtrOutput     `pulumi:"useLatestRestorableTime"`
+	VpcSecurityGroupIds         pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
 }
 
 // NewDBCluster registers a new resource with the given unique name, arguments, and options.
@@ -82,33 +82,33 @@ func (DBClusterState) ElementType() reflect.Type {
 }
 
 type dbclusterArgs struct {
-	AssociatedRoles             []DBClusterDBClusterRole `pulumi:"associatedRoles"`
-	AvailabilityZones           []string                 `pulumi:"availabilityZones"`
-	BackupRetentionPeriod       *int                     `pulumi:"backupRetentionPeriod"`
-	DBClusterIdentifier         *string                  `pulumi:"dBClusterIdentifier"`
-	DBClusterParameterGroupName *string                  `pulumi:"dBClusterParameterGroupName"`
-	DBSubnetGroupName           *string                  `pulumi:"dBSubnetGroupName"`
-	DeletionProtection          *bool                    `pulumi:"deletionProtection"`
-	EnableCloudwatchLogsExports []string                 `pulumi:"enableCloudwatchLogsExports"`
-	EngineVersion               *string                  `pulumi:"engineVersion"`
-	IamAuthEnabled              *bool                    `pulumi:"iamAuthEnabled"`
-	KmsKeyId                    *string                  `pulumi:"kmsKeyId"`
-	Port                        *int                     `pulumi:"port"`
-	PreferredBackupWindow       *string                  `pulumi:"preferredBackupWindow"`
-	PreferredMaintenanceWindow  *string                  `pulumi:"preferredMaintenanceWindow"`
-	RestoreToTime               *string                  `pulumi:"restoreToTime"`
-	RestoreType                 *string                  `pulumi:"restoreType"`
-	SnapshotIdentifier          *string                  `pulumi:"snapshotIdentifier"`
-	SourceDBClusterIdentifier   *string                  `pulumi:"sourceDBClusterIdentifier"`
-	StorageEncrypted            *bool                    `pulumi:"storageEncrypted"`
-	Tags                        []DBClusterTag           `pulumi:"tags"`
-	UseLatestRestorableTime     *bool                    `pulumi:"useLatestRestorableTime"`
-	VpcSecurityGroupIds         []string                 `pulumi:"vpcSecurityGroupIds"`
+	AssociatedRoles             []DBClusterRole `pulumi:"associatedRoles"`
+	AvailabilityZones           []string        `pulumi:"availabilityZones"`
+	BackupRetentionPeriod       *int            `pulumi:"backupRetentionPeriod"`
+	DBClusterIdentifier         *string         `pulumi:"dBClusterIdentifier"`
+	DBClusterParameterGroupName *string         `pulumi:"dBClusterParameterGroupName"`
+	DBSubnetGroupName           *string         `pulumi:"dBSubnetGroupName"`
+	DeletionProtection          *bool           `pulumi:"deletionProtection"`
+	EnableCloudwatchLogsExports []string        `pulumi:"enableCloudwatchLogsExports"`
+	EngineVersion               *string         `pulumi:"engineVersion"`
+	IamAuthEnabled              *bool           `pulumi:"iamAuthEnabled"`
+	KmsKeyId                    *string         `pulumi:"kmsKeyId"`
+	Port                        *int            `pulumi:"port"`
+	PreferredBackupWindow       *string         `pulumi:"preferredBackupWindow"`
+	PreferredMaintenanceWindow  *string         `pulumi:"preferredMaintenanceWindow"`
+	RestoreToTime               *string         `pulumi:"restoreToTime"`
+	RestoreType                 *string         `pulumi:"restoreType"`
+	SnapshotIdentifier          *string         `pulumi:"snapshotIdentifier"`
+	SourceDBClusterIdentifier   *string         `pulumi:"sourceDBClusterIdentifier"`
+	StorageEncrypted            *bool           `pulumi:"storageEncrypted"`
+	Tags                        []DBClusterTag  `pulumi:"tags"`
+	UseLatestRestorableTime     *bool           `pulumi:"useLatestRestorableTime"`
+	VpcSecurityGroupIds         []string        `pulumi:"vpcSecurityGroupIds"`
 }
 
 // The set of arguments for constructing a DBCluster resource.
 type DBClusterArgs struct {
-	AssociatedRoles             DBClusterDBClusterRoleArrayInput
+	AssociatedRoles             DBClusterRoleArrayInput
 	AvailabilityZones           pulumi.StringArrayInput
 	BackupRetentionPeriod       pulumi.IntPtrInput
 	DBClusterIdentifier         pulumi.StringPtrInput

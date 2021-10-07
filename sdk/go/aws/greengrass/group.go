@@ -17,13 +17,13 @@ import (
 type Group struct {
 	pulumi.CustomResourceState
 
-	Arn              pulumi.StringOutput        `pulumi:"arn"`
-	InitialVersion   GroupGroupVersionPtrOutput `pulumi:"initialVersion"`
-	LatestVersionArn pulumi.StringOutput        `pulumi:"latestVersionArn"`
-	Name             pulumi.StringOutput        `pulumi:"name"`
-	RoleArn          pulumi.StringPtrOutput     `pulumi:"roleArn"`
-	RoleAttachedAt   pulumi.StringOutput        `pulumi:"roleAttachedAt"`
-	Tags             pulumi.AnyOutput           `pulumi:"tags"`
+	Arn              pulumi.StringOutput       `pulumi:"arn"`
+	InitialVersion   GroupVersionTypePtrOutput `pulumi:"initialVersion"`
+	LatestVersionArn pulumi.StringOutput       `pulumi:"latestVersionArn"`
+	Name             pulumi.StringOutput       `pulumi:"name"`
+	RoleArn          pulumi.StringPtrOutput    `pulumi:"roleArn"`
+	RoleAttachedAt   pulumi.StringOutput       `pulumi:"roleAttachedAt"`
+	Tags             pulumi.AnyOutput          `pulumi:"tags"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -68,15 +68,15 @@ func (GroupState) ElementType() reflect.Type {
 }
 
 type groupArgs struct {
-	InitialVersion *GroupGroupVersion `pulumi:"initialVersion"`
-	Name           string             `pulumi:"name"`
-	RoleArn        *string            `pulumi:"roleArn"`
-	Tags           interface{}        `pulumi:"tags"`
+	InitialVersion *GroupVersionType `pulumi:"initialVersion"`
+	Name           string            `pulumi:"name"`
+	RoleArn        *string           `pulumi:"roleArn"`
+	Tags           interface{}       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
-	InitialVersion GroupGroupVersionPtrInput
+	InitialVersion GroupVersionTypePtrInput
 	Name           pulumi.StringInput
 	RoleArn        pulumi.StringPtrInput
 	Tags           pulumi.Input

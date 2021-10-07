@@ -17,14 +17,14 @@ import (
 type VirtualService struct {
 	pulumi.CustomResourceState
 
-	Arn                pulumi.StringOutput                    `pulumi:"arn"`
-	MeshName           pulumi.StringOutput                    `pulumi:"meshName"`
-	MeshOwner          pulumi.StringPtrOutput                 `pulumi:"meshOwner"`
-	ResourceOwner      pulumi.StringOutput                    `pulumi:"resourceOwner"`
-	Spec               VirtualServiceVirtualServiceSpecOutput `pulumi:"spec"`
-	Tags               VirtualServiceTagArrayOutput           `pulumi:"tags"`
-	Uid                pulumi.StringOutput                    `pulumi:"uid"`
-	VirtualServiceName pulumi.StringOutput                    `pulumi:"virtualServiceName"`
+	Arn                pulumi.StringOutput          `pulumi:"arn"`
+	MeshName           pulumi.StringOutput          `pulumi:"meshName"`
+	MeshOwner          pulumi.StringPtrOutput       `pulumi:"meshOwner"`
+	ResourceOwner      pulumi.StringOutput          `pulumi:"resourceOwner"`
+	Spec               VirtualServiceSpecOutput     `pulumi:"spec"`
+	Tags               VirtualServiceTagArrayOutput `pulumi:"tags"`
+	Uid                pulumi.StringOutput          `pulumi:"uid"`
+	VirtualServiceName pulumi.StringOutput          `pulumi:"virtualServiceName"`
 }
 
 // NewVirtualService registers a new resource with the given unique name, arguments, and options.
@@ -75,18 +75,18 @@ func (VirtualServiceState) ElementType() reflect.Type {
 }
 
 type virtualServiceArgs struct {
-	MeshName           string                           `pulumi:"meshName"`
-	MeshOwner          *string                          `pulumi:"meshOwner"`
-	Spec               VirtualServiceVirtualServiceSpec `pulumi:"spec"`
-	Tags               []VirtualServiceTag              `pulumi:"tags"`
-	VirtualServiceName string                           `pulumi:"virtualServiceName"`
+	MeshName           string              `pulumi:"meshName"`
+	MeshOwner          *string             `pulumi:"meshOwner"`
+	Spec               VirtualServiceSpec  `pulumi:"spec"`
+	Tags               []VirtualServiceTag `pulumi:"tags"`
+	VirtualServiceName string              `pulumi:"virtualServiceName"`
 }
 
 // The set of arguments for constructing a VirtualService resource.
 type VirtualServiceArgs struct {
 	MeshName           pulumi.StringInput
 	MeshOwner          pulumi.StringPtrInput
-	Spec               VirtualServiceVirtualServiceSpecInput
+	Spec               VirtualServiceSpecInput
 	Tags               VirtualServiceTagArrayInput
 	VirtualServiceName pulumi.StringInput
 }

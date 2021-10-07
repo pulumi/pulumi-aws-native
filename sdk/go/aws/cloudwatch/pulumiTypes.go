@@ -1048,103 +1048,103 @@ func (o InsightRuleTagsPtrOutput) Elem() InsightRuleTagsOutput {
 }
 
 // This structure defines the metrics that will be streamed.
-type MetricStreamMetricStreamFilter struct {
+type MetricStreamFilter struct {
 	// Only metrics with Namespace matching this value will be streamed.
 	Namespace string `pulumi:"namespace"`
 }
 
-// MetricStreamMetricStreamFilterInput is an input type that accepts MetricStreamMetricStreamFilterArgs and MetricStreamMetricStreamFilterOutput values.
-// You can construct a concrete instance of `MetricStreamMetricStreamFilterInput` via:
+// MetricStreamFilterInput is an input type that accepts MetricStreamFilterArgs and MetricStreamFilterOutput values.
+// You can construct a concrete instance of `MetricStreamFilterInput` via:
 //
-//          MetricStreamMetricStreamFilterArgs{...}
-type MetricStreamMetricStreamFilterInput interface {
+//          MetricStreamFilterArgs{...}
+type MetricStreamFilterInput interface {
 	pulumi.Input
 
-	ToMetricStreamMetricStreamFilterOutput() MetricStreamMetricStreamFilterOutput
-	ToMetricStreamMetricStreamFilterOutputWithContext(context.Context) MetricStreamMetricStreamFilterOutput
+	ToMetricStreamFilterOutput() MetricStreamFilterOutput
+	ToMetricStreamFilterOutputWithContext(context.Context) MetricStreamFilterOutput
 }
 
 // This structure defines the metrics that will be streamed.
-type MetricStreamMetricStreamFilterArgs struct {
+type MetricStreamFilterArgs struct {
 	// Only metrics with Namespace matching this value will be streamed.
 	Namespace pulumi.StringInput `pulumi:"namespace"`
 }
 
-func (MetricStreamMetricStreamFilterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricStreamMetricStreamFilter)(nil)).Elem()
+func (MetricStreamFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricStreamFilter)(nil)).Elem()
 }
 
-func (i MetricStreamMetricStreamFilterArgs) ToMetricStreamMetricStreamFilterOutput() MetricStreamMetricStreamFilterOutput {
-	return i.ToMetricStreamMetricStreamFilterOutputWithContext(context.Background())
+func (i MetricStreamFilterArgs) ToMetricStreamFilterOutput() MetricStreamFilterOutput {
+	return i.ToMetricStreamFilterOutputWithContext(context.Background())
 }
 
-func (i MetricStreamMetricStreamFilterArgs) ToMetricStreamMetricStreamFilterOutputWithContext(ctx context.Context) MetricStreamMetricStreamFilterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamMetricStreamFilterOutput)
+func (i MetricStreamFilterArgs) ToMetricStreamFilterOutputWithContext(ctx context.Context) MetricStreamFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamFilterOutput)
 }
 
-// MetricStreamMetricStreamFilterArrayInput is an input type that accepts MetricStreamMetricStreamFilterArray and MetricStreamMetricStreamFilterArrayOutput values.
-// You can construct a concrete instance of `MetricStreamMetricStreamFilterArrayInput` via:
+// MetricStreamFilterArrayInput is an input type that accepts MetricStreamFilterArray and MetricStreamFilterArrayOutput values.
+// You can construct a concrete instance of `MetricStreamFilterArrayInput` via:
 //
-//          MetricStreamMetricStreamFilterArray{ MetricStreamMetricStreamFilterArgs{...} }
-type MetricStreamMetricStreamFilterArrayInput interface {
+//          MetricStreamFilterArray{ MetricStreamFilterArgs{...} }
+type MetricStreamFilterArrayInput interface {
 	pulumi.Input
 
-	ToMetricStreamMetricStreamFilterArrayOutput() MetricStreamMetricStreamFilterArrayOutput
-	ToMetricStreamMetricStreamFilterArrayOutputWithContext(context.Context) MetricStreamMetricStreamFilterArrayOutput
+	ToMetricStreamFilterArrayOutput() MetricStreamFilterArrayOutput
+	ToMetricStreamFilterArrayOutputWithContext(context.Context) MetricStreamFilterArrayOutput
 }
 
-type MetricStreamMetricStreamFilterArray []MetricStreamMetricStreamFilterInput
+type MetricStreamFilterArray []MetricStreamFilterInput
 
-func (MetricStreamMetricStreamFilterArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MetricStreamMetricStreamFilter)(nil)).Elem()
+func (MetricStreamFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricStreamFilter)(nil)).Elem()
 }
 
-func (i MetricStreamMetricStreamFilterArray) ToMetricStreamMetricStreamFilterArrayOutput() MetricStreamMetricStreamFilterArrayOutput {
-	return i.ToMetricStreamMetricStreamFilterArrayOutputWithContext(context.Background())
+func (i MetricStreamFilterArray) ToMetricStreamFilterArrayOutput() MetricStreamFilterArrayOutput {
+	return i.ToMetricStreamFilterArrayOutputWithContext(context.Background())
 }
 
-func (i MetricStreamMetricStreamFilterArray) ToMetricStreamMetricStreamFilterArrayOutputWithContext(ctx context.Context) MetricStreamMetricStreamFilterArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamMetricStreamFilterArrayOutput)
+func (i MetricStreamFilterArray) ToMetricStreamFilterArrayOutputWithContext(ctx context.Context) MetricStreamFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamFilterArrayOutput)
 }
 
 // This structure defines the metrics that will be streamed.
-type MetricStreamMetricStreamFilterOutput struct{ *pulumi.OutputState }
+type MetricStreamFilterOutput struct{ *pulumi.OutputState }
 
-func (MetricStreamMetricStreamFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricStreamMetricStreamFilter)(nil)).Elem()
+func (MetricStreamFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricStreamFilter)(nil)).Elem()
 }
 
-func (o MetricStreamMetricStreamFilterOutput) ToMetricStreamMetricStreamFilterOutput() MetricStreamMetricStreamFilterOutput {
+func (o MetricStreamFilterOutput) ToMetricStreamFilterOutput() MetricStreamFilterOutput {
 	return o
 }
 
-func (o MetricStreamMetricStreamFilterOutput) ToMetricStreamMetricStreamFilterOutputWithContext(ctx context.Context) MetricStreamMetricStreamFilterOutput {
+func (o MetricStreamFilterOutput) ToMetricStreamFilterOutputWithContext(ctx context.Context) MetricStreamFilterOutput {
 	return o
 }
 
 // Only metrics with Namespace matching this value will be streamed.
-func (o MetricStreamMetricStreamFilterOutput) Namespace() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricStreamMetricStreamFilter) string { return v.Namespace }).(pulumi.StringOutput)
+func (o MetricStreamFilterOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricStreamFilter) string { return v.Namespace }).(pulumi.StringOutput)
 }
 
-type MetricStreamMetricStreamFilterArrayOutput struct{ *pulumi.OutputState }
+type MetricStreamFilterArrayOutput struct{ *pulumi.OutputState }
 
-func (MetricStreamMetricStreamFilterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MetricStreamMetricStreamFilter)(nil)).Elem()
+func (MetricStreamFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricStreamFilter)(nil)).Elem()
 }
 
-func (o MetricStreamMetricStreamFilterArrayOutput) ToMetricStreamMetricStreamFilterArrayOutput() MetricStreamMetricStreamFilterArrayOutput {
+func (o MetricStreamFilterArrayOutput) ToMetricStreamFilterArrayOutput() MetricStreamFilterArrayOutput {
 	return o
 }
 
-func (o MetricStreamMetricStreamFilterArrayOutput) ToMetricStreamMetricStreamFilterArrayOutputWithContext(ctx context.Context) MetricStreamMetricStreamFilterArrayOutput {
+func (o MetricStreamFilterArrayOutput) ToMetricStreamFilterArrayOutputWithContext(ctx context.Context) MetricStreamFilterArrayOutput {
 	return o
 }
 
-func (o MetricStreamMetricStreamFilterArrayOutput) Index(i pulumi.IntInput) MetricStreamMetricStreamFilterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricStreamMetricStreamFilter {
-		return vs[0].([]MetricStreamMetricStreamFilter)[vs[1].(int)]
-	}).(MetricStreamMetricStreamFilterOutput)
+func (o MetricStreamFilterArrayOutput) Index(i pulumi.IntInput) MetricStreamFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricStreamFilter {
+		return vs[0].([]MetricStreamFilter)[vs[1].(int)]
+	}).(MetricStreamFilterOutput)
 }
 
 // Metadata that you can assign to a Metric Stream, consisting of a key-value pair.
@@ -1273,8 +1273,8 @@ func init() {
 	pulumi.RegisterOutputType(AnomalyDetectorRangeArrayOutput{})
 	pulumi.RegisterOutputType(InsightRuleTagsOutput{})
 	pulumi.RegisterOutputType(InsightRuleTagsPtrOutput{})
-	pulumi.RegisterOutputType(MetricStreamMetricStreamFilterOutput{})
-	pulumi.RegisterOutputType(MetricStreamMetricStreamFilterArrayOutput{})
+	pulumi.RegisterOutputType(MetricStreamFilterOutput{})
+	pulumi.RegisterOutputType(MetricStreamFilterArrayOutput{})
 	pulumi.RegisterOutputType(MetricStreamTagOutput{})
 	pulumi.RegisterOutputType(MetricStreamTagArrayOutput{})
 }

@@ -16,7 +16,7 @@ type ConformancePack struct {
 	pulumi.CustomResourceState
 
 	// A list of ConformancePackInputParameter objects.
-	ConformancePackInputParameters ConformancePackConformancePackInputParameterArrayOutput `pulumi:"conformancePackInputParameters"`
+	ConformancePackInputParameters ConformancePackInputParameterArrayOutput `pulumi:"conformancePackInputParameters"`
 	// Name of the conformance pack which will be assigned as the unique identifier.
 	ConformancePackName pulumi.StringOutput `pulumi:"conformancePackName"`
 	// AWS Config stores intermediate files while processing conformance pack template.
@@ -72,7 +72,7 @@ func (ConformancePackState) ElementType() reflect.Type {
 
 type conformancePackArgs struct {
 	// A list of ConformancePackInputParameter objects.
-	ConformancePackInputParameters []ConformancePackConformancePackInputParameter `pulumi:"conformancePackInputParameters"`
+	ConformancePackInputParameters []ConformancePackInputParameter `pulumi:"conformancePackInputParameters"`
 	// Name of the conformance pack which will be assigned as the unique identifier.
 	ConformancePackName string `pulumi:"conformancePackName"`
 	// AWS Config stores intermediate files while processing conformance pack template.
@@ -88,7 +88,7 @@ type conformancePackArgs struct {
 // The set of arguments for constructing a ConformancePack resource.
 type ConformancePackArgs struct {
 	// A list of ConformancePackInputParameter objects.
-	ConformancePackInputParameters ConformancePackConformancePackInputParameterArrayInput
+	ConformancePackInputParameters ConformancePackInputParameterArrayInput
 	// Name of the conformance pack which will be assigned as the unique identifier.
 	ConformancePackName pulumi.StringInput
 	// AWS Config stores intermediate files while processing conformance pack template.

@@ -20,7 +20,7 @@ type Mesh struct {
 	MeshName      pulumi.StringPtrOutput `pulumi:"meshName"`
 	MeshOwner     pulumi.StringOutput    `pulumi:"meshOwner"`
 	ResourceOwner pulumi.StringOutput    `pulumi:"resourceOwner"`
-	Spec          MeshMeshSpecPtrOutput  `pulumi:"spec"`
+	Spec          MeshSpecPtrOutput      `pulumi:"spec"`
 	Tags          MeshTagArrayOutput     `pulumi:"tags"`
 	Uid           pulumi.StringOutput    `pulumi:"uid"`
 }
@@ -64,15 +64,15 @@ func (MeshState) ElementType() reflect.Type {
 }
 
 type meshArgs struct {
-	MeshName *string       `pulumi:"meshName"`
-	Spec     *MeshMeshSpec `pulumi:"spec"`
-	Tags     []MeshTag     `pulumi:"tags"`
+	MeshName *string   `pulumi:"meshName"`
+	Spec     *MeshSpec `pulumi:"spec"`
+	Tags     []MeshTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Mesh resource.
 type MeshArgs struct {
 	MeshName pulumi.StringPtrInput
-	Spec     MeshMeshSpecPtrInput
+	Spec     MeshSpecPtrInput
 	Tags     MeshTagArrayInput
 }
 

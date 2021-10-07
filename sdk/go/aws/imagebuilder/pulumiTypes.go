@@ -1073,165 +1073,6 @@ func (o DistributionConfigurationLaunchTemplateConfigurationArrayOutput) Index(i
 	}).(DistributionConfigurationLaunchTemplateConfigurationOutput)
 }
 
-// The image tests configuration used when creating this image.
-type ImageImageTestsConfiguration struct {
-	// ImageTestsEnabled
-	ImageTestsEnabled *bool `pulumi:"imageTestsEnabled"`
-	// TimeoutMinutes
-	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
-}
-
-// ImageImageTestsConfigurationInput is an input type that accepts ImageImageTestsConfigurationArgs and ImageImageTestsConfigurationOutput values.
-// You can construct a concrete instance of `ImageImageTestsConfigurationInput` via:
-//
-//          ImageImageTestsConfigurationArgs{...}
-type ImageImageTestsConfigurationInput interface {
-	pulumi.Input
-
-	ToImageImageTestsConfigurationOutput() ImageImageTestsConfigurationOutput
-	ToImageImageTestsConfigurationOutputWithContext(context.Context) ImageImageTestsConfigurationOutput
-}
-
-// The image tests configuration used when creating this image.
-type ImageImageTestsConfigurationArgs struct {
-	// ImageTestsEnabled
-	ImageTestsEnabled pulumi.BoolPtrInput `pulumi:"imageTestsEnabled"`
-	// TimeoutMinutes
-	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
-}
-
-func (ImageImageTestsConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageImageTestsConfiguration)(nil)).Elem()
-}
-
-func (i ImageImageTestsConfigurationArgs) ToImageImageTestsConfigurationOutput() ImageImageTestsConfigurationOutput {
-	return i.ToImageImageTestsConfigurationOutputWithContext(context.Background())
-}
-
-func (i ImageImageTestsConfigurationArgs) ToImageImageTestsConfigurationOutputWithContext(ctx context.Context) ImageImageTestsConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageImageTestsConfigurationOutput)
-}
-
-func (i ImageImageTestsConfigurationArgs) ToImageImageTestsConfigurationPtrOutput() ImageImageTestsConfigurationPtrOutput {
-	return i.ToImageImageTestsConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i ImageImageTestsConfigurationArgs) ToImageImageTestsConfigurationPtrOutputWithContext(ctx context.Context) ImageImageTestsConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageImageTestsConfigurationOutput).ToImageImageTestsConfigurationPtrOutputWithContext(ctx)
-}
-
-// ImageImageTestsConfigurationPtrInput is an input type that accepts ImageImageTestsConfigurationArgs, ImageImageTestsConfigurationPtr and ImageImageTestsConfigurationPtrOutput values.
-// You can construct a concrete instance of `ImageImageTestsConfigurationPtrInput` via:
-//
-//          ImageImageTestsConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type ImageImageTestsConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToImageImageTestsConfigurationPtrOutput() ImageImageTestsConfigurationPtrOutput
-	ToImageImageTestsConfigurationPtrOutputWithContext(context.Context) ImageImageTestsConfigurationPtrOutput
-}
-
-type imageImageTestsConfigurationPtrType ImageImageTestsConfigurationArgs
-
-func ImageImageTestsConfigurationPtr(v *ImageImageTestsConfigurationArgs) ImageImageTestsConfigurationPtrInput {
-	return (*imageImageTestsConfigurationPtrType)(v)
-}
-
-func (*imageImageTestsConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ImageImageTestsConfiguration)(nil)).Elem()
-}
-
-func (i *imageImageTestsConfigurationPtrType) ToImageImageTestsConfigurationPtrOutput() ImageImageTestsConfigurationPtrOutput {
-	return i.ToImageImageTestsConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *imageImageTestsConfigurationPtrType) ToImageImageTestsConfigurationPtrOutputWithContext(ctx context.Context) ImageImageTestsConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageImageTestsConfigurationPtrOutput)
-}
-
-// The image tests configuration used when creating this image.
-type ImageImageTestsConfigurationOutput struct{ *pulumi.OutputState }
-
-func (ImageImageTestsConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageImageTestsConfiguration)(nil)).Elem()
-}
-
-func (o ImageImageTestsConfigurationOutput) ToImageImageTestsConfigurationOutput() ImageImageTestsConfigurationOutput {
-	return o
-}
-
-func (o ImageImageTestsConfigurationOutput) ToImageImageTestsConfigurationOutputWithContext(ctx context.Context) ImageImageTestsConfigurationOutput {
-	return o
-}
-
-func (o ImageImageTestsConfigurationOutput) ToImageImageTestsConfigurationPtrOutput() ImageImageTestsConfigurationPtrOutput {
-	return o.ToImageImageTestsConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o ImageImageTestsConfigurationOutput) ToImageImageTestsConfigurationPtrOutputWithContext(ctx context.Context) ImageImageTestsConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageImageTestsConfiguration) *ImageImageTestsConfiguration {
-		return &v
-	}).(ImageImageTestsConfigurationPtrOutput)
-}
-
-// ImageTestsEnabled
-func (o ImageImageTestsConfigurationOutput) ImageTestsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ImageImageTestsConfiguration) *bool { return v.ImageTestsEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// TimeoutMinutes
-func (o ImageImageTestsConfigurationOutput) TimeoutMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ImageImageTestsConfiguration) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
-}
-
-type ImageImageTestsConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (ImageImageTestsConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ImageImageTestsConfiguration)(nil)).Elem()
-}
-
-func (o ImageImageTestsConfigurationPtrOutput) ToImageImageTestsConfigurationPtrOutput() ImageImageTestsConfigurationPtrOutput {
-	return o
-}
-
-func (o ImageImageTestsConfigurationPtrOutput) ToImageImageTestsConfigurationPtrOutputWithContext(ctx context.Context) ImageImageTestsConfigurationPtrOutput {
-	return o
-}
-
-func (o ImageImageTestsConfigurationPtrOutput) Elem() ImageImageTestsConfigurationOutput {
-	return o.ApplyT(func(v *ImageImageTestsConfiguration) ImageImageTestsConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret ImageImageTestsConfiguration
-		return ret
-	}).(ImageImageTestsConfigurationOutput)
-}
-
-// ImageTestsEnabled
-func (o ImageImageTestsConfigurationPtrOutput) ImageTestsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ImageImageTestsConfiguration) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ImageTestsEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// TimeoutMinutes
-func (o ImageImageTestsConfigurationPtrOutput) TimeoutMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ImageImageTestsConfiguration) *int {
-		if v == nil {
-			return nil
-		}
-		return v.TimeoutMinutes
-	}).(pulumi.IntPtrOutput)
-}
-
 // Image tests configuration.
 type ImagePipelineImageTestsConfiguration struct {
 	// Defines if tests should be executed when building this image.
@@ -2456,6 +2297,165 @@ func (o ImageRecipeSystemsManagerAgentPtrOutput) UninstallAfterBuild() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The image tests configuration used when creating this image.
+type ImageTestsConfiguration struct {
+	// ImageTestsEnabled
+	ImageTestsEnabled *bool `pulumi:"imageTestsEnabled"`
+	// TimeoutMinutes
+	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
+}
+
+// ImageTestsConfigurationInput is an input type that accepts ImageTestsConfigurationArgs and ImageTestsConfigurationOutput values.
+// You can construct a concrete instance of `ImageTestsConfigurationInput` via:
+//
+//          ImageTestsConfigurationArgs{...}
+type ImageTestsConfigurationInput interface {
+	pulumi.Input
+
+	ToImageTestsConfigurationOutput() ImageTestsConfigurationOutput
+	ToImageTestsConfigurationOutputWithContext(context.Context) ImageTestsConfigurationOutput
+}
+
+// The image tests configuration used when creating this image.
+type ImageTestsConfigurationArgs struct {
+	// ImageTestsEnabled
+	ImageTestsEnabled pulumi.BoolPtrInput `pulumi:"imageTestsEnabled"`
+	// TimeoutMinutes
+	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
+}
+
+func (ImageTestsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTestsConfiguration)(nil)).Elem()
+}
+
+func (i ImageTestsConfigurationArgs) ToImageTestsConfigurationOutput() ImageTestsConfigurationOutput {
+	return i.ToImageTestsConfigurationOutputWithContext(context.Background())
+}
+
+func (i ImageTestsConfigurationArgs) ToImageTestsConfigurationOutputWithContext(ctx context.Context) ImageTestsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTestsConfigurationOutput)
+}
+
+func (i ImageTestsConfigurationArgs) ToImageTestsConfigurationPtrOutput() ImageTestsConfigurationPtrOutput {
+	return i.ToImageTestsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ImageTestsConfigurationArgs) ToImageTestsConfigurationPtrOutputWithContext(ctx context.Context) ImageTestsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTestsConfigurationOutput).ToImageTestsConfigurationPtrOutputWithContext(ctx)
+}
+
+// ImageTestsConfigurationPtrInput is an input type that accepts ImageTestsConfigurationArgs, ImageTestsConfigurationPtr and ImageTestsConfigurationPtrOutput values.
+// You can construct a concrete instance of `ImageTestsConfigurationPtrInput` via:
+//
+//          ImageTestsConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ImageTestsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToImageTestsConfigurationPtrOutput() ImageTestsConfigurationPtrOutput
+	ToImageTestsConfigurationPtrOutputWithContext(context.Context) ImageTestsConfigurationPtrOutput
+}
+
+type imageTestsConfigurationPtrType ImageTestsConfigurationArgs
+
+func ImageTestsConfigurationPtr(v *ImageTestsConfigurationArgs) ImageTestsConfigurationPtrInput {
+	return (*imageTestsConfigurationPtrType)(v)
+}
+
+func (*imageTestsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageTestsConfiguration)(nil)).Elem()
+}
+
+func (i *imageTestsConfigurationPtrType) ToImageTestsConfigurationPtrOutput() ImageTestsConfigurationPtrOutput {
+	return i.ToImageTestsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *imageTestsConfigurationPtrType) ToImageTestsConfigurationPtrOutputWithContext(ctx context.Context) ImageTestsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTestsConfigurationPtrOutput)
+}
+
+// The image tests configuration used when creating this image.
+type ImageTestsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ImageTestsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTestsConfiguration)(nil)).Elem()
+}
+
+func (o ImageTestsConfigurationOutput) ToImageTestsConfigurationOutput() ImageTestsConfigurationOutput {
+	return o
+}
+
+func (o ImageTestsConfigurationOutput) ToImageTestsConfigurationOutputWithContext(ctx context.Context) ImageTestsConfigurationOutput {
+	return o
+}
+
+func (o ImageTestsConfigurationOutput) ToImageTestsConfigurationPtrOutput() ImageTestsConfigurationPtrOutput {
+	return o.ToImageTestsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ImageTestsConfigurationOutput) ToImageTestsConfigurationPtrOutputWithContext(ctx context.Context) ImageTestsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageTestsConfiguration) *ImageTestsConfiguration {
+		return &v
+	}).(ImageTestsConfigurationPtrOutput)
+}
+
+// ImageTestsEnabled
+func (o ImageTestsConfigurationOutput) ImageTestsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ImageTestsConfiguration) *bool { return v.ImageTestsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// TimeoutMinutes
+func (o ImageTestsConfigurationOutput) TimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ImageTestsConfiguration) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
+}
+
+type ImageTestsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ImageTestsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageTestsConfiguration)(nil)).Elem()
+}
+
+func (o ImageTestsConfigurationPtrOutput) ToImageTestsConfigurationPtrOutput() ImageTestsConfigurationPtrOutput {
+	return o
+}
+
+func (o ImageTestsConfigurationPtrOutput) ToImageTestsConfigurationPtrOutputWithContext(ctx context.Context) ImageTestsConfigurationPtrOutput {
+	return o
+}
+
+func (o ImageTestsConfigurationPtrOutput) Elem() ImageTestsConfigurationOutput {
+	return o.ApplyT(func(v *ImageTestsConfiguration) ImageTestsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ImageTestsConfiguration
+		return ret
+	}).(ImageTestsConfigurationOutput)
+}
+
+// ImageTestsEnabled
+func (o ImageTestsConfigurationPtrOutput) ImageTestsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ImageTestsConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ImageTestsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// TimeoutMinutes
+func (o ImageTestsConfigurationPtrOutput) TimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ImageTestsConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
 // The logging configuration of the infrastructure configuration.
 type InfrastructureConfigurationLogging struct {
 	S3Logs *InfrastructureConfigurationS3Logs `pulumi:"s3Logs"`
@@ -2766,8 +2766,6 @@ func init() {
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionArrayOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationLaunchTemplateConfigurationOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationLaunchTemplateConfigurationArrayOutput{})
-	pulumi.RegisterOutputType(ImageImageTestsConfigurationOutput{})
-	pulumi.RegisterOutputType(ImageImageTestsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineImageTestsConfigurationOutput{})
 	pulumi.RegisterOutputType(ImagePipelineImageTestsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineScheduleOutput{})
@@ -2784,6 +2782,8 @@ func init() {
 	pulumi.RegisterOutputType(ImageRecipeInstanceBlockDeviceMappingArrayOutput{})
 	pulumi.RegisterOutputType(ImageRecipeSystemsManagerAgentOutput{})
 	pulumi.RegisterOutputType(ImageRecipeSystemsManagerAgentPtrOutput{})
+	pulumi.RegisterOutputType(ImageTestsConfigurationOutput{})
+	pulumi.RegisterOutputType(ImageTestsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationLoggingOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationLoggingPtrOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationS3LogsOutput{})

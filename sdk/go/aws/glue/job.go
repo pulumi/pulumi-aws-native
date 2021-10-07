@@ -18,7 +18,7 @@ type Job struct {
 	pulumi.CustomResourceState
 
 	AllocatedCapacity     pulumi.Float64PtrOutput          `pulumi:"allocatedCapacity"`
-	Command               JobJobCommandOutput              `pulumi:"command"`
+	Command               JobCommandOutput                 `pulumi:"command"`
 	Connections           JobConnectionsListPtrOutput      `pulumi:"connections"`
 	DefaultArguments      pulumi.AnyOutput                 `pulumi:"defaultArguments"`
 	Description           pulumi.StringPtrOutput           `pulumi:"description"`
@@ -83,7 +83,7 @@ func (JobState) ElementType() reflect.Type {
 
 type jobArgs struct {
 	AllocatedCapacity     *float64                 `pulumi:"allocatedCapacity"`
-	Command               JobJobCommand            `pulumi:"command"`
+	Command               JobCommand               `pulumi:"command"`
 	Connections           *JobConnectionsList      `pulumi:"connections"`
 	DefaultArguments      interface{}              `pulumi:"defaultArguments"`
 	Description           *string                  `pulumi:"description"`
@@ -105,7 +105,7 @@ type jobArgs struct {
 // The set of arguments for constructing a Job resource.
 type JobArgs struct {
 	AllocatedCapacity     pulumi.Float64PtrInput
-	Command               JobJobCommandInput
+	Command               JobCommandInput
 	Connections           JobConnectionsListPtrInput
 	DefaultArguments      pulumi.Input
 	Description           pulumi.StringPtrInput

@@ -2555,9 +2555,187 @@ func (o IntegrationZendeskSourcePropertiesPtrOutput) Object() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Represents a field in a ProfileObjectType.
+type ObjectTypeField struct {
+	// The content type of the field. Used for determining equality when searching.
+	ContentType *ObjectTypeFieldContentType `pulumi:"contentType"`
+	// A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
+	Source *string `pulumi:"source"`
+	// The location of the data in the standard ProfileObject model. For example: _profile.Address.PostalCode.
+	Target *string `pulumi:"target"`
+}
+
+// ObjectTypeFieldInput is an input type that accepts ObjectTypeFieldArgs and ObjectTypeFieldOutput values.
+// You can construct a concrete instance of `ObjectTypeFieldInput` via:
+//
+//          ObjectTypeFieldArgs{...}
+type ObjectTypeFieldInput interface {
+	pulumi.Input
+
+	ToObjectTypeFieldOutput() ObjectTypeFieldOutput
+	ToObjectTypeFieldOutputWithContext(context.Context) ObjectTypeFieldOutput
+}
+
+// Represents a field in a ProfileObjectType.
+type ObjectTypeFieldArgs struct {
+	// The content type of the field. Used for determining equality when searching.
+	ContentType ObjectTypeFieldContentTypePtrInput `pulumi:"contentType"`
+	// A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
+	Source pulumi.StringPtrInput `pulumi:"source"`
+	// The location of the data in the standard ProfileObject model. For example: _profile.Address.PostalCode.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+}
+
+func (ObjectTypeFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectTypeField)(nil)).Elem()
+}
+
+func (i ObjectTypeFieldArgs) ToObjectTypeFieldOutput() ObjectTypeFieldOutput {
+	return i.ToObjectTypeFieldOutputWithContext(context.Background())
+}
+
+func (i ObjectTypeFieldArgs) ToObjectTypeFieldOutputWithContext(ctx context.Context) ObjectTypeFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectTypeFieldOutput)
+}
+
+func (i ObjectTypeFieldArgs) ToObjectTypeFieldPtrOutput() ObjectTypeFieldPtrOutput {
+	return i.ToObjectTypeFieldPtrOutputWithContext(context.Background())
+}
+
+func (i ObjectTypeFieldArgs) ToObjectTypeFieldPtrOutputWithContext(ctx context.Context) ObjectTypeFieldPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectTypeFieldOutput).ToObjectTypeFieldPtrOutputWithContext(ctx)
+}
+
+// ObjectTypeFieldPtrInput is an input type that accepts ObjectTypeFieldArgs, ObjectTypeFieldPtr and ObjectTypeFieldPtrOutput values.
+// You can construct a concrete instance of `ObjectTypeFieldPtrInput` via:
+//
+//          ObjectTypeFieldArgs{...}
+//
+//  or:
+//
+//          nil
+type ObjectTypeFieldPtrInput interface {
+	pulumi.Input
+
+	ToObjectTypeFieldPtrOutput() ObjectTypeFieldPtrOutput
+	ToObjectTypeFieldPtrOutputWithContext(context.Context) ObjectTypeFieldPtrOutput
+}
+
+type objectTypeFieldPtrType ObjectTypeFieldArgs
+
+func ObjectTypeFieldPtr(v *ObjectTypeFieldArgs) ObjectTypeFieldPtrInput {
+	return (*objectTypeFieldPtrType)(v)
+}
+
+func (*objectTypeFieldPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObjectTypeField)(nil)).Elem()
+}
+
+func (i *objectTypeFieldPtrType) ToObjectTypeFieldPtrOutput() ObjectTypeFieldPtrOutput {
+	return i.ToObjectTypeFieldPtrOutputWithContext(context.Background())
+}
+
+func (i *objectTypeFieldPtrType) ToObjectTypeFieldPtrOutputWithContext(ctx context.Context) ObjectTypeFieldPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectTypeFieldPtrOutput)
+}
+
+// Represents a field in a ProfileObjectType.
+type ObjectTypeFieldOutput struct{ *pulumi.OutputState }
+
+func (ObjectTypeFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectTypeField)(nil)).Elem()
+}
+
+func (o ObjectTypeFieldOutput) ToObjectTypeFieldOutput() ObjectTypeFieldOutput {
+	return o
+}
+
+func (o ObjectTypeFieldOutput) ToObjectTypeFieldOutputWithContext(ctx context.Context) ObjectTypeFieldOutput {
+	return o
+}
+
+func (o ObjectTypeFieldOutput) ToObjectTypeFieldPtrOutput() ObjectTypeFieldPtrOutput {
+	return o.ToObjectTypeFieldPtrOutputWithContext(context.Background())
+}
+
+func (o ObjectTypeFieldOutput) ToObjectTypeFieldPtrOutputWithContext(ctx context.Context) ObjectTypeFieldPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObjectTypeField) *ObjectTypeField {
+		return &v
+	}).(ObjectTypeFieldPtrOutput)
+}
+
+// The content type of the field. Used for determining equality when searching.
+func (o ObjectTypeFieldOutput) ContentType() ObjectTypeFieldContentTypePtrOutput {
+	return o.ApplyT(func(v ObjectTypeField) *ObjectTypeFieldContentType { return v.ContentType }).(ObjectTypeFieldContentTypePtrOutput)
+}
+
+// A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
+func (o ObjectTypeFieldOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObjectTypeField) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+// The location of the data in the standard ProfileObject model. For example: _profile.Address.PostalCode.
+func (o ObjectTypeFieldOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObjectTypeField) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+type ObjectTypeFieldPtrOutput struct{ *pulumi.OutputState }
+
+func (ObjectTypeFieldPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObjectTypeField)(nil)).Elem()
+}
+
+func (o ObjectTypeFieldPtrOutput) ToObjectTypeFieldPtrOutput() ObjectTypeFieldPtrOutput {
+	return o
+}
+
+func (o ObjectTypeFieldPtrOutput) ToObjectTypeFieldPtrOutputWithContext(ctx context.Context) ObjectTypeFieldPtrOutput {
+	return o
+}
+
+func (o ObjectTypeFieldPtrOutput) Elem() ObjectTypeFieldOutput {
+	return o.ApplyT(func(v *ObjectTypeField) ObjectTypeField {
+		if v != nil {
+			return *v
+		}
+		var ret ObjectTypeField
+		return ret
+	}).(ObjectTypeFieldOutput)
+}
+
+// The content type of the field. Used for determining equality when searching.
+func (o ObjectTypeFieldPtrOutput) ContentType() ObjectTypeFieldContentTypePtrOutput {
+	return o.ApplyT(func(v *ObjectTypeField) *ObjectTypeFieldContentType {
+		if v == nil {
+			return nil
+		}
+		return v.ContentType
+	}).(ObjectTypeFieldContentTypePtrOutput)
+}
+
+// A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
+func (o ObjectTypeFieldPtrOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectTypeField) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(pulumi.StringPtrOutput)
+}
+
+// The location of the data in the standard ProfileObject model. For example: _profile.Address.PostalCode.
+func (o ObjectTypeFieldPtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectTypeField) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Target
+	}).(pulumi.StringPtrOutput)
+}
+
 type ObjectTypeFieldMap struct {
-	Name            *string                    `pulumi:"name"`
-	ObjectTypeField *ObjectTypeObjectTypeField `pulumi:"objectTypeField"`
+	Name            *string          `pulumi:"name"`
+	ObjectTypeField *ObjectTypeField `pulumi:"objectTypeField"`
 }
 
 // ObjectTypeFieldMapInput is an input type that accepts ObjectTypeFieldMap and ObjectTypeFieldMapOutput values.
@@ -2572,8 +2750,8 @@ type ObjectTypeFieldMapInput interface {
 }
 
 type ObjectTypeFieldMapArgs struct {
-	Name            pulumi.StringPtrInput             `pulumi:"name"`
-	ObjectTypeField ObjectTypeObjectTypeFieldPtrInput `pulumi:"objectTypeField"`
+	Name            pulumi.StringPtrInput   `pulumi:"name"`
+	ObjectTypeField ObjectTypeFieldPtrInput `pulumi:"objectTypeField"`
 }
 
 func (ObjectTypeFieldMapArgs) ElementType() reflect.Type {
@@ -2631,8 +2809,8 @@ func (o ObjectTypeFieldMapOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ObjectTypeFieldMap) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o ObjectTypeFieldMapOutput) ObjectTypeField() ObjectTypeObjectTypeFieldPtrOutput {
-	return o.ApplyT(func(v ObjectTypeFieldMap) *ObjectTypeObjectTypeField { return v.ObjectTypeField }).(ObjectTypeObjectTypeFieldPtrOutput)
+func (o ObjectTypeFieldMapOutput) ObjectTypeField() ObjectTypeFieldPtrOutput {
+	return o.ApplyT(func(v ObjectTypeFieldMap) *ObjectTypeField { return v.ObjectTypeField }).(ObjectTypeFieldPtrOutput)
 }
 
 type ObjectTypeFieldMapArrayOutput struct{ *pulumi.OutputState }
@@ -2655,9 +2833,118 @@ func (o ObjectTypeFieldMapArrayOutput) Index(i pulumi.IntInput) ObjectTypeFieldM
 	}).(ObjectTypeFieldMapOutput)
 }
 
+// An object that defines the Key element of a ProfileObject. A Key is a special element that can be used to search for a customer profile.
+type ObjectTypeKey struct {
+	// The reference for the key name of the fields map.
+	FieldNames []string `pulumi:"fieldNames"`
+	// The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
+	StandardIdentifiers []ObjectTypeKeyStandardIdentifiersItem `pulumi:"standardIdentifiers"`
+}
+
+// ObjectTypeKeyInput is an input type that accepts ObjectTypeKeyArgs and ObjectTypeKeyOutput values.
+// You can construct a concrete instance of `ObjectTypeKeyInput` via:
+//
+//          ObjectTypeKeyArgs{...}
+type ObjectTypeKeyInput interface {
+	pulumi.Input
+
+	ToObjectTypeKeyOutput() ObjectTypeKeyOutput
+	ToObjectTypeKeyOutputWithContext(context.Context) ObjectTypeKeyOutput
+}
+
+// An object that defines the Key element of a ProfileObject. A Key is a special element that can be used to search for a customer profile.
+type ObjectTypeKeyArgs struct {
+	// The reference for the key name of the fields map.
+	FieldNames pulumi.StringArrayInput `pulumi:"fieldNames"`
+	// The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
+	StandardIdentifiers ObjectTypeKeyStandardIdentifiersItemArrayInput `pulumi:"standardIdentifiers"`
+}
+
+func (ObjectTypeKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectTypeKey)(nil)).Elem()
+}
+
+func (i ObjectTypeKeyArgs) ToObjectTypeKeyOutput() ObjectTypeKeyOutput {
+	return i.ToObjectTypeKeyOutputWithContext(context.Background())
+}
+
+func (i ObjectTypeKeyArgs) ToObjectTypeKeyOutputWithContext(ctx context.Context) ObjectTypeKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectTypeKeyOutput)
+}
+
+// ObjectTypeKeyArrayInput is an input type that accepts ObjectTypeKeyArray and ObjectTypeKeyArrayOutput values.
+// You can construct a concrete instance of `ObjectTypeKeyArrayInput` via:
+//
+//          ObjectTypeKeyArray{ ObjectTypeKeyArgs{...} }
+type ObjectTypeKeyArrayInput interface {
+	pulumi.Input
+
+	ToObjectTypeKeyArrayOutput() ObjectTypeKeyArrayOutput
+	ToObjectTypeKeyArrayOutputWithContext(context.Context) ObjectTypeKeyArrayOutput
+}
+
+type ObjectTypeKeyArray []ObjectTypeKeyInput
+
+func (ObjectTypeKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ObjectTypeKey)(nil)).Elem()
+}
+
+func (i ObjectTypeKeyArray) ToObjectTypeKeyArrayOutput() ObjectTypeKeyArrayOutput {
+	return i.ToObjectTypeKeyArrayOutputWithContext(context.Background())
+}
+
+func (i ObjectTypeKeyArray) ToObjectTypeKeyArrayOutputWithContext(ctx context.Context) ObjectTypeKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectTypeKeyArrayOutput)
+}
+
+// An object that defines the Key element of a ProfileObject. A Key is a special element that can be used to search for a customer profile.
+type ObjectTypeKeyOutput struct{ *pulumi.OutputState }
+
+func (ObjectTypeKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectTypeKey)(nil)).Elem()
+}
+
+func (o ObjectTypeKeyOutput) ToObjectTypeKeyOutput() ObjectTypeKeyOutput {
+	return o
+}
+
+func (o ObjectTypeKeyOutput) ToObjectTypeKeyOutputWithContext(ctx context.Context) ObjectTypeKeyOutput {
+	return o
+}
+
+// The reference for the key name of the fields map.
+func (o ObjectTypeKeyOutput) FieldNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ObjectTypeKey) []string { return v.FieldNames }).(pulumi.StringArrayOutput)
+}
+
+// The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
+func (o ObjectTypeKeyOutput) StandardIdentifiers() ObjectTypeKeyStandardIdentifiersItemArrayOutput {
+	return o.ApplyT(func(v ObjectTypeKey) []ObjectTypeKeyStandardIdentifiersItem { return v.StandardIdentifiers }).(ObjectTypeKeyStandardIdentifiersItemArrayOutput)
+}
+
+type ObjectTypeKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (ObjectTypeKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ObjectTypeKey)(nil)).Elem()
+}
+
+func (o ObjectTypeKeyArrayOutput) ToObjectTypeKeyArrayOutput() ObjectTypeKeyArrayOutput {
+	return o
+}
+
+func (o ObjectTypeKeyArrayOutput) ToObjectTypeKeyArrayOutputWithContext(ctx context.Context) ObjectTypeKeyArrayOutput {
+	return o
+}
+
+func (o ObjectTypeKeyArrayOutput) Index(i pulumi.IntInput) ObjectTypeKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ObjectTypeKey {
+		return vs[0].([]ObjectTypeKey)[vs[1].(int)]
+	}).(ObjectTypeKeyOutput)
+}
+
 type ObjectTypeKeyMap struct {
-	Name              *string                   `pulumi:"name"`
-	ObjectTypeKeyList []ObjectTypeObjectTypeKey `pulumi:"objectTypeKeyList"`
+	Name              *string         `pulumi:"name"`
+	ObjectTypeKeyList []ObjectTypeKey `pulumi:"objectTypeKeyList"`
 }
 
 // ObjectTypeKeyMapInput is an input type that accepts ObjectTypeKeyMap and ObjectTypeKeyMapOutput values.
@@ -2672,8 +2959,8 @@ type ObjectTypeKeyMapInput interface {
 }
 
 type ObjectTypeKeyMapArgs struct {
-	Name              pulumi.StringPtrInput             `pulumi:"name"`
-	ObjectTypeKeyList ObjectTypeObjectTypeKeyArrayInput `pulumi:"objectTypeKeyList"`
+	Name              pulumi.StringPtrInput   `pulumi:"name"`
+	ObjectTypeKeyList ObjectTypeKeyArrayInput `pulumi:"objectTypeKeyList"`
 }
 
 func (ObjectTypeKeyMapArgs) ElementType() reflect.Type {
@@ -2731,8 +3018,8 @@ func (o ObjectTypeKeyMapOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ObjectTypeKeyMap) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o ObjectTypeKeyMapOutput) ObjectTypeKeyList() ObjectTypeObjectTypeKeyArrayOutput {
-	return o.ApplyT(func(v ObjectTypeKeyMap) []ObjectTypeObjectTypeKey { return v.ObjectTypeKeyList }).(ObjectTypeObjectTypeKeyArrayOutput)
+func (o ObjectTypeKeyMapOutput) ObjectTypeKeyList() ObjectTypeKeyArrayOutput {
+	return o.ApplyT(func(v ObjectTypeKeyMap) []ObjectTypeKey { return v.ObjectTypeKeyList }).(ObjectTypeKeyArrayOutput)
 }
 
 type ObjectTypeKeyMapArrayOutput struct{ *pulumi.OutputState }
@@ -2753,295 +3040,6 @@ func (o ObjectTypeKeyMapArrayOutput) Index(i pulumi.IntInput) ObjectTypeKeyMapOu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ObjectTypeKeyMap {
 		return vs[0].([]ObjectTypeKeyMap)[vs[1].(int)]
 	}).(ObjectTypeKeyMapOutput)
-}
-
-// Represents a field in a ProfileObjectType.
-type ObjectTypeObjectTypeField struct {
-	// The content type of the field. Used for determining equality when searching.
-	ContentType *ObjectTypeObjectTypeFieldContentType `pulumi:"contentType"`
-	// A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
-	Source *string `pulumi:"source"`
-	// The location of the data in the standard ProfileObject model. For example: _profile.Address.PostalCode.
-	Target *string `pulumi:"target"`
-}
-
-// ObjectTypeObjectTypeFieldInput is an input type that accepts ObjectTypeObjectTypeFieldArgs and ObjectTypeObjectTypeFieldOutput values.
-// You can construct a concrete instance of `ObjectTypeObjectTypeFieldInput` via:
-//
-//          ObjectTypeObjectTypeFieldArgs{...}
-type ObjectTypeObjectTypeFieldInput interface {
-	pulumi.Input
-
-	ToObjectTypeObjectTypeFieldOutput() ObjectTypeObjectTypeFieldOutput
-	ToObjectTypeObjectTypeFieldOutputWithContext(context.Context) ObjectTypeObjectTypeFieldOutput
-}
-
-// Represents a field in a ProfileObjectType.
-type ObjectTypeObjectTypeFieldArgs struct {
-	// The content type of the field. Used for determining equality when searching.
-	ContentType ObjectTypeObjectTypeFieldContentTypePtrInput `pulumi:"contentType"`
-	// A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
-	Source pulumi.StringPtrInput `pulumi:"source"`
-	// The location of the data in the standard ProfileObject model. For example: _profile.Address.PostalCode.
-	Target pulumi.StringPtrInput `pulumi:"target"`
-}
-
-func (ObjectTypeObjectTypeFieldArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObjectTypeObjectTypeField)(nil)).Elem()
-}
-
-func (i ObjectTypeObjectTypeFieldArgs) ToObjectTypeObjectTypeFieldOutput() ObjectTypeObjectTypeFieldOutput {
-	return i.ToObjectTypeObjectTypeFieldOutputWithContext(context.Background())
-}
-
-func (i ObjectTypeObjectTypeFieldArgs) ToObjectTypeObjectTypeFieldOutputWithContext(ctx context.Context) ObjectTypeObjectTypeFieldOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObjectTypeObjectTypeFieldOutput)
-}
-
-func (i ObjectTypeObjectTypeFieldArgs) ToObjectTypeObjectTypeFieldPtrOutput() ObjectTypeObjectTypeFieldPtrOutput {
-	return i.ToObjectTypeObjectTypeFieldPtrOutputWithContext(context.Background())
-}
-
-func (i ObjectTypeObjectTypeFieldArgs) ToObjectTypeObjectTypeFieldPtrOutputWithContext(ctx context.Context) ObjectTypeObjectTypeFieldPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObjectTypeObjectTypeFieldOutput).ToObjectTypeObjectTypeFieldPtrOutputWithContext(ctx)
-}
-
-// ObjectTypeObjectTypeFieldPtrInput is an input type that accepts ObjectTypeObjectTypeFieldArgs, ObjectTypeObjectTypeFieldPtr and ObjectTypeObjectTypeFieldPtrOutput values.
-// You can construct a concrete instance of `ObjectTypeObjectTypeFieldPtrInput` via:
-//
-//          ObjectTypeObjectTypeFieldArgs{...}
-//
-//  or:
-//
-//          nil
-type ObjectTypeObjectTypeFieldPtrInput interface {
-	pulumi.Input
-
-	ToObjectTypeObjectTypeFieldPtrOutput() ObjectTypeObjectTypeFieldPtrOutput
-	ToObjectTypeObjectTypeFieldPtrOutputWithContext(context.Context) ObjectTypeObjectTypeFieldPtrOutput
-}
-
-type objectTypeObjectTypeFieldPtrType ObjectTypeObjectTypeFieldArgs
-
-func ObjectTypeObjectTypeFieldPtr(v *ObjectTypeObjectTypeFieldArgs) ObjectTypeObjectTypeFieldPtrInput {
-	return (*objectTypeObjectTypeFieldPtrType)(v)
-}
-
-func (*objectTypeObjectTypeFieldPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObjectTypeObjectTypeField)(nil)).Elem()
-}
-
-func (i *objectTypeObjectTypeFieldPtrType) ToObjectTypeObjectTypeFieldPtrOutput() ObjectTypeObjectTypeFieldPtrOutput {
-	return i.ToObjectTypeObjectTypeFieldPtrOutputWithContext(context.Background())
-}
-
-func (i *objectTypeObjectTypeFieldPtrType) ToObjectTypeObjectTypeFieldPtrOutputWithContext(ctx context.Context) ObjectTypeObjectTypeFieldPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObjectTypeObjectTypeFieldPtrOutput)
-}
-
-// Represents a field in a ProfileObjectType.
-type ObjectTypeObjectTypeFieldOutput struct{ *pulumi.OutputState }
-
-func (ObjectTypeObjectTypeFieldOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObjectTypeObjectTypeField)(nil)).Elem()
-}
-
-func (o ObjectTypeObjectTypeFieldOutput) ToObjectTypeObjectTypeFieldOutput() ObjectTypeObjectTypeFieldOutput {
-	return o
-}
-
-func (o ObjectTypeObjectTypeFieldOutput) ToObjectTypeObjectTypeFieldOutputWithContext(ctx context.Context) ObjectTypeObjectTypeFieldOutput {
-	return o
-}
-
-func (o ObjectTypeObjectTypeFieldOutput) ToObjectTypeObjectTypeFieldPtrOutput() ObjectTypeObjectTypeFieldPtrOutput {
-	return o.ToObjectTypeObjectTypeFieldPtrOutputWithContext(context.Background())
-}
-
-func (o ObjectTypeObjectTypeFieldOutput) ToObjectTypeObjectTypeFieldPtrOutputWithContext(ctx context.Context) ObjectTypeObjectTypeFieldPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObjectTypeObjectTypeField) *ObjectTypeObjectTypeField {
-		return &v
-	}).(ObjectTypeObjectTypeFieldPtrOutput)
-}
-
-// The content type of the field. Used for determining equality when searching.
-func (o ObjectTypeObjectTypeFieldOutput) ContentType() ObjectTypeObjectTypeFieldContentTypePtrOutput {
-	return o.ApplyT(func(v ObjectTypeObjectTypeField) *ObjectTypeObjectTypeFieldContentType { return v.ContentType }).(ObjectTypeObjectTypeFieldContentTypePtrOutput)
-}
-
-// A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
-func (o ObjectTypeObjectTypeFieldOutput) Source() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObjectTypeObjectTypeField) *string { return v.Source }).(pulumi.StringPtrOutput)
-}
-
-// The location of the data in the standard ProfileObject model. For example: _profile.Address.PostalCode.
-func (o ObjectTypeObjectTypeFieldOutput) Target() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObjectTypeObjectTypeField) *string { return v.Target }).(pulumi.StringPtrOutput)
-}
-
-type ObjectTypeObjectTypeFieldPtrOutput struct{ *pulumi.OutputState }
-
-func (ObjectTypeObjectTypeFieldPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObjectTypeObjectTypeField)(nil)).Elem()
-}
-
-func (o ObjectTypeObjectTypeFieldPtrOutput) ToObjectTypeObjectTypeFieldPtrOutput() ObjectTypeObjectTypeFieldPtrOutput {
-	return o
-}
-
-func (o ObjectTypeObjectTypeFieldPtrOutput) ToObjectTypeObjectTypeFieldPtrOutputWithContext(ctx context.Context) ObjectTypeObjectTypeFieldPtrOutput {
-	return o
-}
-
-func (o ObjectTypeObjectTypeFieldPtrOutput) Elem() ObjectTypeObjectTypeFieldOutput {
-	return o.ApplyT(func(v *ObjectTypeObjectTypeField) ObjectTypeObjectTypeField {
-		if v != nil {
-			return *v
-		}
-		var ret ObjectTypeObjectTypeField
-		return ret
-	}).(ObjectTypeObjectTypeFieldOutput)
-}
-
-// The content type of the field. Used for determining equality when searching.
-func (o ObjectTypeObjectTypeFieldPtrOutput) ContentType() ObjectTypeObjectTypeFieldContentTypePtrOutput {
-	return o.ApplyT(func(v *ObjectTypeObjectTypeField) *ObjectTypeObjectTypeFieldContentType {
-		if v == nil {
-			return nil
-		}
-		return v.ContentType
-	}).(ObjectTypeObjectTypeFieldContentTypePtrOutput)
-}
-
-// A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
-func (o ObjectTypeObjectTypeFieldPtrOutput) Source() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObjectTypeObjectTypeField) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Source
-	}).(pulumi.StringPtrOutput)
-}
-
-// The location of the data in the standard ProfileObject model. For example: _profile.Address.PostalCode.
-func (o ObjectTypeObjectTypeFieldPtrOutput) Target() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObjectTypeObjectTypeField) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Target
-	}).(pulumi.StringPtrOutput)
-}
-
-// An object that defines the Key element of a ProfileObject. A Key is a special element that can be used to search for a customer profile.
-type ObjectTypeObjectTypeKey struct {
-	// The reference for the key name of the fields map.
-	FieldNames []string `pulumi:"fieldNames"`
-	// The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
-	StandardIdentifiers []ObjectTypeObjectTypeKeyStandardIdentifiersItem `pulumi:"standardIdentifiers"`
-}
-
-// ObjectTypeObjectTypeKeyInput is an input type that accepts ObjectTypeObjectTypeKeyArgs and ObjectTypeObjectTypeKeyOutput values.
-// You can construct a concrete instance of `ObjectTypeObjectTypeKeyInput` via:
-//
-//          ObjectTypeObjectTypeKeyArgs{...}
-type ObjectTypeObjectTypeKeyInput interface {
-	pulumi.Input
-
-	ToObjectTypeObjectTypeKeyOutput() ObjectTypeObjectTypeKeyOutput
-	ToObjectTypeObjectTypeKeyOutputWithContext(context.Context) ObjectTypeObjectTypeKeyOutput
-}
-
-// An object that defines the Key element of a ProfileObject. A Key is a special element that can be used to search for a customer profile.
-type ObjectTypeObjectTypeKeyArgs struct {
-	// The reference for the key name of the fields map.
-	FieldNames pulumi.StringArrayInput `pulumi:"fieldNames"`
-	// The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
-	StandardIdentifiers ObjectTypeObjectTypeKeyStandardIdentifiersItemArrayInput `pulumi:"standardIdentifiers"`
-}
-
-func (ObjectTypeObjectTypeKeyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObjectTypeObjectTypeKey)(nil)).Elem()
-}
-
-func (i ObjectTypeObjectTypeKeyArgs) ToObjectTypeObjectTypeKeyOutput() ObjectTypeObjectTypeKeyOutput {
-	return i.ToObjectTypeObjectTypeKeyOutputWithContext(context.Background())
-}
-
-func (i ObjectTypeObjectTypeKeyArgs) ToObjectTypeObjectTypeKeyOutputWithContext(ctx context.Context) ObjectTypeObjectTypeKeyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObjectTypeObjectTypeKeyOutput)
-}
-
-// ObjectTypeObjectTypeKeyArrayInput is an input type that accepts ObjectTypeObjectTypeKeyArray and ObjectTypeObjectTypeKeyArrayOutput values.
-// You can construct a concrete instance of `ObjectTypeObjectTypeKeyArrayInput` via:
-//
-//          ObjectTypeObjectTypeKeyArray{ ObjectTypeObjectTypeKeyArgs{...} }
-type ObjectTypeObjectTypeKeyArrayInput interface {
-	pulumi.Input
-
-	ToObjectTypeObjectTypeKeyArrayOutput() ObjectTypeObjectTypeKeyArrayOutput
-	ToObjectTypeObjectTypeKeyArrayOutputWithContext(context.Context) ObjectTypeObjectTypeKeyArrayOutput
-}
-
-type ObjectTypeObjectTypeKeyArray []ObjectTypeObjectTypeKeyInput
-
-func (ObjectTypeObjectTypeKeyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ObjectTypeObjectTypeKey)(nil)).Elem()
-}
-
-func (i ObjectTypeObjectTypeKeyArray) ToObjectTypeObjectTypeKeyArrayOutput() ObjectTypeObjectTypeKeyArrayOutput {
-	return i.ToObjectTypeObjectTypeKeyArrayOutputWithContext(context.Background())
-}
-
-func (i ObjectTypeObjectTypeKeyArray) ToObjectTypeObjectTypeKeyArrayOutputWithContext(ctx context.Context) ObjectTypeObjectTypeKeyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObjectTypeObjectTypeKeyArrayOutput)
-}
-
-// An object that defines the Key element of a ProfileObject. A Key is a special element that can be used to search for a customer profile.
-type ObjectTypeObjectTypeKeyOutput struct{ *pulumi.OutputState }
-
-func (ObjectTypeObjectTypeKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObjectTypeObjectTypeKey)(nil)).Elem()
-}
-
-func (o ObjectTypeObjectTypeKeyOutput) ToObjectTypeObjectTypeKeyOutput() ObjectTypeObjectTypeKeyOutput {
-	return o
-}
-
-func (o ObjectTypeObjectTypeKeyOutput) ToObjectTypeObjectTypeKeyOutputWithContext(ctx context.Context) ObjectTypeObjectTypeKeyOutput {
-	return o
-}
-
-// The reference for the key name of the fields map.
-func (o ObjectTypeObjectTypeKeyOutput) FieldNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ObjectTypeObjectTypeKey) []string { return v.FieldNames }).(pulumi.StringArrayOutput)
-}
-
-// The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
-func (o ObjectTypeObjectTypeKeyOutput) StandardIdentifiers() ObjectTypeObjectTypeKeyStandardIdentifiersItemArrayOutput {
-	return o.ApplyT(func(v ObjectTypeObjectTypeKey) []ObjectTypeObjectTypeKeyStandardIdentifiersItem {
-		return v.StandardIdentifiers
-	}).(ObjectTypeObjectTypeKeyStandardIdentifiersItemArrayOutput)
-}
-
-type ObjectTypeObjectTypeKeyArrayOutput struct{ *pulumi.OutputState }
-
-func (ObjectTypeObjectTypeKeyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ObjectTypeObjectTypeKey)(nil)).Elem()
-}
-
-func (o ObjectTypeObjectTypeKeyArrayOutput) ToObjectTypeObjectTypeKeyArrayOutput() ObjectTypeObjectTypeKeyArrayOutput {
-	return o
-}
-
-func (o ObjectTypeObjectTypeKeyArrayOutput) ToObjectTypeObjectTypeKeyArrayOutputWithContext(ctx context.Context) ObjectTypeObjectTypeKeyArrayOutput {
-	return o
-}
-
-func (o ObjectTypeObjectTypeKeyArrayOutput) Index(i pulumi.IntInput) ObjectTypeObjectTypeKeyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ObjectTypeObjectTypeKey {
-		return vs[0].([]ObjectTypeObjectTypeKey)[vs[1].(int)]
-	}).(ObjectTypeObjectTypeKeyOutput)
 }
 
 type ObjectTypeTag struct {
@@ -3179,14 +3177,14 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationTriggerPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationZendeskSourcePropertiesOutput{})
 	pulumi.RegisterOutputType(IntegrationZendeskSourcePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ObjectTypeFieldOutput{})
+	pulumi.RegisterOutputType(ObjectTypeFieldPtrOutput{})
 	pulumi.RegisterOutputType(ObjectTypeFieldMapOutput{})
 	pulumi.RegisterOutputType(ObjectTypeFieldMapArrayOutput{})
+	pulumi.RegisterOutputType(ObjectTypeKeyOutput{})
+	pulumi.RegisterOutputType(ObjectTypeKeyArrayOutput{})
 	pulumi.RegisterOutputType(ObjectTypeKeyMapOutput{})
 	pulumi.RegisterOutputType(ObjectTypeKeyMapArrayOutput{})
-	pulumi.RegisterOutputType(ObjectTypeObjectTypeFieldOutput{})
-	pulumi.RegisterOutputType(ObjectTypeObjectTypeFieldPtrOutput{})
-	pulumi.RegisterOutputType(ObjectTypeObjectTypeKeyOutput{})
-	pulumi.RegisterOutputType(ObjectTypeObjectTypeKeyArrayOutput{})
 	pulumi.RegisterOutputType(ObjectTypeTagOutput{})
 	pulumi.RegisterOutputType(ObjectTypeTagArrayOutput{})
 }

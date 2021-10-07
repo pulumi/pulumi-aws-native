@@ -16,28 +16,28 @@ import (
 type TargetGroup struct {
 	pulumi.CustomResourceState
 
-	HealthCheckEnabled         pulumi.BoolPtrOutput                       `pulumi:"healthCheckEnabled"`
-	HealthCheckIntervalSeconds pulumi.IntPtrOutput                        `pulumi:"healthCheckIntervalSeconds"`
-	HealthCheckPath            pulumi.StringPtrOutput                     `pulumi:"healthCheckPath"`
-	HealthCheckPort            pulumi.StringPtrOutput                     `pulumi:"healthCheckPort"`
-	HealthCheckProtocol        pulumi.StringPtrOutput                     `pulumi:"healthCheckProtocol"`
-	HealthCheckTimeoutSeconds  pulumi.IntPtrOutput                        `pulumi:"healthCheckTimeoutSeconds"`
-	HealthyThresholdCount      pulumi.IntPtrOutput                        `pulumi:"healthyThresholdCount"`
-	IpAddressType              pulumi.StringPtrOutput                     `pulumi:"ipAddressType"`
-	LoadBalancerArns           pulumi.StringArrayOutput                   `pulumi:"loadBalancerArns"`
-	Matcher                    TargetGroupMatcherPtrOutput                `pulumi:"matcher"`
-	Name                       pulumi.StringPtrOutput                     `pulumi:"name"`
-	Port                       pulumi.IntPtrOutput                        `pulumi:"port"`
-	Protocol                   pulumi.StringPtrOutput                     `pulumi:"protocol"`
-	ProtocolVersion            pulumi.StringPtrOutput                     `pulumi:"protocolVersion"`
-	Tags                       TargetGroupTagArrayOutput                  `pulumi:"tags"`
-	TargetGroupAttributes      TargetGroupTargetGroupAttributeArrayOutput `pulumi:"targetGroupAttributes"`
-	TargetGroupFullName        pulumi.StringOutput                        `pulumi:"targetGroupFullName"`
-	TargetGroupName            pulumi.StringOutput                        `pulumi:"targetGroupName"`
-	TargetType                 pulumi.StringPtrOutput                     `pulumi:"targetType"`
-	Targets                    TargetGroupTargetDescriptionArrayOutput    `pulumi:"targets"`
-	UnhealthyThresholdCount    pulumi.IntPtrOutput                        `pulumi:"unhealthyThresholdCount"`
-	VpcId                      pulumi.StringPtrOutput                     `pulumi:"vpcId"`
+	HealthCheckEnabled         pulumi.BoolPtrOutput                    `pulumi:"healthCheckEnabled"`
+	HealthCheckIntervalSeconds pulumi.IntPtrOutput                     `pulumi:"healthCheckIntervalSeconds"`
+	HealthCheckPath            pulumi.StringPtrOutput                  `pulumi:"healthCheckPath"`
+	HealthCheckPort            pulumi.StringPtrOutput                  `pulumi:"healthCheckPort"`
+	HealthCheckProtocol        pulumi.StringPtrOutput                  `pulumi:"healthCheckProtocol"`
+	HealthCheckTimeoutSeconds  pulumi.IntPtrOutput                     `pulumi:"healthCheckTimeoutSeconds"`
+	HealthyThresholdCount      pulumi.IntPtrOutput                     `pulumi:"healthyThresholdCount"`
+	IpAddressType              pulumi.StringPtrOutput                  `pulumi:"ipAddressType"`
+	LoadBalancerArns           pulumi.StringArrayOutput                `pulumi:"loadBalancerArns"`
+	Matcher                    TargetGroupMatcherPtrOutput             `pulumi:"matcher"`
+	Name                       pulumi.StringPtrOutput                  `pulumi:"name"`
+	Port                       pulumi.IntPtrOutput                     `pulumi:"port"`
+	Protocol                   pulumi.StringPtrOutput                  `pulumi:"protocol"`
+	ProtocolVersion            pulumi.StringPtrOutput                  `pulumi:"protocolVersion"`
+	Tags                       TargetGroupTagArrayOutput               `pulumi:"tags"`
+	TargetGroupAttributes      TargetGroupAttributeArrayOutput         `pulumi:"targetGroupAttributes"`
+	TargetGroupFullName        pulumi.StringOutput                     `pulumi:"targetGroupFullName"`
+	TargetGroupName            pulumi.StringOutput                     `pulumi:"targetGroupName"`
+	TargetType                 pulumi.StringPtrOutput                  `pulumi:"targetType"`
+	Targets                    TargetGroupTargetDescriptionArrayOutput `pulumi:"targets"`
+	UnhealthyThresholdCount    pulumi.IntPtrOutput                     `pulumi:"unhealthyThresholdCount"`
+	VpcId                      pulumi.StringPtrOutput                  `pulumi:"vpcId"`
 }
 
 // NewTargetGroup registers a new resource with the given unique name, arguments, and options.
@@ -79,25 +79,25 @@ func (TargetGroupState) ElementType() reflect.Type {
 }
 
 type targetGroupArgs struct {
-	HealthCheckEnabled         *bool                             `pulumi:"healthCheckEnabled"`
-	HealthCheckIntervalSeconds *int                              `pulumi:"healthCheckIntervalSeconds"`
-	HealthCheckPath            *string                           `pulumi:"healthCheckPath"`
-	HealthCheckPort            *string                           `pulumi:"healthCheckPort"`
-	HealthCheckProtocol        *string                           `pulumi:"healthCheckProtocol"`
-	HealthCheckTimeoutSeconds  *int                              `pulumi:"healthCheckTimeoutSeconds"`
-	HealthyThresholdCount      *int                              `pulumi:"healthyThresholdCount"`
-	IpAddressType              *string                           `pulumi:"ipAddressType"`
-	Matcher                    *TargetGroupMatcher               `pulumi:"matcher"`
-	Name                       *string                           `pulumi:"name"`
-	Port                       *int                              `pulumi:"port"`
-	Protocol                   *string                           `pulumi:"protocol"`
-	ProtocolVersion            *string                           `pulumi:"protocolVersion"`
-	Tags                       []TargetGroupTag                  `pulumi:"tags"`
-	TargetGroupAttributes      []TargetGroupTargetGroupAttribute `pulumi:"targetGroupAttributes"`
-	TargetType                 *string                           `pulumi:"targetType"`
-	Targets                    []TargetGroupTargetDescription    `pulumi:"targets"`
-	UnhealthyThresholdCount    *int                              `pulumi:"unhealthyThresholdCount"`
-	VpcId                      *string                           `pulumi:"vpcId"`
+	HealthCheckEnabled         *bool                          `pulumi:"healthCheckEnabled"`
+	HealthCheckIntervalSeconds *int                           `pulumi:"healthCheckIntervalSeconds"`
+	HealthCheckPath            *string                        `pulumi:"healthCheckPath"`
+	HealthCheckPort            *string                        `pulumi:"healthCheckPort"`
+	HealthCheckProtocol        *string                        `pulumi:"healthCheckProtocol"`
+	HealthCheckTimeoutSeconds  *int                           `pulumi:"healthCheckTimeoutSeconds"`
+	HealthyThresholdCount      *int                           `pulumi:"healthyThresholdCount"`
+	IpAddressType              *string                        `pulumi:"ipAddressType"`
+	Matcher                    *TargetGroupMatcher            `pulumi:"matcher"`
+	Name                       *string                        `pulumi:"name"`
+	Port                       *int                           `pulumi:"port"`
+	Protocol                   *string                        `pulumi:"protocol"`
+	ProtocolVersion            *string                        `pulumi:"protocolVersion"`
+	Tags                       []TargetGroupTag               `pulumi:"tags"`
+	TargetGroupAttributes      []TargetGroupAttribute         `pulumi:"targetGroupAttributes"`
+	TargetType                 *string                        `pulumi:"targetType"`
+	Targets                    []TargetGroupTargetDescription `pulumi:"targets"`
+	UnhealthyThresholdCount    *int                           `pulumi:"unhealthyThresholdCount"`
+	VpcId                      *string                        `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a TargetGroup resource.
@@ -116,7 +116,7 @@ type TargetGroupArgs struct {
 	Protocol                   pulumi.StringPtrInput
 	ProtocolVersion            pulumi.StringPtrInput
 	Tags                       TargetGroupTagArrayInput
-	TargetGroupAttributes      TargetGroupTargetGroupAttributeArrayInput
+	TargetGroupAttributes      TargetGroupAttributeArrayInput
 	TargetType                 pulumi.StringPtrInput
 	Targets                    TargetGroupTargetDescriptionArrayInput
 	UnhealthyThresholdCount    pulumi.IntPtrInput

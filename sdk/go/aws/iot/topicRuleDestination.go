@@ -19,7 +19,7 @@ type TopicRuleDestination struct {
 	// HTTP URL destination properties.
 	HttpUrlProperties TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput `pulumi:"httpUrlProperties"`
 	// The status of the TopicRuleDestination.
-	Status TopicRuleDestinationTopicRuleDestinationStatusPtrOutput `pulumi:"status"`
+	Status TopicRuleDestinationStatusPtrOutput `pulumi:"status"`
 	// The reasoning for the current status of the TopicRuleDestination.
 	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
 	// VPC destination properties.
@@ -68,7 +68,7 @@ type topicRuleDestinationArgs struct {
 	// HTTP URL destination properties.
 	HttpUrlProperties *TopicRuleDestinationHttpUrlDestinationSummary `pulumi:"httpUrlProperties"`
 	// The status of the TopicRuleDestination.
-	Status *TopicRuleDestinationTopicRuleDestinationStatus `pulumi:"status"`
+	Status *TopicRuleDestinationStatus `pulumi:"status"`
 	// VPC destination properties.
 	VpcProperties *TopicRuleDestinationVpcDestinationProperties `pulumi:"vpcProperties"`
 }
@@ -78,7 +78,7 @@ type TopicRuleDestinationArgs struct {
 	// HTTP URL destination properties.
 	HttpUrlProperties TopicRuleDestinationHttpUrlDestinationSummaryPtrInput
 	// The status of the TopicRuleDestination.
-	Status TopicRuleDestinationTopicRuleDestinationStatusPtrInput
+	Status TopicRuleDestinationStatusPtrInput
 	// VPC destination properties.
 	VpcProperties TopicRuleDestinationVpcDestinationPropertiesPtrInput
 }

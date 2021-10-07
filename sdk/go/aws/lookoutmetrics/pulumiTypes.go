@@ -476,145 +476,6 @@ func (o AlertSNSConfigurationPtrOutput) SnsTopicArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type AnomalyDetectorAnomalyDetectorConfig struct {
-	// Frequency of anomaly detection
-	AnomalyDetectorFrequency AnomalyDetectorAnomalyDetectorFrequency `pulumi:"anomalyDetectorFrequency"`
-}
-
-// AnomalyDetectorAnomalyDetectorConfigInput is an input type that accepts AnomalyDetectorAnomalyDetectorConfigArgs and AnomalyDetectorAnomalyDetectorConfigOutput values.
-// You can construct a concrete instance of `AnomalyDetectorAnomalyDetectorConfigInput` via:
-//
-//          AnomalyDetectorAnomalyDetectorConfigArgs{...}
-type AnomalyDetectorAnomalyDetectorConfigInput interface {
-	pulumi.Input
-
-	ToAnomalyDetectorAnomalyDetectorConfigOutput() AnomalyDetectorAnomalyDetectorConfigOutput
-	ToAnomalyDetectorAnomalyDetectorConfigOutputWithContext(context.Context) AnomalyDetectorAnomalyDetectorConfigOutput
-}
-
-type AnomalyDetectorAnomalyDetectorConfigArgs struct {
-	// Frequency of anomaly detection
-	AnomalyDetectorFrequency AnomalyDetectorAnomalyDetectorFrequencyInput `pulumi:"anomalyDetectorFrequency"`
-}
-
-func (AnomalyDetectorAnomalyDetectorConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnomalyDetectorAnomalyDetectorConfig)(nil)).Elem()
-}
-
-func (i AnomalyDetectorAnomalyDetectorConfigArgs) ToAnomalyDetectorAnomalyDetectorConfigOutput() AnomalyDetectorAnomalyDetectorConfigOutput {
-	return i.ToAnomalyDetectorAnomalyDetectorConfigOutputWithContext(context.Background())
-}
-
-func (i AnomalyDetectorAnomalyDetectorConfigArgs) ToAnomalyDetectorAnomalyDetectorConfigOutputWithContext(ctx context.Context) AnomalyDetectorAnomalyDetectorConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorAnomalyDetectorConfigOutput)
-}
-
-func (i AnomalyDetectorAnomalyDetectorConfigArgs) ToAnomalyDetectorAnomalyDetectorConfigPtrOutput() AnomalyDetectorAnomalyDetectorConfigPtrOutput {
-	return i.ToAnomalyDetectorAnomalyDetectorConfigPtrOutputWithContext(context.Background())
-}
-
-func (i AnomalyDetectorAnomalyDetectorConfigArgs) ToAnomalyDetectorAnomalyDetectorConfigPtrOutputWithContext(ctx context.Context) AnomalyDetectorAnomalyDetectorConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorAnomalyDetectorConfigOutput).ToAnomalyDetectorAnomalyDetectorConfigPtrOutputWithContext(ctx)
-}
-
-// AnomalyDetectorAnomalyDetectorConfigPtrInput is an input type that accepts AnomalyDetectorAnomalyDetectorConfigArgs, AnomalyDetectorAnomalyDetectorConfigPtr and AnomalyDetectorAnomalyDetectorConfigPtrOutput values.
-// You can construct a concrete instance of `AnomalyDetectorAnomalyDetectorConfigPtrInput` via:
-//
-//          AnomalyDetectorAnomalyDetectorConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type AnomalyDetectorAnomalyDetectorConfigPtrInput interface {
-	pulumi.Input
-
-	ToAnomalyDetectorAnomalyDetectorConfigPtrOutput() AnomalyDetectorAnomalyDetectorConfigPtrOutput
-	ToAnomalyDetectorAnomalyDetectorConfigPtrOutputWithContext(context.Context) AnomalyDetectorAnomalyDetectorConfigPtrOutput
-}
-
-type anomalyDetectorAnomalyDetectorConfigPtrType AnomalyDetectorAnomalyDetectorConfigArgs
-
-func AnomalyDetectorAnomalyDetectorConfigPtr(v *AnomalyDetectorAnomalyDetectorConfigArgs) AnomalyDetectorAnomalyDetectorConfigPtrInput {
-	return (*anomalyDetectorAnomalyDetectorConfigPtrType)(v)
-}
-
-func (*anomalyDetectorAnomalyDetectorConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnomalyDetectorAnomalyDetectorConfig)(nil)).Elem()
-}
-
-func (i *anomalyDetectorAnomalyDetectorConfigPtrType) ToAnomalyDetectorAnomalyDetectorConfigPtrOutput() AnomalyDetectorAnomalyDetectorConfigPtrOutput {
-	return i.ToAnomalyDetectorAnomalyDetectorConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *anomalyDetectorAnomalyDetectorConfigPtrType) ToAnomalyDetectorAnomalyDetectorConfigPtrOutputWithContext(ctx context.Context) AnomalyDetectorAnomalyDetectorConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorAnomalyDetectorConfigPtrOutput)
-}
-
-type AnomalyDetectorAnomalyDetectorConfigOutput struct{ *pulumi.OutputState }
-
-func (AnomalyDetectorAnomalyDetectorConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnomalyDetectorAnomalyDetectorConfig)(nil)).Elem()
-}
-
-func (o AnomalyDetectorAnomalyDetectorConfigOutput) ToAnomalyDetectorAnomalyDetectorConfigOutput() AnomalyDetectorAnomalyDetectorConfigOutput {
-	return o
-}
-
-func (o AnomalyDetectorAnomalyDetectorConfigOutput) ToAnomalyDetectorAnomalyDetectorConfigOutputWithContext(ctx context.Context) AnomalyDetectorAnomalyDetectorConfigOutput {
-	return o
-}
-
-func (o AnomalyDetectorAnomalyDetectorConfigOutput) ToAnomalyDetectorAnomalyDetectorConfigPtrOutput() AnomalyDetectorAnomalyDetectorConfigPtrOutput {
-	return o.ToAnomalyDetectorAnomalyDetectorConfigPtrOutputWithContext(context.Background())
-}
-
-func (o AnomalyDetectorAnomalyDetectorConfigOutput) ToAnomalyDetectorAnomalyDetectorConfigPtrOutputWithContext(ctx context.Context) AnomalyDetectorAnomalyDetectorConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalyDetectorAnomalyDetectorConfig) *AnomalyDetectorAnomalyDetectorConfig {
-		return &v
-	}).(AnomalyDetectorAnomalyDetectorConfigPtrOutput)
-}
-
-// Frequency of anomaly detection
-func (o AnomalyDetectorAnomalyDetectorConfigOutput) AnomalyDetectorFrequency() AnomalyDetectorAnomalyDetectorFrequencyOutput {
-	return o.ApplyT(func(v AnomalyDetectorAnomalyDetectorConfig) AnomalyDetectorAnomalyDetectorFrequency {
-		return v.AnomalyDetectorFrequency
-	}).(AnomalyDetectorAnomalyDetectorFrequencyOutput)
-}
-
-type AnomalyDetectorAnomalyDetectorConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (AnomalyDetectorAnomalyDetectorConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnomalyDetectorAnomalyDetectorConfig)(nil)).Elem()
-}
-
-func (o AnomalyDetectorAnomalyDetectorConfigPtrOutput) ToAnomalyDetectorAnomalyDetectorConfigPtrOutput() AnomalyDetectorAnomalyDetectorConfigPtrOutput {
-	return o
-}
-
-func (o AnomalyDetectorAnomalyDetectorConfigPtrOutput) ToAnomalyDetectorAnomalyDetectorConfigPtrOutputWithContext(ctx context.Context) AnomalyDetectorAnomalyDetectorConfigPtrOutput {
-	return o
-}
-
-func (o AnomalyDetectorAnomalyDetectorConfigPtrOutput) Elem() AnomalyDetectorAnomalyDetectorConfigOutput {
-	return o.ApplyT(func(v *AnomalyDetectorAnomalyDetectorConfig) AnomalyDetectorAnomalyDetectorConfig {
-		if v != nil {
-			return *v
-		}
-		var ret AnomalyDetectorAnomalyDetectorConfig
-		return ret
-	}).(AnomalyDetectorAnomalyDetectorConfigOutput)
-}
-
-// Frequency of anomaly detection
-func (o AnomalyDetectorAnomalyDetectorConfigPtrOutput) AnomalyDetectorFrequency() AnomalyDetectorAnomalyDetectorFrequencyPtrOutput {
-	return o.ApplyT(func(v *AnomalyDetectorAnomalyDetectorConfig) *AnomalyDetectorAnomalyDetectorFrequency {
-		if v == nil {
-			return nil
-		}
-		return &v.AnomalyDetectorFrequency
-	}).(AnomalyDetectorAnomalyDetectorFrequencyPtrOutput)
-}
-
 type AnomalyDetectorAppFlowConfig struct {
 	FlowName string `pulumi:"flowName"`
 	RoleArn  string `pulumi:"roleArn"`
@@ -894,6 +755,143 @@ func (o AnomalyDetectorCloudwatchConfigPtrOutput) RoleArn() pulumi.StringPtrOutp
 		}
 		return &v.RoleArn
 	}).(pulumi.StringPtrOutput)
+}
+
+type AnomalyDetectorConfig struct {
+	// Frequency of anomaly detection
+	AnomalyDetectorFrequency AnomalyDetectorFrequency `pulumi:"anomalyDetectorFrequency"`
+}
+
+// AnomalyDetectorConfigInput is an input type that accepts AnomalyDetectorConfigArgs and AnomalyDetectorConfigOutput values.
+// You can construct a concrete instance of `AnomalyDetectorConfigInput` via:
+//
+//          AnomalyDetectorConfigArgs{...}
+type AnomalyDetectorConfigInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorConfigOutput() AnomalyDetectorConfigOutput
+	ToAnomalyDetectorConfigOutputWithContext(context.Context) AnomalyDetectorConfigOutput
+}
+
+type AnomalyDetectorConfigArgs struct {
+	// Frequency of anomaly detection
+	AnomalyDetectorFrequency AnomalyDetectorFrequencyInput `pulumi:"anomalyDetectorFrequency"`
+}
+
+func (AnomalyDetectorConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorConfig)(nil)).Elem()
+}
+
+func (i AnomalyDetectorConfigArgs) ToAnomalyDetectorConfigOutput() AnomalyDetectorConfigOutput {
+	return i.ToAnomalyDetectorConfigOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorConfigArgs) ToAnomalyDetectorConfigOutputWithContext(ctx context.Context) AnomalyDetectorConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorConfigOutput)
+}
+
+func (i AnomalyDetectorConfigArgs) ToAnomalyDetectorConfigPtrOutput() AnomalyDetectorConfigPtrOutput {
+	return i.ToAnomalyDetectorConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorConfigArgs) ToAnomalyDetectorConfigPtrOutputWithContext(ctx context.Context) AnomalyDetectorConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorConfigOutput).ToAnomalyDetectorConfigPtrOutputWithContext(ctx)
+}
+
+// AnomalyDetectorConfigPtrInput is an input type that accepts AnomalyDetectorConfigArgs, AnomalyDetectorConfigPtr and AnomalyDetectorConfigPtrOutput values.
+// You can construct a concrete instance of `AnomalyDetectorConfigPtrInput` via:
+//
+//          AnomalyDetectorConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type AnomalyDetectorConfigPtrInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorConfigPtrOutput() AnomalyDetectorConfigPtrOutput
+	ToAnomalyDetectorConfigPtrOutputWithContext(context.Context) AnomalyDetectorConfigPtrOutput
+}
+
+type anomalyDetectorConfigPtrType AnomalyDetectorConfigArgs
+
+func AnomalyDetectorConfigPtr(v *AnomalyDetectorConfigArgs) AnomalyDetectorConfigPtrInput {
+	return (*anomalyDetectorConfigPtrType)(v)
+}
+
+func (*anomalyDetectorConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyDetectorConfig)(nil)).Elem()
+}
+
+func (i *anomalyDetectorConfigPtrType) ToAnomalyDetectorConfigPtrOutput() AnomalyDetectorConfigPtrOutput {
+	return i.ToAnomalyDetectorConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *anomalyDetectorConfigPtrType) ToAnomalyDetectorConfigPtrOutputWithContext(ctx context.Context) AnomalyDetectorConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorConfigPtrOutput)
+}
+
+type AnomalyDetectorConfigOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorConfig)(nil)).Elem()
+}
+
+func (o AnomalyDetectorConfigOutput) ToAnomalyDetectorConfigOutput() AnomalyDetectorConfigOutput {
+	return o
+}
+
+func (o AnomalyDetectorConfigOutput) ToAnomalyDetectorConfigOutputWithContext(ctx context.Context) AnomalyDetectorConfigOutput {
+	return o
+}
+
+func (o AnomalyDetectorConfigOutput) ToAnomalyDetectorConfigPtrOutput() AnomalyDetectorConfigPtrOutput {
+	return o.ToAnomalyDetectorConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalyDetectorConfigOutput) ToAnomalyDetectorConfigPtrOutputWithContext(ctx context.Context) AnomalyDetectorConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalyDetectorConfig) *AnomalyDetectorConfig {
+		return &v
+	}).(AnomalyDetectorConfigPtrOutput)
+}
+
+// Frequency of anomaly detection
+func (o AnomalyDetectorConfigOutput) AnomalyDetectorFrequency() AnomalyDetectorFrequencyOutput {
+	return o.ApplyT(func(v AnomalyDetectorConfig) AnomalyDetectorFrequency { return v.AnomalyDetectorFrequency }).(AnomalyDetectorFrequencyOutput)
+}
+
+type AnomalyDetectorConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyDetectorConfig)(nil)).Elem()
+}
+
+func (o AnomalyDetectorConfigPtrOutput) ToAnomalyDetectorConfigPtrOutput() AnomalyDetectorConfigPtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorConfigPtrOutput) ToAnomalyDetectorConfigPtrOutputWithContext(ctx context.Context) AnomalyDetectorConfigPtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorConfigPtrOutput) Elem() AnomalyDetectorConfigOutput {
+	return o.ApplyT(func(v *AnomalyDetectorConfig) AnomalyDetectorConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalyDetectorConfig
+		return ret
+	}).(AnomalyDetectorConfigOutput)
+}
+
+// Frequency of anomaly detection
+func (o AnomalyDetectorConfigPtrOutput) AnomalyDetectorFrequency() AnomalyDetectorFrequencyPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorConfig) *AnomalyDetectorFrequency {
+		if v == nil {
+			return nil
+		}
+		return &v.AnomalyDetectorFrequency
+	}).(AnomalyDetectorFrequencyPtrOutput)
 }
 
 type AnomalyDetectorCsvFormatDescriptor struct {
@@ -2717,12 +2715,12 @@ func init() {
 	pulumi.RegisterOutputType(AlertLambdaConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AlertSNSConfigurationOutput{})
 	pulumi.RegisterOutputType(AlertSNSConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(AnomalyDetectorAnomalyDetectorConfigOutput{})
-	pulumi.RegisterOutputType(AnomalyDetectorAnomalyDetectorConfigPtrOutput{})
 	pulumi.RegisterOutputType(AnomalyDetectorAppFlowConfigOutput{})
 	pulumi.RegisterOutputType(AnomalyDetectorAppFlowConfigPtrOutput{})
 	pulumi.RegisterOutputType(AnomalyDetectorCloudwatchConfigOutput{})
 	pulumi.RegisterOutputType(AnomalyDetectorCloudwatchConfigPtrOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorConfigOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorConfigPtrOutput{})
 	pulumi.RegisterOutputType(AnomalyDetectorCsvFormatDescriptorOutput{})
 	pulumi.RegisterOutputType(AnomalyDetectorCsvFormatDescriptorPtrOutput{})
 	pulumi.RegisterOutputType(AnomalyDetectorFileFormatDescriptorOutput{})

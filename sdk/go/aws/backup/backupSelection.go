@@ -15,9 +15,9 @@ import (
 type BackupSelection struct {
 	pulumi.CustomResourceState
 
-	BackupPlanId    pulumi.StringOutput                              `pulumi:"backupPlanId"`
-	BackupSelection BackupSelectionBackupSelectionResourceTypeOutput `pulumi:"backupSelection"`
-	SelectionId     pulumi.StringOutput                              `pulumi:"selectionId"`
+	BackupPlanId    pulumi.StringOutput               `pulumi:"backupPlanId"`
+	BackupSelection BackupSelectionResourceTypeOutput `pulumi:"backupSelection"`
+	SelectionId     pulumi.StringOutput               `pulumi:"selectionId"`
 }
 
 // NewBackupSelection registers a new resource with the given unique name, arguments, and options.
@@ -62,12 +62,12 @@ func (BackupSelectionState) ElementType() reflect.Type {
 }
 
 type backupSelectionArgs struct {
-	BackupSelection BackupSelectionBackupSelectionResourceType `pulumi:"backupSelection"`
+	BackupSelection BackupSelectionResourceType `pulumi:"backupSelection"`
 }
 
 // The set of arguments for constructing a BackupSelection resource.
 type BackupSelectionArgs struct {
-	BackupSelection BackupSelectionBackupSelectionResourceTypeInput
+	BackupSelection BackupSelectionResourceTypeInput
 }
 
 func (BackupSelectionArgs) ElementType() reflect.Type {

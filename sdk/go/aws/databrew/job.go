@@ -24,7 +24,7 @@ type Job struct {
 	// Encryption mode
 	EncryptionMode JobEncryptionModePtrOutput `pulumi:"encryptionMode"`
 	// Job Sample
-	JobSample JobJobSamplePtrOutput `pulumi:"jobSample"`
+	JobSample JobSamplePtrOutput `pulumi:"jobSample"`
 	// Log subscription
 	LogSubscription JobLogSubscriptionPtrOutput `pulumi:"logSubscription"`
 	// Max capacity
@@ -107,7 +107,7 @@ type jobArgs struct {
 	// Encryption mode
 	EncryptionMode *JobEncryptionMode `pulumi:"encryptionMode"`
 	// Job Sample
-	JobSample *JobJobSample `pulumi:"jobSample"`
+	JobSample *JobSample `pulumi:"jobSample"`
 	// Log subscription
 	LogSubscription *JobLogSubscription `pulumi:"logSubscription"`
 	// Max capacity
@@ -144,7 +144,7 @@ type JobArgs struct {
 	// Encryption mode
 	EncryptionMode JobEncryptionModePtrInput
 	// Job Sample
-	JobSample JobJobSamplePtrInput
+	JobSample JobSamplePtrInput
 	// Log subscription
 	LogSubscription JobLogSubscriptionPtrInput
 	// Max capacity

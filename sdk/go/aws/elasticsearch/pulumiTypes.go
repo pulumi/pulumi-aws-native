@@ -484,199 +484,6 @@ func (o DomainColdStorageOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-type DomainDomainEndpointOptions struct {
-	CustomEndpoint               *string `pulumi:"customEndpoint"`
-	CustomEndpointCertificateArn *string `pulumi:"customEndpointCertificateArn"`
-	CustomEndpointEnabled        *bool   `pulumi:"customEndpointEnabled"`
-	EnforceHTTPS                 *bool   `pulumi:"enforceHTTPS"`
-	TLSSecurityPolicy            *string `pulumi:"tLSSecurityPolicy"`
-}
-
-// DomainDomainEndpointOptionsInput is an input type that accepts DomainDomainEndpointOptionsArgs and DomainDomainEndpointOptionsOutput values.
-// You can construct a concrete instance of `DomainDomainEndpointOptionsInput` via:
-//
-//          DomainDomainEndpointOptionsArgs{...}
-type DomainDomainEndpointOptionsInput interface {
-	pulumi.Input
-
-	ToDomainDomainEndpointOptionsOutput() DomainDomainEndpointOptionsOutput
-	ToDomainDomainEndpointOptionsOutputWithContext(context.Context) DomainDomainEndpointOptionsOutput
-}
-
-type DomainDomainEndpointOptionsArgs struct {
-	CustomEndpoint               pulumi.StringPtrInput `pulumi:"customEndpoint"`
-	CustomEndpointCertificateArn pulumi.StringPtrInput `pulumi:"customEndpointCertificateArn"`
-	CustomEndpointEnabled        pulumi.BoolPtrInput   `pulumi:"customEndpointEnabled"`
-	EnforceHTTPS                 pulumi.BoolPtrInput   `pulumi:"enforceHTTPS"`
-	TLSSecurityPolicy            pulumi.StringPtrInput `pulumi:"tLSSecurityPolicy"`
-}
-
-func (DomainDomainEndpointOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainDomainEndpointOptions)(nil)).Elem()
-}
-
-func (i DomainDomainEndpointOptionsArgs) ToDomainDomainEndpointOptionsOutput() DomainDomainEndpointOptionsOutput {
-	return i.ToDomainDomainEndpointOptionsOutputWithContext(context.Background())
-}
-
-func (i DomainDomainEndpointOptionsArgs) ToDomainDomainEndpointOptionsOutputWithContext(ctx context.Context) DomainDomainEndpointOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainDomainEndpointOptionsOutput)
-}
-
-func (i DomainDomainEndpointOptionsArgs) ToDomainDomainEndpointOptionsPtrOutput() DomainDomainEndpointOptionsPtrOutput {
-	return i.ToDomainDomainEndpointOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i DomainDomainEndpointOptionsArgs) ToDomainDomainEndpointOptionsPtrOutputWithContext(ctx context.Context) DomainDomainEndpointOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainDomainEndpointOptionsOutput).ToDomainDomainEndpointOptionsPtrOutputWithContext(ctx)
-}
-
-// DomainDomainEndpointOptionsPtrInput is an input type that accepts DomainDomainEndpointOptionsArgs, DomainDomainEndpointOptionsPtr and DomainDomainEndpointOptionsPtrOutput values.
-// You can construct a concrete instance of `DomainDomainEndpointOptionsPtrInput` via:
-//
-//          DomainDomainEndpointOptionsArgs{...}
-//
-//  or:
-//
-//          nil
-type DomainDomainEndpointOptionsPtrInput interface {
-	pulumi.Input
-
-	ToDomainDomainEndpointOptionsPtrOutput() DomainDomainEndpointOptionsPtrOutput
-	ToDomainDomainEndpointOptionsPtrOutputWithContext(context.Context) DomainDomainEndpointOptionsPtrOutput
-}
-
-type domainDomainEndpointOptionsPtrType DomainDomainEndpointOptionsArgs
-
-func DomainDomainEndpointOptionsPtr(v *DomainDomainEndpointOptionsArgs) DomainDomainEndpointOptionsPtrInput {
-	return (*domainDomainEndpointOptionsPtrType)(v)
-}
-
-func (*domainDomainEndpointOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainDomainEndpointOptions)(nil)).Elem()
-}
-
-func (i *domainDomainEndpointOptionsPtrType) ToDomainDomainEndpointOptionsPtrOutput() DomainDomainEndpointOptionsPtrOutput {
-	return i.ToDomainDomainEndpointOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *domainDomainEndpointOptionsPtrType) ToDomainDomainEndpointOptionsPtrOutputWithContext(ctx context.Context) DomainDomainEndpointOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainDomainEndpointOptionsPtrOutput)
-}
-
-type DomainDomainEndpointOptionsOutput struct{ *pulumi.OutputState }
-
-func (DomainDomainEndpointOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainDomainEndpointOptions)(nil)).Elem()
-}
-
-func (o DomainDomainEndpointOptionsOutput) ToDomainDomainEndpointOptionsOutput() DomainDomainEndpointOptionsOutput {
-	return o
-}
-
-func (o DomainDomainEndpointOptionsOutput) ToDomainDomainEndpointOptionsOutputWithContext(ctx context.Context) DomainDomainEndpointOptionsOutput {
-	return o
-}
-
-func (o DomainDomainEndpointOptionsOutput) ToDomainDomainEndpointOptionsPtrOutput() DomainDomainEndpointOptionsPtrOutput {
-	return o.ToDomainDomainEndpointOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o DomainDomainEndpointOptionsOutput) ToDomainDomainEndpointOptionsPtrOutputWithContext(ctx context.Context) DomainDomainEndpointOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDomainEndpointOptions) *DomainDomainEndpointOptions {
-		return &v
-	}).(DomainDomainEndpointOptionsPtrOutput)
-}
-
-func (o DomainDomainEndpointOptionsOutput) CustomEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainDomainEndpointOptions) *string { return v.CustomEndpoint }).(pulumi.StringPtrOutput)
-}
-
-func (o DomainDomainEndpointOptionsOutput) CustomEndpointCertificateArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainDomainEndpointOptions) *string { return v.CustomEndpointCertificateArn }).(pulumi.StringPtrOutput)
-}
-
-func (o DomainDomainEndpointOptionsOutput) CustomEndpointEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DomainDomainEndpointOptions) *bool { return v.CustomEndpointEnabled }).(pulumi.BoolPtrOutput)
-}
-
-func (o DomainDomainEndpointOptionsOutput) EnforceHTTPS() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DomainDomainEndpointOptions) *bool { return v.EnforceHTTPS }).(pulumi.BoolPtrOutput)
-}
-
-func (o DomainDomainEndpointOptionsOutput) TLSSecurityPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainDomainEndpointOptions) *string { return v.TLSSecurityPolicy }).(pulumi.StringPtrOutput)
-}
-
-type DomainDomainEndpointOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (DomainDomainEndpointOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainDomainEndpointOptions)(nil)).Elem()
-}
-
-func (o DomainDomainEndpointOptionsPtrOutput) ToDomainDomainEndpointOptionsPtrOutput() DomainDomainEndpointOptionsPtrOutput {
-	return o
-}
-
-func (o DomainDomainEndpointOptionsPtrOutput) ToDomainDomainEndpointOptionsPtrOutputWithContext(ctx context.Context) DomainDomainEndpointOptionsPtrOutput {
-	return o
-}
-
-func (o DomainDomainEndpointOptionsPtrOutput) Elem() DomainDomainEndpointOptionsOutput {
-	return o.ApplyT(func(v *DomainDomainEndpointOptions) DomainDomainEndpointOptions {
-		if v != nil {
-			return *v
-		}
-		var ret DomainDomainEndpointOptions
-		return ret
-	}).(DomainDomainEndpointOptionsOutput)
-}
-
-func (o DomainDomainEndpointOptionsPtrOutput) CustomEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DomainDomainEndpointOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CustomEndpoint
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DomainDomainEndpointOptionsPtrOutput) CustomEndpointCertificateArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DomainDomainEndpointOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CustomEndpointCertificateArn
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DomainDomainEndpointOptionsPtrOutput) CustomEndpointEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DomainDomainEndpointOptions) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.CustomEndpointEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o DomainDomainEndpointOptionsPtrOutput) EnforceHTTPS() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DomainDomainEndpointOptions) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EnforceHTTPS
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o DomainDomainEndpointOptionsPtrOutput) TLSSecurityPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DomainDomainEndpointOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TLSSecurityPolicy
-	}).(pulumi.StringPtrOutput)
-}
-
 type DomainEBSOptions struct {
 	EBSEnabled *bool   `pulumi:"eBSEnabled"`
 	Iops       *int    `pulumi:"iops"`
@@ -1283,6 +1090,199 @@ func (o DomainEncryptionAtRestOptionsPtrOutput) KmsKeyId() pulumi.StringPtrOutpu
 			return nil
 		}
 		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainEndpointOptions struct {
+	CustomEndpoint               *string `pulumi:"customEndpoint"`
+	CustomEndpointCertificateArn *string `pulumi:"customEndpointCertificateArn"`
+	CustomEndpointEnabled        *bool   `pulumi:"customEndpointEnabled"`
+	EnforceHTTPS                 *bool   `pulumi:"enforceHTTPS"`
+	TLSSecurityPolicy            *string `pulumi:"tLSSecurityPolicy"`
+}
+
+// DomainEndpointOptionsInput is an input type that accepts DomainEndpointOptionsArgs and DomainEndpointOptionsOutput values.
+// You can construct a concrete instance of `DomainEndpointOptionsInput` via:
+//
+//          DomainEndpointOptionsArgs{...}
+type DomainEndpointOptionsInput interface {
+	pulumi.Input
+
+	ToDomainEndpointOptionsOutput() DomainEndpointOptionsOutput
+	ToDomainEndpointOptionsOutputWithContext(context.Context) DomainEndpointOptionsOutput
+}
+
+type DomainEndpointOptionsArgs struct {
+	CustomEndpoint               pulumi.StringPtrInput `pulumi:"customEndpoint"`
+	CustomEndpointCertificateArn pulumi.StringPtrInput `pulumi:"customEndpointCertificateArn"`
+	CustomEndpointEnabled        pulumi.BoolPtrInput   `pulumi:"customEndpointEnabled"`
+	EnforceHTTPS                 pulumi.BoolPtrInput   `pulumi:"enforceHTTPS"`
+	TLSSecurityPolicy            pulumi.StringPtrInput `pulumi:"tLSSecurityPolicy"`
+}
+
+func (DomainEndpointOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainEndpointOptions)(nil)).Elem()
+}
+
+func (i DomainEndpointOptionsArgs) ToDomainEndpointOptionsOutput() DomainEndpointOptionsOutput {
+	return i.ToDomainEndpointOptionsOutputWithContext(context.Background())
+}
+
+func (i DomainEndpointOptionsArgs) ToDomainEndpointOptionsOutputWithContext(ctx context.Context) DomainEndpointOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainEndpointOptionsOutput)
+}
+
+func (i DomainEndpointOptionsArgs) ToDomainEndpointOptionsPtrOutput() DomainEndpointOptionsPtrOutput {
+	return i.ToDomainEndpointOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainEndpointOptionsArgs) ToDomainEndpointOptionsPtrOutputWithContext(ctx context.Context) DomainEndpointOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainEndpointOptionsOutput).ToDomainEndpointOptionsPtrOutputWithContext(ctx)
+}
+
+// DomainEndpointOptionsPtrInput is an input type that accepts DomainEndpointOptionsArgs, DomainEndpointOptionsPtr and DomainEndpointOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainEndpointOptionsPtrInput` via:
+//
+//          DomainEndpointOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainEndpointOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDomainEndpointOptionsPtrOutput() DomainEndpointOptionsPtrOutput
+	ToDomainEndpointOptionsPtrOutputWithContext(context.Context) DomainEndpointOptionsPtrOutput
+}
+
+type domainEndpointOptionsPtrType DomainEndpointOptionsArgs
+
+func DomainEndpointOptionsPtr(v *DomainEndpointOptionsArgs) DomainEndpointOptionsPtrInput {
+	return (*domainEndpointOptionsPtrType)(v)
+}
+
+func (*domainEndpointOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainEndpointOptions)(nil)).Elem()
+}
+
+func (i *domainEndpointOptionsPtrType) ToDomainEndpointOptionsPtrOutput() DomainEndpointOptionsPtrOutput {
+	return i.ToDomainEndpointOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainEndpointOptionsPtrType) ToDomainEndpointOptionsPtrOutputWithContext(ctx context.Context) DomainEndpointOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainEndpointOptionsPtrOutput)
+}
+
+type DomainEndpointOptionsOutput struct{ *pulumi.OutputState }
+
+func (DomainEndpointOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainEndpointOptions)(nil)).Elem()
+}
+
+func (o DomainEndpointOptionsOutput) ToDomainEndpointOptionsOutput() DomainEndpointOptionsOutput {
+	return o
+}
+
+func (o DomainEndpointOptionsOutput) ToDomainEndpointOptionsOutputWithContext(ctx context.Context) DomainEndpointOptionsOutput {
+	return o
+}
+
+func (o DomainEndpointOptionsOutput) ToDomainEndpointOptionsPtrOutput() DomainEndpointOptionsPtrOutput {
+	return o.ToDomainEndpointOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainEndpointOptionsOutput) ToDomainEndpointOptionsPtrOutputWithContext(ctx context.Context) DomainEndpointOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainEndpointOptions) *DomainEndpointOptions {
+		return &v
+	}).(DomainEndpointOptionsPtrOutput)
+}
+
+func (o DomainEndpointOptionsOutput) CustomEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainEndpointOptions) *string { return v.CustomEndpoint }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainEndpointOptionsOutput) CustomEndpointCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainEndpointOptions) *string { return v.CustomEndpointCertificateArn }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainEndpointOptionsOutput) CustomEndpointEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainEndpointOptions) *bool { return v.CustomEndpointEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainEndpointOptionsOutput) EnforceHTTPS() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainEndpointOptions) *bool { return v.EnforceHTTPS }).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainEndpointOptionsOutput) TLSSecurityPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainEndpointOptions) *string { return v.TLSSecurityPolicy }).(pulumi.StringPtrOutput)
+}
+
+type DomainEndpointOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainEndpointOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainEndpointOptions)(nil)).Elem()
+}
+
+func (o DomainEndpointOptionsPtrOutput) ToDomainEndpointOptionsPtrOutput() DomainEndpointOptionsPtrOutput {
+	return o
+}
+
+func (o DomainEndpointOptionsPtrOutput) ToDomainEndpointOptionsPtrOutputWithContext(ctx context.Context) DomainEndpointOptionsPtrOutput {
+	return o
+}
+
+func (o DomainEndpointOptionsPtrOutput) Elem() DomainEndpointOptionsOutput {
+	return o.ApplyT(func(v *DomainEndpointOptions) DomainEndpointOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DomainEndpointOptions
+		return ret
+	}).(DomainEndpointOptionsOutput)
+}
+
+func (o DomainEndpointOptionsPtrOutput) CustomEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainEndpointOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DomainEndpointOptionsPtrOutput) CustomEndpointCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainEndpointOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomEndpointCertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DomainEndpointOptionsPtrOutput) CustomEndpointEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainEndpointOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CustomEndpointEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainEndpointOptionsPtrOutput) EnforceHTTPS() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainEndpointOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnforceHTTPS
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainEndpointOptionsPtrOutput) TLSSecurityPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainEndpointOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TLSSecurityPolicy
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2103,14 +2103,14 @@ func init() {
 	pulumi.RegisterOutputType(DomainCognitoOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainColdStorageOptionsOutput{})
 	pulumi.RegisterOutputType(DomainColdStorageOptionsPtrOutput{})
-	pulumi.RegisterOutputType(DomainDomainEndpointOptionsOutput{})
-	pulumi.RegisterOutputType(DomainDomainEndpointOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainEBSOptionsOutput{})
 	pulumi.RegisterOutputType(DomainEBSOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainElasticsearchClusterConfigOutput{})
 	pulumi.RegisterOutputType(DomainElasticsearchClusterConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainEncryptionAtRestOptionsOutput{})
 	pulumi.RegisterOutputType(DomainEncryptionAtRestOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainEndpointOptionsOutput{})
+	pulumi.RegisterOutputType(DomainEndpointOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainMasterUserOptionsOutput{})
 	pulumi.RegisterOutputType(DomainMasterUserOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainNodeToNodeEncryptionOptionsOutput{})

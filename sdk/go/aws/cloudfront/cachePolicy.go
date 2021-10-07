@@ -15,8 +15,8 @@ import (
 type CachePolicy struct {
 	pulumi.CustomResourceState
 
-	CachePolicyConfig CachePolicyCachePolicyConfigOutput `pulumi:"cachePolicyConfig"`
-	LastModifiedTime  pulumi.StringOutput                `pulumi:"lastModifiedTime"`
+	CachePolicyConfig CachePolicyConfigOutput `pulumi:"cachePolicyConfig"`
+	LastModifiedTime  pulumi.StringOutput     `pulumi:"lastModifiedTime"`
 }
 
 // NewCachePolicy registers a new resource with the given unique name, arguments, and options.
@@ -61,12 +61,12 @@ func (CachePolicyState) ElementType() reflect.Type {
 }
 
 type cachePolicyArgs struct {
-	CachePolicyConfig CachePolicyCachePolicyConfig `pulumi:"cachePolicyConfig"`
+	CachePolicyConfig CachePolicyConfig `pulumi:"cachePolicyConfig"`
 }
 
 // The set of arguments for constructing a CachePolicy resource.
 type CachePolicyArgs struct {
-	CachePolicyConfig CachePolicyCachePolicyConfigInput
+	CachePolicyConfig CachePolicyConfigInput
 }
 
 func (CachePolicyArgs) ElementType() reflect.Type {

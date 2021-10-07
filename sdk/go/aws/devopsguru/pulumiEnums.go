@@ -11,123 +11,123 @@ import (
 )
 
 // The type of ResourceCollection
-type ResourceCollectionResourceCollectionType string
+type ResourceCollectionType string
 
 const (
-	ResourceCollectionResourceCollectionTypeAwsCloudFormation = ResourceCollectionResourceCollectionType("AWS_CLOUD_FORMATION")
+	ResourceCollectionTypeAwsCloudFormation = ResourceCollectionType("AWS_CLOUD_FORMATION")
 )
 
-func (ResourceCollectionResourceCollectionType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceCollectionResourceCollectionType)(nil)).Elem()
+func (ResourceCollectionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceCollectionType)(nil)).Elem()
 }
 
-func (e ResourceCollectionResourceCollectionType) ToResourceCollectionResourceCollectionTypeOutput() ResourceCollectionResourceCollectionTypeOutput {
-	return pulumi.ToOutput(e).(ResourceCollectionResourceCollectionTypeOutput)
+func (e ResourceCollectionType) ToResourceCollectionTypeOutput() ResourceCollectionTypeOutput {
+	return pulumi.ToOutput(e).(ResourceCollectionTypeOutput)
 }
 
-func (e ResourceCollectionResourceCollectionType) ToResourceCollectionResourceCollectionTypeOutputWithContext(ctx context.Context) ResourceCollectionResourceCollectionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ResourceCollectionResourceCollectionTypeOutput)
+func (e ResourceCollectionType) ToResourceCollectionTypeOutputWithContext(ctx context.Context) ResourceCollectionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ResourceCollectionTypeOutput)
 }
 
-func (e ResourceCollectionResourceCollectionType) ToResourceCollectionResourceCollectionTypePtrOutput() ResourceCollectionResourceCollectionTypePtrOutput {
-	return e.ToResourceCollectionResourceCollectionTypePtrOutputWithContext(context.Background())
+func (e ResourceCollectionType) ToResourceCollectionTypePtrOutput() ResourceCollectionTypePtrOutput {
+	return e.ToResourceCollectionTypePtrOutputWithContext(context.Background())
 }
 
-func (e ResourceCollectionResourceCollectionType) ToResourceCollectionResourceCollectionTypePtrOutputWithContext(ctx context.Context) ResourceCollectionResourceCollectionTypePtrOutput {
-	return ResourceCollectionResourceCollectionType(e).ToResourceCollectionResourceCollectionTypeOutputWithContext(ctx).ToResourceCollectionResourceCollectionTypePtrOutputWithContext(ctx)
+func (e ResourceCollectionType) ToResourceCollectionTypePtrOutputWithContext(ctx context.Context) ResourceCollectionTypePtrOutput {
+	return ResourceCollectionType(e).ToResourceCollectionTypeOutputWithContext(ctx).ToResourceCollectionTypePtrOutputWithContext(ctx)
 }
 
-func (e ResourceCollectionResourceCollectionType) ToStringOutput() pulumi.StringOutput {
+func (e ResourceCollectionType) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ResourceCollectionResourceCollectionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e ResourceCollectionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ResourceCollectionResourceCollectionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e ResourceCollectionType) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e ResourceCollectionResourceCollectionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e ResourceCollectionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ResourceCollectionResourceCollectionTypeOutput struct{ *pulumi.OutputState }
+type ResourceCollectionTypeOutput struct{ *pulumi.OutputState }
 
-func (ResourceCollectionResourceCollectionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceCollectionResourceCollectionType)(nil)).Elem()
+func (ResourceCollectionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceCollectionType)(nil)).Elem()
 }
 
-func (o ResourceCollectionResourceCollectionTypeOutput) ToResourceCollectionResourceCollectionTypeOutput() ResourceCollectionResourceCollectionTypeOutput {
+func (o ResourceCollectionTypeOutput) ToResourceCollectionTypeOutput() ResourceCollectionTypeOutput {
 	return o
 }
 
-func (o ResourceCollectionResourceCollectionTypeOutput) ToResourceCollectionResourceCollectionTypeOutputWithContext(ctx context.Context) ResourceCollectionResourceCollectionTypeOutput {
+func (o ResourceCollectionTypeOutput) ToResourceCollectionTypeOutputWithContext(ctx context.Context) ResourceCollectionTypeOutput {
 	return o
 }
 
-func (o ResourceCollectionResourceCollectionTypeOutput) ToResourceCollectionResourceCollectionTypePtrOutput() ResourceCollectionResourceCollectionTypePtrOutput {
-	return o.ToResourceCollectionResourceCollectionTypePtrOutputWithContext(context.Background())
+func (o ResourceCollectionTypeOutput) ToResourceCollectionTypePtrOutput() ResourceCollectionTypePtrOutput {
+	return o.ToResourceCollectionTypePtrOutputWithContext(context.Background())
 }
 
-func (o ResourceCollectionResourceCollectionTypeOutput) ToResourceCollectionResourceCollectionTypePtrOutputWithContext(ctx context.Context) ResourceCollectionResourceCollectionTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceCollectionResourceCollectionType) *ResourceCollectionResourceCollectionType {
+func (o ResourceCollectionTypeOutput) ToResourceCollectionTypePtrOutputWithContext(ctx context.Context) ResourceCollectionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceCollectionType) *ResourceCollectionType {
 		return &v
-	}).(ResourceCollectionResourceCollectionTypePtrOutput)
+	}).(ResourceCollectionTypePtrOutput)
 }
 
-func (o ResourceCollectionResourceCollectionTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o ResourceCollectionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o ResourceCollectionResourceCollectionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceCollectionResourceCollectionType) string {
+func (o ResourceCollectionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceCollectionType) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o ResourceCollectionResourceCollectionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ResourceCollectionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ResourceCollectionResourceCollectionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceCollectionResourceCollectionType) *string {
+func (o ResourceCollectionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceCollectionType) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type ResourceCollectionResourceCollectionTypePtrOutput struct{ *pulumi.OutputState }
+type ResourceCollectionTypePtrOutput struct{ *pulumi.OutputState }
 
-func (ResourceCollectionResourceCollectionTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceCollectionResourceCollectionType)(nil)).Elem()
+func (ResourceCollectionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceCollectionType)(nil)).Elem()
 }
 
-func (o ResourceCollectionResourceCollectionTypePtrOutput) ToResourceCollectionResourceCollectionTypePtrOutput() ResourceCollectionResourceCollectionTypePtrOutput {
+func (o ResourceCollectionTypePtrOutput) ToResourceCollectionTypePtrOutput() ResourceCollectionTypePtrOutput {
 	return o
 }
 
-func (o ResourceCollectionResourceCollectionTypePtrOutput) ToResourceCollectionResourceCollectionTypePtrOutputWithContext(ctx context.Context) ResourceCollectionResourceCollectionTypePtrOutput {
+func (o ResourceCollectionTypePtrOutput) ToResourceCollectionTypePtrOutputWithContext(ctx context.Context) ResourceCollectionTypePtrOutput {
 	return o
 }
 
-func (o ResourceCollectionResourceCollectionTypePtrOutput) Elem() ResourceCollectionResourceCollectionTypeOutput {
-	return o.ApplyT(func(v *ResourceCollectionResourceCollectionType) ResourceCollectionResourceCollectionType {
+func (o ResourceCollectionTypePtrOutput) Elem() ResourceCollectionTypeOutput {
+	return o.ApplyT(func(v *ResourceCollectionType) ResourceCollectionType {
 		if v != nil {
 			return *v
 		}
-		var ret ResourceCollectionResourceCollectionType
+		var ret ResourceCollectionType
 		return ret
-	}).(ResourceCollectionResourceCollectionTypeOutput)
+	}).(ResourceCollectionTypeOutput)
 }
 
-func (o ResourceCollectionResourceCollectionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ResourceCollectionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ResourceCollectionResourceCollectionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResourceCollectionResourceCollectionType) *string {
+func (o ResourceCollectionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResourceCollectionType) *string {
 		if e == nil {
 			return nil
 		}
@@ -136,45 +136,45 @@ func (o ResourceCollectionResourceCollectionTypePtrOutput) ToStringPtrOutputWith
 	}).(pulumi.StringPtrOutput)
 }
 
-// ResourceCollectionResourceCollectionTypeInput is an input type that accepts ResourceCollectionResourceCollectionTypeArgs and ResourceCollectionResourceCollectionTypeOutput values.
-// You can construct a concrete instance of `ResourceCollectionResourceCollectionTypeInput` via:
+// ResourceCollectionTypeInput is an input type that accepts ResourceCollectionTypeArgs and ResourceCollectionTypeOutput values.
+// You can construct a concrete instance of `ResourceCollectionTypeInput` via:
 //
-//          ResourceCollectionResourceCollectionTypeArgs{...}
-type ResourceCollectionResourceCollectionTypeInput interface {
+//          ResourceCollectionTypeArgs{...}
+type ResourceCollectionTypeInput interface {
 	pulumi.Input
 
-	ToResourceCollectionResourceCollectionTypeOutput() ResourceCollectionResourceCollectionTypeOutput
-	ToResourceCollectionResourceCollectionTypeOutputWithContext(context.Context) ResourceCollectionResourceCollectionTypeOutput
+	ToResourceCollectionTypeOutput() ResourceCollectionTypeOutput
+	ToResourceCollectionTypeOutputWithContext(context.Context) ResourceCollectionTypeOutput
 }
 
-var resourceCollectionResourceCollectionTypePtrType = reflect.TypeOf((**ResourceCollectionResourceCollectionType)(nil)).Elem()
+var resourceCollectionTypePtrType = reflect.TypeOf((**ResourceCollectionType)(nil)).Elem()
 
-type ResourceCollectionResourceCollectionTypePtrInput interface {
+type ResourceCollectionTypePtrInput interface {
 	pulumi.Input
 
-	ToResourceCollectionResourceCollectionTypePtrOutput() ResourceCollectionResourceCollectionTypePtrOutput
-	ToResourceCollectionResourceCollectionTypePtrOutputWithContext(context.Context) ResourceCollectionResourceCollectionTypePtrOutput
+	ToResourceCollectionTypePtrOutput() ResourceCollectionTypePtrOutput
+	ToResourceCollectionTypePtrOutputWithContext(context.Context) ResourceCollectionTypePtrOutput
 }
 
-type resourceCollectionResourceCollectionTypePtr string
+type resourceCollectionTypePtr string
 
-func ResourceCollectionResourceCollectionTypePtr(v string) ResourceCollectionResourceCollectionTypePtrInput {
-	return (*resourceCollectionResourceCollectionTypePtr)(&v)
+func ResourceCollectionTypePtr(v string) ResourceCollectionTypePtrInput {
+	return (*resourceCollectionTypePtr)(&v)
 }
 
-func (*resourceCollectionResourceCollectionTypePtr) ElementType() reflect.Type {
-	return resourceCollectionResourceCollectionTypePtrType
+func (*resourceCollectionTypePtr) ElementType() reflect.Type {
+	return resourceCollectionTypePtrType
 }
 
-func (in *resourceCollectionResourceCollectionTypePtr) ToResourceCollectionResourceCollectionTypePtrOutput() ResourceCollectionResourceCollectionTypePtrOutput {
-	return pulumi.ToOutput(in).(ResourceCollectionResourceCollectionTypePtrOutput)
+func (in *resourceCollectionTypePtr) ToResourceCollectionTypePtrOutput() ResourceCollectionTypePtrOutput {
+	return pulumi.ToOutput(in).(ResourceCollectionTypePtrOutput)
 }
 
-func (in *resourceCollectionResourceCollectionTypePtr) ToResourceCollectionResourceCollectionTypePtrOutputWithContext(ctx context.Context) ResourceCollectionResourceCollectionTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ResourceCollectionResourceCollectionTypePtrOutput)
+func (in *resourceCollectionTypePtr) ToResourceCollectionTypePtrOutputWithContext(ctx context.Context) ResourceCollectionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ResourceCollectionTypePtrOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(ResourceCollectionResourceCollectionTypeOutput{})
-	pulumi.RegisterOutputType(ResourceCollectionResourceCollectionTypePtrOutput{})
+	pulumi.RegisterOutputType(ResourceCollectionTypeOutput{})
+	pulumi.RegisterOutputType(ResourceCollectionTypePtrOutput{})
 }

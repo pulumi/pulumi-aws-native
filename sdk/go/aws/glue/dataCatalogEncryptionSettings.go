@@ -17,8 +17,8 @@ import (
 type DataCatalogEncryptionSettings struct {
 	pulumi.CustomResourceState
 
-	CatalogId                     pulumi.StringOutput                                              `pulumi:"catalogId"`
-	DataCatalogEncryptionSettings DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput `pulumi:"dataCatalogEncryptionSettings"`
+	CatalogId                     pulumi.StringOutput                     `pulumi:"catalogId"`
+	DataCatalogEncryptionSettings DataCatalogEncryptionSettingsTypeOutput `pulumi:"dataCatalogEncryptionSettings"`
 }
 
 // NewDataCatalogEncryptionSettings registers a new resource with the given unique name, arguments, and options.
@@ -66,14 +66,14 @@ func (DataCatalogEncryptionSettingsState) ElementType() reflect.Type {
 }
 
 type dataCatalogEncryptionSettingsArgs struct {
-	CatalogId                     string                                                     `pulumi:"catalogId"`
-	DataCatalogEncryptionSettings DataCatalogEncryptionSettingsDataCatalogEncryptionSettings `pulumi:"dataCatalogEncryptionSettings"`
+	CatalogId                     string                            `pulumi:"catalogId"`
+	DataCatalogEncryptionSettings DataCatalogEncryptionSettingsType `pulumi:"dataCatalogEncryptionSettings"`
 }
 
 // The set of arguments for constructing a DataCatalogEncryptionSettings resource.
 type DataCatalogEncryptionSettingsArgs struct {
 	CatalogId                     pulumi.StringInput
-	DataCatalogEncryptionSettings DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsInput
+	DataCatalogEncryptionSettings DataCatalogEncryptionSettingsTypeInput
 }
 
 func (DataCatalogEncryptionSettingsArgs) ElementType() reflect.Type {

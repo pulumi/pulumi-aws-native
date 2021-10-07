@@ -17,12 +17,12 @@ import (
 type DomainName struct {
 	pulumi.CustomResourceState
 
-	DomainName               pulumi.StringOutput                          `pulumi:"domainName"`
-	DomainNameConfigurations DomainNameDomainNameConfigurationArrayOutput `pulumi:"domainNameConfigurations"`
-	MutualTlsAuthentication  DomainNameMutualTlsAuthenticationPtrOutput   `pulumi:"mutualTlsAuthentication"`
-	RegionalDomainName       pulumi.StringOutput                          `pulumi:"regionalDomainName"`
-	RegionalHostedZoneId     pulumi.StringOutput                          `pulumi:"regionalHostedZoneId"`
-	Tags                     pulumi.AnyOutput                             `pulumi:"tags"`
+	DomainName               pulumi.StringOutput                        `pulumi:"domainName"`
+	DomainNameConfigurations DomainNameConfigurationArrayOutput         `pulumi:"domainNameConfigurations"`
+	MutualTlsAuthentication  DomainNameMutualTlsAuthenticationPtrOutput `pulumi:"mutualTlsAuthentication"`
+	RegionalDomainName       pulumi.StringOutput                        `pulumi:"regionalDomainName"`
+	RegionalHostedZoneId     pulumi.StringOutput                        `pulumi:"regionalHostedZoneId"`
+	Tags                     pulumi.AnyOutput                           `pulumi:"tags"`
 }
 
 // NewDomainName registers a new resource with the given unique name, arguments, and options.
@@ -67,16 +67,16 @@ func (DomainNameState) ElementType() reflect.Type {
 }
 
 type domainNameArgs struct {
-	DomainName               string                              `pulumi:"domainName"`
-	DomainNameConfigurations []DomainNameDomainNameConfiguration `pulumi:"domainNameConfigurations"`
-	MutualTlsAuthentication  *DomainNameMutualTlsAuthentication  `pulumi:"mutualTlsAuthentication"`
-	Tags                     interface{}                         `pulumi:"tags"`
+	DomainName               string                             `pulumi:"domainName"`
+	DomainNameConfigurations []DomainNameConfiguration          `pulumi:"domainNameConfigurations"`
+	MutualTlsAuthentication  *DomainNameMutualTlsAuthentication `pulumi:"mutualTlsAuthentication"`
+	Tags                     interface{}                        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DomainName resource.
 type DomainNameArgs struct {
 	DomainName               pulumi.StringInput
-	DomainNameConfigurations DomainNameDomainNameConfigurationArrayInput
+	DomainNameConfigurations DomainNameConfigurationArrayInput
 	MutualTlsAuthentication  DomainNameMutualTlsAuthenticationPtrInput
 	Tags                     pulumi.Input
 }

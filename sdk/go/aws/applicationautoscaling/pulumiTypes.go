@@ -10,138 +10,138 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type ScalableTargetScalableTargetAction struct {
+type ScalableTargetAction struct {
 	MaxCapacity *int `pulumi:"maxCapacity"`
 	MinCapacity *int `pulumi:"minCapacity"`
 }
 
-// ScalableTargetScalableTargetActionInput is an input type that accepts ScalableTargetScalableTargetActionArgs and ScalableTargetScalableTargetActionOutput values.
-// You can construct a concrete instance of `ScalableTargetScalableTargetActionInput` via:
+// ScalableTargetActionInput is an input type that accepts ScalableTargetActionArgs and ScalableTargetActionOutput values.
+// You can construct a concrete instance of `ScalableTargetActionInput` via:
 //
-//          ScalableTargetScalableTargetActionArgs{...}
-type ScalableTargetScalableTargetActionInput interface {
+//          ScalableTargetActionArgs{...}
+type ScalableTargetActionInput interface {
 	pulumi.Input
 
-	ToScalableTargetScalableTargetActionOutput() ScalableTargetScalableTargetActionOutput
-	ToScalableTargetScalableTargetActionOutputWithContext(context.Context) ScalableTargetScalableTargetActionOutput
+	ToScalableTargetActionOutput() ScalableTargetActionOutput
+	ToScalableTargetActionOutputWithContext(context.Context) ScalableTargetActionOutput
 }
 
-type ScalableTargetScalableTargetActionArgs struct {
+type ScalableTargetActionArgs struct {
 	MaxCapacity pulumi.IntPtrInput `pulumi:"maxCapacity"`
 	MinCapacity pulumi.IntPtrInput `pulumi:"minCapacity"`
 }
 
-func (ScalableTargetScalableTargetActionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScalableTargetScalableTargetAction)(nil)).Elem()
+func (ScalableTargetActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalableTargetAction)(nil)).Elem()
 }
 
-func (i ScalableTargetScalableTargetActionArgs) ToScalableTargetScalableTargetActionOutput() ScalableTargetScalableTargetActionOutput {
-	return i.ToScalableTargetScalableTargetActionOutputWithContext(context.Background())
+func (i ScalableTargetActionArgs) ToScalableTargetActionOutput() ScalableTargetActionOutput {
+	return i.ToScalableTargetActionOutputWithContext(context.Background())
 }
 
-func (i ScalableTargetScalableTargetActionArgs) ToScalableTargetScalableTargetActionOutputWithContext(ctx context.Context) ScalableTargetScalableTargetActionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScalableTargetScalableTargetActionOutput)
+func (i ScalableTargetActionArgs) ToScalableTargetActionOutputWithContext(ctx context.Context) ScalableTargetActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalableTargetActionOutput)
 }
 
-func (i ScalableTargetScalableTargetActionArgs) ToScalableTargetScalableTargetActionPtrOutput() ScalableTargetScalableTargetActionPtrOutput {
-	return i.ToScalableTargetScalableTargetActionPtrOutputWithContext(context.Background())
+func (i ScalableTargetActionArgs) ToScalableTargetActionPtrOutput() ScalableTargetActionPtrOutput {
+	return i.ToScalableTargetActionPtrOutputWithContext(context.Background())
 }
 
-func (i ScalableTargetScalableTargetActionArgs) ToScalableTargetScalableTargetActionPtrOutputWithContext(ctx context.Context) ScalableTargetScalableTargetActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScalableTargetScalableTargetActionOutput).ToScalableTargetScalableTargetActionPtrOutputWithContext(ctx)
+func (i ScalableTargetActionArgs) ToScalableTargetActionPtrOutputWithContext(ctx context.Context) ScalableTargetActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalableTargetActionOutput).ToScalableTargetActionPtrOutputWithContext(ctx)
 }
 
-// ScalableTargetScalableTargetActionPtrInput is an input type that accepts ScalableTargetScalableTargetActionArgs, ScalableTargetScalableTargetActionPtr and ScalableTargetScalableTargetActionPtrOutput values.
-// You can construct a concrete instance of `ScalableTargetScalableTargetActionPtrInput` via:
+// ScalableTargetActionPtrInput is an input type that accepts ScalableTargetActionArgs, ScalableTargetActionPtr and ScalableTargetActionPtrOutput values.
+// You can construct a concrete instance of `ScalableTargetActionPtrInput` via:
 //
-//          ScalableTargetScalableTargetActionArgs{...}
+//          ScalableTargetActionArgs{...}
 //
 //  or:
 //
 //          nil
-type ScalableTargetScalableTargetActionPtrInput interface {
+type ScalableTargetActionPtrInput interface {
 	pulumi.Input
 
-	ToScalableTargetScalableTargetActionPtrOutput() ScalableTargetScalableTargetActionPtrOutput
-	ToScalableTargetScalableTargetActionPtrOutputWithContext(context.Context) ScalableTargetScalableTargetActionPtrOutput
+	ToScalableTargetActionPtrOutput() ScalableTargetActionPtrOutput
+	ToScalableTargetActionPtrOutputWithContext(context.Context) ScalableTargetActionPtrOutput
 }
 
-type scalableTargetScalableTargetActionPtrType ScalableTargetScalableTargetActionArgs
+type scalableTargetActionPtrType ScalableTargetActionArgs
 
-func ScalableTargetScalableTargetActionPtr(v *ScalableTargetScalableTargetActionArgs) ScalableTargetScalableTargetActionPtrInput {
-	return (*scalableTargetScalableTargetActionPtrType)(v)
+func ScalableTargetActionPtr(v *ScalableTargetActionArgs) ScalableTargetActionPtrInput {
+	return (*scalableTargetActionPtrType)(v)
 }
 
-func (*scalableTargetScalableTargetActionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScalableTargetScalableTargetAction)(nil)).Elem()
+func (*scalableTargetActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScalableTargetAction)(nil)).Elem()
 }
 
-func (i *scalableTargetScalableTargetActionPtrType) ToScalableTargetScalableTargetActionPtrOutput() ScalableTargetScalableTargetActionPtrOutput {
-	return i.ToScalableTargetScalableTargetActionPtrOutputWithContext(context.Background())
+func (i *scalableTargetActionPtrType) ToScalableTargetActionPtrOutput() ScalableTargetActionPtrOutput {
+	return i.ToScalableTargetActionPtrOutputWithContext(context.Background())
 }
 
-func (i *scalableTargetScalableTargetActionPtrType) ToScalableTargetScalableTargetActionPtrOutputWithContext(ctx context.Context) ScalableTargetScalableTargetActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScalableTargetScalableTargetActionPtrOutput)
+func (i *scalableTargetActionPtrType) ToScalableTargetActionPtrOutputWithContext(ctx context.Context) ScalableTargetActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalableTargetActionPtrOutput)
 }
 
-type ScalableTargetScalableTargetActionOutput struct{ *pulumi.OutputState }
+type ScalableTargetActionOutput struct{ *pulumi.OutputState }
 
-func (ScalableTargetScalableTargetActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScalableTargetScalableTargetAction)(nil)).Elem()
+func (ScalableTargetActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalableTargetAction)(nil)).Elem()
 }
 
-func (o ScalableTargetScalableTargetActionOutput) ToScalableTargetScalableTargetActionOutput() ScalableTargetScalableTargetActionOutput {
+func (o ScalableTargetActionOutput) ToScalableTargetActionOutput() ScalableTargetActionOutput {
 	return o
 }
 
-func (o ScalableTargetScalableTargetActionOutput) ToScalableTargetScalableTargetActionOutputWithContext(ctx context.Context) ScalableTargetScalableTargetActionOutput {
+func (o ScalableTargetActionOutput) ToScalableTargetActionOutputWithContext(ctx context.Context) ScalableTargetActionOutput {
 	return o
 }
 
-func (o ScalableTargetScalableTargetActionOutput) ToScalableTargetScalableTargetActionPtrOutput() ScalableTargetScalableTargetActionPtrOutput {
-	return o.ToScalableTargetScalableTargetActionPtrOutputWithContext(context.Background())
+func (o ScalableTargetActionOutput) ToScalableTargetActionPtrOutput() ScalableTargetActionPtrOutput {
+	return o.ToScalableTargetActionPtrOutputWithContext(context.Background())
 }
 
-func (o ScalableTargetScalableTargetActionOutput) ToScalableTargetScalableTargetActionPtrOutputWithContext(ctx context.Context) ScalableTargetScalableTargetActionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalableTargetScalableTargetAction) *ScalableTargetScalableTargetAction {
+func (o ScalableTargetActionOutput) ToScalableTargetActionPtrOutputWithContext(ctx context.Context) ScalableTargetActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalableTargetAction) *ScalableTargetAction {
 		return &v
-	}).(ScalableTargetScalableTargetActionPtrOutput)
+	}).(ScalableTargetActionPtrOutput)
 }
 
-func (o ScalableTargetScalableTargetActionOutput) MaxCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ScalableTargetScalableTargetAction) *int { return v.MaxCapacity }).(pulumi.IntPtrOutput)
+func (o ScalableTargetActionOutput) MaxCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ScalableTargetAction) *int { return v.MaxCapacity }).(pulumi.IntPtrOutput)
 }
 
-func (o ScalableTargetScalableTargetActionOutput) MinCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ScalableTargetScalableTargetAction) *int { return v.MinCapacity }).(pulumi.IntPtrOutput)
+func (o ScalableTargetActionOutput) MinCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ScalableTargetAction) *int { return v.MinCapacity }).(pulumi.IntPtrOutput)
 }
 
-type ScalableTargetScalableTargetActionPtrOutput struct{ *pulumi.OutputState }
+type ScalableTargetActionPtrOutput struct{ *pulumi.OutputState }
 
-func (ScalableTargetScalableTargetActionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScalableTargetScalableTargetAction)(nil)).Elem()
+func (ScalableTargetActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScalableTargetAction)(nil)).Elem()
 }
 
-func (o ScalableTargetScalableTargetActionPtrOutput) ToScalableTargetScalableTargetActionPtrOutput() ScalableTargetScalableTargetActionPtrOutput {
+func (o ScalableTargetActionPtrOutput) ToScalableTargetActionPtrOutput() ScalableTargetActionPtrOutput {
 	return o
 }
 
-func (o ScalableTargetScalableTargetActionPtrOutput) ToScalableTargetScalableTargetActionPtrOutputWithContext(ctx context.Context) ScalableTargetScalableTargetActionPtrOutput {
+func (o ScalableTargetActionPtrOutput) ToScalableTargetActionPtrOutputWithContext(ctx context.Context) ScalableTargetActionPtrOutput {
 	return o
 }
 
-func (o ScalableTargetScalableTargetActionPtrOutput) Elem() ScalableTargetScalableTargetActionOutput {
-	return o.ApplyT(func(v *ScalableTargetScalableTargetAction) ScalableTargetScalableTargetAction {
+func (o ScalableTargetActionPtrOutput) Elem() ScalableTargetActionOutput {
+	return o.ApplyT(func(v *ScalableTargetAction) ScalableTargetAction {
 		if v != nil {
 			return *v
 		}
-		var ret ScalableTargetScalableTargetAction
+		var ret ScalableTargetAction
 		return ret
-	}).(ScalableTargetScalableTargetActionOutput)
+	}).(ScalableTargetActionOutput)
 }
 
-func (o ScalableTargetScalableTargetActionPtrOutput) MaxCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ScalableTargetScalableTargetAction) *int {
+func (o ScalableTargetActionPtrOutput) MaxCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ScalableTargetAction) *int {
 		if v == nil {
 			return nil
 		}
@@ -149,8 +149,8 @@ func (o ScalableTargetScalableTargetActionPtrOutput) MaxCapacity() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o ScalableTargetScalableTargetActionPtrOutput) MinCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ScalableTargetScalableTargetAction) *int {
+func (o ScalableTargetActionPtrOutput) MinCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ScalableTargetAction) *int {
 		if v == nil {
 			return nil
 		}
@@ -159,12 +159,12 @@ func (o ScalableTargetScalableTargetActionPtrOutput) MinCapacity() pulumi.IntPtr
 }
 
 type ScalableTargetScheduledAction struct {
-	EndTime              *string                             `pulumi:"endTime"`
-	ScalableTargetAction *ScalableTargetScalableTargetAction `pulumi:"scalableTargetAction"`
-	Schedule             string                              `pulumi:"schedule"`
-	ScheduledActionName  string                              `pulumi:"scheduledActionName"`
-	StartTime            *string                             `pulumi:"startTime"`
-	Timezone             *string                             `pulumi:"timezone"`
+	EndTime              *string               `pulumi:"endTime"`
+	ScalableTargetAction *ScalableTargetAction `pulumi:"scalableTargetAction"`
+	Schedule             string                `pulumi:"schedule"`
+	ScheduledActionName  string                `pulumi:"scheduledActionName"`
+	StartTime            *string               `pulumi:"startTime"`
+	Timezone             *string               `pulumi:"timezone"`
 }
 
 // ScalableTargetScheduledActionInput is an input type that accepts ScalableTargetScheduledActionArgs and ScalableTargetScheduledActionOutput values.
@@ -179,12 +179,12 @@ type ScalableTargetScheduledActionInput interface {
 }
 
 type ScalableTargetScheduledActionArgs struct {
-	EndTime              pulumi.StringPtrInput                      `pulumi:"endTime"`
-	ScalableTargetAction ScalableTargetScalableTargetActionPtrInput `pulumi:"scalableTargetAction"`
-	Schedule             pulumi.StringInput                         `pulumi:"schedule"`
-	ScheduledActionName  pulumi.StringInput                         `pulumi:"scheduledActionName"`
-	StartTime            pulumi.StringPtrInput                      `pulumi:"startTime"`
-	Timezone             pulumi.StringPtrInput                      `pulumi:"timezone"`
+	EndTime              pulumi.StringPtrInput        `pulumi:"endTime"`
+	ScalableTargetAction ScalableTargetActionPtrInput `pulumi:"scalableTargetAction"`
+	Schedule             pulumi.StringInput           `pulumi:"schedule"`
+	ScheduledActionName  pulumi.StringInput           `pulumi:"scheduledActionName"`
+	StartTime            pulumi.StringPtrInput        `pulumi:"startTime"`
+	Timezone             pulumi.StringPtrInput        `pulumi:"timezone"`
 }
 
 func (ScalableTargetScheduledActionArgs) ElementType() reflect.Type {
@@ -242,10 +242,8 @@ func (o ScalableTargetScheduledActionOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalableTargetScheduledAction) *string { return v.EndTime }).(pulumi.StringPtrOutput)
 }
 
-func (o ScalableTargetScheduledActionOutput) ScalableTargetAction() ScalableTargetScalableTargetActionPtrOutput {
-	return o.ApplyT(func(v ScalableTargetScheduledAction) *ScalableTargetScalableTargetAction {
-		return v.ScalableTargetAction
-	}).(ScalableTargetScalableTargetActionPtrOutput)
+func (o ScalableTargetScheduledActionOutput) ScalableTargetAction() ScalableTargetActionPtrOutput {
+	return o.ApplyT(func(v ScalableTargetScheduledAction) *ScalableTargetAction { return v.ScalableTargetAction }).(ScalableTargetActionPtrOutput)
 }
 
 func (o ScalableTargetScheduledActionOutput) Schedule() pulumi.StringOutput {
@@ -1402,8 +1400,8 @@ func (o ScalingPolicyTargetTrackingScalingPolicyConfigurationPtrOutput) TargetVa
 }
 
 func init() {
-	pulumi.RegisterOutputType(ScalableTargetScalableTargetActionOutput{})
-	pulumi.RegisterOutputType(ScalableTargetScalableTargetActionPtrOutput{})
+	pulumi.RegisterOutputType(ScalableTargetActionOutput{})
+	pulumi.RegisterOutputType(ScalableTargetActionPtrOutput{})
 	pulumi.RegisterOutputType(ScalableTargetScheduledActionOutput{})
 	pulumi.RegisterOutputType(ScalableTargetScheduledActionArrayOutput{})
 	pulumi.RegisterOutputType(ScalableTargetSuspendedStateOutput{})

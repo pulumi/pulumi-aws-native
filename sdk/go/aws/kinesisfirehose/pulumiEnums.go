@@ -341,334 +341,6 @@ func (in *deliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupM
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtrOutput)
 }
 
-type DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType string
-
-const (
-	DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeAwsOwnedCmk        = DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType("AWS_OWNED_CMK")
-	DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeCustomerManagedCmk = DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType("CUSTOMER_MANAGED_CMK")
-)
-
-func (DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType)(nil)).Elem()
-}
-
-func (e DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType) ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeOutput() DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeOutput {
-	return pulumi.ToOutput(e).(DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeOutput)
-}
-
-func (e DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType) ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeOutputWithContext(ctx context.Context) DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeOutput)
-}
-
-func (e DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType) ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput() DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput {
-	return e.ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutputWithContext(context.Background())
-}
-
-func (e DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType) ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutputWithContext(ctx context.Context) DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput {
-	return DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType(e).ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeOutputWithContext(ctx).ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutputWithContext(ctx)
-}
-
-func (e DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeOutput struct{ *pulumi.OutputState }
-
-func (DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType)(nil)).Elem()
-}
-
-func (o DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeOutput) ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeOutput() DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeOutput {
-	return o
-}
-
-func (o DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeOutput) ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeOutputWithContext(ctx context.Context) DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeOutput {
-	return o
-}
-
-func (o DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeOutput) ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput() DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput {
-	return o.ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutputWithContext(context.Background())
-}
-
-func (o DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeOutput) ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutputWithContext(ctx context.Context) DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType) *DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType {
-		return &v
-	}).(DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput)
-}
-
-func (o DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput struct{ *pulumi.OutputState }
-
-func (DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType)(nil)).Elem()
-}
-
-func (o DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput) ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput() DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput {
-	return o
-}
-
-func (o DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput) ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutputWithContext(ctx context.Context) DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput {
-	return o
-}
-
-func (o DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput) Elem() DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeOutput {
-	return o.ApplyT(func(v *DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType) DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType {
-		if v != nil {
-			return *v
-		}
-		var ret DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType
-		return ret
-	}).(DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeOutput)
-}
-
-func (o DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeInput is an input type that accepts DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeArgs and DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeOutput values.
-// You can construct a concrete instance of `DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeInput` via:
-//
-//          DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeArgs{...}
-type DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeInput interface {
-	pulumi.Input
-
-	ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeOutput() DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeOutput
-	ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeOutputWithContext(context.Context) DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeOutput
-}
-
-var deliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrType = reflect.TypeOf((**DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType)(nil)).Elem()
-
-type DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrInput interface {
-	pulumi.Input
-
-	ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput() DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput
-	ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutputWithContext(context.Context) DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput
-}
-
-type deliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtr string
-
-func DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtr(v string) DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrInput {
-	return (*deliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtr)(&v)
-}
-
-func (*deliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtr) ElementType() reflect.Type {
-	return deliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrType
-}
-
-func (in *deliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtr) ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput() DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput {
-	return pulumi.ToOutput(in).(DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput)
-}
-
-func (in *deliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtr) ToDeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutputWithContext(ctx context.Context) DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput)
-}
-
-type DeliveryStreamDeliveryStreamType string
-
-const (
-	DeliveryStreamDeliveryStreamTypeDirectPut             = DeliveryStreamDeliveryStreamType("DirectPut")
-	DeliveryStreamDeliveryStreamTypeKinesisStreamAsSource = DeliveryStreamDeliveryStreamType("KinesisStreamAsSource")
-)
-
-func (DeliveryStreamDeliveryStreamType) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryStreamDeliveryStreamType)(nil)).Elem()
-}
-
-func (e DeliveryStreamDeliveryStreamType) ToDeliveryStreamDeliveryStreamTypeOutput() DeliveryStreamDeliveryStreamTypeOutput {
-	return pulumi.ToOutput(e).(DeliveryStreamDeliveryStreamTypeOutput)
-}
-
-func (e DeliveryStreamDeliveryStreamType) ToDeliveryStreamDeliveryStreamTypeOutputWithContext(ctx context.Context) DeliveryStreamDeliveryStreamTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DeliveryStreamDeliveryStreamTypeOutput)
-}
-
-func (e DeliveryStreamDeliveryStreamType) ToDeliveryStreamDeliveryStreamTypePtrOutput() DeliveryStreamDeliveryStreamTypePtrOutput {
-	return e.ToDeliveryStreamDeliveryStreamTypePtrOutputWithContext(context.Background())
-}
-
-func (e DeliveryStreamDeliveryStreamType) ToDeliveryStreamDeliveryStreamTypePtrOutputWithContext(ctx context.Context) DeliveryStreamDeliveryStreamTypePtrOutput {
-	return DeliveryStreamDeliveryStreamType(e).ToDeliveryStreamDeliveryStreamTypeOutputWithContext(ctx).ToDeliveryStreamDeliveryStreamTypePtrOutputWithContext(ctx)
-}
-
-func (e DeliveryStreamDeliveryStreamType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DeliveryStreamDeliveryStreamType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DeliveryStreamDeliveryStreamType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DeliveryStreamDeliveryStreamType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type DeliveryStreamDeliveryStreamTypeOutput struct{ *pulumi.OutputState }
-
-func (DeliveryStreamDeliveryStreamTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryStreamDeliveryStreamType)(nil)).Elem()
-}
-
-func (o DeliveryStreamDeliveryStreamTypeOutput) ToDeliveryStreamDeliveryStreamTypeOutput() DeliveryStreamDeliveryStreamTypeOutput {
-	return o
-}
-
-func (o DeliveryStreamDeliveryStreamTypeOutput) ToDeliveryStreamDeliveryStreamTypeOutputWithContext(ctx context.Context) DeliveryStreamDeliveryStreamTypeOutput {
-	return o
-}
-
-func (o DeliveryStreamDeliveryStreamTypeOutput) ToDeliveryStreamDeliveryStreamTypePtrOutput() DeliveryStreamDeliveryStreamTypePtrOutput {
-	return o.ToDeliveryStreamDeliveryStreamTypePtrOutputWithContext(context.Background())
-}
-
-func (o DeliveryStreamDeliveryStreamTypeOutput) ToDeliveryStreamDeliveryStreamTypePtrOutputWithContext(ctx context.Context) DeliveryStreamDeliveryStreamTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamDeliveryStreamType) *DeliveryStreamDeliveryStreamType {
-		return &v
-	}).(DeliveryStreamDeliveryStreamTypePtrOutput)
-}
-
-func (o DeliveryStreamDeliveryStreamTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o DeliveryStreamDeliveryStreamTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliveryStreamDeliveryStreamType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o DeliveryStreamDeliveryStreamTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DeliveryStreamDeliveryStreamTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliveryStreamDeliveryStreamType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type DeliveryStreamDeliveryStreamTypePtrOutput struct{ *pulumi.OutputState }
-
-func (DeliveryStreamDeliveryStreamTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeliveryStreamDeliveryStreamType)(nil)).Elem()
-}
-
-func (o DeliveryStreamDeliveryStreamTypePtrOutput) ToDeliveryStreamDeliveryStreamTypePtrOutput() DeliveryStreamDeliveryStreamTypePtrOutput {
-	return o
-}
-
-func (o DeliveryStreamDeliveryStreamTypePtrOutput) ToDeliveryStreamDeliveryStreamTypePtrOutputWithContext(ctx context.Context) DeliveryStreamDeliveryStreamTypePtrOutput {
-	return o
-}
-
-func (o DeliveryStreamDeliveryStreamTypePtrOutput) Elem() DeliveryStreamDeliveryStreamTypeOutput {
-	return o.ApplyT(func(v *DeliveryStreamDeliveryStreamType) DeliveryStreamDeliveryStreamType {
-		if v != nil {
-			return *v
-		}
-		var ret DeliveryStreamDeliveryStreamType
-		return ret
-	}).(DeliveryStreamDeliveryStreamTypeOutput)
-}
-
-func (o DeliveryStreamDeliveryStreamTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DeliveryStreamDeliveryStreamTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DeliveryStreamDeliveryStreamType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// DeliveryStreamDeliveryStreamTypeInput is an input type that accepts DeliveryStreamDeliveryStreamTypeArgs and DeliveryStreamDeliveryStreamTypeOutput values.
-// You can construct a concrete instance of `DeliveryStreamDeliveryStreamTypeInput` via:
-//
-//          DeliveryStreamDeliveryStreamTypeArgs{...}
-type DeliveryStreamDeliveryStreamTypeInput interface {
-	pulumi.Input
-
-	ToDeliveryStreamDeliveryStreamTypeOutput() DeliveryStreamDeliveryStreamTypeOutput
-	ToDeliveryStreamDeliveryStreamTypeOutputWithContext(context.Context) DeliveryStreamDeliveryStreamTypeOutput
-}
-
-var deliveryStreamDeliveryStreamTypePtrType = reflect.TypeOf((**DeliveryStreamDeliveryStreamType)(nil)).Elem()
-
-type DeliveryStreamDeliveryStreamTypePtrInput interface {
-	pulumi.Input
-
-	ToDeliveryStreamDeliveryStreamTypePtrOutput() DeliveryStreamDeliveryStreamTypePtrOutput
-	ToDeliveryStreamDeliveryStreamTypePtrOutputWithContext(context.Context) DeliveryStreamDeliveryStreamTypePtrOutput
-}
-
-type deliveryStreamDeliveryStreamTypePtr string
-
-func DeliveryStreamDeliveryStreamTypePtr(v string) DeliveryStreamDeliveryStreamTypePtrInput {
-	return (*deliveryStreamDeliveryStreamTypePtr)(&v)
-}
-
-func (*deliveryStreamDeliveryStreamTypePtr) ElementType() reflect.Type {
-	return deliveryStreamDeliveryStreamTypePtrType
-}
-
-func (in *deliveryStreamDeliveryStreamTypePtr) ToDeliveryStreamDeliveryStreamTypePtrOutput() DeliveryStreamDeliveryStreamTypePtrOutput {
-	return pulumi.ToOutput(in).(DeliveryStreamDeliveryStreamTypePtrOutput)
-}
-
-func (in *deliveryStreamDeliveryStreamTypePtr) ToDeliveryStreamDeliveryStreamTypePtrOutputWithContext(ctx context.Context) DeliveryStreamDeliveryStreamTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamDeliveryStreamTypePtrOutput)
-}
-
 type DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod string
 
 const (
@@ -998,6 +670,170 @@ func (in *deliveryStreamElasticsearchDestinationConfigurationS3BackupModePtr) To
 
 func (in *deliveryStreamElasticsearchDestinationConfigurationS3BackupModePtr) ToDeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutputWithContext(ctx context.Context) DeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutput)
+}
+
+type DeliveryStreamEncryptionConfigurationInputKeyType string
+
+const (
+	DeliveryStreamEncryptionConfigurationInputKeyTypeAwsOwnedCmk        = DeliveryStreamEncryptionConfigurationInputKeyType("AWS_OWNED_CMK")
+	DeliveryStreamEncryptionConfigurationInputKeyTypeCustomerManagedCmk = DeliveryStreamEncryptionConfigurationInputKeyType("CUSTOMER_MANAGED_CMK")
+)
+
+func (DeliveryStreamEncryptionConfigurationInputKeyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamEncryptionConfigurationInputKeyType)(nil)).Elem()
+}
+
+func (e DeliveryStreamEncryptionConfigurationInputKeyType) ToDeliveryStreamEncryptionConfigurationInputKeyTypeOutput() DeliveryStreamEncryptionConfigurationInputKeyTypeOutput {
+	return pulumi.ToOutput(e).(DeliveryStreamEncryptionConfigurationInputKeyTypeOutput)
+}
+
+func (e DeliveryStreamEncryptionConfigurationInputKeyType) ToDeliveryStreamEncryptionConfigurationInputKeyTypeOutputWithContext(ctx context.Context) DeliveryStreamEncryptionConfigurationInputKeyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DeliveryStreamEncryptionConfigurationInputKeyTypeOutput)
+}
+
+func (e DeliveryStreamEncryptionConfigurationInputKeyType) ToDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput() DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput {
+	return e.ToDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutputWithContext(context.Background())
+}
+
+func (e DeliveryStreamEncryptionConfigurationInputKeyType) ToDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutputWithContext(ctx context.Context) DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput {
+	return DeliveryStreamEncryptionConfigurationInputKeyType(e).ToDeliveryStreamEncryptionConfigurationInputKeyTypeOutputWithContext(ctx).ToDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutputWithContext(ctx)
+}
+
+func (e DeliveryStreamEncryptionConfigurationInputKeyType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeliveryStreamEncryptionConfigurationInputKeyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeliveryStreamEncryptionConfigurationInputKeyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DeliveryStreamEncryptionConfigurationInputKeyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DeliveryStreamEncryptionConfigurationInputKeyTypeOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamEncryptionConfigurationInputKeyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamEncryptionConfigurationInputKeyType)(nil)).Elem()
+}
+
+func (o DeliveryStreamEncryptionConfigurationInputKeyTypeOutput) ToDeliveryStreamEncryptionConfigurationInputKeyTypeOutput() DeliveryStreamEncryptionConfigurationInputKeyTypeOutput {
+	return o
+}
+
+func (o DeliveryStreamEncryptionConfigurationInputKeyTypeOutput) ToDeliveryStreamEncryptionConfigurationInputKeyTypeOutputWithContext(ctx context.Context) DeliveryStreamEncryptionConfigurationInputKeyTypeOutput {
+	return o
+}
+
+func (o DeliveryStreamEncryptionConfigurationInputKeyTypeOutput) ToDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput() DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput {
+	return o.ToDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamEncryptionConfigurationInputKeyTypeOutput) ToDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutputWithContext(ctx context.Context) DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamEncryptionConfigurationInputKeyType) *DeliveryStreamEncryptionConfigurationInputKeyType {
+		return &v
+	}).(DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput)
+}
+
+func (o DeliveryStreamEncryptionConfigurationInputKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamEncryptionConfigurationInputKeyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliveryStreamEncryptionConfigurationInputKeyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DeliveryStreamEncryptionConfigurationInputKeyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamEncryptionConfigurationInputKeyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliveryStreamEncryptionConfigurationInputKeyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamEncryptionConfigurationInputKeyType)(nil)).Elem()
+}
+
+func (o DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput) ToDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput() DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput {
+	return o
+}
+
+func (o DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput) ToDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutputWithContext(ctx context.Context) DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput {
+	return o
+}
+
+func (o DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput) Elem() DeliveryStreamEncryptionConfigurationInputKeyTypeOutput {
+	return o.ApplyT(func(v *DeliveryStreamEncryptionConfigurationInputKeyType) DeliveryStreamEncryptionConfigurationInputKeyType {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamEncryptionConfigurationInputKeyType
+		return ret
+	}).(DeliveryStreamEncryptionConfigurationInputKeyTypeOutput)
+}
+
+func (o DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DeliveryStreamEncryptionConfigurationInputKeyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DeliveryStreamEncryptionConfigurationInputKeyTypeInput is an input type that accepts DeliveryStreamEncryptionConfigurationInputKeyTypeArgs and DeliveryStreamEncryptionConfigurationInputKeyTypeOutput values.
+// You can construct a concrete instance of `DeliveryStreamEncryptionConfigurationInputKeyTypeInput` via:
+//
+//          DeliveryStreamEncryptionConfigurationInputKeyTypeArgs{...}
+type DeliveryStreamEncryptionConfigurationInputKeyTypeInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamEncryptionConfigurationInputKeyTypeOutput() DeliveryStreamEncryptionConfigurationInputKeyTypeOutput
+	ToDeliveryStreamEncryptionConfigurationInputKeyTypeOutputWithContext(context.Context) DeliveryStreamEncryptionConfigurationInputKeyTypeOutput
+}
+
+var deliveryStreamEncryptionConfigurationInputKeyTypePtrType = reflect.TypeOf((**DeliveryStreamEncryptionConfigurationInputKeyType)(nil)).Elem()
+
+type DeliveryStreamEncryptionConfigurationInputKeyTypePtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput() DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput
+	ToDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutputWithContext(context.Context) DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput
+}
+
+type deliveryStreamEncryptionConfigurationInputKeyTypePtr string
+
+func DeliveryStreamEncryptionConfigurationInputKeyTypePtr(v string) DeliveryStreamEncryptionConfigurationInputKeyTypePtrInput {
+	return (*deliveryStreamEncryptionConfigurationInputKeyTypePtr)(&v)
+}
+
+func (*deliveryStreamEncryptionConfigurationInputKeyTypePtr) ElementType() reflect.Type {
+	return deliveryStreamEncryptionConfigurationInputKeyTypePtrType
+}
+
+func (in *deliveryStreamEncryptionConfigurationInputKeyTypePtr) ToDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput() DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput {
+	return pulumi.ToOutput(in).(DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput)
+}
+
+func (in *deliveryStreamEncryptionConfigurationInputKeyTypePtr) ToDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutputWithContext(ctx context.Context) DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput)
 }
 
 type DeliveryStreamEncryptionConfigurationNoEncryptionConfig string
@@ -2319,19 +2155,181 @@ func (in *deliveryStreamSplunkDestinationConfigurationHECEndpointTypePtr) ToDeli
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput)
 }
 
+type DeliveryStreamType string
+
+const (
+	DeliveryStreamTypeDirectPut             = DeliveryStreamType("DirectPut")
+	DeliveryStreamTypeKinesisStreamAsSource = DeliveryStreamType("KinesisStreamAsSource")
+)
+
+func (DeliveryStreamType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamType)(nil)).Elem()
+}
+
+func (e DeliveryStreamType) ToDeliveryStreamTypeOutput() DeliveryStreamTypeOutput {
+	return pulumi.ToOutput(e).(DeliveryStreamTypeOutput)
+}
+
+func (e DeliveryStreamType) ToDeliveryStreamTypeOutputWithContext(ctx context.Context) DeliveryStreamTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DeliveryStreamTypeOutput)
+}
+
+func (e DeliveryStreamType) ToDeliveryStreamTypePtrOutput() DeliveryStreamTypePtrOutput {
+	return e.ToDeliveryStreamTypePtrOutputWithContext(context.Background())
+}
+
+func (e DeliveryStreamType) ToDeliveryStreamTypePtrOutputWithContext(ctx context.Context) DeliveryStreamTypePtrOutput {
+	return DeliveryStreamType(e).ToDeliveryStreamTypeOutputWithContext(ctx).ToDeliveryStreamTypePtrOutputWithContext(ctx)
+}
+
+func (e DeliveryStreamType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeliveryStreamType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeliveryStreamType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DeliveryStreamType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DeliveryStreamTypeOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamType)(nil)).Elem()
+}
+
+func (o DeliveryStreamTypeOutput) ToDeliveryStreamTypeOutput() DeliveryStreamTypeOutput {
+	return o
+}
+
+func (o DeliveryStreamTypeOutput) ToDeliveryStreamTypeOutputWithContext(ctx context.Context) DeliveryStreamTypeOutput {
+	return o
+}
+
+func (o DeliveryStreamTypeOutput) ToDeliveryStreamTypePtrOutput() DeliveryStreamTypePtrOutput {
+	return o.ToDeliveryStreamTypePtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamTypeOutput) ToDeliveryStreamTypePtrOutputWithContext(ctx context.Context) DeliveryStreamTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamType) *DeliveryStreamType {
+		return &v
+	}).(DeliveryStreamTypePtrOutput)
+}
+
+func (o DeliveryStreamTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliveryStreamType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DeliveryStreamTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliveryStreamType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DeliveryStreamTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamType)(nil)).Elem()
+}
+
+func (o DeliveryStreamTypePtrOutput) ToDeliveryStreamTypePtrOutput() DeliveryStreamTypePtrOutput {
+	return o
+}
+
+func (o DeliveryStreamTypePtrOutput) ToDeliveryStreamTypePtrOutputWithContext(ctx context.Context) DeliveryStreamTypePtrOutput {
+	return o
+}
+
+func (o DeliveryStreamTypePtrOutput) Elem() DeliveryStreamTypeOutput {
+	return o.ApplyT(func(v *DeliveryStreamType) DeliveryStreamType {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamType
+		return ret
+	}).(DeliveryStreamTypeOutput)
+}
+
+func (o DeliveryStreamTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DeliveryStreamType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DeliveryStreamTypeInput is an input type that accepts DeliveryStreamTypeArgs and DeliveryStreamTypeOutput values.
+// You can construct a concrete instance of `DeliveryStreamTypeInput` via:
+//
+//          DeliveryStreamTypeArgs{...}
+type DeliveryStreamTypeInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamTypeOutput() DeliveryStreamTypeOutput
+	ToDeliveryStreamTypeOutputWithContext(context.Context) DeliveryStreamTypeOutput
+}
+
+var deliveryStreamTypePtrType = reflect.TypeOf((**DeliveryStreamType)(nil)).Elem()
+
+type DeliveryStreamTypePtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamTypePtrOutput() DeliveryStreamTypePtrOutput
+	ToDeliveryStreamTypePtrOutputWithContext(context.Context) DeliveryStreamTypePtrOutput
+}
+
+type deliveryStreamTypePtr string
+
+func DeliveryStreamTypePtr(v string) DeliveryStreamTypePtrInput {
+	return (*deliveryStreamTypePtr)(&v)
+}
+
+func (*deliveryStreamTypePtr) ElementType() reflect.Type {
+	return deliveryStreamTypePtrType
+}
+
+func (in *deliveryStreamTypePtr) ToDeliveryStreamTypePtrOutput() DeliveryStreamTypePtrOutput {
+	return pulumi.ToOutput(in).(DeliveryStreamTypePtrOutput)
+}
+
+func (in *deliveryStreamTypePtr) ToDeliveryStreamTypePtrOutputWithContext(ctx context.Context) DeliveryStreamTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModeOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtrOutput{})
-	pulumi.RegisterOutputType(DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeOutput{})
-	pulumi.RegisterOutputType(DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput{})
-	pulumi.RegisterOutputType(DeliveryStreamDeliveryStreamTypeOutput{})
-	pulumi.RegisterOutputType(DeliveryStreamDeliveryStreamTypePtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamElasticsearchDestinationConfigurationS3BackupModeOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamEncryptionConfigurationInputKeyTypeOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamEncryptionConfigurationNoEncryptionConfigOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatOutput{})
@@ -2348,4 +2346,6 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamTypeOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamTypePtrOutput{})
 }

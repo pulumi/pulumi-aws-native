@@ -11,136 +11,134 @@ import (
 )
 
 // Information about notification channels you have configured with DevOps Guru.
-type NotificationChannelNotificationChannelConfig struct {
+type NotificationChannelConfig struct {
 	Sns *NotificationChannelSnsChannelConfig `pulumi:"sns"`
 }
 
-// NotificationChannelNotificationChannelConfigInput is an input type that accepts NotificationChannelNotificationChannelConfigArgs and NotificationChannelNotificationChannelConfigOutput values.
-// You can construct a concrete instance of `NotificationChannelNotificationChannelConfigInput` via:
+// NotificationChannelConfigInput is an input type that accepts NotificationChannelConfigArgs and NotificationChannelConfigOutput values.
+// You can construct a concrete instance of `NotificationChannelConfigInput` via:
 //
-//          NotificationChannelNotificationChannelConfigArgs{...}
-type NotificationChannelNotificationChannelConfigInput interface {
+//          NotificationChannelConfigArgs{...}
+type NotificationChannelConfigInput interface {
 	pulumi.Input
 
-	ToNotificationChannelNotificationChannelConfigOutput() NotificationChannelNotificationChannelConfigOutput
-	ToNotificationChannelNotificationChannelConfigOutputWithContext(context.Context) NotificationChannelNotificationChannelConfigOutput
+	ToNotificationChannelConfigOutput() NotificationChannelConfigOutput
+	ToNotificationChannelConfigOutputWithContext(context.Context) NotificationChannelConfigOutput
 }
 
 // Information about notification channels you have configured with DevOps Guru.
-type NotificationChannelNotificationChannelConfigArgs struct {
+type NotificationChannelConfigArgs struct {
 	Sns NotificationChannelSnsChannelConfigPtrInput `pulumi:"sns"`
 }
 
-func (NotificationChannelNotificationChannelConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationChannelNotificationChannelConfig)(nil)).Elem()
+func (NotificationChannelConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationChannelConfig)(nil)).Elem()
 }
 
-func (i NotificationChannelNotificationChannelConfigArgs) ToNotificationChannelNotificationChannelConfigOutput() NotificationChannelNotificationChannelConfigOutput {
-	return i.ToNotificationChannelNotificationChannelConfigOutputWithContext(context.Background())
+func (i NotificationChannelConfigArgs) ToNotificationChannelConfigOutput() NotificationChannelConfigOutput {
+	return i.ToNotificationChannelConfigOutputWithContext(context.Background())
 }
 
-func (i NotificationChannelNotificationChannelConfigArgs) ToNotificationChannelNotificationChannelConfigOutputWithContext(ctx context.Context) NotificationChannelNotificationChannelConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelNotificationChannelConfigOutput)
+func (i NotificationChannelConfigArgs) ToNotificationChannelConfigOutputWithContext(ctx context.Context) NotificationChannelConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelConfigOutput)
 }
 
-func (i NotificationChannelNotificationChannelConfigArgs) ToNotificationChannelNotificationChannelConfigPtrOutput() NotificationChannelNotificationChannelConfigPtrOutput {
-	return i.ToNotificationChannelNotificationChannelConfigPtrOutputWithContext(context.Background())
+func (i NotificationChannelConfigArgs) ToNotificationChannelConfigPtrOutput() NotificationChannelConfigPtrOutput {
+	return i.ToNotificationChannelConfigPtrOutputWithContext(context.Background())
 }
 
-func (i NotificationChannelNotificationChannelConfigArgs) ToNotificationChannelNotificationChannelConfigPtrOutputWithContext(ctx context.Context) NotificationChannelNotificationChannelConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelNotificationChannelConfigOutput).ToNotificationChannelNotificationChannelConfigPtrOutputWithContext(ctx)
+func (i NotificationChannelConfigArgs) ToNotificationChannelConfigPtrOutputWithContext(ctx context.Context) NotificationChannelConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelConfigOutput).ToNotificationChannelConfigPtrOutputWithContext(ctx)
 }
 
-// NotificationChannelNotificationChannelConfigPtrInput is an input type that accepts NotificationChannelNotificationChannelConfigArgs, NotificationChannelNotificationChannelConfigPtr and NotificationChannelNotificationChannelConfigPtrOutput values.
-// You can construct a concrete instance of `NotificationChannelNotificationChannelConfigPtrInput` via:
+// NotificationChannelConfigPtrInput is an input type that accepts NotificationChannelConfigArgs, NotificationChannelConfigPtr and NotificationChannelConfigPtrOutput values.
+// You can construct a concrete instance of `NotificationChannelConfigPtrInput` via:
 //
-//          NotificationChannelNotificationChannelConfigArgs{...}
+//          NotificationChannelConfigArgs{...}
 //
 //  or:
 //
 //          nil
-type NotificationChannelNotificationChannelConfigPtrInput interface {
+type NotificationChannelConfigPtrInput interface {
 	pulumi.Input
 
-	ToNotificationChannelNotificationChannelConfigPtrOutput() NotificationChannelNotificationChannelConfigPtrOutput
-	ToNotificationChannelNotificationChannelConfigPtrOutputWithContext(context.Context) NotificationChannelNotificationChannelConfigPtrOutput
+	ToNotificationChannelConfigPtrOutput() NotificationChannelConfigPtrOutput
+	ToNotificationChannelConfigPtrOutputWithContext(context.Context) NotificationChannelConfigPtrOutput
 }
 
-type notificationChannelNotificationChannelConfigPtrType NotificationChannelNotificationChannelConfigArgs
+type notificationChannelConfigPtrType NotificationChannelConfigArgs
 
-func NotificationChannelNotificationChannelConfigPtr(v *NotificationChannelNotificationChannelConfigArgs) NotificationChannelNotificationChannelConfigPtrInput {
-	return (*notificationChannelNotificationChannelConfigPtrType)(v)
+func NotificationChannelConfigPtr(v *NotificationChannelConfigArgs) NotificationChannelConfigPtrInput {
+	return (*notificationChannelConfigPtrType)(v)
 }
 
-func (*notificationChannelNotificationChannelConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NotificationChannelNotificationChannelConfig)(nil)).Elem()
+func (*notificationChannelConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationChannelConfig)(nil)).Elem()
 }
 
-func (i *notificationChannelNotificationChannelConfigPtrType) ToNotificationChannelNotificationChannelConfigPtrOutput() NotificationChannelNotificationChannelConfigPtrOutput {
-	return i.ToNotificationChannelNotificationChannelConfigPtrOutputWithContext(context.Background())
+func (i *notificationChannelConfigPtrType) ToNotificationChannelConfigPtrOutput() NotificationChannelConfigPtrOutput {
+	return i.ToNotificationChannelConfigPtrOutputWithContext(context.Background())
 }
 
-func (i *notificationChannelNotificationChannelConfigPtrType) ToNotificationChannelNotificationChannelConfigPtrOutputWithContext(ctx context.Context) NotificationChannelNotificationChannelConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelNotificationChannelConfigPtrOutput)
+func (i *notificationChannelConfigPtrType) ToNotificationChannelConfigPtrOutputWithContext(ctx context.Context) NotificationChannelConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelConfigPtrOutput)
 }
 
 // Information about notification channels you have configured with DevOps Guru.
-type NotificationChannelNotificationChannelConfigOutput struct{ *pulumi.OutputState }
+type NotificationChannelConfigOutput struct{ *pulumi.OutputState }
 
-func (NotificationChannelNotificationChannelConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationChannelNotificationChannelConfig)(nil)).Elem()
+func (NotificationChannelConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationChannelConfig)(nil)).Elem()
 }
 
-func (o NotificationChannelNotificationChannelConfigOutput) ToNotificationChannelNotificationChannelConfigOutput() NotificationChannelNotificationChannelConfigOutput {
+func (o NotificationChannelConfigOutput) ToNotificationChannelConfigOutput() NotificationChannelConfigOutput {
 	return o
 }
 
-func (o NotificationChannelNotificationChannelConfigOutput) ToNotificationChannelNotificationChannelConfigOutputWithContext(ctx context.Context) NotificationChannelNotificationChannelConfigOutput {
+func (o NotificationChannelConfigOutput) ToNotificationChannelConfigOutputWithContext(ctx context.Context) NotificationChannelConfigOutput {
 	return o
 }
 
-func (o NotificationChannelNotificationChannelConfigOutput) ToNotificationChannelNotificationChannelConfigPtrOutput() NotificationChannelNotificationChannelConfigPtrOutput {
-	return o.ToNotificationChannelNotificationChannelConfigPtrOutputWithContext(context.Background())
+func (o NotificationChannelConfigOutput) ToNotificationChannelConfigPtrOutput() NotificationChannelConfigPtrOutput {
+	return o.ToNotificationChannelConfigPtrOutputWithContext(context.Background())
 }
 
-func (o NotificationChannelNotificationChannelConfigOutput) ToNotificationChannelNotificationChannelConfigPtrOutputWithContext(ctx context.Context) NotificationChannelNotificationChannelConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationChannelNotificationChannelConfig) *NotificationChannelNotificationChannelConfig {
+func (o NotificationChannelConfigOutput) ToNotificationChannelConfigPtrOutputWithContext(ctx context.Context) NotificationChannelConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationChannelConfig) *NotificationChannelConfig {
 		return &v
-	}).(NotificationChannelNotificationChannelConfigPtrOutput)
+	}).(NotificationChannelConfigPtrOutput)
 }
 
-func (o NotificationChannelNotificationChannelConfigOutput) Sns() NotificationChannelSnsChannelConfigPtrOutput {
-	return o.ApplyT(func(v NotificationChannelNotificationChannelConfig) *NotificationChannelSnsChannelConfig {
-		return v.Sns
-	}).(NotificationChannelSnsChannelConfigPtrOutput)
+func (o NotificationChannelConfigOutput) Sns() NotificationChannelSnsChannelConfigPtrOutput {
+	return o.ApplyT(func(v NotificationChannelConfig) *NotificationChannelSnsChannelConfig { return v.Sns }).(NotificationChannelSnsChannelConfigPtrOutput)
 }
 
-type NotificationChannelNotificationChannelConfigPtrOutput struct{ *pulumi.OutputState }
+type NotificationChannelConfigPtrOutput struct{ *pulumi.OutputState }
 
-func (NotificationChannelNotificationChannelConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NotificationChannelNotificationChannelConfig)(nil)).Elem()
+func (NotificationChannelConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationChannelConfig)(nil)).Elem()
 }
 
-func (o NotificationChannelNotificationChannelConfigPtrOutput) ToNotificationChannelNotificationChannelConfigPtrOutput() NotificationChannelNotificationChannelConfigPtrOutput {
+func (o NotificationChannelConfigPtrOutput) ToNotificationChannelConfigPtrOutput() NotificationChannelConfigPtrOutput {
 	return o
 }
 
-func (o NotificationChannelNotificationChannelConfigPtrOutput) ToNotificationChannelNotificationChannelConfigPtrOutputWithContext(ctx context.Context) NotificationChannelNotificationChannelConfigPtrOutput {
+func (o NotificationChannelConfigPtrOutput) ToNotificationChannelConfigPtrOutputWithContext(ctx context.Context) NotificationChannelConfigPtrOutput {
 	return o
 }
 
-func (o NotificationChannelNotificationChannelConfigPtrOutput) Elem() NotificationChannelNotificationChannelConfigOutput {
-	return o.ApplyT(func(v *NotificationChannelNotificationChannelConfig) NotificationChannelNotificationChannelConfig {
+func (o NotificationChannelConfigPtrOutput) Elem() NotificationChannelConfigOutput {
+	return o.ApplyT(func(v *NotificationChannelConfig) NotificationChannelConfig {
 		if v != nil {
 			return *v
 		}
-		var ret NotificationChannelNotificationChannelConfig
+		var ret NotificationChannelConfig
 		return ret
-	}).(NotificationChannelNotificationChannelConfigOutput)
+	}).(NotificationChannelConfigOutput)
 }
 
-func (o NotificationChannelNotificationChannelConfigPtrOutput) Sns() NotificationChannelSnsChannelConfigPtrOutput {
-	return o.ApplyT(func(v *NotificationChannelNotificationChannelConfig) *NotificationChannelSnsChannelConfig {
+func (o NotificationChannelConfigPtrOutput) Sns() NotificationChannelSnsChannelConfigPtrOutput {
+	return o.ApplyT(func(v *NotificationChannelConfig) *NotificationChannelSnsChannelConfig {
 		if v == nil {
 			return nil
 		}
@@ -425,136 +423,136 @@ func (o ResourceCollectionCloudFormationCollectionFilterPtrOutput) StackNames() 
 }
 
 // Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
-type ResourceCollectionResourceCollectionFilter struct {
+type ResourceCollectionFilter struct {
 	CloudFormation *ResourceCollectionCloudFormationCollectionFilter `pulumi:"cloudFormation"`
 }
 
-// ResourceCollectionResourceCollectionFilterInput is an input type that accepts ResourceCollectionResourceCollectionFilterArgs and ResourceCollectionResourceCollectionFilterOutput values.
-// You can construct a concrete instance of `ResourceCollectionResourceCollectionFilterInput` via:
+// ResourceCollectionFilterInput is an input type that accepts ResourceCollectionFilterArgs and ResourceCollectionFilterOutput values.
+// You can construct a concrete instance of `ResourceCollectionFilterInput` via:
 //
-//          ResourceCollectionResourceCollectionFilterArgs{...}
-type ResourceCollectionResourceCollectionFilterInput interface {
+//          ResourceCollectionFilterArgs{...}
+type ResourceCollectionFilterInput interface {
 	pulumi.Input
 
-	ToResourceCollectionResourceCollectionFilterOutput() ResourceCollectionResourceCollectionFilterOutput
-	ToResourceCollectionResourceCollectionFilterOutputWithContext(context.Context) ResourceCollectionResourceCollectionFilterOutput
+	ToResourceCollectionFilterOutput() ResourceCollectionFilterOutput
+	ToResourceCollectionFilterOutputWithContext(context.Context) ResourceCollectionFilterOutput
 }
 
 // Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
-type ResourceCollectionResourceCollectionFilterArgs struct {
+type ResourceCollectionFilterArgs struct {
 	CloudFormation ResourceCollectionCloudFormationCollectionFilterPtrInput `pulumi:"cloudFormation"`
 }
 
-func (ResourceCollectionResourceCollectionFilterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceCollectionResourceCollectionFilter)(nil)).Elem()
+func (ResourceCollectionFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceCollectionFilter)(nil)).Elem()
 }
 
-func (i ResourceCollectionResourceCollectionFilterArgs) ToResourceCollectionResourceCollectionFilterOutput() ResourceCollectionResourceCollectionFilterOutput {
-	return i.ToResourceCollectionResourceCollectionFilterOutputWithContext(context.Background())
+func (i ResourceCollectionFilterArgs) ToResourceCollectionFilterOutput() ResourceCollectionFilterOutput {
+	return i.ToResourceCollectionFilterOutputWithContext(context.Background())
 }
 
-func (i ResourceCollectionResourceCollectionFilterArgs) ToResourceCollectionResourceCollectionFilterOutputWithContext(ctx context.Context) ResourceCollectionResourceCollectionFilterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceCollectionResourceCollectionFilterOutput)
+func (i ResourceCollectionFilterArgs) ToResourceCollectionFilterOutputWithContext(ctx context.Context) ResourceCollectionFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceCollectionFilterOutput)
 }
 
-func (i ResourceCollectionResourceCollectionFilterArgs) ToResourceCollectionResourceCollectionFilterPtrOutput() ResourceCollectionResourceCollectionFilterPtrOutput {
-	return i.ToResourceCollectionResourceCollectionFilterPtrOutputWithContext(context.Background())
+func (i ResourceCollectionFilterArgs) ToResourceCollectionFilterPtrOutput() ResourceCollectionFilterPtrOutput {
+	return i.ToResourceCollectionFilterPtrOutputWithContext(context.Background())
 }
 
-func (i ResourceCollectionResourceCollectionFilterArgs) ToResourceCollectionResourceCollectionFilterPtrOutputWithContext(ctx context.Context) ResourceCollectionResourceCollectionFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceCollectionResourceCollectionFilterOutput).ToResourceCollectionResourceCollectionFilterPtrOutputWithContext(ctx)
+func (i ResourceCollectionFilterArgs) ToResourceCollectionFilterPtrOutputWithContext(ctx context.Context) ResourceCollectionFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceCollectionFilterOutput).ToResourceCollectionFilterPtrOutputWithContext(ctx)
 }
 
-// ResourceCollectionResourceCollectionFilterPtrInput is an input type that accepts ResourceCollectionResourceCollectionFilterArgs, ResourceCollectionResourceCollectionFilterPtr and ResourceCollectionResourceCollectionFilterPtrOutput values.
-// You can construct a concrete instance of `ResourceCollectionResourceCollectionFilterPtrInput` via:
+// ResourceCollectionFilterPtrInput is an input type that accepts ResourceCollectionFilterArgs, ResourceCollectionFilterPtr and ResourceCollectionFilterPtrOutput values.
+// You can construct a concrete instance of `ResourceCollectionFilterPtrInput` via:
 //
-//          ResourceCollectionResourceCollectionFilterArgs{...}
+//          ResourceCollectionFilterArgs{...}
 //
 //  or:
 //
 //          nil
-type ResourceCollectionResourceCollectionFilterPtrInput interface {
+type ResourceCollectionFilterPtrInput interface {
 	pulumi.Input
 
-	ToResourceCollectionResourceCollectionFilterPtrOutput() ResourceCollectionResourceCollectionFilterPtrOutput
-	ToResourceCollectionResourceCollectionFilterPtrOutputWithContext(context.Context) ResourceCollectionResourceCollectionFilterPtrOutput
+	ToResourceCollectionFilterPtrOutput() ResourceCollectionFilterPtrOutput
+	ToResourceCollectionFilterPtrOutputWithContext(context.Context) ResourceCollectionFilterPtrOutput
 }
 
-type resourceCollectionResourceCollectionFilterPtrType ResourceCollectionResourceCollectionFilterArgs
+type resourceCollectionFilterPtrType ResourceCollectionFilterArgs
 
-func ResourceCollectionResourceCollectionFilterPtr(v *ResourceCollectionResourceCollectionFilterArgs) ResourceCollectionResourceCollectionFilterPtrInput {
-	return (*resourceCollectionResourceCollectionFilterPtrType)(v)
+func ResourceCollectionFilterPtr(v *ResourceCollectionFilterArgs) ResourceCollectionFilterPtrInput {
+	return (*resourceCollectionFilterPtrType)(v)
 }
 
-func (*resourceCollectionResourceCollectionFilterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceCollectionResourceCollectionFilter)(nil)).Elem()
+func (*resourceCollectionFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceCollectionFilter)(nil)).Elem()
 }
 
-func (i *resourceCollectionResourceCollectionFilterPtrType) ToResourceCollectionResourceCollectionFilterPtrOutput() ResourceCollectionResourceCollectionFilterPtrOutput {
-	return i.ToResourceCollectionResourceCollectionFilterPtrOutputWithContext(context.Background())
+func (i *resourceCollectionFilterPtrType) ToResourceCollectionFilterPtrOutput() ResourceCollectionFilterPtrOutput {
+	return i.ToResourceCollectionFilterPtrOutputWithContext(context.Background())
 }
 
-func (i *resourceCollectionResourceCollectionFilterPtrType) ToResourceCollectionResourceCollectionFilterPtrOutputWithContext(ctx context.Context) ResourceCollectionResourceCollectionFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceCollectionResourceCollectionFilterPtrOutput)
+func (i *resourceCollectionFilterPtrType) ToResourceCollectionFilterPtrOutputWithContext(ctx context.Context) ResourceCollectionFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceCollectionFilterPtrOutput)
 }
 
 // Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
-type ResourceCollectionResourceCollectionFilterOutput struct{ *pulumi.OutputState }
+type ResourceCollectionFilterOutput struct{ *pulumi.OutputState }
 
-func (ResourceCollectionResourceCollectionFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceCollectionResourceCollectionFilter)(nil)).Elem()
+func (ResourceCollectionFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceCollectionFilter)(nil)).Elem()
 }
 
-func (o ResourceCollectionResourceCollectionFilterOutput) ToResourceCollectionResourceCollectionFilterOutput() ResourceCollectionResourceCollectionFilterOutput {
+func (o ResourceCollectionFilterOutput) ToResourceCollectionFilterOutput() ResourceCollectionFilterOutput {
 	return o
 }
 
-func (o ResourceCollectionResourceCollectionFilterOutput) ToResourceCollectionResourceCollectionFilterOutputWithContext(ctx context.Context) ResourceCollectionResourceCollectionFilterOutput {
+func (o ResourceCollectionFilterOutput) ToResourceCollectionFilterOutputWithContext(ctx context.Context) ResourceCollectionFilterOutput {
 	return o
 }
 
-func (o ResourceCollectionResourceCollectionFilterOutput) ToResourceCollectionResourceCollectionFilterPtrOutput() ResourceCollectionResourceCollectionFilterPtrOutput {
-	return o.ToResourceCollectionResourceCollectionFilterPtrOutputWithContext(context.Background())
+func (o ResourceCollectionFilterOutput) ToResourceCollectionFilterPtrOutput() ResourceCollectionFilterPtrOutput {
+	return o.ToResourceCollectionFilterPtrOutputWithContext(context.Background())
 }
 
-func (o ResourceCollectionResourceCollectionFilterOutput) ToResourceCollectionResourceCollectionFilterPtrOutputWithContext(ctx context.Context) ResourceCollectionResourceCollectionFilterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceCollectionResourceCollectionFilter) *ResourceCollectionResourceCollectionFilter {
+func (o ResourceCollectionFilterOutput) ToResourceCollectionFilterPtrOutputWithContext(ctx context.Context) ResourceCollectionFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceCollectionFilter) *ResourceCollectionFilter {
 		return &v
-	}).(ResourceCollectionResourceCollectionFilterPtrOutput)
+	}).(ResourceCollectionFilterPtrOutput)
 }
 
-func (o ResourceCollectionResourceCollectionFilterOutput) CloudFormation() ResourceCollectionCloudFormationCollectionFilterPtrOutput {
-	return o.ApplyT(func(v ResourceCollectionResourceCollectionFilter) *ResourceCollectionCloudFormationCollectionFilter {
+func (o ResourceCollectionFilterOutput) CloudFormation() ResourceCollectionCloudFormationCollectionFilterPtrOutput {
+	return o.ApplyT(func(v ResourceCollectionFilter) *ResourceCollectionCloudFormationCollectionFilter {
 		return v.CloudFormation
 	}).(ResourceCollectionCloudFormationCollectionFilterPtrOutput)
 }
 
-type ResourceCollectionResourceCollectionFilterPtrOutput struct{ *pulumi.OutputState }
+type ResourceCollectionFilterPtrOutput struct{ *pulumi.OutputState }
 
-func (ResourceCollectionResourceCollectionFilterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceCollectionResourceCollectionFilter)(nil)).Elem()
+func (ResourceCollectionFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceCollectionFilter)(nil)).Elem()
 }
 
-func (o ResourceCollectionResourceCollectionFilterPtrOutput) ToResourceCollectionResourceCollectionFilterPtrOutput() ResourceCollectionResourceCollectionFilterPtrOutput {
+func (o ResourceCollectionFilterPtrOutput) ToResourceCollectionFilterPtrOutput() ResourceCollectionFilterPtrOutput {
 	return o
 }
 
-func (o ResourceCollectionResourceCollectionFilterPtrOutput) ToResourceCollectionResourceCollectionFilterPtrOutputWithContext(ctx context.Context) ResourceCollectionResourceCollectionFilterPtrOutput {
+func (o ResourceCollectionFilterPtrOutput) ToResourceCollectionFilterPtrOutputWithContext(ctx context.Context) ResourceCollectionFilterPtrOutput {
 	return o
 }
 
-func (o ResourceCollectionResourceCollectionFilterPtrOutput) Elem() ResourceCollectionResourceCollectionFilterOutput {
-	return o.ApplyT(func(v *ResourceCollectionResourceCollectionFilter) ResourceCollectionResourceCollectionFilter {
+func (o ResourceCollectionFilterPtrOutput) Elem() ResourceCollectionFilterOutput {
+	return o.ApplyT(func(v *ResourceCollectionFilter) ResourceCollectionFilter {
 		if v != nil {
 			return *v
 		}
-		var ret ResourceCollectionResourceCollectionFilter
+		var ret ResourceCollectionFilter
 		return ret
-	}).(ResourceCollectionResourceCollectionFilterOutput)
+	}).(ResourceCollectionFilterOutput)
 }
 
-func (o ResourceCollectionResourceCollectionFilterPtrOutput) CloudFormation() ResourceCollectionCloudFormationCollectionFilterPtrOutput {
-	return o.ApplyT(func(v *ResourceCollectionResourceCollectionFilter) *ResourceCollectionCloudFormationCollectionFilter {
+func (o ResourceCollectionFilterPtrOutput) CloudFormation() ResourceCollectionCloudFormationCollectionFilterPtrOutput {
+	return o.ApplyT(func(v *ResourceCollectionFilter) *ResourceCollectionCloudFormationCollectionFilter {
 		if v == nil {
 			return nil
 		}
@@ -563,12 +561,12 @@ func (o ResourceCollectionResourceCollectionFilterPtrOutput) CloudFormation() Re
 }
 
 func init() {
-	pulumi.RegisterOutputType(NotificationChannelNotificationChannelConfigOutput{})
-	pulumi.RegisterOutputType(NotificationChannelNotificationChannelConfigPtrOutput{})
+	pulumi.RegisterOutputType(NotificationChannelConfigOutput{})
+	pulumi.RegisterOutputType(NotificationChannelConfigPtrOutput{})
 	pulumi.RegisterOutputType(NotificationChannelSnsChannelConfigOutput{})
 	pulumi.RegisterOutputType(NotificationChannelSnsChannelConfigPtrOutput{})
 	pulumi.RegisterOutputType(ResourceCollectionCloudFormationCollectionFilterOutput{})
 	pulumi.RegisterOutputType(ResourceCollectionCloudFormationCollectionFilterPtrOutput{})
-	pulumi.RegisterOutputType(ResourceCollectionResourceCollectionFilterOutput{})
-	pulumi.RegisterOutputType(ResourceCollectionResourceCollectionFilterPtrOutput{})
+	pulumi.RegisterOutputType(ResourceCollectionFilterOutput{})
+	pulumi.RegisterOutputType(ResourceCollectionFilterPtrOutput{})
 }

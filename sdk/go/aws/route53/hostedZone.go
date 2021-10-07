@@ -15,11 +15,11 @@ import (
 type HostedZone struct {
 	pulumi.CustomResourceState
 
-	HostedZoneConfig HostedZoneHostedZoneConfigPtrOutput `pulumi:"hostedZoneConfig"`
+	HostedZoneConfig HostedZoneConfigPtrOutput `pulumi:"hostedZoneConfig"`
 	// Adds, edits, or deletes tags for a health check or a hosted zone.
 	//
 	// For information about using tags for cost allocation, see Using Cost Allocation Tags in the AWS Billing and Cost Management User Guide.
-	HostedZoneTags HostedZoneHostedZoneTagArrayOutput `pulumi:"hostedZoneTags"`
+	HostedZoneTags HostedZoneTagArrayOutput `pulumi:"hostedZoneTags"`
 	// The name of the domain. Specify a fully qualified domain name, for example, www.example.com. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats www.example.com (without a trailing dot) and www.example.com. (with a trailing dot) as identical.
 	//
 	// If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of NameServers that are returned by the Fn::GetAtt intrinsic function.
@@ -72,11 +72,11 @@ func (HostedZoneState) ElementType() reflect.Type {
 }
 
 type hostedZoneArgs struct {
-	HostedZoneConfig *HostedZoneHostedZoneConfig `pulumi:"hostedZoneConfig"`
+	HostedZoneConfig *HostedZoneConfig `pulumi:"hostedZoneConfig"`
 	// Adds, edits, or deletes tags for a health check or a hosted zone.
 	//
 	// For information about using tags for cost allocation, see Using Cost Allocation Tags in the AWS Billing and Cost Management User Guide.
-	HostedZoneTags []HostedZoneHostedZoneTag `pulumi:"hostedZoneTags"`
+	HostedZoneTags []HostedZoneTag `pulumi:"hostedZoneTags"`
 	// The name of the domain. Specify a fully qualified domain name, for example, www.example.com. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats www.example.com (without a trailing dot) and www.example.com. (with a trailing dot) as identical.
 	//
 	// If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of NameServers that are returned by the Fn::GetAtt intrinsic function.
@@ -88,11 +88,11 @@ type hostedZoneArgs struct {
 
 // The set of arguments for constructing a HostedZone resource.
 type HostedZoneArgs struct {
-	HostedZoneConfig HostedZoneHostedZoneConfigPtrInput
+	HostedZoneConfig HostedZoneConfigPtrInput
 	// Adds, edits, or deletes tags for a health check or a hosted zone.
 	//
 	// For information about using tags for cost allocation, see Using Cost Allocation Tags in the AWS Billing and Cost Management User Guide.
-	HostedZoneTags HostedZoneHostedZoneTagArrayInput
+	HostedZoneTags HostedZoneTagArrayInput
 	// The name of the domain. Specify a fully qualified domain name, for example, www.example.com. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats www.example.com (without a trailing dot) and www.example.com. (with a trailing dot) as identical.
 	//
 	// If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of NameServers that are returned by the Fn::GetAtt intrinsic function.

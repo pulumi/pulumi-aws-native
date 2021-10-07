@@ -15,9 +15,9 @@ import (
 type LoggingConfiguration struct {
 	pulumi.CustomResourceState
 
-	FirewallArn          pulumi.StringOutput                            `pulumi:"firewallArn"`
-	FirewallName         pulumi.StringPtrOutput                         `pulumi:"firewallName"`
-	LoggingConfiguration LoggingConfigurationLoggingConfigurationOutput `pulumi:"loggingConfiguration"`
+	FirewallArn          pulumi.StringOutput            `pulumi:"firewallArn"`
+	FirewallName         pulumi.StringPtrOutput         `pulumi:"firewallName"`
+	LoggingConfiguration LoggingConfigurationTypeOutput `pulumi:"loggingConfiguration"`
 }
 
 // NewLoggingConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -65,16 +65,16 @@ func (LoggingConfigurationState) ElementType() reflect.Type {
 }
 
 type loggingConfigurationArgs struct {
-	FirewallArn          string                                   `pulumi:"firewallArn"`
-	FirewallName         *string                                  `pulumi:"firewallName"`
-	LoggingConfiguration LoggingConfigurationLoggingConfiguration `pulumi:"loggingConfiguration"`
+	FirewallArn          string                   `pulumi:"firewallArn"`
+	FirewallName         *string                  `pulumi:"firewallName"`
+	LoggingConfiguration LoggingConfigurationType `pulumi:"loggingConfiguration"`
 }
 
 // The set of arguments for constructing a LoggingConfiguration resource.
 type LoggingConfigurationArgs struct {
 	FirewallArn          pulumi.StringInput
 	FirewallName         pulumi.StringPtrInput
-	LoggingConfiguration LoggingConfigurationLoggingConfigurationInput
+	LoggingConfiguration LoggingConfigurationTypeInput
 }
 
 func (LoggingConfigurationArgs) ElementType() reflect.Type {

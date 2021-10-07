@@ -2346,6 +2346,154 @@ func (o StackChefConfigurationPtrOutput) ManageBerkshelf() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
+type StackConfigurationManager struct {
+	Name    *string `pulumi:"name"`
+	Version *string `pulumi:"version"`
+}
+
+// StackConfigurationManagerInput is an input type that accepts StackConfigurationManagerArgs and StackConfigurationManagerOutput values.
+// You can construct a concrete instance of `StackConfigurationManagerInput` via:
+//
+//          StackConfigurationManagerArgs{...}
+type StackConfigurationManagerInput interface {
+	pulumi.Input
+
+	ToStackConfigurationManagerOutput() StackConfigurationManagerOutput
+	ToStackConfigurationManagerOutputWithContext(context.Context) StackConfigurationManagerOutput
+}
+
+type StackConfigurationManagerArgs struct {
+	Name    pulumi.StringPtrInput `pulumi:"name"`
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (StackConfigurationManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackConfigurationManager)(nil)).Elem()
+}
+
+func (i StackConfigurationManagerArgs) ToStackConfigurationManagerOutput() StackConfigurationManagerOutput {
+	return i.ToStackConfigurationManagerOutputWithContext(context.Background())
+}
+
+func (i StackConfigurationManagerArgs) ToStackConfigurationManagerOutputWithContext(ctx context.Context) StackConfigurationManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackConfigurationManagerOutput)
+}
+
+func (i StackConfigurationManagerArgs) ToStackConfigurationManagerPtrOutput() StackConfigurationManagerPtrOutput {
+	return i.ToStackConfigurationManagerPtrOutputWithContext(context.Background())
+}
+
+func (i StackConfigurationManagerArgs) ToStackConfigurationManagerPtrOutputWithContext(ctx context.Context) StackConfigurationManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackConfigurationManagerOutput).ToStackConfigurationManagerPtrOutputWithContext(ctx)
+}
+
+// StackConfigurationManagerPtrInput is an input type that accepts StackConfigurationManagerArgs, StackConfigurationManagerPtr and StackConfigurationManagerPtrOutput values.
+// You can construct a concrete instance of `StackConfigurationManagerPtrInput` via:
+//
+//          StackConfigurationManagerArgs{...}
+//
+//  or:
+//
+//          nil
+type StackConfigurationManagerPtrInput interface {
+	pulumi.Input
+
+	ToStackConfigurationManagerPtrOutput() StackConfigurationManagerPtrOutput
+	ToStackConfigurationManagerPtrOutputWithContext(context.Context) StackConfigurationManagerPtrOutput
+}
+
+type stackConfigurationManagerPtrType StackConfigurationManagerArgs
+
+func StackConfigurationManagerPtr(v *StackConfigurationManagerArgs) StackConfigurationManagerPtrInput {
+	return (*stackConfigurationManagerPtrType)(v)
+}
+
+func (*stackConfigurationManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackConfigurationManager)(nil)).Elem()
+}
+
+func (i *stackConfigurationManagerPtrType) ToStackConfigurationManagerPtrOutput() StackConfigurationManagerPtrOutput {
+	return i.ToStackConfigurationManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *stackConfigurationManagerPtrType) ToStackConfigurationManagerPtrOutputWithContext(ctx context.Context) StackConfigurationManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackConfigurationManagerPtrOutput)
+}
+
+type StackConfigurationManagerOutput struct{ *pulumi.OutputState }
+
+func (StackConfigurationManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackConfigurationManager)(nil)).Elem()
+}
+
+func (o StackConfigurationManagerOutput) ToStackConfigurationManagerOutput() StackConfigurationManagerOutput {
+	return o
+}
+
+func (o StackConfigurationManagerOutput) ToStackConfigurationManagerOutputWithContext(ctx context.Context) StackConfigurationManagerOutput {
+	return o
+}
+
+func (o StackConfigurationManagerOutput) ToStackConfigurationManagerPtrOutput() StackConfigurationManagerPtrOutput {
+	return o.ToStackConfigurationManagerPtrOutputWithContext(context.Background())
+}
+
+func (o StackConfigurationManagerOutput) ToStackConfigurationManagerPtrOutputWithContext(ctx context.Context) StackConfigurationManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackConfigurationManager) *StackConfigurationManager {
+		return &v
+	}).(StackConfigurationManagerPtrOutput)
+}
+
+func (o StackConfigurationManagerOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackConfigurationManager) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o StackConfigurationManagerOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackConfigurationManager) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type StackConfigurationManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (StackConfigurationManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackConfigurationManager)(nil)).Elem()
+}
+
+func (o StackConfigurationManagerPtrOutput) ToStackConfigurationManagerPtrOutput() StackConfigurationManagerPtrOutput {
+	return o
+}
+
+func (o StackConfigurationManagerPtrOutput) ToStackConfigurationManagerPtrOutputWithContext(ctx context.Context) StackConfigurationManagerPtrOutput {
+	return o
+}
+
+func (o StackConfigurationManagerPtrOutput) Elem() StackConfigurationManagerOutput {
+	return o.ApplyT(func(v *StackConfigurationManager) StackConfigurationManager {
+		if v != nil {
+			return *v
+		}
+		var ret StackConfigurationManager
+		return ret
+	}).(StackConfigurationManagerOutput)
+}
+
+func (o StackConfigurationManagerPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackConfigurationManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StackConfigurationManagerPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackConfigurationManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
 type StackElasticIp struct {
 	Ip   string  `pulumi:"ip"`
 	Name *string `pulumi:"name"`
@@ -2760,154 +2908,6 @@ func (o StackSourcePtrOutput) Username() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type StackStackConfigurationManager struct {
-	Name    *string `pulumi:"name"`
-	Version *string `pulumi:"version"`
-}
-
-// StackStackConfigurationManagerInput is an input type that accepts StackStackConfigurationManagerArgs and StackStackConfigurationManagerOutput values.
-// You can construct a concrete instance of `StackStackConfigurationManagerInput` via:
-//
-//          StackStackConfigurationManagerArgs{...}
-type StackStackConfigurationManagerInput interface {
-	pulumi.Input
-
-	ToStackStackConfigurationManagerOutput() StackStackConfigurationManagerOutput
-	ToStackStackConfigurationManagerOutputWithContext(context.Context) StackStackConfigurationManagerOutput
-}
-
-type StackStackConfigurationManagerArgs struct {
-	Name    pulumi.StringPtrInput `pulumi:"name"`
-	Version pulumi.StringPtrInput `pulumi:"version"`
-}
-
-func (StackStackConfigurationManagerArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StackStackConfigurationManager)(nil)).Elem()
-}
-
-func (i StackStackConfigurationManagerArgs) ToStackStackConfigurationManagerOutput() StackStackConfigurationManagerOutput {
-	return i.ToStackStackConfigurationManagerOutputWithContext(context.Background())
-}
-
-func (i StackStackConfigurationManagerArgs) ToStackStackConfigurationManagerOutputWithContext(ctx context.Context) StackStackConfigurationManagerOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StackStackConfigurationManagerOutput)
-}
-
-func (i StackStackConfigurationManagerArgs) ToStackStackConfigurationManagerPtrOutput() StackStackConfigurationManagerPtrOutput {
-	return i.ToStackStackConfigurationManagerPtrOutputWithContext(context.Background())
-}
-
-func (i StackStackConfigurationManagerArgs) ToStackStackConfigurationManagerPtrOutputWithContext(ctx context.Context) StackStackConfigurationManagerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StackStackConfigurationManagerOutput).ToStackStackConfigurationManagerPtrOutputWithContext(ctx)
-}
-
-// StackStackConfigurationManagerPtrInput is an input type that accepts StackStackConfigurationManagerArgs, StackStackConfigurationManagerPtr and StackStackConfigurationManagerPtrOutput values.
-// You can construct a concrete instance of `StackStackConfigurationManagerPtrInput` via:
-//
-//          StackStackConfigurationManagerArgs{...}
-//
-//  or:
-//
-//          nil
-type StackStackConfigurationManagerPtrInput interface {
-	pulumi.Input
-
-	ToStackStackConfigurationManagerPtrOutput() StackStackConfigurationManagerPtrOutput
-	ToStackStackConfigurationManagerPtrOutputWithContext(context.Context) StackStackConfigurationManagerPtrOutput
-}
-
-type stackStackConfigurationManagerPtrType StackStackConfigurationManagerArgs
-
-func StackStackConfigurationManagerPtr(v *StackStackConfigurationManagerArgs) StackStackConfigurationManagerPtrInput {
-	return (*stackStackConfigurationManagerPtrType)(v)
-}
-
-func (*stackStackConfigurationManagerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StackStackConfigurationManager)(nil)).Elem()
-}
-
-func (i *stackStackConfigurationManagerPtrType) ToStackStackConfigurationManagerPtrOutput() StackStackConfigurationManagerPtrOutput {
-	return i.ToStackStackConfigurationManagerPtrOutputWithContext(context.Background())
-}
-
-func (i *stackStackConfigurationManagerPtrType) ToStackStackConfigurationManagerPtrOutputWithContext(ctx context.Context) StackStackConfigurationManagerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StackStackConfigurationManagerPtrOutput)
-}
-
-type StackStackConfigurationManagerOutput struct{ *pulumi.OutputState }
-
-func (StackStackConfigurationManagerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StackStackConfigurationManager)(nil)).Elem()
-}
-
-func (o StackStackConfigurationManagerOutput) ToStackStackConfigurationManagerOutput() StackStackConfigurationManagerOutput {
-	return o
-}
-
-func (o StackStackConfigurationManagerOutput) ToStackStackConfigurationManagerOutputWithContext(ctx context.Context) StackStackConfigurationManagerOutput {
-	return o
-}
-
-func (o StackStackConfigurationManagerOutput) ToStackStackConfigurationManagerPtrOutput() StackStackConfigurationManagerPtrOutput {
-	return o.ToStackStackConfigurationManagerPtrOutputWithContext(context.Background())
-}
-
-func (o StackStackConfigurationManagerOutput) ToStackStackConfigurationManagerPtrOutputWithContext(ctx context.Context) StackStackConfigurationManagerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackStackConfigurationManager) *StackStackConfigurationManager {
-		return &v
-	}).(StackStackConfigurationManagerPtrOutput)
-}
-
-func (o StackStackConfigurationManagerOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StackStackConfigurationManager) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o StackStackConfigurationManagerOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StackStackConfigurationManager) *string { return v.Version }).(pulumi.StringPtrOutput)
-}
-
-type StackStackConfigurationManagerPtrOutput struct{ *pulumi.OutputState }
-
-func (StackStackConfigurationManagerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StackStackConfigurationManager)(nil)).Elem()
-}
-
-func (o StackStackConfigurationManagerPtrOutput) ToStackStackConfigurationManagerPtrOutput() StackStackConfigurationManagerPtrOutput {
-	return o
-}
-
-func (o StackStackConfigurationManagerPtrOutput) ToStackStackConfigurationManagerPtrOutputWithContext(ctx context.Context) StackStackConfigurationManagerPtrOutput {
-	return o
-}
-
-func (o StackStackConfigurationManagerPtrOutput) Elem() StackStackConfigurationManagerOutput {
-	return o.ApplyT(func(v *StackStackConfigurationManager) StackStackConfigurationManager {
-		if v != nil {
-			return *v
-		}
-		var ret StackStackConfigurationManager
-		return ret
-	}).(StackStackConfigurationManagerOutput)
-}
-
-func (o StackStackConfigurationManagerPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StackStackConfigurationManager) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o StackStackConfigurationManagerPtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StackStackConfigurationManager) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Version
-	}).(pulumi.StringPtrOutput)
-}
-
 type StackTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -3039,14 +3039,14 @@ func init() {
 	pulumi.RegisterOutputType(LayerVolumeConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(StackChefConfigurationOutput{})
 	pulumi.RegisterOutputType(StackChefConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(StackConfigurationManagerOutput{})
+	pulumi.RegisterOutputType(StackConfigurationManagerPtrOutput{})
 	pulumi.RegisterOutputType(StackElasticIpOutput{})
 	pulumi.RegisterOutputType(StackElasticIpArrayOutput{})
 	pulumi.RegisterOutputType(StackRdsDbInstanceOutput{})
 	pulumi.RegisterOutputType(StackRdsDbInstanceArrayOutput{})
 	pulumi.RegisterOutputType(StackSourceOutput{})
 	pulumi.RegisterOutputType(StackSourcePtrOutput{})
-	pulumi.RegisterOutputType(StackStackConfigurationManagerOutput{})
-	pulumi.RegisterOutputType(StackStackConfigurationManagerPtrOutput{})
 	pulumi.RegisterOutputType(StackTagOutput{})
 	pulumi.RegisterOutputType(StackTagArrayOutput{})
 }

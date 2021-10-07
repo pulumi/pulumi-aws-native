@@ -17,11 +17,11 @@ import (
 type Node struct {
 	pulumi.CustomResourceState
 
-	Arn               pulumi.StringOutput         `pulumi:"arn"`
-	MemberId          pulumi.StringOutput         `pulumi:"memberId"`
-	NetworkId         pulumi.StringOutput         `pulumi:"networkId"`
-	NodeConfiguration NodeNodeConfigurationOutput `pulumi:"nodeConfiguration"`
-	NodeId            pulumi.StringOutput         `pulumi:"nodeId"`
+	Arn               pulumi.StringOutput     `pulumi:"arn"`
+	MemberId          pulumi.StringOutput     `pulumi:"memberId"`
+	NetworkId         pulumi.StringOutput     `pulumi:"networkId"`
+	NodeConfiguration NodeConfigurationOutput `pulumi:"nodeConfiguration"`
+	NodeId            pulumi.StringOutput     `pulumi:"nodeId"`
 }
 
 // NewNode registers a new resource with the given unique name, arguments, and options.
@@ -72,16 +72,16 @@ func (NodeState) ElementType() reflect.Type {
 }
 
 type nodeArgs struct {
-	MemberId          string                `pulumi:"memberId"`
-	NetworkId         string                `pulumi:"networkId"`
-	NodeConfiguration NodeNodeConfiguration `pulumi:"nodeConfiguration"`
+	MemberId          string            `pulumi:"memberId"`
+	NetworkId         string            `pulumi:"networkId"`
+	NodeConfiguration NodeConfiguration `pulumi:"nodeConfiguration"`
 }
 
 // The set of arguments for constructing a Node resource.
 type NodeArgs struct {
 	MemberId          pulumi.StringInput
 	NetworkId         pulumi.StringInput
-	NodeConfiguration NodeNodeConfigurationInput
+	NodeConfiguration NodeConfigurationInput
 }
 
 func (NodeArgs) ElementType() reflect.Type {

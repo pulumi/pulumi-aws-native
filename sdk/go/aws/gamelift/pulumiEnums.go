@@ -339,171 +339,6 @@ func (in *fleetCertificateConfigurationCertificateTypePtr) ToFleetCertificateCon
 	return pulumi.ToOutputWithContext(ctx, in).(FleetCertificateConfigurationCertificateTypePtrOutput)
 }
 
-// Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
-type FleetFleetType string
-
-const (
-	FleetFleetTypeOnDemand = FleetFleetType("ON_DEMAND")
-	FleetFleetTypeSpot     = FleetFleetType("SPOT")
-)
-
-func (FleetFleetType) ElementType() reflect.Type {
-	return reflect.TypeOf((*FleetFleetType)(nil)).Elem()
-}
-
-func (e FleetFleetType) ToFleetFleetTypeOutput() FleetFleetTypeOutput {
-	return pulumi.ToOutput(e).(FleetFleetTypeOutput)
-}
-
-func (e FleetFleetType) ToFleetFleetTypeOutputWithContext(ctx context.Context) FleetFleetTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(FleetFleetTypeOutput)
-}
-
-func (e FleetFleetType) ToFleetFleetTypePtrOutput() FleetFleetTypePtrOutput {
-	return e.ToFleetFleetTypePtrOutputWithContext(context.Background())
-}
-
-func (e FleetFleetType) ToFleetFleetTypePtrOutputWithContext(ctx context.Context) FleetFleetTypePtrOutput {
-	return FleetFleetType(e).ToFleetFleetTypeOutputWithContext(ctx).ToFleetFleetTypePtrOutputWithContext(ctx)
-}
-
-func (e FleetFleetType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e FleetFleetType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e FleetFleetType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e FleetFleetType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type FleetFleetTypeOutput struct{ *pulumi.OutputState }
-
-func (FleetFleetTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FleetFleetType)(nil)).Elem()
-}
-
-func (o FleetFleetTypeOutput) ToFleetFleetTypeOutput() FleetFleetTypeOutput {
-	return o
-}
-
-func (o FleetFleetTypeOutput) ToFleetFleetTypeOutputWithContext(ctx context.Context) FleetFleetTypeOutput {
-	return o
-}
-
-func (o FleetFleetTypeOutput) ToFleetFleetTypePtrOutput() FleetFleetTypePtrOutput {
-	return o.ToFleetFleetTypePtrOutputWithContext(context.Background())
-}
-
-func (o FleetFleetTypeOutput) ToFleetFleetTypePtrOutputWithContext(ctx context.Context) FleetFleetTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetFleetType) *FleetFleetType {
-		return &v
-	}).(FleetFleetTypePtrOutput)
-}
-
-func (o FleetFleetTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o FleetFleetTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetFleetType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o FleetFleetTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o FleetFleetTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetFleetType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type FleetFleetTypePtrOutput struct{ *pulumi.OutputState }
-
-func (FleetFleetTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FleetFleetType)(nil)).Elem()
-}
-
-func (o FleetFleetTypePtrOutput) ToFleetFleetTypePtrOutput() FleetFleetTypePtrOutput {
-	return o
-}
-
-func (o FleetFleetTypePtrOutput) ToFleetFleetTypePtrOutputWithContext(ctx context.Context) FleetFleetTypePtrOutput {
-	return o
-}
-
-func (o FleetFleetTypePtrOutput) Elem() FleetFleetTypeOutput {
-	return o.ApplyT(func(v *FleetFleetType) FleetFleetType {
-		if v != nil {
-			return *v
-		}
-		var ret FleetFleetType
-		return ret
-	}).(FleetFleetTypeOutput)
-}
-
-func (o FleetFleetTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o FleetFleetTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FleetFleetType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// FleetFleetTypeInput is an input type that accepts FleetFleetTypeArgs and FleetFleetTypeOutput values.
-// You can construct a concrete instance of `FleetFleetTypeInput` via:
-//
-//          FleetFleetTypeArgs{...}
-type FleetFleetTypeInput interface {
-	pulumi.Input
-
-	ToFleetFleetTypeOutput() FleetFleetTypeOutput
-	ToFleetFleetTypeOutputWithContext(context.Context) FleetFleetTypeOutput
-}
-
-var fleetFleetTypePtrType = reflect.TypeOf((**FleetFleetType)(nil)).Elem()
-
-type FleetFleetTypePtrInput interface {
-	pulumi.Input
-
-	ToFleetFleetTypePtrOutput() FleetFleetTypePtrOutput
-	ToFleetFleetTypePtrOutputWithContext(context.Context) FleetFleetTypePtrOutput
-}
-
-type fleetFleetTypePtr string
-
-func FleetFleetTypePtr(v string) FleetFleetTypePtrInput {
-	return (*fleetFleetTypePtr)(&v)
-}
-
-func (*fleetFleetTypePtr) ElementType() reflect.Type {
-	return fleetFleetTypePtrType
-}
-
-func (in *fleetFleetTypePtr) ToFleetFleetTypePtrOutput() FleetFleetTypePtrOutput {
-	return pulumi.ToOutput(in).(FleetFleetTypePtrOutput)
-}
-
-func (in *fleetFleetTypePtr) ToFleetFleetTypePtrOutputWithContext(ctx context.Context) FleetFleetTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(FleetFleetTypePtrOutput)
-}
-
 // The network communication protocol used by the fleet.
 type FleetIpPermissionProtocol string
 
@@ -832,6 +667,171 @@ func (in *fleetNewGameSessionProtectionPolicyPtr) ToFleetNewGameSessionProtectio
 
 func (in *fleetNewGameSessionProtectionPolicyPtr) ToFleetNewGameSessionProtectionPolicyPtrOutputWithContext(ctx context.Context) FleetNewGameSessionProtectionPolicyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FleetNewGameSessionProtectionPolicyPtrOutput)
+}
+
+// Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
+type FleetType string
+
+const (
+	FleetTypeOnDemand = FleetType("ON_DEMAND")
+	FleetTypeSpot     = FleetType("SPOT")
+)
+
+func (FleetType) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetType)(nil)).Elem()
+}
+
+func (e FleetType) ToFleetTypeOutput() FleetTypeOutput {
+	return pulumi.ToOutput(e).(FleetTypeOutput)
+}
+
+func (e FleetType) ToFleetTypeOutputWithContext(ctx context.Context) FleetTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FleetTypeOutput)
+}
+
+func (e FleetType) ToFleetTypePtrOutput() FleetTypePtrOutput {
+	return e.ToFleetTypePtrOutputWithContext(context.Background())
+}
+
+func (e FleetType) ToFleetTypePtrOutputWithContext(ctx context.Context) FleetTypePtrOutput {
+	return FleetType(e).ToFleetTypeOutputWithContext(ctx).ToFleetTypePtrOutputWithContext(ctx)
+}
+
+func (e FleetType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FleetType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FleetTypeOutput struct{ *pulumi.OutputState }
+
+func (FleetTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetType)(nil)).Elem()
+}
+
+func (o FleetTypeOutput) ToFleetTypeOutput() FleetTypeOutput {
+	return o
+}
+
+func (o FleetTypeOutput) ToFleetTypeOutputWithContext(ctx context.Context) FleetTypeOutput {
+	return o
+}
+
+func (o FleetTypeOutput) ToFleetTypePtrOutput() FleetTypePtrOutput {
+	return o.ToFleetTypePtrOutputWithContext(context.Background())
+}
+
+func (o FleetTypeOutput) ToFleetTypePtrOutputWithContext(ctx context.Context) FleetTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetType) *FleetType {
+		return &v
+	}).(FleetTypePtrOutput)
+}
+
+func (o FleetTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FleetTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FleetTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FleetTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FleetTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetType)(nil)).Elem()
+}
+
+func (o FleetTypePtrOutput) ToFleetTypePtrOutput() FleetTypePtrOutput {
+	return o
+}
+
+func (o FleetTypePtrOutput) ToFleetTypePtrOutputWithContext(ctx context.Context) FleetTypePtrOutput {
+	return o
+}
+
+func (o FleetTypePtrOutput) Elem() FleetTypeOutput {
+	return o.ApplyT(func(v *FleetType) FleetType {
+		if v != nil {
+			return *v
+		}
+		var ret FleetType
+		return ret
+	}).(FleetTypeOutput)
+}
+
+func (o FleetTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FleetType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FleetTypeInput is an input type that accepts FleetTypeArgs and FleetTypeOutput values.
+// You can construct a concrete instance of `FleetTypeInput` via:
+//
+//          FleetTypeArgs{...}
+type FleetTypeInput interface {
+	pulumi.Input
+
+	ToFleetTypeOutput() FleetTypeOutput
+	ToFleetTypeOutputWithContext(context.Context) FleetTypeOutput
+}
+
+var fleetTypePtrType = reflect.TypeOf((**FleetType)(nil)).Elem()
+
+type FleetTypePtrInput interface {
+	pulumi.Input
+
+	ToFleetTypePtrOutput() FleetTypePtrOutput
+	ToFleetTypePtrOutputWithContext(context.Context) FleetTypePtrOutput
+}
+
+type fleetTypePtr string
+
+func FleetTypePtr(v string) FleetTypePtrInput {
+	return (*fleetTypePtr)(&v)
+}
+
+func (*fleetTypePtr) ElementType() reflect.Type {
+	return fleetTypePtrType
+}
+
+func (in *fleetTypePtr) ToFleetTypePtrOutput() FleetTypePtrOutput {
+	return pulumi.ToOutput(in).(FleetTypePtrOutput)
+}
+
+func (in *fleetTypePtr) ToFleetTypePtrOutputWithContext(ctx context.Context) FleetTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FleetTypePtrOutput)
 }
 
 // The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
@@ -1336,12 +1336,12 @@ func init() {
 	pulumi.RegisterOutputType(AliasRoutingStrategyTypePtrOutput{})
 	pulumi.RegisterOutputType(FleetCertificateConfigurationCertificateTypeOutput{})
 	pulumi.RegisterOutputType(FleetCertificateConfigurationCertificateTypePtrOutput{})
-	pulumi.RegisterOutputType(FleetFleetTypeOutput{})
-	pulumi.RegisterOutputType(FleetFleetTypePtrOutput{})
 	pulumi.RegisterOutputType(FleetIpPermissionProtocolOutput{})
 	pulumi.RegisterOutputType(FleetIpPermissionProtocolPtrOutput{})
 	pulumi.RegisterOutputType(FleetNewGameSessionProtectionPolicyOutput{})
 	pulumi.RegisterOutputType(FleetNewGameSessionProtectionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(FleetTypeOutput{})
+	pulumi.RegisterOutputType(FleetTypePtrOutput{})
 	pulumi.RegisterOutputType(GameServerGroupBalancingStrategyOutput{})
 	pulumi.RegisterOutputType(GameServerGroupBalancingStrategyPtrOutput{})
 	pulumi.RegisterOutputType(GameServerGroupDeleteOptionOutput{})

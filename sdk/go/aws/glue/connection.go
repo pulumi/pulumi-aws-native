@@ -17,8 +17,8 @@ import (
 type Connection struct {
 	pulumi.CustomResourceState
 
-	CatalogId       pulumi.StringOutput             `pulumi:"catalogId"`
-	ConnectionInput ConnectionConnectionInputOutput `pulumi:"connectionInput"`
+	CatalogId       pulumi.StringOutput       `pulumi:"catalogId"`
+	ConnectionInput ConnectionInputTypeOutput `pulumi:"connectionInput"`
 }
 
 // NewConnection registers a new resource with the given unique name, arguments, and options.
@@ -66,14 +66,14 @@ func (ConnectionState) ElementType() reflect.Type {
 }
 
 type connectionArgs struct {
-	CatalogId       string                    `pulumi:"catalogId"`
-	ConnectionInput ConnectionConnectionInput `pulumi:"connectionInput"`
+	CatalogId       string              `pulumi:"catalogId"`
+	ConnectionInput ConnectionInputType `pulumi:"connectionInput"`
 }
 
 // The set of arguments for constructing a Connection resource.
 type ConnectionArgs struct {
 	CatalogId       pulumi.StringInput
-	ConnectionInput ConnectionConnectionInputInput
+	ConnectionInput ConnectionInputTypeInput
 }
 
 func (ConnectionArgs) ElementType() reflect.Type {

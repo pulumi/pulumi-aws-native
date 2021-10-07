@@ -173,146 +173,144 @@ func (o MemberApprovalThresholdPolicyPtrOutput) ThresholdPercentage() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-type MemberMemberConfiguration struct {
-	Description                  *string                             `pulumi:"description"`
-	MemberFrameworkConfiguration *MemberMemberFrameworkConfiguration `pulumi:"memberFrameworkConfiguration"`
-	Name                         string                              `pulumi:"name"`
+type MemberConfiguration struct {
+	Description                  *string                       `pulumi:"description"`
+	MemberFrameworkConfiguration *MemberFrameworkConfiguration `pulumi:"memberFrameworkConfiguration"`
+	Name                         string                        `pulumi:"name"`
 }
 
-// MemberMemberConfigurationInput is an input type that accepts MemberMemberConfigurationArgs and MemberMemberConfigurationOutput values.
-// You can construct a concrete instance of `MemberMemberConfigurationInput` via:
+// MemberConfigurationInput is an input type that accepts MemberConfigurationArgs and MemberConfigurationOutput values.
+// You can construct a concrete instance of `MemberConfigurationInput` via:
 //
-//          MemberMemberConfigurationArgs{...}
-type MemberMemberConfigurationInput interface {
+//          MemberConfigurationArgs{...}
+type MemberConfigurationInput interface {
 	pulumi.Input
 
-	ToMemberMemberConfigurationOutput() MemberMemberConfigurationOutput
-	ToMemberMemberConfigurationOutputWithContext(context.Context) MemberMemberConfigurationOutput
+	ToMemberConfigurationOutput() MemberConfigurationOutput
+	ToMemberConfigurationOutputWithContext(context.Context) MemberConfigurationOutput
 }
 
-type MemberMemberConfigurationArgs struct {
-	Description                  pulumi.StringPtrInput                      `pulumi:"description"`
-	MemberFrameworkConfiguration MemberMemberFrameworkConfigurationPtrInput `pulumi:"memberFrameworkConfiguration"`
-	Name                         pulumi.StringInput                         `pulumi:"name"`
+type MemberConfigurationArgs struct {
+	Description                  pulumi.StringPtrInput                `pulumi:"description"`
+	MemberFrameworkConfiguration MemberFrameworkConfigurationPtrInput `pulumi:"memberFrameworkConfiguration"`
+	Name                         pulumi.StringInput                   `pulumi:"name"`
 }
 
-func (MemberMemberConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MemberMemberConfiguration)(nil)).Elem()
+func (MemberConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemberConfiguration)(nil)).Elem()
 }
 
-func (i MemberMemberConfigurationArgs) ToMemberMemberConfigurationOutput() MemberMemberConfigurationOutput {
-	return i.ToMemberMemberConfigurationOutputWithContext(context.Background())
+func (i MemberConfigurationArgs) ToMemberConfigurationOutput() MemberConfigurationOutput {
+	return i.ToMemberConfigurationOutputWithContext(context.Background())
 }
 
-func (i MemberMemberConfigurationArgs) ToMemberMemberConfigurationOutputWithContext(ctx context.Context) MemberMemberConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MemberMemberConfigurationOutput)
+func (i MemberConfigurationArgs) ToMemberConfigurationOutputWithContext(ctx context.Context) MemberConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemberConfigurationOutput)
 }
 
-func (i MemberMemberConfigurationArgs) ToMemberMemberConfigurationPtrOutput() MemberMemberConfigurationPtrOutput {
-	return i.ToMemberMemberConfigurationPtrOutputWithContext(context.Background())
+func (i MemberConfigurationArgs) ToMemberConfigurationPtrOutput() MemberConfigurationPtrOutput {
+	return i.ToMemberConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i MemberMemberConfigurationArgs) ToMemberMemberConfigurationPtrOutputWithContext(ctx context.Context) MemberMemberConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MemberMemberConfigurationOutput).ToMemberMemberConfigurationPtrOutputWithContext(ctx)
+func (i MemberConfigurationArgs) ToMemberConfigurationPtrOutputWithContext(ctx context.Context) MemberConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemberConfigurationOutput).ToMemberConfigurationPtrOutputWithContext(ctx)
 }
 
-// MemberMemberConfigurationPtrInput is an input type that accepts MemberMemberConfigurationArgs, MemberMemberConfigurationPtr and MemberMemberConfigurationPtrOutput values.
-// You can construct a concrete instance of `MemberMemberConfigurationPtrInput` via:
+// MemberConfigurationPtrInput is an input type that accepts MemberConfigurationArgs, MemberConfigurationPtr and MemberConfigurationPtrOutput values.
+// You can construct a concrete instance of `MemberConfigurationPtrInput` via:
 //
-//          MemberMemberConfigurationArgs{...}
+//          MemberConfigurationArgs{...}
 //
 //  or:
 //
 //          nil
-type MemberMemberConfigurationPtrInput interface {
+type MemberConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToMemberMemberConfigurationPtrOutput() MemberMemberConfigurationPtrOutput
-	ToMemberMemberConfigurationPtrOutputWithContext(context.Context) MemberMemberConfigurationPtrOutput
+	ToMemberConfigurationPtrOutput() MemberConfigurationPtrOutput
+	ToMemberConfigurationPtrOutputWithContext(context.Context) MemberConfigurationPtrOutput
 }
 
-type memberMemberConfigurationPtrType MemberMemberConfigurationArgs
+type memberConfigurationPtrType MemberConfigurationArgs
 
-func MemberMemberConfigurationPtr(v *MemberMemberConfigurationArgs) MemberMemberConfigurationPtrInput {
-	return (*memberMemberConfigurationPtrType)(v)
+func MemberConfigurationPtr(v *MemberConfigurationArgs) MemberConfigurationPtrInput {
+	return (*memberConfigurationPtrType)(v)
 }
 
-func (*memberMemberConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MemberMemberConfiguration)(nil)).Elem()
+func (*memberConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemberConfiguration)(nil)).Elem()
 }
 
-func (i *memberMemberConfigurationPtrType) ToMemberMemberConfigurationPtrOutput() MemberMemberConfigurationPtrOutput {
-	return i.ToMemberMemberConfigurationPtrOutputWithContext(context.Background())
+func (i *memberConfigurationPtrType) ToMemberConfigurationPtrOutput() MemberConfigurationPtrOutput {
+	return i.ToMemberConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *memberMemberConfigurationPtrType) ToMemberMemberConfigurationPtrOutputWithContext(ctx context.Context) MemberMemberConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MemberMemberConfigurationPtrOutput)
+func (i *memberConfigurationPtrType) ToMemberConfigurationPtrOutputWithContext(ctx context.Context) MemberConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemberConfigurationPtrOutput)
 }
 
-type MemberMemberConfigurationOutput struct{ *pulumi.OutputState }
+type MemberConfigurationOutput struct{ *pulumi.OutputState }
 
-func (MemberMemberConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MemberMemberConfiguration)(nil)).Elem()
+func (MemberConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemberConfiguration)(nil)).Elem()
 }
 
-func (o MemberMemberConfigurationOutput) ToMemberMemberConfigurationOutput() MemberMemberConfigurationOutput {
+func (o MemberConfigurationOutput) ToMemberConfigurationOutput() MemberConfigurationOutput {
 	return o
 }
 
-func (o MemberMemberConfigurationOutput) ToMemberMemberConfigurationOutputWithContext(ctx context.Context) MemberMemberConfigurationOutput {
+func (o MemberConfigurationOutput) ToMemberConfigurationOutputWithContext(ctx context.Context) MemberConfigurationOutput {
 	return o
 }
 
-func (o MemberMemberConfigurationOutput) ToMemberMemberConfigurationPtrOutput() MemberMemberConfigurationPtrOutput {
-	return o.ToMemberMemberConfigurationPtrOutputWithContext(context.Background())
+func (o MemberConfigurationOutput) ToMemberConfigurationPtrOutput() MemberConfigurationPtrOutput {
+	return o.ToMemberConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o MemberMemberConfigurationOutput) ToMemberMemberConfigurationPtrOutputWithContext(ctx context.Context) MemberMemberConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemberMemberConfiguration) *MemberMemberConfiguration {
+func (o MemberConfigurationOutput) ToMemberConfigurationPtrOutputWithContext(ctx context.Context) MemberConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemberConfiguration) *MemberConfiguration {
 		return &v
-	}).(MemberMemberConfigurationPtrOutput)
+	}).(MemberConfigurationPtrOutput)
 }
 
-func (o MemberMemberConfigurationOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MemberMemberConfiguration) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o MemberConfigurationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MemberConfiguration) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o MemberMemberConfigurationOutput) MemberFrameworkConfiguration() MemberMemberFrameworkConfigurationPtrOutput {
-	return o.ApplyT(func(v MemberMemberConfiguration) *MemberMemberFrameworkConfiguration {
-		return v.MemberFrameworkConfiguration
-	}).(MemberMemberFrameworkConfigurationPtrOutput)
+func (o MemberConfigurationOutput) MemberFrameworkConfiguration() MemberFrameworkConfigurationPtrOutput {
+	return o.ApplyT(func(v MemberConfiguration) *MemberFrameworkConfiguration { return v.MemberFrameworkConfiguration }).(MemberFrameworkConfigurationPtrOutput)
 }
 
-func (o MemberMemberConfigurationOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v MemberMemberConfiguration) string { return v.Name }).(pulumi.StringOutput)
+func (o MemberConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v MemberConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type MemberMemberConfigurationPtrOutput struct{ *pulumi.OutputState }
+type MemberConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (MemberMemberConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MemberMemberConfiguration)(nil)).Elem()
+func (MemberConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemberConfiguration)(nil)).Elem()
 }
 
-func (o MemberMemberConfigurationPtrOutput) ToMemberMemberConfigurationPtrOutput() MemberMemberConfigurationPtrOutput {
+func (o MemberConfigurationPtrOutput) ToMemberConfigurationPtrOutput() MemberConfigurationPtrOutput {
 	return o
 }
 
-func (o MemberMemberConfigurationPtrOutput) ToMemberMemberConfigurationPtrOutputWithContext(ctx context.Context) MemberMemberConfigurationPtrOutput {
+func (o MemberConfigurationPtrOutput) ToMemberConfigurationPtrOutputWithContext(ctx context.Context) MemberConfigurationPtrOutput {
 	return o
 }
 
-func (o MemberMemberConfigurationPtrOutput) Elem() MemberMemberConfigurationOutput {
-	return o.ApplyT(func(v *MemberMemberConfiguration) MemberMemberConfiguration {
+func (o MemberConfigurationPtrOutput) Elem() MemberConfigurationOutput {
+	return o.ApplyT(func(v *MemberConfiguration) MemberConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret MemberMemberConfiguration
+		var ret MemberConfiguration
 		return ret
-	}).(MemberMemberConfigurationOutput)
+	}).(MemberConfigurationOutput)
 }
 
-func (o MemberMemberConfigurationPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MemberMemberConfiguration) *string {
+func (o MemberConfigurationPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MemberConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -320,17 +318,17 @@ func (o MemberMemberConfigurationPtrOutput) Description() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o MemberMemberConfigurationPtrOutput) MemberFrameworkConfiguration() MemberMemberFrameworkConfigurationPtrOutput {
-	return o.ApplyT(func(v *MemberMemberConfiguration) *MemberMemberFrameworkConfiguration {
+func (o MemberConfigurationPtrOutput) MemberFrameworkConfiguration() MemberFrameworkConfigurationPtrOutput {
+	return o.ApplyT(func(v *MemberConfiguration) *MemberFrameworkConfiguration {
 		if v == nil {
 			return nil
 		}
 		return v.MemberFrameworkConfiguration
-	}).(MemberMemberFrameworkConfigurationPtrOutput)
+	}).(MemberFrameworkConfigurationPtrOutput)
 }
 
-func (o MemberMemberConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MemberMemberConfiguration) *string {
+func (o MemberConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MemberConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -338,138 +336,138 @@ func (o MemberMemberConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type MemberMemberFabricConfiguration struct {
+type MemberFabricConfiguration struct {
 	AdminPassword string `pulumi:"adminPassword"`
 	AdminUsername string `pulumi:"adminUsername"`
 }
 
-// MemberMemberFabricConfigurationInput is an input type that accepts MemberMemberFabricConfigurationArgs and MemberMemberFabricConfigurationOutput values.
-// You can construct a concrete instance of `MemberMemberFabricConfigurationInput` via:
+// MemberFabricConfigurationInput is an input type that accepts MemberFabricConfigurationArgs and MemberFabricConfigurationOutput values.
+// You can construct a concrete instance of `MemberFabricConfigurationInput` via:
 //
-//          MemberMemberFabricConfigurationArgs{...}
-type MemberMemberFabricConfigurationInput interface {
+//          MemberFabricConfigurationArgs{...}
+type MemberFabricConfigurationInput interface {
 	pulumi.Input
 
-	ToMemberMemberFabricConfigurationOutput() MemberMemberFabricConfigurationOutput
-	ToMemberMemberFabricConfigurationOutputWithContext(context.Context) MemberMemberFabricConfigurationOutput
+	ToMemberFabricConfigurationOutput() MemberFabricConfigurationOutput
+	ToMemberFabricConfigurationOutputWithContext(context.Context) MemberFabricConfigurationOutput
 }
 
-type MemberMemberFabricConfigurationArgs struct {
+type MemberFabricConfigurationArgs struct {
 	AdminPassword pulumi.StringInput `pulumi:"adminPassword"`
 	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
 }
 
-func (MemberMemberFabricConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MemberMemberFabricConfiguration)(nil)).Elem()
+func (MemberFabricConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemberFabricConfiguration)(nil)).Elem()
 }
 
-func (i MemberMemberFabricConfigurationArgs) ToMemberMemberFabricConfigurationOutput() MemberMemberFabricConfigurationOutput {
-	return i.ToMemberMemberFabricConfigurationOutputWithContext(context.Background())
+func (i MemberFabricConfigurationArgs) ToMemberFabricConfigurationOutput() MemberFabricConfigurationOutput {
+	return i.ToMemberFabricConfigurationOutputWithContext(context.Background())
 }
 
-func (i MemberMemberFabricConfigurationArgs) ToMemberMemberFabricConfigurationOutputWithContext(ctx context.Context) MemberMemberFabricConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MemberMemberFabricConfigurationOutput)
+func (i MemberFabricConfigurationArgs) ToMemberFabricConfigurationOutputWithContext(ctx context.Context) MemberFabricConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemberFabricConfigurationOutput)
 }
 
-func (i MemberMemberFabricConfigurationArgs) ToMemberMemberFabricConfigurationPtrOutput() MemberMemberFabricConfigurationPtrOutput {
-	return i.ToMemberMemberFabricConfigurationPtrOutputWithContext(context.Background())
+func (i MemberFabricConfigurationArgs) ToMemberFabricConfigurationPtrOutput() MemberFabricConfigurationPtrOutput {
+	return i.ToMemberFabricConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i MemberMemberFabricConfigurationArgs) ToMemberMemberFabricConfigurationPtrOutputWithContext(ctx context.Context) MemberMemberFabricConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MemberMemberFabricConfigurationOutput).ToMemberMemberFabricConfigurationPtrOutputWithContext(ctx)
+func (i MemberFabricConfigurationArgs) ToMemberFabricConfigurationPtrOutputWithContext(ctx context.Context) MemberFabricConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemberFabricConfigurationOutput).ToMemberFabricConfigurationPtrOutputWithContext(ctx)
 }
 
-// MemberMemberFabricConfigurationPtrInput is an input type that accepts MemberMemberFabricConfigurationArgs, MemberMemberFabricConfigurationPtr and MemberMemberFabricConfigurationPtrOutput values.
-// You can construct a concrete instance of `MemberMemberFabricConfigurationPtrInput` via:
+// MemberFabricConfigurationPtrInput is an input type that accepts MemberFabricConfigurationArgs, MemberFabricConfigurationPtr and MemberFabricConfigurationPtrOutput values.
+// You can construct a concrete instance of `MemberFabricConfigurationPtrInput` via:
 //
-//          MemberMemberFabricConfigurationArgs{...}
+//          MemberFabricConfigurationArgs{...}
 //
 //  or:
 //
 //          nil
-type MemberMemberFabricConfigurationPtrInput interface {
+type MemberFabricConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToMemberMemberFabricConfigurationPtrOutput() MemberMemberFabricConfigurationPtrOutput
-	ToMemberMemberFabricConfigurationPtrOutputWithContext(context.Context) MemberMemberFabricConfigurationPtrOutput
+	ToMemberFabricConfigurationPtrOutput() MemberFabricConfigurationPtrOutput
+	ToMemberFabricConfigurationPtrOutputWithContext(context.Context) MemberFabricConfigurationPtrOutput
 }
 
-type memberMemberFabricConfigurationPtrType MemberMemberFabricConfigurationArgs
+type memberFabricConfigurationPtrType MemberFabricConfigurationArgs
 
-func MemberMemberFabricConfigurationPtr(v *MemberMemberFabricConfigurationArgs) MemberMemberFabricConfigurationPtrInput {
-	return (*memberMemberFabricConfigurationPtrType)(v)
+func MemberFabricConfigurationPtr(v *MemberFabricConfigurationArgs) MemberFabricConfigurationPtrInput {
+	return (*memberFabricConfigurationPtrType)(v)
 }
 
-func (*memberMemberFabricConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MemberMemberFabricConfiguration)(nil)).Elem()
+func (*memberFabricConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemberFabricConfiguration)(nil)).Elem()
 }
 
-func (i *memberMemberFabricConfigurationPtrType) ToMemberMemberFabricConfigurationPtrOutput() MemberMemberFabricConfigurationPtrOutput {
-	return i.ToMemberMemberFabricConfigurationPtrOutputWithContext(context.Background())
+func (i *memberFabricConfigurationPtrType) ToMemberFabricConfigurationPtrOutput() MemberFabricConfigurationPtrOutput {
+	return i.ToMemberFabricConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *memberMemberFabricConfigurationPtrType) ToMemberMemberFabricConfigurationPtrOutputWithContext(ctx context.Context) MemberMemberFabricConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MemberMemberFabricConfigurationPtrOutput)
+func (i *memberFabricConfigurationPtrType) ToMemberFabricConfigurationPtrOutputWithContext(ctx context.Context) MemberFabricConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemberFabricConfigurationPtrOutput)
 }
 
-type MemberMemberFabricConfigurationOutput struct{ *pulumi.OutputState }
+type MemberFabricConfigurationOutput struct{ *pulumi.OutputState }
 
-func (MemberMemberFabricConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MemberMemberFabricConfiguration)(nil)).Elem()
+func (MemberFabricConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemberFabricConfiguration)(nil)).Elem()
 }
 
-func (o MemberMemberFabricConfigurationOutput) ToMemberMemberFabricConfigurationOutput() MemberMemberFabricConfigurationOutput {
+func (o MemberFabricConfigurationOutput) ToMemberFabricConfigurationOutput() MemberFabricConfigurationOutput {
 	return o
 }
 
-func (o MemberMemberFabricConfigurationOutput) ToMemberMemberFabricConfigurationOutputWithContext(ctx context.Context) MemberMemberFabricConfigurationOutput {
+func (o MemberFabricConfigurationOutput) ToMemberFabricConfigurationOutputWithContext(ctx context.Context) MemberFabricConfigurationOutput {
 	return o
 }
 
-func (o MemberMemberFabricConfigurationOutput) ToMemberMemberFabricConfigurationPtrOutput() MemberMemberFabricConfigurationPtrOutput {
-	return o.ToMemberMemberFabricConfigurationPtrOutputWithContext(context.Background())
+func (o MemberFabricConfigurationOutput) ToMemberFabricConfigurationPtrOutput() MemberFabricConfigurationPtrOutput {
+	return o.ToMemberFabricConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o MemberMemberFabricConfigurationOutput) ToMemberMemberFabricConfigurationPtrOutputWithContext(ctx context.Context) MemberMemberFabricConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemberMemberFabricConfiguration) *MemberMemberFabricConfiguration {
+func (o MemberFabricConfigurationOutput) ToMemberFabricConfigurationPtrOutputWithContext(ctx context.Context) MemberFabricConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemberFabricConfiguration) *MemberFabricConfiguration {
 		return &v
-	}).(MemberMemberFabricConfigurationPtrOutput)
+	}).(MemberFabricConfigurationPtrOutput)
 }
 
-func (o MemberMemberFabricConfigurationOutput) AdminPassword() pulumi.StringOutput {
-	return o.ApplyT(func(v MemberMemberFabricConfiguration) string { return v.AdminPassword }).(pulumi.StringOutput)
+func (o MemberFabricConfigurationOutput) AdminPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v MemberFabricConfiguration) string { return v.AdminPassword }).(pulumi.StringOutput)
 }
 
-func (o MemberMemberFabricConfigurationOutput) AdminUsername() pulumi.StringOutput {
-	return o.ApplyT(func(v MemberMemberFabricConfiguration) string { return v.AdminUsername }).(pulumi.StringOutput)
+func (o MemberFabricConfigurationOutput) AdminUsername() pulumi.StringOutput {
+	return o.ApplyT(func(v MemberFabricConfiguration) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
-type MemberMemberFabricConfigurationPtrOutput struct{ *pulumi.OutputState }
+type MemberFabricConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (MemberMemberFabricConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MemberMemberFabricConfiguration)(nil)).Elem()
+func (MemberFabricConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemberFabricConfiguration)(nil)).Elem()
 }
 
-func (o MemberMemberFabricConfigurationPtrOutput) ToMemberMemberFabricConfigurationPtrOutput() MemberMemberFabricConfigurationPtrOutput {
+func (o MemberFabricConfigurationPtrOutput) ToMemberFabricConfigurationPtrOutput() MemberFabricConfigurationPtrOutput {
 	return o
 }
 
-func (o MemberMemberFabricConfigurationPtrOutput) ToMemberMemberFabricConfigurationPtrOutputWithContext(ctx context.Context) MemberMemberFabricConfigurationPtrOutput {
+func (o MemberFabricConfigurationPtrOutput) ToMemberFabricConfigurationPtrOutputWithContext(ctx context.Context) MemberFabricConfigurationPtrOutput {
 	return o
 }
 
-func (o MemberMemberFabricConfigurationPtrOutput) Elem() MemberMemberFabricConfigurationOutput {
-	return o.ApplyT(func(v *MemberMemberFabricConfiguration) MemberMemberFabricConfiguration {
+func (o MemberFabricConfigurationPtrOutput) Elem() MemberFabricConfigurationOutput {
+	return o.ApplyT(func(v *MemberFabricConfiguration) MemberFabricConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret MemberMemberFabricConfiguration
+		var ret MemberFabricConfiguration
 		return ret
-	}).(MemberMemberFabricConfigurationOutput)
+	}).(MemberFabricConfigurationOutput)
 }
 
-func (o MemberMemberFabricConfigurationPtrOutput) AdminPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MemberMemberFabricConfiguration) *string {
+func (o MemberFabricConfigurationPtrOutput) AdminPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MemberFabricConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -477,8 +475,8 @@ func (o MemberMemberFabricConfigurationPtrOutput) AdminPassword() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o MemberMemberFabricConfigurationPtrOutput) AdminUsername() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MemberMemberFabricConfiguration) *string {
+func (o MemberFabricConfigurationPtrOutput) AdminUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MemberFabricConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -486,139 +484,137 @@ func (o MemberMemberFabricConfigurationPtrOutput) AdminUsername() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-type MemberMemberFrameworkConfiguration struct {
-	MemberFabricConfiguration *MemberMemberFabricConfiguration `pulumi:"memberFabricConfiguration"`
+type MemberFrameworkConfiguration struct {
+	MemberFabricConfiguration *MemberFabricConfiguration `pulumi:"memberFabricConfiguration"`
 }
 
-// MemberMemberFrameworkConfigurationInput is an input type that accepts MemberMemberFrameworkConfigurationArgs and MemberMemberFrameworkConfigurationOutput values.
-// You can construct a concrete instance of `MemberMemberFrameworkConfigurationInput` via:
+// MemberFrameworkConfigurationInput is an input type that accepts MemberFrameworkConfigurationArgs and MemberFrameworkConfigurationOutput values.
+// You can construct a concrete instance of `MemberFrameworkConfigurationInput` via:
 //
-//          MemberMemberFrameworkConfigurationArgs{...}
-type MemberMemberFrameworkConfigurationInput interface {
+//          MemberFrameworkConfigurationArgs{...}
+type MemberFrameworkConfigurationInput interface {
 	pulumi.Input
 
-	ToMemberMemberFrameworkConfigurationOutput() MemberMemberFrameworkConfigurationOutput
-	ToMemberMemberFrameworkConfigurationOutputWithContext(context.Context) MemberMemberFrameworkConfigurationOutput
+	ToMemberFrameworkConfigurationOutput() MemberFrameworkConfigurationOutput
+	ToMemberFrameworkConfigurationOutputWithContext(context.Context) MemberFrameworkConfigurationOutput
 }
 
-type MemberMemberFrameworkConfigurationArgs struct {
-	MemberFabricConfiguration MemberMemberFabricConfigurationPtrInput `pulumi:"memberFabricConfiguration"`
+type MemberFrameworkConfigurationArgs struct {
+	MemberFabricConfiguration MemberFabricConfigurationPtrInput `pulumi:"memberFabricConfiguration"`
 }
 
-func (MemberMemberFrameworkConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MemberMemberFrameworkConfiguration)(nil)).Elem()
+func (MemberFrameworkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemberFrameworkConfiguration)(nil)).Elem()
 }
 
-func (i MemberMemberFrameworkConfigurationArgs) ToMemberMemberFrameworkConfigurationOutput() MemberMemberFrameworkConfigurationOutput {
-	return i.ToMemberMemberFrameworkConfigurationOutputWithContext(context.Background())
+func (i MemberFrameworkConfigurationArgs) ToMemberFrameworkConfigurationOutput() MemberFrameworkConfigurationOutput {
+	return i.ToMemberFrameworkConfigurationOutputWithContext(context.Background())
 }
 
-func (i MemberMemberFrameworkConfigurationArgs) ToMemberMemberFrameworkConfigurationOutputWithContext(ctx context.Context) MemberMemberFrameworkConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MemberMemberFrameworkConfigurationOutput)
+func (i MemberFrameworkConfigurationArgs) ToMemberFrameworkConfigurationOutputWithContext(ctx context.Context) MemberFrameworkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemberFrameworkConfigurationOutput)
 }
 
-func (i MemberMemberFrameworkConfigurationArgs) ToMemberMemberFrameworkConfigurationPtrOutput() MemberMemberFrameworkConfigurationPtrOutput {
-	return i.ToMemberMemberFrameworkConfigurationPtrOutputWithContext(context.Background())
+func (i MemberFrameworkConfigurationArgs) ToMemberFrameworkConfigurationPtrOutput() MemberFrameworkConfigurationPtrOutput {
+	return i.ToMemberFrameworkConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i MemberMemberFrameworkConfigurationArgs) ToMemberMemberFrameworkConfigurationPtrOutputWithContext(ctx context.Context) MemberMemberFrameworkConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MemberMemberFrameworkConfigurationOutput).ToMemberMemberFrameworkConfigurationPtrOutputWithContext(ctx)
+func (i MemberFrameworkConfigurationArgs) ToMemberFrameworkConfigurationPtrOutputWithContext(ctx context.Context) MemberFrameworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemberFrameworkConfigurationOutput).ToMemberFrameworkConfigurationPtrOutputWithContext(ctx)
 }
 
-// MemberMemberFrameworkConfigurationPtrInput is an input type that accepts MemberMemberFrameworkConfigurationArgs, MemberMemberFrameworkConfigurationPtr and MemberMemberFrameworkConfigurationPtrOutput values.
-// You can construct a concrete instance of `MemberMemberFrameworkConfigurationPtrInput` via:
+// MemberFrameworkConfigurationPtrInput is an input type that accepts MemberFrameworkConfigurationArgs, MemberFrameworkConfigurationPtr and MemberFrameworkConfigurationPtrOutput values.
+// You can construct a concrete instance of `MemberFrameworkConfigurationPtrInput` via:
 //
-//          MemberMemberFrameworkConfigurationArgs{...}
+//          MemberFrameworkConfigurationArgs{...}
 //
 //  or:
 //
 //          nil
-type MemberMemberFrameworkConfigurationPtrInput interface {
+type MemberFrameworkConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToMemberMemberFrameworkConfigurationPtrOutput() MemberMemberFrameworkConfigurationPtrOutput
-	ToMemberMemberFrameworkConfigurationPtrOutputWithContext(context.Context) MemberMemberFrameworkConfigurationPtrOutput
+	ToMemberFrameworkConfigurationPtrOutput() MemberFrameworkConfigurationPtrOutput
+	ToMemberFrameworkConfigurationPtrOutputWithContext(context.Context) MemberFrameworkConfigurationPtrOutput
 }
 
-type memberMemberFrameworkConfigurationPtrType MemberMemberFrameworkConfigurationArgs
+type memberFrameworkConfigurationPtrType MemberFrameworkConfigurationArgs
 
-func MemberMemberFrameworkConfigurationPtr(v *MemberMemberFrameworkConfigurationArgs) MemberMemberFrameworkConfigurationPtrInput {
-	return (*memberMemberFrameworkConfigurationPtrType)(v)
+func MemberFrameworkConfigurationPtr(v *MemberFrameworkConfigurationArgs) MemberFrameworkConfigurationPtrInput {
+	return (*memberFrameworkConfigurationPtrType)(v)
 }
 
-func (*memberMemberFrameworkConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MemberMemberFrameworkConfiguration)(nil)).Elem()
+func (*memberFrameworkConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemberFrameworkConfiguration)(nil)).Elem()
 }
 
-func (i *memberMemberFrameworkConfigurationPtrType) ToMemberMemberFrameworkConfigurationPtrOutput() MemberMemberFrameworkConfigurationPtrOutput {
-	return i.ToMemberMemberFrameworkConfigurationPtrOutputWithContext(context.Background())
+func (i *memberFrameworkConfigurationPtrType) ToMemberFrameworkConfigurationPtrOutput() MemberFrameworkConfigurationPtrOutput {
+	return i.ToMemberFrameworkConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *memberMemberFrameworkConfigurationPtrType) ToMemberMemberFrameworkConfigurationPtrOutputWithContext(ctx context.Context) MemberMemberFrameworkConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MemberMemberFrameworkConfigurationPtrOutput)
+func (i *memberFrameworkConfigurationPtrType) ToMemberFrameworkConfigurationPtrOutputWithContext(ctx context.Context) MemberFrameworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemberFrameworkConfigurationPtrOutput)
 }
 
-type MemberMemberFrameworkConfigurationOutput struct{ *pulumi.OutputState }
+type MemberFrameworkConfigurationOutput struct{ *pulumi.OutputState }
 
-func (MemberMemberFrameworkConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MemberMemberFrameworkConfiguration)(nil)).Elem()
+func (MemberFrameworkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemberFrameworkConfiguration)(nil)).Elem()
 }
 
-func (o MemberMemberFrameworkConfigurationOutput) ToMemberMemberFrameworkConfigurationOutput() MemberMemberFrameworkConfigurationOutput {
+func (o MemberFrameworkConfigurationOutput) ToMemberFrameworkConfigurationOutput() MemberFrameworkConfigurationOutput {
 	return o
 }
 
-func (o MemberMemberFrameworkConfigurationOutput) ToMemberMemberFrameworkConfigurationOutputWithContext(ctx context.Context) MemberMemberFrameworkConfigurationOutput {
+func (o MemberFrameworkConfigurationOutput) ToMemberFrameworkConfigurationOutputWithContext(ctx context.Context) MemberFrameworkConfigurationOutput {
 	return o
 }
 
-func (o MemberMemberFrameworkConfigurationOutput) ToMemberMemberFrameworkConfigurationPtrOutput() MemberMemberFrameworkConfigurationPtrOutput {
-	return o.ToMemberMemberFrameworkConfigurationPtrOutputWithContext(context.Background())
+func (o MemberFrameworkConfigurationOutput) ToMemberFrameworkConfigurationPtrOutput() MemberFrameworkConfigurationPtrOutput {
+	return o.ToMemberFrameworkConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o MemberMemberFrameworkConfigurationOutput) ToMemberMemberFrameworkConfigurationPtrOutputWithContext(ctx context.Context) MemberMemberFrameworkConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemberMemberFrameworkConfiguration) *MemberMemberFrameworkConfiguration {
+func (o MemberFrameworkConfigurationOutput) ToMemberFrameworkConfigurationPtrOutputWithContext(ctx context.Context) MemberFrameworkConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemberFrameworkConfiguration) *MemberFrameworkConfiguration {
 		return &v
-	}).(MemberMemberFrameworkConfigurationPtrOutput)
+	}).(MemberFrameworkConfigurationPtrOutput)
 }
 
-func (o MemberMemberFrameworkConfigurationOutput) MemberFabricConfiguration() MemberMemberFabricConfigurationPtrOutput {
-	return o.ApplyT(func(v MemberMemberFrameworkConfiguration) *MemberMemberFabricConfiguration {
-		return v.MemberFabricConfiguration
-	}).(MemberMemberFabricConfigurationPtrOutput)
+func (o MemberFrameworkConfigurationOutput) MemberFabricConfiguration() MemberFabricConfigurationPtrOutput {
+	return o.ApplyT(func(v MemberFrameworkConfiguration) *MemberFabricConfiguration { return v.MemberFabricConfiguration }).(MemberFabricConfigurationPtrOutput)
 }
 
-type MemberMemberFrameworkConfigurationPtrOutput struct{ *pulumi.OutputState }
+type MemberFrameworkConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (MemberMemberFrameworkConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MemberMemberFrameworkConfiguration)(nil)).Elem()
+func (MemberFrameworkConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemberFrameworkConfiguration)(nil)).Elem()
 }
 
-func (o MemberMemberFrameworkConfigurationPtrOutput) ToMemberMemberFrameworkConfigurationPtrOutput() MemberMemberFrameworkConfigurationPtrOutput {
+func (o MemberFrameworkConfigurationPtrOutput) ToMemberFrameworkConfigurationPtrOutput() MemberFrameworkConfigurationPtrOutput {
 	return o
 }
 
-func (o MemberMemberFrameworkConfigurationPtrOutput) ToMemberMemberFrameworkConfigurationPtrOutputWithContext(ctx context.Context) MemberMemberFrameworkConfigurationPtrOutput {
+func (o MemberFrameworkConfigurationPtrOutput) ToMemberFrameworkConfigurationPtrOutputWithContext(ctx context.Context) MemberFrameworkConfigurationPtrOutput {
 	return o
 }
 
-func (o MemberMemberFrameworkConfigurationPtrOutput) Elem() MemberMemberFrameworkConfigurationOutput {
-	return o.ApplyT(func(v *MemberMemberFrameworkConfiguration) MemberMemberFrameworkConfiguration {
+func (o MemberFrameworkConfigurationPtrOutput) Elem() MemberFrameworkConfigurationOutput {
+	return o.ApplyT(func(v *MemberFrameworkConfiguration) MemberFrameworkConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret MemberMemberFrameworkConfiguration
+		var ret MemberFrameworkConfiguration
 		return ret
-	}).(MemberMemberFrameworkConfigurationOutput)
+	}).(MemberFrameworkConfigurationOutput)
 }
 
-func (o MemberMemberFrameworkConfigurationPtrOutput) MemberFabricConfiguration() MemberMemberFabricConfigurationPtrOutput {
-	return o.ApplyT(func(v *MemberMemberFrameworkConfiguration) *MemberMemberFabricConfiguration {
+func (o MemberFrameworkConfigurationPtrOutput) MemberFabricConfiguration() MemberFabricConfigurationPtrOutput {
+	return o.ApplyT(func(v *MemberFrameworkConfiguration) *MemberFabricConfiguration {
 		if v == nil {
 			return nil
 		}
 		return v.MemberFabricConfiguration
-	}).(MemberMemberFabricConfigurationPtrOutput)
+	}).(MemberFabricConfigurationPtrOutput)
 }
 
 type MemberNetworkConfiguration struct {
@@ -1232,138 +1228,138 @@ func (o MemberVotingPolicyPtrOutput) ApprovalThresholdPolicy() MemberApprovalThr
 	}).(MemberApprovalThresholdPolicyPtrOutput)
 }
 
-type NodeNodeConfiguration struct {
+type NodeConfiguration struct {
 	AvailabilityZone string `pulumi:"availabilityZone"`
 	InstanceType     string `pulumi:"instanceType"`
 }
 
-// NodeNodeConfigurationInput is an input type that accepts NodeNodeConfigurationArgs and NodeNodeConfigurationOutput values.
-// You can construct a concrete instance of `NodeNodeConfigurationInput` via:
+// NodeConfigurationInput is an input type that accepts NodeConfigurationArgs and NodeConfigurationOutput values.
+// You can construct a concrete instance of `NodeConfigurationInput` via:
 //
-//          NodeNodeConfigurationArgs{...}
-type NodeNodeConfigurationInput interface {
+//          NodeConfigurationArgs{...}
+type NodeConfigurationInput interface {
 	pulumi.Input
 
-	ToNodeNodeConfigurationOutput() NodeNodeConfigurationOutput
-	ToNodeNodeConfigurationOutputWithContext(context.Context) NodeNodeConfigurationOutput
+	ToNodeConfigurationOutput() NodeConfigurationOutput
+	ToNodeConfigurationOutputWithContext(context.Context) NodeConfigurationOutput
 }
 
-type NodeNodeConfigurationArgs struct {
+type NodeConfigurationArgs struct {
 	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
 	InstanceType     pulumi.StringInput `pulumi:"instanceType"`
 }
 
-func (NodeNodeConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NodeNodeConfiguration)(nil)).Elem()
+func (NodeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeConfiguration)(nil)).Elem()
 }
 
-func (i NodeNodeConfigurationArgs) ToNodeNodeConfigurationOutput() NodeNodeConfigurationOutput {
-	return i.ToNodeNodeConfigurationOutputWithContext(context.Background())
+func (i NodeConfigurationArgs) ToNodeConfigurationOutput() NodeConfigurationOutput {
+	return i.ToNodeConfigurationOutputWithContext(context.Background())
 }
 
-func (i NodeNodeConfigurationArgs) ToNodeNodeConfigurationOutputWithContext(ctx context.Context) NodeNodeConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NodeNodeConfigurationOutput)
+func (i NodeConfigurationArgs) ToNodeConfigurationOutputWithContext(ctx context.Context) NodeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeConfigurationOutput)
 }
 
-func (i NodeNodeConfigurationArgs) ToNodeNodeConfigurationPtrOutput() NodeNodeConfigurationPtrOutput {
-	return i.ToNodeNodeConfigurationPtrOutputWithContext(context.Background())
+func (i NodeConfigurationArgs) ToNodeConfigurationPtrOutput() NodeConfigurationPtrOutput {
+	return i.ToNodeConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i NodeNodeConfigurationArgs) ToNodeNodeConfigurationPtrOutputWithContext(ctx context.Context) NodeNodeConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NodeNodeConfigurationOutput).ToNodeNodeConfigurationPtrOutputWithContext(ctx)
+func (i NodeConfigurationArgs) ToNodeConfigurationPtrOutputWithContext(ctx context.Context) NodeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeConfigurationOutput).ToNodeConfigurationPtrOutputWithContext(ctx)
 }
 
-// NodeNodeConfigurationPtrInput is an input type that accepts NodeNodeConfigurationArgs, NodeNodeConfigurationPtr and NodeNodeConfigurationPtrOutput values.
-// You can construct a concrete instance of `NodeNodeConfigurationPtrInput` via:
+// NodeConfigurationPtrInput is an input type that accepts NodeConfigurationArgs, NodeConfigurationPtr and NodeConfigurationPtrOutput values.
+// You can construct a concrete instance of `NodeConfigurationPtrInput` via:
 //
-//          NodeNodeConfigurationArgs{...}
+//          NodeConfigurationArgs{...}
 //
 //  or:
 //
 //          nil
-type NodeNodeConfigurationPtrInput interface {
+type NodeConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToNodeNodeConfigurationPtrOutput() NodeNodeConfigurationPtrOutput
-	ToNodeNodeConfigurationPtrOutputWithContext(context.Context) NodeNodeConfigurationPtrOutput
+	ToNodeConfigurationPtrOutput() NodeConfigurationPtrOutput
+	ToNodeConfigurationPtrOutputWithContext(context.Context) NodeConfigurationPtrOutput
 }
 
-type nodeNodeConfigurationPtrType NodeNodeConfigurationArgs
+type nodeConfigurationPtrType NodeConfigurationArgs
 
-func NodeNodeConfigurationPtr(v *NodeNodeConfigurationArgs) NodeNodeConfigurationPtrInput {
-	return (*nodeNodeConfigurationPtrType)(v)
+func NodeConfigurationPtr(v *NodeConfigurationArgs) NodeConfigurationPtrInput {
+	return (*nodeConfigurationPtrType)(v)
 }
 
-func (*nodeNodeConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NodeNodeConfiguration)(nil)).Elem()
+func (*nodeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodeConfiguration)(nil)).Elem()
 }
 
-func (i *nodeNodeConfigurationPtrType) ToNodeNodeConfigurationPtrOutput() NodeNodeConfigurationPtrOutput {
-	return i.ToNodeNodeConfigurationPtrOutputWithContext(context.Background())
+func (i *nodeConfigurationPtrType) ToNodeConfigurationPtrOutput() NodeConfigurationPtrOutput {
+	return i.ToNodeConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *nodeNodeConfigurationPtrType) ToNodeNodeConfigurationPtrOutputWithContext(ctx context.Context) NodeNodeConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NodeNodeConfigurationPtrOutput)
+func (i *nodeConfigurationPtrType) ToNodeConfigurationPtrOutputWithContext(ctx context.Context) NodeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeConfigurationPtrOutput)
 }
 
-type NodeNodeConfigurationOutput struct{ *pulumi.OutputState }
+type NodeConfigurationOutput struct{ *pulumi.OutputState }
 
-func (NodeNodeConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NodeNodeConfiguration)(nil)).Elem()
+func (NodeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeConfiguration)(nil)).Elem()
 }
 
-func (o NodeNodeConfigurationOutput) ToNodeNodeConfigurationOutput() NodeNodeConfigurationOutput {
+func (o NodeConfigurationOutput) ToNodeConfigurationOutput() NodeConfigurationOutput {
 	return o
 }
 
-func (o NodeNodeConfigurationOutput) ToNodeNodeConfigurationOutputWithContext(ctx context.Context) NodeNodeConfigurationOutput {
+func (o NodeConfigurationOutput) ToNodeConfigurationOutputWithContext(ctx context.Context) NodeConfigurationOutput {
 	return o
 }
 
-func (o NodeNodeConfigurationOutput) ToNodeNodeConfigurationPtrOutput() NodeNodeConfigurationPtrOutput {
-	return o.ToNodeNodeConfigurationPtrOutputWithContext(context.Background())
+func (o NodeConfigurationOutput) ToNodeConfigurationPtrOutput() NodeConfigurationPtrOutput {
+	return o.ToNodeConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o NodeNodeConfigurationOutput) ToNodeNodeConfigurationPtrOutputWithContext(ctx context.Context) NodeNodeConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodeNodeConfiguration) *NodeNodeConfiguration {
+func (o NodeConfigurationOutput) ToNodeConfigurationPtrOutputWithContext(ctx context.Context) NodeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodeConfiguration) *NodeConfiguration {
 		return &v
-	}).(NodeNodeConfigurationPtrOutput)
+	}).(NodeConfigurationPtrOutput)
 }
 
-func (o NodeNodeConfigurationOutput) AvailabilityZone() pulumi.StringOutput {
-	return o.ApplyT(func(v NodeNodeConfiguration) string { return v.AvailabilityZone }).(pulumi.StringOutput)
+func (o NodeConfigurationOutput) AvailabilityZone() pulumi.StringOutput {
+	return o.ApplyT(func(v NodeConfiguration) string { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
 
-func (o NodeNodeConfigurationOutput) InstanceType() pulumi.StringOutput {
-	return o.ApplyT(func(v NodeNodeConfiguration) string { return v.InstanceType }).(pulumi.StringOutput)
+func (o NodeConfigurationOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v NodeConfiguration) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-type NodeNodeConfigurationPtrOutput struct{ *pulumi.OutputState }
+type NodeConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (NodeNodeConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NodeNodeConfiguration)(nil)).Elem()
+func (NodeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodeConfiguration)(nil)).Elem()
 }
 
-func (o NodeNodeConfigurationPtrOutput) ToNodeNodeConfigurationPtrOutput() NodeNodeConfigurationPtrOutput {
+func (o NodeConfigurationPtrOutput) ToNodeConfigurationPtrOutput() NodeConfigurationPtrOutput {
 	return o
 }
 
-func (o NodeNodeConfigurationPtrOutput) ToNodeNodeConfigurationPtrOutputWithContext(ctx context.Context) NodeNodeConfigurationPtrOutput {
+func (o NodeConfigurationPtrOutput) ToNodeConfigurationPtrOutputWithContext(ctx context.Context) NodeConfigurationPtrOutput {
 	return o
 }
 
-func (o NodeNodeConfigurationPtrOutput) Elem() NodeNodeConfigurationOutput {
-	return o.ApplyT(func(v *NodeNodeConfiguration) NodeNodeConfiguration {
+func (o NodeConfigurationPtrOutput) Elem() NodeConfigurationOutput {
+	return o.ApplyT(func(v *NodeConfiguration) NodeConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret NodeNodeConfiguration
+		var ret NodeConfiguration
 		return ret
-	}).(NodeNodeConfigurationOutput)
+	}).(NodeConfigurationOutput)
 }
 
-func (o NodeNodeConfigurationPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NodeNodeConfiguration) *string {
+func (o NodeConfigurationPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodeConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -1371,8 +1367,8 @@ func (o NodeNodeConfigurationPtrOutput) AvailabilityZone() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o NodeNodeConfigurationPtrOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NodeNodeConfiguration) *string {
+func (o NodeConfigurationPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodeConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -1383,12 +1379,12 @@ func (o NodeNodeConfigurationPtrOutput) InstanceType() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(MemberApprovalThresholdPolicyOutput{})
 	pulumi.RegisterOutputType(MemberApprovalThresholdPolicyPtrOutput{})
-	pulumi.RegisterOutputType(MemberMemberConfigurationOutput{})
-	pulumi.RegisterOutputType(MemberMemberConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(MemberMemberFabricConfigurationOutput{})
-	pulumi.RegisterOutputType(MemberMemberFabricConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(MemberMemberFrameworkConfigurationOutput{})
-	pulumi.RegisterOutputType(MemberMemberFrameworkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(MemberConfigurationOutput{})
+	pulumi.RegisterOutputType(MemberConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(MemberFabricConfigurationOutput{})
+	pulumi.RegisterOutputType(MemberFabricConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(MemberFrameworkConfigurationOutput{})
+	pulumi.RegisterOutputType(MemberFrameworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(MemberNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(MemberNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(MemberNetworkFabricConfigurationOutput{})
@@ -1397,6 +1393,6 @@ func init() {
 	pulumi.RegisterOutputType(MemberNetworkFrameworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(MemberVotingPolicyOutput{})
 	pulumi.RegisterOutputType(MemberVotingPolicyPtrOutput{})
-	pulumi.RegisterOutputType(NodeNodeConfigurationOutput{})
-	pulumi.RegisterOutputType(NodeNodeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(NodeConfigurationOutput{})
+	pulumi.RegisterOutputType(NodeConfigurationPtrOutput{})
 }

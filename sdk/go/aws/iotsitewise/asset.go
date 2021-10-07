@@ -16,15 +16,15 @@ type Asset struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the asset
-	AssetArn         pulumi.StringOutput            `pulumi:"assetArn"`
-	AssetHierarchies AssetAssetHierarchyArrayOutput `pulumi:"assetHierarchies"`
+	AssetArn         pulumi.StringOutput       `pulumi:"assetArn"`
+	AssetHierarchies AssetHierarchyArrayOutput `pulumi:"assetHierarchies"`
 	// The ID of the asset
 	AssetId pulumi.StringOutput `pulumi:"assetId"`
 	// The ID of the asset model from which to create the asset.
 	AssetModelId pulumi.StringOutput `pulumi:"assetModelId"`
 	// A unique, friendly name for the asset.
-	AssetName       pulumi.StringOutput           `pulumi:"assetName"`
-	AssetProperties AssetAssetPropertyArrayOutput `pulumi:"assetProperties"`
+	AssetName       pulumi.StringOutput      `pulumi:"assetName"`
+	AssetProperties AssetPropertyArrayOutput `pulumi:"assetProperties"`
 	// A list of key-value pairs that contain metadata for the asset.
 	Tags AssetTagArrayOutput `pulumi:"tags"`
 }
@@ -74,24 +74,24 @@ func (AssetState) ElementType() reflect.Type {
 }
 
 type assetArgs struct {
-	AssetHierarchies []AssetAssetHierarchy `pulumi:"assetHierarchies"`
+	AssetHierarchies []AssetHierarchy `pulumi:"assetHierarchies"`
 	// The ID of the asset model from which to create the asset.
 	AssetModelId string `pulumi:"assetModelId"`
 	// A unique, friendly name for the asset.
-	AssetName       string               `pulumi:"assetName"`
-	AssetProperties []AssetAssetProperty `pulumi:"assetProperties"`
+	AssetName       string          `pulumi:"assetName"`
+	AssetProperties []AssetProperty `pulumi:"assetProperties"`
 	// A list of key-value pairs that contain metadata for the asset.
 	Tags []AssetTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Asset resource.
 type AssetArgs struct {
-	AssetHierarchies AssetAssetHierarchyArrayInput
+	AssetHierarchies AssetHierarchyArrayInput
 	// The ID of the asset model from which to create the asset.
 	AssetModelId pulumi.StringInput
 	// A unique, friendly name for the asset.
 	AssetName       pulumi.StringInput
-	AssetProperties AssetAssetPropertyArrayInput
+	AssetProperties AssetPropertyArrayInput
 	// A list of key-value pairs that contain metadata for the asset.
 	Tags AssetTagArrayInput
 }

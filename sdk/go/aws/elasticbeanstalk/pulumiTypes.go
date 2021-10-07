@@ -10,304 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type ApplicationApplicationResourceLifecycleConfig struct {
-	ServiceRole            *string                                       `pulumi:"serviceRole"`
-	VersionLifecycleConfig *ApplicationApplicationVersionLifecycleConfig `pulumi:"versionLifecycleConfig"`
-}
-
-// ApplicationApplicationResourceLifecycleConfigInput is an input type that accepts ApplicationApplicationResourceLifecycleConfigArgs and ApplicationApplicationResourceLifecycleConfigOutput values.
-// You can construct a concrete instance of `ApplicationApplicationResourceLifecycleConfigInput` via:
-//
-//          ApplicationApplicationResourceLifecycleConfigArgs{...}
-type ApplicationApplicationResourceLifecycleConfigInput interface {
-	pulumi.Input
-
-	ToApplicationApplicationResourceLifecycleConfigOutput() ApplicationApplicationResourceLifecycleConfigOutput
-	ToApplicationApplicationResourceLifecycleConfigOutputWithContext(context.Context) ApplicationApplicationResourceLifecycleConfigOutput
-}
-
-type ApplicationApplicationResourceLifecycleConfigArgs struct {
-	ServiceRole            pulumi.StringPtrInput                                `pulumi:"serviceRole"`
-	VersionLifecycleConfig ApplicationApplicationVersionLifecycleConfigPtrInput `pulumi:"versionLifecycleConfig"`
-}
-
-func (ApplicationApplicationResourceLifecycleConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationApplicationResourceLifecycleConfig)(nil)).Elem()
-}
-
-func (i ApplicationApplicationResourceLifecycleConfigArgs) ToApplicationApplicationResourceLifecycleConfigOutput() ApplicationApplicationResourceLifecycleConfigOutput {
-	return i.ToApplicationApplicationResourceLifecycleConfigOutputWithContext(context.Background())
-}
-
-func (i ApplicationApplicationResourceLifecycleConfigArgs) ToApplicationApplicationResourceLifecycleConfigOutputWithContext(ctx context.Context) ApplicationApplicationResourceLifecycleConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationResourceLifecycleConfigOutput)
-}
-
-func (i ApplicationApplicationResourceLifecycleConfigArgs) ToApplicationApplicationResourceLifecycleConfigPtrOutput() ApplicationApplicationResourceLifecycleConfigPtrOutput {
-	return i.ToApplicationApplicationResourceLifecycleConfigPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationApplicationResourceLifecycleConfigArgs) ToApplicationApplicationResourceLifecycleConfigPtrOutputWithContext(ctx context.Context) ApplicationApplicationResourceLifecycleConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationResourceLifecycleConfigOutput).ToApplicationApplicationResourceLifecycleConfigPtrOutputWithContext(ctx)
-}
-
-// ApplicationApplicationResourceLifecycleConfigPtrInput is an input type that accepts ApplicationApplicationResourceLifecycleConfigArgs, ApplicationApplicationResourceLifecycleConfigPtr and ApplicationApplicationResourceLifecycleConfigPtrOutput values.
-// You can construct a concrete instance of `ApplicationApplicationResourceLifecycleConfigPtrInput` via:
-//
-//          ApplicationApplicationResourceLifecycleConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type ApplicationApplicationResourceLifecycleConfigPtrInput interface {
-	pulumi.Input
-
-	ToApplicationApplicationResourceLifecycleConfigPtrOutput() ApplicationApplicationResourceLifecycleConfigPtrOutput
-	ToApplicationApplicationResourceLifecycleConfigPtrOutputWithContext(context.Context) ApplicationApplicationResourceLifecycleConfigPtrOutput
-}
-
-type applicationApplicationResourceLifecycleConfigPtrType ApplicationApplicationResourceLifecycleConfigArgs
-
-func ApplicationApplicationResourceLifecycleConfigPtr(v *ApplicationApplicationResourceLifecycleConfigArgs) ApplicationApplicationResourceLifecycleConfigPtrInput {
-	return (*applicationApplicationResourceLifecycleConfigPtrType)(v)
-}
-
-func (*applicationApplicationResourceLifecycleConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationApplicationResourceLifecycleConfig)(nil)).Elem()
-}
-
-func (i *applicationApplicationResourceLifecycleConfigPtrType) ToApplicationApplicationResourceLifecycleConfigPtrOutput() ApplicationApplicationResourceLifecycleConfigPtrOutput {
-	return i.ToApplicationApplicationResourceLifecycleConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationApplicationResourceLifecycleConfigPtrType) ToApplicationApplicationResourceLifecycleConfigPtrOutputWithContext(ctx context.Context) ApplicationApplicationResourceLifecycleConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationResourceLifecycleConfigPtrOutput)
-}
-
-type ApplicationApplicationResourceLifecycleConfigOutput struct{ *pulumi.OutputState }
-
-func (ApplicationApplicationResourceLifecycleConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationApplicationResourceLifecycleConfig)(nil)).Elem()
-}
-
-func (o ApplicationApplicationResourceLifecycleConfigOutput) ToApplicationApplicationResourceLifecycleConfigOutput() ApplicationApplicationResourceLifecycleConfigOutput {
-	return o
-}
-
-func (o ApplicationApplicationResourceLifecycleConfigOutput) ToApplicationApplicationResourceLifecycleConfigOutputWithContext(ctx context.Context) ApplicationApplicationResourceLifecycleConfigOutput {
-	return o
-}
-
-func (o ApplicationApplicationResourceLifecycleConfigOutput) ToApplicationApplicationResourceLifecycleConfigPtrOutput() ApplicationApplicationResourceLifecycleConfigPtrOutput {
-	return o.ToApplicationApplicationResourceLifecycleConfigPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationApplicationResourceLifecycleConfigOutput) ToApplicationApplicationResourceLifecycleConfigPtrOutputWithContext(ctx context.Context) ApplicationApplicationResourceLifecycleConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationResourceLifecycleConfig) *ApplicationApplicationResourceLifecycleConfig {
-		return &v
-	}).(ApplicationApplicationResourceLifecycleConfigPtrOutput)
-}
-
-func (o ApplicationApplicationResourceLifecycleConfigOutput) ServiceRole() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationResourceLifecycleConfig) *string { return v.ServiceRole }).(pulumi.StringPtrOutput)
-}
-
-func (o ApplicationApplicationResourceLifecycleConfigOutput) VersionLifecycleConfig() ApplicationApplicationVersionLifecycleConfigPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationResourceLifecycleConfig) *ApplicationApplicationVersionLifecycleConfig {
-		return v.VersionLifecycleConfig
-	}).(ApplicationApplicationVersionLifecycleConfigPtrOutput)
-}
-
-type ApplicationApplicationResourceLifecycleConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationApplicationResourceLifecycleConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationApplicationResourceLifecycleConfig)(nil)).Elem()
-}
-
-func (o ApplicationApplicationResourceLifecycleConfigPtrOutput) ToApplicationApplicationResourceLifecycleConfigPtrOutput() ApplicationApplicationResourceLifecycleConfigPtrOutput {
-	return o
-}
-
-func (o ApplicationApplicationResourceLifecycleConfigPtrOutput) ToApplicationApplicationResourceLifecycleConfigPtrOutputWithContext(ctx context.Context) ApplicationApplicationResourceLifecycleConfigPtrOutput {
-	return o
-}
-
-func (o ApplicationApplicationResourceLifecycleConfigPtrOutput) Elem() ApplicationApplicationResourceLifecycleConfigOutput {
-	return o.ApplyT(func(v *ApplicationApplicationResourceLifecycleConfig) ApplicationApplicationResourceLifecycleConfig {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationApplicationResourceLifecycleConfig
-		return ret
-	}).(ApplicationApplicationResourceLifecycleConfigOutput)
-}
-
-func (o ApplicationApplicationResourceLifecycleConfigPtrOutput) ServiceRole() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationApplicationResourceLifecycleConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceRole
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ApplicationApplicationResourceLifecycleConfigPtrOutput) VersionLifecycleConfig() ApplicationApplicationVersionLifecycleConfigPtrOutput {
-	return o.ApplyT(func(v *ApplicationApplicationResourceLifecycleConfig) *ApplicationApplicationVersionLifecycleConfig {
-		if v == nil {
-			return nil
-		}
-		return v.VersionLifecycleConfig
-	}).(ApplicationApplicationVersionLifecycleConfigPtrOutput)
-}
-
-type ApplicationApplicationVersionLifecycleConfig struct {
-	MaxAgeRule   *ApplicationMaxAgeRule   `pulumi:"maxAgeRule"`
-	MaxCountRule *ApplicationMaxCountRule `pulumi:"maxCountRule"`
-}
-
-// ApplicationApplicationVersionLifecycleConfigInput is an input type that accepts ApplicationApplicationVersionLifecycleConfigArgs and ApplicationApplicationVersionLifecycleConfigOutput values.
-// You can construct a concrete instance of `ApplicationApplicationVersionLifecycleConfigInput` via:
-//
-//          ApplicationApplicationVersionLifecycleConfigArgs{...}
-type ApplicationApplicationVersionLifecycleConfigInput interface {
-	pulumi.Input
-
-	ToApplicationApplicationVersionLifecycleConfigOutput() ApplicationApplicationVersionLifecycleConfigOutput
-	ToApplicationApplicationVersionLifecycleConfigOutputWithContext(context.Context) ApplicationApplicationVersionLifecycleConfigOutput
-}
-
-type ApplicationApplicationVersionLifecycleConfigArgs struct {
-	MaxAgeRule   ApplicationMaxAgeRulePtrInput   `pulumi:"maxAgeRule"`
-	MaxCountRule ApplicationMaxCountRulePtrInput `pulumi:"maxCountRule"`
-}
-
-func (ApplicationApplicationVersionLifecycleConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationApplicationVersionLifecycleConfig)(nil)).Elem()
-}
-
-func (i ApplicationApplicationVersionLifecycleConfigArgs) ToApplicationApplicationVersionLifecycleConfigOutput() ApplicationApplicationVersionLifecycleConfigOutput {
-	return i.ToApplicationApplicationVersionLifecycleConfigOutputWithContext(context.Background())
-}
-
-func (i ApplicationApplicationVersionLifecycleConfigArgs) ToApplicationApplicationVersionLifecycleConfigOutputWithContext(ctx context.Context) ApplicationApplicationVersionLifecycleConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationVersionLifecycleConfigOutput)
-}
-
-func (i ApplicationApplicationVersionLifecycleConfigArgs) ToApplicationApplicationVersionLifecycleConfigPtrOutput() ApplicationApplicationVersionLifecycleConfigPtrOutput {
-	return i.ToApplicationApplicationVersionLifecycleConfigPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationApplicationVersionLifecycleConfigArgs) ToApplicationApplicationVersionLifecycleConfigPtrOutputWithContext(ctx context.Context) ApplicationApplicationVersionLifecycleConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationVersionLifecycleConfigOutput).ToApplicationApplicationVersionLifecycleConfigPtrOutputWithContext(ctx)
-}
-
-// ApplicationApplicationVersionLifecycleConfigPtrInput is an input type that accepts ApplicationApplicationVersionLifecycleConfigArgs, ApplicationApplicationVersionLifecycleConfigPtr and ApplicationApplicationVersionLifecycleConfigPtrOutput values.
-// You can construct a concrete instance of `ApplicationApplicationVersionLifecycleConfigPtrInput` via:
-//
-//          ApplicationApplicationVersionLifecycleConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type ApplicationApplicationVersionLifecycleConfigPtrInput interface {
-	pulumi.Input
-
-	ToApplicationApplicationVersionLifecycleConfigPtrOutput() ApplicationApplicationVersionLifecycleConfigPtrOutput
-	ToApplicationApplicationVersionLifecycleConfigPtrOutputWithContext(context.Context) ApplicationApplicationVersionLifecycleConfigPtrOutput
-}
-
-type applicationApplicationVersionLifecycleConfigPtrType ApplicationApplicationVersionLifecycleConfigArgs
-
-func ApplicationApplicationVersionLifecycleConfigPtr(v *ApplicationApplicationVersionLifecycleConfigArgs) ApplicationApplicationVersionLifecycleConfigPtrInput {
-	return (*applicationApplicationVersionLifecycleConfigPtrType)(v)
-}
-
-func (*applicationApplicationVersionLifecycleConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationApplicationVersionLifecycleConfig)(nil)).Elem()
-}
-
-func (i *applicationApplicationVersionLifecycleConfigPtrType) ToApplicationApplicationVersionLifecycleConfigPtrOutput() ApplicationApplicationVersionLifecycleConfigPtrOutput {
-	return i.ToApplicationApplicationVersionLifecycleConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationApplicationVersionLifecycleConfigPtrType) ToApplicationApplicationVersionLifecycleConfigPtrOutputWithContext(ctx context.Context) ApplicationApplicationVersionLifecycleConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationVersionLifecycleConfigPtrOutput)
-}
-
-type ApplicationApplicationVersionLifecycleConfigOutput struct{ *pulumi.OutputState }
-
-func (ApplicationApplicationVersionLifecycleConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationApplicationVersionLifecycleConfig)(nil)).Elem()
-}
-
-func (o ApplicationApplicationVersionLifecycleConfigOutput) ToApplicationApplicationVersionLifecycleConfigOutput() ApplicationApplicationVersionLifecycleConfigOutput {
-	return o
-}
-
-func (o ApplicationApplicationVersionLifecycleConfigOutput) ToApplicationApplicationVersionLifecycleConfigOutputWithContext(ctx context.Context) ApplicationApplicationVersionLifecycleConfigOutput {
-	return o
-}
-
-func (o ApplicationApplicationVersionLifecycleConfigOutput) ToApplicationApplicationVersionLifecycleConfigPtrOutput() ApplicationApplicationVersionLifecycleConfigPtrOutput {
-	return o.ToApplicationApplicationVersionLifecycleConfigPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationApplicationVersionLifecycleConfigOutput) ToApplicationApplicationVersionLifecycleConfigPtrOutputWithContext(ctx context.Context) ApplicationApplicationVersionLifecycleConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationVersionLifecycleConfig) *ApplicationApplicationVersionLifecycleConfig {
-		return &v
-	}).(ApplicationApplicationVersionLifecycleConfigPtrOutput)
-}
-
-func (o ApplicationApplicationVersionLifecycleConfigOutput) MaxAgeRule() ApplicationMaxAgeRulePtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationVersionLifecycleConfig) *ApplicationMaxAgeRule { return v.MaxAgeRule }).(ApplicationMaxAgeRulePtrOutput)
-}
-
-func (o ApplicationApplicationVersionLifecycleConfigOutput) MaxCountRule() ApplicationMaxCountRulePtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationVersionLifecycleConfig) *ApplicationMaxCountRule { return v.MaxCountRule }).(ApplicationMaxCountRulePtrOutput)
-}
-
-type ApplicationApplicationVersionLifecycleConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationApplicationVersionLifecycleConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationApplicationVersionLifecycleConfig)(nil)).Elem()
-}
-
-func (o ApplicationApplicationVersionLifecycleConfigPtrOutput) ToApplicationApplicationVersionLifecycleConfigPtrOutput() ApplicationApplicationVersionLifecycleConfigPtrOutput {
-	return o
-}
-
-func (o ApplicationApplicationVersionLifecycleConfigPtrOutput) ToApplicationApplicationVersionLifecycleConfigPtrOutputWithContext(ctx context.Context) ApplicationApplicationVersionLifecycleConfigPtrOutput {
-	return o
-}
-
-func (o ApplicationApplicationVersionLifecycleConfigPtrOutput) Elem() ApplicationApplicationVersionLifecycleConfigOutput {
-	return o.ApplyT(func(v *ApplicationApplicationVersionLifecycleConfig) ApplicationApplicationVersionLifecycleConfig {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationApplicationVersionLifecycleConfig
-		return ret
-	}).(ApplicationApplicationVersionLifecycleConfigOutput)
-}
-
-func (o ApplicationApplicationVersionLifecycleConfigPtrOutput) MaxAgeRule() ApplicationMaxAgeRulePtrOutput {
-	return o.ApplyT(func(v *ApplicationApplicationVersionLifecycleConfig) *ApplicationMaxAgeRule {
-		if v == nil {
-			return nil
-		}
-		return v.MaxAgeRule
-	}).(ApplicationMaxAgeRulePtrOutput)
-}
-
-func (o ApplicationApplicationVersionLifecycleConfigPtrOutput) MaxCountRule() ApplicationMaxCountRulePtrOutput {
-	return o.ApplyT(func(v *ApplicationApplicationVersionLifecycleConfig) *ApplicationMaxCountRule {
-		if v == nil {
-			return nil
-		}
-		return v.MaxCountRule
-	}).(ApplicationMaxCountRulePtrOutput)
-}
-
 type ApplicationMaxAgeRule struct {
 	DeleteSourceFromS3 *bool `pulumi:"deleteSourceFromS3"`
 	Enabled            *bool `pulumi:"enabled"`
@@ -632,6 +334,304 @@ func (o ApplicationMaxCountRulePtrOutput) MaxCount() pulumi.IntPtrOutput {
 		}
 		return v.MaxCount
 	}).(pulumi.IntPtrOutput)
+}
+
+type ApplicationResourceLifecycleConfig struct {
+	ServiceRole            *string                            `pulumi:"serviceRole"`
+	VersionLifecycleConfig *ApplicationVersionLifecycleConfig `pulumi:"versionLifecycleConfig"`
+}
+
+// ApplicationResourceLifecycleConfigInput is an input type that accepts ApplicationResourceLifecycleConfigArgs and ApplicationResourceLifecycleConfigOutput values.
+// You can construct a concrete instance of `ApplicationResourceLifecycleConfigInput` via:
+//
+//          ApplicationResourceLifecycleConfigArgs{...}
+type ApplicationResourceLifecycleConfigInput interface {
+	pulumi.Input
+
+	ToApplicationResourceLifecycleConfigOutput() ApplicationResourceLifecycleConfigOutput
+	ToApplicationResourceLifecycleConfigOutputWithContext(context.Context) ApplicationResourceLifecycleConfigOutput
+}
+
+type ApplicationResourceLifecycleConfigArgs struct {
+	ServiceRole            pulumi.StringPtrInput                     `pulumi:"serviceRole"`
+	VersionLifecycleConfig ApplicationVersionLifecycleConfigPtrInput `pulumi:"versionLifecycleConfig"`
+}
+
+func (ApplicationResourceLifecycleConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationResourceLifecycleConfig)(nil)).Elem()
+}
+
+func (i ApplicationResourceLifecycleConfigArgs) ToApplicationResourceLifecycleConfigOutput() ApplicationResourceLifecycleConfigOutput {
+	return i.ToApplicationResourceLifecycleConfigOutputWithContext(context.Background())
+}
+
+func (i ApplicationResourceLifecycleConfigArgs) ToApplicationResourceLifecycleConfigOutputWithContext(ctx context.Context) ApplicationResourceLifecycleConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationResourceLifecycleConfigOutput)
+}
+
+func (i ApplicationResourceLifecycleConfigArgs) ToApplicationResourceLifecycleConfigPtrOutput() ApplicationResourceLifecycleConfigPtrOutput {
+	return i.ToApplicationResourceLifecycleConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationResourceLifecycleConfigArgs) ToApplicationResourceLifecycleConfigPtrOutputWithContext(ctx context.Context) ApplicationResourceLifecycleConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationResourceLifecycleConfigOutput).ToApplicationResourceLifecycleConfigPtrOutputWithContext(ctx)
+}
+
+// ApplicationResourceLifecycleConfigPtrInput is an input type that accepts ApplicationResourceLifecycleConfigArgs, ApplicationResourceLifecycleConfigPtr and ApplicationResourceLifecycleConfigPtrOutput values.
+// You can construct a concrete instance of `ApplicationResourceLifecycleConfigPtrInput` via:
+//
+//          ApplicationResourceLifecycleConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ApplicationResourceLifecycleConfigPtrInput interface {
+	pulumi.Input
+
+	ToApplicationResourceLifecycleConfigPtrOutput() ApplicationResourceLifecycleConfigPtrOutput
+	ToApplicationResourceLifecycleConfigPtrOutputWithContext(context.Context) ApplicationResourceLifecycleConfigPtrOutput
+}
+
+type applicationResourceLifecycleConfigPtrType ApplicationResourceLifecycleConfigArgs
+
+func ApplicationResourceLifecycleConfigPtr(v *ApplicationResourceLifecycleConfigArgs) ApplicationResourceLifecycleConfigPtrInput {
+	return (*applicationResourceLifecycleConfigPtrType)(v)
+}
+
+func (*applicationResourceLifecycleConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationResourceLifecycleConfig)(nil)).Elem()
+}
+
+func (i *applicationResourceLifecycleConfigPtrType) ToApplicationResourceLifecycleConfigPtrOutput() ApplicationResourceLifecycleConfigPtrOutput {
+	return i.ToApplicationResourceLifecycleConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationResourceLifecycleConfigPtrType) ToApplicationResourceLifecycleConfigPtrOutputWithContext(ctx context.Context) ApplicationResourceLifecycleConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationResourceLifecycleConfigPtrOutput)
+}
+
+type ApplicationResourceLifecycleConfigOutput struct{ *pulumi.OutputState }
+
+func (ApplicationResourceLifecycleConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationResourceLifecycleConfig)(nil)).Elem()
+}
+
+func (o ApplicationResourceLifecycleConfigOutput) ToApplicationResourceLifecycleConfigOutput() ApplicationResourceLifecycleConfigOutput {
+	return o
+}
+
+func (o ApplicationResourceLifecycleConfigOutput) ToApplicationResourceLifecycleConfigOutputWithContext(ctx context.Context) ApplicationResourceLifecycleConfigOutput {
+	return o
+}
+
+func (o ApplicationResourceLifecycleConfigOutput) ToApplicationResourceLifecycleConfigPtrOutput() ApplicationResourceLifecycleConfigPtrOutput {
+	return o.ToApplicationResourceLifecycleConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationResourceLifecycleConfigOutput) ToApplicationResourceLifecycleConfigPtrOutputWithContext(ctx context.Context) ApplicationResourceLifecycleConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationResourceLifecycleConfig) *ApplicationResourceLifecycleConfig {
+		return &v
+	}).(ApplicationResourceLifecycleConfigPtrOutput)
+}
+
+func (o ApplicationResourceLifecycleConfigOutput) ServiceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationResourceLifecycleConfig) *string { return v.ServiceRole }).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationResourceLifecycleConfigOutput) VersionLifecycleConfig() ApplicationVersionLifecycleConfigPtrOutput {
+	return o.ApplyT(func(v ApplicationResourceLifecycleConfig) *ApplicationVersionLifecycleConfig {
+		return v.VersionLifecycleConfig
+	}).(ApplicationVersionLifecycleConfigPtrOutput)
+}
+
+type ApplicationResourceLifecycleConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationResourceLifecycleConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationResourceLifecycleConfig)(nil)).Elem()
+}
+
+func (o ApplicationResourceLifecycleConfigPtrOutput) ToApplicationResourceLifecycleConfigPtrOutput() ApplicationResourceLifecycleConfigPtrOutput {
+	return o
+}
+
+func (o ApplicationResourceLifecycleConfigPtrOutput) ToApplicationResourceLifecycleConfigPtrOutputWithContext(ctx context.Context) ApplicationResourceLifecycleConfigPtrOutput {
+	return o
+}
+
+func (o ApplicationResourceLifecycleConfigPtrOutput) Elem() ApplicationResourceLifecycleConfigOutput {
+	return o.ApplyT(func(v *ApplicationResourceLifecycleConfig) ApplicationResourceLifecycleConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationResourceLifecycleConfig
+		return ret
+	}).(ApplicationResourceLifecycleConfigOutput)
+}
+
+func (o ApplicationResourceLifecycleConfigPtrOutput) ServiceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationResourceLifecycleConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceRole
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationResourceLifecycleConfigPtrOutput) VersionLifecycleConfig() ApplicationVersionLifecycleConfigPtrOutput {
+	return o.ApplyT(func(v *ApplicationResourceLifecycleConfig) *ApplicationVersionLifecycleConfig {
+		if v == nil {
+			return nil
+		}
+		return v.VersionLifecycleConfig
+	}).(ApplicationVersionLifecycleConfigPtrOutput)
+}
+
+type ApplicationVersionLifecycleConfig struct {
+	MaxAgeRule   *ApplicationMaxAgeRule   `pulumi:"maxAgeRule"`
+	MaxCountRule *ApplicationMaxCountRule `pulumi:"maxCountRule"`
+}
+
+// ApplicationVersionLifecycleConfigInput is an input type that accepts ApplicationVersionLifecycleConfigArgs and ApplicationVersionLifecycleConfigOutput values.
+// You can construct a concrete instance of `ApplicationVersionLifecycleConfigInput` via:
+//
+//          ApplicationVersionLifecycleConfigArgs{...}
+type ApplicationVersionLifecycleConfigInput interface {
+	pulumi.Input
+
+	ToApplicationVersionLifecycleConfigOutput() ApplicationVersionLifecycleConfigOutput
+	ToApplicationVersionLifecycleConfigOutputWithContext(context.Context) ApplicationVersionLifecycleConfigOutput
+}
+
+type ApplicationVersionLifecycleConfigArgs struct {
+	MaxAgeRule   ApplicationMaxAgeRulePtrInput   `pulumi:"maxAgeRule"`
+	MaxCountRule ApplicationMaxCountRulePtrInput `pulumi:"maxCountRule"`
+}
+
+func (ApplicationVersionLifecycleConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationVersionLifecycleConfig)(nil)).Elem()
+}
+
+func (i ApplicationVersionLifecycleConfigArgs) ToApplicationVersionLifecycleConfigOutput() ApplicationVersionLifecycleConfigOutput {
+	return i.ToApplicationVersionLifecycleConfigOutputWithContext(context.Background())
+}
+
+func (i ApplicationVersionLifecycleConfigArgs) ToApplicationVersionLifecycleConfigOutputWithContext(ctx context.Context) ApplicationVersionLifecycleConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionLifecycleConfigOutput)
+}
+
+func (i ApplicationVersionLifecycleConfigArgs) ToApplicationVersionLifecycleConfigPtrOutput() ApplicationVersionLifecycleConfigPtrOutput {
+	return i.ToApplicationVersionLifecycleConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationVersionLifecycleConfigArgs) ToApplicationVersionLifecycleConfigPtrOutputWithContext(ctx context.Context) ApplicationVersionLifecycleConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionLifecycleConfigOutput).ToApplicationVersionLifecycleConfigPtrOutputWithContext(ctx)
+}
+
+// ApplicationVersionLifecycleConfigPtrInput is an input type that accepts ApplicationVersionLifecycleConfigArgs, ApplicationVersionLifecycleConfigPtr and ApplicationVersionLifecycleConfigPtrOutput values.
+// You can construct a concrete instance of `ApplicationVersionLifecycleConfigPtrInput` via:
+//
+//          ApplicationVersionLifecycleConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ApplicationVersionLifecycleConfigPtrInput interface {
+	pulumi.Input
+
+	ToApplicationVersionLifecycleConfigPtrOutput() ApplicationVersionLifecycleConfigPtrOutput
+	ToApplicationVersionLifecycleConfigPtrOutputWithContext(context.Context) ApplicationVersionLifecycleConfigPtrOutput
+}
+
+type applicationVersionLifecycleConfigPtrType ApplicationVersionLifecycleConfigArgs
+
+func ApplicationVersionLifecycleConfigPtr(v *ApplicationVersionLifecycleConfigArgs) ApplicationVersionLifecycleConfigPtrInput {
+	return (*applicationVersionLifecycleConfigPtrType)(v)
+}
+
+func (*applicationVersionLifecycleConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationVersionLifecycleConfig)(nil)).Elem()
+}
+
+func (i *applicationVersionLifecycleConfigPtrType) ToApplicationVersionLifecycleConfigPtrOutput() ApplicationVersionLifecycleConfigPtrOutput {
+	return i.ToApplicationVersionLifecycleConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationVersionLifecycleConfigPtrType) ToApplicationVersionLifecycleConfigPtrOutputWithContext(ctx context.Context) ApplicationVersionLifecycleConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionLifecycleConfigPtrOutput)
+}
+
+type ApplicationVersionLifecycleConfigOutput struct{ *pulumi.OutputState }
+
+func (ApplicationVersionLifecycleConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationVersionLifecycleConfig)(nil)).Elem()
+}
+
+func (o ApplicationVersionLifecycleConfigOutput) ToApplicationVersionLifecycleConfigOutput() ApplicationVersionLifecycleConfigOutput {
+	return o
+}
+
+func (o ApplicationVersionLifecycleConfigOutput) ToApplicationVersionLifecycleConfigOutputWithContext(ctx context.Context) ApplicationVersionLifecycleConfigOutput {
+	return o
+}
+
+func (o ApplicationVersionLifecycleConfigOutput) ToApplicationVersionLifecycleConfigPtrOutput() ApplicationVersionLifecycleConfigPtrOutput {
+	return o.ToApplicationVersionLifecycleConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationVersionLifecycleConfigOutput) ToApplicationVersionLifecycleConfigPtrOutputWithContext(ctx context.Context) ApplicationVersionLifecycleConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationVersionLifecycleConfig) *ApplicationVersionLifecycleConfig {
+		return &v
+	}).(ApplicationVersionLifecycleConfigPtrOutput)
+}
+
+func (o ApplicationVersionLifecycleConfigOutput) MaxAgeRule() ApplicationMaxAgeRulePtrOutput {
+	return o.ApplyT(func(v ApplicationVersionLifecycleConfig) *ApplicationMaxAgeRule { return v.MaxAgeRule }).(ApplicationMaxAgeRulePtrOutput)
+}
+
+func (o ApplicationVersionLifecycleConfigOutput) MaxCountRule() ApplicationMaxCountRulePtrOutput {
+	return o.ApplyT(func(v ApplicationVersionLifecycleConfig) *ApplicationMaxCountRule { return v.MaxCountRule }).(ApplicationMaxCountRulePtrOutput)
+}
+
+type ApplicationVersionLifecycleConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationVersionLifecycleConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationVersionLifecycleConfig)(nil)).Elem()
+}
+
+func (o ApplicationVersionLifecycleConfigPtrOutput) ToApplicationVersionLifecycleConfigPtrOutput() ApplicationVersionLifecycleConfigPtrOutput {
+	return o
+}
+
+func (o ApplicationVersionLifecycleConfigPtrOutput) ToApplicationVersionLifecycleConfigPtrOutputWithContext(ctx context.Context) ApplicationVersionLifecycleConfigPtrOutput {
+	return o
+}
+
+func (o ApplicationVersionLifecycleConfigPtrOutput) Elem() ApplicationVersionLifecycleConfigOutput {
+	return o.ApplyT(func(v *ApplicationVersionLifecycleConfig) ApplicationVersionLifecycleConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationVersionLifecycleConfig
+		return ret
+	}).(ApplicationVersionLifecycleConfigOutput)
+}
+
+func (o ApplicationVersionLifecycleConfigPtrOutput) MaxAgeRule() ApplicationMaxAgeRulePtrOutput {
+	return o.ApplyT(func(v *ApplicationVersionLifecycleConfig) *ApplicationMaxAgeRule {
+		if v == nil {
+			return nil
+		}
+		return v.MaxAgeRule
+	}).(ApplicationMaxAgeRulePtrOutput)
+}
+
+func (o ApplicationVersionLifecycleConfigPtrOutput) MaxCountRule() ApplicationMaxCountRulePtrOutput {
+	return o.ApplyT(func(v *ApplicationVersionLifecycleConfig) *ApplicationMaxCountRule {
+		if v == nil {
+			return nil
+		}
+		return v.MaxCountRule
+	}).(ApplicationMaxCountRulePtrOutput)
 }
 
 type ApplicationVersionSourceBundle struct {
@@ -1418,14 +1418,14 @@ func (o EnvironmentTierPtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(ApplicationApplicationResourceLifecycleConfigOutput{})
-	pulumi.RegisterOutputType(ApplicationApplicationResourceLifecycleConfigPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationApplicationVersionLifecycleConfigOutput{})
-	pulumi.RegisterOutputType(ApplicationApplicationVersionLifecycleConfigPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationMaxAgeRuleOutput{})
 	pulumi.RegisterOutputType(ApplicationMaxAgeRulePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationMaxCountRuleOutput{})
 	pulumi.RegisterOutputType(ApplicationMaxCountRulePtrOutput{})
+	pulumi.RegisterOutputType(ApplicationResourceLifecycleConfigOutput{})
+	pulumi.RegisterOutputType(ApplicationResourceLifecycleConfigPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationVersionLifecycleConfigOutput{})
+	pulumi.RegisterOutputType(ApplicationVersionLifecycleConfigPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationVersionSourceBundleOutput{})
 	pulumi.RegisterOutputType(ApplicationVersionSourceBundlePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationTemplateConfigurationOptionSettingOutput{})

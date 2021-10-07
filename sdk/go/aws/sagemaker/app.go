@@ -20,7 +20,7 @@ type App struct {
 	// The name of the app.
 	AppName pulumi.StringOutput `pulumi:"appName"`
 	// The type of app.
-	AppType AppAppTypeOutput `pulumi:"appType"`
+	AppType AppTypeOutput `pulumi:"appType"`
 	// The domain ID.
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
 	// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
@@ -85,7 +85,7 @@ type appArgs struct {
 	// The name of the app.
 	AppName string `pulumi:"appName"`
 	// The type of app.
-	AppType AppAppType `pulumi:"appType"`
+	AppType AppType `pulumi:"appType"`
 	// The domain ID.
 	DomainId string `pulumi:"domainId"`
 	// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
@@ -101,7 +101,7 @@ type AppArgs struct {
 	// The name of the app.
 	AppName pulumi.StringInput
 	// The type of app.
-	AppType AppAppTypeInput
+	AppType AppTypeInput
 	// The domain ID.
 	DomainId pulumi.StringInput
 	// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.

@@ -25,11 +25,11 @@ type MonitoringSchedule struct {
 	// Describes metadata on the last execution to run, if there was one.
 	LastMonitoringExecutionSummary MonitoringScheduleMonitoringExecutionSummaryPtrOutput `pulumi:"lastMonitoringExecutionSummary"`
 	// The Amazon Resource Name (ARN) of the monitoring schedule.
-	MonitoringScheduleArn    pulumi.StringOutput                              `pulumi:"monitoringScheduleArn"`
-	MonitoringScheduleConfig MonitoringScheduleMonitoringScheduleConfigOutput `pulumi:"monitoringScheduleConfig"`
-	MonitoringScheduleName   pulumi.StringOutput                              `pulumi:"monitoringScheduleName"`
+	MonitoringScheduleArn    pulumi.StringOutput            `pulumi:"monitoringScheduleArn"`
+	MonitoringScheduleConfig MonitoringScheduleConfigOutput `pulumi:"monitoringScheduleConfig"`
+	MonitoringScheduleName   pulumi.StringOutput            `pulumi:"monitoringScheduleName"`
 	// The status of a schedule job.
-	MonitoringScheduleStatus MonitoringScheduleMonitoringScheduleStatusPtrOutput `pulumi:"monitoringScheduleStatus"`
+	MonitoringScheduleStatus MonitoringScheduleStatusPtrOutput `pulumi:"monitoringScheduleStatus"`
 	// An array of key-value pairs to apply to this resource.
 	Tags MonitoringScheduleTagArrayOutput `pulumi:"tags"`
 }
@@ -84,10 +84,10 @@ type monitoringScheduleArgs struct {
 	FailureReason *string `pulumi:"failureReason"`
 	// Describes metadata on the last execution to run, if there was one.
 	LastMonitoringExecutionSummary *MonitoringScheduleMonitoringExecutionSummary `pulumi:"lastMonitoringExecutionSummary"`
-	MonitoringScheduleConfig       MonitoringScheduleMonitoringScheduleConfig    `pulumi:"monitoringScheduleConfig"`
+	MonitoringScheduleConfig       MonitoringScheduleConfig                      `pulumi:"monitoringScheduleConfig"`
 	MonitoringScheduleName         string                                        `pulumi:"monitoringScheduleName"`
 	// The status of a schedule job.
-	MonitoringScheduleStatus *MonitoringScheduleMonitoringScheduleStatus `pulumi:"monitoringScheduleStatus"`
+	MonitoringScheduleStatus *MonitoringScheduleStatus `pulumi:"monitoringScheduleStatus"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []MonitoringScheduleTag `pulumi:"tags"`
 }
@@ -99,10 +99,10 @@ type MonitoringScheduleArgs struct {
 	FailureReason pulumi.StringPtrInput
 	// Describes metadata on the last execution to run, if there was one.
 	LastMonitoringExecutionSummary MonitoringScheduleMonitoringExecutionSummaryPtrInput
-	MonitoringScheduleConfig       MonitoringScheduleMonitoringScheduleConfigInput
+	MonitoringScheduleConfig       MonitoringScheduleConfigInput
 	MonitoringScheduleName         pulumi.StringInput
 	// The status of a schedule job.
-	MonitoringScheduleStatus MonitoringScheduleMonitoringScheduleStatusPtrInput
+	MonitoringScheduleStatus MonitoringScheduleStatusPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags MonitoringScheduleTagArrayInput
 }

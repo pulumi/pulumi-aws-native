@@ -15,12 +15,12 @@ import (
 type Certificate struct {
 	pulumi.CustomResourceState
 
-	Arn                       pulumi.StringOutput                 `pulumi:"arn"`
-	CACertificatePem          pulumi.StringPtrOutput              `pulumi:"cACertificatePem"`
-	CertificateMode           CertificateCertificateModePtrOutput `pulumi:"certificateMode"`
-	CertificatePem            pulumi.StringPtrOutput              `pulumi:"certificatePem"`
-	CertificateSigningRequest pulumi.StringPtrOutput              `pulumi:"certificateSigningRequest"`
-	Status                    CertificateStatusOutput             `pulumi:"status"`
+	Arn                       pulumi.StringOutput      `pulumi:"arn"`
+	CACertificatePem          pulumi.StringPtrOutput   `pulumi:"cACertificatePem"`
+	CertificateMode           CertificateModePtrOutput `pulumi:"certificateMode"`
+	CertificatePem            pulumi.StringPtrOutput   `pulumi:"certificatePem"`
+	CertificateSigningRequest pulumi.StringPtrOutput   `pulumi:"certificateSigningRequest"`
+	Status                    CertificateStatusOutput  `pulumi:"status"`
 }
 
 // NewCertificate registers a new resource with the given unique name, arguments, and options.
@@ -65,17 +65,17 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
-	CACertificatePem          *string                     `pulumi:"cACertificatePem"`
-	CertificateMode           *CertificateCertificateMode `pulumi:"certificateMode"`
-	CertificatePem            *string                     `pulumi:"certificatePem"`
-	CertificateSigningRequest *string                     `pulumi:"certificateSigningRequest"`
-	Status                    CertificateStatus           `pulumi:"status"`
+	CACertificatePem          *string           `pulumi:"cACertificatePem"`
+	CertificateMode           *CertificateMode  `pulumi:"certificateMode"`
+	CertificatePem            *string           `pulumi:"certificatePem"`
+	CertificateSigningRequest *string           `pulumi:"certificateSigningRequest"`
+	Status                    CertificateStatus `pulumi:"status"`
 }
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
 	CACertificatePem          pulumi.StringPtrInput
-	CertificateMode           CertificateCertificateModePtrInput
+	CertificateMode           CertificateModePtrInput
 	CertificatePem            pulumi.StringPtrInput
 	CertificateSigningRequest pulumi.StringPtrInput
 	Status                    CertificateStatusInput

@@ -17,14 +17,14 @@ import (
 type VirtualRouter struct {
 	pulumi.CustomResourceState
 
-	Arn               pulumi.StringOutput                  `pulumi:"arn"`
-	MeshName          pulumi.StringOutput                  `pulumi:"meshName"`
-	MeshOwner         pulumi.StringPtrOutput               `pulumi:"meshOwner"`
-	ResourceOwner     pulumi.StringOutput                  `pulumi:"resourceOwner"`
-	Spec              VirtualRouterVirtualRouterSpecOutput `pulumi:"spec"`
-	Tags              VirtualRouterTagArrayOutput          `pulumi:"tags"`
-	Uid               pulumi.StringOutput                  `pulumi:"uid"`
-	VirtualRouterName pulumi.StringPtrOutput               `pulumi:"virtualRouterName"`
+	Arn               pulumi.StringOutput         `pulumi:"arn"`
+	MeshName          pulumi.StringOutput         `pulumi:"meshName"`
+	MeshOwner         pulumi.StringPtrOutput      `pulumi:"meshOwner"`
+	ResourceOwner     pulumi.StringOutput         `pulumi:"resourceOwner"`
+	Spec              VirtualRouterSpecOutput     `pulumi:"spec"`
+	Tags              VirtualRouterTagArrayOutput `pulumi:"tags"`
+	Uid               pulumi.StringOutput         `pulumi:"uid"`
+	VirtualRouterName pulumi.StringPtrOutput      `pulumi:"virtualRouterName"`
 }
 
 // NewVirtualRouter registers a new resource with the given unique name, arguments, and options.
@@ -72,18 +72,18 @@ func (VirtualRouterState) ElementType() reflect.Type {
 }
 
 type virtualRouterArgs struct {
-	MeshName          string                         `pulumi:"meshName"`
-	MeshOwner         *string                        `pulumi:"meshOwner"`
-	Spec              VirtualRouterVirtualRouterSpec `pulumi:"spec"`
-	Tags              []VirtualRouterTag             `pulumi:"tags"`
-	VirtualRouterName *string                        `pulumi:"virtualRouterName"`
+	MeshName          string             `pulumi:"meshName"`
+	MeshOwner         *string            `pulumi:"meshOwner"`
+	Spec              VirtualRouterSpec  `pulumi:"spec"`
+	Tags              []VirtualRouterTag `pulumi:"tags"`
+	VirtualRouterName *string            `pulumi:"virtualRouterName"`
 }
 
 // The set of arguments for constructing a VirtualRouter resource.
 type VirtualRouterArgs struct {
 	MeshName          pulumi.StringInput
 	MeshOwner         pulumi.StringPtrInput
-	Spec              VirtualRouterVirtualRouterSpecInput
+	Spec              VirtualRouterSpecInput
 	Tags              VirtualRouterTagArrayInput
 	VirtualRouterName pulumi.StringPtrInput
 }

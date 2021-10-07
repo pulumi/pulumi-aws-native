@@ -18,7 +18,7 @@ type TransitGatewayConnect struct {
 	// The creation time.
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// The Connect attachment options.
-	Options TransitGatewayConnectTransitGatewayConnectOptionsOutput `pulumi:"options"`
+	Options TransitGatewayConnectOptionsOutput `pulumi:"options"`
 	// The state of the attachment.
 	State pulumi.StringOutput `pulumi:"state"`
 	// The tags for the attachment.
@@ -77,7 +77,7 @@ func (TransitGatewayConnectState) ElementType() reflect.Type {
 
 type transitGatewayConnectArgs struct {
 	// The Connect attachment options.
-	Options TransitGatewayConnectTransitGatewayConnectOptions `pulumi:"options"`
+	Options TransitGatewayConnectOptions `pulumi:"options"`
 	// The tags for the attachment.
 	Tags []TransitGatewayConnectTag `pulumi:"tags"`
 	// The ID of the attachment from which the Connect attachment was created.
@@ -87,7 +87,7 @@ type transitGatewayConnectArgs struct {
 // The set of arguments for constructing a TransitGatewayConnect resource.
 type TransitGatewayConnectArgs struct {
 	// The Connect attachment options.
-	Options TransitGatewayConnectTransitGatewayConnectOptionsInput
+	Options TransitGatewayConnectOptionsInput
 	// The tags for the attachment.
 	Tags TransitGatewayConnectTagArrayInput
 	// The ID of the attachment from which the Connect attachment was created.

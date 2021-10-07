@@ -17,10 +17,10 @@ import (
 type Partition struct {
 	pulumi.CustomResourceState
 
-	CatalogId      pulumi.StringOutput           `pulumi:"catalogId"`
-	DatabaseName   pulumi.StringOutput           `pulumi:"databaseName"`
-	PartitionInput PartitionPartitionInputOutput `pulumi:"partitionInput"`
-	TableName      pulumi.StringOutput           `pulumi:"tableName"`
+	CatalogId      pulumi.StringOutput      `pulumi:"catalogId"`
+	DatabaseName   pulumi.StringOutput      `pulumi:"databaseName"`
+	PartitionInput PartitionInputTypeOutput `pulumi:"partitionInput"`
+	TableName      pulumi.StringOutput      `pulumi:"tableName"`
 }
 
 // NewPartition registers a new resource with the given unique name, arguments, and options.
@@ -74,17 +74,17 @@ func (PartitionState) ElementType() reflect.Type {
 }
 
 type partitionArgs struct {
-	CatalogId      string                  `pulumi:"catalogId"`
-	DatabaseName   string                  `pulumi:"databaseName"`
-	PartitionInput PartitionPartitionInput `pulumi:"partitionInput"`
-	TableName      string                  `pulumi:"tableName"`
+	CatalogId      string             `pulumi:"catalogId"`
+	DatabaseName   string             `pulumi:"databaseName"`
+	PartitionInput PartitionInputType `pulumi:"partitionInput"`
+	TableName      string             `pulumi:"tableName"`
 }
 
 // The set of arguments for constructing a Partition resource.
 type PartitionArgs struct {
 	CatalogId      pulumi.StringInput
 	DatabaseName   pulumi.StringInput
-	PartitionInput PartitionPartitionInputInput
+	PartitionInput PartitionInputTypeInput
 	TableName      pulumi.StringInput
 }
 

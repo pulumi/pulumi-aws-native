@@ -10,1057 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type GatewayRouteGatewayRouteHostnameMatch struct {
-	Exact  *string `pulumi:"exact"`
-	Suffix *string `pulumi:"suffix"`
-}
-
-// GatewayRouteGatewayRouteHostnameMatchInput is an input type that accepts GatewayRouteGatewayRouteHostnameMatchArgs and GatewayRouteGatewayRouteHostnameMatchOutput values.
-// You can construct a concrete instance of `GatewayRouteGatewayRouteHostnameMatchInput` via:
-//
-//          GatewayRouteGatewayRouteHostnameMatchArgs{...}
-type GatewayRouteGatewayRouteHostnameMatchInput interface {
-	pulumi.Input
-
-	ToGatewayRouteGatewayRouteHostnameMatchOutput() GatewayRouteGatewayRouteHostnameMatchOutput
-	ToGatewayRouteGatewayRouteHostnameMatchOutputWithContext(context.Context) GatewayRouteGatewayRouteHostnameMatchOutput
-}
-
-type GatewayRouteGatewayRouteHostnameMatchArgs struct {
-	Exact  pulumi.StringPtrInput `pulumi:"exact"`
-	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
-}
-
-func (GatewayRouteGatewayRouteHostnameMatchArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayRouteGatewayRouteHostnameMatch)(nil)).Elem()
-}
-
-func (i GatewayRouteGatewayRouteHostnameMatchArgs) ToGatewayRouteGatewayRouteHostnameMatchOutput() GatewayRouteGatewayRouteHostnameMatchOutput {
-	return i.ToGatewayRouteGatewayRouteHostnameMatchOutputWithContext(context.Background())
-}
-
-func (i GatewayRouteGatewayRouteHostnameMatchArgs) ToGatewayRouteGatewayRouteHostnameMatchOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteHostnameMatchOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGatewayRouteHostnameMatchOutput)
-}
-
-func (i GatewayRouteGatewayRouteHostnameMatchArgs) ToGatewayRouteGatewayRouteHostnameMatchPtrOutput() GatewayRouteGatewayRouteHostnameMatchPtrOutput {
-	return i.ToGatewayRouteGatewayRouteHostnameMatchPtrOutputWithContext(context.Background())
-}
-
-func (i GatewayRouteGatewayRouteHostnameMatchArgs) ToGatewayRouteGatewayRouteHostnameMatchPtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteHostnameMatchPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGatewayRouteHostnameMatchOutput).ToGatewayRouteGatewayRouteHostnameMatchPtrOutputWithContext(ctx)
-}
-
-// GatewayRouteGatewayRouteHostnameMatchPtrInput is an input type that accepts GatewayRouteGatewayRouteHostnameMatchArgs, GatewayRouteGatewayRouteHostnameMatchPtr and GatewayRouteGatewayRouteHostnameMatchPtrOutput values.
-// You can construct a concrete instance of `GatewayRouteGatewayRouteHostnameMatchPtrInput` via:
-//
-//          GatewayRouteGatewayRouteHostnameMatchArgs{...}
-//
-//  or:
-//
-//          nil
-type GatewayRouteGatewayRouteHostnameMatchPtrInput interface {
-	pulumi.Input
-
-	ToGatewayRouteGatewayRouteHostnameMatchPtrOutput() GatewayRouteGatewayRouteHostnameMatchPtrOutput
-	ToGatewayRouteGatewayRouteHostnameMatchPtrOutputWithContext(context.Context) GatewayRouteGatewayRouteHostnameMatchPtrOutput
-}
-
-type gatewayRouteGatewayRouteHostnameMatchPtrType GatewayRouteGatewayRouteHostnameMatchArgs
-
-func GatewayRouteGatewayRouteHostnameMatchPtr(v *GatewayRouteGatewayRouteHostnameMatchArgs) GatewayRouteGatewayRouteHostnameMatchPtrInput {
-	return (*gatewayRouteGatewayRouteHostnameMatchPtrType)(v)
-}
-
-func (*gatewayRouteGatewayRouteHostnameMatchPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayRouteGatewayRouteHostnameMatch)(nil)).Elem()
-}
-
-func (i *gatewayRouteGatewayRouteHostnameMatchPtrType) ToGatewayRouteGatewayRouteHostnameMatchPtrOutput() GatewayRouteGatewayRouteHostnameMatchPtrOutput {
-	return i.ToGatewayRouteGatewayRouteHostnameMatchPtrOutputWithContext(context.Background())
-}
-
-func (i *gatewayRouteGatewayRouteHostnameMatchPtrType) ToGatewayRouteGatewayRouteHostnameMatchPtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteHostnameMatchPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGatewayRouteHostnameMatchPtrOutput)
-}
-
-type GatewayRouteGatewayRouteHostnameMatchOutput struct{ *pulumi.OutputState }
-
-func (GatewayRouteGatewayRouteHostnameMatchOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayRouteGatewayRouteHostnameMatch)(nil)).Elem()
-}
-
-func (o GatewayRouteGatewayRouteHostnameMatchOutput) ToGatewayRouteGatewayRouteHostnameMatchOutput() GatewayRouteGatewayRouteHostnameMatchOutput {
-	return o
-}
-
-func (o GatewayRouteGatewayRouteHostnameMatchOutput) ToGatewayRouteGatewayRouteHostnameMatchOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteHostnameMatchOutput {
-	return o
-}
-
-func (o GatewayRouteGatewayRouteHostnameMatchOutput) ToGatewayRouteGatewayRouteHostnameMatchPtrOutput() GatewayRouteGatewayRouteHostnameMatchPtrOutput {
-	return o.ToGatewayRouteGatewayRouteHostnameMatchPtrOutputWithContext(context.Background())
-}
-
-func (o GatewayRouteGatewayRouteHostnameMatchOutput) ToGatewayRouteGatewayRouteHostnameMatchPtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteHostnameMatchPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteGatewayRouteHostnameMatch) *GatewayRouteGatewayRouteHostnameMatch {
-		return &v
-	}).(GatewayRouteGatewayRouteHostnameMatchPtrOutput)
-}
-
-func (o GatewayRouteGatewayRouteHostnameMatchOutput) Exact() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayRouteGatewayRouteHostnameMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
-}
-
-func (o GatewayRouteGatewayRouteHostnameMatchOutput) Suffix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayRouteGatewayRouteHostnameMatch) *string { return v.Suffix }).(pulumi.StringPtrOutput)
-}
-
-type GatewayRouteGatewayRouteHostnameMatchPtrOutput struct{ *pulumi.OutputState }
-
-func (GatewayRouteGatewayRouteHostnameMatchPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayRouteGatewayRouteHostnameMatch)(nil)).Elem()
-}
-
-func (o GatewayRouteGatewayRouteHostnameMatchPtrOutput) ToGatewayRouteGatewayRouteHostnameMatchPtrOutput() GatewayRouteGatewayRouteHostnameMatchPtrOutput {
-	return o
-}
-
-func (o GatewayRouteGatewayRouteHostnameMatchPtrOutput) ToGatewayRouteGatewayRouteHostnameMatchPtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteHostnameMatchPtrOutput {
-	return o
-}
-
-func (o GatewayRouteGatewayRouteHostnameMatchPtrOutput) Elem() GatewayRouteGatewayRouteHostnameMatchOutput {
-	return o.ApplyT(func(v *GatewayRouteGatewayRouteHostnameMatch) GatewayRouteGatewayRouteHostnameMatch {
-		if v != nil {
-			return *v
-		}
-		var ret GatewayRouteGatewayRouteHostnameMatch
-		return ret
-	}).(GatewayRouteGatewayRouteHostnameMatchOutput)
-}
-
-func (o GatewayRouteGatewayRouteHostnameMatchPtrOutput) Exact() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GatewayRouteGatewayRouteHostnameMatch) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Exact
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o GatewayRouteGatewayRouteHostnameMatchPtrOutput) Suffix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GatewayRouteGatewayRouteHostnameMatch) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Suffix
-	}).(pulumi.StringPtrOutput)
-}
-
-type GatewayRouteGatewayRouteHostnameRewrite struct {
-	DefaultTargetHostname *string `pulumi:"defaultTargetHostname"`
-}
-
-// GatewayRouteGatewayRouteHostnameRewriteInput is an input type that accepts GatewayRouteGatewayRouteHostnameRewriteArgs and GatewayRouteGatewayRouteHostnameRewriteOutput values.
-// You can construct a concrete instance of `GatewayRouteGatewayRouteHostnameRewriteInput` via:
-//
-//          GatewayRouteGatewayRouteHostnameRewriteArgs{...}
-type GatewayRouteGatewayRouteHostnameRewriteInput interface {
-	pulumi.Input
-
-	ToGatewayRouteGatewayRouteHostnameRewriteOutput() GatewayRouteGatewayRouteHostnameRewriteOutput
-	ToGatewayRouteGatewayRouteHostnameRewriteOutputWithContext(context.Context) GatewayRouteGatewayRouteHostnameRewriteOutput
-}
-
-type GatewayRouteGatewayRouteHostnameRewriteArgs struct {
-	DefaultTargetHostname pulumi.StringPtrInput `pulumi:"defaultTargetHostname"`
-}
-
-func (GatewayRouteGatewayRouteHostnameRewriteArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayRouteGatewayRouteHostnameRewrite)(nil)).Elem()
-}
-
-func (i GatewayRouteGatewayRouteHostnameRewriteArgs) ToGatewayRouteGatewayRouteHostnameRewriteOutput() GatewayRouteGatewayRouteHostnameRewriteOutput {
-	return i.ToGatewayRouteGatewayRouteHostnameRewriteOutputWithContext(context.Background())
-}
-
-func (i GatewayRouteGatewayRouteHostnameRewriteArgs) ToGatewayRouteGatewayRouteHostnameRewriteOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteHostnameRewriteOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGatewayRouteHostnameRewriteOutput)
-}
-
-func (i GatewayRouteGatewayRouteHostnameRewriteArgs) ToGatewayRouteGatewayRouteHostnameRewritePtrOutput() GatewayRouteGatewayRouteHostnameRewritePtrOutput {
-	return i.ToGatewayRouteGatewayRouteHostnameRewritePtrOutputWithContext(context.Background())
-}
-
-func (i GatewayRouteGatewayRouteHostnameRewriteArgs) ToGatewayRouteGatewayRouteHostnameRewritePtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteHostnameRewritePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGatewayRouteHostnameRewriteOutput).ToGatewayRouteGatewayRouteHostnameRewritePtrOutputWithContext(ctx)
-}
-
-// GatewayRouteGatewayRouteHostnameRewritePtrInput is an input type that accepts GatewayRouteGatewayRouteHostnameRewriteArgs, GatewayRouteGatewayRouteHostnameRewritePtr and GatewayRouteGatewayRouteHostnameRewritePtrOutput values.
-// You can construct a concrete instance of `GatewayRouteGatewayRouteHostnameRewritePtrInput` via:
-//
-//          GatewayRouteGatewayRouteHostnameRewriteArgs{...}
-//
-//  or:
-//
-//          nil
-type GatewayRouteGatewayRouteHostnameRewritePtrInput interface {
-	pulumi.Input
-
-	ToGatewayRouteGatewayRouteHostnameRewritePtrOutput() GatewayRouteGatewayRouteHostnameRewritePtrOutput
-	ToGatewayRouteGatewayRouteHostnameRewritePtrOutputWithContext(context.Context) GatewayRouteGatewayRouteHostnameRewritePtrOutput
-}
-
-type gatewayRouteGatewayRouteHostnameRewritePtrType GatewayRouteGatewayRouteHostnameRewriteArgs
-
-func GatewayRouteGatewayRouteHostnameRewritePtr(v *GatewayRouteGatewayRouteHostnameRewriteArgs) GatewayRouteGatewayRouteHostnameRewritePtrInput {
-	return (*gatewayRouteGatewayRouteHostnameRewritePtrType)(v)
-}
-
-func (*gatewayRouteGatewayRouteHostnameRewritePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayRouteGatewayRouteHostnameRewrite)(nil)).Elem()
-}
-
-func (i *gatewayRouteGatewayRouteHostnameRewritePtrType) ToGatewayRouteGatewayRouteHostnameRewritePtrOutput() GatewayRouteGatewayRouteHostnameRewritePtrOutput {
-	return i.ToGatewayRouteGatewayRouteHostnameRewritePtrOutputWithContext(context.Background())
-}
-
-func (i *gatewayRouteGatewayRouteHostnameRewritePtrType) ToGatewayRouteGatewayRouteHostnameRewritePtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteHostnameRewritePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGatewayRouteHostnameRewritePtrOutput)
-}
-
-type GatewayRouteGatewayRouteHostnameRewriteOutput struct{ *pulumi.OutputState }
-
-func (GatewayRouteGatewayRouteHostnameRewriteOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayRouteGatewayRouteHostnameRewrite)(nil)).Elem()
-}
-
-func (o GatewayRouteGatewayRouteHostnameRewriteOutput) ToGatewayRouteGatewayRouteHostnameRewriteOutput() GatewayRouteGatewayRouteHostnameRewriteOutput {
-	return o
-}
-
-func (o GatewayRouteGatewayRouteHostnameRewriteOutput) ToGatewayRouteGatewayRouteHostnameRewriteOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteHostnameRewriteOutput {
-	return o
-}
-
-func (o GatewayRouteGatewayRouteHostnameRewriteOutput) ToGatewayRouteGatewayRouteHostnameRewritePtrOutput() GatewayRouteGatewayRouteHostnameRewritePtrOutput {
-	return o.ToGatewayRouteGatewayRouteHostnameRewritePtrOutputWithContext(context.Background())
-}
-
-func (o GatewayRouteGatewayRouteHostnameRewriteOutput) ToGatewayRouteGatewayRouteHostnameRewritePtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteHostnameRewritePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteGatewayRouteHostnameRewrite) *GatewayRouteGatewayRouteHostnameRewrite {
-		return &v
-	}).(GatewayRouteGatewayRouteHostnameRewritePtrOutput)
-}
-
-func (o GatewayRouteGatewayRouteHostnameRewriteOutput) DefaultTargetHostname() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayRouteGatewayRouteHostnameRewrite) *string { return v.DefaultTargetHostname }).(pulumi.StringPtrOutput)
-}
-
-type GatewayRouteGatewayRouteHostnameRewritePtrOutput struct{ *pulumi.OutputState }
-
-func (GatewayRouteGatewayRouteHostnameRewritePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayRouteGatewayRouteHostnameRewrite)(nil)).Elem()
-}
-
-func (o GatewayRouteGatewayRouteHostnameRewritePtrOutput) ToGatewayRouteGatewayRouteHostnameRewritePtrOutput() GatewayRouteGatewayRouteHostnameRewritePtrOutput {
-	return o
-}
-
-func (o GatewayRouteGatewayRouteHostnameRewritePtrOutput) ToGatewayRouteGatewayRouteHostnameRewritePtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteHostnameRewritePtrOutput {
-	return o
-}
-
-func (o GatewayRouteGatewayRouteHostnameRewritePtrOutput) Elem() GatewayRouteGatewayRouteHostnameRewriteOutput {
-	return o.ApplyT(func(v *GatewayRouteGatewayRouteHostnameRewrite) GatewayRouteGatewayRouteHostnameRewrite {
-		if v != nil {
-			return *v
-		}
-		var ret GatewayRouteGatewayRouteHostnameRewrite
-		return ret
-	}).(GatewayRouteGatewayRouteHostnameRewriteOutput)
-}
-
-func (o GatewayRouteGatewayRouteHostnameRewritePtrOutput) DefaultTargetHostname() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GatewayRouteGatewayRouteHostnameRewrite) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DefaultTargetHostname
-	}).(pulumi.StringPtrOutput)
-}
-
-type GatewayRouteGatewayRouteMetadataMatch struct {
-	Exact  *string                             `pulumi:"exact"`
-	Prefix *string                             `pulumi:"prefix"`
-	Range  *GatewayRouteGatewayRouteRangeMatch `pulumi:"range"`
-	Regex  *string                             `pulumi:"regex"`
-	Suffix *string                             `pulumi:"suffix"`
-}
-
-// GatewayRouteGatewayRouteMetadataMatchInput is an input type that accepts GatewayRouteGatewayRouteMetadataMatchArgs and GatewayRouteGatewayRouteMetadataMatchOutput values.
-// You can construct a concrete instance of `GatewayRouteGatewayRouteMetadataMatchInput` via:
-//
-//          GatewayRouteGatewayRouteMetadataMatchArgs{...}
-type GatewayRouteGatewayRouteMetadataMatchInput interface {
-	pulumi.Input
-
-	ToGatewayRouteGatewayRouteMetadataMatchOutput() GatewayRouteGatewayRouteMetadataMatchOutput
-	ToGatewayRouteGatewayRouteMetadataMatchOutputWithContext(context.Context) GatewayRouteGatewayRouteMetadataMatchOutput
-}
-
-type GatewayRouteGatewayRouteMetadataMatchArgs struct {
-	Exact  pulumi.StringPtrInput                      `pulumi:"exact"`
-	Prefix pulumi.StringPtrInput                      `pulumi:"prefix"`
-	Range  GatewayRouteGatewayRouteRangeMatchPtrInput `pulumi:"range"`
-	Regex  pulumi.StringPtrInput                      `pulumi:"regex"`
-	Suffix pulumi.StringPtrInput                      `pulumi:"suffix"`
-}
-
-func (GatewayRouteGatewayRouteMetadataMatchArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayRouteGatewayRouteMetadataMatch)(nil)).Elem()
-}
-
-func (i GatewayRouteGatewayRouteMetadataMatchArgs) ToGatewayRouteGatewayRouteMetadataMatchOutput() GatewayRouteGatewayRouteMetadataMatchOutput {
-	return i.ToGatewayRouteGatewayRouteMetadataMatchOutputWithContext(context.Background())
-}
-
-func (i GatewayRouteGatewayRouteMetadataMatchArgs) ToGatewayRouteGatewayRouteMetadataMatchOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteMetadataMatchOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGatewayRouteMetadataMatchOutput)
-}
-
-func (i GatewayRouteGatewayRouteMetadataMatchArgs) ToGatewayRouteGatewayRouteMetadataMatchPtrOutput() GatewayRouteGatewayRouteMetadataMatchPtrOutput {
-	return i.ToGatewayRouteGatewayRouteMetadataMatchPtrOutputWithContext(context.Background())
-}
-
-func (i GatewayRouteGatewayRouteMetadataMatchArgs) ToGatewayRouteGatewayRouteMetadataMatchPtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteMetadataMatchPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGatewayRouteMetadataMatchOutput).ToGatewayRouteGatewayRouteMetadataMatchPtrOutputWithContext(ctx)
-}
-
-// GatewayRouteGatewayRouteMetadataMatchPtrInput is an input type that accepts GatewayRouteGatewayRouteMetadataMatchArgs, GatewayRouteGatewayRouteMetadataMatchPtr and GatewayRouteGatewayRouteMetadataMatchPtrOutput values.
-// You can construct a concrete instance of `GatewayRouteGatewayRouteMetadataMatchPtrInput` via:
-//
-//          GatewayRouteGatewayRouteMetadataMatchArgs{...}
-//
-//  or:
-//
-//          nil
-type GatewayRouteGatewayRouteMetadataMatchPtrInput interface {
-	pulumi.Input
-
-	ToGatewayRouteGatewayRouteMetadataMatchPtrOutput() GatewayRouteGatewayRouteMetadataMatchPtrOutput
-	ToGatewayRouteGatewayRouteMetadataMatchPtrOutputWithContext(context.Context) GatewayRouteGatewayRouteMetadataMatchPtrOutput
-}
-
-type gatewayRouteGatewayRouteMetadataMatchPtrType GatewayRouteGatewayRouteMetadataMatchArgs
-
-func GatewayRouteGatewayRouteMetadataMatchPtr(v *GatewayRouteGatewayRouteMetadataMatchArgs) GatewayRouteGatewayRouteMetadataMatchPtrInput {
-	return (*gatewayRouteGatewayRouteMetadataMatchPtrType)(v)
-}
-
-func (*gatewayRouteGatewayRouteMetadataMatchPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayRouteGatewayRouteMetadataMatch)(nil)).Elem()
-}
-
-func (i *gatewayRouteGatewayRouteMetadataMatchPtrType) ToGatewayRouteGatewayRouteMetadataMatchPtrOutput() GatewayRouteGatewayRouteMetadataMatchPtrOutput {
-	return i.ToGatewayRouteGatewayRouteMetadataMatchPtrOutputWithContext(context.Background())
-}
-
-func (i *gatewayRouteGatewayRouteMetadataMatchPtrType) ToGatewayRouteGatewayRouteMetadataMatchPtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteMetadataMatchPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGatewayRouteMetadataMatchPtrOutput)
-}
-
-type GatewayRouteGatewayRouteMetadataMatchOutput struct{ *pulumi.OutputState }
-
-func (GatewayRouteGatewayRouteMetadataMatchOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayRouteGatewayRouteMetadataMatch)(nil)).Elem()
-}
-
-func (o GatewayRouteGatewayRouteMetadataMatchOutput) ToGatewayRouteGatewayRouteMetadataMatchOutput() GatewayRouteGatewayRouteMetadataMatchOutput {
-	return o
-}
-
-func (o GatewayRouteGatewayRouteMetadataMatchOutput) ToGatewayRouteGatewayRouteMetadataMatchOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteMetadataMatchOutput {
-	return o
-}
-
-func (o GatewayRouteGatewayRouteMetadataMatchOutput) ToGatewayRouteGatewayRouteMetadataMatchPtrOutput() GatewayRouteGatewayRouteMetadataMatchPtrOutput {
-	return o.ToGatewayRouteGatewayRouteMetadataMatchPtrOutputWithContext(context.Background())
-}
-
-func (o GatewayRouteGatewayRouteMetadataMatchOutput) ToGatewayRouteGatewayRouteMetadataMatchPtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteMetadataMatchPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteGatewayRouteMetadataMatch) *GatewayRouteGatewayRouteMetadataMatch {
-		return &v
-	}).(GatewayRouteGatewayRouteMetadataMatchPtrOutput)
-}
-
-func (o GatewayRouteGatewayRouteMetadataMatchOutput) Exact() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayRouteGatewayRouteMetadataMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
-}
-
-func (o GatewayRouteGatewayRouteMetadataMatchOutput) Prefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayRouteGatewayRouteMetadataMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
-}
-
-func (o GatewayRouteGatewayRouteMetadataMatchOutput) Range() GatewayRouteGatewayRouteRangeMatchPtrOutput {
-	return o.ApplyT(func(v GatewayRouteGatewayRouteMetadataMatch) *GatewayRouteGatewayRouteRangeMatch { return v.Range }).(GatewayRouteGatewayRouteRangeMatchPtrOutput)
-}
-
-func (o GatewayRouteGatewayRouteMetadataMatchOutput) Regex() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayRouteGatewayRouteMetadataMatch) *string { return v.Regex }).(pulumi.StringPtrOutput)
-}
-
-func (o GatewayRouteGatewayRouteMetadataMatchOutput) Suffix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayRouteGatewayRouteMetadataMatch) *string { return v.Suffix }).(pulumi.StringPtrOutput)
-}
-
-type GatewayRouteGatewayRouteMetadataMatchPtrOutput struct{ *pulumi.OutputState }
-
-func (GatewayRouteGatewayRouteMetadataMatchPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayRouteGatewayRouteMetadataMatch)(nil)).Elem()
-}
-
-func (o GatewayRouteGatewayRouteMetadataMatchPtrOutput) ToGatewayRouteGatewayRouteMetadataMatchPtrOutput() GatewayRouteGatewayRouteMetadataMatchPtrOutput {
-	return o
-}
-
-func (o GatewayRouteGatewayRouteMetadataMatchPtrOutput) ToGatewayRouteGatewayRouteMetadataMatchPtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteMetadataMatchPtrOutput {
-	return o
-}
-
-func (o GatewayRouteGatewayRouteMetadataMatchPtrOutput) Elem() GatewayRouteGatewayRouteMetadataMatchOutput {
-	return o.ApplyT(func(v *GatewayRouteGatewayRouteMetadataMatch) GatewayRouteGatewayRouteMetadataMatch {
-		if v != nil {
-			return *v
-		}
-		var ret GatewayRouteGatewayRouteMetadataMatch
-		return ret
-	}).(GatewayRouteGatewayRouteMetadataMatchOutput)
-}
-
-func (o GatewayRouteGatewayRouteMetadataMatchPtrOutput) Exact() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GatewayRouteGatewayRouteMetadataMatch) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Exact
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o GatewayRouteGatewayRouteMetadataMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GatewayRouteGatewayRouteMetadataMatch) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Prefix
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o GatewayRouteGatewayRouteMetadataMatchPtrOutput) Range() GatewayRouteGatewayRouteRangeMatchPtrOutput {
-	return o.ApplyT(func(v *GatewayRouteGatewayRouteMetadataMatch) *GatewayRouteGatewayRouteRangeMatch {
-		if v == nil {
-			return nil
-		}
-		return v.Range
-	}).(GatewayRouteGatewayRouteRangeMatchPtrOutput)
-}
-
-func (o GatewayRouteGatewayRouteMetadataMatchPtrOutput) Regex() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GatewayRouteGatewayRouteMetadataMatch) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Regex
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o GatewayRouteGatewayRouteMetadataMatchPtrOutput) Suffix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GatewayRouteGatewayRouteMetadataMatch) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Suffix
-	}).(pulumi.StringPtrOutput)
-}
-
-type GatewayRouteGatewayRouteRangeMatch struct {
-	End   int `pulumi:"end"`
-	Start int `pulumi:"start"`
-}
-
-// GatewayRouteGatewayRouteRangeMatchInput is an input type that accepts GatewayRouteGatewayRouteRangeMatchArgs and GatewayRouteGatewayRouteRangeMatchOutput values.
-// You can construct a concrete instance of `GatewayRouteGatewayRouteRangeMatchInput` via:
-//
-//          GatewayRouteGatewayRouteRangeMatchArgs{...}
-type GatewayRouteGatewayRouteRangeMatchInput interface {
-	pulumi.Input
-
-	ToGatewayRouteGatewayRouteRangeMatchOutput() GatewayRouteGatewayRouteRangeMatchOutput
-	ToGatewayRouteGatewayRouteRangeMatchOutputWithContext(context.Context) GatewayRouteGatewayRouteRangeMatchOutput
-}
-
-type GatewayRouteGatewayRouteRangeMatchArgs struct {
-	End   pulumi.IntInput `pulumi:"end"`
-	Start pulumi.IntInput `pulumi:"start"`
-}
-
-func (GatewayRouteGatewayRouteRangeMatchArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayRouteGatewayRouteRangeMatch)(nil)).Elem()
-}
-
-func (i GatewayRouteGatewayRouteRangeMatchArgs) ToGatewayRouteGatewayRouteRangeMatchOutput() GatewayRouteGatewayRouteRangeMatchOutput {
-	return i.ToGatewayRouteGatewayRouteRangeMatchOutputWithContext(context.Background())
-}
-
-func (i GatewayRouteGatewayRouteRangeMatchArgs) ToGatewayRouteGatewayRouteRangeMatchOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteRangeMatchOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGatewayRouteRangeMatchOutput)
-}
-
-func (i GatewayRouteGatewayRouteRangeMatchArgs) ToGatewayRouteGatewayRouteRangeMatchPtrOutput() GatewayRouteGatewayRouteRangeMatchPtrOutput {
-	return i.ToGatewayRouteGatewayRouteRangeMatchPtrOutputWithContext(context.Background())
-}
-
-func (i GatewayRouteGatewayRouteRangeMatchArgs) ToGatewayRouteGatewayRouteRangeMatchPtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteRangeMatchPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGatewayRouteRangeMatchOutput).ToGatewayRouteGatewayRouteRangeMatchPtrOutputWithContext(ctx)
-}
-
-// GatewayRouteGatewayRouteRangeMatchPtrInput is an input type that accepts GatewayRouteGatewayRouteRangeMatchArgs, GatewayRouteGatewayRouteRangeMatchPtr and GatewayRouteGatewayRouteRangeMatchPtrOutput values.
-// You can construct a concrete instance of `GatewayRouteGatewayRouteRangeMatchPtrInput` via:
-//
-//          GatewayRouteGatewayRouteRangeMatchArgs{...}
-//
-//  or:
-//
-//          nil
-type GatewayRouteGatewayRouteRangeMatchPtrInput interface {
-	pulumi.Input
-
-	ToGatewayRouteGatewayRouteRangeMatchPtrOutput() GatewayRouteGatewayRouteRangeMatchPtrOutput
-	ToGatewayRouteGatewayRouteRangeMatchPtrOutputWithContext(context.Context) GatewayRouteGatewayRouteRangeMatchPtrOutput
-}
-
-type gatewayRouteGatewayRouteRangeMatchPtrType GatewayRouteGatewayRouteRangeMatchArgs
-
-func GatewayRouteGatewayRouteRangeMatchPtr(v *GatewayRouteGatewayRouteRangeMatchArgs) GatewayRouteGatewayRouteRangeMatchPtrInput {
-	return (*gatewayRouteGatewayRouteRangeMatchPtrType)(v)
-}
-
-func (*gatewayRouteGatewayRouteRangeMatchPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayRouteGatewayRouteRangeMatch)(nil)).Elem()
-}
-
-func (i *gatewayRouteGatewayRouteRangeMatchPtrType) ToGatewayRouteGatewayRouteRangeMatchPtrOutput() GatewayRouteGatewayRouteRangeMatchPtrOutput {
-	return i.ToGatewayRouteGatewayRouteRangeMatchPtrOutputWithContext(context.Background())
-}
-
-func (i *gatewayRouteGatewayRouteRangeMatchPtrType) ToGatewayRouteGatewayRouteRangeMatchPtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteRangeMatchPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGatewayRouteRangeMatchPtrOutput)
-}
-
-type GatewayRouteGatewayRouteRangeMatchOutput struct{ *pulumi.OutputState }
-
-func (GatewayRouteGatewayRouteRangeMatchOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayRouteGatewayRouteRangeMatch)(nil)).Elem()
-}
-
-func (o GatewayRouteGatewayRouteRangeMatchOutput) ToGatewayRouteGatewayRouteRangeMatchOutput() GatewayRouteGatewayRouteRangeMatchOutput {
-	return o
-}
-
-func (o GatewayRouteGatewayRouteRangeMatchOutput) ToGatewayRouteGatewayRouteRangeMatchOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteRangeMatchOutput {
-	return o
-}
-
-func (o GatewayRouteGatewayRouteRangeMatchOutput) ToGatewayRouteGatewayRouteRangeMatchPtrOutput() GatewayRouteGatewayRouteRangeMatchPtrOutput {
-	return o.ToGatewayRouteGatewayRouteRangeMatchPtrOutputWithContext(context.Background())
-}
-
-func (o GatewayRouteGatewayRouteRangeMatchOutput) ToGatewayRouteGatewayRouteRangeMatchPtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteRangeMatchPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteGatewayRouteRangeMatch) *GatewayRouteGatewayRouteRangeMatch {
-		return &v
-	}).(GatewayRouteGatewayRouteRangeMatchPtrOutput)
-}
-
-func (o GatewayRouteGatewayRouteRangeMatchOutput) End() pulumi.IntOutput {
-	return o.ApplyT(func(v GatewayRouteGatewayRouteRangeMatch) int { return v.End }).(pulumi.IntOutput)
-}
-
-func (o GatewayRouteGatewayRouteRangeMatchOutput) Start() pulumi.IntOutput {
-	return o.ApplyT(func(v GatewayRouteGatewayRouteRangeMatch) int { return v.Start }).(pulumi.IntOutput)
-}
-
-type GatewayRouteGatewayRouteRangeMatchPtrOutput struct{ *pulumi.OutputState }
-
-func (GatewayRouteGatewayRouteRangeMatchPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayRouteGatewayRouteRangeMatch)(nil)).Elem()
-}
-
-func (o GatewayRouteGatewayRouteRangeMatchPtrOutput) ToGatewayRouteGatewayRouteRangeMatchPtrOutput() GatewayRouteGatewayRouteRangeMatchPtrOutput {
-	return o
-}
-
-func (o GatewayRouteGatewayRouteRangeMatchPtrOutput) ToGatewayRouteGatewayRouteRangeMatchPtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteRangeMatchPtrOutput {
-	return o
-}
-
-func (o GatewayRouteGatewayRouteRangeMatchPtrOutput) Elem() GatewayRouteGatewayRouteRangeMatchOutput {
-	return o.ApplyT(func(v *GatewayRouteGatewayRouteRangeMatch) GatewayRouteGatewayRouteRangeMatch {
-		if v != nil {
-			return *v
-		}
-		var ret GatewayRouteGatewayRouteRangeMatch
-		return ret
-	}).(GatewayRouteGatewayRouteRangeMatchOutput)
-}
-
-func (o GatewayRouteGatewayRouteRangeMatchPtrOutput) End() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *GatewayRouteGatewayRouteRangeMatch) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.End
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o GatewayRouteGatewayRouteRangeMatchPtrOutput) Start() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *GatewayRouteGatewayRouteRangeMatch) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Start
-	}).(pulumi.IntPtrOutput)
-}
-
-type GatewayRouteGatewayRouteSpec struct {
-	GrpcRoute  *GatewayRouteGrpcGatewayRoute `pulumi:"grpcRoute"`
-	Http2Route *GatewayRouteHttpGatewayRoute `pulumi:"http2Route"`
-	HttpRoute  *GatewayRouteHttpGatewayRoute `pulumi:"httpRoute"`
-}
-
-// GatewayRouteGatewayRouteSpecInput is an input type that accepts GatewayRouteGatewayRouteSpecArgs and GatewayRouteGatewayRouteSpecOutput values.
-// You can construct a concrete instance of `GatewayRouteGatewayRouteSpecInput` via:
-//
-//          GatewayRouteGatewayRouteSpecArgs{...}
-type GatewayRouteGatewayRouteSpecInput interface {
-	pulumi.Input
-
-	ToGatewayRouteGatewayRouteSpecOutput() GatewayRouteGatewayRouteSpecOutput
-	ToGatewayRouteGatewayRouteSpecOutputWithContext(context.Context) GatewayRouteGatewayRouteSpecOutput
-}
-
-type GatewayRouteGatewayRouteSpecArgs struct {
-	GrpcRoute  GatewayRouteGrpcGatewayRoutePtrInput `pulumi:"grpcRoute"`
-	Http2Route GatewayRouteHttpGatewayRoutePtrInput `pulumi:"http2Route"`
-	HttpRoute  GatewayRouteHttpGatewayRoutePtrInput `pulumi:"httpRoute"`
-}
-
-func (GatewayRouteGatewayRouteSpecArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayRouteGatewayRouteSpec)(nil)).Elem()
-}
-
-func (i GatewayRouteGatewayRouteSpecArgs) ToGatewayRouteGatewayRouteSpecOutput() GatewayRouteGatewayRouteSpecOutput {
-	return i.ToGatewayRouteGatewayRouteSpecOutputWithContext(context.Background())
-}
-
-func (i GatewayRouteGatewayRouteSpecArgs) ToGatewayRouteGatewayRouteSpecOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteSpecOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGatewayRouteSpecOutput)
-}
-
-func (i GatewayRouteGatewayRouteSpecArgs) ToGatewayRouteGatewayRouteSpecPtrOutput() GatewayRouteGatewayRouteSpecPtrOutput {
-	return i.ToGatewayRouteGatewayRouteSpecPtrOutputWithContext(context.Background())
-}
-
-func (i GatewayRouteGatewayRouteSpecArgs) ToGatewayRouteGatewayRouteSpecPtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteSpecPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGatewayRouteSpecOutput).ToGatewayRouteGatewayRouteSpecPtrOutputWithContext(ctx)
-}
-
-// GatewayRouteGatewayRouteSpecPtrInput is an input type that accepts GatewayRouteGatewayRouteSpecArgs, GatewayRouteGatewayRouteSpecPtr and GatewayRouteGatewayRouteSpecPtrOutput values.
-// You can construct a concrete instance of `GatewayRouteGatewayRouteSpecPtrInput` via:
-//
-//          GatewayRouteGatewayRouteSpecArgs{...}
-//
-//  or:
-//
-//          nil
-type GatewayRouteGatewayRouteSpecPtrInput interface {
-	pulumi.Input
-
-	ToGatewayRouteGatewayRouteSpecPtrOutput() GatewayRouteGatewayRouteSpecPtrOutput
-	ToGatewayRouteGatewayRouteSpecPtrOutputWithContext(context.Context) GatewayRouteGatewayRouteSpecPtrOutput
-}
-
-type gatewayRouteGatewayRouteSpecPtrType GatewayRouteGatewayRouteSpecArgs
-
-func GatewayRouteGatewayRouteSpecPtr(v *GatewayRouteGatewayRouteSpecArgs) GatewayRouteGatewayRouteSpecPtrInput {
-	return (*gatewayRouteGatewayRouteSpecPtrType)(v)
-}
-
-func (*gatewayRouteGatewayRouteSpecPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayRouteGatewayRouteSpec)(nil)).Elem()
-}
-
-func (i *gatewayRouteGatewayRouteSpecPtrType) ToGatewayRouteGatewayRouteSpecPtrOutput() GatewayRouteGatewayRouteSpecPtrOutput {
-	return i.ToGatewayRouteGatewayRouteSpecPtrOutputWithContext(context.Background())
-}
-
-func (i *gatewayRouteGatewayRouteSpecPtrType) ToGatewayRouteGatewayRouteSpecPtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteSpecPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGatewayRouteSpecPtrOutput)
-}
-
-type GatewayRouteGatewayRouteSpecOutput struct{ *pulumi.OutputState }
-
-func (GatewayRouteGatewayRouteSpecOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayRouteGatewayRouteSpec)(nil)).Elem()
-}
-
-func (o GatewayRouteGatewayRouteSpecOutput) ToGatewayRouteGatewayRouteSpecOutput() GatewayRouteGatewayRouteSpecOutput {
-	return o
-}
-
-func (o GatewayRouteGatewayRouteSpecOutput) ToGatewayRouteGatewayRouteSpecOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteSpecOutput {
-	return o
-}
-
-func (o GatewayRouteGatewayRouteSpecOutput) ToGatewayRouteGatewayRouteSpecPtrOutput() GatewayRouteGatewayRouteSpecPtrOutput {
-	return o.ToGatewayRouteGatewayRouteSpecPtrOutputWithContext(context.Background())
-}
-
-func (o GatewayRouteGatewayRouteSpecOutput) ToGatewayRouteGatewayRouteSpecPtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteSpecPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteGatewayRouteSpec) *GatewayRouteGatewayRouteSpec {
-		return &v
-	}).(GatewayRouteGatewayRouteSpecPtrOutput)
-}
-
-func (o GatewayRouteGatewayRouteSpecOutput) GrpcRoute() GatewayRouteGrpcGatewayRoutePtrOutput {
-	return o.ApplyT(func(v GatewayRouteGatewayRouteSpec) *GatewayRouteGrpcGatewayRoute { return v.GrpcRoute }).(GatewayRouteGrpcGatewayRoutePtrOutput)
-}
-
-func (o GatewayRouteGatewayRouteSpecOutput) Http2Route() GatewayRouteHttpGatewayRoutePtrOutput {
-	return o.ApplyT(func(v GatewayRouteGatewayRouteSpec) *GatewayRouteHttpGatewayRoute { return v.Http2Route }).(GatewayRouteHttpGatewayRoutePtrOutput)
-}
-
-func (o GatewayRouteGatewayRouteSpecOutput) HttpRoute() GatewayRouteHttpGatewayRoutePtrOutput {
-	return o.ApplyT(func(v GatewayRouteGatewayRouteSpec) *GatewayRouteHttpGatewayRoute { return v.HttpRoute }).(GatewayRouteHttpGatewayRoutePtrOutput)
-}
-
-type GatewayRouteGatewayRouteSpecPtrOutput struct{ *pulumi.OutputState }
-
-func (GatewayRouteGatewayRouteSpecPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayRouteGatewayRouteSpec)(nil)).Elem()
-}
-
-func (o GatewayRouteGatewayRouteSpecPtrOutput) ToGatewayRouteGatewayRouteSpecPtrOutput() GatewayRouteGatewayRouteSpecPtrOutput {
-	return o
-}
-
-func (o GatewayRouteGatewayRouteSpecPtrOutput) ToGatewayRouteGatewayRouteSpecPtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteSpecPtrOutput {
-	return o
-}
-
-func (o GatewayRouteGatewayRouteSpecPtrOutput) Elem() GatewayRouteGatewayRouteSpecOutput {
-	return o.ApplyT(func(v *GatewayRouteGatewayRouteSpec) GatewayRouteGatewayRouteSpec {
-		if v != nil {
-			return *v
-		}
-		var ret GatewayRouteGatewayRouteSpec
-		return ret
-	}).(GatewayRouteGatewayRouteSpecOutput)
-}
-
-func (o GatewayRouteGatewayRouteSpecPtrOutput) GrpcRoute() GatewayRouteGrpcGatewayRoutePtrOutput {
-	return o.ApplyT(func(v *GatewayRouteGatewayRouteSpec) *GatewayRouteGrpcGatewayRoute {
-		if v == nil {
-			return nil
-		}
-		return v.GrpcRoute
-	}).(GatewayRouteGrpcGatewayRoutePtrOutput)
-}
-
-func (o GatewayRouteGatewayRouteSpecPtrOutput) Http2Route() GatewayRouteHttpGatewayRoutePtrOutput {
-	return o.ApplyT(func(v *GatewayRouteGatewayRouteSpec) *GatewayRouteHttpGatewayRoute {
-		if v == nil {
-			return nil
-		}
-		return v.Http2Route
-	}).(GatewayRouteHttpGatewayRoutePtrOutput)
-}
-
-func (o GatewayRouteGatewayRouteSpecPtrOutput) HttpRoute() GatewayRouteHttpGatewayRoutePtrOutput {
-	return o.ApplyT(func(v *GatewayRouteGatewayRouteSpec) *GatewayRouteHttpGatewayRoute {
-		if v == nil {
-			return nil
-		}
-		return v.HttpRoute
-	}).(GatewayRouteHttpGatewayRoutePtrOutput)
-}
-
-type GatewayRouteGatewayRouteTarget struct {
-	VirtualService GatewayRouteGatewayRouteVirtualService `pulumi:"virtualService"`
-}
-
-// GatewayRouteGatewayRouteTargetInput is an input type that accepts GatewayRouteGatewayRouteTargetArgs and GatewayRouteGatewayRouteTargetOutput values.
-// You can construct a concrete instance of `GatewayRouteGatewayRouteTargetInput` via:
-//
-//          GatewayRouteGatewayRouteTargetArgs{...}
-type GatewayRouteGatewayRouteTargetInput interface {
-	pulumi.Input
-
-	ToGatewayRouteGatewayRouteTargetOutput() GatewayRouteGatewayRouteTargetOutput
-	ToGatewayRouteGatewayRouteTargetOutputWithContext(context.Context) GatewayRouteGatewayRouteTargetOutput
-}
-
-type GatewayRouteGatewayRouteTargetArgs struct {
-	VirtualService GatewayRouteGatewayRouteVirtualServiceInput `pulumi:"virtualService"`
-}
-
-func (GatewayRouteGatewayRouteTargetArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayRouteGatewayRouteTarget)(nil)).Elem()
-}
-
-func (i GatewayRouteGatewayRouteTargetArgs) ToGatewayRouteGatewayRouteTargetOutput() GatewayRouteGatewayRouteTargetOutput {
-	return i.ToGatewayRouteGatewayRouteTargetOutputWithContext(context.Background())
-}
-
-func (i GatewayRouteGatewayRouteTargetArgs) ToGatewayRouteGatewayRouteTargetOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteTargetOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGatewayRouteTargetOutput)
-}
-
-func (i GatewayRouteGatewayRouteTargetArgs) ToGatewayRouteGatewayRouteTargetPtrOutput() GatewayRouteGatewayRouteTargetPtrOutput {
-	return i.ToGatewayRouteGatewayRouteTargetPtrOutputWithContext(context.Background())
-}
-
-func (i GatewayRouteGatewayRouteTargetArgs) ToGatewayRouteGatewayRouteTargetPtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteTargetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGatewayRouteTargetOutput).ToGatewayRouteGatewayRouteTargetPtrOutputWithContext(ctx)
-}
-
-// GatewayRouteGatewayRouteTargetPtrInput is an input type that accepts GatewayRouteGatewayRouteTargetArgs, GatewayRouteGatewayRouteTargetPtr and GatewayRouteGatewayRouteTargetPtrOutput values.
-// You can construct a concrete instance of `GatewayRouteGatewayRouteTargetPtrInput` via:
-//
-//          GatewayRouteGatewayRouteTargetArgs{...}
-//
-//  or:
-//
-//          nil
-type GatewayRouteGatewayRouteTargetPtrInput interface {
-	pulumi.Input
-
-	ToGatewayRouteGatewayRouteTargetPtrOutput() GatewayRouteGatewayRouteTargetPtrOutput
-	ToGatewayRouteGatewayRouteTargetPtrOutputWithContext(context.Context) GatewayRouteGatewayRouteTargetPtrOutput
-}
-
-type gatewayRouteGatewayRouteTargetPtrType GatewayRouteGatewayRouteTargetArgs
-
-func GatewayRouteGatewayRouteTargetPtr(v *GatewayRouteGatewayRouteTargetArgs) GatewayRouteGatewayRouteTargetPtrInput {
-	return (*gatewayRouteGatewayRouteTargetPtrType)(v)
-}
-
-func (*gatewayRouteGatewayRouteTargetPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayRouteGatewayRouteTarget)(nil)).Elem()
-}
-
-func (i *gatewayRouteGatewayRouteTargetPtrType) ToGatewayRouteGatewayRouteTargetPtrOutput() GatewayRouteGatewayRouteTargetPtrOutput {
-	return i.ToGatewayRouteGatewayRouteTargetPtrOutputWithContext(context.Background())
-}
-
-func (i *gatewayRouteGatewayRouteTargetPtrType) ToGatewayRouteGatewayRouteTargetPtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteTargetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGatewayRouteTargetPtrOutput)
-}
-
-type GatewayRouteGatewayRouteTargetOutput struct{ *pulumi.OutputState }
-
-func (GatewayRouteGatewayRouteTargetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayRouteGatewayRouteTarget)(nil)).Elem()
-}
-
-func (o GatewayRouteGatewayRouteTargetOutput) ToGatewayRouteGatewayRouteTargetOutput() GatewayRouteGatewayRouteTargetOutput {
-	return o
-}
-
-func (o GatewayRouteGatewayRouteTargetOutput) ToGatewayRouteGatewayRouteTargetOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteTargetOutput {
-	return o
-}
-
-func (o GatewayRouteGatewayRouteTargetOutput) ToGatewayRouteGatewayRouteTargetPtrOutput() GatewayRouteGatewayRouteTargetPtrOutput {
-	return o.ToGatewayRouteGatewayRouteTargetPtrOutputWithContext(context.Background())
-}
-
-func (o GatewayRouteGatewayRouteTargetOutput) ToGatewayRouteGatewayRouteTargetPtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteTargetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteGatewayRouteTarget) *GatewayRouteGatewayRouteTarget {
-		return &v
-	}).(GatewayRouteGatewayRouteTargetPtrOutput)
-}
-
-func (o GatewayRouteGatewayRouteTargetOutput) VirtualService() GatewayRouteGatewayRouteVirtualServiceOutput {
-	return o.ApplyT(func(v GatewayRouteGatewayRouteTarget) GatewayRouteGatewayRouteVirtualService { return v.VirtualService }).(GatewayRouteGatewayRouteVirtualServiceOutput)
-}
-
-type GatewayRouteGatewayRouteTargetPtrOutput struct{ *pulumi.OutputState }
-
-func (GatewayRouteGatewayRouteTargetPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayRouteGatewayRouteTarget)(nil)).Elem()
-}
-
-func (o GatewayRouteGatewayRouteTargetPtrOutput) ToGatewayRouteGatewayRouteTargetPtrOutput() GatewayRouteGatewayRouteTargetPtrOutput {
-	return o
-}
-
-func (o GatewayRouteGatewayRouteTargetPtrOutput) ToGatewayRouteGatewayRouteTargetPtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteTargetPtrOutput {
-	return o
-}
-
-func (o GatewayRouteGatewayRouteTargetPtrOutput) Elem() GatewayRouteGatewayRouteTargetOutput {
-	return o.ApplyT(func(v *GatewayRouteGatewayRouteTarget) GatewayRouteGatewayRouteTarget {
-		if v != nil {
-			return *v
-		}
-		var ret GatewayRouteGatewayRouteTarget
-		return ret
-	}).(GatewayRouteGatewayRouteTargetOutput)
-}
-
-func (o GatewayRouteGatewayRouteTargetPtrOutput) VirtualService() GatewayRouteGatewayRouteVirtualServicePtrOutput {
-	return o.ApplyT(func(v *GatewayRouteGatewayRouteTarget) *GatewayRouteGatewayRouteVirtualService {
-		if v == nil {
-			return nil
-		}
-		return &v.VirtualService
-	}).(GatewayRouteGatewayRouteVirtualServicePtrOutput)
-}
-
-type GatewayRouteGatewayRouteVirtualService struct {
-	VirtualServiceName string `pulumi:"virtualServiceName"`
-}
-
-// GatewayRouteGatewayRouteVirtualServiceInput is an input type that accepts GatewayRouteGatewayRouteVirtualServiceArgs and GatewayRouteGatewayRouteVirtualServiceOutput values.
-// You can construct a concrete instance of `GatewayRouteGatewayRouteVirtualServiceInput` via:
-//
-//          GatewayRouteGatewayRouteVirtualServiceArgs{...}
-type GatewayRouteGatewayRouteVirtualServiceInput interface {
-	pulumi.Input
-
-	ToGatewayRouteGatewayRouteVirtualServiceOutput() GatewayRouteGatewayRouteVirtualServiceOutput
-	ToGatewayRouteGatewayRouteVirtualServiceOutputWithContext(context.Context) GatewayRouteGatewayRouteVirtualServiceOutput
-}
-
-type GatewayRouteGatewayRouteVirtualServiceArgs struct {
-	VirtualServiceName pulumi.StringInput `pulumi:"virtualServiceName"`
-}
-
-func (GatewayRouteGatewayRouteVirtualServiceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayRouteGatewayRouteVirtualService)(nil)).Elem()
-}
-
-func (i GatewayRouteGatewayRouteVirtualServiceArgs) ToGatewayRouteGatewayRouteVirtualServiceOutput() GatewayRouteGatewayRouteVirtualServiceOutput {
-	return i.ToGatewayRouteGatewayRouteVirtualServiceOutputWithContext(context.Background())
-}
-
-func (i GatewayRouteGatewayRouteVirtualServiceArgs) ToGatewayRouteGatewayRouteVirtualServiceOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteVirtualServiceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGatewayRouteVirtualServiceOutput)
-}
-
-func (i GatewayRouteGatewayRouteVirtualServiceArgs) ToGatewayRouteGatewayRouteVirtualServicePtrOutput() GatewayRouteGatewayRouteVirtualServicePtrOutput {
-	return i.ToGatewayRouteGatewayRouteVirtualServicePtrOutputWithContext(context.Background())
-}
-
-func (i GatewayRouteGatewayRouteVirtualServiceArgs) ToGatewayRouteGatewayRouteVirtualServicePtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteVirtualServicePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGatewayRouteVirtualServiceOutput).ToGatewayRouteGatewayRouteVirtualServicePtrOutputWithContext(ctx)
-}
-
-// GatewayRouteGatewayRouteVirtualServicePtrInput is an input type that accepts GatewayRouteGatewayRouteVirtualServiceArgs, GatewayRouteGatewayRouteVirtualServicePtr and GatewayRouteGatewayRouteVirtualServicePtrOutput values.
-// You can construct a concrete instance of `GatewayRouteGatewayRouteVirtualServicePtrInput` via:
-//
-//          GatewayRouteGatewayRouteVirtualServiceArgs{...}
-//
-//  or:
-//
-//          nil
-type GatewayRouteGatewayRouteVirtualServicePtrInput interface {
-	pulumi.Input
-
-	ToGatewayRouteGatewayRouteVirtualServicePtrOutput() GatewayRouteGatewayRouteVirtualServicePtrOutput
-	ToGatewayRouteGatewayRouteVirtualServicePtrOutputWithContext(context.Context) GatewayRouteGatewayRouteVirtualServicePtrOutput
-}
-
-type gatewayRouteGatewayRouteVirtualServicePtrType GatewayRouteGatewayRouteVirtualServiceArgs
-
-func GatewayRouteGatewayRouteVirtualServicePtr(v *GatewayRouteGatewayRouteVirtualServiceArgs) GatewayRouteGatewayRouteVirtualServicePtrInput {
-	return (*gatewayRouteGatewayRouteVirtualServicePtrType)(v)
-}
-
-func (*gatewayRouteGatewayRouteVirtualServicePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayRouteGatewayRouteVirtualService)(nil)).Elem()
-}
-
-func (i *gatewayRouteGatewayRouteVirtualServicePtrType) ToGatewayRouteGatewayRouteVirtualServicePtrOutput() GatewayRouteGatewayRouteVirtualServicePtrOutput {
-	return i.ToGatewayRouteGatewayRouteVirtualServicePtrOutputWithContext(context.Background())
-}
-
-func (i *gatewayRouteGatewayRouteVirtualServicePtrType) ToGatewayRouteGatewayRouteVirtualServicePtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteVirtualServicePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteGatewayRouteVirtualServicePtrOutput)
-}
-
-type GatewayRouteGatewayRouteVirtualServiceOutput struct{ *pulumi.OutputState }
-
-func (GatewayRouteGatewayRouteVirtualServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayRouteGatewayRouteVirtualService)(nil)).Elem()
-}
-
-func (o GatewayRouteGatewayRouteVirtualServiceOutput) ToGatewayRouteGatewayRouteVirtualServiceOutput() GatewayRouteGatewayRouteVirtualServiceOutput {
-	return o
-}
-
-func (o GatewayRouteGatewayRouteVirtualServiceOutput) ToGatewayRouteGatewayRouteVirtualServiceOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteVirtualServiceOutput {
-	return o
-}
-
-func (o GatewayRouteGatewayRouteVirtualServiceOutput) ToGatewayRouteGatewayRouteVirtualServicePtrOutput() GatewayRouteGatewayRouteVirtualServicePtrOutput {
-	return o.ToGatewayRouteGatewayRouteVirtualServicePtrOutputWithContext(context.Background())
-}
-
-func (o GatewayRouteGatewayRouteVirtualServiceOutput) ToGatewayRouteGatewayRouteVirtualServicePtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteVirtualServicePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteGatewayRouteVirtualService) *GatewayRouteGatewayRouteVirtualService {
-		return &v
-	}).(GatewayRouteGatewayRouteVirtualServicePtrOutput)
-}
-
-func (o GatewayRouteGatewayRouteVirtualServiceOutput) VirtualServiceName() pulumi.StringOutput {
-	return o.ApplyT(func(v GatewayRouteGatewayRouteVirtualService) string { return v.VirtualServiceName }).(pulumi.StringOutput)
-}
-
-type GatewayRouteGatewayRouteVirtualServicePtrOutput struct{ *pulumi.OutputState }
-
-func (GatewayRouteGatewayRouteVirtualServicePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayRouteGatewayRouteVirtualService)(nil)).Elem()
-}
-
-func (o GatewayRouteGatewayRouteVirtualServicePtrOutput) ToGatewayRouteGatewayRouteVirtualServicePtrOutput() GatewayRouteGatewayRouteVirtualServicePtrOutput {
-	return o
-}
-
-func (o GatewayRouteGatewayRouteVirtualServicePtrOutput) ToGatewayRouteGatewayRouteVirtualServicePtrOutputWithContext(ctx context.Context) GatewayRouteGatewayRouteVirtualServicePtrOutput {
-	return o
-}
-
-func (o GatewayRouteGatewayRouteVirtualServicePtrOutput) Elem() GatewayRouteGatewayRouteVirtualServiceOutput {
-	return o.ApplyT(func(v *GatewayRouteGatewayRouteVirtualService) GatewayRouteGatewayRouteVirtualService {
-		if v != nil {
-			return *v
-		}
-		var ret GatewayRouteGatewayRouteVirtualService
-		return ret
-	}).(GatewayRouteGatewayRouteVirtualServiceOutput)
-}
-
-func (o GatewayRouteGatewayRouteVirtualServicePtrOutput) VirtualServiceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GatewayRouteGatewayRouteVirtualService) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VirtualServiceName
-	}).(pulumi.StringPtrOutput)
-}
-
 type GatewayRouteGrpcGatewayRoute struct {
 	Action GatewayRouteGrpcGatewayRouteAction `pulumi:"action"`
 	Match  GatewayRouteGrpcGatewayRouteMatch  `pulumi:"match"`
@@ -1211,7 +160,7 @@ func (o GatewayRouteGrpcGatewayRoutePtrOutput) Match() GatewayRouteGrpcGatewayRo
 
 type GatewayRouteGrpcGatewayRouteAction struct {
 	Rewrite *GatewayRouteGrpcGatewayRouteRewrite `pulumi:"rewrite"`
-	Target  GatewayRouteGatewayRouteTarget       `pulumi:"target"`
+	Target  GatewayRouteTarget                   `pulumi:"target"`
 }
 
 // GatewayRouteGrpcGatewayRouteActionInput is an input type that accepts GatewayRouteGrpcGatewayRouteActionArgs and GatewayRouteGrpcGatewayRouteActionOutput values.
@@ -1227,7 +176,7 @@ type GatewayRouteGrpcGatewayRouteActionInput interface {
 
 type GatewayRouteGrpcGatewayRouteActionArgs struct {
 	Rewrite GatewayRouteGrpcGatewayRouteRewritePtrInput `pulumi:"rewrite"`
-	Target  GatewayRouteGatewayRouteTargetInput         `pulumi:"target"`
+	Target  GatewayRouteTargetInput                     `pulumi:"target"`
 }
 
 func (GatewayRouteGrpcGatewayRouteActionArgs) ElementType() reflect.Type {
@@ -1311,8 +260,8 @@ func (o GatewayRouteGrpcGatewayRouteActionOutput) Rewrite() GatewayRouteGrpcGate
 	return o.ApplyT(func(v GatewayRouteGrpcGatewayRouteAction) *GatewayRouteGrpcGatewayRouteRewrite { return v.Rewrite }).(GatewayRouteGrpcGatewayRouteRewritePtrOutput)
 }
 
-func (o GatewayRouteGrpcGatewayRouteActionOutput) Target() GatewayRouteGatewayRouteTargetOutput {
-	return o.ApplyT(func(v GatewayRouteGrpcGatewayRouteAction) GatewayRouteGatewayRouteTarget { return v.Target }).(GatewayRouteGatewayRouteTargetOutput)
+func (o GatewayRouteGrpcGatewayRouteActionOutput) Target() GatewayRouteTargetOutput {
+	return o.ApplyT(func(v GatewayRouteGrpcGatewayRouteAction) GatewayRouteTarget { return v.Target }).(GatewayRouteTargetOutput)
 }
 
 type GatewayRouteGrpcGatewayRouteActionPtrOutput struct{ *pulumi.OutputState }
@@ -1348,17 +297,17 @@ func (o GatewayRouteGrpcGatewayRouteActionPtrOutput) Rewrite() GatewayRouteGrpcG
 	}).(GatewayRouteGrpcGatewayRouteRewritePtrOutput)
 }
 
-func (o GatewayRouteGrpcGatewayRouteActionPtrOutput) Target() GatewayRouteGatewayRouteTargetPtrOutput {
-	return o.ApplyT(func(v *GatewayRouteGrpcGatewayRouteAction) *GatewayRouteGatewayRouteTarget {
+func (o GatewayRouteGrpcGatewayRouteActionPtrOutput) Target() GatewayRouteTargetPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteGrpcGatewayRouteAction) *GatewayRouteTarget {
 		if v == nil {
 			return nil
 		}
 		return &v.Target
-	}).(GatewayRouteGatewayRouteTargetPtrOutput)
+	}).(GatewayRouteTargetPtrOutput)
 }
 
 type GatewayRouteGrpcGatewayRouteMatch struct {
-	Hostname    *GatewayRouteGatewayRouteHostnameMatch `pulumi:"hostname"`
+	Hostname    *GatewayRouteHostnameMatch             `pulumi:"hostname"`
 	Metadata    []GatewayRouteGrpcGatewayRouteMetadata `pulumi:"metadata"`
 	ServiceName *string                                `pulumi:"serviceName"`
 }
@@ -1375,7 +324,7 @@ type GatewayRouteGrpcGatewayRouteMatchInput interface {
 }
 
 type GatewayRouteGrpcGatewayRouteMatchArgs struct {
-	Hostname    GatewayRouteGatewayRouteHostnameMatchPtrInput  `pulumi:"hostname"`
+	Hostname    GatewayRouteHostnameMatchPtrInput              `pulumi:"hostname"`
 	Metadata    GatewayRouteGrpcGatewayRouteMetadataArrayInput `pulumi:"metadata"`
 	ServiceName pulumi.StringPtrInput                          `pulumi:"serviceName"`
 }
@@ -1457,8 +406,8 @@ func (o GatewayRouteGrpcGatewayRouteMatchOutput) ToGatewayRouteGrpcGatewayRouteM
 	}).(GatewayRouteGrpcGatewayRouteMatchPtrOutput)
 }
 
-func (o GatewayRouteGrpcGatewayRouteMatchOutput) Hostname() GatewayRouteGatewayRouteHostnameMatchPtrOutput {
-	return o.ApplyT(func(v GatewayRouteGrpcGatewayRouteMatch) *GatewayRouteGatewayRouteHostnameMatch { return v.Hostname }).(GatewayRouteGatewayRouteHostnameMatchPtrOutput)
+func (o GatewayRouteGrpcGatewayRouteMatchOutput) Hostname() GatewayRouteHostnameMatchPtrOutput {
+	return o.ApplyT(func(v GatewayRouteGrpcGatewayRouteMatch) *GatewayRouteHostnameMatch { return v.Hostname }).(GatewayRouteHostnameMatchPtrOutput)
 }
 
 func (o GatewayRouteGrpcGatewayRouteMatchOutput) Metadata() GatewayRouteGrpcGatewayRouteMetadataArrayOutput {
@@ -1493,13 +442,13 @@ func (o GatewayRouteGrpcGatewayRouteMatchPtrOutput) Elem() GatewayRouteGrpcGatew
 	}).(GatewayRouteGrpcGatewayRouteMatchOutput)
 }
 
-func (o GatewayRouteGrpcGatewayRouteMatchPtrOutput) Hostname() GatewayRouteGatewayRouteHostnameMatchPtrOutput {
-	return o.ApplyT(func(v *GatewayRouteGrpcGatewayRouteMatch) *GatewayRouteGatewayRouteHostnameMatch {
+func (o GatewayRouteGrpcGatewayRouteMatchPtrOutput) Hostname() GatewayRouteHostnameMatchPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteGrpcGatewayRouteMatch) *GatewayRouteHostnameMatch {
 		if v == nil {
 			return nil
 		}
 		return v.Hostname
-	}).(GatewayRouteGatewayRouteHostnameMatchPtrOutput)
+	}).(GatewayRouteHostnameMatchPtrOutput)
 }
 
 func (o GatewayRouteGrpcGatewayRouteMatchPtrOutput) Metadata() GatewayRouteGrpcGatewayRouteMetadataArrayOutput {
@@ -1521,9 +470,9 @@ func (o GatewayRouteGrpcGatewayRouteMatchPtrOutput) ServiceName() pulumi.StringP
 }
 
 type GatewayRouteGrpcGatewayRouteMetadata struct {
-	Invert *bool                                  `pulumi:"invert"`
-	Match  *GatewayRouteGatewayRouteMetadataMatch `pulumi:"match"`
-	Name   string                                 `pulumi:"name"`
+	Invert *bool                      `pulumi:"invert"`
+	Match  *GatewayRouteMetadataMatch `pulumi:"match"`
+	Name   string                     `pulumi:"name"`
 }
 
 // GatewayRouteGrpcGatewayRouteMetadataInput is an input type that accepts GatewayRouteGrpcGatewayRouteMetadataArgs and GatewayRouteGrpcGatewayRouteMetadataOutput values.
@@ -1538,9 +487,9 @@ type GatewayRouteGrpcGatewayRouteMetadataInput interface {
 }
 
 type GatewayRouteGrpcGatewayRouteMetadataArgs struct {
-	Invert pulumi.BoolPtrInput                           `pulumi:"invert"`
-	Match  GatewayRouteGatewayRouteMetadataMatchPtrInput `pulumi:"match"`
-	Name   pulumi.StringInput                            `pulumi:"name"`
+	Invert pulumi.BoolPtrInput               `pulumi:"invert"`
+	Match  GatewayRouteMetadataMatchPtrInput `pulumi:"match"`
+	Name   pulumi.StringInput                `pulumi:"name"`
 }
 
 func (GatewayRouteGrpcGatewayRouteMetadataArgs) ElementType() reflect.Type {
@@ -1598,8 +547,8 @@ func (o GatewayRouteGrpcGatewayRouteMetadataOutput) Invert() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v GatewayRouteGrpcGatewayRouteMetadata) *bool { return v.Invert }).(pulumi.BoolPtrOutput)
 }
 
-func (o GatewayRouteGrpcGatewayRouteMetadataOutput) Match() GatewayRouteGatewayRouteMetadataMatchPtrOutput {
-	return o.ApplyT(func(v GatewayRouteGrpcGatewayRouteMetadata) *GatewayRouteGatewayRouteMetadataMatch { return v.Match }).(GatewayRouteGatewayRouteMetadataMatchPtrOutput)
+func (o GatewayRouteGrpcGatewayRouteMetadataOutput) Match() GatewayRouteMetadataMatchPtrOutput {
+	return o.ApplyT(func(v GatewayRouteGrpcGatewayRouteMetadata) *GatewayRouteMetadataMatch { return v.Match }).(GatewayRouteMetadataMatchPtrOutput)
 }
 
 func (o GatewayRouteGrpcGatewayRouteMetadataOutput) Name() pulumi.StringOutput {
@@ -1627,7 +576,7 @@ func (o GatewayRouteGrpcGatewayRouteMetadataArrayOutput) Index(i pulumi.IntInput
 }
 
 type GatewayRouteGrpcGatewayRouteRewrite struct {
-	Hostname *GatewayRouteGatewayRouteHostnameRewrite `pulumi:"hostname"`
+	Hostname *GatewayRouteHostnameRewrite `pulumi:"hostname"`
 }
 
 // GatewayRouteGrpcGatewayRouteRewriteInput is an input type that accepts GatewayRouteGrpcGatewayRouteRewriteArgs and GatewayRouteGrpcGatewayRouteRewriteOutput values.
@@ -1642,7 +591,7 @@ type GatewayRouteGrpcGatewayRouteRewriteInput interface {
 }
 
 type GatewayRouteGrpcGatewayRouteRewriteArgs struct {
-	Hostname GatewayRouteGatewayRouteHostnameRewritePtrInput `pulumi:"hostname"`
+	Hostname GatewayRouteHostnameRewritePtrInput `pulumi:"hostname"`
 }
 
 func (GatewayRouteGrpcGatewayRouteRewriteArgs) ElementType() reflect.Type {
@@ -1722,10 +671,8 @@ func (o GatewayRouteGrpcGatewayRouteRewriteOutput) ToGatewayRouteGrpcGatewayRout
 	}).(GatewayRouteGrpcGatewayRouteRewritePtrOutput)
 }
 
-func (o GatewayRouteGrpcGatewayRouteRewriteOutput) Hostname() GatewayRouteGatewayRouteHostnameRewritePtrOutput {
-	return o.ApplyT(func(v GatewayRouteGrpcGatewayRouteRewrite) *GatewayRouteGatewayRouteHostnameRewrite {
-		return v.Hostname
-	}).(GatewayRouteGatewayRouteHostnameRewritePtrOutput)
+func (o GatewayRouteGrpcGatewayRouteRewriteOutput) Hostname() GatewayRouteHostnameRewritePtrOutput {
+	return o.ApplyT(func(v GatewayRouteGrpcGatewayRouteRewrite) *GatewayRouteHostnameRewrite { return v.Hostname }).(GatewayRouteHostnameRewritePtrOutput)
 }
 
 type GatewayRouteGrpcGatewayRouteRewritePtrOutput struct{ *pulumi.OutputState }
@@ -1752,13 +699,294 @@ func (o GatewayRouteGrpcGatewayRouteRewritePtrOutput) Elem() GatewayRouteGrpcGat
 	}).(GatewayRouteGrpcGatewayRouteRewriteOutput)
 }
 
-func (o GatewayRouteGrpcGatewayRouteRewritePtrOutput) Hostname() GatewayRouteGatewayRouteHostnameRewritePtrOutput {
-	return o.ApplyT(func(v *GatewayRouteGrpcGatewayRouteRewrite) *GatewayRouteGatewayRouteHostnameRewrite {
+func (o GatewayRouteGrpcGatewayRouteRewritePtrOutput) Hostname() GatewayRouteHostnameRewritePtrOutput {
+	return o.ApplyT(func(v *GatewayRouteGrpcGatewayRouteRewrite) *GatewayRouteHostnameRewrite {
 		if v == nil {
 			return nil
 		}
 		return v.Hostname
-	}).(GatewayRouteGatewayRouteHostnameRewritePtrOutput)
+	}).(GatewayRouteHostnameRewritePtrOutput)
+}
+
+type GatewayRouteHostnameMatch struct {
+	Exact  *string `pulumi:"exact"`
+	Suffix *string `pulumi:"suffix"`
+}
+
+// GatewayRouteHostnameMatchInput is an input type that accepts GatewayRouteHostnameMatchArgs and GatewayRouteHostnameMatchOutput values.
+// You can construct a concrete instance of `GatewayRouteHostnameMatchInput` via:
+//
+//          GatewayRouteHostnameMatchArgs{...}
+type GatewayRouteHostnameMatchInput interface {
+	pulumi.Input
+
+	ToGatewayRouteHostnameMatchOutput() GatewayRouteHostnameMatchOutput
+	ToGatewayRouteHostnameMatchOutputWithContext(context.Context) GatewayRouteHostnameMatchOutput
+}
+
+type GatewayRouteHostnameMatchArgs struct {
+	Exact  pulumi.StringPtrInput `pulumi:"exact"`
+	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
+}
+
+func (GatewayRouteHostnameMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteHostnameMatch)(nil)).Elem()
+}
+
+func (i GatewayRouteHostnameMatchArgs) ToGatewayRouteHostnameMatchOutput() GatewayRouteHostnameMatchOutput {
+	return i.ToGatewayRouteHostnameMatchOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteHostnameMatchArgs) ToGatewayRouteHostnameMatchOutputWithContext(ctx context.Context) GatewayRouteHostnameMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHostnameMatchOutput)
+}
+
+func (i GatewayRouteHostnameMatchArgs) ToGatewayRouteHostnameMatchPtrOutput() GatewayRouteHostnameMatchPtrOutput {
+	return i.ToGatewayRouteHostnameMatchPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteHostnameMatchArgs) ToGatewayRouteHostnameMatchPtrOutputWithContext(ctx context.Context) GatewayRouteHostnameMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHostnameMatchOutput).ToGatewayRouteHostnameMatchPtrOutputWithContext(ctx)
+}
+
+// GatewayRouteHostnameMatchPtrInput is an input type that accepts GatewayRouteHostnameMatchArgs, GatewayRouteHostnameMatchPtr and GatewayRouteHostnameMatchPtrOutput values.
+// You can construct a concrete instance of `GatewayRouteHostnameMatchPtrInput` via:
+//
+//          GatewayRouteHostnameMatchArgs{...}
+//
+//  or:
+//
+//          nil
+type GatewayRouteHostnameMatchPtrInput interface {
+	pulumi.Input
+
+	ToGatewayRouteHostnameMatchPtrOutput() GatewayRouteHostnameMatchPtrOutput
+	ToGatewayRouteHostnameMatchPtrOutputWithContext(context.Context) GatewayRouteHostnameMatchPtrOutput
+}
+
+type gatewayRouteHostnameMatchPtrType GatewayRouteHostnameMatchArgs
+
+func GatewayRouteHostnameMatchPtr(v *GatewayRouteHostnameMatchArgs) GatewayRouteHostnameMatchPtrInput {
+	return (*gatewayRouteHostnameMatchPtrType)(v)
+}
+
+func (*gatewayRouteHostnameMatchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteHostnameMatch)(nil)).Elem()
+}
+
+func (i *gatewayRouteHostnameMatchPtrType) ToGatewayRouteHostnameMatchPtrOutput() GatewayRouteHostnameMatchPtrOutput {
+	return i.ToGatewayRouteHostnameMatchPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRouteHostnameMatchPtrType) ToGatewayRouteHostnameMatchPtrOutputWithContext(ctx context.Context) GatewayRouteHostnameMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHostnameMatchPtrOutput)
+}
+
+type GatewayRouteHostnameMatchOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteHostnameMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteHostnameMatch)(nil)).Elem()
+}
+
+func (o GatewayRouteHostnameMatchOutput) ToGatewayRouteHostnameMatchOutput() GatewayRouteHostnameMatchOutput {
+	return o
+}
+
+func (o GatewayRouteHostnameMatchOutput) ToGatewayRouteHostnameMatchOutputWithContext(ctx context.Context) GatewayRouteHostnameMatchOutput {
+	return o
+}
+
+func (o GatewayRouteHostnameMatchOutput) ToGatewayRouteHostnameMatchPtrOutput() GatewayRouteHostnameMatchPtrOutput {
+	return o.ToGatewayRouteHostnameMatchPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRouteHostnameMatchOutput) ToGatewayRouteHostnameMatchPtrOutputWithContext(ctx context.Context) GatewayRouteHostnameMatchPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteHostnameMatch) *GatewayRouteHostnameMatch {
+		return &v
+	}).(GatewayRouteHostnameMatchPtrOutput)
+}
+
+func (o GatewayRouteHostnameMatchOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayRouteHostnameMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayRouteHostnameMatchOutput) Suffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayRouteHostnameMatch) *string { return v.Suffix }).(pulumi.StringPtrOutput)
+}
+
+type GatewayRouteHostnameMatchPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteHostnameMatchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteHostnameMatch)(nil)).Elem()
+}
+
+func (o GatewayRouteHostnameMatchPtrOutput) ToGatewayRouteHostnameMatchPtrOutput() GatewayRouteHostnameMatchPtrOutput {
+	return o
+}
+
+func (o GatewayRouteHostnameMatchPtrOutput) ToGatewayRouteHostnameMatchPtrOutputWithContext(ctx context.Context) GatewayRouteHostnameMatchPtrOutput {
+	return o
+}
+
+func (o GatewayRouteHostnameMatchPtrOutput) Elem() GatewayRouteHostnameMatchOutput {
+	return o.ApplyT(func(v *GatewayRouteHostnameMatch) GatewayRouteHostnameMatch {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteHostnameMatch
+		return ret
+	}).(GatewayRouteHostnameMatchOutput)
+}
+
+func (o GatewayRouteHostnameMatchPtrOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteHostnameMatch) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Exact
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayRouteHostnameMatchPtrOutput) Suffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteHostnameMatch) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Suffix
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayRouteHostnameRewrite struct {
+	DefaultTargetHostname *string `pulumi:"defaultTargetHostname"`
+}
+
+// GatewayRouteHostnameRewriteInput is an input type that accepts GatewayRouteHostnameRewriteArgs and GatewayRouteHostnameRewriteOutput values.
+// You can construct a concrete instance of `GatewayRouteHostnameRewriteInput` via:
+//
+//          GatewayRouteHostnameRewriteArgs{...}
+type GatewayRouteHostnameRewriteInput interface {
+	pulumi.Input
+
+	ToGatewayRouteHostnameRewriteOutput() GatewayRouteHostnameRewriteOutput
+	ToGatewayRouteHostnameRewriteOutputWithContext(context.Context) GatewayRouteHostnameRewriteOutput
+}
+
+type GatewayRouteHostnameRewriteArgs struct {
+	DefaultTargetHostname pulumi.StringPtrInput `pulumi:"defaultTargetHostname"`
+}
+
+func (GatewayRouteHostnameRewriteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteHostnameRewrite)(nil)).Elem()
+}
+
+func (i GatewayRouteHostnameRewriteArgs) ToGatewayRouteHostnameRewriteOutput() GatewayRouteHostnameRewriteOutput {
+	return i.ToGatewayRouteHostnameRewriteOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteHostnameRewriteArgs) ToGatewayRouteHostnameRewriteOutputWithContext(ctx context.Context) GatewayRouteHostnameRewriteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHostnameRewriteOutput)
+}
+
+func (i GatewayRouteHostnameRewriteArgs) ToGatewayRouteHostnameRewritePtrOutput() GatewayRouteHostnameRewritePtrOutput {
+	return i.ToGatewayRouteHostnameRewritePtrOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteHostnameRewriteArgs) ToGatewayRouteHostnameRewritePtrOutputWithContext(ctx context.Context) GatewayRouteHostnameRewritePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHostnameRewriteOutput).ToGatewayRouteHostnameRewritePtrOutputWithContext(ctx)
+}
+
+// GatewayRouteHostnameRewritePtrInput is an input type that accepts GatewayRouteHostnameRewriteArgs, GatewayRouteHostnameRewritePtr and GatewayRouteHostnameRewritePtrOutput values.
+// You can construct a concrete instance of `GatewayRouteHostnameRewritePtrInput` via:
+//
+//          GatewayRouteHostnameRewriteArgs{...}
+//
+//  or:
+//
+//          nil
+type GatewayRouteHostnameRewritePtrInput interface {
+	pulumi.Input
+
+	ToGatewayRouteHostnameRewritePtrOutput() GatewayRouteHostnameRewritePtrOutput
+	ToGatewayRouteHostnameRewritePtrOutputWithContext(context.Context) GatewayRouteHostnameRewritePtrOutput
+}
+
+type gatewayRouteHostnameRewritePtrType GatewayRouteHostnameRewriteArgs
+
+func GatewayRouteHostnameRewritePtr(v *GatewayRouteHostnameRewriteArgs) GatewayRouteHostnameRewritePtrInput {
+	return (*gatewayRouteHostnameRewritePtrType)(v)
+}
+
+func (*gatewayRouteHostnameRewritePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteHostnameRewrite)(nil)).Elem()
+}
+
+func (i *gatewayRouteHostnameRewritePtrType) ToGatewayRouteHostnameRewritePtrOutput() GatewayRouteHostnameRewritePtrOutput {
+	return i.ToGatewayRouteHostnameRewritePtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRouteHostnameRewritePtrType) ToGatewayRouteHostnameRewritePtrOutputWithContext(ctx context.Context) GatewayRouteHostnameRewritePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteHostnameRewritePtrOutput)
+}
+
+type GatewayRouteHostnameRewriteOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteHostnameRewriteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteHostnameRewrite)(nil)).Elem()
+}
+
+func (o GatewayRouteHostnameRewriteOutput) ToGatewayRouteHostnameRewriteOutput() GatewayRouteHostnameRewriteOutput {
+	return o
+}
+
+func (o GatewayRouteHostnameRewriteOutput) ToGatewayRouteHostnameRewriteOutputWithContext(ctx context.Context) GatewayRouteHostnameRewriteOutput {
+	return o
+}
+
+func (o GatewayRouteHostnameRewriteOutput) ToGatewayRouteHostnameRewritePtrOutput() GatewayRouteHostnameRewritePtrOutput {
+	return o.ToGatewayRouteHostnameRewritePtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRouteHostnameRewriteOutput) ToGatewayRouteHostnameRewritePtrOutputWithContext(ctx context.Context) GatewayRouteHostnameRewritePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteHostnameRewrite) *GatewayRouteHostnameRewrite {
+		return &v
+	}).(GatewayRouteHostnameRewritePtrOutput)
+}
+
+func (o GatewayRouteHostnameRewriteOutput) DefaultTargetHostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayRouteHostnameRewrite) *string { return v.DefaultTargetHostname }).(pulumi.StringPtrOutput)
+}
+
+type GatewayRouteHostnameRewritePtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteHostnameRewritePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteHostnameRewrite)(nil)).Elem()
+}
+
+func (o GatewayRouteHostnameRewritePtrOutput) ToGatewayRouteHostnameRewritePtrOutput() GatewayRouteHostnameRewritePtrOutput {
+	return o
+}
+
+func (o GatewayRouteHostnameRewritePtrOutput) ToGatewayRouteHostnameRewritePtrOutputWithContext(ctx context.Context) GatewayRouteHostnameRewritePtrOutput {
+	return o
+}
+
+func (o GatewayRouteHostnameRewritePtrOutput) Elem() GatewayRouteHostnameRewriteOutput {
+	return o.ApplyT(func(v *GatewayRouteHostnameRewrite) GatewayRouteHostnameRewrite {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteHostnameRewrite
+		return ret
+	}).(GatewayRouteHostnameRewriteOutput)
+}
+
+func (o GatewayRouteHostnameRewritePtrOutput) DefaultTargetHostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteHostnameRewrite) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultTargetHostname
+	}).(pulumi.StringPtrOutput)
 }
 
 type GatewayRouteHttpGatewayRoute struct {
@@ -1911,7 +1139,7 @@ func (o GatewayRouteHttpGatewayRoutePtrOutput) Match() GatewayRouteHttpGatewayRo
 
 type GatewayRouteHttpGatewayRouteAction struct {
 	Rewrite *GatewayRouteHttpGatewayRouteRewrite `pulumi:"rewrite"`
-	Target  GatewayRouteGatewayRouteTarget       `pulumi:"target"`
+	Target  GatewayRouteTarget                   `pulumi:"target"`
 }
 
 // GatewayRouteHttpGatewayRouteActionInput is an input type that accepts GatewayRouteHttpGatewayRouteActionArgs and GatewayRouteHttpGatewayRouteActionOutput values.
@@ -1927,7 +1155,7 @@ type GatewayRouteHttpGatewayRouteActionInput interface {
 
 type GatewayRouteHttpGatewayRouteActionArgs struct {
 	Rewrite GatewayRouteHttpGatewayRouteRewritePtrInput `pulumi:"rewrite"`
-	Target  GatewayRouteGatewayRouteTargetInput         `pulumi:"target"`
+	Target  GatewayRouteTargetInput                     `pulumi:"target"`
 }
 
 func (GatewayRouteHttpGatewayRouteActionArgs) ElementType() reflect.Type {
@@ -2011,8 +1239,8 @@ func (o GatewayRouteHttpGatewayRouteActionOutput) Rewrite() GatewayRouteHttpGate
 	return o.ApplyT(func(v GatewayRouteHttpGatewayRouteAction) *GatewayRouteHttpGatewayRouteRewrite { return v.Rewrite }).(GatewayRouteHttpGatewayRouteRewritePtrOutput)
 }
 
-func (o GatewayRouteHttpGatewayRouteActionOutput) Target() GatewayRouteGatewayRouteTargetOutput {
-	return o.ApplyT(func(v GatewayRouteHttpGatewayRouteAction) GatewayRouteGatewayRouteTarget { return v.Target }).(GatewayRouteGatewayRouteTargetOutput)
+func (o GatewayRouteHttpGatewayRouteActionOutput) Target() GatewayRouteTargetOutput {
+	return o.ApplyT(func(v GatewayRouteHttpGatewayRouteAction) GatewayRouteTarget { return v.Target }).(GatewayRouteTargetOutput)
 }
 
 type GatewayRouteHttpGatewayRouteActionPtrOutput struct{ *pulumi.OutputState }
@@ -2048,13 +1276,13 @@ func (o GatewayRouteHttpGatewayRouteActionPtrOutput) Rewrite() GatewayRouteHttpG
 	}).(GatewayRouteHttpGatewayRouteRewritePtrOutput)
 }
 
-func (o GatewayRouteHttpGatewayRouteActionPtrOutput) Target() GatewayRouteGatewayRouteTargetPtrOutput {
-	return o.ApplyT(func(v *GatewayRouteHttpGatewayRouteAction) *GatewayRouteGatewayRouteTarget {
+func (o GatewayRouteHttpGatewayRouteActionPtrOutput) Target() GatewayRouteTargetPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteHttpGatewayRouteAction) *GatewayRouteTarget {
 		if v == nil {
 			return nil
 		}
 		return &v.Target
-	}).(GatewayRouteGatewayRouteTargetPtrOutput)
+	}).(GatewayRouteTargetPtrOutput)
 }
 
 type GatewayRouteHttpGatewayRouteHeader struct {
@@ -2164,11 +1392,11 @@ func (o GatewayRouteHttpGatewayRouteHeaderArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GatewayRouteHttpGatewayRouteHeaderMatch struct {
-	Exact  *string                             `pulumi:"exact"`
-	Prefix *string                             `pulumi:"prefix"`
-	Range  *GatewayRouteGatewayRouteRangeMatch `pulumi:"range"`
-	Regex  *string                             `pulumi:"regex"`
-	Suffix *string                             `pulumi:"suffix"`
+	Exact  *string                 `pulumi:"exact"`
+	Prefix *string                 `pulumi:"prefix"`
+	Range  *GatewayRouteRangeMatch `pulumi:"range"`
+	Regex  *string                 `pulumi:"regex"`
+	Suffix *string                 `pulumi:"suffix"`
 }
 
 // GatewayRouteHttpGatewayRouteHeaderMatchInput is an input type that accepts GatewayRouteHttpGatewayRouteHeaderMatchArgs and GatewayRouteHttpGatewayRouteHeaderMatchOutput values.
@@ -2183,11 +1411,11 @@ type GatewayRouteHttpGatewayRouteHeaderMatchInput interface {
 }
 
 type GatewayRouteHttpGatewayRouteHeaderMatchArgs struct {
-	Exact  pulumi.StringPtrInput                      `pulumi:"exact"`
-	Prefix pulumi.StringPtrInput                      `pulumi:"prefix"`
-	Range  GatewayRouteGatewayRouteRangeMatchPtrInput `pulumi:"range"`
-	Regex  pulumi.StringPtrInput                      `pulumi:"regex"`
-	Suffix pulumi.StringPtrInput                      `pulumi:"suffix"`
+	Exact  pulumi.StringPtrInput          `pulumi:"exact"`
+	Prefix pulumi.StringPtrInput          `pulumi:"prefix"`
+	Range  GatewayRouteRangeMatchPtrInput `pulumi:"range"`
+	Regex  pulumi.StringPtrInput          `pulumi:"regex"`
+	Suffix pulumi.StringPtrInput          `pulumi:"suffix"`
 }
 
 func (GatewayRouteHttpGatewayRouteHeaderMatchArgs) ElementType() reflect.Type {
@@ -2275,8 +1503,8 @@ func (o GatewayRouteHttpGatewayRouteHeaderMatchOutput) Prefix() pulumi.StringPtr
 	return o.ApplyT(func(v GatewayRouteHttpGatewayRouteHeaderMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-func (o GatewayRouteHttpGatewayRouteHeaderMatchOutput) Range() GatewayRouteGatewayRouteRangeMatchPtrOutput {
-	return o.ApplyT(func(v GatewayRouteHttpGatewayRouteHeaderMatch) *GatewayRouteGatewayRouteRangeMatch { return v.Range }).(GatewayRouteGatewayRouteRangeMatchPtrOutput)
+func (o GatewayRouteHttpGatewayRouteHeaderMatchOutput) Range() GatewayRouteRangeMatchPtrOutput {
+	return o.ApplyT(func(v GatewayRouteHttpGatewayRouteHeaderMatch) *GatewayRouteRangeMatch { return v.Range }).(GatewayRouteRangeMatchPtrOutput)
 }
 
 func (o GatewayRouteHttpGatewayRouteHeaderMatchOutput) Regex() pulumi.StringPtrOutput {
@@ -2329,13 +1557,13 @@ func (o GatewayRouteHttpGatewayRouteHeaderMatchPtrOutput) Prefix() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o GatewayRouteHttpGatewayRouteHeaderMatchPtrOutput) Range() GatewayRouteGatewayRouteRangeMatchPtrOutput {
-	return o.ApplyT(func(v *GatewayRouteHttpGatewayRouteHeaderMatch) *GatewayRouteGatewayRouteRangeMatch {
+func (o GatewayRouteHttpGatewayRouteHeaderMatchPtrOutput) Range() GatewayRouteRangeMatchPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteHttpGatewayRouteHeaderMatch) *GatewayRouteRangeMatch {
 		if v == nil {
 			return nil
 		}
 		return v.Range
-	}).(GatewayRouteGatewayRouteRangeMatchPtrOutput)
+	}).(GatewayRouteRangeMatchPtrOutput)
 }
 
 func (o GatewayRouteHttpGatewayRouteHeaderMatchPtrOutput) Regex() pulumi.StringPtrOutput {
@@ -2357,12 +1585,12 @@ func (o GatewayRouteHttpGatewayRouteHeaderMatchPtrOutput) Suffix() pulumi.String
 }
 
 type GatewayRouteHttpGatewayRouteMatch struct {
-	Headers         []GatewayRouteHttpGatewayRouteHeader   `pulumi:"headers"`
-	Hostname        *GatewayRouteGatewayRouteHostnameMatch `pulumi:"hostname"`
-	Method          *string                                `pulumi:"method"`
-	Path            *GatewayRouteHttpPathMatch             `pulumi:"path"`
-	Prefix          *string                                `pulumi:"prefix"`
-	QueryParameters []GatewayRouteQueryParameter           `pulumi:"queryParameters"`
+	Headers         []GatewayRouteHttpGatewayRouteHeader `pulumi:"headers"`
+	Hostname        *GatewayRouteHostnameMatch           `pulumi:"hostname"`
+	Method          *string                              `pulumi:"method"`
+	Path            *GatewayRouteHttpPathMatch           `pulumi:"path"`
+	Prefix          *string                              `pulumi:"prefix"`
+	QueryParameters []GatewayRouteQueryParameter         `pulumi:"queryParameters"`
 }
 
 // GatewayRouteHttpGatewayRouteMatchInput is an input type that accepts GatewayRouteHttpGatewayRouteMatchArgs and GatewayRouteHttpGatewayRouteMatchOutput values.
@@ -2377,12 +1605,12 @@ type GatewayRouteHttpGatewayRouteMatchInput interface {
 }
 
 type GatewayRouteHttpGatewayRouteMatchArgs struct {
-	Headers         GatewayRouteHttpGatewayRouteHeaderArrayInput  `pulumi:"headers"`
-	Hostname        GatewayRouteGatewayRouteHostnameMatchPtrInput `pulumi:"hostname"`
-	Method          pulumi.StringPtrInput                         `pulumi:"method"`
-	Path            GatewayRouteHttpPathMatchPtrInput             `pulumi:"path"`
-	Prefix          pulumi.StringPtrInput                         `pulumi:"prefix"`
-	QueryParameters GatewayRouteQueryParameterArrayInput          `pulumi:"queryParameters"`
+	Headers         GatewayRouteHttpGatewayRouteHeaderArrayInput `pulumi:"headers"`
+	Hostname        GatewayRouteHostnameMatchPtrInput            `pulumi:"hostname"`
+	Method          pulumi.StringPtrInput                        `pulumi:"method"`
+	Path            GatewayRouteHttpPathMatchPtrInput            `pulumi:"path"`
+	Prefix          pulumi.StringPtrInput                        `pulumi:"prefix"`
+	QueryParameters GatewayRouteQueryParameterArrayInput         `pulumi:"queryParameters"`
 }
 
 func (GatewayRouteHttpGatewayRouteMatchArgs) ElementType() reflect.Type {
@@ -2466,8 +1694,8 @@ func (o GatewayRouteHttpGatewayRouteMatchOutput) Headers() GatewayRouteHttpGatew
 	return o.ApplyT(func(v GatewayRouteHttpGatewayRouteMatch) []GatewayRouteHttpGatewayRouteHeader { return v.Headers }).(GatewayRouteHttpGatewayRouteHeaderArrayOutput)
 }
 
-func (o GatewayRouteHttpGatewayRouteMatchOutput) Hostname() GatewayRouteGatewayRouteHostnameMatchPtrOutput {
-	return o.ApplyT(func(v GatewayRouteHttpGatewayRouteMatch) *GatewayRouteGatewayRouteHostnameMatch { return v.Hostname }).(GatewayRouteGatewayRouteHostnameMatchPtrOutput)
+func (o GatewayRouteHttpGatewayRouteMatchOutput) Hostname() GatewayRouteHostnameMatchPtrOutput {
+	return o.ApplyT(func(v GatewayRouteHttpGatewayRouteMatch) *GatewayRouteHostnameMatch { return v.Hostname }).(GatewayRouteHostnameMatchPtrOutput)
 }
 
 func (o GatewayRouteHttpGatewayRouteMatchOutput) Method() pulumi.StringPtrOutput {
@@ -2519,13 +1747,13 @@ func (o GatewayRouteHttpGatewayRouteMatchPtrOutput) Headers() GatewayRouteHttpGa
 	}).(GatewayRouteHttpGatewayRouteHeaderArrayOutput)
 }
 
-func (o GatewayRouteHttpGatewayRouteMatchPtrOutput) Hostname() GatewayRouteGatewayRouteHostnameMatchPtrOutput {
-	return o.ApplyT(func(v *GatewayRouteHttpGatewayRouteMatch) *GatewayRouteGatewayRouteHostnameMatch {
+func (o GatewayRouteHttpGatewayRouteMatchPtrOutput) Hostname() GatewayRouteHostnameMatchPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteHttpGatewayRouteMatch) *GatewayRouteHostnameMatch {
 		if v == nil {
 			return nil
 		}
 		return v.Hostname
-	}).(GatewayRouteGatewayRouteHostnameMatchPtrOutput)
+	}).(GatewayRouteHostnameMatchPtrOutput)
 }
 
 func (o GatewayRouteHttpGatewayRouteMatchPtrOutput) Method() pulumi.StringPtrOutput {
@@ -2846,7 +2074,7 @@ func (o GatewayRouteHttpGatewayRoutePrefixRewritePtrOutput) Value() pulumi.Strin
 }
 
 type GatewayRouteHttpGatewayRouteRewrite struct {
-	Hostname *GatewayRouteGatewayRouteHostnameRewrite   `pulumi:"hostname"`
+	Hostname *GatewayRouteHostnameRewrite               `pulumi:"hostname"`
 	Path     *GatewayRouteHttpGatewayRoutePathRewrite   `pulumi:"path"`
 	Prefix   *GatewayRouteHttpGatewayRoutePrefixRewrite `pulumi:"prefix"`
 }
@@ -2863,7 +2091,7 @@ type GatewayRouteHttpGatewayRouteRewriteInput interface {
 }
 
 type GatewayRouteHttpGatewayRouteRewriteArgs struct {
-	Hostname GatewayRouteGatewayRouteHostnameRewritePtrInput   `pulumi:"hostname"`
+	Hostname GatewayRouteHostnameRewritePtrInput               `pulumi:"hostname"`
 	Path     GatewayRouteHttpGatewayRoutePathRewritePtrInput   `pulumi:"path"`
 	Prefix   GatewayRouteHttpGatewayRoutePrefixRewritePtrInput `pulumi:"prefix"`
 }
@@ -2945,10 +2173,8 @@ func (o GatewayRouteHttpGatewayRouteRewriteOutput) ToGatewayRouteHttpGatewayRout
 	}).(GatewayRouteHttpGatewayRouteRewritePtrOutput)
 }
 
-func (o GatewayRouteHttpGatewayRouteRewriteOutput) Hostname() GatewayRouteGatewayRouteHostnameRewritePtrOutput {
-	return o.ApplyT(func(v GatewayRouteHttpGatewayRouteRewrite) *GatewayRouteGatewayRouteHostnameRewrite {
-		return v.Hostname
-	}).(GatewayRouteGatewayRouteHostnameRewritePtrOutput)
+func (o GatewayRouteHttpGatewayRouteRewriteOutput) Hostname() GatewayRouteHostnameRewritePtrOutput {
+	return o.ApplyT(func(v GatewayRouteHttpGatewayRouteRewrite) *GatewayRouteHostnameRewrite { return v.Hostname }).(GatewayRouteHostnameRewritePtrOutput)
 }
 
 func (o GatewayRouteHttpGatewayRouteRewriteOutput) Path() GatewayRouteHttpGatewayRoutePathRewritePtrOutput {
@@ -2985,13 +2211,13 @@ func (o GatewayRouteHttpGatewayRouteRewritePtrOutput) Elem() GatewayRouteHttpGat
 	}).(GatewayRouteHttpGatewayRouteRewriteOutput)
 }
 
-func (o GatewayRouteHttpGatewayRouteRewritePtrOutput) Hostname() GatewayRouteGatewayRouteHostnameRewritePtrOutput {
-	return o.ApplyT(func(v *GatewayRouteHttpGatewayRouteRewrite) *GatewayRouteGatewayRouteHostnameRewrite {
+func (o GatewayRouteHttpGatewayRouteRewritePtrOutput) Hostname() GatewayRouteHostnameRewritePtrOutput {
+	return o.ApplyT(func(v *GatewayRouteHttpGatewayRouteRewrite) *GatewayRouteHostnameRewrite {
 		if v == nil {
 			return nil
 		}
 		return v.Hostname
-	}).(GatewayRouteGatewayRouteHostnameRewritePtrOutput)
+	}).(GatewayRouteHostnameRewritePtrOutput)
 }
 
 func (o GatewayRouteHttpGatewayRouteRewritePtrOutput) Path() GatewayRouteHttpGatewayRoutePathRewritePtrOutput {
@@ -3293,6 +2519,199 @@ func (o GatewayRouteHttpQueryParameterMatchPtrOutput) Exact() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type GatewayRouteMetadataMatch struct {
+	Exact  *string                 `pulumi:"exact"`
+	Prefix *string                 `pulumi:"prefix"`
+	Range  *GatewayRouteRangeMatch `pulumi:"range"`
+	Regex  *string                 `pulumi:"regex"`
+	Suffix *string                 `pulumi:"suffix"`
+}
+
+// GatewayRouteMetadataMatchInput is an input type that accepts GatewayRouteMetadataMatchArgs and GatewayRouteMetadataMatchOutput values.
+// You can construct a concrete instance of `GatewayRouteMetadataMatchInput` via:
+//
+//          GatewayRouteMetadataMatchArgs{...}
+type GatewayRouteMetadataMatchInput interface {
+	pulumi.Input
+
+	ToGatewayRouteMetadataMatchOutput() GatewayRouteMetadataMatchOutput
+	ToGatewayRouteMetadataMatchOutputWithContext(context.Context) GatewayRouteMetadataMatchOutput
+}
+
+type GatewayRouteMetadataMatchArgs struct {
+	Exact  pulumi.StringPtrInput          `pulumi:"exact"`
+	Prefix pulumi.StringPtrInput          `pulumi:"prefix"`
+	Range  GatewayRouteRangeMatchPtrInput `pulumi:"range"`
+	Regex  pulumi.StringPtrInput          `pulumi:"regex"`
+	Suffix pulumi.StringPtrInput          `pulumi:"suffix"`
+}
+
+func (GatewayRouteMetadataMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteMetadataMatch)(nil)).Elem()
+}
+
+func (i GatewayRouteMetadataMatchArgs) ToGatewayRouteMetadataMatchOutput() GatewayRouteMetadataMatchOutput {
+	return i.ToGatewayRouteMetadataMatchOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteMetadataMatchArgs) ToGatewayRouteMetadataMatchOutputWithContext(ctx context.Context) GatewayRouteMetadataMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteMetadataMatchOutput)
+}
+
+func (i GatewayRouteMetadataMatchArgs) ToGatewayRouteMetadataMatchPtrOutput() GatewayRouteMetadataMatchPtrOutput {
+	return i.ToGatewayRouteMetadataMatchPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteMetadataMatchArgs) ToGatewayRouteMetadataMatchPtrOutputWithContext(ctx context.Context) GatewayRouteMetadataMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteMetadataMatchOutput).ToGatewayRouteMetadataMatchPtrOutputWithContext(ctx)
+}
+
+// GatewayRouteMetadataMatchPtrInput is an input type that accepts GatewayRouteMetadataMatchArgs, GatewayRouteMetadataMatchPtr and GatewayRouteMetadataMatchPtrOutput values.
+// You can construct a concrete instance of `GatewayRouteMetadataMatchPtrInput` via:
+//
+//          GatewayRouteMetadataMatchArgs{...}
+//
+//  or:
+//
+//          nil
+type GatewayRouteMetadataMatchPtrInput interface {
+	pulumi.Input
+
+	ToGatewayRouteMetadataMatchPtrOutput() GatewayRouteMetadataMatchPtrOutput
+	ToGatewayRouteMetadataMatchPtrOutputWithContext(context.Context) GatewayRouteMetadataMatchPtrOutput
+}
+
+type gatewayRouteMetadataMatchPtrType GatewayRouteMetadataMatchArgs
+
+func GatewayRouteMetadataMatchPtr(v *GatewayRouteMetadataMatchArgs) GatewayRouteMetadataMatchPtrInput {
+	return (*gatewayRouteMetadataMatchPtrType)(v)
+}
+
+func (*gatewayRouteMetadataMatchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteMetadataMatch)(nil)).Elem()
+}
+
+func (i *gatewayRouteMetadataMatchPtrType) ToGatewayRouteMetadataMatchPtrOutput() GatewayRouteMetadataMatchPtrOutput {
+	return i.ToGatewayRouteMetadataMatchPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRouteMetadataMatchPtrType) ToGatewayRouteMetadataMatchPtrOutputWithContext(ctx context.Context) GatewayRouteMetadataMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteMetadataMatchPtrOutput)
+}
+
+type GatewayRouteMetadataMatchOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteMetadataMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteMetadataMatch)(nil)).Elem()
+}
+
+func (o GatewayRouteMetadataMatchOutput) ToGatewayRouteMetadataMatchOutput() GatewayRouteMetadataMatchOutput {
+	return o
+}
+
+func (o GatewayRouteMetadataMatchOutput) ToGatewayRouteMetadataMatchOutputWithContext(ctx context.Context) GatewayRouteMetadataMatchOutput {
+	return o
+}
+
+func (o GatewayRouteMetadataMatchOutput) ToGatewayRouteMetadataMatchPtrOutput() GatewayRouteMetadataMatchPtrOutput {
+	return o.ToGatewayRouteMetadataMatchPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRouteMetadataMatchOutput) ToGatewayRouteMetadataMatchPtrOutputWithContext(ctx context.Context) GatewayRouteMetadataMatchPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteMetadataMatch) *GatewayRouteMetadataMatch {
+		return &v
+	}).(GatewayRouteMetadataMatchPtrOutput)
+}
+
+func (o GatewayRouteMetadataMatchOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayRouteMetadataMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayRouteMetadataMatchOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayRouteMetadataMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayRouteMetadataMatchOutput) Range() GatewayRouteRangeMatchPtrOutput {
+	return o.ApplyT(func(v GatewayRouteMetadataMatch) *GatewayRouteRangeMatch { return v.Range }).(GatewayRouteRangeMatchPtrOutput)
+}
+
+func (o GatewayRouteMetadataMatchOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayRouteMetadataMatch) *string { return v.Regex }).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayRouteMetadataMatchOutput) Suffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayRouteMetadataMatch) *string { return v.Suffix }).(pulumi.StringPtrOutput)
+}
+
+type GatewayRouteMetadataMatchPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteMetadataMatchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteMetadataMatch)(nil)).Elem()
+}
+
+func (o GatewayRouteMetadataMatchPtrOutput) ToGatewayRouteMetadataMatchPtrOutput() GatewayRouteMetadataMatchPtrOutput {
+	return o
+}
+
+func (o GatewayRouteMetadataMatchPtrOutput) ToGatewayRouteMetadataMatchPtrOutputWithContext(ctx context.Context) GatewayRouteMetadataMatchPtrOutput {
+	return o
+}
+
+func (o GatewayRouteMetadataMatchPtrOutput) Elem() GatewayRouteMetadataMatchOutput {
+	return o.ApplyT(func(v *GatewayRouteMetadataMatch) GatewayRouteMetadataMatch {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteMetadataMatch
+		return ret
+	}).(GatewayRouteMetadataMatchOutput)
+}
+
+func (o GatewayRouteMetadataMatchPtrOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteMetadataMatch) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Exact
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayRouteMetadataMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteMetadataMatch) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayRouteMetadataMatchPtrOutput) Range() GatewayRouteRangeMatchPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteMetadataMatch) *GatewayRouteRangeMatch {
+		if v == nil {
+			return nil
+		}
+		return v.Range
+	}).(GatewayRouteRangeMatchPtrOutput)
+}
+
+func (o GatewayRouteMetadataMatchPtrOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteMetadataMatch) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Regex
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayRouteMetadataMatchPtrOutput) Suffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteMetadataMatch) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Suffix
+	}).(pulumi.StringPtrOutput)
+}
+
 type GatewayRouteQueryParameter struct {
 	Match *GatewayRouteHttpQueryParameterMatch `pulumi:"match"`
 	Name  string                               `pulumi:"name"`
@@ -3393,6 +2812,317 @@ func (o GatewayRouteQueryParameterArrayOutput) Index(i pulumi.IntInput) GatewayR
 	}).(GatewayRouteQueryParameterOutput)
 }
 
+type GatewayRouteRangeMatch struct {
+	End   int `pulumi:"end"`
+	Start int `pulumi:"start"`
+}
+
+// GatewayRouteRangeMatchInput is an input type that accepts GatewayRouteRangeMatchArgs and GatewayRouteRangeMatchOutput values.
+// You can construct a concrete instance of `GatewayRouteRangeMatchInput` via:
+//
+//          GatewayRouteRangeMatchArgs{...}
+type GatewayRouteRangeMatchInput interface {
+	pulumi.Input
+
+	ToGatewayRouteRangeMatchOutput() GatewayRouteRangeMatchOutput
+	ToGatewayRouteRangeMatchOutputWithContext(context.Context) GatewayRouteRangeMatchOutput
+}
+
+type GatewayRouteRangeMatchArgs struct {
+	End   pulumi.IntInput `pulumi:"end"`
+	Start pulumi.IntInput `pulumi:"start"`
+}
+
+func (GatewayRouteRangeMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteRangeMatch)(nil)).Elem()
+}
+
+func (i GatewayRouteRangeMatchArgs) ToGatewayRouteRangeMatchOutput() GatewayRouteRangeMatchOutput {
+	return i.ToGatewayRouteRangeMatchOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteRangeMatchArgs) ToGatewayRouteRangeMatchOutputWithContext(ctx context.Context) GatewayRouteRangeMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteRangeMatchOutput)
+}
+
+func (i GatewayRouteRangeMatchArgs) ToGatewayRouteRangeMatchPtrOutput() GatewayRouteRangeMatchPtrOutput {
+	return i.ToGatewayRouteRangeMatchPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteRangeMatchArgs) ToGatewayRouteRangeMatchPtrOutputWithContext(ctx context.Context) GatewayRouteRangeMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteRangeMatchOutput).ToGatewayRouteRangeMatchPtrOutputWithContext(ctx)
+}
+
+// GatewayRouteRangeMatchPtrInput is an input type that accepts GatewayRouteRangeMatchArgs, GatewayRouteRangeMatchPtr and GatewayRouteRangeMatchPtrOutput values.
+// You can construct a concrete instance of `GatewayRouteRangeMatchPtrInput` via:
+//
+//          GatewayRouteRangeMatchArgs{...}
+//
+//  or:
+//
+//          nil
+type GatewayRouteRangeMatchPtrInput interface {
+	pulumi.Input
+
+	ToGatewayRouteRangeMatchPtrOutput() GatewayRouteRangeMatchPtrOutput
+	ToGatewayRouteRangeMatchPtrOutputWithContext(context.Context) GatewayRouteRangeMatchPtrOutput
+}
+
+type gatewayRouteRangeMatchPtrType GatewayRouteRangeMatchArgs
+
+func GatewayRouteRangeMatchPtr(v *GatewayRouteRangeMatchArgs) GatewayRouteRangeMatchPtrInput {
+	return (*gatewayRouteRangeMatchPtrType)(v)
+}
+
+func (*gatewayRouteRangeMatchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteRangeMatch)(nil)).Elem()
+}
+
+func (i *gatewayRouteRangeMatchPtrType) ToGatewayRouteRangeMatchPtrOutput() GatewayRouteRangeMatchPtrOutput {
+	return i.ToGatewayRouteRangeMatchPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRouteRangeMatchPtrType) ToGatewayRouteRangeMatchPtrOutputWithContext(ctx context.Context) GatewayRouteRangeMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteRangeMatchPtrOutput)
+}
+
+type GatewayRouteRangeMatchOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteRangeMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteRangeMatch)(nil)).Elem()
+}
+
+func (o GatewayRouteRangeMatchOutput) ToGatewayRouteRangeMatchOutput() GatewayRouteRangeMatchOutput {
+	return o
+}
+
+func (o GatewayRouteRangeMatchOutput) ToGatewayRouteRangeMatchOutputWithContext(ctx context.Context) GatewayRouteRangeMatchOutput {
+	return o
+}
+
+func (o GatewayRouteRangeMatchOutput) ToGatewayRouteRangeMatchPtrOutput() GatewayRouteRangeMatchPtrOutput {
+	return o.ToGatewayRouteRangeMatchPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRouteRangeMatchOutput) ToGatewayRouteRangeMatchPtrOutputWithContext(ctx context.Context) GatewayRouteRangeMatchPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteRangeMatch) *GatewayRouteRangeMatch {
+		return &v
+	}).(GatewayRouteRangeMatchPtrOutput)
+}
+
+func (o GatewayRouteRangeMatchOutput) End() pulumi.IntOutput {
+	return o.ApplyT(func(v GatewayRouteRangeMatch) int { return v.End }).(pulumi.IntOutput)
+}
+
+func (o GatewayRouteRangeMatchOutput) Start() pulumi.IntOutput {
+	return o.ApplyT(func(v GatewayRouteRangeMatch) int { return v.Start }).(pulumi.IntOutput)
+}
+
+type GatewayRouteRangeMatchPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteRangeMatchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteRangeMatch)(nil)).Elem()
+}
+
+func (o GatewayRouteRangeMatchPtrOutput) ToGatewayRouteRangeMatchPtrOutput() GatewayRouteRangeMatchPtrOutput {
+	return o
+}
+
+func (o GatewayRouteRangeMatchPtrOutput) ToGatewayRouteRangeMatchPtrOutputWithContext(ctx context.Context) GatewayRouteRangeMatchPtrOutput {
+	return o
+}
+
+func (o GatewayRouteRangeMatchPtrOutput) Elem() GatewayRouteRangeMatchOutput {
+	return o.ApplyT(func(v *GatewayRouteRangeMatch) GatewayRouteRangeMatch {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteRangeMatch
+		return ret
+	}).(GatewayRouteRangeMatchOutput)
+}
+
+func (o GatewayRouteRangeMatchPtrOutput) End() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteRangeMatch) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.End
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o GatewayRouteRangeMatchPtrOutput) Start() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteRangeMatch) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Start
+	}).(pulumi.IntPtrOutput)
+}
+
+type GatewayRouteSpec struct {
+	GrpcRoute  *GatewayRouteGrpcGatewayRoute `pulumi:"grpcRoute"`
+	Http2Route *GatewayRouteHttpGatewayRoute `pulumi:"http2Route"`
+	HttpRoute  *GatewayRouteHttpGatewayRoute `pulumi:"httpRoute"`
+}
+
+// GatewayRouteSpecInput is an input type that accepts GatewayRouteSpecArgs and GatewayRouteSpecOutput values.
+// You can construct a concrete instance of `GatewayRouteSpecInput` via:
+//
+//          GatewayRouteSpecArgs{...}
+type GatewayRouteSpecInput interface {
+	pulumi.Input
+
+	ToGatewayRouteSpecOutput() GatewayRouteSpecOutput
+	ToGatewayRouteSpecOutputWithContext(context.Context) GatewayRouteSpecOutput
+}
+
+type GatewayRouteSpecArgs struct {
+	GrpcRoute  GatewayRouteGrpcGatewayRoutePtrInput `pulumi:"grpcRoute"`
+	Http2Route GatewayRouteHttpGatewayRoutePtrInput `pulumi:"http2Route"`
+	HttpRoute  GatewayRouteHttpGatewayRoutePtrInput `pulumi:"httpRoute"`
+}
+
+func (GatewayRouteSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteSpec)(nil)).Elem()
+}
+
+func (i GatewayRouteSpecArgs) ToGatewayRouteSpecOutput() GatewayRouteSpecOutput {
+	return i.ToGatewayRouteSpecOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteSpecArgs) ToGatewayRouteSpecOutputWithContext(ctx context.Context) GatewayRouteSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecOutput)
+}
+
+func (i GatewayRouteSpecArgs) ToGatewayRouteSpecPtrOutput() GatewayRouteSpecPtrOutput {
+	return i.ToGatewayRouteSpecPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteSpecArgs) ToGatewayRouteSpecPtrOutputWithContext(ctx context.Context) GatewayRouteSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecOutput).ToGatewayRouteSpecPtrOutputWithContext(ctx)
+}
+
+// GatewayRouteSpecPtrInput is an input type that accepts GatewayRouteSpecArgs, GatewayRouteSpecPtr and GatewayRouteSpecPtrOutput values.
+// You can construct a concrete instance of `GatewayRouteSpecPtrInput` via:
+//
+//          GatewayRouteSpecArgs{...}
+//
+//  or:
+//
+//          nil
+type GatewayRouteSpecPtrInput interface {
+	pulumi.Input
+
+	ToGatewayRouteSpecPtrOutput() GatewayRouteSpecPtrOutput
+	ToGatewayRouteSpecPtrOutputWithContext(context.Context) GatewayRouteSpecPtrOutput
+}
+
+type gatewayRouteSpecPtrType GatewayRouteSpecArgs
+
+func GatewayRouteSpecPtr(v *GatewayRouteSpecArgs) GatewayRouteSpecPtrInput {
+	return (*gatewayRouteSpecPtrType)(v)
+}
+
+func (*gatewayRouteSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteSpec)(nil)).Elem()
+}
+
+func (i *gatewayRouteSpecPtrType) ToGatewayRouteSpecPtrOutput() GatewayRouteSpecPtrOutput {
+	return i.ToGatewayRouteSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRouteSpecPtrType) ToGatewayRouteSpecPtrOutputWithContext(ctx context.Context) GatewayRouteSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecPtrOutput)
+}
+
+type GatewayRouteSpecOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteSpec)(nil)).Elem()
+}
+
+func (o GatewayRouteSpecOutput) ToGatewayRouteSpecOutput() GatewayRouteSpecOutput {
+	return o
+}
+
+func (o GatewayRouteSpecOutput) ToGatewayRouteSpecOutputWithContext(ctx context.Context) GatewayRouteSpecOutput {
+	return o
+}
+
+func (o GatewayRouteSpecOutput) ToGatewayRouteSpecPtrOutput() GatewayRouteSpecPtrOutput {
+	return o.ToGatewayRouteSpecPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRouteSpecOutput) ToGatewayRouteSpecPtrOutputWithContext(ctx context.Context) GatewayRouteSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteSpec) *GatewayRouteSpec {
+		return &v
+	}).(GatewayRouteSpecPtrOutput)
+}
+
+func (o GatewayRouteSpecOutput) GrpcRoute() GatewayRouteGrpcGatewayRoutePtrOutput {
+	return o.ApplyT(func(v GatewayRouteSpec) *GatewayRouteGrpcGatewayRoute { return v.GrpcRoute }).(GatewayRouteGrpcGatewayRoutePtrOutput)
+}
+
+func (o GatewayRouteSpecOutput) Http2Route() GatewayRouteHttpGatewayRoutePtrOutput {
+	return o.ApplyT(func(v GatewayRouteSpec) *GatewayRouteHttpGatewayRoute { return v.Http2Route }).(GatewayRouteHttpGatewayRoutePtrOutput)
+}
+
+func (o GatewayRouteSpecOutput) HttpRoute() GatewayRouteHttpGatewayRoutePtrOutput {
+	return o.ApplyT(func(v GatewayRouteSpec) *GatewayRouteHttpGatewayRoute { return v.HttpRoute }).(GatewayRouteHttpGatewayRoutePtrOutput)
+}
+
+type GatewayRouteSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteSpec)(nil)).Elem()
+}
+
+func (o GatewayRouteSpecPtrOutput) ToGatewayRouteSpecPtrOutput() GatewayRouteSpecPtrOutput {
+	return o
+}
+
+func (o GatewayRouteSpecPtrOutput) ToGatewayRouteSpecPtrOutputWithContext(ctx context.Context) GatewayRouteSpecPtrOutput {
+	return o
+}
+
+func (o GatewayRouteSpecPtrOutput) Elem() GatewayRouteSpecOutput {
+	return o.ApplyT(func(v *GatewayRouteSpec) GatewayRouteSpec {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteSpec
+		return ret
+	}).(GatewayRouteSpecOutput)
+}
+
+func (o GatewayRouteSpecPtrOutput) GrpcRoute() GatewayRouteGrpcGatewayRoutePtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpec) *GatewayRouteGrpcGatewayRoute {
+		if v == nil {
+			return nil
+		}
+		return v.GrpcRoute
+	}).(GatewayRouteGrpcGatewayRoutePtrOutput)
+}
+
+func (o GatewayRouteSpecPtrOutput) Http2Route() GatewayRouteHttpGatewayRoutePtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpec) *GatewayRouteHttpGatewayRoute {
+		if v == nil {
+			return nil
+		}
+		return v.Http2Route
+	}).(GatewayRouteHttpGatewayRoutePtrOutput)
+}
+
+func (o GatewayRouteSpecPtrOutput) HttpRoute() GatewayRouteHttpGatewayRoutePtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpec) *GatewayRouteHttpGatewayRoute {
+		if v == nil {
+			return nil
+		}
+		return v.HttpRoute
+	}).(GatewayRouteHttpGatewayRoutePtrOutput)
+}
+
 type GatewayRouteTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -3491,6 +3221,272 @@ func (o GatewayRouteTagArrayOutput) Index(i pulumi.IntInput) GatewayRouteTagOutp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayRouteTag {
 		return vs[0].([]GatewayRouteTag)[vs[1].(int)]
 	}).(GatewayRouteTagOutput)
+}
+
+type GatewayRouteTarget struct {
+	VirtualService GatewayRouteVirtualService `pulumi:"virtualService"`
+}
+
+// GatewayRouteTargetInput is an input type that accepts GatewayRouteTargetArgs and GatewayRouteTargetOutput values.
+// You can construct a concrete instance of `GatewayRouteTargetInput` via:
+//
+//          GatewayRouteTargetArgs{...}
+type GatewayRouteTargetInput interface {
+	pulumi.Input
+
+	ToGatewayRouteTargetOutput() GatewayRouteTargetOutput
+	ToGatewayRouteTargetOutputWithContext(context.Context) GatewayRouteTargetOutput
+}
+
+type GatewayRouteTargetArgs struct {
+	VirtualService GatewayRouteVirtualServiceInput `pulumi:"virtualService"`
+}
+
+func (GatewayRouteTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteTarget)(nil)).Elem()
+}
+
+func (i GatewayRouteTargetArgs) ToGatewayRouteTargetOutput() GatewayRouteTargetOutput {
+	return i.ToGatewayRouteTargetOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteTargetArgs) ToGatewayRouteTargetOutputWithContext(ctx context.Context) GatewayRouteTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteTargetOutput)
+}
+
+func (i GatewayRouteTargetArgs) ToGatewayRouteTargetPtrOutput() GatewayRouteTargetPtrOutput {
+	return i.ToGatewayRouteTargetPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteTargetArgs) ToGatewayRouteTargetPtrOutputWithContext(ctx context.Context) GatewayRouteTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteTargetOutput).ToGatewayRouteTargetPtrOutputWithContext(ctx)
+}
+
+// GatewayRouteTargetPtrInput is an input type that accepts GatewayRouteTargetArgs, GatewayRouteTargetPtr and GatewayRouteTargetPtrOutput values.
+// You can construct a concrete instance of `GatewayRouteTargetPtrInput` via:
+//
+//          GatewayRouteTargetArgs{...}
+//
+//  or:
+//
+//          nil
+type GatewayRouteTargetPtrInput interface {
+	pulumi.Input
+
+	ToGatewayRouteTargetPtrOutput() GatewayRouteTargetPtrOutput
+	ToGatewayRouteTargetPtrOutputWithContext(context.Context) GatewayRouteTargetPtrOutput
+}
+
+type gatewayRouteTargetPtrType GatewayRouteTargetArgs
+
+func GatewayRouteTargetPtr(v *GatewayRouteTargetArgs) GatewayRouteTargetPtrInput {
+	return (*gatewayRouteTargetPtrType)(v)
+}
+
+func (*gatewayRouteTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteTarget)(nil)).Elem()
+}
+
+func (i *gatewayRouteTargetPtrType) ToGatewayRouteTargetPtrOutput() GatewayRouteTargetPtrOutput {
+	return i.ToGatewayRouteTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRouteTargetPtrType) ToGatewayRouteTargetPtrOutputWithContext(ctx context.Context) GatewayRouteTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteTargetPtrOutput)
+}
+
+type GatewayRouteTargetOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteTarget)(nil)).Elem()
+}
+
+func (o GatewayRouteTargetOutput) ToGatewayRouteTargetOutput() GatewayRouteTargetOutput {
+	return o
+}
+
+func (o GatewayRouteTargetOutput) ToGatewayRouteTargetOutputWithContext(ctx context.Context) GatewayRouteTargetOutput {
+	return o
+}
+
+func (o GatewayRouteTargetOutput) ToGatewayRouteTargetPtrOutput() GatewayRouteTargetPtrOutput {
+	return o.ToGatewayRouteTargetPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRouteTargetOutput) ToGatewayRouteTargetPtrOutputWithContext(ctx context.Context) GatewayRouteTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteTarget) *GatewayRouteTarget {
+		return &v
+	}).(GatewayRouteTargetPtrOutput)
+}
+
+func (o GatewayRouteTargetOutput) VirtualService() GatewayRouteVirtualServiceOutput {
+	return o.ApplyT(func(v GatewayRouteTarget) GatewayRouteVirtualService { return v.VirtualService }).(GatewayRouteVirtualServiceOutput)
+}
+
+type GatewayRouteTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteTarget)(nil)).Elem()
+}
+
+func (o GatewayRouteTargetPtrOutput) ToGatewayRouteTargetPtrOutput() GatewayRouteTargetPtrOutput {
+	return o
+}
+
+func (o GatewayRouteTargetPtrOutput) ToGatewayRouteTargetPtrOutputWithContext(ctx context.Context) GatewayRouteTargetPtrOutput {
+	return o
+}
+
+func (o GatewayRouteTargetPtrOutput) Elem() GatewayRouteTargetOutput {
+	return o.ApplyT(func(v *GatewayRouteTarget) GatewayRouteTarget {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteTarget
+		return ret
+	}).(GatewayRouteTargetOutput)
+}
+
+func (o GatewayRouteTargetPtrOutput) VirtualService() GatewayRouteVirtualServicePtrOutput {
+	return o.ApplyT(func(v *GatewayRouteTarget) *GatewayRouteVirtualService {
+		if v == nil {
+			return nil
+		}
+		return &v.VirtualService
+	}).(GatewayRouteVirtualServicePtrOutput)
+}
+
+type GatewayRouteVirtualService struct {
+	VirtualServiceName string `pulumi:"virtualServiceName"`
+}
+
+// GatewayRouteVirtualServiceInput is an input type that accepts GatewayRouteVirtualServiceArgs and GatewayRouteVirtualServiceOutput values.
+// You can construct a concrete instance of `GatewayRouteVirtualServiceInput` via:
+//
+//          GatewayRouteVirtualServiceArgs{...}
+type GatewayRouteVirtualServiceInput interface {
+	pulumi.Input
+
+	ToGatewayRouteVirtualServiceOutput() GatewayRouteVirtualServiceOutput
+	ToGatewayRouteVirtualServiceOutputWithContext(context.Context) GatewayRouteVirtualServiceOutput
+}
+
+type GatewayRouteVirtualServiceArgs struct {
+	VirtualServiceName pulumi.StringInput `pulumi:"virtualServiceName"`
+}
+
+func (GatewayRouteVirtualServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteVirtualService)(nil)).Elem()
+}
+
+func (i GatewayRouteVirtualServiceArgs) ToGatewayRouteVirtualServiceOutput() GatewayRouteVirtualServiceOutput {
+	return i.ToGatewayRouteVirtualServiceOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteVirtualServiceArgs) ToGatewayRouteVirtualServiceOutputWithContext(ctx context.Context) GatewayRouteVirtualServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteVirtualServiceOutput)
+}
+
+func (i GatewayRouteVirtualServiceArgs) ToGatewayRouteVirtualServicePtrOutput() GatewayRouteVirtualServicePtrOutput {
+	return i.ToGatewayRouteVirtualServicePtrOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteVirtualServiceArgs) ToGatewayRouteVirtualServicePtrOutputWithContext(ctx context.Context) GatewayRouteVirtualServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteVirtualServiceOutput).ToGatewayRouteVirtualServicePtrOutputWithContext(ctx)
+}
+
+// GatewayRouteVirtualServicePtrInput is an input type that accepts GatewayRouteVirtualServiceArgs, GatewayRouteVirtualServicePtr and GatewayRouteVirtualServicePtrOutput values.
+// You can construct a concrete instance of `GatewayRouteVirtualServicePtrInput` via:
+//
+//          GatewayRouteVirtualServiceArgs{...}
+//
+//  or:
+//
+//          nil
+type GatewayRouteVirtualServicePtrInput interface {
+	pulumi.Input
+
+	ToGatewayRouteVirtualServicePtrOutput() GatewayRouteVirtualServicePtrOutput
+	ToGatewayRouteVirtualServicePtrOutputWithContext(context.Context) GatewayRouteVirtualServicePtrOutput
+}
+
+type gatewayRouteVirtualServicePtrType GatewayRouteVirtualServiceArgs
+
+func GatewayRouteVirtualServicePtr(v *GatewayRouteVirtualServiceArgs) GatewayRouteVirtualServicePtrInput {
+	return (*gatewayRouteVirtualServicePtrType)(v)
+}
+
+func (*gatewayRouteVirtualServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteVirtualService)(nil)).Elem()
+}
+
+func (i *gatewayRouteVirtualServicePtrType) ToGatewayRouteVirtualServicePtrOutput() GatewayRouteVirtualServicePtrOutput {
+	return i.ToGatewayRouteVirtualServicePtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRouteVirtualServicePtrType) ToGatewayRouteVirtualServicePtrOutputWithContext(ctx context.Context) GatewayRouteVirtualServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteVirtualServicePtrOutput)
+}
+
+type GatewayRouteVirtualServiceOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteVirtualServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteVirtualService)(nil)).Elem()
+}
+
+func (o GatewayRouteVirtualServiceOutput) ToGatewayRouteVirtualServiceOutput() GatewayRouteVirtualServiceOutput {
+	return o
+}
+
+func (o GatewayRouteVirtualServiceOutput) ToGatewayRouteVirtualServiceOutputWithContext(ctx context.Context) GatewayRouteVirtualServiceOutput {
+	return o
+}
+
+func (o GatewayRouteVirtualServiceOutput) ToGatewayRouteVirtualServicePtrOutput() GatewayRouteVirtualServicePtrOutput {
+	return o.ToGatewayRouteVirtualServicePtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRouteVirtualServiceOutput) ToGatewayRouteVirtualServicePtrOutputWithContext(ctx context.Context) GatewayRouteVirtualServicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteVirtualService) *GatewayRouteVirtualService {
+		return &v
+	}).(GatewayRouteVirtualServicePtrOutput)
+}
+
+func (o GatewayRouteVirtualServiceOutput) VirtualServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRouteVirtualService) string { return v.VirtualServiceName }).(pulumi.StringOutput)
+}
+
+type GatewayRouteVirtualServicePtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteVirtualServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteVirtualService)(nil)).Elem()
+}
+
+func (o GatewayRouteVirtualServicePtrOutput) ToGatewayRouteVirtualServicePtrOutput() GatewayRouteVirtualServicePtrOutput {
+	return o
+}
+
+func (o GatewayRouteVirtualServicePtrOutput) ToGatewayRouteVirtualServicePtrOutputWithContext(ctx context.Context) GatewayRouteVirtualServicePtrOutput {
+	return o
+}
+
+func (o GatewayRouteVirtualServicePtrOutput) Elem() GatewayRouteVirtualServiceOutput {
+	return o.ApplyT(func(v *GatewayRouteVirtualService) GatewayRouteVirtualService {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteVirtualService
+		return ret
+	}).(GatewayRouteVirtualServiceOutput)
+}
+
+func (o GatewayRouteVirtualServicePtrOutput) VirtualServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteVirtualService) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VirtualServiceName
+	}).(pulumi.StringPtrOutput)
 }
 
 type MeshEgressFilter struct {
@@ -3626,132 +3622,132 @@ func (o MeshEgressFilterPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type MeshMeshSpec struct {
+type MeshSpec struct {
 	EgressFilter *MeshEgressFilter `pulumi:"egressFilter"`
 }
 
-// MeshMeshSpecInput is an input type that accepts MeshMeshSpecArgs and MeshMeshSpecOutput values.
-// You can construct a concrete instance of `MeshMeshSpecInput` via:
+// MeshSpecInput is an input type that accepts MeshSpecArgs and MeshSpecOutput values.
+// You can construct a concrete instance of `MeshSpecInput` via:
 //
-//          MeshMeshSpecArgs{...}
-type MeshMeshSpecInput interface {
+//          MeshSpecArgs{...}
+type MeshSpecInput interface {
 	pulumi.Input
 
-	ToMeshMeshSpecOutput() MeshMeshSpecOutput
-	ToMeshMeshSpecOutputWithContext(context.Context) MeshMeshSpecOutput
+	ToMeshSpecOutput() MeshSpecOutput
+	ToMeshSpecOutputWithContext(context.Context) MeshSpecOutput
 }
 
-type MeshMeshSpecArgs struct {
+type MeshSpecArgs struct {
 	EgressFilter MeshEgressFilterPtrInput `pulumi:"egressFilter"`
 }
 
-func (MeshMeshSpecArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MeshMeshSpec)(nil)).Elem()
+func (MeshSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MeshSpec)(nil)).Elem()
 }
 
-func (i MeshMeshSpecArgs) ToMeshMeshSpecOutput() MeshMeshSpecOutput {
-	return i.ToMeshMeshSpecOutputWithContext(context.Background())
+func (i MeshSpecArgs) ToMeshSpecOutput() MeshSpecOutput {
+	return i.ToMeshSpecOutputWithContext(context.Background())
 }
 
-func (i MeshMeshSpecArgs) ToMeshMeshSpecOutputWithContext(ctx context.Context) MeshMeshSpecOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MeshMeshSpecOutput)
+func (i MeshSpecArgs) ToMeshSpecOutputWithContext(ctx context.Context) MeshSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshSpecOutput)
 }
 
-func (i MeshMeshSpecArgs) ToMeshMeshSpecPtrOutput() MeshMeshSpecPtrOutput {
-	return i.ToMeshMeshSpecPtrOutputWithContext(context.Background())
+func (i MeshSpecArgs) ToMeshSpecPtrOutput() MeshSpecPtrOutput {
+	return i.ToMeshSpecPtrOutputWithContext(context.Background())
 }
 
-func (i MeshMeshSpecArgs) ToMeshMeshSpecPtrOutputWithContext(ctx context.Context) MeshMeshSpecPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MeshMeshSpecOutput).ToMeshMeshSpecPtrOutputWithContext(ctx)
+func (i MeshSpecArgs) ToMeshSpecPtrOutputWithContext(ctx context.Context) MeshSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshSpecOutput).ToMeshSpecPtrOutputWithContext(ctx)
 }
 
-// MeshMeshSpecPtrInput is an input type that accepts MeshMeshSpecArgs, MeshMeshSpecPtr and MeshMeshSpecPtrOutput values.
-// You can construct a concrete instance of `MeshMeshSpecPtrInput` via:
+// MeshSpecPtrInput is an input type that accepts MeshSpecArgs, MeshSpecPtr and MeshSpecPtrOutput values.
+// You can construct a concrete instance of `MeshSpecPtrInput` via:
 //
-//          MeshMeshSpecArgs{...}
+//          MeshSpecArgs{...}
 //
 //  or:
 //
 //          nil
-type MeshMeshSpecPtrInput interface {
+type MeshSpecPtrInput interface {
 	pulumi.Input
 
-	ToMeshMeshSpecPtrOutput() MeshMeshSpecPtrOutput
-	ToMeshMeshSpecPtrOutputWithContext(context.Context) MeshMeshSpecPtrOutput
+	ToMeshSpecPtrOutput() MeshSpecPtrOutput
+	ToMeshSpecPtrOutputWithContext(context.Context) MeshSpecPtrOutput
 }
 
-type meshMeshSpecPtrType MeshMeshSpecArgs
+type meshSpecPtrType MeshSpecArgs
 
-func MeshMeshSpecPtr(v *MeshMeshSpecArgs) MeshMeshSpecPtrInput {
-	return (*meshMeshSpecPtrType)(v)
+func MeshSpecPtr(v *MeshSpecArgs) MeshSpecPtrInput {
+	return (*meshSpecPtrType)(v)
 }
 
-func (*meshMeshSpecPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MeshMeshSpec)(nil)).Elem()
+func (*meshSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MeshSpec)(nil)).Elem()
 }
 
-func (i *meshMeshSpecPtrType) ToMeshMeshSpecPtrOutput() MeshMeshSpecPtrOutput {
-	return i.ToMeshMeshSpecPtrOutputWithContext(context.Background())
+func (i *meshSpecPtrType) ToMeshSpecPtrOutput() MeshSpecPtrOutput {
+	return i.ToMeshSpecPtrOutputWithContext(context.Background())
 }
 
-func (i *meshMeshSpecPtrType) ToMeshMeshSpecPtrOutputWithContext(ctx context.Context) MeshMeshSpecPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MeshMeshSpecPtrOutput)
+func (i *meshSpecPtrType) ToMeshSpecPtrOutputWithContext(ctx context.Context) MeshSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshSpecPtrOutput)
 }
 
-type MeshMeshSpecOutput struct{ *pulumi.OutputState }
+type MeshSpecOutput struct{ *pulumi.OutputState }
 
-func (MeshMeshSpecOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MeshMeshSpec)(nil)).Elem()
+func (MeshSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MeshSpec)(nil)).Elem()
 }
 
-func (o MeshMeshSpecOutput) ToMeshMeshSpecOutput() MeshMeshSpecOutput {
+func (o MeshSpecOutput) ToMeshSpecOutput() MeshSpecOutput {
 	return o
 }
 
-func (o MeshMeshSpecOutput) ToMeshMeshSpecOutputWithContext(ctx context.Context) MeshMeshSpecOutput {
+func (o MeshSpecOutput) ToMeshSpecOutputWithContext(ctx context.Context) MeshSpecOutput {
 	return o
 }
 
-func (o MeshMeshSpecOutput) ToMeshMeshSpecPtrOutput() MeshMeshSpecPtrOutput {
-	return o.ToMeshMeshSpecPtrOutputWithContext(context.Background())
+func (o MeshSpecOutput) ToMeshSpecPtrOutput() MeshSpecPtrOutput {
+	return o.ToMeshSpecPtrOutputWithContext(context.Background())
 }
 
-func (o MeshMeshSpecOutput) ToMeshMeshSpecPtrOutputWithContext(ctx context.Context) MeshMeshSpecPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MeshMeshSpec) *MeshMeshSpec {
+func (o MeshSpecOutput) ToMeshSpecPtrOutputWithContext(ctx context.Context) MeshSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MeshSpec) *MeshSpec {
 		return &v
-	}).(MeshMeshSpecPtrOutput)
+	}).(MeshSpecPtrOutput)
 }
 
-func (o MeshMeshSpecOutput) EgressFilter() MeshEgressFilterPtrOutput {
-	return o.ApplyT(func(v MeshMeshSpec) *MeshEgressFilter { return v.EgressFilter }).(MeshEgressFilterPtrOutput)
+func (o MeshSpecOutput) EgressFilter() MeshEgressFilterPtrOutput {
+	return o.ApplyT(func(v MeshSpec) *MeshEgressFilter { return v.EgressFilter }).(MeshEgressFilterPtrOutput)
 }
 
-type MeshMeshSpecPtrOutput struct{ *pulumi.OutputState }
+type MeshSpecPtrOutput struct{ *pulumi.OutputState }
 
-func (MeshMeshSpecPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MeshMeshSpec)(nil)).Elem()
+func (MeshSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MeshSpec)(nil)).Elem()
 }
 
-func (o MeshMeshSpecPtrOutput) ToMeshMeshSpecPtrOutput() MeshMeshSpecPtrOutput {
+func (o MeshSpecPtrOutput) ToMeshSpecPtrOutput() MeshSpecPtrOutput {
 	return o
 }
 
-func (o MeshMeshSpecPtrOutput) ToMeshMeshSpecPtrOutputWithContext(ctx context.Context) MeshMeshSpecPtrOutput {
+func (o MeshSpecPtrOutput) ToMeshSpecPtrOutputWithContext(ctx context.Context) MeshSpecPtrOutput {
 	return o
 }
 
-func (o MeshMeshSpecPtrOutput) Elem() MeshMeshSpecOutput {
-	return o.ApplyT(func(v *MeshMeshSpec) MeshMeshSpec {
+func (o MeshSpecPtrOutput) Elem() MeshSpecOutput {
+	return o.ApplyT(func(v *MeshSpec) MeshSpec {
 		if v != nil {
 			return *v
 		}
-		var ret MeshMeshSpec
+		var ret MeshSpec
 		return ret
-	}).(MeshMeshSpecOutput)
+	}).(MeshSpecOutput)
 }
 
-func (o MeshMeshSpecPtrOutput) EgressFilter() MeshEgressFilterPtrOutput {
-	return o.ApplyT(func(v *MeshMeshSpec) *MeshEgressFilter {
+func (o MeshSpecPtrOutput) EgressFilter() MeshEgressFilterPtrOutput {
+	return o.ApplyT(func(v *MeshSpec) *MeshEgressFilter {
 		if v == nil {
 			return nil
 		}
@@ -6794,7 +6790,7 @@ func (o RouteQueryParameterArrayOutput) Index(i pulumi.IntInput) RouteQueryParam
 	}).(RouteQueryParameterOutput)
 }
 
-type RouteRouteSpec struct {
+type RouteSpec struct {
 	GrpcRoute  *RouteGrpcRoute `pulumi:"grpcRoute"`
 	Http2Route *RouteHttpRoute `pulumi:"http2Route"`
 	HttpRoute  *RouteHttpRoute `pulumi:"httpRoute"`
@@ -6802,18 +6798,18 @@ type RouteRouteSpec struct {
 	TcpRoute   *RouteTcpRoute  `pulumi:"tcpRoute"`
 }
 
-// RouteRouteSpecInput is an input type that accepts RouteRouteSpecArgs and RouteRouteSpecOutput values.
-// You can construct a concrete instance of `RouteRouteSpecInput` via:
+// RouteSpecInput is an input type that accepts RouteSpecArgs and RouteSpecOutput values.
+// You can construct a concrete instance of `RouteSpecInput` via:
 //
-//          RouteRouteSpecArgs{...}
-type RouteRouteSpecInput interface {
+//          RouteSpecArgs{...}
+type RouteSpecInput interface {
 	pulumi.Input
 
-	ToRouteRouteSpecOutput() RouteRouteSpecOutput
-	ToRouteRouteSpecOutputWithContext(context.Context) RouteRouteSpecOutput
+	ToRouteSpecOutput() RouteSpecOutput
+	ToRouteSpecOutputWithContext(context.Context) RouteSpecOutput
 }
 
-type RouteRouteSpecArgs struct {
+type RouteSpecArgs struct {
 	GrpcRoute  RouteGrpcRoutePtrInput `pulumi:"grpcRoute"`
 	Http2Route RouteHttpRoutePtrInput `pulumi:"http2Route"`
 	HttpRoute  RouteHttpRoutePtrInput `pulumi:"httpRoute"`
@@ -6821,129 +6817,129 @@ type RouteRouteSpecArgs struct {
 	TcpRoute   RouteTcpRoutePtrInput  `pulumi:"tcpRoute"`
 }
 
-func (RouteRouteSpecArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RouteRouteSpec)(nil)).Elem()
+func (RouteSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpec)(nil)).Elem()
 }
 
-func (i RouteRouteSpecArgs) ToRouteRouteSpecOutput() RouteRouteSpecOutput {
-	return i.ToRouteRouteSpecOutputWithContext(context.Background())
+func (i RouteSpecArgs) ToRouteSpecOutput() RouteSpecOutput {
+	return i.ToRouteSpecOutputWithContext(context.Background())
 }
 
-func (i RouteRouteSpecArgs) ToRouteRouteSpecOutputWithContext(ctx context.Context) RouteRouteSpecOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RouteRouteSpecOutput)
+func (i RouteSpecArgs) ToRouteSpecOutputWithContext(ctx context.Context) RouteSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecOutput)
 }
 
-func (i RouteRouteSpecArgs) ToRouteRouteSpecPtrOutput() RouteRouteSpecPtrOutput {
-	return i.ToRouteRouteSpecPtrOutputWithContext(context.Background())
+func (i RouteSpecArgs) ToRouteSpecPtrOutput() RouteSpecPtrOutput {
+	return i.ToRouteSpecPtrOutputWithContext(context.Background())
 }
 
-func (i RouteRouteSpecArgs) ToRouteRouteSpecPtrOutputWithContext(ctx context.Context) RouteRouteSpecPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RouteRouteSpecOutput).ToRouteRouteSpecPtrOutputWithContext(ctx)
+func (i RouteSpecArgs) ToRouteSpecPtrOutputWithContext(ctx context.Context) RouteSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecOutput).ToRouteSpecPtrOutputWithContext(ctx)
 }
 
-// RouteRouteSpecPtrInput is an input type that accepts RouteRouteSpecArgs, RouteRouteSpecPtr and RouteRouteSpecPtrOutput values.
-// You can construct a concrete instance of `RouteRouteSpecPtrInput` via:
+// RouteSpecPtrInput is an input type that accepts RouteSpecArgs, RouteSpecPtr and RouteSpecPtrOutput values.
+// You can construct a concrete instance of `RouteSpecPtrInput` via:
 //
-//          RouteRouteSpecArgs{...}
+//          RouteSpecArgs{...}
 //
 //  or:
 //
 //          nil
-type RouteRouteSpecPtrInput interface {
+type RouteSpecPtrInput interface {
 	pulumi.Input
 
-	ToRouteRouteSpecPtrOutput() RouteRouteSpecPtrOutput
-	ToRouteRouteSpecPtrOutputWithContext(context.Context) RouteRouteSpecPtrOutput
+	ToRouteSpecPtrOutput() RouteSpecPtrOutput
+	ToRouteSpecPtrOutputWithContext(context.Context) RouteSpecPtrOutput
 }
 
-type routeRouteSpecPtrType RouteRouteSpecArgs
+type routeSpecPtrType RouteSpecArgs
 
-func RouteRouteSpecPtr(v *RouteRouteSpecArgs) RouteRouteSpecPtrInput {
-	return (*routeRouteSpecPtrType)(v)
+func RouteSpecPtr(v *RouteSpecArgs) RouteSpecPtrInput {
+	return (*routeSpecPtrType)(v)
 }
 
-func (*routeRouteSpecPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RouteRouteSpec)(nil)).Elem()
+func (*routeSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpec)(nil)).Elem()
 }
 
-func (i *routeRouteSpecPtrType) ToRouteRouteSpecPtrOutput() RouteRouteSpecPtrOutput {
-	return i.ToRouteRouteSpecPtrOutputWithContext(context.Background())
+func (i *routeSpecPtrType) ToRouteSpecPtrOutput() RouteSpecPtrOutput {
+	return i.ToRouteSpecPtrOutputWithContext(context.Background())
 }
 
-func (i *routeRouteSpecPtrType) ToRouteRouteSpecPtrOutputWithContext(ctx context.Context) RouteRouteSpecPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RouteRouteSpecPtrOutput)
+func (i *routeSpecPtrType) ToRouteSpecPtrOutputWithContext(ctx context.Context) RouteSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecPtrOutput)
 }
 
-type RouteRouteSpecOutput struct{ *pulumi.OutputState }
+type RouteSpecOutput struct{ *pulumi.OutputState }
 
-func (RouteRouteSpecOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RouteRouteSpec)(nil)).Elem()
+func (RouteSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpec)(nil)).Elem()
 }
 
-func (o RouteRouteSpecOutput) ToRouteRouteSpecOutput() RouteRouteSpecOutput {
+func (o RouteSpecOutput) ToRouteSpecOutput() RouteSpecOutput {
 	return o
 }
 
-func (o RouteRouteSpecOutput) ToRouteRouteSpecOutputWithContext(ctx context.Context) RouteRouteSpecOutput {
+func (o RouteSpecOutput) ToRouteSpecOutputWithContext(ctx context.Context) RouteSpecOutput {
 	return o
 }
 
-func (o RouteRouteSpecOutput) ToRouteRouteSpecPtrOutput() RouteRouteSpecPtrOutput {
-	return o.ToRouteRouteSpecPtrOutputWithContext(context.Background())
+func (o RouteSpecOutput) ToRouteSpecPtrOutput() RouteSpecPtrOutput {
+	return o.ToRouteSpecPtrOutputWithContext(context.Background())
 }
 
-func (o RouteRouteSpecOutput) ToRouteRouteSpecPtrOutputWithContext(ctx context.Context) RouteRouteSpecPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteRouteSpec) *RouteRouteSpec {
+func (o RouteSpecOutput) ToRouteSpecPtrOutputWithContext(ctx context.Context) RouteSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpec) *RouteSpec {
 		return &v
-	}).(RouteRouteSpecPtrOutput)
+	}).(RouteSpecPtrOutput)
 }
 
-func (o RouteRouteSpecOutput) GrpcRoute() RouteGrpcRoutePtrOutput {
-	return o.ApplyT(func(v RouteRouteSpec) *RouteGrpcRoute { return v.GrpcRoute }).(RouteGrpcRoutePtrOutput)
+func (o RouteSpecOutput) GrpcRoute() RouteGrpcRoutePtrOutput {
+	return o.ApplyT(func(v RouteSpec) *RouteGrpcRoute { return v.GrpcRoute }).(RouteGrpcRoutePtrOutput)
 }
 
-func (o RouteRouteSpecOutput) Http2Route() RouteHttpRoutePtrOutput {
-	return o.ApplyT(func(v RouteRouteSpec) *RouteHttpRoute { return v.Http2Route }).(RouteHttpRoutePtrOutput)
+func (o RouteSpecOutput) Http2Route() RouteHttpRoutePtrOutput {
+	return o.ApplyT(func(v RouteSpec) *RouteHttpRoute { return v.Http2Route }).(RouteHttpRoutePtrOutput)
 }
 
-func (o RouteRouteSpecOutput) HttpRoute() RouteHttpRoutePtrOutput {
-	return o.ApplyT(func(v RouteRouteSpec) *RouteHttpRoute { return v.HttpRoute }).(RouteHttpRoutePtrOutput)
+func (o RouteSpecOutput) HttpRoute() RouteHttpRoutePtrOutput {
+	return o.ApplyT(func(v RouteSpec) *RouteHttpRoute { return v.HttpRoute }).(RouteHttpRoutePtrOutput)
 }
 
-func (o RouteRouteSpecOutput) Priority() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v RouteRouteSpec) *int { return v.Priority }).(pulumi.IntPtrOutput)
+func (o RouteSpecOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RouteSpec) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-func (o RouteRouteSpecOutput) TcpRoute() RouteTcpRoutePtrOutput {
-	return o.ApplyT(func(v RouteRouteSpec) *RouteTcpRoute { return v.TcpRoute }).(RouteTcpRoutePtrOutput)
+func (o RouteSpecOutput) TcpRoute() RouteTcpRoutePtrOutput {
+	return o.ApplyT(func(v RouteSpec) *RouteTcpRoute { return v.TcpRoute }).(RouteTcpRoutePtrOutput)
 }
 
-type RouteRouteSpecPtrOutput struct{ *pulumi.OutputState }
+type RouteSpecPtrOutput struct{ *pulumi.OutputState }
 
-func (RouteRouteSpecPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RouteRouteSpec)(nil)).Elem()
+func (RouteSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpec)(nil)).Elem()
 }
 
-func (o RouteRouteSpecPtrOutput) ToRouteRouteSpecPtrOutput() RouteRouteSpecPtrOutput {
+func (o RouteSpecPtrOutput) ToRouteSpecPtrOutput() RouteSpecPtrOutput {
 	return o
 }
 
-func (o RouteRouteSpecPtrOutput) ToRouteRouteSpecPtrOutputWithContext(ctx context.Context) RouteRouteSpecPtrOutput {
+func (o RouteSpecPtrOutput) ToRouteSpecPtrOutputWithContext(ctx context.Context) RouteSpecPtrOutput {
 	return o
 }
 
-func (o RouteRouteSpecPtrOutput) Elem() RouteRouteSpecOutput {
-	return o.ApplyT(func(v *RouteRouteSpec) RouteRouteSpec {
+func (o RouteSpecPtrOutput) Elem() RouteSpecOutput {
+	return o.ApplyT(func(v *RouteSpec) RouteSpec {
 		if v != nil {
 			return *v
 		}
-		var ret RouteRouteSpec
+		var ret RouteSpec
 		return ret
-	}).(RouteRouteSpecOutput)
+	}).(RouteSpecOutput)
 }
 
-func (o RouteRouteSpecPtrOutput) GrpcRoute() RouteGrpcRoutePtrOutput {
-	return o.ApplyT(func(v *RouteRouteSpec) *RouteGrpcRoute {
+func (o RouteSpecPtrOutput) GrpcRoute() RouteGrpcRoutePtrOutput {
+	return o.ApplyT(func(v *RouteSpec) *RouteGrpcRoute {
 		if v == nil {
 			return nil
 		}
@@ -6951,8 +6947,8 @@ func (o RouteRouteSpecPtrOutput) GrpcRoute() RouteGrpcRoutePtrOutput {
 	}).(RouteGrpcRoutePtrOutput)
 }
 
-func (o RouteRouteSpecPtrOutput) Http2Route() RouteHttpRoutePtrOutput {
-	return o.ApplyT(func(v *RouteRouteSpec) *RouteHttpRoute {
+func (o RouteSpecPtrOutput) Http2Route() RouteHttpRoutePtrOutput {
+	return o.ApplyT(func(v *RouteSpec) *RouteHttpRoute {
 		if v == nil {
 			return nil
 		}
@@ -6960,8 +6956,8 @@ func (o RouteRouteSpecPtrOutput) Http2Route() RouteHttpRoutePtrOutput {
 	}).(RouteHttpRoutePtrOutput)
 }
 
-func (o RouteRouteSpecPtrOutput) HttpRoute() RouteHttpRoutePtrOutput {
-	return o.ApplyT(func(v *RouteRouteSpec) *RouteHttpRoute {
+func (o RouteSpecPtrOutput) HttpRoute() RouteHttpRoutePtrOutput {
+	return o.ApplyT(func(v *RouteSpec) *RouteHttpRoute {
 		if v == nil {
 			return nil
 		}
@@ -6969,8 +6965,8 @@ func (o RouteRouteSpecPtrOutput) HttpRoute() RouteHttpRoutePtrOutput {
 	}).(RouteHttpRoutePtrOutput)
 }
 
-func (o RouteRouteSpecPtrOutput) Priority() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *RouteRouteSpec) *int {
+func (o RouteSpecPtrOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouteSpec) *int {
 		if v == nil {
 			return nil
 		}
@@ -6978,8 +6974,8 @@ func (o RouteRouteSpecPtrOutput) Priority() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o RouteRouteSpecPtrOutput) TcpRoute() RouteTcpRoutePtrOutput {
-	return o.ApplyT(func(v *RouteRouteSpec) *RouteTcpRoute {
+func (o RouteSpecPtrOutput) TcpRoute() RouteTcpRoutePtrOutput {
+	return o.ApplyT(func(v *RouteSpec) *RouteTcpRoute {
 		if v == nil {
 			return nil
 		}
@@ -7601,6 +7597,3171 @@ func (o RouteWeightedTargetArrayOutput) Index(i pulumi.IntInput) RouteWeightedTa
 	}).(RouteWeightedTargetOutput)
 }
 
+type VirtualGatewayAccessLog struct {
+	File *VirtualGatewayFileAccessLog `pulumi:"file"`
+}
+
+// VirtualGatewayAccessLogInput is an input type that accepts VirtualGatewayAccessLogArgs and VirtualGatewayAccessLogOutput values.
+// You can construct a concrete instance of `VirtualGatewayAccessLogInput` via:
+//
+//          VirtualGatewayAccessLogArgs{...}
+type VirtualGatewayAccessLogInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayAccessLogOutput() VirtualGatewayAccessLogOutput
+	ToVirtualGatewayAccessLogOutputWithContext(context.Context) VirtualGatewayAccessLogOutput
+}
+
+type VirtualGatewayAccessLogArgs struct {
+	File VirtualGatewayFileAccessLogPtrInput `pulumi:"file"`
+}
+
+func (VirtualGatewayAccessLogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayAccessLog)(nil)).Elem()
+}
+
+func (i VirtualGatewayAccessLogArgs) ToVirtualGatewayAccessLogOutput() VirtualGatewayAccessLogOutput {
+	return i.ToVirtualGatewayAccessLogOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayAccessLogArgs) ToVirtualGatewayAccessLogOutputWithContext(ctx context.Context) VirtualGatewayAccessLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayAccessLogOutput)
+}
+
+func (i VirtualGatewayAccessLogArgs) ToVirtualGatewayAccessLogPtrOutput() VirtualGatewayAccessLogPtrOutput {
+	return i.ToVirtualGatewayAccessLogPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayAccessLogArgs) ToVirtualGatewayAccessLogPtrOutputWithContext(ctx context.Context) VirtualGatewayAccessLogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayAccessLogOutput).ToVirtualGatewayAccessLogPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayAccessLogPtrInput is an input type that accepts VirtualGatewayAccessLogArgs, VirtualGatewayAccessLogPtr and VirtualGatewayAccessLogPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayAccessLogPtrInput` via:
+//
+//          VirtualGatewayAccessLogArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayAccessLogPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayAccessLogPtrOutput() VirtualGatewayAccessLogPtrOutput
+	ToVirtualGatewayAccessLogPtrOutputWithContext(context.Context) VirtualGatewayAccessLogPtrOutput
+}
+
+type virtualGatewayAccessLogPtrType VirtualGatewayAccessLogArgs
+
+func VirtualGatewayAccessLogPtr(v *VirtualGatewayAccessLogArgs) VirtualGatewayAccessLogPtrInput {
+	return (*virtualGatewayAccessLogPtrType)(v)
+}
+
+func (*virtualGatewayAccessLogPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayAccessLog)(nil)).Elem()
+}
+
+func (i *virtualGatewayAccessLogPtrType) ToVirtualGatewayAccessLogPtrOutput() VirtualGatewayAccessLogPtrOutput {
+	return i.ToVirtualGatewayAccessLogPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayAccessLogPtrType) ToVirtualGatewayAccessLogPtrOutputWithContext(ctx context.Context) VirtualGatewayAccessLogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayAccessLogPtrOutput)
+}
+
+type VirtualGatewayAccessLogOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayAccessLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayAccessLog)(nil)).Elem()
+}
+
+func (o VirtualGatewayAccessLogOutput) ToVirtualGatewayAccessLogOutput() VirtualGatewayAccessLogOutput {
+	return o
+}
+
+func (o VirtualGatewayAccessLogOutput) ToVirtualGatewayAccessLogOutputWithContext(ctx context.Context) VirtualGatewayAccessLogOutput {
+	return o
+}
+
+func (o VirtualGatewayAccessLogOutput) ToVirtualGatewayAccessLogPtrOutput() VirtualGatewayAccessLogPtrOutput {
+	return o.ToVirtualGatewayAccessLogPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayAccessLogOutput) ToVirtualGatewayAccessLogPtrOutputWithContext(ctx context.Context) VirtualGatewayAccessLogPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayAccessLog) *VirtualGatewayAccessLog {
+		return &v
+	}).(VirtualGatewayAccessLogPtrOutput)
+}
+
+func (o VirtualGatewayAccessLogOutput) File() VirtualGatewayFileAccessLogPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayAccessLog) *VirtualGatewayFileAccessLog { return v.File }).(VirtualGatewayFileAccessLogPtrOutput)
+}
+
+type VirtualGatewayAccessLogPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayAccessLogPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayAccessLog)(nil)).Elem()
+}
+
+func (o VirtualGatewayAccessLogPtrOutput) ToVirtualGatewayAccessLogPtrOutput() VirtualGatewayAccessLogPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayAccessLogPtrOutput) ToVirtualGatewayAccessLogPtrOutputWithContext(ctx context.Context) VirtualGatewayAccessLogPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayAccessLogPtrOutput) Elem() VirtualGatewayAccessLogOutput {
+	return o.ApplyT(func(v *VirtualGatewayAccessLog) VirtualGatewayAccessLog {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewayAccessLog
+		return ret
+	}).(VirtualGatewayAccessLogOutput)
+}
+
+func (o VirtualGatewayAccessLogPtrOutput) File() VirtualGatewayFileAccessLogPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayAccessLog) *VirtualGatewayFileAccessLog {
+		if v == nil {
+			return nil
+		}
+		return v.File
+	}).(VirtualGatewayFileAccessLogPtrOutput)
+}
+
+type VirtualGatewayBackendDefaults struct {
+	ClientPolicy *VirtualGatewayClientPolicy `pulumi:"clientPolicy"`
+}
+
+// VirtualGatewayBackendDefaultsInput is an input type that accepts VirtualGatewayBackendDefaultsArgs and VirtualGatewayBackendDefaultsOutput values.
+// You can construct a concrete instance of `VirtualGatewayBackendDefaultsInput` via:
+//
+//          VirtualGatewayBackendDefaultsArgs{...}
+type VirtualGatewayBackendDefaultsInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayBackendDefaultsOutput() VirtualGatewayBackendDefaultsOutput
+	ToVirtualGatewayBackendDefaultsOutputWithContext(context.Context) VirtualGatewayBackendDefaultsOutput
+}
+
+type VirtualGatewayBackendDefaultsArgs struct {
+	ClientPolicy VirtualGatewayClientPolicyPtrInput `pulumi:"clientPolicy"`
+}
+
+func (VirtualGatewayBackendDefaultsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayBackendDefaults)(nil)).Elem()
+}
+
+func (i VirtualGatewayBackendDefaultsArgs) ToVirtualGatewayBackendDefaultsOutput() VirtualGatewayBackendDefaultsOutput {
+	return i.ToVirtualGatewayBackendDefaultsOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayBackendDefaultsArgs) ToVirtualGatewayBackendDefaultsOutputWithContext(ctx context.Context) VirtualGatewayBackendDefaultsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayBackendDefaultsOutput)
+}
+
+func (i VirtualGatewayBackendDefaultsArgs) ToVirtualGatewayBackendDefaultsPtrOutput() VirtualGatewayBackendDefaultsPtrOutput {
+	return i.ToVirtualGatewayBackendDefaultsPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayBackendDefaultsArgs) ToVirtualGatewayBackendDefaultsPtrOutputWithContext(ctx context.Context) VirtualGatewayBackendDefaultsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayBackendDefaultsOutput).ToVirtualGatewayBackendDefaultsPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayBackendDefaultsPtrInput is an input type that accepts VirtualGatewayBackendDefaultsArgs, VirtualGatewayBackendDefaultsPtr and VirtualGatewayBackendDefaultsPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayBackendDefaultsPtrInput` via:
+//
+//          VirtualGatewayBackendDefaultsArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayBackendDefaultsPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayBackendDefaultsPtrOutput() VirtualGatewayBackendDefaultsPtrOutput
+	ToVirtualGatewayBackendDefaultsPtrOutputWithContext(context.Context) VirtualGatewayBackendDefaultsPtrOutput
+}
+
+type virtualGatewayBackendDefaultsPtrType VirtualGatewayBackendDefaultsArgs
+
+func VirtualGatewayBackendDefaultsPtr(v *VirtualGatewayBackendDefaultsArgs) VirtualGatewayBackendDefaultsPtrInput {
+	return (*virtualGatewayBackendDefaultsPtrType)(v)
+}
+
+func (*virtualGatewayBackendDefaultsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayBackendDefaults)(nil)).Elem()
+}
+
+func (i *virtualGatewayBackendDefaultsPtrType) ToVirtualGatewayBackendDefaultsPtrOutput() VirtualGatewayBackendDefaultsPtrOutput {
+	return i.ToVirtualGatewayBackendDefaultsPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayBackendDefaultsPtrType) ToVirtualGatewayBackendDefaultsPtrOutputWithContext(ctx context.Context) VirtualGatewayBackendDefaultsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayBackendDefaultsPtrOutput)
+}
+
+type VirtualGatewayBackendDefaultsOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayBackendDefaultsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayBackendDefaults)(nil)).Elem()
+}
+
+func (o VirtualGatewayBackendDefaultsOutput) ToVirtualGatewayBackendDefaultsOutput() VirtualGatewayBackendDefaultsOutput {
+	return o
+}
+
+func (o VirtualGatewayBackendDefaultsOutput) ToVirtualGatewayBackendDefaultsOutputWithContext(ctx context.Context) VirtualGatewayBackendDefaultsOutput {
+	return o
+}
+
+func (o VirtualGatewayBackendDefaultsOutput) ToVirtualGatewayBackendDefaultsPtrOutput() VirtualGatewayBackendDefaultsPtrOutput {
+	return o.ToVirtualGatewayBackendDefaultsPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayBackendDefaultsOutput) ToVirtualGatewayBackendDefaultsPtrOutputWithContext(ctx context.Context) VirtualGatewayBackendDefaultsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayBackendDefaults) *VirtualGatewayBackendDefaults {
+		return &v
+	}).(VirtualGatewayBackendDefaultsPtrOutput)
+}
+
+func (o VirtualGatewayBackendDefaultsOutput) ClientPolicy() VirtualGatewayClientPolicyPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayBackendDefaults) *VirtualGatewayClientPolicy { return v.ClientPolicy }).(VirtualGatewayClientPolicyPtrOutput)
+}
+
+type VirtualGatewayBackendDefaultsPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayBackendDefaultsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayBackendDefaults)(nil)).Elem()
+}
+
+func (o VirtualGatewayBackendDefaultsPtrOutput) ToVirtualGatewayBackendDefaultsPtrOutput() VirtualGatewayBackendDefaultsPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayBackendDefaultsPtrOutput) ToVirtualGatewayBackendDefaultsPtrOutputWithContext(ctx context.Context) VirtualGatewayBackendDefaultsPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayBackendDefaultsPtrOutput) Elem() VirtualGatewayBackendDefaultsOutput {
+	return o.ApplyT(func(v *VirtualGatewayBackendDefaults) VirtualGatewayBackendDefaults {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewayBackendDefaults
+		return ret
+	}).(VirtualGatewayBackendDefaultsOutput)
+}
+
+func (o VirtualGatewayBackendDefaultsPtrOutput) ClientPolicy() VirtualGatewayClientPolicyPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayBackendDefaults) *VirtualGatewayClientPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.ClientPolicy
+	}).(VirtualGatewayClientPolicyPtrOutput)
+}
+
+type VirtualGatewayClientPolicy struct {
+	TLS *VirtualGatewayClientPolicyTls `pulumi:"tLS"`
+}
+
+// VirtualGatewayClientPolicyInput is an input type that accepts VirtualGatewayClientPolicyArgs and VirtualGatewayClientPolicyOutput values.
+// You can construct a concrete instance of `VirtualGatewayClientPolicyInput` via:
+//
+//          VirtualGatewayClientPolicyArgs{...}
+type VirtualGatewayClientPolicyInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayClientPolicyOutput() VirtualGatewayClientPolicyOutput
+	ToVirtualGatewayClientPolicyOutputWithContext(context.Context) VirtualGatewayClientPolicyOutput
+}
+
+type VirtualGatewayClientPolicyArgs struct {
+	TLS VirtualGatewayClientPolicyTlsPtrInput `pulumi:"tLS"`
+}
+
+func (VirtualGatewayClientPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayClientPolicy)(nil)).Elem()
+}
+
+func (i VirtualGatewayClientPolicyArgs) ToVirtualGatewayClientPolicyOutput() VirtualGatewayClientPolicyOutput {
+	return i.ToVirtualGatewayClientPolicyOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayClientPolicyArgs) ToVirtualGatewayClientPolicyOutputWithContext(ctx context.Context) VirtualGatewayClientPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayClientPolicyOutput)
+}
+
+func (i VirtualGatewayClientPolicyArgs) ToVirtualGatewayClientPolicyPtrOutput() VirtualGatewayClientPolicyPtrOutput {
+	return i.ToVirtualGatewayClientPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayClientPolicyArgs) ToVirtualGatewayClientPolicyPtrOutputWithContext(ctx context.Context) VirtualGatewayClientPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayClientPolicyOutput).ToVirtualGatewayClientPolicyPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayClientPolicyPtrInput is an input type that accepts VirtualGatewayClientPolicyArgs, VirtualGatewayClientPolicyPtr and VirtualGatewayClientPolicyPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayClientPolicyPtrInput` via:
+//
+//          VirtualGatewayClientPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayClientPolicyPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayClientPolicyPtrOutput() VirtualGatewayClientPolicyPtrOutput
+	ToVirtualGatewayClientPolicyPtrOutputWithContext(context.Context) VirtualGatewayClientPolicyPtrOutput
+}
+
+type virtualGatewayClientPolicyPtrType VirtualGatewayClientPolicyArgs
+
+func VirtualGatewayClientPolicyPtr(v *VirtualGatewayClientPolicyArgs) VirtualGatewayClientPolicyPtrInput {
+	return (*virtualGatewayClientPolicyPtrType)(v)
+}
+
+func (*virtualGatewayClientPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayClientPolicy)(nil)).Elem()
+}
+
+func (i *virtualGatewayClientPolicyPtrType) ToVirtualGatewayClientPolicyPtrOutput() VirtualGatewayClientPolicyPtrOutput {
+	return i.ToVirtualGatewayClientPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayClientPolicyPtrType) ToVirtualGatewayClientPolicyPtrOutputWithContext(ctx context.Context) VirtualGatewayClientPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayClientPolicyPtrOutput)
+}
+
+type VirtualGatewayClientPolicyOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayClientPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayClientPolicy)(nil)).Elem()
+}
+
+func (o VirtualGatewayClientPolicyOutput) ToVirtualGatewayClientPolicyOutput() VirtualGatewayClientPolicyOutput {
+	return o
+}
+
+func (o VirtualGatewayClientPolicyOutput) ToVirtualGatewayClientPolicyOutputWithContext(ctx context.Context) VirtualGatewayClientPolicyOutput {
+	return o
+}
+
+func (o VirtualGatewayClientPolicyOutput) ToVirtualGatewayClientPolicyPtrOutput() VirtualGatewayClientPolicyPtrOutput {
+	return o.ToVirtualGatewayClientPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayClientPolicyOutput) ToVirtualGatewayClientPolicyPtrOutputWithContext(ctx context.Context) VirtualGatewayClientPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayClientPolicy) *VirtualGatewayClientPolicy {
+		return &v
+	}).(VirtualGatewayClientPolicyPtrOutput)
+}
+
+func (o VirtualGatewayClientPolicyOutput) TLS() VirtualGatewayClientPolicyTlsPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayClientPolicy) *VirtualGatewayClientPolicyTls { return v.TLS }).(VirtualGatewayClientPolicyTlsPtrOutput)
+}
+
+type VirtualGatewayClientPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayClientPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayClientPolicy)(nil)).Elem()
+}
+
+func (o VirtualGatewayClientPolicyPtrOutput) ToVirtualGatewayClientPolicyPtrOutput() VirtualGatewayClientPolicyPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayClientPolicyPtrOutput) ToVirtualGatewayClientPolicyPtrOutputWithContext(ctx context.Context) VirtualGatewayClientPolicyPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayClientPolicyPtrOutput) Elem() VirtualGatewayClientPolicyOutput {
+	return o.ApplyT(func(v *VirtualGatewayClientPolicy) VirtualGatewayClientPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewayClientPolicy
+		return ret
+	}).(VirtualGatewayClientPolicyOutput)
+}
+
+func (o VirtualGatewayClientPolicyPtrOutput) TLS() VirtualGatewayClientPolicyTlsPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayClientPolicy) *VirtualGatewayClientPolicyTls {
+		if v == nil {
+			return nil
+		}
+		return v.TLS
+	}).(VirtualGatewayClientPolicyTlsPtrOutput)
+}
+
+type VirtualGatewayClientPolicyTls struct {
+	Certificate *VirtualGatewayClientTlsCertificate `pulumi:"certificate"`
+	Enforce     *bool                               `pulumi:"enforce"`
+	Ports       []int                               `pulumi:"ports"`
+	Validation  VirtualGatewayTlsValidationContext  `pulumi:"validation"`
+}
+
+// VirtualGatewayClientPolicyTlsInput is an input type that accepts VirtualGatewayClientPolicyTlsArgs and VirtualGatewayClientPolicyTlsOutput values.
+// You can construct a concrete instance of `VirtualGatewayClientPolicyTlsInput` via:
+//
+//          VirtualGatewayClientPolicyTlsArgs{...}
+type VirtualGatewayClientPolicyTlsInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayClientPolicyTlsOutput() VirtualGatewayClientPolicyTlsOutput
+	ToVirtualGatewayClientPolicyTlsOutputWithContext(context.Context) VirtualGatewayClientPolicyTlsOutput
+}
+
+type VirtualGatewayClientPolicyTlsArgs struct {
+	Certificate VirtualGatewayClientTlsCertificatePtrInput `pulumi:"certificate"`
+	Enforce     pulumi.BoolPtrInput                        `pulumi:"enforce"`
+	Ports       pulumi.IntArrayInput                       `pulumi:"ports"`
+	Validation  VirtualGatewayTlsValidationContextInput    `pulumi:"validation"`
+}
+
+func (VirtualGatewayClientPolicyTlsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayClientPolicyTls)(nil)).Elem()
+}
+
+func (i VirtualGatewayClientPolicyTlsArgs) ToVirtualGatewayClientPolicyTlsOutput() VirtualGatewayClientPolicyTlsOutput {
+	return i.ToVirtualGatewayClientPolicyTlsOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayClientPolicyTlsArgs) ToVirtualGatewayClientPolicyTlsOutputWithContext(ctx context.Context) VirtualGatewayClientPolicyTlsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayClientPolicyTlsOutput)
+}
+
+func (i VirtualGatewayClientPolicyTlsArgs) ToVirtualGatewayClientPolicyTlsPtrOutput() VirtualGatewayClientPolicyTlsPtrOutput {
+	return i.ToVirtualGatewayClientPolicyTlsPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayClientPolicyTlsArgs) ToVirtualGatewayClientPolicyTlsPtrOutputWithContext(ctx context.Context) VirtualGatewayClientPolicyTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayClientPolicyTlsOutput).ToVirtualGatewayClientPolicyTlsPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayClientPolicyTlsPtrInput is an input type that accepts VirtualGatewayClientPolicyTlsArgs, VirtualGatewayClientPolicyTlsPtr and VirtualGatewayClientPolicyTlsPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayClientPolicyTlsPtrInput` via:
+//
+//          VirtualGatewayClientPolicyTlsArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayClientPolicyTlsPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayClientPolicyTlsPtrOutput() VirtualGatewayClientPolicyTlsPtrOutput
+	ToVirtualGatewayClientPolicyTlsPtrOutputWithContext(context.Context) VirtualGatewayClientPolicyTlsPtrOutput
+}
+
+type virtualGatewayClientPolicyTlsPtrType VirtualGatewayClientPolicyTlsArgs
+
+func VirtualGatewayClientPolicyTlsPtr(v *VirtualGatewayClientPolicyTlsArgs) VirtualGatewayClientPolicyTlsPtrInput {
+	return (*virtualGatewayClientPolicyTlsPtrType)(v)
+}
+
+func (*virtualGatewayClientPolicyTlsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayClientPolicyTls)(nil)).Elem()
+}
+
+func (i *virtualGatewayClientPolicyTlsPtrType) ToVirtualGatewayClientPolicyTlsPtrOutput() VirtualGatewayClientPolicyTlsPtrOutput {
+	return i.ToVirtualGatewayClientPolicyTlsPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayClientPolicyTlsPtrType) ToVirtualGatewayClientPolicyTlsPtrOutputWithContext(ctx context.Context) VirtualGatewayClientPolicyTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayClientPolicyTlsPtrOutput)
+}
+
+type VirtualGatewayClientPolicyTlsOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayClientPolicyTlsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayClientPolicyTls)(nil)).Elem()
+}
+
+func (o VirtualGatewayClientPolicyTlsOutput) ToVirtualGatewayClientPolicyTlsOutput() VirtualGatewayClientPolicyTlsOutput {
+	return o
+}
+
+func (o VirtualGatewayClientPolicyTlsOutput) ToVirtualGatewayClientPolicyTlsOutputWithContext(ctx context.Context) VirtualGatewayClientPolicyTlsOutput {
+	return o
+}
+
+func (o VirtualGatewayClientPolicyTlsOutput) ToVirtualGatewayClientPolicyTlsPtrOutput() VirtualGatewayClientPolicyTlsPtrOutput {
+	return o.ToVirtualGatewayClientPolicyTlsPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayClientPolicyTlsOutput) ToVirtualGatewayClientPolicyTlsPtrOutputWithContext(ctx context.Context) VirtualGatewayClientPolicyTlsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayClientPolicyTls) *VirtualGatewayClientPolicyTls {
+		return &v
+	}).(VirtualGatewayClientPolicyTlsPtrOutput)
+}
+
+func (o VirtualGatewayClientPolicyTlsOutput) Certificate() VirtualGatewayClientTlsCertificatePtrOutput {
+	return o.ApplyT(func(v VirtualGatewayClientPolicyTls) *VirtualGatewayClientTlsCertificate { return v.Certificate }).(VirtualGatewayClientTlsCertificatePtrOutput)
+}
+
+func (o VirtualGatewayClientPolicyTlsOutput) Enforce() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayClientPolicyTls) *bool { return v.Enforce }).(pulumi.BoolPtrOutput)
+}
+
+func (o VirtualGatewayClientPolicyTlsOutput) Ports() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v VirtualGatewayClientPolicyTls) []int { return v.Ports }).(pulumi.IntArrayOutput)
+}
+
+func (o VirtualGatewayClientPolicyTlsOutput) Validation() VirtualGatewayTlsValidationContextOutput {
+	return o.ApplyT(func(v VirtualGatewayClientPolicyTls) VirtualGatewayTlsValidationContext { return v.Validation }).(VirtualGatewayTlsValidationContextOutput)
+}
+
+type VirtualGatewayClientPolicyTlsPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayClientPolicyTlsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayClientPolicyTls)(nil)).Elem()
+}
+
+func (o VirtualGatewayClientPolicyTlsPtrOutput) ToVirtualGatewayClientPolicyTlsPtrOutput() VirtualGatewayClientPolicyTlsPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayClientPolicyTlsPtrOutput) ToVirtualGatewayClientPolicyTlsPtrOutputWithContext(ctx context.Context) VirtualGatewayClientPolicyTlsPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayClientPolicyTlsPtrOutput) Elem() VirtualGatewayClientPolicyTlsOutput {
+	return o.ApplyT(func(v *VirtualGatewayClientPolicyTls) VirtualGatewayClientPolicyTls {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewayClientPolicyTls
+		return ret
+	}).(VirtualGatewayClientPolicyTlsOutput)
+}
+
+func (o VirtualGatewayClientPolicyTlsPtrOutput) Certificate() VirtualGatewayClientTlsCertificatePtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayClientPolicyTls) *VirtualGatewayClientTlsCertificate {
+		if v == nil {
+			return nil
+		}
+		return v.Certificate
+	}).(VirtualGatewayClientTlsCertificatePtrOutput)
+}
+
+func (o VirtualGatewayClientPolicyTlsPtrOutput) Enforce() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayClientPolicyTls) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enforce
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o VirtualGatewayClientPolicyTlsPtrOutput) Ports() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *VirtualGatewayClientPolicyTls) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Ports
+	}).(pulumi.IntArrayOutput)
+}
+
+func (o VirtualGatewayClientPolicyTlsPtrOutput) Validation() VirtualGatewayTlsValidationContextPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayClientPolicyTls) *VirtualGatewayTlsValidationContext {
+		if v == nil {
+			return nil
+		}
+		return &v.Validation
+	}).(VirtualGatewayTlsValidationContextPtrOutput)
+}
+
+type VirtualGatewayClientTlsCertificate struct {
+	File *VirtualGatewayListenerTlsFileCertificate `pulumi:"file"`
+	SDS  *VirtualGatewayListenerTlsSdsCertificate  `pulumi:"sDS"`
+}
+
+// VirtualGatewayClientTlsCertificateInput is an input type that accepts VirtualGatewayClientTlsCertificateArgs and VirtualGatewayClientTlsCertificateOutput values.
+// You can construct a concrete instance of `VirtualGatewayClientTlsCertificateInput` via:
+//
+//          VirtualGatewayClientTlsCertificateArgs{...}
+type VirtualGatewayClientTlsCertificateInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayClientTlsCertificateOutput() VirtualGatewayClientTlsCertificateOutput
+	ToVirtualGatewayClientTlsCertificateOutputWithContext(context.Context) VirtualGatewayClientTlsCertificateOutput
+}
+
+type VirtualGatewayClientTlsCertificateArgs struct {
+	File VirtualGatewayListenerTlsFileCertificatePtrInput `pulumi:"file"`
+	SDS  VirtualGatewayListenerTlsSdsCertificatePtrInput  `pulumi:"sDS"`
+}
+
+func (VirtualGatewayClientTlsCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayClientTlsCertificate)(nil)).Elem()
+}
+
+func (i VirtualGatewayClientTlsCertificateArgs) ToVirtualGatewayClientTlsCertificateOutput() VirtualGatewayClientTlsCertificateOutput {
+	return i.ToVirtualGatewayClientTlsCertificateOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayClientTlsCertificateArgs) ToVirtualGatewayClientTlsCertificateOutputWithContext(ctx context.Context) VirtualGatewayClientTlsCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayClientTlsCertificateOutput)
+}
+
+func (i VirtualGatewayClientTlsCertificateArgs) ToVirtualGatewayClientTlsCertificatePtrOutput() VirtualGatewayClientTlsCertificatePtrOutput {
+	return i.ToVirtualGatewayClientTlsCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayClientTlsCertificateArgs) ToVirtualGatewayClientTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayClientTlsCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayClientTlsCertificateOutput).ToVirtualGatewayClientTlsCertificatePtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayClientTlsCertificatePtrInput is an input type that accepts VirtualGatewayClientTlsCertificateArgs, VirtualGatewayClientTlsCertificatePtr and VirtualGatewayClientTlsCertificatePtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayClientTlsCertificatePtrInput` via:
+//
+//          VirtualGatewayClientTlsCertificateArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayClientTlsCertificatePtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayClientTlsCertificatePtrOutput() VirtualGatewayClientTlsCertificatePtrOutput
+	ToVirtualGatewayClientTlsCertificatePtrOutputWithContext(context.Context) VirtualGatewayClientTlsCertificatePtrOutput
+}
+
+type virtualGatewayClientTlsCertificatePtrType VirtualGatewayClientTlsCertificateArgs
+
+func VirtualGatewayClientTlsCertificatePtr(v *VirtualGatewayClientTlsCertificateArgs) VirtualGatewayClientTlsCertificatePtrInput {
+	return (*virtualGatewayClientTlsCertificatePtrType)(v)
+}
+
+func (*virtualGatewayClientTlsCertificatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayClientTlsCertificate)(nil)).Elem()
+}
+
+func (i *virtualGatewayClientTlsCertificatePtrType) ToVirtualGatewayClientTlsCertificatePtrOutput() VirtualGatewayClientTlsCertificatePtrOutput {
+	return i.ToVirtualGatewayClientTlsCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayClientTlsCertificatePtrType) ToVirtualGatewayClientTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayClientTlsCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayClientTlsCertificatePtrOutput)
+}
+
+type VirtualGatewayClientTlsCertificateOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayClientTlsCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayClientTlsCertificate)(nil)).Elem()
+}
+
+func (o VirtualGatewayClientTlsCertificateOutput) ToVirtualGatewayClientTlsCertificateOutput() VirtualGatewayClientTlsCertificateOutput {
+	return o
+}
+
+func (o VirtualGatewayClientTlsCertificateOutput) ToVirtualGatewayClientTlsCertificateOutputWithContext(ctx context.Context) VirtualGatewayClientTlsCertificateOutput {
+	return o
+}
+
+func (o VirtualGatewayClientTlsCertificateOutput) ToVirtualGatewayClientTlsCertificatePtrOutput() VirtualGatewayClientTlsCertificatePtrOutput {
+	return o.ToVirtualGatewayClientTlsCertificatePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayClientTlsCertificateOutput) ToVirtualGatewayClientTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayClientTlsCertificatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayClientTlsCertificate) *VirtualGatewayClientTlsCertificate {
+		return &v
+	}).(VirtualGatewayClientTlsCertificatePtrOutput)
+}
+
+func (o VirtualGatewayClientTlsCertificateOutput) File() VirtualGatewayListenerTlsFileCertificatePtrOutput {
+	return o.ApplyT(func(v VirtualGatewayClientTlsCertificate) *VirtualGatewayListenerTlsFileCertificate { return v.File }).(VirtualGatewayListenerTlsFileCertificatePtrOutput)
+}
+
+func (o VirtualGatewayClientTlsCertificateOutput) SDS() VirtualGatewayListenerTlsSdsCertificatePtrOutput {
+	return o.ApplyT(func(v VirtualGatewayClientTlsCertificate) *VirtualGatewayListenerTlsSdsCertificate { return v.SDS }).(VirtualGatewayListenerTlsSdsCertificatePtrOutput)
+}
+
+type VirtualGatewayClientTlsCertificatePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayClientTlsCertificatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayClientTlsCertificate)(nil)).Elem()
+}
+
+func (o VirtualGatewayClientTlsCertificatePtrOutput) ToVirtualGatewayClientTlsCertificatePtrOutput() VirtualGatewayClientTlsCertificatePtrOutput {
+	return o
+}
+
+func (o VirtualGatewayClientTlsCertificatePtrOutput) ToVirtualGatewayClientTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayClientTlsCertificatePtrOutput {
+	return o
+}
+
+func (o VirtualGatewayClientTlsCertificatePtrOutput) Elem() VirtualGatewayClientTlsCertificateOutput {
+	return o.ApplyT(func(v *VirtualGatewayClientTlsCertificate) VirtualGatewayClientTlsCertificate {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewayClientTlsCertificate
+		return ret
+	}).(VirtualGatewayClientTlsCertificateOutput)
+}
+
+func (o VirtualGatewayClientTlsCertificatePtrOutput) File() VirtualGatewayListenerTlsFileCertificatePtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayClientTlsCertificate) *VirtualGatewayListenerTlsFileCertificate {
+		if v == nil {
+			return nil
+		}
+		return v.File
+	}).(VirtualGatewayListenerTlsFileCertificatePtrOutput)
+}
+
+func (o VirtualGatewayClientTlsCertificatePtrOutput) SDS() VirtualGatewayListenerTlsSdsCertificatePtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayClientTlsCertificate) *VirtualGatewayListenerTlsSdsCertificate {
+		if v == nil {
+			return nil
+		}
+		return v.SDS
+	}).(VirtualGatewayListenerTlsSdsCertificatePtrOutput)
+}
+
+type VirtualGatewayConnectionPool struct {
+	GRPC  *VirtualGatewayGrpcConnectionPool  `pulumi:"gRPC"`
+	HTTP  *VirtualGatewayHttpConnectionPool  `pulumi:"hTTP"`
+	HTTP2 *VirtualGatewayHttp2ConnectionPool `pulumi:"hTTP2"`
+}
+
+// VirtualGatewayConnectionPoolInput is an input type that accepts VirtualGatewayConnectionPoolArgs and VirtualGatewayConnectionPoolOutput values.
+// You can construct a concrete instance of `VirtualGatewayConnectionPoolInput` via:
+//
+//          VirtualGatewayConnectionPoolArgs{...}
+type VirtualGatewayConnectionPoolInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayConnectionPoolOutput() VirtualGatewayConnectionPoolOutput
+	ToVirtualGatewayConnectionPoolOutputWithContext(context.Context) VirtualGatewayConnectionPoolOutput
+}
+
+type VirtualGatewayConnectionPoolArgs struct {
+	GRPC  VirtualGatewayGrpcConnectionPoolPtrInput  `pulumi:"gRPC"`
+	HTTP  VirtualGatewayHttpConnectionPoolPtrInput  `pulumi:"hTTP"`
+	HTTP2 VirtualGatewayHttp2ConnectionPoolPtrInput `pulumi:"hTTP2"`
+}
+
+func (VirtualGatewayConnectionPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayConnectionPool)(nil)).Elem()
+}
+
+func (i VirtualGatewayConnectionPoolArgs) ToVirtualGatewayConnectionPoolOutput() VirtualGatewayConnectionPoolOutput {
+	return i.ToVirtualGatewayConnectionPoolOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayConnectionPoolArgs) ToVirtualGatewayConnectionPoolOutputWithContext(ctx context.Context) VirtualGatewayConnectionPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayConnectionPoolOutput)
+}
+
+func (i VirtualGatewayConnectionPoolArgs) ToVirtualGatewayConnectionPoolPtrOutput() VirtualGatewayConnectionPoolPtrOutput {
+	return i.ToVirtualGatewayConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayConnectionPoolArgs) ToVirtualGatewayConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayConnectionPoolOutput).ToVirtualGatewayConnectionPoolPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayConnectionPoolPtrInput is an input type that accepts VirtualGatewayConnectionPoolArgs, VirtualGatewayConnectionPoolPtr and VirtualGatewayConnectionPoolPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayConnectionPoolPtrInput` via:
+//
+//          VirtualGatewayConnectionPoolArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayConnectionPoolPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayConnectionPoolPtrOutput() VirtualGatewayConnectionPoolPtrOutput
+	ToVirtualGatewayConnectionPoolPtrOutputWithContext(context.Context) VirtualGatewayConnectionPoolPtrOutput
+}
+
+type virtualGatewayConnectionPoolPtrType VirtualGatewayConnectionPoolArgs
+
+func VirtualGatewayConnectionPoolPtr(v *VirtualGatewayConnectionPoolArgs) VirtualGatewayConnectionPoolPtrInput {
+	return (*virtualGatewayConnectionPoolPtrType)(v)
+}
+
+func (*virtualGatewayConnectionPoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayConnectionPool)(nil)).Elem()
+}
+
+func (i *virtualGatewayConnectionPoolPtrType) ToVirtualGatewayConnectionPoolPtrOutput() VirtualGatewayConnectionPoolPtrOutput {
+	return i.ToVirtualGatewayConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayConnectionPoolPtrType) ToVirtualGatewayConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayConnectionPoolPtrOutput)
+}
+
+type VirtualGatewayConnectionPoolOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayConnectionPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualGatewayConnectionPoolOutput) ToVirtualGatewayConnectionPoolOutput() VirtualGatewayConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualGatewayConnectionPoolOutput) ToVirtualGatewayConnectionPoolOutputWithContext(ctx context.Context) VirtualGatewayConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualGatewayConnectionPoolOutput) ToVirtualGatewayConnectionPoolPtrOutput() VirtualGatewayConnectionPoolPtrOutput {
+	return o.ToVirtualGatewayConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayConnectionPoolOutput) ToVirtualGatewayConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayConnectionPoolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayConnectionPool) *VirtualGatewayConnectionPool {
+		return &v
+	}).(VirtualGatewayConnectionPoolPtrOutput)
+}
+
+func (o VirtualGatewayConnectionPoolOutput) GRPC() VirtualGatewayGrpcConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayConnectionPool) *VirtualGatewayGrpcConnectionPool { return v.GRPC }).(VirtualGatewayGrpcConnectionPoolPtrOutput)
+}
+
+func (o VirtualGatewayConnectionPoolOutput) HTTP() VirtualGatewayHttpConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayConnectionPool) *VirtualGatewayHttpConnectionPool { return v.HTTP }).(VirtualGatewayHttpConnectionPoolPtrOutput)
+}
+
+func (o VirtualGatewayConnectionPoolOutput) HTTP2() VirtualGatewayHttp2ConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayConnectionPool) *VirtualGatewayHttp2ConnectionPool { return v.HTTP2 }).(VirtualGatewayHttp2ConnectionPoolPtrOutput)
+}
+
+type VirtualGatewayConnectionPoolPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayConnectionPoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualGatewayConnectionPoolPtrOutput) ToVirtualGatewayConnectionPoolPtrOutput() VirtualGatewayConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayConnectionPoolPtrOutput) ToVirtualGatewayConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayConnectionPoolPtrOutput) Elem() VirtualGatewayConnectionPoolOutput {
+	return o.ApplyT(func(v *VirtualGatewayConnectionPool) VirtualGatewayConnectionPool {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewayConnectionPool
+		return ret
+	}).(VirtualGatewayConnectionPoolOutput)
+}
+
+func (o VirtualGatewayConnectionPoolPtrOutput) GRPC() VirtualGatewayGrpcConnectionPoolPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayConnectionPool) *VirtualGatewayGrpcConnectionPool {
+		if v == nil {
+			return nil
+		}
+		return v.GRPC
+	}).(VirtualGatewayGrpcConnectionPoolPtrOutput)
+}
+
+func (o VirtualGatewayConnectionPoolPtrOutput) HTTP() VirtualGatewayHttpConnectionPoolPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayConnectionPool) *VirtualGatewayHttpConnectionPool {
+		if v == nil {
+			return nil
+		}
+		return v.HTTP
+	}).(VirtualGatewayHttpConnectionPoolPtrOutput)
+}
+
+func (o VirtualGatewayConnectionPoolPtrOutput) HTTP2() VirtualGatewayHttp2ConnectionPoolPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayConnectionPool) *VirtualGatewayHttp2ConnectionPool {
+		if v == nil {
+			return nil
+		}
+		return v.HTTP2
+	}).(VirtualGatewayHttp2ConnectionPoolPtrOutput)
+}
+
+type VirtualGatewayFileAccessLog struct {
+	Path string `pulumi:"path"`
+}
+
+// VirtualGatewayFileAccessLogInput is an input type that accepts VirtualGatewayFileAccessLogArgs and VirtualGatewayFileAccessLogOutput values.
+// You can construct a concrete instance of `VirtualGatewayFileAccessLogInput` via:
+//
+//          VirtualGatewayFileAccessLogArgs{...}
+type VirtualGatewayFileAccessLogInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayFileAccessLogOutput() VirtualGatewayFileAccessLogOutput
+	ToVirtualGatewayFileAccessLogOutputWithContext(context.Context) VirtualGatewayFileAccessLogOutput
+}
+
+type VirtualGatewayFileAccessLogArgs struct {
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (VirtualGatewayFileAccessLogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayFileAccessLog)(nil)).Elem()
+}
+
+func (i VirtualGatewayFileAccessLogArgs) ToVirtualGatewayFileAccessLogOutput() VirtualGatewayFileAccessLogOutput {
+	return i.ToVirtualGatewayFileAccessLogOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayFileAccessLogArgs) ToVirtualGatewayFileAccessLogOutputWithContext(ctx context.Context) VirtualGatewayFileAccessLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayFileAccessLogOutput)
+}
+
+func (i VirtualGatewayFileAccessLogArgs) ToVirtualGatewayFileAccessLogPtrOutput() VirtualGatewayFileAccessLogPtrOutput {
+	return i.ToVirtualGatewayFileAccessLogPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayFileAccessLogArgs) ToVirtualGatewayFileAccessLogPtrOutputWithContext(ctx context.Context) VirtualGatewayFileAccessLogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayFileAccessLogOutput).ToVirtualGatewayFileAccessLogPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayFileAccessLogPtrInput is an input type that accepts VirtualGatewayFileAccessLogArgs, VirtualGatewayFileAccessLogPtr and VirtualGatewayFileAccessLogPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayFileAccessLogPtrInput` via:
+//
+//          VirtualGatewayFileAccessLogArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayFileAccessLogPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayFileAccessLogPtrOutput() VirtualGatewayFileAccessLogPtrOutput
+	ToVirtualGatewayFileAccessLogPtrOutputWithContext(context.Context) VirtualGatewayFileAccessLogPtrOutput
+}
+
+type virtualGatewayFileAccessLogPtrType VirtualGatewayFileAccessLogArgs
+
+func VirtualGatewayFileAccessLogPtr(v *VirtualGatewayFileAccessLogArgs) VirtualGatewayFileAccessLogPtrInput {
+	return (*virtualGatewayFileAccessLogPtrType)(v)
+}
+
+func (*virtualGatewayFileAccessLogPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayFileAccessLog)(nil)).Elem()
+}
+
+func (i *virtualGatewayFileAccessLogPtrType) ToVirtualGatewayFileAccessLogPtrOutput() VirtualGatewayFileAccessLogPtrOutput {
+	return i.ToVirtualGatewayFileAccessLogPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayFileAccessLogPtrType) ToVirtualGatewayFileAccessLogPtrOutputWithContext(ctx context.Context) VirtualGatewayFileAccessLogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayFileAccessLogPtrOutput)
+}
+
+type VirtualGatewayFileAccessLogOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayFileAccessLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayFileAccessLog)(nil)).Elem()
+}
+
+func (o VirtualGatewayFileAccessLogOutput) ToVirtualGatewayFileAccessLogOutput() VirtualGatewayFileAccessLogOutput {
+	return o
+}
+
+func (o VirtualGatewayFileAccessLogOutput) ToVirtualGatewayFileAccessLogOutputWithContext(ctx context.Context) VirtualGatewayFileAccessLogOutput {
+	return o
+}
+
+func (o VirtualGatewayFileAccessLogOutput) ToVirtualGatewayFileAccessLogPtrOutput() VirtualGatewayFileAccessLogPtrOutput {
+	return o.ToVirtualGatewayFileAccessLogPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayFileAccessLogOutput) ToVirtualGatewayFileAccessLogPtrOutputWithContext(ctx context.Context) VirtualGatewayFileAccessLogPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayFileAccessLog) *VirtualGatewayFileAccessLog {
+		return &v
+	}).(VirtualGatewayFileAccessLogPtrOutput)
+}
+
+func (o VirtualGatewayFileAccessLogOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewayFileAccessLog) string { return v.Path }).(pulumi.StringOutput)
+}
+
+type VirtualGatewayFileAccessLogPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayFileAccessLogPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayFileAccessLog)(nil)).Elem()
+}
+
+func (o VirtualGatewayFileAccessLogPtrOutput) ToVirtualGatewayFileAccessLogPtrOutput() VirtualGatewayFileAccessLogPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayFileAccessLogPtrOutput) ToVirtualGatewayFileAccessLogPtrOutputWithContext(ctx context.Context) VirtualGatewayFileAccessLogPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayFileAccessLogPtrOutput) Elem() VirtualGatewayFileAccessLogOutput {
+	return o.ApplyT(func(v *VirtualGatewayFileAccessLog) VirtualGatewayFileAccessLog {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewayFileAccessLog
+		return ret
+	}).(VirtualGatewayFileAccessLogOutput)
+}
+
+func (o VirtualGatewayFileAccessLogPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayFileAccessLog) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+type VirtualGatewayGrpcConnectionPool struct {
+	MaxRequests int `pulumi:"maxRequests"`
+}
+
+// VirtualGatewayGrpcConnectionPoolInput is an input type that accepts VirtualGatewayGrpcConnectionPoolArgs and VirtualGatewayGrpcConnectionPoolOutput values.
+// You can construct a concrete instance of `VirtualGatewayGrpcConnectionPoolInput` via:
+//
+//          VirtualGatewayGrpcConnectionPoolArgs{...}
+type VirtualGatewayGrpcConnectionPoolInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayGrpcConnectionPoolOutput() VirtualGatewayGrpcConnectionPoolOutput
+	ToVirtualGatewayGrpcConnectionPoolOutputWithContext(context.Context) VirtualGatewayGrpcConnectionPoolOutput
+}
+
+type VirtualGatewayGrpcConnectionPoolArgs struct {
+	MaxRequests pulumi.IntInput `pulumi:"maxRequests"`
+}
+
+func (VirtualGatewayGrpcConnectionPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayGrpcConnectionPool)(nil)).Elem()
+}
+
+func (i VirtualGatewayGrpcConnectionPoolArgs) ToVirtualGatewayGrpcConnectionPoolOutput() VirtualGatewayGrpcConnectionPoolOutput {
+	return i.ToVirtualGatewayGrpcConnectionPoolOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayGrpcConnectionPoolArgs) ToVirtualGatewayGrpcConnectionPoolOutputWithContext(ctx context.Context) VirtualGatewayGrpcConnectionPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayGrpcConnectionPoolOutput)
+}
+
+func (i VirtualGatewayGrpcConnectionPoolArgs) ToVirtualGatewayGrpcConnectionPoolPtrOutput() VirtualGatewayGrpcConnectionPoolPtrOutput {
+	return i.ToVirtualGatewayGrpcConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayGrpcConnectionPoolArgs) ToVirtualGatewayGrpcConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayGrpcConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayGrpcConnectionPoolOutput).ToVirtualGatewayGrpcConnectionPoolPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayGrpcConnectionPoolPtrInput is an input type that accepts VirtualGatewayGrpcConnectionPoolArgs, VirtualGatewayGrpcConnectionPoolPtr and VirtualGatewayGrpcConnectionPoolPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayGrpcConnectionPoolPtrInput` via:
+//
+//          VirtualGatewayGrpcConnectionPoolArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayGrpcConnectionPoolPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayGrpcConnectionPoolPtrOutput() VirtualGatewayGrpcConnectionPoolPtrOutput
+	ToVirtualGatewayGrpcConnectionPoolPtrOutputWithContext(context.Context) VirtualGatewayGrpcConnectionPoolPtrOutput
+}
+
+type virtualGatewayGrpcConnectionPoolPtrType VirtualGatewayGrpcConnectionPoolArgs
+
+func VirtualGatewayGrpcConnectionPoolPtr(v *VirtualGatewayGrpcConnectionPoolArgs) VirtualGatewayGrpcConnectionPoolPtrInput {
+	return (*virtualGatewayGrpcConnectionPoolPtrType)(v)
+}
+
+func (*virtualGatewayGrpcConnectionPoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayGrpcConnectionPool)(nil)).Elem()
+}
+
+func (i *virtualGatewayGrpcConnectionPoolPtrType) ToVirtualGatewayGrpcConnectionPoolPtrOutput() VirtualGatewayGrpcConnectionPoolPtrOutput {
+	return i.ToVirtualGatewayGrpcConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayGrpcConnectionPoolPtrType) ToVirtualGatewayGrpcConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayGrpcConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayGrpcConnectionPoolPtrOutput)
+}
+
+type VirtualGatewayGrpcConnectionPoolOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayGrpcConnectionPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayGrpcConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualGatewayGrpcConnectionPoolOutput) ToVirtualGatewayGrpcConnectionPoolOutput() VirtualGatewayGrpcConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualGatewayGrpcConnectionPoolOutput) ToVirtualGatewayGrpcConnectionPoolOutputWithContext(ctx context.Context) VirtualGatewayGrpcConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualGatewayGrpcConnectionPoolOutput) ToVirtualGatewayGrpcConnectionPoolPtrOutput() VirtualGatewayGrpcConnectionPoolPtrOutput {
+	return o.ToVirtualGatewayGrpcConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayGrpcConnectionPoolOutput) ToVirtualGatewayGrpcConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayGrpcConnectionPoolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayGrpcConnectionPool) *VirtualGatewayGrpcConnectionPool {
+		return &v
+	}).(VirtualGatewayGrpcConnectionPoolPtrOutput)
+}
+
+func (o VirtualGatewayGrpcConnectionPoolOutput) MaxRequests() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualGatewayGrpcConnectionPool) int { return v.MaxRequests }).(pulumi.IntOutput)
+}
+
+type VirtualGatewayGrpcConnectionPoolPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayGrpcConnectionPoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayGrpcConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualGatewayGrpcConnectionPoolPtrOutput) ToVirtualGatewayGrpcConnectionPoolPtrOutput() VirtualGatewayGrpcConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayGrpcConnectionPoolPtrOutput) ToVirtualGatewayGrpcConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayGrpcConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayGrpcConnectionPoolPtrOutput) Elem() VirtualGatewayGrpcConnectionPoolOutput {
+	return o.ApplyT(func(v *VirtualGatewayGrpcConnectionPool) VirtualGatewayGrpcConnectionPool {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewayGrpcConnectionPool
+		return ret
+	}).(VirtualGatewayGrpcConnectionPoolOutput)
+}
+
+func (o VirtualGatewayGrpcConnectionPoolPtrOutput) MaxRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayGrpcConnectionPool) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxRequests
+	}).(pulumi.IntPtrOutput)
+}
+
+type VirtualGatewayHealthCheckPolicy struct {
+	HealthyThreshold   int     `pulumi:"healthyThreshold"`
+	IntervalMillis     int     `pulumi:"intervalMillis"`
+	Path               *string `pulumi:"path"`
+	Port               *int    `pulumi:"port"`
+	Protocol           string  `pulumi:"protocol"`
+	TimeoutMillis      int     `pulumi:"timeoutMillis"`
+	UnhealthyThreshold int     `pulumi:"unhealthyThreshold"`
+}
+
+// VirtualGatewayHealthCheckPolicyInput is an input type that accepts VirtualGatewayHealthCheckPolicyArgs and VirtualGatewayHealthCheckPolicyOutput values.
+// You can construct a concrete instance of `VirtualGatewayHealthCheckPolicyInput` via:
+//
+//          VirtualGatewayHealthCheckPolicyArgs{...}
+type VirtualGatewayHealthCheckPolicyInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayHealthCheckPolicyOutput() VirtualGatewayHealthCheckPolicyOutput
+	ToVirtualGatewayHealthCheckPolicyOutputWithContext(context.Context) VirtualGatewayHealthCheckPolicyOutput
+}
+
+type VirtualGatewayHealthCheckPolicyArgs struct {
+	HealthyThreshold   pulumi.IntInput       `pulumi:"healthyThreshold"`
+	IntervalMillis     pulumi.IntInput       `pulumi:"intervalMillis"`
+	Path               pulumi.StringPtrInput `pulumi:"path"`
+	Port               pulumi.IntPtrInput    `pulumi:"port"`
+	Protocol           pulumi.StringInput    `pulumi:"protocol"`
+	TimeoutMillis      pulumi.IntInput       `pulumi:"timeoutMillis"`
+	UnhealthyThreshold pulumi.IntInput       `pulumi:"unhealthyThreshold"`
+}
+
+func (VirtualGatewayHealthCheckPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayHealthCheckPolicy)(nil)).Elem()
+}
+
+func (i VirtualGatewayHealthCheckPolicyArgs) ToVirtualGatewayHealthCheckPolicyOutput() VirtualGatewayHealthCheckPolicyOutput {
+	return i.ToVirtualGatewayHealthCheckPolicyOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayHealthCheckPolicyArgs) ToVirtualGatewayHealthCheckPolicyOutputWithContext(ctx context.Context) VirtualGatewayHealthCheckPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayHealthCheckPolicyOutput)
+}
+
+func (i VirtualGatewayHealthCheckPolicyArgs) ToVirtualGatewayHealthCheckPolicyPtrOutput() VirtualGatewayHealthCheckPolicyPtrOutput {
+	return i.ToVirtualGatewayHealthCheckPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayHealthCheckPolicyArgs) ToVirtualGatewayHealthCheckPolicyPtrOutputWithContext(ctx context.Context) VirtualGatewayHealthCheckPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayHealthCheckPolicyOutput).ToVirtualGatewayHealthCheckPolicyPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayHealthCheckPolicyPtrInput is an input type that accepts VirtualGatewayHealthCheckPolicyArgs, VirtualGatewayHealthCheckPolicyPtr and VirtualGatewayHealthCheckPolicyPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayHealthCheckPolicyPtrInput` via:
+//
+//          VirtualGatewayHealthCheckPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayHealthCheckPolicyPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayHealthCheckPolicyPtrOutput() VirtualGatewayHealthCheckPolicyPtrOutput
+	ToVirtualGatewayHealthCheckPolicyPtrOutputWithContext(context.Context) VirtualGatewayHealthCheckPolicyPtrOutput
+}
+
+type virtualGatewayHealthCheckPolicyPtrType VirtualGatewayHealthCheckPolicyArgs
+
+func VirtualGatewayHealthCheckPolicyPtr(v *VirtualGatewayHealthCheckPolicyArgs) VirtualGatewayHealthCheckPolicyPtrInput {
+	return (*virtualGatewayHealthCheckPolicyPtrType)(v)
+}
+
+func (*virtualGatewayHealthCheckPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayHealthCheckPolicy)(nil)).Elem()
+}
+
+func (i *virtualGatewayHealthCheckPolicyPtrType) ToVirtualGatewayHealthCheckPolicyPtrOutput() VirtualGatewayHealthCheckPolicyPtrOutput {
+	return i.ToVirtualGatewayHealthCheckPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayHealthCheckPolicyPtrType) ToVirtualGatewayHealthCheckPolicyPtrOutputWithContext(ctx context.Context) VirtualGatewayHealthCheckPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayHealthCheckPolicyPtrOutput)
+}
+
+type VirtualGatewayHealthCheckPolicyOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayHealthCheckPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayHealthCheckPolicy)(nil)).Elem()
+}
+
+func (o VirtualGatewayHealthCheckPolicyOutput) ToVirtualGatewayHealthCheckPolicyOutput() VirtualGatewayHealthCheckPolicyOutput {
+	return o
+}
+
+func (o VirtualGatewayHealthCheckPolicyOutput) ToVirtualGatewayHealthCheckPolicyOutputWithContext(ctx context.Context) VirtualGatewayHealthCheckPolicyOutput {
+	return o
+}
+
+func (o VirtualGatewayHealthCheckPolicyOutput) ToVirtualGatewayHealthCheckPolicyPtrOutput() VirtualGatewayHealthCheckPolicyPtrOutput {
+	return o.ToVirtualGatewayHealthCheckPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayHealthCheckPolicyOutput) ToVirtualGatewayHealthCheckPolicyPtrOutputWithContext(ctx context.Context) VirtualGatewayHealthCheckPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayHealthCheckPolicy) *VirtualGatewayHealthCheckPolicy {
+		return &v
+	}).(VirtualGatewayHealthCheckPolicyPtrOutput)
+}
+
+func (o VirtualGatewayHealthCheckPolicyOutput) HealthyThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualGatewayHealthCheckPolicy) int { return v.HealthyThreshold }).(pulumi.IntOutput)
+}
+
+func (o VirtualGatewayHealthCheckPolicyOutput) IntervalMillis() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualGatewayHealthCheckPolicy) int { return v.IntervalMillis }).(pulumi.IntOutput)
+}
+
+func (o VirtualGatewayHealthCheckPolicyOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayHealthCheckPolicy) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+func (o VirtualGatewayHealthCheckPolicyOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayHealthCheckPolicy) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+func (o VirtualGatewayHealthCheckPolicyOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewayHealthCheckPolicy) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+func (o VirtualGatewayHealthCheckPolicyOutput) TimeoutMillis() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualGatewayHealthCheckPolicy) int { return v.TimeoutMillis }).(pulumi.IntOutput)
+}
+
+func (o VirtualGatewayHealthCheckPolicyOutput) UnhealthyThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualGatewayHealthCheckPolicy) int { return v.UnhealthyThreshold }).(pulumi.IntOutput)
+}
+
+type VirtualGatewayHealthCheckPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayHealthCheckPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayHealthCheckPolicy)(nil)).Elem()
+}
+
+func (o VirtualGatewayHealthCheckPolicyPtrOutput) ToVirtualGatewayHealthCheckPolicyPtrOutput() VirtualGatewayHealthCheckPolicyPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayHealthCheckPolicyPtrOutput) ToVirtualGatewayHealthCheckPolicyPtrOutputWithContext(ctx context.Context) VirtualGatewayHealthCheckPolicyPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayHealthCheckPolicyPtrOutput) Elem() VirtualGatewayHealthCheckPolicyOutput {
+	return o.ApplyT(func(v *VirtualGatewayHealthCheckPolicy) VirtualGatewayHealthCheckPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewayHealthCheckPolicy
+		return ret
+	}).(VirtualGatewayHealthCheckPolicyOutput)
+}
+
+func (o VirtualGatewayHealthCheckPolicyPtrOutput) HealthyThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayHealthCheckPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.HealthyThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o VirtualGatewayHealthCheckPolicyPtrOutput) IntervalMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayHealthCheckPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.IntervalMillis
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o VirtualGatewayHealthCheckPolicyPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayHealthCheckPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VirtualGatewayHealthCheckPolicyPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayHealthCheckPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o VirtualGatewayHealthCheckPolicyPtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayHealthCheckPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VirtualGatewayHealthCheckPolicyPtrOutput) TimeoutMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayHealthCheckPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeoutMillis
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o VirtualGatewayHealthCheckPolicyPtrOutput) UnhealthyThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayHealthCheckPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.UnhealthyThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+type VirtualGatewayHttp2ConnectionPool struct {
+	MaxRequests int `pulumi:"maxRequests"`
+}
+
+// VirtualGatewayHttp2ConnectionPoolInput is an input type that accepts VirtualGatewayHttp2ConnectionPoolArgs and VirtualGatewayHttp2ConnectionPoolOutput values.
+// You can construct a concrete instance of `VirtualGatewayHttp2ConnectionPoolInput` via:
+//
+//          VirtualGatewayHttp2ConnectionPoolArgs{...}
+type VirtualGatewayHttp2ConnectionPoolInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayHttp2ConnectionPoolOutput() VirtualGatewayHttp2ConnectionPoolOutput
+	ToVirtualGatewayHttp2ConnectionPoolOutputWithContext(context.Context) VirtualGatewayHttp2ConnectionPoolOutput
+}
+
+type VirtualGatewayHttp2ConnectionPoolArgs struct {
+	MaxRequests pulumi.IntInput `pulumi:"maxRequests"`
+}
+
+func (VirtualGatewayHttp2ConnectionPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayHttp2ConnectionPool)(nil)).Elem()
+}
+
+func (i VirtualGatewayHttp2ConnectionPoolArgs) ToVirtualGatewayHttp2ConnectionPoolOutput() VirtualGatewayHttp2ConnectionPoolOutput {
+	return i.ToVirtualGatewayHttp2ConnectionPoolOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayHttp2ConnectionPoolArgs) ToVirtualGatewayHttp2ConnectionPoolOutputWithContext(ctx context.Context) VirtualGatewayHttp2ConnectionPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayHttp2ConnectionPoolOutput)
+}
+
+func (i VirtualGatewayHttp2ConnectionPoolArgs) ToVirtualGatewayHttp2ConnectionPoolPtrOutput() VirtualGatewayHttp2ConnectionPoolPtrOutput {
+	return i.ToVirtualGatewayHttp2ConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayHttp2ConnectionPoolArgs) ToVirtualGatewayHttp2ConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayHttp2ConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayHttp2ConnectionPoolOutput).ToVirtualGatewayHttp2ConnectionPoolPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayHttp2ConnectionPoolPtrInput is an input type that accepts VirtualGatewayHttp2ConnectionPoolArgs, VirtualGatewayHttp2ConnectionPoolPtr and VirtualGatewayHttp2ConnectionPoolPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayHttp2ConnectionPoolPtrInput` via:
+//
+//          VirtualGatewayHttp2ConnectionPoolArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayHttp2ConnectionPoolPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayHttp2ConnectionPoolPtrOutput() VirtualGatewayHttp2ConnectionPoolPtrOutput
+	ToVirtualGatewayHttp2ConnectionPoolPtrOutputWithContext(context.Context) VirtualGatewayHttp2ConnectionPoolPtrOutput
+}
+
+type virtualGatewayHttp2ConnectionPoolPtrType VirtualGatewayHttp2ConnectionPoolArgs
+
+func VirtualGatewayHttp2ConnectionPoolPtr(v *VirtualGatewayHttp2ConnectionPoolArgs) VirtualGatewayHttp2ConnectionPoolPtrInput {
+	return (*virtualGatewayHttp2ConnectionPoolPtrType)(v)
+}
+
+func (*virtualGatewayHttp2ConnectionPoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayHttp2ConnectionPool)(nil)).Elem()
+}
+
+func (i *virtualGatewayHttp2ConnectionPoolPtrType) ToVirtualGatewayHttp2ConnectionPoolPtrOutput() VirtualGatewayHttp2ConnectionPoolPtrOutput {
+	return i.ToVirtualGatewayHttp2ConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayHttp2ConnectionPoolPtrType) ToVirtualGatewayHttp2ConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayHttp2ConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayHttp2ConnectionPoolPtrOutput)
+}
+
+type VirtualGatewayHttp2ConnectionPoolOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayHttp2ConnectionPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayHttp2ConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualGatewayHttp2ConnectionPoolOutput) ToVirtualGatewayHttp2ConnectionPoolOutput() VirtualGatewayHttp2ConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualGatewayHttp2ConnectionPoolOutput) ToVirtualGatewayHttp2ConnectionPoolOutputWithContext(ctx context.Context) VirtualGatewayHttp2ConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualGatewayHttp2ConnectionPoolOutput) ToVirtualGatewayHttp2ConnectionPoolPtrOutput() VirtualGatewayHttp2ConnectionPoolPtrOutput {
+	return o.ToVirtualGatewayHttp2ConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayHttp2ConnectionPoolOutput) ToVirtualGatewayHttp2ConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayHttp2ConnectionPoolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayHttp2ConnectionPool) *VirtualGatewayHttp2ConnectionPool {
+		return &v
+	}).(VirtualGatewayHttp2ConnectionPoolPtrOutput)
+}
+
+func (o VirtualGatewayHttp2ConnectionPoolOutput) MaxRequests() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualGatewayHttp2ConnectionPool) int { return v.MaxRequests }).(pulumi.IntOutput)
+}
+
+type VirtualGatewayHttp2ConnectionPoolPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayHttp2ConnectionPoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayHttp2ConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualGatewayHttp2ConnectionPoolPtrOutput) ToVirtualGatewayHttp2ConnectionPoolPtrOutput() VirtualGatewayHttp2ConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayHttp2ConnectionPoolPtrOutput) ToVirtualGatewayHttp2ConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayHttp2ConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayHttp2ConnectionPoolPtrOutput) Elem() VirtualGatewayHttp2ConnectionPoolOutput {
+	return o.ApplyT(func(v *VirtualGatewayHttp2ConnectionPool) VirtualGatewayHttp2ConnectionPool {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewayHttp2ConnectionPool
+		return ret
+	}).(VirtualGatewayHttp2ConnectionPoolOutput)
+}
+
+func (o VirtualGatewayHttp2ConnectionPoolPtrOutput) MaxRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayHttp2ConnectionPool) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxRequests
+	}).(pulumi.IntPtrOutput)
+}
+
+type VirtualGatewayHttpConnectionPool struct {
+	MaxConnections     int  `pulumi:"maxConnections"`
+	MaxPendingRequests *int `pulumi:"maxPendingRequests"`
+}
+
+// VirtualGatewayHttpConnectionPoolInput is an input type that accepts VirtualGatewayHttpConnectionPoolArgs and VirtualGatewayHttpConnectionPoolOutput values.
+// You can construct a concrete instance of `VirtualGatewayHttpConnectionPoolInput` via:
+//
+//          VirtualGatewayHttpConnectionPoolArgs{...}
+type VirtualGatewayHttpConnectionPoolInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayHttpConnectionPoolOutput() VirtualGatewayHttpConnectionPoolOutput
+	ToVirtualGatewayHttpConnectionPoolOutputWithContext(context.Context) VirtualGatewayHttpConnectionPoolOutput
+}
+
+type VirtualGatewayHttpConnectionPoolArgs struct {
+	MaxConnections     pulumi.IntInput    `pulumi:"maxConnections"`
+	MaxPendingRequests pulumi.IntPtrInput `pulumi:"maxPendingRequests"`
+}
+
+func (VirtualGatewayHttpConnectionPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayHttpConnectionPool)(nil)).Elem()
+}
+
+func (i VirtualGatewayHttpConnectionPoolArgs) ToVirtualGatewayHttpConnectionPoolOutput() VirtualGatewayHttpConnectionPoolOutput {
+	return i.ToVirtualGatewayHttpConnectionPoolOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayHttpConnectionPoolArgs) ToVirtualGatewayHttpConnectionPoolOutputWithContext(ctx context.Context) VirtualGatewayHttpConnectionPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayHttpConnectionPoolOutput)
+}
+
+func (i VirtualGatewayHttpConnectionPoolArgs) ToVirtualGatewayHttpConnectionPoolPtrOutput() VirtualGatewayHttpConnectionPoolPtrOutput {
+	return i.ToVirtualGatewayHttpConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayHttpConnectionPoolArgs) ToVirtualGatewayHttpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayHttpConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayHttpConnectionPoolOutput).ToVirtualGatewayHttpConnectionPoolPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayHttpConnectionPoolPtrInput is an input type that accepts VirtualGatewayHttpConnectionPoolArgs, VirtualGatewayHttpConnectionPoolPtr and VirtualGatewayHttpConnectionPoolPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayHttpConnectionPoolPtrInput` via:
+//
+//          VirtualGatewayHttpConnectionPoolArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayHttpConnectionPoolPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayHttpConnectionPoolPtrOutput() VirtualGatewayHttpConnectionPoolPtrOutput
+	ToVirtualGatewayHttpConnectionPoolPtrOutputWithContext(context.Context) VirtualGatewayHttpConnectionPoolPtrOutput
+}
+
+type virtualGatewayHttpConnectionPoolPtrType VirtualGatewayHttpConnectionPoolArgs
+
+func VirtualGatewayHttpConnectionPoolPtr(v *VirtualGatewayHttpConnectionPoolArgs) VirtualGatewayHttpConnectionPoolPtrInput {
+	return (*virtualGatewayHttpConnectionPoolPtrType)(v)
+}
+
+func (*virtualGatewayHttpConnectionPoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayHttpConnectionPool)(nil)).Elem()
+}
+
+func (i *virtualGatewayHttpConnectionPoolPtrType) ToVirtualGatewayHttpConnectionPoolPtrOutput() VirtualGatewayHttpConnectionPoolPtrOutput {
+	return i.ToVirtualGatewayHttpConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayHttpConnectionPoolPtrType) ToVirtualGatewayHttpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayHttpConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayHttpConnectionPoolPtrOutput)
+}
+
+type VirtualGatewayHttpConnectionPoolOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayHttpConnectionPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayHttpConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualGatewayHttpConnectionPoolOutput) ToVirtualGatewayHttpConnectionPoolOutput() VirtualGatewayHttpConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualGatewayHttpConnectionPoolOutput) ToVirtualGatewayHttpConnectionPoolOutputWithContext(ctx context.Context) VirtualGatewayHttpConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualGatewayHttpConnectionPoolOutput) ToVirtualGatewayHttpConnectionPoolPtrOutput() VirtualGatewayHttpConnectionPoolPtrOutput {
+	return o.ToVirtualGatewayHttpConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayHttpConnectionPoolOutput) ToVirtualGatewayHttpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayHttpConnectionPoolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayHttpConnectionPool) *VirtualGatewayHttpConnectionPool {
+		return &v
+	}).(VirtualGatewayHttpConnectionPoolPtrOutput)
+}
+
+func (o VirtualGatewayHttpConnectionPoolOutput) MaxConnections() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualGatewayHttpConnectionPool) int { return v.MaxConnections }).(pulumi.IntOutput)
+}
+
+func (o VirtualGatewayHttpConnectionPoolOutput) MaxPendingRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayHttpConnectionPool) *int { return v.MaxPendingRequests }).(pulumi.IntPtrOutput)
+}
+
+type VirtualGatewayHttpConnectionPoolPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayHttpConnectionPoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayHttpConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualGatewayHttpConnectionPoolPtrOutput) ToVirtualGatewayHttpConnectionPoolPtrOutput() VirtualGatewayHttpConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayHttpConnectionPoolPtrOutput) ToVirtualGatewayHttpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayHttpConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayHttpConnectionPoolPtrOutput) Elem() VirtualGatewayHttpConnectionPoolOutput {
+	return o.ApplyT(func(v *VirtualGatewayHttpConnectionPool) VirtualGatewayHttpConnectionPool {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewayHttpConnectionPool
+		return ret
+	}).(VirtualGatewayHttpConnectionPoolOutput)
+}
+
+func (o VirtualGatewayHttpConnectionPoolPtrOutput) MaxConnections() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayHttpConnectionPool) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxConnections
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o VirtualGatewayHttpConnectionPoolPtrOutput) MaxPendingRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayHttpConnectionPool) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPendingRequests
+	}).(pulumi.IntPtrOutput)
+}
+
+type VirtualGatewayListener struct {
+	ConnectionPool *VirtualGatewayConnectionPool    `pulumi:"connectionPool"`
+	HealthCheck    *VirtualGatewayHealthCheckPolicy `pulumi:"healthCheck"`
+	PortMapping    VirtualGatewayPortMapping        `pulumi:"portMapping"`
+	TLS            *VirtualGatewayListenerTls       `pulumi:"tLS"`
+}
+
+// VirtualGatewayListenerInput is an input type that accepts VirtualGatewayListenerArgs and VirtualGatewayListenerOutput values.
+// You can construct a concrete instance of `VirtualGatewayListenerInput` via:
+//
+//          VirtualGatewayListenerArgs{...}
+type VirtualGatewayListenerInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayListenerOutput() VirtualGatewayListenerOutput
+	ToVirtualGatewayListenerOutputWithContext(context.Context) VirtualGatewayListenerOutput
+}
+
+type VirtualGatewayListenerArgs struct {
+	ConnectionPool VirtualGatewayConnectionPoolPtrInput    `pulumi:"connectionPool"`
+	HealthCheck    VirtualGatewayHealthCheckPolicyPtrInput `pulumi:"healthCheck"`
+	PortMapping    VirtualGatewayPortMappingInput          `pulumi:"portMapping"`
+	TLS            VirtualGatewayListenerTlsPtrInput       `pulumi:"tLS"`
+}
+
+func (VirtualGatewayListenerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayListener)(nil)).Elem()
+}
+
+func (i VirtualGatewayListenerArgs) ToVirtualGatewayListenerOutput() VirtualGatewayListenerOutput {
+	return i.ToVirtualGatewayListenerOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayListenerArgs) ToVirtualGatewayListenerOutputWithContext(ctx context.Context) VirtualGatewayListenerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerOutput)
+}
+
+// VirtualGatewayListenerArrayInput is an input type that accepts VirtualGatewayListenerArray and VirtualGatewayListenerArrayOutput values.
+// You can construct a concrete instance of `VirtualGatewayListenerArrayInput` via:
+//
+//          VirtualGatewayListenerArray{ VirtualGatewayListenerArgs{...} }
+type VirtualGatewayListenerArrayInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayListenerArrayOutput() VirtualGatewayListenerArrayOutput
+	ToVirtualGatewayListenerArrayOutputWithContext(context.Context) VirtualGatewayListenerArrayOutput
+}
+
+type VirtualGatewayListenerArray []VirtualGatewayListenerInput
+
+func (VirtualGatewayListenerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualGatewayListener)(nil)).Elem()
+}
+
+func (i VirtualGatewayListenerArray) ToVirtualGatewayListenerArrayOutput() VirtualGatewayListenerArrayOutput {
+	return i.ToVirtualGatewayListenerArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayListenerArray) ToVirtualGatewayListenerArrayOutputWithContext(ctx context.Context) VirtualGatewayListenerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerArrayOutput)
+}
+
+type VirtualGatewayListenerOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayListenerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayListener)(nil)).Elem()
+}
+
+func (o VirtualGatewayListenerOutput) ToVirtualGatewayListenerOutput() VirtualGatewayListenerOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerOutput) ToVirtualGatewayListenerOutputWithContext(ctx context.Context) VirtualGatewayListenerOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerOutput) ConnectionPool() VirtualGatewayConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayListener) *VirtualGatewayConnectionPool { return v.ConnectionPool }).(VirtualGatewayConnectionPoolPtrOutput)
+}
+
+func (o VirtualGatewayListenerOutput) HealthCheck() VirtualGatewayHealthCheckPolicyPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayListener) *VirtualGatewayHealthCheckPolicy { return v.HealthCheck }).(VirtualGatewayHealthCheckPolicyPtrOutput)
+}
+
+func (o VirtualGatewayListenerOutput) PortMapping() VirtualGatewayPortMappingOutput {
+	return o.ApplyT(func(v VirtualGatewayListener) VirtualGatewayPortMapping { return v.PortMapping }).(VirtualGatewayPortMappingOutput)
+}
+
+func (o VirtualGatewayListenerOutput) TLS() VirtualGatewayListenerTlsPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayListener) *VirtualGatewayListenerTls { return v.TLS }).(VirtualGatewayListenerTlsPtrOutput)
+}
+
+type VirtualGatewayListenerArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayListenerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualGatewayListener)(nil)).Elem()
+}
+
+func (o VirtualGatewayListenerArrayOutput) ToVirtualGatewayListenerArrayOutput() VirtualGatewayListenerArrayOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerArrayOutput) ToVirtualGatewayListenerArrayOutputWithContext(ctx context.Context) VirtualGatewayListenerArrayOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerArrayOutput) Index(i pulumi.IntInput) VirtualGatewayListenerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualGatewayListener {
+		return vs[0].([]VirtualGatewayListener)[vs[1].(int)]
+	}).(VirtualGatewayListenerOutput)
+}
+
+type VirtualGatewayListenerTls struct {
+	Certificate VirtualGatewayListenerTlsCertificate        `pulumi:"certificate"`
+	Mode        string                                      `pulumi:"mode"`
+	Validation  *VirtualGatewayListenerTlsValidationContext `pulumi:"validation"`
+}
+
+// VirtualGatewayListenerTlsInput is an input type that accepts VirtualGatewayListenerTlsArgs and VirtualGatewayListenerTlsOutput values.
+// You can construct a concrete instance of `VirtualGatewayListenerTlsInput` via:
+//
+//          VirtualGatewayListenerTlsArgs{...}
+type VirtualGatewayListenerTlsInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayListenerTlsOutput() VirtualGatewayListenerTlsOutput
+	ToVirtualGatewayListenerTlsOutputWithContext(context.Context) VirtualGatewayListenerTlsOutput
+}
+
+type VirtualGatewayListenerTlsArgs struct {
+	Certificate VirtualGatewayListenerTlsCertificateInput          `pulumi:"certificate"`
+	Mode        pulumi.StringInput                                 `pulumi:"mode"`
+	Validation  VirtualGatewayListenerTlsValidationContextPtrInput `pulumi:"validation"`
+}
+
+func (VirtualGatewayListenerTlsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayListenerTls)(nil)).Elem()
+}
+
+func (i VirtualGatewayListenerTlsArgs) ToVirtualGatewayListenerTlsOutput() VirtualGatewayListenerTlsOutput {
+	return i.ToVirtualGatewayListenerTlsOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayListenerTlsArgs) ToVirtualGatewayListenerTlsOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsOutput)
+}
+
+func (i VirtualGatewayListenerTlsArgs) ToVirtualGatewayListenerTlsPtrOutput() VirtualGatewayListenerTlsPtrOutput {
+	return i.ToVirtualGatewayListenerTlsPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayListenerTlsArgs) ToVirtualGatewayListenerTlsPtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsOutput).ToVirtualGatewayListenerTlsPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayListenerTlsPtrInput is an input type that accepts VirtualGatewayListenerTlsArgs, VirtualGatewayListenerTlsPtr and VirtualGatewayListenerTlsPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayListenerTlsPtrInput` via:
+//
+//          VirtualGatewayListenerTlsArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayListenerTlsPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayListenerTlsPtrOutput() VirtualGatewayListenerTlsPtrOutput
+	ToVirtualGatewayListenerTlsPtrOutputWithContext(context.Context) VirtualGatewayListenerTlsPtrOutput
+}
+
+type virtualGatewayListenerTlsPtrType VirtualGatewayListenerTlsArgs
+
+func VirtualGatewayListenerTlsPtr(v *VirtualGatewayListenerTlsArgs) VirtualGatewayListenerTlsPtrInput {
+	return (*virtualGatewayListenerTlsPtrType)(v)
+}
+
+func (*virtualGatewayListenerTlsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayListenerTls)(nil)).Elem()
+}
+
+func (i *virtualGatewayListenerTlsPtrType) ToVirtualGatewayListenerTlsPtrOutput() VirtualGatewayListenerTlsPtrOutput {
+	return i.ToVirtualGatewayListenerTlsPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayListenerTlsPtrType) ToVirtualGatewayListenerTlsPtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsPtrOutput)
+}
+
+type VirtualGatewayListenerTlsOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayListenerTlsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayListenerTls)(nil)).Elem()
+}
+
+func (o VirtualGatewayListenerTlsOutput) ToVirtualGatewayListenerTlsOutput() VirtualGatewayListenerTlsOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerTlsOutput) ToVirtualGatewayListenerTlsOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerTlsOutput) ToVirtualGatewayListenerTlsPtrOutput() VirtualGatewayListenerTlsPtrOutput {
+	return o.ToVirtualGatewayListenerTlsPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayListenerTlsOutput) ToVirtualGatewayListenerTlsPtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayListenerTls) *VirtualGatewayListenerTls {
+		return &v
+	}).(VirtualGatewayListenerTlsPtrOutput)
+}
+
+func (o VirtualGatewayListenerTlsOutput) Certificate() VirtualGatewayListenerTlsCertificateOutput {
+	return o.ApplyT(func(v VirtualGatewayListenerTls) VirtualGatewayListenerTlsCertificate { return v.Certificate }).(VirtualGatewayListenerTlsCertificateOutput)
+}
+
+func (o VirtualGatewayListenerTlsOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewayListenerTls) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+func (o VirtualGatewayListenerTlsOutput) Validation() VirtualGatewayListenerTlsValidationContextPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayListenerTls) *VirtualGatewayListenerTlsValidationContext { return v.Validation }).(VirtualGatewayListenerTlsValidationContextPtrOutput)
+}
+
+type VirtualGatewayListenerTlsPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayListenerTlsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayListenerTls)(nil)).Elem()
+}
+
+func (o VirtualGatewayListenerTlsPtrOutput) ToVirtualGatewayListenerTlsPtrOutput() VirtualGatewayListenerTlsPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerTlsPtrOutput) ToVirtualGatewayListenerTlsPtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerTlsPtrOutput) Elem() VirtualGatewayListenerTlsOutput {
+	return o.ApplyT(func(v *VirtualGatewayListenerTls) VirtualGatewayListenerTls {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewayListenerTls
+		return ret
+	}).(VirtualGatewayListenerTlsOutput)
+}
+
+func (o VirtualGatewayListenerTlsPtrOutput) Certificate() VirtualGatewayListenerTlsCertificatePtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayListenerTls) *VirtualGatewayListenerTlsCertificate {
+		if v == nil {
+			return nil
+		}
+		return &v.Certificate
+	}).(VirtualGatewayListenerTlsCertificatePtrOutput)
+}
+
+func (o VirtualGatewayListenerTlsPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayListenerTls) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VirtualGatewayListenerTlsPtrOutput) Validation() VirtualGatewayListenerTlsValidationContextPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayListenerTls) *VirtualGatewayListenerTlsValidationContext {
+		if v == nil {
+			return nil
+		}
+		return v.Validation
+	}).(VirtualGatewayListenerTlsValidationContextPtrOutput)
+}
+
+type VirtualGatewayListenerTlsAcmCertificate struct {
+	CertificateArn string `pulumi:"certificateArn"`
+}
+
+// VirtualGatewayListenerTlsAcmCertificateInput is an input type that accepts VirtualGatewayListenerTlsAcmCertificateArgs and VirtualGatewayListenerTlsAcmCertificateOutput values.
+// You can construct a concrete instance of `VirtualGatewayListenerTlsAcmCertificateInput` via:
+//
+//          VirtualGatewayListenerTlsAcmCertificateArgs{...}
+type VirtualGatewayListenerTlsAcmCertificateInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayListenerTlsAcmCertificateOutput() VirtualGatewayListenerTlsAcmCertificateOutput
+	ToVirtualGatewayListenerTlsAcmCertificateOutputWithContext(context.Context) VirtualGatewayListenerTlsAcmCertificateOutput
+}
+
+type VirtualGatewayListenerTlsAcmCertificateArgs struct {
+	CertificateArn pulumi.StringInput `pulumi:"certificateArn"`
+}
+
+func (VirtualGatewayListenerTlsAcmCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayListenerTlsAcmCertificate)(nil)).Elem()
+}
+
+func (i VirtualGatewayListenerTlsAcmCertificateArgs) ToVirtualGatewayListenerTlsAcmCertificateOutput() VirtualGatewayListenerTlsAcmCertificateOutput {
+	return i.ToVirtualGatewayListenerTlsAcmCertificateOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayListenerTlsAcmCertificateArgs) ToVirtualGatewayListenerTlsAcmCertificateOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsAcmCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsAcmCertificateOutput)
+}
+
+func (i VirtualGatewayListenerTlsAcmCertificateArgs) ToVirtualGatewayListenerTlsAcmCertificatePtrOutput() VirtualGatewayListenerTlsAcmCertificatePtrOutput {
+	return i.ToVirtualGatewayListenerTlsAcmCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayListenerTlsAcmCertificateArgs) ToVirtualGatewayListenerTlsAcmCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsAcmCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsAcmCertificateOutput).ToVirtualGatewayListenerTlsAcmCertificatePtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayListenerTlsAcmCertificatePtrInput is an input type that accepts VirtualGatewayListenerTlsAcmCertificateArgs, VirtualGatewayListenerTlsAcmCertificatePtr and VirtualGatewayListenerTlsAcmCertificatePtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayListenerTlsAcmCertificatePtrInput` via:
+//
+//          VirtualGatewayListenerTlsAcmCertificateArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayListenerTlsAcmCertificatePtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayListenerTlsAcmCertificatePtrOutput() VirtualGatewayListenerTlsAcmCertificatePtrOutput
+	ToVirtualGatewayListenerTlsAcmCertificatePtrOutputWithContext(context.Context) VirtualGatewayListenerTlsAcmCertificatePtrOutput
+}
+
+type virtualGatewayListenerTlsAcmCertificatePtrType VirtualGatewayListenerTlsAcmCertificateArgs
+
+func VirtualGatewayListenerTlsAcmCertificatePtr(v *VirtualGatewayListenerTlsAcmCertificateArgs) VirtualGatewayListenerTlsAcmCertificatePtrInput {
+	return (*virtualGatewayListenerTlsAcmCertificatePtrType)(v)
+}
+
+func (*virtualGatewayListenerTlsAcmCertificatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayListenerTlsAcmCertificate)(nil)).Elem()
+}
+
+func (i *virtualGatewayListenerTlsAcmCertificatePtrType) ToVirtualGatewayListenerTlsAcmCertificatePtrOutput() VirtualGatewayListenerTlsAcmCertificatePtrOutput {
+	return i.ToVirtualGatewayListenerTlsAcmCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayListenerTlsAcmCertificatePtrType) ToVirtualGatewayListenerTlsAcmCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsAcmCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsAcmCertificatePtrOutput)
+}
+
+type VirtualGatewayListenerTlsAcmCertificateOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayListenerTlsAcmCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayListenerTlsAcmCertificate)(nil)).Elem()
+}
+
+func (o VirtualGatewayListenerTlsAcmCertificateOutput) ToVirtualGatewayListenerTlsAcmCertificateOutput() VirtualGatewayListenerTlsAcmCertificateOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerTlsAcmCertificateOutput) ToVirtualGatewayListenerTlsAcmCertificateOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsAcmCertificateOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerTlsAcmCertificateOutput) ToVirtualGatewayListenerTlsAcmCertificatePtrOutput() VirtualGatewayListenerTlsAcmCertificatePtrOutput {
+	return o.ToVirtualGatewayListenerTlsAcmCertificatePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayListenerTlsAcmCertificateOutput) ToVirtualGatewayListenerTlsAcmCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsAcmCertificatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayListenerTlsAcmCertificate) *VirtualGatewayListenerTlsAcmCertificate {
+		return &v
+	}).(VirtualGatewayListenerTlsAcmCertificatePtrOutput)
+}
+
+func (o VirtualGatewayListenerTlsAcmCertificateOutput) CertificateArn() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewayListenerTlsAcmCertificate) string { return v.CertificateArn }).(pulumi.StringOutput)
+}
+
+type VirtualGatewayListenerTlsAcmCertificatePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayListenerTlsAcmCertificatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayListenerTlsAcmCertificate)(nil)).Elem()
+}
+
+func (o VirtualGatewayListenerTlsAcmCertificatePtrOutput) ToVirtualGatewayListenerTlsAcmCertificatePtrOutput() VirtualGatewayListenerTlsAcmCertificatePtrOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerTlsAcmCertificatePtrOutput) ToVirtualGatewayListenerTlsAcmCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsAcmCertificatePtrOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerTlsAcmCertificatePtrOutput) Elem() VirtualGatewayListenerTlsAcmCertificateOutput {
+	return o.ApplyT(func(v *VirtualGatewayListenerTlsAcmCertificate) VirtualGatewayListenerTlsAcmCertificate {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewayListenerTlsAcmCertificate
+		return ret
+	}).(VirtualGatewayListenerTlsAcmCertificateOutput)
+}
+
+func (o VirtualGatewayListenerTlsAcmCertificatePtrOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayListenerTlsAcmCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type VirtualGatewayListenerTlsCertificate struct {
+	ACM  *VirtualGatewayListenerTlsAcmCertificate  `pulumi:"aCM"`
+	File *VirtualGatewayListenerTlsFileCertificate `pulumi:"file"`
+	SDS  *VirtualGatewayListenerTlsSdsCertificate  `pulumi:"sDS"`
+}
+
+// VirtualGatewayListenerTlsCertificateInput is an input type that accepts VirtualGatewayListenerTlsCertificateArgs and VirtualGatewayListenerTlsCertificateOutput values.
+// You can construct a concrete instance of `VirtualGatewayListenerTlsCertificateInput` via:
+//
+//          VirtualGatewayListenerTlsCertificateArgs{...}
+type VirtualGatewayListenerTlsCertificateInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayListenerTlsCertificateOutput() VirtualGatewayListenerTlsCertificateOutput
+	ToVirtualGatewayListenerTlsCertificateOutputWithContext(context.Context) VirtualGatewayListenerTlsCertificateOutput
+}
+
+type VirtualGatewayListenerTlsCertificateArgs struct {
+	ACM  VirtualGatewayListenerTlsAcmCertificatePtrInput  `pulumi:"aCM"`
+	File VirtualGatewayListenerTlsFileCertificatePtrInput `pulumi:"file"`
+	SDS  VirtualGatewayListenerTlsSdsCertificatePtrInput  `pulumi:"sDS"`
+}
+
+func (VirtualGatewayListenerTlsCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayListenerTlsCertificate)(nil)).Elem()
+}
+
+func (i VirtualGatewayListenerTlsCertificateArgs) ToVirtualGatewayListenerTlsCertificateOutput() VirtualGatewayListenerTlsCertificateOutput {
+	return i.ToVirtualGatewayListenerTlsCertificateOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayListenerTlsCertificateArgs) ToVirtualGatewayListenerTlsCertificateOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsCertificateOutput)
+}
+
+func (i VirtualGatewayListenerTlsCertificateArgs) ToVirtualGatewayListenerTlsCertificatePtrOutput() VirtualGatewayListenerTlsCertificatePtrOutput {
+	return i.ToVirtualGatewayListenerTlsCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayListenerTlsCertificateArgs) ToVirtualGatewayListenerTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsCertificateOutput).ToVirtualGatewayListenerTlsCertificatePtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayListenerTlsCertificatePtrInput is an input type that accepts VirtualGatewayListenerTlsCertificateArgs, VirtualGatewayListenerTlsCertificatePtr and VirtualGatewayListenerTlsCertificatePtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayListenerTlsCertificatePtrInput` via:
+//
+//          VirtualGatewayListenerTlsCertificateArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayListenerTlsCertificatePtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayListenerTlsCertificatePtrOutput() VirtualGatewayListenerTlsCertificatePtrOutput
+	ToVirtualGatewayListenerTlsCertificatePtrOutputWithContext(context.Context) VirtualGatewayListenerTlsCertificatePtrOutput
+}
+
+type virtualGatewayListenerTlsCertificatePtrType VirtualGatewayListenerTlsCertificateArgs
+
+func VirtualGatewayListenerTlsCertificatePtr(v *VirtualGatewayListenerTlsCertificateArgs) VirtualGatewayListenerTlsCertificatePtrInput {
+	return (*virtualGatewayListenerTlsCertificatePtrType)(v)
+}
+
+func (*virtualGatewayListenerTlsCertificatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayListenerTlsCertificate)(nil)).Elem()
+}
+
+func (i *virtualGatewayListenerTlsCertificatePtrType) ToVirtualGatewayListenerTlsCertificatePtrOutput() VirtualGatewayListenerTlsCertificatePtrOutput {
+	return i.ToVirtualGatewayListenerTlsCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayListenerTlsCertificatePtrType) ToVirtualGatewayListenerTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsCertificatePtrOutput)
+}
+
+type VirtualGatewayListenerTlsCertificateOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayListenerTlsCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayListenerTlsCertificate)(nil)).Elem()
+}
+
+func (o VirtualGatewayListenerTlsCertificateOutput) ToVirtualGatewayListenerTlsCertificateOutput() VirtualGatewayListenerTlsCertificateOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerTlsCertificateOutput) ToVirtualGatewayListenerTlsCertificateOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsCertificateOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerTlsCertificateOutput) ToVirtualGatewayListenerTlsCertificatePtrOutput() VirtualGatewayListenerTlsCertificatePtrOutput {
+	return o.ToVirtualGatewayListenerTlsCertificatePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayListenerTlsCertificateOutput) ToVirtualGatewayListenerTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsCertificatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayListenerTlsCertificate) *VirtualGatewayListenerTlsCertificate {
+		return &v
+	}).(VirtualGatewayListenerTlsCertificatePtrOutput)
+}
+
+func (o VirtualGatewayListenerTlsCertificateOutput) ACM() VirtualGatewayListenerTlsAcmCertificatePtrOutput {
+	return o.ApplyT(func(v VirtualGatewayListenerTlsCertificate) *VirtualGatewayListenerTlsAcmCertificate { return v.ACM }).(VirtualGatewayListenerTlsAcmCertificatePtrOutput)
+}
+
+func (o VirtualGatewayListenerTlsCertificateOutput) File() VirtualGatewayListenerTlsFileCertificatePtrOutput {
+	return o.ApplyT(func(v VirtualGatewayListenerTlsCertificate) *VirtualGatewayListenerTlsFileCertificate { return v.File }).(VirtualGatewayListenerTlsFileCertificatePtrOutput)
+}
+
+func (o VirtualGatewayListenerTlsCertificateOutput) SDS() VirtualGatewayListenerTlsSdsCertificatePtrOutput {
+	return o.ApplyT(func(v VirtualGatewayListenerTlsCertificate) *VirtualGatewayListenerTlsSdsCertificate { return v.SDS }).(VirtualGatewayListenerTlsSdsCertificatePtrOutput)
+}
+
+type VirtualGatewayListenerTlsCertificatePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayListenerTlsCertificatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayListenerTlsCertificate)(nil)).Elem()
+}
+
+func (o VirtualGatewayListenerTlsCertificatePtrOutput) ToVirtualGatewayListenerTlsCertificatePtrOutput() VirtualGatewayListenerTlsCertificatePtrOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerTlsCertificatePtrOutput) ToVirtualGatewayListenerTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsCertificatePtrOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerTlsCertificatePtrOutput) Elem() VirtualGatewayListenerTlsCertificateOutput {
+	return o.ApplyT(func(v *VirtualGatewayListenerTlsCertificate) VirtualGatewayListenerTlsCertificate {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewayListenerTlsCertificate
+		return ret
+	}).(VirtualGatewayListenerTlsCertificateOutput)
+}
+
+func (o VirtualGatewayListenerTlsCertificatePtrOutput) ACM() VirtualGatewayListenerTlsAcmCertificatePtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayListenerTlsCertificate) *VirtualGatewayListenerTlsAcmCertificate {
+		if v == nil {
+			return nil
+		}
+		return v.ACM
+	}).(VirtualGatewayListenerTlsAcmCertificatePtrOutput)
+}
+
+func (o VirtualGatewayListenerTlsCertificatePtrOutput) File() VirtualGatewayListenerTlsFileCertificatePtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayListenerTlsCertificate) *VirtualGatewayListenerTlsFileCertificate {
+		if v == nil {
+			return nil
+		}
+		return v.File
+	}).(VirtualGatewayListenerTlsFileCertificatePtrOutput)
+}
+
+func (o VirtualGatewayListenerTlsCertificatePtrOutput) SDS() VirtualGatewayListenerTlsSdsCertificatePtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayListenerTlsCertificate) *VirtualGatewayListenerTlsSdsCertificate {
+		if v == nil {
+			return nil
+		}
+		return v.SDS
+	}).(VirtualGatewayListenerTlsSdsCertificatePtrOutput)
+}
+
+type VirtualGatewayListenerTlsFileCertificate struct {
+	CertificateChain string `pulumi:"certificateChain"`
+	PrivateKey       string `pulumi:"privateKey"`
+}
+
+// VirtualGatewayListenerTlsFileCertificateInput is an input type that accepts VirtualGatewayListenerTlsFileCertificateArgs and VirtualGatewayListenerTlsFileCertificateOutput values.
+// You can construct a concrete instance of `VirtualGatewayListenerTlsFileCertificateInput` via:
+//
+//          VirtualGatewayListenerTlsFileCertificateArgs{...}
+type VirtualGatewayListenerTlsFileCertificateInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayListenerTlsFileCertificateOutput() VirtualGatewayListenerTlsFileCertificateOutput
+	ToVirtualGatewayListenerTlsFileCertificateOutputWithContext(context.Context) VirtualGatewayListenerTlsFileCertificateOutput
+}
+
+type VirtualGatewayListenerTlsFileCertificateArgs struct {
+	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
+	PrivateKey       pulumi.StringInput `pulumi:"privateKey"`
+}
+
+func (VirtualGatewayListenerTlsFileCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayListenerTlsFileCertificate)(nil)).Elem()
+}
+
+func (i VirtualGatewayListenerTlsFileCertificateArgs) ToVirtualGatewayListenerTlsFileCertificateOutput() VirtualGatewayListenerTlsFileCertificateOutput {
+	return i.ToVirtualGatewayListenerTlsFileCertificateOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayListenerTlsFileCertificateArgs) ToVirtualGatewayListenerTlsFileCertificateOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsFileCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsFileCertificateOutput)
+}
+
+func (i VirtualGatewayListenerTlsFileCertificateArgs) ToVirtualGatewayListenerTlsFileCertificatePtrOutput() VirtualGatewayListenerTlsFileCertificatePtrOutput {
+	return i.ToVirtualGatewayListenerTlsFileCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayListenerTlsFileCertificateArgs) ToVirtualGatewayListenerTlsFileCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsFileCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsFileCertificateOutput).ToVirtualGatewayListenerTlsFileCertificatePtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayListenerTlsFileCertificatePtrInput is an input type that accepts VirtualGatewayListenerTlsFileCertificateArgs, VirtualGatewayListenerTlsFileCertificatePtr and VirtualGatewayListenerTlsFileCertificatePtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayListenerTlsFileCertificatePtrInput` via:
+//
+//          VirtualGatewayListenerTlsFileCertificateArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayListenerTlsFileCertificatePtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayListenerTlsFileCertificatePtrOutput() VirtualGatewayListenerTlsFileCertificatePtrOutput
+	ToVirtualGatewayListenerTlsFileCertificatePtrOutputWithContext(context.Context) VirtualGatewayListenerTlsFileCertificatePtrOutput
+}
+
+type virtualGatewayListenerTlsFileCertificatePtrType VirtualGatewayListenerTlsFileCertificateArgs
+
+func VirtualGatewayListenerTlsFileCertificatePtr(v *VirtualGatewayListenerTlsFileCertificateArgs) VirtualGatewayListenerTlsFileCertificatePtrInput {
+	return (*virtualGatewayListenerTlsFileCertificatePtrType)(v)
+}
+
+func (*virtualGatewayListenerTlsFileCertificatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayListenerTlsFileCertificate)(nil)).Elem()
+}
+
+func (i *virtualGatewayListenerTlsFileCertificatePtrType) ToVirtualGatewayListenerTlsFileCertificatePtrOutput() VirtualGatewayListenerTlsFileCertificatePtrOutput {
+	return i.ToVirtualGatewayListenerTlsFileCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayListenerTlsFileCertificatePtrType) ToVirtualGatewayListenerTlsFileCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsFileCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsFileCertificatePtrOutput)
+}
+
+type VirtualGatewayListenerTlsFileCertificateOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayListenerTlsFileCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayListenerTlsFileCertificate)(nil)).Elem()
+}
+
+func (o VirtualGatewayListenerTlsFileCertificateOutput) ToVirtualGatewayListenerTlsFileCertificateOutput() VirtualGatewayListenerTlsFileCertificateOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerTlsFileCertificateOutput) ToVirtualGatewayListenerTlsFileCertificateOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsFileCertificateOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerTlsFileCertificateOutput) ToVirtualGatewayListenerTlsFileCertificatePtrOutput() VirtualGatewayListenerTlsFileCertificatePtrOutput {
+	return o.ToVirtualGatewayListenerTlsFileCertificatePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayListenerTlsFileCertificateOutput) ToVirtualGatewayListenerTlsFileCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsFileCertificatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayListenerTlsFileCertificate) *VirtualGatewayListenerTlsFileCertificate {
+		return &v
+	}).(VirtualGatewayListenerTlsFileCertificatePtrOutput)
+}
+
+func (o VirtualGatewayListenerTlsFileCertificateOutput) CertificateChain() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewayListenerTlsFileCertificate) string { return v.CertificateChain }).(pulumi.StringOutput)
+}
+
+func (o VirtualGatewayListenerTlsFileCertificateOutput) PrivateKey() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewayListenerTlsFileCertificate) string { return v.PrivateKey }).(pulumi.StringOutput)
+}
+
+type VirtualGatewayListenerTlsFileCertificatePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayListenerTlsFileCertificatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayListenerTlsFileCertificate)(nil)).Elem()
+}
+
+func (o VirtualGatewayListenerTlsFileCertificatePtrOutput) ToVirtualGatewayListenerTlsFileCertificatePtrOutput() VirtualGatewayListenerTlsFileCertificatePtrOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerTlsFileCertificatePtrOutput) ToVirtualGatewayListenerTlsFileCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsFileCertificatePtrOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerTlsFileCertificatePtrOutput) Elem() VirtualGatewayListenerTlsFileCertificateOutput {
+	return o.ApplyT(func(v *VirtualGatewayListenerTlsFileCertificate) VirtualGatewayListenerTlsFileCertificate {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewayListenerTlsFileCertificate
+		return ret
+	}).(VirtualGatewayListenerTlsFileCertificateOutput)
+}
+
+func (o VirtualGatewayListenerTlsFileCertificatePtrOutput) CertificateChain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayListenerTlsFileCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CertificateChain
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VirtualGatewayListenerTlsFileCertificatePtrOutput) PrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayListenerTlsFileCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrivateKey
+	}).(pulumi.StringPtrOutput)
+}
+
+type VirtualGatewayListenerTlsSdsCertificate struct {
+	SecretName string `pulumi:"secretName"`
+}
+
+// VirtualGatewayListenerTlsSdsCertificateInput is an input type that accepts VirtualGatewayListenerTlsSdsCertificateArgs and VirtualGatewayListenerTlsSdsCertificateOutput values.
+// You can construct a concrete instance of `VirtualGatewayListenerTlsSdsCertificateInput` via:
+//
+//          VirtualGatewayListenerTlsSdsCertificateArgs{...}
+type VirtualGatewayListenerTlsSdsCertificateInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayListenerTlsSdsCertificateOutput() VirtualGatewayListenerTlsSdsCertificateOutput
+	ToVirtualGatewayListenerTlsSdsCertificateOutputWithContext(context.Context) VirtualGatewayListenerTlsSdsCertificateOutput
+}
+
+type VirtualGatewayListenerTlsSdsCertificateArgs struct {
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+}
+
+func (VirtualGatewayListenerTlsSdsCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayListenerTlsSdsCertificate)(nil)).Elem()
+}
+
+func (i VirtualGatewayListenerTlsSdsCertificateArgs) ToVirtualGatewayListenerTlsSdsCertificateOutput() VirtualGatewayListenerTlsSdsCertificateOutput {
+	return i.ToVirtualGatewayListenerTlsSdsCertificateOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayListenerTlsSdsCertificateArgs) ToVirtualGatewayListenerTlsSdsCertificateOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsSdsCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsSdsCertificateOutput)
+}
+
+func (i VirtualGatewayListenerTlsSdsCertificateArgs) ToVirtualGatewayListenerTlsSdsCertificatePtrOutput() VirtualGatewayListenerTlsSdsCertificatePtrOutput {
+	return i.ToVirtualGatewayListenerTlsSdsCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayListenerTlsSdsCertificateArgs) ToVirtualGatewayListenerTlsSdsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsSdsCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsSdsCertificateOutput).ToVirtualGatewayListenerTlsSdsCertificatePtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayListenerTlsSdsCertificatePtrInput is an input type that accepts VirtualGatewayListenerTlsSdsCertificateArgs, VirtualGatewayListenerTlsSdsCertificatePtr and VirtualGatewayListenerTlsSdsCertificatePtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayListenerTlsSdsCertificatePtrInput` via:
+//
+//          VirtualGatewayListenerTlsSdsCertificateArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayListenerTlsSdsCertificatePtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayListenerTlsSdsCertificatePtrOutput() VirtualGatewayListenerTlsSdsCertificatePtrOutput
+	ToVirtualGatewayListenerTlsSdsCertificatePtrOutputWithContext(context.Context) VirtualGatewayListenerTlsSdsCertificatePtrOutput
+}
+
+type virtualGatewayListenerTlsSdsCertificatePtrType VirtualGatewayListenerTlsSdsCertificateArgs
+
+func VirtualGatewayListenerTlsSdsCertificatePtr(v *VirtualGatewayListenerTlsSdsCertificateArgs) VirtualGatewayListenerTlsSdsCertificatePtrInput {
+	return (*virtualGatewayListenerTlsSdsCertificatePtrType)(v)
+}
+
+func (*virtualGatewayListenerTlsSdsCertificatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayListenerTlsSdsCertificate)(nil)).Elem()
+}
+
+func (i *virtualGatewayListenerTlsSdsCertificatePtrType) ToVirtualGatewayListenerTlsSdsCertificatePtrOutput() VirtualGatewayListenerTlsSdsCertificatePtrOutput {
+	return i.ToVirtualGatewayListenerTlsSdsCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayListenerTlsSdsCertificatePtrType) ToVirtualGatewayListenerTlsSdsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsSdsCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsSdsCertificatePtrOutput)
+}
+
+type VirtualGatewayListenerTlsSdsCertificateOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayListenerTlsSdsCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayListenerTlsSdsCertificate)(nil)).Elem()
+}
+
+func (o VirtualGatewayListenerTlsSdsCertificateOutput) ToVirtualGatewayListenerTlsSdsCertificateOutput() VirtualGatewayListenerTlsSdsCertificateOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerTlsSdsCertificateOutput) ToVirtualGatewayListenerTlsSdsCertificateOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsSdsCertificateOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerTlsSdsCertificateOutput) ToVirtualGatewayListenerTlsSdsCertificatePtrOutput() VirtualGatewayListenerTlsSdsCertificatePtrOutput {
+	return o.ToVirtualGatewayListenerTlsSdsCertificatePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayListenerTlsSdsCertificateOutput) ToVirtualGatewayListenerTlsSdsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsSdsCertificatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayListenerTlsSdsCertificate) *VirtualGatewayListenerTlsSdsCertificate {
+		return &v
+	}).(VirtualGatewayListenerTlsSdsCertificatePtrOutput)
+}
+
+func (o VirtualGatewayListenerTlsSdsCertificateOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewayListenerTlsSdsCertificate) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+type VirtualGatewayListenerTlsSdsCertificatePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayListenerTlsSdsCertificatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayListenerTlsSdsCertificate)(nil)).Elem()
+}
+
+func (o VirtualGatewayListenerTlsSdsCertificatePtrOutput) ToVirtualGatewayListenerTlsSdsCertificatePtrOutput() VirtualGatewayListenerTlsSdsCertificatePtrOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerTlsSdsCertificatePtrOutput) ToVirtualGatewayListenerTlsSdsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsSdsCertificatePtrOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerTlsSdsCertificatePtrOutput) Elem() VirtualGatewayListenerTlsSdsCertificateOutput {
+	return o.ApplyT(func(v *VirtualGatewayListenerTlsSdsCertificate) VirtualGatewayListenerTlsSdsCertificate {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewayListenerTlsSdsCertificate
+		return ret
+	}).(VirtualGatewayListenerTlsSdsCertificateOutput)
+}
+
+func (o VirtualGatewayListenerTlsSdsCertificatePtrOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayListenerTlsSdsCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretName
+	}).(pulumi.StringPtrOutput)
+}
+
+type VirtualGatewayListenerTlsValidationContext struct {
+	SubjectAlternativeNames *VirtualGatewaySubjectAlternativeNames          `pulumi:"subjectAlternativeNames"`
+	Trust                   VirtualGatewayListenerTlsValidationContextTrust `pulumi:"trust"`
+}
+
+// VirtualGatewayListenerTlsValidationContextInput is an input type that accepts VirtualGatewayListenerTlsValidationContextArgs and VirtualGatewayListenerTlsValidationContextOutput values.
+// You can construct a concrete instance of `VirtualGatewayListenerTlsValidationContextInput` via:
+//
+//          VirtualGatewayListenerTlsValidationContextArgs{...}
+type VirtualGatewayListenerTlsValidationContextInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayListenerTlsValidationContextOutput() VirtualGatewayListenerTlsValidationContextOutput
+	ToVirtualGatewayListenerTlsValidationContextOutputWithContext(context.Context) VirtualGatewayListenerTlsValidationContextOutput
+}
+
+type VirtualGatewayListenerTlsValidationContextArgs struct {
+	SubjectAlternativeNames VirtualGatewaySubjectAlternativeNamesPtrInput        `pulumi:"subjectAlternativeNames"`
+	Trust                   VirtualGatewayListenerTlsValidationContextTrustInput `pulumi:"trust"`
+}
+
+func (VirtualGatewayListenerTlsValidationContextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayListenerTlsValidationContext)(nil)).Elem()
+}
+
+func (i VirtualGatewayListenerTlsValidationContextArgs) ToVirtualGatewayListenerTlsValidationContextOutput() VirtualGatewayListenerTlsValidationContextOutput {
+	return i.ToVirtualGatewayListenerTlsValidationContextOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayListenerTlsValidationContextArgs) ToVirtualGatewayListenerTlsValidationContextOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsValidationContextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsValidationContextOutput)
+}
+
+func (i VirtualGatewayListenerTlsValidationContextArgs) ToVirtualGatewayListenerTlsValidationContextPtrOutput() VirtualGatewayListenerTlsValidationContextPtrOutput {
+	return i.ToVirtualGatewayListenerTlsValidationContextPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayListenerTlsValidationContextArgs) ToVirtualGatewayListenerTlsValidationContextPtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsValidationContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsValidationContextOutput).ToVirtualGatewayListenerTlsValidationContextPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayListenerTlsValidationContextPtrInput is an input type that accepts VirtualGatewayListenerTlsValidationContextArgs, VirtualGatewayListenerTlsValidationContextPtr and VirtualGatewayListenerTlsValidationContextPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayListenerTlsValidationContextPtrInput` via:
+//
+//          VirtualGatewayListenerTlsValidationContextArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayListenerTlsValidationContextPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayListenerTlsValidationContextPtrOutput() VirtualGatewayListenerTlsValidationContextPtrOutput
+	ToVirtualGatewayListenerTlsValidationContextPtrOutputWithContext(context.Context) VirtualGatewayListenerTlsValidationContextPtrOutput
+}
+
+type virtualGatewayListenerTlsValidationContextPtrType VirtualGatewayListenerTlsValidationContextArgs
+
+func VirtualGatewayListenerTlsValidationContextPtr(v *VirtualGatewayListenerTlsValidationContextArgs) VirtualGatewayListenerTlsValidationContextPtrInput {
+	return (*virtualGatewayListenerTlsValidationContextPtrType)(v)
+}
+
+func (*virtualGatewayListenerTlsValidationContextPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayListenerTlsValidationContext)(nil)).Elem()
+}
+
+func (i *virtualGatewayListenerTlsValidationContextPtrType) ToVirtualGatewayListenerTlsValidationContextPtrOutput() VirtualGatewayListenerTlsValidationContextPtrOutput {
+	return i.ToVirtualGatewayListenerTlsValidationContextPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayListenerTlsValidationContextPtrType) ToVirtualGatewayListenerTlsValidationContextPtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsValidationContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsValidationContextPtrOutput)
+}
+
+type VirtualGatewayListenerTlsValidationContextOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayListenerTlsValidationContextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayListenerTlsValidationContext)(nil)).Elem()
+}
+
+func (o VirtualGatewayListenerTlsValidationContextOutput) ToVirtualGatewayListenerTlsValidationContextOutput() VirtualGatewayListenerTlsValidationContextOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerTlsValidationContextOutput) ToVirtualGatewayListenerTlsValidationContextOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsValidationContextOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerTlsValidationContextOutput) ToVirtualGatewayListenerTlsValidationContextPtrOutput() VirtualGatewayListenerTlsValidationContextPtrOutput {
+	return o.ToVirtualGatewayListenerTlsValidationContextPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayListenerTlsValidationContextOutput) ToVirtualGatewayListenerTlsValidationContextPtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsValidationContextPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayListenerTlsValidationContext) *VirtualGatewayListenerTlsValidationContext {
+		return &v
+	}).(VirtualGatewayListenerTlsValidationContextPtrOutput)
+}
+
+func (o VirtualGatewayListenerTlsValidationContextOutput) SubjectAlternativeNames() VirtualGatewaySubjectAlternativeNamesPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayListenerTlsValidationContext) *VirtualGatewaySubjectAlternativeNames {
+		return v.SubjectAlternativeNames
+	}).(VirtualGatewaySubjectAlternativeNamesPtrOutput)
+}
+
+func (o VirtualGatewayListenerTlsValidationContextOutput) Trust() VirtualGatewayListenerTlsValidationContextTrustOutput {
+	return o.ApplyT(func(v VirtualGatewayListenerTlsValidationContext) VirtualGatewayListenerTlsValidationContextTrust {
+		return v.Trust
+	}).(VirtualGatewayListenerTlsValidationContextTrustOutput)
+}
+
+type VirtualGatewayListenerTlsValidationContextPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayListenerTlsValidationContextPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayListenerTlsValidationContext)(nil)).Elem()
+}
+
+func (o VirtualGatewayListenerTlsValidationContextPtrOutput) ToVirtualGatewayListenerTlsValidationContextPtrOutput() VirtualGatewayListenerTlsValidationContextPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerTlsValidationContextPtrOutput) ToVirtualGatewayListenerTlsValidationContextPtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsValidationContextPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerTlsValidationContextPtrOutput) Elem() VirtualGatewayListenerTlsValidationContextOutput {
+	return o.ApplyT(func(v *VirtualGatewayListenerTlsValidationContext) VirtualGatewayListenerTlsValidationContext {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewayListenerTlsValidationContext
+		return ret
+	}).(VirtualGatewayListenerTlsValidationContextOutput)
+}
+
+func (o VirtualGatewayListenerTlsValidationContextPtrOutput) SubjectAlternativeNames() VirtualGatewaySubjectAlternativeNamesPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayListenerTlsValidationContext) *VirtualGatewaySubjectAlternativeNames {
+		if v == nil {
+			return nil
+		}
+		return v.SubjectAlternativeNames
+	}).(VirtualGatewaySubjectAlternativeNamesPtrOutput)
+}
+
+func (o VirtualGatewayListenerTlsValidationContextPtrOutput) Trust() VirtualGatewayListenerTlsValidationContextTrustPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayListenerTlsValidationContext) *VirtualGatewayListenerTlsValidationContextTrust {
+		if v == nil {
+			return nil
+		}
+		return &v.Trust
+	}).(VirtualGatewayListenerTlsValidationContextTrustPtrOutput)
+}
+
+type VirtualGatewayListenerTlsValidationContextTrust struct {
+	File *VirtualGatewayTlsValidationContextFileTrust `pulumi:"file"`
+	SDS  *VirtualGatewayTlsValidationContextSdsTrust  `pulumi:"sDS"`
+}
+
+// VirtualGatewayListenerTlsValidationContextTrustInput is an input type that accepts VirtualGatewayListenerTlsValidationContextTrustArgs and VirtualGatewayListenerTlsValidationContextTrustOutput values.
+// You can construct a concrete instance of `VirtualGatewayListenerTlsValidationContextTrustInput` via:
+//
+//          VirtualGatewayListenerTlsValidationContextTrustArgs{...}
+type VirtualGatewayListenerTlsValidationContextTrustInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayListenerTlsValidationContextTrustOutput() VirtualGatewayListenerTlsValidationContextTrustOutput
+	ToVirtualGatewayListenerTlsValidationContextTrustOutputWithContext(context.Context) VirtualGatewayListenerTlsValidationContextTrustOutput
+}
+
+type VirtualGatewayListenerTlsValidationContextTrustArgs struct {
+	File VirtualGatewayTlsValidationContextFileTrustPtrInput `pulumi:"file"`
+	SDS  VirtualGatewayTlsValidationContextSdsTrustPtrInput  `pulumi:"sDS"`
+}
+
+func (VirtualGatewayListenerTlsValidationContextTrustArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayListenerTlsValidationContextTrust)(nil)).Elem()
+}
+
+func (i VirtualGatewayListenerTlsValidationContextTrustArgs) ToVirtualGatewayListenerTlsValidationContextTrustOutput() VirtualGatewayListenerTlsValidationContextTrustOutput {
+	return i.ToVirtualGatewayListenerTlsValidationContextTrustOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayListenerTlsValidationContextTrustArgs) ToVirtualGatewayListenerTlsValidationContextTrustOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsValidationContextTrustOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsValidationContextTrustOutput)
+}
+
+func (i VirtualGatewayListenerTlsValidationContextTrustArgs) ToVirtualGatewayListenerTlsValidationContextTrustPtrOutput() VirtualGatewayListenerTlsValidationContextTrustPtrOutput {
+	return i.ToVirtualGatewayListenerTlsValidationContextTrustPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayListenerTlsValidationContextTrustArgs) ToVirtualGatewayListenerTlsValidationContextTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsValidationContextTrustPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsValidationContextTrustOutput).ToVirtualGatewayListenerTlsValidationContextTrustPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayListenerTlsValidationContextTrustPtrInput is an input type that accepts VirtualGatewayListenerTlsValidationContextTrustArgs, VirtualGatewayListenerTlsValidationContextTrustPtr and VirtualGatewayListenerTlsValidationContextTrustPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayListenerTlsValidationContextTrustPtrInput` via:
+//
+//          VirtualGatewayListenerTlsValidationContextTrustArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayListenerTlsValidationContextTrustPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayListenerTlsValidationContextTrustPtrOutput() VirtualGatewayListenerTlsValidationContextTrustPtrOutput
+	ToVirtualGatewayListenerTlsValidationContextTrustPtrOutputWithContext(context.Context) VirtualGatewayListenerTlsValidationContextTrustPtrOutput
+}
+
+type virtualGatewayListenerTlsValidationContextTrustPtrType VirtualGatewayListenerTlsValidationContextTrustArgs
+
+func VirtualGatewayListenerTlsValidationContextTrustPtr(v *VirtualGatewayListenerTlsValidationContextTrustArgs) VirtualGatewayListenerTlsValidationContextTrustPtrInput {
+	return (*virtualGatewayListenerTlsValidationContextTrustPtrType)(v)
+}
+
+func (*virtualGatewayListenerTlsValidationContextTrustPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayListenerTlsValidationContextTrust)(nil)).Elem()
+}
+
+func (i *virtualGatewayListenerTlsValidationContextTrustPtrType) ToVirtualGatewayListenerTlsValidationContextTrustPtrOutput() VirtualGatewayListenerTlsValidationContextTrustPtrOutput {
+	return i.ToVirtualGatewayListenerTlsValidationContextTrustPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayListenerTlsValidationContextTrustPtrType) ToVirtualGatewayListenerTlsValidationContextTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsValidationContextTrustPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayListenerTlsValidationContextTrustPtrOutput)
+}
+
+type VirtualGatewayListenerTlsValidationContextTrustOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayListenerTlsValidationContextTrustOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayListenerTlsValidationContextTrust)(nil)).Elem()
+}
+
+func (o VirtualGatewayListenerTlsValidationContextTrustOutput) ToVirtualGatewayListenerTlsValidationContextTrustOutput() VirtualGatewayListenerTlsValidationContextTrustOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerTlsValidationContextTrustOutput) ToVirtualGatewayListenerTlsValidationContextTrustOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsValidationContextTrustOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerTlsValidationContextTrustOutput) ToVirtualGatewayListenerTlsValidationContextTrustPtrOutput() VirtualGatewayListenerTlsValidationContextTrustPtrOutput {
+	return o.ToVirtualGatewayListenerTlsValidationContextTrustPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayListenerTlsValidationContextTrustOutput) ToVirtualGatewayListenerTlsValidationContextTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsValidationContextTrustPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayListenerTlsValidationContextTrust) *VirtualGatewayListenerTlsValidationContextTrust {
+		return &v
+	}).(VirtualGatewayListenerTlsValidationContextTrustPtrOutput)
+}
+
+func (o VirtualGatewayListenerTlsValidationContextTrustOutput) File() VirtualGatewayTlsValidationContextFileTrustPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayListenerTlsValidationContextTrust) *VirtualGatewayTlsValidationContextFileTrust {
+		return v.File
+	}).(VirtualGatewayTlsValidationContextFileTrustPtrOutput)
+}
+
+func (o VirtualGatewayListenerTlsValidationContextTrustOutput) SDS() VirtualGatewayTlsValidationContextSdsTrustPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayListenerTlsValidationContextTrust) *VirtualGatewayTlsValidationContextSdsTrust {
+		return v.SDS
+	}).(VirtualGatewayTlsValidationContextSdsTrustPtrOutput)
+}
+
+type VirtualGatewayListenerTlsValidationContextTrustPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayListenerTlsValidationContextTrustPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayListenerTlsValidationContextTrust)(nil)).Elem()
+}
+
+func (o VirtualGatewayListenerTlsValidationContextTrustPtrOutput) ToVirtualGatewayListenerTlsValidationContextTrustPtrOutput() VirtualGatewayListenerTlsValidationContextTrustPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerTlsValidationContextTrustPtrOutput) ToVirtualGatewayListenerTlsValidationContextTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayListenerTlsValidationContextTrustPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayListenerTlsValidationContextTrustPtrOutput) Elem() VirtualGatewayListenerTlsValidationContextTrustOutput {
+	return o.ApplyT(func(v *VirtualGatewayListenerTlsValidationContextTrust) VirtualGatewayListenerTlsValidationContextTrust {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewayListenerTlsValidationContextTrust
+		return ret
+	}).(VirtualGatewayListenerTlsValidationContextTrustOutput)
+}
+
+func (o VirtualGatewayListenerTlsValidationContextTrustPtrOutput) File() VirtualGatewayTlsValidationContextFileTrustPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayListenerTlsValidationContextTrust) *VirtualGatewayTlsValidationContextFileTrust {
+		if v == nil {
+			return nil
+		}
+		return v.File
+	}).(VirtualGatewayTlsValidationContextFileTrustPtrOutput)
+}
+
+func (o VirtualGatewayListenerTlsValidationContextTrustPtrOutput) SDS() VirtualGatewayTlsValidationContextSdsTrustPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayListenerTlsValidationContextTrust) *VirtualGatewayTlsValidationContextSdsTrust {
+		if v == nil {
+			return nil
+		}
+		return v.SDS
+	}).(VirtualGatewayTlsValidationContextSdsTrustPtrOutput)
+}
+
+type VirtualGatewayLogging struct {
+	AccessLog *VirtualGatewayAccessLog `pulumi:"accessLog"`
+}
+
+// VirtualGatewayLoggingInput is an input type that accepts VirtualGatewayLoggingArgs and VirtualGatewayLoggingOutput values.
+// You can construct a concrete instance of `VirtualGatewayLoggingInput` via:
+//
+//          VirtualGatewayLoggingArgs{...}
+type VirtualGatewayLoggingInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayLoggingOutput() VirtualGatewayLoggingOutput
+	ToVirtualGatewayLoggingOutputWithContext(context.Context) VirtualGatewayLoggingOutput
+}
+
+type VirtualGatewayLoggingArgs struct {
+	AccessLog VirtualGatewayAccessLogPtrInput `pulumi:"accessLog"`
+}
+
+func (VirtualGatewayLoggingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayLogging)(nil)).Elem()
+}
+
+func (i VirtualGatewayLoggingArgs) ToVirtualGatewayLoggingOutput() VirtualGatewayLoggingOutput {
+	return i.ToVirtualGatewayLoggingOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayLoggingArgs) ToVirtualGatewayLoggingOutputWithContext(ctx context.Context) VirtualGatewayLoggingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayLoggingOutput)
+}
+
+func (i VirtualGatewayLoggingArgs) ToVirtualGatewayLoggingPtrOutput() VirtualGatewayLoggingPtrOutput {
+	return i.ToVirtualGatewayLoggingPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayLoggingArgs) ToVirtualGatewayLoggingPtrOutputWithContext(ctx context.Context) VirtualGatewayLoggingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayLoggingOutput).ToVirtualGatewayLoggingPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewayLoggingPtrInput is an input type that accepts VirtualGatewayLoggingArgs, VirtualGatewayLoggingPtr and VirtualGatewayLoggingPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayLoggingPtrInput` via:
+//
+//          VirtualGatewayLoggingArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewayLoggingPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayLoggingPtrOutput() VirtualGatewayLoggingPtrOutput
+	ToVirtualGatewayLoggingPtrOutputWithContext(context.Context) VirtualGatewayLoggingPtrOutput
+}
+
+type virtualGatewayLoggingPtrType VirtualGatewayLoggingArgs
+
+func VirtualGatewayLoggingPtr(v *VirtualGatewayLoggingArgs) VirtualGatewayLoggingPtrInput {
+	return (*virtualGatewayLoggingPtrType)(v)
+}
+
+func (*virtualGatewayLoggingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayLogging)(nil)).Elem()
+}
+
+func (i *virtualGatewayLoggingPtrType) ToVirtualGatewayLoggingPtrOutput() VirtualGatewayLoggingPtrOutput {
+	return i.ToVirtualGatewayLoggingPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewayLoggingPtrType) ToVirtualGatewayLoggingPtrOutputWithContext(ctx context.Context) VirtualGatewayLoggingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayLoggingPtrOutput)
+}
+
+type VirtualGatewayLoggingOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayLoggingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayLogging)(nil)).Elem()
+}
+
+func (o VirtualGatewayLoggingOutput) ToVirtualGatewayLoggingOutput() VirtualGatewayLoggingOutput {
+	return o
+}
+
+func (o VirtualGatewayLoggingOutput) ToVirtualGatewayLoggingOutputWithContext(ctx context.Context) VirtualGatewayLoggingOutput {
+	return o
+}
+
+func (o VirtualGatewayLoggingOutput) ToVirtualGatewayLoggingPtrOutput() VirtualGatewayLoggingPtrOutput {
+	return o.ToVirtualGatewayLoggingPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewayLoggingOutput) ToVirtualGatewayLoggingPtrOutputWithContext(ctx context.Context) VirtualGatewayLoggingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayLogging) *VirtualGatewayLogging {
+		return &v
+	}).(VirtualGatewayLoggingPtrOutput)
+}
+
+func (o VirtualGatewayLoggingOutput) AccessLog() VirtualGatewayAccessLogPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayLogging) *VirtualGatewayAccessLog { return v.AccessLog }).(VirtualGatewayAccessLogPtrOutput)
+}
+
+type VirtualGatewayLoggingPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayLoggingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayLogging)(nil)).Elem()
+}
+
+func (o VirtualGatewayLoggingPtrOutput) ToVirtualGatewayLoggingPtrOutput() VirtualGatewayLoggingPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayLoggingPtrOutput) ToVirtualGatewayLoggingPtrOutputWithContext(ctx context.Context) VirtualGatewayLoggingPtrOutput {
+	return o
+}
+
+func (o VirtualGatewayLoggingPtrOutput) Elem() VirtualGatewayLoggingOutput {
+	return o.ApplyT(func(v *VirtualGatewayLogging) VirtualGatewayLogging {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewayLogging
+		return ret
+	}).(VirtualGatewayLoggingOutput)
+}
+
+func (o VirtualGatewayLoggingPtrOutput) AccessLog() VirtualGatewayAccessLogPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayLogging) *VirtualGatewayAccessLog {
+		if v == nil {
+			return nil
+		}
+		return v.AccessLog
+	}).(VirtualGatewayAccessLogPtrOutput)
+}
+
+type VirtualGatewayPortMapping struct {
+	Port     int    `pulumi:"port"`
+	Protocol string `pulumi:"protocol"`
+}
+
+// VirtualGatewayPortMappingInput is an input type that accepts VirtualGatewayPortMappingArgs and VirtualGatewayPortMappingOutput values.
+// You can construct a concrete instance of `VirtualGatewayPortMappingInput` via:
+//
+//          VirtualGatewayPortMappingArgs{...}
+type VirtualGatewayPortMappingInput interface {
+	pulumi.Input
+
+	ToVirtualGatewayPortMappingOutput() VirtualGatewayPortMappingOutput
+	ToVirtualGatewayPortMappingOutputWithContext(context.Context) VirtualGatewayPortMappingOutput
+}
+
+type VirtualGatewayPortMappingArgs struct {
+	Port     pulumi.IntInput    `pulumi:"port"`
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+}
+
+func (VirtualGatewayPortMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayPortMapping)(nil)).Elem()
+}
+
+func (i VirtualGatewayPortMappingArgs) ToVirtualGatewayPortMappingOutput() VirtualGatewayPortMappingOutput {
+	return i.ToVirtualGatewayPortMappingOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewayPortMappingArgs) ToVirtualGatewayPortMappingOutputWithContext(ctx context.Context) VirtualGatewayPortMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayPortMappingOutput)
+}
+
+type VirtualGatewayPortMappingOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewayPortMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayPortMapping)(nil)).Elem()
+}
+
+func (o VirtualGatewayPortMappingOutput) ToVirtualGatewayPortMappingOutput() VirtualGatewayPortMappingOutput {
+	return o
+}
+
+func (o VirtualGatewayPortMappingOutput) ToVirtualGatewayPortMappingOutputWithContext(ctx context.Context) VirtualGatewayPortMappingOutput {
+	return o
+}
+
+func (o VirtualGatewayPortMappingOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualGatewayPortMapping) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o VirtualGatewayPortMappingOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewayPortMapping) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+type VirtualGatewaySpec struct {
+	BackendDefaults *VirtualGatewayBackendDefaults `pulumi:"backendDefaults"`
+	Listeners       []VirtualGatewayListener       `pulumi:"listeners"`
+	Logging         *VirtualGatewayLogging         `pulumi:"logging"`
+}
+
+// VirtualGatewaySpecInput is an input type that accepts VirtualGatewaySpecArgs and VirtualGatewaySpecOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecInput` via:
+//
+//          VirtualGatewaySpecArgs{...}
+type VirtualGatewaySpecInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecOutput() VirtualGatewaySpecOutput
+	ToVirtualGatewaySpecOutputWithContext(context.Context) VirtualGatewaySpecOutput
+}
+
+type VirtualGatewaySpecArgs struct {
+	BackendDefaults VirtualGatewayBackendDefaultsPtrInput `pulumi:"backendDefaults"`
+	Listeners       VirtualGatewayListenerArrayInput      `pulumi:"listeners"`
+	Logging         VirtualGatewayLoggingPtrInput         `pulumi:"logging"`
+}
+
+func (VirtualGatewaySpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpec)(nil)).Elem()
+}
+
+func (i VirtualGatewaySpecArgs) ToVirtualGatewaySpecOutput() VirtualGatewaySpecOutput {
+	return i.ToVirtualGatewaySpecOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecArgs) ToVirtualGatewaySpecOutputWithContext(ctx context.Context) VirtualGatewaySpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecOutput)
+}
+
+func (i VirtualGatewaySpecArgs) ToVirtualGatewaySpecPtrOutput() VirtualGatewaySpecPtrOutput {
+	return i.ToVirtualGatewaySpecPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualGatewaySpecArgs) ToVirtualGatewaySpecPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecOutput).ToVirtualGatewaySpecPtrOutputWithContext(ctx)
+}
+
+// VirtualGatewaySpecPtrInput is an input type that accepts VirtualGatewaySpecArgs, VirtualGatewaySpecPtr and VirtualGatewaySpecPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecPtrInput` via:
+//
+//          VirtualGatewaySpecArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualGatewaySpecPtrInput interface {
+	pulumi.Input
+
+	ToVirtualGatewaySpecPtrOutput() VirtualGatewaySpecPtrOutput
+	ToVirtualGatewaySpecPtrOutputWithContext(context.Context) VirtualGatewaySpecPtrOutput
+}
+
+type virtualGatewaySpecPtrType VirtualGatewaySpecArgs
+
+func VirtualGatewaySpecPtr(v *VirtualGatewaySpecArgs) VirtualGatewaySpecPtrInput {
+	return (*virtualGatewaySpecPtrType)(v)
+}
+
+func (*virtualGatewaySpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpec)(nil)).Elem()
+}
+
+func (i *virtualGatewaySpecPtrType) ToVirtualGatewaySpecPtrOutput() VirtualGatewaySpecPtrOutput {
+	return i.ToVirtualGatewaySpecPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualGatewaySpecPtrType) ToVirtualGatewaySpecPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecPtrOutput)
+}
+
+type VirtualGatewaySpecOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewaySpec)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecOutput) ToVirtualGatewaySpecOutput() VirtualGatewaySpecOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecOutput) ToVirtualGatewaySpecOutputWithContext(ctx context.Context) VirtualGatewaySpecOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecOutput) ToVirtualGatewaySpecPtrOutput() VirtualGatewaySpecPtrOutput {
+	return o.ToVirtualGatewaySpecPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualGatewaySpecOutput) ToVirtualGatewaySpecPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpec) *VirtualGatewaySpec {
+		return &v
+	}).(VirtualGatewaySpecPtrOutput)
+}
+
+func (o VirtualGatewaySpecOutput) BackendDefaults() VirtualGatewayBackendDefaultsPtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpec) *VirtualGatewayBackendDefaults { return v.BackendDefaults }).(VirtualGatewayBackendDefaultsPtrOutput)
+}
+
+func (o VirtualGatewaySpecOutput) Listeners() VirtualGatewayListenerArrayOutput {
+	return o.ApplyT(func(v VirtualGatewaySpec) []VirtualGatewayListener { return v.Listeners }).(VirtualGatewayListenerArrayOutput)
+}
+
+func (o VirtualGatewaySpecOutput) Logging() VirtualGatewayLoggingPtrOutput {
+	return o.ApplyT(func(v VirtualGatewaySpec) *VirtualGatewayLogging { return v.Logging }).(VirtualGatewayLoggingPtrOutput)
+}
+
+type VirtualGatewaySpecPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualGatewaySpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewaySpec)(nil)).Elem()
+}
+
+func (o VirtualGatewaySpecPtrOutput) ToVirtualGatewaySpecPtrOutput() VirtualGatewaySpecPtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecPtrOutput) ToVirtualGatewaySpecPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecPtrOutput {
+	return o
+}
+
+func (o VirtualGatewaySpecPtrOutput) Elem() VirtualGatewaySpecOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpec) VirtualGatewaySpec {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpec
+		return ret
+	}).(VirtualGatewaySpecOutput)
+}
+
+func (o VirtualGatewaySpecPtrOutput) BackendDefaults() VirtualGatewayBackendDefaultsPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpec) *VirtualGatewayBackendDefaults {
+		if v == nil {
+			return nil
+		}
+		return v.BackendDefaults
+	}).(VirtualGatewayBackendDefaultsPtrOutput)
+}
+
+func (o VirtualGatewaySpecPtrOutput) Listeners() VirtualGatewayListenerArrayOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpec) []VirtualGatewayListener {
+		if v == nil {
+			return nil
+		}
+		return v.Listeners
+	}).(VirtualGatewayListenerArrayOutput)
+}
+
+func (o VirtualGatewaySpecPtrOutput) Logging() VirtualGatewayLoggingPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpec) *VirtualGatewayLogging {
+		if v == nil {
+			return nil
+		}
+		return v.Logging
+	}).(VirtualGatewayLoggingPtrOutput)
+}
+
 type VirtualGatewaySubjectAlternativeNameMatchers struct {
 	Exact []string `pulumi:"exact"`
 }
@@ -7969,2688 +11130,140 @@ func (o VirtualGatewayTagArrayOutput) Index(i pulumi.IntInput) VirtualGatewayTag
 	}).(VirtualGatewayTagOutput)
 }
 
-type VirtualGatewayVirtualGatewayAccessLog struct {
-	File *VirtualGatewayVirtualGatewayFileAccessLog `pulumi:"file"`
+type VirtualGatewayTlsValidationContext struct {
+	SubjectAlternativeNames *VirtualGatewaySubjectAlternativeNames  `pulumi:"subjectAlternativeNames"`
+	Trust                   VirtualGatewayTlsValidationContextTrust `pulumi:"trust"`
 }
 
-// VirtualGatewayVirtualGatewayAccessLogInput is an input type that accepts VirtualGatewayVirtualGatewayAccessLogArgs and VirtualGatewayVirtualGatewayAccessLogOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayAccessLogInput` via:
+// VirtualGatewayTlsValidationContextInput is an input type that accepts VirtualGatewayTlsValidationContextArgs and VirtualGatewayTlsValidationContextOutput values.
+// You can construct a concrete instance of `VirtualGatewayTlsValidationContextInput` via:
 //
-//          VirtualGatewayVirtualGatewayAccessLogArgs{...}
-type VirtualGatewayVirtualGatewayAccessLogInput interface {
+//          VirtualGatewayTlsValidationContextArgs{...}
+type VirtualGatewayTlsValidationContextInput interface {
 	pulumi.Input
 
-	ToVirtualGatewayVirtualGatewayAccessLogOutput() VirtualGatewayVirtualGatewayAccessLogOutput
-	ToVirtualGatewayVirtualGatewayAccessLogOutputWithContext(context.Context) VirtualGatewayVirtualGatewayAccessLogOutput
+	ToVirtualGatewayTlsValidationContextOutput() VirtualGatewayTlsValidationContextOutput
+	ToVirtualGatewayTlsValidationContextOutputWithContext(context.Context) VirtualGatewayTlsValidationContextOutput
 }
 
-type VirtualGatewayVirtualGatewayAccessLogArgs struct {
-	File VirtualGatewayVirtualGatewayFileAccessLogPtrInput `pulumi:"file"`
+type VirtualGatewayTlsValidationContextArgs struct {
+	SubjectAlternativeNames VirtualGatewaySubjectAlternativeNamesPtrInput `pulumi:"subjectAlternativeNames"`
+	Trust                   VirtualGatewayTlsValidationContextTrustInput  `pulumi:"trust"`
 }
 
-func (VirtualGatewayVirtualGatewayAccessLogArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayAccessLog)(nil)).Elem()
+func (VirtualGatewayTlsValidationContextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayTlsValidationContext)(nil)).Elem()
 }
 
-func (i VirtualGatewayVirtualGatewayAccessLogArgs) ToVirtualGatewayVirtualGatewayAccessLogOutput() VirtualGatewayVirtualGatewayAccessLogOutput {
-	return i.ToVirtualGatewayVirtualGatewayAccessLogOutputWithContext(context.Background())
+func (i VirtualGatewayTlsValidationContextArgs) ToVirtualGatewayTlsValidationContextOutput() VirtualGatewayTlsValidationContextOutput {
+	return i.ToVirtualGatewayTlsValidationContextOutputWithContext(context.Background())
 }
 
-func (i VirtualGatewayVirtualGatewayAccessLogArgs) ToVirtualGatewayVirtualGatewayAccessLogOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayAccessLogOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayAccessLogOutput)
+func (i VirtualGatewayTlsValidationContextArgs) ToVirtualGatewayTlsValidationContextOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayTlsValidationContextOutput)
 }
 
-func (i VirtualGatewayVirtualGatewayAccessLogArgs) ToVirtualGatewayVirtualGatewayAccessLogPtrOutput() VirtualGatewayVirtualGatewayAccessLogPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayAccessLogPtrOutputWithContext(context.Background())
+func (i VirtualGatewayTlsValidationContextArgs) ToVirtualGatewayTlsValidationContextPtrOutput() VirtualGatewayTlsValidationContextPtrOutput {
+	return i.ToVirtualGatewayTlsValidationContextPtrOutputWithContext(context.Background())
 }
 
-func (i VirtualGatewayVirtualGatewayAccessLogArgs) ToVirtualGatewayVirtualGatewayAccessLogPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayAccessLogPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayAccessLogOutput).ToVirtualGatewayVirtualGatewayAccessLogPtrOutputWithContext(ctx)
+func (i VirtualGatewayTlsValidationContextArgs) ToVirtualGatewayTlsValidationContextPtrOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayTlsValidationContextOutput).ToVirtualGatewayTlsValidationContextPtrOutputWithContext(ctx)
 }
 
-// VirtualGatewayVirtualGatewayAccessLogPtrInput is an input type that accepts VirtualGatewayVirtualGatewayAccessLogArgs, VirtualGatewayVirtualGatewayAccessLogPtr and VirtualGatewayVirtualGatewayAccessLogPtrOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayAccessLogPtrInput` via:
+// VirtualGatewayTlsValidationContextPtrInput is an input type that accepts VirtualGatewayTlsValidationContextArgs, VirtualGatewayTlsValidationContextPtr and VirtualGatewayTlsValidationContextPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayTlsValidationContextPtrInput` via:
 //
-//          VirtualGatewayVirtualGatewayAccessLogArgs{...}
+//          VirtualGatewayTlsValidationContextArgs{...}
 //
 //  or:
 //
 //          nil
-type VirtualGatewayVirtualGatewayAccessLogPtrInput interface {
+type VirtualGatewayTlsValidationContextPtrInput interface {
 	pulumi.Input
 
-	ToVirtualGatewayVirtualGatewayAccessLogPtrOutput() VirtualGatewayVirtualGatewayAccessLogPtrOutput
-	ToVirtualGatewayVirtualGatewayAccessLogPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayAccessLogPtrOutput
+	ToVirtualGatewayTlsValidationContextPtrOutput() VirtualGatewayTlsValidationContextPtrOutput
+	ToVirtualGatewayTlsValidationContextPtrOutputWithContext(context.Context) VirtualGatewayTlsValidationContextPtrOutput
 }
 
-type virtualGatewayVirtualGatewayAccessLogPtrType VirtualGatewayVirtualGatewayAccessLogArgs
+type virtualGatewayTlsValidationContextPtrType VirtualGatewayTlsValidationContextArgs
 
-func VirtualGatewayVirtualGatewayAccessLogPtr(v *VirtualGatewayVirtualGatewayAccessLogArgs) VirtualGatewayVirtualGatewayAccessLogPtrInput {
-	return (*virtualGatewayVirtualGatewayAccessLogPtrType)(v)
+func VirtualGatewayTlsValidationContextPtr(v *VirtualGatewayTlsValidationContextArgs) VirtualGatewayTlsValidationContextPtrInput {
+	return (*virtualGatewayTlsValidationContextPtrType)(v)
 }
 
-func (*virtualGatewayVirtualGatewayAccessLogPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayAccessLog)(nil)).Elem()
+func (*virtualGatewayTlsValidationContextPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayTlsValidationContext)(nil)).Elem()
 }
 
-func (i *virtualGatewayVirtualGatewayAccessLogPtrType) ToVirtualGatewayVirtualGatewayAccessLogPtrOutput() VirtualGatewayVirtualGatewayAccessLogPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayAccessLogPtrOutputWithContext(context.Background())
+func (i *virtualGatewayTlsValidationContextPtrType) ToVirtualGatewayTlsValidationContextPtrOutput() VirtualGatewayTlsValidationContextPtrOutput {
+	return i.ToVirtualGatewayTlsValidationContextPtrOutputWithContext(context.Background())
 }
 
-func (i *virtualGatewayVirtualGatewayAccessLogPtrType) ToVirtualGatewayVirtualGatewayAccessLogPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayAccessLogPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayAccessLogPtrOutput)
+func (i *virtualGatewayTlsValidationContextPtrType) ToVirtualGatewayTlsValidationContextPtrOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayTlsValidationContextPtrOutput)
 }
 
-type VirtualGatewayVirtualGatewayAccessLogOutput struct{ *pulumi.OutputState }
+type VirtualGatewayTlsValidationContextOutput struct{ *pulumi.OutputState }
 
-func (VirtualGatewayVirtualGatewayAccessLogOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayAccessLog)(nil)).Elem()
+func (VirtualGatewayTlsValidationContextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayTlsValidationContext)(nil)).Elem()
 }
 
-func (o VirtualGatewayVirtualGatewayAccessLogOutput) ToVirtualGatewayVirtualGatewayAccessLogOutput() VirtualGatewayVirtualGatewayAccessLogOutput {
+func (o VirtualGatewayTlsValidationContextOutput) ToVirtualGatewayTlsValidationContextOutput() VirtualGatewayTlsValidationContextOutput {
 	return o
 }
 
-func (o VirtualGatewayVirtualGatewayAccessLogOutput) ToVirtualGatewayVirtualGatewayAccessLogOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayAccessLogOutput {
+func (o VirtualGatewayTlsValidationContextOutput) ToVirtualGatewayTlsValidationContextOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextOutput {
 	return o
 }
 
-func (o VirtualGatewayVirtualGatewayAccessLogOutput) ToVirtualGatewayVirtualGatewayAccessLogPtrOutput() VirtualGatewayVirtualGatewayAccessLogPtrOutput {
-	return o.ToVirtualGatewayVirtualGatewayAccessLogPtrOutputWithContext(context.Background())
+func (o VirtualGatewayTlsValidationContextOutput) ToVirtualGatewayTlsValidationContextPtrOutput() VirtualGatewayTlsValidationContextPtrOutput {
+	return o.ToVirtualGatewayTlsValidationContextPtrOutputWithContext(context.Background())
 }
 
-func (o VirtualGatewayVirtualGatewayAccessLogOutput) ToVirtualGatewayVirtualGatewayAccessLogPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayAccessLogPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayVirtualGatewayAccessLog) *VirtualGatewayVirtualGatewayAccessLog {
+func (o VirtualGatewayTlsValidationContextOutput) ToVirtualGatewayTlsValidationContextPtrOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayTlsValidationContext) *VirtualGatewayTlsValidationContext {
 		return &v
-	}).(VirtualGatewayVirtualGatewayAccessLogPtrOutput)
+	}).(VirtualGatewayTlsValidationContextPtrOutput)
 }
 
-func (o VirtualGatewayVirtualGatewayAccessLogOutput) File() VirtualGatewayVirtualGatewayFileAccessLogPtrOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayAccessLog) *VirtualGatewayVirtualGatewayFileAccessLog {
-		return v.File
-	}).(VirtualGatewayVirtualGatewayFileAccessLogPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayAccessLogPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayAccessLogPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayAccessLog)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayAccessLogPtrOutput) ToVirtualGatewayVirtualGatewayAccessLogPtrOutput() VirtualGatewayVirtualGatewayAccessLogPtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayAccessLogPtrOutput) ToVirtualGatewayVirtualGatewayAccessLogPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayAccessLogPtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayAccessLogPtrOutput) Elem() VirtualGatewayVirtualGatewayAccessLogOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayAccessLog) VirtualGatewayVirtualGatewayAccessLog {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualGatewayVirtualGatewayAccessLog
-		return ret
-	}).(VirtualGatewayVirtualGatewayAccessLogOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayAccessLogPtrOutput) File() VirtualGatewayVirtualGatewayFileAccessLogPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayAccessLog) *VirtualGatewayVirtualGatewayFileAccessLog {
-		if v == nil {
-			return nil
-		}
-		return v.File
-	}).(VirtualGatewayVirtualGatewayFileAccessLogPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayBackendDefaults struct {
-	ClientPolicy *VirtualGatewayVirtualGatewayClientPolicy `pulumi:"clientPolicy"`
-}
-
-// VirtualGatewayVirtualGatewayBackendDefaultsInput is an input type that accepts VirtualGatewayVirtualGatewayBackendDefaultsArgs and VirtualGatewayVirtualGatewayBackendDefaultsOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayBackendDefaultsInput` via:
-//
-//          VirtualGatewayVirtualGatewayBackendDefaultsArgs{...}
-type VirtualGatewayVirtualGatewayBackendDefaultsInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayBackendDefaultsOutput() VirtualGatewayVirtualGatewayBackendDefaultsOutput
-	ToVirtualGatewayVirtualGatewayBackendDefaultsOutputWithContext(context.Context) VirtualGatewayVirtualGatewayBackendDefaultsOutput
-}
-
-type VirtualGatewayVirtualGatewayBackendDefaultsArgs struct {
-	ClientPolicy VirtualGatewayVirtualGatewayClientPolicyPtrInput `pulumi:"clientPolicy"`
-}
-
-func (VirtualGatewayVirtualGatewayBackendDefaultsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayBackendDefaults)(nil)).Elem()
-}
-
-func (i VirtualGatewayVirtualGatewayBackendDefaultsArgs) ToVirtualGatewayVirtualGatewayBackendDefaultsOutput() VirtualGatewayVirtualGatewayBackendDefaultsOutput {
-	return i.ToVirtualGatewayVirtualGatewayBackendDefaultsOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayBackendDefaultsArgs) ToVirtualGatewayVirtualGatewayBackendDefaultsOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayBackendDefaultsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayBackendDefaultsOutput)
-}
-
-func (i VirtualGatewayVirtualGatewayBackendDefaultsArgs) ToVirtualGatewayVirtualGatewayBackendDefaultsPtrOutput() VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayBackendDefaultsPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayBackendDefaultsArgs) ToVirtualGatewayVirtualGatewayBackendDefaultsPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayBackendDefaultsOutput).ToVirtualGatewayVirtualGatewayBackendDefaultsPtrOutputWithContext(ctx)
-}
-
-// VirtualGatewayVirtualGatewayBackendDefaultsPtrInput is an input type that accepts VirtualGatewayVirtualGatewayBackendDefaultsArgs, VirtualGatewayVirtualGatewayBackendDefaultsPtr and VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayBackendDefaultsPtrInput` via:
-//
-//          VirtualGatewayVirtualGatewayBackendDefaultsArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualGatewayVirtualGatewayBackendDefaultsPtrInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayBackendDefaultsPtrOutput() VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput
-	ToVirtualGatewayVirtualGatewayBackendDefaultsPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput
-}
-
-type virtualGatewayVirtualGatewayBackendDefaultsPtrType VirtualGatewayVirtualGatewayBackendDefaultsArgs
-
-func VirtualGatewayVirtualGatewayBackendDefaultsPtr(v *VirtualGatewayVirtualGatewayBackendDefaultsArgs) VirtualGatewayVirtualGatewayBackendDefaultsPtrInput {
-	return (*virtualGatewayVirtualGatewayBackendDefaultsPtrType)(v)
-}
-
-func (*virtualGatewayVirtualGatewayBackendDefaultsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayBackendDefaults)(nil)).Elem()
-}
-
-func (i *virtualGatewayVirtualGatewayBackendDefaultsPtrType) ToVirtualGatewayVirtualGatewayBackendDefaultsPtrOutput() VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayBackendDefaultsPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualGatewayVirtualGatewayBackendDefaultsPtrType) ToVirtualGatewayVirtualGatewayBackendDefaultsPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayBackendDefaultsOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayBackendDefaultsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayBackendDefaults)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayBackendDefaultsOutput) ToVirtualGatewayVirtualGatewayBackendDefaultsOutput() VirtualGatewayVirtualGatewayBackendDefaultsOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayBackendDefaultsOutput) ToVirtualGatewayVirtualGatewayBackendDefaultsOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayBackendDefaultsOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayBackendDefaultsOutput) ToVirtualGatewayVirtualGatewayBackendDefaultsPtrOutput() VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput {
-	return o.ToVirtualGatewayVirtualGatewayBackendDefaultsPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualGatewayVirtualGatewayBackendDefaultsOutput) ToVirtualGatewayVirtualGatewayBackendDefaultsPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayVirtualGatewayBackendDefaults) *VirtualGatewayVirtualGatewayBackendDefaults {
-		return &v
-	}).(VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayBackendDefaultsOutput) ClientPolicy() VirtualGatewayVirtualGatewayClientPolicyPtrOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayBackendDefaults) *VirtualGatewayVirtualGatewayClientPolicy {
-		return v.ClientPolicy
-	}).(VirtualGatewayVirtualGatewayClientPolicyPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayBackendDefaults)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput) ToVirtualGatewayVirtualGatewayBackendDefaultsPtrOutput() VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput) ToVirtualGatewayVirtualGatewayBackendDefaultsPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput) Elem() VirtualGatewayVirtualGatewayBackendDefaultsOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayBackendDefaults) VirtualGatewayVirtualGatewayBackendDefaults {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualGatewayVirtualGatewayBackendDefaults
-		return ret
-	}).(VirtualGatewayVirtualGatewayBackendDefaultsOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput) ClientPolicy() VirtualGatewayVirtualGatewayClientPolicyPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayBackendDefaults) *VirtualGatewayVirtualGatewayClientPolicy {
-		if v == nil {
-			return nil
-		}
-		return v.ClientPolicy
-	}).(VirtualGatewayVirtualGatewayClientPolicyPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayClientPolicy struct {
-	TLS *VirtualGatewayVirtualGatewayClientPolicyTls `pulumi:"tLS"`
-}
-
-// VirtualGatewayVirtualGatewayClientPolicyInput is an input type that accepts VirtualGatewayVirtualGatewayClientPolicyArgs and VirtualGatewayVirtualGatewayClientPolicyOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayClientPolicyInput` via:
-//
-//          VirtualGatewayVirtualGatewayClientPolicyArgs{...}
-type VirtualGatewayVirtualGatewayClientPolicyInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayClientPolicyOutput() VirtualGatewayVirtualGatewayClientPolicyOutput
-	ToVirtualGatewayVirtualGatewayClientPolicyOutputWithContext(context.Context) VirtualGatewayVirtualGatewayClientPolicyOutput
-}
-
-type VirtualGatewayVirtualGatewayClientPolicyArgs struct {
-	TLS VirtualGatewayVirtualGatewayClientPolicyTlsPtrInput `pulumi:"tLS"`
-}
-
-func (VirtualGatewayVirtualGatewayClientPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayClientPolicy)(nil)).Elem()
-}
-
-func (i VirtualGatewayVirtualGatewayClientPolicyArgs) ToVirtualGatewayVirtualGatewayClientPolicyOutput() VirtualGatewayVirtualGatewayClientPolicyOutput {
-	return i.ToVirtualGatewayVirtualGatewayClientPolicyOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayClientPolicyArgs) ToVirtualGatewayVirtualGatewayClientPolicyOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayClientPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayClientPolicyOutput)
-}
-
-func (i VirtualGatewayVirtualGatewayClientPolicyArgs) ToVirtualGatewayVirtualGatewayClientPolicyPtrOutput() VirtualGatewayVirtualGatewayClientPolicyPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayClientPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayClientPolicyArgs) ToVirtualGatewayVirtualGatewayClientPolicyPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayClientPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayClientPolicyOutput).ToVirtualGatewayVirtualGatewayClientPolicyPtrOutputWithContext(ctx)
-}
-
-// VirtualGatewayVirtualGatewayClientPolicyPtrInput is an input type that accepts VirtualGatewayVirtualGatewayClientPolicyArgs, VirtualGatewayVirtualGatewayClientPolicyPtr and VirtualGatewayVirtualGatewayClientPolicyPtrOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayClientPolicyPtrInput` via:
-//
-//          VirtualGatewayVirtualGatewayClientPolicyArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualGatewayVirtualGatewayClientPolicyPtrInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayClientPolicyPtrOutput() VirtualGatewayVirtualGatewayClientPolicyPtrOutput
-	ToVirtualGatewayVirtualGatewayClientPolicyPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayClientPolicyPtrOutput
-}
-
-type virtualGatewayVirtualGatewayClientPolicyPtrType VirtualGatewayVirtualGatewayClientPolicyArgs
-
-func VirtualGatewayVirtualGatewayClientPolicyPtr(v *VirtualGatewayVirtualGatewayClientPolicyArgs) VirtualGatewayVirtualGatewayClientPolicyPtrInput {
-	return (*virtualGatewayVirtualGatewayClientPolicyPtrType)(v)
-}
-
-func (*virtualGatewayVirtualGatewayClientPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayClientPolicy)(nil)).Elem()
-}
-
-func (i *virtualGatewayVirtualGatewayClientPolicyPtrType) ToVirtualGatewayVirtualGatewayClientPolicyPtrOutput() VirtualGatewayVirtualGatewayClientPolicyPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayClientPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualGatewayVirtualGatewayClientPolicyPtrType) ToVirtualGatewayVirtualGatewayClientPolicyPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayClientPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayClientPolicyPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayClientPolicyOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayClientPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayClientPolicy)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayClientPolicyOutput) ToVirtualGatewayVirtualGatewayClientPolicyOutput() VirtualGatewayVirtualGatewayClientPolicyOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayClientPolicyOutput) ToVirtualGatewayVirtualGatewayClientPolicyOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayClientPolicyOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayClientPolicyOutput) ToVirtualGatewayVirtualGatewayClientPolicyPtrOutput() VirtualGatewayVirtualGatewayClientPolicyPtrOutput {
-	return o.ToVirtualGatewayVirtualGatewayClientPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualGatewayVirtualGatewayClientPolicyOutput) ToVirtualGatewayVirtualGatewayClientPolicyPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayClientPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayVirtualGatewayClientPolicy) *VirtualGatewayVirtualGatewayClientPolicy {
-		return &v
-	}).(VirtualGatewayVirtualGatewayClientPolicyPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayClientPolicyOutput) TLS() VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayClientPolicy) *VirtualGatewayVirtualGatewayClientPolicyTls {
-		return v.TLS
-	}).(VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayClientPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayClientPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayClientPolicy)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayClientPolicyPtrOutput) ToVirtualGatewayVirtualGatewayClientPolicyPtrOutput() VirtualGatewayVirtualGatewayClientPolicyPtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayClientPolicyPtrOutput) ToVirtualGatewayVirtualGatewayClientPolicyPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayClientPolicyPtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayClientPolicyPtrOutput) Elem() VirtualGatewayVirtualGatewayClientPolicyOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayClientPolicy) VirtualGatewayVirtualGatewayClientPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualGatewayVirtualGatewayClientPolicy
-		return ret
-	}).(VirtualGatewayVirtualGatewayClientPolicyOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayClientPolicyPtrOutput) TLS() VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayClientPolicy) *VirtualGatewayVirtualGatewayClientPolicyTls {
-		if v == nil {
-			return nil
-		}
-		return v.TLS
-	}).(VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayClientPolicyTls struct {
-	Certificate *VirtualGatewayVirtualGatewayClientTlsCertificate `pulumi:"certificate"`
-	Enforce     *bool                                             `pulumi:"enforce"`
-	Ports       []int                                             `pulumi:"ports"`
-	Validation  VirtualGatewayVirtualGatewayTlsValidationContext  `pulumi:"validation"`
-}
-
-// VirtualGatewayVirtualGatewayClientPolicyTlsInput is an input type that accepts VirtualGatewayVirtualGatewayClientPolicyTlsArgs and VirtualGatewayVirtualGatewayClientPolicyTlsOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayClientPolicyTlsInput` via:
-//
-//          VirtualGatewayVirtualGatewayClientPolicyTlsArgs{...}
-type VirtualGatewayVirtualGatewayClientPolicyTlsInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayClientPolicyTlsOutput() VirtualGatewayVirtualGatewayClientPolicyTlsOutput
-	ToVirtualGatewayVirtualGatewayClientPolicyTlsOutputWithContext(context.Context) VirtualGatewayVirtualGatewayClientPolicyTlsOutput
-}
-
-type VirtualGatewayVirtualGatewayClientPolicyTlsArgs struct {
-	Certificate VirtualGatewayVirtualGatewayClientTlsCertificatePtrInput `pulumi:"certificate"`
-	Enforce     pulumi.BoolPtrInput                                      `pulumi:"enforce"`
-	Ports       pulumi.IntArrayInput                                     `pulumi:"ports"`
-	Validation  VirtualGatewayVirtualGatewayTlsValidationContextInput    `pulumi:"validation"`
-}
-
-func (VirtualGatewayVirtualGatewayClientPolicyTlsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayClientPolicyTls)(nil)).Elem()
-}
-
-func (i VirtualGatewayVirtualGatewayClientPolicyTlsArgs) ToVirtualGatewayVirtualGatewayClientPolicyTlsOutput() VirtualGatewayVirtualGatewayClientPolicyTlsOutput {
-	return i.ToVirtualGatewayVirtualGatewayClientPolicyTlsOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayClientPolicyTlsArgs) ToVirtualGatewayVirtualGatewayClientPolicyTlsOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayClientPolicyTlsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayClientPolicyTlsOutput)
-}
-
-func (i VirtualGatewayVirtualGatewayClientPolicyTlsArgs) ToVirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput() VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayClientPolicyTlsPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayClientPolicyTlsArgs) ToVirtualGatewayVirtualGatewayClientPolicyTlsPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayClientPolicyTlsOutput).ToVirtualGatewayVirtualGatewayClientPolicyTlsPtrOutputWithContext(ctx)
-}
-
-// VirtualGatewayVirtualGatewayClientPolicyTlsPtrInput is an input type that accepts VirtualGatewayVirtualGatewayClientPolicyTlsArgs, VirtualGatewayVirtualGatewayClientPolicyTlsPtr and VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayClientPolicyTlsPtrInput` via:
-//
-//          VirtualGatewayVirtualGatewayClientPolicyTlsArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualGatewayVirtualGatewayClientPolicyTlsPtrInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput() VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput
-	ToVirtualGatewayVirtualGatewayClientPolicyTlsPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput
-}
-
-type virtualGatewayVirtualGatewayClientPolicyTlsPtrType VirtualGatewayVirtualGatewayClientPolicyTlsArgs
-
-func VirtualGatewayVirtualGatewayClientPolicyTlsPtr(v *VirtualGatewayVirtualGatewayClientPolicyTlsArgs) VirtualGatewayVirtualGatewayClientPolicyTlsPtrInput {
-	return (*virtualGatewayVirtualGatewayClientPolicyTlsPtrType)(v)
-}
-
-func (*virtualGatewayVirtualGatewayClientPolicyTlsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayClientPolicyTls)(nil)).Elem()
-}
-
-func (i *virtualGatewayVirtualGatewayClientPolicyTlsPtrType) ToVirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput() VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayClientPolicyTlsPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualGatewayVirtualGatewayClientPolicyTlsPtrType) ToVirtualGatewayVirtualGatewayClientPolicyTlsPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayClientPolicyTlsOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayClientPolicyTlsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayClientPolicyTls)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayClientPolicyTlsOutput) ToVirtualGatewayVirtualGatewayClientPolicyTlsOutput() VirtualGatewayVirtualGatewayClientPolicyTlsOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayClientPolicyTlsOutput) ToVirtualGatewayVirtualGatewayClientPolicyTlsOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayClientPolicyTlsOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayClientPolicyTlsOutput) ToVirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput() VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput {
-	return o.ToVirtualGatewayVirtualGatewayClientPolicyTlsPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualGatewayVirtualGatewayClientPolicyTlsOutput) ToVirtualGatewayVirtualGatewayClientPolicyTlsPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayVirtualGatewayClientPolicyTls) *VirtualGatewayVirtualGatewayClientPolicyTls {
-		return &v
-	}).(VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayClientPolicyTlsOutput) Certificate() VirtualGatewayVirtualGatewayClientTlsCertificatePtrOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayClientPolicyTls) *VirtualGatewayVirtualGatewayClientTlsCertificate {
-		return v.Certificate
-	}).(VirtualGatewayVirtualGatewayClientTlsCertificatePtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayClientPolicyTlsOutput) Enforce() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayClientPolicyTls) *bool { return v.Enforce }).(pulumi.BoolPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayClientPolicyTlsOutput) Ports() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayClientPolicyTls) []int { return v.Ports }).(pulumi.IntArrayOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayClientPolicyTlsOutput) Validation() VirtualGatewayVirtualGatewayTlsValidationContextOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayClientPolicyTls) VirtualGatewayVirtualGatewayTlsValidationContext {
-		return v.Validation
-	}).(VirtualGatewayVirtualGatewayTlsValidationContextOutput)
-}
-
-type VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayClientPolicyTls)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput) ToVirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput() VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput) ToVirtualGatewayVirtualGatewayClientPolicyTlsPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput) Elem() VirtualGatewayVirtualGatewayClientPolicyTlsOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayClientPolicyTls) VirtualGatewayVirtualGatewayClientPolicyTls {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualGatewayVirtualGatewayClientPolicyTls
-		return ret
-	}).(VirtualGatewayVirtualGatewayClientPolicyTlsOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput) Certificate() VirtualGatewayVirtualGatewayClientTlsCertificatePtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayClientPolicyTls) *VirtualGatewayVirtualGatewayClientTlsCertificate {
-		if v == nil {
-			return nil
-		}
-		return v.Certificate
-	}).(VirtualGatewayVirtualGatewayClientTlsCertificatePtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput) Enforce() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayClientPolicyTls) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enforce
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput) Ports() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayClientPolicyTls) []int {
-		if v == nil {
-			return nil
-		}
-		return v.Ports
-	}).(pulumi.IntArrayOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput) Validation() VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayClientPolicyTls) *VirtualGatewayVirtualGatewayTlsValidationContext {
-		if v == nil {
-			return nil
-		}
-		return &v.Validation
-	}).(VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayClientTlsCertificate struct {
-	File *VirtualGatewayVirtualGatewayListenerTlsFileCertificate `pulumi:"file"`
-	SDS  *VirtualGatewayVirtualGatewayListenerTlsSdsCertificate  `pulumi:"sDS"`
-}
-
-// VirtualGatewayVirtualGatewayClientTlsCertificateInput is an input type that accepts VirtualGatewayVirtualGatewayClientTlsCertificateArgs and VirtualGatewayVirtualGatewayClientTlsCertificateOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayClientTlsCertificateInput` via:
-//
-//          VirtualGatewayVirtualGatewayClientTlsCertificateArgs{...}
-type VirtualGatewayVirtualGatewayClientTlsCertificateInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayClientTlsCertificateOutput() VirtualGatewayVirtualGatewayClientTlsCertificateOutput
-	ToVirtualGatewayVirtualGatewayClientTlsCertificateOutputWithContext(context.Context) VirtualGatewayVirtualGatewayClientTlsCertificateOutput
-}
-
-type VirtualGatewayVirtualGatewayClientTlsCertificateArgs struct {
-	File VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrInput `pulumi:"file"`
-	SDS  VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrInput  `pulumi:"sDS"`
-}
-
-func (VirtualGatewayVirtualGatewayClientTlsCertificateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayClientTlsCertificate)(nil)).Elem()
-}
-
-func (i VirtualGatewayVirtualGatewayClientTlsCertificateArgs) ToVirtualGatewayVirtualGatewayClientTlsCertificateOutput() VirtualGatewayVirtualGatewayClientTlsCertificateOutput {
-	return i.ToVirtualGatewayVirtualGatewayClientTlsCertificateOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayClientTlsCertificateArgs) ToVirtualGatewayVirtualGatewayClientTlsCertificateOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayClientTlsCertificateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayClientTlsCertificateOutput)
-}
-
-func (i VirtualGatewayVirtualGatewayClientTlsCertificateArgs) ToVirtualGatewayVirtualGatewayClientTlsCertificatePtrOutput() VirtualGatewayVirtualGatewayClientTlsCertificatePtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayClientTlsCertificatePtrOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayClientTlsCertificateArgs) ToVirtualGatewayVirtualGatewayClientTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayClientTlsCertificatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayClientTlsCertificateOutput).ToVirtualGatewayVirtualGatewayClientTlsCertificatePtrOutputWithContext(ctx)
-}
-
-// VirtualGatewayVirtualGatewayClientTlsCertificatePtrInput is an input type that accepts VirtualGatewayVirtualGatewayClientTlsCertificateArgs, VirtualGatewayVirtualGatewayClientTlsCertificatePtr and VirtualGatewayVirtualGatewayClientTlsCertificatePtrOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayClientTlsCertificatePtrInput` via:
-//
-//          VirtualGatewayVirtualGatewayClientTlsCertificateArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualGatewayVirtualGatewayClientTlsCertificatePtrInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayClientTlsCertificatePtrOutput() VirtualGatewayVirtualGatewayClientTlsCertificatePtrOutput
-	ToVirtualGatewayVirtualGatewayClientTlsCertificatePtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayClientTlsCertificatePtrOutput
-}
-
-type virtualGatewayVirtualGatewayClientTlsCertificatePtrType VirtualGatewayVirtualGatewayClientTlsCertificateArgs
-
-func VirtualGatewayVirtualGatewayClientTlsCertificatePtr(v *VirtualGatewayVirtualGatewayClientTlsCertificateArgs) VirtualGatewayVirtualGatewayClientTlsCertificatePtrInput {
-	return (*virtualGatewayVirtualGatewayClientTlsCertificatePtrType)(v)
-}
-
-func (*virtualGatewayVirtualGatewayClientTlsCertificatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayClientTlsCertificate)(nil)).Elem()
-}
-
-func (i *virtualGatewayVirtualGatewayClientTlsCertificatePtrType) ToVirtualGatewayVirtualGatewayClientTlsCertificatePtrOutput() VirtualGatewayVirtualGatewayClientTlsCertificatePtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayClientTlsCertificatePtrOutputWithContext(context.Background())
-}
-
-func (i *virtualGatewayVirtualGatewayClientTlsCertificatePtrType) ToVirtualGatewayVirtualGatewayClientTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayClientTlsCertificatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayClientTlsCertificatePtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayClientTlsCertificateOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayClientTlsCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayClientTlsCertificate)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayClientTlsCertificateOutput) ToVirtualGatewayVirtualGatewayClientTlsCertificateOutput() VirtualGatewayVirtualGatewayClientTlsCertificateOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayClientTlsCertificateOutput) ToVirtualGatewayVirtualGatewayClientTlsCertificateOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayClientTlsCertificateOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayClientTlsCertificateOutput) ToVirtualGatewayVirtualGatewayClientTlsCertificatePtrOutput() VirtualGatewayVirtualGatewayClientTlsCertificatePtrOutput {
-	return o.ToVirtualGatewayVirtualGatewayClientTlsCertificatePtrOutputWithContext(context.Background())
-}
-
-func (o VirtualGatewayVirtualGatewayClientTlsCertificateOutput) ToVirtualGatewayVirtualGatewayClientTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayClientTlsCertificatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayVirtualGatewayClientTlsCertificate) *VirtualGatewayVirtualGatewayClientTlsCertificate {
-		return &v
-	}).(VirtualGatewayVirtualGatewayClientTlsCertificatePtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayClientTlsCertificateOutput) File() VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayClientTlsCertificate) *VirtualGatewayVirtualGatewayListenerTlsFileCertificate {
-		return v.File
-	}).(VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayClientTlsCertificateOutput) SDS() VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayClientTlsCertificate) *VirtualGatewayVirtualGatewayListenerTlsSdsCertificate {
-		return v.SDS
-	}).(VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayClientTlsCertificatePtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayClientTlsCertificatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayClientTlsCertificate)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayClientTlsCertificatePtrOutput) ToVirtualGatewayVirtualGatewayClientTlsCertificatePtrOutput() VirtualGatewayVirtualGatewayClientTlsCertificatePtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayClientTlsCertificatePtrOutput) ToVirtualGatewayVirtualGatewayClientTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayClientTlsCertificatePtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayClientTlsCertificatePtrOutput) Elem() VirtualGatewayVirtualGatewayClientTlsCertificateOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayClientTlsCertificate) VirtualGatewayVirtualGatewayClientTlsCertificate {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualGatewayVirtualGatewayClientTlsCertificate
-		return ret
-	}).(VirtualGatewayVirtualGatewayClientTlsCertificateOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayClientTlsCertificatePtrOutput) File() VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayClientTlsCertificate) *VirtualGatewayVirtualGatewayListenerTlsFileCertificate {
-		if v == nil {
-			return nil
-		}
-		return v.File
-	}).(VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayClientTlsCertificatePtrOutput) SDS() VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayClientTlsCertificate) *VirtualGatewayVirtualGatewayListenerTlsSdsCertificate {
-		if v == nil {
-			return nil
-		}
-		return v.SDS
-	}).(VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayConnectionPool struct {
-	GRPC  *VirtualGatewayVirtualGatewayGrpcConnectionPool  `pulumi:"gRPC"`
-	HTTP  *VirtualGatewayVirtualGatewayHttpConnectionPool  `pulumi:"hTTP"`
-	HTTP2 *VirtualGatewayVirtualGatewayHttp2ConnectionPool `pulumi:"hTTP2"`
-}
-
-// VirtualGatewayVirtualGatewayConnectionPoolInput is an input type that accepts VirtualGatewayVirtualGatewayConnectionPoolArgs and VirtualGatewayVirtualGatewayConnectionPoolOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayConnectionPoolInput` via:
-//
-//          VirtualGatewayVirtualGatewayConnectionPoolArgs{...}
-type VirtualGatewayVirtualGatewayConnectionPoolInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayConnectionPoolOutput() VirtualGatewayVirtualGatewayConnectionPoolOutput
-	ToVirtualGatewayVirtualGatewayConnectionPoolOutputWithContext(context.Context) VirtualGatewayVirtualGatewayConnectionPoolOutput
-}
-
-type VirtualGatewayVirtualGatewayConnectionPoolArgs struct {
-	GRPC  VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrInput  `pulumi:"gRPC"`
-	HTTP  VirtualGatewayVirtualGatewayHttpConnectionPoolPtrInput  `pulumi:"hTTP"`
-	HTTP2 VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrInput `pulumi:"hTTP2"`
-}
-
-func (VirtualGatewayVirtualGatewayConnectionPoolArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayConnectionPool)(nil)).Elem()
-}
-
-func (i VirtualGatewayVirtualGatewayConnectionPoolArgs) ToVirtualGatewayVirtualGatewayConnectionPoolOutput() VirtualGatewayVirtualGatewayConnectionPoolOutput {
-	return i.ToVirtualGatewayVirtualGatewayConnectionPoolOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayConnectionPoolArgs) ToVirtualGatewayVirtualGatewayConnectionPoolOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayConnectionPoolOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayConnectionPoolOutput)
-}
-
-func (i VirtualGatewayVirtualGatewayConnectionPoolArgs) ToVirtualGatewayVirtualGatewayConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayConnectionPoolPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayConnectionPoolPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayConnectionPoolArgs) ToVirtualGatewayVirtualGatewayConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayConnectionPoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayConnectionPoolOutput).ToVirtualGatewayVirtualGatewayConnectionPoolPtrOutputWithContext(ctx)
-}
-
-// VirtualGatewayVirtualGatewayConnectionPoolPtrInput is an input type that accepts VirtualGatewayVirtualGatewayConnectionPoolArgs, VirtualGatewayVirtualGatewayConnectionPoolPtr and VirtualGatewayVirtualGatewayConnectionPoolPtrOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayConnectionPoolPtrInput` via:
-//
-//          VirtualGatewayVirtualGatewayConnectionPoolArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualGatewayVirtualGatewayConnectionPoolPtrInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayConnectionPoolPtrOutput
-	ToVirtualGatewayVirtualGatewayConnectionPoolPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayConnectionPoolPtrOutput
-}
-
-type virtualGatewayVirtualGatewayConnectionPoolPtrType VirtualGatewayVirtualGatewayConnectionPoolArgs
-
-func VirtualGatewayVirtualGatewayConnectionPoolPtr(v *VirtualGatewayVirtualGatewayConnectionPoolArgs) VirtualGatewayVirtualGatewayConnectionPoolPtrInput {
-	return (*virtualGatewayVirtualGatewayConnectionPoolPtrType)(v)
-}
-
-func (*virtualGatewayVirtualGatewayConnectionPoolPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayConnectionPool)(nil)).Elem()
-}
-
-func (i *virtualGatewayVirtualGatewayConnectionPoolPtrType) ToVirtualGatewayVirtualGatewayConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayConnectionPoolPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayConnectionPoolPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualGatewayVirtualGatewayConnectionPoolPtrType) ToVirtualGatewayVirtualGatewayConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayConnectionPoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayConnectionPoolPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayConnectionPoolOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayConnectionPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayConnectionPool)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayConnectionPoolOutput) ToVirtualGatewayVirtualGatewayConnectionPoolOutput() VirtualGatewayVirtualGatewayConnectionPoolOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayConnectionPoolOutput) ToVirtualGatewayVirtualGatewayConnectionPoolOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayConnectionPoolOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayConnectionPoolOutput) ToVirtualGatewayVirtualGatewayConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayConnectionPoolPtrOutput {
-	return o.ToVirtualGatewayVirtualGatewayConnectionPoolPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualGatewayVirtualGatewayConnectionPoolOutput) ToVirtualGatewayVirtualGatewayConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayConnectionPoolPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayVirtualGatewayConnectionPool) *VirtualGatewayVirtualGatewayConnectionPool {
-		return &v
-	}).(VirtualGatewayVirtualGatewayConnectionPoolPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayConnectionPoolOutput) GRPC() VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayConnectionPool) *VirtualGatewayVirtualGatewayGrpcConnectionPool {
-		return v.GRPC
-	}).(VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayConnectionPoolOutput) HTTP() VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayConnectionPool) *VirtualGatewayVirtualGatewayHttpConnectionPool {
-		return v.HTTP
-	}).(VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayConnectionPoolOutput) HTTP2() VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayConnectionPool) *VirtualGatewayVirtualGatewayHttp2ConnectionPool {
-		return v.HTTP2
-	}).(VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayConnectionPoolPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayConnectionPoolPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayConnectionPool)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayConnectionPoolPtrOutput) ToVirtualGatewayVirtualGatewayConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayConnectionPoolPtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayConnectionPoolPtrOutput) ToVirtualGatewayVirtualGatewayConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayConnectionPoolPtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayConnectionPoolPtrOutput) Elem() VirtualGatewayVirtualGatewayConnectionPoolOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayConnectionPool) VirtualGatewayVirtualGatewayConnectionPool {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualGatewayVirtualGatewayConnectionPool
-		return ret
-	}).(VirtualGatewayVirtualGatewayConnectionPoolOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayConnectionPoolPtrOutput) GRPC() VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayConnectionPool) *VirtualGatewayVirtualGatewayGrpcConnectionPool {
-		if v == nil {
-			return nil
-		}
-		return v.GRPC
-	}).(VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayConnectionPoolPtrOutput) HTTP() VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayConnectionPool) *VirtualGatewayVirtualGatewayHttpConnectionPool {
-		if v == nil {
-			return nil
-		}
-		return v.HTTP
-	}).(VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayConnectionPoolPtrOutput) HTTP2() VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayConnectionPool) *VirtualGatewayVirtualGatewayHttp2ConnectionPool {
-		if v == nil {
-			return nil
-		}
-		return v.HTTP2
-	}).(VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayFileAccessLog struct {
-	Path string `pulumi:"path"`
-}
-
-// VirtualGatewayVirtualGatewayFileAccessLogInput is an input type that accepts VirtualGatewayVirtualGatewayFileAccessLogArgs and VirtualGatewayVirtualGatewayFileAccessLogOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayFileAccessLogInput` via:
-//
-//          VirtualGatewayVirtualGatewayFileAccessLogArgs{...}
-type VirtualGatewayVirtualGatewayFileAccessLogInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayFileAccessLogOutput() VirtualGatewayVirtualGatewayFileAccessLogOutput
-	ToVirtualGatewayVirtualGatewayFileAccessLogOutputWithContext(context.Context) VirtualGatewayVirtualGatewayFileAccessLogOutput
-}
-
-type VirtualGatewayVirtualGatewayFileAccessLogArgs struct {
-	Path pulumi.StringInput `pulumi:"path"`
-}
-
-func (VirtualGatewayVirtualGatewayFileAccessLogArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayFileAccessLog)(nil)).Elem()
-}
-
-func (i VirtualGatewayVirtualGatewayFileAccessLogArgs) ToVirtualGatewayVirtualGatewayFileAccessLogOutput() VirtualGatewayVirtualGatewayFileAccessLogOutput {
-	return i.ToVirtualGatewayVirtualGatewayFileAccessLogOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayFileAccessLogArgs) ToVirtualGatewayVirtualGatewayFileAccessLogOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayFileAccessLogOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayFileAccessLogOutput)
-}
-
-func (i VirtualGatewayVirtualGatewayFileAccessLogArgs) ToVirtualGatewayVirtualGatewayFileAccessLogPtrOutput() VirtualGatewayVirtualGatewayFileAccessLogPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayFileAccessLogPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayFileAccessLogArgs) ToVirtualGatewayVirtualGatewayFileAccessLogPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayFileAccessLogPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayFileAccessLogOutput).ToVirtualGatewayVirtualGatewayFileAccessLogPtrOutputWithContext(ctx)
-}
-
-// VirtualGatewayVirtualGatewayFileAccessLogPtrInput is an input type that accepts VirtualGatewayVirtualGatewayFileAccessLogArgs, VirtualGatewayVirtualGatewayFileAccessLogPtr and VirtualGatewayVirtualGatewayFileAccessLogPtrOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayFileAccessLogPtrInput` via:
-//
-//          VirtualGatewayVirtualGatewayFileAccessLogArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualGatewayVirtualGatewayFileAccessLogPtrInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayFileAccessLogPtrOutput() VirtualGatewayVirtualGatewayFileAccessLogPtrOutput
-	ToVirtualGatewayVirtualGatewayFileAccessLogPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayFileAccessLogPtrOutput
-}
-
-type virtualGatewayVirtualGatewayFileAccessLogPtrType VirtualGatewayVirtualGatewayFileAccessLogArgs
-
-func VirtualGatewayVirtualGatewayFileAccessLogPtr(v *VirtualGatewayVirtualGatewayFileAccessLogArgs) VirtualGatewayVirtualGatewayFileAccessLogPtrInput {
-	return (*virtualGatewayVirtualGatewayFileAccessLogPtrType)(v)
-}
-
-func (*virtualGatewayVirtualGatewayFileAccessLogPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayFileAccessLog)(nil)).Elem()
-}
-
-func (i *virtualGatewayVirtualGatewayFileAccessLogPtrType) ToVirtualGatewayVirtualGatewayFileAccessLogPtrOutput() VirtualGatewayVirtualGatewayFileAccessLogPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayFileAccessLogPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualGatewayVirtualGatewayFileAccessLogPtrType) ToVirtualGatewayVirtualGatewayFileAccessLogPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayFileAccessLogPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayFileAccessLogPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayFileAccessLogOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayFileAccessLogOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayFileAccessLog)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayFileAccessLogOutput) ToVirtualGatewayVirtualGatewayFileAccessLogOutput() VirtualGatewayVirtualGatewayFileAccessLogOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayFileAccessLogOutput) ToVirtualGatewayVirtualGatewayFileAccessLogOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayFileAccessLogOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayFileAccessLogOutput) ToVirtualGatewayVirtualGatewayFileAccessLogPtrOutput() VirtualGatewayVirtualGatewayFileAccessLogPtrOutput {
-	return o.ToVirtualGatewayVirtualGatewayFileAccessLogPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualGatewayVirtualGatewayFileAccessLogOutput) ToVirtualGatewayVirtualGatewayFileAccessLogPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayFileAccessLogPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayVirtualGatewayFileAccessLog) *VirtualGatewayVirtualGatewayFileAccessLog {
-		return &v
-	}).(VirtualGatewayVirtualGatewayFileAccessLogPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayFileAccessLogOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayFileAccessLog) string { return v.Path }).(pulumi.StringOutput)
-}
-
-type VirtualGatewayVirtualGatewayFileAccessLogPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayFileAccessLogPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayFileAccessLog)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayFileAccessLogPtrOutput) ToVirtualGatewayVirtualGatewayFileAccessLogPtrOutput() VirtualGatewayVirtualGatewayFileAccessLogPtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayFileAccessLogPtrOutput) ToVirtualGatewayVirtualGatewayFileAccessLogPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayFileAccessLogPtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayFileAccessLogPtrOutput) Elem() VirtualGatewayVirtualGatewayFileAccessLogOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayFileAccessLog) VirtualGatewayVirtualGatewayFileAccessLog {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualGatewayVirtualGatewayFileAccessLog
-		return ret
-	}).(VirtualGatewayVirtualGatewayFileAccessLogOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayFileAccessLogPtrOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayFileAccessLog) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Path
-	}).(pulumi.StringPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayGrpcConnectionPool struct {
-	MaxRequests int `pulumi:"maxRequests"`
-}
-
-// VirtualGatewayVirtualGatewayGrpcConnectionPoolInput is an input type that accepts VirtualGatewayVirtualGatewayGrpcConnectionPoolArgs and VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayGrpcConnectionPoolInput` via:
-//
-//          VirtualGatewayVirtualGatewayGrpcConnectionPoolArgs{...}
-type VirtualGatewayVirtualGatewayGrpcConnectionPoolInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayGrpcConnectionPoolOutput() VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput
-	ToVirtualGatewayVirtualGatewayGrpcConnectionPoolOutputWithContext(context.Context) VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput
-}
-
-type VirtualGatewayVirtualGatewayGrpcConnectionPoolArgs struct {
-	MaxRequests pulumi.IntInput `pulumi:"maxRequests"`
-}
-
-func (VirtualGatewayVirtualGatewayGrpcConnectionPoolArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayGrpcConnectionPool)(nil)).Elem()
-}
-
-func (i VirtualGatewayVirtualGatewayGrpcConnectionPoolArgs) ToVirtualGatewayVirtualGatewayGrpcConnectionPoolOutput() VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput {
-	return i.ToVirtualGatewayVirtualGatewayGrpcConnectionPoolOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayGrpcConnectionPoolArgs) ToVirtualGatewayVirtualGatewayGrpcConnectionPoolOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput)
-}
-
-func (i VirtualGatewayVirtualGatewayGrpcConnectionPoolArgs) ToVirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayGrpcConnectionPoolArgs) ToVirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput).ToVirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutputWithContext(ctx)
-}
-
-// VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrInput is an input type that accepts VirtualGatewayVirtualGatewayGrpcConnectionPoolArgs, VirtualGatewayVirtualGatewayGrpcConnectionPoolPtr and VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrInput` via:
-//
-//          VirtualGatewayVirtualGatewayGrpcConnectionPoolArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput
-	ToVirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput
-}
-
-type virtualGatewayVirtualGatewayGrpcConnectionPoolPtrType VirtualGatewayVirtualGatewayGrpcConnectionPoolArgs
-
-func VirtualGatewayVirtualGatewayGrpcConnectionPoolPtr(v *VirtualGatewayVirtualGatewayGrpcConnectionPoolArgs) VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrInput {
-	return (*virtualGatewayVirtualGatewayGrpcConnectionPoolPtrType)(v)
-}
-
-func (*virtualGatewayVirtualGatewayGrpcConnectionPoolPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayGrpcConnectionPool)(nil)).Elem()
-}
-
-func (i *virtualGatewayVirtualGatewayGrpcConnectionPoolPtrType) ToVirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualGatewayVirtualGatewayGrpcConnectionPoolPtrType) ToVirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayGrpcConnectionPool)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput) ToVirtualGatewayVirtualGatewayGrpcConnectionPoolOutput() VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput) ToVirtualGatewayVirtualGatewayGrpcConnectionPoolOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput) ToVirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput {
-	return o.ToVirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput) ToVirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayVirtualGatewayGrpcConnectionPool) *VirtualGatewayVirtualGatewayGrpcConnectionPool {
-		return &v
-	}).(VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput) MaxRequests() pulumi.IntOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayGrpcConnectionPool) int { return v.MaxRequests }).(pulumi.IntOutput)
-}
-
-type VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayGrpcConnectionPool)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput) ToVirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput) ToVirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput) Elem() VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayGrpcConnectionPool) VirtualGatewayVirtualGatewayGrpcConnectionPool {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualGatewayVirtualGatewayGrpcConnectionPool
-		return ret
-	}).(VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput) MaxRequests() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayGrpcConnectionPool) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MaxRequests
-	}).(pulumi.IntPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayHealthCheckPolicy struct {
-	HealthyThreshold   int     `pulumi:"healthyThreshold"`
-	IntervalMillis     int     `pulumi:"intervalMillis"`
-	Path               *string `pulumi:"path"`
-	Port               *int    `pulumi:"port"`
-	Protocol           string  `pulumi:"protocol"`
-	TimeoutMillis      int     `pulumi:"timeoutMillis"`
-	UnhealthyThreshold int     `pulumi:"unhealthyThreshold"`
-}
-
-// VirtualGatewayVirtualGatewayHealthCheckPolicyInput is an input type that accepts VirtualGatewayVirtualGatewayHealthCheckPolicyArgs and VirtualGatewayVirtualGatewayHealthCheckPolicyOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayHealthCheckPolicyInput` via:
-//
-//          VirtualGatewayVirtualGatewayHealthCheckPolicyArgs{...}
-type VirtualGatewayVirtualGatewayHealthCheckPolicyInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayHealthCheckPolicyOutput() VirtualGatewayVirtualGatewayHealthCheckPolicyOutput
-	ToVirtualGatewayVirtualGatewayHealthCheckPolicyOutputWithContext(context.Context) VirtualGatewayVirtualGatewayHealthCheckPolicyOutput
-}
-
-type VirtualGatewayVirtualGatewayHealthCheckPolicyArgs struct {
-	HealthyThreshold   pulumi.IntInput       `pulumi:"healthyThreshold"`
-	IntervalMillis     pulumi.IntInput       `pulumi:"intervalMillis"`
-	Path               pulumi.StringPtrInput `pulumi:"path"`
-	Port               pulumi.IntPtrInput    `pulumi:"port"`
-	Protocol           pulumi.StringInput    `pulumi:"protocol"`
-	TimeoutMillis      pulumi.IntInput       `pulumi:"timeoutMillis"`
-	UnhealthyThreshold pulumi.IntInput       `pulumi:"unhealthyThreshold"`
-}
-
-func (VirtualGatewayVirtualGatewayHealthCheckPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayHealthCheckPolicy)(nil)).Elem()
-}
-
-func (i VirtualGatewayVirtualGatewayHealthCheckPolicyArgs) ToVirtualGatewayVirtualGatewayHealthCheckPolicyOutput() VirtualGatewayVirtualGatewayHealthCheckPolicyOutput {
-	return i.ToVirtualGatewayVirtualGatewayHealthCheckPolicyOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayHealthCheckPolicyArgs) ToVirtualGatewayVirtualGatewayHealthCheckPolicyOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHealthCheckPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayHealthCheckPolicyOutput)
-}
-
-func (i VirtualGatewayVirtualGatewayHealthCheckPolicyArgs) ToVirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput() VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayHealthCheckPolicyArgs) ToVirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayHealthCheckPolicyOutput).ToVirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutputWithContext(ctx)
-}
-
-// VirtualGatewayVirtualGatewayHealthCheckPolicyPtrInput is an input type that accepts VirtualGatewayVirtualGatewayHealthCheckPolicyArgs, VirtualGatewayVirtualGatewayHealthCheckPolicyPtr and VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayHealthCheckPolicyPtrInput` via:
-//
-//          VirtualGatewayVirtualGatewayHealthCheckPolicyArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualGatewayVirtualGatewayHealthCheckPolicyPtrInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput() VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput
-	ToVirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput
-}
-
-type virtualGatewayVirtualGatewayHealthCheckPolicyPtrType VirtualGatewayVirtualGatewayHealthCheckPolicyArgs
-
-func VirtualGatewayVirtualGatewayHealthCheckPolicyPtr(v *VirtualGatewayVirtualGatewayHealthCheckPolicyArgs) VirtualGatewayVirtualGatewayHealthCheckPolicyPtrInput {
-	return (*virtualGatewayVirtualGatewayHealthCheckPolicyPtrType)(v)
-}
-
-func (*virtualGatewayVirtualGatewayHealthCheckPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayHealthCheckPolicy)(nil)).Elem()
-}
-
-func (i *virtualGatewayVirtualGatewayHealthCheckPolicyPtrType) ToVirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput() VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualGatewayVirtualGatewayHealthCheckPolicyPtrType) ToVirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayHealthCheckPolicyOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayHealthCheckPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayHealthCheckPolicy)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayHealthCheckPolicyOutput) ToVirtualGatewayVirtualGatewayHealthCheckPolicyOutput() VirtualGatewayVirtualGatewayHealthCheckPolicyOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayHealthCheckPolicyOutput) ToVirtualGatewayVirtualGatewayHealthCheckPolicyOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHealthCheckPolicyOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayHealthCheckPolicyOutput) ToVirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput() VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput {
-	return o.ToVirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualGatewayVirtualGatewayHealthCheckPolicyOutput) ToVirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayVirtualGatewayHealthCheckPolicy) *VirtualGatewayVirtualGatewayHealthCheckPolicy {
-		return &v
-	}).(VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayHealthCheckPolicyOutput) HealthyThreshold() pulumi.IntOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayHealthCheckPolicy) int { return v.HealthyThreshold }).(pulumi.IntOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayHealthCheckPolicyOutput) IntervalMillis() pulumi.IntOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayHealthCheckPolicy) int { return v.IntervalMillis }).(pulumi.IntOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayHealthCheckPolicyOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayHealthCheckPolicy) *string { return v.Path }).(pulumi.StringPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayHealthCheckPolicyOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayHealthCheckPolicy) *int { return v.Port }).(pulumi.IntPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayHealthCheckPolicyOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayHealthCheckPolicy) string { return v.Protocol }).(pulumi.StringOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayHealthCheckPolicyOutput) TimeoutMillis() pulumi.IntOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayHealthCheckPolicy) int { return v.TimeoutMillis }).(pulumi.IntOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayHealthCheckPolicyOutput) UnhealthyThreshold() pulumi.IntOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayHealthCheckPolicy) int { return v.UnhealthyThreshold }).(pulumi.IntOutput)
-}
-
-type VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayHealthCheckPolicy)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput) ToVirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput() VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput) ToVirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput) Elem() VirtualGatewayVirtualGatewayHealthCheckPolicyOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayHealthCheckPolicy) VirtualGatewayVirtualGatewayHealthCheckPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualGatewayVirtualGatewayHealthCheckPolicy
-		return ret
-	}).(VirtualGatewayVirtualGatewayHealthCheckPolicyOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput) HealthyThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayHealthCheckPolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.HealthyThreshold
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput) IntervalMillis() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayHealthCheckPolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.IntervalMillis
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayHealthCheckPolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Path
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayHealthCheckPolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Port
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayHealthCheckPolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Protocol
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput) TimeoutMillis() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayHealthCheckPolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.TimeoutMillis
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput) UnhealthyThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayHealthCheckPolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.UnhealthyThreshold
-	}).(pulumi.IntPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayHttp2ConnectionPool struct {
-	MaxRequests int `pulumi:"maxRequests"`
-}
-
-// VirtualGatewayVirtualGatewayHttp2ConnectionPoolInput is an input type that accepts VirtualGatewayVirtualGatewayHttp2ConnectionPoolArgs and VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayHttp2ConnectionPoolInput` via:
-//
-//          VirtualGatewayVirtualGatewayHttp2ConnectionPoolArgs{...}
-type VirtualGatewayVirtualGatewayHttp2ConnectionPoolInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput() VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput
-	ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolOutputWithContext(context.Context) VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput
-}
-
-type VirtualGatewayVirtualGatewayHttp2ConnectionPoolArgs struct {
-	MaxRequests pulumi.IntInput `pulumi:"maxRequests"`
-}
-
-func (VirtualGatewayVirtualGatewayHttp2ConnectionPoolArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayHttp2ConnectionPool)(nil)).Elem()
-}
-
-func (i VirtualGatewayVirtualGatewayHttp2ConnectionPoolArgs) ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput() VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput {
-	return i.ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayHttp2ConnectionPoolArgs) ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput)
-}
-
-func (i VirtualGatewayVirtualGatewayHttp2ConnectionPoolArgs) ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayHttp2ConnectionPoolArgs) ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput).ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutputWithContext(ctx)
-}
-
-// VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrInput is an input type that accepts VirtualGatewayVirtualGatewayHttp2ConnectionPoolArgs, VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtr and VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrInput` via:
-//
-//          VirtualGatewayVirtualGatewayHttp2ConnectionPoolArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput
-	ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput
-}
-
-type virtualGatewayVirtualGatewayHttp2ConnectionPoolPtrType VirtualGatewayVirtualGatewayHttp2ConnectionPoolArgs
-
-func VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtr(v *VirtualGatewayVirtualGatewayHttp2ConnectionPoolArgs) VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrInput {
-	return (*virtualGatewayVirtualGatewayHttp2ConnectionPoolPtrType)(v)
-}
-
-func (*virtualGatewayVirtualGatewayHttp2ConnectionPoolPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayHttp2ConnectionPool)(nil)).Elem()
-}
-
-func (i *virtualGatewayVirtualGatewayHttp2ConnectionPoolPtrType) ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualGatewayVirtualGatewayHttp2ConnectionPoolPtrType) ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayHttp2ConnectionPool)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput) ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput() VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput) ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput) ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput {
-	return o.ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput) ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayVirtualGatewayHttp2ConnectionPool) *VirtualGatewayVirtualGatewayHttp2ConnectionPool {
-		return &v
-	}).(VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput) MaxRequests() pulumi.IntOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayHttp2ConnectionPool) int { return v.MaxRequests }).(pulumi.IntOutput)
-}
-
-type VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayHttp2ConnectionPool)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput) ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput) ToVirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput) Elem() VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayHttp2ConnectionPool) VirtualGatewayVirtualGatewayHttp2ConnectionPool {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualGatewayVirtualGatewayHttp2ConnectionPool
-		return ret
-	}).(VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput) MaxRequests() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayHttp2ConnectionPool) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MaxRequests
-	}).(pulumi.IntPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayHttpConnectionPool struct {
-	MaxConnections     int  `pulumi:"maxConnections"`
-	MaxPendingRequests *int `pulumi:"maxPendingRequests"`
-}
-
-// VirtualGatewayVirtualGatewayHttpConnectionPoolInput is an input type that accepts VirtualGatewayVirtualGatewayHttpConnectionPoolArgs and VirtualGatewayVirtualGatewayHttpConnectionPoolOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayHttpConnectionPoolInput` via:
-//
-//          VirtualGatewayVirtualGatewayHttpConnectionPoolArgs{...}
-type VirtualGatewayVirtualGatewayHttpConnectionPoolInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayHttpConnectionPoolOutput() VirtualGatewayVirtualGatewayHttpConnectionPoolOutput
-	ToVirtualGatewayVirtualGatewayHttpConnectionPoolOutputWithContext(context.Context) VirtualGatewayVirtualGatewayHttpConnectionPoolOutput
-}
-
-type VirtualGatewayVirtualGatewayHttpConnectionPoolArgs struct {
-	MaxConnections     pulumi.IntInput    `pulumi:"maxConnections"`
-	MaxPendingRequests pulumi.IntPtrInput `pulumi:"maxPendingRequests"`
-}
-
-func (VirtualGatewayVirtualGatewayHttpConnectionPoolArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayHttpConnectionPool)(nil)).Elem()
-}
-
-func (i VirtualGatewayVirtualGatewayHttpConnectionPoolArgs) ToVirtualGatewayVirtualGatewayHttpConnectionPoolOutput() VirtualGatewayVirtualGatewayHttpConnectionPoolOutput {
-	return i.ToVirtualGatewayVirtualGatewayHttpConnectionPoolOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayHttpConnectionPoolArgs) ToVirtualGatewayVirtualGatewayHttpConnectionPoolOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHttpConnectionPoolOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayHttpConnectionPoolOutput)
-}
-
-func (i VirtualGatewayVirtualGatewayHttpConnectionPoolArgs) ToVirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayHttpConnectionPoolArgs) ToVirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayHttpConnectionPoolOutput).ToVirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutputWithContext(ctx)
-}
-
-// VirtualGatewayVirtualGatewayHttpConnectionPoolPtrInput is an input type that accepts VirtualGatewayVirtualGatewayHttpConnectionPoolArgs, VirtualGatewayVirtualGatewayHttpConnectionPoolPtr and VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayHttpConnectionPoolPtrInput` via:
-//
-//          VirtualGatewayVirtualGatewayHttpConnectionPoolArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualGatewayVirtualGatewayHttpConnectionPoolPtrInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput
-	ToVirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput
-}
-
-type virtualGatewayVirtualGatewayHttpConnectionPoolPtrType VirtualGatewayVirtualGatewayHttpConnectionPoolArgs
-
-func VirtualGatewayVirtualGatewayHttpConnectionPoolPtr(v *VirtualGatewayVirtualGatewayHttpConnectionPoolArgs) VirtualGatewayVirtualGatewayHttpConnectionPoolPtrInput {
-	return (*virtualGatewayVirtualGatewayHttpConnectionPoolPtrType)(v)
-}
-
-func (*virtualGatewayVirtualGatewayHttpConnectionPoolPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayHttpConnectionPool)(nil)).Elem()
-}
-
-func (i *virtualGatewayVirtualGatewayHttpConnectionPoolPtrType) ToVirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualGatewayVirtualGatewayHttpConnectionPoolPtrType) ToVirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayHttpConnectionPoolOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayHttpConnectionPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayHttpConnectionPool)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayHttpConnectionPoolOutput) ToVirtualGatewayVirtualGatewayHttpConnectionPoolOutput() VirtualGatewayVirtualGatewayHttpConnectionPoolOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayHttpConnectionPoolOutput) ToVirtualGatewayVirtualGatewayHttpConnectionPoolOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHttpConnectionPoolOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayHttpConnectionPoolOutput) ToVirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput {
-	return o.ToVirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualGatewayVirtualGatewayHttpConnectionPoolOutput) ToVirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayVirtualGatewayHttpConnectionPool) *VirtualGatewayVirtualGatewayHttpConnectionPool {
-		return &v
-	}).(VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayHttpConnectionPoolOutput) MaxConnections() pulumi.IntOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayHttpConnectionPool) int { return v.MaxConnections }).(pulumi.IntOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayHttpConnectionPoolOutput) MaxPendingRequests() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayHttpConnectionPool) *int { return v.MaxPendingRequests }).(pulumi.IntPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayHttpConnectionPool)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput) ToVirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput() VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput) ToVirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput) Elem() VirtualGatewayVirtualGatewayHttpConnectionPoolOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayHttpConnectionPool) VirtualGatewayVirtualGatewayHttpConnectionPool {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualGatewayVirtualGatewayHttpConnectionPool
-		return ret
-	}).(VirtualGatewayVirtualGatewayHttpConnectionPoolOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput) MaxConnections() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayHttpConnectionPool) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MaxConnections
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput) MaxPendingRequests() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayHttpConnectionPool) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxPendingRequests
-	}).(pulumi.IntPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayListener struct {
-	ConnectionPool *VirtualGatewayVirtualGatewayConnectionPool    `pulumi:"connectionPool"`
-	HealthCheck    *VirtualGatewayVirtualGatewayHealthCheckPolicy `pulumi:"healthCheck"`
-	PortMapping    VirtualGatewayVirtualGatewayPortMapping        `pulumi:"portMapping"`
-	TLS            *VirtualGatewayVirtualGatewayListenerTls       `pulumi:"tLS"`
-}
-
-// VirtualGatewayVirtualGatewayListenerInput is an input type that accepts VirtualGatewayVirtualGatewayListenerArgs and VirtualGatewayVirtualGatewayListenerOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayListenerInput` via:
-//
-//          VirtualGatewayVirtualGatewayListenerArgs{...}
-type VirtualGatewayVirtualGatewayListenerInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayListenerOutput() VirtualGatewayVirtualGatewayListenerOutput
-	ToVirtualGatewayVirtualGatewayListenerOutputWithContext(context.Context) VirtualGatewayVirtualGatewayListenerOutput
-}
-
-type VirtualGatewayVirtualGatewayListenerArgs struct {
-	ConnectionPool VirtualGatewayVirtualGatewayConnectionPoolPtrInput    `pulumi:"connectionPool"`
-	HealthCheck    VirtualGatewayVirtualGatewayHealthCheckPolicyPtrInput `pulumi:"healthCheck"`
-	PortMapping    VirtualGatewayVirtualGatewayPortMappingInput          `pulumi:"portMapping"`
-	TLS            VirtualGatewayVirtualGatewayListenerTlsPtrInput       `pulumi:"tLS"`
-}
-
-func (VirtualGatewayVirtualGatewayListenerArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayListener)(nil)).Elem()
-}
-
-func (i VirtualGatewayVirtualGatewayListenerArgs) ToVirtualGatewayVirtualGatewayListenerOutput() VirtualGatewayVirtualGatewayListenerOutput {
-	return i.ToVirtualGatewayVirtualGatewayListenerOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayListenerArgs) ToVirtualGatewayVirtualGatewayListenerOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerOutput)
-}
-
-// VirtualGatewayVirtualGatewayListenerArrayInput is an input type that accepts VirtualGatewayVirtualGatewayListenerArray and VirtualGatewayVirtualGatewayListenerArrayOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayListenerArrayInput` via:
-//
-//          VirtualGatewayVirtualGatewayListenerArray{ VirtualGatewayVirtualGatewayListenerArgs{...} }
-type VirtualGatewayVirtualGatewayListenerArrayInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayListenerArrayOutput() VirtualGatewayVirtualGatewayListenerArrayOutput
-	ToVirtualGatewayVirtualGatewayListenerArrayOutputWithContext(context.Context) VirtualGatewayVirtualGatewayListenerArrayOutput
-}
-
-type VirtualGatewayVirtualGatewayListenerArray []VirtualGatewayVirtualGatewayListenerInput
-
-func (VirtualGatewayVirtualGatewayListenerArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualGatewayVirtualGatewayListener)(nil)).Elem()
-}
-
-func (i VirtualGatewayVirtualGatewayListenerArray) ToVirtualGatewayVirtualGatewayListenerArrayOutput() VirtualGatewayVirtualGatewayListenerArrayOutput {
-	return i.ToVirtualGatewayVirtualGatewayListenerArrayOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayListenerArray) ToVirtualGatewayVirtualGatewayListenerArrayOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerArrayOutput)
-}
-
-type VirtualGatewayVirtualGatewayListenerOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayListenerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayListener)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayListenerOutput) ToVirtualGatewayVirtualGatewayListenerOutput() VirtualGatewayVirtualGatewayListenerOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayListenerOutput) ToVirtualGatewayVirtualGatewayListenerOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayListenerOutput) ConnectionPool() VirtualGatewayVirtualGatewayConnectionPoolPtrOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListener) *VirtualGatewayVirtualGatewayConnectionPool {
-		return v.ConnectionPool
-	}).(VirtualGatewayVirtualGatewayConnectionPoolPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayListenerOutput) HealthCheck() VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListener) *VirtualGatewayVirtualGatewayHealthCheckPolicy {
-		return v.HealthCheck
-	}).(VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayListenerOutput) PortMapping() VirtualGatewayVirtualGatewayPortMappingOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListener) VirtualGatewayVirtualGatewayPortMapping {
-		return v.PortMapping
-	}).(VirtualGatewayVirtualGatewayPortMappingOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayListenerOutput) TLS() VirtualGatewayVirtualGatewayListenerTlsPtrOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListener) *VirtualGatewayVirtualGatewayListenerTls { return v.TLS }).(VirtualGatewayVirtualGatewayListenerTlsPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayListenerArrayOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayListenerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualGatewayVirtualGatewayListener)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayListenerArrayOutput) ToVirtualGatewayVirtualGatewayListenerArrayOutput() VirtualGatewayVirtualGatewayListenerArrayOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayListenerArrayOutput) ToVirtualGatewayVirtualGatewayListenerArrayOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerArrayOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayListenerArrayOutput) Index(i pulumi.IntInput) VirtualGatewayVirtualGatewayListenerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualGatewayVirtualGatewayListener {
-		return vs[0].([]VirtualGatewayVirtualGatewayListener)[vs[1].(int)]
-	}).(VirtualGatewayVirtualGatewayListenerOutput)
-}
-
-type VirtualGatewayVirtualGatewayListenerTls struct {
-	Certificate VirtualGatewayVirtualGatewayListenerTlsCertificate        `pulumi:"certificate"`
-	Mode        string                                                    `pulumi:"mode"`
-	Validation  *VirtualGatewayVirtualGatewayListenerTlsValidationContext `pulumi:"validation"`
-}
-
-// VirtualGatewayVirtualGatewayListenerTlsInput is an input type that accepts VirtualGatewayVirtualGatewayListenerTlsArgs and VirtualGatewayVirtualGatewayListenerTlsOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayListenerTlsInput` via:
-//
-//          VirtualGatewayVirtualGatewayListenerTlsArgs{...}
-type VirtualGatewayVirtualGatewayListenerTlsInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayListenerTlsOutput() VirtualGatewayVirtualGatewayListenerTlsOutput
-	ToVirtualGatewayVirtualGatewayListenerTlsOutputWithContext(context.Context) VirtualGatewayVirtualGatewayListenerTlsOutput
-}
-
-type VirtualGatewayVirtualGatewayListenerTlsArgs struct {
-	Certificate VirtualGatewayVirtualGatewayListenerTlsCertificateInput          `pulumi:"certificate"`
-	Mode        pulumi.StringInput                                               `pulumi:"mode"`
-	Validation  VirtualGatewayVirtualGatewayListenerTlsValidationContextPtrInput `pulumi:"validation"`
-}
-
-func (VirtualGatewayVirtualGatewayListenerTlsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayListenerTls)(nil)).Elem()
-}
-
-func (i VirtualGatewayVirtualGatewayListenerTlsArgs) ToVirtualGatewayVirtualGatewayListenerTlsOutput() VirtualGatewayVirtualGatewayListenerTlsOutput {
-	return i.ToVirtualGatewayVirtualGatewayListenerTlsOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayListenerTlsArgs) ToVirtualGatewayVirtualGatewayListenerTlsOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsOutput)
-}
-
-func (i VirtualGatewayVirtualGatewayListenerTlsArgs) ToVirtualGatewayVirtualGatewayListenerTlsPtrOutput() VirtualGatewayVirtualGatewayListenerTlsPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayListenerTlsPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayListenerTlsArgs) ToVirtualGatewayVirtualGatewayListenerTlsPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsOutput).ToVirtualGatewayVirtualGatewayListenerTlsPtrOutputWithContext(ctx)
-}
-
-// VirtualGatewayVirtualGatewayListenerTlsPtrInput is an input type that accepts VirtualGatewayVirtualGatewayListenerTlsArgs, VirtualGatewayVirtualGatewayListenerTlsPtr and VirtualGatewayVirtualGatewayListenerTlsPtrOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayListenerTlsPtrInput` via:
-//
-//          VirtualGatewayVirtualGatewayListenerTlsArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualGatewayVirtualGatewayListenerTlsPtrInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayListenerTlsPtrOutput() VirtualGatewayVirtualGatewayListenerTlsPtrOutput
-	ToVirtualGatewayVirtualGatewayListenerTlsPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayListenerTlsPtrOutput
-}
-
-type virtualGatewayVirtualGatewayListenerTlsPtrType VirtualGatewayVirtualGatewayListenerTlsArgs
-
-func VirtualGatewayVirtualGatewayListenerTlsPtr(v *VirtualGatewayVirtualGatewayListenerTlsArgs) VirtualGatewayVirtualGatewayListenerTlsPtrInput {
-	return (*virtualGatewayVirtualGatewayListenerTlsPtrType)(v)
-}
-
-func (*virtualGatewayVirtualGatewayListenerTlsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayListenerTls)(nil)).Elem()
-}
-
-func (i *virtualGatewayVirtualGatewayListenerTlsPtrType) ToVirtualGatewayVirtualGatewayListenerTlsPtrOutput() VirtualGatewayVirtualGatewayListenerTlsPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayListenerTlsPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualGatewayVirtualGatewayListenerTlsPtrType) ToVirtualGatewayVirtualGatewayListenerTlsPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayListenerTlsOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayListenerTlsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayListenerTls)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsOutput) ToVirtualGatewayVirtualGatewayListenerTlsOutput() VirtualGatewayVirtualGatewayListenerTlsOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsOutput) ToVirtualGatewayVirtualGatewayListenerTlsOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsOutput) ToVirtualGatewayVirtualGatewayListenerTlsPtrOutput() VirtualGatewayVirtualGatewayListenerTlsPtrOutput {
-	return o.ToVirtualGatewayVirtualGatewayListenerTlsPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsOutput) ToVirtualGatewayVirtualGatewayListenerTlsPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayVirtualGatewayListenerTls) *VirtualGatewayVirtualGatewayListenerTls {
-		return &v
-	}).(VirtualGatewayVirtualGatewayListenerTlsPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsOutput) Certificate() VirtualGatewayVirtualGatewayListenerTlsCertificateOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListenerTls) VirtualGatewayVirtualGatewayListenerTlsCertificate {
-		return v.Certificate
-	}).(VirtualGatewayVirtualGatewayListenerTlsCertificateOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsOutput) Mode() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListenerTls) string { return v.Mode }).(pulumi.StringOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsOutput) Validation() VirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListenerTls) *VirtualGatewayVirtualGatewayListenerTlsValidationContext {
-		return v.Validation
-	}).(VirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayListenerTlsPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayListenerTlsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayListenerTls)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsPtrOutput) ToVirtualGatewayVirtualGatewayListenerTlsPtrOutput() VirtualGatewayVirtualGatewayListenerTlsPtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsPtrOutput) ToVirtualGatewayVirtualGatewayListenerTlsPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsPtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsPtrOutput) Elem() VirtualGatewayVirtualGatewayListenerTlsOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTls) VirtualGatewayVirtualGatewayListenerTls {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualGatewayVirtualGatewayListenerTls
-		return ret
-	}).(VirtualGatewayVirtualGatewayListenerTlsOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsPtrOutput) Certificate() VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTls) *VirtualGatewayVirtualGatewayListenerTlsCertificate {
-		if v == nil {
-			return nil
-		}
-		return &v.Certificate
-	}).(VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsPtrOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTls) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Mode
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsPtrOutput) Validation() VirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTls) *VirtualGatewayVirtualGatewayListenerTlsValidationContext {
-		if v == nil {
-			return nil
-		}
-		return v.Validation
-	}).(VirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayListenerTlsAcmCertificate struct {
-	CertificateArn string `pulumi:"certificateArn"`
-}
-
-// VirtualGatewayVirtualGatewayListenerTlsAcmCertificateInput is an input type that accepts VirtualGatewayVirtualGatewayListenerTlsAcmCertificateArgs and VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayListenerTlsAcmCertificateInput` via:
-//
-//          VirtualGatewayVirtualGatewayListenerTlsAcmCertificateArgs{...}
-type VirtualGatewayVirtualGatewayListenerTlsAcmCertificateInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput() VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput
-	ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutputWithContext(context.Context) VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput
-}
-
-type VirtualGatewayVirtualGatewayListenerTlsAcmCertificateArgs struct {
-	CertificateArn pulumi.StringInput `pulumi:"certificateArn"`
-}
-
-func (VirtualGatewayVirtualGatewayListenerTlsAcmCertificateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayListenerTlsAcmCertificate)(nil)).Elem()
-}
-
-func (i VirtualGatewayVirtualGatewayListenerTlsAcmCertificateArgs) ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput() VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput {
-	return i.ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayListenerTlsAcmCertificateArgs) ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput)
-}
-
-func (i VirtualGatewayVirtualGatewayListenerTlsAcmCertificateArgs) ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayListenerTlsAcmCertificateArgs) ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput).ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutputWithContext(ctx)
-}
-
-// VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrInput is an input type that accepts VirtualGatewayVirtualGatewayListenerTlsAcmCertificateArgs, VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtr and VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrInput` via:
-//
-//          VirtualGatewayVirtualGatewayListenerTlsAcmCertificateArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput
-	ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput
-}
-
-type virtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrType VirtualGatewayVirtualGatewayListenerTlsAcmCertificateArgs
-
-func VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtr(v *VirtualGatewayVirtualGatewayListenerTlsAcmCertificateArgs) VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrInput {
-	return (*virtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrType)(v)
-}
-
-func (*virtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayListenerTlsAcmCertificate)(nil)).Elem()
-}
-
-func (i *virtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrType) ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutputWithContext(context.Background())
-}
-
-func (i *virtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrType) ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayListenerTlsAcmCertificate)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput) ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput() VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput) ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput) ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput {
-	return o.ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutputWithContext(context.Background())
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput) ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayVirtualGatewayListenerTlsAcmCertificate) *VirtualGatewayVirtualGatewayListenerTlsAcmCertificate {
-		return &v
-	}).(VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput) CertificateArn() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListenerTlsAcmCertificate) string { return v.CertificateArn }).(pulumi.StringOutput)
-}
-
-type VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayListenerTlsAcmCertificate)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput) ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput) ToVirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput) Elem() VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTlsAcmCertificate) VirtualGatewayVirtualGatewayListenerTlsAcmCertificate {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualGatewayVirtualGatewayListenerTlsAcmCertificate
-		return ret
-	}).(VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput) CertificateArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTlsAcmCertificate) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CertificateArn
-	}).(pulumi.StringPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayListenerTlsCertificate struct {
-	ACM  *VirtualGatewayVirtualGatewayListenerTlsAcmCertificate  `pulumi:"aCM"`
-	File *VirtualGatewayVirtualGatewayListenerTlsFileCertificate `pulumi:"file"`
-	SDS  *VirtualGatewayVirtualGatewayListenerTlsSdsCertificate  `pulumi:"sDS"`
-}
-
-// VirtualGatewayVirtualGatewayListenerTlsCertificateInput is an input type that accepts VirtualGatewayVirtualGatewayListenerTlsCertificateArgs and VirtualGatewayVirtualGatewayListenerTlsCertificateOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayListenerTlsCertificateInput` via:
-//
-//          VirtualGatewayVirtualGatewayListenerTlsCertificateArgs{...}
-type VirtualGatewayVirtualGatewayListenerTlsCertificateInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayListenerTlsCertificateOutput() VirtualGatewayVirtualGatewayListenerTlsCertificateOutput
-	ToVirtualGatewayVirtualGatewayListenerTlsCertificateOutputWithContext(context.Context) VirtualGatewayVirtualGatewayListenerTlsCertificateOutput
-}
-
-type VirtualGatewayVirtualGatewayListenerTlsCertificateArgs struct {
-	ACM  VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrInput  `pulumi:"aCM"`
-	File VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrInput `pulumi:"file"`
-	SDS  VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrInput  `pulumi:"sDS"`
-}
-
-func (VirtualGatewayVirtualGatewayListenerTlsCertificateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayListenerTlsCertificate)(nil)).Elem()
-}
-
-func (i VirtualGatewayVirtualGatewayListenerTlsCertificateArgs) ToVirtualGatewayVirtualGatewayListenerTlsCertificateOutput() VirtualGatewayVirtualGatewayListenerTlsCertificateOutput {
-	return i.ToVirtualGatewayVirtualGatewayListenerTlsCertificateOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayListenerTlsCertificateArgs) ToVirtualGatewayVirtualGatewayListenerTlsCertificateOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsCertificateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsCertificateOutput)
-}
-
-func (i VirtualGatewayVirtualGatewayListenerTlsCertificateArgs) ToVirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayListenerTlsCertificateArgs) ToVirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsCertificateOutput).ToVirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutputWithContext(ctx)
-}
-
-// VirtualGatewayVirtualGatewayListenerTlsCertificatePtrInput is an input type that accepts VirtualGatewayVirtualGatewayListenerTlsCertificateArgs, VirtualGatewayVirtualGatewayListenerTlsCertificatePtr and VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayListenerTlsCertificatePtrInput` via:
-//
-//          VirtualGatewayVirtualGatewayListenerTlsCertificateArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualGatewayVirtualGatewayListenerTlsCertificatePtrInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput
-	ToVirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput
-}
-
-type virtualGatewayVirtualGatewayListenerTlsCertificatePtrType VirtualGatewayVirtualGatewayListenerTlsCertificateArgs
-
-func VirtualGatewayVirtualGatewayListenerTlsCertificatePtr(v *VirtualGatewayVirtualGatewayListenerTlsCertificateArgs) VirtualGatewayVirtualGatewayListenerTlsCertificatePtrInput {
-	return (*virtualGatewayVirtualGatewayListenerTlsCertificatePtrType)(v)
-}
-
-func (*virtualGatewayVirtualGatewayListenerTlsCertificatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayListenerTlsCertificate)(nil)).Elem()
-}
-
-func (i *virtualGatewayVirtualGatewayListenerTlsCertificatePtrType) ToVirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutputWithContext(context.Background())
-}
-
-func (i *virtualGatewayVirtualGatewayListenerTlsCertificatePtrType) ToVirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayListenerTlsCertificateOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayListenerTlsCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayListenerTlsCertificate)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsCertificateOutput) ToVirtualGatewayVirtualGatewayListenerTlsCertificateOutput() VirtualGatewayVirtualGatewayListenerTlsCertificateOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsCertificateOutput) ToVirtualGatewayVirtualGatewayListenerTlsCertificateOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsCertificateOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsCertificateOutput) ToVirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput {
-	return o.ToVirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutputWithContext(context.Background())
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsCertificateOutput) ToVirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayVirtualGatewayListenerTlsCertificate) *VirtualGatewayVirtualGatewayListenerTlsCertificate {
-		return &v
-	}).(VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsCertificateOutput) ACM() VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListenerTlsCertificate) *VirtualGatewayVirtualGatewayListenerTlsAcmCertificate {
-		return v.ACM
-	}).(VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsCertificateOutput) File() VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListenerTlsCertificate) *VirtualGatewayVirtualGatewayListenerTlsFileCertificate {
-		return v.File
-	}).(VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsCertificateOutput) SDS() VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListenerTlsCertificate) *VirtualGatewayVirtualGatewayListenerTlsSdsCertificate {
-		return v.SDS
-	}).(VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayListenerTlsCertificate)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput) ToVirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput) ToVirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput) Elem() VirtualGatewayVirtualGatewayListenerTlsCertificateOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTlsCertificate) VirtualGatewayVirtualGatewayListenerTlsCertificate {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualGatewayVirtualGatewayListenerTlsCertificate
-		return ret
-	}).(VirtualGatewayVirtualGatewayListenerTlsCertificateOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput) ACM() VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTlsCertificate) *VirtualGatewayVirtualGatewayListenerTlsAcmCertificate {
-		if v == nil {
-			return nil
-		}
-		return v.ACM
-	}).(VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput) File() VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTlsCertificate) *VirtualGatewayVirtualGatewayListenerTlsFileCertificate {
-		if v == nil {
-			return nil
-		}
-		return v.File
-	}).(VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput) SDS() VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTlsCertificate) *VirtualGatewayVirtualGatewayListenerTlsSdsCertificate {
-		if v == nil {
-			return nil
-		}
-		return v.SDS
-	}).(VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayListenerTlsFileCertificate struct {
-	CertificateChain string `pulumi:"certificateChain"`
-	PrivateKey       string `pulumi:"privateKey"`
-}
-
-// VirtualGatewayVirtualGatewayListenerTlsFileCertificateInput is an input type that accepts VirtualGatewayVirtualGatewayListenerTlsFileCertificateArgs and VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayListenerTlsFileCertificateInput` via:
-//
-//          VirtualGatewayVirtualGatewayListenerTlsFileCertificateArgs{...}
-type VirtualGatewayVirtualGatewayListenerTlsFileCertificateInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput() VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput
-	ToVirtualGatewayVirtualGatewayListenerTlsFileCertificateOutputWithContext(context.Context) VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput
-}
-
-type VirtualGatewayVirtualGatewayListenerTlsFileCertificateArgs struct {
-	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
-	PrivateKey       pulumi.StringInput `pulumi:"privateKey"`
-}
-
-func (VirtualGatewayVirtualGatewayListenerTlsFileCertificateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayListenerTlsFileCertificate)(nil)).Elem()
-}
-
-func (i VirtualGatewayVirtualGatewayListenerTlsFileCertificateArgs) ToVirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput() VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput {
-	return i.ToVirtualGatewayVirtualGatewayListenerTlsFileCertificateOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayListenerTlsFileCertificateArgs) ToVirtualGatewayVirtualGatewayListenerTlsFileCertificateOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput)
-}
-
-func (i VirtualGatewayVirtualGatewayListenerTlsFileCertificateArgs) ToVirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayListenerTlsFileCertificateArgs) ToVirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput).ToVirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutputWithContext(ctx)
-}
-
-// VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrInput is an input type that accepts VirtualGatewayVirtualGatewayListenerTlsFileCertificateArgs, VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtr and VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrInput` via:
-//
-//          VirtualGatewayVirtualGatewayListenerTlsFileCertificateArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput
-	ToVirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput
-}
-
-type virtualGatewayVirtualGatewayListenerTlsFileCertificatePtrType VirtualGatewayVirtualGatewayListenerTlsFileCertificateArgs
-
-func VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtr(v *VirtualGatewayVirtualGatewayListenerTlsFileCertificateArgs) VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrInput {
-	return (*virtualGatewayVirtualGatewayListenerTlsFileCertificatePtrType)(v)
-}
-
-func (*virtualGatewayVirtualGatewayListenerTlsFileCertificatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayListenerTlsFileCertificate)(nil)).Elem()
-}
-
-func (i *virtualGatewayVirtualGatewayListenerTlsFileCertificatePtrType) ToVirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutputWithContext(context.Background())
-}
-
-func (i *virtualGatewayVirtualGatewayListenerTlsFileCertificatePtrType) ToVirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayListenerTlsFileCertificate)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput) ToVirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput() VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput) ToVirtualGatewayVirtualGatewayListenerTlsFileCertificateOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput) ToVirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput {
-	return o.ToVirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutputWithContext(context.Background())
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput) ToVirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayVirtualGatewayListenerTlsFileCertificate) *VirtualGatewayVirtualGatewayListenerTlsFileCertificate {
-		return &v
-	}).(VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput) CertificateChain() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListenerTlsFileCertificate) string { return v.CertificateChain }).(pulumi.StringOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput) PrivateKey() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListenerTlsFileCertificate) string { return v.PrivateKey }).(pulumi.StringOutput)
-}
-
-type VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayListenerTlsFileCertificate)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput) ToVirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput) ToVirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput) Elem() VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTlsFileCertificate) VirtualGatewayVirtualGatewayListenerTlsFileCertificate {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualGatewayVirtualGatewayListenerTlsFileCertificate
-		return ret
-	}).(VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput) CertificateChain() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTlsFileCertificate) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CertificateChain
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput) PrivateKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTlsFileCertificate) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PrivateKey
-	}).(pulumi.StringPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayListenerTlsSdsCertificate struct {
-	SecretName string `pulumi:"secretName"`
-}
-
-// VirtualGatewayVirtualGatewayListenerTlsSdsCertificateInput is an input type that accepts VirtualGatewayVirtualGatewayListenerTlsSdsCertificateArgs and VirtualGatewayVirtualGatewayListenerTlsSdsCertificateOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayListenerTlsSdsCertificateInput` via:
-//
-//          VirtualGatewayVirtualGatewayListenerTlsSdsCertificateArgs{...}
-type VirtualGatewayVirtualGatewayListenerTlsSdsCertificateInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayListenerTlsSdsCertificateOutput() VirtualGatewayVirtualGatewayListenerTlsSdsCertificateOutput
-	ToVirtualGatewayVirtualGatewayListenerTlsSdsCertificateOutputWithContext(context.Context) VirtualGatewayVirtualGatewayListenerTlsSdsCertificateOutput
-}
-
-type VirtualGatewayVirtualGatewayListenerTlsSdsCertificateArgs struct {
-	SecretName pulumi.StringInput `pulumi:"secretName"`
-}
-
-func (VirtualGatewayVirtualGatewayListenerTlsSdsCertificateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayListenerTlsSdsCertificate)(nil)).Elem()
-}
-
-func (i VirtualGatewayVirtualGatewayListenerTlsSdsCertificateArgs) ToVirtualGatewayVirtualGatewayListenerTlsSdsCertificateOutput() VirtualGatewayVirtualGatewayListenerTlsSdsCertificateOutput {
-	return i.ToVirtualGatewayVirtualGatewayListenerTlsSdsCertificateOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayListenerTlsSdsCertificateArgs) ToVirtualGatewayVirtualGatewayListenerTlsSdsCertificateOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsSdsCertificateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsSdsCertificateOutput)
-}
-
-func (i VirtualGatewayVirtualGatewayListenerTlsSdsCertificateArgs) ToVirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayListenerTlsSdsCertificateArgs) ToVirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsSdsCertificateOutput).ToVirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutputWithContext(ctx)
-}
-
-// VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrInput is an input type that accepts VirtualGatewayVirtualGatewayListenerTlsSdsCertificateArgs, VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtr and VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrInput` via:
-//
-//          VirtualGatewayVirtualGatewayListenerTlsSdsCertificateArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput
-	ToVirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput
-}
-
-type virtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrType VirtualGatewayVirtualGatewayListenerTlsSdsCertificateArgs
-
-func VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtr(v *VirtualGatewayVirtualGatewayListenerTlsSdsCertificateArgs) VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrInput {
-	return (*virtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrType)(v)
-}
-
-func (*virtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayListenerTlsSdsCertificate)(nil)).Elem()
-}
-
-func (i *virtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrType) ToVirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutputWithContext(context.Background())
-}
-
-func (i *virtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrType) ToVirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayListenerTlsSdsCertificateOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayListenerTlsSdsCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayListenerTlsSdsCertificate)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsSdsCertificateOutput) ToVirtualGatewayVirtualGatewayListenerTlsSdsCertificateOutput() VirtualGatewayVirtualGatewayListenerTlsSdsCertificateOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsSdsCertificateOutput) ToVirtualGatewayVirtualGatewayListenerTlsSdsCertificateOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsSdsCertificateOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsSdsCertificateOutput) ToVirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput {
-	return o.ToVirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutputWithContext(context.Background())
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsSdsCertificateOutput) ToVirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayVirtualGatewayListenerTlsSdsCertificate) *VirtualGatewayVirtualGatewayListenerTlsSdsCertificate {
-		return &v
-	}).(VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsSdsCertificateOutput) SecretName() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListenerTlsSdsCertificate) string { return v.SecretName }).(pulumi.StringOutput)
-}
-
-type VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayListenerTlsSdsCertificate)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput) ToVirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput() VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput) ToVirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput) Elem() VirtualGatewayVirtualGatewayListenerTlsSdsCertificateOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTlsSdsCertificate) VirtualGatewayVirtualGatewayListenerTlsSdsCertificate {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualGatewayVirtualGatewayListenerTlsSdsCertificate
-		return ret
-	}).(VirtualGatewayVirtualGatewayListenerTlsSdsCertificateOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput) SecretName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTlsSdsCertificate) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SecretName
-	}).(pulumi.StringPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayListenerTlsValidationContext struct {
-	SubjectAlternativeNames *VirtualGatewaySubjectAlternativeNames                        `pulumi:"subjectAlternativeNames"`
-	Trust                   VirtualGatewayVirtualGatewayListenerTlsValidationContextTrust `pulumi:"trust"`
-}
-
-// VirtualGatewayVirtualGatewayListenerTlsValidationContextInput is an input type that accepts VirtualGatewayVirtualGatewayListenerTlsValidationContextArgs and VirtualGatewayVirtualGatewayListenerTlsValidationContextOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayListenerTlsValidationContextInput` via:
-//
-//          VirtualGatewayVirtualGatewayListenerTlsValidationContextArgs{...}
-type VirtualGatewayVirtualGatewayListenerTlsValidationContextInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayListenerTlsValidationContextOutput() VirtualGatewayVirtualGatewayListenerTlsValidationContextOutput
-	ToVirtualGatewayVirtualGatewayListenerTlsValidationContextOutputWithContext(context.Context) VirtualGatewayVirtualGatewayListenerTlsValidationContextOutput
-}
-
-type VirtualGatewayVirtualGatewayListenerTlsValidationContextArgs struct {
-	SubjectAlternativeNames VirtualGatewaySubjectAlternativeNamesPtrInput                      `pulumi:"subjectAlternativeNames"`
-	Trust                   VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustInput `pulumi:"trust"`
-}
-
-func (VirtualGatewayVirtualGatewayListenerTlsValidationContextArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayListenerTlsValidationContext)(nil)).Elem()
-}
-
-func (i VirtualGatewayVirtualGatewayListenerTlsValidationContextArgs) ToVirtualGatewayVirtualGatewayListenerTlsValidationContextOutput() VirtualGatewayVirtualGatewayListenerTlsValidationContextOutput {
-	return i.ToVirtualGatewayVirtualGatewayListenerTlsValidationContextOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayListenerTlsValidationContextArgs) ToVirtualGatewayVirtualGatewayListenerTlsValidationContextOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsValidationContextOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsValidationContextOutput)
-}
-
-func (i VirtualGatewayVirtualGatewayListenerTlsValidationContextArgs) ToVirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutput() VirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayListenerTlsValidationContextArgs) ToVirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsValidationContextOutput).ToVirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutputWithContext(ctx)
-}
-
-// VirtualGatewayVirtualGatewayListenerTlsValidationContextPtrInput is an input type that accepts VirtualGatewayVirtualGatewayListenerTlsValidationContextArgs, VirtualGatewayVirtualGatewayListenerTlsValidationContextPtr and VirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayListenerTlsValidationContextPtrInput` via:
-//
-//          VirtualGatewayVirtualGatewayListenerTlsValidationContextArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualGatewayVirtualGatewayListenerTlsValidationContextPtrInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutput() VirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutput
-	ToVirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutput
-}
-
-type virtualGatewayVirtualGatewayListenerTlsValidationContextPtrType VirtualGatewayVirtualGatewayListenerTlsValidationContextArgs
-
-func VirtualGatewayVirtualGatewayListenerTlsValidationContextPtr(v *VirtualGatewayVirtualGatewayListenerTlsValidationContextArgs) VirtualGatewayVirtualGatewayListenerTlsValidationContextPtrInput {
-	return (*virtualGatewayVirtualGatewayListenerTlsValidationContextPtrType)(v)
-}
-
-func (*virtualGatewayVirtualGatewayListenerTlsValidationContextPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayListenerTlsValidationContext)(nil)).Elem()
-}
-
-func (i *virtualGatewayVirtualGatewayListenerTlsValidationContextPtrType) ToVirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutput() VirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualGatewayVirtualGatewayListenerTlsValidationContextPtrType) ToVirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayListenerTlsValidationContextOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayListenerTlsValidationContextOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayListenerTlsValidationContext)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsValidationContextOutput) ToVirtualGatewayVirtualGatewayListenerTlsValidationContextOutput() VirtualGatewayVirtualGatewayListenerTlsValidationContextOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsValidationContextOutput) ToVirtualGatewayVirtualGatewayListenerTlsValidationContextOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsValidationContextOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsValidationContextOutput) ToVirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutput() VirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutput {
-	return o.ToVirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsValidationContextOutput) ToVirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayVirtualGatewayListenerTlsValidationContext) *VirtualGatewayVirtualGatewayListenerTlsValidationContext {
-		return &v
-	}).(VirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsValidationContextOutput) SubjectAlternativeNames() VirtualGatewaySubjectAlternativeNamesPtrOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListenerTlsValidationContext) *VirtualGatewaySubjectAlternativeNames {
+func (o VirtualGatewayTlsValidationContextOutput) SubjectAlternativeNames() VirtualGatewaySubjectAlternativeNamesPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayTlsValidationContext) *VirtualGatewaySubjectAlternativeNames {
 		return v.SubjectAlternativeNames
 	}).(VirtualGatewaySubjectAlternativeNamesPtrOutput)
 }
 
-func (o VirtualGatewayVirtualGatewayListenerTlsValidationContextOutput) Trust() VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListenerTlsValidationContext) VirtualGatewayVirtualGatewayListenerTlsValidationContextTrust {
-		return v.Trust
-	}).(VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustOutput)
+func (o VirtualGatewayTlsValidationContextOutput) Trust() VirtualGatewayTlsValidationContextTrustOutput {
+	return o.ApplyT(func(v VirtualGatewayTlsValidationContext) VirtualGatewayTlsValidationContextTrust { return v.Trust }).(VirtualGatewayTlsValidationContextTrustOutput)
 }
 
-type VirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutput struct{ *pulumi.OutputState }
+type VirtualGatewayTlsValidationContextPtrOutput struct{ *pulumi.OutputState }
 
-func (VirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayListenerTlsValidationContext)(nil)).Elem()
+func (VirtualGatewayTlsValidationContextPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayTlsValidationContext)(nil)).Elem()
 }
 
-func (o VirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutput) ToVirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutput() VirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutput {
+func (o VirtualGatewayTlsValidationContextPtrOutput) ToVirtualGatewayTlsValidationContextPtrOutput() VirtualGatewayTlsValidationContextPtrOutput {
 	return o
 }
 
-func (o VirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutput) ToVirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutput {
+func (o VirtualGatewayTlsValidationContextPtrOutput) ToVirtualGatewayTlsValidationContextPtrOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextPtrOutput {
 	return o
 }
 
-func (o VirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutput) Elem() VirtualGatewayVirtualGatewayListenerTlsValidationContextOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTlsValidationContext) VirtualGatewayVirtualGatewayListenerTlsValidationContext {
+func (o VirtualGatewayTlsValidationContextPtrOutput) Elem() VirtualGatewayTlsValidationContextOutput {
+	return o.ApplyT(func(v *VirtualGatewayTlsValidationContext) VirtualGatewayTlsValidationContext {
 		if v != nil {
 			return *v
 		}
-		var ret VirtualGatewayVirtualGatewayListenerTlsValidationContext
+		var ret VirtualGatewayTlsValidationContext
 		return ret
-	}).(VirtualGatewayVirtualGatewayListenerTlsValidationContextOutput)
+	}).(VirtualGatewayTlsValidationContextOutput)
 }
 
-func (o VirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutput) SubjectAlternativeNames() VirtualGatewaySubjectAlternativeNamesPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTlsValidationContext) *VirtualGatewaySubjectAlternativeNames {
+func (o VirtualGatewayTlsValidationContextPtrOutput) SubjectAlternativeNames() VirtualGatewaySubjectAlternativeNamesPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayTlsValidationContext) *VirtualGatewaySubjectAlternativeNames {
 		if v == nil {
 			return nil
 		}
@@ -10658,800 +11271,141 @@ func (o VirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutput) Subje
 	}).(VirtualGatewaySubjectAlternativeNamesPtrOutput)
 }
 
-func (o VirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutput) Trust() VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTlsValidationContext) *VirtualGatewayVirtualGatewayListenerTlsValidationContextTrust {
+func (o VirtualGatewayTlsValidationContextPtrOutput) Trust() VirtualGatewayTlsValidationContextTrustPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayTlsValidationContext) *VirtualGatewayTlsValidationContextTrust {
 		if v == nil {
 			return nil
 		}
 		return &v.Trust
-	}).(VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutput)
+	}).(VirtualGatewayTlsValidationContextTrustPtrOutput)
 }
 
-type VirtualGatewayVirtualGatewayListenerTlsValidationContextTrust struct {
-	File *VirtualGatewayVirtualGatewayTlsValidationContextFileTrust `pulumi:"file"`
-	SDS  *VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust  `pulumi:"sDS"`
-}
-
-// VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustInput is an input type that accepts VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustArgs and VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustInput` via:
-//
-//          VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustArgs{...}
-type VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayListenerTlsValidationContextTrustOutput() VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustOutput
-	ToVirtualGatewayVirtualGatewayListenerTlsValidationContextTrustOutputWithContext(context.Context) VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustOutput
-}
-
-type VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustArgs struct {
-	File VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrInput `pulumi:"file"`
-	SDS  VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrInput  `pulumi:"sDS"`
-}
-
-func (VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayListenerTlsValidationContextTrust)(nil)).Elem()
-}
-
-func (i VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustArgs) ToVirtualGatewayVirtualGatewayListenerTlsValidationContextTrustOutput() VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustOutput {
-	return i.ToVirtualGatewayVirtualGatewayListenerTlsValidationContextTrustOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustArgs) ToVirtualGatewayVirtualGatewayListenerTlsValidationContextTrustOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustOutput)
-}
-
-func (i VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustArgs) ToVirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutput() VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustArgs) ToVirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustOutput).ToVirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutputWithContext(ctx)
-}
-
-// VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrInput is an input type that accepts VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustArgs, VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtr and VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrInput` via:
-//
-//          VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutput() VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutput
-	ToVirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutput
-}
-
-type virtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrType VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustArgs
-
-func VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtr(v *VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustArgs) VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrInput {
-	return (*virtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrType)(v)
-}
-
-func (*virtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayListenerTlsValidationContextTrust)(nil)).Elem()
-}
-
-func (i *virtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrType) ToVirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutput() VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrType) ToVirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayListenerTlsValidationContextTrust)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustOutput) ToVirtualGatewayVirtualGatewayListenerTlsValidationContextTrustOutput() VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustOutput) ToVirtualGatewayVirtualGatewayListenerTlsValidationContextTrustOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustOutput) ToVirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutput() VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutput {
-	return o.ToVirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustOutput) ToVirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayVirtualGatewayListenerTlsValidationContextTrust) *VirtualGatewayVirtualGatewayListenerTlsValidationContextTrust {
-		return &v
-	}).(VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustOutput) File() VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListenerTlsValidationContextTrust) *VirtualGatewayVirtualGatewayTlsValidationContextFileTrust {
-		return v.File
-	}).(VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustOutput) SDS() VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayListenerTlsValidationContextTrust) *VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust {
-		return v.SDS
-	}).(VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayListenerTlsValidationContextTrust)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutput) ToVirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutput() VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutput) ToVirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutput) Elem() VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTlsValidationContextTrust) VirtualGatewayVirtualGatewayListenerTlsValidationContextTrust {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualGatewayVirtualGatewayListenerTlsValidationContextTrust
-		return ret
-	}).(VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutput) File() VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTlsValidationContextTrust) *VirtualGatewayVirtualGatewayTlsValidationContextFileTrust {
-		if v == nil {
-			return nil
-		}
-		return v.File
-	}).(VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutput) SDS() VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayListenerTlsValidationContextTrust) *VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust {
-		if v == nil {
-			return nil
-		}
-		return v.SDS
-	}).(VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayLogging struct {
-	AccessLog *VirtualGatewayVirtualGatewayAccessLog `pulumi:"accessLog"`
-}
-
-// VirtualGatewayVirtualGatewayLoggingInput is an input type that accepts VirtualGatewayVirtualGatewayLoggingArgs and VirtualGatewayVirtualGatewayLoggingOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayLoggingInput` via:
-//
-//          VirtualGatewayVirtualGatewayLoggingArgs{...}
-type VirtualGatewayVirtualGatewayLoggingInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayLoggingOutput() VirtualGatewayVirtualGatewayLoggingOutput
-	ToVirtualGatewayVirtualGatewayLoggingOutputWithContext(context.Context) VirtualGatewayVirtualGatewayLoggingOutput
-}
-
-type VirtualGatewayVirtualGatewayLoggingArgs struct {
-	AccessLog VirtualGatewayVirtualGatewayAccessLogPtrInput `pulumi:"accessLog"`
-}
-
-func (VirtualGatewayVirtualGatewayLoggingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayLogging)(nil)).Elem()
-}
-
-func (i VirtualGatewayVirtualGatewayLoggingArgs) ToVirtualGatewayVirtualGatewayLoggingOutput() VirtualGatewayVirtualGatewayLoggingOutput {
-	return i.ToVirtualGatewayVirtualGatewayLoggingOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayLoggingArgs) ToVirtualGatewayVirtualGatewayLoggingOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayLoggingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayLoggingOutput)
-}
-
-func (i VirtualGatewayVirtualGatewayLoggingArgs) ToVirtualGatewayVirtualGatewayLoggingPtrOutput() VirtualGatewayVirtualGatewayLoggingPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayLoggingPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayLoggingArgs) ToVirtualGatewayVirtualGatewayLoggingPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayLoggingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayLoggingOutput).ToVirtualGatewayVirtualGatewayLoggingPtrOutputWithContext(ctx)
-}
-
-// VirtualGatewayVirtualGatewayLoggingPtrInput is an input type that accepts VirtualGatewayVirtualGatewayLoggingArgs, VirtualGatewayVirtualGatewayLoggingPtr and VirtualGatewayVirtualGatewayLoggingPtrOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayLoggingPtrInput` via:
-//
-//          VirtualGatewayVirtualGatewayLoggingArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualGatewayVirtualGatewayLoggingPtrInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayLoggingPtrOutput() VirtualGatewayVirtualGatewayLoggingPtrOutput
-	ToVirtualGatewayVirtualGatewayLoggingPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayLoggingPtrOutput
-}
-
-type virtualGatewayVirtualGatewayLoggingPtrType VirtualGatewayVirtualGatewayLoggingArgs
-
-func VirtualGatewayVirtualGatewayLoggingPtr(v *VirtualGatewayVirtualGatewayLoggingArgs) VirtualGatewayVirtualGatewayLoggingPtrInput {
-	return (*virtualGatewayVirtualGatewayLoggingPtrType)(v)
-}
-
-func (*virtualGatewayVirtualGatewayLoggingPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayLogging)(nil)).Elem()
-}
-
-func (i *virtualGatewayVirtualGatewayLoggingPtrType) ToVirtualGatewayVirtualGatewayLoggingPtrOutput() VirtualGatewayVirtualGatewayLoggingPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayLoggingPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualGatewayVirtualGatewayLoggingPtrType) ToVirtualGatewayVirtualGatewayLoggingPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayLoggingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayLoggingPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayLoggingOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayLoggingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayLogging)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayLoggingOutput) ToVirtualGatewayVirtualGatewayLoggingOutput() VirtualGatewayVirtualGatewayLoggingOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayLoggingOutput) ToVirtualGatewayVirtualGatewayLoggingOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayLoggingOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayLoggingOutput) ToVirtualGatewayVirtualGatewayLoggingPtrOutput() VirtualGatewayVirtualGatewayLoggingPtrOutput {
-	return o.ToVirtualGatewayVirtualGatewayLoggingPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualGatewayVirtualGatewayLoggingOutput) ToVirtualGatewayVirtualGatewayLoggingPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayLoggingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayVirtualGatewayLogging) *VirtualGatewayVirtualGatewayLogging {
-		return &v
-	}).(VirtualGatewayVirtualGatewayLoggingPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayLoggingOutput) AccessLog() VirtualGatewayVirtualGatewayAccessLogPtrOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayLogging) *VirtualGatewayVirtualGatewayAccessLog { return v.AccessLog }).(VirtualGatewayVirtualGatewayAccessLogPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayLoggingPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayLoggingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayLogging)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayLoggingPtrOutput) ToVirtualGatewayVirtualGatewayLoggingPtrOutput() VirtualGatewayVirtualGatewayLoggingPtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayLoggingPtrOutput) ToVirtualGatewayVirtualGatewayLoggingPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayLoggingPtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayLoggingPtrOutput) Elem() VirtualGatewayVirtualGatewayLoggingOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayLogging) VirtualGatewayVirtualGatewayLogging {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualGatewayVirtualGatewayLogging
-		return ret
-	}).(VirtualGatewayVirtualGatewayLoggingOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayLoggingPtrOutput) AccessLog() VirtualGatewayVirtualGatewayAccessLogPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayLogging) *VirtualGatewayVirtualGatewayAccessLog {
-		if v == nil {
-			return nil
-		}
-		return v.AccessLog
-	}).(VirtualGatewayVirtualGatewayAccessLogPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayPortMapping struct {
-	Port     int    `pulumi:"port"`
-	Protocol string `pulumi:"protocol"`
-}
-
-// VirtualGatewayVirtualGatewayPortMappingInput is an input type that accepts VirtualGatewayVirtualGatewayPortMappingArgs and VirtualGatewayVirtualGatewayPortMappingOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayPortMappingInput` via:
-//
-//          VirtualGatewayVirtualGatewayPortMappingArgs{...}
-type VirtualGatewayVirtualGatewayPortMappingInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayPortMappingOutput() VirtualGatewayVirtualGatewayPortMappingOutput
-	ToVirtualGatewayVirtualGatewayPortMappingOutputWithContext(context.Context) VirtualGatewayVirtualGatewayPortMappingOutput
-}
-
-type VirtualGatewayVirtualGatewayPortMappingArgs struct {
-	Port     pulumi.IntInput    `pulumi:"port"`
-	Protocol pulumi.StringInput `pulumi:"protocol"`
-}
-
-func (VirtualGatewayVirtualGatewayPortMappingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayPortMapping)(nil)).Elem()
-}
-
-func (i VirtualGatewayVirtualGatewayPortMappingArgs) ToVirtualGatewayVirtualGatewayPortMappingOutput() VirtualGatewayVirtualGatewayPortMappingOutput {
-	return i.ToVirtualGatewayVirtualGatewayPortMappingOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayPortMappingArgs) ToVirtualGatewayVirtualGatewayPortMappingOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayPortMappingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayPortMappingOutput)
-}
-
-type VirtualGatewayVirtualGatewayPortMappingOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayPortMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayPortMapping)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayPortMappingOutput) ToVirtualGatewayVirtualGatewayPortMappingOutput() VirtualGatewayVirtualGatewayPortMappingOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayPortMappingOutput) ToVirtualGatewayVirtualGatewayPortMappingOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayPortMappingOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayPortMappingOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayPortMapping) int { return v.Port }).(pulumi.IntOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayPortMappingOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayPortMapping) string { return v.Protocol }).(pulumi.StringOutput)
-}
-
-type VirtualGatewayVirtualGatewaySpec struct {
-	BackendDefaults *VirtualGatewayVirtualGatewayBackendDefaults `pulumi:"backendDefaults"`
-	Listeners       []VirtualGatewayVirtualGatewayListener       `pulumi:"listeners"`
-	Logging         *VirtualGatewayVirtualGatewayLogging         `pulumi:"logging"`
-}
-
-// VirtualGatewayVirtualGatewaySpecInput is an input type that accepts VirtualGatewayVirtualGatewaySpecArgs and VirtualGatewayVirtualGatewaySpecOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewaySpecInput` via:
-//
-//          VirtualGatewayVirtualGatewaySpecArgs{...}
-type VirtualGatewayVirtualGatewaySpecInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewaySpecOutput() VirtualGatewayVirtualGatewaySpecOutput
-	ToVirtualGatewayVirtualGatewaySpecOutputWithContext(context.Context) VirtualGatewayVirtualGatewaySpecOutput
-}
-
-type VirtualGatewayVirtualGatewaySpecArgs struct {
-	BackendDefaults VirtualGatewayVirtualGatewayBackendDefaultsPtrInput `pulumi:"backendDefaults"`
-	Listeners       VirtualGatewayVirtualGatewayListenerArrayInput      `pulumi:"listeners"`
-	Logging         VirtualGatewayVirtualGatewayLoggingPtrInput         `pulumi:"logging"`
-}
-
-func (VirtualGatewayVirtualGatewaySpecArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewaySpec)(nil)).Elem()
-}
-
-func (i VirtualGatewayVirtualGatewaySpecArgs) ToVirtualGatewayVirtualGatewaySpecOutput() VirtualGatewayVirtualGatewaySpecOutput {
-	return i.ToVirtualGatewayVirtualGatewaySpecOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewaySpecArgs) ToVirtualGatewayVirtualGatewaySpecOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewaySpecOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewaySpecOutput)
-}
-
-func (i VirtualGatewayVirtualGatewaySpecArgs) ToVirtualGatewayVirtualGatewaySpecPtrOutput() VirtualGatewayVirtualGatewaySpecPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewaySpecPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewaySpecArgs) ToVirtualGatewayVirtualGatewaySpecPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewaySpecPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewaySpecOutput).ToVirtualGatewayVirtualGatewaySpecPtrOutputWithContext(ctx)
-}
-
-// VirtualGatewayVirtualGatewaySpecPtrInput is an input type that accepts VirtualGatewayVirtualGatewaySpecArgs, VirtualGatewayVirtualGatewaySpecPtr and VirtualGatewayVirtualGatewaySpecPtrOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewaySpecPtrInput` via:
-//
-//          VirtualGatewayVirtualGatewaySpecArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualGatewayVirtualGatewaySpecPtrInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewaySpecPtrOutput() VirtualGatewayVirtualGatewaySpecPtrOutput
-	ToVirtualGatewayVirtualGatewaySpecPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewaySpecPtrOutput
-}
-
-type virtualGatewayVirtualGatewaySpecPtrType VirtualGatewayVirtualGatewaySpecArgs
-
-func VirtualGatewayVirtualGatewaySpecPtr(v *VirtualGatewayVirtualGatewaySpecArgs) VirtualGatewayVirtualGatewaySpecPtrInput {
-	return (*virtualGatewayVirtualGatewaySpecPtrType)(v)
-}
-
-func (*virtualGatewayVirtualGatewaySpecPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewaySpec)(nil)).Elem()
-}
-
-func (i *virtualGatewayVirtualGatewaySpecPtrType) ToVirtualGatewayVirtualGatewaySpecPtrOutput() VirtualGatewayVirtualGatewaySpecPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewaySpecPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualGatewayVirtualGatewaySpecPtrType) ToVirtualGatewayVirtualGatewaySpecPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewaySpecPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewaySpecPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewaySpecOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewaySpecOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewaySpec)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewaySpecOutput) ToVirtualGatewayVirtualGatewaySpecOutput() VirtualGatewayVirtualGatewaySpecOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewaySpecOutput) ToVirtualGatewayVirtualGatewaySpecOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewaySpecOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewaySpecOutput) ToVirtualGatewayVirtualGatewaySpecPtrOutput() VirtualGatewayVirtualGatewaySpecPtrOutput {
-	return o.ToVirtualGatewayVirtualGatewaySpecPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualGatewayVirtualGatewaySpecOutput) ToVirtualGatewayVirtualGatewaySpecPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewaySpecPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayVirtualGatewaySpec) *VirtualGatewayVirtualGatewaySpec {
-		return &v
-	}).(VirtualGatewayVirtualGatewaySpecPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewaySpecOutput) BackendDefaults() VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewaySpec) *VirtualGatewayVirtualGatewayBackendDefaults {
-		return v.BackendDefaults
-	}).(VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewaySpecOutput) Listeners() VirtualGatewayVirtualGatewayListenerArrayOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewaySpec) []VirtualGatewayVirtualGatewayListener { return v.Listeners }).(VirtualGatewayVirtualGatewayListenerArrayOutput)
-}
-
-func (o VirtualGatewayVirtualGatewaySpecOutput) Logging() VirtualGatewayVirtualGatewayLoggingPtrOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewaySpec) *VirtualGatewayVirtualGatewayLogging { return v.Logging }).(VirtualGatewayVirtualGatewayLoggingPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewaySpecPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewaySpecPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewaySpec)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewaySpecPtrOutput) ToVirtualGatewayVirtualGatewaySpecPtrOutput() VirtualGatewayVirtualGatewaySpecPtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewaySpecPtrOutput) ToVirtualGatewayVirtualGatewaySpecPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewaySpecPtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewaySpecPtrOutput) Elem() VirtualGatewayVirtualGatewaySpecOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewaySpec) VirtualGatewayVirtualGatewaySpec {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualGatewayVirtualGatewaySpec
-		return ret
-	}).(VirtualGatewayVirtualGatewaySpecOutput)
-}
-
-func (o VirtualGatewayVirtualGatewaySpecPtrOutput) BackendDefaults() VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewaySpec) *VirtualGatewayVirtualGatewayBackendDefaults {
-		if v == nil {
-			return nil
-		}
-		return v.BackendDefaults
-	}).(VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewaySpecPtrOutput) Listeners() VirtualGatewayVirtualGatewayListenerArrayOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewaySpec) []VirtualGatewayVirtualGatewayListener {
-		if v == nil {
-			return nil
-		}
-		return v.Listeners
-	}).(VirtualGatewayVirtualGatewayListenerArrayOutput)
-}
-
-func (o VirtualGatewayVirtualGatewaySpecPtrOutput) Logging() VirtualGatewayVirtualGatewayLoggingPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewaySpec) *VirtualGatewayVirtualGatewayLogging {
-		if v == nil {
-			return nil
-		}
-		return v.Logging
-	}).(VirtualGatewayVirtualGatewayLoggingPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayTlsValidationContext struct {
-	SubjectAlternativeNames *VirtualGatewaySubjectAlternativeNames                `pulumi:"subjectAlternativeNames"`
-	Trust                   VirtualGatewayVirtualGatewayTlsValidationContextTrust `pulumi:"trust"`
-}
-
-// VirtualGatewayVirtualGatewayTlsValidationContextInput is an input type that accepts VirtualGatewayVirtualGatewayTlsValidationContextArgs and VirtualGatewayVirtualGatewayTlsValidationContextOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayTlsValidationContextInput` via:
-//
-//          VirtualGatewayVirtualGatewayTlsValidationContextArgs{...}
-type VirtualGatewayVirtualGatewayTlsValidationContextInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayTlsValidationContextOutput() VirtualGatewayVirtualGatewayTlsValidationContextOutput
-	ToVirtualGatewayVirtualGatewayTlsValidationContextOutputWithContext(context.Context) VirtualGatewayVirtualGatewayTlsValidationContextOutput
-}
-
-type VirtualGatewayVirtualGatewayTlsValidationContextArgs struct {
-	SubjectAlternativeNames VirtualGatewaySubjectAlternativeNamesPtrInput              `pulumi:"subjectAlternativeNames"`
-	Trust                   VirtualGatewayVirtualGatewayTlsValidationContextTrustInput `pulumi:"trust"`
-}
-
-func (VirtualGatewayVirtualGatewayTlsValidationContextArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayTlsValidationContext)(nil)).Elem()
-}
-
-func (i VirtualGatewayVirtualGatewayTlsValidationContextArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextOutput() VirtualGatewayVirtualGatewayTlsValidationContextOutput {
-	return i.ToVirtualGatewayVirtualGatewayTlsValidationContextOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayTlsValidationContextArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayTlsValidationContextOutput)
-}
-
-func (i VirtualGatewayVirtualGatewayTlsValidationContextArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayTlsValidationContextPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewayVirtualGatewayTlsValidationContextArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayTlsValidationContextOutput).ToVirtualGatewayVirtualGatewayTlsValidationContextPtrOutputWithContext(ctx)
-}
-
-// VirtualGatewayVirtualGatewayTlsValidationContextPtrInput is an input type that accepts VirtualGatewayVirtualGatewayTlsValidationContextArgs, VirtualGatewayVirtualGatewayTlsValidationContextPtr and VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayTlsValidationContextPtrInput` via:
-//
-//          VirtualGatewayVirtualGatewayTlsValidationContextArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualGatewayVirtualGatewayTlsValidationContextPtrInput interface {
-	pulumi.Input
-
-	ToVirtualGatewayVirtualGatewayTlsValidationContextPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput
-	ToVirtualGatewayVirtualGatewayTlsValidationContextPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput
-}
-
-type virtualGatewayVirtualGatewayTlsValidationContextPtrType VirtualGatewayVirtualGatewayTlsValidationContextArgs
-
-func VirtualGatewayVirtualGatewayTlsValidationContextPtr(v *VirtualGatewayVirtualGatewayTlsValidationContextArgs) VirtualGatewayVirtualGatewayTlsValidationContextPtrInput {
-	return (*virtualGatewayVirtualGatewayTlsValidationContextPtrType)(v)
-}
-
-func (*virtualGatewayVirtualGatewayTlsValidationContextPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayTlsValidationContext)(nil)).Elem()
-}
-
-func (i *virtualGatewayVirtualGatewayTlsValidationContextPtrType) ToVirtualGatewayVirtualGatewayTlsValidationContextPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayTlsValidationContextPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualGatewayVirtualGatewayTlsValidationContextPtrType) ToVirtualGatewayVirtualGatewayTlsValidationContextPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayTlsValidationContextOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayTlsValidationContextOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayTlsValidationContext)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayTlsValidationContextOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextOutput() VirtualGatewayVirtualGatewayTlsValidationContextOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayTlsValidationContextOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayTlsValidationContextOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput {
-	return o.ToVirtualGatewayVirtualGatewayTlsValidationContextPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualGatewayVirtualGatewayTlsValidationContextOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayVirtualGatewayTlsValidationContext) *VirtualGatewayVirtualGatewayTlsValidationContext {
-		return &v
-	}).(VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayTlsValidationContextOutput) SubjectAlternativeNames() VirtualGatewaySubjectAlternativeNamesPtrOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayTlsValidationContext) *VirtualGatewaySubjectAlternativeNames {
-		return v.SubjectAlternativeNames
-	}).(VirtualGatewaySubjectAlternativeNamesPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayTlsValidationContextOutput) Trust() VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayTlsValidationContext) VirtualGatewayVirtualGatewayTlsValidationContextTrust {
-		return v.Trust
-	}).(VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput)
-}
-
-type VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayTlsValidationContext)(nil)).Elem()
-}
-
-func (o VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput {
-	return o
-}
-
-func (o VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput) Elem() VirtualGatewayVirtualGatewayTlsValidationContextOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayTlsValidationContext) VirtualGatewayVirtualGatewayTlsValidationContext {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualGatewayVirtualGatewayTlsValidationContext
-		return ret
-	}).(VirtualGatewayVirtualGatewayTlsValidationContextOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput) SubjectAlternativeNames() VirtualGatewaySubjectAlternativeNamesPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayTlsValidationContext) *VirtualGatewaySubjectAlternativeNames {
-		if v == nil {
-			return nil
-		}
-		return v.SubjectAlternativeNames
-	}).(VirtualGatewaySubjectAlternativeNamesPtrOutput)
-}
-
-func (o VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput) Trust() VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayTlsValidationContext) *VirtualGatewayVirtualGatewayTlsValidationContextTrust {
-		if v == nil {
-			return nil
-		}
-		return &v.Trust
-	}).(VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput)
-}
-
-type VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust struct {
+type VirtualGatewayTlsValidationContextAcmTrust struct {
 	CertificateAuthorityArns []string `pulumi:"certificateAuthorityArns"`
 }
 
-// VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustInput is an input type that accepts VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustArgs and VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustInput` via:
+// VirtualGatewayTlsValidationContextAcmTrustInput is an input type that accepts VirtualGatewayTlsValidationContextAcmTrustArgs and VirtualGatewayTlsValidationContextAcmTrustOutput values.
+// You can construct a concrete instance of `VirtualGatewayTlsValidationContextAcmTrustInput` via:
 //
-//          VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustArgs{...}
-type VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustInput interface {
+//          VirtualGatewayTlsValidationContextAcmTrustArgs{...}
+type VirtualGatewayTlsValidationContextAcmTrustInput interface {
 	pulumi.Input
 
-	ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput() VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput
-	ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutputWithContext(context.Context) VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput
+	ToVirtualGatewayTlsValidationContextAcmTrustOutput() VirtualGatewayTlsValidationContextAcmTrustOutput
+	ToVirtualGatewayTlsValidationContextAcmTrustOutputWithContext(context.Context) VirtualGatewayTlsValidationContextAcmTrustOutput
 }
 
-type VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustArgs struct {
+type VirtualGatewayTlsValidationContextAcmTrustArgs struct {
 	CertificateAuthorityArns pulumi.StringArrayInput `pulumi:"certificateAuthorityArns"`
 }
 
-func (VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust)(nil)).Elem()
+func (VirtualGatewayTlsValidationContextAcmTrustArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayTlsValidationContextAcmTrust)(nil)).Elem()
 }
 
-func (i VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput() VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput {
-	return i.ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutputWithContext(context.Background())
+func (i VirtualGatewayTlsValidationContextAcmTrustArgs) ToVirtualGatewayTlsValidationContextAcmTrustOutput() VirtualGatewayTlsValidationContextAcmTrustOutput {
+	return i.ToVirtualGatewayTlsValidationContextAcmTrustOutputWithContext(context.Background())
 }
 
-func (i VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput)
+func (i VirtualGatewayTlsValidationContextAcmTrustArgs) ToVirtualGatewayTlsValidationContextAcmTrustOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextAcmTrustOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayTlsValidationContextAcmTrustOutput)
 }
 
-func (i VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutputWithContext(context.Background())
+func (i VirtualGatewayTlsValidationContextAcmTrustArgs) ToVirtualGatewayTlsValidationContextAcmTrustPtrOutput() VirtualGatewayTlsValidationContextAcmTrustPtrOutput {
+	return i.ToVirtualGatewayTlsValidationContextAcmTrustPtrOutputWithContext(context.Background())
 }
 
-func (i VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput).ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutputWithContext(ctx)
+func (i VirtualGatewayTlsValidationContextAcmTrustArgs) ToVirtualGatewayTlsValidationContextAcmTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextAcmTrustPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayTlsValidationContextAcmTrustOutput).ToVirtualGatewayTlsValidationContextAcmTrustPtrOutputWithContext(ctx)
 }
 
-// VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrInput is an input type that accepts VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustArgs, VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtr and VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrInput` via:
+// VirtualGatewayTlsValidationContextAcmTrustPtrInput is an input type that accepts VirtualGatewayTlsValidationContextAcmTrustArgs, VirtualGatewayTlsValidationContextAcmTrustPtr and VirtualGatewayTlsValidationContextAcmTrustPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayTlsValidationContextAcmTrustPtrInput` via:
 //
-//          VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustArgs{...}
+//          VirtualGatewayTlsValidationContextAcmTrustArgs{...}
 //
 //  or:
 //
 //          nil
-type VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrInput interface {
+type VirtualGatewayTlsValidationContextAcmTrustPtrInput interface {
 	pulumi.Input
 
-	ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput
-	ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput
+	ToVirtualGatewayTlsValidationContextAcmTrustPtrOutput() VirtualGatewayTlsValidationContextAcmTrustPtrOutput
+	ToVirtualGatewayTlsValidationContextAcmTrustPtrOutputWithContext(context.Context) VirtualGatewayTlsValidationContextAcmTrustPtrOutput
 }
 
-type virtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrType VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustArgs
+type virtualGatewayTlsValidationContextAcmTrustPtrType VirtualGatewayTlsValidationContextAcmTrustArgs
 
-func VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtr(v *VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustArgs) VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrInput {
-	return (*virtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrType)(v)
+func VirtualGatewayTlsValidationContextAcmTrustPtr(v *VirtualGatewayTlsValidationContextAcmTrustArgs) VirtualGatewayTlsValidationContextAcmTrustPtrInput {
+	return (*virtualGatewayTlsValidationContextAcmTrustPtrType)(v)
 }
 
-func (*virtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust)(nil)).Elem()
+func (*virtualGatewayTlsValidationContextAcmTrustPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayTlsValidationContextAcmTrust)(nil)).Elem()
 }
 
-func (i *virtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrType) ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutputWithContext(context.Background())
+func (i *virtualGatewayTlsValidationContextAcmTrustPtrType) ToVirtualGatewayTlsValidationContextAcmTrustPtrOutput() VirtualGatewayTlsValidationContextAcmTrustPtrOutput {
+	return i.ToVirtualGatewayTlsValidationContextAcmTrustPtrOutputWithContext(context.Background())
 }
 
-func (i *virtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrType) ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput)
+func (i *virtualGatewayTlsValidationContextAcmTrustPtrType) ToVirtualGatewayTlsValidationContextAcmTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextAcmTrustPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayTlsValidationContextAcmTrustPtrOutput)
 }
 
-type VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput struct{ *pulumi.OutputState }
+type VirtualGatewayTlsValidationContextAcmTrustOutput struct{ *pulumi.OutputState }
 
-func (VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust)(nil)).Elem()
+func (VirtualGatewayTlsValidationContextAcmTrustOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayTlsValidationContextAcmTrust)(nil)).Elem()
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput() VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput {
+func (o VirtualGatewayTlsValidationContextAcmTrustOutput) ToVirtualGatewayTlsValidationContextAcmTrustOutput() VirtualGatewayTlsValidationContextAcmTrustOutput {
 	return o
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput {
+func (o VirtualGatewayTlsValidationContextAcmTrustOutput) ToVirtualGatewayTlsValidationContextAcmTrustOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextAcmTrustOutput {
 	return o
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput {
-	return o.ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutputWithContext(context.Background())
+func (o VirtualGatewayTlsValidationContextAcmTrustOutput) ToVirtualGatewayTlsValidationContextAcmTrustPtrOutput() VirtualGatewayTlsValidationContextAcmTrustPtrOutput {
+	return o.ToVirtualGatewayTlsValidationContextAcmTrustPtrOutputWithContext(context.Background())
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust) *VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust {
+func (o VirtualGatewayTlsValidationContextAcmTrustOutput) ToVirtualGatewayTlsValidationContextAcmTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextAcmTrustPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayTlsValidationContextAcmTrust) *VirtualGatewayTlsValidationContextAcmTrust {
 		return &v
-	}).(VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput)
+	}).(VirtualGatewayTlsValidationContextAcmTrustPtrOutput)
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput) CertificateAuthorityArns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust) []string {
-		return v.CertificateAuthorityArns
-	}).(pulumi.StringArrayOutput)
+func (o VirtualGatewayTlsValidationContextAcmTrustOutput) CertificateAuthorityArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualGatewayTlsValidationContextAcmTrust) []string { return v.CertificateAuthorityArns }).(pulumi.StringArrayOutput)
 }
 
-type VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput struct{ *pulumi.OutputState }
+type VirtualGatewayTlsValidationContextAcmTrustPtrOutput struct{ *pulumi.OutputState }
 
-func (VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust)(nil)).Elem()
+func (VirtualGatewayTlsValidationContextAcmTrustPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayTlsValidationContextAcmTrust)(nil)).Elem()
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput {
+func (o VirtualGatewayTlsValidationContextAcmTrustPtrOutput) ToVirtualGatewayTlsValidationContextAcmTrustPtrOutput() VirtualGatewayTlsValidationContextAcmTrustPtrOutput {
 	return o
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput {
+func (o VirtualGatewayTlsValidationContextAcmTrustPtrOutput) ToVirtualGatewayTlsValidationContextAcmTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextAcmTrustPtrOutput {
 	return o
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput) Elem() VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust) VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust {
+func (o VirtualGatewayTlsValidationContextAcmTrustPtrOutput) Elem() VirtualGatewayTlsValidationContextAcmTrustOutput {
+	return o.ApplyT(func(v *VirtualGatewayTlsValidationContextAcmTrust) VirtualGatewayTlsValidationContextAcmTrust {
 		if v != nil {
 			return *v
 		}
-		var ret VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust
+		var ret VirtualGatewayTlsValidationContextAcmTrust
 		return ret
-	}).(VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput)
+	}).(VirtualGatewayTlsValidationContextAcmTrustOutput)
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput) CertificateAuthorityArns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust) []string {
+func (o VirtualGatewayTlsValidationContextAcmTrustPtrOutput) CertificateAuthorityArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VirtualGatewayTlsValidationContextAcmTrust) []string {
 		if v == nil {
 			return nil
 		}
@@ -11459,132 +11413,132 @@ func (o VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput) Certi
 	}).(pulumi.StringArrayOutput)
 }
 
-type VirtualGatewayVirtualGatewayTlsValidationContextFileTrust struct {
+type VirtualGatewayTlsValidationContextFileTrust struct {
 	CertificateChain string `pulumi:"certificateChain"`
 }
 
-// VirtualGatewayVirtualGatewayTlsValidationContextFileTrustInput is an input type that accepts VirtualGatewayVirtualGatewayTlsValidationContextFileTrustArgs and VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayTlsValidationContextFileTrustInput` via:
+// VirtualGatewayTlsValidationContextFileTrustInput is an input type that accepts VirtualGatewayTlsValidationContextFileTrustArgs and VirtualGatewayTlsValidationContextFileTrustOutput values.
+// You can construct a concrete instance of `VirtualGatewayTlsValidationContextFileTrustInput` via:
 //
-//          VirtualGatewayVirtualGatewayTlsValidationContextFileTrustArgs{...}
-type VirtualGatewayVirtualGatewayTlsValidationContextFileTrustInput interface {
+//          VirtualGatewayTlsValidationContextFileTrustArgs{...}
+type VirtualGatewayTlsValidationContextFileTrustInput interface {
 	pulumi.Input
 
-	ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput() VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput
-	ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutputWithContext(context.Context) VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput
+	ToVirtualGatewayTlsValidationContextFileTrustOutput() VirtualGatewayTlsValidationContextFileTrustOutput
+	ToVirtualGatewayTlsValidationContextFileTrustOutputWithContext(context.Context) VirtualGatewayTlsValidationContextFileTrustOutput
 }
 
-type VirtualGatewayVirtualGatewayTlsValidationContextFileTrustArgs struct {
+type VirtualGatewayTlsValidationContextFileTrustArgs struct {
 	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
 }
 
-func (VirtualGatewayVirtualGatewayTlsValidationContextFileTrustArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayTlsValidationContextFileTrust)(nil)).Elem()
+func (VirtualGatewayTlsValidationContextFileTrustArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayTlsValidationContextFileTrust)(nil)).Elem()
 }
 
-func (i VirtualGatewayVirtualGatewayTlsValidationContextFileTrustArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput() VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput {
-	return i.ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutputWithContext(context.Background())
+func (i VirtualGatewayTlsValidationContextFileTrustArgs) ToVirtualGatewayTlsValidationContextFileTrustOutput() VirtualGatewayTlsValidationContextFileTrustOutput {
+	return i.ToVirtualGatewayTlsValidationContextFileTrustOutputWithContext(context.Background())
 }
 
-func (i VirtualGatewayVirtualGatewayTlsValidationContextFileTrustArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput)
+func (i VirtualGatewayTlsValidationContextFileTrustArgs) ToVirtualGatewayTlsValidationContextFileTrustOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextFileTrustOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayTlsValidationContextFileTrustOutput)
 }
 
-func (i VirtualGatewayVirtualGatewayTlsValidationContextFileTrustArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutputWithContext(context.Background())
+func (i VirtualGatewayTlsValidationContextFileTrustArgs) ToVirtualGatewayTlsValidationContextFileTrustPtrOutput() VirtualGatewayTlsValidationContextFileTrustPtrOutput {
+	return i.ToVirtualGatewayTlsValidationContextFileTrustPtrOutputWithContext(context.Background())
 }
 
-func (i VirtualGatewayVirtualGatewayTlsValidationContextFileTrustArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput).ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutputWithContext(ctx)
+func (i VirtualGatewayTlsValidationContextFileTrustArgs) ToVirtualGatewayTlsValidationContextFileTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextFileTrustPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayTlsValidationContextFileTrustOutput).ToVirtualGatewayTlsValidationContextFileTrustPtrOutputWithContext(ctx)
 }
 
-// VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrInput is an input type that accepts VirtualGatewayVirtualGatewayTlsValidationContextFileTrustArgs, VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtr and VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrInput` via:
+// VirtualGatewayTlsValidationContextFileTrustPtrInput is an input type that accepts VirtualGatewayTlsValidationContextFileTrustArgs, VirtualGatewayTlsValidationContextFileTrustPtr and VirtualGatewayTlsValidationContextFileTrustPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayTlsValidationContextFileTrustPtrInput` via:
 //
-//          VirtualGatewayVirtualGatewayTlsValidationContextFileTrustArgs{...}
+//          VirtualGatewayTlsValidationContextFileTrustArgs{...}
 //
 //  or:
 //
 //          nil
-type VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrInput interface {
+type VirtualGatewayTlsValidationContextFileTrustPtrInput interface {
 	pulumi.Input
 
-	ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput
-	ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput
+	ToVirtualGatewayTlsValidationContextFileTrustPtrOutput() VirtualGatewayTlsValidationContextFileTrustPtrOutput
+	ToVirtualGatewayTlsValidationContextFileTrustPtrOutputWithContext(context.Context) VirtualGatewayTlsValidationContextFileTrustPtrOutput
 }
 
-type virtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrType VirtualGatewayVirtualGatewayTlsValidationContextFileTrustArgs
+type virtualGatewayTlsValidationContextFileTrustPtrType VirtualGatewayTlsValidationContextFileTrustArgs
 
-func VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtr(v *VirtualGatewayVirtualGatewayTlsValidationContextFileTrustArgs) VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrInput {
-	return (*virtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrType)(v)
+func VirtualGatewayTlsValidationContextFileTrustPtr(v *VirtualGatewayTlsValidationContextFileTrustArgs) VirtualGatewayTlsValidationContextFileTrustPtrInput {
+	return (*virtualGatewayTlsValidationContextFileTrustPtrType)(v)
 }
 
-func (*virtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayTlsValidationContextFileTrust)(nil)).Elem()
+func (*virtualGatewayTlsValidationContextFileTrustPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayTlsValidationContextFileTrust)(nil)).Elem()
 }
 
-func (i *virtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrType) ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutputWithContext(context.Background())
+func (i *virtualGatewayTlsValidationContextFileTrustPtrType) ToVirtualGatewayTlsValidationContextFileTrustPtrOutput() VirtualGatewayTlsValidationContextFileTrustPtrOutput {
+	return i.ToVirtualGatewayTlsValidationContextFileTrustPtrOutputWithContext(context.Background())
 }
 
-func (i *virtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrType) ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput)
+func (i *virtualGatewayTlsValidationContextFileTrustPtrType) ToVirtualGatewayTlsValidationContextFileTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextFileTrustPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayTlsValidationContextFileTrustPtrOutput)
 }
 
-type VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput struct{ *pulumi.OutputState }
+type VirtualGatewayTlsValidationContextFileTrustOutput struct{ *pulumi.OutputState }
 
-func (VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayTlsValidationContextFileTrust)(nil)).Elem()
+func (VirtualGatewayTlsValidationContextFileTrustOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayTlsValidationContextFileTrust)(nil)).Elem()
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput() VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput {
+func (o VirtualGatewayTlsValidationContextFileTrustOutput) ToVirtualGatewayTlsValidationContextFileTrustOutput() VirtualGatewayTlsValidationContextFileTrustOutput {
 	return o
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput {
+func (o VirtualGatewayTlsValidationContextFileTrustOutput) ToVirtualGatewayTlsValidationContextFileTrustOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextFileTrustOutput {
 	return o
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput {
-	return o.ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutputWithContext(context.Background())
+func (o VirtualGatewayTlsValidationContextFileTrustOutput) ToVirtualGatewayTlsValidationContextFileTrustPtrOutput() VirtualGatewayTlsValidationContextFileTrustPtrOutput {
+	return o.ToVirtualGatewayTlsValidationContextFileTrustPtrOutputWithContext(context.Background())
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayVirtualGatewayTlsValidationContextFileTrust) *VirtualGatewayVirtualGatewayTlsValidationContextFileTrust {
+func (o VirtualGatewayTlsValidationContextFileTrustOutput) ToVirtualGatewayTlsValidationContextFileTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextFileTrustPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayTlsValidationContextFileTrust) *VirtualGatewayTlsValidationContextFileTrust {
 		return &v
-	}).(VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput)
+	}).(VirtualGatewayTlsValidationContextFileTrustPtrOutput)
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput) CertificateChain() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayTlsValidationContextFileTrust) string { return v.CertificateChain }).(pulumi.StringOutput)
+func (o VirtualGatewayTlsValidationContextFileTrustOutput) CertificateChain() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewayTlsValidationContextFileTrust) string { return v.CertificateChain }).(pulumi.StringOutput)
 }
 
-type VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput struct{ *pulumi.OutputState }
+type VirtualGatewayTlsValidationContextFileTrustPtrOutput struct{ *pulumi.OutputState }
 
-func (VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayTlsValidationContextFileTrust)(nil)).Elem()
+func (VirtualGatewayTlsValidationContextFileTrustPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayTlsValidationContextFileTrust)(nil)).Elem()
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput {
+func (o VirtualGatewayTlsValidationContextFileTrustPtrOutput) ToVirtualGatewayTlsValidationContextFileTrustPtrOutput() VirtualGatewayTlsValidationContextFileTrustPtrOutput {
 	return o
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput {
+func (o VirtualGatewayTlsValidationContextFileTrustPtrOutput) ToVirtualGatewayTlsValidationContextFileTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextFileTrustPtrOutput {
 	return o
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput) Elem() VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayTlsValidationContextFileTrust) VirtualGatewayVirtualGatewayTlsValidationContextFileTrust {
+func (o VirtualGatewayTlsValidationContextFileTrustPtrOutput) Elem() VirtualGatewayTlsValidationContextFileTrustOutput {
+	return o.ApplyT(func(v *VirtualGatewayTlsValidationContextFileTrust) VirtualGatewayTlsValidationContextFileTrust {
 		if v != nil {
 			return *v
 		}
-		var ret VirtualGatewayVirtualGatewayTlsValidationContextFileTrust
+		var ret VirtualGatewayTlsValidationContextFileTrust
 		return ret
-	}).(VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput)
+	}).(VirtualGatewayTlsValidationContextFileTrustOutput)
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput) CertificateChain() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayTlsValidationContextFileTrust) *string {
+func (o VirtualGatewayTlsValidationContextFileTrustPtrOutput) CertificateChain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayTlsValidationContextFileTrust) *string {
 		if v == nil {
 			return nil
 		}
@@ -11592,132 +11546,132 @@ func (o VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput) Cert
 	}).(pulumi.StringPtrOutput)
 }
 
-type VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust struct {
+type VirtualGatewayTlsValidationContextSdsTrust struct {
 	SecretName string `pulumi:"secretName"`
 }
 
-// VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustInput is an input type that accepts VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustArgs and VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustInput` via:
+// VirtualGatewayTlsValidationContextSdsTrustInput is an input type that accepts VirtualGatewayTlsValidationContextSdsTrustArgs and VirtualGatewayTlsValidationContextSdsTrustOutput values.
+// You can construct a concrete instance of `VirtualGatewayTlsValidationContextSdsTrustInput` via:
 //
-//          VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustArgs{...}
-type VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustInput interface {
+//          VirtualGatewayTlsValidationContextSdsTrustArgs{...}
+type VirtualGatewayTlsValidationContextSdsTrustInput interface {
 	pulumi.Input
 
-	ToVirtualGatewayVirtualGatewayTlsValidationContextSdsTrustOutput() VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustOutput
-	ToVirtualGatewayVirtualGatewayTlsValidationContextSdsTrustOutputWithContext(context.Context) VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustOutput
+	ToVirtualGatewayTlsValidationContextSdsTrustOutput() VirtualGatewayTlsValidationContextSdsTrustOutput
+	ToVirtualGatewayTlsValidationContextSdsTrustOutputWithContext(context.Context) VirtualGatewayTlsValidationContextSdsTrustOutput
 }
 
-type VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustArgs struct {
+type VirtualGatewayTlsValidationContextSdsTrustArgs struct {
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
-func (VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust)(nil)).Elem()
+func (VirtualGatewayTlsValidationContextSdsTrustArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayTlsValidationContextSdsTrust)(nil)).Elem()
 }
 
-func (i VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextSdsTrustOutput() VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustOutput {
-	return i.ToVirtualGatewayVirtualGatewayTlsValidationContextSdsTrustOutputWithContext(context.Background())
+func (i VirtualGatewayTlsValidationContextSdsTrustArgs) ToVirtualGatewayTlsValidationContextSdsTrustOutput() VirtualGatewayTlsValidationContextSdsTrustOutput {
+	return i.ToVirtualGatewayTlsValidationContextSdsTrustOutputWithContext(context.Background())
 }
 
-func (i VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextSdsTrustOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustOutput)
+func (i VirtualGatewayTlsValidationContextSdsTrustArgs) ToVirtualGatewayTlsValidationContextSdsTrustOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextSdsTrustOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayTlsValidationContextSdsTrustOutput)
 }
 
-func (i VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutputWithContext(context.Background())
+func (i VirtualGatewayTlsValidationContextSdsTrustArgs) ToVirtualGatewayTlsValidationContextSdsTrustPtrOutput() VirtualGatewayTlsValidationContextSdsTrustPtrOutput {
+	return i.ToVirtualGatewayTlsValidationContextSdsTrustPtrOutputWithContext(context.Background())
 }
 
-func (i VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustOutput).ToVirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutputWithContext(ctx)
+func (i VirtualGatewayTlsValidationContextSdsTrustArgs) ToVirtualGatewayTlsValidationContextSdsTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextSdsTrustPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayTlsValidationContextSdsTrustOutput).ToVirtualGatewayTlsValidationContextSdsTrustPtrOutputWithContext(ctx)
 }
 
-// VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrInput is an input type that accepts VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustArgs, VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtr and VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrInput` via:
+// VirtualGatewayTlsValidationContextSdsTrustPtrInput is an input type that accepts VirtualGatewayTlsValidationContextSdsTrustArgs, VirtualGatewayTlsValidationContextSdsTrustPtr and VirtualGatewayTlsValidationContextSdsTrustPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayTlsValidationContextSdsTrustPtrInput` via:
 //
-//          VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustArgs{...}
+//          VirtualGatewayTlsValidationContextSdsTrustArgs{...}
 //
 //  or:
 //
 //          nil
-type VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrInput interface {
+type VirtualGatewayTlsValidationContextSdsTrustPtrInput interface {
 	pulumi.Input
 
-	ToVirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput
-	ToVirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput
+	ToVirtualGatewayTlsValidationContextSdsTrustPtrOutput() VirtualGatewayTlsValidationContextSdsTrustPtrOutput
+	ToVirtualGatewayTlsValidationContextSdsTrustPtrOutputWithContext(context.Context) VirtualGatewayTlsValidationContextSdsTrustPtrOutput
 }
 
-type virtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrType VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustArgs
+type virtualGatewayTlsValidationContextSdsTrustPtrType VirtualGatewayTlsValidationContextSdsTrustArgs
 
-func VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtr(v *VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustArgs) VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrInput {
-	return (*virtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrType)(v)
+func VirtualGatewayTlsValidationContextSdsTrustPtr(v *VirtualGatewayTlsValidationContextSdsTrustArgs) VirtualGatewayTlsValidationContextSdsTrustPtrInput {
+	return (*virtualGatewayTlsValidationContextSdsTrustPtrType)(v)
 }
 
-func (*virtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust)(nil)).Elem()
+func (*virtualGatewayTlsValidationContextSdsTrustPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayTlsValidationContextSdsTrust)(nil)).Elem()
 }
 
-func (i *virtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrType) ToVirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutputWithContext(context.Background())
+func (i *virtualGatewayTlsValidationContextSdsTrustPtrType) ToVirtualGatewayTlsValidationContextSdsTrustPtrOutput() VirtualGatewayTlsValidationContextSdsTrustPtrOutput {
+	return i.ToVirtualGatewayTlsValidationContextSdsTrustPtrOutputWithContext(context.Background())
 }
 
-func (i *virtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrType) ToVirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput)
+func (i *virtualGatewayTlsValidationContextSdsTrustPtrType) ToVirtualGatewayTlsValidationContextSdsTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextSdsTrustPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayTlsValidationContextSdsTrustPtrOutput)
 }
 
-type VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustOutput struct{ *pulumi.OutputState }
+type VirtualGatewayTlsValidationContextSdsTrustOutput struct{ *pulumi.OutputState }
 
-func (VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust)(nil)).Elem()
+func (VirtualGatewayTlsValidationContextSdsTrustOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayTlsValidationContextSdsTrust)(nil)).Elem()
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextSdsTrustOutput() VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustOutput {
+func (o VirtualGatewayTlsValidationContextSdsTrustOutput) ToVirtualGatewayTlsValidationContextSdsTrustOutput() VirtualGatewayTlsValidationContextSdsTrustOutput {
 	return o
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextSdsTrustOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustOutput {
+func (o VirtualGatewayTlsValidationContextSdsTrustOutput) ToVirtualGatewayTlsValidationContextSdsTrustOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextSdsTrustOutput {
 	return o
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput {
-	return o.ToVirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutputWithContext(context.Background())
+func (o VirtualGatewayTlsValidationContextSdsTrustOutput) ToVirtualGatewayTlsValidationContextSdsTrustPtrOutput() VirtualGatewayTlsValidationContextSdsTrustPtrOutput {
+	return o.ToVirtualGatewayTlsValidationContextSdsTrustPtrOutputWithContext(context.Background())
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust) *VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust {
+func (o VirtualGatewayTlsValidationContextSdsTrustOutput) ToVirtualGatewayTlsValidationContextSdsTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextSdsTrustPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayTlsValidationContextSdsTrust) *VirtualGatewayTlsValidationContextSdsTrust {
 		return &v
-	}).(VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput)
+	}).(VirtualGatewayTlsValidationContextSdsTrustPtrOutput)
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustOutput) SecretName() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust) string { return v.SecretName }).(pulumi.StringOutput)
+func (o VirtualGatewayTlsValidationContextSdsTrustOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualGatewayTlsValidationContextSdsTrust) string { return v.SecretName }).(pulumi.StringOutput)
 }
 
-type VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput struct{ *pulumi.OutputState }
+type VirtualGatewayTlsValidationContextSdsTrustPtrOutput struct{ *pulumi.OutputState }
 
-func (VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust)(nil)).Elem()
+func (VirtualGatewayTlsValidationContextSdsTrustPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayTlsValidationContextSdsTrust)(nil)).Elem()
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput {
+func (o VirtualGatewayTlsValidationContextSdsTrustPtrOutput) ToVirtualGatewayTlsValidationContextSdsTrustPtrOutput() VirtualGatewayTlsValidationContextSdsTrustPtrOutput {
 	return o
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput {
+func (o VirtualGatewayTlsValidationContextSdsTrustPtrOutput) ToVirtualGatewayTlsValidationContextSdsTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextSdsTrustPtrOutput {
 	return o
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput) Elem() VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust) VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust {
+func (o VirtualGatewayTlsValidationContextSdsTrustPtrOutput) Elem() VirtualGatewayTlsValidationContextSdsTrustOutput {
+	return o.ApplyT(func(v *VirtualGatewayTlsValidationContextSdsTrust) VirtualGatewayTlsValidationContextSdsTrust {
 		if v != nil {
 			return *v
 		}
-		var ret VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust
+		var ret VirtualGatewayTlsValidationContextSdsTrust
 		return ret
-	}).(VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustOutput)
+	}).(VirtualGatewayTlsValidationContextSdsTrustOutput)
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput) SecretName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust) *string {
+func (o VirtualGatewayTlsValidationContextSdsTrustPtrOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayTlsValidationContextSdsTrust) *string {
 		if v == nil {
 			return nil
 		}
@@ -11725,173 +11679,173 @@ func (o VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput) Secre
 	}).(pulumi.StringPtrOutput)
 }
 
-type VirtualGatewayVirtualGatewayTlsValidationContextTrust struct {
-	ACM  *VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust  `pulumi:"aCM"`
-	File *VirtualGatewayVirtualGatewayTlsValidationContextFileTrust `pulumi:"file"`
-	SDS  *VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust  `pulumi:"sDS"`
+type VirtualGatewayTlsValidationContextTrust struct {
+	ACM  *VirtualGatewayTlsValidationContextAcmTrust  `pulumi:"aCM"`
+	File *VirtualGatewayTlsValidationContextFileTrust `pulumi:"file"`
+	SDS  *VirtualGatewayTlsValidationContextSdsTrust  `pulumi:"sDS"`
 }
 
-// VirtualGatewayVirtualGatewayTlsValidationContextTrustInput is an input type that accepts VirtualGatewayVirtualGatewayTlsValidationContextTrustArgs and VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayTlsValidationContextTrustInput` via:
+// VirtualGatewayTlsValidationContextTrustInput is an input type that accepts VirtualGatewayTlsValidationContextTrustArgs and VirtualGatewayTlsValidationContextTrustOutput values.
+// You can construct a concrete instance of `VirtualGatewayTlsValidationContextTrustInput` via:
 //
-//          VirtualGatewayVirtualGatewayTlsValidationContextTrustArgs{...}
-type VirtualGatewayVirtualGatewayTlsValidationContextTrustInput interface {
+//          VirtualGatewayTlsValidationContextTrustArgs{...}
+type VirtualGatewayTlsValidationContextTrustInput interface {
 	pulumi.Input
 
-	ToVirtualGatewayVirtualGatewayTlsValidationContextTrustOutput() VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput
-	ToVirtualGatewayVirtualGatewayTlsValidationContextTrustOutputWithContext(context.Context) VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput
+	ToVirtualGatewayTlsValidationContextTrustOutput() VirtualGatewayTlsValidationContextTrustOutput
+	ToVirtualGatewayTlsValidationContextTrustOutputWithContext(context.Context) VirtualGatewayTlsValidationContextTrustOutput
 }
 
-type VirtualGatewayVirtualGatewayTlsValidationContextTrustArgs struct {
-	ACM  VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrInput  `pulumi:"aCM"`
-	File VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrInput `pulumi:"file"`
-	SDS  VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrInput  `pulumi:"sDS"`
+type VirtualGatewayTlsValidationContextTrustArgs struct {
+	ACM  VirtualGatewayTlsValidationContextAcmTrustPtrInput  `pulumi:"aCM"`
+	File VirtualGatewayTlsValidationContextFileTrustPtrInput `pulumi:"file"`
+	SDS  VirtualGatewayTlsValidationContextSdsTrustPtrInput  `pulumi:"sDS"`
 }
 
-func (VirtualGatewayVirtualGatewayTlsValidationContextTrustArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayTlsValidationContextTrust)(nil)).Elem()
+func (VirtualGatewayTlsValidationContextTrustArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayTlsValidationContextTrust)(nil)).Elem()
 }
 
-func (i VirtualGatewayVirtualGatewayTlsValidationContextTrustArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextTrustOutput() VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput {
-	return i.ToVirtualGatewayVirtualGatewayTlsValidationContextTrustOutputWithContext(context.Background())
+func (i VirtualGatewayTlsValidationContextTrustArgs) ToVirtualGatewayTlsValidationContextTrustOutput() VirtualGatewayTlsValidationContextTrustOutput {
+	return i.ToVirtualGatewayTlsValidationContextTrustOutputWithContext(context.Background())
 }
 
-func (i VirtualGatewayVirtualGatewayTlsValidationContextTrustArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextTrustOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput)
+func (i VirtualGatewayTlsValidationContextTrustArgs) ToVirtualGatewayTlsValidationContextTrustOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextTrustOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayTlsValidationContextTrustOutput)
 }
 
-func (i VirtualGatewayVirtualGatewayTlsValidationContextTrustArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutputWithContext(context.Background())
+func (i VirtualGatewayTlsValidationContextTrustArgs) ToVirtualGatewayTlsValidationContextTrustPtrOutput() VirtualGatewayTlsValidationContextTrustPtrOutput {
+	return i.ToVirtualGatewayTlsValidationContextTrustPtrOutputWithContext(context.Background())
 }
 
-func (i VirtualGatewayVirtualGatewayTlsValidationContextTrustArgs) ToVirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput).ToVirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutputWithContext(ctx)
+func (i VirtualGatewayTlsValidationContextTrustArgs) ToVirtualGatewayTlsValidationContextTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextTrustPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayTlsValidationContextTrustOutput).ToVirtualGatewayTlsValidationContextTrustPtrOutputWithContext(ctx)
 }
 
-// VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrInput is an input type that accepts VirtualGatewayVirtualGatewayTlsValidationContextTrustArgs, VirtualGatewayVirtualGatewayTlsValidationContextTrustPtr and VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput values.
-// You can construct a concrete instance of `VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrInput` via:
+// VirtualGatewayTlsValidationContextTrustPtrInput is an input type that accepts VirtualGatewayTlsValidationContextTrustArgs, VirtualGatewayTlsValidationContextTrustPtr and VirtualGatewayTlsValidationContextTrustPtrOutput values.
+// You can construct a concrete instance of `VirtualGatewayTlsValidationContextTrustPtrInput` via:
 //
-//          VirtualGatewayVirtualGatewayTlsValidationContextTrustArgs{...}
+//          VirtualGatewayTlsValidationContextTrustArgs{...}
 //
 //  or:
 //
 //          nil
-type VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrInput interface {
+type VirtualGatewayTlsValidationContextTrustPtrInput interface {
 	pulumi.Input
 
-	ToVirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput
-	ToVirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutputWithContext(context.Context) VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput
+	ToVirtualGatewayTlsValidationContextTrustPtrOutput() VirtualGatewayTlsValidationContextTrustPtrOutput
+	ToVirtualGatewayTlsValidationContextTrustPtrOutputWithContext(context.Context) VirtualGatewayTlsValidationContextTrustPtrOutput
 }
 
-type virtualGatewayVirtualGatewayTlsValidationContextTrustPtrType VirtualGatewayVirtualGatewayTlsValidationContextTrustArgs
+type virtualGatewayTlsValidationContextTrustPtrType VirtualGatewayTlsValidationContextTrustArgs
 
-func VirtualGatewayVirtualGatewayTlsValidationContextTrustPtr(v *VirtualGatewayVirtualGatewayTlsValidationContextTrustArgs) VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrInput {
-	return (*virtualGatewayVirtualGatewayTlsValidationContextTrustPtrType)(v)
+func VirtualGatewayTlsValidationContextTrustPtr(v *VirtualGatewayTlsValidationContextTrustArgs) VirtualGatewayTlsValidationContextTrustPtrInput {
+	return (*virtualGatewayTlsValidationContextTrustPtrType)(v)
 }
 
-func (*virtualGatewayVirtualGatewayTlsValidationContextTrustPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayTlsValidationContextTrust)(nil)).Elem()
+func (*virtualGatewayTlsValidationContextTrustPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayTlsValidationContextTrust)(nil)).Elem()
 }
 
-func (i *virtualGatewayVirtualGatewayTlsValidationContextTrustPtrType) ToVirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput {
-	return i.ToVirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutputWithContext(context.Background())
+func (i *virtualGatewayTlsValidationContextTrustPtrType) ToVirtualGatewayTlsValidationContextTrustPtrOutput() VirtualGatewayTlsValidationContextTrustPtrOutput {
+	return i.ToVirtualGatewayTlsValidationContextTrustPtrOutputWithContext(context.Background())
 }
 
-func (i *virtualGatewayVirtualGatewayTlsValidationContextTrustPtrType) ToVirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput)
+func (i *virtualGatewayTlsValidationContextTrustPtrType) ToVirtualGatewayTlsValidationContextTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextTrustPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayTlsValidationContextTrustPtrOutput)
 }
 
-type VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput struct{ *pulumi.OutputState }
+type VirtualGatewayTlsValidationContextTrustOutput struct{ *pulumi.OutputState }
 
-func (VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGatewayVirtualGatewayTlsValidationContextTrust)(nil)).Elem()
+func (VirtualGatewayTlsValidationContextTrustOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualGatewayTlsValidationContextTrust)(nil)).Elem()
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextTrustOutput() VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput {
+func (o VirtualGatewayTlsValidationContextTrustOutput) ToVirtualGatewayTlsValidationContextTrustOutput() VirtualGatewayTlsValidationContextTrustOutput {
 	return o
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextTrustOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput {
+func (o VirtualGatewayTlsValidationContextTrustOutput) ToVirtualGatewayTlsValidationContextTrustOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextTrustOutput {
 	return o
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput {
-	return o.ToVirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutputWithContext(context.Background())
+func (o VirtualGatewayTlsValidationContextTrustOutput) ToVirtualGatewayTlsValidationContextTrustPtrOutput() VirtualGatewayTlsValidationContextTrustPtrOutput {
+	return o.ToVirtualGatewayTlsValidationContextTrustPtrOutputWithContext(context.Background())
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayVirtualGatewayTlsValidationContextTrust) *VirtualGatewayVirtualGatewayTlsValidationContextTrust {
+func (o VirtualGatewayTlsValidationContextTrustOutput) ToVirtualGatewayTlsValidationContextTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextTrustPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewayTlsValidationContextTrust) *VirtualGatewayTlsValidationContextTrust {
 		return &v
-	}).(VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput)
+	}).(VirtualGatewayTlsValidationContextTrustPtrOutput)
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput) ACM() VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayTlsValidationContextTrust) *VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust {
+func (o VirtualGatewayTlsValidationContextTrustOutput) ACM() VirtualGatewayTlsValidationContextAcmTrustPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayTlsValidationContextTrust) *VirtualGatewayTlsValidationContextAcmTrust {
 		return v.ACM
-	}).(VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput)
+	}).(VirtualGatewayTlsValidationContextAcmTrustPtrOutput)
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput) File() VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayTlsValidationContextTrust) *VirtualGatewayVirtualGatewayTlsValidationContextFileTrust {
+func (o VirtualGatewayTlsValidationContextTrustOutput) File() VirtualGatewayTlsValidationContextFileTrustPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayTlsValidationContextTrust) *VirtualGatewayTlsValidationContextFileTrust {
 		return v.File
-	}).(VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput)
+	}).(VirtualGatewayTlsValidationContextFileTrustPtrOutput)
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput) SDS() VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput {
-	return o.ApplyT(func(v VirtualGatewayVirtualGatewayTlsValidationContextTrust) *VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust {
+func (o VirtualGatewayTlsValidationContextTrustOutput) SDS() VirtualGatewayTlsValidationContextSdsTrustPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayTlsValidationContextTrust) *VirtualGatewayTlsValidationContextSdsTrust {
 		return v.SDS
-	}).(VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput)
+	}).(VirtualGatewayTlsValidationContextSdsTrustPtrOutput)
 }
 
-type VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput struct{ *pulumi.OutputState }
+type VirtualGatewayTlsValidationContextTrustPtrOutput struct{ *pulumi.OutputState }
 
-func (VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewayVirtualGatewayTlsValidationContextTrust)(nil)).Elem()
+func (VirtualGatewayTlsValidationContextTrustPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualGatewayTlsValidationContextTrust)(nil)).Elem()
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput() VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput {
+func (o VirtualGatewayTlsValidationContextTrustPtrOutput) ToVirtualGatewayTlsValidationContextTrustPtrOutput() VirtualGatewayTlsValidationContextTrustPtrOutput {
 	return o
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput) ToVirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput {
+func (o VirtualGatewayTlsValidationContextTrustPtrOutput) ToVirtualGatewayTlsValidationContextTrustPtrOutputWithContext(ctx context.Context) VirtualGatewayTlsValidationContextTrustPtrOutput {
 	return o
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput) Elem() VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayTlsValidationContextTrust) VirtualGatewayVirtualGatewayTlsValidationContextTrust {
+func (o VirtualGatewayTlsValidationContextTrustPtrOutput) Elem() VirtualGatewayTlsValidationContextTrustOutput {
+	return o.ApplyT(func(v *VirtualGatewayTlsValidationContextTrust) VirtualGatewayTlsValidationContextTrust {
 		if v != nil {
 			return *v
 		}
-		var ret VirtualGatewayVirtualGatewayTlsValidationContextTrust
+		var ret VirtualGatewayTlsValidationContextTrust
 		return ret
-	}).(VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput)
+	}).(VirtualGatewayTlsValidationContextTrustOutput)
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput) ACM() VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayTlsValidationContextTrust) *VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust {
+func (o VirtualGatewayTlsValidationContextTrustPtrOutput) ACM() VirtualGatewayTlsValidationContextAcmTrustPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayTlsValidationContextTrust) *VirtualGatewayTlsValidationContextAcmTrust {
 		if v == nil {
 			return nil
 		}
 		return v.ACM
-	}).(VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput)
+	}).(VirtualGatewayTlsValidationContextAcmTrustPtrOutput)
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput) File() VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayTlsValidationContextTrust) *VirtualGatewayVirtualGatewayTlsValidationContextFileTrust {
+func (o VirtualGatewayTlsValidationContextTrustPtrOutput) File() VirtualGatewayTlsValidationContextFileTrustPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayTlsValidationContextTrust) *VirtualGatewayTlsValidationContextFileTrust {
 		if v == nil {
 			return nil
 		}
 		return v.File
-	}).(VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput)
+	}).(VirtualGatewayTlsValidationContextFileTrustPtrOutput)
 }
 
-func (o VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput) SDS() VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewayVirtualGatewayTlsValidationContextTrust) *VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust {
+func (o VirtualGatewayTlsValidationContextTrustPtrOutput) SDS() VirtualGatewayTlsValidationContextSdsTrustPtrOutput {
+	return o.ApplyT(func(v *VirtualGatewayTlsValidationContextTrust) *VirtualGatewayTlsValidationContextSdsTrust {
 		if v == nil {
 			return nil
 		}
 		return v.SDS
-	}).(VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput)
+	}).(VirtualGatewayTlsValidationContextSdsTrustPtrOutput)
 }
 
 type VirtualNodeAccessLog struct {
@@ -12978,6 +12932,184 @@ func (o VirtualNodeClientTlsCertificatePtrOutput) SDS() VirtualNodeListenerTlsSd
 	}).(VirtualNodeListenerTlsSdsCertificatePtrOutput)
 }
 
+type VirtualNodeConnectionPool struct {
+	GRPC  *VirtualNodeGrpcConnectionPool  `pulumi:"gRPC"`
+	HTTP  *VirtualNodeHttpConnectionPool  `pulumi:"hTTP"`
+	HTTP2 *VirtualNodeHttp2ConnectionPool `pulumi:"hTTP2"`
+	TCP   *VirtualNodeTcpConnectionPool   `pulumi:"tCP"`
+}
+
+// VirtualNodeConnectionPoolInput is an input type that accepts VirtualNodeConnectionPoolArgs and VirtualNodeConnectionPoolOutput values.
+// You can construct a concrete instance of `VirtualNodeConnectionPoolInput` via:
+//
+//          VirtualNodeConnectionPoolArgs{...}
+type VirtualNodeConnectionPoolInput interface {
+	pulumi.Input
+
+	ToVirtualNodeConnectionPoolOutput() VirtualNodeConnectionPoolOutput
+	ToVirtualNodeConnectionPoolOutputWithContext(context.Context) VirtualNodeConnectionPoolOutput
+}
+
+type VirtualNodeConnectionPoolArgs struct {
+	GRPC  VirtualNodeGrpcConnectionPoolPtrInput  `pulumi:"gRPC"`
+	HTTP  VirtualNodeHttpConnectionPoolPtrInput  `pulumi:"hTTP"`
+	HTTP2 VirtualNodeHttp2ConnectionPoolPtrInput `pulumi:"hTTP2"`
+	TCP   VirtualNodeTcpConnectionPoolPtrInput   `pulumi:"tCP"`
+}
+
+func (VirtualNodeConnectionPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeConnectionPool)(nil)).Elem()
+}
+
+func (i VirtualNodeConnectionPoolArgs) ToVirtualNodeConnectionPoolOutput() VirtualNodeConnectionPoolOutput {
+	return i.ToVirtualNodeConnectionPoolOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeConnectionPoolArgs) ToVirtualNodeConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeConnectionPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeConnectionPoolOutput)
+}
+
+func (i VirtualNodeConnectionPoolArgs) ToVirtualNodeConnectionPoolPtrOutput() VirtualNodeConnectionPoolPtrOutput {
+	return i.ToVirtualNodeConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeConnectionPoolArgs) ToVirtualNodeConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeConnectionPoolOutput).ToVirtualNodeConnectionPoolPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeConnectionPoolPtrInput is an input type that accepts VirtualNodeConnectionPoolArgs, VirtualNodeConnectionPoolPtr and VirtualNodeConnectionPoolPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeConnectionPoolPtrInput` via:
+//
+//          VirtualNodeConnectionPoolArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeConnectionPoolPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeConnectionPoolPtrOutput() VirtualNodeConnectionPoolPtrOutput
+	ToVirtualNodeConnectionPoolPtrOutputWithContext(context.Context) VirtualNodeConnectionPoolPtrOutput
+}
+
+type virtualNodeConnectionPoolPtrType VirtualNodeConnectionPoolArgs
+
+func VirtualNodeConnectionPoolPtr(v *VirtualNodeConnectionPoolArgs) VirtualNodeConnectionPoolPtrInput {
+	return (*virtualNodeConnectionPoolPtrType)(v)
+}
+
+func (*virtualNodeConnectionPoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeConnectionPool)(nil)).Elem()
+}
+
+func (i *virtualNodeConnectionPoolPtrType) ToVirtualNodeConnectionPoolPtrOutput() VirtualNodeConnectionPoolPtrOutput {
+	return i.ToVirtualNodeConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeConnectionPoolPtrType) ToVirtualNodeConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeConnectionPoolPtrOutput)
+}
+
+type VirtualNodeConnectionPoolOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeConnectionPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualNodeConnectionPoolOutput) ToVirtualNodeConnectionPoolOutput() VirtualNodeConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualNodeConnectionPoolOutput) ToVirtualNodeConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualNodeConnectionPoolOutput) ToVirtualNodeConnectionPoolPtrOutput() VirtualNodeConnectionPoolPtrOutput {
+	return o.ToVirtualNodeConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeConnectionPoolOutput) ToVirtualNodeConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeConnectionPoolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeConnectionPool) *VirtualNodeConnectionPool {
+		return &v
+	}).(VirtualNodeConnectionPoolPtrOutput)
+}
+
+func (o VirtualNodeConnectionPoolOutput) GRPC() VirtualNodeGrpcConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualNodeConnectionPool) *VirtualNodeGrpcConnectionPool { return v.GRPC }).(VirtualNodeGrpcConnectionPoolPtrOutput)
+}
+
+func (o VirtualNodeConnectionPoolOutput) HTTP() VirtualNodeHttpConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualNodeConnectionPool) *VirtualNodeHttpConnectionPool { return v.HTTP }).(VirtualNodeHttpConnectionPoolPtrOutput)
+}
+
+func (o VirtualNodeConnectionPoolOutput) HTTP2() VirtualNodeHttp2ConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualNodeConnectionPool) *VirtualNodeHttp2ConnectionPool { return v.HTTP2 }).(VirtualNodeHttp2ConnectionPoolPtrOutput)
+}
+
+func (o VirtualNodeConnectionPoolOutput) TCP() VirtualNodeTcpConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualNodeConnectionPool) *VirtualNodeTcpConnectionPool { return v.TCP }).(VirtualNodeTcpConnectionPoolPtrOutput)
+}
+
+type VirtualNodeConnectionPoolPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeConnectionPoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualNodeConnectionPoolPtrOutput) ToVirtualNodeConnectionPoolPtrOutput() VirtualNodeConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualNodeConnectionPoolPtrOutput) ToVirtualNodeConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualNodeConnectionPoolPtrOutput) Elem() VirtualNodeConnectionPoolOutput {
+	return o.ApplyT(func(v *VirtualNodeConnectionPool) VirtualNodeConnectionPool {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeConnectionPool
+		return ret
+	}).(VirtualNodeConnectionPoolOutput)
+}
+
+func (o VirtualNodeConnectionPoolPtrOutput) GRPC() VirtualNodeGrpcConnectionPoolPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeConnectionPool) *VirtualNodeGrpcConnectionPool {
+		if v == nil {
+			return nil
+		}
+		return v.GRPC
+	}).(VirtualNodeGrpcConnectionPoolPtrOutput)
+}
+
+func (o VirtualNodeConnectionPoolPtrOutput) HTTP() VirtualNodeHttpConnectionPoolPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeConnectionPool) *VirtualNodeHttpConnectionPool {
+		if v == nil {
+			return nil
+		}
+		return v.HTTP
+	}).(VirtualNodeHttpConnectionPoolPtrOutput)
+}
+
+func (o VirtualNodeConnectionPoolPtrOutput) HTTP2() VirtualNodeHttp2ConnectionPoolPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeConnectionPool) *VirtualNodeHttp2ConnectionPool {
+		if v == nil {
+			return nil
+		}
+		return v.HTTP2
+	}).(VirtualNodeHttp2ConnectionPoolPtrOutput)
+}
+
+func (o VirtualNodeConnectionPoolPtrOutput) TCP() VirtualNodeTcpConnectionPoolPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeConnectionPool) *VirtualNodeTcpConnectionPool {
+		if v == nil {
+			return nil
+		}
+		return v.TCP
+	}).(VirtualNodeTcpConnectionPoolPtrOutput)
+}
+
 type VirtualNodeDnsServiceDiscovery struct {
 	Hostname     string  `pulumi:"hostname"`
 	ResponseType *string `pulumi:"responseType"`
@@ -13407,6 +13539,139 @@ func (o VirtualNodeFileAccessLogPtrOutput) Path() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type VirtualNodeGrpcConnectionPool struct {
+	MaxRequests int `pulumi:"maxRequests"`
+}
+
+// VirtualNodeGrpcConnectionPoolInput is an input type that accepts VirtualNodeGrpcConnectionPoolArgs and VirtualNodeGrpcConnectionPoolOutput values.
+// You can construct a concrete instance of `VirtualNodeGrpcConnectionPoolInput` via:
+//
+//          VirtualNodeGrpcConnectionPoolArgs{...}
+type VirtualNodeGrpcConnectionPoolInput interface {
+	pulumi.Input
+
+	ToVirtualNodeGrpcConnectionPoolOutput() VirtualNodeGrpcConnectionPoolOutput
+	ToVirtualNodeGrpcConnectionPoolOutputWithContext(context.Context) VirtualNodeGrpcConnectionPoolOutput
+}
+
+type VirtualNodeGrpcConnectionPoolArgs struct {
+	MaxRequests pulumi.IntInput `pulumi:"maxRequests"`
+}
+
+func (VirtualNodeGrpcConnectionPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeGrpcConnectionPool)(nil)).Elem()
+}
+
+func (i VirtualNodeGrpcConnectionPoolArgs) ToVirtualNodeGrpcConnectionPoolOutput() VirtualNodeGrpcConnectionPoolOutput {
+	return i.ToVirtualNodeGrpcConnectionPoolOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeGrpcConnectionPoolArgs) ToVirtualNodeGrpcConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeGrpcConnectionPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeGrpcConnectionPoolOutput)
+}
+
+func (i VirtualNodeGrpcConnectionPoolArgs) ToVirtualNodeGrpcConnectionPoolPtrOutput() VirtualNodeGrpcConnectionPoolPtrOutput {
+	return i.ToVirtualNodeGrpcConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeGrpcConnectionPoolArgs) ToVirtualNodeGrpcConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeGrpcConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeGrpcConnectionPoolOutput).ToVirtualNodeGrpcConnectionPoolPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeGrpcConnectionPoolPtrInput is an input type that accepts VirtualNodeGrpcConnectionPoolArgs, VirtualNodeGrpcConnectionPoolPtr and VirtualNodeGrpcConnectionPoolPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeGrpcConnectionPoolPtrInput` via:
+//
+//          VirtualNodeGrpcConnectionPoolArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeGrpcConnectionPoolPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeGrpcConnectionPoolPtrOutput() VirtualNodeGrpcConnectionPoolPtrOutput
+	ToVirtualNodeGrpcConnectionPoolPtrOutputWithContext(context.Context) VirtualNodeGrpcConnectionPoolPtrOutput
+}
+
+type virtualNodeGrpcConnectionPoolPtrType VirtualNodeGrpcConnectionPoolArgs
+
+func VirtualNodeGrpcConnectionPoolPtr(v *VirtualNodeGrpcConnectionPoolArgs) VirtualNodeGrpcConnectionPoolPtrInput {
+	return (*virtualNodeGrpcConnectionPoolPtrType)(v)
+}
+
+func (*virtualNodeGrpcConnectionPoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeGrpcConnectionPool)(nil)).Elem()
+}
+
+func (i *virtualNodeGrpcConnectionPoolPtrType) ToVirtualNodeGrpcConnectionPoolPtrOutput() VirtualNodeGrpcConnectionPoolPtrOutput {
+	return i.ToVirtualNodeGrpcConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeGrpcConnectionPoolPtrType) ToVirtualNodeGrpcConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeGrpcConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeGrpcConnectionPoolPtrOutput)
+}
+
+type VirtualNodeGrpcConnectionPoolOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeGrpcConnectionPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeGrpcConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualNodeGrpcConnectionPoolOutput) ToVirtualNodeGrpcConnectionPoolOutput() VirtualNodeGrpcConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualNodeGrpcConnectionPoolOutput) ToVirtualNodeGrpcConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeGrpcConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualNodeGrpcConnectionPoolOutput) ToVirtualNodeGrpcConnectionPoolPtrOutput() VirtualNodeGrpcConnectionPoolPtrOutput {
+	return o.ToVirtualNodeGrpcConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeGrpcConnectionPoolOutput) ToVirtualNodeGrpcConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeGrpcConnectionPoolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeGrpcConnectionPool) *VirtualNodeGrpcConnectionPool {
+		return &v
+	}).(VirtualNodeGrpcConnectionPoolPtrOutput)
+}
+
+func (o VirtualNodeGrpcConnectionPoolOutput) MaxRequests() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualNodeGrpcConnectionPool) int { return v.MaxRequests }).(pulumi.IntOutput)
+}
+
+type VirtualNodeGrpcConnectionPoolPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeGrpcConnectionPoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeGrpcConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualNodeGrpcConnectionPoolPtrOutput) ToVirtualNodeGrpcConnectionPoolPtrOutput() VirtualNodeGrpcConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualNodeGrpcConnectionPoolPtrOutput) ToVirtualNodeGrpcConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeGrpcConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualNodeGrpcConnectionPoolPtrOutput) Elem() VirtualNodeGrpcConnectionPoolOutput {
+	return o.ApplyT(func(v *VirtualNodeGrpcConnectionPool) VirtualNodeGrpcConnectionPool {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeGrpcConnectionPool
+		return ret
+	}).(VirtualNodeGrpcConnectionPoolOutput)
+}
+
+func (o VirtualNodeGrpcConnectionPoolPtrOutput) MaxRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeGrpcConnectionPool) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxRequests
+	}).(pulumi.IntPtrOutput)
+}
+
 type VirtualNodeGrpcTimeout struct {
 	Idle       *VirtualNodeDuration `pulumi:"idle"`
 	PerRequest *VirtualNodeDuration `pulumi:"perRequest"`
@@ -13778,6 +14043,287 @@ func (o VirtualNodeHealthCheckPtrOutput) UnhealthyThreshold() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
+type VirtualNodeHttp2ConnectionPool struct {
+	MaxRequests int `pulumi:"maxRequests"`
+}
+
+// VirtualNodeHttp2ConnectionPoolInput is an input type that accepts VirtualNodeHttp2ConnectionPoolArgs and VirtualNodeHttp2ConnectionPoolOutput values.
+// You can construct a concrete instance of `VirtualNodeHttp2ConnectionPoolInput` via:
+//
+//          VirtualNodeHttp2ConnectionPoolArgs{...}
+type VirtualNodeHttp2ConnectionPoolInput interface {
+	pulumi.Input
+
+	ToVirtualNodeHttp2ConnectionPoolOutput() VirtualNodeHttp2ConnectionPoolOutput
+	ToVirtualNodeHttp2ConnectionPoolOutputWithContext(context.Context) VirtualNodeHttp2ConnectionPoolOutput
+}
+
+type VirtualNodeHttp2ConnectionPoolArgs struct {
+	MaxRequests pulumi.IntInput `pulumi:"maxRequests"`
+}
+
+func (VirtualNodeHttp2ConnectionPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeHttp2ConnectionPool)(nil)).Elem()
+}
+
+func (i VirtualNodeHttp2ConnectionPoolArgs) ToVirtualNodeHttp2ConnectionPoolOutput() VirtualNodeHttp2ConnectionPoolOutput {
+	return i.ToVirtualNodeHttp2ConnectionPoolOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeHttp2ConnectionPoolArgs) ToVirtualNodeHttp2ConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeHttp2ConnectionPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeHttp2ConnectionPoolOutput)
+}
+
+func (i VirtualNodeHttp2ConnectionPoolArgs) ToVirtualNodeHttp2ConnectionPoolPtrOutput() VirtualNodeHttp2ConnectionPoolPtrOutput {
+	return i.ToVirtualNodeHttp2ConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeHttp2ConnectionPoolArgs) ToVirtualNodeHttp2ConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeHttp2ConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeHttp2ConnectionPoolOutput).ToVirtualNodeHttp2ConnectionPoolPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeHttp2ConnectionPoolPtrInput is an input type that accepts VirtualNodeHttp2ConnectionPoolArgs, VirtualNodeHttp2ConnectionPoolPtr and VirtualNodeHttp2ConnectionPoolPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeHttp2ConnectionPoolPtrInput` via:
+//
+//          VirtualNodeHttp2ConnectionPoolArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeHttp2ConnectionPoolPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeHttp2ConnectionPoolPtrOutput() VirtualNodeHttp2ConnectionPoolPtrOutput
+	ToVirtualNodeHttp2ConnectionPoolPtrOutputWithContext(context.Context) VirtualNodeHttp2ConnectionPoolPtrOutput
+}
+
+type virtualNodeHttp2ConnectionPoolPtrType VirtualNodeHttp2ConnectionPoolArgs
+
+func VirtualNodeHttp2ConnectionPoolPtr(v *VirtualNodeHttp2ConnectionPoolArgs) VirtualNodeHttp2ConnectionPoolPtrInput {
+	return (*virtualNodeHttp2ConnectionPoolPtrType)(v)
+}
+
+func (*virtualNodeHttp2ConnectionPoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeHttp2ConnectionPool)(nil)).Elem()
+}
+
+func (i *virtualNodeHttp2ConnectionPoolPtrType) ToVirtualNodeHttp2ConnectionPoolPtrOutput() VirtualNodeHttp2ConnectionPoolPtrOutput {
+	return i.ToVirtualNodeHttp2ConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeHttp2ConnectionPoolPtrType) ToVirtualNodeHttp2ConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeHttp2ConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeHttp2ConnectionPoolPtrOutput)
+}
+
+type VirtualNodeHttp2ConnectionPoolOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeHttp2ConnectionPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeHttp2ConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualNodeHttp2ConnectionPoolOutput) ToVirtualNodeHttp2ConnectionPoolOutput() VirtualNodeHttp2ConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualNodeHttp2ConnectionPoolOutput) ToVirtualNodeHttp2ConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeHttp2ConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualNodeHttp2ConnectionPoolOutput) ToVirtualNodeHttp2ConnectionPoolPtrOutput() VirtualNodeHttp2ConnectionPoolPtrOutput {
+	return o.ToVirtualNodeHttp2ConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeHttp2ConnectionPoolOutput) ToVirtualNodeHttp2ConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeHttp2ConnectionPoolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeHttp2ConnectionPool) *VirtualNodeHttp2ConnectionPool {
+		return &v
+	}).(VirtualNodeHttp2ConnectionPoolPtrOutput)
+}
+
+func (o VirtualNodeHttp2ConnectionPoolOutput) MaxRequests() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualNodeHttp2ConnectionPool) int { return v.MaxRequests }).(pulumi.IntOutput)
+}
+
+type VirtualNodeHttp2ConnectionPoolPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeHttp2ConnectionPoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeHttp2ConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualNodeHttp2ConnectionPoolPtrOutput) ToVirtualNodeHttp2ConnectionPoolPtrOutput() VirtualNodeHttp2ConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualNodeHttp2ConnectionPoolPtrOutput) ToVirtualNodeHttp2ConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeHttp2ConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualNodeHttp2ConnectionPoolPtrOutput) Elem() VirtualNodeHttp2ConnectionPoolOutput {
+	return o.ApplyT(func(v *VirtualNodeHttp2ConnectionPool) VirtualNodeHttp2ConnectionPool {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeHttp2ConnectionPool
+		return ret
+	}).(VirtualNodeHttp2ConnectionPoolOutput)
+}
+
+func (o VirtualNodeHttp2ConnectionPoolPtrOutput) MaxRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeHttp2ConnectionPool) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxRequests
+	}).(pulumi.IntPtrOutput)
+}
+
+type VirtualNodeHttpConnectionPool struct {
+	MaxConnections     int  `pulumi:"maxConnections"`
+	MaxPendingRequests *int `pulumi:"maxPendingRequests"`
+}
+
+// VirtualNodeHttpConnectionPoolInput is an input type that accepts VirtualNodeHttpConnectionPoolArgs and VirtualNodeHttpConnectionPoolOutput values.
+// You can construct a concrete instance of `VirtualNodeHttpConnectionPoolInput` via:
+//
+//          VirtualNodeHttpConnectionPoolArgs{...}
+type VirtualNodeHttpConnectionPoolInput interface {
+	pulumi.Input
+
+	ToVirtualNodeHttpConnectionPoolOutput() VirtualNodeHttpConnectionPoolOutput
+	ToVirtualNodeHttpConnectionPoolOutputWithContext(context.Context) VirtualNodeHttpConnectionPoolOutput
+}
+
+type VirtualNodeHttpConnectionPoolArgs struct {
+	MaxConnections     pulumi.IntInput    `pulumi:"maxConnections"`
+	MaxPendingRequests pulumi.IntPtrInput `pulumi:"maxPendingRequests"`
+}
+
+func (VirtualNodeHttpConnectionPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeHttpConnectionPool)(nil)).Elem()
+}
+
+func (i VirtualNodeHttpConnectionPoolArgs) ToVirtualNodeHttpConnectionPoolOutput() VirtualNodeHttpConnectionPoolOutput {
+	return i.ToVirtualNodeHttpConnectionPoolOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeHttpConnectionPoolArgs) ToVirtualNodeHttpConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeHttpConnectionPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeHttpConnectionPoolOutput)
+}
+
+func (i VirtualNodeHttpConnectionPoolArgs) ToVirtualNodeHttpConnectionPoolPtrOutput() VirtualNodeHttpConnectionPoolPtrOutput {
+	return i.ToVirtualNodeHttpConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeHttpConnectionPoolArgs) ToVirtualNodeHttpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeHttpConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeHttpConnectionPoolOutput).ToVirtualNodeHttpConnectionPoolPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeHttpConnectionPoolPtrInput is an input type that accepts VirtualNodeHttpConnectionPoolArgs, VirtualNodeHttpConnectionPoolPtr and VirtualNodeHttpConnectionPoolPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeHttpConnectionPoolPtrInput` via:
+//
+//          VirtualNodeHttpConnectionPoolArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeHttpConnectionPoolPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeHttpConnectionPoolPtrOutput() VirtualNodeHttpConnectionPoolPtrOutput
+	ToVirtualNodeHttpConnectionPoolPtrOutputWithContext(context.Context) VirtualNodeHttpConnectionPoolPtrOutput
+}
+
+type virtualNodeHttpConnectionPoolPtrType VirtualNodeHttpConnectionPoolArgs
+
+func VirtualNodeHttpConnectionPoolPtr(v *VirtualNodeHttpConnectionPoolArgs) VirtualNodeHttpConnectionPoolPtrInput {
+	return (*virtualNodeHttpConnectionPoolPtrType)(v)
+}
+
+func (*virtualNodeHttpConnectionPoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeHttpConnectionPool)(nil)).Elem()
+}
+
+func (i *virtualNodeHttpConnectionPoolPtrType) ToVirtualNodeHttpConnectionPoolPtrOutput() VirtualNodeHttpConnectionPoolPtrOutput {
+	return i.ToVirtualNodeHttpConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeHttpConnectionPoolPtrType) ToVirtualNodeHttpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeHttpConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeHttpConnectionPoolPtrOutput)
+}
+
+type VirtualNodeHttpConnectionPoolOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeHttpConnectionPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeHttpConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualNodeHttpConnectionPoolOutput) ToVirtualNodeHttpConnectionPoolOutput() VirtualNodeHttpConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualNodeHttpConnectionPoolOutput) ToVirtualNodeHttpConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeHttpConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualNodeHttpConnectionPoolOutput) ToVirtualNodeHttpConnectionPoolPtrOutput() VirtualNodeHttpConnectionPoolPtrOutput {
+	return o.ToVirtualNodeHttpConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeHttpConnectionPoolOutput) ToVirtualNodeHttpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeHttpConnectionPoolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeHttpConnectionPool) *VirtualNodeHttpConnectionPool {
+		return &v
+	}).(VirtualNodeHttpConnectionPoolPtrOutput)
+}
+
+func (o VirtualNodeHttpConnectionPoolOutput) MaxConnections() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualNodeHttpConnectionPool) int { return v.MaxConnections }).(pulumi.IntOutput)
+}
+
+func (o VirtualNodeHttpConnectionPoolOutput) MaxPendingRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VirtualNodeHttpConnectionPool) *int { return v.MaxPendingRequests }).(pulumi.IntPtrOutput)
+}
+
+type VirtualNodeHttpConnectionPoolPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeHttpConnectionPoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeHttpConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualNodeHttpConnectionPoolPtrOutput) ToVirtualNodeHttpConnectionPoolPtrOutput() VirtualNodeHttpConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualNodeHttpConnectionPoolPtrOutput) ToVirtualNodeHttpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeHttpConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualNodeHttpConnectionPoolPtrOutput) Elem() VirtualNodeHttpConnectionPoolOutput {
+	return o.ApplyT(func(v *VirtualNodeHttpConnectionPool) VirtualNodeHttpConnectionPool {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeHttpConnectionPool
+		return ret
+	}).(VirtualNodeHttpConnectionPoolOutput)
+}
+
+func (o VirtualNodeHttpConnectionPoolPtrOutput) MaxConnections() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeHttpConnectionPool) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxConnections
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o VirtualNodeHttpConnectionPoolPtrOutput) MaxPendingRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeHttpConnectionPool) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPendingRequests
+	}).(pulumi.IntPtrOutput)
+}
+
 type VirtualNodeHttpTimeout struct {
 	Idle       *VirtualNodeDuration `pulumi:"idle"`
 	PerRequest *VirtualNodeDuration `pulumi:"perRequest"`
@@ -13927,12 +14473,12 @@ func (o VirtualNodeHttpTimeoutPtrOutput) PerRequest() VirtualNodeDurationPtrOutp
 }
 
 type VirtualNodeListener struct {
-	ConnectionPool   *VirtualNodeVirtualNodeConnectionPool `pulumi:"connectionPool"`
-	HealthCheck      *VirtualNodeHealthCheck               `pulumi:"healthCheck"`
-	OutlierDetection *VirtualNodeOutlierDetection          `pulumi:"outlierDetection"`
-	PortMapping      VirtualNodePortMapping                `pulumi:"portMapping"`
-	TLS              *VirtualNodeListenerTls               `pulumi:"tLS"`
-	Timeout          *VirtualNodeListenerTimeout           `pulumi:"timeout"`
+	ConnectionPool   *VirtualNodeConnectionPool   `pulumi:"connectionPool"`
+	HealthCheck      *VirtualNodeHealthCheck      `pulumi:"healthCheck"`
+	OutlierDetection *VirtualNodeOutlierDetection `pulumi:"outlierDetection"`
+	PortMapping      VirtualNodePortMapping       `pulumi:"portMapping"`
+	TLS              *VirtualNodeListenerTls      `pulumi:"tLS"`
+	Timeout          *VirtualNodeListenerTimeout  `pulumi:"timeout"`
 }
 
 // VirtualNodeListenerInput is an input type that accepts VirtualNodeListenerArgs and VirtualNodeListenerOutput values.
@@ -13947,12 +14493,12 @@ type VirtualNodeListenerInput interface {
 }
 
 type VirtualNodeListenerArgs struct {
-	ConnectionPool   VirtualNodeVirtualNodeConnectionPoolPtrInput `pulumi:"connectionPool"`
-	HealthCheck      VirtualNodeHealthCheckPtrInput               `pulumi:"healthCheck"`
-	OutlierDetection VirtualNodeOutlierDetectionPtrInput          `pulumi:"outlierDetection"`
-	PortMapping      VirtualNodePortMappingInput                  `pulumi:"portMapping"`
-	TLS              VirtualNodeListenerTlsPtrInput               `pulumi:"tLS"`
-	Timeout          VirtualNodeListenerTimeoutPtrInput           `pulumi:"timeout"`
+	ConnectionPool   VirtualNodeConnectionPoolPtrInput   `pulumi:"connectionPool"`
+	HealthCheck      VirtualNodeHealthCheckPtrInput      `pulumi:"healthCheck"`
+	OutlierDetection VirtualNodeOutlierDetectionPtrInput `pulumi:"outlierDetection"`
+	PortMapping      VirtualNodePortMappingInput         `pulumi:"portMapping"`
+	TLS              VirtualNodeListenerTlsPtrInput      `pulumi:"tLS"`
+	Timeout          VirtualNodeListenerTimeoutPtrInput  `pulumi:"timeout"`
 }
 
 func (VirtualNodeListenerArgs) ElementType() reflect.Type {
@@ -14006,8 +14552,8 @@ func (o VirtualNodeListenerOutput) ToVirtualNodeListenerOutputWithContext(ctx co
 	return o
 }
 
-func (o VirtualNodeListenerOutput) ConnectionPool() VirtualNodeVirtualNodeConnectionPoolPtrOutput {
-	return o.ApplyT(func(v VirtualNodeListener) *VirtualNodeVirtualNodeConnectionPool { return v.ConnectionPool }).(VirtualNodeVirtualNodeConnectionPoolPtrOutput)
+func (o VirtualNodeListenerOutput) ConnectionPool() VirtualNodeConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualNodeListener) *VirtualNodeConnectionPool { return v.ConnectionPool }).(VirtualNodeConnectionPoolPtrOutput)
 }
 
 func (o VirtualNodeListenerOutput) HealthCheck() VirtualNodeHealthCheckPtrOutput {
@@ -15786,6 +16332,199 @@ func (o VirtualNodeServiceDiscoveryPtrOutput) DNS() VirtualNodeDnsServiceDiscove
 	}).(VirtualNodeDnsServiceDiscoveryPtrOutput)
 }
 
+type VirtualNodeSpec struct {
+	BackendDefaults  *VirtualNodeBackendDefaults  `pulumi:"backendDefaults"`
+	Backends         []VirtualNodeBackend         `pulumi:"backends"`
+	Listeners        []VirtualNodeListener        `pulumi:"listeners"`
+	Logging          *VirtualNodeLogging          `pulumi:"logging"`
+	ServiceDiscovery *VirtualNodeServiceDiscovery `pulumi:"serviceDiscovery"`
+}
+
+// VirtualNodeSpecInput is an input type that accepts VirtualNodeSpecArgs and VirtualNodeSpecOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecInput` via:
+//
+//          VirtualNodeSpecArgs{...}
+type VirtualNodeSpecInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecOutput() VirtualNodeSpecOutput
+	ToVirtualNodeSpecOutputWithContext(context.Context) VirtualNodeSpecOutput
+}
+
+type VirtualNodeSpecArgs struct {
+	BackendDefaults  VirtualNodeBackendDefaultsPtrInput  `pulumi:"backendDefaults"`
+	Backends         VirtualNodeBackendArrayInput        `pulumi:"backends"`
+	Listeners        VirtualNodeListenerArrayInput       `pulumi:"listeners"`
+	Logging          VirtualNodeLoggingPtrInput          `pulumi:"logging"`
+	ServiceDiscovery VirtualNodeServiceDiscoveryPtrInput `pulumi:"serviceDiscovery"`
+}
+
+func (VirtualNodeSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpec)(nil)).Elem()
+}
+
+func (i VirtualNodeSpecArgs) ToVirtualNodeSpecOutput() VirtualNodeSpecOutput {
+	return i.ToVirtualNodeSpecOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecArgs) ToVirtualNodeSpecOutputWithContext(ctx context.Context) VirtualNodeSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecOutput)
+}
+
+func (i VirtualNodeSpecArgs) ToVirtualNodeSpecPtrOutput() VirtualNodeSpecPtrOutput {
+	return i.ToVirtualNodeSpecPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeSpecArgs) ToVirtualNodeSpecPtrOutputWithContext(ctx context.Context) VirtualNodeSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecOutput).ToVirtualNodeSpecPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeSpecPtrInput is an input type that accepts VirtualNodeSpecArgs, VirtualNodeSpecPtr and VirtualNodeSpecPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecPtrInput` via:
+//
+//          VirtualNodeSpecArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeSpecPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeSpecPtrOutput() VirtualNodeSpecPtrOutput
+	ToVirtualNodeSpecPtrOutputWithContext(context.Context) VirtualNodeSpecPtrOutput
+}
+
+type virtualNodeSpecPtrType VirtualNodeSpecArgs
+
+func VirtualNodeSpecPtr(v *VirtualNodeSpecArgs) VirtualNodeSpecPtrInput {
+	return (*virtualNodeSpecPtrType)(v)
+}
+
+func (*virtualNodeSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpec)(nil)).Elem()
+}
+
+func (i *virtualNodeSpecPtrType) ToVirtualNodeSpecPtrOutput() VirtualNodeSpecPtrOutput {
+	return i.ToVirtualNodeSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeSpecPtrType) ToVirtualNodeSpecPtrOutputWithContext(ctx context.Context) VirtualNodeSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecPtrOutput)
+}
+
+type VirtualNodeSpecOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeSpec)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecOutput) ToVirtualNodeSpecOutput() VirtualNodeSpecOutput {
+	return o
+}
+
+func (o VirtualNodeSpecOutput) ToVirtualNodeSpecOutputWithContext(ctx context.Context) VirtualNodeSpecOutput {
+	return o
+}
+
+func (o VirtualNodeSpecOutput) ToVirtualNodeSpecPtrOutput() VirtualNodeSpecPtrOutput {
+	return o.ToVirtualNodeSpecPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeSpecOutput) ToVirtualNodeSpecPtrOutputWithContext(ctx context.Context) VirtualNodeSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpec) *VirtualNodeSpec {
+		return &v
+	}).(VirtualNodeSpecPtrOutput)
+}
+
+func (o VirtualNodeSpecOutput) BackendDefaults() VirtualNodeBackendDefaultsPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpec) *VirtualNodeBackendDefaults { return v.BackendDefaults }).(VirtualNodeBackendDefaultsPtrOutput)
+}
+
+func (o VirtualNodeSpecOutput) Backends() VirtualNodeBackendArrayOutput {
+	return o.ApplyT(func(v VirtualNodeSpec) []VirtualNodeBackend { return v.Backends }).(VirtualNodeBackendArrayOutput)
+}
+
+func (o VirtualNodeSpecOutput) Listeners() VirtualNodeListenerArrayOutput {
+	return o.ApplyT(func(v VirtualNodeSpec) []VirtualNodeListener { return v.Listeners }).(VirtualNodeListenerArrayOutput)
+}
+
+func (o VirtualNodeSpecOutput) Logging() VirtualNodeLoggingPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpec) *VirtualNodeLogging { return v.Logging }).(VirtualNodeLoggingPtrOutput)
+}
+
+func (o VirtualNodeSpecOutput) ServiceDiscovery() VirtualNodeServiceDiscoveryPtrOutput {
+	return o.ApplyT(func(v VirtualNodeSpec) *VirtualNodeServiceDiscovery { return v.ServiceDiscovery }).(VirtualNodeServiceDiscoveryPtrOutput)
+}
+
+type VirtualNodeSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeSpec)(nil)).Elem()
+}
+
+func (o VirtualNodeSpecPtrOutput) ToVirtualNodeSpecPtrOutput() VirtualNodeSpecPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecPtrOutput) ToVirtualNodeSpecPtrOutputWithContext(ctx context.Context) VirtualNodeSpecPtrOutput {
+	return o
+}
+
+func (o VirtualNodeSpecPtrOutput) Elem() VirtualNodeSpecOutput {
+	return o.ApplyT(func(v *VirtualNodeSpec) VirtualNodeSpec {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpec
+		return ret
+	}).(VirtualNodeSpecOutput)
+}
+
+func (o VirtualNodeSpecPtrOutput) BackendDefaults() VirtualNodeBackendDefaultsPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpec) *VirtualNodeBackendDefaults {
+		if v == nil {
+			return nil
+		}
+		return v.BackendDefaults
+	}).(VirtualNodeBackendDefaultsPtrOutput)
+}
+
+func (o VirtualNodeSpecPtrOutput) Backends() VirtualNodeBackendArrayOutput {
+	return o.ApplyT(func(v *VirtualNodeSpec) []VirtualNodeBackend {
+		if v == nil {
+			return nil
+		}
+		return v.Backends
+	}).(VirtualNodeBackendArrayOutput)
+}
+
+func (o VirtualNodeSpecPtrOutput) Listeners() VirtualNodeListenerArrayOutput {
+	return o.ApplyT(func(v *VirtualNodeSpec) []VirtualNodeListener {
+		if v == nil {
+			return nil
+		}
+		return v.Listeners
+	}).(VirtualNodeListenerArrayOutput)
+}
+
+func (o VirtualNodeSpecPtrOutput) Logging() VirtualNodeLoggingPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpec) *VirtualNodeLogging {
+		if v == nil {
+			return nil
+		}
+		return v.Logging
+	}).(VirtualNodeLoggingPtrOutput)
+}
+
+func (o VirtualNodeSpecPtrOutput) ServiceDiscovery() VirtualNodeServiceDiscoveryPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeSpec) *VirtualNodeServiceDiscovery {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceDiscovery
+	}).(VirtualNodeServiceDiscoveryPtrOutput)
+}
+
 type VirtualNodeSubjectAlternativeNameMatchers struct {
 	Exact []string `pulumi:"exact"`
 }
@@ -16150,6 +16889,139 @@ func (o VirtualNodeTagArrayOutput) Index(i pulumi.IntInput) VirtualNodeTagOutput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNodeTag {
 		return vs[0].([]VirtualNodeTag)[vs[1].(int)]
 	}).(VirtualNodeTagOutput)
+}
+
+type VirtualNodeTcpConnectionPool struct {
+	MaxConnections int `pulumi:"maxConnections"`
+}
+
+// VirtualNodeTcpConnectionPoolInput is an input type that accepts VirtualNodeTcpConnectionPoolArgs and VirtualNodeTcpConnectionPoolOutput values.
+// You can construct a concrete instance of `VirtualNodeTcpConnectionPoolInput` via:
+//
+//          VirtualNodeTcpConnectionPoolArgs{...}
+type VirtualNodeTcpConnectionPoolInput interface {
+	pulumi.Input
+
+	ToVirtualNodeTcpConnectionPoolOutput() VirtualNodeTcpConnectionPoolOutput
+	ToVirtualNodeTcpConnectionPoolOutputWithContext(context.Context) VirtualNodeTcpConnectionPoolOutput
+}
+
+type VirtualNodeTcpConnectionPoolArgs struct {
+	MaxConnections pulumi.IntInput `pulumi:"maxConnections"`
+}
+
+func (VirtualNodeTcpConnectionPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeTcpConnectionPool)(nil)).Elem()
+}
+
+func (i VirtualNodeTcpConnectionPoolArgs) ToVirtualNodeTcpConnectionPoolOutput() VirtualNodeTcpConnectionPoolOutput {
+	return i.ToVirtualNodeTcpConnectionPoolOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeTcpConnectionPoolArgs) ToVirtualNodeTcpConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeTcpConnectionPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeTcpConnectionPoolOutput)
+}
+
+func (i VirtualNodeTcpConnectionPoolArgs) ToVirtualNodeTcpConnectionPoolPtrOutput() VirtualNodeTcpConnectionPoolPtrOutput {
+	return i.ToVirtualNodeTcpConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNodeTcpConnectionPoolArgs) ToVirtualNodeTcpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeTcpConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeTcpConnectionPoolOutput).ToVirtualNodeTcpConnectionPoolPtrOutputWithContext(ctx)
+}
+
+// VirtualNodeTcpConnectionPoolPtrInput is an input type that accepts VirtualNodeTcpConnectionPoolArgs, VirtualNodeTcpConnectionPoolPtr and VirtualNodeTcpConnectionPoolPtrOutput values.
+// You can construct a concrete instance of `VirtualNodeTcpConnectionPoolPtrInput` via:
+//
+//          VirtualNodeTcpConnectionPoolArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNodeTcpConnectionPoolPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNodeTcpConnectionPoolPtrOutput() VirtualNodeTcpConnectionPoolPtrOutput
+	ToVirtualNodeTcpConnectionPoolPtrOutputWithContext(context.Context) VirtualNodeTcpConnectionPoolPtrOutput
+}
+
+type virtualNodeTcpConnectionPoolPtrType VirtualNodeTcpConnectionPoolArgs
+
+func VirtualNodeTcpConnectionPoolPtr(v *VirtualNodeTcpConnectionPoolArgs) VirtualNodeTcpConnectionPoolPtrInput {
+	return (*virtualNodeTcpConnectionPoolPtrType)(v)
+}
+
+func (*virtualNodeTcpConnectionPoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeTcpConnectionPool)(nil)).Elem()
+}
+
+func (i *virtualNodeTcpConnectionPoolPtrType) ToVirtualNodeTcpConnectionPoolPtrOutput() VirtualNodeTcpConnectionPoolPtrOutput {
+	return i.ToVirtualNodeTcpConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNodeTcpConnectionPoolPtrType) ToVirtualNodeTcpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeTcpConnectionPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeTcpConnectionPoolPtrOutput)
+}
+
+type VirtualNodeTcpConnectionPoolOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeTcpConnectionPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNodeTcpConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualNodeTcpConnectionPoolOutput) ToVirtualNodeTcpConnectionPoolOutput() VirtualNodeTcpConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualNodeTcpConnectionPoolOutput) ToVirtualNodeTcpConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeTcpConnectionPoolOutput {
+	return o
+}
+
+func (o VirtualNodeTcpConnectionPoolOutput) ToVirtualNodeTcpConnectionPoolPtrOutput() VirtualNodeTcpConnectionPoolPtrOutput {
+	return o.ToVirtualNodeTcpConnectionPoolPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNodeTcpConnectionPoolOutput) ToVirtualNodeTcpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeTcpConnectionPoolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeTcpConnectionPool) *VirtualNodeTcpConnectionPool {
+		return &v
+	}).(VirtualNodeTcpConnectionPoolPtrOutput)
+}
+
+func (o VirtualNodeTcpConnectionPoolOutput) MaxConnections() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualNodeTcpConnectionPool) int { return v.MaxConnections }).(pulumi.IntOutput)
+}
+
+type VirtualNodeTcpConnectionPoolPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNodeTcpConnectionPoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNodeTcpConnectionPool)(nil)).Elem()
+}
+
+func (o VirtualNodeTcpConnectionPoolPtrOutput) ToVirtualNodeTcpConnectionPoolPtrOutput() VirtualNodeTcpConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualNodeTcpConnectionPoolPtrOutput) ToVirtualNodeTcpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeTcpConnectionPoolPtrOutput {
+	return o
+}
+
+func (o VirtualNodeTcpConnectionPoolPtrOutput) Elem() VirtualNodeTcpConnectionPoolOutput {
+	return o.ApplyT(func(v *VirtualNodeTcpConnectionPool) VirtualNodeTcpConnectionPool {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeTcpConnectionPool
+		return ret
+	}).(VirtualNodeTcpConnectionPoolOutput)
+}
+
+func (o VirtualNodeTcpConnectionPoolPtrOutput) MaxConnections() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNodeTcpConnectionPool) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxConnections
+	}).(pulumi.IntPtrOutput)
 }
 
 type VirtualNodeTcpTimeout struct {
@@ -16997,926 +17869,6 @@ func (o VirtualNodeTlsValidationContextTrustPtrOutput) SDS() VirtualNodeTlsValid
 	}).(VirtualNodeTlsValidationContextSdsTrustPtrOutput)
 }
 
-type VirtualNodeVirtualNodeConnectionPool struct {
-	GRPC  *VirtualNodeVirtualNodeGrpcConnectionPool  `pulumi:"gRPC"`
-	HTTP  *VirtualNodeVirtualNodeHttpConnectionPool  `pulumi:"hTTP"`
-	HTTP2 *VirtualNodeVirtualNodeHttp2ConnectionPool `pulumi:"hTTP2"`
-	TCP   *VirtualNodeVirtualNodeTcpConnectionPool   `pulumi:"tCP"`
-}
-
-// VirtualNodeVirtualNodeConnectionPoolInput is an input type that accepts VirtualNodeVirtualNodeConnectionPoolArgs and VirtualNodeVirtualNodeConnectionPoolOutput values.
-// You can construct a concrete instance of `VirtualNodeVirtualNodeConnectionPoolInput` via:
-//
-//          VirtualNodeVirtualNodeConnectionPoolArgs{...}
-type VirtualNodeVirtualNodeConnectionPoolInput interface {
-	pulumi.Input
-
-	ToVirtualNodeVirtualNodeConnectionPoolOutput() VirtualNodeVirtualNodeConnectionPoolOutput
-	ToVirtualNodeVirtualNodeConnectionPoolOutputWithContext(context.Context) VirtualNodeVirtualNodeConnectionPoolOutput
-}
-
-type VirtualNodeVirtualNodeConnectionPoolArgs struct {
-	GRPC  VirtualNodeVirtualNodeGrpcConnectionPoolPtrInput  `pulumi:"gRPC"`
-	HTTP  VirtualNodeVirtualNodeHttpConnectionPoolPtrInput  `pulumi:"hTTP"`
-	HTTP2 VirtualNodeVirtualNodeHttp2ConnectionPoolPtrInput `pulumi:"hTTP2"`
-	TCP   VirtualNodeVirtualNodeTcpConnectionPoolPtrInput   `pulumi:"tCP"`
-}
-
-func (VirtualNodeVirtualNodeConnectionPoolArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNodeVirtualNodeConnectionPool)(nil)).Elem()
-}
-
-func (i VirtualNodeVirtualNodeConnectionPoolArgs) ToVirtualNodeVirtualNodeConnectionPoolOutput() VirtualNodeVirtualNodeConnectionPoolOutput {
-	return i.ToVirtualNodeVirtualNodeConnectionPoolOutputWithContext(context.Background())
-}
-
-func (i VirtualNodeVirtualNodeConnectionPoolArgs) ToVirtualNodeVirtualNodeConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeConnectionPoolOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeConnectionPoolOutput)
-}
-
-func (i VirtualNodeVirtualNodeConnectionPoolArgs) ToVirtualNodeVirtualNodeConnectionPoolPtrOutput() VirtualNodeVirtualNodeConnectionPoolPtrOutput {
-	return i.ToVirtualNodeVirtualNodeConnectionPoolPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualNodeVirtualNodeConnectionPoolArgs) ToVirtualNodeVirtualNodeConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeConnectionPoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeConnectionPoolOutput).ToVirtualNodeVirtualNodeConnectionPoolPtrOutputWithContext(ctx)
-}
-
-// VirtualNodeVirtualNodeConnectionPoolPtrInput is an input type that accepts VirtualNodeVirtualNodeConnectionPoolArgs, VirtualNodeVirtualNodeConnectionPoolPtr and VirtualNodeVirtualNodeConnectionPoolPtrOutput values.
-// You can construct a concrete instance of `VirtualNodeVirtualNodeConnectionPoolPtrInput` via:
-//
-//          VirtualNodeVirtualNodeConnectionPoolArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualNodeVirtualNodeConnectionPoolPtrInput interface {
-	pulumi.Input
-
-	ToVirtualNodeVirtualNodeConnectionPoolPtrOutput() VirtualNodeVirtualNodeConnectionPoolPtrOutput
-	ToVirtualNodeVirtualNodeConnectionPoolPtrOutputWithContext(context.Context) VirtualNodeVirtualNodeConnectionPoolPtrOutput
-}
-
-type virtualNodeVirtualNodeConnectionPoolPtrType VirtualNodeVirtualNodeConnectionPoolArgs
-
-func VirtualNodeVirtualNodeConnectionPoolPtr(v *VirtualNodeVirtualNodeConnectionPoolArgs) VirtualNodeVirtualNodeConnectionPoolPtrInput {
-	return (*virtualNodeVirtualNodeConnectionPoolPtrType)(v)
-}
-
-func (*virtualNodeVirtualNodeConnectionPoolPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNodeVirtualNodeConnectionPool)(nil)).Elem()
-}
-
-func (i *virtualNodeVirtualNodeConnectionPoolPtrType) ToVirtualNodeVirtualNodeConnectionPoolPtrOutput() VirtualNodeVirtualNodeConnectionPoolPtrOutput {
-	return i.ToVirtualNodeVirtualNodeConnectionPoolPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualNodeVirtualNodeConnectionPoolPtrType) ToVirtualNodeVirtualNodeConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeConnectionPoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeConnectionPoolPtrOutput)
-}
-
-type VirtualNodeVirtualNodeConnectionPoolOutput struct{ *pulumi.OutputState }
-
-func (VirtualNodeVirtualNodeConnectionPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNodeVirtualNodeConnectionPool)(nil)).Elem()
-}
-
-func (o VirtualNodeVirtualNodeConnectionPoolOutput) ToVirtualNodeVirtualNodeConnectionPoolOutput() VirtualNodeVirtualNodeConnectionPoolOutput {
-	return o
-}
-
-func (o VirtualNodeVirtualNodeConnectionPoolOutput) ToVirtualNodeVirtualNodeConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeConnectionPoolOutput {
-	return o
-}
-
-func (o VirtualNodeVirtualNodeConnectionPoolOutput) ToVirtualNodeVirtualNodeConnectionPoolPtrOutput() VirtualNodeVirtualNodeConnectionPoolPtrOutput {
-	return o.ToVirtualNodeVirtualNodeConnectionPoolPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualNodeVirtualNodeConnectionPoolOutput) ToVirtualNodeVirtualNodeConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeConnectionPoolPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeVirtualNodeConnectionPool) *VirtualNodeVirtualNodeConnectionPool {
-		return &v
-	}).(VirtualNodeVirtualNodeConnectionPoolPtrOutput)
-}
-
-func (o VirtualNodeVirtualNodeConnectionPoolOutput) GRPC() VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput {
-	return o.ApplyT(func(v VirtualNodeVirtualNodeConnectionPool) *VirtualNodeVirtualNodeGrpcConnectionPool { return v.GRPC }).(VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput)
-}
-
-func (o VirtualNodeVirtualNodeConnectionPoolOutput) HTTP() VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput {
-	return o.ApplyT(func(v VirtualNodeVirtualNodeConnectionPool) *VirtualNodeVirtualNodeHttpConnectionPool { return v.HTTP }).(VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput)
-}
-
-func (o VirtualNodeVirtualNodeConnectionPoolOutput) HTTP2() VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput {
-	return o.ApplyT(func(v VirtualNodeVirtualNodeConnectionPool) *VirtualNodeVirtualNodeHttp2ConnectionPool {
-		return v.HTTP2
-	}).(VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput)
-}
-
-func (o VirtualNodeVirtualNodeConnectionPoolOutput) TCP() VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput {
-	return o.ApplyT(func(v VirtualNodeVirtualNodeConnectionPool) *VirtualNodeVirtualNodeTcpConnectionPool { return v.TCP }).(VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput)
-}
-
-type VirtualNodeVirtualNodeConnectionPoolPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualNodeVirtualNodeConnectionPoolPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNodeVirtualNodeConnectionPool)(nil)).Elem()
-}
-
-func (o VirtualNodeVirtualNodeConnectionPoolPtrOutput) ToVirtualNodeVirtualNodeConnectionPoolPtrOutput() VirtualNodeVirtualNodeConnectionPoolPtrOutput {
-	return o
-}
-
-func (o VirtualNodeVirtualNodeConnectionPoolPtrOutput) ToVirtualNodeVirtualNodeConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeConnectionPoolPtrOutput {
-	return o
-}
-
-func (o VirtualNodeVirtualNodeConnectionPoolPtrOutput) Elem() VirtualNodeVirtualNodeConnectionPoolOutput {
-	return o.ApplyT(func(v *VirtualNodeVirtualNodeConnectionPool) VirtualNodeVirtualNodeConnectionPool {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualNodeVirtualNodeConnectionPool
-		return ret
-	}).(VirtualNodeVirtualNodeConnectionPoolOutput)
-}
-
-func (o VirtualNodeVirtualNodeConnectionPoolPtrOutput) GRPC() VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput {
-	return o.ApplyT(func(v *VirtualNodeVirtualNodeConnectionPool) *VirtualNodeVirtualNodeGrpcConnectionPool {
-		if v == nil {
-			return nil
-		}
-		return v.GRPC
-	}).(VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput)
-}
-
-func (o VirtualNodeVirtualNodeConnectionPoolPtrOutput) HTTP() VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput {
-	return o.ApplyT(func(v *VirtualNodeVirtualNodeConnectionPool) *VirtualNodeVirtualNodeHttpConnectionPool {
-		if v == nil {
-			return nil
-		}
-		return v.HTTP
-	}).(VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput)
-}
-
-func (o VirtualNodeVirtualNodeConnectionPoolPtrOutput) HTTP2() VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput {
-	return o.ApplyT(func(v *VirtualNodeVirtualNodeConnectionPool) *VirtualNodeVirtualNodeHttp2ConnectionPool {
-		if v == nil {
-			return nil
-		}
-		return v.HTTP2
-	}).(VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput)
-}
-
-func (o VirtualNodeVirtualNodeConnectionPoolPtrOutput) TCP() VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput {
-	return o.ApplyT(func(v *VirtualNodeVirtualNodeConnectionPool) *VirtualNodeVirtualNodeTcpConnectionPool {
-		if v == nil {
-			return nil
-		}
-		return v.TCP
-	}).(VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput)
-}
-
-type VirtualNodeVirtualNodeGrpcConnectionPool struct {
-	MaxRequests int `pulumi:"maxRequests"`
-}
-
-// VirtualNodeVirtualNodeGrpcConnectionPoolInput is an input type that accepts VirtualNodeVirtualNodeGrpcConnectionPoolArgs and VirtualNodeVirtualNodeGrpcConnectionPoolOutput values.
-// You can construct a concrete instance of `VirtualNodeVirtualNodeGrpcConnectionPoolInput` via:
-//
-//          VirtualNodeVirtualNodeGrpcConnectionPoolArgs{...}
-type VirtualNodeVirtualNodeGrpcConnectionPoolInput interface {
-	pulumi.Input
-
-	ToVirtualNodeVirtualNodeGrpcConnectionPoolOutput() VirtualNodeVirtualNodeGrpcConnectionPoolOutput
-	ToVirtualNodeVirtualNodeGrpcConnectionPoolOutputWithContext(context.Context) VirtualNodeVirtualNodeGrpcConnectionPoolOutput
-}
-
-type VirtualNodeVirtualNodeGrpcConnectionPoolArgs struct {
-	MaxRequests pulumi.IntInput `pulumi:"maxRequests"`
-}
-
-func (VirtualNodeVirtualNodeGrpcConnectionPoolArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNodeVirtualNodeGrpcConnectionPool)(nil)).Elem()
-}
-
-func (i VirtualNodeVirtualNodeGrpcConnectionPoolArgs) ToVirtualNodeVirtualNodeGrpcConnectionPoolOutput() VirtualNodeVirtualNodeGrpcConnectionPoolOutput {
-	return i.ToVirtualNodeVirtualNodeGrpcConnectionPoolOutputWithContext(context.Background())
-}
-
-func (i VirtualNodeVirtualNodeGrpcConnectionPoolArgs) ToVirtualNodeVirtualNodeGrpcConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeGrpcConnectionPoolOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeGrpcConnectionPoolOutput)
-}
-
-func (i VirtualNodeVirtualNodeGrpcConnectionPoolArgs) ToVirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput() VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput {
-	return i.ToVirtualNodeVirtualNodeGrpcConnectionPoolPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualNodeVirtualNodeGrpcConnectionPoolArgs) ToVirtualNodeVirtualNodeGrpcConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeGrpcConnectionPoolOutput).ToVirtualNodeVirtualNodeGrpcConnectionPoolPtrOutputWithContext(ctx)
-}
-
-// VirtualNodeVirtualNodeGrpcConnectionPoolPtrInput is an input type that accepts VirtualNodeVirtualNodeGrpcConnectionPoolArgs, VirtualNodeVirtualNodeGrpcConnectionPoolPtr and VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput values.
-// You can construct a concrete instance of `VirtualNodeVirtualNodeGrpcConnectionPoolPtrInput` via:
-//
-//          VirtualNodeVirtualNodeGrpcConnectionPoolArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualNodeVirtualNodeGrpcConnectionPoolPtrInput interface {
-	pulumi.Input
-
-	ToVirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput() VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput
-	ToVirtualNodeVirtualNodeGrpcConnectionPoolPtrOutputWithContext(context.Context) VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput
-}
-
-type virtualNodeVirtualNodeGrpcConnectionPoolPtrType VirtualNodeVirtualNodeGrpcConnectionPoolArgs
-
-func VirtualNodeVirtualNodeGrpcConnectionPoolPtr(v *VirtualNodeVirtualNodeGrpcConnectionPoolArgs) VirtualNodeVirtualNodeGrpcConnectionPoolPtrInput {
-	return (*virtualNodeVirtualNodeGrpcConnectionPoolPtrType)(v)
-}
-
-func (*virtualNodeVirtualNodeGrpcConnectionPoolPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNodeVirtualNodeGrpcConnectionPool)(nil)).Elem()
-}
-
-func (i *virtualNodeVirtualNodeGrpcConnectionPoolPtrType) ToVirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput() VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput {
-	return i.ToVirtualNodeVirtualNodeGrpcConnectionPoolPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualNodeVirtualNodeGrpcConnectionPoolPtrType) ToVirtualNodeVirtualNodeGrpcConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput)
-}
-
-type VirtualNodeVirtualNodeGrpcConnectionPoolOutput struct{ *pulumi.OutputState }
-
-func (VirtualNodeVirtualNodeGrpcConnectionPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNodeVirtualNodeGrpcConnectionPool)(nil)).Elem()
-}
-
-func (o VirtualNodeVirtualNodeGrpcConnectionPoolOutput) ToVirtualNodeVirtualNodeGrpcConnectionPoolOutput() VirtualNodeVirtualNodeGrpcConnectionPoolOutput {
-	return o
-}
-
-func (o VirtualNodeVirtualNodeGrpcConnectionPoolOutput) ToVirtualNodeVirtualNodeGrpcConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeGrpcConnectionPoolOutput {
-	return o
-}
-
-func (o VirtualNodeVirtualNodeGrpcConnectionPoolOutput) ToVirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput() VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput {
-	return o.ToVirtualNodeVirtualNodeGrpcConnectionPoolPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualNodeVirtualNodeGrpcConnectionPoolOutput) ToVirtualNodeVirtualNodeGrpcConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeVirtualNodeGrpcConnectionPool) *VirtualNodeVirtualNodeGrpcConnectionPool {
-		return &v
-	}).(VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput)
-}
-
-func (o VirtualNodeVirtualNodeGrpcConnectionPoolOutput) MaxRequests() pulumi.IntOutput {
-	return o.ApplyT(func(v VirtualNodeVirtualNodeGrpcConnectionPool) int { return v.MaxRequests }).(pulumi.IntOutput)
-}
-
-type VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNodeVirtualNodeGrpcConnectionPool)(nil)).Elem()
-}
-
-func (o VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput) ToVirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput() VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput {
-	return o
-}
-
-func (o VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput) ToVirtualNodeVirtualNodeGrpcConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput {
-	return o
-}
-
-func (o VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput) Elem() VirtualNodeVirtualNodeGrpcConnectionPoolOutput {
-	return o.ApplyT(func(v *VirtualNodeVirtualNodeGrpcConnectionPool) VirtualNodeVirtualNodeGrpcConnectionPool {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualNodeVirtualNodeGrpcConnectionPool
-		return ret
-	}).(VirtualNodeVirtualNodeGrpcConnectionPoolOutput)
-}
-
-func (o VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput) MaxRequests() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VirtualNodeVirtualNodeGrpcConnectionPool) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MaxRequests
-	}).(pulumi.IntPtrOutput)
-}
-
-type VirtualNodeVirtualNodeHttp2ConnectionPool struct {
-	MaxRequests int `pulumi:"maxRequests"`
-}
-
-// VirtualNodeVirtualNodeHttp2ConnectionPoolInput is an input type that accepts VirtualNodeVirtualNodeHttp2ConnectionPoolArgs and VirtualNodeVirtualNodeHttp2ConnectionPoolOutput values.
-// You can construct a concrete instance of `VirtualNodeVirtualNodeHttp2ConnectionPoolInput` via:
-//
-//          VirtualNodeVirtualNodeHttp2ConnectionPoolArgs{...}
-type VirtualNodeVirtualNodeHttp2ConnectionPoolInput interface {
-	pulumi.Input
-
-	ToVirtualNodeVirtualNodeHttp2ConnectionPoolOutput() VirtualNodeVirtualNodeHttp2ConnectionPoolOutput
-	ToVirtualNodeVirtualNodeHttp2ConnectionPoolOutputWithContext(context.Context) VirtualNodeVirtualNodeHttp2ConnectionPoolOutput
-}
-
-type VirtualNodeVirtualNodeHttp2ConnectionPoolArgs struct {
-	MaxRequests pulumi.IntInput `pulumi:"maxRequests"`
-}
-
-func (VirtualNodeVirtualNodeHttp2ConnectionPoolArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNodeVirtualNodeHttp2ConnectionPool)(nil)).Elem()
-}
-
-func (i VirtualNodeVirtualNodeHttp2ConnectionPoolArgs) ToVirtualNodeVirtualNodeHttp2ConnectionPoolOutput() VirtualNodeVirtualNodeHttp2ConnectionPoolOutput {
-	return i.ToVirtualNodeVirtualNodeHttp2ConnectionPoolOutputWithContext(context.Background())
-}
-
-func (i VirtualNodeVirtualNodeHttp2ConnectionPoolArgs) ToVirtualNodeVirtualNodeHttp2ConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeHttp2ConnectionPoolOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeHttp2ConnectionPoolOutput)
-}
-
-func (i VirtualNodeVirtualNodeHttp2ConnectionPoolArgs) ToVirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput() VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput {
-	return i.ToVirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualNodeVirtualNodeHttp2ConnectionPoolArgs) ToVirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeHttp2ConnectionPoolOutput).ToVirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutputWithContext(ctx)
-}
-
-// VirtualNodeVirtualNodeHttp2ConnectionPoolPtrInput is an input type that accepts VirtualNodeVirtualNodeHttp2ConnectionPoolArgs, VirtualNodeVirtualNodeHttp2ConnectionPoolPtr and VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput values.
-// You can construct a concrete instance of `VirtualNodeVirtualNodeHttp2ConnectionPoolPtrInput` via:
-//
-//          VirtualNodeVirtualNodeHttp2ConnectionPoolArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualNodeVirtualNodeHttp2ConnectionPoolPtrInput interface {
-	pulumi.Input
-
-	ToVirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput() VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput
-	ToVirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutputWithContext(context.Context) VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput
-}
-
-type virtualNodeVirtualNodeHttp2ConnectionPoolPtrType VirtualNodeVirtualNodeHttp2ConnectionPoolArgs
-
-func VirtualNodeVirtualNodeHttp2ConnectionPoolPtr(v *VirtualNodeVirtualNodeHttp2ConnectionPoolArgs) VirtualNodeVirtualNodeHttp2ConnectionPoolPtrInput {
-	return (*virtualNodeVirtualNodeHttp2ConnectionPoolPtrType)(v)
-}
-
-func (*virtualNodeVirtualNodeHttp2ConnectionPoolPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNodeVirtualNodeHttp2ConnectionPool)(nil)).Elem()
-}
-
-func (i *virtualNodeVirtualNodeHttp2ConnectionPoolPtrType) ToVirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput() VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput {
-	return i.ToVirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualNodeVirtualNodeHttp2ConnectionPoolPtrType) ToVirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput)
-}
-
-type VirtualNodeVirtualNodeHttp2ConnectionPoolOutput struct{ *pulumi.OutputState }
-
-func (VirtualNodeVirtualNodeHttp2ConnectionPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNodeVirtualNodeHttp2ConnectionPool)(nil)).Elem()
-}
-
-func (o VirtualNodeVirtualNodeHttp2ConnectionPoolOutput) ToVirtualNodeVirtualNodeHttp2ConnectionPoolOutput() VirtualNodeVirtualNodeHttp2ConnectionPoolOutput {
-	return o
-}
-
-func (o VirtualNodeVirtualNodeHttp2ConnectionPoolOutput) ToVirtualNodeVirtualNodeHttp2ConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeHttp2ConnectionPoolOutput {
-	return o
-}
-
-func (o VirtualNodeVirtualNodeHttp2ConnectionPoolOutput) ToVirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput() VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput {
-	return o.ToVirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualNodeVirtualNodeHttp2ConnectionPoolOutput) ToVirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeVirtualNodeHttp2ConnectionPool) *VirtualNodeVirtualNodeHttp2ConnectionPool {
-		return &v
-	}).(VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput)
-}
-
-func (o VirtualNodeVirtualNodeHttp2ConnectionPoolOutput) MaxRequests() pulumi.IntOutput {
-	return o.ApplyT(func(v VirtualNodeVirtualNodeHttp2ConnectionPool) int { return v.MaxRequests }).(pulumi.IntOutput)
-}
-
-type VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNodeVirtualNodeHttp2ConnectionPool)(nil)).Elem()
-}
-
-func (o VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput) ToVirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput() VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput {
-	return o
-}
-
-func (o VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput) ToVirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput {
-	return o
-}
-
-func (o VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput) Elem() VirtualNodeVirtualNodeHttp2ConnectionPoolOutput {
-	return o.ApplyT(func(v *VirtualNodeVirtualNodeHttp2ConnectionPool) VirtualNodeVirtualNodeHttp2ConnectionPool {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualNodeVirtualNodeHttp2ConnectionPool
-		return ret
-	}).(VirtualNodeVirtualNodeHttp2ConnectionPoolOutput)
-}
-
-func (o VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput) MaxRequests() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VirtualNodeVirtualNodeHttp2ConnectionPool) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MaxRequests
-	}).(pulumi.IntPtrOutput)
-}
-
-type VirtualNodeVirtualNodeHttpConnectionPool struct {
-	MaxConnections     int  `pulumi:"maxConnections"`
-	MaxPendingRequests *int `pulumi:"maxPendingRequests"`
-}
-
-// VirtualNodeVirtualNodeHttpConnectionPoolInput is an input type that accepts VirtualNodeVirtualNodeHttpConnectionPoolArgs and VirtualNodeVirtualNodeHttpConnectionPoolOutput values.
-// You can construct a concrete instance of `VirtualNodeVirtualNodeHttpConnectionPoolInput` via:
-//
-//          VirtualNodeVirtualNodeHttpConnectionPoolArgs{...}
-type VirtualNodeVirtualNodeHttpConnectionPoolInput interface {
-	pulumi.Input
-
-	ToVirtualNodeVirtualNodeHttpConnectionPoolOutput() VirtualNodeVirtualNodeHttpConnectionPoolOutput
-	ToVirtualNodeVirtualNodeHttpConnectionPoolOutputWithContext(context.Context) VirtualNodeVirtualNodeHttpConnectionPoolOutput
-}
-
-type VirtualNodeVirtualNodeHttpConnectionPoolArgs struct {
-	MaxConnections     pulumi.IntInput    `pulumi:"maxConnections"`
-	MaxPendingRequests pulumi.IntPtrInput `pulumi:"maxPendingRequests"`
-}
-
-func (VirtualNodeVirtualNodeHttpConnectionPoolArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNodeVirtualNodeHttpConnectionPool)(nil)).Elem()
-}
-
-func (i VirtualNodeVirtualNodeHttpConnectionPoolArgs) ToVirtualNodeVirtualNodeHttpConnectionPoolOutput() VirtualNodeVirtualNodeHttpConnectionPoolOutput {
-	return i.ToVirtualNodeVirtualNodeHttpConnectionPoolOutputWithContext(context.Background())
-}
-
-func (i VirtualNodeVirtualNodeHttpConnectionPoolArgs) ToVirtualNodeVirtualNodeHttpConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeHttpConnectionPoolOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeHttpConnectionPoolOutput)
-}
-
-func (i VirtualNodeVirtualNodeHttpConnectionPoolArgs) ToVirtualNodeVirtualNodeHttpConnectionPoolPtrOutput() VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput {
-	return i.ToVirtualNodeVirtualNodeHttpConnectionPoolPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualNodeVirtualNodeHttpConnectionPoolArgs) ToVirtualNodeVirtualNodeHttpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeHttpConnectionPoolOutput).ToVirtualNodeVirtualNodeHttpConnectionPoolPtrOutputWithContext(ctx)
-}
-
-// VirtualNodeVirtualNodeHttpConnectionPoolPtrInput is an input type that accepts VirtualNodeVirtualNodeHttpConnectionPoolArgs, VirtualNodeVirtualNodeHttpConnectionPoolPtr and VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput values.
-// You can construct a concrete instance of `VirtualNodeVirtualNodeHttpConnectionPoolPtrInput` via:
-//
-//          VirtualNodeVirtualNodeHttpConnectionPoolArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualNodeVirtualNodeHttpConnectionPoolPtrInput interface {
-	pulumi.Input
-
-	ToVirtualNodeVirtualNodeHttpConnectionPoolPtrOutput() VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput
-	ToVirtualNodeVirtualNodeHttpConnectionPoolPtrOutputWithContext(context.Context) VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput
-}
-
-type virtualNodeVirtualNodeHttpConnectionPoolPtrType VirtualNodeVirtualNodeHttpConnectionPoolArgs
-
-func VirtualNodeVirtualNodeHttpConnectionPoolPtr(v *VirtualNodeVirtualNodeHttpConnectionPoolArgs) VirtualNodeVirtualNodeHttpConnectionPoolPtrInput {
-	return (*virtualNodeVirtualNodeHttpConnectionPoolPtrType)(v)
-}
-
-func (*virtualNodeVirtualNodeHttpConnectionPoolPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNodeVirtualNodeHttpConnectionPool)(nil)).Elem()
-}
-
-func (i *virtualNodeVirtualNodeHttpConnectionPoolPtrType) ToVirtualNodeVirtualNodeHttpConnectionPoolPtrOutput() VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput {
-	return i.ToVirtualNodeVirtualNodeHttpConnectionPoolPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualNodeVirtualNodeHttpConnectionPoolPtrType) ToVirtualNodeVirtualNodeHttpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput)
-}
-
-type VirtualNodeVirtualNodeHttpConnectionPoolOutput struct{ *pulumi.OutputState }
-
-func (VirtualNodeVirtualNodeHttpConnectionPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNodeVirtualNodeHttpConnectionPool)(nil)).Elem()
-}
-
-func (o VirtualNodeVirtualNodeHttpConnectionPoolOutput) ToVirtualNodeVirtualNodeHttpConnectionPoolOutput() VirtualNodeVirtualNodeHttpConnectionPoolOutput {
-	return o
-}
-
-func (o VirtualNodeVirtualNodeHttpConnectionPoolOutput) ToVirtualNodeVirtualNodeHttpConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeHttpConnectionPoolOutput {
-	return o
-}
-
-func (o VirtualNodeVirtualNodeHttpConnectionPoolOutput) ToVirtualNodeVirtualNodeHttpConnectionPoolPtrOutput() VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput {
-	return o.ToVirtualNodeVirtualNodeHttpConnectionPoolPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualNodeVirtualNodeHttpConnectionPoolOutput) ToVirtualNodeVirtualNodeHttpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeVirtualNodeHttpConnectionPool) *VirtualNodeVirtualNodeHttpConnectionPool {
-		return &v
-	}).(VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput)
-}
-
-func (o VirtualNodeVirtualNodeHttpConnectionPoolOutput) MaxConnections() pulumi.IntOutput {
-	return o.ApplyT(func(v VirtualNodeVirtualNodeHttpConnectionPool) int { return v.MaxConnections }).(pulumi.IntOutput)
-}
-
-func (o VirtualNodeVirtualNodeHttpConnectionPoolOutput) MaxPendingRequests() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VirtualNodeVirtualNodeHttpConnectionPool) *int { return v.MaxPendingRequests }).(pulumi.IntPtrOutput)
-}
-
-type VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNodeVirtualNodeHttpConnectionPool)(nil)).Elem()
-}
-
-func (o VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput) ToVirtualNodeVirtualNodeHttpConnectionPoolPtrOutput() VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput {
-	return o
-}
-
-func (o VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput) ToVirtualNodeVirtualNodeHttpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput {
-	return o
-}
-
-func (o VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput) Elem() VirtualNodeVirtualNodeHttpConnectionPoolOutput {
-	return o.ApplyT(func(v *VirtualNodeVirtualNodeHttpConnectionPool) VirtualNodeVirtualNodeHttpConnectionPool {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualNodeVirtualNodeHttpConnectionPool
-		return ret
-	}).(VirtualNodeVirtualNodeHttpConnectionPoolOutput)
-}
-
-func (o VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput) MaxConnections() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VirtualNodeVirtualNodeHttpConnectionPool) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MaxConnections
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput) MaxPendingRequests() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VirtualNodeVirtualNodeHttpConnectionPool) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxPendingRequests
-	}).(pulumi.IntPtrOutput)
-}
-
-type VirtualNodeVirtualNodeSpec struct {
-	BackendDefaults  *VirtualNodeBackendDefaults  `pulumi:"backendDefaults"`
-	Backends         []VirtualNodeBackend         `pulumi:"backends"`
-	Listeners        []VirtualNodeListener        `pulumi:"listeners"`
-	Logging          *VirtualNodeLogging          `pulumi:"logging"`
-	ServiceDiscovery *VirtualNodeServiceDiscovery `pulumi:"serviceDiscovery"`
-}
-
-// VirtualNodeVirtualNodeSpecInput is an input type that accepts VirtualNodeVirtualNodeSpecArgs and VirtualNodeVirtualNodeSpecOutput values.
-// You can construct a concrete instance of `VirtualNodeVirtualNodeSpecInput` via:
-//
-//          VirtualNodeVirtualNodeSpecArgs{...}
-type VirtualNodeVirtualNodeSpecInput interface {
-	pulumi.Input
-
-	ToVirtualNodeVirtualNodeSpecOutput() VirtualNodeVirtualNodeSpecOutput
-	ToVirtualNodeVirtualNodeSpecOutputWithContext(context.Context) VirtualNodeVirtualNodeSpecOutput
-}
-
-type VirtualNodeVirtualNodeSpecArgs struct {
-	BackendDefaults  VirtualNodeBackendDefaultsPtrInput  `pulumi:"backendDefaults"`
-	Backends         VirtualNodeBackendArrayInput        `pulumi:"backends"`
-	Listeners        VirtualNodeListenerArrayInput       `pulumi:"listeners"`
-	Logging          VirtualNodeLoggingPtrInput          `pulumi:"logging"`
-	ServiceDiscovery VirtualNodeServiceDiscoveryPtrInput `pulumi:"serviceDiscovery"`
-}
-
-func (VirtualNodeVirtualNodeSpecArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNodeVirtualNodeSpec)(nil)).Elem()
-}
-
-func (i VirtualNodeVirtualNodeSpecArgs) ToVirtualNodeVirtualNodeSpecOutput() VirtualNodeVirtualNodeSpecOutput {
-	return i.ToVirtualNodeVirtualNodeSpecOutputWithContext(context.Background())
-}
-
-func (i VirtualNodeVirtualNodeSpecArgs) ToVirtualNodeVirtualNodeSpecOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeSpecOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeSpecOutput)
-}
-
-func (i VirtualNodeVirtualNodeSpecArgs) ToVirtualNodeVirtualNodeSpecPtrOutput() VirtualNodeVirtualNodeSpecPtrOutput {
-	return i.ToVirtualNodeVirtualNodeSpecPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualNodeVirtualNodeSpecArgs) ToVirtualNodeVirtualNodeSpecPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeSpecPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeSpecOutput).ToVirtualNodeVirtualNodeSpecPtrOutputWithContext(ctx)
-}
-
-// VirtualNodeVirtualNodeSpecPtrInput is an input type that accepts VirtualNodeVirtualNodeSpecArgs, VirtualNodeVirtualNodeSpecPtr and VirtualNodeVirtualNodeSpecPtrOutput values.
-// You can construct a concrete instance of `VirtualNodeVirtualNodeSpecPtrInput` via:
-//
-//          VirtualNodeVirtualNodeSpecArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualNodeVirtualNodeSpecPtrInput interface {
-	pulumi.Input
-
-	ToVirtualNodeVirtualNodeSpecPtrOutput() VirtualNodeVirtualNodeSpecPtrOutput
-	ToVirtualNodeVirtualNodeSpecPtrOutputWithContext(context.Context) VirtualNodeVirtualNodeSpecPtrOutput
-}
-
-type virtualNodeVirtualNodeSpecPtrType VirtualNodeVirtualNodeSpecArgs
-
-func VirtualNodeVirtualNodeSpecPtr(v *VirtualNodeVirtualNodeSpecArgs) VirtualNodeVirtualNodeSpecPtrInput {
-	return (*virtualNodeVirtualNodeSpecPtrType)(v)
-}
-
-func (*virtualNodeVirtualNodeSpecPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNodeVirtualNodeSpec)(nil)).Elem()
-}
-
-func (i *virtualNodeVirtualNodeSpecPtrType) ToVirtualNodeVirtualNodeSpecPtrOutput() VirtualNodeVirtualNodeSpecPtrOutput {
-	return i.ToVirtualNodeVirtualNodeSpecPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualNodeVirtualNodeSpecPtrType) ToVirtualNodeVirtualNodeSpecPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeSpecPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeSpecPtrOutput)
-}
-
-type VirtualNodeVirtualNodeSpecOutput struct{ *pulumi.OutputState }
-
-func (VirtualNodeVirtualNodeSpecOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNodeVirtualNodeSpec)(nil)).Elem()
-}
-
-func (o VirtualNodeVirtualNodeSpecOutput) ToVirtualNodeVirtualNodeSpecOutput() VirtualNodeVirtualNodeSpecOutput {
-	return o
-}
-
-func (o VirtualNodeVirtualNodeSpecOutput) ToVirtualNodeVirtualNodeSpecOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeSpecOutput {
-	return o
-}
-
-func (o VirtualNodeVirtualNodeSpecOutput) ToVirtualNodeVirtualNodeSpecPtrOutput() VirtualNodeVirtualNodeSpecPtrOutput {
-	return o.ToVirtualNodeVirtualNodeSpecPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualNodeVirtualNodeSpecOutput) ToVirtualNodeVirtualNodeSpecPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeSpecPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeVirtualNodeSpec) *VirtualNodeVirtualNodeSpec {
-		return &v
-	}).(VirtualNodeVirtualNodeSpecPtrOutput)
-}
-
-func (o VirtualNodeVirtualNodeSpecOutput) BackendDefaults() VirtualNodeBackendDefaultsPtrOutput {
-	return o.ApplyT(func(v VirtualNodeVirtualNodeSpec) *VirtualNodeBackendDefaults { return v.BackendDefaults }).(VirtualNodeBackendDefaultsPtrOutput)
-}
-
-func (o VirtualNodeVirtualNodeSpecOutput) Backends() VirtualNodeBackendArrayOutput {
-	return o.ApplyT(func(v VirtualNodeVirtualNodeSpec) []VirtualNodeBackend { return v.Backends }).(VirtualNodeBackendArrayOutput)
-}
-
-func (o VirtualNodeVirtualNodeSpecOutput) Listeners() VirtualNodeListenerArrayOutput {
-	return o.ApplyT(func(v VirtualNodeVirtualNodeSpec) []VirtualNodeListener { return v.Listeners }).(VirtualNodeListenerArrayOutput)
-}
-
-func (o VirtualNodeVirtualNodeSpecOutput) Logging() VirtualNodeLoggingPtrOutput {
-	return o.ApplyT(func(v VirtualNodeVirtualNodeSpec) *VirtualNodeLogging { return v.Logging }).(VirtualNodeLoggingPtrOutput)
-}
-
-func (o VirtualNodeVirtualNodeSpecOutput) ServiceDiscovery() VirtualNodeServiceDiscoveryPtrOutput {
-	return o.ApplyT(func(v VirtualNodeVirtualNodeSpec) *VirtualNodeServiceDiscovery { return v.ServiceDiscovery }).(VirtualNodeServiceDiscoveryPtrOutput)
-}
-
-type VirtualNodeVirtualNodeSpecPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualNodeVirtualNodeSpecPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNodeVirtualNodeSpec)(nil)).Elem()
-}
-
-func (o VirtualNodeVirtualNodeSpecPtrOutput) ToVirtualNodeVirtualNodeSpecPtrOutput() VirtualNodeVirtualNodeSpecPtrOutput {
-	return o
-}
-
-func (o VirtualNodeVirtualNodeSpecPtrOutput) ToVirtualNodeVirtualNodeSpecPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeSpecPtrOutput {
-	return o
-}
-
-func (o VirtualNodeVirtualNodeSpecPtrOutput) Elem() VirtualNodeVirtualNodeSpecOutput {
-	return o.ApplyT(func(v *VirtualNodeVirtualNodeSpec) VirtualNodeVirtualNodeSpec {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualNodeVirtualNodeSpec
-		return ret
-	}).(VirtualNodeVirtualNodeSpecOutput)
-}
-
-func (o VirtualNodeVirtualNodeSpecPtrOutput) BackendDefaults() VirtualNodeBackendDefaultsPtrOutput {
-	return o.ApplyT(func(v *VirtualNodeVirtualNodeSpec) *VirtualNodeBackendDefaults {
-		if v == nil {
-			return nil
-		}
-		return v.BackendDefaults
-	}).(VirtualNodeBackendDefaultsPtrOutput)
-}
-
-func (o VirtualNodeVirtualNodeSpecPtrOutput) Backends() VirtualNodeBackendArrayOutput {
-	return o.ApplyT(func(v *VirtualNodeVirtualNodeSpec) []VirtualNodeBackend {
-		if v == nil {
-			return nil
-		}
-		return v.Backends
-	}).(VirtualNodeBackendArrayOutput)
-}
-
-func (o VirtualNodeVirtualNodeSpecPtrOutput) Listeners() VirtualNodeListenerArrayOutput {
-	return o.ApplyT(func(v *VirtualNodeVirtualNodeSpec) []VirtualNodeListener {
-		if v == nil {
-			return nil
-		}
-		return v.Listeners
-	}).(VirtualNodeListenerArrayOutput)
-}
-
-func (o VirtualNodeVirtualNodeSpecPtrOutput) Logging() VirtualNodeLoggingPtrOutput {
-	return o.ApplyT(func(v *VirtualNodeVirtualNodeSpec) *VirtualNodeLogging {
-		if v == nil {
-			return nil
-		}
-		return v.Logging
-	}).(VirtualNodeLoggingPtrOutput)
-}
-
-func (o VirtualNodeVirtualNodeSpecPtrOutput) ServiceDiscovery() VirtualNodeServiceDiscoveryPtrOutput {
-	return o.ApplyT(func(v *VirtualNodeVirtualNodeSpec) *VirtualNodeServiceDiscovery {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceDiscovery
-	}).(VirtualNodeServiceDiscoveryPtrOutput)
-}
-
-type VirtualNodeVirtualNodeTcpConnectionPool struct {
-	MaxConnections int `pulumi:"maxConnections"`
-}
-
-// VirtualNodeVirtualNodeTcpConnectionPoolInput is an input type that accepts VirtualNodeVirtualNodeTcpConnectionPoolArgs and VirtualNodeVirtualNodeTcpConnectionPoolOutput values.
-// You can construct a concrete instance of `VirtualNodeVirtualNodeTcpConnectionPoolInput` via:
-//
-//          VirtualNodeVirtualNodeTcpConnectionPoolArgs{...}
-type VirtualNodeVirtualNodeTcpConnectionPoolInput interface {
-	pulumi.Input
-
-	ToVirtualNodeVirtualNodeTcpConnectionPoolOutput() VirtualNodeVirtualNodeTcpConnectionPoolOutput
-	ToVirtualNodeVirtualNodeTcpConnectionPoolOutputWithContext(context.Context) VirtualNodeVirtualNodeTcpConnectionPoolOutput
-}
-
-type VirtualNodeVirtualNodeTcpConnectionPoolArgs struct {
-	MaxConnections pulumi.IntInput `pulumi:"maxConnections"`
-}
-
-func (VirtualNodeVirtualNodeTcpConnectionPoolArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNodeVirtualNodeTcpConnectionPool)(nil)).Elem()
-}
-
-func (i VirtualNodeVirtualNodeTcpConnectionPoolArgs) ToVirtualNodeVirtualNodeTcpConnectionPoolOutput() VirtualNodeVirtualNodeTcpConnectionPoolOutput {
-	return i.ToVirtualNodeVirtualNodeTcpConnectionPoolOutputWithContext(context.Background())
-}
-
-func (i VirtualNodeVirtualNodeTcpConnectionPoolArgs) ToVirtualNodeVirtualNodeTcpConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeTcpConnectionPoolOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeTcpConnectionPoolOutput)
-}
-
-func (i VirtualNodeVirtualNodeTcpConnectionPoolArgs) ToVirtualNodeVirtualNodeTcpConnectionPoolPtrOutput() VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput {
-	return i.ToVirtualNodeVirtualNodeTcpConnectionPoolPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualNodeVirtualNodeTcpConnectionPoolArgs) ToVirtualNodeVirtualNodeTcpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeTcpConnectionPoolOutput).ToVirtualNodeVirtualNodeTcpConnectionPoolPtrOutputWithContext(ctx)
-}
-
-// VirtualNodeVirtualNodeTcpConnectionPoolPtrInput is an input type that accepts VirtualNodeVirtualNodeTcpConnectionPoolArgs, VirtualNodeVirtualNodeTcpConnectionPoolPtr and VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput values.
-// You can construct a concrete instance of `VirtualNodeVirtualNodeTcpConnectionPoolPtrInput` via:
-//
-//          VirtualNodeVirtualNodeTcpConnectionPoolArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualNodeVirtualNodeTcpConnectionPoolPtrInput interface {
-	pulumi.Input
-
-	ToVirtualNodeVirtualNodeTcpConnectionPoolPtrOutput() VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput
-	ToVirtualNodeVirtualNodeTcpConnectionPoolPtrOutputWithContext(context.Context) VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput
-}
-
-type virtualNodeVirtualNodeTcpConnectionPoolPtrType VirtualNodeVirtualNodeTcpConnectionPoolArgs
-
-func VirtualNodeVirtualNodeTcpConnectionPoolPtr(v *VirtualNodeVirtualNodeTcpConnectionPoolArgs) VirtualNodeVirtualNodeTcpConnectionPoolPtrInput {
-	return (*virtualNodeVirtualNodeTcpConnectionPoolPtrType)(v)
-}
-
-func (*virtualNodeVirtualNodeTcpConnectionPoolPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNodeVirtualNodeTcpConnectionPool)(nil)).Elem()
-}
-
-func (i *virtualNodeVirtualNodeTcpConnectionPoolPtrType) ToVirtualNodeVirtualNodeTcpConnectionPoolPtrOutput() VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput {
-	return i.ToVirtualNodeVirtualNodeTcpConnectionPoolPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualNodeVirtualNodeTcpConnectionPoolPtrType) ToVirtualNodeVirtualNodeTcpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput)
-}
-
-type VirtualNodeVirtualNodeTcpConnectionPoolOutput struct{ *pulumi.OutputState }
-
-func (VirtualNodeVirtualNodeTcpConnectionPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNodeVirtualNodeTcpConnectionPool)(nil)).Elem()
-}
-
-func (o VirtualNodeVirtualNodeTcpConnectionPoolOutput) ToVirtualNodeVirtualNodeTcpConnectionPoolOutput() VirtualNodeVirtualNodeTcpConnectionPoolOutput {
-	return o
-}
-
-func (o VirtualNodeVirtualNodeTcpConnectionPoolOutput) ToVirtualNodeVirtualNodeTcpConnectionPoolOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeTcpConnectionPoolOutput {
-	return o
-}
-
-func (o VirtualNodeVirtualNodeTcpConnectionPoolOutput) ToVirtualNodeVirtualNodeTcpConnectionPoolPtrOutput() VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput {
-	return o.ToVirtualNodeVirtualNodeTcpConnectionPoolPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualNodeVirtualNodeTcpConnectionPoolOutput) ToVirtualNodeVirtualNodeTcpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeVirtualNodeTcpConnectionPool) *VirtualNodeVirtualNodeTcpConnectionPool {
-		return &v
-	}).(VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput)
-}
-
-func (o VirtualNodeVirtualNodeTcpConnectionPoolOutput) MaxConnections() pulumi.IntOutput {
-	return o.ApplyT(func(v VirtualNodeVirtualNodeTcpConnectionPool) int { return v.MaxConnections }).(pulumi.IntOutput)
-}
-
-type VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNodeVirtualNodeTcpConnectionPool)(nil)).Elem()
-}
-
-func (o VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput) ToVirtualNodeVirtualNodeTcpConnectionPoolPtrOutput() VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput {
-	return o
-}
-
-func (o VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput) ToVirtualNodeVirtualNodeTcpConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput {
-	return o
-}
-
-func (o VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput) Elem() VirtualNodeVirtualNodeTcpConnectionPoolOutput {
-	return o.ApplyT(func(v *VirtualNodeVirtualNodeTcpConnectionPool) VirtualNodeVirtualNodeTcpConnectionPool {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualNodeVirtualNodeTcpConnectionPool
-		return ret
-	}).(VirtualNodeVirtualNodeTcpConnectionPoolOutput)
-}
-
-func (o VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput) MaxConnections() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VirtualNodeVirtualNodeTcpConnectionPool) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MaxConnections
-	}).(pulumi.IntPtrOutput)
-}
-
 type VirtualNodeVirtualServiceBackend struct {
 	ClientPolicy       *VirtualNodeClientPolicy `pulumi:"clientPolicy"`
 	VirtualServiceName string                   `pulumi:"virtualServiceName"`
@@ -18065,6 +18017,100 @@ func (o VirtualNodeVirtualServiceBackendPtrOutput) VirtualServiceName() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+type VirtualRouterListener struct {
+	PortMapping VirtualRouterPortMapping `pulumi:"portMapping"`
+}
+
+// VirtualRouterListenerInput is an input type that accepts VirtualRouterListenerArgs and VirtualRouterListenerOutput values.
+// You can construct a concrete instance of `VirtualRouterListenerInput` via:
+//
+//          VirtualRouterListenerArgs{...}
+type VirtualRouterListenerInput interface {
+	pulumi.Input
+
+	ToVirtualRouterListenerOutput() VirtualRouterListenerOutput
+	ToVirtualRouterListenerOutputWithContext(context.Context) VirtualRouterListenerOutput
+}
+
+type VirtualRouterListenerArgs struct {
+	PortMapping VirtualRouterPortMappingInput `pulumi:"portMapping"`
+}
+
+func (VirtualRouterListenerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualRouterListener)(nil)).Elem()
+}
+
+func (i VirtualRouterListenerArgs) ToVirtualRouterListenerOutput() VirtualRouterListenerOutput {
+	return i.ToVirtualRouterListenerOutputWithContext(context.Background())
+}
+
+func (i VirtualRouterListenerArgs) ToVirtualRouterListenerOutputWithContext(ctx context.Context) VirtualRouterListenerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterListenerOutput)
+}
+
+// VirtualRouterListenerArrayInput is an input type that accepts VirtualRouterListenerArray and VirtualRouterListenerArrayOutput values.
+// You can construct a concrete instance of `VirtualRouterListenerArrayInput` via:
+//
+//          VirtualRouterListenerArray{ VirtualRouterListenerArgs{...} }
+type VirtualRouterListenerArrayInput interface {
+	pulumi.Input
+
+	ToVirtualRouterListenerArrayOutput() VirtualRouterListenerArrayOutput
+	ToVirtualRouterListenerArrayOutputWithContext(context.Context) VirtualRouterListenerArrayOutput
+}
+
+type VirtualRouterListenerArray []VirtualRouterListenerInput
+
+func (VirtualRouterListenerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualRouterListener)(nil)).Elem()
+}
+
+func (i VirtualRouterListenerArray) ToVirtualRouterListenerArrayOutput() VirtualRouterListenerArrayOutput {
+	return i.ToVirtualRouterListenerArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualRouterListenerArray) ToVirtualRouterListenerArrayOutputWithContext(ctx context.Context) VirtualRouterListenerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterListenerArrayOutput)
+}
+
+type VirtualRouterListenerOutput struct{ *pulumi.OutputState }
+
+func (VirtualRouterListenerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualRouterListener)(nil)).Elem()
+}
+
+func (o VirtualRouterListenerOutput) ToVirtualRouterListenerOutput() VirtualRouterListenerOutput {
+	return o
+}
+
+func (o VirtualRouterListenerOutput) ToVirtualRouterListenerOutputWithContext(ctx context.Context) VirtualRouterListenerOutput {
+	return o
+}
+
+func (o VirtualRouterListenerOutput) PortMapping() VirtualRouterPortMappingOutput {
+	return o.ApplyT(func(v VirtualRouterListener) VirtualRouterPortMapping { return v.PortMapping }).(VirtualRouterPortMappingOutput)
+}
+
+type VirtualRouterListenerArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualRouterListenerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualRouterListener)(nil)).Elem()
+}
+
+func (o VirtualRouterListenerArrayOutput) ToVirtualRouterListenerArrayOutput() VirtualRouterListenerArrayOutput {
+	return o
+}
+
+func (o VirtualRouterListenerArrayOutput) ToVirtualRouterListenerArrayOutputWithContext(ctx context.Context) VirtualRouterListenerArrayOutput {
+	return o
+}
+
+func (o VirtualRouterListenerArrayOutput) Index(i pulumi.IntInput) VirtualRouterListenerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualRouterListener {
+		return vs[0].([]VirtualRouterListener)[vs[1].(int)]
+	}).(VirtualRouterListenerOutput)
+}
+
 type VirtualRouterPortMapping struct {
 	Port     int    `pulumi:"port"`
 	Protocol string `pulumi:"protocol"`
@@ -18118,6 +18164,139 @@ func (o VirtualRouterPortMappingOutput) Port() pulumi.IntOutput {
 
 func (o VirtualRouterPortMappingOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualRouterPortMapping) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+type VirtualRouterSpec struct {
+	Listeners []VirtualRouterListener `pulumi:"listeners"`
+}
+
+// VirtualRouterSpecInput is an input type that accepts VirtualRouterSpecArgs and VirtualRouterSpecOutput values.
+// You can construct a concrete instance of `VirtualRouterSpecInput` via:
+//
+//          VirtualRouterSpecArgs{...}
+type VirtualRouterSpecInput interface {
+	pulumi.Input
+
+	ToVirtualRouterSpecOutput() VirtualRouterSpecOutput
+	ToVirtualRouterSpecOutputWithContext(context.Context) VirtualRouterSpecOutput
+}
+
+type VirtualRouterSpecArgs struct {
+	Listeners VirtualRouterListenerArrayInput `pulumi:"listeners"`
+}
+
+func (VirtualRouterSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualRouterSpec)(nil)).Elem()
+}
+
+func (i VirtualRouterSpecArgs) ToVirtualRouterSpecOutput() VirtualRouterSpecOutput {
+	return i.ToVirtualRouterSpecOutputWithContext(context.Background())
+}
+
+func (i VirtualRouterSpecArgs) ToVirtualRouterSpecOutputWithContext(ctx context.Context) VirtualRouterSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterSpecOutput)
+}
+
+func (i VirtualRouterSpecArgs) ToVirtualRouterSpecPtrOutput() VirtualRouterSpecPtrOutput {
+	return i.ToVirtualRouterSpecPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualRouterSpecArgs) ToVirtualRouterSpecPtrOutputWithContext(ctx context.Context) VirtualRouterSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterSpecOutput).ToVirtualRouterSpecPtrOutputWithContext(ctx)
+}
+
+// VirtualRouterSpecPtrInput is an input type that accepts VirtualRouterSpecArgs, VirtualRouterSpecPtr and VirtualRouterSpecPtrOutput values.
+// You can construct a concrete instance of `VirtualRouterSpecPtrInput` via:
+//
+//          VirtualRouterSpecArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualRouterSpecPtrInput interface {
+	pulumi.Input
+
+	ToVirtualRouterSpecPtrOutput() VirtualRouterSpecPtrOutput
+	ToVirtualRouterSpecPtrOutputWithContext(context.Context) VirtualRouterSpecPtrOutput
+}
+
+type virtualRouterSpecPtrType VirtualRouterSpecArgs
+
+func VirtualRouterSpecPtr(v *VirtualRouterSpecArgs) VirtualRouterSpecPtrInput {
+	return (*virtualRouterSpecPtrType)(v)
+}
+
+func (*virtualRouterSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualRouterSpec)(nil)).Elem()
+}
+
+func (i *virtualRouterSpecPtrType) ToVirtualRouterSpecPtrOutput() VirtualRouterSpecPtrOutput {
+	return i.ToVirtualRouterSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualRouterSpecPtrType) ToVirtualRouterSpecPtrOutputWithContext(ctx context.Context) VirtualRouterSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterSpecPtrOutput)
+}
+
+type VirtualRouterSpecOutput struct{ *pulumi.OutputState }
+
+func (VirtualRouterSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualRouterSpec)(nil)).Elem()
+}
+
+func (o VirtualRouterSpecOutput) ToVirtualRouterSpecOutput() VirtualRouterSpecOutput {
+	return o
+}
+
+func (o VirtualRouterSpecOutput) ToVirtualRouterSpecOutputWithContext(ctx context.Context) VirtualRouterSpecOutput {
+	return o
+}
+
+func (o VirtualRouterSpecOutput) ToVirtualRouterSpecPtrOutput() VirtualRouterSpecPtrOutput {
+	return o.ToVirtualRouterSpecPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualRouterSpecOutput) ToVirtualRouterSpecPtrOutputWithContext(ctx context.Context) VirtualRouterSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualRouterSpec) *VirtualRouterSpec {
+		return &v
+	}).(VirtualRouterSpecPtrOutput)
+}
+
+func (o VirtualRouterSpecOutput) Listeners() VirtualRouterListenerArrayOutput {
+	return o.ApplyT(func(v VirtualRouterSpec) []VirtualRouterListener { return v.Listeners }).(VirtualRouterListenerArrayOutput)
+}
+
+type VirtualRouterSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualRouterSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualRouterSpec)(nil)).Elem()
+}
+
+func (o VirtualRouterSpecPtrOutput) ToVirtualRouterSpecPtrOutput() VirtualRouterSpecPtrOutput {
+	return o
+}
+
+func (o VirtualRouterSpecPtrOutput) ToVirtualRouterSpecPtrOutputWithContext(ctx context.Context) VirtualRouterSpecPtrOutput {
+	return o
+}
+
+func (o VirtualRouterSpecPtrOutput) Elem() VirtualRouterSpecOutput {
+	return o.ApplyT(func(v *VirtualRouterSpec) VirtualRouterSpec {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualRouterSpec
+		return ret
+	}).(VirtualRouterSpecOutput)
+}
+
+func (o VirtualRouterSpecPtrOutput) Listeners() VirtualRouterListenerArrayOutput {
+	return o.ApplyT(func(v *VirtualRouterSpec) []VirtualRouterListener {
+		if v == nil {
+			return nil
+		}
+		return v.Listeners
+	}).(VirtualRouterListenerArrayOutput)
 }
 
 type VirtualRouterTag struct {
@@ -18220,231 +18399,285 @@ func (o VirtualRouterTagArrayOutput) Index(i pulumi.IntInput) VirtualRouterTagOu
 	}).(VirtualRouterTagOutput)
 }
 
-type VirtualRouterVirtualRouterListener struct {
-	PortMapping VirtualRouterPortMapping `pulumi:"portMapping"`
+type VirtualServiceProvider struct {
+	VirtualNode   *VirtualServiceVirtualNodeServiceProvider   `pulumi:"virtualNode"`
+	VirtualRouter *VirtualServiceVirtualRouterServiceProvider `pulumi:"virtualRouter"`
 }
 
-// VirtualRouterVirtualRouterListenerInput is an input type that accepts VirtualRouterVirtualRouterListenerArgs and VirtualRouterVirtualRouterListenerOutput values.
-// You can construct a concrete instance of `VirtualRouterVirtualRouterListenerInput` via:
+// VirtualServiceProviderInput is an input type that accepts VirtualServiceProviderArgs and VirtualServiceProviderOutput values.
+// You can construct a concrete instance of `VirtualServiceProviderInput` via:
 //
-//          VirtualRouterVirtualRouterListenerArgs{...}
-type VirtualRouterVirtualRouterListenerInput interface {
+//          VirtualServiceProviderArgs{...}
+type VirtualServiceProviderInput interface {
 	pulumi.Input
 
-	ToVirtualRouterVirtualRouterListenerOutput() VirtualRouterVirtualRouterListenerOutput
-	ToVirtualRouterVirtualRouterListenerOutputWithContext(context.Context) VirtualRouterVirtualRouterListenerOutput
+	ToVirtualServiceProviderOutput() VirtualServiceProviderOutput
+	ToVirtualServiceProviderOutputWithContext(context.Context) VirtualServiceProviderOutput
 }
 
-type VirtualRouterVirtualRouterListenerArgs struct {
-	PortMapping VirtualRouterPortMappingInput `pulumi:"portMapping"`
+type VirtualServiceProviderArgs struct {
+	VirtualNode   VirtualServiceVirtualNodeServiceProviderPtrInput   `pulumi:"virtualNode"`
+	VirtualRouter VirtualServiceVirtualRouterServiceProviderPtrInput `pulumi:"virtualRouter"`
 }
 
-func (VirtualRouterVirtualRouterListenerArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualRouterVirtualRouterListener)(nil)).Elem()
+func (VirtualServiceProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualServiceProvider)(nil)).Elem()
 }
 
-func (i VirtualRouterVirtualRouterListenerArgs) ToVirtualRouterVirtualRouterListenerOutput() VirtualRouterVirtualRouterListenerOutput {
-	return i.ToVirtualRouterVirtualRouterListenerOutputWithContext(context.Background())
+func (i VirtualServiceProviderArgs) ToVirtualServiceProviderOutput() VirtualServiceProviderOutput {
+	return i.ToVirtualServiceProviderOutputWithContext(context.Background())
 }
 
-func (i VirtualRouterVirtualRouterListenerArgs) ToVirtualRouterVirtualRouterListenerOutputWithContext(ctx context.Context) VirtualRouterVirtualRouterListenerOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterVirtualRouterListenerOutput)
+func (i VirtualServiceProviderArgs) ToVirtualServiceProviderOutputWithContext(ctx context.Context) VirtualServiceProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceProviderOutput)
 }
 
-// VirtualRouterVirtualRouterListenerArrayInput is an input type that accepts VirtualRouterVirtualRouterListenerArray and VirtualRouterVirtualRouterListenerArrayOutput values.
-// You can construct a concrete instance of `VirtualRouterVirtualRouterListenerArrayInput` via:
+func (i VirtualServiceProviderArgs) ToVirtualServiceProviderPtrOutput() VirtualServiceProviderPtrOutput {
+	return i.ToVirtualServiceProviderPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualServiceProviderArgs) ToVirtualServiceProviderPtrOutputWithContext(ctx context.Context) VirtualServiceProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceProviderOutput).ToVirtualServiceProviderPtrOutputWithContext(ctx)
+}
+
+// VirtualServiceProviderPtrInput is an input type that accepts VirtualServiceProviderArgs, VirtualServiceProviderPtr and VirtualServiceProviderPtrOutput values.
+// You can construct a concrete instance of `VirtualServiceProviderPtrInput` via:
 //
-//          VirtualRouterVirtualRouterListenerArray{ VirtualRouterVirtualRouterListenerArgs{...} }
-type VirtualRouterVirtualRouterListenerArrayInput interface {
-	pulumi.Input
-
-	ToVirtualRouterVirtualRouterListenerArrayOutput() VirtualRouterVirtualRouterListenerArrayOutput
-	ToVirtualRouterVirtualRouterListenerArrayOutputWithContext(context.Context) VirtualRouterVirtualRouterListenerArrayOutput
-}
-
-type VirtualRouterVirtualRouterListenerArray []VirtualRouterVirtualRouterListenerInput
-
-func (VirtualRouterVirtualRouterListenerArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualRouterVirtualRouterListener)(nil)).Elem()
-}
-
-func (i VirtualRouterVirtualRouterListenerArray) ToVirtualRouterVirtualRouterListenerArrayOutput() VirtualRouterVirtualRouterListenerArrayOutput {
-	return i.ToVirtualRouterVirtualRouterListenerArrayOutputWithContext(context.Background())
-}
-
-func (i VirtualRouterVirtualRouterListenerArray) ToVirtualRouterVirtualRouterListenerArrayOutputWithContext(ctx context.Context) VirtualRouterVirtualRouterListenerArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterVirtualRouterListenerArrayOutput)
-}
-
-type VirtualRouterVirtualRouterListenerOutput struct{ *pulumi.OutputState }
-
-func (VirtualRouterVirtualRouterListenerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualRouterVirtualRouterListener)(nil)).Elem()
-}
-
-func (o VirtualRouterVirtualRouterListenerOutput) ToVirtualRouterVirtualRouterListenerOutput() VirtualRouterVirtualRouterListenerOutput {
-	return o
-}
-
-func (o VirtualRouterVirtualRouterListenerOutput) ToVirtualRouterVirtualRouterListenerOutputWithContext(ctx context.Context) VirtualRouterVirtualRouterListenerOutput {
-	return o
-}
-
-func (o VirtualRouterVirtualRouterListenerOutput) PortMapping() VirtualRouterPortMappingOutput {
-	return o.ApplyT(func(v VirtualRouterVirtualRouterListener) VirtualRouterPortMapping { return v.PortMapping }).(VirtualRouterPortMappingOutput)
-}
-
-type VirtualRouterVirtualRouterListenerArrayOutput struct{ *pulumi.OutputState }
-
-func (VirtualRouterVirtualRouterListenerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualRouterVirtualRouterListener)(nil)).Elem()
-}
-
-func (o VirtualRouterVirtualRouterListenerArrayOutput) ToVirtualRouterVirtualRouterListenerArrayOutput() VirtualRouterVirtualRouterListenerArrayOutput {
-	return o
-}
-
-func (o VirtualRouterVirtualRouterListenerArrayOutput) ToVirtualRouterVirtualRouterListenerArrayOutputWithContext(ctx context.Context) VirtualRouterVirtualRouterListenerArrayOutput {
-	return o
-}
-
-func (o VirtualRouterVirtualRouterListenerArrayOutput) Index(i pulumi.IntInput) VirtualRouterVirtualRouterListenerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualRouterVirtualRouterListener {
-		return vs[0].([]VirtualRouterVirtualRouterListener)[vs[1].(int)]
-	}).(VirtualRouterVirtualRouterListenerOutput)
-}
-
-type VirtualRouterVirtualRouterSpec struct {
-	Listeners []VirtualRouterVirtualRouterListener `pulumi:"listeners"`
-}
-
-// VirtualRouterVirtualRouterSpecInput is an input type that accepts VirtualRouterVirtualRouterSpecArgs and VirtualRouterVirtualRouterSpecOutput values.
-// You can construct a concrete instance of `VirtualRouterVirtualRouterSpecInput` via:
-//
-//          VirtualRouterVirtualRouterSpecArgs{...}
-type VirtualRouterVirtualRouterSpecInput interface {
-	pulumi.Input
-
-	ToVirtualRouterVirtualRouterSpecOutput() VirtualRouterVirtualRouterSpecOutput
-	ToVirtualRouterVirtualRouterSpecOutputWithContext(context.Context) VirtualRouterVirtualRouterSpecOutput
-}
-
-type VirtualRouterVirtualRouterSpecArgs struct {
-	Listeners VirtualRouterVirtualRouterListenerArrayInput `pulumi:"listeners"`
-}
-
-func (VirtualRouterVirtualRouterSpecArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualRouterVirtualRouterSpec)(nil)).Elem()
-}
-
-func (i VirtualRouterVirtualRouterSpecArgs) ToVirtualRouterVirtualRouterSpecOutput() VirtualRouterVirtualRouterSpecOutput {
-	return i.ToVirtualRouterVirtualRouterSpecOutputWithContext(context.Background())
-}
-
-func (i VirtualRouterVirtualRouterSpecArgs) ToVirtualRouterVirtualRouterSpecOutputWithContext(ctx context.Context) VirtualRouterVirtualRouterSpecOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterVirtualRouterSpecOutput)
-}
-
-func (i VirtualRouterVirtualRouterSpecArgs) ToVirtualRouterVirtualRouterSpecPtrOutput() VirtualRouterVirtualRouterSpecPtrOutput {
-	return i.ToVirtualRouterVirtualRouterSpecPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualRouterVirtualRouterSpecArgs) ToVirtualRouterVirtualRouterSpecPtrOutputWithContext(ctx context.Context) VirtualRouterVirtualRouterSpecPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterVirtualRouterSpecOutput).ToVirtualRouterVirtualRouterSpecPtrOutputWithContext(ctx)
-}
-
-// VirtualRouterVirtualRouterSpecPtrInput is an input type that accepts VirtualRouterVirtualRouterSpecArgs, VirtualRouterVirtualRouterSpecPtr and VirtualRouterVirtualRouterSpecPtrOutput values.
-// You can construct a concrete instance of `VirtualRouterVirtualRouterSpecPtrInput` via:
-//
-//          VirtualRouterVirtualRouterSpecArgs{...}
+//          VirtualServiceProviderArgs{...}
 //
 //  or:
 //
 //          nil
-type VirtualRouterVirtualRouterSpecPtrInput interface {
+type VirtualServiceProviderPtrInput interface {
 	pulumi.Input
 
-	ToVirtualRouterVirtualRouterSpecPtrOutput() VirtualRouterVirtualRouterSpecPtrOutput
-	ToVirtualRouterVirtualRouterSpecPtrOutputWithContext(context.Context) VirtualRouterVirtualRouterSpecPtrOutput
+	ToVirtualServiceProviderPtrOutput() VirtualServiceProviderPtrOutput
+	ToVirtualServiceProviderPtrOutputWithContext(context.Context) VirtualServiceProviderPtrOutput
 }
 
-type virtualRouterVirtualRouterSpecPtrType VirtualRouterVirtualRouterSpecArgs
+type virtualServiceProviderPtrType VirtualServiceProviderArgs
 
-func VirtualRouterVirtualRouterSpecPtr(v *VirtualRouterVirtualRouterSpecArgs) VirtualRouterVirtualRouterSpecPtrInput {
-	return (*virtualRouterVirtualRouterSpecPtrType)(v)
+func VirtualServiceProviderPtr(v *VirtualServiceProviderArgs) VirtualServiceProviderPtrInput {
+	return (*virtualServiceProviderPtrType)(v)
 }
 
-func (*virtualRouterVirtualRouterSpecPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualRouterVirtualRouterSpec)(nil)).Elem()
+func (*virtualServiceProviderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualServiceProvider)(nil)).Elem()
 }
 
-func (i *virtualRouterVirtualRouterSpecPtrType) ToVirtualRouterVirtualRouterSpecPtrOutput() VirtualRouterVirtualRouterSpecPtrOutput {
-	return i.ToVirtualRouterVirtualRouterSpecPtrOutputWithContext(context.Background())
+func (i *virtualServiceProviderPtrType) ToVirtualServiceProviderPtrOutput() VirtualServiceProviderPtrOutput {
+	return i.ToVirtualServiceProviderPtrOutputWithContext(context.Background())
 }
 
-func (i *virtualRouterVirtualRouterSpecPtrType) ToVirtualRouterVirtualRouterSpecPtrOutputWithContext(ctx context.Context) VirtualRouterVirtualRouterSpecPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterVirtualRouterSpecPtrOutput)
+func (i *virtualServiceProviderPtrType) ToVirtualServiceProviderPtrOutputWithContext(ctx context.Context) VirtualServiceProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceProviderPtrOutput)
 }
 
-type VirtualRouterVirtualRouterSpecOutput struct{ *pulumi.OutputState }
+type VirtualServiceProviderOutput struct{ *pulumi.OutputState }
 
-func (VirtualRouterVirtualRouterSpecOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualRouterVirtualRouterSpec)(nil)).Elem()
+func (VirtualServiceProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualServiceProvider)(nil)).Elem()
 }
 
-func (o VirtualRouterVirtualRouterSpecOutput) ToVirtualRouterVirtualRouterSpecOutput() VirtualRouterVirtualRouterSpecOutput {
+func (o VirtualServiceProviderOutput) ToVirtualServiceProviderOutput() VirtualServiceProviderOutput {
 	return o
 }
 
-func (o VirtualRouterVirtualRouterSpecOutput) ToVirtualRouterVirtualRouterSpecOutputWithContext(ctx context.Context) VirtualRouterVirtualRouterSpecOutput {
+func (o VirtualServiceProviderOutput) ToVirtualServiceProviderOutputWithContext(ctx context.Context) VirtualServiceProviderOutput {
 	return o
 }
 
-func (o VirtualRouterVirtualRouterSpecOutput) ToVirtualRouterVirtualRouterSpecPtrOutput() VirtualRouterVirtualRouterSpecPtrOutput {
-	return o.ToVirtualRouterVirtualRouterSpecPtrOutputWithContext(context.Background())
+func (o VirtualServiceProviderOutput) ToVirtualServiceProviderPtrOutput() VirtualServiceProviderPtrOutput {
+	return o.ToVirtualServiceProviderPtrOutputWithContext(context.Background())
 }
 
-func (o VirtualRouterVirtualRouterSpecOutput) ToVirtualRouterVirtualRouterSpecPtrOutputWithContext(ctx context.Context) VirtualRouterVirtualRouterSpecPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualRouterVirtualRouterSpec) *VirtualRouterVirtualRouterSpec {
+func (o VirtualServiceProviderOutput) ToVirtualServiceProviderPtrOutputWithContext(ctx context.Context) VirtualServiceProviderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualServiceProvider) *VirtualServiceProvider {
 		return &v
-	}).(VirtualRouterVirtualRouterSpecPtrOutput)
+	}).(VirtualServiceProviderPtrOutput)
 }
 
-func (o VirtualRouterVirtualRouterSpecOutput) Listeners() VirtualRouterVirtualRouterListenerArrayOutput {
-	return o.ApplyT(func(v VirtualRouterVirtualRouterSpec) []VirtualRouterVirtualRouterListener { return v.Listeners }).(VirtualRouterVirtualRouterListenerArrayOutput)
+func (o VirtualServiceProviderOutput) VirtualNode() VirtualServiceVirtualNodeServiceProviderPtrOutput {
+	return o.ApplyT(func(v VirtualServiceProvider) *VirtualServiceVirtualNodeServiceProvider { return v.VirtualNode }).(VirtualServiceVirtualNodeServiceProviderPtrOutput)
 }
 
-type VirtualRouterVirtualRouterSpecPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualRouterVirtualRouterSpecPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualRouterVirtualRouterSpec)(nil)).Elem()
+func (o VirtualServiceProviderOutput) VirtualRouter() VirtualServiceVirtualRouterServiceProviderPtrOutput {
+	return o.ApplyT(func(v VirtualServiceProvider) *VirtualServiceVirtualRouterServiceProvider { return v.VirtualRouter }).(VirtualServiceVirtualRouterServiceProviderPtrOutput)
 }
 
-func (o VirtualRouterVirtualRouterSpecPtrOutput) ToVirtualRouterVirtualRouterSpecPtrOutput() VirtualRouterVirtualRouterSpecPtrOutput {
+type VirtualServiceProviderPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualServiceProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualServiceProvider)(nil)).Elem()
+}
+
+func (o VirtualServiceProviderPtrOutput) ToVirtualServiceProviderPtrOutput() VirtualServiceProviderPtrOutput {
 	return o
 }
 
-func (o VirtualRouterVirtualRouterSpecPtrOutput) ToVirtualRouterVirtualRouterSpecPtrOutputWithContext(ctx context.Context) VirtualRouterVirtualRouterSpecPtrOutput {
+func (o VirtualServiceProviderPtrOutput) ToVirtualServiceProviderPtrOutputWithContext(ctx context.Context) VirtualServiceProviderPtrOutput {
 	return o
 }
 
-func (o VirtualRouterVirtualRouterSpecPtrOutput) Elem() VirtualRouterVirtualRouterSpecOutput {
-	return o.ApplyT(func(v *VirtualRouterVirtualRouterSpec) VirtualRouterVirtualRouterSpec {
+func (o VirtualServiceProviderPtrOutput) Elem() VirtualServiceProviderOutput {
+	return o.ApplyT(func(v *VirtualServiceProvider) VirtualServiceProvider {
 		if v != nil {
 			return *v
 		}
-		var ret VirtualRouterVirtualRouterSpec
+		var ret VirtualServiceProvider
 		return ret
-	}).(VirtualRouterVirtualRouterSpecOutput)
+	}).(VirtualServiceProviderOutput)
 }
 
-func (o VirtualRouterVirtualRouterSpecPtrOutput) Listeners() VirtualRouterVirtualRouterListenerArrayOutput {
-	return o.ApplyT(func(v *VirtualRouterVirtualRouterSpec) []VirtualRouterVirtualRouterListener {
+func (o VirtualServiceProviderPtrOutput) VirtualNode() VirtualServiceVirtualNodeServiceProviderPtrOutput {
+	return o.ApplyT(func(v *VirtualServiceProvider) *VirtualServiceVirtualNodeServiceProvider {
 		if v == nil {
 			return nil
 		}
-		return v.Listeners
-	}).(VirtualRouterVirtualRouterListenerArrayOutput)
+		return v.VirtualNode
+	}).(VirtualServiceVirtualNodeServiceProviderPtrOutput)
+}
+
+func (o VirtualServiceProviderPtrOutput) VirtualRouter() VirtualServiceVirtualRouterServiceProviderPtrOutput {
+	return o.ApplyT(func(v *VirtualServiceProvider) *VirtualServiceVirtualRouterServiceProvider {
+		if v == nil {
+			return nil
+		}
+		return v.VirtualRouter
+	}).(VirtualServiceVirtualRouterServiceProviderPtrOutput)
+}
+
+type VirtualServiceSpec struct {
+	Provider *VirtualServiceProvider `pulumi:"provider"`
+}
+
+// VirtualServiceSpecInput is an input type that accepts VirtualServiceSpecArgs and VirtualServiceSpecOutput values.
+// You can construct a concrete instance of `VirtualServiceSpecInput` via:
+//
+//          VirtualServiceSpecArgs{...}
+type VirtualServiceSpecInput interface {
+	pulumi.Input
+
+	ToVirtualServiceSpecOutput() VirtualServiceSpecOutput
+	ToVirtualServiceSpecOutputWithContext(context.Context) VirtualServiceSpecOutput
+}
+
+type VirtualServiceSpecArgs struct {
+	Provider VirtualServiceProviderPtrInput `pulumi:"provider"`
+}
+
+func (VirtualServiceSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualServiceSpec)(nil)).Elem()
+}
+
+func (i VirtualServiceSpecArgs) ToVirtualServiceSpecOutput() VirtualServiceSpecOutput {
+	return i.ToVirtualServiceSpecOutputWithContext(context.Background())
+}
+
+func (i VirtualServiceSpecArgs) ToVirtualServiceSpecOutputWithContext(ctx context.Context) VirtualServiceSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceSpecOutput)
+}
+
+func (i VirtualServiceSpecArgs) ToVirtualServiceSpecPtrOutput() VirtualServiceSpecPtrOutput {
+	return i.ToVirtualServiceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualServiceSpecArgs) ToVirtualServiceSpecPtrOutputWithContext(ctx context.Context) VirtualServiceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceSpecOutput).ToVirtualServiceSpecPtrOutputWithContext(ctx)
+}
+
+// VirtualServiceSpecPtrInput is an input type that accepts VirtualServiceSpecArgs, VirtualServiceSpecPtr and VirtualServiceSpecPtrOutput values.
+// You can construct a concrete instance of `VirtualServiceSpecPtrInput` via:
+//
+//          VirtualServiceSpecArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualServiceSpecPtrInput interface {
+	pulumi.Input
+
+	ToVirtualServiceSpecPtrOutput() VirtualServiceSpecPtrOutput
+	ToVirtualServiceSpecPtrOutputWithContext(context.Context) VirtualServiceSpecPtrOutput
+}
+
+type virtualServiceSpecPtrType VirtualServiceSpecArgs
+
+func VirtualServiceSpecPtr(v *VirtualServiceSpecArgs) VirtualServiceSpecPtrInput {
+	return (*virtualServiceSpecPtrType)(v)
+}
+
+func (*virtualServiceSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualServiceSpec)(nil)).Elem()
+}
+
+func (i *virtualServiceSpecPtrType) ToVirtualServiceSpecPtrOutput() VirtualServiceSpecPtrOutput {
+	return i.ToVirtualServiceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualServiceSpecPtrType) ToVirtualServiceSpecPtrOutputWithContext(ctx context.Context) VirtualServiceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceSpecPtrOutput)
+}
+
+type VirtualServiceSpecOutput struct{ *pulumi.OutputState }
+
+func (VirtualServiceSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualServiceSpec)(nil)).Elem()
+}
+
+func (o VirtualServiceSpecOutput) ToVirtualServiceSpecOutput() VirtualServiceSpecOutput {
+	return o
+}
+
+func (o VirtualServiceSpecOutput) ToVirtualServiceSpecOutputWithContext(ctx context.Context) VirtualServiceSpecOutput {
+	return o
+}
+
+func (o VirtualServiceSpecOutput) ToVirtualServiceSpecPtrOutput() VirtualServiceSpecPtrOutput {
+	return o.ToVirtualServiceSpecPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualServiceSpecOutput) ToVirtualServiceSpecPtrOutputWithContext(ctx context.Context) VirtualServiceSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualServiceSpec) *VirtualServiceSpec {
+		return &v
+	}).(VirtualServiceSpecPtrOutput)
+}
+
+func (o VirtualServiceSpecOutput) Provider() VirtualServiceProviderPtrOutput {
+	return o.ApplyT(func(v VirtualServiceSpec) *VirtualServiceProvider { return v.Provider }).(VirtualServiceProviderPtrOutput)
+}
+
+type VirtualServiceSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualServiceSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualServiceSpec)(nil)).Elem()
+}
+
+func (o VirtualServiceSpecPtrOutput) ToVirtualServiceSpecPtrOutput() VirtualServiceSpecPtrOutput {
+	return o
+}
+
+func (o VirtualServiceSpecPtrOutput) ToVirtualServiceSpecPtrOutputWithContext(ctx context.Context) VirtualServiceSpecPtrOutput {
+	return o
+}
+
+func (o VirtualServiceSpecPtrOutput) Elem() VirtualServiceSpecOutput {
+	return o.ApplyT(func(v *VirtualServiceSpec) VirtualServiceSpec {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualServiceSpec
+		return ret
+	}).(VirtualServiceSpecOutput)
+}
+
+func (o VirtualServiceSpecPtrOutput) Provider() VirtualServiceProviderPtrOutput {
+	return o.ApplyT(func(v *VirtualServiceSpec) *VirtualServiceProvider {
+		if v == nil {
+			return nil
+		}
+		return v.Provider
+	}).(VirtualServiceProviderPtrOutput)
 }
 
 type VirtualServiceTag struct {
@@ -18813,306 +19046,7 @@ func (o VirtualServiceVirtualRouterServiceProviderPtrOutput) VirtualRouterName()
 	}).(pulumi.StringPtrOutput)
 }
 
-type VirtualServiceVirtualServiceProvider struct {
-	VirtualNode   *VirtualServiceVirtualNodeServiceProvider   `pulumi:"virtualNode"`
-	VirtualRouter *VirtualServiceVirtualRouterServiceProvider `pulumi:"virtualRouter"`
-}
-
-// VirtualServiceVirtualServiceProviderInput is an input type that accepts VirtualServiceVirtualServiceProviderArgs and VirtualServiceVirtualServiceProviderOutput values.
-// You can construct a concrete instance of `VirtualServiceVirtualServiceProviderInput` via:
-//
-//          VirtualServiceVirtualServiceProviderArgs{...}
-type VirtualServiceVirtualServiceProviderInput interface {
-	pulumi.Input
-
-	ToVirtualServiceVirtualServiceProviderOutput() VirtualServiceVirtualServiceProviderOutput
-	ToVirtualServiceVirtualServiceProviderOutputWithContext(context.Context) VirtualServiceVirtualServiceProviderOutput
-}
-
-type VirtualServiceVirtualServiceProviderArgs struct {
-	VirtualNode   VirtualServiceVirtualNodeServiceProviderPtrInput   `pulumi:"virtualNode"`
-	VirtualRouter VirtualServiceVirtualRouterServiceProviderPtrInput `pulumi:"virtualRouter"`
-}
-
-func (VirtualServiceVirtualServiceProviderArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualServiceVirtualServiceProvider)(nil)).Elem()
-}
-
-func (i VirtualServiceVirtualServiceProviderArgs) ToVirtualServiceVirtualServiceProviderOutput() VirtualServiceVirtualServiceProviderOutput {
-	return i.ToVirtualServiceVirtualServiceProviderOutputWithContext(context.Background())
-}
-
-func (i VirtualServiceVirtualServiceProviderArgs) ToVirtualServiceVirtualServiceProviderOutputWithContext(ctx context.Context) VirtualServiceVirtualServiceProviderOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceVirtualServiceProviderOutput)
-}
-
-func (i VirtualServiceVirtualServiceProviderArgs) ToVirtualServiceVirtualServiceProviderPtrOutput() VirtualServiceVirtualServiceProviderPtrOutput {
-	return i.ToVirtualServiceVirtualServiceProviderPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualServiceVirtualServiceProviderArgs) ToVirtualServiceVirtualServiceProviderPtrOutputWithContext(ctx context.Context) VirtualServiceVirtualServiceProviderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceVirtualServiceProviderOutput).ToVirtualServiceVirtualServiceProviderPtrOutputWithContext(ctx)
-}
-
-// VirtualServiceVirtualServiceProviderPtrInput is an input type that accepts VirtualServiceVirtualServiceProviderArgs, VirtualServiceVirtualServiceProviderPtr and VirtualServiceVirtualServiceProviderPtrOutput values.
-// You can construct a concrete instance of `VirtualServiceVirtualServiceProviderPtrInput` via:
-//
-//          VirtualServiceVirtualServiceProviderArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualServiceVirtualServiceProviderPtrInput interface {
-	pulumi.Input
-
-	ToVirtualServiceVirtualServiceProviderPtrOutput() VirtualServiceVirtualServiceProviderPtrOutput
-	ToVirtualServiceVirtualServiceProviderPtrOutputWithContext(context.Context) VirtualServiceVirtualServiceProviderPtrOutput
-}
-
-type virtualServiceVirtualServiceProviderPtrType VirtualServiceVirtualServiceProviderArgs
-
-func VirtualServiceVirtualServiceProviderPtr(v *VirtualServiceVirtualServiceProviderArgs) VirtualServiceVirtualServiceProviderPtrInput {
-	return (*virtualServiceVirtualServiceProviderPtrType)(v)
-}
-
-func (*virtualServiceVirtualServiceProviderPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualServiceVirtualServiceProvider)(nil)).Elem()
-}
-
-func (i *virtualServiceVirtualServiceProviderPtrType) ToVirtualServiceVirtualServiceProviderPtrOutput() VirtualServiceVirtualServiceProviderPtrOutput {
-	return i.ToVirtualServiceVirtualServiceProviderPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualServiceVirtualServiceProviderPtrType) ToVirtualServiceVirtualServiceProviderPtrOutputWithContext(ctx context.Context) VirtualServiceVirtualServiceProviderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceVirtualServiceProviderPtrOutput)
-}
-
-type VirtualServiceVirtualServiceProviderOutput struct{ *pulumi.OutputState }
-
-func (VirtualServiceVirtualServiceProviderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualServiceVirtualServiceProvider)(nil)).Elem()
-}
-
-func (o VirtualServiceVirtualServiceProviderOutput) ToVirtualServiceVirtualServiceProviderOutput() VirtualServiceVirtualServiceProviderOutput {
-	return o
-}
-
-func (o VirtualServiceVirtualServiceProviderOutput) ToVirtualServiceVirtualServiceProviderOutputWithContext(ctx context.Context) VirtualServiceVirtualServiceProviderOutput {
-	return o
-}
-
-func (o VirtualServiceVirtualServiceProviderOutput) ToVirtualServiceVirtualServiceProviderPtrOutput() VirtualServiceVirtualServiceProviderPtrOutput {
-	return o.ToVirtualServiceVirtualServiceProviderPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualServiceVirtualServiceProviderOutput) ToVirtualServiceVirtualServiceProviderPtrOutputWithContext(ctx context.Context) VirtualServiceVirtualServiceProviderPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualServiceVirtualServiceProvider) *VirtualServiceVirtualServiceProvider {
-		return &v
-	}).(VirtualServiceVirtualServiceProviderPtrOutput)
-}
-
-func (o VirtualServiceVirtualServiceProviderOutput) VirtualNode() VirtualServiceVirtualNodeServiceProviderPtrOutput {
-	return o.ApplyT(func(v VirtualServiceVirtualServiceProvider) *VirtualServiceVirtualNodeServiceProvider {
-		return v.VirtualNode
-	}).(VirtualServiceVirtualNodeServiceProviderPtrOutput)
-}
-
-func (o VirtualServiceVirtualServiceProviderOutput) VirtualRouter() VirtualServiceVirtualRouterServiceProviderPtrOutput {
-	return o.ApplyT(func(v VirtualServiceVirtualServiceProvider) *VirtualServiceVirtualRouterServiceProvider {
-		return v.VirtualRouter
-	}).(VirtualServiceVirtualRouterServiceProviderPtrOutput)
-}
-
-type VirtualServiceVirtualServiceProviderPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualServiceVirtualServiceProviderPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualServiceVirtualServiceProvider)(nil)).Elem()
-}
-
-func (o VirtualServiceVirtualServiceProviderPtrOutput) ToVirtualServiceVirtualServiceProviderPtrOutput() VirtualServiceVirtualServiceProviderPtrOutput {
-	return o
-}
-
-func (o VirtualServiceVirtualServiceProviderPtrOutput) ToVirtualServiceVirtualServiceProviderPtrOutputWithContext(ctx context.Context) VirtualServiceVirtualServiceProviderPtrOutput {
-	return o
-}
-
-func (o VirtualServiceVirtualServiceProviderPtrOutput) Elem() VirtualServiceVirtualServiceProviderOutput {
-	return o.ApplyT(func(v *VirtualServiceVirtualServiceProvider) VirtualServiceVirtualServiceProvider {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualServiceVirtualServiceProvider
-		return ret
-	}).(VirtualServiceVirtualServiceProviderOutput)
-}
-
-func (o VirtualServiceVirtualServiceProviderPtrOutput) VirtualNode() VirtualServiceVirtualNodeServiceProviderPtrOutput {
-	return o.ApplyT(func(v *VirtualServiceVirtualServiceProvider) *VirtualServiceVirtualNodeServiceProvider {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualNode
-	}).(VirtualServiceVirtualNodeServiceProviderPtrOutput)
-}
-
-func (o VirtualServiceVirtualServiceProviderPtrOutput) VirtualRouter() VirtualServiceVirtualRouterServiceProviderPtrOutput {
-	return o.ApplyT(func(v *VirtualServiceVirtualServiceProvider) *VirtualServiceVirtualRouterServiceProvider {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualRouter
-	}).(VirtualServiceVirtualRouterServiceProviderPtrOutput)
-}
-
-type VirtualServiceVirtualServiceSpec struct {
-	Provider *VirtualServiceVirtualServiceProvider `pulumi:"provider"`
-}
-
-// VirtualServiceVirtualServiceSpecInput is an input type that accepts VirtualServiceVirtualServiceSpecArgs and VirtualServiceVirtualServiceSpecOutput values.
-// You can construct a concrete instance of `VirtualServiceVirtualServiceSpecInput` via:
-//
-//          VirtualServiceVirtualServiceSpecArgs{...}
-type VirtualServiceVirtualServiceSpecInput interface {
-	pulumi.Input
-
-	ToVirtualServiceVirtualServiceSpecOutput() VirtualServiceVirtualServiceSpecOutput
-	ToVirtualServiceVirtualServiceSpecOutputWithContext(context.Context) VirtualServiceVirtualServiceSpecOutput
-}
-
-type VirtualServiceVirtualServiceSpecArgs struct {
-	Provider VirtualServiceVirtualServiceProviderPtrInput `pulumi:"provider"`
-}
-
-func (VirtualServiceVirtualServiceSpecArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualServiceVirtualServiceSpec)(nil)).Elem()
-}
-
-func (i VirtualServiceVirtualServiceSpecArgs) ToVirtualServiceVirtualServiceSpecOutput() VirtualServiceVirtualServiceSpecOutput {
-	return i.ToVirtualServiceVirtualServiceSpecOutputWithContext(context.Background())
-}
-
-func (i VirtualServiceVirtualServiceSpecArgs) ToVirtualServiceVirtualServiceSpecOutputWithContext(ctx context.Context) VirtualServiceVirtualServiceSpecOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceVirtualServiceSpecOutput)
-}
-
-func (i VirtualServiceVirtualServiceSpecArgs) ToVirtualServiceVirtualServiceSpecPtrOutput() VirtualServiceVirtualServiceSpecPtrOutput {
-	return i.ToVirtualServiceVirtualServiceSpecPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualServiceVirtualServiceSpecArgs) ToVirtualServiceVirtualServiceSpecPtrOutputWithContext(ctx context.Context) VirtualServiceVirtualServiceSpecPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceVirtualServiceSpecOutput).ToVirtualServiceVirtualServiceSpecPtrOutputWithContext(ctx)
-}
-
-// VirtualServiceVirtualServiceSpecPtrInput is an input type that accepts VirtualServiceVirtualServiceSpecArgs, VirtualServiceVirtualServiceSpecPtr and VirtualServiceVirtualServiceSpecPtrOutput values.
-// You can construct a concrete instance of `VirtualServiceVirtualServiceSpecPtrInput` via:
-//
-//          VirtualServiceVirtualServiceSpecArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualServiceVirtualServiceSpecPtrInput interface {
-	pulumi.Input
-
-	ToVirtualServiceVirtualServiceSpecPtrOutput() VirtualServiceVirtualServiceSpecPtrOutput
-	ToVirtualServiceVirtualServiceSpecPtrOutputWithContext(context.Context) VirtualServiceVirtualServiceSpecPtrOutput
-}
-
-type virtualServiceVirtualServiceSpecPtrType VirtualServiceVirtualServiceSpecArgs
-
-func VirtualServiceVirtualServiceSpecPtr(v *VirtualServiceVirtualServiceSpecArgs) VirtualServiceVirtualServiceSpecPtrInput {
-	return (*virtualServiceVirtualServiceSpecPtrType)(v)
-}
-
-func (*virtualServiceVirtualServiceSpecPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualServiceVirtualServiceSpec)(nil)).Elem()
-}
-
-func (i *virtualServiceVirtualServiceSpecPtrType) ToVirtualServiceVirtualServiceSpecPtrOutput() VirtualServiceVirtualServiceSpecPtrOutput {
-	return i.ToVirtualServiceVirtualServiceSpecPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualServiceVirtualServiceSpecPtrType) ToVirtualServiceVirtualServiceSpecPtrOutputWithContext(ctx context.Context) VirtualServiceVirtualServiceSpecPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualServiceVirtualServiceSpecPtrOutput)
-}
-
-type VirtualServiceVirtualServiceSpecOutput struct{ *pulumi.OutputState }
-
-func (VirtualServiceVirtualServiceSpecOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualServiceVirtualServiceSpec)(nil)).Elem()
-}
-
-func (o VirtualServiceVirtualServiceSpecOutput) ToVirtualServiceVirtualServiceSpecOutput() VirtualServiceVirtualServiceSpecOutput {
-	return o
-}
-
-func (o VirtualServiceVirtualServiceSpecOutput) ToVirtualServiceVirtualServiceSpecOutputWithContext(ctx context.Context) VirtualServiceVirtualServiceSpecOutput {
-	return o
-}
-
-func (o VirtualServiceVirtualServiceSpecOutput) ToVirtualServiceVirtualServiceSpecPtrOutput() VirtualServiceVirtualServiceSpecPtrOutput {
-	return o.ToVirtualServiceVirtualServiceSpecPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualServiceVirtualServiceSpecOutput) ToVirtualServiceVirtualServiceSpecPtrOutputWithContext(ctx context.Context) VirtualServiceVirtualServiceSpecPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualServiceVirtualServiceSpec) *VirtualServiceVirtualServiceSpec {
-		return &v
-	}).(VirtualServiceVirtualServiceSpecPtrOutput)
-}
-
-func (o VirtualServiceVirtualServiceSpecOutput) Provider() VirtualServiceVirtualServiceProviderPtrOutput {
-	return o.ApplyT(func(v VirtualServiceVirtualServiceSpec) *VirtualServiceVirtualServiceProvider { return v.Provider }).(VirtualServiceVirtualServiceProviderPtrOutput)
-}
-
-type VirtualServiceVirtualServiceSpecPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualServiceVirtualServiceSpecPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualServiceVirtualServiceSpec)(nil)).Elem()
-}
-
-func (o VirtualServiceVirtualServiceSpecPtrOutput) ToVirtualServiceVirtualServiceSpecPtrOutput() VirtualServiceVirtualServiceSpecPtrOutput {
-	return o
-}
-
-func (o VirtualServiceVirtualServiceSpecPtrOutput) ToVirtualServiceVirtualServiceSpecPtrOutputWithContext(ctx context.Context) VirtualServiceVirtualServiceSpecPtrOutput {
-	return o
-}
-
-func (o VirtualServiceVirtualServiceSpecPtrOutput) Elem() VirtualServiceVirtualServiceSpecOutput {
-	return o.ApplyT(func(v *VirtualServiceVirtualServiceSpec) VirtualServiceVirtualServiceSpec {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualServiceVirtualServiceSpec
-		return ret
-	}).(VirtualServiceVirtualServiceSpecOutput)
-}
-
-func (o VirtualServiceVirtualServiceSpecPtrOutput) Provider() VirtualServiceVirtualServiceProviderPtrOutput {
-	return o.ApplyT(func(v *VirtualServiceVirtualServiceSpec) *VirtualServiceVirtualServiceProvider {
-		if v == nil {
-			return nil
-		}
-		return v.Provider
-	}).(VirtualServiceVirtualServiceProviderPtrOutput)
-}
-
 func init() {
-	pulumi.RegisterOutputType(GatewayRouteGatewayRouteHostnameMatchOutput{})
-	pulumi.RegisterOutputType(GatewayRouteGatewayRouteHostnameMatchPtrOutput{})
-	pulumi.RegisterOutputType(GatewayRouteGatewayRouteHostnameRewriteOutput{})
-	pulumi.RegisterOutputType(GatewayRouteGatewayRouteHostnameRewritePtrOutput{})
-	pulumi.RegisterOutputType(GatewayRouteGatewayRouteMetadataMatchOutput{})
-	pulumi.RegisterOutputType(GatewayRouteGatewayRouteMetadataMatchPtrOutput{})
-	pulumi.RegisterOutputType(GatewayRouteGatewayRouteRangeMatchOutput{})
-	pulumi.RegisterOutputType(GatewayRouteGatewayRouteRangeMatchPtrOutput{})
-	pulumi.RegisterOutputType(GatewayRouteGatewayRouteSpecOutput{})
-	pulumi.RegisterOutputType(GatewayRouteGatewayRouteSpecPtrOutput{})
-	pulumi.RegisterOutputType(GatewayRouteGatewayRouteTargetOutput{})
-	pulumi.RegisterOutputType(GatewayRouteGatewayRouteTargetPtrOutput{})
-	pulumi.RegisterOutputType(GatewayRouteGatewayRouteVirtualServiceOutput{})
-	pulumi.RegisterOutputType(GatewayRouteGatewayRouteVirtualServicePtrOutput{})
 	pulumi.RegisterOutputType(GatewayRouteGrpcGatewayRouteOutput{})
 	pulumi.RegisterOutputType(GatewayRouteGrpcGatewayRoutePtrOutput{})
 	pulumi.RegisterOutputType(GatewayRouteGrpcGatewayRouteActionOutput{})
@@ -19123,6 +19057,10 @@ func init() {
 	pulumi.RegisterOutputType(GatewayRouteGrpcGatewayRouteMetadataArrayOutput{})
 	pulumi.RegisterOutputType(GatewayRouteGrpcGatewayRouteRewriteOutput{})
 	pulumi.RegisterOutputType(GatewayRouteGrpcGatewayRouteRewritePtrOutput{})
+	pulumi.RegisterOutputType(GatewayRouteHostnameMatchOutput{})
+	pulumi.RegisterOutputType(GatewayRouteHostnameMatchPtrOutput{})
+	pulumi.RegisterOutputType(GatewayRouteHostnameRewriteOutput{})
+	pulumi.RegisterOutputType(GatewayRouteHostnameRewritePtrOutput{})
 	pulumi.RegisterOutputType(GatewayRouteHttpGatewayRouteOutput{})
 	pulumi.RegisterOutputType(GatewayRouteHttpGatewayRoutePtrOutput{})
 	pulumi.RegisterOutputType(GatewayRouteHttpGatewayRouteActionOutput{})
@@ -19143,14 +19081,24 @@ func init() {
 	pulumi.RegisterOutputType(GatewayRouteHttpPathMatchPtrOutput{})
 	pulumi.RegisterOutputType(GatewayRouteHttpQueryParameterMatchOutput{})
 	pulumi.RegisterOutputType(GatewayRouteHttpQueryParameterMatchPtrOutput{})
+	pulumi.RegisterOutputType(GatewayRouteMetadataMatchOutput{})
+	pulumi.RegisterOutputType(GatewayRouteMetadataMatchPtrOutput{})
 	pulumi.RegisterOutputType(GatewayRouteQueryParameterOutput{})
 	pulumi.RegisterOutputType(GatewayRouteQueryParameterArrayOutput{})
+	pulumi.RegisterOutputType(GatewayRouteRangeMatchOutput{})
+	pulumi.RegisterOutputType(GatewayRouteRangeMatchPtrOutput{})
+	pulumi.RegisterOutputType(GatewayRouteSpecOutput{})
+	pulumi.RegisterOutputType(GatewayRouteSpecPtrOutput{})
 	pulumi.RegisterOutputType(GatewayRouteTagOutput{})
 	pulumi.RegisterOutputType(GatewayRouteTagArrayOutput{})
+	pulumi.RegisterOutputType(GatewayRouteTargetOutput{})
+	pulumi.RegisterOutputType(GatewayRouteTargetPtrOutput{})
+	pulumi.RegisterOutputType(GatewayRouteVirtualServiceOutput{})
+	pulumi.RegisterOutputType(GatewayRouteVirtualServicePtrOutput{})
 	pulumi.RegisterOutputType(MeshEgressFilterOutput{})
 	pulumi.RegisterOutputType(MeshEgressFilterPtrOutput{})
-	pulumi.RegisterOutputType(MeshMeshSpecOutput{})
-	pulumi.RegisterOutputType(MeshMeshSpecPtrOutput{})
+	pulumi.RegisterOutputType(MeshSpecOutput{})
+	pulumi.RegisterOutputType(MeshSpecPtrOutput{})
 	pulumi.RegisterOutputType(MeshTagOutput{})
 	pulumi.RegisterOutputType(MeshTagArrayOutput{})
 	pulumi.RegisterOutputType(RouteDurationOutput{})
@@ -19191,8 +19139,8 @@ func init() {
 	pulumi.RegisterOutputType(RouteMatchRangePtrOutput{})
 	pulumi.RegisterOutputType(RouteQueryParameterOutput{})
 	pulumi.RegisterOutputType(RouteQueryParameterArrayOutput{})
-	pulumi.RegisterOutputType(RouteRouteSpecOutput{})
-	pulumi.RegisterOutputType(RouteRouteSpecPtrOutput{})
+	pulumi.RegisterOutputType(RouteSpecOutput{})
+	pulumi.RegisterOutputType(RouteSpecPtrOutput{})
 	pulumi.RegisterOutputType(RouteTagOutput{})
 	pulumi.RegisterOutputType(RouteTagArrayOutput{})
 	pulumi.RegisterOutputType(RouteTcpRouteOutput{})
@@ -19203,65 +19151,65 @@ func init() {
 	pulumi.RegisterOutputType(RouteTcpTimeoutPtrOutput{})
 	pulumi.RegisterOutputType(RouteWeightedTargetOutput{})
 	pulumi.RegisterOutputType(RouteWeightedTargetArrayOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayAccessLogOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayAccessLogPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayBackendDefaultsOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayBackendDefaultsPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayClientPolicyOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayClientPolicyPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayClientPolicyTlsOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayClientPolicyTlsPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayClientTlsCertificateOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayClientTlsCertificatePtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayConnectionPoolOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayConnectionPoolPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayFileAccessLogOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayFileAccessLogPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayGrpcConnectionPoolOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayGrpcConnectionPoolPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayHealthCheckPolicyOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayHealthCheckPolicyPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayHttp2ConnectionPoolOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayHttp2ConnectionPoolPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayHttpConnectionPoolOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayHttpConnectionPoolPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayListenerOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayListenerArrayOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayListenerTlsOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayListenerTlsPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayListenerTlsAcmCertificateOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayListenerTlsAcmCertificatePtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayListenerTlsCertificateOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayListenerTlsCertificatePtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayListenerTlsFileCertificateOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayListenerTlsFileCertificatePtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayListenerTlsSdsCertificateOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayListenerTlsSdsCertificatePtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayListenerTlsValidationContextOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayListenerTlsValidationContextPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayListenerTlsValidationContextTrustOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayListenerTlsValidationContextTrustPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayLoggingOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayLoggingPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayPortMappingOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecPtrOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySubjectAlternativeNameMatchersOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySubjectAlternativeNameMatchersPtrOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySubjectAlternativeNamesOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySubjectAlternativeNamesPtrOutput{})
 	pulumi.RegisterOutputType(VirtualGatewayTagOutput{})
 	pulumi.RegisterOutputType(VirtualGatewayTagArrayOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayAccessLogOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayAccessLogPtrOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayBackendDefaultsOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayBackendDefaultsPtrOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayClientPolicyOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayClientPolicyPtrOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayClientPolicyTlsOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayClientPolicyTlsPtrOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayClientTlsCertificateOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayClientTlsCertificatePtrOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayConnectionPoolOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayConnectionPoolPtrOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayFileAccessLogOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayFileAccessLogPtrOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayGrpcConnectionPoolOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayGrpcConnectionPoolPtrOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayHealthCheckPolicyOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayHealthCheckPolicyPtrOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayHttp2ConnectionPoolOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayHttp2ConnectionPoolPtrOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayHttpConnectionPoolOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayHttpConnectionPoolPtrOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayListenerOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayListenerArrayOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayListenerTlsOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayListenerTlsPtrOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayListenerTlsAcmCertificateOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayListenerTlsAcmCertificatePtrOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayListenerTlsCertificateOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayListenerTlsCertificatePtrOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayListenerTlsFileCertificateOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayListenerTlsFileCertificatePtrOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayListenerTlsSdsCertificateOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayListenerTlsSdsCertificatePtrOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayListenerTlsValidationContextOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayListenerTlsValidationContextPtrOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayListenerTlsValidationContextTrustPtrOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayLoggingOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayLoggingPtrOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayPortMappingOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewaySpecOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewaySpecPtrOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayTlsValidationContextOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayTlsValidationContextPtrOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayTlsValidationContextAcmTrustPtrOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayTlsValidationContextFileTrustOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayTlsValidationContextFileTrustPtrOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayTlsValidationContextSdsTrustPtrOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayTlsValidationContextTrustOutput{})
-	pulumi.RegisterOutputType(VirtualGatewayVirtualGatewayTlsValidationContextTrustPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayTlsValidationContextOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayTlsValidationContextPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayTlsValidationContextAcmTrustOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayTlsValidationContextAcmTrustPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayTlsValidationContextFileTrustOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayTlsValidationContextFileTrustPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayTlsValidationContextSdsTrustOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayTlsValidationContextSdsTrustPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayTlsValidationContextTrustOutput{})
+	pulumi.RegisterOutputType(VirtualGatewayTlsValidationContextTrustPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeAccessLogOutput{})
 	pulumi.RegisterOutputType(VirtualNodeAccessLogPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeAwsCloudMapInstanceAttributeOutput{})
@@ -19278,16 +19226,24 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNodeClientPolicyTlsPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeClientTlsCertificateOutput{})
 	pulumi.RegisterOutputType(VirtualNodeClientTlsCertificatePtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeConnectionPoolOutput{})
+	pulumi.RegisterOutputType(VirtualNodeConnectionPoolPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeDnsServiceDiscoveryOutput{})
 	pulumi.RegisterOutputType(VirtualNodeDnsServiceDiscoveryPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeDurationOutput{})
 	pulumi.RegisterOutputType(VirtualNodeDurationPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeFileAccessLogOutput{})
 	pulumi.RegisterOutputType(VirtualNodeFileAccessLogPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeGrpcConnectionPoolOutput{})
+	pulumi.RegisterOutputType(VirtualNodeGrpcConnectionPoolPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeGrpcTimeoutOutput{})
 	pulumi.RegisterOutputType(VirtualNodeGrpcTimeoutPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeHealthCheckOutput{})
 	pulumi.RegisterOutputType(VirtualNodeHealthCheckPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeHttp2ConnectionPoolOutput{})
+	pulumi.RegisterOutputType(VirtualNodeHttp2ConnectionPoolPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeHttpConnectionPoolOutput{})
+	pulumi.RegisterOutputType(VirtualNodeHttpConnectionPoolPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeHttpTimeoutOutput{})
 	pulumi.RegisterOutputType(VirtualNodeHttpTimeoutPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeListenerOutput{})
@@ -19315,12 +19271,16 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNodePortMappingOutput{})
 	pulumi.RegisterOutputType(VirtualNodeServiceDiscoveryOutput{})
 	pulumi.RegisterOutputType(VirtualNodeServiceDiscoveryPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSubjectAlternativeNameMatchersOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSubjectAlternativeNameMatchersPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSubjectAlternativeNamesOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSubjectAlternativeNamesPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeTagOutput{})
 	pulumi.RegisterOutputType(VirtualNodeTagArrayOutput{})
+	pulumi.RegisterOutputType(VirtualNodeTcpConnectionPoolOutput{})
+	pulumi.RegisterOutputType(VirtualNodeTcpConnectionPoolPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeTcpTimeoutOutput{})
 	pulumi.RegisterOutputType(VirtualNodeTcpTimeoutPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeTlsValidationContextOutput{})
@@ -19333,35 +19293,23 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNodeTlsValidationContextSdsTrustPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeTlsValidationContextTrustOutput{})
 	pulumi.RegisterOutputType(VirtualNodeTlsValidationContextTrustPtrOutput{})
-	pulumi.RegisterOutputType(VirtualNodeVirtualNodeConnectionPoolOutput{})
-	pulumi.RegisterOutputType(VirtualNodeVirtualNodeConnectionPoolPtrOutput{})
-	pulumi.RegisterOutputType(VirtualNodeVirtualNodeGrpcConnectionPoolOutput{})
-	pulumi.RegisterOutputType(VirtualNodeVirtualNodeGrpcConnectionPoolPtrOutput{})
-	pulumi.RegisterOutputType(VirtualNodeVirtualNodeHttp2ConnectionPoolOutput{})
-	pulumi.RegisterOutputType(VirtualNodeVirtualNodeHttp2ConnectionPoolPtrOutput{})
-	pulumi.RegisterOutputType(VirtualNodeVirtualNodeHttpConnectionPoolOutput{})
-	pulumi.RegisterOutputType(VirtualNodeVirtualNodeHttpConnectionPoolPtrOutput{})
-	pulumi.RegisterOutputType(VirtualNodeVirtualNodeSpecOutput{})
-	pulumi.RegisterOutputType(VirtualNodeVirtualNodeSpecPtrOutput{})
-	pulumi.RegisterOutputType(VirtualNodeVirtualNodeTcpConnectionPoolOutput{})
-	pulumi.RegisterOutputType(VirtualNodeVirtualNodeTcpConnectionPoolPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeVirtualServiceBackendOutput{})
 	pulumi.RegisterOutputType(VirtualNodeVirtualServiceBackendPtrOutput{})
+	pulumi.RegisterOutputType(VirtualRouterListenerOutput{})
+	pulumi.RegisterOutputType(VirtualRouterListenerArrayOutput{})
 	pulumi.RegisterOutputType(VirtualRouterPortMappingOutput{})
+	pulumi.RegisterOutputType(VirtualRouterSpecOutput{})
+	pulumi.RegisterOutputType(VirtualRouterSpecPtrOutput{})
 	pulumi.RegisterOutputType(VirtualRouterTagOutput{})
 	pulumi.RegisterOutputType(VirtualRouterTagArrayOutput{})
-	pulumi.RegisterOutputType(VirtualRouterVirtualRouterListenerOutput{})
-	pulumi.RegisterOutputType(VirtualRouterVirtualRouterListenerArrayOutput{})
-	pulumi.RegisterOutputType(VirtualRouterVirtualRouterSpecOutput{})
-	pulumi.RegisterOutputType(VirtualRouterVirtualRouterSpecPtrOutput{})
+	pulumi.RegisterOutputType(VirtualServiceProviderOutput{})
+	pulumi.RegisterOutputType(VirtualServiceProviderPtrOutput{})
+	pulumi.RegisterOutputType(VirtualServiceSpecOutput{})
+	pulumi.RegisterOutputType(VirtualServiceSpecPtrOutput{})
 	pulumi.RegisterOutputType(VirtualServiceTagOutput{})
 	pulumi.RegisterOutputType(VirtualServiceTagArrayOutput{})
 	pulumi.RegisterOutputType(VirtualServiceVirtualNodeServiceProviderOutput{})
 	pulumi.RegisterOutputType(VirtualServiceVirtualNodeServiceProviderPtrOutput{})
 	pulumi.RegisterOutputType(VirtualServiceVirtualRouterServiceProviderOutput{})
 	pulumi.RegisterOutputType(VirtualServiceVirtualRouterServiceProviderPtrOutput{})
-	pulumi.RegisterOutputType(VirtualServiceVirtualServiceProviderOutput{})
-	pulumi.RegisterOutputType(VirtualServiceVirtualServiceProviderPtrOutput{})
-	pulumi.RegisterOutputType(VirtualServiceVirtualServiceSpecOutput{})
-	pulumi.RegisterOutputType(VirtualServiceVirtualServiceSpecPtrOutput{})
 }

@@ -10,139 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type AliasAliasRoutingConfiguration struct {
-	AdditionalVersionWeights []AliasVersionWeight `pulumi:"additionalVersionWeights"`
-}
-
-// AliasAliasRoutingConfigurationInput is an input type that accepts AliasAliasRoutingConfigurationArgs and AliasAliasRoutingConfigurationOutput values.
-// You can construct a concrete instance of `AliasAliasRoutingConfigurationInput` via:
-//
-//          AliasAliasRoutingConfigurationArgs{...}
-type AliasAliasRoutingConfigurationInput interface {
-	pulumi.Input
-
-	ToAliasAliasRoutingConfigurationOutput() AliasAliasRoutingConfigurationOutput
-	ToAliasAliasRoutingConfigurationOutputWithContext(context.Context) AliasAliasRoutingConfigurationOutput
-}
-
-type AliasAliasRoutingConfigurationArgs struct {
-	AdditionalVersionWeights AliasVersionWeightArrayInput `pulumi:"additionalVersionWeights"`
-}
-
-func (AliasAliasRoutingConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AliasAliasRoutingConfiguration)(nil)).Elem()
-}
-
-func (i AliasAliasRoutingConfigurationArgs) ToAliasAliasRoutingConfigurationOutput() AliasAliasRoutingConfigurationOutput {
-	return i.ToAliasAliasRoutingConfigurationOutputWithContext(context.Background())
-}
-
-func (i AliasAliasRoutingConfigurationArgs) ToAliasAliasRoutingConfigurationOutputWithContext(ctx context.Context) AliasAliasRoutingConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AliasAliasRoutingConfigurationOutput)
-}
-
-func (i AliasAliasRoutingConfigurationArgs) ToAliasAliasRoutingConfigurationPtrOutput() AliasAliasRoutingConfigurationPtrOutput {
-	return i.ToAliasAliasRoutingConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i AliasAliasRoutingConfigurationArgs) ToAliasAliasRoutingConfigurationPtrOutputWithContext(ctx context.Context) AliasAliasRoutingConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AliasAliasRoutingConfigurationOutput).ToAliasAliasRoutingConfigurationPtrOutputWithContext(ctx)
-}
-
-// AliasAliasRoutingConfigurationPtrInput is an input type that accepts AliasAliasRoutingConfigurationArgs, AliasAliasRoutingConfigurationPtr and AliasAliasRoutingConfigurationPtrOutput values.
-// You can construct a concrete instance of `AliasAliasRoutingConfigurationPtrInput` via:
-//
-//          AliasAliasRoutingConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type AliasAliasRoutingConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToAliasAliasRoutingConfigurationPtrOutput() AliasAliasRoutingConfigurationPtrOutput
-	ToAliasAliasRoutingConfigurationPtrOutputWithContext(context.Context) AliasAliasRoutingConfigurationPtrOutput
-}
-
-type aliasAliasRoutingConfigurationPtrType AliasAliasRoutingConfigurationArgs
-
-func AliasAliasRoutingConfigurationPtr(v *AliasAliasRoutingConfigurationArgs) AliasAliasRoutingConfigurationPtrInput {
-	return (*aliasAliasRoutingConfigurationPtrType)(v)
-}
-
-func (*aliasAliasRoutingConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AliasAliasRoutingConfiguration)(nil)).Elem()
-}
-
-func (i *aliasAliasRoutingConfigurationPtrType) ToAliasAliasRoutingConfigurationPtrOutput() AliasAliasRoutingConfigurationPtrOutput {
-	return i.ToAliasAliasRoutingConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *aliasAliasRoutingConfigurationPtrType) ToAliasAliasRoutingConfigurationPtrOutputWithContext(ctx context.Context) AliasAliasRoutingConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AliasAliasRoutingConfigurationPtrOutput)
-}
-
-type AliasAliasRoutingConfigurationOutput struct{ *pulumi.OutputState }
-
-func (AliasAliasRoutingConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AliasAliasRoutingConfiguration)(nil)).Elem()
-}
-
-func (o AliasAliasRoutingConfigurationOutput) ToAliasAliasRoutingConfigurationOutput() AliasAliasRoutingConfigurationOutput {
-	return o
-}
-
-func (o AliasAliasRoutingConfigurationOutput) ToAliasAliasRoutingConfigurationOutputWithContext(ctx context.Context) AliasAliasRoutingConfigurationOutput {
-	return o
-}
-
-func (o AliasAliasRoutingConfigurationOutput) ToAliasAliasRoutingConfigurationPtrOutput() AliasAliasRoutingConfigurationPtrOutput {
-	return o.ToAliasAliasRoutingConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o AliasAliasRoutingConfigurationOutput) ToAliasAliasRoutingConfigurationPtrOutputWithContext(ctx context.Context) AliasAliasRoutingConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AliasAliasRoutingConfiguration) *AliasAliasRoutingConfiguration {
-		return &v
-	}).(AliasAliasRoutingConfigurationPtrOutput)
-}
-
-func (o AliasAliasRoutingConfigurationOutput) AdditionalVersionWeights() AliasVersionWeightArrayOutput {
-	return o.ApplyT(func(v AliasAliasRoutingConfiguration) []AliasVersionWeight { return v.AdditionalVersionWeights }).(AliasVersionWeightArrayOutput)
-}
-
-type AliasAliasRoutingConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (AliasAliasRoutingConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AliasAliasRoutingConfiguration)(nil)).Elem()
-}
-
-func (o AliasAliasRoutingConfigurationPtrOutput) ToAliasAliasRoutingConfigurationPtrOutput() AliasAliasRoutingConfigurationPtrOutput {
-	return o
-}
-
-func (o AliasAliasRoutingConfigurationPtrOutput) ToAliasAliasRoutingConfigurationPtrOutputWithContext(ctx context.Context) AliasAliasRoutingConfigurationPtrOutput {
-	return o
-}
-
-func (o AliasAliasRoutingConfigurationPtrOutput) Elem() AliasAliasRoutingConfigurationOutput {
-	return o.ApplyT(func(v *AliasAliasRoutingConfiguration) AliasAliasRoutingConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret AliasAliasRoutingConfiguration
-		return ret
-	}).(AliasAliasRoutingConfigurationOutput)
-}
-
-func (o AliasAliasRoutingConfigurationPtrOutput) AdditionalVersionWeights() AliasVersionWeightArrayOutput {
-	return o.ApplyT(func(v *AliasAliasRoutingConfiguration) []AliasVersionWeight {
-		if v == nil {
-			return nil
-		}
-		return v.AdditionalVersionWeights
-	}).(AliasVersionWeightArrayOutput)
-}
-
 type AliasProvisionedConcurrencyConfiguration struct {
 	ProvisionedConcurrentExecutions int `pulumi:"provisionedConcurrentExecutions"`
 }
@@ -274,6 +141,139 @@ func (o AliasProvisionedConcurrencyConfigurationPtrOutput) ProvisionedConcurrent
 		}
 		return &v.ProvisionedConcurrentExecutions
 	}).(pulumi.IntPtrOutput)
+}
+
+type AliasRoutingConfiguration struct {
+	AdditionalVersionWeights []AliasVersionWeight `pulumi:"additionalVersionWeights"`
+}
+
+// AliasRoutingConfigurationInput is an input type that accepts AliasRoutingConfigurationArgs and AliasRoutingConfigurationOutput values.
+// You can construct a concrete instance of `AliasRoutingConfigurationInput` via:
+//
+//          AliasRoutingConfigurationArgs{...}
+type AliasRoutingConfigurationInput interface {
+	pulumi.Input
+
+	ToAliasRoutingConfigurationOutput() AliasRoutingConfigurationOutput
+	ToAliasRoutingConfigurationOutputWithContext(context.Context) AliasRoutingConfigurationOutput
+}
+
+type AliasRoutingConfigurationArgs struct {
+	AdditionalVersionWeights AliasVersionWeightArrayInput `pulumi:"additionalVersionWeights"`
+}
+
+func (AliasRoutingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AliasRoutingConfiguration)(nil)).Elem()
+}
+
+func (i AliasRoutingConfigurationArgs) ToAliasRoutingConfigurationOutput() AliasRoutingConfigurationOutput {
+	return i.ToAliasRoutingConfigurationOutputWithContext(context.Background())
+}
+
+func (i AliasRoutingConfigurationArgs) ToAliasRoutingConfigurationOutputWithContext(ctx context.Context) AliasRoutingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AliasRoutingConfigurationOutput)
+}
+
+func (i AliasRoutingConfigurationArgs) ToAliasRoutingConfigurationPtrOutput() AliasRoutingConfigurationPtrOutput {
+	return i.ToAliasRoutingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AliasRoutingConfigurationArgs) ToAliasRoutingConfigurationPtrOutputWithContext(ctx context.Context) AliasRoutingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AliasRoutingConfigurationOutput).ToAliasRoutingConfigurationPtrOutputWithContext(ctx)
+}
+
+// AliasRoutingConfigurationPtrInput is an input type that accepts AliasRoutingConfigurationArgs, AliasRoutingConfigurationPtr and AliasRoutingConfigurationPtrOutput values.
+// You can construct a concrete instance of `AliasRoutingConfigurationPtrInput` via:
+//
+//          AliasRoutingConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type AliasRoutingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAliasRoutingConfigurationPtrOutput() AliasRoutingConfigurationPtrOutput
+	ToAliasRoutingConfigurationPtrOutputWithContext(context.Context) AliasRoutingConfigurationPtrOutput
+}
+
+type aliasRoutingConfigurationPtrType AliasRoutingConfigurationArgs
+
+func AliasRoutingConfigurationPtr(v *AliasRoutingConfigurationArgs) AliasRoutingConfigurationPtrInput {
+	return (*aliasRoutingConfigurationPtrType)(v)
+}
+
+func (*aliasRoutingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AliasRoutingConfiguration)(nil)).Elem()
+}
+
+func (i *aliasRoutingConfigurationPtrType) ToAliasRoutingConfigurationPtrOutput() AliasRoutingConfigurationPtrOutput {
+	return i.ToAliasRoutingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *aliasRoutingConfigurationPtrType) ToAliasRoutingConfigurationPtrOutputWithContext(ctx context.Context) AliasRoutingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AliasRoutingConfigurationPtrOutput)
+}
+
+type AliasRoutingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AliasRoutingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AliasRoutingConfiguration)(nil)).Elem()
+}
+
+func (o AliasRoutingConfigurationOutput) ToAliasRoutingConfigurationOutput() AliasRoutingConfigurationOutput {
+	return o
+}
+
+func (o AliasRoutingConfigurationOutput) ToAliasRoutingConfigurationOutputWithContext(ctx context.Context) AliasRoutingConfigurationOutput {
+	return o
+}
+
+func (o AliasRoutingConfigurationOutput) ToAliasRoutingConfigurationPtrOutput() AliasRoutingConfigurationPtrOutput {
+	return o.ToAliasRoutingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AliasRoutingConfigurationOutput) ToAliasRoutingConfigurationPtrOutputWithContext(ctx context.Context) AliasRoutingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AliasRoutingConfiguration) *AliasRoutingConfiguration {
+		return &v
+	}).(AliasRoutingConfigurationPtrOutput)
+}
+
+func (o AliasRoutingConfigurationOutput) AdditionalVersionWeights() AliasVersionWeightArrayOutput {
+	return o.ApplyT(func(v AliasRoutingConfiguration) []AliasVersionWeight { return v.AdditionalVersionWeights }).(AliasVersionWeightArrayOutput)
+}
+
+type AliasRoutingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AliasRoutingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AliasRoutingConfiguration)(nil)).Elem()
+}
+
+func (o AliasRoutingConfigurationPtrOutput) ToAliasRoutingConfigurationPtrOutput() AliasRoutingConfigurationPtrOutput {
+	return o
+}
+
+func (o AliasRoutingConfigurationPtrOutput) ToAliasRoutingConfigurationPtrOutputWithContext(ctx context.Context) AliasRoutingConfigurationPtrOutput {
+	return o
+}
+
+func (o AliasRoutingConfigurationPtrOutput) Elem() AliasRoutingConfigurationOutput {
+	return o.ApplyT(func(v *AliasRoutingConfiguration) AliasRoutingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AliasRoutingConfiguration
+		return ret
+	}).(AliasRoutingConfigurationOutput)
+}
+
+func (o AliasRoutingConfigurationPtrOutput) AdditionalVersionWeights() AliasVersionWeightArrayOutput {
+	return o.ApplyT(func(v *AliasRoutingConfiguration) []AliasVersionWeight {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalVersionWeights
+	}).(AliasVersionWeightArrayOutput)
 }
 
 type AliasVersionWeight struct {
@@ -3219,10 +3219,10 @@ func (o VersionProvisionedConcurrencyConfigurationPtrOutput) ProvisionedConcurre
 }
 
 func init() {
-	pulumi.RegisterOutputType(AliasAliasRoutingConfigurationOutput{})
-	pulumi.RegisterOutputType(AliasAliasRoutingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AliasProvisionedConcurrencyConfigurationOutput{})
 	pulumi.RegisterOutputType(AliasProvisionedConcurrencyConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AliasRoutingConfigurationOutput{})
+	pulumi.RegisterOutputType(AliasRoutingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AliasVersionWeightOutput{})
 	pulumi.RegisterOutputType(AliasVersionWeightArrayOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigAllowedPublishersOutput{})

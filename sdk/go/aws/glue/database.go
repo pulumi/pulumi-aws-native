@@ -17,8 +17,8 @@ import (
 type Database struct {
 	pulumi.CustomResourceState
 
-	CatalogId     pulumi.StringOutput         `pulumi:"catalogId"`
-	DatabaseInput DatabaseDatabaseInputOutput `pulumi:"databaseInput"`
+	CatalogId     pulumi.StringOutput     `pulumi:"catalogId"`
+	DatabaseInput DatabaseInputTypeOutput `pulumi:"databaseInput"`
 }
 
 // NewDatabase registers a new resource with the given unique name, arguments, and options.
@@ -66,14 +66,14 @@ func (DatabaseState) ElementType() reflect.Type {
 }
 
 type databaseArgs struct {
-	CatalogId     string                `pulumi:"catalogId"`
-	DatabaseInput DatabaseDatabaseInput `pulumi:"databaseInput"`
+	CatalogId     string            `pulumi:"catalogId"`
+	DatabaseInput DatabaseInputType `pulumi:"databaseInput"`
 }
 
 // The set of arguments for constructing a Database resource.
 type DatabaseArgs struct {
 	CatalogId     pulumi.StringInput
-	DatabaseInput DatabaseDatabaseInputInput
+	DatabaseInput DatabaseInputTypeInput
 }
 
 func (DatabaseArgs) ElementType() reflect.Type {

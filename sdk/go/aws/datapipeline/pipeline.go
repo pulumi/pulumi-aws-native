@@ -22,8 +22,8 @@ type Pipeline struct {
 	Name             pulumi.StringOutput                `pulumi:"name"`
 	ParameterObjects PipelineParameterObjectArrayOutput `pulumi:"parameterObjects"`
 	ParameterValues  PipelineParameterValueArrayOutput  `pulumi:"parameterValues"`
-	PipelineObjects  PipelinePipelineObjectArrayOutput  `pulumi:"pipelineObjects"`
-	PipelineTags     PipelinePipelineTagArrayOutput     `pulumi:"pipelineTags"`
+	PipelineObjects  PipelineObjectArrayOutput          `pulumi:"pipelineObjects"`
+	PipelineTags     PipelineTagArrayOutput             `pulumi:"pipelineTags"`
 }
 
 // NewPipeline registers a new resource with the given unique name, arguments, and options.
@@ -76,8 +76,8 @@ type pipelineArgs struct {
 	Name             string                    `pulumi:"name"`
 	ParameterObjects []PipelineParameterObject `pulumi:"parameterObjects"`
 	ParameterValues  []PipelineParameterValue  `pulumi:"parameterValues"`
-	PipelineObjects  []PipelinePipelineObject  `pulumi:"pipelineObjects"`
-	PipelineTags     []PipelinePipelineTag     `pulumi:"pipelineTags"`
+	PipelineObjects  []PipelineObject          `pulumi:"pipelineObjects"`
+	PipelineTags     []PipelineTag             `pulumi:"pipelineTags"`
 }
 
 // The set of arguments for constructing a Pipeline resource.
@@ -87,8 +87,8 @@ type PipelineArgs struct {
 	Name             pulumi.StringInput
 	ParameterObjects PipelineParameterObjectArrayInput
 	ParameterValues  PipelineParameterValueArrayInput
-	PipelineObjects  PipelinePipelineObjectArrayInput
-	PipelineTags     PipelinePipelineTagArrayInput
+	PipelineObjects  PipelineObjectArrayInput
+	PipelineTags     PipelineTagArrayInput
 }
 
 func (PipelineArgs) ElementType() reflect.Type {

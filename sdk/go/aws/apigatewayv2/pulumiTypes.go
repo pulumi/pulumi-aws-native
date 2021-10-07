@@ -1468,7 +1468,7 @@ func (o AuthorizerJWTConfigurationPtrOutput) Issuer() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type DomainNameDomainNameConfiguration struct {
+type DomainNameConfiguration struct {
 	CertificateArn                      *string `pulumi:"certificateArn"`
 	CertificateName                     *string `pulumi:"certificateName"`
 	EndpointType                        *string `pulumi:"endpointType"`
@@ -1476,18 +1476,18 @@ type DomainNameDomainNameConfiguration struct {
 	SecurityPolicy                      *string `pulumi:"securityPolicy"`
 }
 
-// DomainNameDomainNameConfigurationInput is an input type that accepts DomainNameDomainNameConfigurationArgs and DomainNameDomainNameConfigurationOutput values.
-// You can construct a concrete instance of `DomainNameDomainNameConfigurationInput` via:
+// DomainNameConfigurationInput is an input type that accepts DomainNameConfigurationArgs and DomainNameConfigurationOutput values.
+// You can construct a concrete instance of `DomainNameConfigurationInput` via:
 //
-//          DomainNameDomainNameConfigurationArgs{...}
-type DomainNameDomainNameConfigurationInput interface {
+//          DomainNameConfigurationArgs{...}
+type DomainNameConfigurationInput interface {
 	pulumi.Input
 
-	ToDomainNameDomainNameConfigurationOutput() DomainNameDomainNameConfigurationOutput
-	ToDomainNameDomainNameConfigurationOutputWithContext(context.Context) DomainNameDomainNameConfigurationOutput
+	ToDomainNameConfigurationOutput() DomainNameConfigurationOutput
+	ToDomainNameConfigurationOutputWithContext(context.Context) DomainNameConfigurationOutput
 }
 
-type DomainNameDomainNameConfigurationArgs struct {
+type DomainNameConfigurationArgs struct {
 	CertificateArn                      pulumi.StringPtrInput `pulumi:"certificateArn"`
 	CertificateName                     pulumi.StringPtrInput `pulumi:"certificateName"`
 	EndpointType                        pulumi.StringPtrInput `pulumi:"endpointType"`
@@ -1495,95 +1495,95 @@ type DomainNameDomainNameConfigurationArgs struct {
 	SecurityPolicy                      pulumi.StringPtrInput `pulumi:"securityPolicy"`
 }
 
-func (DomainNameDomainNameConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainNameDomainNameConfiguration)(nil)).Elem()
+func (DomainNameConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainNameConfiguration)(nil)).Elem()
 }
 
-func (i DomainNameDomainNameConfigurationArgs) ToDomainNameDomainNameConfigurationOutput() DomainNameDomainNameConfigurationOutput {
-	return i.ToDomainNameDomainNameConfigurationOutputWithContext(context.Background())
+func (i DomainNameConfigurationArgs) ToDomainNameConfigurationOutput() DomainNameConfigurationOutput {
+	return i.ToDomainNameConfigurationOutputWithContext(context.Background())
 }
 
-func (i DomainNameDomainNameConfigurationArgs) ToDomainNameDomainNameConfigurationOutputWithContext(ctx context.Context) DomainNameDomainNameConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainNameDomainNameConfigurationOutput)
+func (i DomainNameConfigurationArgs) ToDomainNameConfigurationOutputWithContext(ctx context.Context) DomainNameConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNameConfigurationOutput)
 }
 
-// DomainNameDomainNameConfigurationArrayInput is an input type that accepts DomainNameDomainNameConfigurationArray and DomainNameDomainNameConfigurationArrayOutput values.
-// You can construct a concrete instance of `DomainNameDomainNameConfigurationArrayInput` via:
+// DomainNameConfigurationArrayInput is an input type that accepts DomainNameConfigurationArray and DomainNameConfigurationArrayOutput values.
+// You can construct a concrete instance of `DomainNameConfigurationArrayInput` via:
 //
-//          DomainNameDomainNameConfigurationArray{ DomainNameDomainNameConfigurationArgs{...} }
-type DomainNameDomainNameConfigurationArrayInput interface {
+//          DomainNameConfigurationArray{ DomainNameConfigurationArgs{...} }
+type DomainNameConfigurationArrayInput interface {
 	pulumi.Input
 
-	ToDomainNameDomainNameConfigurationArrayOutput() DomainNameDomainNameConfigurationArrayOutput
-	ToDomainNameDomainNameConfigurationArrayOutputWithContext(context.Context) DomainNameDomainNameConfigurationArrayOutput
+	ToDomainNameConfigurationArrayOutput() DomainNameConfigurationArrayOutput
+	ToDomainNameConfigurationArrayOutputWithContext(context.Context) DomainNameConfigurationArrayOutput
 }
 
-type DomainNameDomainNameConfigurationArray []DomainNameDomainNameConfigurationInput
+type DomainNameConfigurationArray []DomainNameConfigurationInput
 
-func (DomainNameDomainNameConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DomainNameDomainNameConfiguration)(nil)).Elem()
+func (DomainNameConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainNameConfiguration)(nil)).Elem()
 }
 
-func (i DomainNameDomainNameConfigurationArray) ToDomainNameDomainNameConfigurationArrayOutput() DomainNameDomainNameConfigurationArrayOutput {
-	return i.ToDomainNameDomainNameConfigurationArrayOutputWithContext(context.Background())
+func (i DomainNameConfigurationArray) ToDomainNameConfigurationArrayOutput() DomainNameConfigurationArrayOutput {
+	return i.ToDomainNameConfigurationArrayOutputWithContext(context.Background())
 }
 
-func (i DomainNameDomainNameConfigurationArray) ToDomainNameDomainNameConfigurationArrayOutputWithContext(ctx context.Context) DomainNameDomainNameConfigurationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainNameDomainNameConfigurationArrayOutput)
+func (i DomainNameConfigurationArray) ToDomainNameConfigurationArrayOutputWithContext(ctx context.Context) DomainNameConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNameConfigurationArrayOutput)
 }
 
-type DomainNameDomainNameConfigurationOutput struct{ *pulumi.OutputState }
+type DomainNameConfigurationOutput struct{ *pulumi.OutputState }
 
-func (DomainNameDomainNameConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainNameDomainNameConfiguration)(nil)).Elem()
+func (DomainNameConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainNameConfiguration)(nil)).Elem()
 }
 
-func (o DomainNameDomainNameConfigurationOutput) ToDomainNameDomainNameConfigurationOutput() DomainNameDomainNameConfigurationOutput {
+func (o DomainNameConfigurationOutput) ToDomainNameConfigurationOutput() DomainNameConfigurationOutput {
 	return o
 }
 
-func (o DomainNameDomainNameConfigurationOutput) ToDomainNameDomainNameConfigurationOutputWithContext(ctx context.Context) DomainNameDomainNameConfigurationOutput {
+func (o DomainNameConfigurationOutput) ToDomainNameConfigurationOutputWithContext(ctx context.Context) DomainNameConfigurationOutput {
 	return o
 }
 
-func (o DomainNameDomainNameConfigurationOutput) CertificateArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainNameDomainNameConfiguration) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
+func (o DomainNameConfigurationOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainNameConfiguration) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
-func (o DomainNameDomainNameConfigurationOutput) CertificateName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainNameDomainNameConfiguration) *string { return v.CertificateName }).(pulumi.StringPtrOutput)
+func (o DomainNameConfigurationOutput) CertificateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainNameConfiguration) *string { return v.CertificateName }).(pulumi.StringPtrOutput)
 }
 
-func (o DomainNameDomainNameConfigurationOutput) EndpointType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainNameDomainNameConfiguration) *string { return v.EndpointType }).(pulumi.StringPtrOutput)
+func (o DomainNameConfigurationOutput) EndpointType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainNameConfiguration) *string { return v.EndpointType }).(pulumi.StringPtrOutput)
 }
 
-func (o DomainNameDomainNameConfigurationOutput) OwnershipVerificationCertificateArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainNameDomainNameConfiguration) *string { return v.OwnershipVerificationCertificateArn }).(pulumi.StringPtrOutput)
+func (o DomainNameConfigurationOutput) OwnershipVerificationCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainNameConfiguration) *string { return v.OwnershipVerificationCertificateArn }).(pulumi.StringPtrOutput)
 }
 
-func (o DomainNameDomainNameConfigurationOutput) SecurityPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainNameDomainNameConfiguration) *string { return v.SecurityPolicy }).(pulumi.StringPtrOutput)
+func (o DomainNameConfigurationOutput) SecurityPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainNameConfiguration) *string { return v.SecurityPolicy }).(pulumi.StringPtrOutput)
 }
 
-type DomainNameDomainNameConfigurationArrayOutput struct{ *pulumi.OutputState }
+type DomainNameConfigurationArrayOutput struct{ *pulumi.OutputState }
 
-func (DomainNameDomainNameConfigurationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DomainNameDomainNameConfiguration)(nil)).Elem()
+func (DomainNameConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainNameConfiguration)(nil)).Elem()
 }
 
-func (o DomainNameDomainNameConfigurationArrayOutput) ToDomainNameDomainNameConfigurationArrayOutput() DomainNameDomainNameConfigurationArrayOutput {
+func (o DomainNameConfigurationArrayOutput) ToDomainNameConfigurationArrayOutput() DomainNameConfigurationArrayOutput {
 	return o
 }
 
-func (o DomainNameDomainNameConfigurationArrayOutput) ToDomainNameDomainNameConfigurationArrayOutputWithContext(ctx context.Context) DomainNameDomainNameConfigurationArrayOutput {
+func (o DomainNameConfigurationArrayOutput) ToDomainNameConfigurationArrayOutputWithContext(ctx context.Context) DomainNameConfigurationArrayOutput {
 	return o
 }
 
-func (o DomainNameDomainNameConfigurationArrayOutput) Index(i pulumi.IntInput) DomainNameDomainNameConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainNameDomainNameConfiguration {
-		return vs[0].([]DomainNameDomainNameConfiguration)[vs[1].(int)]
-	}).(DomainNameDomainNameConfigurationOutput)
+func (o DomainNameConfigurationArrayOutput) Index(i pulumi.IntInput) DomainNameConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainNameConfiguration {
+		return vs[0].([]DomainNameConfiguration)[vs[1].(int)]
+	}).(DomainNameConfigurationOutput)
 }
 
 type DomainNameMutualTlsAuthentication struct {
@@ -2225,8 +2225,8 @@ func init() {
 	pulumi.RegisterOutputType(ApiGatewayManagedOverridesStageOverridesPtrOutput{})
 	pulumi.RegisterOutputType(AuthorizerJWTConfigurationOutput{})
 	pulumi.RegisterOutputType(AuthorizerJWTConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(DomainNameDomainNameConfigurationOutput{})
-	pulumi.RegisterOutputType(DomainNameDomainNameConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(DomainNameConfigurationOutput{})
+	pulumi.RegisterOutputType(DomainNameConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationOutput{})
 	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationTlsConfigOutput{})

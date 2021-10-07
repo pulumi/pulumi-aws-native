@@ -306,7 +306,7 @@ func (o SkillOverridesPtrOutput) Manifest() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-type SkillSkillPackage struct {
+type SkillPackage struct {
 	Overrides       *SkillOverrides `pulumi:"overrides"`
 	S3Bucket        string          `pulumi:"s3Bucket"`
 	S3BucketRole    *string         `pulumi:"s3BucketRole"`
@@ -314,18 +314,18 @@ type SkillSkillPackage struct {
 	S3ObjectVersion *string         `pulumi:"s3ObjectVersion"`
 }
 
-// SkillSkillPackageInput is an input type that accepts SkillSkillPackageArgs and SkillSkillPackageOutput values.
-// You can construct a concrete instance of `SkillSkillPackageInput` via:
+// SkillPackageInput is an input type that accepts SkillPackageArgs and SkillPackageOutput values.
+// You can construct a concrete instance of `SkillPackageInput` via:
 //
-//          SkillSkillPackageArgs{...}
-type SkillSkillPackageInput interface {
+//          SkillPackageArgs{...}
+type SkillPackageInput interface {
 	pulumi.Input
 
-	ToSkillSkillPackageOutput() SkillSkillPackageOutput
-	ToSkillSkillPackageOutputWithContext(context.Context) SkillSkillPackageOutput
+	ToSkillPackageOutput() SkillPackageOutput
+	ToSkillPackageOutputWithContext(context.Context) SkillPackageOutput
 }
 
-type SkillSkillPackageArgs struct {
+type SkillPackageArgs struct {
 	Overrides       SkillOverridesPtrInput `pulumi:"overrides"`
 	S3Bucket        pulumi.StringInput     `pulumi:"s3Bucket"`
 	S3BucketRole    pulumi.StringPtrInput  `pulumi:"s3BucketRole"`
@@ -333,129 +333,129 @@ type SkillSkillPackageArgs struct {
 	S3ObjectVersion pulumi.StringPtrInput  `pulumi:"s3ObjectVersion"`
 }
 
-func (SkillSkillPackageArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkillSkillPackage)(nil)).Elem()
+func (SkillPackageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkillPackage)(nil)).Elem()
 }
 
-func (i SkillSkillPackageArgs) ToSkillSkillPackageOutput() SkillSkillPackageOutput {
-	return i.ToSkillSkillPackageOutputWithContext(context.Background())
+func (i SkillPackageArgs) ToSkillPackageOutput() SkillPackageOutput {
+	return i.ToSkillPackageOutputWithContext(context.Background())
 }
 
-func (i SkillSkillPackageArgs) ToSkillSkillPackageOutputWithContext(ctx context.Context) SkillSkillPackageOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkillSkillPackageOutput)
+func (i SkillPackageArgs) ToSkillPackageOutputWithContext(ctx context.Context) SkillPackageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkillPackageOutput)
 }
 
-func (i SkillSkillPackageArgs) ToSkillSkillPackagePtrOutput() SkillSkillPackagePtrOutput {
-	return i.ToSkillSkillPackagePtrOutputWithContext(context.Background())
+func (i SkillPackageArgs) ToSkillPackagePtrOutput() SkillPackagePtrOutput {
+	return i.ToSkillPackagePtrOutputWithContext(context.Background())
 }
 
-func (i SkillSkillPackageArgs) ToSkillSkillPackagePtrOutputWithContext(ctx context.Context) SkillSkillPackagePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkillSkillPackageOutput).ToSkillSkillPackagePtrOutputWithContext(ctx)
+func (i SkillPackageArgs) ToSkillPackagePtrOutputWithContext(ctx context.Context) SkillPackagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkillPackageOutput).ToSkillPackagePtrOutputWithContext(ctx)
 }
 
-// SkillSkillPackagePtrInput is an input type that accepts SkillSkillPackageArgs, SkillSkillPackagePtr and SkillSkillPackagePtrOutput values.
-// You can construct a concrete instance of `SkillSkillPackagePtrInput` via:
+// SkillPackagePtrInput is an input type that accepts SkillPackageArgs, SkillPackagePtr and SkillPackagePtrOutput values.
+// You can construct a concrete instance of `SkillPackagePtrInput` via:
 //
-//          SkillSkillPackageArgs{...}
+//          SkillPackageArgs{...}
 //
 //  or:
 //
 //          nil
-type SkillSkillPackagePtrInput interface {
+type SkillPackagePtrInput interface {
 	pulumi.Input
 
-	ToSkillSkillPackagePtrOutput() SkillSkillPackagePtrOutput
-	ToSkillSkillPackagePtrOutputWithContext(context.Context) SkillSkillPackagePtrOutput
+	ToSkillPackagePtrOutput() SkillPackagePtrOutput
+	ToSkillPackagePtrOutputWithContext(context.Context) SkillPackagePtrOutput
 }
 
-type skillSkillPackagePtrType SkillSkillPackageArgs
+type skillPackagePtrType SkillPackageArgs
 
-func SkillSkillPackagePtr(v *SkillSkillPackageArgs) SkillSkillPackagePtrInput {
-	return (*skillSkillPackagePtrType)(v)
+func SkillPackagePtr(v *SkillPackageArgs) SkillPackagePtrInput {
+	return (*skillPackagePtrType)(v)
 }
 
-func (*skillSkillPackagePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SkillSkillPackage)(nil)).Elem()
+func (*skillPackagePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SkillPackage)(nil)).Elem()
 }
 
-func (i *skillSkillPackagePtrType) ToSkillSkillPackagePtrOutput() SkillSkillPackagePtrOutput {
-	return i.ToSkillSkillPackagePtrOutputWithContext(context.Background())
+func (i *skillPackagePtrType) ToSkillPackagePtrOutput() SkillPackagePtrOutput {
+	return i.ToSkillPackagePtrOutputWithContext(context.Background())
 }
 
-func (i *skillSkillPackagePtrType) ToSkillSkillPackagePtrOutputWithContext(ctx context.Context) SkillSkillPackagePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkillSkillPackagePtrOutput)
+func (i *skillPackagePtrType) ToSkillPackagePtrOutputWithContext(ctx context.Context) SkillPackagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkillPackagePtrOutput)
 }
 
-type SkillSkillPackageOutput struct{ *pulumi.OutputState }
+type SkillPackageOutput struct{ *pulumi.OutputState }
 
-func (SkillSkillPackageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkillSkillPackage)(nil)).Elem()
+func (SkillPackageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkillPackage)(nil)).Elem()
 }
 
-func (o SkillSkillPackageOutput) ToSkillSkillPackageOutput() SkillSkillPackageOutput {
+func (o SkillPackageOutput) ToSkillPackageOutput() SkillPackageOutput {
 	return o
 }
 
-func (o SkillSkillPackageOutput) ToSkillSkillPackageOutputWithContext(ctx context.Context) SkillSkillPackageOutput {
+func (o SkillPackageOutput) ToSkillPackageOutputWithContext(ctx context.Context) SkillPackageOutput {
 	return o
 }
 
-func (o SkillSkillPackageOutput) ToSkillSkillPackagePtrOutput() SkillSkillPackagePtrOutput {
-	return o.ToSkillSkillPackagePtrOutputWithContext(context.Background())
+func (o SkillPackageOutput) ToSkillPackagePtrOutput() SkillPackagePtrOutput {
+	return o.ToSkillPackagePtrOutputWithContext(context.Background())
 }
 
-func (o SkillSkillPackageOutput) ToSkillSkillPackagePtrOutputWithContext(ctx context.Context) SkillSkillPackagePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkillSkillPackage) *SkillSkillPackage {
+func (o SkillPackageOutput) ToSkillPackagePtrOutputWithContext(ctx context.Context) SkillPackagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkillPackage) *SkillPackage {
 		return &v
-	}).(SkillSkillPackagePtrOutput)
+	}).(SkillPackagePtrOutput)
 }
 
-func (o SkillSkillPackageOutput) Overrides() SkillOverridesPtrOutput {
-	return o.ApplyT(func(v SkillSkillPackage) *SkillOverrides { return v.Overrides }).(SkillOverridesPtrOutput)
+func (o SkillPackageOutput) Overrides() SkillOverridesPtrOutput {
+	return o.ApplyT(func(v SkillPackage) *SkillOverrides { return v.Overrides }).(SkillOverridesPtrOutput)
 }
 
-func (o SkillSkillPackageOutput) S3Bucket() pulumi.StringOutput {
-	return o.ApplyT(func(v SkillSkillPackage) string { return v.S3Bucket }).(pulumi.StringOutput)
+func (o SkillPackageOutput) S3Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v SkillPackage) string { return v.S3Bucket }).(pulumi.StringOutput)
 }
 
-func (o SkillSkillPackageOutput) S3BucketRole() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SkillSkillPackage) *string { return v.S3BucketRole }).(pulumi.StringPtrOutput)
+func (o SkillPackageOutput) S3BucketRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkillPackage) *string { return v.S3BucketRole }).(pulumi.StringPtrOutput)
 }
 
-func (o SkillSkillPackageOutput) S3Key() pulumi.StringOutput {
-	return o.ApplyT(func(v SkillSkillPackage) string { return v.S3Key }).(pulumi.StringOutput)
+func (o SkillPackageOutput) S3Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SkillPackage) string { return v.S3Key }).(pulumi.StringOutput)
 }
 
-func (o SkillSkillPackageOutput) S3ObjectVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SkillSkillPackage) *string { return v.S3ObjectVersion }).(pulumi.StringPtrOutput)
+func (o SkillPackageOutput) S3ObjectVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkillPackage) *string { return v.S3ObjectVersion }).(pulumi.StringPtrOutput)
 }
 
-type SkillSkillPackagePtrOutput struct{ *pulumi.OutputState }
+type SkillPackagePtrOutput struct{ *pulumi.OutputState }
 
-func (SkillSkillPackagePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SkillSkillPackage)(nil)).Elem()
+func (SkillPackagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SkillPackage)(nil)).Elem()
 }
 
-func (o SkillSkillPackagePtrOutput) ToSkillSkillPackagePtrOutput() SkillSkillPackagePtrOutput {
+func (o SkillPackagePtrOutput) ToSkillPackagePtrOutput() SkillPackagePtrOutput {
 	return o
 }
 
-func (o SkillSkillPackagePtrOutput) ToSkillSkillPackagePtrOutputWithContext(ctx context.Context) SkillSkillPackagePtrOutput {
+func (o SkillPackagePtrOutput) ToSkillPackagePtrOutputWithContext(ctx context.Context) SkillPackagePtrOutput {
 	return o
 }
 
-func (o SkillSkillPackagePtrOutput) Elem() SkillSkillPackageOutput {
-	return o.ApplyT(func(v *SkillSkillPackage) SkillSkillPackage {
+func (o SkillPackagePtrOutput) Elem() SkillPackageOutput {
+	return o.ApplyT(func(v *SkillPackage) SkillPackage {
 		if v != nil {
 			return *v
 		}
-		var ret SkillSkillPackage
+		var ret SkillPackage
 		return ret
-	}).(SkillSkillPackageOutput)
+	}).(SkillPackageOutput)
 }
 
-func (o SkillSkillPackagePtrOutput) Overrides() SkillOverridesPtrOutput {
-	return o.ApplyT(func(v *SkillSkillPackage) *SkillOverrides {
+func (o SkillPackagePtrOutput) Overrides() SkillOverridesPtrOutput {
+	return o.ApplyT(func(v *SkillPackage) *SkillOverrides {
 		if v == nil {
 			return nil
 		}
@@ -463,8 +463,8 @@ func (o SkillSkillPackagePtrOutput) Overrides() SkillOverridesPtrOutput {
 	}).(SkillOverridesPtrOutput)
 }
 
-func (o SkillSkillPackagePtrOutput) S3Bucket() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SkillSkillPackage) *string {
+func (o SkillPackagePtrOutput) S3Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkillPackage) *string {
 		if v == nil {
 			return nil
 		}
@@ -472,8 +472,8 @@ func (o SkillSkillPackagePtrOutput) S3Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o SkillSkillPackagePtrOutput) S3BucketRole() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SkillSkillPackage) *string {
+func (o SkillPackagePtrOutput) S3BucketRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkillPackage) *string {
 		if v == nil {
 			return nil
 		}
@@ -481,8 +481,8 @@ func (o SkillSkillPackagePtrOutput) S3BucketRole() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o SkillSkillPackagePtrOutput) S3Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SkillSkillPackage) *string {
+func (o SkillPackagePtrOutput) S3Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkillPackage) *string {
 		if v == nil {
 			return nil
 		}
@@ -490,8 +490,8 @@ func (o SkillSkillPackagePtrOutput) S3Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o SkillSkillPackagePtrOutput) S3ObjectVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SkillSkillPackage) *string {
+func (o SkillPackagePtrOutput) S3ObjectVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkillPackage) *string {
 		if v == nil {
 			return nil
 		}
@@ -504,6 +504,6 @@ func init() {
 	pulumi.RegisterOutputType(SkillAuthenticationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SkillOverridesOutput{})
 	pulumi.RegisterOutputType(SkillOverridesPtrOutput{})
-	pulumi.RegisterOutputType(SkillSkillPackageOutput{})
-	pulumi.RegisterOutputType(SkillSkillPackagePtrOutput{})
+	pulumi.RegisterOutputType(SkillPackageOutput{})
+	pulumi.RegisterOutputType(SkillPackagePtrOutput{})
 }

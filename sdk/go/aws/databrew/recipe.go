@@ -18,9 +18,9 @@ type Recipe struct {
 	// Description of the recipe
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Recipe name
-	Name  pulumi.StringOutput         `pulumi:"name"`
-	Steps RecipeRecipeStepArrayOutput `pulumi:"steps"`
-	Tags  RecipeTagArrayOutput        `pulumi:"tags"`
+	Name  pulumi.StringOutput   `pulumi:"name"`
+	Steps RecipeStepArrayOutput `pulumi:"steps"`
+	Tags  RecipeTagArrayOutput  `pulumi:"tags"`
 }
 
 // NewRecipe registers a new resource with the given unique name, arguments, and options.
@@ -71,9 +71,9 @@ type recipeArgs struct {
 	// Description of the recipe
 	Description *string `pulumi:"description"`
 	// Recipe name
-	Name  string             `pulumi:"name"`
-	Steps []RecipeRecipeStep `pulumi:"steps"`
-	Tags  []RecipeTag        `pulumi:"tags"`
+	Name  string       `pulumi:"name"`
+	Steps []RecipeStep `pulumi:"steps"`
+	Tags  []RecipeTag  `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Recipe resource.
@@ -82,7 +82,7 @@ type RecipeArgs struct {
 	Description pulumi.StringPtrInput
 	// Recipe name
 	Name  pulumi.StringInput
-	Steps RecipeRecipeStepArrayInput
+	Steps RecipeStepArrayInput
 	Tags  RecipeTagArrayInput
 }
 

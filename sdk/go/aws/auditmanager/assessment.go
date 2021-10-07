@@ -14,20 +14,20 @@ import (
 type Assessment struct {
 	pulumi.CustomResourceState
 
-	Arn                          pulumi.StringOutput                             `pulumi:"arn"`
-	AssessmentId                 pulumi.StringOutput                             `pulumi:"assessmentId"`
-	AssessmentReportsDestination AssessmentAssessmentReportsDestinationPtrOutput `pulumi:"assessmentReportsDestination"`
-	AwsAccount                   AssessmentAWSAccountPtrOutput                   `pulumi:"awsAccount"`
-	CreationTime                 pulumi.Float64Output                            `pulumi:"creationTime"`
+	Arn                          pulumi.StringOutput                   `pulumi:"arn"`
+	AssessmentId                 pulumi.StringOutput                   `pulumi:"assessmentId"`
+	AssessmentReportsDestination AssessmentReportsDestinationPtrOutput `pulumi:"assessmentReportsDestination"`
+	AwsAccount                   AssessmentAWSAccountPtrOutput         `pulumi:"awsAccount"`
+	CreationTime                 pulumi.Float64Output                  `pulumi:"creationTime"`
 	// The list of delegations.
 	Delegations AssessmentDelegationArrayOutput `pulumi:"delegations"`
 	Description pulumi.StringPtrOutput          `pulumi:"description"`
 	FrameworkId pulumi.StringPtrOutput          `pulumi:"frameworkId"`
 	Name        pulumi.StringPtrOutput          `pulumi:"name"`
 	// The list of roles for the specified assessment.
-	Roles  AssessmentRoleArrayOutput           `pulumi:"roles"`
-	Scope  AssessmentScopePtrOutput            `pulumi:"scope"`
-	Status AssessmentAssessmentStatusPtrOutput `pulumi:"status"`
+	Roles  AssessmentRoleArrayOutput `pulumi:"roles"`
+	Scope  AssessmentScopePtrOutput  `pulumi:"scope"`
+	Status AssessmentStatusPtrOutput `pulumi:"status"`
 	// The tags associated with the assessment.
 	Tags AssessmentTagArrayOutput `pulumi:"tags"`
 }
@@ -71,22 +71,22 @@ func (AssessmentState) ElementType() reflect.Type {
 }
 
 type assessmentArgs struct {
-	AssessmentReportsDestination *AssessmentAssessmentReportsDestination `pulumi:"assessmentReportsDestination"`
-	AwsAccount                   *AssessmentAWSAccount                   `pulumi:"awsAccount"`
-	Description                  *string                                 `pulumi:"description"`
-	FrameworkId                  *string                                 `pulumi:"frameworkId"`
-	Name                         *string                                 `pulumi:"name"`
+	AssessmentReportsDestination *AssessmentReportsDestination `pulumi:"assessmentReportsDestination"`
+	AwsAccount                   *AssessmentAWSAccount         `pulumi:"awsAccount"`
+	Description                  *string                       `pulumi:"description"`
+	FrameworkId                  *string                       `pulumi:"frameworkId"`
+	Name                         *string                       `pulumi:"name"`
 	// The list of roles for the specified assessment.
-	Roles  []AssessmentRole            `pulumi:"roles"`
-	Scope  *AssessmentScope            `pulumi:"scope"`
-	Status *AssessmentAssessmentStatus `pulumi:"status"`
+	Roles  []AssessmentRole  `pulumi:"roles"`
+	Scope  *AssessmentScope  `pulumi:"scope"`
+	Status *AssessmentStatus `pulumi:"status"`
 	// The tags associated with the assessment.
 	Tags []AssessmentTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Assessment resource.
 type AssessmentArgs struct {
-	AssessmentReportsDestination AssessmentAssessmentReportsDestinationPtrInput
+	AssessmentReportsDestination AssessmentReportsDestinationPtrInput
 	AwsAccount                   AssessmentAWSAccountPtrInput
 	Description                  pulumi.StringPtrInput
 	FrameworkId                  pulumi.StringPtrInput
@@ -94,7 +94,7 @@ type AssessmentArgs struct {
 	// The list of roles for the specified assessment.
 	Roles  AssessmentRoleArrayInput
 	Scope  AssessmentScopePtrInput
-	Status AssessmentAssessmentStatusPtrInput
+	Status AssessmentStatusPtrInput
 	// The tags associated with the assessment.
 	Tags AssessmentTagArrayInput
 }

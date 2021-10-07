@@ -16,7 +16,7 @@ type AnomalyDetector struct {
 	pulumi.CustomResourceState
 
 	// Configuration options for the AnomalyDetector
-	AnomalyDetectorConfig AnomalyDetectorAnomalyDetectorConfigOutput `pulumi:"anomalyDetectorConfig"`
+	AnomalyDetectorConfig AnomalyDetectorConfigOutput `pulumi:"anomalyDetectorConfig"`
 	// A description for the AnomalyDetector.
 	AnomalyDetectorDescription pulumi.StringPtrOutput `pulumi:"anomalyDetectorDescription"`
 	// Name for the Amazon Lookout for Metrics Anomaly Detector
@@ -74,7 +74,7 @@ func (AnomalyDetectorState) ElementType() reflect.Type {
 
 type anomalyDetectorArgs struct {
 	// Configuration options for the AnomalyDetector
-	AnomalyDetectorConfig AnomalyDetectorAnomalyDetectorConfig `pulumi:"anomalyDetectorConfig"`
+	AnomalyDetectorConfig AnomalyDetectorConfig `pulumi:"anomalyDetectorConfig"`
 	// A description for the AnomalyDetector.
 	AnomalyDetectorDescription *string `pulumi:"anomalyDetectorDescription"`
 	// Name for the Amazon Lookout for Metrics Anomaly Detector
@@ -88,7 +88,7 @@ type anomalyDetectorArgs struct {
 // The set of arguments for constructing a AnomalyDetector resource.
 type AnomalyDetectorArgs struct {
 	// Configuration options for the AnomalyDetector
-	AnomalyDetectorConfig AnomalyDetectorAnomalyDetectorConfigInput
+	AnomalyDetectorConfig AnomalyDetectorConfigInput
 	// A description for the AnomalyDetector.
 	AnomalyDetectorDescription pulumi.StringPtrInput
 	// Name for the Amazon Lookout for Metrics Anomaly Detector
