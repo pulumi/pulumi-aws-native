@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Backup
     public partial class BackupPlan : Pulumi.CustomResource
     {
         [Output("backupPlan")]
-        public Output<Outputs.BackupPlanBackupPlanResourceType> BackupPlanValue { get; private set; } = null!;
+        public Output<Outputs.BackupPlanResourceType> BackupPlanValue { get; private set; } = null!;
 
         [Output("backupPlanArn")]
         public Output<string> BackupPlanArn { get; private set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Backup
     public sealed class BackupPlanArgs : Pulumi.ResourceArgs
     {
         [Input("backupPlan", required: true)]
-        public Input<Inputs.BackupPlanBackupPlanResourceTypeArgs> BackupPlanValue { get; set; } = null!;
+        public Input<Inputs.BackupPlanResourceTypeArgs> BackupPlanValue { get; set; } = null!;
 
         [Input("backupPlanTags")]
         public Input<object>? BackupPlanTags { get; set; }

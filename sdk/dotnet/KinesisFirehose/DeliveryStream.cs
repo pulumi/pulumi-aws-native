@@ -22,13 +22,13 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("deliveryStreamEncryptionConfigurationInput")]
-        public Output<Outputs.DeliveryStreamDeliveryStreamEncryptionConfigurationInput?> DeliveryStreamEncryptionConfigurationInput { get; private set; } = null!;
+        public Output<Outputs.DeliveryStreamEncryptionConfigurationInput?> DeliveryStreamEncryptionConfigurationInput { get; private set; } = null!;
 
         [Output("deliveryStreamName")]
         public Output<string?> DeliveryStreamName { get; private set; } = null!;
 
         [Output("deliveryStreamType")]
-        public Output<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamDeliveryStreamType?> DeliveryStreamType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamType?> DeliveryStreamType { get; private set; } = null!;
 
         [Output("elasticsearchDestinationConfiguration")]
         public Output<Outputs.DeliveryStreamElasticsearchDestinationConfiguration?> ElasticsearchDestinationConfiguration { get; private set; } = null!;
@@ -103,13 +103,13 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public Input<Inputs.DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs>? AmazonopensearchserviceDestinationConfiguration { get; set; }
 
         [Input("deliveryStreamEncryptionConfigurationInput")]
-        public Input<Inputs.DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs>? DeliveryStreamEncryptionConfigurationInput { get; set; }
+        public Input<Inputs.DeliveryStreamEncryptionConfigurationInputArgs>? DeliveryStreamEncryptionConfigurationInput { get; set; }
 
         [Input("deliveryStreamName")]
         public Input<string>? DeliveryStreamName { get; set; }
 
         [Input("deliveryStreamType")]
-        public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamDeliveryStreamType>? DeliveryStreamType { get; set; }
+        public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamType>? DeliveryStreamType { get; set; }
 
         [Input("elasticsearchDestinationConfiguration")]
         public Input<Inputs.DeliveryStreamElasticsearchDestinationConfigurationArgs>? ElasticsearchDestinationConfiguration { get; set; }

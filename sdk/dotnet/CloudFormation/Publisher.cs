@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.CloudFormation
         /// Whether the publisher is verified.
         /// </summary>
         [Output("publisherStatus")]
-        public Output<Pulumi.AwsNative.CloudFormation.PublisherPublisherStatus> PublisherStatus { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.CloudFormation.PublisherStatus> PublisherStatus { get; private set; } = null!;
 
 
         /// <summary>

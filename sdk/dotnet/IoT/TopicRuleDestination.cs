@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.IoT
         /// The status of the TopicRuleDestination.
         /// </summary>
         [Output("status")]
-        public Output<Pulumi.AwsNative.IoT.TopicRuleDestinationTopicRuleDestinationStatus?> Status { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.IoT.TopicRuleDestinationStatus?> Status { get; private set; } = null!;
 
         /// <summary>
         /// The reasoning for the current status of the TopicRuleDestination.
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.IoT
         /// The status of the TopicRuleDestination.
         /// </summary>
         [Input("status")]
-        public Input<Pulumi.AwsNative.IoT.TopicRuleDestinationTopicRuleDestinationStatus>? Status { get; set; }
+        public Input<Pulumi.AwsNative.IoT.TopicRuleDestinationStatus>? Status { get; set; }
 
         /// <summary>
         /// VPC destination properties.

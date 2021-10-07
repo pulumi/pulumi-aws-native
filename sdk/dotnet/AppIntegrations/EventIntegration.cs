@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// The associations with the event integration.
         /// </summary>
         [Output("associations")]
-        public Output<ImmutableArray<Outputs.EventIntegrationEventIntegrationAssociation>> Associations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.EventIntegrationAssociation>> Associations { get; private set; } = null!;
 
         /// <summary>
         /// The event integration description.

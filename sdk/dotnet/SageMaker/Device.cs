@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// The Edge Device you want to register against a device fleet
         /// </summary>
         [Output("device")]
-        public Output<Outputs.DeviceDevice?> DeviceValue { get; private set; } = null!;
+        public Output<Outputs.Device?> DeviceValue { get; private set; } = null!;
 
         /// <summary>
         /// The name of the edge device fleet
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// The Edge Device you want to register against a device fleet
         /// </summary>
         [Input("device")]
-        public Input<Inputs.DeviceDeviceArgs>? DeviceValue { get; set; }
+        public Input<Inputs.DeviceArgs>? DeviceValue { get; set; }
 
         /// <summary>
         /// The name of the edge device fleet

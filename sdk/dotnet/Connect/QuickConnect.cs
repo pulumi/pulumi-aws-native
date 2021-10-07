@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.Connect
         /// Configuration settings for the quick connect.
         /// </summary>
         [Output("quickConnectConfig")]
-        public Output<Outputs.QuickConnectQuickConnectConfig> QuickConnectConfig { get; private set; } = null!;
+        public Output<Outputs.QuickConnectConfig> QuickConnectConfig { get; private set; } = null!;
 
         /// <summary>
         /// One or more tags.
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.Connect
         /// Configuration settings for the quick connect.
         /// </summary>
         [Input("quickConnectConfig", required: true)]
-        public Input<Inputs.QuickConnectQuickConnectConfigArgs> QuickConnectConfig { get; set; } = null!;
+        public Input<Inputs.QuickConnectConfigArgs> QuickConnectConfig { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.QuickConnectTagArgs>? _tags;

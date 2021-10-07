@@ -42,25 +42,25 @@ namespace Pulumi.AwsNative.IoTWireless
     /// A filter to list only the wireless gateway task definitions that use this task definition type
     /// </summary>
     [EnumType]
-    public readonly struct TaskDefinitionTaskDefinitionType : IEquatable<TaskDefinitionTaskDefinitionType>
+    public readonly struct TaskDefinitionType : IEquatable<TaskDefinitionType>
     {
         private readonly string _value;
 
-        private TaskDefinitionTaskDefinitionType(string value)
+        private TaskDefinitionType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static TaskDefinitionTaskDefinitionType Update { get; } = new TaskDefinitionTaskDefinitionType("UPDATE");
+        public static TaskDefinitionType Update { get; } = new TaskDefinitionType("UPDATE");
 
-        public static bool operator ==(TaskDefinitionTaskDefinitionType left, TaskDefinitionTaskDefinitionType right) => left.Equals(right);
-        public static bool operator !=(TaskDefinitionTaskDefinitionType left, TaskDefinitionTaskDefinitionType right) => !left.Equals(right);
+        public static bool operator ==(TaskDefinitionType left, TaskDefinitionType right) => left.Equals(right);
+        public static bool operator !=(TaskDefinitionType left, TaskDefinitionType right) => !left.Equals(right);
 
-        public static explicit operator string(TaskDefinitionTaskDefinitionType value) => value._value;
+        public static explicit operator string(TaskDefinitionType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is TaskDefinitionTaskDefinitionType other && Equals(other);
-        public bool Equals(TaskDefinitionTaskDefinitionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is TaskDefinitionType other && Equals(other);
+        public bool Equals(TaskDefinitionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Backup
         public Output<string> BackupPlanId { get; private set; } = null!;
 
         [Output("backupSelection")]
-        public Output<Outputs.BackupSelectionBackupSelectionResourceType> BackupSelectionValue { get; private set; } = null!;
+        public Output<Outputs.BackupSelectionResourceType> BackupSelectionValue { get; private set; } = null!;
 
         [Output("selectionId")]
         public Output<string> SelectionId { get; private set; } = null!;
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.Backup
     public sealed class BackupSelectionArgs : Pulumi.ResourceArgs
     {
         [Input("backupSelection", required: true)]
-        public Input<Inputs.BackupSelectionBackupSelectionResourceTypeArgs> BackupSelectionValue { get; set; } = null!;
+        public Input<Inputs.BackupSelectionResourceTypeArgs> BackupSelectionValue { get; set; } = null!;
 
         public BackupSelectionArgs()
         {

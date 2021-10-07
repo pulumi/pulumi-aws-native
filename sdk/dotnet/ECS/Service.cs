@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.ECS
         public Output<string?> ServiceName { get; private set; } = null!;
 
         [Output("serviceRegistries")]
-        public Output<ImmutableArray<Outputs.ServiceServiceRegistry>> ServiceRegistries { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ServiceRegistry>> ServiceRegistries { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.ServiceTag>> Tags { get; private set; } = null!;
@@ -204,10 +204,10 @@ namespace Pulumi.AwsNative.ECS
         public Input<string>? ServiceName { get; set; }
 
         [Input("serviceRegistries")]
-        private InputList<Inputs.ServiceServiceRegistryArgs>? _serviceRegistries;
-        public InputList<Inputs.ServiceServiceRegistryArgs> ServiceRegistries
+        private InputList<Inputs.ServiceRegistryArgs>? _serviceRegistries;
+        public InputList<Inputs.ServiceRegistryArgs> ServiceRegistries
         {
-            get => _serviceRegistries ?? (_serviceRegistries = new InputList<Inputs.ServiceServiceRegistryArgs>());
+            get => _serviceRegistries ?? (_serviceRegistries = new InputList<Inputs.ServiceRegistryArgs>());
             set => _serviceRegistries = value;
         }
 

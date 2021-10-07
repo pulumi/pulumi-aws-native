@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class DatasetVariable
     {
-        public readonly Outputs.DatasetDatasetContentVersionValue? DatasetContentVersionValue;
+        public readonly Outputs.DatasetContentVersionValue? DatasetContentVersionValue;
         public readonly double? DoubleValue;
         public readonly Outputs.DatasetOutputFileUriValue? OutputFileUriValue;
         public readonly string? StringValue;
@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
 
         [OutputConstructor]
         private DatasetVariable(
-            Outputs.DatasetDatasetContentVersionValue? datasetContentVersionValue,
+            Outputs.DatasetContentVersionValue? datasetContentVersionValue,
 
             double? doubleValue,
 

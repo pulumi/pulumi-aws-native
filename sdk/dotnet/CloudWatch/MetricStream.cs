@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.CloudWatch
         /// Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
         /// </summary>
         [Output("excludeFilters")]
-        public Output<ImmutableArray<Outputs.MetricStreamMetricStreamFilter>> ExcludeFilters { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.MetricStreamFilter>> ExcludeFilters { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the Kinesis Firehose where to stream the data.
@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.CloudWatch
         /// Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
         /// </summary>
         [Output("includeFilters")]
-        public Output<ImmutableArray<Outputs.MetricStreamMetricStreamFilter>> IncludeFilters { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.MetricStreamFilter>> IncludeFilters { get; private set; } = null!;
 
         /// <summary>
         /// The date of the last update of the metric stream.
@@ -127,14 +127,14 @@ namespace Pulumi.AwsNative.CloudWatch
     public sealed class MetricStreamArgs : Pulumi.ResourceArgs
     {
         [Input("excludeFilters")]
-        private InputList<Inputs.MetricStreamMetricStreamFilterArgs>? _excludeFilters;
+        private InputList<Inputs.MetricStreamFilterArgs>? _excludeFilters;
 
         /// <summary>
         /// Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
         /// </summary>
-        public InputList<Inputs.MetricStreamMetricStreamFilterArgs> ExcludeFilters
+        public InputList<Inputs.MetricStreamFilterArgs> ExcludeFilters
         {
-            get => _excludeFilters ?? (_excludeFilters = new InputList<Inputs.MetricStreamMetricStreamFilterArgs>());
+            get => _excludeFilters ?? (_excludeFilters = new InputList<Inputs.MetricStreamFilterArgs>());
             set => _excludeFilters = value;
         }
 
@@ -145,14 +145,14 @@ namespace Pulumi.AwsNative.CloudWatch
         public Input<string> FirehoseArn { get; set; } = null!;
 
         [Input("includeFilters")]
-        private InputList<Inputs.MetricStreamMetricStreamFilterArgs>? _includeFilters;
+        private InputList<Inputs.MetricStreamFilterArgs>? _includeFilters;
 
         /// <summary>
         /// Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
         /// </summary>
-        public InputList<Inputs.MetricStreamMetricStreamFilterArgs> IncludeFilters
+        public InputList<Inputs.MetricStreamFilterArgs> IncludeFilters
         {
-            get => _includeFilters ?? (_includeFilters = new InputList<Inputs.MetricStreamMetricStreamFilterArgs>());
+            get => _includeFilters ?? (_includeFilters = new InputList<Inputs.MetricStreamFilterArgs>());
             set => _includeFilters = value;
         }
 

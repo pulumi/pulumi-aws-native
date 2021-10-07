@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.CloudFront
         public Output<string> DomainName { get; private set; } = null!;
 
         [Output("streamingDistributionConfig")]
-        public Output<Outputs.StreamingDistributionStreamingDistributionConfig> StreamingDistributionConfig { get; private set; } = null!;
+        public Output<Outputs.StreamingDistributionConfig> StreamingDistributionConfig { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.StreamingDistributionTag>> Tags { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.CloudFront
     public sealed class StreamingDistributionArgs : Pulumi.ResourceArgs
     {
         [Input("streamingDistributionConfig", required: true)]
-        public Input<Inputs.StreamingDistributionStreamingDistributionConfigArgs> StreamingDistributionConfig { get; set; } = null!;
+        public Input<Inputs.StreamingDistributionConfigArgs> StreamingDistributionConfig { get; set; } = null!;
 
         [Input("tags", required: true)]
         private InputList<Inputs.StreamingDistributionTagArgs>? _tags;

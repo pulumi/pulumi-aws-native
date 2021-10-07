@@ -16,13 +16,13 @@ namespace Pulumi.AwsNative.DevOpsGuru
     public partial class ResourceCollection : Pulumi.CustomResource
     {
         [Output("resourceCollectionFilter")]
-        public Output<Outputs.ResourceCollectionResourceCollectionFilter> ResourceCollectionFilter { get; private set; } = null!;
+        public Output<Outputs.ResourceCollectionFilter> ResourceCollectionFilter { get; private set; } = null!;
 
         /// <summary>
         /// The type of ResourceCollection
         /// </summary>
         [Output("resourceCollectionType")]
-        public Output<Pulumi.AwsNative.DevOpsGuru.ResourceCollectionResourceCollectionType> ResourceCollectionType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.DevOpsGuru.ResourceCollectionType> ResourceCollectionType { get; private set; } = null!;
 
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.DevOpsGuru
     public sealed class ResourceCollectionArgs : Pulumi.ResourceArgs
     {
         [Input("resourceCollectionFilter", required: true)]
-        public Input<Inputs.ResourceCollectionResourceCollectionFilterArgs> ResourceCollectionFilter { get; set; } = null!;
+        public Input<Inputs.ResourceCollectionFilterArgs> ResourceCollectionFilter { get; set; } = null!;
 
         public ResourceCollectionArgs()
         {

@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.Pinpoint
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("campaignHook")]
-        public Output<Outputs.CampaignCampaignHook?> CampaignHook { get; private set; } = null!;
+        public Output<Outputs.CampaignHook?> CampaignHook { get; private set; } = null!;
 
         [Output("campaignId")]
         public Output<string> CampaignId { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.AwsNative.Pinpoint
         public Input<string> ApplicationId { get; set; } = null!;
 
         [Input("campaignHook")]
-        public Input<Inputs.CampaignCampaignHookArgs>? CampaignHook { get; set; }
+        public Input<Inputs.CampaignHookArgs>? CampaignHook { get; set; }
 
         [Input("description")]
         public Input<string>? Description { get; set; }

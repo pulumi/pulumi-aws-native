@@ -25,10 +25,10 @@ namespace Pulumi.AwsNative.CloudFront
         public Output<string?> FunctionCode { get; private set; } = null!;
 
         [Output("functionConfig")]
-        public Output<Outputs.FunctionFunctionConfig?> FunctionConfig { get; private set; } = null!;
+        public Output<Outputs.FunctionConfig?> FunctionConfig { get; private set; } = null!;
 
         [Output("functionMetadata")]
-        public Output<Outputs.FunctionFunctionMetadata?> FunctionMetadata { get; private set; } = null!;
+        public Output<Outputs.FunctionMetadata?> FunctionMetadata { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -88,10 +88,10 @@ namespace Pulumi.AwsNative.CloudFront
         public Input<string>? FunctionCode { get; set; }
 
         [Input("functionConfig")]
-        public Input<Inputs.FunctionFunctionConfigArgs>? FunctionConfig { get; set; }
+        public Input<Inputs.FunctionConfigArgs>? FunctionConfig { get; set; }
 
         [Input("functionMetadata")]
-        public Input<Inputs.FunctionFunctionMetadataArgs>? FunctionMetadata { get; set; }
+        public Input<Inputs.FunctionMetadataArgs>? FunctionMetadata { get; set; }
 
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

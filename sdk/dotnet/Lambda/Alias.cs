@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.Lambda
         public Output<Outputs.AliasProvisionedConcurrencyConfiguration?> ProvisionedConcurrencyConfig { get; private set; } = null!;
 
         [Output("routingConfig")]
-        public Output<Outputs.AliasAliasRoutingConfiguration?> RoutingConfig { get; private set; } = null!;
+        public Output<Outputs.AliasRoutingConfiguration?> RoutingConfig { get; private set; } = null!;
 
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace Pulumi.AwsNative.Lambda
         public Input<Inputs.AliasProvisionedConcurrencyConfigurationArgs>? ProvisionedConcurrencyConfig { get; set; }
 
         [Input("routingConfig")]
-        public Input<Inputs.AliasAliasRoutingConfigurationArgs>? RoutingConfig { get; set; }
+        public Input<Inputs.AliasRoutingConfigurationArgs>? RoutingConfig { get; set; }
 
         public AliasArgs()
         {

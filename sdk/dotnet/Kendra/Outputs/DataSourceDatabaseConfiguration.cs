@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly Outputs.DataSourceConnectionConfiguration ConnectionConfiguration;
         public readonly Pulumi.AwsNative.Kendra.DataSourceDatabaseEngineType DatabaseEngineType;
         public readonly Outputs.DataSourceSqlConfiguration? SqlConfiguration;
-        public readonly Outputs.DataSourceDataSourceVpcConfiguration? VpcConfiguration;
+        public readonly Outputs.DataSourceVpcConfiguration? VpcConfiguration;
 
         [OutputConstructor]
         private DataSourceDatabaseConfiguration(
@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             Outputs.DataSourceSqlConfiguration? sqlConfiguration,
 
-            Outputs.DataSourceDataSourceVpcConfiguration? vpcConfiguration)
+            Outputs.DataSourceVpcConfiguration? vpcConfiguration)
         {
             AclConfiguration = aclConfiguration;
             ColumnConfiguration = columnConfiguration;

@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
     {
         public readonly string DocumentDataFieldName;
         public readonly string? DocumentTitleFieldName;
-        public readonly ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> FieldMappings;
+        public readonly ImmutableArray<Outputs.DataSourceToIndexFieldMapping> FieldMappings;
 
         [OutputConstructor]
         private DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration(
@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             string? documentTitleFieldName,
 
-            ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> fieldMappings)
+            ImmutableArray<Outputs.DataSourceToIndexFieldMapping> fieldMappings)
         {
             DocumentDataFieldName = documentDataFieldName;
             DocumentTitleFieldName = documentTitleFieldName;

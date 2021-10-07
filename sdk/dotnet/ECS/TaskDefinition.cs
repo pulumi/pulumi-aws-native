@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.ECS
         public Output<string?> PidMode { get; private set; } = null!;
 
         [Output("placementConstraints")]
-        public Output<ImmutableArray<Outputs.TaskDefinitionTaskDefinitionPlacementConstraint>> PlacementConstraints { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TaskDefinitionPlacementConstraint>> PlacementConstraints { get; private set; } = null!;
 
         [Output("proxyConfiguration")]
         public Output<Outputs.TaskDefinitionProxyConfiguration?> ProxyConfiguration { get; private set; } = null!;
@@ -155,10 +155,10 @@ namespace Pulumi.AwsNative.ECS
         public Input<string>? PidMode { get; set; }
 
         [Input("placementConstraints")]
-        private InputList<Inputs.TaskDefinitionTaskDefinitionPlacementConstraintArgs>? _placementConstraints;
-        public InputList<Inputs.TaskDefinitionTaskDefinitionPlacementConstraintArgs> PlacementConstraints
+        private InputList<Inputs.TaskDefinitionPlacementConstraintArgs>? _placementConstraints;
+        public InputList<Inputs.TaskDefinitionPlacementConstraintArgs> PlacementConstraints
         {
-            get => _placementConstraints ?? (_placementConstraints = new InputList<Inputs.TaskDefinitionTaskDefinitionPlacementConstraintArgs>());
+            get => _placementConstraints ?? (_placementConstraints = new InputList<Inputs.TaskDefinitionPlacementConstraintArgs>());
             set => _placementConstraints = value;
         }
 

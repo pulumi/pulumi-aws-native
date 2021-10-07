@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.Kinesis
         /// When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
         /// </summary>
         [Output("streamEncryption")]
-        public Output<Outputs.StreamStreamEncryption?> StreamEncryption { get; private set; } = null!;
+        public Output<Outputs.StreamEncryption?> StreamEncryption { get; private set; } = null!;
 
         /// <summary>
         /// An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.Kinesis
         /// When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
         /// </summary>
         [Input("streamEncryption")]
-        public Input<Inputs.StreamStreamEncryptionArgs>? StreamEncryption { get; set; }
+        public Input<Inputs.StreamEncryptionArgs>? StreamEncryption { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.StreamTagArgs>? _tags;

@@ -20,10 +20,10 @@ namespace Pulumi.AwsNative.CodePipeline
         public Output<string> Authentication { get; private set; } = null!;
 
         [Output("authenticationConfiguration")]
-        public Output<Outputs.WebhookWebhookAuthConfiguration> AuthenticationConfiguration { get; private set; } = null!;
+        public Output<Outputs.WebhookAuthConfiguration> AuthenticationConfiguration { get; private set; } = null!;
 
         [Output("filters")]
-        public Output<ImmutableArray<Outputs.WebhookWebhookFilterRule>> Filters { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.WebhookFilterRule>> Filters { get; private set; } = null!;
 
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
@@ -92,13 +92,13 @@ namespace Pulumi.AwsNative.CodePipeline
         public Input<string> Authentication { get; set; } = null!;
 
         [Input("authenticationConfiguration", required: true)]
-        public Input<Inputs.WebhookWebhookAuthConfigurationArgs> AuthenticationConfiguration { get; set; } = null!;
+        public Input<Inputs.WebhookAuthConfigurationArgs> AuthenticationConfiguration { get; set; } = null!;
 
         [Input("filters", required: true)]
-        private InputList<Inputs.WebhookWebhookFilterRuleArgs>? _filters;
-        public InputList<Inputs.WebhookWebhookFilterRuleArgs> Filters
+        private InputList<Inputs.WebhookFilterRuleArgs>? _filters;
+        public InputList<Inputs.WebhookFilterRuleArgs> Filters
         {
-            get => _filters ?? (_filters = new InputList<Inputs.WebhookWebhookFilterRuleArgs>());
+            get => _filters ?? (_filters = new InputList<Inputs.WebhookFilterRuleArgs>());
             set => _filters = value;
         }
 

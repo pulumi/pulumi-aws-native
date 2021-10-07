@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.DataBrew
         public Output<string> Name { get; private set; } = null!;
 
         [Output("steps")]
-        public Output<ImmutableArray<Outputs.RecipeRecipeStep>> Steps { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RecipeStep>> Steps { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.RecipeTag>> Tags { get; private set; } = null!;
@@ -91,10 +91,10 @@ namespace Pulumi.AwsNative.DataBrew
         public Input<string> Name { get; set; } = null!;
 
         [Input("steps", required: true)]
-        private InputList<Inputs.RecipeRecipeStepArgs>? _steps;
-        public InputList<Inputs.RecipeRecipeStepArgs> Steps
+        private InputList<Inputs.RecipeStepArgs>? _steps;
+        public InputList<Inputs.RecipeStepArgs> Steps
         {
-            get => _steps ?? (_steps = new InputList<Inputs.RecipeRecipeStepArgs>());
+            get => _steps ?? (_steps = new InputList<Inputs.RecipeStepArgs>());
             set => _steps = value;
         }
 

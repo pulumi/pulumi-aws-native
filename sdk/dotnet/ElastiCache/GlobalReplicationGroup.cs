@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.ElastiCache
         /// The replication groups that comprise the Global Datastore.
         /// </summary>
         [Output("members")]
-        public Output<ImmutableArray<Outputs.GlobalReplicationGroupGlobalReplicationGroupMember>> Members { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.GlobalReplicationGroupMember>> Members { get; private set; } = null!;
 
         /// <summary>
         /// Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore 
@@ -169,14 +169,14 @@ namespace Pulumi.AwsNative.ElastiCache
         public Input<string>? GlobalReplicationGroupIdSuffix { get; set; }
 
         [Input("members", required: true)]
-        private InputList<Inputs.GlobalReplicationGroupGlobalReplicationGroupMemberArgs>? _members;
+        private InputList<Inputs.GlobalReplicationGroupMemberArgs>? _members;
 
         /// <summary>
         /// The replication groups that comprise the Global Datastore.
         /// </summary>
-        public InputList<Inputs.GlobalReplicationGroupGlobalReplicationGroupMemberArgs> Members
+        public InputList<Inputs.GlobalReplicationGroupMemberArgs> Members
         {
-            get => _members ?? (_members = new InputList<Inputs.GlobalReplicationGroupGlobalReplicationGroupMemberArgs>());
+            get => _members ?? (_members = new InputList<Inputs.GlobalReplicationGroupMemberArgs>());
             set => _members = value;
         }
 

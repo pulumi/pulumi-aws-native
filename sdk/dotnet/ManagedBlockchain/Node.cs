@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.ManagedBlockchain
         public Output<string> NetworkId { get; private set; } = null!;
 
         [Output("nodeConfiguration")]
-        public Output<Outputs.NodeNodeConfiguration> NodeConfiguration { get; private set; } = null!;
+        public Output<Outputs.NodeConfiguration> NodeConfiguration { get; private set; } = null!;
 
         [Output("nodeId")]
         public Output<string> NodeId { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.ManagedBlockchain
         public Input<string> NetworkId { get; set; } = null!;
 
         [Input("nodeConfiguration", required: true)]
-        public Input<Inputs.NodeNodeConfigurationArgs> NodeConfiguration { get; set; } = null!;
+        public Input<Inputs.NodeConfigurationArgs> NodeConfiguration { get; set; } = null!;
 
         public NodeArgs()
         {

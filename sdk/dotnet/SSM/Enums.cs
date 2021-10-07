@@ -102,27 +102,27 @@ namespace Pulumi.AwsNative.SSM
     /// Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
     /// </summary>
     [EnumType]
-    public readonly struct DocumentDocumentFormat : IEquatable<DocumentDocumentFormat>
+    public readonly struct DocumentFormat : IEquatable<DocumentFormat>
     {
         private readonly string _value;
 
-        private DocumentDocumentFormat(string value)
+        private DocumentFormat(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static DocumentDocumentFormat Yaml { get; } = new DocumentDocumentFormat("YAML");
-        public static DocumentDocumentFormat Json { get; } = new DocumentDocumentFormat("JSON");
-        public static DocumentDocumentFormat Text { get; } = new DocumentDocumentFormat("TEXT");
+        public static DocumentFormat Yaml { get; } = new DocumentFormat("YAML");
+        public static DocumentFormat Json { get; } = new DocumentFormat("JSON");
+        public static DocumentFormat Text { get; } = new DocumentFormat("TEXT");
 
-        public static bool operator ==(DocumentDocumentFormat left, DocumentDocumentFormat right) => left.Equals(right);
-        public static bool operator !=(DocumentDocumentFormat left, DocumentDocumentFormat right) => !left.Equals(right);
+        public static bool operator ==(DocumentFormat left, DocumentFormat right) => left.Equals(right);
+        public static bool operator !=(DocumentFormat left, DocumentFormat right) => !left.Equals(right);
 
-        public static explicit operator string(DocumentDocumentFormat value) => value._value;
+        public static explicit operator string(DocumentFormat value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DocumentDocumentFormat other && Equals(other);
-        public bool Equals(DocumentDocumentFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is DocumentFormat other && Equals(other);
+        public bool Equals(DocumentFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -134,37 +134,37 @@ namespace Pulumi.AwsNative.SSM
     /// The type of document to create.
     /// </summary>
     [EnumType]
-    public readonly struct DocumentDocumentType : IEquatable<DocumentDocumentType>
+    public readonly struct DocumentType : IEquatable<DocumentType>
     {
         private readonly string _value;
 
-        private DocumentDocumentType(string value)
+        private DocumentType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static DocumentDocumentType ApplicationConfiguration { get; } = new DocumentDocumentType("ApplicationConfiguration");
-        public static DocumentDocumentType ApplicationConfigurationSchema { get; } = new DocumentDocumentType("ApplicationConfigurationSchema");
-        public static DocumentDocumentType Automation { get; } = new DocumentDocumentType("Automation");
-        public static DocumentDocumentType AutomationChangeTemplate { get; } = new DocumentDocumentType("Automation.ChangeTemplate");
-        public static DocumentDocumentType ChangeCalendar { get; } = new DocumentDocumentType("ChangeCalendar");
-        public static DocumentDocumentType CloudFormation { get; } = new DocumentDocumentType("CloudFormation");
-        public static DocumentDocumentType Command { get; } = new DocumentDocumentType("Command");
-        public static DocumentDocumentType DeploymentStrategy { get; } = new DocumentDocumentType("DeploymentStrategy");
-        public static DocumentDocumentType Package { get; } = new DocumentDocumentType("Package");
-        public static DocumentDocumentType Policy { get; } = new DocumentDocumentType("Policy");
-        public static DocumentDocumentType ProblemAnalysis { get; } = new DocumentDocumentType("ProblemAnalysis");
-        public static DocumentDocumentType ProblemAnalysisTemplate { get; } = new DocumentDocumentType("ProblemAnalysisTemplate");
-        public static DocumentDocumentType Session { get; } = new DocumentDocumentType("Session");
+        public static DocumentType ApplicationConfiguration { get; } = new DocumentType("ApplicationConfiguration");
+        public static DocumentType ApplicationConfigurationSchema { get; } = new DocumentType("ApplicationConfigurationSchema");
+        public static DocumentType Automation { get; } = new DocumentType("Automation");
+        public static DocumentType AutomationChangeTemplate { get; } = new DocumentType("Automation.ChangeTemplate");
+        public static DocumentType ChangeCalendar { get; } = new DocumentType("ChangeCalendar");
+        public static DocumentType CloudFormation { get; } = new DocumentType("CloudFormation");
+        public static DocumentType Command { get; } = new DocumentType("Command");
+        public static DocumentType DeploymentStrategy { get; } = new DocumentType("DeploymentStrategy");
+        public static DocumentType Package { get; } = new DocumentType("Package");
+        public static DocumentType Policy { get; } = new DocumentType("Policy");
+        public static DocumentType ProblemAnalysis { get; } = new DocumentType("ProblemAnalysis");
+        public static DocumentType ProblemAnalysisTemplate { get; } = new DocumentType("ProblemAnalysisTemplate");
+        public static DocumentType Session { get; } = new DocumentType("Session");
 
-        public static bool operator ==(DocumentDocumentType left, DocumentDocumentType right) => left.Equals(right);
-        public static bool operator !=(DocumentDocumentType left, DocumentDocumentType right) => !left.Equals(right);
+        public static bool operator ==(DocumentType left, DocumentType right) => left.Equals(right);
+        public static bool operator !=(DocumentType left, DocumentType right) => !left.Equals(right);
 
-        public static explicit operator string(DocumentDocumentType value) => value._value;
+        public static explicit operator string(DocumentType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DocumentDocumentType other && Equals(other);
-        public bool Equals(DocumentDocumentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is DocumentType other && Equals(other);
+        public bool Equals(DocumentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

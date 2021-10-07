@@ -19,10 +19,10 @@ namespace Pulumi.AwsNative.WorkSpaces
         public Output<string> AliasId { get; private set; } = null!;
 
         [Output("associations")]
-        public Output<ImmutableArray<Outputs.ConnectionAliasConnectionAliasAssociation>> Associations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ConnectionAliasAssociation>> Associations { get; private set; } = null!;
 
         [Output("connectionAliasState")]
-        public Output<Pulumi.AwsNative.WorkSpaces.ConnectionAliasConnectionAliasState> ConnectionAliasState { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.WorkSpaces.ConnectionAliasState> ConnectionAliasState { get; private set; } = null!;
 
         [Output("connectionString")]
         public Output<string> ConnectionString { get; private set; } = null!;

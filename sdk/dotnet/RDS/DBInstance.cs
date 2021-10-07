@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.RDS
         public Output<bool?> AllowMajorVersionUpgrade { get; private set; } = null!;
 
         [Output("associatedRoles")]
-        public Output<ImmutableArray<Outputs.DBInstanceDBInstanceRole>> AssociatedRoles { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DBInstanceRole>> AssociatedRoles { get; private set; } = null!;
 
         [Output("autoMinorVersionUpgrade")]
         public Output<bool?> AutoMinorVersionUpgrade { get; private set; } = null!;
@@ -230,10 +230,10 @@ namespace Pulumi.AwsNative.RDS
         public Input<bool>? AllowMajorVersionUpgrade { get; set; }
 
         [Input("associatedRoles")]
-        private InputList<Inputs.DBInstanceDBInstanceRoleArgs>? _associatedRoles;
-        public InputList<Inputs.DBInstanceDBInstanceRoleArgs> AssociatedRoles
+        private InputList<Inputs.DBInstanceRoleArgs>? _associatedRoles;
+        public InputList<Inputs.DBInstanceRoleArgs> AssociatedRoles
         {
-            get => _associatedRoles ?? (_associatedRoles = new InputList<Inputs.DBInstanceDBInstanceRoleArgs>());
+            get => _associatedRoles ?? (_associatedRoles = new InputList<Inputs.DBInstanceRoleArgs>());
             set => _associatedRoles = value;
         }
 

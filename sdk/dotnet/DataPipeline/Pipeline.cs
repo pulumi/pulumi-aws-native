@@ -32,10 +32,10 @@ namespace Pulumi.AwsNative.DataPipeline
         public Output<ImmutableArray<Outputs.PipelineParameterValue>> ParameterValues { get; private set; } = null!;
 
         [Output("pipelineObjects")]
-        public Output<ImmutableArray<Outputs.PipelinePipelineObject>> PipelineObjects { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PipelineObject>> PipelineObjects { get; private set; } = null!;
 
         [Output("pipelineTags")]
-        public Output<ImmutableArray<Outputs.PipelinePipelineTag>> PipelineTags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PipelineTag>> PipelineTags { get; private set; } = null!;
 
 
         /// <summary>
@@ -108,18 +108,18 @@ namespace Pulumi.AwsNative.DataPipeline
         }
 
         [Input("pipelineObjects")]
-        private InputList<Inputs.PipelinePipelineObjectArgs>? _pipelineObjects;
-        public InputList<Inputs.PipelinePipelineObjectArgs> PipelineObjects
+        private InputList<Inputs.PipelineObjectArgs>? _pipelineObjects;
+        public InputList<Inputs.PipelineObjectArgs> PipelineObjects
         {
-            get => _pipelineObjects ?? (_pipelineObjects = new InputList<Inputs.PipelinePipelineObjectArgs>());
+            get => _pipelineObjects ?? (_pipelineObjects = new InputList<Inputs.PipelineObjectArgs>());
             set => _pipelineObjects = value;
         }
 
         [Input("pipelineTags")]
-        private InputList<Inputs.PipelinePipelineTagArgs>? _pipelineTags;
-        public InputList<Inputs.PipelinePipelineTagArgs> PipelineTags
+        private InputList<Inputs.PipelineTagArgs>? _pipelineTags;
+        public InputList<Inputs.PipelineTagArgs> PipelineTags
         {
-            get => _pipelineTags ?? (_pipelineTags = new InputList<Inputs.PipelinePipelineTagArgs>());
+            get => _pipelineTags ?? (_pipelineTags = new InputList<Inputs.PipelineTagArgs>());
             set => _pipelineTags = value;
         }
 

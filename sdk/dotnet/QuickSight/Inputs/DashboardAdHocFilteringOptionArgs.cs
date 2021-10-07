@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardAdHocFilteringOptionArgs : Pulumi.ResourceArgs
     {
         [Input("availabilityStatus")]
-        public Input<Pulumi.AwsNative.QuickSight.DashboardDashboardBehavior>? AvailabilityStatus { get; set; }
+        public Input<Pulumi.AwsNative.QuickSight.DashboardBehavior>? AvailabilityStatus { get; set; }
 
         public DashboardAdHocFilteringOptionArgs()
         {

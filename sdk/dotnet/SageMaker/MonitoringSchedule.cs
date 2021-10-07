@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.SageMaker
         public Output<string> MonitoringScheduleArn { get; private set; } = null!;
 
         [Output("monitoringScheduleConfig")]
-        public Output<Outputs.MonitoringScheduleMonitoringScheduleConfig> MonitoringScheduleConfig { get; private set; } = null!;
+        public Output<Outputs.MonitoringScheduleConfig> MonitoringScheduleConfig { get; private set; } = null!;
 
         [Output("monitoringScheduleName")]
         public Output<string> MonitoringScheduleName { get; private set; } = null!;
@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// The status of a schedule job.
         /// </summary>
         [Output("monitoringScheduleStatus")]
-        public Output<Pulumi.AwsNative.SageMaker.MonitoringScheduleMonitoringScheduleStatus?> MonitoringScheduleStatus { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.SageMaker.MonitoringScheduleStatus?> MonitoringScheduleStatus { get; private set; } = null!;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
@@ -127,7 +127,7 @@ namespace Pulumi.AwsNative.SageMaker
         public Input<Inputs.MonitoringScheduleMonitoringExecutionSummaryArgs>? LastMonitoringExecutionSummary { get; set; }
 
         [Input("monitoringScheduleConfig", required: true)]
-        public Input<Inputs.MonitoringScheduleMonitoringScheduleConfigArgs> MonitoringScheduleConfig { get; set; } = null!;
+        public Input<Inputs.MonitoringScheduleConfigArgs> MonitoringScheduleConfig { get; set; } = null!;
 
         [Input("monitoringScheduleName", required: true)]
         public Input<string> MonitoringScheduleName { get; set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// The status of a schedule job.
         /// </summary>
         [Input("monitoringScheduleStatus")]
-        public Input<Pulumi.AwsNative.SageMaker.MonitoringScheduleMonitoringScheduleStatus>? MonitoringScheduleStatus { get; set; }
+        public Input<Pulumi.AwsNative.SageMaker.MonitoringScheduleStatus>? MonitoringScheduleStatus { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.MonitoringScheduleTagArgs>? _tags;

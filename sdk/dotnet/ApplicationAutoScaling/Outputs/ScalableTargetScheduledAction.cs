@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling.Outputs
     public sealed class ScalableTargetScheduledAction
     {
         public readonly string? EndTime;
-        public readonly Outputs.ScalableTargetScalableTargetAction? ScalableTargetAction;
+        public readonly Outputs.ScalableTargetAction? ScalableTargetAction;
         public readonly string Schedule;
         public readonly string ScheduledActionName;
         public readonly string? StartTime;
@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling.Outputs
         private ScalableTargetScheduledAction(
             string? endTime,
 
-            Outputs.ScalableTargetScalableTargetAction? scalableTargetAction,
+            Outputs.ScalableTargetAction? scalableTargetAction,
 
             string schedule,
 

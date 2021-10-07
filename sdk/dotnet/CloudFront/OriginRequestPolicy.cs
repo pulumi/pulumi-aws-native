@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.CloudFront
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
         [Output("originRequestPolicyConfig")]
-        public Output<Outputs.OriginRequestPolicyOriginRequestPolicyConfig> OriginRequestPolicyConfig { get; private set; } = null!;
+        public Output<Outputs.OriginRequestPolicyConfig> OriginRequestPolicyConfig { get; private set; } = null!;
 
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.CloudFront
     public sealed class OriginRequestPolicyArgs : Pulumi.ResourceArgs
     {
         [Input("originRequestPolicyConfig", required: true)]
-        public Input<Inputs.OriginRequestPolicyOriginRequestPolicyConfigArgs> OriginRequestPolicyConfig { get; set; } = null!;
+        public Input<Inputs.OriginRequestPolicyConfigArgs> OriginRequestPolicyConfig { get; set; } = null!;
 
         public OriginRequestPolicyArgs()
         {

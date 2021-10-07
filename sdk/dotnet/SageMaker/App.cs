@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// The type of app.
         /// </summary>
         [Output("appType")]
-        public Output<Pulumi.AwsNative.SageMaker.AppAppType> AppType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.SageMaker.AppType> AppType { get; private set; } = null!;
 
         /// <summary>
         /// The domain ID.
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// The type of app.
         /// </summary>
         [Input("appType", required: true)]
-        public Input<Pulumi.AwsNative.SageMaker.AppAppType> AppType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.SageMaker.AppType> AppType { get; set; } = null!;
 
         /// <summary>
         /// The domain ID.

@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Neptune
     public partial class DBCluster : Pulumi.CustomResource
     {
         [Output("associatedRoles")]
-        public Output<ImmutableArray<Outputs.DBClusterDBClusterRole>> AssociatedRoles { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DBClusterRole>> AssociatedRoles { get; private set; } = null!;
 
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
@@ -137,10 +137,10 @@ namespace Pulumi.AwsNative.Neptune
     public sealed class DBClusterArgs : Pulumi.ResourceArgs
     {
         [Input("associatedRoles")]
-        private InputList<Inputs.DBClusterDBClusterRoleArgs>? _associatedRoles;
-        public InputList<Inputs.DBClusterDBClusterRoleArgs> AssociatedRoles
+        private InputList<Inputs.DBClusterRoleArgs>? _associatedRoles;
+        public InputList<Inputs.DBClusterRoleArgs> AssociatedRoles
         {
-            get => _associatedRoles ?? (_associatedRoles = new InputList<Inputs.DBClusterDBClusterRoleArgs>());
+            get => _associatedRoles ?? (_associatedRoles = new InputList<Inputs.DBClusterRoleArgs>());
             set => _associatedRoles = value;
         }
 

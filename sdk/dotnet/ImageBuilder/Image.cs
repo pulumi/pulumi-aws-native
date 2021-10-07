@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// The image tests configuration used when creating this image.
         /// </summary>
         [Output("imageTestsConfiguration")]
-        public Output<Outputs.ImageImageTestsConfiguration?> ImageTestsConfiguration { get; private set; } = null!;
+        public Output<Outputs.ImageTestsConfiguration?> ImageTestsConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the infrastructure configuration.
@@ -148,7 +148,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// The image tests configuration used when creating this image.
         /// </summary>
         [Input("imageTestsConfiguration")]
-        public Input<Inputs.ImageImageTestsConfigurationArgs>? ImageTestsConfiguration { get; set; }
+        public Input<Inputs.ImageTestsConfigurationArgs>? ImageTestsConfiguration { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the infrastructure configuration.

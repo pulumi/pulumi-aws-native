@@ -12,8 +12,11 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class DatastorePartitionArgs : Pulumi.ResourceArgs
     {
-        [Input("attributeName", required: true)]
-        public Input<string> AttributeName { get; set; } = null!;
+        [Input("partition")]
+        public Input<Inputs.DatastorePartitionArgs>? Partition { get; set; }
+
+        [Input("timestampPartition")]
+        public Input<Inputs.DatastoreTimestampPartitionArgs>? TimestampPartition { get; set; }
 
         public DatastorePartitionArgs()
         {

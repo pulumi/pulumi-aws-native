@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.CloudFront
     public partial class CachePolicy : Pulumi.CustomResource
     {
         [Output("cachePolicyConfig")]
-        public Output<Outputs.CachePolicyCachePolicyConfig> CachePolicyConfig { get; private set; } = null!;
+        public Output<Outputs.CachePolicyConfig> CachePolicyConfig { get; private set; } = null!;
 
         [Output("lastModifiedTime")]
         public Output<string> LastModifiedTime { get; private set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.CloudFront
     public sealed class CachePolicyArgs : Pulumi.ResourceArgs
     {
         [Input("cachePolicyConfig", required: true)]
-        public Input<Inputs.CachePolicyCachePolicyConfigArgs> CachePolicyConfig { get; set; } = null!;
+        public Input<Inputs.CachePolicyConfigArgs> CachePolicyConfig { get; set; } = null!;
 
         public CachePolicyArgs()
         {

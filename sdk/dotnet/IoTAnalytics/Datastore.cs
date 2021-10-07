@@ -20,10 +20,10 @@ namespace Pulumi.AwsNative.IoTAnalytics
         public Output<string?> DatastoreName { get; private set; } = null!;
 
         [Output("datastorePartitions")]
-        public Output<Outputs.DatastoreDatastorePartitions?> DatastorePartitions { get; private set; } = null!;
+        public Output<Outputs.DatastorePartitions?> DatastorePartitions { get; private set; } = null!;
 
         [Output("datastoreStorage")]
-        public Output<Outputs.DatastoreDatastoreStorage?> DatastoreStorage { get; private set; } = null!;
+        public Output<Outputs.DatastoreStorage?> DatastoreStorage { get; private set; } = null!;
 
         [Output("fileFormatConfiguration")]
         public Output<Outputs.DatastoreFileFormatConfiguration?> FileFormatConfiguration { get; private set; } = null!;
@@ -83,10 +83,10 @@ namespace Pulumi.AwsNative.IoTAnalytics
         public Input<string>? DatastoreName { get; set; }
 
         [Input("datastorePartitions")]
-        public Input<Inputs.DatastoreDatastorePartitionsArgs>? DatastorePartitions { get; set; }
+        public Input<Inputs.DatastorePartitionsArgs>? DatastorePartitions { get; set; }
 
         [Input("datastoreStorage")]
-        public Input<Inputs.DatastoreDatastoreStorageArgs>? DatastoreStorage { get; set; }
+        public Input<Inputs.DatastoreStorageArgs>? DatastoreStorage { get; set; }
 
         [Input("fileFormatConfiguration")]
         public Input<Inputs.DatastoreFileFormatConfigurationArgs>? FileFormatConfiguration { get; set; }

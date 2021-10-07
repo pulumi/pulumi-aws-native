@@ -381,26 +381,26 @@ namespace Pulumi.AwsNative.EC2
     /// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
     /// </summary>
     [EnumType]
-    public readonly struct HostHostRecovery : IEquatable<HostHostRecovery>
+    public readonly struct HostRecovery : IEquatable<HostRecovery>
     {
         private readonly string _value;
 
-        private HostHostRecovery(string value)
+        private HostRecovery(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static HostHostRecovery On { get; } = new HostHostRecovery("on");
-        public static HostHostRecovery Off { get; } = new HostHostRecovery("off");
+        public static HostRecovery On { get; } = new HostRecovery("on");
+        public static HostRecovery Off { get; } = new HostRecovery("off");
 
-        public static bool operator ==(HostHostRecovery left, HostHostRecovery right) => left.Equals(right);
-        public static bool operator !=(HostHostRecovery left, HostHostRecovery right) => !left.Equals(right);
+        public static bool operator ==(HostRecovery left, HostRecovery right) => left.Equals(right);
+        public static bool operator !=(HostRecovery left, HostRecovery right) => !left.Equals(right);
 
-        public static explicit operator string(HostHostRecovery value) => value._value;
+        public static explicit operator string(HostRecovery value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is HostHostRecovery other && Equals(other);
-        public bool Equals(HostHostRecovery other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is HostRecovery other && Equals(other);
+        public bool Equals(HostRecovery other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -530,6 +530,121 @@ namespace Pulumi.AwsNative.EC2
     }
 
     [EnumType]
+    public readonly struct SpotFleetRequestConfigDataAllocationStrategy : IEquatable<SpotFleetRequestConfigDataAllocationStrategy>
+    {
+        private readonly string _value;
+
+        private SpotFleetRequestConfigDataAllocationStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SpotFleetRequestConfigDataAllocationStrategy CapacityOptimized { get; } = new SpotFleetRequestConfigDataAllocationStrategy("capacityOptimized");
+        public static SpotFleetRequestConfigDataAllocationStrategy CapacityOptimizedPrioritized { get; } = new SpotFleetRequestConfigDataAllocationStrategy("capacityOptimizedPrioritized");
+        public static SpotFleetRequestConfigDataAllocationStrategy Diversified { get; } = new SpotFleetRequestConfigDataAllocationStrategy("diversified");
+        public static SpotFleetRequestConfigDataAllocationStrategy LowestPrice { get; } = new SpotFleetRequestConfigDataAllocationStrategy("lowestPrice");
+
+        public static bool operator ==(SpotFleetRequestConfigDataAllocationStrategy left, SpotFleetRequestConfigDataAllocationStrategy right) => left.Equals(right);
+        public static bool operator !=(SpotFleetRequestConfigDataAllocationStrategy left, SpotFleetRequestConfigDataAllocationStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(SpotFleetRequestConfigDataAllocationStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SpotFleetRequestConfigDataAllocationStrategy other && Equals(other);
+        public bool Equals(SpotFleetRequestConfigDataAllocationStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SpotFleetRequestConfigDataExcessCapacityTerminationPolicy : IEquatable<SpotFleetRequestConfigDataExcessCapacityTerminationPolicy>
+    {
+        private readonly string _value;
+
+        private SpotFleetRequestConfigDataExcessCapacityTerminationPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SpotFleetRequestConfigDataExcessCapacityTerminationPolicy Default { get; } = new SpotFleetRequestConfigDataExcessCapacityTerminationPolicy("Default");
+        public static SpotFleetRequestConfigDataExcessCapacityTerminationPolicy NoTermination { get; } = new SpotFleetRequestConfigDataExcessCapacityTerminationPolicy("NoTermination");
+
+        public static bool operator ==(SpotFleetRequestConfigDataExcessCapacityTerminationPolicy left, SpotFleetRequestConfigDataExcessCapacityTerminationPolicy right) => left.Equals(right);
+        public static bool operator !=(SpotFleetRequestConfigDataExcessCapacityTerminationPolicy left, SpotFleetRequestConfigDataExcessCapacityTerminationPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(SpotFleetRequestConfigDataExcessCapacityTerminationPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SpotFleetRequestConfigDataExcessCapacityTerminationPolicy other && Equals(other);
+        public bool Equals(SpotFleetRequestConfigDataExcessCapacityTerminationPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SpotFleetRequestConfigDataInstanceInterruptionBehavior : IEquatable<SpotFleetRequestConfigDataInstanceInterruptionBehavior>
+    {
+        private readonly string _value;
+
+        private SpotFleetRequestConfigDataInstanceInterruptionBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SpotFleetRequestConfigDataInstanceInterruptionBehavior Hibernate { get; } = new SpotFleetRequestConfigDataInstanceInterruptionBehavior("hibernate");
+        public static SpotFleetRequestConfigDataInstanceInterruptionBehavior Stop { get; } = new SpotFleetRequestConfigDataInstanceInterruptionBehavior("stop");
+        public static SpotFleetRequestConfigDataInstanceInterruptionBehavior Terminate { get; } = new SpotFleetRequestConfigDataInstanceInterruptionBehavior("terminate");
+
+        public static bool operator ==(SpotFleetRequestConfigDataInstanceInterruptionBehavior left, SpotFleetRequestConfigDataInstanceInterruptionBehavior right) => left.Equals(right);
+        public static bool operator !=(SpotFleetRequestConfigDataInstanceInterruptionBehavior left, SpotFleetRequestConfigDataInstanceInterruptionBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(SpotFleetRequestConfigDataInstanceInterruptionBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SpotFleetRequestConfigDataInstanceInterruptionBehavior other && Equals(other);
+        public bool Equals(SpotFleetRequestConfigDataInstanceInterruptionBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SpotFleetRequestConfigDataType : IEquatable<SpotFleetRequestConfigDataType>
+    {
+        private readonly string _value;
+
+        private SpotFleetRequestConfigDataType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SpotFleetRequestConfigDataType Maintain { get; } = new SpotFleetRequestConfigDataType("maintain");
+        public static SpotFleetRequestConfigDataType Request { get; } = new SpotFleetRequestConfigDataType("request");
+
+        public static bool operator ==(SpotFleetRequestConfigDataType left, SpotFleetRequestConfigDataType right) => left.Equals(right);
+        public static bool operator !=(SpotFleetRequestConfigDataType left, SpotFleetRequestConfigDataType right) => !left.Equals(right);
+
+        public static explicit operator string(SpotFleetRequestConfigDataType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SpotFleetRequestConfigDataType other && Equals(other);
+        public bool Equals(SpotFleetRequestConfigDataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct SpotFleetSpotCapacityRebalanceReplacementStrategy : IEquatable<SpotFleetSpotCapacityRebalanceReplacementStrategy>
     {
         private readonly string _value;
@@ -549,194 +664,6 @@ namespace Pulumi.AwsNative.EC2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SpotFleetSpotCapacityRebalanceReplacementStrategy other && Equals(other);
         public bool Equals(SpotFleetSpotCapacityRebalanceReplacementStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
-    public readonly struct SpotFleetSpotFleetRequestConfigDataAllocationStrategy : IEquatable<SpotFleetSpotFleetRequestConfigDataAllocationStrategy>
-    {
-        private readonly string _value;
-
-        private SpotFleetSpotFleetRequestConfigDataAllocationStrategy(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SpotFleetSpotFleetRequestConfigDataAllocationStrategy CapacityOptimized { get; } = new SpotFleetSpotFleetRequestConfigDataAllocationStrategy("capacityOptimized");
-        public static SpotFleetSpotFleetRequestConfigDataAllocationStrategy CapacityOptimizedPrioritized { get; } = new SpotFleetSpotFleetRequestConfigDataAllocationStrategy("capacityOptimizedPrioritized");
-        public static SpotFleetSpotFleetRequestConfigDataAllocationStrategy Diversified { get; } = new SpotFleetSpotFleetRequestConfigDataAllocationStrategy("diversified");
-        public static SpotFleetSpotFleetRequestConfigDataAllocationStrategy LowestPrice { get; } = new SpotFleetSpotFleetRequestConfigDataAllocationStrategy("lowestPrice");
-
-        public static bool operator ==(SpotFleetSpotFleetRequestConfigDataAllocationStrategy left, SpotFleetSpotFleetRequestConfigDataAllocationStrategy right) => left.Equals(right);
-        public static bool operator !=(SpotFleetSpotFleetRequestConfigDataAllocationStrategy left, SpotFleetSpotFleetRequestConfigDataAllocationStrategy right) => !left.Equals(right);
-
-        public static explicit operator string(SpotFleetSpotFleetRequestConfigDataAllocationStrategy value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SpotFleetSpotFleetRequestConfigDataAllocationStrategy other && Equals(other);
-        public bool Equals(SpotFleetSpotFleetRequestConfigDataAllocationStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
-    public readonly struct SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy : IEquatable<SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy>
-    {
-        private readonly string _value;
-
-        private SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy Default { get; } = new SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy("Default");
-        public static SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy NoTermination { get; } = new SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy("NoTermination");
-
-        public static bool operator ==(SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy left, SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy right) => left.Equals(right);
-        public static bool operator !=(SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy left, SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy right) => !left.Equals(right);
-
-        public static explicit operator string(SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy other && Equals(other);
-        public bool Equals(SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
-    public readonly struct SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior : IEquatable<SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior>
-    {
-        private readonly string _value;
-
-        private SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior Hibernate { get; } = new SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior("hibernate");
-        public static SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior Stop { get; } = new SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior("stop");
-        public static SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior Terminate { get; } = new SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior("terminate");
-
-        public static bool operator ==(SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior left, SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior right) => left.Equals(right);
-        public static bool operator !=(SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior left, SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior right) => !left.Equals(right);
-
-        public static explicit operator string(SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior other && Equals(other);
-        public bool Equals(SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
-    public readonly struct SpotFleetSpotFleetRequestConfigDataType : IEquatable<SpotFleetSpotFleetRequestConfigDataType>
-    {
-        private readonly string _value;
-
-        private SpotFleetSpotFleetRequestConfigDataType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SpotFleetSpotFleetRequestConfigDataType Maintain { get; } = new SpotFleetSpotFleetRequestConfigDataType("maintain");
-        public static SpotFleetSpotFleetRequestConfigDataType Request { get; } = new SpotFleetSpotFleetRequestConfigDataType("request");
-
-        public static bool operator ==(SpotFleetSpotFleetRequestConfigDataType left, SpotFleetSpotFleetRequestConfigDataType right) => left.Equals(right);
-        public static bool operator !=(SpotFleetSpotFleetRequestConfigDataType left, SpotFleetSpotFleetRequestConfigDataType right) => !left.Equals(right);
-
-        public static explicit operator string(SpotFleetSpotFleetRequestConfigDataType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SpotFleetSpotFleetRequestConfigDataType other && Equals(other);
-        public bool Equals(SpotFleetSpotFleetRequestConfigDataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
-    public readonly struct SpotFleetSpotFleetTagSpecificationResourceType : IEquatable<SpotFleetSpotFleetTagSpecificationResourceType>
-    {
-        private readonly string _value;
-
-        private SpotFleetSpotFleetTagSpecificationResourceType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SpotFleetSpotFleetTagSpecificationResourceType ClientVpnEndpoint { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("client-vpn-endpoint");
-        public static SpotFleetSpotFleetTagSpecificationResourceType CustomerGateway { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("customer-gateway");
-        public static SpotFleetSpotFleetTagSpecificationResourceType DedicatedHost { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("dedicated-host");
-        public static SpotFleetSpotFleetTagSpecificationResourceType DhcpOptions { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("dhcp-options");
-        public static SpotFleetSpotFleetTagSpecificationResourceType EgressOnlyInternetGateway { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("egress-only-internet-gateway");
-        public static SpotFleetSpotFleetTagSpecificationResourceType ElasticGpu { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("elastic-gpu");
-        public static SpotFleetSpotFleetTagSpecificationResourceType ElasticIp { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("elastic-ip");
-        public static SpotFleetSpotFleetTagSpecificationResourceType ExportImageTask { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("export-image-task");
-        public static SpotFleetSpotFleetTagSpecificationResourceType ExportInstanceTask { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("export-instance-task");
-        public static SpotFleetSpotFleetTagSpecificationResourceType Fleet { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("fleet");
-        public static SpotFleetSpotFleetTagSpecificationResourceType FpgaImage { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("fpga-image");
-        public static SpotFleetSpotFleetTagSpecificationResourceType HostReservation { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("host-reservation");
-        public static SpotFleetSpotFleetTagSpecificationResourceType Image { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("image");
-        public static SpotFleetSpotFleetTagSpecificationResourceType ImportImageTask { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("import-image-task");
-        public static SpotFleetSpotFleetTagSpecificationResourceType ImportSnapshotTask { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("import-snapshot-task");
-        public static SpotFleetSpotFleetTagSpecificationResourceType Instance { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("instance");
-        public static SpotFleetSpotFleetTagSpecificationResourceType InternetGateway { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("internet-gateway");
-        public static SpotFleetSpotFleetTagSpecificationResourceType KeyPair { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("key-pair");
-        public static SpotFleetSpotFleetTagSpecificationResourceType LaunchTemplate { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("launch-template");
-        public static SpotFleetSpotFleetTagSpecificationResourceType LocalGatewayRouteTableVpcAssociation { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("local-gateway-route-table-vpc-association");
-        public static SpotFleetSpotFleetTagSpecificationResourceType Natgateway { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("natgateway");
-        public static SpotFleetSpotFleetTagSpecificationResourceType NetworkAcl { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("network-acl");
-        public static SpotFleetSpotFleetTagSpecificationResourceType NetworkInsightsAnalysis { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("network-insights-analysis");
-        public static SpotFleetSpotFleetTagSpecificationResourceType NetworkInsightsPath { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("network-insights-path");
-        public static SpotFleetSpotFleetTagSpecificationResourceType NetworkInterface { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("network-interface");
-        public static SpotFleetSpotFleetTagSpecificationResourceType PlacementGroup { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("placement-group");
-        public static SpotFleetSpotFleetTagSpecificationResourceType ReservedInstances { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("reserved-instances");
-        public static SpotFleetSpotFleetTagSpecificationResourceType RouteTable { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("route-table");
-        public static SpotFleetSpotFleetTagSpecificationResourceType SecurityGroup { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("security-group");
-        public static SpotFleetSpotFleetTagSpecificationResourceType Snapshot { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("snapshot");
-        public static SpotFleetSpotFleetTagSpecificationResourceType SpotFleetRequest { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("spot-fleet-request");
-        public static SpotFleetSpotFleetTagSpecificationResourceType SpotInstancesRequest { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("spot-instances-request");
-        public static SpotFleetSpotFleetTagSpecificationResourceType Subnet { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("subnet");
-        public static SpotFleetSpotFleetTagSpecificationResourceType TrafficMirrorFilter { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("traffic-mirror-filter");
-        public static SpotFleetSpotFleetTagSpecificationResourceType TrafficMirrorSession { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("traffic-mirror-session");
-        public static SpotFleetSpotFleetTagSpecificationResourceType TrafficMirrorTarget { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("traffic-mirror-target");
-        public static SpotFleetSpotFleetTagSpecificationResourceType TransitGateway { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("transit-gateway");
-        public static SpotFleetSpotFleetTagSpecificationResourceType TransitGatewayAttachment { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("transit-gateway-attachment");
-        public static SpotFleetSpotFleetTagSpecificationResourceType TransitGatewayConnectPeer { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("transit-gateway-connect-peer");
-        public static SpotFleetSpotFleetTagSpecificationResourceType TransitGatewayMulticastDomain { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("transit-gateway-multicast-domain");
-        public static SpotFleetSpotFleetTagSpecificationResourceType TransitGatewayRouteTable { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("transit-gateway-route-table");
-        public static SpotFleetSpotFleetTagSpecificationResourceType Volume { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("volume");
-        public static SpotFleetSpotFleetTagSpecificationResourceType Vpc { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("vpc");
-        public static SpotFleetSpotFleetTagSpecificationResourceType VpcFlowLog { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("vpc-flow-log");
-        public static SpotFleetSpotFleetTagSpecificationResourceType VpcPeeringConnection { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("vpc-peering-connection");
-        public static SpotFleetSpotFleetTagSpecificationResourceType VpnConnection { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("vpn-connection");
-        public static SpotFleetSpotFleetTagSpecificationResourceType VpnGateway { get; } = new SpotFleetSpotFleetTagSpecificationResourceType("vpn-gateway");
-
-        public static bool operator ==(SpotFleetSpotFleetTagSpecificationResourceType left, SpotFleetSpotFleetTagSpecificationResourceType right) => left.Equals(right);
-        public static bool operator !=(SpotFleetSpotFleetTagSpecificationResourceType left, SpotFleetSpotFleetTagSpecificationResourceType right) => !left.Equals(right);
-
-        public static explicit operator string(SpotFleetSpotFleetTagSpecificationResourceType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SpotFleetSpotFleetTagSpecificationResourceType other && Equals(other);
-        public bool Equals(SpotFleetSpotFleetTagSpecificationResourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -766,6 +693,79 @@ namespace Pulumi.AwsNative.EC2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SpotFleetSpotPlacementTenancy other && Equals(other);
         public bool Equals(SpotFleetSpotPlacementTenancy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SpotFleetTagSpecificationResourceType : IEquatable<SpotFleetTagSpecificationResourceType>
+    {
+        private readonly string _value;
+
+        private SpotFleetTagSpecificationResourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SpotFleetTagSpecificationResourceType ClientVpnEndpoint { get; } = new SpotFleetTagSpecificationResourceType("client-vpn-endpoint");
+        public static SpotFleetTagSpecificationResourceType CustomerGateway { get; } = new SpotFleetTagSpecificationResourceType("customer-gateway");
+        public static SpotFleetTagSpecificationResourceType DedicatedHost { get; } = new SpotFleetTagSpecificationResourceType("dedicated-host");
+        public static SpotFleetTagSpecificationResourceType DhcpOptions { get; } = new SpotFleetTagSpecificationResourceType("dhcp-options");
+        public static SpotFleetTagSpecificationResourceType EgressOnlyInternetGateway { get; } = new SpotFleetTagSpecificationResourceType("egress-only-internet-gateway");
+        public static SpotFleetTagSpecificationResourceType ElasticGpu { get; } = new SpotFleetTagSpecificationResourceType("elastic-gpu");
+        public static SpotFleetTagSpecificationResourceType ElasticIp { get; } = new SpotFleetTagSpecificationResourceType("elastic-ip");
+        public static SpotFleetTagSpecificationResourceType ExportImageTask { get; } = new SpotFleetTagSpecificationResourceType("export-image-task");
+        public static SpotFleetTagSpecificationResourceType ExportInstanceTask { get; } = new SpotFleetTagSpecificationResourceType("export-instance-task");
+        public static SpotFleetTagSpecificationResourceType Fleet { get; } = new SpotFleetTagSpecificationResourceType("fleet");
+        public static SpotFleetTagSpecificationResourceType FpgaImage { get; } = new SpotFleetTagSpecificationResourceType("fpga-image");
+        public static SpotFleetTagSpecificationResourceType HostReservation { get; } = new SpotFleetTagSpecificationResourceType("host-reservation");
+        public static SpotFleetTagSpecificationResourceType Image { get; } = new SpotFleetTagSpecificationResourceType("image");
+        public static SpotFleetTagSpecificationResourceType ImportImageTask { get; } = new SpotFleetTagSpecificationResourceType("import-image-task");
+        public static SpotFleetTagSpecificationResourceType ImportSnapshotTask { get; } = new SpotFleetTagSpecificationResourceType("import-snapshot-task");
+        public static SpotFleetTagSpecificationResourceType Instance { get; } = new SpotFleetTagSpecificationResourceType("instance");
+        public static SpotFleetTagSpecificationResourceType InternetGateway { get; } = new SpotFleetTagSpecificationResourceType("internet-gateway");
+        public static SpotFleetTagSpecificationResourceType KeyPair { get; } = new SpotFleetTagSpecificationResourceType("key-pair");
+        public static SpotFleetTagSpecificationResourceType LaunchTemplate { get; } = new SpotFleetTagSpecificationResourceType("launch-template");
+        public static SpotFleetTagSpecificationResourceType LocalGatewayRouteTableVpcAssociation { get; } = new SpotFleetTagSpecificationResourceType("local-gateway-route-table-vpc-association");
+        public static SpotFleetTagSpecificationResourceType Natgateway { get; } = new SpotFleetTagSpecificationResourceType("natgateway");
+        public static SpotFleetTagSpecificationResourceType NetworkAcl { get; } = new SpotFleetTagSpecificationResourceType("network-acl");
+        public static SpotFleetTagSpecificationResourceType NetworkInsightsAnalysis { get; } = new SpotFleetTagSpecificationResourceType("network-insights-analysis");
+        public static SpotFleetTagSpecificationResourceType NetworkInsightsPath { get; } = new SpotFleetTagSpecificationResourceType("network-insights-path");
+        public static SpotFleetTagSpecificationResourceType NetworkInterface { get; } = new SpotFleetTagSpecificationResourceType("network-interface");
+        public static SpotFleetTagSpecificationResourceType PlacementGroup { get; } = new SpotFleetTagSpecificationResourceType("placement-group");
+        public static SpotFleetTagSpecificationResourceType ReservedInstances { get; } = new SpotFleetTagSpecificationResourceType("reserved-instances");
+        public static SpotFleetTagSpecificationResourceType RouteTable { get; } = new SpotFleetTagSpecificationResourceType("route-table");
+        public static SpotFleetTagSpecificationResourceType SecurityGroup { get; } = new SpotFleetTagSpecificationResourceType("security-group");
+        public static SpotFleetTagSpecificationResourceType Snapshot { get; } = new SpotFleetTagSpecificationResourceType("snapshot");
+        public static SpotFleetTagSpecificationResourceType SpotFleetRequest { get; } = new SpotFleetTagSpecificationResourceType("spot-fleet-request");
+        public static SpotFleetTagSpecificationResourceType SpotInstancesRequest { get; } = new SpotFleetTagSpecificationResourceType("spot-instances-request");
+        public static SpotFleetTagSpecificationResourceType Subnet { get; } = new SpotFleetTagSpecificationResourceType("subnet");
+        public static SpotFleetTagSpecificationResourceType TrafficMirrorFilter { get; } = new SpotFleetTagSpecificationResourceType("traffic-mirror-filter");
+        public static SpotFleetTagSpecificationResourceType TrafficMirrorSession { get; } = new SpotFleetTagSpecificationResourceType("traffic-mirror-session");
+        public static SpotFleetTagSpecificationResourceType TrafficMirrorTarget { get; } = new SpotFleetTagSpecificationResourceType("traffic-mirror-target");
+        public static SpotFleetTagSpecificationResourceType TransitGateway { get; } = new SpotFleetTagSpecificationResourceType("transit-gateway");
+        public static SpotFleetTagSpecificationResourceType TransitGatewayAttachment { get; } = new SpotFleetTagSpecificationResourceType("transit-gateway-attachment");
+        public static SpotFleetTagSpecificationResourceType TransitGatewayConnectPeer { get; } = new SpotFleetTagSpecificationResourceType("transit-gateway-connect-peer");
+        public static SpotFleetTagSpecificationResourceType TransitGatewayMulticastDomain { get; } = new SpotFleetTagSpecificationResourceType("transit-gateway-multicast-domain");
+        public static SpotFleetTagSpecificationResourceType TransitGatewayRouteTable { get; } = new SpotFleetTagSpecificationResourceType("transit-gateway-route-table");
+        public static SpotFleetTagSpecificationResourceType Volume { get; } = new SpotFleetTagSpecificationResourceType("volume");
+        public static SpotFleetTagSpecificationResourceType Vpc { get; } = new SpotFleetTagSpecificationResourceType("vpc");
+        public static SpotFleetTagSpecificationResourceType VpcFlowLog { get; } = new SpotFleetTagSpecificationResourceType("vpc-flow-log");
+        public static SpotFleetTagSpecificationResourceType VpcPeeringConnection { get; } = new SpotFleetTagSpecificationResourceType("vpc-peering-connection");
+        public static SpotFleetTagSpecificationResourceType VpnConnection { get; } = new SpotFleetTagSpecificationResourceType("vpn-connection");
+        public static SpotFleetTagSpecificationResourceType VpnGateway { get; } = new SpotFleetTagSpecificationResourceType("vpn-gateway");
+
+        public static bool operator ==(SpotFleetTagSpecificationResourceType left, SpotFleetTagSpecificationResourceType right) => left.Equals(right);
+        public static bool operator !=(SpotFleetTagSpecificationResourceType left, SpotFleetTagSpecificationResourceType right) => !left.Equals(right);
+
+        public static explicit operator string(SpotFleetTagSpecificationResourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SpotFleetTagSpecificationResourceType other && Equals(other);
+        public bool Equals(SpotFleetTagSpecificationResourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

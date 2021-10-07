@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public Output<string?> Description { get; private set; } = null!;
 
         [Output("firewallPolicy")]
-        public Output<Outputs.FirewallPolicyFirewallPolicy> FirewallPolicyValue { get; private set; } = null!;
+        public Output<Outputs.FirewallPolicy> FirewallPolicyValue { get; private set; } = null!;
 
         [Output("firewallPolicyArn")]
         public Output<string> FirewallPolicyArn { get; private set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public Input<string>? Description { get; set; }
 
         [Input("firewallPolicy", required: true)]
-        public Input<Inputs.FirewallPolicyFirewallPolicyArgs> FirewallPolicyValue { get; set; } = null!;
+        public Input<Inputs.FirewallPolicyArgs> FirewallPolicyValue { get; set; } = null!;
 
         [Input("firewallPolicyName", required: true)]
         public Input<string> FirewallPolicyName { get; set; } = null!;

@@ -12,27 +12,16 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
 
     public sealed class SegmentGroupsArgs : Pulumi.ResourceArgs
     {
-        [Input("dimensions")]
-        private InputList<Inputs.SegmentSegmentDimensionsArgs>? _dimensions;
-        public InputList<Inputs.SegmentSegmentDimensionsArgs> Dimensions
+        [Input("groups")]
+        private InputList<Inputs.SegmentGroupsArgs>? _groups;
+        public InputList<Inputs.SegmentGroupsArgs> Groups
         {
-            get => _dimensions ?? (_dimensions = new InputList<Inputs.SegmentSegmentDimensionsArgs>());
-            set => _dimensions = value;
+            get => _groups ?? (_groups = new InputList<Inputs.SegmentGroupsArgs>());
+            set => _groups = value;
         }
 
-        [Input("sourceSegments")]
-        private InputList<Inputs.SegmentSourceSegmentsArgs>? _sourceSegments;
-        public InputList<Inputs.SegmentSourceSegmentsArgs> SourceSegments
-        {
-            get => _sourceSegments ?? (_sourceSegments = new InputList<Inputs.SegmentSourceSegmentsArgs>());
-            set => _sourceSegments = value;
-        }
-
-        [Input("sourceType")]
-        public Input<string>? SourceType { get; set; }
-
-        [Input("type")]
-        public Input<string>? Type { get; set; }
+        [Input("include")]
+        public Input<string>? Include { get; set; }
 
         public SegmentGroupsArgs()
         {

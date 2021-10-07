@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.Elasticsearch
         public Output<string> DomainEndpoint { get; private set; } = null!;
 
         [Output("domainEndpointOptions")]
-        public Output<Outputs.DomainDomainEndpointOptions?> DomainEndpointOptions { get; private set; } = null!;
+        public Output<Outputs.DomainEndpointOptions?> DomainEndpointOptions { get; private set; } = null!;
 
         [Output("domainName")]
         public Output<string?> DomainName { get; private set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.AwsNative.Elasticsearch
         public Input<Inputs.DomainCognitoOptionsArgs>? CognitoOptions { get; set; }
 
         [Input("domainEndpointOptions")]
-        public Input<Inputs.DomainDomainEndpointOptionsArgs>? DomainEndpointOptions { get; set; }
+        public Input<Inputs.DomainEndpointOptionsArgs>? DomainEndpointOptions { get; set; }
 
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }

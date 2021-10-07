@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// The identity for this access policy. Choose either a user or a group but not both.
         /// </summary>
         [Output("accessPolicyIdentity")]
-        public Output<Outputs.AccessPolicyAccessPolicyIdentity> AccessPolicyIdentity { get; private set; } = null!;
+        public Output<Outputs.AccessPolicyIdentity> AccessPolicyIdentity { get; private set; } = null!;
 
         /// <summary>
         /// The permission level for this access policy. Valid values are ADMINISTRATOR or VIEWER.
@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
         /// </summary>
         [Output("accessPolicyResource")]
-        public Output<Outputs.AccessPolicyAccessPolicyResource> AccessPolicyResource { get; private set; } = null!;
+        public Output<Outputs.AccessPolicyResource> AccessPolicyResource { get; private set; } = null!;
 
 
         /// <summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// The identity for this access policy. Choose either a user or a group but not both.
         /// </summary>
         [Input("accessPolicyIdentity", required: true)]
-        public Input<Inputs.AccessPolicyAccessPolicyIdentityArgs> AccessPolicyIdentity { get; set; } = null!;
+        public Input<Inputs.AccessPolicyIdentityArgs> AccessPolicyIdentity { get; set; } = null!;
 
         /// <summary>
         /// The permission level for this access policy. Valid values are ADMINISTRATOR or VIEWER.
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
         /// </summary>
         [Input("accessPolicyResource", required: true)]
-        public Input<Inputs.AccessPolicyAccessPolicyResourceArgs> AccessPolicyResource { get; set; } = null!;
+        public Input<Inputs.AccessPolicyResourceArgs> AccessPolicyResource { get; set; } = null!;
 
         public AccessPolicyArgs()
         {

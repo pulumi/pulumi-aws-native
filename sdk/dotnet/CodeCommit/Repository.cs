@@ -41,7 +41,7 @@ namespace Pulumi.AwsNative.CodeCommit
         public Output<ImmutableArray<Outputs.RepositoryTag>> Tags { get; private set; } = null!;
 
         [Output("triggers")]
-        public Output<ImmutableArray<Outputs.RepositoryRepositoryTrigger>> Triggers { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RepositoryTrigger>> Triggers { get; private set; } = null!;
 
 
         /// <summary>
@@ -106,10 +106,10 @@ namespace Pulumi.AwsNative.CodeCommit
         }
 
         [Input("triggers")]
-        private InputList<Inputs.RepositoryRepositoryTriggerArgs>? _triggers;
-        public InputList<Inputs.RepositoryRepositoryTriggerArgs> Triggers
+        private InputList<Inputs.RepositoryTriggerArgs>? _triggers;
+        public InputList<Inputs.RepositoryTriggerArgs> Triggers
         {
-            get => _triggers ?? (_triggers = new InputList<Inputs.RepositoryRepositoryTriggerArgs>());
+            get => _triggers ?? (_triggers = new InputList<Inputs.RepositoryTriggerArgs>());
             set => _triggers = value;
         }
 

@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public Output<ImmutableArray<Outputs.TargetGroupTag>> Tags { get; private set; } = null!;
 
         [Output("targetGroupAttributes")]
-        public Output<ImmutableArray<Outputs.TargetGroupTargetGroupAttribute>> TargetGroupAttributes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TargetGroupAttribute>> TargetGroupAttributes { get; private set; } = null!;
 
         [Output("targetGroupFullName")]
         public Output<string> TargetGroupFullName { get; private set; } = null!;
@@ -175,10 +175,10 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         }
 
         [Input("targetGroupAttributes")]
-        private InputList<Inputs.TargetGroupTargetGroupAttributeArgs>? _targetGroupAttributes;
-        public InputList<Inputs.TargetGroupTargetGroupAttributeArgs> TargetGroupAttributes
+        private InputList<Inputs.TargetGroupAttributeArgs>? _targetGroupAttributes;
+        public InputList<Inputs.TargetGroupAttributeArgs> TargetGroupAttributes
         {
-            get => _targetGroupAttributes ?? (_targetGroupAttributes = new InputList<Inputs.TargetGroupTargetGroupAttributeArgs>());
+            get => _targetGroupAttributes ?? (_targetGroupAttributes = new InputList<Inputs.TargetGroupAttributeArgs>());
             set => _targetGroupAttributes = value;
         }
 

@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public Input<string>? Prefix { get; set; }
 
         [Input("range")]
-        public Input<Inputs.GatewayRouteGatewayRouteRangeMatchArgs>? Range { get; set; }
+        public Input<Inputs.GatewayRouteRangeMatchArgs>? Range { get; set; }
 
         [Input("regex")]
         public Input<string>? Regex { get; set; }

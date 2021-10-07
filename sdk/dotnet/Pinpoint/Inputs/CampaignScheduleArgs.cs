@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         public Input<string>? EndTime { get; set; }
 
         [Input("eventFilter")]
-        public Input<Inputs.CampaignCampaignEventFilterArgs>? EventFilter { get; set; }
+        public Input<Inputs.CampaignEventFilterArgs>? EventFilter { get; set; }
 
         [Input("frequency")]
         public Input<string>? Frequency { get; set; }

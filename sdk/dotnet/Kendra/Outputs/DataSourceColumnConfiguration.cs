@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly string DocumentDataColumnName;
         public readonly string DocumentIdColumnName;
         public readonly string? DocumentTitleColumnName;
-        public readonly ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> FieldMappings;
+        public readonly ImmutableArray<Outputs.DataSourceToIndexFieldMapping> FieldMappings;
 
         [OutputConstructor]
         private DataSourceColumnConfiguration(
@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             string? documentTitleColumnName,
 
-            ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> fieldMappings)
+            ImmutableArray<Outputs.DataSourceToIndexFieldMapping> fieldMappings)
         {
             ChangeDetectingColumns = changeDetectingColumns;
             DocumentDataColumnName = documentDataColumnName;

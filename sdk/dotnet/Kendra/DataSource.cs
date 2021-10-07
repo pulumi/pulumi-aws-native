@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Kendra
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("dataSourceConfiguration")]
-        public Output<Outputs.DataSourceDataSourceConfiguration?> DataSourceConfiguration { get; private set; } = null!;
+        public Output<Outputs.DataSourceConfiguration?> DataSourceConfiguration { get; private set; } = null!;
 
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.Kendra
     public sealed class DataSourceArgs : Pulumi.ResourceArgs
     {
         [Input("dataSourceConfiguration")]
-        public Input<Inputs.DataSourceDataSourceConfigurationArgs>? DataSourceConfiguration { get; set; }
+        public Input<Inputs.DataSourceConfigurationArgs>? DataSourceConfiguration { get; set; }
 
         [Input("description")]
         public Input<string>? Description { get; set; }

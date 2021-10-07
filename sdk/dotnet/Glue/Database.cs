@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.Glue
         public Output<string> CatalogId { get; private set; } = null!;
 
         [Output("databaseInput")]
-        public Output<Outputs.DatabaseDatabaseInput> DatabaseInput { get; private set; } = null!;
+        public Output<Outputs.DatabaseInput> DatabaseInput { get; private set; } = null!;
 
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.Glue
         public Input<string> CatalogId { get; set; } = null!;
 
         [Input("databaseInput", required: true)]
-        public Input<Inputs.DatabaseDatabaseInputArgs> DatabaseInput { get; set; } = null!;
+        public Input<Inputs.DatabaseInputArgs> DatabaseInput { get; set; } = null!;
 
         public DatabaseArgs()
         {

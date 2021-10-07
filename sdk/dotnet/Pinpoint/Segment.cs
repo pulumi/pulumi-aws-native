@@ -23,13 +23,13 @@ namespace Pulumi.AwsNative.Pinpoint
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("dimensions")]
-        public Output<Outputs.SegmentSegmentDimensions?> Dimensions { get; private set; } = null!;
+        public Output<Outputs.SegmentDimensions?> Dimensions { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         [Output("segmentGroups")]
-        public Output<Outputs.SegmentSegmentGroups?> SegmentGroups { get; private set; } = null!;
+        public Output<Outputs.SegmentGroups?> SegmentGroups { get; private set; } = null!;
 
         [Output("segmentId")]
         public Output<string> SegmentId { get; private set; } = null!;
@@ -86,13 +86,13 @@ namespace Pulumi.AwsNative.Pinpoint
         public Input<string> ApplicationId { get; set; } = null!;
 
         [Input("dimensions")]
-        public Input<Inputs.SegmentSegmentDimensionsArgs>? Dimensions { get; set; }
+        public Input<Inputs.SegmentDimensionsArgs>? Dimensions { get; set; }
 
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("segmentGroups")]
-        public Input<Inputs.SegmentSegmentGroupsArgs>? SegmentGroups { get; set; }
+        public Input<Inputs.SegmentGroupsArgs>? SegmentGroups { get; set; }
 
         [Input("tags")]
         public Input<object>? Tags { get; set; }

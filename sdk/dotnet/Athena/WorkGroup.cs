@@ -55,13 +55,13 @@ namespace Pulumi.AwsNative.Athena
         /// The workgroup configuration
         /// </summary>
         [Output("workGroupConfiguration")]
-        public Output<Outputs.WorkGroupWorkGroupConfiguration?> WorkGroupConfiguration { get; private set; } = null!;
+        public Output<Outputs.WorkGroupConfiguration?> WorkGroupConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The workgroup configuration update object
         /// </summary>
         [Output("workGroupConfigurationUpdates")]
-        public Output<Outputs.WorkGroupWorkGroupConfigurationUpdates?> WorkGroupConfigurationUpdates { get; private set; } = null!;
+        public Output<Outputs.WorkGroupConfigurationUpdates?> WorkGroupConfigurationUpdates { get; private set; } = null!;
 
 
         /// <summary>
@@ -148,13 +148,13 @@ namespace Pulumi.AwsNative.Athena
         /// The workgroup configuration
         /// </summary>
         [Input("workGroupConfiguration")]
-        public Input<Inputs.WorkGroupWorkGroupConfigurationArgs>? WorkGroupConfiguration { get; set; }
+        public Input<Inputs.WorkGroupConfigurationArgs>? WorkGroupConfiguration { get; set; }
 
         /// <summary>
         /// The workgroup configuration update object
         /// </summary>
         [Input("workGroupConfigurationUpdates")]
-        public Input<Inputs.WorkGroupWorkGroupConfigurationUpdatesArgs>? WorkGroupConfigurationUpdates { get; set; }
+        public Input<Inputs.WorkGroupConfigurationUpdatesArgs>? WorkGroupConfigurationUpdates { get; set; }
 
         public WorkGroupArgs()
         {

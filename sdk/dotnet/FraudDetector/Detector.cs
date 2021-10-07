@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.FraudDetector
         /// The desired detector version status for the detector
         /// </summary>
         [Output("detectorVersionStatus")]
-        public Output<Pulumi.AwsNative.FraudDetector.DetectorDetectorVersionStatus?> DetectorVersionStatus { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.FraudDetector.DetectorVersionStatus?> DetectorVersionStatus { get; private set; } = null!;
 
         /// <summary>
         /// The event type to associate this detector with.
@@ -154,7 +154,7 @@ namespace Pulumi.AwsNative.FraudDetector
         /// The desired detector version status for the detector
         /// </summary>
         [Input("detectorVersionStatus")]
-        public Input<Pulumi.AwsNative.FraudDetector.DetectorDetectorVersionStatus>? DetectorVersionStatus { get; set; }
+        public Input<Pulumi.AwsNative.FraudDetector.DetectorVersionStatus>? DetectorVersionStatus { get; set; }
 
         /// <summary>
         /// The event type to associate this detector with.

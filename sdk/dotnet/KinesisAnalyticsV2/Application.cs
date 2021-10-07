@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
     public partial class Application : Pulumi.CustomResource
     {
         [Output("applicationConfiguration")]
-        public Output<Outputs.ApplicationApplicationConfiguration?> ApplicationConfiguration { get; private set; } = null!;
+        public Output<Outputs.ApplicationConfiguration?> ApplicationConfiguration { get; private set; } = null!;
 
         [Output("applicationDescription")]
         public Output<string?> ApplicationDescription { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
     public sealed class ApplicationArgs : Pulumi.ResourceArgs
     {
         [Input("applicationConfiguration")]
-        public Input<Inputs.ApplicationApplicationConfigurationArgs>? ApplicationConfiguration { get; set; }
+        public Input<Inputs.ApplicationConfigurationArgs>? ApplicationConfiguration { get; set; }
 
         [Input("applicationDescription")]
         public Input<string>? ApplicationDescription { get; set; }

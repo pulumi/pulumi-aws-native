@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
     {
         public readonly string? Exact;
         public readonly string? Prefix;
-        public readonly Outputs.GatewayRouteGatewayRouteRangeMatch? Range;
+        public readonly Outputs.GatewayRouteRangeMatch? Range;
         public readonly string? Regex;
         public readonly string? Suffix;
 
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
 
             string? prefix,
 
-            Outputs.GatewayRouteGatewayRouteRangeMatch? range,
+            Outputs.GatewayRouteRangeMatch? range,
 
             string? regex,
 

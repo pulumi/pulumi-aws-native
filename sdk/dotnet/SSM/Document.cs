@@ -31,13 +31,13 @@ namespace Pulumi.AwsNative.SSM
         /// Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
         /// </summary>
         [Output("documentFormat")]
-        public Output<Pulumi.AwsNative.SSM.DocumentDocumentFormat?> DocumentFormat { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.SSM.DocumentFormat?> DocumentFormat { get; private set; } = null!;
 
         /// <summary>
         /// The type of document to create.
         /// </summary>
         [Output("documentType")]
-        public Output<Pulumi.AwsNative.SSM.DocumentDocumentType?> DocumentType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.SSM.DocumentType?> DocumentType { get; private set; } = null!;
 
         /// <summary>
         /// A name for the Systems Manager document.
@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.SSM
         /// A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
         /// </summary>
         [Output("requires")]
-        public Output<ImmutableArray<Outputs.DocumentDocumentRequires>> Requires { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DocumentRequires>> Requires { get; private set; } = null!;
 
         /// <summary>
         /// Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
@@ -136,13 +136,13 @@ namespace Pulumi.AwsNative.SSM
         /// Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
         /// </summary>
         [Input("documentFormat")]
-        public Input<Pulumi.AwsNative.SSM.DocumentDocumentFormat>? DocumentFormat { get; set; }
+        public Input<Pulumi.AwsNative.SSM.DocumentFormat>? DocumentFormat { get; set; }
 
         /// <summary>
         /// The type of document to create.
         /// </summary>
         [Input("documentType")]
-        public Input<Pulumi.AwsNative.SSM.DocumentDocumentType>? DocumentType { get; set; }
+        public Input<Pulumi.AwsNative.SSM.DocumentType>? DocumentType { get; set; }
 
         /// <summary>
         /// A name for the Systems Manager document.
@@ -151,14 +151,14 @@ namespace Pulumi.AwsNative.SSM
         public Input<string>? Name { get; set; }
 
         [Input("requires")]
-        private InputList<Inputs.DocumentDocumentRequiresArgs>? _requires;
+        private InputList<Inputs.DocumentRequiresArgs>? _requires;
 
         /// <summary>
         /// A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
         /// </summary>
-        public InputList<Inputs.DocumentDocumentRequiresArgs> Requires
+        public InputList<Inputs.DocumentRequiresArgs> Requires
         {
-            get => _requires ?? (_requires = new InputList<Inputs.DocumentDocumentRequiresArgs>());
+            get => _requires ?? (_requires = new InputList<Inputs.DocumentRequiresArgs>());
             set => _requires = value;
         }
 

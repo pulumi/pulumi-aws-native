@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<string> DashboardId { get; private set; } = null!;
 
         [Output("dashboardPublishOptions")]
-        public Output<Outputs.DashboardDashboardPublishOptions?> DashboardPublishOptions { get; private set; } = null!;
+        public Output<Outputs.DashboardPublishOptions?> DashboardPublishOptions { get; private set; } = null!;
 
         /// <summary>
         /// &lt;p&gt;The last time that this dataset was published.&lt;/p&gt;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<ImmutableArray<Outputs.DashboardResourcePermission>> Permissions { get; private set; } = null!;
 
         [Output("sourceEntity")]
-        public Output<Outputs.DashboardDashboardSourceEntity?> SourceEntity { get; private set; } = null!;
+        public Output<Outputs.DashboardSourceEntity?> SourceEntity { get; private set; } = null!;
 
         /// <summary>
         /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the
@@ -87,7 +87,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<string?> ThemeArn { get; private set; } = null!;
 
         [Output("version")]
-        public Output<Outputs.DashboardDashboardVersion> Version { get; private set; } = null!;
+        public Output<Outputs.DashboardVersion> Version { get; private set; } = null!;
 
         /// <summary>
         /// &lt;p&gt;A description for the first version of the dashboard being created.&lt;/p&gt;
@@ -147,7 +147,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Input<string> DashboardId { get; set; } = null!;
 
         [Input("dashboardPublishOptions")]
-        public Input<Inputs.DashboardDashboardPublishOptionsArgs>? DashboardPublishOptions { get; set; }
+        public Input<Inputs.DashboardPublishOptionsArgs>? DashboardPublishOptions { get; set; }
 
         /// <summary>
         /// &lt;p&gt;The display name of the dashboard.&lt;/p&gt;
@@ -175,7 +175,7 @@ namespace Pulumi.AwsNative.QuickSight
         }
 
         [Input("sourceEntity")]
-        public Input<Inputs.DashboardDashboardSourceEntityArgs>? SourceEntity { get; set; }
+        public Input<Inputs.DashboardSourceEntityArgs>? SourceEntity { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.DashboardTagArgs>? _tags;

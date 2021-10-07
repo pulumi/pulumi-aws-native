@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.EKS.Inputs
         /// The cluster control plane logging configuration for your cluster. 
         /// </summary>
         [Input("clusterLogging")]
-        public Input<Inputs.ClusterClusterLoggingArgs>? ClusterLoggingValue { get; set; }
+        public Input<Inputs.ClusterLoggingArgs>? ClusterLoggingValue { get; set; }
 
         public ClusterLoggingArgs()
         {

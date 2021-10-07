@@ -394,29 +394,29 @@ namespace Pulumi.AwsNative.CustomerProfiles
     /// The content type of the field. Used for determining equality when searching.
     /// </summary>
     [EnumType]
-    public readonly struct ObjectTypeObjectTypeFieldContentType : IEquatable<ObjectTypeObjectTypeFieldContentType>
+    public readonly struct ObjectTypeFieldContentType : IEquatable<ObjectTypeFieldContentType>
     {
         private readonly string _value;
 
-        private ObjectTypeObjectTypeFieldContentType(string value)
+        private ObjectTypeFieldContentType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ObjectTypeObjectTypeFieldContentType String { get; } = new ObjectTypeObjectTypeFieldContentType("STRING");
-        public static ObjectTypeObjectTypeFieldContentType Number { get; } = new ObjectTypeObjectTypeFieldContentType("NUMBER");
-        public static ObjectTypeObjectTypeFieldContentType PhoneNumber { get; } = new ObjectTypeObjectTypeFieldContentType("PHONE_NUMBER");
-        public static ObjectTypeObjectTypeFieldContentType EmailAddress { get; } = new ObjectTypeObjectTypeFieldContentType("EMAIL_ADDRESS");
-        public static ObjectTypeObjectTypeFieldContentType Name { get; } = new ObjectTypeObjectTypeFieldContentType("NAME");
+        public static ObjectTypeFieldContentType String { get; } = new ObjectTypeFieldContentType("STRING");
+        public static ObjectTypeFieldContentType Number { get; } = new ObjectTypeFieldContentType("NUMBER");
+        public static ObjectTypeFieldContentType PhoneNumber { get; } = new ObjectTypeFieldContentType("PHONE_NUMBER");
+        public static ObjectTypeFieldContentType EmailAddress { get; } = new ObjectTypeFieldContentType("EMAIL_ADDRESS");
+        public static ObjectTypeFieldContentType Name { get; } = new ObjectTypeFieldContentType("NAME");
 
-        public static bool operator ==(ObjectTypeObjectTypeFieldContentType left, ObjectTypeObjectTypeFieldContentType right) => left.Equals(right);
-        public static bool operator !=(ObjectTypeObjectTypeFieldContentType left, ObjectTypeObjectTypeFieldContentType right) => !left.Equals(right);
+        public static bool operator ==(ObjectTypeFieldContentType left, ObjectTypeFieldContentType right) => left.Equals(right);
+        public static bool operator !=(ObjectTypeFieldContentType left, ObjectTypeFieldContentType right) => !left.Equals(right);
 
-        public static explicit operator string(ObjectTypeObjectTypeFieldContentType value) => value._value;
+        public static explicit operator string(ObjectTypeFieldContentType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ObjectTypeObjectTypeFieldContentType other && Equals(other);
-        public bool Equals(ObjectTypeObjectTypeFieldContentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ObjectTypeFieldContentType other && Equals(other);
+        public bool Equals(ObjectTypeFieldContentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -425,29 +425,29 @@ namespace Pulumi.AwsNative.CustomerProfiles
     }
 
     [EnumType]
-    public readonly struct ObjectTypeObjectTypeKeyStandardIdentifiersItem : IEquatable<ObjectTypeObjectTypeKeyStandardIdentifiersItem>
+    public readonly struct ObjectTypeKeyStandardIdentifiersItem : IEquatable<ObjectTypeKeyStandardIdentifiersItem>
     {
         private readonly string _value;
 
-        private ObjectTypeObjectTypeKeyStandardIdentifiersItem(string value)
+        private ObjectTypeKeyStandardIdentifiersItem(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ObjectTypeObjectTypeKeyStandardIdentifiersItem Profile { get; } = new ObjectTypeObjectTypeKeyStandardIdentifiersItem("PROFILE");
-        public static ObjectTypeObjectTypeKeyStandardIdentifiersItem Unique { get; } = new ObjectTypeObjectTypeKeyStandardIdentifiersItem("UNIQUE");
-        public static ObjectTypeObjectTypeKeyStandardIdentifiersItem Secondary { get; } = new ObjectTypeObjectTypeKeyStandardIdentifiersItem("SECONDARY");
-        public static ObjectTypeObjectTypeKeyStandardIdentifiersItem LookupOnly { get; } = new ObjectTypeObjectTypeKeyStandardIdentifiersItem("LOOKUP_ONLY");
-        public static ObjectTypeObjectTypeKeyStandardIdentifiersItem NewOnly { get; } = new ObjectTypeObjectTypeKeyStandardIdentifiersItem("NEW_ONLY");
+        public static ObjectTypeKeyStandardIdentifiersItem Profile { get; } = new ObjectTypeKeyStandardIdentifiersItem("PROFILE");
+        public static ObjectTypeKeyStandardIdentifiersItem Unique { get; } = new ObjectTypeKeyStandardIdentifiersItem("UNIQUE");
+        public static ObjectTypeKeyStandardIdentifiersItem Secondary { get; } = new ObjectTypeKeyStandardIdentifiersItem("SECONDARY");
+        public static ObjectTypeKeyStandardIdentifiersItem LookupOnly { get; } = new ObjectTypeKeyStandardIdentifiersItem("LOOKUP_ONLY");
+        public static ObjectTypeKeyStandardIdentifiersItem NewOnly { get; } = new ObjectTypeKeyStandardIdentifiersItem("NEW_ONLY");
 
-        public static bool operator ==(ObjectTypeObjectTypeKeyStandardIdentifiersItem left, ObjectTypeObjectTypeKeyStandardIdentifiersItem right) => left.Equals(right);
-        public static bool operator !=(ObjectTypeObjectTypeKeyStandardIdentifiersItem left, ObjectTypeObjectTypeKeyStandardIdentifiersItem right) => !left.Equals(right);
+        public static bool operator ==(ObjectTypeKeyStandardIdentifiersItem left, ObjectTypeKeyStandardIdentifiersItem right) => left.Equals(right);
+        public static bool operator !=(ObjectTypeKeyStandardIdentifiersItem left, ObjectTypeKeyStandardIdentifiersItem right) => !left.Equals(right);
 
-        public static explicit operator string(ObjectTypeObjectTypeKeyStandardIdentifiersItem value) => value._value;
+        public static explicit operator string(ObjectTypeKeyStandardIdentifiersItem value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ObjectTypeObjectTypeKeyStandardIdentifiersItem other && Equals(other);
-        public bool Equals(ObjectTypeObjectTypeKeyStandardIdentifiersItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ObjectTypeKeyStandardIdentifiersItem other && Equals(other);
+        public bool Equals(ObjectTypeKeyStandardIdentifiersItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

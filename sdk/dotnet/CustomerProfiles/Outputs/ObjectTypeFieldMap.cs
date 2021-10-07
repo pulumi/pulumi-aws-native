@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     public sealed class ObjectTypeFieldMap
     {
         public readonly string? Name;
-        public readonly Outputs.ObjectTypeObjectTypeField? ObjectTypeField;
+        public readonly Outputs.ObjectTypeField? ObjectTypeField;
 
         [OutputConstructor]
         private ObjectTypeFieldMap(
             string? name,
 
-            Outputs.ObjectTypeObjectTypeField? objectTypeField)
+            Outputs.ObjectTypeField? objectTypeField)
         {
             Name = name;
             ObjectTypeField = objectTypeField;

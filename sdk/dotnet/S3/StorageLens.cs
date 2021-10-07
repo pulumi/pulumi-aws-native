@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.S3
     public partial class StorageLens : Pulumi.CustomResource
     {
         [Output("storageLensConfiguration")]
-        public Output<Outputs.StorageLensStorageLensConfiguration> StorageLensConfiguration { get; private set; } = null!;
+        public Output<Outputs.StorageLensConfiguration> StorageLensConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.S3
     public sealed class StorageLensArgs : Pulumi.ResourceArgs
     {
         [Input("storageLensConfiguration", required: true)]
-        public Input<Inputs.StorageLensStorageLensConfigurationArgs> StorageLensConfiguration { get; set; } = null!;
+        public Input<Inputs.StorageLensConfigurationArgs> StorageLensConfiguration { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.StorageLensTagArgs>? _tags;

@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.LookoutMetrics
         /// Configuration options for the AnomalyDetector
         /// </summary>
         [Output("anomalyDetectorConfig")]
-        public Output<Outputs.AnomalyDetectorAnomalyDetectorConfig> AnomalyDetectorConfig { get; private set; } = null!;
+        public Output<Outputs.AnomalyDetectorConfig> AnomalyDetectorConfig { get; private set; } = null!;
 
         /// <summary>
         /// A description for the AnomalyDetector.
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.LookoutMetrics
         /// Configuration options for the AnomalyDetector
         /// </summary>
         [Input("anomalyDetectorConfig", required: true)]
-        public Input<Inputs.AnomalyDetectorAnomalyDetectorConfigArgs> AnomalyDetectorConfig { get; set; } = null!;
+        public Input<Inputs.AnomalyDetectorConfigArgs> AnomalyDetectorConfig { get; set; } = null!;
 
         /// <summary>
         /// A description for the AnomalyDetector.

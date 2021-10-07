@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     public sealed class ObjectTypeKeyMap
     {
         public readonly string? Name;
-        public readonly ImmutableArray<Outputs.ObjectTypeObjectTypeKey> ObjectTypeKeyList;
+        public readonly ImmutableArray<Outputs.ObjectTypeKey> ObjectTypeKeyList;
 
         [OutputConstructor]
         private ObjectTypeKeyMap(
             string? name,
 
-            ImmutableArray<Outputs.ObjectTypeObjectTypeKey> objectTypeKeyList)
+            ImmutableArray<Outputs.ObjectTypeKey> objectTypeKeyList)
         {
             Name = name;
             ObjectTypeKeyList = objectTypeKeyList;

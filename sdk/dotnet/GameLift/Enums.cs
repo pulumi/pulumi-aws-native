@@ -67,37 +67,6 @@ namespace Pulumi.AwsNative.GameLift
     }
 
     /// <summary>
-    /// Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
-    /// </summary>
-    [EnumType]
-    public readonly struct FleetFleetType : IEquatable<FleetFleetType>
-    {
-        private readonly string _value;
-
-        private FleetFleetType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static FleetFleetType OnDemand { get; } = new FleetFleetType("ON_DEMAND");
-        public static FleetFleetType Spot { get; } = new FleetFleetType("SPOT");
-
-        public static bool operator ==(FleetFleetType left, FleetFleetType right) => left.Equals(right);
-        public static bool operator !=(FleetFleetType left, FleetFleetType right) => !left.Equals(right);
-
-        public static explicit operator string(FleetFleetType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is FleetFleetType other && Equals(other);
-        public bool Equals(FleetFleetType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The network communication protocol used by the fleet.
     /// </summary>
     [EnumType]
@@ -152,6 +121,37 @@ namespace Pulumi.AwsNative.GameLift
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FleetNewGameSessionProtectionPolicy other && Equals(other);
         public bool Equals(FleetNewGameSessionProtectionPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
+    /// </summary>
+    [EnumType]
+    public readonly struct FleetType : IEquatable<FleetType>
+    {
+        private readonly string _value;
+
+        private FleetType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FleetType OnDemand { get; } = new FleetType("ON_DEMAND");
+        public static FleetType Spot { get; } = new FleetType("SPOT");
+
+        public static bool operator ==(FleetType left, FleetType right) => left.Equals(right);
+        public static bool operator !=(FleetType left, FleetType right) => !left.Equals(right);
+
+        public static explicit operator string(FleetType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FleetType other && Equals(other);
+        public bool Equals(FleetType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

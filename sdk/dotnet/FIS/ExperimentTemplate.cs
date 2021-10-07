@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.FIS
     public partial class ExperimentTemplate : Pulumi.CustomResource
     {
         [Output("actions")]
-        public Output<Outputs.ExperimentTemplateExperimentTemplateActionMap?> Actions { get; private set; } = null!;
+        public Output<Outputs.ExperimentTemplateActionMap?> Actions { get; private set; } = null!;
 
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
@@ -25,13 +25,13 @@ namespace Pulumi.AwsNative.FIS
         public Output<string> RoleArn { get; private set; } = null!;
 
         [Output("stopConditions")]
-        public Output<ImmutableArray<Outputs.ExperimentTemplateExperimentTemplateStopCondition>> StopConditions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ExperimentTemplateStopCondition>> StopConditions { get; private set; } = null!;
 
         [Output("tags")]
         public Output<object> Tags { get; private set; } = null!;
 
         [Output("targets")]
-        public Output<Outputs.ExperimentTemplateExperimentTemplateTargetMap> Targets { get; private set; } = null!;
+        public Output<Outputs.ExperimentTemplateTargetMap> Targets { get; private set; } = null!;
 
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.FIS
     public sealed class ExperimentTemplateArgs : Pulumi.ResourceArgs
     {
         [Input("actions")]
-        public Input<Inputs.ExperimentTemplateExperimentTemplateActionMapArgs>? Actions { get; set; }
+        public Input<Inputs.ExperimentTemplateActionMapArgs>? Actions { get; set; }
 
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
@@ -88,10 +88,10 @@ namespace Pulumi.AwsNative.FIS
         public Input<string> RoleArn { get; set; } = null!;
 
         [Input("stopConditions", required: true)]
-        private InputList<Inputs.ExperimentTemplateExperimentTemplateStopConditionArgs>? _stopConditions;
-        public InputList<Inputs.ExperimentTemplateExperimentTemplateStopConditionArgs> StopConditions
+        private InputList<Inputs.ExperimentTemplateStopConditionArgs>? _stopConditions;
+        public InputList<Inputs.ExperimentTemplateStopConditionArgs> StopConditions
         {
-            get => _stopConditions ?? (_stopConditions = new InputList<Inputs.ExperimentTemplateExperimentTemplateStopConditionArgs>());
+            get => _stopConditions ?? (_stopConditions = new InputList<Inputs.ExperimentTemplateStopConditionArgs>());
             set => _stopConditions = value;
         }
 
@@ -99,7 +99,7 @@ namespace Pulumi.AwsNative.FIS
         public Input<object> Tags { get; set; } = null!;
 
         [Input("targets", required: true)]
-        public Input<Inputs.ExperimentTemplateExperimentTemplateTargetMapArgs> Targets { get; set; } = null!;
+        public Input<Inputs.ExperimentTemplateTargetMapArgs> Targets { get; set; } = null!;
 
         public ExperimentTemplateArgs()
         {

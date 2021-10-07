@@ -36,10 +36,10 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public Input<int>? Ipv6AddressCount { get; set; }
 
         [Input("ipv6Addresses")]
-        private InputList<Inputs.InstanceInstanceIpv6AddressArgs>? _ipv6Addresses;
-        public InputList<Inputs.InstanceInstanceIpv6AddressArgs> Ipv6Addresses
+        private InputList<Inputs.InstanceIpv6AddressArgs>? _ipv6Addresses;
+        public InputList<Inputs.InstanceIpv6AddressArgs> Ipv6Addresses
         {
-            get => _ipv6Addresses ?? (_ipv6Addresses = new InputList<Inputs.InstanceInstanceIpv6AddressArgs>());
+            get => _ipv6Addresses ?? (_ipv6Addresses = new InputList<Inputs.InstanceIpv6AddressArgs>());
             set => _ipv6Addresses = value;
         }
 

@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Budgets
     public partial class Budget : Pulumi.CustomResource
     {
         [Output("budget")]
-        public Output<Outputs.BudgetBudgetData> BudgetValue { get; private set; } = null!;
+        public Output<Outputs.BudgetData> BudgetValue { get; private set; } = null!;
 
         [Output("notificationsWithSubscribers")]
         public Output<ImmutableArray<Outputs.BudgetNotificationWithSubscribers>> NotificationsWithSubscribers { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.Budgets
     public sealed class BudgetArgs : Pulumi.ResourceArgs
     {
         [Input("budget", required: true)]
-        public Input<Inputs.BudgetBudgetDataArgs> BudgetValue { get; set; } = null!;
+        public Input<Inputs.BudgetDataArgs> BudgetValue { get; set; } = null!;
 
         [Input("notificationsWithSubscribers")]
         private InputList<Inputs.BudgetNotificationWithSubscribersArgs>? _notificationsWithSubscribers;

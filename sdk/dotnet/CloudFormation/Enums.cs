@@ -108,26 +108,26 @@ namespace Pulumi.AwsNative.CloudFormation
     /// Whether the publisher is verified.
     /// </summary>
     [EnumType]
-    public readonly struct PublisherPublisherStatus : IEquatable<PublisherPublisherStatus>
+    public readonly struct PublisherStatus : IEquatable<PublisherStatus>
     {
         private readonly string _value;
 
-        private PublisherPublisherStatus(string value)
+        private PublisherStatus(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static PublisherPublisherStatus Verified { get; } = new PublisherPublisherStatus("VERIFIED");
-        public static PublisherPublisherStatus Unverified { get; } = new PublisherPublisherStatus("UNVERIFIED");
+        public static PublisherStatus Verified { get; } = new PublisherStatus("VERIFIED");
+        public static PublisherStatus Unverified { get; } = new PublisherStatus("UNVERIFIED");
 
-        public static bool operator ==(PublisherPublisherStatus left, PublisherPublisherStatus right) => left.Equals(right);
-        public static bool operator !=(PublisherPublisherStatus left, PublisherPublisherStatus right) => !left.Equals(right);
+        public static bool operator ==(PublisherStatus left, PublisherStatus right) => left.Equals(right);
+        public static bool operator !=(PublisherStatus left, PublisherStatus right) => !left.Equals(right);
 
-        public static explicit operator string(PublisherPublisherStatus value) => value._value;
+        public static explicit operator string(PublisherStatus value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PublisherPublisherStatus other && Equals(other);
-        public bool Equals(PublisherPublisherStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is PublisherStatus other && Equals(other);
+        public bool Equals(PublisherStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

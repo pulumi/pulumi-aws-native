@@ -8,34 +8,34 @@ using Pulumi;
 namespace Pulumi.AwsNative.QuickSight
 {
     [EnumType]
-    public readonly struct AnalysisAnalysisErrorType : IEquatable<AnalysisAnalysisErrorType>
+    public readonly struct AnalysisErrorType : IEquatable<AnalysisErrorType>
     {
         private readonly string _value;
 
-        private AnalysisAnalysisErrorType(string value)
+        private AnalysisErrorType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static AnalysisAnalysisErrorType AccessDenied { get; } = new AnalysisAnalysisErrorType("ACCESS_DENIED");
-        public static AnalysisAnalysisErrorType SourceNotFound { get; } = new AnalysisAnalysisErrorType("SOURCE_NOT_FOUND");
-        public static AnalysisAnalysisErrorType DataSetNotFound { get; } = new AnalysisAnalysisErrorType("DATA_SET_NOT_FOUND");
-        public static AnalysisAnalysisErrorType InternalFailure { get; } = new AnalysisAnalysisErrorType("INTERNAL_FAILURE");
-        public static AnalysisAnalysisErrorType ParameterValueIncompatible { get; } = new AnalysisAnalysisErrorType("PARAMETER_VALUE_INCOMPATIBLE");
-        public static AnalysisAnalysisErrorType ParameterTypeInvalid { get; } = new AnalysisAnalysisErrorType("PARAMETER_TYPE_INVALID");
-        public static AnalysisAnalysisErrorType ParameterNotFound { get; } = new AnalysisAnalysisErrorType("PARAMETER_NOT_FOUND");
-        public static AnalysisAnalysisErrorType ColumnTypeMismatch { get; } = new AnalysisAnalysisErrorType("COLUMN_TYPE_MISMATCH");
-        public static AnalysisAnalysisErrorType ColumnGeographicRoleMismatch { get; } = new AnalysisAnalysisErrorType("COLUMN_GEOGRAPHIC_ROLE_MISMATCH");
-        public static AnalysisAnalysisErrorType ColumnReplacementMissing { get; } = new AnalysisAnalysisErrorType("COLUMN_REPLACEMENT_MISSING");
+        public static AnalysisErrorType AccessDenied { get; } = new AnalysisErrorType("ACCESS_DENIED");
+        public static AnalysisErrorType SourceNotFound { get; } = new AnalysisErrorType("SOURCE_NOT_FOUND");
+        public static AnalysisErrorType DataSetNotFound { get; } = new AnalysisErrorType("DATA_SET_NOT_FOUND");
+        public static AnalysisErrorType InternalFailure { get; } = new AnalysisErrorType("INTERNAL_FAILURE");
+        public static AnalysisErrorType ParameterValueIncompatible { get; } = new AnalysisErrorType("PARAMETER_VALUE_INCOMPATIBLE");
+        public static AnalysisErrorType ParameterTypeInvalid { get; } = new AnalysisErrorType("PARAMETER_TYPE_INVALID");
+        public static AnalysisErrorType ParameterNotFound { get; } = new AnalysisErrorType("PARAMETER_NOT_FOUND");
+        public static AnalysisErrorType ColumnTypeMismatch { get; } = new AnalysisErrorType("COLUMN_TYPE_MISMATCH");
+        public static AnalysisErrorType ColumnGeographicRoleMismatch { get; } = new AnalysisErrorType("COLUMN_GEOGRAPHIC_ROLE_MISMATCH");
+        public static AnalysisErrorType ColumnReplacementMissing { get; } = new AnalysisErrorType("COLUMN_REPLACEMENT_MISSING");
 
-        public static bool operator ==(AnalysisAnalysisErrorType left, AnalysisAnalysisErrorType right) => left.Equals(right);
-        public static bool operator !=(AnalysisAnalysisErrorType left, AnalysisAnalysisErrorType right) => !left.Equals(right);
+        public static bool operator ==(AnalysisErrorType left, AnalysisErrorType right) => left.Equals(right);
+        public static bool operator !=(AnalysisErrorType left, AnalysisErrorType right) => !left.Equals(right);
 
-        public static explicit operator string(AnalysisAnalysisErrorType value) => value._value;
+        public static explicit operator string(AnalysisErrorType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AnalysisAnalysisErrorType other && Equals(other);
-        public bool Equals(AnalysisAnalysisErrorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is AnalysisErrorType other && Equals(other);
+        public bool Equals(AnalysisErrorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -77,26 +77,26 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
-    public readonly struct DashboardDashboardBehavior : IEquatable<DashboardDashboardBehavior>
+    public readonly struct DashboardBehavior : IEquatable<DashboardBehavior>
     {
         private readonly string _value;
 
-        private DashboardDashboardBehavior(string value)
+        private DashboardBehavior(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static DashboardDashboardBehavior Enabled { get; } = new DashboardDashboardBehavior("ENABLED");
-        public static DashboardDashboardBehavior Disabled { get; } = new DashboardDashboardBehavior("DISABLED");
+        public static DashboardBehavior Enabled { get; } = new DashboardBehavior("ENABLED");
+        public static DashboardBehavior Disabled { get; } = new DashboardBehavior("DISABLED");
 
-        public static bool operator ==(DashboardDashboardBehavior left, DashboardDashboardBehavior right) => left.Equals(right);
-        public static bool operator !=(DashboardDashboardBehavior left, DashboardDashboardBehavior right) => !left.Equals(right);
+        public static bool operator ==(DashboardBehavior left, DashboardBehavior right) => left.Equals(right);
+        public static bool operator !=(DashboardBehavior left, DashboardBehavior right) => !left.Equals(right);
 
-        public static explicit operator string(DashboardDashboardBehavior value) => value._value;
+        public static explicit operator string(DashboardBehavior value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DashboardDashboardBehavior other && Equals(other);
-        public bool Equals(DashboardDashboardBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is DashboardBehavior other && Equals(other);
+        public bool Equals(DashboardBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -105,62 +105,34 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
-    public readonly struct DashboardDashboardErrorType : IEquatable<DashboardDashboardErrorType>
+    public readonly struct DashboardErrorType : IEquatable<DashboardErrorType>
     {
         private readonly string _value;
 
-        private DashboardDashboardErrorType(string value)
+        private DashboardErrorType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static DashboardDashboardErrorType AccessDenied { get; } = new DashboardDashboardErrorType("ACCESS_DENIED");
-        public static DashboardDashboardErrorType SourceNotFound { get; } = new DashboardDashboardErrorType("SOURCE_NOT_FOUND");
-        public static DashboardDashboardErrorType DataSetNotFound { get; } = new DashboardDashboardErrorType("DATA_SET_NOT_FOUND");
-        public static DashboardDashboardErrorType InternalFailure { get; } = new DashboardDashboardErrorType("INTERNAL_FAILURE");
-        public static DashboardDashboardErrorType ParameterValueIncompatible { get; } = new DashboardDashboardErrorType("PARAMETER_VALUE_INCOMPATIBLE");
-        public static DashboardDashboardErrorType ParameterTypeInvalid { get; } = new DashboardDashboardErrorType("PARAMETER_TYPE_INVALID");
-        public static DashboardDashboardErrorType ParameterNotFound { get; } = new DashboardDashboardErrorType("PARAMETER_NOT_FOUND");
-        public static DashboardDashboardErrorType ColumnTypeMismatch { get; } = new DashboardDashboardErrorType("COLUMN_TYPE_MISMATCH");
-        public static DashboardDashboardErrorType ColumnGeographicRoleMismatch { get; } = new DashboardDashboardErrorType("COLUMN_GEOGRAPHIC_ROLE_MISMATCH");
-        public static DashboardDashboardErrorType ColumnReplacementMissing { get; } = new DashboardDashboardErrorType("COLUMN_REPLACEMENT_MISSING");
+        public static DashboardErrorType AccessDenied { get; } = new DashboardErrorType("ACCESS_DENIED");
+        public static DashboardErrorType SourceNotFound { get; } = new DashboardErrorType("SOURCE_NOT_FOUND");
+        public static DashboardErrorType DataSetNotFound { get; } = new DashboardErrorType("DATA_SET_NOT_FOUND");
+        public static DashboardErrorType InternalFailure { get; } = new DashboardErrorType("INTERNAL_FAILURE");
+        public static DashboardErrorType ParameterValueIncompatible { get; } = new DashboardErrorType("PARAMETER_VALUE_INCOMPATIBLE");
+        public static DashboardErrorType ParameterTypeInvalid { get; } = new DashboardErrorType("PARAMETER_TYPE_INVALID");
+        public static DashboardErrorType ParameterNotFound { get; } = new DashboardErrorType("PARAMETER_NOT_FOUND");
+        public static DashboardErrorType ColumnTypeMismatch { get; } = new DashboardErrorType("COLUMN_TYPE_MISMATCH");
+        public static DashboardErrorType ColumnGeographicRoleMismatch { get; } = new DashboardErrorType("COLUMN_GEOGRAPHIC_ROLE_MISMATCH");
+        public static DashboardErrorType ColumnReplacementMissing { get; } = new DashboardErrorType("COLUMN_REPLACEMENT_MISSING");
 
-        public static bool operator ==(DashboardDashboardErrorType left, DashboardDashboardErrorType right) => left.Equals(right);
-        public static bool operator !=(DashboardDashboardErrorType left, DashboardDashboardErrorType right) => !left.Equals(right);
+        public static bool operator ==(DashboardErrorType left, DashboardErrorType right) => left.Equals(right);
+        public static bool operator !=(DashboardErrorType left, DashboardErrorType right) => !left.Equals(right);
 
-        public static explicit operator string(DashboardDashboardErrorType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DashboardDashboardErrorType other && Equals(other);
-        public bool Equals(DashboardDashboardErrorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public static explicit operator string(DashboardErrorType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
-    public readonly struct DashboardDashboardUIState : IEquatable<DashboardDashboardUIState>
-    {
-        private readonly string _value;
-
-        private DashboardDashboardUIState(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DashboardDashboardUIState Expanded { get; } = new DashboardDashboardUIState("EXPANDED");
-        public static DashboardDashboardUIState Collapsed { get; } = new DashboardDashboardUIState("COLLAPSED");
-
-        public static bool operator ==(DashboardDashboardUIState left, DashboardDashboardUIState right) => left.Equals(right);
-        public static bool operator !=(DashboardDashboardUIState left, DashboardDashboardUIState right) => !left.Equals(right);
-
-        public static explicit operator string(DashboardDashboardUIState value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DashboardDashboardUIState other && Equals(other);
-        public bool Equals(DashboardDashboardUIState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is DashboardErrorType other && Equals(other);
+        public bool Equals(DashboardErrorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -202,6 +174,34 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct DashboardUIState : IEquatable<DashboardUIState>
+    {
+        private readonly string _value;
+
+        private DashboardUIState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardUIState Expanded { get; } = new DashboardUIState("EXPANDED");
+        public static DashboardUIState Collapsed { get; } = new DashboardUIState("COLLAPSED");
+
+        public static bool operator ==(DashboardUIState left, DashboardUIState right) => left.Equals(right);
+        public static bool operator !=(DashboardUIState left, DashboardUIState right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardUIState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardUIState other && Equals(other);
+        public bool Equals(DashboardUIState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DataSetColumnDataType : IEquatable<DataSetColumnDataType>
     {
         private readonly string _value;
@@ -232,34 +232,6 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
-    public readonly struct DataSetDataSetImportMode : IEquatable<DataSetDataSetImportMode>
-    {
-        private readonly string _value;
-
-        private DataSetDataSetImportMode(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DataSetDataSetImportMode Spice { get; } = new DataSetDataSetImportMode("SPICE");
-        public static DataSetDataSetImportMode DirectQuery { get; } = new DataSetDataSetImportMode("DIRECT_QUERY");
-
-        public static bool operator ==(DataSetDataSetImportMode left, DataSetDataSetImportMode right) => left.Equals(right);
-        public static bool operator !=(DataSetDataSetImportMode left, DataSetDataSetImportMode right) => !left.Equals(right);
-
-        public static explicit operator string(DataSetDataSetImportMode value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DataSetDataSetImportMode other && Equals(other);
-        public bool Equals(DataSetDataSetImportMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
     public readonly struct DataSetGeoSpatialCountryCode : IEquatable<DataSetGeoSpatialCountryCode>
     {
         private readonly string _value;
@@ -279,6 +251,34 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataSetGeoSpatialCountryCode other && Equals(other);
         public bool Equals(DataSetGeoSpatialCountryCode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataSetImportMode : IEquatable<DataSetImportMode>
+    {
+        private readonly string _value;
+
+        private DataSetImportMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSetImportMode Spice { get; } = new DataSetImportMode("SPICE");
+        public static DataSetImportMode DirectQuery { get; } = new DataSetImportMode("DIRECT_QUERY");
+
+        public static bool operator ==(DataSetImportMode left, DataSetImportMode right) => left.Equals(right);
+        public static bool operator !=(DataSetImportMode left, DataSetImportMode right) => !left.Equals(right);
+
+        public static explicit operator string(DataSetImportMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSetImportMode other && Equals(other);
+        public bool Equals(DataSetImportMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -343,81 +343,32 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
-    public readonly struct DataSourceDataSourceErrorInfoType : IEquatable<DataSourceDataSourceErrorInfoType>
+    public readonly struct DataSourceErrorInfoType : IEquatable<DataSourceErrorInfoType>
     {
         private readonly string _value;
 
-        private DataSourceDataSourceErrorInfoType(string value)
+        private DataSourceErrorInfoType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static DataSourceDataSourceErrorInfoType AccessDenied { get; } = new DataSourceDataSourceErrorInfoType("ACCESS_DENIED");
-        public static DataSourceDataSourceErrorInfoType CopySourceNotFound { get; } = new DataSourceDataSourceErrorInfoType("COPY_SOURCE_NOT_FOUND");
-        public static DataSourceDataSourceErrorInfoType Timeout { get; } = new DataSourceDataSourceErrorInfoType("TIMEOUT");
-        public static DataSourceDataSourceErrorInfoType EngineVersionNotSupported { get; } = new DataSourceDataSourceErrorInfoType("ENGINE_VERSION_NOT_SUPPORTED");
-        public static DataSourceDataSourceErrorInfoType UnknownHost { get; } = new DataSourceDataSourceErrorInfoType("UNKNOWN_HOST");
-        public static DataSourceDataSourceErrorInfoType GenericSqlFailure { get; } = new DataSourceDataSourceErrorInfoType("GENERIC_SQL_FAILURE");
-        public static DataSourceDataSourceErrorInfoType Conflict { get; } = new DataSourceDataSourceErrorInfoType("CONFLICT");
-        public static DataSourceDataSourceErrorInfoType Unknown { get; } = new DataSourceDataSourceErrorInfoType("UNKNOWN");
+        public static DataSourceErrorInfoType AccessDenied { get; } = new DataSourceErrorInfoType("ACCESS_DENIED");
+        public static DataSourceErrorInfoType CopySourceNotFound { get; } = new DataSourceErrorInfoType("COPY_SOURCE_NOT_FOUND");
+        public static DataSourceErrorInfoType Timeout { get; } = new DataSourceErrorInfoType("TIMEOUT");
+        public static DataSourceErrorInfoType EngineVersionNotSupported { get; } = new DataSourceErrorInfoType("ENGINE_VERSION_NOT_SUPPORTED");
+        public static DataSourceErrorInfoType UnknownHost { get; } = new DataSourceErrorInfoType("UNKNOWN_HOST");
+        public static DataSourceErrorInfoType GenericSqlFailure { get; } = new DataSourceErrorInfoType("GENERIC_SQL_FAILURE");
+        public static DataSourceErrorInfoType Conflict { get; } = new DataSourceErrorInfoType("CONFLICT");
+        public static DataSourceErrorInfoType Unknown { get; } = new DataSourceErrorInfoType("UNKNOWN");
 
-        public static bool operator ==(DataSourceDataSourceErrorInfoType left, DataSourceDataSourceErrorInfoType right) => left.Equals(right);
-        public static bool operator !=(DataSourceDataSourceErrorInfoType left, DataSourceDataSourceErrorInfoType right) => !left.Equals(right);
+        public static bool operator ==(DataSourceErrorInfoType left, DataSourceErrorInfoType right) => left.Equals(right);
+        public static bool operator !=(DataSourceErrorInfoType left, DataSourceErrorInfoType right) => !left.Equals(right);
 
-        public static explicit operator string(DataSourceDataSourceErrorInfoType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DataSourceDataSourceErrorInfoType other && Equals(other);
-        public bool Equals(DataSourceDataSourceErrorInfoType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public static explicit operator string(DataSourceErrorInfoType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
-    public readonly struct DataSourceDataSourceType : IEquatable<DataSourceDataSourceType>
-    {
-        private readonly string _value;
-
-        private DataSourceDataSourceType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DataSourceDataSourceType AdobeAnalytics { get; } = new DataSourceDataSourceType("ADOBE_ANALYTICS");
-        public static DataSourceDataSourceType AmazonElasticsearch { get; } = new DataSourceDataSourceType("AMAZON_ELASTICSEARCH");
-        public static DataSourceDataSourceType Athena { get; } = new DataSourceDataSourceType("ATHENA");
-        public static DataSourceDataSourceType Aurora { get; } = new DataSourceDataSourceType("AURORA");
-        public static DataSourceDataSourceType AuroraPostgresql { get; } = new DataSourceDataSourceType("AURORA_POSTGRESQL");
-        public static DataSourceDataSourceType AwsIotAnalytics { get; } = new DataSourceDataSourceType("AWS_IOT_ANALYTICS");
-        public static DataSourceDataSourceType Github { get; } = new DataSourceDataSourceType("GITHUB");
-        public static DataSourceDataSourceType Jira { get; } = new DataSourceDataSourceType("JIRA");
-        public static DataSourceDataSourceType Mariadb { get; } = new DataSourceDataSourceType("MARIADB");
-        public static DataSourceDataSourceType Mysql { get; } = new DataSourceDataSourceType("MYSQL");
-        public static DataSourceDataSourceType Oracle { get; } = new DataSourceDataSourceType("ORACLE");
-        public static DataSourceDataSourceType Postgresql { get; } = new DataSourceDataSourceType("POSTGRESQL");
-        public static DataSourceDataSourceType Presto { get; } = new DataSourceDataSourceType("PRESTO");
-        public static DataSourceDataSourceType Redshift { get; } = new DataSourceDataSourceType("REDSHIFT");
-        public static DataSourceDataSourceType S3 { get; } = new DataSourceDataSourceType("S3");
-        public static DataSourceDataSourceType Salesforce { get; } = new DataSourceDataSourceType("SALESFORCE");
-        public static DataSourceDataSourceType Servicenow { get; } = new DataSourceDataSourceType("SERVICENOW");
-        public static DataSourceDataSourceType Snowflake { get; } = new DataSourceDataSourceType("SNOWFLAKE");
-        public static DataSourceDataSourceType Spark { get; } = new DataSourceDataSourceType("SPARK");
-        public static DataSourceDataSourceType Sqlserver { get; } = new DataSourceDataSourceType("SQLSERVER");
-        public static DataSourceDataSourceType Teradata { get; } = new DataSourceDataSourceType("TERADATA");
-        public static DataSourceDataSourceType Twitter { get; } = new DataSourceDataSourceType("TWITTER");
-        public static DataSourceDataSourceType Timestream { get; } = new DataSourceDataSourceType("TIMESTREAM");
-
-        public static bool operator ==(DataSourceDataSourceType left, DataSourceDataSourceType right) => left.Equals(right);
-        public static bool operator !=(DataSourceDataSourceType left, DataSourceDataSourceType right) => !left.Equals(right);
-
-        public static explicit operator string(DataSourceDataSourceType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DataSourceDataSourceType other && Equals(other);
-        public bool Equals(DataSourceDataSourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is DataSourceErrorInfoType other && Equals(other);
+        public bool Equals(DataSourceErrorInfoType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -459,6 +410,85 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct DataSourceType : IEquatable<DataSourceType>
+    {
+        private readonly string _value;
+
+        private DataSourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSourceType AdobeAnalytics { get; } = new DataSourceType("ADOBE_ANALYTICS");
+        public static DataSourceType AmazonElasticsearch { get; } = new DataSourceType("AMAZON_ELASTICSEARCH");
+        public static DataSourceType Athena { get; } = new DataSourceType("ATHENA");
+        public static DataSourceType Aurora { get; } = new DataSourceType("AURORA");
+        public static DataSourceType AuroraPostgresql { get; } = new DataSourceType("AURORA_POSTGRESQL");
+        public static DataSourceType AwsIotAnalytics { get; } = new DataSourceType("AWS_IOT_ANALYTICS");
+        public static DataSourceType Github { get; } = new DataSourceType("GITHUB");
+        public static DataSourceType Jira { get; } = new DataSourceType("JIRA");
+        public static DataSourceType Mariadb { get; } = new DataSourceType("MARIADB");
+        public static DataSourceType Mysql { get; } = new DataSourceType("MYSQL");
+        public static DataSourceType Oracle { get; } = new DataSourceType("ORACLE");
+        public static DataSourceType Postgresql { get; } = new DataSourceType("POSTGRESQL");
+        public static DataSourceType Presto { get; } = new DataSourceType("PRESTO");
+        public static DataSourceType Redshift { get; } = new DataSourceType("REDSHIFT");
+        public static DataSourceType S3 { get; } = new DataSourceType("S3");
+        public static DataSourceType Salesforce { get; } = new DataSourceType("SALESFORCE");
+        public static DataSourceType Servicenow { get; } = new DataSourceType("SERVICENOW");
+        public static DataSourceType Snowflake { get; } = new DataSourceType("SNOWFLAKE");
+        public static DataSourceType Spark { get; } = new DataSourceType("SPARK");
+        public static DataSourceType Sqlserver { get; } = new DataSourceType("SQLSERVER");
+        public static DataSourceType Teradata { get; } = new DataSourceType("TERADATA");
+        public static DataSourceType Twitter { get; } = new DataSourceType("TWITTER");
+        public static DataSourceType Timestream { get; } = new DataSourceType("TIMESTREAM");
+
+        public static bool operator ==(DataSourceType left, DataSourceType right) => left.Equals(right);
+        public static bool operator !=(DataSourceType left, DataSourceType right) => !left.Equals(right);
+
+        public static explicit operator string(DataSourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSourceType other && Equals(other);
+        public bool Equals(DataSourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TemplateErrorType : IEquatable<TemplateErrorType>
+    {
+        private readonly string _value;
+
+        private TemplateErrorType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateErrorType SourceNotFound { get; } = new TemplateErrorType("SOURCE_NOT_FOUND");
+        public static TemplateErrorType DataSetNotFound { get; } = new TemplateErrorType("DATA_SET_NOT_FOUND");
+        public static TemplateErrorType InternalFailure { get; } = new TemplateErrorType("INTERNAL_FAILURE");
+        public static TemplateErrorType AccessDenied { get; } = new TemplateErrorType("ACCESS_DENIED");
+
+        public static bool operator ==(TemplateErrorType left, TemplateErrorType right) => left.Equals(right);
+        public static bool operator !=(TemplateErrorType left, TemplateErrorType right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateErrorType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateErrorType other && Equals(other);
+        public bool Equals(TemplateErrorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct TemplateResourceStatus : IEquatable<TemplateResourceStatus>
     {
         private readonly string _value;
@@ -492,28 +522,25 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
-    public readonly struct TemplateTemplateErrorType : IEquatable<TemplateTemplateErrorType>
+    public readonly struct ThemeErrorType : IEquatable<ThemeErrorType>
     {
         private readonly string _value;
 
-        private TemplateTemplateErrorType(string value)
+        private ThemeErrorType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static TemplateTemplateErrorType SourceNotFound { get; } = new TemplateTemplateErrorType("SOURCE_NOT_FOUND");
-        public static TemplateTemplateErrorType DataSetNotFound { get; } = new TemplateTemplateErrorType("DATA_SET_NOT_FOUND");
-        public static TemplateTemplateErrorType InternalFailure { get; } = new TemplateTemplateErrorType("INTERNAL_FAILURE");
-        public static TemplateTemplateErrorType AccessDenied { get; } = new TemplateTemplateErrorType("ACCESS_DENIED");
+        public static ThemeErrorType InternalFailure { get; } = new ThemeErrorType("INTERNAL_FAILURE");
 
-        public static bool operator ==(TemplateTemplateErrorType left, TemplateTemplateErrorType right) => left.Equals(right);
-        public static bool operator !=(TemplateTemplateErrorType left, TemplateTemplateErrorType right) => !left.Equals(right);
+        public static bool operator ==(ThemeErrorType left, ThemeErrorType right) => left.Equals(right);
+        public static bool operator !=(ThemeErrorType left, ThemeErrorType right) => !left.Equals(right);
 
-        public static explicit operator string(TemplateTemplateErrorType value) => value._value;
+        public static explicit operator string(ThemeErrorType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is TemplateTemplateErrorType other && Equals(other);
-        public bool Equals(TemplateTemplateErrorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ThemeErrorType other && Equals(other);
+        public bool Equals(ThemeErrorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -555,54 +582,27 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
-    public readonly struct ThemeThemeErrorType : IEquatable<ThemeThemeErrorType>
+    public readonly struct ThemeType : IEquatable<ThemeType>
     {
         private readonly string _value;
 
-        private ThemeThemeErrorType(string value)
+        private ThemeType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ThemeThemeErrorType InternalFailure { get; } = new ThemeThemeErrorType("INTERNAL_FAILURE");
+        public static ThemeType Quicksight { get; } = new ThemeType("QUICKSIGHT");
+        public static ThemeType Custom { get; } = new ThemeType("CUSTOM");
+        public static ThemeType All { get; } = new ThemeType("ALL");
 
-        public static bool operator ==(ThemeThemeErrorType left, ThemeThemeErrorType right) => left.Equals(right);
-        public static bool operator !=(ThemeThemeErrorType left, ThemeThemeErrorType right) => !left.Equals(right);
+        public static bool operator ==(ThemeType left, ThemeType right) => left.Equals(right);
+        public static bool operator !=(ThemeType left, ThemeType right) => !left.Equals(right);
 
-        public static explicit operator string(ThemeThemeErrorType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ThemeThemeErrorType other && Equals(other);
-        public bool Equals(ThemeThemeErrorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public static explicit operator string(ThemeType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
-    public readonly struct ThemeThemeType : IEquatable<ThemeThemeType>
-    {
-        private readonly string _value;
-
-        private ThemeThemeType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ThemeThemeType Quicksight { get; } = new ThemeThemeType("QUICKSIGHT");
-        public static ThemeThemeType Custom { get; } = new ThemeThemeType("CUSTOM");
-        public static ThemeThemeType All { get; } = new ThemeThemeType("ALL");
-
-        public static bool operator ==(ThemeThemeType left, ThemeThemeType right) => left.Equals(right);
-        public static bool operator !=(ThemeThemeType left, ThemeThemeType right) => !left.Equals(right);
-
-        public static explicit operator string(ThemeThemeType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ThemeThemeType other && Equals(other);
-        public bool Equals(ThemeThemeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ThemeType other && Equals(other);
+        public bool Equals(ThemeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

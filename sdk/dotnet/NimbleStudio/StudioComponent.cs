@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.NimbleStudio
     public partial class StudioComponent : Pulumi.CustomResource
     {
         [Output("configuration")]
-        public Output<Outputs.StudioComponentStudioComponentConfiguration?> Configuration { get; private set; } = null!;
+        public Output<Outputs.StudioComponentConfiguration?> Configuration { get; private set; } = null!;
 
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.NimbleStudio
         public Output<ImmutableArray<string>> Ec2SecurityGroupIds { get; private set; } = null!;
 
         [Output("initializationScripts")]
-        public Output<ImmutableArray<Outputs.StudioComponentStudioComponentInitializationScript>> InitializationScripts { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.StudioComponentInitializationScript>> InitializationScripts { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.NimbleStudio
     public sealed class StudioComponentArgs : Pulumi.ResourceArgs
     {
         [Input("configuration")]
-        public Input<Inputs.StudioComponentStudioComponentConfigurationArgs>? Configuration { get; set; }
+        public Input<Inputs.StudioComponentConfigurationArgs>? Configuration { get; set; }
 
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -108,10 +108,10 @@ namespace Pulumi.AwsNative.NimbleStudio
         }
 
         [Input("initializationScripts")]
-        private InputList<Inputs.StudioComponentStudioComponentInitializationScriptArgs>? _initializationScripts;
-        public InputList<Inputs.StudioComponentStudioComponentInitializationScriptArgs> InitializationScripts
+        private InputList<Inputs.StudioComponentInitializationScriptArgs>? _initializationScripts;
+        public InputList<Inputs.StudioComponentInitializationScriptArgs> InitializationScripts
         {
-            get => _initializationScripts ?? (_initializationScripts = new InputList<Inputs.StudioComponentStudioComponentInitializationScriptArgs>());
+            get => _initializationScripts ?? (_initializationScripts = new InputList<Inputs.StudioComponentInitializationScriptArgs>());
             set => _initializationScripts = value;
         }
 

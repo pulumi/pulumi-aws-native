@@ -8,67 +8,6 @@ using Pulumi;
 namespace Pulumi.AwsNative.AuditManager
 {
     /// <summary>
-    /// The destination type, such as Amazon S3.
-    /// </summary>
-    [EnumType]
-    public readonly struct AssessmentAssessmentReportDestinationType : IEquatable<AssessmentAssessmentReportDestinationType>
-    {
-        private readonly string _value;
-
-        private AssessmentAssessmentReportDestinationType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AssessmentAssessmentReportDestinationType S3 { get; } = new AssessmentAssessmentReportDestinationType("S3");
-
-        public static bool operator ==(AssessmentAssessmentReportDestinationType left, AssessmentAssessmentReportDestinationType right) => left.Equals(right);
-        public static bool operator !=(AssessmentAssessmentReportDestinationType left, AssessmentAssessmentReportDestinationType right) => !left.Equals(right);
-
-        public static explicit operator string(AssessmentAssessmentReportDestinationType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AssessmentAssessmentReportDestinationType other && Equals(other);
-        public bool Equals(AssessmentAssessmentReportDestinationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The status of the specified assessment. 
-    /// </summary>
-    [EnumType]
-    public readonly struct AssessmentAssessmentStatus : IEquatable<AssessmentAssessmentStatus>
-    {
-        private readonly string _value;
-
-        private AssessmentAssessmentStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AssessmentAssessmentStatus Active { get; } = new AssessmentAssessmentStatus("ACTIVE");
-        public static AssessmentAssessmentStatus Inactive { get; } = new AssessmentAssessmentStatus("INACTIVE");
-
-        public static bool operator ==(AssessmentAssessmentStatus left, AssessmentAssessmentStatus right) => left.Equals(right);
-        public static bool operator !=(AssessmentAssessmentStatus left, AssessmentAssessmentStatus right) => !left.Equals(right);
-
-        public static explicit operator string(AssessmentAssessmentStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AssessmentAssessmentStatus other && Equals(other);
-        public bool Equals(AssessmentAssessmentStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The status of the delegation.
     /// </summary>
     [EnumType]
@@ -101,6 +40,36 @@ namespace Pulumi.AwsNative.AuditManager
     }
 
     /// <summary>
+    /// The destination type, such as Amazon S3.
+    /// </summary>
+    [EnumType]
+    public readonly struct AssessmentReportDestinationType : IEquatable<AssessmentReportDestinationType>
+    {
+        private readonly string _value;
+
+        private AssessmentReportDestinationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AssessmentReportDestinationType S3 { get; } = new AssessmentReportDestinationType("S3");
+
+        public static bool operator ==(AssessmentReportDestinationType left, AssessmentReportDestinationType right) => left.Equals(right);
+        public static bool operator !=(AssessmentReportDestinationType left, AssessmentReportDestinationType right) => !left.Equals(right);
+
+        public static explicit operator string(AssessmentReportDestinationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AssessmentReportDestinationType other && Equals(other);
+        public bool Equals(AssessmentReportDestinationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     ///  The IAM role type.
     /// </summary>
     [EnumType]
@@ -124,6 +93,37 @@ namespace Pulumi.AwsNative.AuditManager
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AssessmentRoleType other && Equals(other);
         public bool Equals(AssessmentRoleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the specified assessment. 
+    /// </summary>
+    [EnumType]
+    public readonly struct AssessmentStatus : IEquatable<AssessmentStatus>
+    {
+        private readonly string _value;
+
+        private AssessmentStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AssessmentStatus Active { get; } = new AssessmentStatus("ACTIVE");
+        public static AssessmentStatus Inactive { get; } = new AssessmentStatus("INACTIVE");
+
+        public static bool operator ==(AssessmentStatus left, AssessmentStatus right) => left.Equals(right);
+        public static bool operator !=(AssessmentStatus left, AssessmentStatus right) => !left.Equals(right);
+
+        public static explicit operator string(AssessmentStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AssessmentStatus other && Equals(other);
+        public bool Equals(AssessmentStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

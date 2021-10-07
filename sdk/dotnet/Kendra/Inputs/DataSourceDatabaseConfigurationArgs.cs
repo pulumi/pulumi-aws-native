@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public Input<Inputs.DataSourceSqlConfigurationArgs>? SqlConfiguration { get; set; }
 
         [Input("vpcConfiguration")]
-        public Input<Inputs.DataSourceDataSourceVpcConfigurationArgs>? VpcConfiguration { get; set; }
+        public Input<Inputs.DataSourceVpcConfigurationArgs>? VpcConfiguration { get; set; }
 
         public DataSourceDatabaseConfigurationArgs()
         {

@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
         public Output<ImmutableArray<Outputs.DatasetAction>> Actions { get; private set; } = null!;
 
         [Output("contentDeliveryRules")]
-        public Output<ImmutableArray<Outputs.DatasetDatasetContentDeliveryRule>> ContentDeliveryRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DatasetContentDeliveryRule>> ContentDeliveryRules { get; private set; } = null!;
 
         [Output("datasetName")]
         public Output<string?> DatasetName { get; private set; } = null!;
@@ -94,10 +94,10 @@ namespace Pulumi.AwsNative.IoTAnalytics
         }
 
         [Input("contentDeliveryRules")]
-        private InputList<Inputs.DatasetDatasetContentDeliveryRuleArgs>? _contentDeliveryRules;
-        public InputList<Inputs.DatasetDatasetContentDeliveryRuleArgs> ContentDeliveryRules
+        private InputList<Inputs.DatasetContentDeliveryRuleArgs>? _contentDeliveryRules;
+        public InputList<Inputs.DatasetContentDeliveryRuleArgs> ContentDeliveryRules
         {
-            get => _contentDeliveryRules ?? (_contentDeliveryRules = new InputList<Inputs.DatasetDatasetContentDeliveryRuleArgs>());
+            get => _contentDeliveryRules ?? (_contentDeliveryRules = new InputList<Inputs.DatasetContentDeliveryRuleArgs>());
             set => _contentDeliveryRules = value;
         }
 

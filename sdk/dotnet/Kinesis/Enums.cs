@@ -11,25 +11,25 @@ namespace Pulumi.AwsNative.Kinesis
     /// The encryption type to use. The only valid value is KMS. 
     /// </summary>
     [EnumType]
-    public readonly struct StreamStreamEncryptionEncryptionType : IEquatable<StreamStreamEncryptionEncryptionType>
+    public readonly struct StreamEncryptionEncryptionType : IEquatable<StreamEncryptionEncryptionType>
     {
         private readonly string _value;
 
-        private StreamStreamEncryptionEncryptionType(string value)
+        private StreamEncryptionEncryptionType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static StreamStreamEncryptionEncryptionType Kms { get; } = new StreamStreamEncryptionEncryptionType("KMS");
+        public static StreamEncryptionEncryptionType Kms { get; } = new StreamEncryptionEncryptionType("KMS");
 
-        public static bool operator ==(StreamStreamEncryptionEncryptionType left, StreamStreamEncryptionEncryptionType right) => left.Equals(right);
-        public static bool operator !=(StreamStreamEncryptionEncryptionType left, StreamStreamEncryptionEncryptionType right) => !left.Equals(right);
+        public static bool operator ==(StreamEncryptionEncryptionType left, StreamEncryptionEncryptionType right) => left.Equals(right);
+        public static bool operator !=(StreamEncryptionEncryptionType left, StreamEncryptionEncryptionType right) => !left.Equals(right);
 
-        public static explicit operator string(StreamStreamEncryptionEncryptionType value) => value._value;
+        public static explicit operator string(StreamEncryptionEncryptionType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is StreamStreamEncryptionEncryptionType other && Equals(other);
-        public bool Equals(StreamStreamEncryptionEncryptionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is StreamEncryptionEncryptionType other && Equals(other);
+        public bool Equals(StreamEncryptionEncryptionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

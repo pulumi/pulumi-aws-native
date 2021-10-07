@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public Input<Inputs.GatewayRouteGrpcGatewayRouteRewriteArgs>? Rewrite { get; set; }
 
         [Input("target", required: true)]
-        public Input<Inputs.GatewayRouteGatewayRouteTargetArgs> Target { get; set; } = null!;
+        public Input<Inputs.GatewayRouteTargetArgs> Target { get; set; } = null!;
 
         public GatewayRouteGrpcGatewayRouteActionArgs()
         {

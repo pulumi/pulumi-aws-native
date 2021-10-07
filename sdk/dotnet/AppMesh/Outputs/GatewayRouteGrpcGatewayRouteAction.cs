@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
     public sealed class GatewayRouteGrpcGatewayRouteAction
     {
         public readonly Outputs.GatewayRouteGrpcGatewayRouteRewrite? Rewrite;
-        public readonly Outputs.GatewayRouteGatewayRouteTarget Target;
+        public readonly Outputs.GatewayRouteTarget Target;
 
         [OutputConstructor]
         private GatewayRouteGrpcGatewayRouteAction(
             Outputs.GatewayRouteGrpcGatewayRouteRewrite? rewrite,
 
-            Outputs.GatewayRouteGatewayRouteTarget target)
+            Outputs.GatewayRouteTarget target)
         {
             Rewrite = rewrite;
             Target = target;

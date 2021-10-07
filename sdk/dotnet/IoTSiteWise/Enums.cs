@@ -7,37 +7,6 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.IoTSiteWise
 {
-    /// <summary>
-    /// The MQTT notification state (ENABLED or DISABLED) for this asset property.
-    /// </summary>
-    [EnumType]
-    public readonly struct AssetAssetPropertyNotificationState : IEquatable<AssetAssetPropertyNotificationState>
-    {
-        private readonly string _value;
-
-        private AssetAssetPropertyNotificationState(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AssetAssetPropertyNotificationState Enabled { get; } = new AssetAssetPropertyNotificationState("ENABLED");
-        public static AssetAssetPropertyNotificationState Disabled { get; } = new AssetAssetPropertyNotificationState("DISABLED");
-
-        public static bool operator ==(AssetAssetPropertyNotificationState left, AssetAssetPropertyNotificationState right) => left.Equals(right);
-        public static bool operator !=(AssetAssetPropertyNotificationState left, AssetAssetPropertyNotificationState right) => !left.Equals(right);
-
-        public static explicit operator string(AssetAssetPropertyNotificationState value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AssetAssetPropertyNotificationState other && Equals(other);
-        public bool Equals(AssetAssetPropertyNotificationState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
     [EnumType]
     public readonly struct AssetModelDataType : IEquatable<AssetModelDataType>
     {
@@ -119,6 +88,37 @@ namespace Pulumi.AwsNative.IoTSiteWise
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AssetModelTypeName other && Equals(other);
         public bool Equals(AssetModelTypeName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The MQTT notification state (ENABLED or DISABLED) for this asset property.
+    /// </summary>
+    [EnumType]
+    public readonly struct AssetPropertyNotificationState : IEquatable<AssetPropertyNotificationState>
+    {
+        private readonly string _value;
+
+        private AssetPropertyNotificationState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AssetPropertyNotificationState Enabled { get; } = new AssetPropertyNotificationState("ENABLED");
+        public static AssetPropertyNotificationState Disabled { get; } = new AssetPropertyNotificationState("DISABLED");
+
+        public static bool operator ==(AssetPropertyNotificationState left, AssetPropertyNotificationState right) => left.Equals(right);
+        public static bool operator !=(AssetPropertyNotificationState left, AssetPropertyNotificationState right) => !left.Equals(right);
+
+        public static explicit operator string(AssetPropertyNotificationState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AssetPropertyNotificationState other && Equals(other);
+        public bool Equals(AssetPropertyNotificationState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

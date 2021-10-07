@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.Glue
         public Output<string> DatabaseName { get; private set; } = null!;
 
         [Output("partitionInput")]
-        public Output<Outputs.PartitionPartitionInput> PartitionInput { get; private set; } = null!;
+        public Output<Outputs.PartitionInput> PartitionInput { get; private set; } = null!;
 
         [Output("tableName")]
         public Output<string> TableName { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.Glue
         public Input<string> DatabaseName { get; set; } = null!;
 
         [Input("partitionInput", required: true)]
-        public Input<Inputs.PartitionPartitionInputArgs> PartitionInput { get; set; } = null!;
+        public Input<Inputs.PartitionInputArgs> PartitionInput { get; set; } = null!;
 
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;

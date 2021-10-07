@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.Greengrass
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("initialVersion")]
-        public Output<Outputs.GroupGroupVersion?> InitialVersion { get; private set; } = null!;
+        public Output<Outputs.GroupVersion?> InitialVersion { get; private set; } = null!;
 
         [Output("latestVersionArn")]
         public Output<string> LatestVersionArn { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.Greengrass
     public sealed class GroupArgs : Pulumi.ResourceArgs
     {
         [Input("initialVersion")]
-        public Input<Inputs.GroupGroupVersionArgs>? InitialVersion { get; set; }
+        public Input<Inputs.GroupVersionArgs>? InitialVersion { get; set; }
 
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

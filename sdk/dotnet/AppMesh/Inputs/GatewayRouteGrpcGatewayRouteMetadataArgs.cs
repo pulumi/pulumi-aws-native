@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         public Input<bool>? Invert { get; set; }
 
         [Input("match")]
-        public Input<Inputs.GatewayRouteGatewayRouteMetadataMatchArgs>? Match { get; set; }
+        public Input<Inputs.GatewayRouteMetadataMatchArgs>? Match { get; set; }
 
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

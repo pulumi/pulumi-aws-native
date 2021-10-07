@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
     [OutputType]
     public sealed class GatewayRouteGrpcGatewayRouteMatch
     {
-        public readonly Outputs.GatewayRouteGatewayRouteHostnameMatch? Hostname;
+        public readonly Outputs.GatewayRouteHostnameMatch? Hostname;
         public readonly ImmutableArray<Outputs.GatewayRouteGrpcGatewayRouteMetadata> Metadata;
         public readonly string? ServiceName;
 
         [OutputConstructor]
         private GatewayRouteGrpcGatewayRouteMatch(
-            Outputs.GatewayRouteGatewayRouteHostnameMatch? hostname,
+            Outputs.GatewayRouteHostnameMatch? hostname,
 
             ImmutableArray<Outputs.GatewayRouteGrpcGatewayRouteMetadata> metadata,
 

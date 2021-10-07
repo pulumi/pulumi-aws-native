@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
         public readonly string DeviceIndex;
         public readonly ImmutableArray<string> GroupSet;
         public readonly int? Ipv6AddressCount;
-        public readonly ImmutableArray<Outputs.InstanceInstanceIpv6Address> Ipv6Addresses;
+        public readonly ImmutableArray<Outputs.InstanceIpv6Address> Ipv6Addresses;
         public readonly string? NetworkInterfaceId;
         public readonly string? PrivateIpAddress;
         public readonly ImmutableArray<Outputs.InstancePrivateIpAddressSpecification> PrivateIpAddresses;
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
             int? ipv6AddressCount,
 
-            ImmutableArray<Outputs.InstanceInstanceIpv6Address> ipv6Addresses,
+            ImmutableArray<Outputs.InstanceIpv6Address> ipv6Addresses,
 
             string? networkInterfaceId,
 

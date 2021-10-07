@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoT
         public Output<ImmutableArray<Outputs.TopicRuleTag>> Tags { get; private set; } = null!;
 
         [Output("topicRulePayload")]
-        public Output<Outputs.TopicRuleTopicRulePayload> TopicRulePayload { get; private set; } = null!;
+        public Output<Outputs.TopicRulePayload> TopicRulePayload { get; private set; } = null!;
 
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.IoT
         }
 
         [Input("topicRulePayload", required: true)]
-        public Input<Inputs.TopicRuleTopicRulePayloadArgs> TopicRulePayload { get; set; } = null!;
+        public Input<Inputs.TopicRulePayloadArgs> TopicRulePayload { get; set; } = null!;
 
         public TopicRuleArgs()
         {

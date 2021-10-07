@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoT
         public Output<string?> DomainConfigurationName { get; private set; } = null!;
 
         [Output("domainConfigurationStatus")]
-        public Output<Pulumi.AwsNative.IoT.DomainConfigurationDomainConfigurationStatus?> DomainConfigurationStatus { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.IoT.DomainConfigurationStatus?> DomainConfigurationStatus { get; private set; } = null!;
 
         [Output("domainName")]
         public Output<string?> DomainName { get; private set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.IoT
         public Input<string>? DomainConfigurationName { get; set; }
 
         [Input("domainConfigurationStatus")]
-        public Input<Pulumi.AwsNative.IoT.DomainConfigurationDomainConfigurationStatus>? DomainConfigurationStatus { get; set; }
+        public Input<Pulumi.AwsNative.IoT.DomainConfigurationStatus>? DomainConfigurationStatus { get; set; }
 
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }

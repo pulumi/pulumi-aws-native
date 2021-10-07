@@ -11,32 +11,32 @@ namespace Pulumi.AwsNative.KMS
     /// Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
     /// </summary>
     [EnumType]
-    public readonly struct KeyKeySpec : IEquatable<KeyKeySpec>
+    public readonly struct KeySpec : IEquatable<KeySpec>
     {
         private readonly string _value;
 
-        private KeyKeySpec(string value)
+        private KeySpec(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static KeyKeySpec SymmetricDefault { get; } = new KeyKeySpec("SYMMETRIC_DEFAULT");
-        public static KeyKeySpec Rsa2048 { get; } = new KeyKeySpec("RSA_2048");
-        public static KeyKeySpec Rsa3072 { get; } = new KeyKeySpec("RSA_3072");
-        public static KeyKeySpec Rsa4096 { get; } = new KeyKeySpec("RSA_4096");
-        public static KeyKeySpec EccNistP256 { get; } = new KeyKeySpec("ECC_NIST_P256");
-        public static KeyKeySpec EccNistP384 { get; } = new KeyKeySpec("ECC_NIST_P384");
-        public static KeyKeySpec EccNistP521 { get; } = new KeyKeySpec("ECC_NIST_P521");
-        public static KeyKeySpec EccSecgP256k1 { get; } = new KeyKeySpec("ECC_SECG_P256K1");
+        public static KeySpec SymmetricDefault { get; } = new KeySpec("SYMMETRIC_DEFAULT");
+        public static KeySpec Rsa2048 { get; } = new KeySpec("RSA_2048");
+        public static KeySpec Rsa3072 { get; } = new KeySpec("RSA_3072");
+        public static KeySpec Rsa4096 { get; } = new KeySpec("RSA_4096");
+        public static KeySpec EccNistP256 { get; } = new KeySpec("ECC_NIST_P256");
+        public static KeySpec EccNistP384 { get; } = new KeySpec("ECC_NIST_P384");
+        public static KeySpec EccNistP521 { get; } = new KeySpec("ECC_NIST_P521");
+        public static KeySpec EccSecgP256k1 { get; } = new KeySpec("ECC_SECG_P256K1");
 
-        public static bool operator ==(KeyKeySpec left, KeyKeySpec right) => left.Equals(right);
-        public static bool operator !=(KeyKeySpec left, KeyKeySpec right) => !left.Equals(right);
+        public static bool operator ==(KeySpec left, KeySpec right) => left.Equals(right);
+        public static bool operator !=(KeySpec left, KeySpec right) => !left.Equals(right);
 
-        public static explicit operator string(KeyKeySpec value) => value._value;
+        public static explicit operator string(KeySpec value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is KeyKeySpec other && Equals(other);
-        public bool Equals(KeyKeySpec other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is KeySpec other && Equals(other);
+        public bool Equals(KeySpec other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -48,26 +48,26 @@ namespace Pulumi.AwsNative.KMS
     /// Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
     /// </summary>
     [EnumType]
-    public readonly struct KeyKeyUsage : IEquatable<KeyKeyUsage>
+    public readonly struct KeyUsage : IEquatable<KeyUsage>
     {
         private readonly string _value;
 
-        private KeyKeyUsage(string value)
+        private KeyUsage(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static KeyKeyUsage EncryptDecrypt { get; } = new KeyKeyUsage("ENCRYPT_DECRYPT");
-        public static KeyKeyUsage SignVerify { get; } = new KeyKeyUsage("SIGN_VERIFY");
+        public static KeyUsage EncryptDecrypt { get; } = new KeyUsage("ENCRYPT_DECRYPT");
+        public static KeyUsage SignVerify { get; } = new KeyUsage("SIGN_VERIFY");
 
-        public static bool operator ==(KeyKeyUsage left, KeyKeyUsage right) => left.Equals(right);
-        public static bool operator !=(KeyKeyUsage left, KeyKeyUsage right) => !left.Equals(right);
+        public static bool operator ==(KeyUsage left, KeyUsage right) => left.Equals(right);
+        public static bool operator !=(KeyUsage left, KeyUsage right) => !left.Equals(right);
 
-        public static explicit operator string(KeyKeyUsage value) => value._value;
+        public static explicit operator string(KeyUsage value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is KeyKeyUsage other && Equals(other);
-        public bool Equals(KeyKeyUsage other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is KeyUsage other && Equals(other);
+        public bool Equals(KeyUsage other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -49,13 +49,13 @@ namespace Pulumi.AwsNative.KMS
         /// Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
         /// </summary>
         [Output("keySpec")]
-        public Output<Pulumi.AwsNative.KMS.KeyKeySpec?> KeySpec { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.KMS.KeySpec?> KeySpec { get; private set; } = null!;
 
         /// <summary>
         /// Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
         /// </summary>
         [Output("keyUsage")]
-        public Output<Pulumi.AwsNative.KMS.KeyKeyUsage?> KeyUsage { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.KMS.KeyUsage?> KeyUsage { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether the CMK should be Multi-Region. You can't change the MultiRegion value after the CMK is created.
@@ -148,13 +148,13 @@ namespace Pulumi.AwsNative.KMS
         /// Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
         /// </summary>
         [Input("keySpec")]
-        public Input<Pulumi.AwsNative.KMS.KeyKeySpec>? KeySpec { get; set; }
+        public Input<Pulumi.AwsNative.KMS.KeySpec>? KeySpec { get; set; }
 
         /// <summary>
         /// Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
         /// </summary>
         [Input("keyUsage")]
-        public Input<Pulumi.AwsNative.KMS.KeyKeyUsage>? KeyUsage { get; set; }
+        public Input<Pulumi.AwsNative.KMS.KeyUsage>? KeyUsage { get; set; }
 
         /// <summary>
         /// Specifies whether the CMK should be Multi-Region. You can't change the MultiRegion value after the CMK is created.

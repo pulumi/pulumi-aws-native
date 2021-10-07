@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         /// Endpoints for the cluster.
         /// </summary>
         [Output("clusterEndpoints")]
-        public Output<ImmutableArray<Outputs.ClusterClusterEndpoint>> ClusterEndpoints { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ClusterEndpoint>> ClusterEndpoints { get; private set; } = null!;
 
         /// <summary>
         /// Name of a Cluster. You can use any non-white space character in the name

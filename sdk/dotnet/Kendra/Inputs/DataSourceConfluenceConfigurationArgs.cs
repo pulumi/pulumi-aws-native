@@ -50,7 +50,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public Input<Pulumi.AwsNative.Kendra.DataSourceConfluenceVersion> Version { get; set; } = null!;
 
         [Input("vpcConfiguration")]
-        public Input<Inputs.DataSourceDataSourceVpcConfigurationArgs>? VpcConfiguration { get; set; }
+        public Input<Inputs.DataSourceVpcConfigurationArgs>? VpcConfiguration { get; set; }
 
         public DataSourceConfluenceConfigurationArgs()
         {

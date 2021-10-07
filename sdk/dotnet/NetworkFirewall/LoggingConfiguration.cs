@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public Output<string?> FirewallName { get; private set; } = null!;
 
         [Output("loggingConfiguration")]
-        public Output<Outputs.LoggingConfigurationLoggingConfiguration> LoggingConfigurationValue { get; private set; } = null!;
+        public Output<Outputs.LoggingConfiguration> LoggingConfigurationValue { get; private set; } = null!;
 
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public Input<string>? FirewallName { get; set; }
 
         [Input("loggingConfiguration", required: true)]
-        public Input<Inputs.LoggingConfigurationLoggingConfigurationArgs> LoggingConfigurationValue { get; set; } = null!;
+        public Input<Inputs.LoggingConfigurationArgs> LoggingConfigurationValue { get; set; } = null!;
 
         public LoggingConfigurationArgs()
         {

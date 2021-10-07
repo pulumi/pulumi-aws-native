@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Pinpoint.Outputs
     public sealed class CampaignSchedule
     {
         public readonly string? EndTime;
-        public readonly Outputs.CampaignCampaignEventFilter? EventFilter;
+        public readonly Outputs.CampaignEventFilter? EventFilter;
         public readonly string? Frequency;
         public readonly bool? IsLocalTime;
         public readonly Outputs.CampaignQuietTime? QuietTime;
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Pinpoint.Outputs
         private CampaignSchedule(
             string? endTime,
 
-            Outputs.CampaignCampaignEventFilter? eventFilter,
+            Outputs.CampaignEventFilter? eventFilter,
 
             string? frequency,
 

@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.ECR
         public Output<string> RegistryId { get; private set; } = null!;
 
         [Output("replicationConfiguration")]
-        public Output<Outputs.ReplicationConfigurationReplicationConfiguration> ReplicationConfigurationValue { get; private set; } = null!;
+        public Output<Outputs.ReplicationConfiguration> ReplicationConfigurationValue { get; private set; } = null!;
 
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.ECR
     public sealed class ReplicationConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("replicationConfiguration", required: true)]
-        public Input<Inputs.ReplicationConfigurationReplicationConfigurationArgs> ReplicationConfigurationValue { get; set; } = null!;
+        public Input<Inputs.ReplicationConfigurationArgs> ReplicationConfigurationValue { get; set; } = null!;
 
         public ReplicationConfigurationArgs()
         {

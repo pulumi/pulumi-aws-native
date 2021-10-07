@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.Glue
         public Output<string> CatalogId { get; private set; } = null!;
 
         [Output("connectionInput")]
-        public Output<Outputs.ConnectionConnectionInput> ConnectionInput { get; private set; } = null!;
+        public Output<Outputs.ConnectionInput> ConnectionInput { get; private set; } = null!;
 
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.Glue
         public Input<string> CatalogId { get; set; } = null!;
 
         [Input("connectionInput", required: true)]
-        public Input<Inputs.ConnectionConnectionInputArgs> ConnectionInput { get; set; } = null!;
+        public Input<Inputs.ConnectionInputArgs> ConnectionInput { get; set; } = null!;
 
         public ConnectionArgs()
         {

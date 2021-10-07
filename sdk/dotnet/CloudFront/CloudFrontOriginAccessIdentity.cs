@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.CloudFront
     public partial class CloudFrontOriginAccessIdentity : Pulumi.CustomResource
     {
         [Output("cloudFrontOriginAccessIdentityConfig")]
-        public Output<Outputs.CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig> CloudFrontOriginAccessIdentityConfig { get; private set; } = null!;
+        public Output<Outputs.CloudFrontOriginAccessIdentityConfig> CloudFrontOriginAccessIdentityConfig { get; private set; } = null!;
 
         [Output("s3CanonicalUserId")]
         public Output<string> S3CanonicalUserId { get; private set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.CloudFront
     public sealed class CloudFrontOriginAccessIdentityArgs : Pulumi.ResourceArgs
     {
         [Input("cloudFrontOriginAccessIdentityConfig", required: true)]
-        public Input<Inputs.CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs> CloudFrontOriginAccessIdentityConfig { get; set; } = null!;
+        public Input<Inputs.CloudFrontOriginAccessIdentityConfigArgs> CloudFrontOriginAccessIdentityConfig { get; set; } = null!;
 
         public CloudFrontOriginAccessIdentityArgs()
         {

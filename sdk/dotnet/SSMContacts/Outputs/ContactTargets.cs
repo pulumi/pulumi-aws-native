@@ -17,13 +17,13 @@ namespace Pulumi.AwsNative.SSMContacts.Outputs
     public sealed class ContactTargets
     {
         public readonly Outputs.ContactChannelTargetInfo? ChannelTargetInfo;
-        public readonly Outputs.ContactContactTargetInfo? ContactTargetInfo;
+        public readonly Outputs.ContactTargetInfo? ContactTargetInfo;
 
         [OutputConstructor]
         private ContactTargets(
             Outputs.ContactChannelTargetInfo? channelTargetInfo,
 
-            Outputs.ContactContactTargetInfo? contactTargetInfo)
+            Outputs.ContactTargetInfo? contactTargetInfo)
         {
             ChannelTargetInfo = channelTargetInfo;
             ContactTargetInfo = contactTargetInfo;

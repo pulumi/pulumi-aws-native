@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.Greengrass
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("initialVersion")]
-        public Output<Outputs.ConnectorDefinitionConnectorDefinitionVersion?> InitialVersion { get; private set; } = null!;
+        public Output<Outputs.ConnectorDefinitionVersion?> InitialVersion { get; private set; } = null!;
 
         [Output("latestVersionArn")]
         public Output<string> LatestVersionArn { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.Greengrass
     public sealed class ConnectorDefinitionArgs : Pulumi.ResourceArgs
     {
         [Input("initialVersion")]
-        public Input<Inputs.ConnectorDefinitionConnectorDefinitionVersionArgs>? InitialVersion { get; set; }
+        public Input<Inputs.ConnectorDefinitionVersionArgs>? InitialVersion { get; set; }
 
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

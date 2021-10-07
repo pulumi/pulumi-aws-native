@@ -22,13 +22,13 @@ namespace Pulumi.AwsNative.XRay
         public Output<string?> RuleName { get; private set; } = null!;
 
         [Output("samplingRule")]
-        public Output<Outputs.SamplingRuleSamplingRule?> SamplingRuleValue { get; private set; } = null!;
+        public Output<Outputs.SamplingRule?> SamplingRuleValue { get; private set; } = null!;
 
         [Output("samplingRuleRecord")]
-        public Output<Outputs.SamplingRuleSamplingRuleRecord?> SamplingRuleRecord { get; private set; } = null!;
+        public Output<Outputs.SamplingRuleRecord?> SamplingRuleRecord { get; private set; } = null!;
 
         [Output("samplingRuleUpdate")]
-        public Output<Outputs.SamplingRuleSamplingRuleUpdate?> SamplingRuleUpdate { get; private set; } = null!;
+        public Output<Outputs.SamplingRuleUpdate?> SamplingRuleUpdate { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<object>> Tags { get; private set; } = null!;
@@ -82,13 +82,13 @@ namespace Pulumi.AwsNative.XRay
         public Input<string>? RuleName { get; set; }
 
         [Input("samplingRule")]
-        public Input<Inputs.SamplingRuleSamplingRuleArgs>? SamplingRuleValue { get; set; }
+        public Input<Inputs.SamplingRuleArgs>? SamplingRuleValue { get; set; }
 
         [Input("samplingRuleRecord")]
-        public Input<Inputs.SamplingRuleSamplingRuleRecordArgs>? SamplingRuleRecord { get; set; }
+        public Input<Inputs.SamplingRuleRecordArgs>? SamplingRuleRecord { get; set; }
 
         [Input("samplingRuleUpdate")]
-        public Input<Inputs.SamplingRuleSamplingRuleUpdateArgs>? SamplingRuleUpdate { get; set; }
+        public Input<Inputs.SamplingRuleUpdateArgs>? SamplingRuleUpdate { get; set; }
 
         [Input("tags")]
         private InputList<object>? _tags;

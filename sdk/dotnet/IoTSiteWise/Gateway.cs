@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// A list of gateway capability summaries that each contain a namespace and status.
         /// </summary>
         [Output("gatewayCapabilitySummaries")]
-        public Output<ImmutableArray<Outputs.GatewayGatewayCapabilitySummary>> GatewayCapabilitySummaries { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.GatewayCapabilitySummary>> GatewayCapabilitySummaries { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the gateway device.
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// The gateway's platform. You can only specify one platform in a gateway.
         /// </summary>
         [Output("gatewayPlatform")]
-        public Output<Outputs.GatewayGatewayPlatform> GatewayPlatform { get; private set; } = null!;
+        public Output<Outputs.GatewayPlatform> GatewayPlatform { get; private set; } = null!;
 
         /// <summary>
         /// A list of key-value pairs that contain metadata for the gateway.
@@ -91,14 +91,14 @@ namespace Pulumi.AwsNative.IoTSiteWise
     public sealed class GatewayArgs : Pulumi.ResourceArgs
     {
         [Input("gatewayCapabilitySummaries")]
-        private InputList<Inputs.GatewayGatewayCapabilitySummaryArgs>? _gatewayCapabilitySummaries;
+        private InputList<Inputs.GatewayCapabilitySummaryArgs>? _gatewayCapabilitySummaries;
 
         /// <summary>
         /// A list of gateway capability summaries that each contain a namespace and status.
         /// </summary>
-        public InputList<Inputs.GatewayGatewayCapabilitySummaryArgs> GatewayCapabilitySummaries
+        public InputList<Inputs.GatewayCapabilitySummaryArgs> GatewayCapabilitySummaries
         {
-            get => _gatewayCapabilitySummaries ?? (_gatewayCapabilitySummaries = new InputList<Inputs.GatewayGatewayCapabilitySummaryArgs>());
+            get => _gatewayCapabilitySummaries ?? (_gatewayCapabilitySummaries = new InputList<Inputs.GatewayCapabilitySummaryArgs>());
             set => _gatewayCapabilitySummaries = value;
         }
 
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// The gateway's platform. You can only specify one platform in a gateway.
         /// </summary>
         [Input("gatewayPlatform", required: true)]
-        public Input<Inputs.GatewayGatewayPlatformArgs> GatewayPlatform { get; set; } = null!;
+        public Input<Inputs.GatewayPlatformArgs> GatewayPlatform { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.GatewayTagArgs>? _tags;

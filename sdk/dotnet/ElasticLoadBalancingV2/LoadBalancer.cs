@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public Output<string?> IpAddressType { get; private set; } = null!;
 
         [Output("loadBalancerAttributes")]
-        public Output<ImmutableArray<Outputs.LoadBalancerLoadBalancerAttribute>> LoadBalancerAttributes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LoadBalancerAttribute>> LoadBalancerAttributes { get; private set; } = null!;
 
         [Output("loadBalancerFullName")]
         public Output<string> LoadBalancerFullName { get; private set; } = null!;
@@ -104,10 +104,10 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public Input<string>? IpAddressType { get; set; }
 
         [Input("loadBalancerAttributes")]
-        private InputList<Inputs.LoadBalancerLoadBalancerAttributeArgs>? _loadBalancerAttributes;
-        public InputList<Inputs.LoadBalancerLoadBalancerAttributeArgs> LoadBalancerAttributes
+        private InputList<Inputs.LoadBalancerAttributeArgs>? _loadBalancerAttributes;
+        public InputList<Inputs.LoadBalancerAttributeArgs> LoadBalancerAttributes
         {
-            get => _loadBalancerAttributes ?? (_loadBalancerAttributes = new InputList<Inputs.LoadBalancerLoadBalancerAttributeArgs>());
+            get => _loadBalancerAttributes ?? (_loadBalancerAttributes = new InputList<Inputs.LoadBalancerAttributeArgs>());
             set => _loadBalancerAttributes = value;
         }
 

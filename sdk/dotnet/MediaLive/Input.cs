@@ -20,10 +20,10 @@ namespace Pulumi.AwsNative.MediaLive
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("destinations")]
-        public Output<ImmutableArray<Outputs.InputInputDestinationRequest>> Destinations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.InputDestinationRequest>> Destinations { get; private set; } = null!;
 
         [Output("inputDevices")]
-        public Output<ImmutableArray<Outputs.InputInputDeviceSettings>> InputDevices { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.InputDeviceSettings>> InputDevices { get; private set; } = null!;
 
         [Output("inputSecurityGroups")]
         public Output<ImmutableArray<string>> InputSecurityGroups { get; private set; } = null!;
@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.MediaLive
         public Output<string?> RoleArn { get; private set; } = null!;
 
         [Output("sources")]
-        public Output<ImmutableArray<Outputs.InputInputSourceRequest>> Sources { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.InputSourceRequest>> Sources { get; private set; } = null!;
 
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
@@ -47,7 +47,7 @@ namespace Pulumi.AwsNative.MediaLive
         public Output<string?> Type { get; private set; } = null!;
 
         [Output("vpc")]
-        public Output<Outputs.InputInputVpcRequest?> Vpc { get; private set; } = null!;
+        public Output<Outputs.InputVpcRequest?> Vpc { get; private set; } = null!;
 
 
         /// <summary>
@@ -95,18 +95,18 @@ namespace Pulumi.AwsNative.MediaLive
     public sealed class InputArgs : Pulumi.ResourceArgs
     {
         [Input("destinations")]
-        private InputList<Inputs.InputInputDestinationRequestArgs>? _destinations;
-        public InputList<Inputs.InputInputDestinationRequestArgs> Destinations
+        private InputList<Inputs.InputDestinationRequestArgs>? _destinations;
+        public InputList<Inputs.InputDestinationRequestArgs> Destinations
         {
-            get => _destinations ?? (_destinations = new InputList<Inputs.InputInputDestinationRequestArgs>());
+            get => _destinations ?? (_destinations = new InputList<Inputs.InputDestinationRequestArgs>());
             set => _destinations = value;
         }
 
         [Input("inputDevices")]
-        private InputList<Inputs.InputInputDeviceSettingsArgs>? _inputDevices;
-        public InputList<Inputs.InputInputDeviceSettingsArgs> InputDevices
+        private InputList<Inputs.InputDeviceSettingsArgs>? _inputDevices;
+        public InputList<Inputs.InputDeviceSettingsArgs> InputDevices
         {
-            get => _inputDevices ?? (_inputDevices = new InputList<Inputs.InputInputDeviceSettingsArgs>());
+            get => _inputDevices ?? (_inputDevices = new InputList<Inputs.InputDeviceSettingsArgs>());
             set => _inputDevices = value;
         }
 
@@ -133,10 +133,10 @@ namespace Pulumi.AwsNative.MediaLive
         public Input<string>? RoleArn { get; set; }
 
         [Input("sources")]
-        private InputList<Inputs.InputInputSourceRequestArgs>? _sources;
-        public InputList<Inputs.InputInputSourceRequestArgs> Sources
+        private InputList<Inputs.InputSourceRequestArgs>? _sources;
+        public InputList<Inputs.InputSourceRequestArgs> Sources
         {
-            get => _sources ?? (_sources = new InputList<Inputs.InputInputSourceRequestArgs>());
+            get => _sources ?? (_sources = new InputList<Inputs.InputSourceRequestArgs>());
             set => _sources = value;
         }
 
@@ -147,7 +147,7 @@ namespace Pulumi.AwsNative.MediaLive
         public Input<string>? Type { get; set; }
 
         [Input("vpc")]
-        public Input<Inputs.InputInputVpcRequestArgs>? Vpc { get; set; }
+        public Input<Inputs.InputVpcRequestArgs>? Vpc { get; set; }
 
         public InputArgs()
         {

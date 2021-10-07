@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.GroundStation
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("configData")]
-        public Output<Outputs.ConfigConfigData> ConfigData { get; private set; } = null!;
+        public Output<Outputs.ConfigData> ConfigData { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.GroundStation
     public sealed class ConfigArgs : Pulumi.ResourceArgs
     {
         [Input("configData", required: true)]
-        public Input<Inputs.ConfigConfigDataArgs> ConfigData { get; set; } = null!;
+        public Input<Inputs.ConfigDataArgs> ConfigData { get; set; } = null!;
 
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

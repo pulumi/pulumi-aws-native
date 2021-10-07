@@ -257,26 +257,26 @@ namespace Pulumi.AwsNative.NetworkFirewall
     }
 
     [EnumType]
-    public readonly struct RuleGroupType : IEquatable<RuleGroupType>
+    public readonly struct RuleGroupTypeEnum : IEquatable<RuleGroupTypeEnum>
     {
         private readonly string _value;
 
-        private RuleGroupType(string value)
+        private RuleGroupTypeEnum(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static RuleGroupType Stateless { get; } = new RuleGroupType("STATELESS");
-        public static RuleGroupType Stateful { get; } = new RuleGroupType("STATEFUL");
+        public static RuleGroupTypeEnum Stateless { get; } = new RuleGroupTypeEnum("STATELESS");
+        public static RuleGroupTypeEnum Stateful { get; } = new RuleGroupTypeEnum("STATEFUL");
 
-        public static bool operator ==(RuleGroupType left, RuleGroupType right) => left.Equals(right);
-        public static bool operator !=(RuleGroupType left, RuleGroupType right) => !left.Equals(right);
+        public static bool operator ==(RuleGroupTypeEnum left, RuleGroupTypeEnum right) => left.Equals(right);
+        public static bool operator !=(RuleGroupTypeEnum left, RuleGroupTypeEnum right) => !left.Equals(right);
 
-        public static explicit operator string(RuleGroupType value) => value._value;
+        public static explicit operator string(RuleGroupTypeEnum value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is RuleGroupType other && Equals(other);
-        public bool Equals(RuleGroupType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is RuleGroupTypeEnum other && Equals(other);
+        public bool Equals(RuleGroupTypeEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

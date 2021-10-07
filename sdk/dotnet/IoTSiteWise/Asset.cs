@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         public Output<string> AssetArn { get; private set; } = null!;
 
         [Output("assetHierarchies")]
-        public Output<ImmutableArray<Outputs.AssetAssetHierarchy>> AssetHierarchies { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AssetHierarchy>> AssetHierarchies { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the asset
@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         public Output<string> AssetName { get; private set; } = null!;
 
         [Output("assetProperties")]
-        public Output<ImmutableArray<Outputs.AssetAssetProperty>> AssetProperties { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AssetProperty>> AssetProperties { get; private set; } = null!;
 
         /// <summary>
         /// A list of key-value pairs that contain metadata for the asset.
@@ -97,10 +97,10 @@ namespace Pulumi.AwsNative.IoTSiteWise
     public sealed class AssetArgs : Pulumi.ResourceArgs
     {
         [Input("assetHierarchies")]
-        private InputList<Inputs.AssetAssetHierarchyArgs>? _assetHierarchies;
-        public InputList<Inputs.AssetAssetHierarchyArgs> AssetHierarchies
+        private InputList<Inputs.AssetHierarchyArgs>? _assetHierarchies;
+        public InputList<Inputs.AssetHierarchyArgs> AssetHierarchies
         {
-            get => _assetHierarchies ?? (_assetHierarchies = new InputList<Inputs.AssetAssetHierarchyArgs>());
+            get => _assetHierarchies ?? (_assetHierarchies = new InputList<Inputs.AssetHierarchyArgs>());
             set => _assetHierarchies = value;
         }
 
@@ -117,10 +117,10 @@ namespace Pulumi.AwsNative.IoTSiteWise
         public Input<string> AssetName { get; set; } = null!;
 
         [Input("assetProperties")]
-        private InputList<Inputs.AssetAssetPropertyArgs>? _assetProperties;
-        public InputList<Inputs.AssetAssetPropertyArgs> AssetProperties
+        private InputList<Inputs.AssetPropertyArgs>? _assetProperties;
+        public InputList<Inputs.AssetPropertyArgs> AssetProperties
         {
-            get => _assetProperties ?? (_assetProperties = new InputList<Inputs.AssetAssetPropertyArgs>());
+            get => _assetProperties ?? (_assetProperties = new InputList<Inputs.AssetPropertyArgs>());
             set => _assetProperties = value;
         }
 
