@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['LoggingConfigurationArgs', 'LoggingConfiguration']
@@ -17,13 +18,13 @@ class LoggingConfigurationArgs:
     def __init__(__self__, *,
                  log_destination_configs: pulumi.Input[Sequence[pulumi.Input[str]]],
                  resource_arn: pulumi.Input[str],
-                 logging_filter: Optional[Any] = None,
+                 logging_filter: Optional[pulumi.Input['LoggingFilterPropertiesArgs']] = None,
                  redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationFieldToMatchArgs']]]] = None):
         """
         The set of arguments for constructing a LoggingConfiguration resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_destination_configs: The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL.
         :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the web ACL that you want to associate with LogDestinationConfigs.
-        :param Any logging_filter: Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
+        :param pulumi.Input['LoggingFilterPropertiesArgs'] logging_filter: Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
         :param pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationFieldToMatchArgs']]] redacted_fields: The parts of the request that you want to keep out of the logs. For example, if you redact the HEADER field, the HEADER field in the firehose will be xxx.
         """
         pulumi.set(__self__, "log_destination_configs", log_destination_configs)
@@ -59,14 +60,14 @@ class LoggingConfigurationArgs:
 
     @property
     @pulumi.getter(name="loggingFilter")
-    def logging_filter(self) -> Optional[Any]:
+    def logging_filter(self) -> Optional[pulumi.Input['LoggingFilterPropertiesArgs']]:
         """
         Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
         """
         return pulumi.get(self, "logging_filter")
 
     @logging_filter.setter
-    def logging_filter(self, value: Optional[Any]):
+    def logging_filter(self, value: Optional[pulumi.Input['LoggingFilterPropertiesArgs']]):
         pulumi.set(self, "logging_filter", value)
 
     @property
@@ -88,7 +89,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  log_destination_configs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 logging_filter: Optional[Any] = None,
+                 logging_filter: Optional[pulumi.Input[pulumi.InputType['LoggingFilterPropertiesArgs']]] = None,
                  redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoggingConfigurationFieldToMatchArgs']]]]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -98,7 +99,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_destination_configs: The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL.
-        :param Any logging_filter: Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
+        :param pulumi.Input[pulumi.InputType['LoggingFilterPropertiesArgs']] logging_filter: Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoggingConfigurationFieldToMatchArgs']]]] redacted_fields: The parts of the request that you want to keep out of the logs. For example, if you redact the HEADER field, the HEADER field in the firehose will be xxx.
         :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the web ACL that you want to associate with LogDestinationConfigs.
         """
@@ -127,7 +128,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  log_destination_configs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 logging_filter: Optional[Any] = None,
+                 logging_filter: Optional[pulumi.Input[pulumi.InputType['LoggingFilterPropertiesArgs']]] = None,
                  redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoggingConfigurationFieldToMatchArgs']]]]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -190,7 +191,7 @@ class LoggingConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loggingFilter")
-    def logging_filter(self) -> pulumi.Output[Optional[Any]]:
+    def logging_filter(self) -> pulumi.Output[Optional['outputs.LoggingFilterProperties']]:
         """
         Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
         """

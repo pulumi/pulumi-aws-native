@@ -1027,6 +1027,165 @@ func (o AccessPolicyUserPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
+type AlarmsProperties struct {
+	// The ARN of the IAM role that allows the alarm to perform actions and access AWS resources and services, such as AWS IoT Events.
+	AlarmRoleArn *string `pulumi:"alarmRoleArn"`
+	// The ARN of the AWS Lambda function that manages alarm notifications. For more information, see Managing alarm notifications in the AWS IoT Events Developer Guide.
+	NotificationLambdaArn *string `pulumi:"notificationLambdaArn"`
+}
+
+// AlarmsPropertiesInput is an input type that accepts AlarmsPropertiesArgs and AlarmsPropertiesOutput values.
+// You can construct a concrete instance of `AlarmsPropertiesInput` via:
+//
+//          AlarmsPropertiesArgs{...}
+type AlarmsPropertiesInput interface {
+	pulumi.Input
+
+	ToAlarmsPropertiesOutput() AlarmsPropertiesOutput
+	ToAlarmsPropertiesOutputWithContext(context.Context) AlarmsPropertiesOutput
+}
+
+// Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
+type AlarmsPropertiesArgs struct {
+	// The ARN of the IAM role that allows the alarm to perform actions and access AWS resources and services, such as AWS IoT Events.
+	AlarmRoleArn pulumi.StringPtrInput `pulumi:"alarmRoleArn"`
+	// The ARN of the AWS Lambda function that manages alarm notifications. For more information, see Managing alarm notifications in the AWS IoT Events Developer Guide.
+	NotificationLambdaArn pulumi.StringPtrInput `pulumi:"notificationLambdaArn"`
+}
+
+func (AlarmsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlarmsProperties)(nil)).Elem()
+}
+
+func (i AlarmsPropertiesArgs) ToAlarmsPropertiesOutput() AlarmsPropertiesOutput {
+	return i.ToAlarmsPropertiesOutputWithContext(context.Background())
+}
+
+func (i AlarmsPropertiesArgs) ToAlarmsPropertiesOutputWithContext(ctx context.Context) AlarmsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmsPropertiesOutput)
+}
+
+func (i AlarmsPropertiesArgs) ToAlarmsPropertiesPtrOutput() AlarmsPropertiesPtrOutput {
+	return i.ToAlarmsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i AlarmsPropertiesArgs) ToAlarmsPropertiesPtrOutputWithContext(ctx context.Context) AlarmsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmsPropertiesOutput).ToAlarmsPropertiesPtrOutputWithContext(ctx)
+}
+
+// AlarmsPropertiesPtrInput is an input type that accepts AlarmsPropertiesArgs, AlarmsPropertiesPtr and AlarmsPropertiesPtrOutput values.
+// You can construct a concrete instance of `AlarmsPropertiesPtrInput` via:
+//
+//          AlarmsPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type AlarmsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToAlarmsPropertiesPtrOutput() AlarmsPropertiesPtrOutput
+	ToAlarmsPropertiesPtrOutputWithContext(context.Context) AlarmsPropertiesPtrOutput
+}
+
+type alarmsPropertiesPtrType AlarmsPropertiesArgs
+
+func AlarmsPropertiesPtr(v *AlarmsPropertiesArgs) AlarmsPropertiesPtrInput {
+	return (*alarmsPropertiesPtrType)(v)
+}
+
+func (*alarmsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlarmsProperties)(nil)).Elem()
+}
+
+func (i *alarmsPropertiesPtrType) ToAlarmsPropertiesPtrOutput() AlarmsPropertiesPtrOutput {
+	return i.ToAlarmsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *alarmsPropertiesPtrType) ToAlarmsPropertiesPtrOutputWithContext(ctx context.Context) AlarmsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmsPropertiesPtrOutput)
+}
+
+// Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
+type AlarmsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (AlarmsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlarmsProperties)(nil)).Elem()
+}
+
+func (o AlarmsPropertiesOutput) ToAlarmsPropertiesOutput() AlarmsPropertiesOutput {
+	return o
+}
+
+func (o AlarmsPropertiesOutput) ToAlarmsPropertiesOutputWithContext(ctx context.Context) AlarmsPropertiesOutput {
+	return o
+}
+
+func (o AlarmsPropertiesOutput) ToAlarmsPropertiesPtrOutput() AlarmsPropertiesPtrOutput {
+	return o.ToAlarmsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o AlarmsPropertiesOutput) ToAlarmsPropertiesPtrOutputWithContext(ctx context.Context) AlarmsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlarmsProperties) *AlarmsProperties {
+		return &v
+	}).(AlarmsPropertiesPtrOutput)
+}
+
+// The ARN of the IAM role that allows the alarm to perform actions and access AWS resources and services, such as AWS IoT Events.
+func (o AlarmsPropertiesOutput) AlarmRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlarmsProperties) *string { return v.AlarmRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the AWS Lambda function that manages alarm notifications. For more information, see Managing alarm notifications in the AWS IoT Events Developer Guide.
+func (o AlarmsPropertiesOutput) NotificationLambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlarmsProperties) *string { return v.NotificationLambdaArn }).(pulumi.StringPtrOutput)
+}
+
+type AlarmsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (AlarmsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlarmsProperties)(nil)).Elem()
+}
+
+func (o AlarmsPropertiesPtrOutput) ToAlarmsPropertiesPtrOutput() AlarmsPropertiesPtrOutput {
+	return o
+}
+
+func (o AlarmsPropertiesPtrOutput) ToAlarmsPropertiesPtrOutputWithContext(ctx context.Context) AlarmsPropertiesPtrOutput {
+	return o
+}
+
+func (o AlarmsPropertiesPtrOutput) Elem() AlarmsPropertiesOutput {
+	return o.ApplyT(func(v *AlarmsProperties) AlarmsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AlarmsProperties
+		return ret
+	}).(AlarmsPropertiesOutput)
+}
+
+// The ARN of the IAM role that allows the alarm to perform actions and access AWS resources and services, such as AWS IoT Events.
+func (o AlarmsPropertiesPtrOutput) AlarmRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlarmsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AlarmRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the AWS Lambda function that manages alarm notifications. For more information, see Managing alarm notifications in the AWS IoT Events Developer Guide.
+func (o AlarmsPropertiesPtrOutput) NotificationLambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlarmsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NotificationLambdaArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // A hierarchy specifies allowed parent/child asset relationships.
 type AssetHierarchy struct {
 	// The ID of the child asset to be associated.
@@ -3636,6 +3795,8 @@ func init() {
 	pulumi.RegisterOutputType(AccessPolicyResourcePtrOutput{})
 	pulumi.RegisterOutputType(AccessPolicyUserOutput{})
 	pulumi.RegisterOutputType(AccessPolicyUserPtrOutput{})
+	pulumi.RegisterOutputType(AlarmsPropertiesOutput{})
+	pulumi.RegisterOutputType(AlarmsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AssetHierarchyOutput{})
 	pulumi.RegisterOutputType(AssetHierarchyArrayOutput{})
 	pulumi.RegisterOutputType(AssetModelAttributeOutput{})

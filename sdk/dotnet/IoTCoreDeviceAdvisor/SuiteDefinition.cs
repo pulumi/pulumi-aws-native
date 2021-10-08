@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.IoTCoreDeviceAdvisor
         public Output<string> SuiteDefinitionArn { get; private set; } = null!;
 
         [Output("suiteDefinitionConfiguration")]
-        public Output<object> SuiteDefinitionConfiguration { get; private set; } = null!;
+        public Output<Outputs.SuiteDefinitionConfigurationProperties> SuiteDefinitionConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The unique identifier for the suite definition.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.IoTCoreDeviceAdvisor
     public sealed class SuiteDefinitionArgs : Pulumi.ResourceArgs
     {
         [Input("suiteDefinitionConfiguration", required: true)]
-        public Input<object> SuiteDefinitionConfiguration { get; set; } = null!;
+        public Input<Inputs.SuiteDefinitionConfigurationPropertiesArgs> SuiteDefinitionConfiguration { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.SuiteDefinitionTagArgs>? _tags;

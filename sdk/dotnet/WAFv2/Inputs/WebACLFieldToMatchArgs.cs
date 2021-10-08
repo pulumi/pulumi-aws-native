@@ -43,13 +43,13 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public Input<object>? QueryString { get; set; }
 
         [Input("singleHeader")]
-        public Input<object>? SingleHeader { get; set; }
+        public Input<Inputs.WebACLFieldToMatchSingleHeaderPropertiesArgs>? SingleHeader { get; set; }
 
         /// <summary>
         /// One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
         /// </summary>
         [Input("singleQueryArgument")]
-        public Input<object>? SingleQueryArgument { get; set; }
+        public Input<Inputs.WebACLFieldToMatchSingleQueryArgumentPropertiesArgs>? SingleQueryArgument { get; set; }
 
         /// <summary>
         /// The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.

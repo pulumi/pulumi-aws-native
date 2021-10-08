@@ -17,11 +17,11 @@ class InstanceAccessControlAttributeConfigurationArgs:
     def __init__(__self__, *,
                  instance_arn: pulumi.Input[str],
                  access_control_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]]] = None,
-                 instance_access_control_attribute_configuration: Optional[Any] = None):
+                 instance_access_control_attribute_configuration: Optional[pulumi.Input['InstanceAccessControlAttributeConfigurationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a InstanceAccessControlAttributeConfiguration resource.
         :param pulumi.Input[str] instance_arn: The ARN of the AWS SSO instance under which the operation will be executed.
-        :param Any instance_access_control_attribute_configuration: The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
+        :param pulumi.Input['InstanceAccessControlAttributeConfigurationPropertiesArgs'] instance_access_control_attribute_configuration: The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
         if access_control_attributes is not None:
@@ -52,14 +52,14 @@ class InstanceAccessControlAttributeConfigurationArgs:
 
     @property
     @pulumi.getter(name="instanceAccessControlAttributeConfiguration")
-    def instance_access_control_attribute_configuration(self) -> Optional[Any]:
+    def instance_access_control_attribute_configuration(self) -> Optional[pulumi.Input['InstanceAccessControlAttributeConfigurationPropertiesArgs']]:
         """
         The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
         """
         return pulumi.get(self, "instance_access_control_attribute_configuration")
 
     @instance_access_control_attribute_configuration.setter
-    def instance_access_control_attribute_configuration(self, value: Optional[Any]):
+    def instance_access_control_attribute_configuration(self, value: Optional[pulumi.Input['InstanceAccessControlAttributeConfigurationPropertiesArgs']]):
         pulumi.set(self, "instance_access_control_attribute_configuration", value)
 
 
@@ -69,7 +69,7 @@ class InstanceAccessControlAttributeConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_control_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]]]] = None,
-                 instance_access_control_attribute_configuration: Optional[Any] = None,
+                 instance_access_control_attribute_configuration: Optional[pulumi.Input[pulumi.InputType['InstanceAccessControlAttributeConfigurationPropertiesArgs']]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -77,7 +77,7 @@ class InstanceAccessControlAttributeConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any instance_access_control_attribute_configuration: The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
+        :param pulumi.Input[pulumi.InputType['InstanceAccessControlAttributeConfigurationPropertiesArgs']] instance_access_control_attribute_configuration: The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
         :param pulumi.Input[str] instance_arn: The ARN of the AWS SSO instance under which the operation will be executed.
         """
         ...
@@ -105,7 +105,7 @@ class InstanceAccessControlAttributeConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_control_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]]]] = None,
-                 instance_access_control_attribute_configuration: Optional[Any] = None,
+                 instance_access_control_attribute_configuration: Optional[pulumi.Input[pulumi.InputType['InstanceAccessControlAttributeConfigurationPropertiesArgs']]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -158,7 +158,7 @@ class InstanceAccessControlAttributeConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceAccessControlAttributeConfiguration")
-    def instance_access_control_attribute_configuration(self) -> pulumi.Output[Optional[Any]]:
+    def instance_access_control_attribute_configuration(self) -> pulumi.Output[Optional['outputs.InstanceAccessControlAttributeConfigurationProperties']]:
         """
         The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
         """

@@ -8,6 +8,9 @@ import * as utilities from "../utilities";
 export * from "./notificationChannel";
 export * from "./policy";
 
+// Export enums:
+export * from "../types/enums/fms";
+
 // Import resources to register:
 import { NotificationChannel } from "./notificationChannel";
 import { Policy } from "./policy";

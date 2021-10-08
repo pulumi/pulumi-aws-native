@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.SSO
         /// The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
         /// </summary>
         [Output("instanceAccessControlAttributeConfiguration")]
-        public Output<object?> InstanceAccessControlAttributeConfigurationValue { get; private set; } = null!;
+        public Output<Outputs.InstanceAccessControlAttributeConfigurationProperties?> InstanceAccessControlAttributeConfigurationValue { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the AWS SSO instance under which the operation will be executed.
@@ -87,7 +87,7 @@ namespace Pulumi.AwsNative.SSO
         /// The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
         /// </summary>
         [Input("instanceAccessControlAttributeConfiguration")]
-        public Input<object>? InstanceAccessControlAttributeConfigurationValue { get; set; }
+        public Input<Inputs.InstanceAccessControlAttributeConfigurationPropertiesArgs>? InstanceAccessControlAttributeConfigurationValue { get; set; }
 
         /// <summary>
         /// The ARN of the AWS SSO instance under which the operation will be executed.

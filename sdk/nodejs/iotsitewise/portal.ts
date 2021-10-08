@@ -38,7 +38,7 @@ export class Portal extends pulumi.CustomResource {
     /**
      * Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
      */
-    public readonly alarms!: pulumi.Output<any | undefined>;
+    public readonly alarms!: pulumi.Output<outputs.iotsitewise.AlarmsProperties | undefined>;
     /**
      * The email address that sends alarm notifications.
      */
@@ -144,7 +144,7 @@ export interface PortalArgs {
     /**
      * Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
      */
-    alarms?: any;
+    alarms?: pulumi.Input<inputs.iotsitewise.AlarmsPropertiesArgs>;
     /**
      * The email address that sends alarm notifications.
      */

@@ -5343,78 +5343,78 @@ type RecipeParameters struct {
 	IgnoreCase                    *string `pulumi:"ignoreCase"`
 	IncludeInSplit                *string `pulumi:"includeInSplit"`
 	// Input
-	Input                               interface{}            `pulumi:"input"`
-	Interval                            *string                `pulumi:"interval"`
-	IsText                              *string                `pulumi:"isText"`
-	JoinKeys                            *string                `pulumi:"joinKeys"`
-	JoinType                            *string                `pulumi:"joinType"`
-	LeftColumns                         *string                `pulumi:"leftColumns"`
-	Limit                               *string                `pulumi:"limit"`
-	LowerBound                          *string                `pulumi:"lowerBound"`
-	MapType                             *string                `pulumi:"mapType"`
-	ModeType                            *string                `pulumi:"modeType"`
-	MultiLine                           *bool                  `pulumi:"multiLine"`
-	NumRows                             *string                `pulumi:"numRows"`
-	NumRowsAfter                        *string                `pulumi:"numRowsAfter"`
-	NumRowsBefore                       *string                `pulumi:"numRowsBefore"`
-	OrderByColumn                       *string                `pulumi:"orderByColumn"`
-	OrderByColumns                      *string                `pulumi:"orderByColumns"`
-	Other                               *string                `pulumi:"other"`
-	Pattern                             *string                `pulumi:"pattern"`
-	PatternOption1                      *string                `pulumi:"patternOption1"`
-	PatternOption2                      *string                `pulumi:"patternOption2"`
-	PatternOptions                      *string                `pulumi:"patternOptions"`
-	Period                              *string                `pulumi:"period"`
-	Position                            *string                `pulumi:"position"`
-	RemoveAllPunctuation                *string                `pulumi:"removeAllPunctuation"`
-	RemoveAllQuotes                     *string                `pulumi:"removeAllQuotes"`
-	RemoveAllWhitespace                 *string                `pulumi:"removeAllWhitespace"`
-	RemoveCustomCharacters              *string                `pulumi:"removeCustomCharacters"`
-	RemoveCustomValue                   *string                `pulumi:"removeCustomValue"`
-	RemoveLeadingAndTrailingPunctuation *string                `pulumi:"removeLeadingAndTrailingPunctuation"`
-	RemoveLeadingAndTrailingQuotes      *string                `pulumi:"removeLeadingAndTrailingQuotes"`
-	RemoveLeadingAndTrailingWhitespace  *string                `pulumi:"removeLeadingAndTrailingWhitespace"`
-	RemoveLetters                       *string                `pulumi:"removeLetters"`
-	RemoveNumbers                       *string                `pulumi:"removeNumbers"`
-	RemoveSourceColumn                  *string                `pulumi:"removeSourceColumn"`
-	RemoveSpecialCharacters             *string                `pulumi:"removeSpecialCharacters"`
-	RightColumns                        *string                `pulumi:"rightColumns"`
-	SampleSize                          *string                `pulumi:"sampleSize"`
-	SampleType                          *string                `pulumi:"sampleType"`
-	SecondInput                         *string                `pulumi:"secondInput"`
-	SecondaryInputs                     []RecipeSecondaryInput `pulumi:"secondaryInputs"`
-	SheetIndexes                        []int                  `pulumi:"sheetIndexes"`
-	SheetNames                          []string               `pulumi:"sheetNames"`
-	SourceColumn                        *string                `pulumi:"sourceColumn"`
-	SourceColumn1                       *string                `pulumi:"sourceColumn1"`
-	SourceColumn2                       *string                `pulumi:"sourceColumn2"`
-	SourceColumns                       *string                `pulumi:"sourceColumns"`
-	StartColumnIndex                    *string                `pulumi:"startColumnIndex"`
-	StartPattern                        *string                `pulumi:"startPattern"`
-	StartPosition                       *string                `pulumi:"startPosition"`
-	StartValue                          *string                `pulumi:"startValue"`
-	StemmingMode                        *string                `pulumi:"stemmingMode"`
-	StepCount                           *string                `pulumi:"stepCount"`
-	StepIndex                           *string                `pulumi:"stepIndex"`
-	StopWordsMode                       *string                `pulumi:"stopWordsMode"`
-	Strategy                            *string                `pulumi:"strategy"`
-	TargetColumn                        *string                `pulumi:"targetColumn"`
-	TargetColumnNames                   *string                `pulumi:"targetColumnNames"`
-	TargetDateFormat                    *string                `pulumi:"targetDateFormat"`
-	TargetIndex                         *string                `pulumi:"targetIndex"`
-	TimeZone                            *string                `pulumi:"timeZone"`
-	TokenizerPattern                    *string                `pulumi:"tokenizerPattern"`
-	TrueString                          *string                `pulumi:"trueString"`
-	UdfLang                             *string                `pulumi:"udfLang"`
-	Units                               *string                `pulumi:"units"`
-	UnpivotColumn                       *string                `pulumi:"unpivotColumn"`
-	UpperBound                          *string                `pulumi:"upperBound"`
-	UseNewDataFrame                     *string                `pulumi:"useNewDataFrame"`
-	Value                               *string                `pulumi:"value"`
-	Value1                              *string                `pulumi:"value1"`
-	Value2                              *string                `pulumi:"value2"`
-	ValueColumn                         *string                `pulumi:"valueColumn"`
-	ViewFrame                           *string                `pulumi:"viewFrame"`
+	Input                               *RecipeParametersInputProperties `pulumi:"input"`
+	Interval                            *string                          `pulumi:"interval"`
+	IsText                              *string                          `pulumi:"isText"`
+	JoinKeys                            *string                          `pulumi:"joinKeys"`
+	JoinType                            *string                          `pulumi:"joinType"`
+	LeftColumns                         *string                          `pulumi:"leftColumns"`
+	Limit                               *string                          `pulumi:"limit"`
+	LowerBound                          *string                          `pulumi:"lowerBound"`
+	MapType                             *string                          `pulumi:"mapType"`
+	ModeType                            *string                          `pulumi:"modeType"`
+	MultiLine                           *bool                            `pulumi:"multiLine"`
+	NumRows                             *string                          `pulumi:"numRows"`
+	NumRowsAfter                        *string                          `pulumi:"numRowsAfter"`
+	NumRowsBefore                       *string                          `pulumi:"numRowsBefore"`
+	OrderByColumn                       *string                          `pulumi:"orderByColumn"`
+	OrderByColumns                      *string                          `pulumi:"orderByColumns"`
+	Other                               *string                          `pulumi:"other"`
+	Pattern                             *string                          `pulumi:"pattern"`
+	PatternOption1                      *string                          `pulumi:"patternOption1"`
+	PatternOption2                      *string                          `pulumi:"patternOption2"`
+	PatternOptions                      *string                          `pulumi:"patternOptions"`
+	Period                              *string                          `pulumi:"period"`
+	Position                            *string                          `pulumi:"position"`
+	RemoveAllPunctuation                *string                          `pulumi:"removeAllPunctuation"`
+	RemoveAllQuotes                     *string                          `pulumi:"removeAllQuotes"`
+	RemoveAllWhitespace                 *string                          `pulumi:"removeAllWhitespace"`
+	RemoveCustomCharacters              *string                          `pulumi:"removeCustomCharacters"`
+	RemoveCustomValue                   *string                          `pulumi:"removeCustomValue"`
+	RemoveLeadingAndTrailingPunctuation *string                          `pulumi:"removeLeadingAndTrailingPunctuation"`
+	RemoveLeadingAndTrailingQuotes      *string                          `pulumi:"removeLeadingAndTrailingQuotes"`
+	RemoveLeadingAndTrailingWhitespace  *string                          `pulumi:"removeLeadingAndTrailingWhitespace"`
+	RemoveLetters                       *string                          `pulumi:"removeLetters"`
+	RemoveNumbers                       *string                          `pulumi:"removeNumbers"`
+	RemoveSourceColumn                  *string                          `pulumi:"removeSourceColumn"`
+	RemoveSpecialCharacters             *string                          `pulumi:"removeSpecialCharacters"`
+	RightColumns                        *string                          `pulumi:"rightColumns"`
+	SampleSize                          *string                          `pulumi:"sampleSize"`
+	SampleType                          *string                          `pulumi:"sampleType"`
+	SecondInput                         *string                          `pulumi:"secondInput"`
+	SecondaryInputs                     []RecipeSecondaryInput           `pulumi:"secondaryInputs"`
+	SheetIndexes                        []int                            `pulumi:"sheetIndexes"`
+	SheetNames                          []string                         `pulumi:"sheetNames"`
+	SourceColumn                        *string                          `pulumi:"sourceColumn"`
+	SourceColumn1                       *string                          `pulumi:"sourceColumn1"`
+	SourceColumn2                       *string                          `pulumi:"sourceColumn2"`
+	SourceColumns                       *string                          `pulumi:"sourceColumns"`
+	StartColumnIndex                    *string                          `pulumi:"startColumnIndex"`
+	StartPattern                        *string                          `pulumi:"startPattern"`
+	StartPosition                       *string                          `pulumi:"startPosition"`
+	StartValue                          *string                          `pulumi:"startValue"`
+	StemmingMode                        *string                          `pulumi:"stemmingMode"`
+	StepCount                           *string                          `pulumi:"stepCount"`
+	StepIndex                           *string                          `pulumi:"stepIndex"`
+	StopWordsMode                       *string                          `pulumi:"stopWordsMode"`
+	Strategy                            *string                          `pulumi:"strategy"`
+	TargetColumn                        *string                          `pulumi:"targetColumn"`
+	TargetColumnNames                   *string                          `pulumi:"targetColumnNames"`
+	TargetDateFormat                    *string                          `pulumi:"targetDateFormat"`
+	TargetIndex                         *string                          `pulumi:"targetIndex"`
+	TimeZone                            *string                          `pulumi:"timeZone"`
+	TokenizerPattern                    *string                          `pulumi:"tokenizerPattern"`
+	TrueString                          *string                          `pulumi:"trueString"`
+	UdfLang                             *string                          `pulumi:"udfLang"`
+	Units                               *string                          `pulumi:"units"`
+	UnpivotColumn                       *string                          `pulumi:"unpivotColumn"`
+	UpperBound                          *string                          `pulumi:"upperBound"`
+	UseNewDataFrame                     *string                          `pulumi:"useNewDataFrame"`
+	Value                               *string                          `pulumi:"value"`
+	Value1                              *string                          `pulumi:"value1"`
+	Value2                              *string                          `pulumi:"value2"`
+	ValueColumn                         *string                          `pulumi:"valueColumn"`
+	ViewFrame                           *string                          `pulumi:"viewFrame"`
 }
 
 // RecipeParametersInput is an input type that accepts RecipeParametersArgs and RecipeParametersOutput values.
@@ -5459,78 +5459,78 @@ type RecipeParametersArgs struct {
 	IgnoreCase                    pulumi.StringPtrInput `pulumi:"ignoreCase"`
 	IncludeInSplit                pulumi.StringPtrInput `pulumi:"includeInSplit"`
 	// Input
-	Input                               pulumi.Input                   `pulumi:"input"`
-	Interval                            pulumi.StringPtrInput          `pulumi:"interval"`
-	IsText                              pulumi.StringPtrInput          `pulumi:"isText"`
-	JoinKeys                            pulumi.StringPtrInput          `pulumi:"joinKeys"`
-	JoinType                            pulumi.StringPtrInput          `pulumi:"joinType"`
-	LeftColumns                         pulumi.StringPtrInput          `pulumi:"leftColumns"`
-	Limit                               pulumi.StringPtrInput          `pulumi:"limit"`
-	LowerBound                          pulumi.StringPtrInput          `pulumi:"lowerBound"`
-	MapType                             pulumi.StringPtrInput          `pulumi:"mapType"`
-	ModeType                            pulumi.StringPtrInput          `pulumi:"modeType"`
-	MultiLine                           pulumi.BoolPtrInput            `pulumi:"multiLine"`
-	NumRows                             pulumi.StringPtrInput          `pulumi:"numRows"`
-	NumRowsAfter                        pulumi.StringPtrInput          `pulumi:"numRowsAfter"`
-	NumRowsBefore                       pulumi.StringPtrInput          `pulumi:"numRowsBefore"`
-	OrderByColumn                       pulumi.StringPtrInput          `pulumi:"orderByColumn"`
-	OrderByColumns                      pulumi.StringPtrInput          `pulumi:"orderByColumns"`
-	Other                               pulumi.StringPtrInput          `pulumi:"other"`
-	Pattern                             pulumi.StringPtrInput          `pulumi:"pattern"`
-	PatternOption1                      pulumi.StringPtrInput          `pulumi:"patternOption1"`
-	PatternOption2                      pulumi.StringPtrInput          `pulumi:"patternOption2"`
-	PatternOptions                      pulumi.StringPtrInput          `pulumi:"patternOptions"`
-	Period                              pulumi.StringPtrInput          `pulumi:"period"`
-	Position                            pulumi.StringPtrInput          `pulumi:"position"`
-	RemoveAllPunctuation                pulumi.StringPtrInput          `pulumi:"removeAllPunctuation"`
-	RemoveAllQuotes                     pulumi.StringPtrInput          `pulumi:"removeAllQuotes"`
-	RemoveAllWhitespace                 pulumi.StringPtrInput          `pulumi:"removeAllWhitespace"`
-	RemoveCustomCharacters              pulumi.StringPtrInput          `pulumi:"removeCustomCharacters"`
-	RemoveCustomValue                   pulumi.StringPtrInput          `pulumi:"removeCustomValue"`
-	RemoveLeadingAndTrailingPunctuation pulumi.StringPtrInput          `pulumi:"removeLeadingAndTrailingPunctuation"`
-	RemoveLeadingAndTrailingQuotes      pulumi.StringPtrInput          `pulumi:"removeLeadingAndTrailingQuotes"`
-	RemoveLeadingAndTrailingWhitespace  pulumi.StringPtrInput          `pulumi:"removeLeadingAndTrailingWhitespace"`
-	RemoveLetters                       pulumi.StringPtrInput          `pulumi:"removeLetters"`
-	RemoveNumbers                       pulumi.StringPtrInput          `pulumi:"removeNumbers"`
-	RemoveSourceColumn                  pulumi.StringPtrInput          `pulumi:"removeSourceColumn"`
-	RemoveSpecialCharacters             pulumi.StringPtrInput          `pulumi:"removeSpecialCharacters"`
-	RightColumns                        pulumi.StringPtrInput          `pulumi:"rightColumns"`
-	SampleSize                          pulumi.StringPtrInput          `pulumi:"sampleSize"`
-	SampleType                          pulumi.StringPtrInput          `pulumi:"sampleType"`
-	SecondInput                         pulumi.StringPtrInput          `pulumi:"secondInput"`
-	SecondaryInputs                     RecipeSecondaryInputArrayInput `pulumi:"secondaryInputs"`
-	SheetIndexes                        pulumi.IntArrayInput           `pulumi:"sheetIndexes"`
-	SheetNames                          pulumi.StringArrayInput        `pulumi:"sheetNames"`
-	SourceColumn                        pulumi.StringPtrInput          `pulumi:"sourceColumn"`
-	SourceColumn1                       pulumi.StringPtrInput          `pulumi:"sourceColumn1"`
-	SourceColumn2                       pulumi.StringPtrInput          `pulumi:"sourceColumn2"`
-	SourceColumns                       pulumi.StringPtrInput          `pulumi:"sourceColumns"`
-	StartColumnIndex                    pulumi.StringPtrInput          `pulumi:"startColumnIndex"`
-	StartPattern                        pulumi.StringPtrInput          `pulumi:"startPattern"`
-	StartPosition                       pulumi.StringPtrInput          `pulumi:"startPosition"`
-	StartValue                          pulumi.StringPtrInput          `pulumi:"startValue"`
-	StemmingMode                        pulumi.StringPtrInput          `pulumi:"stemmingMode"`
-	StepCount                           pulumi.StringPtrInput          `pulumi:"stepCount"`
-	StepIndex                           pulumi.StringPtrInput          `pulumi:"stepIndex"`
-	StopWordsMode                       pulumi.StringPtrInput          `pulumi:"stopWordsMode"`
-	Strategy                            pulumi.StringPtrInput          `pulumi:"strategy"`
-	TargetColumn                        pulumi.StringPtrInput          `pulumi:"targetColumn"`
-	TargetColumnNames                   pulumi.StringPtrInput          `pulumi:"targetColumnNames"`
-	TargetDateFormat                    pulumi.StringPtrInput          `pulumi:"targetDateFormat"`
-	TargetIndex                         pulumi.StringPtrInput          `pulumi:"targetIndex"`
-	TimeZone                            pulumi.StringPtrInput          `pulumi:"timeZone"`
-	TokenizerPattern                    pulumi.StringPtrInput          `pulumi:"tokenizerPattern"`
-	TrueString                          pulumi.StringPtrInput          `pulumi:"trueString"`
-	UdfLang                             pulumi.StringPtrInput          `pulumi:"udfLang"`
-	Units                               pulumi.StringPtrInput          `pulumi:"units"`
-	UnpivotColumn                       pulumi.StringPtrInput          `pulumi:"unpivotColumn"`
-	UpperBound                          pulumi.StringPtrInput          `pulumi:"upperBound"`
-	UseNewDataFrame                     pulumi.StringPtrInput          `pulumi:"useNewDataFrame"`
-	Value                               pulumi.StringPtrInput          `pulumi:"value"`
-	Value1                              pulumi.StringPtrInput          `pulumi:"value1"`
-	Value2                              pulumi.StringPtrInput          `pulumi:"value2"`
-	ValueColumn                         pulumi.StringPtrInput          `pulumi:"valueColumn"`
-	ViewFrame                           pulumi.StringPtrInput          `pulumi:"viewFrame"`
+	Input                               RecipeParametersInputPropertiesPtrInput `pulumi:"input"`
+	Interval                            pulumi.StringPtrInput                   `pulumi:"interval"`
+	IsText                              pulumi.StringPtrInput                   `pulumi:"isText"`
+	JoinKeys                            pulumi.StringPtrInput                   `pulumi:"joinKeys"`
+	JoinType                            pulumi.StringPtrInput                   `pulumi:"joinType"`
+	LeftColumns                         pulumi.StringPtrInput                   `pulumi:"leftColumns"`
+	Limit                               pulumi.StringPtrInput                   `pulumi:"limit"`
+	LowerBound                          pulumi.StringPtrInput                   `pulumi:"lowerBound"`
+	MapType                             pulumi.StringPtrInput                   `pulumi:"mapType"`
+	ModeType                            pulumi.StringPtrInput                   `pulumi:"modeType"`
+	MultiLine                           pulumi.BoolPtrInput                     `pulumi:"multiLine"`
+	NumRows                             pulumi.StringPtrInput                   `pulumi:"numRows"`
+	NumRowsAfter                        pulumi.StringPtrInput                   `pulumi:"numRowsAfter"`
+	NumRowsBefore                       pulumi.StringPtrInput                   `pulumi:"numRowsBefore"`
+	OrderByColumn                       pulumi.StringPtrInput                   `pulumi:"orderByColumn"`
+	OrderByColumns                      pulumi.StringPtrInput                   `pulumi:"orderByColumns"`
+	Other                               pulumi.StringPtrInput                   `pulumi:"other"`
+	Pattern                             pulumi.StringPtrInput                   `pulumi:"pattern"`
+	PatternOption1                      pulumi.StringPtrInput                   `pulumi:"patternOption1"`
+	PatternOption2                      pulumi.StringPtrInput                   `pulumi:"patternOption2"`
+	PatternOptions                      pulumi.StringPtrInput                   `pulumi:"patternOptions"`
+	Period                              pulumi.StringPtrInput                   `pulumi:"period"`
+	Position                            pulumi.StringPtrInput                   `pulumi:"position"`
+	RemoveAllPunctuation                pulumi.StringPtrInput                   `pulumi:"removeAllPunctuation"`
+	RemoveAllQuotes                     pulumi.StringPtrInput                   `pulumi:"removeAllQuotes"`
+	RemoveAllWhitespace                 pulumi.StringPtrInput                   `pulumi:"removeAllWhitespace"`
+	RemoveCustomCharacters              pulumi.StringPtrInput                   `pulumi:"removeCustomCharacters"`
+	RemoveCustomValue                   pulumi.StringPtrInput                   `pulumi:"removeCustomValue"`
+	RemoveLeadingAndTrailingPunctuation pulumi.StringPtrInput                   `pulumi:"removeLeadingAndTrailingPunctuation"`
+	RemoveLeadingAndTrailingQuotes      pulumi.StringPtrInput                   `pulumi:"removeLeadingAndTrailingQuotes"`
+	RemoveLeadingAndTrailingWhitespace  pulumi.StringPtrInput                   `pulumi:"removeLeadingAndTrailingWhitespace"`
+	RemoveLetters                       pulumi.StringPtrInput                   `pulumi:"removeLetters"`
+	RemoveNumbers                       pulumi.StringPtrInput                   `pulumi:"removeNumbers"`
+	RemoveSourceColumn                  pulumi.StringPtrInput                   `pulumi:"removeSourceColumn"`
+	RemoveSpecialCharacters             pulumi.StringPtrInput                   `pulumi:"removeSpecialCharacters"`
+	RightColumns                        pulumi.StringPtrInput                   `pulumi:"rightColumns"`
+	SampleSize                          pulumi.StringPtrInput                   `pulumi:"sampleSize"`
+	SampleType                          pulumi.StringPtrInput                   `pulumi:"sampleType"`
+	SecondInput                         pulumi.StringPtrInput                   `pulumi:"secondInput"`
+	SecondaryInputs                     RecipeSecondaryInputArrayInput          `pulumi:"secondaryInputs"`
+	SheetIndexes                        pulumi.IntArrayInput                    `pulumi:"sheetIndexes"`
+	SheetNames                          pulumi.StringArrayInput                 `pulumi:"sheetNames"`
+	SourceColumn                        pulumi.StringPtrInput                   `pulumi:"sourceColumn"`
+	SourceColumn1                       pulumi.StringPtrInput                   `pulumi:"sourceColumn1"`
+	SourceColumn2                       pulumi.StringPtrInput                   `pulumi:"sourceColumn2"`
+	SourceColumns                       pulumi.StringPtrInput                   `pulumi:"sourceColumns"`
+	StartColumnIndex                    pulumi.StringPtrInput                   `pulumi:"startColumnIndex"`
+	StartPattern                        pulumi.StringPtrInput                   `pulumi:"startPattern"`
+	StartPosition                       pulumi.StringPtrInput                   `pulumi:"startPosition"`
+	StartValue                          pulumi.StringPtrInput                   `pulumi:"startValue"`
+	StemmingMode                        pulumi.StringPtrInput                   `pulumi:"stemmingMode"`
+	StepCount                           pulumi.StringPtrInput                   `pulumi:"stepCount"`
+	StepIndex                           pulumi.StringPtrInput                   `pulumi:"stepIndex"`
+	StopWordsMode                       pulumi.StringPtrInput                   `pulumi:"stopWordsMode"`
+	Strategy                            pulumi.StringPtrInput                   `pulumi:"strategy"`
+	TargetColumn                        pulumi.StringPtrInput                   `pulumi:"targetColumn"`
+	TargetColumnNames                   pulumi.StringPtrInput                   `pulumi:"targetColumnNames"`
+	TargetDateFormat                    pulumi.StringPtrInput                   `pulumi:"targetDateFormat"`
+	TargetIndex                         pulumi.StringPtrInput                   `pulumi:"targetIndex"`
+	TimeZone                            pulumi.StringPtrInput                   `pulumi:"timeZone"`
+	TokenizerPattern                    pulumi.StringPtrInput                   `pulumi:"tokenizerPattern"`
+	TrueString                          pulumi.StringPtrInput                   `pulumi:"trueString"`
+	UdfLang                             pulumi.StringPtrInput                   `pulumi:"udfLang"`
+	Units                               pulumi.StringPtrInput                   `pulumi:"units"`
+	UnpivotColumn                       pulumi.StringPtrInput                   `pulumi:"unpivotColumn"`
+	UpperBound                          pulumi.StringPtrInput                   `pulumi:"upperBound"`
+	UseNewDataFrame                     pulumi.StringPtrInput                   `pulumi:"useNewDataFrame"`
+	Value                               pulumi.StringPtrInput                   `pulumi:"value"`
+	Value1                              pulumi.StringPtrInput                   `pulumi:"value1"`
+	Value2                              pulumi.StringPtrInput                   `pulumi:"value2"`
+	ValueColumn                         pulumi.StringPtrInput                   `pulumi:"valueColumn"`
+	ViewFrame                           pulumi.StringPtrInput                   `pulumi:"viewFrame"`
 }
 
 func (RecipeParametersArgs) ElementType() reflect.Type {
@@ -5676,8 +5676,8 @@ func (o RecipeParametersOutput) IncludeInSplit() pulumi.StringPtrOutput {
 }
 
 // Input
-func (o RecipeParametersOutput) Input() pulumi.AnyOutput {
-	return o.ApplyT(func(v RecipeParameters) interface{} { return v.Input }).(pulumi.AnyOutput)
+func (o RecipeParametersOutput) Input() RecipeParametersInputPropertiesPtrOutput {
+	return o.ApplyT(func(v RecipeParameters) *RecipeParametersInputProperties { return v.Input }).(RecipeParametersInputPropertiesPtrOutput)
 }
 
 func (o RecipeParametersOutput) Interval() pulumi.StringPtrOutput {
@@ -5962,6 +5962,159 @@ func (o RecipeParametersOutput) ValueColumn() pulumi.StringPtrOutput {
 
 func (o RecipeParametersOutput) ViewFrame() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeParameters) *string { return v.ViewFrame }).(pulumi.StringPtrOutput)
+}
+
+// Input
+type RecipeParametersInputProperties struct {
+	DataCatalogInputDefinition *RecipeDataCatalogInputDefinition `pulumi:"dataCatalogInputDefinition"`
+	S3InputDefinition          *RecipeS3Location                 `pulumi:"s3InputDefinition"`
+}
+
+// RecipeParametersInputPropertiesInput is an input type that accepts RecipeParametersInputPropertiesArgs and RecipeParametersInputPropertiesOutput values.
+// You can construct a concrete instance of `RecipeParametersInputPropertiesInput` via:
+//
+//          RecipeParametersInputPropertiesArgs{...}
+type RecipeParametersInputPropertiesInput interface {
+	pulumi.Input
+
+	ToRecipeParametersInputPropertiesOutput() RecipeParametersInputPropertiesOutput
+	ToRecipeParametersInputPropertiesOutputWithContext(context.Context) RecipeParametersInputPropertiesOutput
+}
+
+// Input
+type RecipeParametersInputPropertiesArgs struct {
+	DataCatalogInputDefinition RecipeDataCatalogInputDefinitionPtrInput `pulumi:"dataCatalogInputDefinition"`
+	S3InputDefinition          RecipeS3LocationPtrInput                 `pulumi:"s3InputDefinition"`
+}
+
+func (RecipeParametersInputPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecipeParametersInputProperties)(nil)).Elem()
+}
+
+func (i RecipeParametersInputPropertiesArgs) ToRecipeParametersInputPropertiesOutput() RecipeParametersInputPropertiesOutput {
+	return i.ToRecipeParametersInputPropertiesOutputWithContext(context.Background())
+}
+
+func (i RecipeParametersInputPropertiesArgs) ToRecipeParametersInputPropertiesOutputWithContext(ctx context.Context) RecipeParametersInputPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecipeParametersInputPropertiesOutput)
+}
+
+func (i RecipeParametersInputPropertiesArgs) ToRecipeParametersInputPropertiesPtrOutput() RecipeParametersInputPropertiesPtrOutput {
+	return i.ToRecipeParametersInputPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i RecipeParametersInputPropertiesArgs) ToRecipeParametersInputPropertiesPtrOutputWithContext(ctx context.Context) RecipeParametersInputPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecipeParametersInputPropertiesOutput).ToRecipeParametersInputPropertiesPtrOutputWithContext(ctx)
+}
+
+// RecipeParametersInputPropertiesPtrInput is an input type that accepts RecipeParametersInputPropertiesArgs, RecipeParametersInputPropertiesPtr and RecipeParametersInputPropertiesPtrOutput values.
+// You can construct a concrete instance of `RecipeParametersInputPropertiesPtrInput` via:
+//
+//          RecipeParametersInputPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type RecipeParametersInputPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToRecipeParametersInputPropertiesPtrOutput() RecipeParametersInputPropertiesPtrOutput
+	ToRecipeParametersInputPropertiesPtrOutputWithContext(context.Context) RecipeParametersInputPropertiesPtrOutput
+}
+
+type recipeParametersInputPropertiesPtrType RecipeParametersInputPropertiesArgs
+
+func RecipeParametersInputPropertiesPtr(v *RecipeParametersInputPropertiesArgs) RecipeParametersInputPropertiesPtrInput {
+	return (*recipeParametersInputPropertiesPtrType)(v)
+}
+
+func (*recipeParametersInputPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecipeParametersInputProperties)(nil)).Elem()
+}
+
+func (i *recipeParametersInputPropertiesPtrType) ToRecipeParametersInputPropertiesPtrOutput() RecipeParametersInputPropertiesPtrOutput {
+	return i.ToRecipeParametersInputPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *recipeParametersInputPropertiesPtrType) ToRecipeParametersInputPropertiesPtrOutputWithContext(ctx context.Context) RecipeParametersInputPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecipeParametersInputPropertiesPtrOutput)
+}
+
+// Input
+type RecipeParametersInputPropertiesOutput struct{ *pulumi.OutputState }
+
+func (RecipeParametersInputPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecipeParametersInputProperties)(nil)).Elem()
+}
+
+func (o RecipeParametersInputPropertiesOutput) ToRecipeParametersInputPropertiesOutput() RecipeParametersInputPropertiesOutput {
+	return o
+}
+
+func (o RecipeParametersInputPropertiesOutput) ToRecipeParametersInputPropertiesOutputWithContext(ctx context.Context) RecipeParametersInputPropertiesOutput {
+	return o
+}
+
+func (o RecipeParametersInputPropertiesOutput) ToRecipeParametersInputPropertiesPtrOutput() RecipeParametersInputPropertiesPtrOutput {
+	return o.ToRecipeParametersInputPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o RecipeParametersInputPropertiesOutput) ToRecipeParametersInputPropertiesPtrOutputWithContext(ctx context.Context) RecipeParametersInputPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecipeParametersInputProperties) *RecipeParametersInputProperties {
+		return &v
+	}).(RecipeParametersInputPropertiesPtrOutput)
+}
+
+func (o RecipeParametersInputPropertiesOutput) DataCatalogInputDefinition() RecipeDataCatalogInputDefinitionPtrOutput {
+	return o.ApplyT(func(v RecipeParametersInputProperties) *RecipeDataCatalogInputDefinition {
+		return v.DataCatalogInputDefinition
+	}).(RecipeDataCatalogInputDefinitionPtrOutput)
+}
+
+func (o RecipeParametersInputPropertiesOutput) S3InputDefinition() RecipeS3LocationPtrOutput {
+	return o.ApplyT(func(v RecipeParametersInputProperties) *RecipeS3Location { return v.S3InputDefinition }).(RecipeS3LocationPtrOutput)
+}
+
+type RecipeParametersInputPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RecipeParametersInputPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecipeParametersInputProperties)(nil)).Elem()
+}
+
+func (o RecipeParametersInputPropertiesPtrOutput) ToRecipeParametersInputPropertiesPtrOutput() RecipeParametersInputPropertiesPtrOutput {
+	return o
+}
+
+func (o RecipeParametersInputPropertiesPtrOutput) ToRecipeParametersInputPropertiesPtrOutputWithContext(ctx context.Context) RecipeParametersInputPropertiesPtrOutput {
+	return o
+}
+
+func (o RecipeParametersInputPropertiesPtrOutput) Elem() RecipeParametersInputPropertiesOutput {
+	return o.ApplyT(func(v *RecipeParametersInputProperties) RecipeParametersInputProperties {
+		if v != nil {
+			return *v
+		}
+		var ret RecipeParametersInputProperties
+		return ret
+	}).(RecipeParametersInputPropertiesOutput)
+}
+
+func (o RecipeParametersInputPropertiesPtrOutput) DataCatalogInputDefinition() RecipeDataCatalogInputDefinitionPtrOutput {
+	return o.ApplyT(func(v *RecipeParametersInputProperties) *RecipeDataCatalogInputDefinition {
+		if v == nil {
+			return nil
+		}
+		return v.DataCatalogInputDefinition
+	}).(RecipeDataCatalogInputDefinitionPtrOutput)
+}
+
+func (o RecipeParametersInputPropertiesPtrOutput) S3InputDefinition() RecipeS3LocationPtrOutput {
+	return o.ApplyT(func(v *RecipeParametersInputProperties) *RecipeS3Location {
+		if v == nil {
+			return nil
+		}
+		return v.S3InputDefinition
+	}).(RecipeS3LocationPtrOutput)
 }
 
 // Input location
@@ -6605,6 +6758,8 @@ func init() {
 	pulumi.RegisterOutputType(RecipeDataCatalogInputDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(RecipeParameterMapOutput{})
 	pulumi.RegisterOutputType(RecipeParametersOutput{})
+	pulumi.RegisterOutputType(RecipeParametersInputPropertiesOutput{})
+	pulumi.RegisterOutputType(RecipeParametersInputPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RecipeS3LocationOutput{})
 	pulumi.RegisterOutputType(RecipeS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(RecipeSecondaryInputOutput{})

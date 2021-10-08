@@ -11,6 +11,7 @@ from ._enums import *
 
 __all__ = [
     'AddonTagArgs',
+    'ClusterEncryptionConfigProviderPropertiesArgs',
     'ClusterEncryptionConfigArgs',
     'ClusterKubernetesNetworkConfigArgs',
     'ClusterLoggingArgs',
@@ -65,13 +66,37 @@ class AddonTagArgs:
 
 
 @pulumi.input_type
+class ClusterEncryptionConfigProviderPropertiesArgs:
+    def __init__(__self__, *,
+                 key_arn: Optional[pulumi.Input[str]] = None):
+        """
+        The encryption provider for the cluster.
+        :param pulumi.Input[str] key_arn: Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key.
+        """
+        if key_arn is not None:
+            pulumi.set(__self__, "key_arn", key_arn)
+
+    @property
+    @pulumi.getter(name="keyArn")
+    def key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key.
+        """
+        return pulumi.get(self, "key_arn")
+
+    @key_arn.setter
+    def key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_arn", value)
+
+
+@pulumi.input_type
 class ClusterEncryptionConfigArgs:
     def __init__(__self__, *,
-                 provider: Optional[Any] = None,
+                 provider: Optional[pulumi.Input['ClusterEncryptionConfigProviderPropertiesArgs']] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The encryption configuration for the cluster
-        :param Any provider: The encryption provider for the cluster.
+        :param pulumi.Input['ClusterEncryptionConfigProviderPropertiesArgs'] provider: The encryption provider for the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: Specifies the resources to be encrypted. The only supported value is "secrets".
         """
         if provider is not None:
@@ -81,14 +106,14 @@ class ClusterEncryptionConfigArgs:
 
     @property
     @pulumi.getter
-    def provider(self) -> Optional[Any]:
+    def provider(self) -> Optional[pulumi.Input['ClusterEncryptionConfigProviderPropertiesArgs']]:
         """
         The encryption provider for the cluster.
         """
         return pulumi.get(self, "provider")
 
     @provider.setter
-    def provider(self, value: Optional[Any]):
+    def provider(self, value: Optional[pulumi.Input['ClusterEncryptionConfigProviderPropertiesArgs']]):
         pulumi.set(self, "provider", value)
 
     @property

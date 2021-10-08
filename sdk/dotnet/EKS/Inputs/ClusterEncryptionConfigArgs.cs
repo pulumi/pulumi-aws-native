@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.EKS.Inputs
         /// The encryption provider for the cluster.
         /// </summary>
         [Input("provider")]
-        public Input<object>? Provider { get; set; }
+        public Input<Inputs.ClusterEncryptionConfigProviderPropertiesArgs>? Provider { get; set; }
 
         [Input("resources")]
         private InputList<string>? _resources;

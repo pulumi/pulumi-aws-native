@@ -13,6 +13,7 @@ __all__ = [
     'AccessPointObjectLambdaConfiguration',
     'AccessPointPublicAccessBlockConfiguration',
     'AccessPointTransformationConfiguration',
+    'PolicyStatusProperties',
 ]
 
 @pulumi.output_type
@@ -213,5 +214,41 @@ class AccessPointTransformationConfiguration(dict):
     @pulumi.getter(name="contentTransformation")
     def content_transformation(self) -> Optional[Any]:
         return pulumi.get(self, "content_transformation")
+
+
+@pulumi.output_type
+class PolicyStatusProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isPublic":
+            suggest = "is_public"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyStatusProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyStatusProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyStatusProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_public: Optional[bool] = None):
+        """
+        :param bool is_public: Specifies whether the Object lambda Access Point Policy is Public or not. Object lambda Access Points are private by default.
+        """
+        if is_public is not None:
+            pulumi.set(__self__, "is_public", is_public)
+
+    @property
+    @pulumi.getter(name="isPublic")
+    def is_public(self) -> Optional[bool]:
+        """
+        Specifies whether the Object lambda Access Point Policy is Public or not. Object lambda Access Points are private by default.
+        """
+        return pulumi.get(self, "is_public")
 
 

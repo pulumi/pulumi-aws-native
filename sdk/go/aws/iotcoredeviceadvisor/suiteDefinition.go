@@ -16,8 +16,8 @@ type SuiteDefinition struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource name for the suite definition.
-	SuiteDefinitionArn           pulumi.StringOutput `pulumi:"suiteDefinitionArn"`
-	SuiteDefinitionConfiguration pulumi.AnyOutput    `pulumi:"suiteDefinitionConfiguration"`
+	SuiteDefinitionArn           pulumi.StringOutput                          `pulumi:"suiteDefinitionArn"`
+	SuiteDefinitionConfiguration SuiteDefinitionConfigurationPropertiesOutput `pulumi:"suiteDefinitionConfiguration"`
 	// The unique identifier for the suite definition.
 	SuiteDefinitionId pulumi.StringOutput `pulumi:"suiteDefinitionId"`
 	// The suite definition version of a test suite.
@@ -68,14 +68,14 @@ func (SuiteDefinitionState) ElementType() reflect.Type {
 }
 
 type suiteDefinitionArgs struct {
-	SuiteDefinitionConfiguration interface{} `pulumi:"suiteDefinitionConfiguration"`
+	SuiteDefinitionConfiguration SuiteDefinitionConfigurationProperties `pulumi:"suiteDefinitionConfiguration"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []SuiteDefinitionTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SuiteDefinition resource.
 type SuiteDefinitionArgs struct {
-	SuiteDefinitionConfiguration pulumi.Input
+	SuiteDefinitionConfiguration SuiteDefinitionConfigurationPropertiesInput
 	// An array of key-value pairs to apply to this resource.
 	Tags SuiteDefinitionTagArrayInput
 }

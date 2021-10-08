@@ -16,7 +16,7 @@ type TransitGatewayVpcAttachment struct {
 
 	AddSubnetIds pulumi.StringArrayOutput `pulumi:"addSubnetIds"`
 	// The options for the transit gateway vpc attachment.
-	Options          pulumi.AnyOutput                          `pulumi:"options"`
+	Options          OptionsPropertiesPtrOutput                `pulumi:"options"`
 	RemoveSubnetIds  pulumi.StringArrayOutput                  `pulumi:"removeSubnetIds"`
 	SubnetIds        pulumi.StringArrayOutput                  `pulumi:"subnetIds"`
 	Tags             TransitGatewayVpcAttachmentTagArrayOutput `pulumi:"tags"`
@@ -65,7 +65,7 @@ func (TransitGatewayVpcAttachmentState) ElementType() reflect.Type {
 type transitGatewayVpcAttachmentArgs struct {
 	AddSubnetIds []string `pulumi:"addSubnetIds"`
 	// The options for the transit gateway vpc attachment.
-	Options          interface{}                      `pulumi:"options"`
+	Options          *OptionsProperties               `pulumi:"options"`
 	RemoveSubnetIds  []string                         `pulumi:"removeSubnetIds"`
 	SubnetIds        []string                         `pulumi:"subnetIds"`
 	Tags             []TransitGatewayVpcAttachmentTag `pulumi:"tags"`
@@ -77,7 +77,7 @@ type transitGatewayVpcAttachmentArgs struct {
 type TransitGatewayVpcAttachmentArgs struct {
 	AddSubnetIds pulumi.StringArrayInput
 	// The options for the transit gateway vpc attachment.
-	Options          pulumi.Input
+	Options          OptionsPropertiesPtrInput
 	RemoveSubnetIds  pulumi.StringArrayInput
 	SubnetIds        pulumi.StringArrayInput
 	Tags             TransitGatewayVpcAttachmentTagArrayInput

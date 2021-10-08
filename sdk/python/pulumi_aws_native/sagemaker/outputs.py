@@ -62,7 +62,10 @@ __all__ = [
     'EndpointTag',
     'EndpointTrafficRoutingConfig',
     'EndpointVariantProperty',
+    'FeatureGroupDataCatalogConfig',
     'FeatureGroupFeatureDefinition',
+    'FeatureGroupOnlineStoreSecurityConfig',
+    'FeatureGroupS3StorageConfig',
     'FeatureGroupTag',
     'ImageTag',
     'ModelBiasJobDefinitionClusterConfig',
@@ -138,8 +141,13 @@ __all__ = [
     'MonitoringScheduleVpcConfig',
     'NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook',
     'NotebookInstanceTag',
+    'OfflineStoreConfigProperties',
+    'OnlineStoreConfigProperties',
     'PipelineTag',
+    'ProjectProvisioningParameter',
     'ProjectTag',
+    'ServiceCatalogProvisionedProductDetailsProperties',
+    'ServiceCatalogProvisioningDetailsProperties',
     'UserProfileCustomImage',
     'UserProfileJupyterServerAppSettings',
     'UserProfileKernelGatewayAppSettings',
@@ -2519,6 +2527,49 @@ class EndpointVariantProperty(dict):
 
 
 @pulumi.output_type
+class FeatureGroupDataCatalogConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tableName":
+            suggest = "table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FeatureGroupDataCatalogConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FeatureGroupDataCatalogConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FeatureGroupDataCatalogConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 catalog: str,
+                 database: str,
+                 table_name: str):
+        pulumi.set(__self__, "catalog", catalog)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "table_name", table_name)
+
+    @property
+    @pulumi.getter
+    def catalog(self) -> str:
+        return pulumi.get(self, "catalog")
+
+    @property
+    @pulumi.getter
+    def database(self) -> str:
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> str:
+        return pulumi.get(self, "table_name")
+
+
+@pulumi.output_type
 class FeatureGroupFeatureDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2554,6 +2605,75 @@ class FeatureGroupFeatureDefinition(dict):
     @pulumi.getter(name="featureType")
     def feature_type(self) -> 'FeatureGroupFeatureDefinitionFeatureType':
         return pulumi.get(self, "feature_type")
+
+
+@pulumi.output_type
+class FeatureGroupOnlineStoreSecurityConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FeatureGroupOnlineStoreSecurityConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FeatureGroupOnlineStoreSecurityConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FeatureGroupOnlineStoreSecurityConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_id: Optional[str] = None):
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        return pulumi.get(self, "kms_key_id")
+
+
+@pulumi.output_type
+class FeatureGroupS3StorageConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Uri":
+            suggest = "s3_uri"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FeatureGroupS3StorageConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FeatureGroupS3StorageConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FeatureGroupS3StorageConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_uri: str,
+                 kms_key_id: Optional[str] = None):
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> str:
+        return pulumi.get(self, "s3_uri")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        return pulumi.get(self, "kms_key_id")
 
 
 @pulumi.output_type
@@ -6557,6 +6677,95 @@ class NotebookInstanceTag(dict):
 
 
 @pulumi.output_type
+class OfflineStoreConfigProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3StorageConfig":
+            suggest = "s3_storage_config"
+        elif key == "dataCatalogConfig":
+            suggest = "data_catalog_config"
+        elif key == "disableGlueTableCreation":
+            suggest = "disable_glue_table_creation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OfflineStoreConfigProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OfflineStoreConfigProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OfflineStoreConfigProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_storage_config: 'outputs.FeatureGroupS3StorageConfig',
+                 data_catalog_config: Optional['outputs.FeatureGroupDataCatalogConfig'] = None,
+                 disable_glue_table_creation: Optional[bool] = None):
+        pulumi.set(__self__, "s3_storage_config", s3_storage_config)
+        if data_catalog_config is not None:
+            pulumi.set(__self__, "data_catalog_config", data_catalog_config)
+        if disable_glue_table_creation is not None:
+            pulumi.set(__self__, "disable_glue_table_creation", disable_glue_table_creation)
+
+    @property
+    @pulumi.getter(name="s3StorageConfig")
+    def s3_storage_config(self) -> 'outputs.FeatureGroupS3StorageConfig':
+        return pulumi.get(self, "s3_storage_config")
+
+    @property
+    @pulumi.getter(name="dataCatalogConfig")
+    def data_catalog_config(self) -> Optional['outputs.FeatureGroupDataCatalogConfig']:
+        return pulumi.get(self, "data_catalog_config")
+
+    @property
+    @pulumi.getter(name="disableGlueTableCreation")
+    def disable_glue_table_creation(self) -> Optional[bool]:
+        return pulumi.get(self, "disable_glue_table_creation")
+
+
+@pulumi.output_type
+class OnlineStoreConfigProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableOnlineStore":
+            suggest = "enable_online_store"
+        elif key == "securityConfig":
+            suggest = "security_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OnlineStoreConfigProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OnlineStoreConfigProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OnlineStoreConfigProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_online_store: Optional[bool] = None,
+                 security_config: Optional['outputs.FeatureGroupOnlineStoreSecurityConfig'] = None):
+        if enable_online_store is not None:
+            pulumi.set(__self__, "enable_online_store", enable_online_store)
+        if security_config is not None:
+            pulumi.set(__self__, "security_config", security_config)
+
+    @property
+    @pulumi.getter(name="enableOnlineStore")
+    def enable_online_store(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_online_store")
+
+    @property
+    @pulumi.getter(name="securityConfig")
+    def security_config(self) -> Optional['outputs.FeatureGroupOnlineStoreSecurityConfig']:
+        return pulumi.get(self, "security_config")
+
+
+@pulumi.output_type
 class PipelineTag(dict):
     def __init__(__self__, *,
                  key: str,
@@ -6572,6 +6781,39 @@ class PipelineTag(dict):
     @property
     @pulumi.getter
     def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProjectProvisioningParameter(dict):
+    """
+    Information about a parameter used to provision a product.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        Information about a parameter used to provision a product.
+        :param str key: The parameter key.
+        :param str value: The parameter value.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The parameter key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The parameter value.
+        """
         return pulumi.get(self, "value")
 
 
@@ -6606,6 +6848,120 @@ class ProjectTag(dict):
         The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ServiceCatalogProvisionedProductDetailsProperties(dict):
+    """
+    Provisioned ServiceCatalog  Details
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisionedProductId":
+            suggest = "provisioned_product_id"
+        elif key == "provisionedProductStatusMessage":
+            suggest = "provisioned_product_status_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceCatalogProvisionedProductDetailsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceCatalogProvisionedProductDetailsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceCatalogProvisionedProductDetailsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioned_product_id: Optional[str] = None,
+                 provisioned_product_status_message: Optional[str] = None):
+        """
+        Provisioned ServiceCatalog  Details
+        """
+        if provisioned_product_id is not None:
+            pulumi.set(__self__, "provisioned_product_id", provisioned_product_id)
+        if provisioned_product_status_message is not None:
+            pulumi.set(__self__, "provisioned_product_status_message", provisioned_product_status_message)
+
+    @property
+    @pulumi.getter(name="provisionedProductId")
+    def provisioned_product_id(self) -> Optional[str]:
+        return pulumi.get(self, "provisioned_product_id")
+
+    @property
+    @pulumi.getter(name="provisionedProductStatusMessage")
+    def provisioned_product_status_message(self) -> Optional[str]:
+        return pulumi.get(self, "provisioned_product_status_message")
+
+
+@pulumi.output_type
+class ServiceCatalogProvisioningDetailsProperties(dict):
+    """
+    Input ServiceCatalog Provisioning Details
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "productId":
+            suggest = "product_id"
+        elif key == "provisioningArtifactId":
+            suggest = "provisioning_artifact_id"
+        elif key == "pathId":
+            suggest = "path_id"
+        elif key == "provisioningParameters":
+            suggest = "provisioning_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceCatalogProvisioningDetailsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceCatalogProvisioningDetailsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceCatalogProvisioningDetailsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 product_id: str,
+                 provisioning_artifact_id: str,
+                 path_id: Optional[str] = None,
+                 provisioning_parameters: Optional[Sequence['outputs.ProjectProvisioningParameter']] = None):
+        """
+        Input ServiceCatalog Provisioning Details
+        :param Sequence['ProjectProvisioningParameter'] provisioning_parameters: Parameters specified by the administrator that are required for provisioning the product.
+        """
+        pulumi.set(__self__, "product_id", product_id)
+        pulumi.set(__self__, "provisioning_artifact_id", provisioning_artifact_id)
+        if path_id is not None:
+            pulumi.set(__self__, "path_id", path_id)
+        if provisioning_parameters is not None:
+            pulumi.set(__self__, "provisioning_parameters", provisioning_parameters)
+
+    @property
+    @pulumi.getter(name="productId")
+    def product_id(self) -> str:
+        return pulumi.get(self, "product_id")
+
+    @property
+    @pulumi.getter(name="provisioningArtifactId")
+    def provisioning_artifact_id(self) -> str:
+        return pulumi.get(self, "provisioning_artifact_id")
+
+    @property
+    @pulumi.getter(name="pathId")
+    def path_id(self) -> Optional[str]:
+        return pulumi.get(self, "path_id")
+
+    @property
+    @pulumi.getter(name="provisioningParameters")
+    def provisioning_parameters(self) -> Optional[Sequence['outputs.ProjectProvisioningParameter']]:
+        """
+        Parameters specified by the administrator that are required for provisioning the product.
+        """
+        return pulumi.get(self, "provisioning_parameters")
 
 
 @pulumi.output_type

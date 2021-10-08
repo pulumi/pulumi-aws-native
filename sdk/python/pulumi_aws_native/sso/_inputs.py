@@ -12,6 +12,7 @@ from ._enums import *
 __all__ = [
     'InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs',
     'InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs',
+    'InstanceAccessControlAttributeConfigurationPropertiesArgs',
     'PermissionSetTagArgs',
 ]
 
@@ -56,6 +57,25 @@ class InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs:
     @value.setter
     def value(self, value: pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs']):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class InstanceAccessControlAttributeConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 access_control_attributes: pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]]):
+        """
+        The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
+        """
+        pulumi.set(__self__, "access_control_attributes", access_control_attributes)
+
+    @property
+    @pulumi.getter(name="accessControlAttributes")
+    def access_control_attributes(self) -> pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]]:
+        return pulumi.get(self, "access_control_attributes")
+
+    @access_control_attributes.setter
+    def access_control_attributes(self, value: pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]]):
+        pulumi.set(self, "access_control_attributes", value)
 
 
 @pulumi.input_type

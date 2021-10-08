@@ -15,7 +15,7 @@ __all__ = ['SuiteDefinitionArgs', 'SuiteDefinition']
 @pulumi.input_type
 class SuiteDefinitionArgs:
     def __init__(__self__, *,
-                 suite_definition_configuration: Any,
+                 suite_definition_configuration: pulumi.Input['SuiteDefinitionConfigurationPropertiesArgs'],
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['SuiteDefinitionTagArgs']]]] = None):
         """
         The set of arguments for constructing a SuiteDefinition resource.
@@ -27,11 +27,11 @@ class SuiteDefinitionArgs:
 
     @property
     @pulumi.getter(name="suiteDefinitionConfiguration")
-    def suite_definition_configuration(self) -> Any:
+    def suite_definition_configuration(self) -> pulumi.Input['SuiteDefinitionConfigurationPropertiesArgs']:
         return pulumi.get(self, "suite_definition_configuration")
 
     @suite_definition_configuration.setter
-    def suite_definition_configuration(self, value: Any):
+    def suite_definition_configuration(self, value: pulumi.Input['SuiteDefinitionConfigurationPropertiesArgs']):
         pulumi.set(self, "suite_definition_configuration", value)
 
     @property
@@ -52,7 +52,7 @@ class SuiteDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 suite_definition_configuration: Optional[Any] = None,
+                 suite_definition_configuration: Optional[pulumi.Input[pulumi.InputType['SuiteDefinitionConfigurationPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SuiteDefinitionTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -86,7 +86,7 @@ class SuiteDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 suite_definition_configuration: Optional[Any] = None,
+                 suite_definition_configuration: Optional[pulumi.Input[pulumi.InputType['SuiteDefinitionConfigurationPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SuiteDefinitionTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -146,7 +146,7 @@ class SuiteDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="suiteDefinitionConfiguration")
-    def suite_definition_configuration(self) -> pulumi.Output[Any]:
+    def suite_definition_configuration(self) -> pulumi.Output['outputs.SuiteDefinitionConfigurationProperties']:
         return pulumi.get(self, "suite_definition_configuration")
 
     @property

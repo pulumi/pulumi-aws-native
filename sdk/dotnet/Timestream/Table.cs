@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Timestream
         /// The retention duration of the memory store and the magnetic store.
         /// </summary>
         [Output("retentionProperties")]
-        public Output<object?> RetentionProperties { get; private set; } = null!;
+        public Output<Outputs.RetentionPropertiesProperties?> RetentionProperties { get; private set; } = null!;
 
         /// <summary>
         /// The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.Timestream
         /// The retention duration of the memory store and the magnetic store.
         /// </summary>
         [Input("retentionProperties")]
-        public Input<object>? RetentionProperties { get; set; }
+        public Input<Inputs.RetentionPropertiesPropertiesArgs>? RetentionProperties { get; set; }
 
         /// <summary>
         /// The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.

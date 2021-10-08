@@ -24,9 +24,9 @@ type Project struct {
 	// The status of a project.
 	ProjectStatus ProjectStatusOutput `pulumi:"projectStatus"`
 	// Provisioned ServiceCatalog  Details
-	ServiceCatalogProvisionedProductDetails pulumi.AnyOutput `pulumi:"serviceCatalogProvisionedProductDetails"`
+	ServiceCatalogProvisionedProductDetails ServiceCatalogProvisionedProductDetailsPropertiesOutput `pulumi:"serviceCatalogProvisionedProductDetails"`
 	// Input ServiceCatalog Provisioning Details
-	ServiceCatalogProvisioningDetails pulumi.AnyOutput `pulumi:"serviceCatalogProvisioningDetails"`
+	ServiceCatalogProvisioningDetails ServiceCatalogProvisioningDetailsPropertiesOutput `pulumi:"serviceCatalogProvisioningDetails"`
 	// An array of key-value pairs to apply to this resource.
 	Tags ProjectTagArrayOutput `pulumi:"tags"`
 }
@@ -79,7 +79,7 @@ type projectArgs struct {
 	ProjectDescription *string `pulumi:"projectDescription"`
 	ProjectName        string  `pulumi:"projectName"`
 	// Input ServiceCatalog Provisioning Details
-	ServiceCatalogProvisioningDetails interface{} `pulumi:"serviceCatalogProvisioningDetails"`
+	ServiceCatalogProvisioningDetails ServiceCatalogProvisioningDetailsProperties `pulumi:"serviceCatalogProvisioningDetails"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []ProjectTag `pulumi:"tags"`
 }
@@ -89,7 +89,7 @@ type ProjectArgs struct {
 	ProjectDescription pulumi.StringPtrInput
 	ProjectName        pulumi.StringInput
 	// Input ServiceCatalog Provisioning Details
-	ServiceCatalogProvisioningDetails pulumi.Input
+	ServiceCatalogProvisioningDetails ServiceCatalogProvisioningDetailsPropertiesInput
 	// An array of key-value pairs to apply to this resource.
 	Tags ProjectTagArrayInput
 }

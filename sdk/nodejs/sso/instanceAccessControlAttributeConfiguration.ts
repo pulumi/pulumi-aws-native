@@ -39,7 +39,7 @@ export class InstanceAccessControlAttributeConfiguration extends pulumi.CustomRe
     /**
      * The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
      */
-    public readonly instanceAccessControlAttributeConfiguration!: pulumi.Output<any | undefined>;
+    public readonly instanceAccessControlAttributeConfiguration!: pulumi.Output<outputs.sso.InstanceAccessControlAttributeConfigurationProperties | undefined>;
     /**
      * The ARN of the AWS SSO instance under which the operation will be executed.
      */
@@ -82,7 +82,7 @@ export interface InstanceAccessControlAttributeConfigurationArgs {
     /**
      * The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
      */
-    instanceAccessControlAttributeConfiguration?: any;
+    instanceAccessControlAttributeConfiguration?: pulumi.Input<inputs.sso.InstanceAccessControlAttributeConfigurationPropertiesArgs>;
     /**
      * The ARN of the AWS SSO instance under which the operation will be executed.
      */

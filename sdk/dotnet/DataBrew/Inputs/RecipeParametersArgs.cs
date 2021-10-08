@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         /// Input
         /// </summary>
         [Input("input")]
-        public Input<object>? Input { get; set; }
+        public Input<Inputs.RecipeParametersInputPropertiesArgs>? Input { get; set; }
 
         [Input("interval")]
         public Input<string>? Interval { get; set; }

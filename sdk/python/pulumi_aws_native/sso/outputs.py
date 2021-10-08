@@ -13,6 +13,7 @@ from ._enums import *
 __all__ = [
     'InstanceAccessControlAttributeConfigurationAccessControlAttribute',
     'InstanceAccessControlAttributeConfigurationAccessControlAttributeValue',
+    'InstanceAccessControlAttributeConfigurationProperties',
     'PermissionSetTag',
 ]
 
@@ -45,6 +46,41 @@ class InstanceAccessControlAttributeConfigurationAccessControlAttributeValue(dic
     @pulumi.getter
     def source(self) -> Sequence[str]:
         return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class InstanceAccessControlAttributeConfigurationProperties(dict):
+    """
+    The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessControlAttributes":
+            suggest = "access_control_attributes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceAccessControlAttributeConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceAccessControlAttributeConfigurationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceAccessControlAttributeConfigurationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_control_attributes: Sequence['outputs.InstanceAccessControlAttributeConfigurationAccessControlAttribute']):
+        """
+        The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
+        """
+        pulumi.set(__self__, "access_control_attributes", access_control_attributes)
+
+    @property
+    @pulumi.getter(name="accessControlAttributes")
+    def access_control_attributes(self) -> Sequence['outputs.InstanceAccessControlAttributeConfigurationAccessControlAttribute']:
+        return pulumi.get(self, "access_control_attributes")
 
 
 @pulumi.output_type

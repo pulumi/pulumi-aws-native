@@ -10,9 +10,33 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AgentPermissionsPropertiesArgs',
     'ProfilingGroupChannelArgs',
     'ProfilingGroupTagArgs',
 ]
+
+@pulumi.input_type
+class AgentPermissionsPropertiesArgs:
+    def __init__(__self__, *,
+                 principals: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        The agent permissions attached to this profiling group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] principals: The principals for the agent permissions.
+        """
+        pulumi.set(__self__, "principals", principals)
+
+    @property
+    @pulumi.getter
+    def principals(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The principals for the agent permissions.
+        """
+        return pulumi.get(self, "principals")
+
+    @principals.setter
+    def principals(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "principals", value)
+
 
 @pulumi.input_type
 class ProfilingGroupChannelArgs:

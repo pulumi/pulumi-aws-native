@@ -17,7 +17,7 @@ type InstanceAccessControlAttributeConfiguration struct {
 
 	AccessControlAttributes InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutput `pulumi:"accessControlAttributes"`
 	// The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
-	InstanceAccessControlAttributeConfiguration pulumi.AnyOutput `pulumi:"instanceAccessControlAttributeConfiguration"`
+	InstanceAccessControlAttributeConfiguration InstanceAccessControlAttributeConfigurationPropertiesPtrOutput `pulumi:"instanceAccessControlAttributeConfiguration"`
 	// The ARN of the AWS SSO instance under which the operation will be executed.
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
 }
@@ -66,7 +66,7 @@ func (InstanceAccessControlAttributeConfigurationState) ElementType() reflect.Ty
 type instanceAccessControlAttributeConfigurationArgs struct {
 	AccessControlAttributes []InstanceAccessControlAttributeConfigurationAccessControlAttribute `pulumi:"accessControlAttributes"`
 	// The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
-	InstanceAccessControlAttributeConfiguration interface{} `pulumi:"instanceAccessControlAttributeConfiguration"`
+	InstanceAccessControlAttributeConfiguration *InstanceAccessControlAttributeConfigurationProperties `pulumi:"instanceAccessControlAttributeConfiguration"`
 	// The ARN of the AWS SSO instance under which the operation will be executed.
 	InstanceArn string `pulumi:"instanceArn"`
 }
@@ -75,7 +75,7 @@ type instanceAccessControlAttributeConfigurationArgs struct {
 type InstanceAccessControlAttributeConfigurationArgs struct {
 	AccessControlAttributes InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayInput
 	// The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
-	InstanceAccessControlAttributeConfiguration pulumi.Input
+	InstanceAccessControlAttributeConfiguration InstanceAccessControlAttributeConfigurationPropertiesPtrInput
 	// The ARN of the AWS SSO instance under which the operation will be executed.
 	InstanceArn pulumi.StringInput
 }

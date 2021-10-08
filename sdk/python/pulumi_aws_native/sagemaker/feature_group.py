@@ -21,8 +21,8 @@ class FeatureGroupArgs:
                  feature_group_name: pulumi.Input[str],
                  record_identifier_feature_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 offline_store_config: Optional[Any] = None,
-                 online_store_config: Optional[Any] = None,
+                 offline_store_config: Optional[pulumi.Input['OfflineStoreConfigPropertiesArgs']] = None,
+                 online_store_config: Optional[pulumi.Input['OnlineStoreConfigPropertiesArgs']] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['FeatureGroupTagArgs']]]] = None):
         """
@@ -112,20 +112,20 @@ class FeatureGroupArgs:
 
     @property
     @pulumi.getter(name="offlineStoreConfig")
-    def offline_store_config(self) -> Optional[Any]:
+    def offline_store_config(self) -> Optional[pulumi.Input['OfflineStoreConfigPropertiesArgs']]:
         return pulumi.get(self, "offline_store_config")
 
     @offline_store_config.setter
-    def offline_store_config(self, value: Optional[Any]):
+    def offline_store_config(self, value: Optional[pulumi.Input['OfflineStoreConfigPropertiesArgs']]):
         pulumi.set(self, "offline_store_config", value)
 
     @property
     @pulumi.getter(name="onlineStoreConfig")
-    def online_store_config(self) -> Optional[Any]:
+    def online_store_config(self) -> Optional[pulumi.Input['OnlineStoreConfigPropertiesArgs']]:
         return pulumi.get(self, "online_store_config")
 
     @online_store_config.setter
-    def online_store_config(self, value: Optional[Any]):
+    def online_store_config(self, value: Optional[pulumi.Input['OnlineStoreConfigPropertiesArgs']]):
         pulumi.set(self, "online_store_config", value)
 
     @property
@@ -162,8 +162,8 @@ class FeatureGroup(pulumi.CustomResource):
                  event_time_feature_name: Optional[pulumi.Input[str]] = None,
                  feature_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FeatureGroupFeatureDefinitionArgs']]]]] = None,
                  feature_group_name: Optional[pulumi.Input[str]] = None,
-                 offline_store_config: Optional[Any] = None,
-                 online_store_config: Optional[Any] = None,
+                 offline_store_config: Optional[pulumi.Input[pulumi.InputType['OfflineStoreConfigPropertiesArgs']]] = None,
+                 online_store_config: Optional[pulumi.Input[pulumi.InputType['OnlineStoreConfigPropertiesArgs']]] = None,
                  record_identifier_feature_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FeatureGroupTagArgs']]]]] = None,
@@ -209,8 +209,8 @@ class FeatureGroup(pulumi.CustomResource):
                  event_time_feature_name: Optional[pulumi.Input[str]] = None,
                  feature_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FeatureGroupFeatureDefinitionArgs']]]]] = None,
                  feature_group_name: Optional[pulumi.Input[str]] = None,
-                 offline_store_config: Optional[Any] = None,
-                 online_store_config: Optional[Any] = None,
+                 offline_store_config: Optional[pulumi.Input[pulumi.InputType['OfflineStoreConfigPropertiesArgs']]] = None,
+                 online_store_config: Optional[pulumi.Input[pulumi.InputType['OnlineStoreConfigPropertiesArgs']]] = None,
                  record_identifier_feature_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FeatureGroupTagArgs']]]]] = None,
@@ -310,12 +310,12 @@ class FeatureGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="offlineStoreConfig")
-    def offline_store_config(self) -> pulumi.Output[Optional[Any]]:
+    def offline_store_config(self) -> pulumi.Output[Optional['outputs.OfflineStoreConfigProperties']]:
         return pulumi.get(self, "offline_store_config")
 
     @property
     @pulumi.getter(name="onlineStoreConfig")
-    def online_store_config(self) -> pulumi.Output[Optional[Any]]:
+    def online_store_config(self) -> pulumi.Output[Optional['outputs.OnlineStoreConfigProperties']]:
         return pulumi.get(self, "online_store_config")
 
     @property

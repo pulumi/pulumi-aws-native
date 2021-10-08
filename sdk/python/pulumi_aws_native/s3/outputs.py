@@ -70,6 +70,7 @@ __all__ = [
     'BucketWebsiteConfiguration',
     'MultiRegionAccessPointPublicAccessBlockConfiguration',
     'MultiRegionAccessPointRegion',
+    'PolicyStatusProperties',
     'StorageLensAccountLevel',
     'StorageLensActivityMetrics',
     'StorageLensAwsOrg',
@@ -2405,6 +2406,45 @@ class MultiRegionAccessPointRegion(dict):
     @pulumi.getter
     def bucket(self) -> str:
         return pulumi.get(self, "bucket")
+
+
+@pulumi.output_type
+class PolicyStatusProperties(dict):
+    """
+    The Policy Status associated with this Multi Region Access Point
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isPublic":
+            suggest = "is_public"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyStatusProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyStatusProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyStatusProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_public: 'MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic'):
+        """
+        The Policy Status associated with this Multi Region Access Point
+        :param 'MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic' is_public: Specifies whether the policy is public or not.
+        """
+        pulumi.set(__self__, "is_public", is_public)
+
+    @property
+    @pulumi.getter(name="isPublic")
+    def is_public(self) -> 'MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic':
+        """
+        Specifies whether the policy is public or not.
+        """
+        return pulumi.get(self, "is_public")
 
 
 @pulumi.output_type

@@ -50,11 +50,11 @@ export class Project extends pulumi.CustomResource {
     /**
      * Provisioned ServiceCatalog  Details
      */
-    public /*out*/ readonly serviceCatalogProvisionedProductDetails!: pulumi.Output<any>;
+    public /*out*/ readonly serviceCatalogProvisionedProductDetails!: pulumi.Output<outputs.sagemaker.ServiceCatalogProvisionedProductDetailsProperties>;
     /**
      * Input ServiceCatalog Provisioning Details
      */
-    public readonly serviceCatalogProvisioningDetails!: pulumi.Output<any>;
+    public readonly serviceCatalogProvisioningDetails!: pulumi.Output<outputs.sagemaker.ServiceCatalogProvisioningDetailsProperties>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
@@ -113,7 +113,7 @@ export interface ProjectArgs {
     /**
      * Input ServiceCatalog Provisioning Details
      */
-    serviceCatalogProvisioningDetails: any;
+    serviceCatalogProvisioningDetails: pulumi.Input<inputs.sagemaker.ServiceCatalogProvisioningDetailsPropertiesArgs>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

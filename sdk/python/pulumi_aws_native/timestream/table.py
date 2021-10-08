@@ -16,13 +16,13 @@ __all__ = ['TableArgs', 'Table']
 class TableArgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
-                 retention_properties: Optional[Any] = None,
+                 retention_properties: Optional[pulumi.Input['RetentionPropertiesPropertiesArgs']] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]] = None):
         """
         The set of arguments for constructing a Table resource.
         :param pulumi.Input[str] database_name: The name for the database which the table to be created belongs to.
-        :param Any retention_properties: The retention duration of the memory store and the magnetic store.
+        :param pulumi.Input['RetentionPropertiesPropertiesArgs'] retention_properties: The retention duration of the memory store and the magnetic store.
         :param pulumi.Input[str] table_name: The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.
         :param pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -48,14 +48,14 @@ class TableArgs:
 
     @property
     @pulumi.getter(name="retentionProperties")
-    def retention_properties(self) -> Optional[Any]:
+    def retention_properties(self) -> Optional[pulumi.Input['RetentionPropertiesPropertiesArgs']]:
         """
         The retention duration of the memory store and the magnetic store.
         """
         return pulumi.get(self, "retention_properties")
 
     @retention_properties.setter
-    def retention_properties(self, value: Optional[Any]):
+    def retention_properties(self, value: Optional[pulumi.Input['RetentionPropertiesPropertiesArgs']]):
         pulumi.set(self, "retention_properties", value)
 
     @property
@@ -89,7 +89,7 @@ class Table(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
-                 retention_properties: Optional[Any] = None,
+                 retention_properties: Optional[pulumi.Input[pulumi.InputType['RetentionPropertiesPropertiesArgs']]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableTagArgs']]]]] = None,
                  __props__=None):
@@ -99,7 +99,7 @@ class Table(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name for the database which the table to be created belongs to.
-        :param Any retention_properties: The retention duration of the memory store and the magnetic store.
+        :param pulumi.Input[pulumi.InputType['RetentionPropertiesPropertiesArgs']] retention_properties: The retention duration of the memory store and the magnetic store.
         :param pulumi.Input[str] table_name: The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -128,7 +128,7 @@ class Table(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
-                 retention_properties: Optional[Any] = None,
+                 retention_properties: Optional[pulumi.Input[pulumi.InputType['RetentionPropertiesPropertiesArgs']]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableTagArgs']]]]] = None,
                  __props__=None):
@@ -204,7 +204,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retentionProperties")
-    def retention_properties(self) -> pulumi.Output[Optional[Any]]:
+    def retention_properties(self) -> pulumi.Output[Optional['outputs.RetentionPropertiesProperties']]:
         """
         The retention duration of the memory store and the magnetic store.
         """

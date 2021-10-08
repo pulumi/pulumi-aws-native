@@ -42,7 +42,7 @@ export class TransitGatewayMulticastDomain extends pulumi.CustomResource {
     /**
      * The options for the transit gateway multicast domain.
      */
-    public readonly options!: pulumi.Output<any | undefined>;
+    public readonly options!: pulumi.Output<outputs.ec2.OptionsProperties | undefined>;
     /**
      * The state of the transit gateway multicast domain.
      */
@@ -108,7 +108,7 @@ export interface TransitGatewayMulticastDomainArgs {
     /**
      * The options for the transit gateway multicast domain.
      */
-    options?: any;
+    options?: pulumi.Input<inputs.ec2.OptionsPropertiesArgs>;
     /**
      * The tags for the transit gateway multicast domain.
      */

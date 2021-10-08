@@ -11,6 +11,8 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'HealthCheckAlarmIdentifier',
+    'HealthCheckConfigProperties',
     'HealthCheckTag',
     'HostedZoneConfig',
     'HostedZoneQueryLoggingConfig',
@@ -22,6 +24,226 @@ __all__ = [
     'RecordSetGroupGeoLocation',
     'RecordSetGroupRecordSet',
 ]
+
+@pulumi.output_type
+class HealthCheckAlarmIdentifier(dict):
+    """
+    A complex type that identifies the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether the specified health check is healthy.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 region: str):
+        """
+        A complex type that identifies the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether the specified health check is healthy.
+        :param str name: The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.
+        :param str region: For the CloudWatch alarm that you want Route 53 health checkers to use to determine whether this health check is healthy, the region that the alarm was created in.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        """
+        For the CloudWatch alarm that you want Route 53 health checkers to use to determine whether this health check is healthy, the region that the alarm was created in.
+        """
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class HealthCheckConfigProperties(dict):
+    """
+    A complex type that contains information about the health check.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alarmIdentifier":
+            suggest = "alarm_identifier"
+        elif key == "childHealthChecks":
+            suggest = "child_health_checks"
+        elif key == "enableSNI":
+            suggest = "enable_sni"
+        elif key == "failureThreshold":
+            suggest = "failure_threshold"
+        elif key == "fullyQualifiedDomainName":
+            suggest = "fully_qualified_domain_name"
+        elif key == "healthThreshold":
+            suggest = "health_threshold"
+        elif key == "iPAddress":
+            suggest = "i_p_address"
+        elif key == "insufficientDataHealthStatus":
+            suggest = "insufficient_data_health_status"
+        elif key == "measureLatency":
+            suggest = "measure_latency"
+        elif key == "requestInterval":
+            suggest = "request_interval"
+        elif key == "resourcePath":
+            suggest = "resource_path"
+        elif key == "routingControlArn":
+            suggest = "routing_control_arn"
+        elif key == "searchString":
+            suggest = "search_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HealthCheckConfigProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HealthCheckConfigProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HealthCheckConfigProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: 'HealthCheckConfigPropertiesType',
+                 alarm_identifier: Optional['outputs.HealthCheckAlarmIdentifier'] = None,
+                 child_health_checks: Optional[Sequence[str]] = None,
+                 enable_sni: Optional[bool] = None,
+                 failure_threshold: Optional[int] = None,
+                 fully_qualified_domain_name: Optional[str] = None,
+                 health_threshold: Optional[int] = None,
+                 i_p_address: Optional[str] = None,
+                 insufficient_data_health_status: Optional['HealthCheckConfigPropertiesInsufficientDataHealthStatus'] = None,
+                 inverted: Optional[bool] = None,
+                 measure_latency: Optional[bool] = None,
+                 port: Optional[int] = None,
+                 regions: Optional[Sequence[str]] = None,
+                 request_interval: Optional[int] = None,
+                 resource_path: Optional[str] = None,
+                 routing_control_arn: Optional[str] = None,
+                 search_string: Optional[str] = None):
+        """
+        A complex type that contains information about the health check.
+        """
+        pulumi.set(__self__, "type", type)
+        if alarm_identifier is not None:
+            pulumi.set(__self__, "alarm_identifier", alarm_identifier)
+        if child_health_checks is not None:
+            pulumi.set(__self__, "child_health_checks", child_health_checks)
+        if enable_sni is not None:
+            pulumi.set(__self__, "enable_sni", enable_sni)
+        if failure_threshold is not None:
+            pulumi.set(__self__, "failure_threshold", failure_threshold)
+        if fully_qualified_domain_name is not None:
+            pulumi.set(__self__, "fully_qualified_domain_name", fully_qualified_domain_name)
+        if health_threshold is not None:
+            pulumi.set(__self__, "health_threshold", health_threshold)
+        if i_p_address is not None:
+            pulumi.set(__self__, "i_p_address", i_p_address)
+        if insufficient_data_health_status is not None:
+            pulumi.set(__self__, "insufficient_data_health_status", insufficient_data_health_status)
+        if inverted is not None:
+            pulumi.set(__self__, "inverted", inverted)
+        if measure_latency is not None:
+            pulumi.set(__self__, "measure_latency", measure_latency)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if regions is not None:
+            pulumi.set(__self__, "regions", regions)
+        if request_interval is not None:
+            pulumi.set(__self__, "request_interval", request_interval)
+        if resource_path is not None:
+            pulumi.set(__self__, "resource_path", resource_path)
+        if routing_control_arn is not None:
+            pulumi.set(__self__, "routing_control_arn", routing_control_arn)
+        if search_string is not None:
+            pulumi.set(__self__, "search_string", search_string)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'HealthCheckConfigPropertiesType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="alarmIdentifier")
+    def alarm_identifier(self) -> Optional['outputs.HealthCheckAlarmIdentifier']:
+        return pulumi.get(self, "alarm_identifier")
+
+    @property
+    @pulumi.getter(name="childHealthChecks")
+    def child_health_checks(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "child_health_checks")
+
+    @property
+    @pulumi.getter(name="enableSNI")
+    def enable_sni(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_sni")
+
+    @property
+    @pulumi.getter(name="failureThreshold")
+    def failure_threshold(self) -> Optional[int]:
+        return pulumi.get(self, "failure_threshold")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedDomainName")
+    def fully_qualified_domain_name(self) -> Optional[str]:
+        return pulumi.get(self, "fully_qualified_domain_name")
+
+    @property
+    @pulumi.getter(name="healthThreshold")
+    def health_threshold(self) -> Optional[int]:
+        return pulumi.get(self, "health_threshold")
+
+    @property
+    @pulumi.getter(name="iPAddress")
+    def i_p_address(self) -> Optional[str]:
+        return pulumi.get(self, "i_p_address")
+
+    @property
+    @pulumi.getter(name="insufficientDataHealthStatus")
+    def insufficient_data_health_status(self) -> Optional['HealthCheckConfigPropertiesInsufficientDataHealthStatus']:
+        return pulumi.get(self, "insufficient_data_health_status")
+
+    @property
+    @pulumi.getter
+    def inverted(self) -> Optional[bool]:
+        return pulumi.get(self, "inverted")
+
+    @property
+    @pulumi.getter(name="measureLatency")
+    def measure_latency(self) -> Optional[bool]:
+        return pulumi.get(self, "measure_latency")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def regions(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "regions")
+
+    @property
+    @pulumi.getter(name="requestInterval")
+    def request_interval(self) -> Optional[int]:
+        return pulumi.get(self, "request_interval")
+
+    @property
+    @pulumi.getter(name="resourcePath")
+    def resource_path(self) -> Optional[str]:
+        return pulumi.get(self, "resource_path")
+
+    @property
+    @pulumi.getter(name="routingControlArn")
+    def routing_control_arn(self) -> Optional[str]:
+        return pulumi.get(self, "routing_control_arn")
+
+    @property
+    @pulumi.getter(name="searchString")
+    def search_string(self) -> Optional[str]:
+        return pulumi.get(self, "search_string")
+
 
 @pulumi.output_type
 class HealthCheckTag(dict):

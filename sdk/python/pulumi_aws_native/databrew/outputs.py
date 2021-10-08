@@ -52,6 +52,7 @@ __all__ = [
     'RecipeDataCatalogInputDefinition',
     'RecipeParameterMap',
     'RecipeParameters',
+    'RecipeParametersInputProperties',
     'RecipeS3Location',
     'RecipeSecondaryInput',
     'RecipeStep',
@@ -1869,7 +1870,7 @@ class RecipeParameters(dict):
                  hidden_columns: Optional[str] = None,
                  ignore_case: Optional[str] = None,
                  include_in_split: Optional[str] = None,
-                 input: Optional[Any] = None,
+                 input: Optional['outputs.RecipeParametersInputProperties'] = None,
                  interval: Optional[str] = None,
                  is_text: Optional[str] = None,
                  join_keys: Optional[str] = None,
@@ -1942,7 +1943,7 @@ class RecipeParameters(dict):
                  value_column: Optional[str] = None,
                  view_frame: Optional[str] = None):
         """
-        :param Any input: Input
+        :param 'RecipeParametersInputProperties' input: Input
         """
         if aggregate_function is not None:
             pulumi.set(__self__, "aggregate_function", aggregate_function)
@@ -2294,7 +2295,7 @@ class RecipeParameters(dict):
 
     @property
     @pulumi.getter
-    def input(self) -> Optional[Any]:
+    def input(self) -> Optional['outputs.RecipeParametersInputProperties']:
         """
         Input
         """
@@ -2654,6 +2655,52 @@ class RecipeParameters(dict):
     @pulumi.getter(name="viewFrame")
     def view_frame(self) -> Optional[str]:
         return pulumi.get(self, "view_frame")
+
+
+@pulumi.output_type
+class RecipeParametersInputProperties(dict):
+    """
+    Input
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataCatalogInputDefinition":
+            suggest = "data_catalog_input_definition"
+        elif key == "s3InputDefinition":
+            suggest = "s3_input_definition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecipeParametersInputProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecipeParametersInputProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecipeParametersInputProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_catalog_input_definition: Optional['outputs.RecipeDataCatalogInputDefinition'] = None,
+                 s3_input_definition: Optional['outputs.RecipeS3Location'] = None):
+        """
+        Input
+        """
+        if data_catalog_input_definition is not None:
+            pulumi.set(__self__, "data_catalog_input_definition", data_catalog_input_definition)
+        if s3_input_definition is not None:
+            pulumi.set(__self__, "s3_input_definition", s3_input_definition)
+
+    @property
+    @pulumi.getter(name="dataCatalogInputDefinition")
+    def data_catalog_input_definition(self) -> Optional['outputs.RecipeDataCatalogInputDefinition']:
+        return pulumi.get(self, "data_catalog_input_definition")
+
+    @property
+    @pulumi.getter(name="s3InputDefinition")
+    def s3_input_definition(self) -> Optional['outputs.RecipeS3Location']:
+        return pulumi.get(self, "s3_input_definition")
 
 
 @pulumi.output_type

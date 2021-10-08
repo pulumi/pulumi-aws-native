@@ -30,6 +30,7 @@ import * as elasticache from "./elasticache";
 import * as emr from "./emr";
 import * as events from "./events";
 import * as finspace from "./finspace";
+import * as fms from "./fms";
 import * as frauddetector from "./frauddetector";
 import * as gamelift from "./gamelift";
 import * as globalaccelerator from "./globalaccelerator";
@@ -105,6 +106,7 @@ export {
     emr,
     events,
     finspace,
+    fms,
     frauddetector,
     gamelift,
     globalaccelerator,

@@ -4412,7 +4412,7 @@
             "cf": "AWS::CodeGuruProfiler::ProfilingGroup",
             "inputs": {
                 "agentPermissions": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:codeguruprofiler:AgentPermissionsProperties",
                     "description": "The agent permissions attached to this profiling group."
                 },
                 "anomalyDetectionNotificationConfiguration": {
@@ -4440,7 +4440,7 @@
             },
             "outputs": {
                 "agentPermissions": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:codeguruprofiler:AgentPermissionsProperties",
                     "description": "The agent permissions attached to this profiling group."
                 },
                 "anomalyDetectionNotificationConfiguration": {
@@ -7862,7 +7862,7 @@
             "cf": "AWS::EC2::TransitGatewayMulticastDomain",
             "inputs": {
                 "options": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:ec2:OptionsProperties",
                     "description": "The options for the transit gateway multicast domain."
                 },
                 "tags": {
@@ -7883,7 +7883,7 @@
                     "description": "The time the transit gateway multicast domain was created."
                 },
                 "options": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:ec2:OptionsProperties",
                     "description": "The options for the transit gateway multicast domain."
                 },
                 "state": {
@@ -8207,7 +8207,7 @@
                     }
                 },
                 "options": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:ec2:OptionsProperties",
                     "description": "The options for the transit gateway vpc attachment."
                 },
                 "removeSubnetIds": {
@@ -8243,7 +8243,7 @@
                     }
                 },
                 "options": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:ec2:OptionsProperties",
                     "description": "The options for the transit gateway vpc attachment."
                 },
                 "removeSubnetIds": {
@@ -10264,7 +10264,7 @@
             "cf": "AWS::Events::Connection",
             "inputs": {
                 "authParameters": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:events:AuthParametersProperties"
                 },
                 "authorizationType": {
                     "$ref": "#/types/aws-native:events:ConnectionAuthorizationType"
@@ -10284,7 +10284,7 @@
                     "description": "The arn of the connection resource."
                 },
                 "authParameters": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:events:AuthParametersProperties"
                 },
                 "authorizationType": {
                     "$ref": "#/types/aws-native:events:ConnectionAuthorizationType"
@@ -10537,7 +10537,7 @@
                     }
                 },
                 "securityServicePolicyData": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:fms:SecurityServicePolicyDataProperties"
                 },
                 "tags": {
                     "type": "array",
@@ -10584,7 +10584,7 @@
                     }
                 },
                 "securityServicePolicyData": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:fms:SecurityServicePolicyDataProperties"
                 },
                 "tags": {
                     "type": "array",
@@ -14113,7 +14113,7 @@
             "cf": "AWS::IoTCoreDeviceAdvisor::SuiteDefinition",
             "inputs": {
                 "suiteDefinitionConfiguration": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:iotcoredeviceadvisor:SuiteDefinitionConfigurationProperties"
                 },
                 "tags": {
                     "type": "array",
@@ -14129,7 +14129,7 @@
                     "description": "The Amazon Resource name for the suite definition."
                 },
                 "suiteDefinitionConfiguration": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:iotcoredeviceadvisor:SuiteDefinitionConfigurationProperties"
                 },
                 "suiteDefinitionId": {
                     "type": "string",
@@ -14698,7 +14698,7 @@
             "cf": "AWS::IoTSiteWise::Portal",
             "inputs": {
                 "alarms": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:iotsitewise:AlarmsProperties",
                     "description": "Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range."
                 },
                 "notificationSenderEmail": {
@@ -14735,7 +14735,7 @@
             },
             "outputs": {
                 "alarms": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:iotsitewise:AlarmsProperties",
                     "description": "Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range."
                 },
                 "notificationSenderEmail": {
@@ -21625,7 +21625,7 @@
             "cf": "AWS::Route53::HealthCheck",
             "inputs": {
                 "healthCheckConfig": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:route53:HealthCheckConfigProperties",
                     "description": "A complex type that contains information about the health check."
                 },
                 "healthCheckTags": {
@@ -21638,7 +21638,7 @@
             },
             "outputs": {
                 "healthCheckConfig": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:route53:HealthCheckConfigProperties",
                     "description": "A complex type that contains information about the health check."
                 },
                 "healthCheckId": {
@@ -22577,7 +22577,7 @@
                     "description": "The Access Point Policy you want to apply to this access point."
                 },
                 "policyStatus": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:s3:PolicyStatusProperties"
                 },
                 "publicAccessBlockConfiguration": {
                     "$ref": "#/types/aws-native:s3:AccessPointPublicAccessBlockConfiguration",
@@ -22614,7 +22614,7 @@
                     "description": "The Access Point Policy you want to apply to this access point."
                 },
                 "policyStatus": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:s3:PolicyStatusProperties"
                 },
                 "publicAccessBlockConfiguration": {
                     "$ref": "#/types/aws-native:s3:AccessPointPublicAccessBlockConfiguration",
@@ -22886,7 +22886,7 @@
                     "description": "Policy document to apply to a Multi Region Access Point"
                 },
                 "policyStatus": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:s3:PolicyStatusProperties",
                     "description": "The Policy Status associated with this Multi Region Access Point"
                 }
             },
@@ -22960,7 +22960,7 @@
                     "description": "The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions"
                 },
                 "policyStatus": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:s3objectlambda:PolicyStatusProperties"
                 },
                 "publicAccessBlockConfiguration": {
                     "$ref": "#/types/aws-native:s3objectlambda:AccessPointPublicAccessBlockConfiguration",
@@ -23711,10 +23711,10 @@
                     "description": "The Name of the FeatureGroup."
                 },
                 "offlineStoreConfig": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:sagemaker:OfflineStoreConfigProperties"
                 },
                 "onlineStoreConfig": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:sagemaker:OnlineStoreConfigProperties"
                 },
                 "recordIdentifierFeatureName": {
                     "type": "string",
@@ -23753,10 +23753,10 @@
                     "description": "The Name of the FeatureGroup."
                 },
                 "offlineStoreConfig": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:sagemaker:OfflineStoreConfigProperties"
                 },
                 "onlineStoreConfig": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:sagemaker:OnlineStoreConfigProperties"
                 },
                 "recordIdentifierFeatureName": {
                     "type": "string",
@@ -24412,7 +24412,7 @@
                     "type": "string"
                 },
                 "serviceCatalogProvisioningDetails": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:sagemaker:ServiceCatalogProvisioningDetailsProperties",
                     "description": "Input ServiceCatalog Provisioning Details"
                 },
                 "tags": {
@@ -24445,11 +24445,11 @@
                     "description": "The status of a project."
                 },
                 "serviceCatalogProvisionedProductDetails": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:sagemaker:ServiceCatalogProvisionedProductDetailsProperties",
                     "description": "Provisioned ServiceCatalog  Details"
                 },
                 "serviceCatalogProvisioningDetails": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:sagemaker:ServiceCatalogProvisioningDetailsProperties",
                     "description": "Input ServiceCatalog Provisioning Details"
                 },
                 "tags": {
@@ -25709,7 +25709,7 @@
                     }
                 },
                 "instanceAccessControlAttributeConfiguration": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:sso:InstanceAccessControlAttributeConfigurationProperties",
                     "description": "The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.",
                     "language": {
                         "csharp": {
@@ -25730,7 +25730,7 @@
                     }
                 },
                 "instanceAccessControlAttributeConfiguration": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:sso:InstanceAccessControlAttributeConfigurationProperties",
                     "description": "The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.",
                     "language": {
                         "csharp": {
@@ -26139,7 +26139,7 @@
                     "description": "The name for the database which the table to be created belongs to."
                 },
                 "retentionProperties": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:timestream:RetentionPropertiesProperties",
                     "description": "The retention duration of the memory store and the magnetic store."
                 },
                 "tableName": {
@@ -26167,7 +26167,7 @@
                     "description": "The table name exposed as a read-only attribute."
                 },
                 "retentionProperties": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:timestream:RetentionPropertiesProperties",
                     "description": "The retention duration of the memory store and the magnetic store."
                 },
                 "tableName": {
@@ -26270,7 +26270,7 @@
                     "description": "The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL."
                 },
                 "loggingFilter": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:wafv2:LoggingFilterProperties",
                     "description": "Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation."
                 },
                 "redactedFields": {
@@ -26294,7 +26294,7 @@
                     "description": "The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL."
                 },
                 "loggingFilter": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:wafv2:LoggingFilterProperties",
                     "description": "Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation."
                 },
                 "managedByFirewallManager": {
@@ -26661,7 +26661,7 @@
                 "tags": {
                     "type": "array",
                     "items": {
-                        "$ref": "pulumi.json#/Any"
+                        "$ref": "#/types/aws-native:xray:TagsItemProperties"
                     }
                 }
             },
@@ -26684,7 +26684,7 @@
                 "tags": {
                     "type": "array",
                     "items": {
-                        "$ref": "pulumi.json#/Any"
+                        "$ref": "#/types/aws-native:xray:TagsItemProperties"
                     }
                 }
             }
@@ -26712,7 +26712,7 @@
                 "tags": {
                     "type": "array",
                     "items": {
-                        "$ref": "pulumi.json#/Any"
+                        "$ref": "#/types/aws-native:xray:TagsItemProperties"
                     }
                 }
             },
@@ -26740,7 +26740,7 @@
                 "tags": {
                     "type": "array",
                     "items": {
-                        "$ref": "pulumi.json#/Any"
+                        "$ref": "#/types/aws-native:xray:TagsItemProperties"
                     }
                 }
             }
@@ -31189,6 +31189,18 @@
                 }
             }
         },
+        "aws-native:codeguruprofiler:AgentPermissionsProperties": {
+            "type": "object",
+            "properties": {
+                "principals": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The principals for the agent permissions."
+                }
+            }
+        },
         "aws-native:codeguruprofiler:ProfilingGroupChannel": {
             "type": "object",
             "properties": {
@@ -32454,7 +32466,7 @@
                     "type": "string"
                 },
                 "input": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:databrew:RecipeParametersInputProperties",
                     "description": "Input"
                 },
                 "interval": {
@@ -32678,6 +32690,17 @@
                 },
                 "viewFrame": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:databrew:RecipeParametersInputProperties": {
+            "type": "object",
+            "properties": {
+                "dataCatalogInputDefinition": {
+                    "$ref": "#/types/aws-native:databrew:RecipeDataCatalogInputDefinition"
+                },
+                "s3InputDefinition": {
+                    "$ref": "#/types/aws-native:databrew:RecipeS3Location"
                 }
             }
         },
@@ -34002,6 +34025,23 @@
                 },
                 "value": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:ec2:OptionsProperties": {
+            "type": "object",
+            "properties": {
+                "applianceModeSupport": {
+                    "type": "string",
+                    "description": "Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable"
+                },
+                "dnsSupport": {
+                    "type": "string",
+                    "description": "Indicates whether to enable DNS Support for Vpc Attachment. Valid Values: enable | disable"
+                },
+                "ipv6Support": {
+                    "type": "string",
+                    "description": "Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable"
                 }
             }
         },
@@ -36432,8 +36472,115 @@
         "aws-native:events:ApiDestinationHttpMethod": {
             "type": "string"
         },
+        "aws-native:events:AuthParametersProperties": {
+            "type": "object",
+            "properties": {
+                "apiKeyAuthParameters": {
+                    "$ref": "#/types/aws-native:events:ConnectionApiKeyAuthParameters"
+                },
+                "basicAuthParameters": {
+                    "$ref": "#/types/aws-native:events:ConnectionBasicAuthParameters"
+                },
+                "invocationHttpParameters": {
+                    "$ref": "#/types/aws-native:events:ConnectionHttpParameters"
+                },
+                "oAuthParameters": {
+                    "$ref": "#/types/aws-native:events:ConnectionOAuthParameters"
+                }
+            }
+        },
+        "aws-native:events:ConnectionApiKeyAuthParameters": {
+            "type": "object",
+            "properties": {
+                "apiKeyName": {
+                    "type": "string"
+                },
+                "apiKeyValue": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:events:ConnectionAuthorizationType": {
             "type": "string"
+        },
+        "aws-native:events:ConnectionBasicAuthParameters": {
+            "type": "object",
+            "properties": {
+                "password": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:events:ConnectionClientParameters": {
+            "type": "object",
+            "properties": {
+                "clientID": {
+                    "type": "string"
+                },
+                "clientSecret": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:events:ConnectionHttpParameters": {
+            "type": "object",
+            "properties": {
+                "bodyParameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:events:ConnectionParameter"
+                    }
+                },
+                "headerParameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:events:ConnectionParameter"
+                    }
+                },
+                "queryStringParameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:events:ConnectionParameter"
+                    }
+                }
+            }
+        },
+        "aws-native:events:ConnectionOAuthParameters": {
+            "type": "object",
+            "properties": {
+                "authorizationEndpoint": {
+                    "type": "string"
+                },
+                "clientParameters": {
+                    "$ref": "#/types/aws-native:events:ConnectionClientParameters"
+                },
+                "httpMethod": {
+                    "$ref": "#/types/aws-native:events:ConnectionOAuthParametersHttpMethod"
+                },
+                "oAuthHttpParameters": {
+                    "$ref": "#/types/aws-native:events:ConnectionHttpParameters"
+                }
+            }
+        },
+        "aws-native:events:ConnectionOAuthParametersHttpMethod": {
+            "type": "string"
+        },
+        "aws-native:events:ConnectionParameter": {
+            "type": "object",
+            "properties": {
+                "isValueSecret": {
+                    "type": "boolean"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
         },
         "aws-native:finspace:EnvironmentFederationMode": {
             "type": "string"
@@ -36515,6 +36662,9 @@
                 }
             }
         },
+        "aws-native:fms:PolicySecurityServicePolicyDataPropertiesType": {
+            "type": "string"
+        },
         "aws-native:fms:PolicyTag": {
             "type": "object",
             "properties": {
@@ -36523,6 +36673,17 @@
                 },
                 "value": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:fms:SecurityServicePolicyDataProperties": {
+            "type": "object",
+            "properties": {
+                "managedServiceData": {
+                    "type": "string"
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:fms:PolicySecurityServicePolicyDataPropertiesType"
                 }
             }
         },
@@ -38056,11 +38217,11 @@
             "type": "object",
             "properties": {
                 "amiDistributionConfiguration": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:imagebuilder:DistributionConfigurationDistributionAmiDistributionConfigurationProperties",
                     "description": "The specific AMI settings (for example, launch permissions, AMI tags)."
                 },
                 "containerDistributionConfiguration": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:imagebuilder:DistributionConfigurationDistributionContainerDistributionConfigurationProperties",
                     "description": "Container distribution settings for encryption, licensing, and sharing in a specific Region."
                 },
                 "launchTemplateConfigurations": {
@@ -38083,6 +38244,77 @@
                 }
             }
         },
+        "aws-native:imagebuilder:DistributionConfigurationDistributionAmiDistributionConfigurationProperties": {
+            "type": "object",
+            "properties": {
+                "amiTags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "The tags to apply to AMIs distributed to this Region."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the AMI distribution configuration."
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "The KMS key identifier used to encrypt the distributed image."
+                },
+                "launchPermissionConfiguration": {
+                    "$ref": "#/types/aws-native:imagebuilder:DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties",
+                    "description": "Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the AMI distribution configuration."
+                },
+                "targetAccountIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The ID of accounts to which you want to distribute an image."
+                }
+            }
+        },
+        "aws-native:imagebuilder:DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties": {
+            "type": "object",
+            "properties": {
+                "userGroups": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The name of the group."
+                },
+                "userIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The AWS account ID."
+                }
+            }
+        },
+        "aws-native:imagebuilder:DistributionConfigurationDistributionContainerDistributionConfigurationProperties": {
+            "type": "object",
+            "properties": {
+                "containerTags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Tags that are attached to the container distribution configuration."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the container distribution configuration."
+                },
+                "targetRepository": {
+                    "$ref": "#/types/aws-native:imagebuilder:DistributionConfigurationTargetContainerRepository",
+                    "description": "The destination repository for the container distribution configuration."
+                }
+            }
+        },
         "aws-native:imagebuilder:DistributionConfigurationLaunchTemplateConfiguration": {
             "type": "object",
             "properties": {
@@ -38099,6 +38331,22 @@
                     "description": "Set the specified EC2 launch template as the default launch template for the specified account."
                 }
             }
+        },
+        "aws-native:imagebuilder:DistributionConfigurationTargetContainerRepository": {
+            "type": "object",
+            "properties": {
+                "repositoryName": {
+                    "type": "string",
+                    "description": "The repository name of target container repository."
+                },
+                "service": {
+                    "$ref": "#/types/aws-native:imagebuilder:DistributionConfigurationTargetContainerRepositoryService",
+                    "description": "The service of target container repository."
+                }
+            }
+        },
+        "aws-native:imagebuilder:DistributionConfigurationTargetContainerRepositoryService": {
+            "type": "string"
         },
         "aws-native:imagebuilder:ImagePipelineImageTestsConfiguration": {
             "type": "object",
@@ -39427,6 +39675,40 @@
                 }
             }
         },
+        "aws-native:iotcoredeviceadvisor:SuiteDefinitionConfigurationProperties": {
+            "type": "object",
+            "properties": {
+                "devicePermissionRoleArn": {
+                    "type": "string"
+                },
+                "devices": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotcoredeviceadvisor:SuiteDefinitionDeviceUnderTest"
+                    }
+                },
+                "intendedForQualification": {
+                    "type": "boolean"
+                },
+                "rootGroup": {
+                    "type": "string"
+                },
+                "suiteDefinitionName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotcoredeviceadvisor:SuiteDefinitionDeviceUnderTest": {
+            "type": "object",
+            "properties": {
+                "certificateArn": {
+                    "type": "string"
+                },
+                "thingArn": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:iotcoredeviceadvisor:SuiteDefinitionTag": {
             "type": "object",
             "properties": {
@@ -40004,6 +40286,19 @@
                 "id": {
                     "type": "string",
                     "description": "The AWS SSO ID of the user."
+                }
+            }
+        },
+        "aws-native:iotsitewise:AlarmsProperties": {
+            "type": "object",
+            "properties": {
+                "alarmRoleArn": {
+                    "type": "string",
+                    "description": "The ARN of the IAM role that allows the alarm to perform actions and access AWS resources and services, such as AWS IoT Events."
+                },
+                "notificationLambdaArn": {
+                    "type": "string",
+                    "description": "The ARN of the AWS Lambda function that manages alarm notifications. For more information, see Managing alarm notifications in the AWS IoT Events Developer Guide."
                 }
             }
         },
@@ -47249,6 +47544,87 @@
         "aws-native:robomaker:SimulationApplicationTags": {
             "type": "object"
         },
+        "aws-native:route53:HealthCheckAlarmIdentifier": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy."
+                },
+                "region": {
+                    "type": "string",
+                    "description": "For the CloudWatch alarm that you want Route 53 health checkers to use to determine whether this health check is healthy, the region that the alarm was created in."
+                }
+            }
+        },
+        "aws-native:route53:HealthCheckConfigProperties": {
+            "type": "object",
+            "properties": {
+                "alarmIdentifier": {
+                    "$ref": "#/types/aws-native:route53:HealthCheckAlarmIdentifier"
+                },
+                "childHealthChecks": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "enableSNI": {
+                    "type": "boolean"
+                },
+                "failureThreshold": {
+                    "type": "integer"
+                },
+                "fullyQualifiedDomainName": {
+                    "type": "string"
+                },
+                "healthThreshold": {
+                    "type": "integer"
+                },
+                "iPAddress": {
+                    "type": "string"
+                },
+                "insufficientDataHealthStatus": {
+                    "$ref": "#/types/aws-native:route53:HealthCheckConfigPropertiesInsufficientDataHealthStatus"
+                },
+                "inverted": {
+                    "type": "boolean"
+                },
+                "measureLatency": {
+                    "type": "boolean"
+                },
+                "port": {
+                    "type": "integer"
+                },
+                "regions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "requestInterval": {
+                    "type": "integer"
+                },
+                "resourcePath": {
+                    "type": "string"
+                },
+                "routingControlArn": {
+                    "type": "string"
+                },
+                "searchString": {
+                    "type": "string"
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:route53:HealthCheckConfigPropertiesType"
+                }
+            }
+        },
+        "aws-native:route53:HealthCheckConfigPropertiesInsufficientDataHealthStatus": {
+            "type": "string"
+        },
+        "aws-native:route53:HealthCheckConfigPropertiesType": {
+            "type": "string"
+        },
         "aws-native:route53:HealthCheckTag": {
             "type": "object",
             "properties": {
@@ -47638,6 +48014,9 @@
             "type": "string"
         },
         "aws-native:s3:AccessPointNetworkOrigin": {
+            "type": "string"
+        },
+        "aws-native:s3:AccessPointPolicyStatusPropertiesIsPublic": {
             "type": "string"
         },
         "aws-native:s3:AccessPointPublicAccessBlockConfiguration": {
@@ -48452,6 +48831,9 @@
                 }
             }
         },
+        "aws-native:s3:MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic": {
+            "type": "string"
+        },
         "aws-native:s3:MultiRegionAccessPointPublicAccessBlockConfiguration": {
             "type": "object",
             "properties": {
@@ -48478,6 +48860,15 @@
             "properties": {
                 "bucket": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:s3:PolicyStatusProperties": {
+            "type": "object",
+            "properties": {
+                "isPublic": {
+                    "$ref": "#/types/aws-native:s3:MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic",
+                    "description": "Specifies whether the policy is public or not."
                 }
             }
         },
@@ -48719,6 +49110,15 @@
                 }
             }
         },
+        "aws-native:s3objectlambda:PolicyStatusProperties": {
+            "type": "object",
+            "properties": {
+                "isPublic": {
+                    "type": "boolean",
+                    "description": "Specifies whether the Object lambda Access Point Policy is Public or not. Object lambda Access Points are private by default."
+                }
+            }
+        },
         "aws-native:s3outposts:AccessPointVpcConfiguration": {
             "type": "object",
             "properties": {
@@ -48734,6 +49134,20 @@
                 "daysAfterInitiation": {
                     "type": "integer",
                     "description": "Specifies the number of days after which Amazon S3Outposts aborts an incomplete multipart upload."
+                }
+            }
+        },
+        "aws-native:s3outposts:BucketFilterAndOperator": {
+            "type": "object"
+        },
+        "aws-native:s3outposts:BucketFilterTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
                 }
             }
         },
@@ -48765,7 +49179,7 @@
                     "description": "Indicates the number of days after creation when objects are deleted from Amazon S3Outposts."
                 },
                 "filter": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:s3outposts:BucketRuleFilterProperties",
                     "description": "The container for the filter of the lifecycle rule."
                 },
                 "id": {
@@ -48774,6 +49188,23 @@
                 },
                 "status": {
                     "$ref": "#/types/aws-native:s3outposts:BucketRuleStatus"
+                }
+            }
+        },
+        "aws-native:s3outposts:BucketRuleFilterProperties": {
+            "type": "object",
+            "properties": {
+                "andOperator": {
+                    "$ref": "#/types/aws-native:s3outposts:BucketFilterAndOperator",
+                    "description": "The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags."
+                },
+                "prefix": {
+                    "type": "string",
+                    "description": "Object key prefix that identifies one or more objects to which this rule applies."
+                },
+                "tag": {
+                    "$ref": "#/types/aws-native:s3outposts:BucketFilterTag",
+                    "description": "Specifies a tag used to identify a subset of objects for an Amazon S3Outposts bucket."
                 }
             }
         },
@@ -49309,6 +49740,20 @@
                 }
             }
         },
+        "aws-native:sagemaker:FeatureGroupDataCatalogConfig": {
+            "type": "object",
+            "properties": {
+                "catalog": {
+                    "type": "string"
+                },
+                "database": {
+                    "type": "string"
+                },
+                "tableName": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:sagemaker:FeatureGroupFeatureDefinition": {
             "type": "object",
             "properties": {
@@ -49322,6 +49767,25 @@
         },
         "aws-native:sagemaker:FeatureGroupFeatureDefinitionFeatureType": {
             "type": "string"
+        },
+        "aws-native:sagemaker:FeatureGroupOnlineStoreSecurityConfig": {
+            "type": "object",
+            "properties": {
+                "kmsKeyId": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:sagemaker:FeatureGroupS3StorageConfig": {
+            "type": "object",
+            "properties": {
+                "kmsKeyId": {
+                    "type": "string"
+                },
+                "s3Uri": {
+                    "type": "string"
+                }
+            }
         },
         "aws-native:sagemaker:FeatureGroupTag": {
             "type": "object",
@@ -50400,6 +50864,31 @@
                 }
             }
         },
+        "aws-native:sagemaker:OfflineStoreConfigProperties": {
+            "type": "object",
+            "properties": {
+                "dataCatalogConfig": {
+                    "$ref": "#/types/aws-native:sagemaker:FeatureGroupDataCatalogConfig"
+                },
+                "disableGlueTableCreation": {
+                    "type": "boolean"
+                },
+                "s3StorageConfig": {
+                    "$ref": "#/types/aws-native:sagemaker:FeatureGroupS3StorageConfig"
+                }
+            }
+        },
+        "aws-native:sagemaker:OnlineStoreConfigProperties": {
+            "type": "object",
+            "properties": {
+                "enableOnlineStore": {
+                    "type": "boolean"
+                },
+                "securityConfig": {
+                    "$ref": "#/types/aws-native:sagemaker:FeatureGroupOnlineStoreSecurityConfig"
+                }
+            }
+        },
         "aws-native:sagemaker:PipelineTag": {
             "type": "object",
             "properties": {
@@ -50408,6 +50897,19 @@
                 },
                 "value": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:sagemaker:ProjectProvisioningParameter": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The parameter key."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The parameter value."
                 }
             }
         },
@@ -50424,6 +50926,38 @@
                 "value": {
                     "type": "string",
                     "description": "The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. "
+                }
+            }
+        },
+        "aws-native:sagemaker:ServiceCatalogProvisionedProductDetailsProperties": {
+            "type": "object",
+            "properties": {
+                "provisionedProductId": {
+                    "type": "string"
+                },
+                "provisionedProductStatusMessage": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:sagemaker:ServiceCatalogProvisioningDetailsProperties": {
+            "type": "object",
+            "properties": {
+                "pathId": {
+                    "type": "string"
+                },
+                "productId": {
+                    "type": "string"
+                },
+                "provisioningArtifactId": {
+                    "type": "string"
+                },
+                "provisioningParameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:sagemaker:ProjectProvisioningParameter"
+                    },
+                    "description": "Parameters specified by the administrator that are required for provisioning the product."
                 }
             }
         },
@@ -51060,6 +51594,17 @@
                 }
             }
         },
+        "aws-native:sso:InstanceAccessControlAttributeConfigurationProperties": {
+            "type": "object",
+            "properties": {
+                "accessControlAttributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:sso:InstanceAccessControlAttributeConfigurationAccessControlAttribute"
+                    }
+                }
+            }
+        },
         "aws-native:sso:PermissionSetTag": {
             "type": "object",
             "properties": {
@@ -51288,6 +51833,19 @@
                 }
             }
         },
+        "aws-native:timestream:RetentionPropertiesProperties": {
+            "type": "object",
+            "properties": {
+                "magneticStoreRetentionPeriodInDays": {
+                    "type": "string",
+                    "description": "The duration for which data must be stored in the magnetic store."
+                },
+                "memoryStoreRetentionPeriodInHours": {
+                    "type": "string",
+                    "description": "The duration for which data must be stored in the memory store."
+                }
+            }
+        },
         "aws-native:timestream:TableTag": {
             "type": "object",
             "properties": {
@@ -51316,11 +51874,45 @@
                 }
             }
         },
+        "aws-native:wafv2:LoggingConfigurationCondition": {
+            "type": "object",
+            "properties": {
+                "actionCondition": {
+                    "$ref": "#/types/aws-native:wafv2:LoggingConfigurationConditionActionConditionProperties",
+                    "description": "A single action condition."
+                },
+                "labelNameCondition": {
+                    "$ref": "#/types/aws-native:wafv2:LoggingConfigurationConditionLabelNameConditionProperties",
+                    "description": "A single label name condition."
+                }
+            }
+        },
+        "aws-native:wafv2:LoggingConfigurationConditionActionConditionProperties": {
+            "type": "object",
+            "properties": {
+                "action": {
+                    "$ref": "#/types/aws-native:wafv2:LoggingConfigurationConditionActionConditionPropertiesAction",
+                    "description": "Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition."
+                }
+            }
+        },
+        "aws-native:wafv2:LoggingConfigurationConditionActionConditionPropertiesAction": {
+            "type": "string"
+        },
+        "aws-native:wafv2:LoggingConfigurationConditionLabelNameConditionProperties": {
+            "type": "object",
+            "properties": {
+                "labelName": {
+                    "type": "string",
+                    "description": "The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label. "
+                }
+            }
+        },
         "aws-native:wafv2:LoggingConfigurationFieldToMatch": {
             "type": "object",
             "properties": {
                 "jsonBody": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:wafv2:LoggingConfigurationFieldToMatchJsonBodyProperties",
                     "description": "Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. "
                 },
                 "method": {
@@ -51332,12 +51924,105 @@
                     "description": "Inspect the query string. This is the part of a URL that appears after a ? character, if any. "
                 },
                 "singleHeader": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:wafv2:LoggingConfigurationFieldToMatchSingleHeaderProperties",
                     "description": "Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive."
                 },
                 "uriPath": {
                     "$ref": "pulumi.json#/Any",
                     "description": "Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg. "
+                }
+            }
+        },
+        "aws-native:wafv2:LoggingConfigurationFieldToMatchJsonBodyProperties": {
+            "type": "object",
+            "properties": {
+                "invalidFallbackBehavior": {
+                    "$ref": "#/types/aws-native:wafv2:LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior",
+                    "description": "What AWS WAF should do if it fails to completely parse the JSON body."
+                },
+                "matchPattern": {
+                    "$ref": "#/types/aws-native:wafv2:LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties",
+                    "description": "The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. "
+                },
+                "matchScope": {
+                    "$ref": "#/types/aws-native:wafv2:LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope",
+                    "description": "The parts of the JSON to match against using the MatchPattern. If you specify All, AWS WAF matches against keys and values. "
+                }
+            }
+        },
+        "aws-native:wafv2:LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior": {
+            "type": "string"
+        },
+        "aws-native:wafv2:LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties": {
+            "type": "object",
+            "properties": {
+                "all": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "Match all of the elements. See also MatchScope in JsonBody. You must specify either this setting or the IncludedPaths setting, but not both."
+                },
+                "includedPaths": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Match only the specified include paths. See also MatchScope in JsonBody."
+                }
+            }
+        },
+        "aws-native:wafv2:LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope": {
+            "type": "string"
+        },
+        "aws-native:wafv2:LoggingConfigurationFieldToMatchSingleHeaderProperties": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the query header to inspect."
+                }
+            }
+        },
+        "aws-native:wafv2:LoggingConfigurationFilter": {
+            "type": "object",
+            "properties": {
+                "behavior": {
+                    "$ref": "#/types/aws-native:wafv2:LoggingConfigurationFilterBehavior",
+                    "description": "How to handle logs that satisfy the filter's conditions and requirement. "
+                },
+                "conditions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:wafv2:LoggingConfigurationCondition"
+                    },
+                    "description": "Match conditions for the filter."
+                },
+                "requirement": {
+                    "$ref": "#/types/aws-native:wafv2:LoggingConfigurationFilterRequirement",
+                    "description": "Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition."
+                }
+            }
+        },
+        "aws-native:wafv2:LoggingConfigurationFilterBehavior": {
+            "type": "string"
+        },
+        "aws-native:wafv2:LoggingConfigurationFilterRequirement": {
+            "type": "string"
+        },
+        "aws-native:wafv2:LoggingConfigurationLoggingFilterPropertiesDefaultBehavior": {
+            "type": "string"
+        },
+        "aws-native:wafv2:LoggingFilterProperties": {
+            "type": "object",
+            "properties": {
+                "defaultBehavior": {
+                    "$ref": "#/types/aws-native:wafv2:LoggingConfigurationLoggingFilterPropertiesDefaultBehavior",
+                    "description": "Default handling for logs that don't match any of the specified filtering conditions."
+                },
+                "filters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:wafv2:LoggingConfigurationFilter"
+                    },
+                    "description": "The filters that you want to apply to the logs."
                 }
             }
         },
@@ -51392,6 +52077,48 @@
                 }
             }
         },
+        "aws-native:wafv2:RuleGroupCustomHTTPHeader": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:wafv2:RuleGroupCustomRequestHandling": {
+            "type": "object",
+            "properties": {
+                "insertHeaders": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:wafv2:RuleGroupCustomHTTPHeader"
+                    },
+                    "description": "Collection of HTTP headers."
+                }
+            }
+        },
+        "aws-native:wafv2:RuleGroupCustomResponse": {
+            "type": "object",
+            "properties": {
+                "customResponseBodyKey": {
+                    "type": "string",
+                    "description": "Custom response body key."
+                },
+                "responseCode": {
+                    "type": "integer"
+                },
+                "responseHeaders": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:wafv2:RuleGroupCustomHTTPHeader"
+                    },
+                    "description": "Collection of HTTP headers."
+                }
+            }
+        },
         "aws-native:wafv2:RuleGroupCustomResponseBodies": {
             "type": "object"
         },
@@ -51418,15 +52145,31 @@
                     "description": "The query string of a web request. This is the part of a URL that appears after a ? character, if any."
                 },
                 "singleHeader": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupFieldToMatchSingleHeaderProperties"
                 },
                 "singleQueryArgument": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupFieldToMatchSingleQueryArgumentProperties",
                     "description": "One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive."
                 },
                 "uriPath": {
                     "$ref": "pulumi.json#/Any",
                     "description": "The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg."
+                }
+            }
+        },
+        "aws-native:wafv2:RuleGroupFieldToMatchSingleHeaderProperties": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:wafv2:RuleGroupFieldToMatchSingleQueryArgumentProperties": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
                 }
             }
         },
@@ -51641,16 +52384,40 @@
             "type": "object",
             "properties": {
                 "allow": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupRuleActionAllowProperties",
                     "description": "Allow traffic towards application."
                 },
                 "block": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupRuleActionBlockProperties",
                     "description": "Block traffic towards application."
                 },
                 "count": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupRuleActionCountProperties",
                     "description": "Count traffic towards application."
+                }
+            }
+        },
+        "aws-native:wafv2:RuleGroupRuleActionAllowProperties": {
+            "type": "object",
+            "properties": {
+                "customRequestHandling": {
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupCustomRequestHandling"
+                }
+            }
+        },
+        "aws-native:wafv2:RuleGroupRuleActionBlockProperties": {
+            "type": "object",
+            "properties": {
+                "customResponse": {
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupCustomResponse"
+                }
+            }
+        },
+        "aws-native:wafv2:RuleGroupRuleActionCountProperties": {
+            "type": "object",
+            "properties": {
+                "customRequestHandling": {
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupCustomRequestHandling"
                 }
             }
         },
@@ -51936,15 +52703,31 @@
                     "description": "The query string of a web request. This is the part of a URL that appears after a ? character, if any."
                 },
                 "singleHeader": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:wafv2:WebACLFieldToMatchSingleHeaderProperties"
                 },
                 "singleQueryArgument": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:wafv2:WebACLFieldToMatchSingleQueryArgumentProperties",
                     "description": "One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive."
                 },
                 "uriPath": {
                     "$ref": "pulumi.json#/Any",
                     "description": "The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg."
+                }
+            }
+        },
+        "aws-native:wafv2:WebACLFieldToMatchSingleHeaderProperties": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:wafv2:WebACLFieldToMatchSingleQueryArgumentProperties": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
                 }
             }
         },
@@ -52520,6 +53303,17 @@
                 "uRLPath": {
                     "type": "string",
                     "description": "Matches the path from a request URL."
+                }
+            }
+        },
+        "aws-native:xray:TagsItemProperties": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
                 }
             }
         }

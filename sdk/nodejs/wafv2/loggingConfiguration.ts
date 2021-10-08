@@ -42,7 +42,7 @@ export class LoggingConfiguration extends pulumi.CustomResource {
     /**
      * Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
      */
-    public readonly loggingFilter!: pulumi.Output<any | undefined>;
+    public readonly loggingFilter!: pulumi.Output<outputs.wafv2.LoggingFilterProperties | undefined>;
     /**
      * Indicates whether the logging configuration was created by AWS Firewall Manager, as part of an AWS WAF policy configuration. If true, only Firewall Manager can modify or delete the configuration.
      */
@@ -103,7 +103,7 @@ export interface LoggingConfigurationArgs {
     /**
      * Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
      */
-    loggingFilter?: any;
+    loggingFilter?: pulumi.Input<inputs.wafv2.LoggingFilterPropertiesArgs>;
     /**
      * The parts of the request that you want to keep out of the logs. For example, if you redact the HEADER field, the HEADER field in the firehose will be xxx.
      */

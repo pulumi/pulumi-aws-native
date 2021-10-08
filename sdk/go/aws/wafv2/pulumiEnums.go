@@ -340,6 +340,999 @@ func (in *ipsetScopePtr) ToIPSetScopePtrOutputWithContext(ctx context.Context) I
 	return pulumi.ToOutputWithContext(ctx, in).(IPSetScopePtrOutput)
 }
 
+// Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
+type LoggingConfigurationConditionActionConditionPropertiesAction string
+
+const (
+	LoggingConfigurationConditionActionConditionPropertiesActionAllow = LoggingConfigurationConditionActionConditionPropertiesAction("ALLOW")
+	LoggingConfigurationConditionActionConditionPropertiesActionBlock = LoggingConfigurationConditionActionConditionPropertiesAction("BLOCK")
+	LoggingConfigurationConditionActionConditionPropertiesActionCount = LoggingConfigurationConditionActionConditionPropertiesAction("COUNT")
+)
+
+func (LoggingConfigurationConditionActionConditionPropertiesAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingConfigurationConditionActionConditionPropertiesAction)(nil)).Elem()
+}
+
+func (e LoggingConfigurationConditionActionConditionPropertiesAction) ToLoggingConfigurationConditionActionConditionPropertiesActionOutput() LoggingConfigurationConditionActionConditionPropertiesActionOutput {
+	return pulumi.ToOutput(e).(LoggingConfigurationConditionActionConditionPropertiesActionOutput)
+}
+
+func (e LoggingConfigurationConditionActionConditionPropertiesAction) ToLoggingConfigurationConditionActionConditionPropertiesActionOutputWithContext(ctx context.Context) LoggingConfigurationConditionActionConditionPropertiesActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LoggingConfigurationConditionActionConditionPropertiesActionOutput)
+}
+
+func (e LoggingConfigurationConditionActionConditionPropertiesAction) ToLoggingConfigurationConditionActionConditionPropertiesActionPtrOutput() LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput {
+	return e.ToLoggingConfigurationConditionActionConditionPropertiesActionPtrOutputWithContext(context.Background())
+}
+
+func (e LoggingConfigurationConditionActionConditionPropertiesAction) ToLoggingConfigurationConditionActionConditionPropertiesActionPtrOutputWithContext(ctx context.Context) LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput {
+	return LoggingConfigurationConditionActionConditionPropertiesAction(e).ToLoggingConfigurationConditionActionConditionPropertiesActionOutputWithContext(ctx).ToLoggingConfigurationConditionActionConditionPropertiesActionPtrOutputWithContext(ctx)
+}
+
+func (e LoggingConfigurationConditionActionConditionPropertiesAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LoggingConfigurationConditionActionConditionPropertiesAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LoggingConfigurationConditionActionConditionPropertiesAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LoggingConfigurationConditionActionConditionPropertiesAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LoggingConfigurationConditionActionConditionPropertiesActionOutput struct{ *pulumi.OutputState }
+
+func (LoggingConfigurationConditionActionConditionPropertiesActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingConfigurationConditionActionConditionPropertiesAction)(nil)).Elem()
+}
+
+func (o LoggingConfigurationConditionActionConditionPropertiesActionOutput) ToLoggingConfigurationConditionActionConditionPropertiesActionOutput() LoggingConfigurationConditionActionConditionPropertiesActionOutput {
+	return o
+}
+
+func (o LoggingConfigurationConditionActionConditionPropertiesActionOutput) ToLoggingConfigurationConditionActionConditionPropertiesActionOutputWithContext(ctx context.Context) LoggingConfigurationConditionActionConditionPropertiesActionOutput {
+	return o
+}
+
+func (o LoggingConfigurationConditionActionConditionPropertiesActionOutput) ToLoggingConfigurationConditionActionConditionPropertiesActionPtrOutput() LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput {
+	return o.ToLoggingConfigurationConditionActionConditionPropertiesActionPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingConfigurationConditionActionConditionPropertiesActionOutput) ToLoggingConfigurationConditionActionConditionPropertiesActionPtrOutputWithContext(ctx context.Context) LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoggingConfigurationConditionActionConditionPropertiesAction) *LoggingConfigurationConditionActionConditionPropertiesAction {
+		return &v
+	}).(LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput)
+}
+
+func (o LoggingConfigurationConditionActionConditionPropertiesActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LoggingConfigurationConditionActionConditionPropertiesActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LoggingConfigurationConditionActionConditionPropertiesAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LoggingConfigurationConditionActionConditionPropertiesActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingConfigurationConditionActionConditionPropertiesActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LoggingConfigurationConditionActionConditionPropertiesAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput struct{ *pulumi.OutputState }
+
+func (LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoggingConfigurationConditionActionConditionPropertiesAction)(nil)).Elem()
+}
+
+func (o LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput) ToLoggingConfigurationConditionActionConditionPropertiesActionPtrOutput() LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput {
+	return o
+}
+
+func (o LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput) ToLoggingConfigurationConditionActionConditionPropertiesActionPtrOutputWithContext(ctx context.Context) LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput {
+	return o
+}
+
+func (o LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput) Elem() LoggingConfigurationConditionActionConditionPropertiesActionOutput {
+	return o.ApplyT(func(v *LoggingConfigurationConditionActionConditionPropertiesAction) LoggingConfigurationConditionActionConditionPropertiesAction {
+		if v != nil {
+			return *v
+		}
+		var ret LoggingConfigurationConditionActionConditionPropertiesAction
+		return ret
+	}).(LoggingConfigurationConditionActionConditionPropertiesActionOutput)
+}
+
+func (o LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LoggingConfigurationConditionActionConditionPropertiesAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LoggingConfigurationConditionActionConditionPropertiesActionInput is an input type that accepts LoggingConfigurationConditionActionConditionPropertiesActionArgs and LoggingConfigurationConditionActionConditionPropertiesActionOutput values.
+// You can construct a concrete instance of `LoggingConfigurationConditionActionConditionPropertiesActionInput` via:
+//
+//          LoggingConfigurationConditionActionConditionPropertiesActionArgs{...}
+type LoggingConfigurationConditionActionConditionPropertiesActionInput interface {
+	pulumi.Input
+
+	ToLoggingConfigurationConditionActionConditionPropertiesActionOutput() LoggingConfigurationConditionActionConditionPropertiesActionOutput
+	ToLoggingConfigurationConditionActionConditionPropertiesActionOutputWithContext(context.Context) LoggingConfigurationConditionActionConditionPropertiesActionOutput
+}
+
+var loggingConfigurationConditionActionConditionPropertiesActionPtrType = reflect.TypeOf((**LoggingConfigurationConditionActionConditionPropertiesAction)(nil)).Elem()
+
+type LoggingConfigurationConditionActionConditionPropertiesActionPtrInput interface {
+	pulumi.Input
+
+	ToLoggingConfigurationConditionActionConditionPropertiesActionPtrOutput() LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput
+	ToLoggingConfigurationConditionActionConditionPropertiesActionPtrOutputWithContext(context.Context) LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput
+}
+
+type loggingConfigurationConditionActionConditionPropertiesActionPtr string
+
+func LoggingConfigurationConditionActionConditionPropertiesActionPtr(v string) LoggingConfigurationConditionActionConditionPropertiesActionPtrInput {
+	return (*loggingConfigurationConditionActionConditionPropertiesActionPtr)(&v)
+}
+
+func (*loggingConfigurationConditionActionConditionPropertiesActionPtr) ElementType() reflect.Type {
+	return loggingConfigurationConditionActionConditionPropertiesActionPtrType
+}
+
+func (in *loggingConfigurationConditionActionConditionPropertiesActionPtr) ToLoggingConfigurationConditionActionConditionPropertiesActionPtrOutput() LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput {
+	return pulumi.ToOutput(in).(LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput)
+}
+
+func (in *loggingConfigurationConditionActionConditionPropertiesActionPtr) ToLoggingConfigurationConditionActionConditionPropertiesActionPtrOutputWithContext(ctx context.Context) LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput)
+}
+
+// What AWS WAF should do if it fails to completely parse the JSON body.
+type LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior string
+
+const (
+	LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorMatch            = LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior("MATCH")
+	LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorNoMatch          = LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior("NO_MATCH")
+	LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorEvaluateAsString = LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior("EVALUATE_AS_STRING")
+)
+
+func (LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior)(nil)).Elem()
+}
+
+func (e LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput {
+	return pulumi.ToOutput(e).(LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput)
+}
+
+func (e LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput)
+}
+
+func (e LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput {
+	return e.ToLoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (e LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput {
+	return LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior(e).ToLoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutputWithContext(ctx).ToLoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutputWithContext(ctx)
+}
+
+func (e LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput struct{ *pulumi.OutputState }
+
+func (LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior)(nil)).Elem()
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput {
+	return o
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput {
+	return o
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput {
+	return o.ToLoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior) *LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior {
+		return &v
+	}).(LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput)
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior)(nil)).Elem()
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput {
+	return o
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput {
+	return o
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput) Elem() LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput {
+	return o.ApplyT(func(v *LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior) LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior
+		return ret
+	}).(LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput)
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorInput is an input type that accepts LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorArgs and LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput values.
+// You can construct a concrete instance of `LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorInput` via:
+//
+//          LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorArgs{...}
+type LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorInput interface {
+	pulumi.Input
+
+	ToLoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput
+	ToLoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutputWithContext(context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput
+}
+
+var loggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrType = reflect.TypeOf((**LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior)(nil)).Elem()
+
+type LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToLoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput
+	ToLoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutputWithContext(context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput
+}
+
+type loggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtr string
+
+func LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtr(v string) LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrInput {
+	return (*loggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtr)(&v)
+}
+
+func (*loggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtr) ElementType() reflect.Type {
+	return loggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrType
+}
+
+func (in *loggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtr) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput)
+}
+
+func (in *loggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtr) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput)
+}
+
+// The parts of the JSON to match against using the MatchPattern. If you specify All, AWS WAF matches against keys and values.
+type LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope string
+
+const (
+	LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeAll   = LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope("ALL")
+	LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeKey   = LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope("KEY")
+	LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeValue = LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope("VALUE")
+)
+
+func (LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope)(nil)).Elem()
+}
+
+func (e LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput {
+	return pulumi.ToOutput(e).(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput)
+}
+
+func (e LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput)
+}
+
+func (e LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput {
+	return e.ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutputWithContext(context.Background())
+}
+
+func (e LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput {
+	return LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope(e).ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutputWithContext(ctx).ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutputWithContext(ctx)
+}
+
+func (e LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput struct{ *pulumi.OutputState }
+
+func (LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope)(nil)).Elem()
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput {
+	return o
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput {
+	return o
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput {
+	return o.ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutputWithContext(context.Background())
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope) *LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope {
+		return &v
+	}).(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput)
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput struct{ *pulumi.OutputState }
+
+func (LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope)(nil)).Elem()
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput {
+	return o
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput {
+	return o
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput) Elem() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput {
+	return o.ApplyT(func(v *LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope {
+		if v != nil {
+			return *v
+		}
+		var ret LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope
+		return ret
+	}).(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput)
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeInput is an input type that accepts LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeArgs and LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput values.
+// You can construct a concrete instance of `LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeInput` via:
+//
+//          LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeArgs{...}
+type LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeInput interface {
+	pulumi.Input
+
+	ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput
+	ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutputWithContext(context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput
+}
+
+var loggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrType = reflect.TypeOf((**LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope)(nil)).Elem()
+
+type LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrInput interface {
+	pulumi.Input
+
+	ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput
+	ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutputWithContext(context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput
+}
+
+type loggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtr string
+
+func LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtr(v string) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrInput {
+	return (*loggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtr)(&v)
+}
+
+func (*loggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtr) ElementType() reflect.Type {
+	return loggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrType
+}
+
+func (in *loggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtr) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput {
+	return pulumi.ToOutput(in).(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput)
+}
+
+func (in *loggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtr) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput)
+}
+
+// How to handle logs that satisfy the filter's conditions and requirement.
+type LoggingConfigurationFilterBehavior string
+
+const (
+	LoggingConfigurationFilterBehaviorKeep = LoggingConfigurationFilterBehavior("KEEP")
+	LoggingConfigurationFilterBehaviorDrop = LoggingConfigurationFilterBehavior("DROP")
+)
+
+func (LoggingConfigurationFilterBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingConfigurationFilterBehavior)(nil)).Elem()
+}
+
+func (e LoggingConfigurationFilterBehavior) ToLoggingConfigurationFilterBehaviorOutput() LoggingConfigurationFilterBehaviorOutput {
+	return pulumi.ToOutput(e).(LoggingConfigurationFilterBehaviorOutput)
+}
+
+func (e LoggingConfigurationFilterBehavior) ToLoggingConfigurationFilterBehaviorOutputWithContext(ctx context.Context) LoggingConfigurationFilterBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LoggingConfigurationFilterBehaviorOutput)
+}
+
+func (e LoggingConfigurationFilterBehavior) ToLoggingConfigurationFilterBehaviorPtrOutput() LoggingConfigurationFilterBehaviorPtrOutput {
+	return e.ToLoggingConfigurationFilterBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (e LoggingConfigurationFilterBehavior) ToLoggingConfigurationFilterBehaviorPtrOutputWithContext(ctx context.Context) LoggingConfigurationFilterBehaviorPtrOutput {
+	return LoggingConfigurationFilterBehavior(e).ToLoggingConfigurationFilterBehaviorOutputWithContext(ctx).ToLoggingConfigurationFilterBehaviorPtrOutputWithContext(ctx)
+}
+
+func (e LoggingConfigurationFilterBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LoggingConfigurationFilterBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LoggingConfigurationFilterBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LoggingConfigurationFilterBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LoggingConfigurationFilterBehaviorOutput struct{ *pulumi.OutputState }
+
+func (LoggingConfigurationFilterBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingConfigurationFilterBehavior)(nil)).Elem()
+}
+
+func (o LoggingConfigurationFilterBehaviorOutput) ToLoggingConfigurationFilterBehaviorOutput() LoggingConfigurationFilterBehaviorOutput {
+	return o
+}
+
+func (o LoggingConfigurationFilterBehaviorOutput) ToLoggingConfigurationFilterBehaviorOutputWithContext(ctx context.Context) LoggingConfigurationFilterBehaviorOutput {
+	return o
+}
+
+func (o LoggingConfigurationFilterBehaviorOutput) ToLoggingConfigurationFilterBehaviorPtrOutput() LoggingConfigurationFilterBehaviorPtrOutput {
+	return o.ToLoggingConfigurationFilterBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingConfigurationFilterBehaviorOutput) ToLoggingConfigurationFilterBehaviorPtrOutputWithContext(ctx context.Context) LoggingConfigurationFilterBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoggingConfigurationFilterBehavior) *LoggingConfigurationFilterBehavior {
+		return &v
+	}).(LoggingConfigurationFilterBehaviorPtrOutput)
+}
+
+func (o LoggingConfigurationFilterBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LoggingConfigurationFilterBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LoggingConfigurationFilterBehavior) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LoggingConfigurationFilterBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingConfigurationFilterBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LoggingConfigurationFilterBehavior) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LoggingConfigurationFilterBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (LoggingConfigurationFilterBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoggingConfigurationFilterBehavior)(nil)).Elem()
+}
+
+func (o LoggingConfigurationFilterBehaviorPtrOutput) ToLoggingConfigurationFilterBehaviorPtrOutput() LoggingConfigurationFilterBehaviorPtrOutput {
+	return o
+}
+
+func (o LoggingConfigurationFilterBehaviorPtrOutput) ToLoggingConfigurationFilterBehaviorPtrOutputWithContext(ctx context.Context) LoggingConfigurationFilterBehaviorPtrOutput {
+	return o
+}
+
+func (o LoggingConfigurationFilterBehaviorPtrOutput) Elem() LoggingConfigurationFilterBehaviorOutput {
+	return o.ApplyT(func(v *LoggingConfigurationFilterBehavior) LoggingConfigurationFilterBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret LoggingConfigurationFilterBehavior
+		return ret
+	}).(LoggingConfigurationFilterBehaviorOutput)
+}
+
+func (o LoggingConfigurationFilterBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingConfigurationFilterBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LoggingConfigurationFilterBehavior) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LoggingConfigurationFilterBehaviorInput is an input type that accepts LoggingConfigurationFilterBehaviorArgs and LoggingConfigurationFilterBehaviorOutput values.
+// You can construct a concrete instance of `LoggingConfigurationFilterBehaviorInput` via:
+//
+//          LoggingConfigurationFilterBehaviorArgs{...}
+type LoggingConfigurationFilterBehaviorInput interface {
+	pulumi.Input
+
+	ToLoggingConfigurationFilterBehaviorOutput() LoggingConfigurationFilterBehaviorOutput
+	ToLoggingConfigurationFilterBehaviorOutputWithContext(context.Context) LoggingConfigurationFilterBehaviorOutput
+}
+
+var loggingConfigurationFilterBehaviorPtrType = reflect.TypeOf((**LoggingConfigurationFilterBehavior)(nil)).Elem()
+
+type LoggingConfigurationFilterBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToLoggingConfigurationFilterBehaviorPtrOutput() LoggingConfigurationFilterBehaviorPtrOutput
+	ToLoggingConfigurationFilterBehaviorPtrOutputWithContext(context.Context) LoggingConfigurationFilterBehaviorPtrOutput
+}
+
+type loggingConfigurationFilterBehaviorPtr string
+
+func LoggingConfigurationFilterBehaviorPtr(v string) LoggingConfigurationFilterBehaviorPtrInput {
+	return (*loggingConfigurationFilterBehaviorPtr)(&v)
+}
+
+func (*loggingConfigurationFilterBehaviorPtr) ElementType() reflect.Type {
+	return loggingConfigurationFilterBehaviorPtrType
+}
+
+func (in *loggingConfigurationFilterBehaviorPtr) ToLoggingConfigurationFilterBehaviorPtrOutput() LoggingConfigurationFilterBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(LoggingConfigurationFilterBehaviorPtrOutput)
+}
+
+func (in *loggingConfigurationFilterBehaviorPtr) ToLoggingConfigurationFilterBehaviorPtrOutputWithContext(ctx context.Context) LoggingConfigurationFilterBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LoggingConfigurationFilterBehaviorPtrOutput)
+}
+
+// Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
+type LoggingConfigurationFilterRequirement string
+
+const (
+	LoggingConfigurationFilterRequirementMeetsAll = LoggingConfigurationFilterRequirement("MEETS_ALL")
+	LoggingConfigurationFilterRequirementMeetsAny = LoggingConfigurationFilterRequirement("MEETS_ANY")
+)
+
+func (LoggingConfigurationFilterRequirement) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingConfigurationFilterRequirement)(nil)).Elem()
+}
+
+func (e LoggingConfigurationFilterRequirement) ToLoggingConfigurationFilterRequirementOutput() LoggingConfigurationFilterRequirementOutput {
+	return pulumi.ToOutput(e).(LoggingConfigurationFilterRequirementOutput)
+}
+
+func (e LoggingConfigurationFilterRequirement) ToLoggingConfigurationFilterRequirementOutputWithContext(ctx context.Context) LoggingConfigurationFilterRequirementOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LoggingConfigurationFilterRequirementOutput)
+}
+
+func (e LoggingConfigurationFilterRequirement) ToLoggingConfigurationFilterRequirementPtrOutput() LoggingConfigurationFilterRequirementPtrOutput {
+	return e.ToLoggingConfigurationFilterRequirementPtrOutputWithContext(context.Background())
+}
+
+func (e LoggingConfigurationFilterRequirement) ToLoggingConfigurationFilterRequirementPtrOutputWithContext(ctx context.Context) LoggingConfigurationFilterRequirementPtrOutput {
+	return LoggingConfigurationFilterRequirement(e).ToLoggingConfigurationFilterRequirementOutputWithContext(ctx).ToLoggingConfigurationFilterRequirementPtrOutputWithContext(ctx)
+}
+
+func (e LoggingConfigurationFilterRequirement) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LoggingConfigurationFilterRequirement) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LoggingConfigurationFilterRequirement) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LoggingConfigurationFilterRequirement) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LoggingConfigurationFilterRequirementOutput struct{ *pulumi.OutputState }
+
+func (LoggingConfigurationFilterRequirementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingConfigurationFilterRequirement)(nil)).Elem()
+}
+
+func (o LoggingConfigurationFilterRequirementOutput) ToLoggingConfigurationFilterRequirementOutput() LoggingConfigurationFilterRequirementOutput {
+	return o
+}
+
+func (o LoggingConfigurationFilterRequirementOutput) ToLoggingConfigurationFilterRequirementOutputWithContext(ctx context.Context) LoggingConfigurationFilterRequirementOutput {
+	return o
+}
+
+func (o LoggingConfigurationFilterRequirementOutput) ToLoggingConfigurationFilterRequirementPtrOutput() LoggingConfigurationFilterRequirementPtrOutput {
+	return o.ToLoggingConfigurationFilterRequirementPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingConfigurationFilterRequirementOutput) ToLoggingConfigurationFilterRequirementPtrOutputWithContext(ctx context.Context) LoggingConfigurationFilterRequirementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoggingConfigurationFilterRequirement) *LoggingConfigurationFilterRequirement {
+		return &v
+	}).(LoggingConfigurationFilterRequirementPtrOutput)
+}
+
+func (o LoggingConfigurationFilterRequirementOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LoggingConfigurationFilterRequirementOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LoggingConfigurationFilterRequirement) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LoggingConfigurationFilterRequirementOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingConfigurationFilterRequirementOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LoggingConfigurationFilterRequirement) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LoggingConfigurationFilterRequirementPtrOutput struct{ *pulumi.OutputState }
+
+func (LoggingConfigurationFilterRequirementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoggingConfigurationFilterRequirement)(nil)).Elem()
+}
+
+func (o LoggingConfigurationFilterRequirementPtrOutput) ToLoggingConfigurationFilterRequirementPtrOutput() LoggingConfigurationFilterRequirementPtrOutput {
+	return o
+}
+
+func (o LoggingConfigurationFilterRequirementPtrOutput) ToLoggingConfigurationFilterRequirementPtrOutputWithContext(ctx context.Context) LoggingConfigurationFilterRequirementPtrOutput {
+	return o
+}
+
+func (o LoggingConfigurationFilterRequirementPtrOutput) Elem() LoggingConfigurationFilterRequirementOutput {
+	return o.ApplyT(func(v *LoggingConfigurationFilterRequirement) LoggingConfigurationFilterRequirement {
+		if v != nil {
+			return *v
+		}
+		var ret LoggingConfigurationFilterRequirement
+		return ret
+	}).(LoggingConfigurationFilterRequirementOutput)
+}
+
+func (o LoggingConfigurationFilterRequirementPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingConfigurationFilterRequirementPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LoggingConfigurationFilterRequirement) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LoggingConfigurationFilterRequirementInput is an input type that accepts LoggingConfigurationFilterRequirementArgs and LoggingConfigurationFilterRequirementOutput values.
+// You can construct a concrete instance of `LoggingConfigurationFilterRequirementInput` via:
+//
+//          LoggingConfigurationFilterRequirementArgs{...}
+type LoggingConfigurationFilterRequirementInput interface {
+	pulumi.Input
+
+	ToLoggingConfigurationFilterRequirementOutput() LoggingConfigurationFilterRequirementOutput
+	ToLoggingConfigurationFilterRequirementOutputWithContext(context.Context) LoggingConfigurationFilterRequirementOutput
+}
+
+var loggingConfigurationFilterRequirementPtrType = reflect.TypeOf((**LoggingConfigurationFilterRequirement)(nil)).Elem()
+
+type LoggingConfigurationFilterRequirementPtrInput interface {
+	pulumi.Input
+
+	ToLoggingConfigurationFilterRequirementPtrOutput() LoggingConfigurationFilterRequirementPtrOutput
+	ToLoggingConfigurationFilterRequirementPtrOutputWithContext(context.Context) LoggingConfigurationFilterRequirementPtrOutput
+}
+
+type loggingConfigurationFilterRequirementPtr string
+
+func LoggingConfigurationFilterRequirementPtr(v string) LoggingConfigurationFilterRequirementPtrInput {
+	return (*loggingConfigurationFilterRequirementPtr)(&v)
+}
+
+func (*loggingConfigurationFilterRequirementPtr) ElementType() reflect.Type {
+	return loggingConfigurationFilterRequirementPtrType
+}
+
+func (in *loggingConfigurationFilterRequirementPtr) ToLoggingConfigurationFilterRequirementPtrOutput() LoggingConfigurationFilterRequirementPtrOutput {
+	return pulumi.ToOutput(in).(LoggingConfigurationFilterRequirementPtrOutput)
+}
+
+func (in *loggingConfigurationFilterRequirementPtr) ToLoggingConfigurationFilterRequirementPtrOutputWithContext(ctx context.Context) LoggingConfigurationFilterRequirementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LoggingConfigurationFilterRequirementPtrOutput)
+}
+
+// Default handling for logs that don't match any of the specified filtering conditions.
+type LoggingConfigurationLoggingFilterPropertiesDefaultBehavior string
+
+const (
+	LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorKeep = LoggingConfigurationLoggingFilterPropertiesDefaultBehavior("KEEP")
+	LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorDrop = LoggingConfigurationLoggingFilterPropertiesDefaultBehavior("DROP")
+)
+
+func (LoggingConfigurationLoggingFilterPropertiesDefaultBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingConfigurationLoggingFilterPropertiesDefaultBehavior)(nil)).Elem()
+}
+
+func (e LoggingConfigurationLoggingFilterPropertiesDefaultBehavior) ToLoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput() LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput {
+	return pulumi.ToOutput(e).(LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput)
+}
+
+func (e LoggingConfigurationLoggingFilterPropertiesDefaultBehavior) ToLoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutputWithContext(ctx context.Context) LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput)
+}
+
+func (e LoggingConfigurationLoggingFilterPropertiesDefaultBehavior) ToLoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput() LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput {
+	return e.ToLoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (e LoggingConfigurationLoggingFilterPropertiesDefaultBehavior) ToLoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutputWithContext(ctx context.Context) LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput {
+	return LoggingConfigurationLoggingFilterPropertiesDefaultBehavior(e).ToLoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutputWithContext(ctx).ToLoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutputWithContext(ctx)
+}
+
+func (e LoggingConfigurationLoggingFilterPropertiesDefaultBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LoggingConfigurationLoggingFilterPropertiesDefaultBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LoggingConfigurationLoggingFilterPropertiesDefaultBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LoggingConfigurationLoggingFilterPropertiesDefaultBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput struct{ *pulumi.OutputState }
+
+func (LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingConfigurationLoggingFilterPropertiesDefaultBehavior)(nil)).Elem()
+}
+
+func (o LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput) ToLoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput() LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput {
+	return o
+}
+
+func (o LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput) ToLoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutputWithContext(ctx context.Context) LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput {
+	return o
+}
+
+func (o LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput) ToLoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput() LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput {
+	return o.ToLoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput) ToLoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutputWithContext(ctx context.Context) LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoggingConfigurationLoggingFilterPropertiesDefaultBehavior) *LoggingConfigurationLoggingFilterPropertiesDefaultBehavior {
+		return &v
+	}).(LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput)
+}
+
+func (o LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LoggingConfigurationLoggingFilterPropertiesDefaultBehavior) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LoggingConfigurationLoggingFilterPropertiesDefaultBehavior) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoggingConfigurationLoggingFilterPropertiesDefaultBehavior)(nil)).Elem()
+}
+
+func (o LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput) ToLoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput() LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput {
+	return o
+}
+
+func (o LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput) ToLoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutputWithContext(ctx context.Context) LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput {
+	return o
+}
+
+func (o LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput) Elem() LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput {
+	return o.ApplyT(func(v *LoggingConfigurationLoggingFilterPropertiesDefaultBehavior) LoggingConfigurationLoggingFilterPropertiesDefaultBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret LoggingConfigurationLoggingFilterPropertiesDefaultBehavior
+		return ret
+	}).(LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput)
+}
+
+func (o LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LoggingConfigurationLoggingFilterPropertiesDefaultBehavior) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorInput is an input type that accepts LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorArgs and LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput values.
+// You can construct a concrete instance of `LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorInput` via:
+//
+//          LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorArgs{...}
+type LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorInput interface {
+	pulumi.Input
+
+	ToLoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput() LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput
+	ToLoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutputWithContext(context.Context) LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput
+}
+
+var loggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrType = reflect.TypeOf((**LoggingConfigurationLoggingFilterPropertiesDefaultBehavior)(nil)).Elem()
+
+type LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToLoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput() LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput
+	ToLoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutputWithContext(context.Context) LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput
+}
+
+type loggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtr string
+
+func LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtr(v string) LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrInput {
+	return (*loggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtr)(&v)
+}
+
+func (*loggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtr) ElementType() reflect.Type {
+	return loggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrType
+}
+
+func (in *loggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtr) ToLoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput() LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput)
+}
+
+func (in *loggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtr) ToLoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutputWithContext(ctx context.Context) LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput)
+}
+
 // Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
 type RegexPatternSetScope string
 
@@ -4186,6 +5179,18 @@ func init() {
 	pulumi.RegisterOutputType(IPSetIPAddressVersionPtrOutput{})
 	pulumi.RegisterOutputType(IPSetScopeOutput{})
 	pulumi.RegisterOutputType(IPSetScopePtrOutput{})
+	pulumi.RegisterOutputType(LoggingConfigurationConditionActionConditionPropertiesActionOutput{})
+	pulumi.RegisterOutputType(LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput{})
+	pulumi.RegisterOutputType(LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput{})
+	pulumi.RegisterOutputType(LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput{})
+	pulumi.RegisterOutputType(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput{})
+	pulumi.RegisterOutputType(LoggingConfigurationFilterBehaviorOutput{})
+	pulumi.RegisterOutputType(LoggingConfigurationFilterBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(LoggingConfigurationFilterRequirementOutput{})
+	pulumi.RegisterOutputType(LoggingConfigurationFilterRequirementPtrOutput{})
+	pulumi.RegisterOutputType(LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput{})
+	pulumi.RegisterOutputType(LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput{})
 	pulumi.RegisterOutputType(RegexPatternSetScopeOutput{})
 	pulumi.RegisterOutputType(RegexPatternSetScopePtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupBodyParsingFallbackBehaviorOutput{})

@@ -18,7 +18,7 @@ class PortalArgs:
                  portal_contact_email: pulumi.Input[str],
                  portal_name: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
-                 alarms: Optional[Any] = None,
+                 alarms: Optional[pulumi.Input['AlarmsPropertiesArgs']] = None,
                  notification_sender_email: Optional[pulumi.Input[str]] = None,
                  portal_auth_mode: Optional[pulumi.Input[str]] = None,
                  portal_description: Optional[pulumi.Input[str]] = None,
@@ -28,7 +28,7 @@ class PortalArgs:
         :param pulumi.Input[str] portal_contact_email: The AWS administrator's contact email address.
         :param pulumi.Input[str] portal_name: A friendly name for the portal.
         :param pulumi.Input[str] role_arn: The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
-        :param Any alarms: Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
+        :param pulumi.Input['AlarmsPropertiesArgs'] alarms: Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
         :param pulumi.Input[str] notification_sender_email: The email address that sends alarm notifications.
         :param pulumi.Input[str] portal_auth_mode: The service to use to authenticate users to the portal. Choose from SSO or IAM. You can't change this value after you create a portal.
         :param pulumi.Input[str] portal_description: A description for the portal.
@@ -86,14 +86,14 @@ class PortalArgs:
 
     @property
     @pulumi.getter
-    def alarms(self) -> Optional[Any]:
+    def alarms(self) -> Optional[pulumi.Input['AlarmsPropertiesArgs']]:
         """
         Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
         """
         return pulumi.get(self, "alarms")
 
     @alarms.setter
-    def alarms(self, value: Optional[Any]):
+    def alarms(self, value: Optional[pulumi.Input['AlarmsPropertiesArgs']]):
         pulumi.set(self, "alarms", value)
 
     @property
@@ -150,7 +150,7 @@ class Portal(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alarms: Optional[Any] = None,
+                 alarms: Optional[pulumi.Input[pulumi.InputType['AlarmsPropertiesArgs']]] = None,
                  notification_sender_email: Optional[pulumi.Input[str]] = None,
                  portal_auth_mode: Optional[pulumi.Input[str]] = None,
                  portal_contact_email: Optional[pulumi.Input[str]] = None,
@@ -164,7 +164,7 @@ class Portal(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any alarms: Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
+        :param pulumi.Input[pulumi.InputType['AlarmsPropertiesArgs']] alarms: Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
         :param pulumi.Input[str] notification_sender_email: The email address that sends alarm notifications.
         :param pulumi.Input[str] portal_auth_mode: The service to use to authenticate users to the portal. Choose from SSO or IAM. You can't change this value after you create a portal.
         :param pulumi.Input[str] portal_contact_email: The AWS administrator's contact email address.
@@ -197,7 +197,7 @@ class Portal(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alarms: Optional[Any] = None,
+                 alarms: Optional[pulumi.Input[pulumi.InputType['AlarmsPropertiesArgs']]] = None,
                  notification_sender_email: Optional[pulumi.Input[str]] = None,
                  portal_auth_mode: Optional[pulumi.Input[str]] = None,
                  portal_contact_email: Optional[pulumi.Input[str]] = None,
@@ -273,7 +273,7 @@ class Portal(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def alarms(self) -> pulumi.Output[Optional[Any]]:
+    def alarms(self) -> pulumi.Output[Optional['outputs.AlarmsProperties']]:
         """
         Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
         """

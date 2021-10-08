@@ -18,6 +18,7 @@ __all__ = [
     'AccessPolicyProject',
     'AccessPolicyResource',
     'AccessPolicyUser',
+    'AlarmsProperties',
     'AssetHierarchy',
     'AssetModelAttribute',
     'AssetModelCompositeModel',
@@ -236,6 +237,60 @@ class AccessPolicyUser(dict):
         The AWS SSO ID of the user.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class AlarmsProperties(dict):
+    """
+    Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alarmRoleArn":
+            suggest = "alarm_role_arn"
+        elif key == "notificationLambdaArn":
+            suggest = "notification_lambda_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlarmsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlarmsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlarmsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarm_role_arn: Optional[str] = None,
+                 notification_lambda_arn: Optional[str] = None):
+        """
+        Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
+        :param str alarm_role_arn: The ARN of the IAM role that allows the alarm to perform actions and access AWS resources and services, such as AWS IoT Events.
+        :param str notification_lambda_arn: The ARN of the AWS Lambda function that manages alarm notifications. For more information, see Managing alarm notifications in the AWS IoT Events Developer Guide.
+        """
+        if alarm_role_arn is not None:
+            pulumi.set(__self__, "alarm_role_arn", alarm_role_arn)
+        if notification_lambda_arn is not None:
+            pulumi.set(__self__, "notification_lambda_arn", notification_lambda_arn)
+
+    @property
+    @pulumi.getter(name="alarmRoleArn")
+    def alarm_role_arn(self) -> Optional[str]:
+        """
+        The ARN of the IAM role that allows the alarm to perform actions and access AWS resources and services, such as AWS IoT Events.
+        """
+        return pulumi.get(self, "alarm_role_arn")
+
+    @property
+    @pulumi.getter(name="notificationLambdaArn")
+    def notification_lambda_arn(self) -> Optional[str]:
+        """
+        The ARN of the AWS Lambda function that manages alarm notifications. For more information, see Managing alarm notifications in the AWS IoT Events Developer Guide.
+        """
+        return pulumi.get(self, "notification_lambda_arn")
 
 
 @pulumi.output_type

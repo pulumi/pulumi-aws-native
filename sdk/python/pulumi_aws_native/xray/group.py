@@ -18,7 +18,7 @@ class GroupArgs:
                  filter_expression: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  insights_configuration: Optional[pulumi.Input['GroupInsightsConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[Any]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TagsItemPropertiesArgs']]]] = None):
         """
         The set of arguments for constructing a Group resource.
         :param pulumi.Input[str] filter_expression: The filter expression defining criteria by which to group traces.
@@ -68,11 +68,11 @@ class GroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TagsItemPropertiesArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TagsItemPropertiesArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -84,7 +84,7 @@ class Group(pulumi.CustomResource):
                  filter_expression: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  insights_configuration: Optional[pulumi.Input[pulumi.InputType['GroupInsightsConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagsItemPropertiesArgs']]]]] = None,
                  __props__=None):
         """
         This schema provides construct and validation rules for AWS-XRay Group resource parameters.
@@ -121,7 +121,7 @@ class Group(pulumi.CustomResource):
                  filter_expression: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  insights_configuration: Optional[pulumi.Input[pulumi.InputType['GroupInsightsConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagsItemPropertiesArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -199,6 +199,6 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence[Any]]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.TagsItemProperties']]]:
         return pulumi.get(self, "tags")
 

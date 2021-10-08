@@ -10,6 +10,1075 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AuthParametersProperties struct {
+	ApiKeyAuthParameters     *ConnectionApiKeyAuthParameters `pulumi:"apiKeyAuthParameters"`
+	BasicAuthParameters      *ConnectionBasicAuthParameters  `pulumi:"basicAuthParameters"`
+	InvocationHttpParameters *ConnectionHttpParameters       `pulumi:"invocationHttpParameters"`
+	OAuthParameters          *ConnectionOAuthParameters      `pulumi:"oAuthParameters"`
+}
+
+// AuthParametersPropertiesInput is an input type that accepts AuthParametersPropertiesArgs and AuthParametersPropertiesOutput values.
+// You can construct a concrete instance of `AuthParametersPropertiesInput` via:
+//
+//          AuthParametersPropertiesArgs{...}
+type AuthParametersPropertiesInput interface {
+	pulumi.Input
+
+	ToAuthParametersPropertiesOutput() AuthParametersPropertiesOutput
+	ToAuthParametersPropertiesOutputWithContext(context.Context) AuthParametersPropertiesOutput
+}
+
+type AuthParametersPropertiesArgs struct {
+	ApiKeyAuthParameters     ConnectionApiKeyAuthParametersPtrInput `pulumi:"apiKeyAuthParameters"`
+	BasicAuthParameters      ConnectionBasicAuthParametersPtrInput  `pulumi:"basicAuthParameters"`
+	InvocationHttpParameters ConnectionHttpParametersPtrInput       `pulumi:"invocationHttpParameters"`
+	OAuthParameters          ConnectionOAuthParametersPtrInput      `pulumi:"oAuthParameters"`
+}
+
+func (AuthParametersPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthParametersProperties)(nil)).Elem()
+}
+
+func (i AuthParametersPropertiesArgs) ToAuthParametersPropertiesOutput() AuthParametersPropertiesOutput {
+	return i.ToAuthParametersPropertiesOutputWithContext(context.Background())
+}
+
+func (i AuthParametersPropertiesArgs) ToAuthParametersPropertiesOutputWithContext(ctx context.Context) AuthParametersPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthParametersPropertiesOutput)
+}
+
+func (i AuthParametersPropertiesArgs) ToAuthParametersPropertiesPtrOutput() AuthParametersPropertiesPtrOutput {
+	return i.ToAuthParametersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i AuthParametersPropertiesArgs) ToAuthParametersPropertiesPtrOutputWithContext(ctx context.Context) AuthParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthParametersPropertiesOutput).ToAuthParametersPropertiesPtrOutputWithContext(ctx)
+}
+
+// AuthParametersPropertiesPtrInput is an input type that accepts AuthParametersPropertiesArgs, AuthParametersPropertiesPtr and AuthParametersPropertiesPtrOutput values.
+// You can construct a concrete instance of `AuthParametersPropertiesPtrInput` via:
+//
+//          AuthParametersPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type AuthParametersPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToAuthParametersPropertiesPtrOutput() AuthParametersPropertiesPtrOutput
+	ToAuthParametersPropertiesPtrOutputWithContext(context.Context) AuthParametersPropertiesPtrOutput
+}
+
+type authParametersPropertiesPtrType AuthParametersPropertiesArgs
+
+func AuthParametersPropertiesPtr(v *AuthParametersPropertiesArgs) AuthParametersPropertiesPtrInput {
+	return (*authParametersPropertiesPtrType)(v)
+}
+
+func (*authParametersPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthParametersProperties)(nil)).Elem()
+}
+
+func (i *authParametersPropertiesPtrType) ToAuthParametersPropertiesPtrOutput() AuthParametersPropertiesPtrOutput {
+	return i.ToAuthParametersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *authParametersPropertiesPtrType) ToAuthParametersPropertiesPtrOutputWithContext(ctx context.Context) AuthParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthParametersPropertiesPtrOutput)
+}
+
+type AuthParametersPropertiesOutput struct{ *pulumi.OutputState }
+
+func (AuthParametersPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthParametersProperties)(nil)).Elem()
+}
+
+func (o AuthParametersPropertiesOutput) ToAuthParametersPropertiesOutput() AuthParametersPropertiesOutput {
+	return o
+}
+
+func (o AuthParametersPropertiesOutput) ToAuthParametersPropertiesOutputWithContext(ctx context.Context) AuthParametersPropertiesOutput {
+	return o
+}
+
+func (o AuthParametersPropertiesOutput) ToAuthParametersPropertiesPtrOutput() AuthParametersPropertiesPtrOutput {
+	return o.ToAuthParametersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o AuthParametersPropertiesOutput) ToAuthParametersPropertiesPtrOutputWithContext(ctx context.Context) AuthParametersPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthParametersProperties) *AuthParametersProperties {
+		return &v
+	}).(AuthParametersPropertiesPtrOutput)
+}
+
+func (o AuthParametersPropertiesOutput) ApiKeyAuthParameters() ConnectionApiKeyAuthParametersPtrOutput {
+	return o.ApplyT(func(v AuthParametersProperties) *ConnectionApiKeyAuthParameters { return v.ApiKeyAuthParameters }).(ConnectionApiKeyAuthParametersPtrOutput)
+}
+
+func (o AuthParametersPropertiesOutput) BasicAuthParameters() ConnectionBasicAuthParametersPtrOutput {
+	return o.ApplyT(func(v AuthParametersProperties) *ConnectionBasicAuthParameters { return v.BasicAuthParameters }).(ConnectionBasicAuthParametersPtrOutput)
+}
+
+func (o AuthParametersPropertiesOutput) InvocationHttpParameters() ConnectionHttpParametersPtrOutput {
+	return o.ApplyT(func(v AuthParametersProperties) *ConnectionHttpParameters { return v.InvocationHttpParameters }).(ConnectionHttpParametersPtrOutput)
+}
+
+func (o AuthParametersPropertiesOutput) OAuthParameters() ConnectionOAuthParametersPtrOutput {
+	return o.ApplyT(func(v AuthParametersProperties) *ConnectionOAuthParameters { return v.OAuthParameters }).(ConnectionOAuthParametersPtrOutput)
+}
+
+type AuthParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (AuthParametersPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthParametersProperties)(nil)).Elem()
+}
+
+func (o AuthParametersPropertiesPtrOutput) ToAuthParametersPropertiesPtrOutput() AuthParametersPropertiesPtrOutput {
+	return o
+}
+
+func (o AuthParametersPropertiesPtrOutput) ToAuthParametersPropertiesPtrOutputWithContext(ctx context.Context) AuthParametersPropertiesPtrOutput {
+	return o
+}
+
+func (o AuthParametersPropertiesPtrOutput) Elem() AuthParametersPropertiesOutput {
+	return o.ApplyT(func(v *AuthParametersProperties) AuthParametersProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AuthParametersProperties
+		return ret
+	}).(AuthParametersPropertiesOutput)
+}
+
+func (o AuthParametersPropertiesPtrOutput) ApiKeyAuthParameters() ConnectionApiKeyAuthParametersPtrOutput {
+	return o.ApplyT(func(v *AuthParametersProperties) *ConnectionApiKeyAuthParameters {
+		if v == nil {
+			return nil
+		}
+		return v.ApiKeyAuthParameters
+	}).(ConnectionApiKeyAuthParametersPtrOutput)
+}
+
+func (o AuthParametersPropertiesPtrOutput) BasicAuthParameters() ConnectionBasicAuthParametersPtrOutput {
+	return o.ApplyT(func(v *AuthParametersProperties) *ConnectionBasicAuthParameters {
+		if v == nil {
+			return nil
+		}
+		return v.BasicAuthParameters
+	}).(ConnectionBasicAuthParametersPtrOutput)
+}
+
+func (o AuthParametersPropertiesPtrOutput) InvocationHttpParameters() ConnectionHttpParametersPtrOutput {
+	return o.ApplyT(func(v *AuthParametersProperties) *ConnectionHttpParameters {
+		if v == nil {
+			return nil
+		}
+		return v.InvocationHttpParameters
+	}).(ConnectionHttpParametersPtrOutput)
+}
+
+func (o AuthParametersPropertiesPtrOutput) OAuthParameters() ConnectionOAuthParametersPtrOutput {
+	return o.ApplyT(func(v *AuthParametersProperties) *ConnectionOAuthParameters {
+		if v == nil {
+			return nil
+		}
+		return v.OAuthParameters
+	}).(ConnectionOAuthParametersPtrOutput)
+}
+
+type ConnectionApiKeyAuthParameters struct {
+	ApiKeyName  string `pulumi:"apiKeyName"`
+	ApiKeyValue string `pulumi:"apiKeyValue"`
+}
+
+// ConnectionApiKeyAuthParametersInput is an input type that accepts ConnectionApiKeyAuthParametersArgs and ConnectionApiKeyAuthParametersOutput values.
+// You can construct a concrete instance of `ConnectionApiKeyAuthParametersInput` via:
+//
+//          ConnectionApiKeyAuthParametersArgs{...}
+type ConnectionApiKeyAuthParametersInput interface {
+	pulumi.Input
+
+	ToConnectionApiKeyAuthParametersOutput() ConnectionApiKeyAuthParametersOutput
+	ToConnectionApiKeyAuthParametersOutputWithContext(context.Context) ConnectionApiKeyAuthParametersOutput
+}
+
+type ConnectionApiKeyAuthParametersArgs struct {
+	ApiKeyName  pulumi.StringInput `pulumi:"apiKeyName"`
+	ApiKeyValue pulumi.StringInput `pulumi:"apiKeyValue"`
+}
+
+func (ConnectionApiKeyAuthParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionApiKeyAuthParameters)(nil)).Elem()
+}
+
+func (i ConnectionApiKeyAuthParametersArgs) ToConnectionApiKeyAuthParametersOutput() ConnectionApiKeyAuthParametersOutput {
+	return i.ToConnectionApiKeyAuthParametersOutputWithContext(context.Background())
+}
+
+func (i ConnectionApiKeyAuthParametersArgs) ToConnectionApiKeyAuthParametersOutputWithContext(ctx context.Context) ConnectionApiKeyAuthParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionApiKeyAuthParametersOutput)
+}
+
+func (i ConnectionApiKeyAuthParametersArgs) ToConnectionApiKeyAuthParametersPtrOutput() ConnectionApiKeyAuthParametersPtrOutput {
+	return i.ToConnectionApiKeyAuthParametersPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionApiKeyAuthParametersArgs) ToConnectionApiKeyAuthParametersPtrOutputWithContext(ctx context.Context) ConnectionApiKeyAuthParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionApiKeyAuthParametersOutput).ToConnectionApiKeyAuthParametersPtrOutputWithContext(ctx)
+}
+
+// ConnectionApiKeyAuthParametersPtrInput is an input type that accepts ConnectionApiKeyAuthParametersArgs, ConnectionApiKeyAuthParametersPtr and ConnectionApiKeyAuthParametersPtrOutput values.
+// You can construct a concrete instance of `ConnectionApiKeyAuthParametersPtrInput` via:
+//
+//          ConnectionApiKeyAuthParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type ConnectionApiKeyAuthParametersPtrInput interface {
+	pulumi.Input
+
+	ToConnectionApiKeyAuthParametersPtrOutput() ConnectionApiKeyAuthParametersPtrOutput
+	ToConnectionApiKeyAuthParametersPtrOutputWithContext(context.Context) ConnectionApiKeyAuthParametersPtrOutput
+}
+
+type connectionApiKeyAuthParametersPtrType ConnectionApiKeyAuthParametersArgs
+
+func ConnectionApiKeyAuthParametersPtr(v *ConnectionApiKeyAuthParametersArgs) ConnectionApiKeyAuthParametersPtrInput {
+	return (*connectionApiKeyAuthParametersPtrType)(v)
+}
+
+func (*connectionApiKeyAuthParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionApiKeyAuthParameters)(nil)).Elem()
+}
+
+func (i *connectionApiKeyAuthParametersPtrType) ToConnectionApiKeyAuthParametersPtrOutput() ConnectionApiKeyAuthParametersPtrOutput {
+	return i.ToConnectionApiKeyAuthParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionApiKeyAuthParametersPtrType) ToConnectionApiKeyAuthParametersPtrOutputWithContext(ctx context.Context) ConnectionApiKeyAuthParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionApiKeyAuthParametersPtrOutput)
+}
+
+type ConnectionApiKeyAuthParametersOutput struct{ *pulumi.OutputState }
+
+func (ConnectionApiKeyAuthParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionApiKeyAuthParameters)(nil)).Elem()
+}
+
+func (o ConnectionApiKeyAuthParametersOutput) ToConnectionApiKeyAuthParametersOutput() ConnectionApiKeyAuthParametersOutput {
+	return o
+}
+
+func (o ConnectionApiKeyAuthParametersOutput) ToConnectionApiKeyAuthParametersOutputWithContext(ctx context.Context) ConnectionApiKeyAuthParametersOutput {
+	return o
+}
+
+func (o ConnectionApiKeyAuthParametersOutput) ToConnectionApiKeyAuthParametersPtrOutput() ConnectionApiKeyAuthParametersPtrOutput {
+	return o.ToConnectionApiKeyAuthParametersPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionApiKeyAuthParametersOutput) ToConnectionApiKeyAuthParametersPtrOutputWithContext(ctx context.Context) ConnectionApiKeyAuthParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionApiKeyAuthParameters) *ConnectionApiKeyAuthParameters {
+		return &v
+	}).(ConnectionApiKeyAuthParametersPtrOutput)
+}
+
+func (o ConnectionApiKeyAuthParametersOutput) ApiKeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionApiKeyAuthParameters) string { return v.ApiKeyName }).(pulumi.StringOutput)
+}
+
+func (o ConnectionApiKeyAuthParametersOutput) ApiKeyValue() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionApiKeyAuthParameters) string { return v.ApiKeyValue }).(pulumi.StringOutput)
+}
+
+type ConnectionApiKeyAuthParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionApiKeyAuthParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionApiKeyAuthParameters)(nil)).Elem()
+}
+
+func (o ConnectionApiKeyAuthParametersPtrOutput) ToConnectionApiKeyAuthParametersPtrOutput() ConnectionApiKeyAuthParametersPtrOutput {
+	return o
+}
+
+func (o ConnectionApiKeyAuthParametersPtrOutput) ToConnectionApiKeyAuthParametersPtrOutputWithContext(ctx context.Context) ConnectionApiKeyAuthParametersPtrOutput {
+	return o
+}
+
+func (o ConnectionApiKeyAuthParametersPtrOutput) Elem() ConnectionApiKeyAuthParametersOutput {
+	return o.ApplyT(func(v *ConnectionApiKeyAuthParameters) ConnectionApiKeyAuthParameters {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionApiKeyAuthParameters
+		return ret
+	}).(ConnectionApiKeyAuthParametersOutput)
+}
+
+func (o ConnectionApiKeyAuthParametersPtrOutput) ApiKeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionApiKeyAuthParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApiKeyName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionApiKeyAuthParametersPtrOutput) ApiKeyValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionApiKeyAuthParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApiKeyValue
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionBasicAuthParameters struct {
+	Password string `pulumi:"password"`
+	Username string `pulumi:"username"`
+}
+
+// ConnectionBasicAuthParametersInput is an input type that accepts ConnectionBasicAuthParametersArgs and ConnectionBasicAuthParametersOutput values.
+// You can construct a concrete instance of `ConnectionBasicAuthParametersInput` via:
+//
+//          ConnectionBasicAuthParametersArgs{...}
+type ConnectionBasicAuthParametersInput interface {
+	pulumi.Input
+
+	ToConnectionBasicAuthParametersOutput() ConnectionBasicAuthParametersOutput
+	ToConnectionBasicAuthParametersOutputWithContext(context.Context) ConnectionBasicAuthParametersOutput
+}
+
+type ConnectionBasicAuthParametersArgs struct {
+	Password pulumi.StringInput `pulumi:"password"`
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (ConnectionBasicAuthParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionBasicAuthParameters)(nil)).Elem()
+}
+
+func (i ConnectionBasicAuthParametersArgs) ToConnectionBasicAuthParametersOutput() ConnectionBasicAuthParametersOutput {
+	return i.ToConnectionBasicAuthParametersOutputWithContext(context.Background())
+}
+
+func (i ConnectionBasicAuthParametersArgs) ToConnectionBasicAuthParametersOutputWithContext(ctx context.Context) ConnectionBasicAuthParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionBasicAuthParametersOutput)
+}
+
+func (i ConnectionBasicAuthParametersArgs) ToConnectionBasicAuthParametersPtrOutput() ConnectionBasicAuthParametersPtrOutput {
+	return i.ToConnectionBasicAuthParametersPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionBasicAuthParametersArgs) ToConnectionBasicAuthParametersPtrOutputWithContext(ctx context.Context) ConnectionBasicAuthParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionBasicAuthParametersOutput).ToConnectionBasicAuthParametersPtrOutputWithContext(ctx)
+}
+
+// ConnectionBasicAuthParametersPtrInput is an input type that accepts ConnectionBasicAuthParametersArgs, ConnectionBasicAuthParametersPtr and ConnectionBasicAuthParametersPtrOutput values.
+// You can construct a concrete instance of `ConnectionBasicAuthParametersPtrInput` via:
+//
+//          ConnectionBasicAuthParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type ConnectionBasicAuthParametersPtrInput interface {
+	pulumi.Input
+
+	ToConnectionBasicAuthParametersPtrOutput() ConnectionBasicAuthParametersPtrOutput
+	ToConnectionBasicAuthParametersPtrOutputWithContext(context.Context) ConnectionBasicAuthParametersPtrOutput
+}
+
+type connectionBasicAuthParametersPtrType ConnectionBasicAuthParametersArgs
+
+func ConnectionBasicAuthParametersPtr(v *ConnectionBasicAuthParametersArgs) ConnectionBasicAuthParametersPtrInput {
+	return (*connectionBasicAuthParametersPtrType)(v)
+}
+
+func (*connectionBasicAuthParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionBasicAuthParameters)(nil)).Elem()
+}
+
+func (i *connectionBasicAuthParametersPtrType) ToConnectionBasicAuthParametersPtrOutput() ConnectionBasicAuthParametersPtrOutput {
+	return i.ToConnectionBasicAuthParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionBasicAuthParametersPtrType) ToConnectionBasicAuthParametersPtrOutputWithContext(ctx context.Context) ConnectionBasicAuthParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionBasicAuthParametersPtrOutput)
+}
+
+type ConnectionBasicAuthParametersOutput struct{ *pulumi.OutputState }
+
+func (ConnectionBasicAuthParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionBasicAuthParameters)(nil)).Elem()
+}
+
+func (o ConnectionBasicAuthParametersOutput) ToConnectionBasicAuthParametersOutput() ConnectionBasicAuthParametersOutput {
+	return o
+}
+
+func (o ConnectionBasicAuthParametersOutput) ToConnectionBasicAuthParametersOutputWithContext(ctx context.Context) ConnectionBasicAuthParametersOutput {
+	return o
+}
+
+func (o ConnectionBasicAuthParametersOutput) ToConnectionBasicAuthParametersPtrOutput() ConnectionBasicAuthParametersPtrOutput {
+	return o.ToConnectionBasicAuthParametersPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionBasicAuthParametersOutput) ToConnectionBasicAuthParametersPtrOutputWithContext(ctx context.Context) ConnectionBasicAuthParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionBasicAuthParameters) *ConnectionBasicAuthParameters {
+		return &v
+	}).(ConnectionBasicAuthParametersPtrOutput)
+}
+
+func (o ConnectionBasicAuthParametersOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionBasicAuthParameters) string { return v.Password }).(pulumi.StringOutput)
+}
+
+func (o ConnectionBasicAuthParametersOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionBasicAuthParameters) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type ConnectionBasicAuthParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionBasicAuthParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionBasicAuthParameters)(nil)).Elem()
+}
+
+func (o ConnectionBasicAuthParametersPtrOutput) ToConnectionBasicAuthParametersPtrOutput() ConnectionBasicAuthParametersPtrOutput {
+	return o
+}
+
+func (o ConnectionBasicAuthParametersPtrOutput) ToConnectionBasicAuthParametersPtrOutputWithContext(ctx context.Context) ConnectionBasicAuthParametersPtrOutput {
+	return o
+}
+
+func (o ConnectionBasicAuthParametersPtrOutput) Elem() ConnectionBasicAuthParametersOutput {
+	return o.ApplyT(func(v *ConnectionBasicAuthParameters) ConnectionBasicAuthParameters {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionBasicAuthParameters
+		return ret
+	}).(ConnectionBasicAuthParametersOutput)
+}
+
+func (o ConnectionBasicAuthParametersPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionBasicAuthParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionBasicAuthParametersPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionBasicAuthParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionClientParameters struct {
+	ClientID     string `pulumi:"clientID"`
+	ClientSecret string `pulumi:"clientSecret"`
+}
+
+// ConnectionClientParametersInput is an input type that accepts ConnectionClientParametersArgs and ConnectionClientParametersOutput values.
+// You can construct a concrete instance of `ConnectionClientParametersInput` via:
+//
+//          ConnectionClientParametersArgs{...}
+type ConnectionClientParametersInput interface {
+	pulumi.Input
+
+	ToConnectionClientParametersOutput() ConnectionClientParametersOutput
+	ToConnectionClientParametersOutputWithContext(context.Context) ConnectionClientParametersOutput
+}
+
+type ConnectionClientParametersArgs struct {
+	ClientID     pulumi.StringInput `pulumi:"clientID"`
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+}
+
+func (ConnectionClientParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionClientParameters)(nil)).Elem()
+}
+
+func (i ConnectionClientParametersArgs) ToConnectionClientParametersOutput() ConnectionClientParametersOutput {
+	return i.ToConnectionClientParametersOutputWithContext(context.Background())
+}
+
+func (i ConnectionClientParametersArgs) ToConnectionClientParametersOutputWithContext(ctx context.Context) ConnectionClientParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionClientParametersOutput)
+}
+
+func (i ConnectionClientParametersArgs) ToConnectionClientParametersPtrOutput() ConnectionClientParametersPtrOutput {
+	return i.ToConnectionClientParametersPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionClientParametersArgs) ToConnectionClientParametersPtrOutputWithContext(ctx context.Context) ConnectionClientParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionClientParametersOutput).ToConnectionClientParametersPtrOutputWithContext(ctx)
+}
+
+// ConnectionClientParametersPtrInput is an input type that accepts ConnectionClientParametersArgs, ConnectionClientParametersPtr and ConnectionClientParametersPtrOutput values.
+// You can construct a concrete instance of `ConnectionClientParametersPtrInput` via:
+//
+//          ConnectionClientParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type ConnectionClientParametersPtrInput interface {
+	pulumi.Input
+
+	ToConnectionClientParametersPtrOutput() ConnectionClientParametersPtrOutput
+	ToConnectionClientParametersPtrOutputWithContext(context.Context) ConnectionClientParametersPtrOutput
+}
+
+type connectionClientParametersPtrType ConnectionClientParametersArgs
+
+func ConnectionClientParametersPtr(v *ConnectionClientParametersArgs) ConnectionClientParametersPtrInput {
+	return (*connectionClientParametersPtrType)(v)
+}
+
+func (*connectionClientParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionClientParameters)(nil)).Elem()
+}
+
+func (i *connectionClientParametersPtrType) ToConnectionClientParametersPtrOutput() ConnectionClientParametersPtrOutput {
+	return i.ToConnectionClientParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionClientParametersPtrType) ToConnectionClientParametersPtrOutputWithContext(ctx context.Context) ConnectionClientParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionClientParametersPtrOutput)
+}
+
+type ConnectionClientParametersOutput struct{ *pulumi.OutputState }
+
+func (ConnectionClientParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionClientParameters)(nil)).Elem()
+}
+
+func (o ConnectionClientParametersOutput) ToConnectionClientParametersOutput() ConnectionClientParametersOutput {
+	return o
+}
+
+func (o ConnectionClientParametersOutput) ToConnectionClientParametersOutputWithContext(ctx context.Context) ConnectionClientParametersOutput {
+	return o
+}
+
+func (o ConnectionClientParametersOutput) ToConnectionClientParametersPtrOutput() ConnectionClientParametersPtrOutput {
+	return o.ToConnectionClientParametersPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionClientParametersOutput) ToConnectionClientParametersPtrOutputWithContext(ctx context.Context) ConnectionClientParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionClientParameters) *ConnectionClientParameters {
+		return &v
+	}).(ConnectionClientParametersPtrOutput)
+}
+
+func (o ConnectionClientParametersOutput) ClientID() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionClientParameters) string { return v.ClientID }).(pulumi.StringOutput)
+}
+
+func (o ConnectionClientParametersOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionClientParameters) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+type ConnectionClientParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionClientParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionClientParameters)(nil)).Elem()
+}
+
+func (o ConnectionClientParametersPtrOutput) ToConnectionClientParametersPtrOutput() ConnectionClientParametersPtrOutput {
+	return o
+}
+
+func (o ConnectionClientParametersPtrOutput) ToConnectionClientParametersPtrOutputWithContext(ctx context.Context) ConnectionClientParametersPtrOutput {
+	return o
+}
+
+func (o ConnectionClientParametersPtrOutput) Elem() ConnectionClientParametersOutput {
+	return o.ApplyT(func(v *ConnectionClientParameters) ConnectionClientParameters {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionClientParameters
+		return ret
+	}).(ConnectionClientParametersOutput)
+}
+
+func (o ConnectionClientParametersPtrOutput) ClientID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionClientParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientID
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionClientParametersPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionClientParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionHttpParameters struct {
+	BodyParameters        []ConnectionParameter `pulumi:"bodyParameters"`
+	HeaderParameters      []ConnectionParameter `pulumi:"headerParameters"`
+	QueryStringParameters []ConnectionParameter `pulumi:"queryStringParameters"`
+}
+
+// ConnectionHttpParametersInput is an input type that accepts ConnectionHttpParametersArgs and ConnectionHttpParametersOutput values.
+// You can construct a concrete instance of `ConnectionHttpParametersInput` via:
+//
+//          ConnectionHttpParametersArgs{...}
+type ConnectionHttpParametersInput interface {
+	pulumi.Input
+
+	ToConnectionHttpParametersOutput() ConnectionHttpParametersOutput
+	ToConnectionHttpParametersOutputWithContext(context.Context) ConnectionHttpParametersOutput
+}
+
+type ConnectionHttpParametersArgs struct {
+	BodyParameters        ConnectionParameterArrayInput `pulumi:"bodyParameters"`
+	HeaderParameters      ConnectionParameterArrayInput `pulumi:"headerParameters"`
+	QueryStringParameters ConnectionParameterArrayInput `pulumi:"queryStringParameters"`
+}
+
+func (ConnectionHttpParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionHttpParameters)(nil)).Elem()
+}
+
+func (i ConnectionHttpParametersArgs) ToConnectionHttpParametersOutput() ConnectionHttpParametersOutput {
+	return i.ToConnectionHttpParametersOutputWithContext(context.Background())
+}
+
+func (i ConnectionHttpParametersArgs) ToConnectionHttpParametersOutputWithContext(ctx context.Context) ConnectionHttpParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionHttpParametersOutput)
+}
+
+func (i ConnectionHttpParametersArgs) ToConnectionHttpParametersPtrOutput() ConnectionHttpParametersPtrOutput {
+	return i.ToConnectionHttpParametersPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionHttpParametersArgs) ToConnectionHttpParametersPtrOutputWithContext(ctx context.Context) ConnectionHttpParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionHttpParametersOutput).ToConnectionHttpParametersPtrOutputWithContext(ctx)
+}
+
+// ConnectionHttpParametersPtrInput is an input type that accepts ConnectionHttpParametersArgs, ConnectionHttpParametersPtr and ConnectionHttpParametersPtrOutput values.
+// You can construct a concrete instance of `ConnectionHttpParametersPtrInput` via:
+//
+//          ConnectionHttpParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type ConnectionHttpParametersPtrInput interface {
+	pulumi.Input
+
+	ToConnectionHttpParametersPtrOutput() ConnectionHttpParametersPtrOutput
+	ToConnectionHttpParametersPtrOutputWithContext(context.Context) ConnectionHttpParametersPtrOutput
+}
+
+type connectionHttpParametersPtrType ConnectionHttpParametersArgs
+
+func ConnectionHttpParametersPtr(v *ConnectionHttpParametersArgs) ConnectionHttpParametersPtrInput {
+	return (*connectionHttpParametersPtrType)(v)
+}
+
+func (*connectionHttpParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionHttpParameters)(nil)).Elem()
+}
+
+func (i *connectionHttpParametersPtrType) ToConnectionHttpParametersPtrOutput() ConnectionHttpParametersPtrOutput {
+	return i.ToConnectionHttpParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionHttpParametersPtrType) ToConnectionHttpParametersPtrOutputWithContext(ctx context.Context) ConnectionHttpParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionHttpParametersPtrOutput)
+}
+
+type ConnectionHttpParametersOutput struct{ *pulumi.OutputState }
+
+func (ConnectionHttpParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionHttpParameters)(nil)).Elem()
+}
+
+func (o ConnectionHttpParametersOutput) ToConnectionHttpParametersOutput() ConnectionHttpParametersOutput {
+	return o
+}
+
+func (o ConnectionHttpParametersOutput) ToConnectionHttpParametersOutputWithContext(ctx context.Context) ConnectionHttpParametersOutput {
+	return o
+}
+
+func (o ConnectionHttpParametersOutput) ToConnectionHttpParametersPtrOutput() ConnectionHttpParametersPtrOutput {
+	return o.ToConnectionHttpParametersPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionHttpParametersOutput) ToConnectionHttpParametersPtrOutputWithContext(ctx context.Context) ConnectionHttpParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionHttpParameters) *ConnectionHttpParameters {
+		return &v
+	}).(ConnectionHttpParametersPtrOutput)
+}
+
+func (o ConnectionHttpParametersOutput) BodyParameters() ConnectionParameterArrayOutput {
+	return o.ApplyT(func(v ConnectionHttpParameters) []ConnectionParameter { return v.BodyParameters }).(ConnectionParameterArrayOutput)
+}
+
+func (o ConnectionHttpParametersOutput) HeaderParameters() ConnectionParameterArrayOutput {
+	return o.ApplyT(func(v ConnectionHttpParameters) []ConnectionParameter { return v.HeaderParameters }).(ConnectionParameterArrayOutput)
+}
+
+func (o ConnectionHttpParametersOutput) QueryStringParameters() ConnectionParameterArrayOutput {
+	return o.ApplyT(func(v ConnectionHttpParameters) []ConnectionParameter { return v.QueryStringParameters }).(ConnectionParameterArrayOutput)
+}
+
+type ConnectionHttpParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionHttpParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionHttpParameters)(nil)).Elem()
+}
+
+func (o ConnectionHttpParametersPtrOutput) ToConnectionHttpParametersPtrOutput() ConnectionHttpParametersPtrOutput {
+	return o
+}
+
+func (o ConnectionHttpParametersPtrOutput) ToConnectionHttpParametersPtrOutputWithContext(ctx context.Context) ConnectionHttpParametersPtrOutput {
+	return o
+}
+
+func (o ConnectionHttpParametersPtrOutput) Elem() ConnectionHttpParametersOutput {
+	return o.ApplyT(func(v *ConnectionHttpParameters) ConnectionHttpParameters {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionHttpParameters
+		return ret
+	}).(ConnectionHttpParametersOutput)
+}
+
+func (o ConnectionHttpParametersPtrOutput) BodyParameters() ConnectionParameterArrayOutput {
+	return o.ApplyT(func(v *ConnectionHttpParameters) []ConnectionParameter {
+		if v == nil {
+			return nil
+		}
+		return v.BodyParameters
+	}).(ConnectionParameterArrayOutput)
+}
+
+func (o ConnectionHttpParametersPtrOutput) HeaderParameters() ConnectionParameterArrayOutput {
+	return o.ApplyT(func(v *ConnectionHttpParameters) []ConnectionParameter {
+		if v == nil {
+			return nil
+		}
+		return v.HeaderParameters
+	}).(ConnectionParameterArrayOutput)
+}
+
+func (o ConnectionHttpParametersPtrOutput) QueryStringParameters() ConnectionParameterArrayOutput {
+	return o.ApplyT(func(v *ConnectionHttpParameters) []ConnectionParameter {
+		if v == nil {
+			return nil
+		}
+		return v.QueryStringParameters
+	}).(ConnectionParameterArrayOutput)
+}
+
+type ConnectionOAuthParameters struct {
+	AuthorizationEndpoint string                              `pulumi:"authorizationEndpoint"`
+	ClientParameters      ConnectionClientParameters          `pulumi:"clientParameters"`
+	HttpMethod            ConnectionOAuthParametersHttpMethod `pulumi:"httpMethod"`
+	OAuthHttpParameters   *ConnectionHttpParameters           `pulumi:"oAuthHttpParameters"`
+}
+
+// ConnectionOAuthParametersInput is an input type that accepts ConnectionOAuthParametersArgs and ConnectionOAuthParametersOutput values.
+// You can construct a concrete instance of `ConnectionOAuthParametersInput` via:
+//
+//          ConnectionOAuthParametersArgs{...}
+type ConnectionOAuthParametersInput interface {
+	pulumi.Input
+
+	ToConnectionOAuthParametersOutput() ConnectionOAuthParametersOutput
+	ToConnectionOAuthParametersOutputWithContext(context.Context) ConnectionOAuthParametersOutput
+}
+
+type ConnectionOAuthParametersArgs struct {
+	AuthorizationEndpoint pulumi.StringInput                       `pulumi:"authorizationEndpoint"`
+	ClientParameters      ConnectionClientParametersInput          `pulumi:"clientParameters"`
+	HttpMethod            ConnectionOAuthParametersHttpMethodInput `pulumi:"httpMethod"`
+	OAuthHttpParameters   ConnectionHttpParametersPtrInput         `pulumi:"oAuthHttpParameters"`
+}
+
+func (ConnectionOAuthParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionOAuthParameters)(nil)).Elem()
+}
+
+func (i ConnectionOAuthParametersArgs) ToConnectionOAuthParametersOutput() ConnectionOAuthParametersOutput {
+	return i.ToConnectionOAuthParametersOutputWithContext(context.Background())
+}
+
+func (i ConnectionOAuthParametersArgs) ToConnectionOAuthParametersOutputWithContext(ctx context.Context) ConnectionOAuthParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionOAuthParametersOutput)
+}
+
+func (i ConnectionOAuthParametersArgs) ToConnectionOAuthParametersPtrOutput() ConnectionOAuthParametersPtrOutput {
+	return i.ToConnectionOAuthParametersPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionOAuthParametersArgs) ToConnectionOAuthParametersPtrOutputWithContext(ctx context.Context) ConnectionOAuthParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionOAuthParametersOutput).ToConnectionOAuthParametersPtrOutputWithContext(ctx)
+}
+
+// ConnectionOAuthParametersPtrInput is an input type that accepts ConnectionOAuthParametersArgs, ConnectionOAuthParametersPtr and ConnectionOAuthParametersPtrOutput values.
+// You can construct a concrete instance of `ConnectionOAuthParametersPtrInput` via:
+//
+//          ConnectionOAuthParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type ConnectionOAuthParametersPtrInput interface {
+	pulumi.Input
+
+	ToConnectionOAuthParametersPtrOutput() ConnectionOAuthParametersPtrOutput
+	ToConnectionOAuthParametersPtrOutputWithContext(context.Context) ConnectionOAuthParametersPtrOutput
+}
+
+type connectionOAuthParametersPtrType ConnectionOAuthParametersArgs
+
+func ConnectionOAuthParametersPtr(v *ConnectionOAuthParametersArgs) ConnectionOAuthParametersPtrInput {
+	return (*connectionOAuthParametersPtrType)(v)
+}
+
+func (*connectionOAuthParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionOAuthParameters)(nil)).Elem()
+}
+
+func (i *connectionOAuthParametersPtrType) ToConnectionOAuthParametersPtrOutput() ConnectionOAuthParametersPtrOutput {
+	return i.ToConnectionOAuthParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionOAuthParametersPtrType) ToConnectionOAuthParametersPtrOutputWithContext(ctx context.Context) ConnectionOAuthParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionOAuthParametersPtrOutput)
+}
+
+type ConnectionOAuthParametersOutput struct{ *pulumi.OutputState }
+
+func (ConnectionOAuthParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionOAuthParameters)(nil)).Elem()
+}
+
+func (o ConnectionOAuthParametersOutput) ToConnectionOAuthParametersOutput() ConnectionOAuthParametersOutput {
+	return o
+}
+
+func (o ConnectionOAuthParametersOutput) ToConnectionOAuthParametersOutputWithContext(ctx context.Context) ConnectionOAuthParametersOutput {
+	return o
+}
+
+func (o ConnectionOAuthParametersOutput) ToConnectionOAuthParametersPtrOutput() ConnectionOAuthParametersPtrOutput {
+	return o.ToConnectionOAuthParametersPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionOAuthParametersOutput) ToConnectionOAuthParametersPtrOutputWithContext(ctx context.Context) ConnectionOAuthParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionOAuthParameters) *ConnectionOAuthParameters {
+		return &v
+	}).(ConnectionOAuthParametersPtrOutput)
+}
+
+func (o ConnectionOAuthParametersOutput) AuthorizationEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionOAuthParameters) string { return v.AuthorizationEndpoint }).(pulumi.StringOutput)
+}
+
+func (o ConnectionOAuthParametersOutput) ClientParameters() ConnectionClientParametersOutput {
+	return o.ApplyT(func(v ConnectionOAuthParameters) ConnectionClientParameters { return v.ClientParameters }).(ConnectionClientParametersOutput)
+}
+
+func (o ConnectionOAuthParametersOutput) HttpMethod() ConnectionOAuthParametersHttpMethodOutput {
+	return o.ApplyT(func(v ConnectionOAuthParameters) ConnectionOAuthParametersHttpMethod { return v.HttpMethod }).(ConnectionOAuthParametersHttpMethodOutput)
+}
+
+func (o ConnectionOAuthParametersOutput) OAuthHttpParameters() ConnectionHttpParametersPtrOutput {
+	return o.ApplyT(func(v ConnectionOAuthParameters) *ConnectionHttpParameters { return v.OAuthHttpParameters }).(ConnectionHttpParametersPtrOutput)
+}
+
+type ConnectionOAuthParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionOAuthParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionOAuthParameters)(nil)).Elem()
+}
+
+func (o ConnectionOAuthParametersPtrOutput) ToConnectionOAuthParametersPtrOutput() ConnectionOAuthParametersPtrOutput {
+	return o
+}
+
+func (o ConnectionOAuthParametersPtrOutput) ToConnectionOAuthParametersPtrOutputWithContext(ctx context.Context) ConnectionOAuthParametersPtrOutput {
+	return o
+}
+
+func (o ConnectionOAuthParametersPtrOutput) Elem() ConnectionOAuthParametersOutput {
+	return o.ApplyT(func(v *ConnectionOAuthParameters) ConnectionOAuthParameters {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionOAuthParameters
+		return ret
+	}).(ConnectionOAuthParametersOutput)
+}
+
+func (o ConnectionOAuthParametersPtrOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionOAuthParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthorizationEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionOAuthParametersPtrOutput) ClientParameters() ConnectionClientParametersPtrOutput {
+	return o.ApplyT(func(v *ConnectionOAuthParameters) *ConnectionClientParameters {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientParameters
+	}).(ConnectionClientParametersPtrOutput)
+}
+
+func (o ConnectionOAuthParametersPtrOutput) HttpMethod() ConnectionOAuthParametersHttpMethodPtrOutput {
+	return o.ApplyT(func(v *ConnectionOAuthParameters) *ConnectionOAuthParametersHttpMethod {
+		if v == nil {
+			return nil
+		}
+		return &v.HttpMethod
+	}).(ConnectionOAuthParametersHttpMethodPtrOutput)
+}
+
+func (o ConnectionOAuthParametersPtrOutput) OAuthHttpParameters() ConnectionHttpParametersPtrOutput {
+	return o.ApplyT(func(v *ConnectionOAuthParameters) *ConnectionHttpParameters {
+		if v == nil {
+			return nil
+		}
+		return v.OAuthHttpParameters
+	}).(ConnectionHttpParametersPtrOutput)
+}
+
+type ConnectionParameter struct {
+	IsValueSecret *bool  `pulumi:"isValueSecret"`
+	Key           string `pulumi:"key"`
+	Value         string `pulumi:"value"`
+}
+
+// ConnectionParameterInput is an input type that accepts ConnectionParameterArgs and ConnectionParameterOutput values.
+// You can construct a concrete instance of `ConnectionParameterInput` via:
+//
+//          ConnectionParameterArgs{...}
+type ConnectionParameterInput interface {
+	pulumi.Input
+
+	ToConnectionParameterOutput() ConnectionParameterOutput
+	ToConnectionParameterOutputWithContext(context.Context) ConnectionParameterOutput
+}
+
+type ConnectionParameterArgs struct {
+	IsValueSecret pulumi.BoolPtrInput `pulumi:"isValueSecret"`
+	Key           pulumi.StringInput  `pulumi:"key"`
+	Value         pulumi.StringInput  `pulumi:"value"`
+}
+
+func (ConnectionParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionParameter)(nil)).Elem()
+}
+
+func (i ConnectionParameterArgs) ToConnectionParameterOutput() ConnectionParameterOutput {
+	return i.ToConnectionParameterOutputWithContext(context.Background())
+}
+
+func (i ConnectionParameterArgs) ToConnectionParameterOutputWithContext(ctx context.Context) ConnectionParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionParameterOutput)
+}
+
+// ConnectionParameterArrayInput is an input type that accepts ConnectionParameterArray and ConnectionParameterArrayOutput values.
+// You can construct a concrete instance of `ConnectionParameterArrayInput` via:
+//
+//          ConnectionParameterArray{ ConnectionParameterArgs{...} }
+type ConnectionParameterArrayInput interface {
+	pulumi.Input
+
+	ToConnectionParameterArrayOutput() ConnectionParameterArrayOutput
+	ToConnectionParameterArrayOutputWithContext(context.Context) ConnectionParameterArrayOutput
+}
+
+type ConnectionParameterArray []ConnectionParameterInput
+
+func (ConnectionParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectionParameter)(nil)).Elem()
+}
+
+func (i ConnectionParameterArray) ToConnectionParameterArrayOutput() ConnectionParameterArrayOutput {
+	return i.ToConnectionParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ConnectionParameterArray) ToConnectionParameterArrayOutputWithContext(ctx context.Context) ConnectionParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionParameterArrayOutput)
+}
+
+type ConnectionParameterOutput struct{ *pulumi.OutputState }
+
+func (ConnectionParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionParameter)(nil)).Elem()
+}
+
+func (o ConnectionParameterOutput) ToConnectionParameterOutput() ConnectionParameterOutput {
+	return o
+}
+
+func (o ConnectionParameterOutput) ToConnectionParameterOutputWithContext(ctx context.Context) ConnectionParameterOutput {
+	return o
+}
+
+func (o ConnectionParameterOutput) IsValueSecret() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConnectionParameter) *bool { return v.IsValueSecret }).(pulumi.BoolPtrOutput)
+}
+
+func (o ConnectionParameterOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionParameter) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o ConnectionParameterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionParameter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ConnectionParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ConnectionParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectionParameter)(nil)).Elem()
+}
+
+func (o ConnectionParameterArrayOutput) ToConnectionParameterArrayOutput() ConnectionParameterArrayOutput {
+	return o
+}
+
+func (o ConnectionParameterArrayOutput) ToConnectionParameterArrayOutputWithContext(ctx context.Context) ConnectionParameterArrayOutput {
+	return o
+}
+
+func (o ConnectionParameterArrayOutput) Index(i pulumi.IntInput) ConnectionParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectionParameter {
+		return vs[0].([]ConnectionParameter)[vs[1].(int)]
+	}).(ConnectionParameterOutput)
+}
+
 type EventBusPolicyCondition struct {
 	Key   *string `pulumi:"key"`
 	Type  *string `pulumi:"type"`
@@ -3125,6 +4194,20 @@ func (o RuleTargetArrayOutput) Index(i pulumi.IntInput) RuleTargetOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(AuthParametersPropertiesOutput{})
+	pulumi.RegisterOutputType(AuthParametersPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionApiKeyAuthParametersOutput{})
+	pulumi.RegisterOutputType(ConnectionApiKeyAuthParametersPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionBasicAuthParametersOutput{})
+	pulumi.RegisterOutputType(ConnectionBasicAuthParametersPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionClientParametersOutput{})
+	pulumi.RegisterOutputType(ConnectionClientParametersPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionHttpParametersOutput{})
+	pulumi.RegisterOutputType(ConnectionHttpParametersPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionOAuthParametersOutput{})
+	pulumi.RegisterOutputType(ConnectionOAuthParametersPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionParameterOutput{})
+	pulumi.RegisterOutputType(ConnectionParameterArrayOutput{})
 	pulumi.RegisterOutputType(EventBusPolicyConditionOutput{})
 	pulumi.RegisterOutputType(EventBusPolicyConditionPtrOutput{})
 	pulumi.RegisterOutputType(RuleAwsVpcConfigurationOutput{})

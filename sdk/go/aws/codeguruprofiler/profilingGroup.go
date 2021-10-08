@@ -16,7 +16,7 @@ type ProfilingGroup struct {
 	pulumi.CustomResourceState
 
 	// The agent permissions attached to this profiling group.
-	AgentPermissions pulumi.AnyOutput `pulumi:"agentPermissions"`
+	AgentPermissions AgentPermissionsPropertiesPtrOutput `pulumi:"agentPermissions"`
 	// Configuration for Notification Channels for Anomaly Detection feature in CodeGuru Profiler which enables customers to detect anomalies in the application profile for those methods that represent the highest proportion of CPU time or latency
 	AnomalyDetectionNotificationConfiguration ProfilingGroupChannelArrayOutput `pulumi:"anomalyDetectionNotificationConfiguration"`
 	// The Amazon Resource Name (ARN) of the specified profiling group.
@@ -72,7 +72,7 @@ func (ProfilingGroupState) ElementType() reflect.Type {
 
 type profilingGroupArgs struct {
 	// The agent permissions attached to this profiling group.
-	AgentPermissions interface{} `pulumi:"agentPermissions"`
+	AgentPermissions *AgentPermissionsProperties `pulumi:"agentPermissions"`
 	// Configuration for Notification Channels for Anomaly Detection feature in CodeGuru Profiler which enables customers to detect anomalies in the application profile for those methods that represent the highest proportion of CPU time or latency
 	AnomalyDetectionNotificationConfiguration []ProfilingGroupChannel `pulumi:"anomalyDetectionNotificationConfiguration"`
 	// The compute platform of the profiling group.
@@ -86,7 +86,7 @@ type profilingGroupArgs struct {
 // The set of arguments for constructing a ProfilingGroup resource.
 type ProfilingGroupArgs struct {
 	// The agent permissions attached to this profiling group.
-	AgentPermissions pulumi.Input
+	AgentPermissions AgentPermissionsPropertiesPtrInput
 	// Configuration for Notification Channels for Anomaly Detection feature in CodeGuru Profiler which enables customers to detect anomalies in the application profile for those methods that represent the highest proportion of CPU time or latency
 	AnomalyDetectionNotificationConfiguration ProfilingGroupChannelArrayInput
 	// The compute platform of the profiling group.

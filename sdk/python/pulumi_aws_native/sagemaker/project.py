@@ -17,12 +17,12 @@ __all__ = ['ProjectArgs', 'Project']
 class ProjectArgs:
     def __init__(__self__, *,
                  project_name: pulumi.Input[str],
-                 service_catalog_provisioning_details: Any,
+                 service_catalog_provisioning_details: pulumi.Input['ServiceCatalogProvisioningDetailsPropertiesArgs'],
                  project_description: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]] = None):
         """
         The set of arguments for constructing a Project resource.
-        :param Any service_catalog_provisioning_details: Input ServiceCatalog Provisioning Details
+        :param pulumi.Input['ServiceCatalogProvisioningDetailsPropertiesArgs'] service_catalog_provisioning_details: Input ServiceCatalog Provisioning Details
         :param pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "project_name", project_name)
@@ -43,14 +43,14 @@ class ProjectArgs:
 
     @property
     @pulumi.getter(name="serviceCatalogProvisioningDetails")
-    def service_catalog_provisioning_details(self) -> Any:
+    def service_catalog_provisioning_details(self) -> pulumi.Input['ServiceCatalogProvisioningDetailsPropertiesArgs']:
         """
         Input ServiceCatalog Provisioning Details
         """
         return pulumi.get(self, "service_catalog_provisioning_details")
 
     @service_catalog_provisioning_details.setter
-    def service_catalog_provisioning_details(self, value: Any):
+    def service_catalog_provisioning_details(self, value: pulumi.Input['ServiceCatalogProvisioningDetailsPropertiesArgs']):
         pulumi.set(self, "service_catalog_provisioning_details", value)
 
     @property
@@ -82,7 +82,7 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  project_description: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 service_catalog_provisioning_details: Optional[Any] = None,
+                 service_catalog_provisioning_details: Optional[pulumi.Input[pulumi.InputType['ServiceCatalogProvisioningDetailsPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -90,7 +90,7 @@ class Project(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any service_catalog_provisioning_details: Input ServiceCatalog Provisioning Details
+        :param pulumi.Input[pulumi.InputType['ServiceCatalogProvisioningDetailsPropertiesArgs']] service_catalog_provisioning_details: Input ServiceCatalog Provisioning Details
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -119,7 +119,7 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  project_description: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 service_catalog_provisioning_details: Optional[Any] = None,
+                 service_catalog_provisioning_details: Optional[pulumi.Input[pulumi.InputType['ServiceCatalogProvisioningDetailsPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -217,7 +217,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceCatalogProvisionedProductDetails")
-    def service_catalog_provisioned_product_details(self) -> pulumi.Output[Any]:
+    def service_catalog_provisioned_product_details(self) -> pulumi.Output['outputs.ServiceCatalogProvisionedProductDetailsProperties']:
         """
         Provisioned ServiceCatalog  Details
         """
@@ -225,7 +225,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceCatalogProvisioningDetails")
-    def service_catalog_provisioning_details(self) -> pulumi.Output[Any]:
+    def service_catalog_provisioning_details(self) -> pulumi.Output['outputs.ServiceCatalogProvisioningDetailsProperties']:
         """
         Input ServiceCatalog Provisioning Details
         """

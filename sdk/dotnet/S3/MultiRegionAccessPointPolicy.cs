@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.S3
         /// The Policy Status associated with this Multi Region Access Point
         /// </summary>
         [Output("policyStatus")]
-        public Output<object> PolicyStatus { get; private set; } = null!;
+        public Output<Outputs.PolicyStatusProperties> PolicyStatus { get; private set; } = null!;
 
 
         /// <summary>

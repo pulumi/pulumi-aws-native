@@ -197,6 +197,36 @@ namespace Pulumi.AwsNative.ImageBuilder
     }
 
     /// <summary>
+    /// The service of target container repository.
+    /// </summary>
+    [EnumType]
+    public readonly struct DistributionConfigurationTargetContainerRepositoryService : IEquatable<DistributionConfigurationTargetContainerRepositoryService>
+    {
+        private readonly string _value;
+
+        private DistributionConfigurationTargetContainerRepositoryService(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DistributionConfigurationTargetContainerRepositoryService Ecr { get; } = new DistributionConfigurationTargetContainerRepositoryService("ECR");
+
+        public static bool operator ==(DistributionConfigurationTargetContainerRepositoryService left, DistributionConfigurationTargetContainerRepositoryService right) => left.Equals(right);
+        public static bool operator !=(DistributionConfigurationTargetContainerRepositoryService left, DistributionConfigurationTargetContainerRepositoryService right) => !left.Equals(right);
+
+        public static explicit operator string(DistributionConfigurationTargetContainerRepositoryService value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DistributionConfigurationTargetContainerRepositoryService other && Equals(other);
+        public bool Equals(DistributionConfigurationTargetContainerRepositoryService other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The condition configures when the pipeline should trigger a new image build.
     /// </summary>
     [EnumType]

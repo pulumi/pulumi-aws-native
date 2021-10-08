@@ -13,8 +13,11 @@ from ._enums import *
 __all__ = [
     'AccessPointVpcConfiguration',
     'BucketAbortIncompleteMultipartUpload',
+    'BucketFilterAndOperator',
+    'BucketFilterTag',
     'BucketLifecycleConfiguration',
     'BucketRule',
+    'BucketRuleFilterProperties',
     'BucketTag',
     'EndpointNetworkInterface',
 ]
@@ -95,6 +98,37 @@ class BucketAbortIncompleteMultipartUpload(dict):
 
 
 @pulumi.output_type
+class BucketFilterAndOperator(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class BucketFilterTag(dict):
+    """
+    Tag used to identify a subset of objects for an Amazon S3Outposts bucket.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        Tag used to identify a subset of objects for an Amazon S3Outposts bucket.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class BucketLifecycleConfiguration(dict):
     def __init__(__self__, *,
                  rules: Sequence['outputs.BucketRule']):
@@ -142,7 +176,7 @@ class BucketRule(dict):
                  abort_incomplete_multipart_upload: Optional['outputs.BucketAbortIncompleteMultipartUpload'] = None,
                  expiration_date: Optional[str] = None,
                  expiration_in_days: Optional[int] = None,
-                 filter: Optional[Any] = None,
+                 filter: Optional['outputs.BucketRuleFilterProperties'] = None,
                  id: Optional[str] = None,
                  status: Optional['BucketRuleStatus'] = None):
         """
@@ -150,7 +184,7 @@ class BucketRule(dict):
         :param 'BucketAbortIncompleteMultipartUpload' abort_incomplete_multipart_upload: Specifies a lifecycle rule that stops incomplete multipart uploads to an Amazon S3Outposts bucket.
         :param str expiration_date: Indicates when objects are deleted from Amazon S3Outposts. The date value must be in ISO 8601 format. The time is always midnight UTC.
         :param int expiration_in_days: Indicates the number of days after creation when objects are deleted from Amazon S3Outposts.
-        :param Any filter: The container for the filter of the lifecycle rule.
+        :param 'BucketRuleFilterProperties' filter: The container for the filter of the lifecycle rule.
         :param str id: Unique identifier for the lifecycle rule. The value can't be longer than 255 characters.
         """
         if abort_incomplete_multipart_upload is not None:
@@ -192,7 +226,7 @@ class BucketRule(dict):
 
     @property
     @pulumi.getter
-    def filter(self) -> Optional[Any]:
+    def filter(self) -> Optional['outputs.BucketRuleFilterProperties']:
         """
         The container for the filter of the lifecycle rule.
         """
@@ -210,6 +244,70 @@ class BucketRule(dict):
     @pulumi.getter
     def status(self) -> Optional['BucketRuleStatus']:
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class BucketRuleFilterProperties(dict):
+    """
+    The container for the filter of the lifecycle rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "andOperator":
+            suggest = "and_operator"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketRuleFilterProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketRuleFilterProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketRuleFilterProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 and_operator: Optional['outputs.BucketFilterAndOperator'] = None,
+                 prefix: Optional[str] = None,
+                 tag: Optional['outputs.BucketFilterTag'] = None):
+        """
+        The container for the filter of the lifecycle rule.
+        :param 'BucketFilterAndOperator' and_operator: The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags.
+        :param str prefix: Object key prefix that identifies one or more objects to which this rule applies.
+        :param 'BucketFilterTag' tag: Specifies a tag used to identify a subset of objects for an Amazon S3Outposts bucket.
+        """
+        if and_operator is not None:
+            pulumi.set(__self__, "and_operator", and_operator)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if tag is not None:
+            pulumi.set(__self__, "tag", tag)
+
+    @property
+    @pulumi.getter(name="andOperator")
+    def and_operator(self) -> Optional['outputs.BucketFilterAndOperator']:
+        """
+        The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags.
+        """
+        return pulumi.get(self, "and_operator")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        """
+        Object key prefix that identifies one or more objects to which this rule applies.
+        """
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter
+    def tag(self) -> Optional['outputs.BucketFilterTag']:
+        """
+        Specifies a tag used to identify a subset of objects for an Amazon S3Outposts bucket.
+        """
+        return pulumi.get(self, "tag")
 
 
 @pulumi.output_type

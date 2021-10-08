@@ -11,11 +11,24 @@ from ._enums import *
 
 __all__ = [
     'IPSetTagArgs',
+    'LoggingConfigurationConditionActionConditionPropertiesArgs',
+    'LoggingConfigurationConditionLabelNameConditionPropertiesArgs',
+    'LoggingConfigurationConditionArgs',
+    'LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs',
+    'LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs',
+    'LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs',
     'LoggingConfigurationFieldToMatchArgs',
+    'LoggingConfigurationFilterArgs',
+    'LoggingFilterPropertiesArgs',
     'RegexPatternSetTagArgs',
     'RuleGroupAndStatementArgs',
     'RuleGroupByteMatchStatementArgs',
+    'RuleGroupCustomHTTPHeaderArgs',
+    'RuleGroupCustomRequestHandlingArgs',
     'RuleGroupCustomResponseBodiesArgs',
+    'RuleGroupCustomResponseArgs',
+    'RuleGroupFieldToMatchSingleHeaderPropertiesArgs',
+    'RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs',
     'RuleGroupFieldToMatchArgs',
     'RuleGroupForwardedIPConfigurationArgs',
     'RuleGroupGeoMatchStatementArgs',
@@ -29,6 +42,9 @@ __all__ = [
     'RuleGroupOrStatementArgs',
     'RuleGroupRateBasedStatementArgs',
     'RuleGroupRegexPatternSetReferenceStatementArgs',
+    'RuleGroupRuleActionAllowPropertiesArgs',
+    'RuleGroupRuleActionBlockPropertiesArgs',
+    'RuleGroupRuleActionCountPropertiesArgs',
     'RuleGroupRuleActionArgs',
     'RuleGroupRuleArgs',
     'RuleGroupSizeConstraintStatementArgs',
@@ -49,6 +65,8 @@ __all__ = [
     'WebACLCustomResponseArgs',
     'WebACLDefaultActionArgs',
     'WebACLExcludedRuleArgs',
+    'WebACLFieldToMatchSingleHeaderPropertiesArgs',
+    'WebACLFieldToMatchSingleQueryArgumentPropertiesArgs',
     'WebACLFieldToMatchArgs',
     'WebACLForwardedIPConfigurationArgs',
     'WebACLGeoMatchStatementArgs',
@@ -106,19 +124,221 @@ class IPSetTagArgs:
 
 
 @pulumi.input_type
+class LoggingConfigurationConditionActionConditionPropertiesArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input['LoggingConfigurationConditionActionConditionPropertiesAction']):
+        """
+        A single action condition.
+        :param pulumi.Input['LoggingConfigurationConditionActionConditionPropertiesAction'] action: Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
+        """
+        pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input['LoggingConfigurationConditionActionConditionPropertiesAction']:
+        """
+        Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input['LoggingConfigurationConditionActionConditionPropertiesAction']):
+        pulumi.set(self, "action", value)
+
+
+@pulumi.input_type
+class LoggingConfigurationConditionLabelNameConditionPropertiesArgs:
+    def __init__(__self__, *,
+                 label_name: pulumi.Input[str]):
+        """
+        A single label name condition.
+        :param pulumi.Input[str] label_name: The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label. 
+        """
+        pulumi.set(__self__, "label_name", label_name)
+
+    @property
+    @pulumi.getter(name="labelName")
+    def label_name(self) -> pulumi.Input[str]:
+        """
+        The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label. 
+        """
+        return pulumi.get(self, "label_name")
+
+    @label_name.setter
+    def label_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "label_name", value)
+
+
+@pulumi.input_type
+class LoggingConfigurationConditionArgs:
+    def __init__(__self__, *,
+                 action_condition: Optional[pulumi.Input['LoggingConfigurationConditionActionConditionPropertiesArgs']] = None,
+                 label_name_condition: Optional[pulumi.Input['LoggingConfigurationConditionLabelNameConditionPropertiesArgs']] = None):
+        """
+        :param pulumi.Input['LoggingConfigurationConditionActionConditionPropertiesArgs'] action_condition: A single action condition.
+        :param pulumi.Input['LoggingConfigurationConditionLabelNameConditionPropertiesArgs'] label_name_condition: A single label name condition.
+        """
+        if action_condition is not None:
+            pulumi.set(__self__, "action_condition", action_condition)
+        if label_name_condition is not None:
+            pulumi.set(__self__, "label_name_condition", label_name_condition)
+
+    @property
+    @pulumi.getter(name="actionCondition")
+    def action_condition(self) -> Optional[pulumi.Input['LoggingConfigurationConditionActionConditionPropertiesArgs']]:
+        """
+        A single action condition.
+        """
+        return pulumi.get(self, "action_condition")
+
+    @action_condition.setter
+    def action_condition(self, value: Optional[pulumi.Input['LoggingConfigurationConditionActionConditionPropertiesArgs']]):
+        pulumi.set(self, "action_condition", value)
+
+    @property
+    @pulumi.getter(name="labelNameCondition")
+    def label_name_condition(self) -> Optional[pulumi.Input['LoggingConfigurationConditionLabelNameConditionPropertiesArgs']]:
+        """
+        A single label name condition.
+        """
+        return pulumi.get(self, "label_name_condition")
+
+    @label_name_condition.setter
+    def label_name_condition(self, value: Optional[pulumi.Input['LoggingConfigurationConditionLabelNameConditionPropertiesArgs']]):
+        pulumi.set(self, "label_name_condition", value)
+
+
+@pulumi.input_type
+class LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs:
+    def __init__(__self__, *,
+                 all: Optional[Any] = None,
+                 included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. 
+        :param Any all: Match all of the elements. See also MatchScope in JsonBody. You must specify either this setting or the IncludedPaths setting, but not both.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] included_paths: Match only the specified include paths. See also MatchScope in JsonBody.
+        """
+        if all is not None:
+            pulumi.set(__self__, "all", all)
+        if included_paths is not None:
+            pulumi.set(__self__, "included_paths", included_paths)
+
+    @property
+    @pulumi.getter
+    def all(self) -> Optional[Any]:
+        """
+        Match all of the elements. See also MatchScope in JsonBody. You must specify either this setting or the IncludedPaths setting, but not both.
+        """
+        return pulumi.get(self, "all")
+
+    @all.setter
+    def all(self, value: Optional[Any]):
+        pulumi.set(self, "all", value)
+
+    @property
+    @pulumi.getter(name="includedPaths")
+    def included_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Match only the specified include paths. See also MatchScope in JsonBody.
+        """
+        return pulumi.get(self, "included_paths")
+
+    @included_paths.setter
+    def included_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "included_paths", value)
+
+
+@pulumi.input_type
+class LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs:
+    def __init__(__self__, *,
+                 match_pattern: pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs'],
+                 match_scope: pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope'],
+                 invalid_fallback_behavior: Optional[pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior']] = None):
+        """
+        Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
+        :param pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs'] match_pattern: The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. 
+        :param pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope'] match_scope: The parts of the JSON to match against using the MatchPattern. If you specify All, AWS WAF matches against keys and values. 
+        :param pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior'] invalid_fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body.
+        """
+        pulumi.set(__self__, "match_pattern", match_pattern)
+        pulumi.set(__self__, "match_scope", match_scope)
+        if invalid_fallback_behavior is not None:
+            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+
+    @property
+    @pulumi.getter(name="matchPattern")
+    def match_pattern(self) -> pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs']:
+        """
+        The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. 
+        """
+        return pulumi.get(self, "match_pattern")
+
+    @match_pattern.setter
+    def match_pattern(self, value: pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs']):
+        pulumi.set(self, "match_pattern", value)
+
+    @property
+    @pulumi.getter(name="matchScope")
+    def match_scope(self) -> pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope']:
+        """
+        The parts of the JSON to match against using the MatchPattern. If you specify All, AWS WAF matches against keys and values. 
+        """
+        return pulumi.get(self, "match_scope")
+
+    @match_scope.setter
+    def match_scope(self, value: pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope']):
+        pulumi.set(self, "match_scope", value)
+
+    @property
+    @pulumi.getter(name="invalidFallbackBehavior")
+    def invalid_fallback_behavior(self) -> Optional[pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior']]:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body.
+        """
+        return pulumi.get(self, "invalid_fallback_behavior")
+
+    @invalid_fallback_behavior.setter
+    def invalid_fallback_behavior(self, value: Optional[pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior']]):
+        pulumi.set(self, "invalid_fallback_behavior", value)
+
+
+@pulumi.input_type
+class LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str]):
+        """
+        Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
+        :param pulumi.Input[str] name: The name of the query header to inspect.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the query header to inspect.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
 class LoggingConfigurationFieldToMatchArgs:
     def __init__(__self__, *,
-                 json_body: Optional[Any] = None,
+                 json_body: Optional[pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs']] = None,
                  method: Optional[Any] = None,
                  query_string: Optional[Any] = None,
-                 single_header: Optional[Any] = None,
+                 single_header: Optional[pulumi.Input['LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs']] = None,
                  uri_path: Optional[Any] = None):
         """
         A key-value pair to associate with a resource.
-        :param Any json_body: Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
+        :param pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs'] json_body: Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
         :param Any method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform. 
         :param Any query_string: Inspect the query string. This is the part of a URL that appears after a ? character, if any. 
-        :param Any single_header: Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
+        :param pulumi.Input['LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs'] single_header: Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
         :param Any uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg. 
         """
         if json_body is not None:
@@ -134,14 +354,14 @@ class LoggingConfigurationFieldToMatchArgs:
 
     @property
     @pulumi.getter(name="jsonBody")
-    def json_body(self) -> Optional[Any]:
+    def json_body(self) -> Optional[pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs']]:
         """
         Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
         """
         return pulumi.get(self, "json_body")
 
     @json_body.setter
-    def json_body(self, value: Optional[Any]):
+    def json_body(self, value: Optional[pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs']]):
         pulumi.set(self, "json_body", value)
 
     @property
@@ -170,14 +390,14 @@ class LoggingConfigurationFieldToMatchArgs:
 
     @property
     @pulumi.getter(name="singleHeader")
-    def single_header(self) -> Optional[Any]:
+    def single_header(self) -> Optional[pulumi.Input['LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs']]:
         """
         Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
         """
         return pulumi.get(self, "single_header")
 
     @single_header.setter
-    def single_header(self, value: Optional[Any]):
+    def single_header(self, value: Optional[pulumi.Input['LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs']]):
         pulumi.set(self, "single_header", value)
 
     @property
@@ -191,6 +411,96 @@ class LoggingConfigurationFieldToMatchArgs:
     @uri_path.setter
     def uri_path(self, value: Optional[Any]):
         pulumi.set(self, "uri_path", value)
+
+
+@pulumi.input_type
+class LoggingConfigurationFilterArgs:
+    def __init__(__self__, *,
+                 behavior: pulumi.Input['LoggingConfigurationFilterBehavior'],
+                 conditions: pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationConditionArgs']]],
+                 requirement: pulumi.Input['LoggingConfigurationFilterRequirement']):
+        """
+        :param pulumi.Input['LoggingConfigurationFilterBehavior'] behavior: How to handle logs that satisfy the filter's conditions and requirement. 
+        :param pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationConditionArgs']]] conditions: Match conditions for the filter.
+        :param pulumi.Input['LoggingConfigurationFilterRequirement'] requirement: Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
+        """
+        pulumi.set(__self__, "behavior", behavior)
+        pulumi.set(__self__, "conditions", conditions)
+        pulumi.set(__self__, "requirement", requirement)
+
+    @property
+    @pulumi.getter
+    def behavior(self) -> pulumi.Input['LoggingConfigurationFilterBehavior']:
+        """
+        How to handle logs that satisfy the filter's conditions and requirement. 
+        """
+        return pulumi.get(self, "behavior")
+
+    @behavior.setter
+    def behavior(self, value: pulumi.Input['LoggingConfigurationFilterBehavior']):
+        pulumi.set(self, "behavior", value)
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationConditionArgs']]]:
+        """
+        Match conditions for the filter.
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationConditionArgs']]]):
+        pulumi.set(self, "conditions", value)
+
+    @property
+    @pulumi.getter
+    def requirement(self) -> pulumi.Input['LoggingConfigurationFilterRequirement']:
+        """
+        Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
+        """
+        return pulumi.get(self, "requirement")
+
+    @requirement.setter
+    def requirement(self, value: pulumi.Input['LoggingConfigurationFilterRequirement']):
+        pulumi.set(self, "requirement", value)
+
+
+@pulumi.input_type
+class LoggingFilterPropertiesArgs:
+    def __init__(__self__, *,
+                 default_behavior: pulumi.Input['LoggingConfigurationLoggingFilterPropertiesDefaultBehavior'],
+                 filters: pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationFilterArgs']]]):
+        """
+        Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
+        :param pulumi.Input['LoggingConfigurationLoggingFilterPropertiesDefaultBehavior'] default_behavior: Default handling for logs that don't match any of the specified filtering conditions.
+        :param pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationFilterArgs']]] filters: The filters that you want to apply to the logs.
+        """
+        pulumi.set(__self__, "default_behavior", default_behavior)
+        pulumi.set(__self__, "filters", filters)
+
+    @property
+    @pulumi.getter(name="defaultBehavior")
+    def default_behavior(self) -> pulumi.Input['LoggingConfigurationLoggingFilterPropertiesDefaultBehavior']:
+        """
+        Default handling for logs that don't match any of the specified filtering conditions.
+        """
+        return pulumi.get(self, "default_behavior")
+
+    @default_behavior.setter
+    def default_behavior(self, value: pulumi.Input['LoggingConfigurationLoggingFilterPropertiesDefaultBehavior']):
+        pulumi.set(self, "default_behavior", value)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationFilterArgs']]]:
+        """
+        The filters that you want to apply to the logs.
+        """
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationFilterArgs']]]):
+        pulumi.set(self, "filters", value)
 
 
 @pulumi.input_type
@@ -304,12 +614,151 @@ class RuleGroupByteMatchStatementArgs:
 
 
 @pulumi.input_type
+class RuleGroupCustomHTTPHeaderArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        HTTP header.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class RuleGroupCustomRequestHandlingArgs:
+    def __init__(__self__, *,
+                 insert_headers: pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHTTPHeaderArgs']]]):
+        """
+        Custom request handling.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHTTPHeaderArgs']]] insert_headers: Collection of HTTP headers.
+        """
+        pulumi.set(__self__, "insert_headers", insert_headers)
+
+    @property
+    @pulumi.getter(name="insertHeaders")
+    def insert_headers(self) -> pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHTTPHeaderArgs']]]:
+        """
+        Collection of HTTP headers.
+        """
+        return pulumi.get(self, "insert_headers")
+
+    @insert_headers.setter
+    def insert_headers(self, value: pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHTTPHeaderArgs']]]):
+        pulumi.set(self, "insert_headers", value)
+
+
+@pulumi.input_type
 class RuleGroupCustomResponseBodiesArgs:
     def __init__(__self__):
         """
         Custom response key and body map.
         """
         pass
+
+
+@pulumi.input_type
+class RuleGroupCustomResponseArgs:
+    def __init__(__self__, *,
+                 response_code: pulumi.Input[int],
+                 custom_response_body_key: Optional[pulumi.Input[str]] = None,
+                 response_headers: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHTTPHeaderArgs']]]] = None):
+        """
+        Custom response.
+        :param pulumi.Input[str] custom_response_body_key: Custom response body key.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHTTPHeaderArgs']]] response_headers: Collection of HTTP headers.
+        """
+        pulumi.set(__self__, "response_code", response_code)
+        if custom_response_body_key is not None:
+            pulumi.set(__self__, "custom_response_body_key", custom_response_body_key)
+        if response_headers is not None:
+            pulumi.set(__self__, "response_headers", response_headers)
+
+    @property
+    @pulumi.getter(name="responseCode")
+    def response_code(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "response_code")
+
+    @response_code.setter
+    def response_code(self, value: pulumi.Input[int]):
+        pulumi.set(self, "response_code", value)
+
+    @property
+    @pulumi.getter(name="customResponseBodyKey")
+    def custom_response_body_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Custom response body key.
+        """
+        return pulumi.get(self, "custom_response_body_key")
+
+    @custom_response_body_key.setter
+    def custom_response_body_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_response_body_key", value)
+
+    @property
+    @pulumi.getter(name="responseHeaders")
+    def response_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHTTPHeaderArgs']]]]:
+        """
+        Collection of HTTP headers.
+        """
+        return pulumi.get(self, "response_headers")
+
+    @response_headers.setter
+    def response_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHTTPHeaderArgs']]]]):
+        pulumi.set(self, "response_headers", value)
+
+
+@pulumi.input_type
+class RuleGroupFieldToMatchSingleHeaderPropertiesArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str]):
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str]):
+        """
+        One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
@@ -320,8 +769,8 @@ class RuleGroupFieldToMatchArgs:
                  json_body: Optional[pulumi.Input['RuleGroupJsonBodyArgs']] = None,
                  method: Optional[Any] = None,
                  query_string: Optional[Any] = None,
-                 single_header: Optional[Any] = None,
-                 single_query_argument: Optional[Any] = None,
+                 single_header: Optional[pulumi.Input['RuleGroupFieldToMatchSingleHeaderPropertiesArgs']] = None,
+                 single_query_argument: Optional[pulumi.Input['RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs']] = None,
                  uri_path: Optional[Any] = None):
         """
         Field of the request to match.
@@ -329,7 +778,7 @@ class RuleGroupFieldToMatchArgs:
         :param Any body: The body of a web request. This immediately follows the request headers.
         :param Any method: The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
         :param Any query_string: The query string of a web request. This is the part of a URL that appears after a ? character, if any.
-        :param Any single_query_argument: One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
+        :param pulumi.Input['RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs'] single_query_argument: One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
         :param Any uri_path: The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
         """
         if all_query_arguments is not None:
@@ -408,23 +857,23 @@ class RuleGroupFieldToMatchArgs:
 
     @property
     @pulumi.getter(name="singleHeader")
-    def single_header(self) -> Optional[Any]:
+    def single_header(self) -> Optional[pulumi.Input['RuleGroupFieldToMatchSingleHeaderPropertiesArgs']]:
         return pulumi.get(self, "single_header")
 
     @single_header.setter
-    def single_header(self, value: Optional[Any]):
+    def single_header(self, value: Optional[pulumi.Input['RuleGroupFieldToMatchSingleHeaderPropertiesArgs']]):
         pulumi.set(self, "single_header", value)
 
     @property
     @pulumi.getter(name="singleQueryArgument")
-    def single_query_argument(self) -> Optional[Any]:
+    def single_query_argument(self) -> Optional[pulumi.Input['RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs']]:
         """
         One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
         """
         return pulumi.get(self, "single_query_argument")
 
     @single_query_argument.setter
-    def single_query_argument(self, value: Optional[Any]):
+    def single_query_argument(self, value: Optional[pulumi.Input['RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs']]):
         pulumi.set(self, "single_query_argument", value)
 
     @property
@@ -805,16 +1254,76 @@ class RuleGroupRegexPatternSetReferenceStatementArgs:
 
 
 @pulumi.input_type
+class RuleGroupRuleActionAllowPropertiesArgs:
+    def __init__(__self__, *,
+                 custom_request_handling: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']] = None):
+        """
+        Allow traffic towards application.
+        """
+        if custom_request_handling is not None:
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+
+    @property
+    @pulumi.getter(name="customRequestHandling")
+    def custom_request_handling(self) -> Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']]:
+        return pulumi.get(self, "custom_request_handling")
+
+    @custom_request_handling.setter
+    def custom_request_handling(self, value: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']]):
+        pulumi.set(self, "custom_request_handling", value)
+
+
+@pulumi.input_type
+class RuleGroupRuleActionBlockPropertiesArgs:
+    def __init__(__self__, *,
+                 custom_response: Optional[pulumi.Input['RuleGroupCustomResponseArgs']] = None):
+        """
+        Block traffic towards application.
+        """
+        if custom_response is not None:
+            pulumi.set(__self__, "custom_response", custom_response)
+
+    @property
+    @pulumi.getter(name="customResponse")
+    def custom_response(self) -> Optional[pulumi.Input['RuleGroupCustomResponseArgs']]:
+        return pulumi.get(self, "custom_response")
+
+    @custom_response.setter
+    def custom_response(self, value: Optional[pulumi.Input['RuleGroupCustomResponseArgs']]):
+        pulumi.set(self, "custom_response", value)
+
+
+@pulumi.input_type
+class RuleGroupRuleActionCountPropertiesArgs:
+    def __init__(__self__, *,
+                 custom_request_handling: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']] = None):
+        """
+        Count traffic towards application.
+        """
+        if custom_request_handling is not None:
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+
+    @property
+    @pulumi.getter(name="customRequestHandling")
+    def custom_request_handling(self) -> Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']]:
+        return pulumi.get(self, "custom_request_handling")
+
+    @custom_request_handling.setter
+    def custom_request_handling(self, value: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']]):
+        pulumi.set(self, "custom_request_handling", value)
+
+
+@pulumi.input_type
 class RuleGroupRuleActionArgs:
     def __init__(__self__, *,
-                 allow: Optional[Any] = None,
-                 block: Optional[Any] = None,
-                 count: Optional[Any] = None):
+                 allow: Optional[pulumi.Input['RuleGroupRuleActionAllowPropertiesArgs']] = None,
+                 block: Optional[pulumi.Input['RuleGroupRuleActionBlockPropertiesArgs']] = None,
+                 count: Optional[pulumi.Input['RuleGroupRuleActionCountPropertiesArgs']] = None):
         """
         Action taken when Rule matches its condition.
-        :param Any allow: Allow traffic towards application.
-        :param Any block: Block traffic towards application.
-        :param Any count: Count traffic towards application.
+        :param pulumi.Input['RuleGroupRuleActionAllowPropertiesArgs'] allow: Allow traffic towards application.
+        :param pulumi.Input['RuleGroupRuleActionBlockPropertiesArgs'] block: Block traffic towards application.
+        :param pulumi.Input['RuleGroupRuleActionCountPropertiesArgs'] count: Count traffic towards application.
         """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
@@ -825,38 +1334,38 @@ class RuleGroupRuleActionArgs:
 
     @property
     @pulumi.getter
-    def allow(self) -> Optional[Any]:
+    def allow(self) -> Optional[pulumi.Input['RuleGroupRuleActionAllowPropertiesArgs']]:
         """
         Allow traffic towards application.
         """
         return pulumi.get(self, "allow")
 
     @allow.setter
-    def allow(self, value: Optional[Any]):
+    def allow(self, value: Optional[pulumi.Input['RuleGroupRuleActionAllowPropertiesArgs']]):
         pulumi.set(self, "allow", value)
 
     @property
     @pulumi.getter
-    def block(self) -> Optional[Any]:
+    def block(self) -> Optional[pulumi.Input['RuleGroupRuleActionBlockPropertiesArgs']]:
         """
         Block traffic towards application.
         """
         return pulumi.get(self, "block")
 
     @block.setter
-    def block(self, value: Optional[Any]):
+    def block(self, value: Optional[pulumi.Input['RuleGroupRuleActionBlockPropertiesArgs']]):
         pulumi.set(self, "block", value)
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[Any]:
+    def count(self) -> Optional[pulumi.Input['RuleGroupRuleActionCountPropertiesArgs']]:
         """
         Count traffic towards application.
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[Any]):
+    def count(self, value: Optional[pulumi.Input['RuleGroupRuleActionCountPropertiesArgs']]):
         pulumi.set(self, "count", value)
 
 
@@ -1610,6 +2119,41 @@ class WebACLExcludedRuleArgs:
 
 
 @pulumi.input_type
+class WebACLFieldToMatchSingleHeaderPropertiesArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str]):
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class WebACLFieldToMatchSingleQueryArgumentPropertiesArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str]):
+        """
+        One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
 class WebACLFieldToMatchArgs:
     def __init__(__self__, *,
                  all_query_arguments: Optional[Any] = None,
@@ -1617,8 +2161,8 @@ class WebACLFieldToMatchArgs:
                  json_body: Optional[pulumi.Input['WebACLJsonBodyArgs']] = None,
                  method: Optional[Any] = None,
                  query_string: Optional[Any] = None,
-                 single_header: Optional[Any] = None,
-                 single_query_argument: Optional[Any] = None,
+                 single_header: Optional[pulumi.Input['WebACLFieldToMatchSingleHeaderPropertiesArgs']] = None,
+                 single_query_argument: Optional[pulumi.Input['WebACLFieldToMatchSingleQueryArgumentPropertiesArgs']] = None,
                  uri_path: Optional[Any] = None):
         """
         Field of the request to match.
@@ -1626,7 +2170,7 @@ class WebACLFieldToMatchArgs:
         :param Any body: The body of a web request. This immediately follows the request headers.
         :param Any method: The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
         :param Any query_string: The query string of a web request. This is the part of a URL that appears after a ? character, if any.
-        :param Any single_query_argument: One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
+        :param pulumi.Input['WebACLFieldToMatchSingleQueryArgumentPropertiesArgs'] single_query_argument: One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
         :param Any uri_path: The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
         """
         if all_query_arguments is not None:
@@ -1705,23 +2249,23 @@ class WebACLFieldToMatchArgs:
 
     @property
     @pulumi.getter(name="singleHeader")
-    def single_header(self) -> Optional[Any]:
+    def single_header(self) -> Optional[pulumi.Input['WebACLFieldToMatchSingleHeaderPropertiesArgs']]:
         return pulumi.get(self, "single_header")
 
     @single_header.setter
-    def single_header(self, value: Optional[Any]):
+    def single_header(self, value: Optional[pulumi.Input['WebACLFieldToMatchSingleHeaderPropertiesArgs']]):
         pulumi.set(self, "single_header", value)
 
     @property
     @pulumi.getter(name="singleQueryArgument")
-    def single_query_argument(self) -> Optional[Any]:
+    def single_query_argument(self) -> Optional[pulumi.Input['WebACLFieldToMatchSingleQueryArgumentPropertiesArgs']]:
         """
         One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
         """
         return pulumi.get(self, "single_query_argument")
 
     @single_query_argument.setter
-    def single_query_argument(self, value: Optional[Any]):
+    def single_query_argument(self, value: Optional[pulumi.Input['WebACLFieldToMatchSingleQueryArgumentPropertiesArgs']]):
         pulumi.set(self, "single_query_argument", value)
 
     @property

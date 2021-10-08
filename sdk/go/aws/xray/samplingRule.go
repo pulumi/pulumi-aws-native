@@ -14,12 +14,12 @@ import (
 type SamplingRule struct {
 	pulumi.CustomResourceState
 
-	RuleARN            pulumi.StringOutput         `pulumi:"ruleARN"`
-	RuleName           pulumi.StringPtrOutput      `pulumi:"ruleName"`
-	SamplingRule       SamplingRuleTypePtrOutput   `pulumi:"samplingRule"`
-	SamplingRuleRecord SamplingRuleRecordPtrOutput `pulumi:"samplingRuleRecord"`
-	SamplingRuleUpdate SamplingRuleUpdatePtrOutput `pulumi:"samplingRuleUpdate"`
-	Tags               pulumi.ArrayOutput          `pulumi:"tags"`
+	RuleARN            pulumi.StringOutput           `pulumi:"ruleARN"`
+	RuleName           pulumi.StringPtrOutput        `pulumi:"ruleName"`
+	SamplingRule       SamplingRuleTypePtrOutput     `pulumi:"samplingRule"`
+	SamplingRuleRecord SamplingRuleRecordPtrOutput   `pulumi:"samplingRuleRecord"`
+	SamplingRuleUpdate SamplingRuleUpdatePtrOutput   `pulumi:"samplingRuleUpdate"`
+	Tags               TagsItemPropertiesArrayOutput `pulumi:"tags"`
 }
 
 // NewSamplingRule registers a new resource with the given unique name, arguments, and options.
@@ -61,11 +61,11 @@ func (SamplingRuleState) ElementType() reflect.Type {
 }
 
 type samplingRuleArgs struct {
-	RuleName           *string             `pulumi:"ruleName"`
-	SamplingRule       *SamplingRuleType   `pulumi:"samplingRule"`
-	SamplingRuleRecord *SamplingRuleRecord `pulumi:"samplingRuleRecord"`
-	SamplingRuleUpdate *SamplingRuleUpdate `pulumi:"samplingRuleUpdate"`
-	Tags               []interface{}       `pulumi:"tags"`
+	RuleName           *string              `pulumi:"ruleName"`
+	SamplingRule       *SamplingRuleType    `pulumi:"samplingRule"`
+	SamplingRuleRecord *SamplingRuleRecord  `pulumi:"samplingRuleRecord"`
+	SamplingRuleUpdate *SamplingRuleUpdate  `pulumi:"samplingRuleUpdate"`
+	Tags               []TagsItemProperties `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SamplingRule resource.
@@ -74,7 +74,7 @@ type SamplingRuleArgs struct {
 	SamplingRule       SamplingRuleTypePtrInput
 	SamplingRuleRecord SamplingRuleRecordPtrInput
 	SamplingRuleUpdate SamplingRuleUpdatePtrInput
-	Tags               pulumi.ArrayInput
+	Tags               TagsItemPropertiesArrayInput
 }
 
 func (SamplingRuleArgs) ElementType() reflect.Type {

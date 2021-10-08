@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['HealthCheckArgs', 'HealthCheck']
@@ -15,11 +16,11 @@ __all__ = ['HealthCheckArgs', 'HealthCheck']
 @pulumi.input_type
 class HealthCheckArgs:
     def __init__(__self__, *,
-                 health_check_config: Any,
+                 health_check_config: pulumi.Input['HealthCheckConfigPropertiesArgs'],
                  health_check_tags: Optional[pulumi.Input[Sequence[pulumi.Input['HealthCheckTagArgs']]]] = None):
         """
         The set of arguments for constructing a HealthCheck resource.
-        :param Any health_check_config: A complex type that contains information about the health check.
+        :param pulumi.Input['HealthCheckConfigPropertiesArgs'] health_check_config: A complex type that contains information about the health check.
         :param pulumi.Input[Sequence[pulumi.Input['HealthCheckTagArgs']]] health_check_tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "health_check_config", health_check_config)
@@ -28,14 +29,14 @@ class HealthCheckArgs:
 
     @property
     @pulumi.getter(name="healthCheckConfig")
-    def health_check_config(self) -> Any:
+    def health_check_config(self) -> pulumi.Input['HealthCheckConfigPropertiesArgs']:
         """
         A complex type that contains information about the health check.
         """
         return pulumi.get(self, "health_check_config")
 
     @health_check_config.setter
-    def health_check_config(self, value: Any):
+    def health_check_config(self, value: pulumi.Input['HealthCheckConfigPropertiesArgs']):
         pulumi.set(self, "health_check_config", value)
 
     @property
@@ -56,7 +57,7 @@ class HealthCheck(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 health_check_config: Optional[Any] = None,
+                 health_check_config: Optional[pulumi.Input[pulumi.InputType['HealthCheckConfigPropertiesArgs']]] = None,
                  health_check_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HealthCheckTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -64,7 +65,7 @@ class HealthCheck(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any health_check_config: A complex type that contains information about the health check.
+        :param pulumi.Input[pulumi.InputType['HealthCheckConfigPropertiesArgs']] health_check_config: A complex type that contains information about the health check.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HealthCheckTagArgs']]]] health_check_tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -91,7 +92,7 @@ class HealthCheck(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 health_check_config: Optional[Any] = None,
+                 health_check_config: Optional[pulumi.Input[pulumi.InputType['HealthCheckConfigPropertiesArgs']]] = None,
                  health_check_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HealthCheckTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -139,7 +140,7 @@ class HealthCheck(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="healthCheckConfig")
-    def health_check_config(self) -> pulumi.Output[Any]:
+    def health_check_config(self) -> pulumi.Output['outputs.HealthCheckConfigProperties']:
         """
         A complex type that contains information about the health check.
         """

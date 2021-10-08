@@ -8066,6 +8066,148 @@ func (o MultiRegionAccessPointRegionArrayOutput) Index(i pulumi.IntInput) MultiR
 	}).(MultiRegionAccessPointRegionOutput)
 }
 
+// The Policy Status associated with this Multi Region Access Point
+type PolicyStatusProperties struct {
+	// Specifies whether the policy is public or not.
+	IsPublic MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic `pulumi:"isPublic"`
+}
+
+// PolicyStatusPropertiesInput is an input type that accepts PolicyStatusPropertiesArgs and PolicyStatusPropertiesOutput values.
+// You can construct a concrete instance of `PolicyStatusPropertiesInput` via:
+//
+//          PolicyStatusPropertiesArgs{...}
+type PolicyStatusPropertiesInput interface {
+	pulumi.Input
+
+	ToPolicyStatusPropertiesOutput() PolicyStatusPropertiesOutput
+	ToPolicyStatusPropertiesOutputWithContext(context.Context) PolicyStatusPropertiesOutput
+}
+
+// The Policy Status associated with this Multi Region Access Point
+type PolicyStatusPropertiesArgs struct {
+	// Specifies whether the policy is public or not.
+	IsPublic MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicInput `pulumi:"isPublic"`
+}
+
+func (PolicyStatusPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyStatusProperties)(nil)).Elem()
+}
+
+func (i PolicyStatusPropertiesArgs) ToPolicyStatusPropertiesOutput() PolicyStatusPropertiesOutput {
+	return i.ToPolicyStatusPropertiesOutputWithContext(context.Background())
+}
+
+func (i PolicyStatusPropertiesArgs) ToPolicyStatusPropertiesOutputWithContext(ctx context.Context) PolicyStatusPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyStatusPropertiesOutput)
+}
+
+func (i PolicyStatusPropertiesArgs) ToPolicyStatusPropertiesPtrOutput() PolicyStatusPropertiesPtrOutput {
+	return i.ToPolicyStatusPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyStatusPropertiesArgs) ToPolicyStatusPropertiesPtrOutputWithContext(ctx context.Context) PolicyStatusPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyStatusPropertiesOutput).ToPolicyStatusPropertiesPtrOutputWithContext(ctx)
+}
+
+// PolicyStatusPropertiesPtrInput is an input type that accepts PolicyStatusPropertiesArgs, PolicyStatusPropertiesPtr and PolicyStatusPropertiesPtrOutput values.
+// You can construct a concrete instance of `PolicyStatusPropertiesPtrInput` via:
+//
+//          PolicyStatusPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type PolicyStatusPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToPolicyStatusPropertiesPtrOutput() PolicyStatusPropertiesPtrOutput
+	ToPolicyStatusPropertiesPtrOutputWithContext(context.Context) PolicyStatusPropertiesPtrOutput
+}
+
+type policyStatusPropertiesPtrType PolicyStatusPropertiesArgs
+
+func PolicyStatusPropertiesPtr(v *PolicyStatusPropertiesArgs) PolicyStatusPropertiesPtrInput {
+	return (*policyStatusPropertiesPtrType)(v)
+}
+
+func (*policyStatusPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyStatusProperties)(nil)).Elem()
+}
+
+func (i *policyStatusPropertiesPtrType) ToPolicyStatusPropertiesPtrOutput() PolicyStatusPropertiesPtrOutput {
+	return i.ToPolicyStatusPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *policyStatusPropertiesPtrType) ToPolicyStatusPropertiesPtrOutputWithContext(ctx context.Context) PolicyStatusPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyStatusPropertiesPtrOutput)
+}
+
+// The Policy Status associated with this Multi Region Access Point
+type PolicyStatusPropertiesOutput struct{ *pulumi.OutputState }
+
+func (PolicyStatusPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyStatusProperties)(nil)).Elem()
+}
+
+func (o PolicyStatusPropertiesOutput) ToPolicyStatusPropertiesOutput() PolicyStatusPropertiesOutput {
+	return o
+}
+
+func (o PolicyStatusPropertiesOutput) ToPolicyStatusPropertiesOutputWithContext(ctx context.Context) PolicyStatusPropertiesOutput {
+	return o
+}
+
+func (o PolicyStatusPropertiesOutput) ToPolicyStatusPropertiesPtrOutput() PolicyStatusPropertiesPtrOutput {
+	return o.ToPolicyStatusPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyStatusPropertiesOutput) ToPolicyStatusPropertiesPtrOutputWithContext(ctx context.Context) PolicyStatusPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyStatusProperties) *PolicyStatusProperties {
+		return &v
+	}).(PolicyStatusPropertiesPtrOutput)
+}
+
+// Specifies whether the policy is public or not.
+func (o PolicyStatusPropertiesOutput) IsPublic() MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicOutput {
+	return o.ApplyT(func(v PolicyStatusProperties) MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic {
+		return v.IsPublic
+	}).(MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicOutput)
+}
+
+type PolicyStatusPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyStatusPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyStatusProperties)(nil)).Elem()
+}
+
+func (o PolicyStatusPropertiesPtrOutput) ToPolicyStatusPropertiesPtrOutput() PolicyStatusPropertiesPtrOutput {
+	return o
+}
+
+func (o PolicyStatusPropertiesPtrOutput) ToPolicyStatusPropertiesPtrOutputWithContext(ctx context.Context) PolicyStatusPropertiesPtrOutput {
+	return o
+}
+
+func (o PolicyStatusPropertiesPtrOutput) Elem() PolicyStatusPropertiesOutput {
+	return o.ApplyT(func(v *PolicyStatusProperties) PolicyStatusProperties {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyStatusProperties
+		return ret
+	}).(PolicyStatusPropertiesOutput)
+}
+
+// Specifies whether the policy is public or not.
+func (o PolicyStatusPropertiesPtrOutput) IsPublic() MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrOutput {
+	return o.ApplyT(func(v *PolicyStatusProperties) *MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic {
+		if v == nil {
+			return nil
+		}
+		return &v.IsPublic
+	}).(MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrOutput)
+}
+
 // Account-level metrics configurations.
 type StorageLensAccountLevel struct {
 	ActivityMetrics *StorageLensActivityMetrics `pulumi:"activityMetrics"`
@@ -10219,6 +10361,8 @@ func init() {
 	pulumi.RegisterOutputType(MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(MultiRegionAccessPointRegionOutput{})
 	pulumi.RegisterOutputType(MultiRegionAccessPointRegionArrayOutput{})
+	pulumi.RegisterOutputType(PolicyStatusPropertiesOutput{})
+	pulumi.RegisterOutputType(PolicyStatusPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensAccountLevelOutput{})
 	pulumi.RegisterOutputType(StorageLensAccountLevelPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensActivityMetricsOutput{})

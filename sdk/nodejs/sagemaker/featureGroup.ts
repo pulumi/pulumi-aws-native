@@ -51,8 +51,8 @@ export class FeatureGroup extends pulumi.CustomResource {
      * The Name of the FeatureGroup.
      */
     public readonly featureGroupName!: pulumi.Output<string>;
-    public readonly offlineStoreConfig!: pulumi.Output<any | undefined>;
-    public readonly onlineStoreConfig!: pulumi.Output<any | undefined>;
+    public readonly offlineStoreConfig!: pulumi.Output<outputs.sagemaker.OfflineStoreConfigProperties | undefined>;
+    public readonly onlineStoreConfig!: pulumi.Output<outputs.sagemaker.OnlineStoreConfigProperties | undefined>;
     /**
      * The Record Identifier Feature Name.
      */
@@ -136,8 +136,8 @@ export interface FeatureGroupArgs {
      * The Name of the FeatureGroup.
      */
     featureGroupName: pulumi.Input<string>;
-    offlineStoreConfig?: any;
-    onlineStoreConfig?: any;
+    offlineStoreConfig?: pulumi.Input<inputs.sagemaker.OfflineStoreConfigPropertiesArgs>;
+    onlineStoreConfig?: pulumi.Input<inputs.sagemaker.OnlineStoreConfigPropertiesArgs>;
     /**
      * The Record Identifier Feature Name.
      */

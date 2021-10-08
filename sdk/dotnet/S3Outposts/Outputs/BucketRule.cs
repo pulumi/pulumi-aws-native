@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.S3Outposts.Outputs
         /// <summary>
         /// The container for the filter of the lifecycle rule.
         /// </summary>
-        public readonly object? Filter;
+        public readonly Outputs.BucketRuleFilterProperties? Filter;
         /// <summary>
         /// Unique identifier for the lifecycle rule. The value can't be longer than 255 characters.
         /// </summary>
@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.S3Outposts.Outputs
 
             int? expirationInDays,
 
-            object? filter,
+            Outputs.BucketRuleFilterProperties? filter,
 
             string? id,
 

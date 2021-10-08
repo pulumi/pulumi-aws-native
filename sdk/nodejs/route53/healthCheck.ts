@@ -38,7 +38,7 @@ export class HealthCheck extends pulumi.CustomResource {
     /**
      * A complex type that contains information about the health check.
      */
-    public readonly healthCheckConfig!: pulumi.Output<any>;
+    public readonly healthCheckConfig!: pulumi.Output<outputs.route53.HealthCheckConfigProperties>;
     public /*out*/ readonly healthCheckId!: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -81,7 +81,7 @@ export interface HealthCheckArgs {
     /**
      * A complex type that contains information about the health check.
      */
-    healthCheckConfig: any;
+    healthCheckConfig: pulumi.Input<inputs.route53.HealthCheckConfigPropertiesArgs>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

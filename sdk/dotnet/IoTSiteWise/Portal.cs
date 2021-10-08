@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
         /// </summary>
         [Output("alarms")]
-        public Output<object?> Alarms { get; private set; } = null!;
+        public Output<Outputs.AlarmsProperties?> Alarms { get; private set; } = null!;
 
         /// <summary>
         /// The email address that sends alarm notifications.
@@ -136,7 +136,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
         /// </summary>
         [Input("alarms")]
-        public Input<object>? Alarms { get; set; }
+        public Input<Inputs.AlarmsPropertiesArgs>? Alarms { get; set; }
 
         /// <summary>
         /// The email address that sends alarm notifications.

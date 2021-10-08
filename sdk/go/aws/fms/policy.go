@@ -15,18 +15,18 @@ import (
 type Policy struct {
 	pulumi.CustomResourceState
 
-	Arn                       pulumi.StringOutput          `pulumi:"arn"`
-	DeleteAllPolicyResources  pulumi.BoolPtrOutput         `pulumi:"deleteAllPolicyResources"`
-	ExcludeMap                PolicyIEMapPtrOutput         `pulumi:"excludeMap"`
-	ExcludeResourceTags       pulumi.BoolOutput            `pulumi:"excludeResourceTags"`
-	IncludeMap                PolicyIEMapPtrOutput         `pulumi:"includeMap"`
-	PolicyName                pulumi.StringOutput          `pulumi:"policyName"`
-	RemediationEnabled        pulumi.BoolOutput            `pulumi:"remediationEnabled"`
-	ResourceTags              PolicyResourceTagArrayOutput `pulumi:"resourceTags"`
-	ResourceType              pulumi.StringOutput          `pulumi:"resourceType"`
-	ResourceTypeList          pulumi.StringArrayOutput     `pulumi:"resourceTypeList"`
-	SecurityServicePolicyData pulumi.AnyOutput             `pulumi:"securityServicePolicyData"`
-	Tags                      PolicyTagArrayOutput         `pulumi:"tags"`
+	Arn                       pulumi.StringOutput                       `pulumi:"arn"`
+	DeleteAllPolicyResources  pulumi.BoolPtrOutput                      `pulumi:"deleteAllPolicyResources"`
+	ExcludeMap                PolicyIEMapPtrOutput                      `pulumi:"excludeMap"`
+	ExcludeResourceTags       pulumi.BoolOutput                         `pulumi:"excludeResourceTags"`
+	IncludeMap                PolicyIEMapPtrOutput                      `pulumi:"includeMap"`
+	PolicyName                pulumi.StringOutput                       `pulumi:"policyName"`
+	RemediationEnabled        pulumi.BoolOutput                         `pulumi:"remediationEnabled"`
+	ResourceTags              PolicyResourceTagArrayOutput              `pulumi:"resourceTags"`
+	ResourceType              pulumi.StringOutput                       `pulumi:"resourceType"`
+	ResourceTypeList          pulumi.StringArrayOutput                  `pulumi:"resourceTypeList"`
+	SecurityServicePolicyData SecurityServicePolicyDataPropertiesOutput `pulumi:"securityServicePolicyData"`
+	Tags                      PolicyTagArrayOutput                      `pulumi:"tags"`
 }
 
 // NewPolicy registers a new resource with the given unique name, arguments, and options.
@@ -83,17 +83,17 @@ func (PolicyState) ElementType() reflect.Type {
 }
 
 type policyArgs struct {
-	DeleteAllPolicyResources  *bool               `pulumi:"deleteAllPolicyResources"`
-	ExcludeMap                *PolicyIEMap        `pulumi:"excludeMap"`
-	ExcludeResourceTags       bool                `pulumi:"excludeResourceTags"`
-	IncludeMap                *PolicyIEMap        `pulumi:"includeMap"`
-	PolicyName                string              `pulumi:"policyName"`
-	RemediationEnabled        bool                `pulumi:"remediationEnabled"`
-	ResourceTags              []PolicyResourceTag `pulumi:"resourceTags"`
-	ResourceType              string              `pulumi:"resourceType"`
-	ResourceTypeList          []string            `pulumi:"resourceTypeList"`
-	SecurityServicePolicyData interface{}         `pulumi:"securityServicePolicyData"`
-	Tags                      []PolicyTag         `pulumi:"tags"`
+	DeleteAllPolicyResources  *bool                               `pulumi:"deleteAllPolicyResources"`
+	ExcludeMap                *PolicyIEMap                        `pulumi:"excludeMap"`
+	ExcludeResourceTags       bool                                `pulumi:"excludeResourceTags"`
+	IncludeMap                *PolicyIEMap                        `pulumi:"includeMap"`
+	PolicyName                string                              `pulumi:"policyName"`
+	RemediationEnabled        bool                                `pulumi:"remediationEnabled"`
+	ResourceTags              []PolicyResourceTag                 `pulumi:"resourceTags"`
+	ResourceType              string                              `pulumi:"resourceType"`
+	ResourceTypeList          []string                            `pulumi:"resourceTypeList"`
+	SecurityServicePolicyData SecurityServicePolicyDataProperties `pulumi:"securityServicePolicyData"`
+	Tags                      []PolicyTag                         `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Policy resource.
@@ -107,7 +107,7 @@ type PolicyArgs struct {
 	ResourceTags              PolicyResourceTagArrayInput
 	ResourceType              pulumi.StringInput
 	ResourceTypeList          pulumi.StringArrayInput
-	SecurityServicePolicyData pulumi.Input
+	SecurityServicePolicyData SecurityServicePolicyDataPropertiesInput
 	Tags                      PolicyTagArrayInput
 }
 

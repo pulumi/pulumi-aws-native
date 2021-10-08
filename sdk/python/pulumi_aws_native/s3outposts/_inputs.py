@@ -12,7 +12,10 @@ from ._enums import *
 __all__ = [
     'AccessPointVpcConfigurationArgs',
     'BucketAbortIncompleteMultipartUploadArgs',
+    'BucketFilterAndOperatorArgs',
+    'BucketFilterTagArgs',
     'BucketLifecycleConfigurationArgs',
+    'BucketRuleFilterPropertiesArgs',
     'BucketRuleArgs',
     'BucketTagArgs',
 ]
@@ -64,6 +67,42 @@ class BucketAbortIncompleteMultipartUploadArgs:
 
 
 @pulumi.input_type
+class BucketFilterAndOperatorArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class BucketFilterTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        Tag used to identify a subset of objects for an Amazon S3Outposts bucket.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class BucketLifecycleConfigurationArgs:
     def __init__(__self__, *,
                  rules: pulumi.Input[Sequence[pulumi.Input['BucketRuleArgs']]]):
@@ -86,12 +125,68 @@ class BucketLifecycleConfigurationArgs:
 
 
 @pulumi.input_type
+class BucketRuleFilterPropertiesArgs:
+    def __init__(__self__, *,
+                 and_operator: Optional[pulumi.Input['BucketFilterAndOperatorArgs']] = None,
+                 prefix: Optional[pulumi.Input[str]] = None,
+                 tag: Optional[pulumi.Input['BucketFilterTagArgs']] = None):
+        """
+        The container for the filter of the lifecycle rule.
+        :param pulumi.Input['BucketFilterAndOperatorArgs'] and_operator: The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags.
+        :param pulumi.Input[str] prefix: Object key prefix that identifies one or more objects to which this rule applies.
+        :param pulumi.Input['BucketFilterTagArgs'] tag: Specifies a tag used to identify a subset of objects for an Amazon S3Outposts bucket.
+        """
+        if and_operator is not None:
+            pulumi.set(__self__, "and_operator", and_operator)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if tag is not None:
+            pulumi.set(__self__, "tag", tag)
+
+    @property
+    @pulumi.getter(name="andOperator")
+    def and_operator(self) -> Optional[pulumi.Input['BucketFilterAndOperatorArgs']]:
+        """
+        The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags.
+        """
+        return pulumi.get(self, "and_operator")
+
+    @and_operator.setter
+    def and_operator(self, value: Optional[pulumi.Input['BucketFilterAndOperatorArgs']]):
+        pulumi.set(self, "and_operator", value)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Object key prefix that identifies one or more objects to which this rule applies.
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix", value)
+
+    @property
+    @pulumi.getter
+    def tag(self) -> Optional[pulumi.Input['BucketFilterTagArgs']]:
+        """
+        Specifies a tag used to identify a subset of objects for an Amazon S3Outposts bucket.
+        """
+        return pulumi.get(self, "tag")
+
+    @tag.setter
+    def tag(self, value: Optional[pulumi.Input['BucketFilterTagArgs']]):
+        pulumi.set(self, "tag", value)
+
+
+@pulumi.input_type
 class BucketRuleArgs:
     def __init__(__self__, *,
                  abort_incomplete_multipart_upload: Optional[pulumi.Input['BucketAbortIncompleteMultipartUploadArgs']] = None,
                  expiration_date: Optional[pulumi.Input[str]] = None,
                  expiration_in_days: Optional[pulumi.Input[int]] = None,
-                 filter: Optional[Any] = None,
+                 filter: Optional[pulumi.Input['BucketRuleFilterPropertiesArgs']] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['BucketRuleStatus']] = None):
         """
@@ -99,7 +194,7 @@ class BucketRuleArgs:
         :param pulumi.Input['BucketAbortIncompleteMultipartUploadArgs'] abort_incomplete_multipart_upload: Specifies a lifecycle rule that stops incomplete multipart uploads to an Amazon S3Outposts bucket.
         :param pulumi.Input[str] expiration_date: Indicates when objects are deleted from Amazon S3Outposts. The date value must be in ISO 8601 format. The time is always midnight UTC.
         :param pulumi.Input[int] expiration_in_days: Indicates the number of days after creation when objects are deleted from Amazon S3Outposts.
-        :param Any filter: The container for the filter of the lifecycle rule.
+        :param pulumi.Input['BucketRuleFilterPropertiesArgs'] filter: The container for the filter of the lifecycle rule.
         :param pulumi.Input[str] id: Unique identifier for the lifecycle rule. The value can't be longer than 255 characters.
         """
         if abort_incomplete_multipart_upload is not None:
@@ -153,14 +248,14 @@ class BucketRuleArgs:
 
     @property
     @pulumi.getter
-    def filter(self) -> Optional[Any]:
+    def filter(self) -> Optional[pulumi.Input['BucketRuleFilterPropertiesArgs']]:
         """
         The container for the filter of the lifecycle rule.
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[Any]):
+    def filter(self, value: Optional[pulumi.Input['BucketRuleFilterPropertiesArgs']]):
         pulumi.set(self, "filter", value)
 
     @property
