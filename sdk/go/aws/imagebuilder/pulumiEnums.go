@@ -1003,6 +1003,170 @@ func (in *containerRecipeTargetContainerRepositoryServicePtr) ToContainerRecipeT
 	return pulumi.ToOutputWithContext(ctx, in).(ContainerRecipeTargetContainerRepositoryServicePtrOutput)
 }
 
+// The service of target container repository.
+type DistributionConfigurationTargetContainerRepositoryService string
+
+const (
+	DistributionConfigurationTargetContainerRepositoryServiceEcr = DistributionConfigurationTargetContainerRepositoryService("ECR")
+)
+
+func (DistributionConfigurationTargetContainerRepositoryService) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfigurationTargetContainerRepositoryService)(nil)).Elem()
+}
+
+func (e DistributionConfigurationTargetContainerRepositoryService) ToDistributionConfigurationTargetContainerRepositoryServiceOutput() DistributionConfigurationTargetContainerRepositoryServiceOutput {
+	return pulumi.ToOutput(e).(DistributionConfigurationTargetContainerRepositoryServiceOutput)
+}
+
+func (e DistributionConfigurationTargetContainerRepositoryService) ToDistributionConfigurationTargetContainerRepositoryServiceOutputWithContext(ctx context.Context) DistributionConfigurationTargetContainerRepositoryServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DistributionConfigurationTargetContainerRepositoryServiceOutput)
+}
+
+func (e DistributionConfigurationTargetContainerRepositoryService) ToDistributionConfigurationTargetContainerRepositoryServicePtrOutput() DistributionConfigurationTargetContainerRepositoryServicePtrOutput {
+	return e.ToDistributionConfigurationTargetContainerRepositoryServicePtrOutputWithContext(context.Background())
+}
+
+func (e DistributionConfigurationTargetContainerRepositoryService) ToDistributionConfigurationTargetContainerRepositoryServicePtrOutputWithContext(ctx context.Context) DistributionConfigurationTargetContainerRepositoryServicePtrOutput {
+	return DistributionConfigurationTargetContainerRepositoryService(e).ToDistributionConfigurationTargetContainerRepositoryServiceOutputWithContext(ctx).ToDistributionConfigurationTargetContainerRepositoryServicePtrOutputWithContext(ctx)
+}
+
+func (e DistributionConfigurationTargetContainerRepositoryService) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DistributionConfigurationTargetContainerRepositoryService) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DistributionConfigurationTargetContainerRepositoryService) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DistributionConfigurationTargetContainerRepositoryService) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DistributionConfigurationTargetContainerRepositoryServiceOutput struct{ *pulumi.OutputState }
+
+func (DistributionConfigurationTargetContainerRepositoryServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfigurationTargetContainerRepositoryService)(nil)).Elem()
+}
+
+func (o DistributionConfigurationTargetContainerRepositoryServiceOutput) ToDistributionConfigurationTargetContainerRepositoryServiceOutput() DistributionConfigurationTargetContainerRepositoryServiceOutput {
+	return o
+}
+
+func (o DistributionConfigurationTargetContainerRepositoryServiceOutput) ToDistributionConfigurationTargetContainerRepositoryServiceOutputWithContext(ctx context.Context) DistributionConfigurationTargetContainerRepositoryServiceOutput {
+	return o
+}
+
+func (o DistributionConfigurationTargetContainerRepositoryServiceOutput) ToDistributionConfigurationTargetContainerRepositoryServicePtrOutput() DistributionConfigurationTargetContainerRepositoryServicePtrOutput {
+	return o.ToDistributionConfigurationTargetContainerRepositoryServicePtrOutputWithContext(context.Background())
+}
+
+func (o DistributionConfigurationTargetContainerRepositoryServiceOutput) ToDistributionConfigurationTargetContainerRepositoryServicePtrOutputWithContext(ctx context.Context) DistributionConfigurationTargetContainerRepositoryServicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionConfigurationTargetContainerRepositoryService) *DistributionConfigurationTargetContainerRepositoryService {
+		return &v
+	}).(DistributionConfigurationTargetContainerRepositoryServicePtrOutput)
+}
+
+func (o DistributionConfigurationTargetContainerRepositoryServiceOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DistributionConfigurationTargetContainerRepositoryServiceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DistributionConfigurationTargetContainerRepositoryService) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DistributionConfigurationTargetContainerRepositoryServiceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionConfigurationTargetContainerRepositoryServiceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DistributionConfigurationTargetContainerRepositoryService) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DistributionConfigurationTargetContainerRepositoryServicePtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionConfigurationTargetContainerRepositoryServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionConfigurationTargetContainerRepositoryService)(nil)).Elem()
+}
+
+func (o DistributionConfigurationTargetContainerRepositoryServicePtrOutput) ToDistributionConfigurationTargetContainerRepositoryServicePtrOutput() DistributionConfigurationTargetContainerRepositoryServicePtrOutput {
+	return o
+}
+
+func (o DistributionConfigurationTargetContainerRepositoryServicePtrOutput) ToDistributionConfigurationTargetContainerRepositoryServicePtrOutputWithContext(ctx context.Context) DistributionConfigurationTargetContainerRepositoryServicePtrOutput {
+	return o
+}
+
+func (o DistributionConfigurationTargetContainerRepositoryServicePtrOutput) Elem() DistributionConfigurationTargetContainerRepositoryServiceOutput {
+	return o.ApplyT(func(v *DistributionConfigurationTargetContainerRepositoryService) DistributionConfigurationTargetContainerRepositoryService {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionConfigurationTargetContainerRepositoryService
+		return ret
+	}).(DistributionConfigurationTargetContainerRepositoryServiceOutput)
+}
+
+func (o DistributionConfigurationTargetContainerRepositoryServicePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionConfigurationTargetContainerRepositoryServicePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DistributionConfigurationTargetContainerRepositoryService) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DistributionConfigurationTargetContainerRepositoryServiceInput is an input type that accepts DistributionConfigurationTargetContainerRepositoryServiceArgs and DistributionConfigurationTargetContainerRepositoryServiceOutput values.
+// You can construct a concrete instance of `DistributionConfigurationTargetContainerRepositoryServiceInput` via:
+//
+//          DistributionConfigurationTargetContainerRepositoryServiceArgs{...}
+type DistributionConfigurationTargetContainerRepositoryServiceInput interface {
+	pulumi.Input
+
+	ToDistributionConfigurationTargetContainerRepositoryServiceOutput() DistributionConfigurationTargetContainerRepositoryServiceOutput
+	ToDistributionConfigurationTargetContainerRepositoryServiceOutputWithContext(context.Context) DistributionConfigurationTargetContainerRepositoryServiceOutput
+}
+
+var distributionConfigurationTargetContainerRepositoryServicePtrType = reflect.TypeOf((**DistributionConfigurationTargetContainerRepositoryService)(nil)).Elem()
+
+type DistributionConfigurationTargetContainerRepositoryServicePtrInput interface {
+	pulumi.Input
+
+	ToDistributionConfigurationTargetContainerRepositoryServicePtrOutput() DistributionConfigurationTargetContainerRepositoryServicePtrOutput
+	ToDistributionConfigurationTargetContainerRepositoryServicePtrOutputWithContext(context.Context) DistributionConfigurationTargetContainerRepositoryServicePtrOutput
+}
+
+type distributionConfigurationTargetContainerRepositoryServicePtr string
+
+func DistributionConfigurationTargetContainerRepositoryServicePtr(v string) DistributionConfigurationTargetContainerRepositoryServicePtrInput {
+	return (*distributionConfigurationTargetContainerRepositoryServicePtr)(&v)
+}
+
+func (*distributionConfigurationTargetContainerRepositoryServicePtr) ElementType() reflect.Type {
+	return distributionConfigurationTargetContainerRepositoryServicePtrType
+}
+
+func (in *distributionConfigurationTargetContainerRepositoryServicePtr) ToDistributionConfigurationTargetContainerRepositoryServicePtrOutput() DistributionConfigurationTargetContainerRepositoryServicePtrOutput {
+	return pulumi.ToOutput(in).(DistributionConfigurationTargetContainerRepositoryServicePtrOutput)
+}
+
+func (in *distributionConfigurationTargetContainerRepositoryServicePtr) ToDistributionConfigurationTargetContainerRepositoryServicePtrOutputWithContext(ctx context.Context) DistributionConfigurationTargetContainerRepositoryServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DistributionConfigurationTargetContainerRepositoryServicePtrOutput)
+}
+
 // The condition configures when the pipeline should trigger a new image build.
 type ImagePipelineSchedulePipelineExecutionStartCondition string
 
@@ -1516,6 +1680,8 @@ func init() {
 	pulumi.RegisterOutputType(ContainerRecipePlatformOverridePtrOutput{})
 	pulumi.RegisterOutputType(ContainerRecipeTargetContainerRepositoryServiceOutput{})
 	pulumi.RegisterOutputType(ContainerRecipeTargetContainerRepositoryServicePtrOutput{})
+	pulumi.RegisterOutputType(DistributionConfigurationTargetContainerRepositoryServiceOutput{})
+	pulumi.RegisterOutputType(DistributionConfigurationTargetContainerRepositoryServicePtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineSchedulePipelineExecutionStartConditionOutput{})
 	pulumi.RegisterOutputType(ImagePipelineSchedulePipelineExecutionStartConditionPtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineStatusOutput{})

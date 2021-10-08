@@ -110,16 +110,408 @@ func (o IPSetTagArrayOutput) Index(i pulumi.IntInput) IPSetTagOutput {
 	}).(IPSetTagOutput)
 }
 
+type LoggingConfigurationCondition struct {
+	// A single action condition.
+	ActionCondition *LoggingConfigurationConditionActionConditionProperties `pulumi:"actionCondition"`
+	// A single label name condition.
+	LabelNameCondition *LoggingConfigurationConditionLabelNameConditionProperties `pulumi:"labelNameCondition"`
+}
+
+// LoggingConfigurationConditionInput is an input type that accepts LoggingConfigurationConditionArgs and LoggingConfigurationConditionOutput values.
+// You can construct a concrete instance of `LoggingConfigurationConditionInput` via:
+//
+//          LoggingConfigurationConditionArgs{...}
+type LoggingConfigurationConditionInput interface {
+	pulumi.Input
+
+	ToLoggingConfigurationConditionOutput() LoggingConfigurationConditionOutput
+	ToLoggingConfigurationConditionOutputWithContext(context.Context) LoggingConfigurationConditionOutput
+}
+
+type LoggingConfigurationConditionArgs struct {
+	// A single action condition.
+	ActionCondition LoggingConfigurationConditionActionConditionPropertiesPtrInput `pulumi:"actionCondition"`
+	// A single label name condition.
+	LabelNameCondition LoggingConfigurationConditionLabelNameConditionPropertiesPtrInput `pulumi:"labelNameCondition"`
+}
+
+func (LoggingConfigurationConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingConfigurationCondition)(nil)).Elem()
+}
+
+func (i LoggingConfigurationConditionArgs) ToLoggingConfigurationConditionOutput() LoggingConfigurationConditionOutput {
+	return i.ToLoggingConfigurationConditionOutputWithContext(context.Background())
+}
+
+func (i LoggingConfigurationConditionArgs) ToLoggingConfigurationConditionOutputWithContext(ctx context.Context) LoggingConfigurationConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationConditionOutput)
+}
+
+// LoggingConfigurationConditionArrayInput is an input type that accepts LoggingConfigurationConditionArray and LoggingConfigurationConditionArrayOutput values.
+// You can construct a concrete instance of `LoggingConfigurationConditionArrayInput` via:
+//
+//          LoggingConfigurationConditionArray{ LoggingConfigurationConditionArgs{...} }
+type LoggingConfigurationConditionArrayInput interface {
+	pulumi.Input
+
+	ToLoggingConfigurationConditionArrayOutput() LoggingConfigurationConditionArrayOutput
+	ToLoggingConfigurationConditionArrayOutputWithContext(context.Context) LoggingConfigurationConditionArrayOutput
+}
+
+type LoggingConfigurationConditionArray []LoggingConfigurationConditionInput
+
+func (LoggingConfigurationConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoggingConfigurationCondition)(nil)).Elem()
+}
+
+func (i LoggingConfigurationConditionArray) ToLoggingConfigurationConditionArrayOutput() LoggingConfigurationConditionArrayOutput {
+	return i.ToLoggingConfigurationConditionArrayOutputWithContext(context.Background())
+}
+
+func (i LoggingConfigurationConditionArray) ToLoggingConfigurationConditionArrayOutputWithContext(ctx context.Context) LoggingConfigurationConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationConditionArrayOutput)
+}
+
+type LoggingConfigurationConditionOutput struct{ *pulumi.OutputState }
+
+func (LoggingConfigurationConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingConfigurationCondition)(nil)).Elem()
+}
+
+func (o LoggingConfigurationConditionOutput) ToLoggingConfigurationConditionOutput() LoggingConfigurationConditionOutput {
+	return o
+}
+
+func (o LoggingConfigurationConditionOutput) ToLoggingConfigurationConditionOutputWithContext(ctx context.Context) LoggingConfigurationConditionOutput {
+	return o
+}
+
+// A single action condition.
+func (o LoggingConfigurationConditionOutput) ActionCondition() LoggingConfigurationConditionActionConditionPropertiesPtrOutput {
+	return o.ApplyT(func(v LoggingConfigurationCondition) *LoggingConfigurationConditionActionConditionProperties {
+		return v.ActionCondition
+	}).(LoggingConfigurationConditionActionConditionPropertiesPtrOutput)
+}
+
+// A single label name condition.
+func (o LoggingConfigurationConditionOutput) LabelNameCondition() LoggingConfigurationConditionLabelNameConditionPropertiesPtrOutput {
+	return o.ApplyT(func(v LoggingConfigurationCondition) *LoggingConfigurationConditionLabelNameConditionProperties {
+		return v.LabelNameCondition
+	}).(LoggingConfigurationConditionLabelNameConditionPropertiesPtrOutput)
+}
+
+type LoggingConfigurationConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (LoggingConfigurationConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoggingConfigurationCondition)(nil)).Elem()
+}
+
+func (o LoggingConfigurationConditionArrayOutput) ToLoggingConfigurationConditionArrayOutput() LoggingConfigurationConditionArrayOutput {
+	return o
+}
+
+func (o LoggingConfigurationConditionArrayOutput) ToLoggingConfigurationConditionArrayOutputWithContext(ctx context.Context) LoggingConfigurationConditionArrayOutput {
+	return o
+}
+
+func (o LoggingConfigurationConditionArrayOutput) Index(i pulumi.IntInput) LoggingConfigurationConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoggingConfigurationCondition {
+		return vs[0].([]LoggingConfigurationCondition)[vs[1].(int)]
+	}).(LoggingConfigurationConditionOutput)
+}
+
+// A single action condition.
+type LoggingConfigurationConditionActionConditionProperties struct {
+	// Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
+	Action LoggingConfigurationConditionActionConditionPropertiesAction `pulumi:"action"`
+}
+
+// LoggingConfigurationConditionActionConditionPropertiesInput is an input type that accepts LoggingConfigurationConditionActionConditionPropertiesArgs and LoggingConfigurationConditionActionConditionPropertiesOutput values.
+// You can construct a concrete instance of `LoggingConfigurationConditionActionConditionPropertiesInput` via:
+//
+//          LoggingConfigurationConditionActionConditionPropertiesArgs{...}
+type LoggingConfigurationConditionActionConditionPropertiesInput interface {
+	pulumi.Input
+
+	ToLoggingConfigurationConditionActionConditionPropertiesOutput() LoggingConfigurationConditionActionConditionPropertiesOutput
+	ToLoggingConfigurationConditionActionConditionPropertiesOutputWithContext(context.Context) LoggingConfigurationConditionActionConditionPropertiesOutput
+}
+
+// A single action condition.
+type LoggingConfigurationConditionActionConditionPropertiesArgs struct {
+	// Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
+	Action LoggingConfigurationConditionActionConditionPropertiesActionInput `pulumi:"action"`
+}
+
+func (LoggingConfigurationConditionActionConditionPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingConfigurationConditionActionConditionProperties)(nil)).Elem()
+}
+
+func (i LoggingConfigurationConditionActionConditionPropertiesArgs) ToLoggingConfigurationConditionActionConditionPropertiesOutput() LoggingConfigurationConditionActionConditionPropertiesOutput {
+	return i.ToLoggingConfigurationConditionActionConditionPropertiesOutputWithContext(context.Background())
+}
+
+func (i LoggingConfigurationConditionActionConditionPropertiesArgs) ToLoggingConfigurationConditionActionConditionPropertiesOutputWithContext(ctx context.Context) LoggingConfigurationConditionActionConditionPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationConditionActionConditionPropertiesOutput)
+}
+
+func (i LoggingConfigurationConditionActionConditionPropertiesArgs) ToLoggingConfigurationConditionActionConditionPropertiesPtrOutput() LoggingConfigurationConditionActionConditionPropertiesPtrOutput {
+	return i.ToLoggingConfigurationConditionActionConditionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i LoggingConfigurationConditionActionConditionPropertiesArgs) ToLoggingConfigurationConditionActionConditionPropertiesPtrOutputWithContext(ctx context.Context) LoggingConfigurationConditionActionConditionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationConditionActionConditionPropertiesOutput).ToLoggingConfigurationConditionActionConditionPropertiesPtrOutputWithContext(ctx)
+}
+
+// LoggingConfigurationConditionActionConditionPropertiesPtrInput is an input type that accepts LoggingConfigurationConditionActionConditionPropertiesArgs, LoggingConfigurationConditionActionConditionPropertiesPtr and LoggingConfigurationConditionActionConditionPropertiesPtrOutput values.
+// You can construct a concrete instance of `LoggingConfigurationConditionActionConditionPropertiesPtrInput` via:
+//
+//          LoggingConfigurationConditionActionConditionPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type LoggingConfigurationConditionActionConditionPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToLoggingConfigurationConditionActionConditionPropertiesPtrOutput() LoggingConfigurationConditionActionConditionPropertiesPtrOutput
+	ToLoggingConfigurationConditionActionConditionPropertiesPtrOutputWithContext(context.Context) LoggingConfigurationConditionActionConditionPropertiesPtrOutput
+}
+
+type loggingConfigurationConditionActionConditionPropertiesPtrType LoggingConfigurationConditionActionConditionPropertiesArgs
+
+func LoggingConfigurationConditionActionConditionPropertiesPtr(v *LoggingConfigurationConditionActionConditionPropertiesArgs) LoggingConfigurationConditionActionConditionPropertiesPtrInput {
+	return (*loggingConfigurationConditionActionConditionPropertiesPtrType)(v)
+}
+
+func (*loggingConfigurationConditionActionConditionPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoggingConfigurationConditionActionConditionProperties)(nil)).Elem()
+}
+
+func (i *loggingConfigurationConditionActionConditionPropertiesPtrType) ToLoggingConfigurationConditionActionConditionPropertiesPtrOutput() LoggingConfigurationConditionActionConditionPropertiesPtrOutput {
+	return i.ToLoggingConfigurationConditionActionConditionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *loggingConfigurationConditionActionConditionPropertiesPtrType) ToLoggingConfigurationConditionActionConditionPropertiesPtrOutputWithContext(ctx context.Context) LoggingConfigurationConditionActionConditionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationConditionActionConditionPropertiesPtrOutput)
+}
+
+// A single action condition.
+type LoggingConfigurationConditionActionConditionPropertiesOutput struct{ *pulumi.OutputState }
+
+func (LoggingConfigurationConditionActionConditionPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingConfigurationConditionActionConditionProperties)(nil)).Elem()
+}
+
+func (o LoggingConfigurationConditionActionConditionPropertiesOutput) ToLoggingConfigurationConditionActionConditionPropertiesOutput() LoggingConfigurationConditionActionConditionPropertiesOutput {
+	return o
+}
+
+func (o LoggingConfigurationConditionActionConditionPropertiesOutput) ToLoggingConfigurationConditionActionConditionPropertiesOutputWithContext(ctx context.Context) LoggingConfigurationConditionActionConditionPropertiesOutput {
+	return o
+}
+
+func (o LoggingConfigurationConditionActionConditionPropertiesOutput) ToLoggingConfigurationConditionActionConditionPropertiesPtrOutput() LoggingConfigurationConditionActionConditionPropertiesPtrOutput {
+	return o.ToLoggingConfigurationConditionActionConditionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingConfigurationConditionActionConditionPropertiesOutput) ToLoggingConfigurationConditionActionConditionPropertiesPtrOutputWithContext(ctx context.Context) LoggingConfigurationConditionActionConditionPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoggingConfigurationConditionActionConditionProperties) *LoggingConfigurationConditionActionConditionProperties {
+		return &v
+	}).(LoggingConfigurationConditionActionConditionPropertiesPtrOutput)
+}
+
+// Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
+func (o LoggingConfigurationConditionActionConditionPropertiesOutput) Action() LoggingConfigurationConditionActionConditionPropertiesActionOutput {
+	return o.ApplyT(func(v LoggingConfigurationConditionActionConditionProperties) LoggingConfigurationConditionActionConditionPropertiesAction {
+		return v.Action
+	}).(LoggingConfigurationConditionActionConditionPropertiesActionOutput)
+}
+
+type LoggingConfigurationConditionActionConditionPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (LoggingConfigurationConditionActionConditionPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoggingConfigurationConditionActionConditionProperties)(nil)).Elem()
+}
+
+func (o LoggingConfigurationConditionActionConditionPropertiesPtrOutput) ToLoggingConfigurationConditionActionConditionPropertiesPtrOutput() LoggingConfigurationConditionActionConditionPropertiesPtrOutput {
+	return o
+}
+
+func (o LoggingConfigurationConditionActionConditionPropertiesPtrOutput) ToLoggingConfigurationConditionActionConditionPropertiesPtrOutputWithContext(ctx context.Context) LoggingConfigurationConditionActionConditionPropertiesPtrOutput {
+	return o
+}
+
+func (o LoggingConfigurationConditionActionConditionPropertiesPtrOutput) Elem() LoggingConfigurationConditionActionConditionPropertiesOutput {
+	return o.ApplyT(func(v *LoggingConfigurationConditionActionConditionProperties) LoggingConfigurationConditionActionConditionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret LoggingConfigurationConditionActionConditionProperties
+		return ret
+	}).(LoggingConfigurationConditionActionConditionPropertiesOutput)
+}
+
+// Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
+func (o LoggingConfigurationConditionActionConditionPropertiesPtrOutput) Action() LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput {
+	return o.ApplyT(func(v *LoggingConfigurationConditionActionConditionProperties) *LoggingConfigurationConditionActionConditionPropertiesAction {
+		if v == nil {
+			return nil
+		}
+		return &v.Action
+	}).(LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput)
+}
+
+// A single label name condition.
+type LoggingConfigurationConditionLabelNameConditionProperties struct {
+	// The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label.
+	LabelName string `pulumi:"labelName"`
+}
+
+// LoggingConfigurationConditionLabelNameConditionPropertiesInput is an input type that accepts LoggingConfigurationConditionLabelNameConditionPropertiesArgs and LoggingConfigurationConditionLabelNameConditionPropertiesOutput values.
+// You can construct a concrete instance of `LoggingConfigurationConditionLabelNameConditionPropertiesInput` via:
+//
+//          LoggingConfigurationConditionLabelNameConditionPropertiesArgs{...}
+type LoggingConfigurationConditionLabelNameConditionPropertiesInput interface {
+	pulumi.Input
+
+	ToLoggingConfigurationConditionLabelNameConditionPropertiesOutput() LoggingConfigurationConditionLabelNameConditionPropertiesOutput
+	ToLoggingConfigurationConditionLabelNameConditionPropertiesOutputWithContext(context.Context) LoggingConfigurationConditionLabelNameConditionPropertiesOutput
+}
+
+// A single label name condition.
+type LoggingConfigurationConditionLabelNameConditionPropertiesArgs struct {
+	// The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label.
+	LabelName pulumi.StringInput `pulumi:"labelName"`
+}
+
+func (LoggingConfigurationConditionLabelNameConditionPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingConfigurationConditionLabelNameConditionProperties)(nil)).Elem()
+}
+
+func (i LoggingConfigurationConditionLabelNameConditionPropertiesArgs) ToLoggingConfigurationConditionLabelNameConditionPropertiesOutput() LoggingConfigurationConditionLabelNameConditionPropertiesOutput {
+	return i.ToLoggingConfigurationConditionLabelNameConditionPropertiesOutputWithContext(context.Background())
+}
+
+func (i LoggingConfigurationConditionLabelNameConditionPropertiesArgs) ToLoggingConfigurationConditionLabelNameConditionPropertiesOutputWithContext(ctx context.Context) LoggingConfigurationConditionLabelNameConditionPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationConditionLabelNameConditionPropertiesOutput)
+}
+
+func (i LoggingConfigurationConditionLabelNameConditionPropertiesArgs) ToLoggingConfigurationConditionLabelNameConditionPropertiesPtrOutput() LoggingConfigurationConditionLabelNameConditionPropertiesPtrOutput {
+	return i.ToLoggingConfigurationConditionLabelNameConditionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i LoggingConfigurationConditionLabelNameConditionPropertiesArgs) ToLoggingConfigurationConditionLabelNameConditionPropertiesPtrOutputWithContext(ctx context.Context) LoggingConfigurationConditionLabelNameConditionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationConditionLabelNameConditionPropertiesOutput).ToLoggingConfigurationConditionLabelNameConditionPropertiesPtrOutputWithContext(ctx)
+}
+
+// LoggingConfigurationConditionLabelNameConditionPropertiesPtrInput is an input type that accepts LoggingConfigurationConditionLabelNameConditionPropertiesArgs, LoggingConfigurationConditionLabelNameConditionPropertiesPtr and LoggingConfigurationConditionLabelNameConditionPropertiesPtrOutput values.
+// You can construct a concrete instance of `LoggingConfigurationConditionLabelNameConditionPropertiesPtrInput` via:
+//
+//          LoggingConfigurationConditionLabelNameConditionPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type LoggingConfigurationConditionLabelNameConditionPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToLoggingConfigurationConditionLabelNameConditionPropertiesPtrOutput() LoggingConfigurationConditionLabelNameConditionPropertiesPtrOutput
+	ToLoggingConfigurationConditionLabelNameConditionPropertiesPtrOutputWithContext(context.Context) LoggingConfigurationConditionLabelNameConditionPropertiesPtrOutput
+}
+
+type loggingConfigurationConditionLabelNameConditionPropertiesPtrType LoggingConfigurationConditionLabelNameConditionPropertiesArgs
+
+func LoggingConfigurationConditionLabelNameConditionPropertiesPtr(v *LoggingConfigurationConditionLabelNameConditionPropertiesArgs) LoggingConfigurationConditionLabelNameConditionPropertiesPtrInput {
+	return (*loggingConfigurationConditionLabelNameConditionPropertiesPtrType)(v)
+}
+
+func (*loggingConfigurationConditionLabelNameConditionPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoggingConfigurationConditionLabelNameConditionProperties)(nil)).Elem()
+}
+
+func (i *loggingConfigurationConditionLabelNameConditionPropertiesPtrType) ToLoggingConfigurationConditionLabelNameConditionPropertiesPtrOutput() LoggingConfigurationConditionLabelNameConditionPropertiesPtrOutput {
+	return i.ToLoggingConfigurationConditionLabelNameConditionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *loggingConfigurationConditionLabelNameConditionPropertiesPtrType) ToLoggingConfigurationConditionLabelNameConditionPropertiesPtrOutputWithContext(ctx context.Context) LoggingConfigurationConditionLabelNameConditionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationConditionLabelNameConditionPropertiesPtrOutput)
+}
+
+// A single label name condition.
+type LoggingConfigurationConditionLabelNameConditionPropertiesOutput struct{ *pulumi.OutputState }
+
+func (LoggingConfigurationConditionLabelNameConditionPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingConfigurationConditionLabelNameConditionProperties)(nil)).Elem()
+}
+
+func (o LoggingConfigurationConditionLabelNameConditionPropertiesOutput) ToLoggingConfigurationConditionLabelNameConditionPropertiesOutput() LoggingConfigurationConditionLabelNameConditionPropertiesOutput {
+	return o
+}
+
+func (o LoggingConfigurationConditionLabelNameConditionPropertiesOutput) ToLoggingConfigurationConditionLabelNameConditionPropertiesOutputWithContext(ctx context.Context) LoggingConfigurationConditionLabelNameConditionPropertiesOutput {
+	return o
+}
+
+func (o LoggingConfigurationConditionLabelNameConditionPropertiesOutput) ToLoggingConfigurationConditionLabelNameConditionPropertiesPtrOutput() LoggingConfigurationConditionLabelNameConditionPropertiesPtrOutput {
+	return o.ToLoggingConfigurationConditionLabelNameConditionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingConfigurationConditionLabelNameConditionPropertiesOutput) ToLoggingConfigurationConditionLabelNameConditionPropertiesPtrOutputWithContext(ctx context.Context) LoggingConfigurationConditionLabelNameConditionPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoggingConfigurationConditionLabelNameConditionProperties) *LoggingConfigurationConditionLabelNameConditionProperties {
+		return &v
+	}).(LoggingConfigurationConditionLabelNameConditionPropertiesPtrOutput)
+}
+
+// The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label.
+func (o LoggingConfigurationConditionLabelNameConditionPropertiesOutput) LabelName() pulumi.StringOutput {
+	return o.ApplyT(func(v LoggingConfigurationConditionLabelNameConditionProperties) string { return v.LabelName }).(pulumi.StringOutput)
+}
+
+type LoggingConfigurationConditionLabelNameConditionPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (LoggingConfigurationConditionLabelNameConditionPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoggingConfigurationConditionLabelNameConditionProperties)(nil)).Elem()
+}
+
+func (o LoggingConfigurationConditionLabelNameConditionPropertiesPtrOutput) ToLoggingConfigurationConditionLabelNameConditionPropertiesPtrOutput() LoggingConfigurationConditionLabelNameConditionPropertiesPtrOutput {
+	return o
+}
+
+func (o LoggingConfigurationConditionLabelNameConditionPropertiesPtrOutput) ToLoggingConfigurationConditionLabelNameConditionPropertiesPtrOutputWithContext(ctx context.Context) LoggingConfigurationConditionLabelNameConditionPropertiesPtrOutput {
+	return o
+}
+
+func (o LoggingConfigurationConditionLabelNameConditionPropertiesPtrOutput) Elem() LoggingConfigurationConditionLabelNameConditionPropertiesOutput {
+	return o.ApplyT(func(v *LoggingConfigurationConditionLabelNameConditionProperties) LoggingConfigurationConditionLabelNameConditionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret LoggingConfigurationConditionLabelNameConditionProperties
+		return ret
+	}).(LoggingConfigurationConditionLabelNameConditionPropertiesOutput)
+}
+
+// The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label.
+func (o LoggingConfigurationConditionLabelNameConditionPropertiesPtrOutput) LabelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoggingConfigurationConditionLabelNameConditionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LabelName
+	}).(pulumi.StringPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type LoggingConfigurationFieldToMatch struct {
 	// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
-	JsonBody interface{} `pulumi:"jsonBody"`
+	JsonBody *LoggingConfigurationFieldToMatchJsonBodyProperties `pulumi:"jsonBody"`
 	// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
 	Method interface{} `pulumi:"method"`
 	// Inspect the query string. This is the part of a URL that appears after a ? character, if any.
 	QueryString interface{} `pulumi:"queryString"`
 	// Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
-	SingleHeader interface{} `pulumi:"singleHeader"`
+	SingleHeader *LoggingConfigurationFieldToMatchSingleHeaderProperties `pulumi:"singleHeader"`
 	// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
 	UriPath interface{} `pulumi:"uriPath"`
 }
@@ -138,13 +530,13 @@ type LoggingConfigurationFieldToMatchInput interface {
 // A key-value pair to associate with a resource.
 type LoggingConfigurationFieldToMatchArgs struct {
 	// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
-	JsonBody pulumi.Input `pulumi:"jsonBody"`
+	JsonBody LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrInput `pulumi:"jsonBody"`
 	// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
 	Method pulumi.Input `pulumi:"method"`
 	// Inspect the query string. This is the part of a URL that appears after a ? character, if any.
 	QueryString pulumi.Input `pulumi:"queryString"`
 	// Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
-	SingleHeader pulumi.Input `pulumi:"singleHeader"`
+	SingleHeader LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrInput `pulumi:"singleHeader"`
 	// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
 	UriPath pulumi.Input `pulumi:"uriPath"`
 }
@@ -202,8 +594,10 @@ func (o LoggingConfigurationFieldToMatchOutput) ToLoggingConfigurationFieldToMat
 }
 
 // Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
-func (o LoggingConfigurationFieldToMatchOutput) JsonBody() pulumi.AnyOutput {
-	return o.ApplyT(func(v LoggingConfigurationFieldToMatch) interface{} { return v.JsonBody }).(pulumi.AnyOutput)
+func (o LoggingConfigurationFieldToMatchOutput) JsonBody() LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput {
+	return o.ApplyT(func(v LoggingConfigurationFieldToMatch) *LoggingConfigurationFieldToMatchJsonBodyProperties {
+		return v.JsonBody
+	}).(LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput)
 }
 
 // Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
@@ -217,8 +611,10 @@ func (o LoggingConfigurationFieldToMatchOutput) QueryString() pulumi.AnyOutput {
 }
 
 // Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
-func (o LoggingConfigurationFieldToMatchOutput) SingleHeader() pulumi.AnyOutput {
-	return o.ApplyT(func(v LoggingConfigurationFieldToMatch) interface{} { return v.SingleHeader }).(pulumi.AnyOutput)
+func (o LoggingConfigurationFieldToMatchOutput) SingleHeader() LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutput {
+	return o.ApplyT(func(v LoggingConfigurationFieldToMatch) *LoggingConfigurationFieldToMatchSingleHeaderProperties {
+		return v.SingleHeader
+	}).(LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutput)
 }
 
 // Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
@@ -244,6 +640,769 @@ func (o LoggingConfigurationFieldToMatchArrayOutput) Index(i pulumi.IntInput) Lo
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoggingConfigurationFieldToMatch {
 		return vs[0].([]LoggingConfigurationFieldToMatch)[vs[1].(int)]
 	}).(LoggingConfigurationFieldToMatchOutput)
+}
+
+// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
+type LoggingConfigurationFieldToMatchJsonBodyProperties struct {
+	// What AWS WAF should do if it fails to completely parse the JSON body.
+	InvalidFallbackBehavior *LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior `pulumi:"invalidFallbackBehavior"`
+	// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
+	MatchPattern LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties `pulumi:"matchPattern"`
+	// The parts of the JSON to match against using the MatchPattern. If you specify All, AWS WAF matches against keys and values.
+	MatchScope LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope `pulumi:"matchScope"`
+}
+
+// LoggingConfigurationFieldToMatchJsonBodyPropertiesInput is an input type that accepts LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs and LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput values.
+// You can construct a concrete instance of `LoggingConfigurationFieldToMatchJsonBodyPropertiesInput` via:
+//
+//          LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs{...}
+type LoggingConfigurationFieldToMatchJsonBodyPropertiesInput interface {
+	pulumi.Input
+
+	ToLoggingConfigurationFieldToMatchJsonBodyPropertiesOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput
+	ToLoggingConfigurationFieldToMatchJsonBodyPropertiesOutputWithContext(context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput
+}
+
+// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
+type LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs struct {
+	// What AWS WAF should do if it fails to completely parse the JSON body.
+	InvalidFallbackBehavior LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrInput `pulumi:"invalidFallbackBehavior"`
+	// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
+	MatchPattern LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesInput `pulumi:"matchPattern"`
+	// The parts of the JSON to match against using the MatchPattern. If you specify All, AWS WAF matches against keys and values.
+	MatchScope LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeInput `pulumi:"matchScope"`
+}
+
+func (LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingConfigurationFieldToMatchJsonBodyProperties)(nil)).Elem()
+}
+
+func (i LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput {
+	return i.ToLoggingConfigurationFieldToMatchJsonBodyPropertiesOutputWithContext(context.Background())
+}
+
+func (i LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput)
+}
+
+func (i LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput {
+	return i.ToLoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput).ToLoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutputWithContext(ctx)
+}
+
+// LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrInput is an input type that accepts LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs, LoggingConfigurationFieldToMatchJsonBodyPropertiesPtr and LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput values.
+// You can construct a concrete instance of `LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrInput` via:
+//
+//          LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToLoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput
+	ToLoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutputWithContext(context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput
+}
+
+type loggingConfigurationFieldToMatchJsonBodyPropertiesPtrType LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs
+
+func LoggingConfigurationFieldToMatchJsonBodyPropertiesPtr(v *LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs) LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrInput {
+	return (*loggingConfigurationFieldToMatchJsonBodyPropertiesPtrType)(v)
+}
+
+func (*loggingConfigurationFieldToMatchJsonBodyPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoggingConfigurationFieldToMatchJsonBodyProperties)(nil)).Elem()
+}
+
+func (i *loggingConfigurationFieldToMatchJsonBodyPropertiesPtrType) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput {
+	return i.ToLoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *loggingConfigurationFieldToMatchJsonBodyPropertiesPtrType) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput)
+}
+
+// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
+type LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput struct{ *pulumi.OutputState }
+
+func (LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingConfigurationFieldToMatchJsonBodyProperties)(nil)).Elem()
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput {
+	return o
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput {
+	return o
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput {
+	return o.ToLoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoggingConfigurationFieldToMatchJsonBodyProperties) *LoggingConfigurationFieldToMatchJsonBodyProperties {
+		return &v
+	}).(LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput)
+}
+
+// What AWS WAF should do if it fails to completely parse the JSON body.
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput) InvalidFallbackBehavior() LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput {
+	return o.ApplyT(func(v LoggingConfigurationFieldToMatchJsonBodyProperties) *LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior {
+		return v.InvalidFallbackBehavior
+	}).(LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput)
+}
+
+// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput) MatchPattern() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput {
+	return o.ApplyT(func(v LoggingConfigurationFieldToMatchJsonBodyProperties) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties {
+		return v.MatchPattern
+	}).(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput)
+}
+
+// The parts of the JSON to match against using the MatchPattern. If you specify All, AWS WAF matches against keys and values.
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput) MatchScope() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput {
+	return o.ApplyT(func(v LoggingConfigurationFieldToMatchJsonBodyProperties) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope {
+		return v.MatchScope
+	}).(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput)
+}
+
+type LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoggingConfigurationFieldToMatchJsonBodyProperties)(nil)).Elem()
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput {
+	return o
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput {
+	return o
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput) Elem() LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput {
+	return o.ApplyT(func(v *LoggingConfigurationFieldToMatchJsonBodyProperties) LoggingConfigurationFieldToMatchJsonBodyProperties {
+		if v != nil {
+			return *v
+		}
+		var ret LoggingConfigurationFieldToMatchJsonBodyProperties
+		return ret
+	}).(LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput)
+}
+
+// What AWS WAF should do if it fails to completely parse the JSON body.
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput) InvalidFallbackBehavior() LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput {
+	return o.ApplyT(func(v *LoggingConfigurationFieldToMatchJsonBodyProperties) *LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior {
+		if v == nil {
+			return nil
+		}
+		return v.InvalidFallbackBehavior
+	}).(LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput)
+}
+
+// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput) MatchPattern() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput {
+	return o.ApplyT(func(v *LoggingConfigurationFieldToMatchJsonBodyProperties) *LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.MatchPattern
+	}).(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput)
+}
+
+// The parts of the JSON to match against using the MatchPattern. If you specify All, AWS WAF matches against keys and values.
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput) MatchScope() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput {
+	return o.ApplyT(func(v *LoggingConfigurationFieldToMatchJsonBodyProperties) *LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope {
+		if v == nil {
+			return nil
+		}
+		return &v.MatchScope
+	}).(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput)
+}
+
+// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
+type LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties struct {
+	// Match all of the elements. See also MatchScope in JsonBody. You must specify either this setting or the IncludedPaths setting, but not both.
+	All interface{} `pulumi:"all"`
+	// Match only the specified include paths. See also MatchScope in JsonBody.
+	IncludedPaths []string `pulumi:"includedPaths"`
+}
+
+// LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesInput is an input type that accepts LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs and LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput values.
+// You can construct a concrete instance of `LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesInput` via:
+//
+//          LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs{...}
+type LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesInput interface {
+	pulumi.Input
+
+	ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput
+	ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutputWithContext(context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput
+}
+
+// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
+type LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs struct {
+	// Match all of the elements. See also MatchScope in JsonBody. You must specify either this setting or the IncludedPaths setting, but not both.
+	All pulumi.Input `pulumi:"all"`
+	// Match only the specified include paths. See also MatchScope in JsonBody.
+	IncludedPaths pulumi.StringArrayInput `pulumi:"includedPaths"`
+}
+
+func (LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties)(nil)).Elem()
+}
+
+func (i LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput {
+	return i.ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutputWithContext(context.Background())
+}
+
+func (i LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput)
+}
+
+func (i LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput {
+	return i.ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput).ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutputWithContext(ctx)
+}
+
+// LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrInput is an input type that accepts LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs, LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtr and LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput values.
+// You can construct a concrete instance of `LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrInput` via:
+//
+//          LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput
+	ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutputWithContext(context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput
+}
+
+type loggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrType LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs
+
+func LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtr(v *LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrInput {
+	return (*loggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrType)(v)
+}
+
+func (*loggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties)(nil)).Elem()
+}
+
+func (i *loggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrType) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput {
+	return i.ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *loggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrType) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput)
+}
+
+// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
+type LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput struct{ *pulumi.OutputState }
+
+func (LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties)(nil)).Elem()
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput {
+	return o
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput {
+	return o
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput {
+	return o.ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties) *LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties {
+		return &v
+	}).(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput)
+}
+
+// Match all of the elements. See also MatchScope in JsonBody. You must specify either this setting or the IncludedPaths setting, but not both.
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput) All() pulumi.AnyOutput {
+	return o.ApplyT(func(v LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties) interface{} {
+		return v.All
+	}).(pulumi.AnyOutput)
+}
+
+// Match only the specified include paths. See also MatchScope in JsonBody.
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput) IncludedPaths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties) []string {
+		return v.IncludedPaths
+	}).(pulumi.StringArrayOutput)
+}
+
+type LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties)(nil)).Elem()
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput {
+	return o
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput {
+	return o
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput) Elem() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput {
+	return o.ApplyT(func(v *LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties {
+		if v != nil {
+			return *v
+		}
+		var ret LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties
+		return ret
+	}).(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput)
+}
+
+// Match all of the elements. See also MatchScope in JsonBody. You must specify either this setting or the IncludedPaths setting, but not both.
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput) All() pulumi.AnyOutput {
+	return o.ApplyT(func(v *LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.All
+	}).(pulumi.AnyOutput)
+}
+
+// Match only the specified include paths. See also MatchScope in JsonBody.
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput) IncludedPaths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedPaths
+	}).(pulumi.StringArrayOutput)
+}
+
+// Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
+type LoggingConfigurationFieldToMatchSingleHeaderProperties struct {
+	// The name of the query header to inspect.
+	Name string `pulumi:"name"`
+}
+
+// LoggingConfigurationFieldToMatchSingleHeaderPropertiesInput is an input type that accepts LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs and LoggingConfigurationFieldToMatchSingleHeaderPropertiesOutput values.
+// You can construct a concrete instance of `LoggingConfigurationFieldToMatchSingleHeaderPropertiesInput` via:
+//
+//          LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs{...}
+type LoggingConfigurationFieldToMatchSingleHeaderPropertiesInput interface {
+	pulumi.Input
+
+	ToLoggingConfigurationFieldToMatchSingleHeaderPropertiesOutput() LoggingConfigurationFieldToMatchSingleHeaderPropertiesOutput
+	ToLoggingConfigurationFieldToMatchSingleHeaderPropertiesOutputWithContext(context.Context) LoggingConfigurationFieldToMatchSingleHeaderPropertiesOutput
+}
+
+// Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
+type LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs struct {
+	// The name of the query header to inspect.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingConfigurationFieldToMatchSingleHeaderProperties)(nil)).Elem()
+}
+
+func (i LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs) ToLoggingConfigurationFieldToMatchSingleHeaderPropertiesOutput() LoggingConfigurationFieldToMatchSingleHeaderPropertiesOutput {
+	return i.ToLoggingConfigurationFieldToMatchSingleHeaderPropertiesOutputWithContext(context.Background())
+}
+
+func (i LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs) ToLoggingConfigurationFieldToMatchSingleHeaderPropertiesOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchSingleHeaderPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationFieldToMatchSingleHeaderPropertiesOutput)
+}
+
+func (i LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs) ToLoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutput() LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutput {
+	return i.ToLoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs) ToLoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationFieldToMatchSingleHeaderPropertiesOutput).ToLoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutputWithContext(ctx)
+}
+
+// LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrInput is an input type that accepts LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs, LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtr and LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutput values.
+// You can construct a concrete instance of `LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrInput` via:
+//
+//          LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToLoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutput() LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutput
+	ToLoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutputWithContext(context.Context) LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutput
+}
+
+type loggingConfigurationFieldToMatchSingleHeaderPropertiesPtrType LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs
+
+func LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtr(v *LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs) LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrInput {
+	return (*loggingConfigurationFieldToMatchSingleHeaderPropertiesPtrType)(v)
+}
+
+func (*loggingConfigurationFieldToMatchSingleHeaderPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoggingConfigurationFieldToMatchSingleHeaderProperties)(nil)).Elem()
+}
+
+func (i *loggingConfigurationFieldToMatchSingleHeaderPropertiesPtrType) ToLoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutput() LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutput {
+	return i.ToLoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *loggingConfigurationFieldToMatchSingleHeaderPropertiesPtrType) ToLoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutput)
+}
+
+// Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
+type LoggingConfigurationFieldToMatchSingleHeaderPropertiesOutput struct{ *pulumi.OutputState }
+
+func (LoggingConfigurationFieldToMatchSingleHeaderPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingConfigurationFieldToMatchSingleHeaderProperties)(nil)).Elem()
+}
+
+func (o LoggingConfigurationFieldToMatchSingleHeaderPropertiesOutput) ToLoggingConfigurationFieldToMatchSingleHeaderPropertiesOutput() LoggingConfigurationFieldToMatchSingleHeaderPropertiesOutput {
+	return o
+}
+
+func (o LoggingConfigurationFieldToMatchSingleHeaderPropertiesOutput) ToLoggingConfigurationFieldToMatchSingleHeaderPropertiesOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchSingleHeaderPropertiesOutput {
+	return o
+}
+
+func (o LoggingConfigurationFieldToMatchSingleHeaderPropertiesOutput) ToLoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutput() LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutput {
+	return o.ToLoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingConfigurationFieldToMatchSingleHeaderPropertiesOutput) ToLoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoggingConfigurationFieldToMatchSingleHeaderProperties) *LoggingConfigurationFieldToMatchSingleHeaderProperties {
+		return &v
+	}).(LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutput)
+}
+
+// The name of the query header to inspect.
+func (o LoggingConfigurationFieldToMatchSingleHeaderPropertiesOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LoggingConfigurationFieldToMatchSingleHeaderProperties) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoggingConfigurationFieldToMatchSingleHeaderProperties)(nil)).Elem()
+}
+
+func (o LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutput) ToLoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutput() LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutput {
+	return o
+}
+
+func (o LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutput) ToLoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutput {
+	return o
+}
+
+func (o LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutput) Elem() LoggingConfigurationFieldToMatchSingleHeaderPropertiesOutput {
+	return o.ApplyT(func(v *LoggingConfigurationFieldToMatchSingleHeaderProperties) LoggingConfigurationFieldToMatchSingleHeaderProperties {
+		if v != nil {
+			return *v
+		}
+		var ret LoggingConfigurationFieldToMatchSingleHeaderProperties
+		return ret
+	}).(LoggingConfigurationFieldToMatchSingleHeaderPropertiesOutput)
+}
+
+// The name of the query header to inspect.
+func (o LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoggingConfigurationFieldToMatchSingleHeaderProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type LoggingConfigurationFilter struct {
+	// How to handle logs that satisfy the filter's conditions and requirement.
+	Behavior LoggingConfigurationFilterBehavior `pulumi:"behavior"`
+	// Match conditions for the filter.
+	Conditions []LoggingConfigurationCondition `pulumi:"conditions"`
+	// Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
+	Requirement LoggingConfigurationFilterRequirement `pulumi:"requirement"`
+}
+
+// LoggingConfigurationFilterInput is an input type that accepts LoggingConfigurationFilterArgs and LoggingConfigurationFilterOutput values.
+// You can construct a concrete instance of `LoggingConfigurationFilterInput` via:
+//
+//          LoggingConfigurationFilterArgs{...}
+type LoggingConfigurationFilterInput interface {
+	pulumi.Input
+
+	ToLoggingConfigurationFilterOutput() LoggingConfigurationFilterOutput
+	ToLoggingConfigurationFilterOutputWithContext(context.Context) LoggingConfigurationFilterOutput
+}
+
+type LoggingConfigurationFilterArgs struct {
+	// How to handle logs that satisfy the filter's conditions and requirement.
+	Behavior LoggingConfigurationFilterBehaviorInput `pulumi:"behavior"`
+	// Match conditions for the filter.
+	Conditions LoggingConfigurationConditionArrayInput `pulumi:"conditions"`
+	// Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
+	Requirement LoggingConfigurationFilterRequirementInput `pulumi:"requirement"`
+}
+
+func (LoggingConfigurationFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingConfigurationFilter)(nil)).Elem()
+}
+
+func (i LoggingConfigurationFilterArgs) ToLoggingConfigurationFilterOutput() LoggingConfigurationFilterOutput {
+	return i.ToLoggingConfigurationFilterOutputWithContext(context.Background())
+}
+
+func (i LoggingConfigurationFilterArgs) ToLoggingConfigurationFilterOutputWithContext(ctx context.Context) LoggingConfigurationFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationFilterOutput)
+}
+
+// LoggingConfigurationFilterArrayInput is an input type that accepts LoggingConfigurationFilterArray and LoggingConfigurationFilterArrayOutput values.
+// You can construct a concrete instance of `LoggingConfigurationFilterArrayInput` via:
+//
+//          LoggingConfigurationFilterArray{ LoggingConfigurationFilterArgs{...} }
+type LoggingConfigurationFilterArrayInput interface {
+	pulumi.Input
+
+	ToLoggingConfigurationFilterArrayOutput() LoggingConfigurationFilterArrayOutput
+	ToLoggingConfigurationFilterArrayOutputWithContext(context.Context) LoggingConfigurationFilterArrayOutput
+}
+
+type LoggingConfigurationFilterArray []LoggingConfigurationFilterInput
+
+func (LoggingConfigurationFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoggingConfigurationFilter)(nil)).Elem()
+}
+
+func (i LoggingConfigurationFilterArray) ToLoggingConfigurationFilterArrayOutput() LoggingConfigurationFilterArrayOutput {
+	return i.ToLoggingConfigurationFilterArrayOutputWithContext(context.Background())
+}
+
+func (i LoggingConfigurationFilterArray) ToLoggingConfigurationFilterArrayOutputWithContext(ctx context.Context) LoggingConfigurationFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationFilterArrayOutput)
+}
+
+type LoggingConfigurationFilterOutput struct{ *pulumi.OutputState }
+
+func (LoggingConfigurationFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingConfigurationFilter)(nil)).Elem()
+}
+
+func (o LoggingConfigurationFilterOutput) ToLoggingConfigurationFilterOutput() LoggingConfigurationFilterOutput {
+	return o
+}
+
+func (o LoggingConfigurationFilterOutput) ToLoggingConfigurationFilterOutputWithContext(ctx context.Context) LoggingConfigurationFilterOutput {
+	return o
+}
+
+// How to handle logs that satisfy the filter's conditions and requirement.
+func (o LoggingConfigurationFilterOutput) Behavior() LoggingConfigurationFilterBehaviorOutput {
+	return o.ApplyT(func(v LoggingConfigurationFilter) LoggingConfigurationFilterBehavior { return v.Behavior }).(LoggingConfigurationFilterBehaviorOutput)
+}
+
+// Match conditions for the filter.
+func (o LoggingConfigurationFilterOutput) Conditions() LoggingConfigurationConditionArrayOutput {
+	return o.ApplyT(func(v LoggingConfigurationFilter) []LoggingConfigurationCondition { return v.Conditions }).(LoggingConfigurationConditionArrayOutput)
+}
+
+// Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
+func (o LoggingConfigurationFilterOutput) Requirement() LoggingConfigurationFilterRequirementOutput {
+	return o.ApplyT(func(v LoggingConfigurationFilter) LoggingConfigurationFilterRequirement { return v.Requirement }).(LoggingConfigurationFilterRequirementOutput)
+}
+
+type LoggingConfigurationFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (LoggingConfigurationFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoggingConfigurationFilter)(nil)).Elem()
+}
+
+func (o LoggingConfigurationFilterArrayOutput) ToLoggingConfigurationFilterArrayOutput() LoggingConfigurationFilterArrayOutput {
+	return o
+}
+
+func (o LoggingConfigurationFilterArrayOutput) ToLoggingConfigurationFilterArrayOutputWithContext(ctx context.Context) LoggingConfigurationFilterArrayOutput {
+	return o
+}
+
+func (o LoggingConfigurationFilterArrayOutput) Index(i pulumi.IntInput) LoggingConfigurationFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoggingConfigurationFilter {
+		return vs[0].([]LoggingConfigurationFilter)[vs[1].(int)]
+	}).(LoggingConfigurationFilterOutput)
+}
+
+// Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
+type LoggingFilterProperties struct {
+	// Default handling for logs that don't match any of the specified filtering conditions.
+	DefaultBehavior LoggingConfigurationLoggingFilterPropertiesDefaultBehavior `pulumi:"defaultBehavior"`
+	// The filters that you want to apply to the logs.
+	Filters []LoggingConfigurationFilter `pulumi:"filters"`
+}
+
+// LoggingFilterPropertiesInput is an input type that accepts LoggingFilterPropertiesArgs and LoggingFilterPropertiesOutput values.
+// You can construct a concrete instance of `LoggingFilterPropertiesInput` via:
+//
+//          LoggingFilterPropertiesArgs{...}
+type LoggingFilterPropertiesInput interface {
+	pulumi.Input
+
+	ToLoggingFilterPropertiesOutput() LoggingFilterPropertiesOutput
+	ToLoggingFilterPropertiesOutputWithContext(context.Context) LoggingFilterPropertiesOutput
+}
+
+// Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
+type LoggingFilterPropertiesArgs struct {
+	// Default handling for logs that don't match any of the specified filtering conditions.
+	DefaultBehavior LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorInput `pulumi:"defaultBehavior"`
+	// The filters that you want to apply to the logs.
+	Filters LoggingConfigurationFilterArrayInput `pulumi:"filters"`
+}
+
+func (LoggingFilterPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingFilterProperties)(nil)).Elem()
+}
+
+func (i LoggingFilterPropertiesArgs) ToLoggingFilterPropertiesOutput() LoggingFilterPropertiesOutput {
+	return i.ToLoggingFilterPropertiesOutputWithContext(context.Background())
+}
+
+func (i LoggingFilterPropertiesArgs) ToLoggingFilterPropertiesOutputWithContext(ctx context.Context) LoggingFilterPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggingFilterPropertiesOutput)
+}
+
+func (i LoggingFilterPropertiesArgs) ToLoggingFilterPropertiesPtrOutput() LoggingFilterPropertiesPtrOutput {
+	return i.ToLoggingFilterPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i LoggingFilterPropertiesArgs) ToLoggingFilterPropertiesPtrOutputWithContext(ctx context.Context) LoggingFilterPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggingFilterPropertiesOutput).ToLoggingFilterPropertiesPtrOutputWithContext(ctx)
+}
+
+// LoggingFilterPropertiesPtrInput is an input type that accepts LoggingFilterPropertiesArgs, LoggingFilterPropertiesPtr and LoggingFilterPropertiesPtrOutput values.
+// You can construct a concrete instance of `LoggingFilterPropertiesPtrInput` via:
+//
+//          LoggingFilterPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type LoggingFilterPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToLoggingFilterPropertiesPtrOutput() LoggingFilterPropertiesPtrOutput
+	ToLoggingFilterPropertiesPtrOutputWithContext(context.Context) LoggingFilterPropertiesPtrOutput
+}
+
+type loggingFilterPropertiesPtrType LoggingFilterPropertiesArgs
+
+func LoggingFilterPropertiesPtr(v *LoggingFilterPropertiesArgs) LoggingFilterPropertiesPtrInput {
+	return (*loggingFilterPropertiesPtrType)(v)
+}
+
+func (*loggingFilterPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoggingFilterProperties)(nil)).Elem()
+}
+
+func (i *loggingFilterPropertiesPtrType) ToLoggingFilterPropertiesPtrOutput() LoggingFilterPropertiesPtrOutput {
+	return i.ToLoggingFilterPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *loggingFilterPropertiesPtrType) ToLoggingFilterPropertiesPtrOutputWithContext(ctx context.Context) LoggingFilterPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggingFilterPropertiesPtrOutput)
+}
+
+// Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
+type LoggingFilterPropertiesOutput struct{ *pulumi.OutputState }
+
+func (LoggingFilterPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingFilterProperties)(nil)).Elem()
+}
+
+func (o LoggingFilterPropertiesOutput) ToLoggingFilterPropertiesOutput() LoggingFilterPropertiesOutput {
+	return o
+}
+
+func (o LoggingFilterPropertiesOutput) ToLoggingFilterPropertiesOutputWithContext(ctx context.Context) LoggingFilterPropertiesOutput {
+	return o
+}
+
+func (o LoggingFilterPropertiesOutput) ToLoggingFilterPropertiesPtrOutput() LoggingFilterPropertiesPtrOutput {
+	return o.ToLoggingFilterPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingFilterPropertiesOutput) ToLoggingFilterPropertiesPtrOutputWithContext(ctx context.Context) LoggingFilterPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoggingFilterProperties) *LoggingFilterProperties {
+		return &v
+	}).(LoggingFilterPropertiesPtrOutput)
+}
+
+// Default handling for logs that don't match any of the specified filtering conditions.
+func (o LoggingFilterPropertiesOutput) DefaultBehavior() LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput {
+	return o.ApplyT(func(v LoggingFilterProperties) LoggingConfigurationLoggingFilterPropertiesDefaultBehavior {
+		return v.DefaultBehavior
+	}).(LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput)
+}
+
+// The filters that you want to apply to the logs.
+func (o LoggingFilterPropertiesOutput) Filters() LoggingConfigurationFilterArrayOutput {
+	return o.ApplyT(func(v LoggingFilterProperties) []LoggingConfigurationFilter { return v.Filters }).(LoggingConfigurationFilterArrayOutput)
+}
+
+type LoggingFilterPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (LoggingFilterPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoggingFilterProperties)(nil)).Elem()
+}
+
+func (o LoggingFilterPropertiesPtrOutput) ToLoggingFilterPropertiesPtrOutput() LoggingFilterPropertiesPtrOutput {
+	return o
+}
+
+func (o LoggingFilterPropertiesPtrOutput) ToLoggingFilterPropertiesPtrOutputWithContext(ctx context.Context) LoggingFilterPropertiesPtrOutput {
+	return o
+}
+
+func (o LoggingFilterPropertiesPtrOutput) Elem() LoggingFilterPropertiesOutput {
+	return o.ApplyT(func(v *LoggingFilterProperties) LoggingFilterProperties {
+		if v != nil {
+			return *v
+		}
+		var ret LoggingFilterProperties
+		return ret
+	}).(LoggingFilterPropertiesOutput)
+}
+
+// Default handling for logs that don't match any of the specified filtering conditions.
+func (o LoggingFilterPropertiesPtrOutput) DefaultBehavior() LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput {
+	return o.ApplyT(func(v *LoggingFilterProperties) *LoggingConfigurationLoggingFilterPropertiesDefaultBehavior {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultBehavior
+	}).(LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput)
+}
+
+// The filters that you want to apply to the logs.
+func (o LoggingFilterPropertiesPtrOutput) Filters() LoggingConfigurationFilterArrayOutput {
+	return o.ApplyT(func(v *LoggingFilterProperties) []LoggingConfigurationFilter {
+		if v == nil {
+			return nil
+		}
+		return v.Filters
+	}).(LoggingConfigurationFilterArrayOutput)
 }
 
 type RegexPatternSetTag struct {
@@ -675,6 +1834,423 @@ func (o RuleGroupByteMatchStatementPtrOutput) TextTransformations() RuleGroupTex
 	}).(RuleGroupTextTransformationArrayOutput)
 }
 
+// HTTP header.
+type RuleGroupCustomHTTPHeader struct {
+	Name  string `pulumi:"name"`
+	Value string `pulumi:"value"`
+}
+
+// RuleGroupCustomHTTPHeaderInput is an input type that accepts RuleGroupCustomHTTPHeaderArgs and RuleGroupCustomHTTPHeaderOutput values.
+// You can construct a concrete instance of `RuleGroupCustomHTTPHeaderInput` via:
+//
+//          RuleGroupCustomHTTPHeaderArgs{...}
+type RuleGroupCustomHTTPHeaderInput interface {
+	pulumi.Input
+
+	ToRuleGroupCustomHTTPHeaderOutput() RuleGroupCustomHTTPHeaderOutput
+	ToRuleGroupCustomHTTPHeaderOutputWithContext(context.Context) RuleGroupCustomHTTPHeaderOutput
+}
+
+// HTTP header.
+type RuleGroupCustomHTTPHeaderArgs struct {
+	Name  pulumi.StringInput `pulumi:"name"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (RuleGroupCustomHTTPHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupCustomHTTPHeader)(nil)).Elem()
+}
+
+func (i RuleGroupCustomHTTPHeaderArgs) ToRuleGroupCustomHTTPHeaderOutput() RuleGroupCustomHTTPHeaderOutput {
+	return i.ToRuleGroupCustomHTTPHeaderOutputWithContext(context.Background())
+}
+
+func (i RuleGroupCustomHTTPHeaderArgs) ToRuleGroupCustomHTTPHeaderOutputWithContext(ctx context.Context) RuleGroupCustomHTTPHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCustomHTTPHeaderOutput)
+}
+
+// RuleGroupCustomHTTPHeaderArrayInput is an input type that accepts RuleGroupCustomHTTPHeaderArray and RuleGroupCustomHTTPHeaderArrayOutput values.
+// You can construct a concrete instance of `RuleGroupCustomHTTPHeaderArrayInput` via:
+//
+//          RuleGroupCustomHTTPHeaderArray{ RuleGroupCustomHTTPHeaderArgs{...} }
+type RuleGroupCustomHTTPHeaderArrayInput interface {
+	pulumi.Input
+
+	ToRuleGroupCustomHTTPHeaderArrayOutput() RuleGroupCustomHTTPHeaderArrayOutput
+	ToRuleGroupCustomHTTPHeaderArrayOutputWithContext(context.Context) RuleGroupCustomHTTPHeaderArrayOutput
+}
+
+type RuleGroupCustomHTTPHeaderArray []RuleGroupCustomHTTPHeaderInput
+
+func (RuleGroupCustomHTTPHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupCustomHTTPHeader)(nil)).Elem()
+}
+
+func (i RuleGroupCustomHTTPHeaderArray) ToRuleGroupCustomHTTPHeaderArrayOutput() RuleGroupCustomHTTPHeaderArrayOutput {
+	return i.ToRuleGroupCustomHTTPHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i RuleGroupCustomHTTPHeaderArray) ToRuleGroupCustomHTTPHeaderArrayOutputWithContext(ctx context.Context) RuleGroupCustomHTTPHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCustomHTTPHeaderArrayOutput)
+}
+
+// HTTP header.
+type RuleGroupCustomHTTPHeaderOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupCustomHTTPHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupCustomHTTPHeader)(nil)).Elem()
+}
+
+func (o RuleGroupCustomHTTPHeaderOutput) ToRuleGroupCustomHTTPHeaderOutput() RuleGroupCustomHTTPHeaderOutput {
+	return o
+}
+
+func (o RuleGroupCustomHTTPHeaderOutput) ToRuleGroupCustomHTTPHeaderOutputWithContext(ctx context.Context) RuleGroupCustomHTTPHeaderOutput {
+	return o
+}
+
+func (o RuleGroupCustomHTTPHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupCustomHTTPHeader) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o RuleGroupCustomHTTPHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupCustomHTTPHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type RuleGroupCustomHTTPHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupCustomHTTPHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupCustomHTTPHeader)(nil)).Elem()
+}
+
+func (o RuleGroupCustomHTTPHeaderArrayOutput) ToRuleGroupCustomHTTPHeaderArrayOutput() RuleGroupCustomHTTPHeaderArrayOutput {
+	return o
+}
+
+func (o RuleGroupCustomHTTPHeaderArrayOutput) ToRuleGroupCustomHTTPHeaderArrayOutputWithContext(ctx context.Context) RuleGroupCustomHTTPHeaderArrayOutput {
+	return o
+}
+
+func (o RuleGroupCustomHTTPHeaderArrayOutput) Index(i pulumi.IntInput) RuleGroupCustomHTTPHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroupCustomHTTPHeader {
+		return vs[0].([]RuleGroupCustomHTTPHeader)[vs[1].(int)]
+	}).(RuleGroupCustomHTTPHeaderOutput)
+}
+
+// Custom request handling.
+type RuleGroupCustomRequestHandling struct {
+	// Collection of HTTP headers.
+	InsertHeaders []RuleGroupCustomHTTPHeader `pulumi:"insertHeaders"`
+}
+
+// RuleGroupCustomRequestHandlingInput is an input type that accepts RuleGroupCustomRequestHandlingArgs and RuleGroupCustomRequestHandlingOutput values.
+// You can construct a concrete instance of `RuleGroupCustomRequestHandlingInput` via:
+//
+//          RuleGroupCustomRequestHandlingArgs{...}
+type RuleGroupCustomRequestHandlingInput interface {
+	pulumi.Input
+
+	ToRuleGroupCustomRequestHandlingOutput() RuleGroupCustomRequestHandlingOutput
+	ToRuleGroupCustomRequestHandlingOutputWithContext(context.Context) RuleGroupCustomRequestHandlingOutput
+}
+
+// Custom request handling.
+type RuleGroupCustomRequestHandlingArgs struct {
+	// Collection of HTTP headers.
+	InsertHeaders RuleGroupCustomHTTPHeaderArrayInput `pulumi:"insertHeaders"`
+}
+
+func (RuleGroupCustomRequestHandlingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupCustomRequestHandling)(nil)).Elem()
+}
+
+func (i RuleGroupCustomRequestHandlingArgs) ToRuleGroupCustomRequestHandlingOutput() RuleGroupCustomRequestHandlingOutput {
+	return i.ToRuleGroupCustomRequestHandlingOutputWithContext(context.Background())
+}
+
+func (i RuleGroupCustomRequestHandlingArgs) ToRuleGroupCustomRequestHandlingOutputWithContext(ctx context.Context) RuleGroupCustomRequestHandlingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCustomRequestHandlingOutput)
+}
+
+func (i RuleGroupCustomRequestHandlingArgs) ToRuleGroupCustomRequestHandlingPtrOutput() RuleGroupCustomRequestHandlingPtrOutput {
+	return i.ToRuleGroupCustomRequestHandlingPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupCustomRequestHandlingArgs) ToRuleGroupCustomRequestHandlingPtrOutputWithContext(ctx context.Context) RuleGroupCustomRequestHandlingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCustomRequestHandlingOutput).ToRuleGroupCustomRequestHandlingPtrOutputWithContext(ctx)
+}
+
+// RuleGroupCustomRequestHandlingPtrInput is an input type that accepts RuleGroupCustomRequestHandlingArgs, RuleGroupCustomRequestHandlingPtr and RuleGroupCustomRequestHandlingPtrOutput values.
+// You can construct a concrete instance of `RuleGroupCustomRequestHandlingPtrInput` via:
+//
+//          RuleGroupCustomRequestHandlingArgs{...}
+//
+//  or:
+//
+//          nil
+type RuleGroupCustomRequestHandlingPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupCustomRequestHandlingPtrOutput() RuleGroupCustomRequestHandlingPtrOutput
+	ToRuleGroupCustomRequestHandlingPtrOutputWithContext(context.Context) RuleGroupCustomRequestHandlingPtrOutput
+}
+
+type ruleGroupCustomRequestHandlingPtrType RuleGroupCustomRequestHandlingArgs
+
+func RuleGroupCustomRequestHandlingPtr(v *RuleGroupCustomRequestHandlingArgs) RuleGroupCustomRequestHandlingPtrInput {
+	return (*ruleGroupCustomRequestHandlingPtrType)(v)
+}
+
+func (*ruleGroupCustomRequestHandlingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupCustomRequestHandling)(nil)).Elem()
+}
+
+func (i *ruleGroupCustomRequestHandlingPtrType) ToRuleGroupCustomRequestHandlingPtrOutput() RuleGroupCustomRequestHandlingPtrOutput {
+	return i.ToRuleGroupCustomRequestHandlingPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupCustomRequestHandlingPtrType) ToRuleGroupCustomRequestHandlingPtrOutputWithContext(ctx context.Context) RuleGroupCustomRequestHandlingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCustomRequestHandlingPtrOutput)
+}
+
+// Custom request handling.
+type RuleGroupCustomRequestHandlingOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupCustomRequestHandlingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupCustomRequestHandling)(nil)).Elem()
+}
+
+func (o RuleGroupCustomRequestHandlingOutput) ToRuleGroupCustomRequestHandlingOutput() RuleGroupCustomRequestHandlingOutput {
+	return o
+}
+
+func (o RuleGroupCustomRequestHandlingOutput) ToRuleGroupCustomRequestHandlingOutputWithContext(ctx context.Context) RuleGroupCustomRequestHandlingOutput {
+	return o
+}
+
+func (o RuleGroupCustomRequestHandlingOutput) ToRuleGroupCustomRequestHandlingPtrOutput() RuleGroupCustomRequestHandlingPtrOutput {
+	return o.ToRuleGroupCustomRequestHandlingPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupCustomRequestHandlingOutput) ToRuleGroupCustomRequestHandlingPtrOutputWithContext(ctx context.Context) RuleGroupCustomRequestHandlingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupCustomRequestHandling) *RuleGroupCustomRequestHandling {
+		return &v
+	}).(RuleGroupCustomRequestHandlingPtrOutput)
+}
+
+// Collection of HTTP headers.
+func (o RuleGroupCustomRequestHandlingOutput) InsertHeaders() RuleGroupCustomHTTPHeaderArrayOutput {
+	return o.ApplyT(func(v RuleGroupCustomRequestHandling) []RuleGroupCustomHTTPHeader { return v.InsertHeaders }).(RuleGroupCustomHTTPHeaderArrayOutput)
+}
+
+type RuleGroupCustomRequestHandlingPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupCustomRequestHandlingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupCustomRequestHandling)(nil)).Elem()
+}
+
+func (o RuleGroupCustomRequestHandlingPtrOutput) ToRuleGroupCustomRequestHandlingPtrOutput() RuleGroupCustomRequestHandlingPtrOutput {
+	return o
+}
+
+func (o RuleGroupCustomRequestHandlingPtrOutput) ToRuleGroupCustomRequestHandlingPtrOutputWithContext(ctx context.Context) RuleGroupCustomRequestHandlingPtrOutput {
+	return o
+}
+
+func (o RuleGroupCustomRequestHandlingPtrOutput) Elem() RuleGroupCustomRequestHandlingOutput {
+	return o.ApplyT(func(v *RuleGroupCustomRequestHandling) RuleGroupCustomRequestHandling {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupCustomRequestHandling
+		return ret
+	}).(RuleGroupCustomRequestHandlingOutput)
+}
+
+// Collection of HTTP headers.
+func (o RuleGroupCustomRequestHandlingPtrOutput) InsertHeaders() RuleGroupCustomHTTPHeaderArrayOutput {
+	return o.ApplyT(func(v *RuleGroupCustomRequestHandling) []RuleGroupCustomHTTPHeader {
+		if v == nil {
+			return nil
+		}
+		return v.InsertHeaders
+	}).(RuleGroupCustomHTTPHeaderArrayOutput)
+}
+
+// Custom response.
+type RuleGroupCustomResponse struct {
+	// Custom response body key.
+	CustomResponseBodyKey *string `pulumi:"customResponseBodyKey"`
+	ResponseCode          int     `pulumi:"responseCode"`
+	// Collection of HTTP headers.
+	ResponseHeaders []RuleGroupCustomHTTPHeader `pulumi:"responseHeaders"`
+}
+
+// RuleGroupCustomResponseInput is an input type that accepts RuleGroupCustomResponseArgs and RuleGroupCustomResponseOutput values.
+// You can construct a concrete instance of `RuleGroupCustomResponseInput` via:
+//
+//          RuleGroupCustomResponseArgs{...}
+type RuleGroupCustomResponseInput interface {
+	pulumi.Input
+
+	ToRuleGroupCustomResponseOutput() RuleGroupCustomResponseOutput
+	ToRuleGroupCustomResponseOutputWithContext(context.Context) RuleGroupCustomResponseOutput
+}
+
+// Custom response.
+type RuleGroupCustomResponseArgs struct {
+	// Custom response body key.
+	CustomResponseBodyKey pulumi.StringPtrInput `pulumi:"customResponseBodyKey"`
+	ResponseCode          pulumi.IntInput       `pulumi:"responseCode"`
+	// Collection of HTTP headers.
+	ResponseHeaders RuleGroupCustomHTTPHeaderArrayInput `pulumi:"responseHeaders"`
+}
+
+func (RuleGroupCustomResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupCustomResponse)(nil)).Elem()
+}
+
+func (i RuleGroupCustomResponseArgs) ToRuleGroupCustomResponseOutput() RuleGroupCustomResponseOutput {
+	return i.ToRuleGroupCustomResponseOutputWithContext(context.Background())
+}
+
+func (i RuleGroupCustomResponseArgs) ToRuleGroupCustomResponseOutputWithContext(ctx context.Context) RuleGroupCustomResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCustomResponseOutput)
+}
+
+func (i RuleGroupCustomResponseArgs) ToRuleGroupCustomResponsePtrOutput() RuleGroupCustomResponsePtrOutput {
+	return i.ToRuleGroupCustomResponsePtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupCustomResponseArgs) ToRuleGroupCustomResponsePtrOutputWithContext(ctx context.Context) RuleGroupCustomResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCustomResponseOutput).ToRuleGroupCustomResponsePtrOutputWithContext(ctx)
+}
+
+// RuleGroupCustomResponsePtrInput is an input type that accepts RuleGroupCustomResponseArgs, RuleGroupCustomResponsePtr and RuleGroupCustomResponsePtrOutput values.
+// You can construct a concrete instance of `RuleGroupCustomResponsePtrInput` via:
+//
+//          RuleGroupCustomResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type RuleGroupCustomResponsePtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupCustomResponsePtrOutput() RuleGroupCustomResponsePtrOutput
+	ToRuleGroupCustomResponsePtrOutputWithContext(context.Context) RuleGroupCustomResponsePtrOutput
+}
+
+type ruleGroupCustomResponsePtrType RuleGroupCustomResponseArgs
+
+func RuleGroupCustomResponsePtr(v *RuleGroupCustomResponseArgs) RuleGroupCustomResponsePtrInput {
+	return (*ruleGroupCustomResponsePtrType)(v)
+}
+
+func (*ruleGroupCustomResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupCustomResponse)(nil)).Elem()
+}
+
+func (i *ruleGroupCustomResponsePtrType) ToRuleGroupCustomResponsePtrOutput() RuleGroupCustomResponsePtrOutput {
+	return i.ToRuleGroupCustomResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupCustomResponsePtrType) ToRuleGroupCustomResponsePtrOutputWithContext(ctx context.Context) RuleGroupCustomResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCustomResponsePtrOutput)
+}
+
+// Custom response.
+type RuleGroupCustomResponseOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupCustomResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupCustomResponse)(nil)).Elem()
+}
+
+func (o RuleGroupCustomResponseOutput) ToRuleGroupCustomResponseOutput() RuleGroupCustomResponseOutput {
+	return o
+}
+
+func (o RuleGroupCustomResponseOutput) ToRuleGroupCustomResponseOutputWithContext(ctx context.Context) RuleGroupCustomResponseOutput {
+	return o
+}
+
+func (o RuleGroupCustomResponseOutput) ToRuleGroupCustomResponsePtrOutput() RuleGroupCustomResponsePtrOutput {
+	return o.ToRuleGroupCustomResponsePtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupCustomResponseOutput) ToRuleGroupCustomResponsePtrOutputWithContext(ctx context.Context) RuleGroupCustomResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupCustomResponse) *RuleGroupCustomResponse {
+		return &v
+	}).(RuleGroupCustomResponsePtrOutput)
+}
+
+// Custom response body key.
+func (o RuleGroupCustomResponseOutput) CustomResponseBodyKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleGroupCustomResponse) *string { return v.CustomResponseBodyKey }).(pulumi.StringPtrOutput)
+}
+
+func (o RuleGroupCustomResponseOutput) ResponseCode() pulumi.IntOutput {
+	return o.ApplyT(func(v RuleGroupCustomResponse) int { return v.ResponseCode }).(pulumi.IntOutput)
+}
+
+// Collection of HTTP headers.
+func (o RuleGroupCustomResponseOutput) ResponseHeaders() RuleGroupCustomHTTPHeaderArrayOutput {
+	return o.ApplyT(func(v RuleGroupCustomResponse) []RuleGroupCustomHTTPHeader { return v.ResponseHeaders }).(RuleGroupCustomHTTPHeaderArrayOutput)
+}
+
+type RuleGroupCustomResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupCustomResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupCustomResponse)(nil)).Elem()
+}
+
+func (o RuleGroupCustomResponsePtrOutput) ToRuleGroupCustomResponsePtrOutput() RuleGroupCustomResponsePtrOutput {
+	return o
+}
+
+func (o RuleGroupCustomResponsePtrOutput) ToRuleGroupCustomResponsePtrOutputWithContext(ctx context.Context) RuleGroupCustomResponsePtrOutput {
+	return o
+}
+
+func (o RuleGroupCustomResponsePtrOutput) Elem() RuleGroupCustomResponseOutput {
+	return o.ApplyT(func(v *RuleGroupCustomResponse) RuleGroupCustomResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupCustomResponse
+		return ret
+	}).(RuleGroupCustomResponseOutput)
+}
+
+// Custom response body key.
+func (o RuleGroupCustomResponsePtrOutput) CustomResponseBodyKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroupCustomResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomResponseBodyKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RuleGroupCustomResponsePtrOutput) ResponseCode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RuleGroupCustomResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ResponseCode
+	}).(pulumi.IntPtrOutput)
+}
+
+// Collection of HTTP headers.
+func (o RuleGroupCustomResponsePtrOutput) ResponseHeaders() RuleGroupCustomHTTPHeaderArrayOutput {
+	return o.ApplyT(func(v *RuleGroupCustomResponse) []RuleGroupCustomHTTPHeader {
+		if v == nil {
+			return nil
+		}
+		return v.ResponseHeaders
+	}).(RuleGroupCustomHTTPHeaderArrayOutput)
+}
+
 // Custom response key and body map.
 type RuleGroupCustomResponseBodies struct {
 }
@@ -806,10 +2382,10 @@ type RuleGroupFieldToMatch struct {
 	// The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
 	Method interface{} `pulumi:"method"`
 	// The query string of a web request. This is the part of a URL that appears after a ? character, if any.
-	QueryString  interface{} `pulumi:"queryString"`
-	SingleHeader interface{} `pulumi:"singleHeader"`
+	QueryString  interface{}                                  `pulumi:"queryString"`
+	SingleHeader *RuleGroupFieldToMatchSingleHeaderProperties `pulumi:"singleHeader"`
 	// One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
-	SingleQueryArgument interface{} `pulumi:"singleQueryArgument"`
+	SingleQueryArgument *RuleGroupFieldToMatchSingleQueryArgumentProperties `pulumi:"singleQueryArgument"`
 	// The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
 	UriPath interface{} `pulumi:"uriPath"`
 }
@@ -835,10 +2411,10 @@ type RuleGroupFieldToMatchArgs struct {
 	// The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
 	Method pulumi.Input `pulumi:"method"`
 	// The query string of a web request. This is the part of a URL that appears after a ? character, if any.
-	QueryString  pulumi.Input `pulumi:"queryString"`
-	SingleHeader pulumi.Input `pulumi:"singleHeader"`
+	QueryString  pulumi.Input                                        `pulumi:"queryString"`
+	SingleHeader RuleGroupFieldToMatchSingleHeaderPropertiesPtrInput `pulumi:"singleHeader"`
 	// One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
-	SingleQueryArgument pulumi.Input `pulumi:"singleQueryArgument"`
+	SingleQueryArgument RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrInput `pulumi:"singleQueryArgument"`
 	// The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
 	UriPath pulumi.Input `pulumi:"uriPath"`
 }
@@ -945,13 +2521,15 @@ func (o RuleGroupFieldToMatchOutput) QueryString() pulumi.AnyOutput {
 	return o.ApplyT(func(v RuleGroupFieldToMatch) interface{} { return v.QueryString }).(pulumi.AnyOutput)
 }
 
-func (o RuleGroupFieldToMatchOutput) SingleHeader() pulumi.AnyOutput {
-	return o.ApplyT(func(v RuleGroupFieldToMatch) interface{} { return v.SingleHeader }).(pulumi.AnyOutput)
+func (o RuleGroupFieldToMatchOutput) SingleHeader() RuleGroupFieldToMatchSingleHeaderPropertiesPtrOutput {
+	return o.ApplyT(func(v RuleGroupFieldToMatch) *RuleGroupFieldToMatchSingleHeaderProperties { return v.SingleHeader }).(RuleGroupFieldToMatchSingleHeaderPropertiesPtrOutput)
 }
 
 // One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
-func (o RuleGroupFieldToMatchOutput) SingleQueryArgument() pulumi.AnyOutput {
-	return o.ApplyT(func(v RuleGroupFieldToMatch) interface{} { return v.SingleQueryArgument }).(pulumi.AnyOutput)
+func (o RuleGroupFieldToMatchOutput) SingleQueryArgument() RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput {
+	return o.ApplyT(func(v RuleGroupFieldToMatch) *RuleGroupFieldToMatchSingleQueryArgumentProperties {
+		return v.SingleQueryArgument
+	}).(RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput)
 }
 
 // The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
@@ -1032,23 +2610,23 @@ func (o RuleGroupFieldToMatchPtrOutput) QueryString() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-func (o RuleGroupFieldToMatchPtrOutput) SingleHeader() pulumi.AnyOutput {
-	return o.ApplyT(func(v *RuleGroupFieldToMatch) interface{} {
+func (o RuleGroupFieldToMatchPtrOutput) SingleHeader() RuleGroupFieldToMatchSingleHeaderPropertiesPtrOutput {
+	return o.ApplyT(func(v *RuleGroupFieldToMatch) *RuleGroupFieldToMatchSingleHeaderProperties {
 		if v == nil {
 			return nil
 		}
 		return v.SingleHeader
-	}).(pulumi.AnyOutput)
+	}).(RuleGroupFieldToMatchSingleHeaderPropertiesPtrOutput)
 }
 
 // One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
-func (o RuleGroupFieldToMatchPtrOutput) SingleQueryArgument() pulumi.AnyOutput {
-	return o.ApplyT(func(v *RuleGroupFieldToMatch) interface{} {
+func (o RuleGroupFieldToMatchPtrOutput) SingleQueryArgument() RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput {
+	return o.ApplyT(func(v *RuleGroupFieldToMatch) *RuleGroupFieldToMatchSingleQueryArgumentProperties {
 		if v == nil {
 			return nil
 		}
 		return v.SingleQueryArgument
-	}).(pulumi.AnyOutput)
+	}).(RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput)
 }
 
 // The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
@@ -1059,6 +2637,275 @@ func (o RuleGroupFieldToMatchPtrOutput) UriPath() pulumi.AnyOutput {
 		}
 		return v.UriPath
 	}).(pulumi.AnyOutput)
+}
+
+type RuleGroupFieldToMatchSingleHeaderProperties struct {
+	Name string `pulumi:"name"`
+}
+
+// RuleGroupFieldToMatchSingleHeaderPropertiesInput is an input type that accepts RuleGroupFieldToMatchSingleHeaderPropertiesArgs and RuleGroupFieldToMatchSingleHeaderPropertiesOutput values.
+// You can construct a concrete instance of `RuleGroupFieldToMatchSingleHeaderPropertiesInput` via:
+//
+//          RuleGroupFieldToMatchSingleHeaderPropertiesArgs{...}
+type RuleGroupFieldToMatchSingleHeaderPropertiesInput interface {
+	pulumi.Input
+
+	ToRuleGroupFieldToMatchSingleHeaderPropertiesOutput() RuleGroupFieldToMatchSingleHeaderPropertiesOutput
+	ToRuleGroupFieldToMatchSingleHeaderPropertiesOutputWithContext(context.Context) RuleGroupFieldToMatchSingleHeaderPropertiesOutput
+}
+
+type RuleGroupFieldToMatchSingleHeaderPropertiesArgs struct {
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (RuleGroupFieldToMatchSingleHeaderPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupFieldToMatchSingleHeaderProperties)(nil)).Elem()
+}
+
+func (i RuleGroupFieldToMatchSingleHeaderPropertiesArgs) ToRuleGroupFieldToMatchSingleHeaderPropertiesOutput() RuleGroupFieldToMatchSingleHeaderPropertiesOutput {
+	return i.ToRuleGroupFieldToMatchSingleHeaderPropertiesOutputWithContext(context.Background())
+}
+
+func (i RuleGroupFieldToMatchSingleHeaderPropertiesArgs) ToRuleGroupFieldToMatchSingleHeaderPropertiesOutputWithContext(ctx context.Context) RuleGroupFieldToMatchSingleHeaderPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupFieldToMatchSingleHeaderPropertiesOutput)
+}
+
+func (i RuleGroupFieldToMatchSingleHeaderPropertiesArgs) ToRuleGroupFieldToMatchSingleHeaderPropertiesPtrOutput() RuleGroupFieldToMatchSingleHeaderPropertiesPtrOutput {
+	return i.ToRuleGroupFieldToMatchSingleHeaderPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupFieldToMatchSingleHeaderPropertiesArgs) ToRuleGroupFieldToMatchSingleHeaderPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupFieldToMatchSingleHeaderPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupFieldToMatchSingleHeaderPropertiesOutput).ToRuleGroupFieldToMatchSingleHeaderPropertiesPtrOutputWithContext(ctx)
+}
+
+// RuleGroupFieldToMatchSingleHeaderPropertiesPtrInput is an input type that accepts RuleGroupFieldToMatchSingleHeaderPropertiesArgs, RuleGroupFieldToMatchSingleHeaderPropertiesPtr and RuleGroupFieldToMatchSingleHeaderPropertiesPtrOutput values.
+// You can construct a concrete instance of `RuleGroupFieldToMatchSingleHeaderPropertiesPtrInput` via:
+//
+//          RuleGroupFieldToMatchSingleHeaderPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type RuleGroupFieldToMatchSingleHeaderPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupFieldToMatchSingleHeaderPropertiesPtrOutput() RuleGroupFieldToMatchSingleHeaderPropertiesPtrOutput
+	ToRuleGroupFieldToMatchSingleHeaderPropertiesPtrOutputWithContext(context.Context) RuleGroupFieldToMatchSingleHeaderPropertiesPtrOutput
+}
+
+type ruleGroupFieldToMatchSingleHeaderPropertiesPtrType RuleGroupFieldToMatchSingleHeaderPropertiesArgs
+
+func RuleGroupFieldToMatchSingleHeaderPropertiesPtr(v *RuleGroupFieldToMatchSingleHeaderPropertiesArgs) RuleGroupFieldToMatchSingleHeaderPropertiesPtrInput {
+	return (*ruleGroupFieldToMatchSingleHeaderPropertiesPtrType)(v)
+}
+
+func (*ruleGroupFieldToMatchSingleHeaderPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupFieldToMatchSingleHeaderProperties)(nil)).Elem()
+}
+
+func (i *ruleGroupFieldToMatchSingleHeaderPropertiesPtrType) ToRuleGroupFieldToMatchSingleHeaderPropertiesPtrOutput() RuleGroupFieldToMatchSingleHeaderPropertiesPtrOutput {
+	return i.ToRuleGroupFieldToMatchSingleHeaderPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupFieldToMatchSingleHeaderPropertiesPtrType) ToRuleGroupFieldToMatchSingleHeaderPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupFieldToMatchSingleHeaderPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupFieldToMatchSingleHeaderPropertiesPtrOutput)
+}
+
+type RuleGroupFieldToMatchSingleHeaderPropertiesOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupFieldToMatchSingleHeaderPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupFieldToMatchSingleHeaderProperties)(nil)).Elem()
+}
+
+func (o RuleGroupFieldToMatchSingleHeaderPropertiesOutput) ToRuleGroupFieldToMatchSingleHeaderPropertiesOutput() RuleGroupFieldToMatchSingleHeaderPropertiesOutput {
+	return o
+}
+
+func (o RuleGroupFieldToMatchSingleHeaderPropertiesOutput) ToRuleGroupFieldToMatchSingleHeaderPropertiesOutputWithContext(ctx context.Context) RuleGroupFieldToMatchSingleHeaderPropertiesOutput {
+	return o
+}
+
+func (o RuleGroupFieldToMatchSingleHeaderPropertiesOutput) ToRuleGroupFieldToMatchSingleHeaderPropertiesPtrOutput() RuleGroupFieldToMatchSingleHeaderPropertiesPtrOutput {
+	return o.ToRuleGroupFieldToMatchSingleHeaderPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupFieldToMatchSingleHeaderPropertiesOutput) ToRuleGroupFieldToMatchSingleHeaderPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupFieldToMatchSingleHeaderPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupFieldToMatchSingleHeaderProperties) *RuleGroupFieldToMatchSingleHeaderProperties {
+		return &v
+	}).(RuleGroupFieldToMatchSingleHeaderPropertiesPtrOutput)
+}
+
+func (o RuleGroupFieldToMatchSingleHeaderPropertiesOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupFieldToMatchSingleHeaderProperties) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type RuleGroupFieldToMatchSingleHeaderPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupFieldToMatchSingleHeaderPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupFieldToMatchSingleHeaderProperties)(nil)).Elem()
+}
+
+func (o RuleGroupFieldToMatchSingleHeaderPropertiesPtrOutput) ToRuleGroupFieldToMatchSingleHeaderPropertiesPtrOutput() RuleGroupFieldToMatchSingleHeaderPropertiesPtrOutput {
+	return o
+}
+
+func (o RuleGroupFieldToMatchSingleHeaderPropertiesPtrOutput) ToRuleGroupFieldToMatchSingleHeaderPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupFieldToMatchSingleHeaderPropertiesPtrOutput {
+	return o
+}
+
+func (o RuleGroupFieldToMatchSingleHeaderPropertiesPtrOutput) Elem() RuleGroupFieldToMatchSingleHeaderPropertiesOutput {
+	return o.ApplyT(func(v *RuleGroupFieldToMatchSingleHeaderProperties) RuleGroupFieldToMatchSingleHeaderProperties {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupFieldToMatchSingleHeaderProperties
+		return ret
+	}).(RuleGroupFieldToMatchSingleHeaderPropertiesOutput)
+}
+
+func (o RuleGroupFieldToMatchSingleHeaderPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroupFieldToMatchSingleHeaderProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
+type RuleGroupFieldToMatchSingleQueryArgumentProperties struct {
+	Name string `pulumi:"name"`
+}
+
+// RuleGroupFieldToMatchSingleQueryArgumentPropertiesInput is an input type that accepts RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs and RuleGroupFieldToMatchSingleQueryArgumentPropertiesOutput values.
+// You can construct a concrete instance of `RuleGroupFieldToMatchSingleQueryArgumentPropertiesInput` via:
+//
+//          RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs{...}
+type RuleGroupFieldToMatchSingleQueryArgumentPropertiesInput interface {
+	pulumi.Input
+
+	ToRuleGroupFieldToMatchSingleQueryArgumentPropertiesOutput() RuleGroupFieldToMatchSingleQueryArgumentPropertiesOutput
+	ToRuleGroupFieldToMatchSingleQueryArgumentPropertiesOutputWithContext(context.Context) RuleGroupFieldToMatchSingleQueryArgumentPropertiesOutput
+}
+
+// One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
+type RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs struct {
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupFieldToMatchSingleQueryArgumentProperties)(nil)).Elem()
+}
+
+func (i RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs) ToRuleGroupFieldToMatchSingleQueryArgumentPropertiesOutput() RuleGroupFieldToMatchSingleQueryArgumentPropertiesOutput {
+	return i.ToRuleGroupFieldToMatchSingleQueryArgumentPropertiesOutputWithContext(context.Background())
+}
+
+func (i RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs) ToRuleGroupFieldToMatchSingleQueryArgumentPropertiesOutputWithContext(ctx context.Context) RuleGroupFieldToMatchSingleQueryArgumentPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupFieldToMatchSingleQueryArgumentPropertiesOutput)
+}
+
+func (i RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs) ToRuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput() RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput {
+	return i.ToRuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs) ToRuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupFieldToMatchSingleQueryArgumentPropertiesOutput).ToRuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutputWithContext(ctx)
+}
+
+// RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrInput is an input type that accepts RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs, RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtr and RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput values.
+// You can construct a concrete instance of `RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrInput` via:
+//
+//          RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput() RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput
+	ToRuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutputWithContext(context.Context) RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput
+}
+
+type ruleGroupFieldToMatchSingleQueryArgumentPropertiesPtrType RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs
+
+func RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtr(v *RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs) RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrInput {
+	return (*ruleGroupFieldToMatchSingleQueryArgumentPropertiesPtrType)(v)
+}
+
+func (*ruleGroupFieldToMatchSingleQueryArgumentPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupFieldToMatchSingleQueryArgumentProperties)(nil)).Elem()
+}
+
+func (i *ruleGroupFieldToMatchSingleQueryArgumentPropertiesPtrType) ToRuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput() RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput {
+	return i.ToRuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupFieldToMatchSingleQueryArgumentPropertiesPtrType) ToRuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput)
+}
+
+// One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
+type RuleGroupFieldToMatchSingleQueryArgumentPropertiesOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupFieldToMatchSingleQueryArgumentPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupFieldToMatchSingleQueryArgumentProperties)(nil)).Elem()
+}
+
+func (o RuleGroupFieldToMatchSingleQueryArgumentPropertiesOutput) ToRuleGroupFieldToMatchSingleQueryArgumentPropertiesOutput() RuleGroupFieldToMatchSingleQueryArgumentPropertiesOutput {
+	return o
+}
+
+func (o RuleGroupFieldToMatchSingleQueryArgumentPropertiesOutput) ToRuleGroupFieldToMatchSingleQueryArgumentPropertiesOutputWithContext(ctx context.Context) RuleGroupFieldToMatchSingleQueryArgumentPropertiesOutput {
+	return o
+}
+
+func (o RuleGroupFieldToMatchSingleQueryArgumentPropertiesOutput) ToRuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput() RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput {
+	return o.ToRuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupFieldToMatchSingleQueryArgumentPropertiesOutput) ToRuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupFieldToMatchSingleQueryArgumentProperties) *RuleGroupFieldToMatchSingleQueryArgumentProperties {
+		return &v
+	}).(RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput)
+}
+
+func (o RuleGroupFieldToMatchSingleQueryArgumentPropertiesOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupFieldToMatchSingleQueryArgumentProperties) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupFieldToMatchSingleQueryArgumentProperties)(nil)).Elem()
+}
+
+func (o RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput) ToRuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput() RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput {
+	return o
+}
+
+func (o RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput) ToRuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput {
+	return o
+}
+
+func (o RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput) Elem() RuleGroupFieldToMatchSingleQueryArgumentPropertiesOutput {
+	return o.ApplyT(func(v *RuleGroupFieldToMatchSingleQueryArgumentProperties) RuleGroupFieldToMatchSingleQueryArgumentProperties {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupFieldToMatchSingleQueryArgumentProperties
+		return ret
+	}).(RuleGroupFieldToMatchSingleQueryArgumentPropertiesOutput)
+}
+
+func (o RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroupFieldToMatchSingleQueryArgumentProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type RuleGroupForwardedIPConfiguration struct {
@@ -3077,11 +4924,11 @@ func (o RuleGroupRuleArrayOutput) Index(i pulumi.IntInput) RuleGroupRuleOutput {
 // Action taken when Rule matches its condition.
 type RuleGroupRuleAction struct {
 	// Allow traffic towards application.
-	Allow interface{} `pulumi:"allow"`
+	Allow *RuleGroupRuleActionAllowProperties `pulumi:"allow"`
 	// Block traffic towards application.
-	Block interface{} `pulumi:"block"`
+	Block *RuleGroupRuleActionBlockProperties `pulumi:"block"`
 	// Count traffic towards application.
-	Count interface{} `pulumi:"count"`
+	Count *RuleGroupRuleActionCountProperties `pulumi:"count"`
 }
 
 // RuleGroupRuleActionInput is an input type that accepts RuleGroupRuleActionArgs and RuleGroupRuleActionOutput values.
@@ -3098,11 +4945,11 @@ type RuleGroupRuleActionInput interface {
 // Action taken when Rule matches its condition.
 type RuleGroupRuleActionArgs struct {
 	// Allow traffic towards application.
-	Allow pulumi.Input `pulumi:"allow"`
+	Allow RuleGroupRuleActionAllowPropertiesPtrInput `pulumi:"allow"`
 	// Block traffic towards application.
-	Block pulumi.Input `pulumi:"block"`
+	Block RuleGroupRuleActionBlockPropertiesPtrInput `pulumi:"block"`
 	// Count traffic towards application.
-	Count pulumi.Input `pulumi:"count"`
+	Count RuleGroupRuleActionCountPropertiesPtrInput `pulumi:"count"`
 }
 
 func (RuleGroupRuleActionArgs) ElementType() reflect.Type {
@@ -3184,18 +5031,18 @@ func (o RuleGroupRuleActionOutput) ToRuleGroupRuleActionPtrOutputWithContext(ctx
 }
 
 // Allow traffic towards application.
-func (o RuleGroupRuleActionOutput) Allow() pulumi.AnyOutput {
-	return o.ApplyT(func(v RuleGroupRuleAction) interface{} { return v.Allow }).(pulumi.AnyOutput)
+func (o RuleGroupRuleActionOutput) Allow() RuleGroupRuleActionAllowPropertiesPtrOutput {
+	return o.ApplyT(func(v RuleGroupRuleAction) *RuleGroupRuleActionAllowProperties { return v.Allow }).(RuleGroupRuleActionAllowPropertiesPtrOutput)
 }
 
 // Block traffic towards application.
-func (o RuleGroupRuleActionOutput) Block() pulumi.AnyOutput {
-	return o.ApplyT(func(v RuleGroupRuleAction) interface{} { return v.Block }).(pulumi.AnyOutput)
+func (o RuleGroupRuleActionOutput) Block() RuleGroupRuleActionBlockPropertiesPtrOutput {
+	return o.ApplyT(func(v RuleGroupRuleAction) *RuleGroupRuleActionBlockProperties { return v.Block }).(RuleGroupRuleActionBlockPropertiesPtrOutput)
 }
 
 // Count traffic towards application.
-func (o RuleGroupRuleActionOutput) Count() pulumi.AnyOutput {
-	return o.ApplyT(func(v RuleGroupRuleAction) interface{} { return v.Count }).(pulumi.AnyOutput)
+func (o RuleGroupRuleActionOutput) Count() RuleGroupRuleActionCountPropertiesPtrOutput {
+	return o.ApplyT(func(v RuleGroupRuleAction) *RuleGroupRuleActionCountProperties { return v.Count }).(RuleGroupRuleActionCountPropertiesPtrOutput)
 }
 
 type RuleGroupRuleActionPtrOutput struct{ *pulumi.OutputState }
@@ -3223,33 +5070,445 @@ func (o RuleGroupRuleActionPtrOutput) Elem() RuleGroupRuleActionOutput {
 }
 
 // Allow traffic towards application.
-func (o RuleGroupRuleActionPtrOutput) Allow() pulumi.AnyOutput {
-	return o.ApplyT(func(v *RuleGroupRuleAction) interface{} {
+func (o RuleGroupRuleActionPtrOutput) Allow() RuleGroupRuleActionAllowPropertiesPtrOutput {
+	return o.ApplyT(func(v *RuleGroupRuleAction) *RuleGroupRuleActionAllowProperties {
 		if v == nil {
 			return nil
 		}
 		return v.Allow
-	}).(pulumi.AnyOutput)
+	}).(RuleGroupRuleActionAllowPropertiesPtrOutput)
 }
 
 // Block traffic towards application.
-func (o RuleGroupRuleActionPtrOutput) Block() pulumi.AnyOutput {
-	return o.ApplyT(func(v *RuleGroupRuleAction) interface{} {
+func (o RuleGroupRuleActionPtrOutput) Block() RuleGroupRuleActionBlockPropertiesPtrOutput {
+	return o.ApplyT(func(v *RuleGroupRuleAction) *RuleGroupRuleActionBlockProperties {
 		if v == nil {
 			return nil
 		}
 		return v.Block
-	}).(pulumi.AnyOutput)
+	}).(RuleGroupRuleActionBlockPropertiesPtrOutput)
 }
 
 // Count traffic towards application.
-func (o RuleGroupRuleActionPtrOutput) Count() pulumi.AnyOutput {
-	return o.ApplyT(func(v *RuleGroupRuleAction) interface{} {
+func (o RuleGroupRuleActionPtrOutput) Count() RuleGroupRuleActionCountPropertiesPtrOutput {
+	return o.ApplyT(func(v *RuleGroupRuleAction) *RuleGroupRuleActionCountProperties {
 		if v == nil {
 			return nil
 		}
 		return v.Count
-	}).(pulumi.AnyOutput)
+	}).(RuleGroupRuleActionCountPropertiesPtrOutput)
+}
+
+// Allow traffic towards application.
+type RuleGroupRuleActionAllowProperties struct {
+	CustomRequestHandling *RuleGroupCustomRequestHandling `pulumi:"customRequestHandling"`
+}
+
+// RuleGroupRuleActionAllowPropertiesInput is an input type that accepts RuleGroupRuleActionAllowPropertiesArgs and RuleGroupRuleActionAllowPropertiesOutput values.
+// You can construct a concrete instance of `RuleGroupRuleActionAllowPropertiesInput` via:
+//
+//          RuleGroupRuleActionAllowPropertiesArgs{...}
+type RuleGroupRuleActionAllowPropertiesInput interface {
+	pulumi.Input
+
+	ToRuleGroupRuleActionAllowPropertiesOutput() RuleGroupRuleActionAllowPropertiesOutput
+	ToRuleGroupRuleActionAllowPropertiesOutputWithContext(context.Context) RuleGroupRuleActionAllowPropertiesOutput
+}
+
+// Allow traffic towards application.
+type RuleGroupRuleActionAllowPropertiesArgs struct {
+	CustomRequestHandling RuleGroupCustomRequestHandlingPtrInput `pulumi:"customRequestHandling"`
+}
+
+func (RuleGroupRuleActionAllowPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRuleActionAllowProperties)(nil)).Elem()
+}
+
+func (i RuleGroupRuleActionAllowPropertiesArgs) ToRuleGroupRuleActionAllowPropertiesOutput() RuleGroupRuleActionAllowPropertiesOutput {
+	return i.ToRuleGroupRuleActionAllowPropertiesOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRuleActionAllowPropertiesArgs) ToRuleGroupRuleActionAllowPropertiesOutputWithContext(ctx context.Context) RuleGroupRuleActionAllowPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleActionAllowPropertiesOutput)
+}
+
+func (i RuleGroupRuleActionAllowPropertiesArgs) ToRuleGroupRuleActionAllowPropertiesPtrOutput() RuleGroupRuleActionAllowPropertiesPtrOutput {
+	return i.ToRuleGroupRuleActionAllowPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRuleActionAllowPropertiesArgs) ToRuleGroupRuleActionAllowPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionAllowPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleActionAllowPropertiesOutput).ToRuleGroupRuleActionAllowPropertiesPtrOutputWithContext(ctx)
+}
+
+// RuleGroupRuleActionAllowPropertiesPtrInput is an input type that accepts RuleGroupRuleActionAllowPropertiesArgs, RuleGroupRuleActionAllowPropertiesPtr and RuleGroupRuleActionAllowPropertiesPtrOutput values.
+// You can construct a concrete instance of `RuleGroupRuleActionAllowPropertiesPtrInput` via:
+//
+//          RuleGroupRuleActionAllowPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type RuleGroupRuleActionAllowPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupRuleActionAllowPropertiesPtrOutput() RuleGroupRuleActionAllowPropertiesPtrOutput
+	ToRuleGroupRuleActionAllowPropertiesPtrOutputWithContext(context.Context) RuleGroupRuleActionAllowPropertiesPtrOutput
+}
+
+type ruleGroupRuleActionAllowPropertiesPtrType RuleGroupRuleActionAllowPropertiesArgs
+
+func RuleGroupRuleActionAllowPropertiesPtr(v *RuleGroupRuleActionAllowPropertiesArgs) RuleGroupRuleActionAllowPropertiesPtrInput {
+	return (*ruleGroupRuleActionAllowPropertiesPtrType)(v)
+}
+
+func (*ruleGroupRuleActionAllowPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRuleActionAllowProperties)(nil)).Elem()
+}
+
+func (i *ruleGroupRuleActionAllowPropertiesPtrType) ToRuleGroupRuleActionAllowPropertiesPtrOutput() RuleGroupRuleActionAllowPropertiesPtrOutput {
+	return i.ToRuleGroupRuleActionAllowPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupRuleActionAllowPropertiesPtrType) ToRuleGroupRuleActionAllowPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionAllowPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleActionAllowPropertiesPtrOutput)
+}
+
+// Allow traffic towards application.
+type RuleGroupRuleActionAllowPropertiesOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRuleActionAllowPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRuleActionAllowProperties)(nil)).Elem()
+}
+
+func (o RuleGroupRuleActionAllowPropertiesOutput) ToRuleGroupRuleActionAllowPropertiesOutput() RuleGroupRuleActionAllowPropertiesOutput {
+	return o
+}
+
+func (o RuleGroupRuleActionAllowPropertiesOutput) ToRuleGroupRuleActionAllowPropertiesOutputWithContext(ctx context.Context) RuleGroupRuleActionAllowPropertiesOutput {
+	return o
+}
+
+func (o RuleGroupRuleActionAllowPropertiesOutput) ToRuleGroupRuleActionAllowPropertiesPtrOutput() RuleGroupRuleActionAllowPropertiesPtrOutput {
+	return o.ToRuleGroupRuleActionAllowPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupRuleActionAllowPropertiesOutput) ToRuleGroupRuleActionAllowPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionAllowPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRuleActionAllowProperties) *RuleGroupRuleActionAllowProperties {
+		return &v
+	}).(RuleGroupRuleActionAllowPropertiesPtrOutput)
+}
+
+func (o RuleGroupRuleActionAllowPropertiesOutput) CustomRequestHandling() RuleGroupCustomRequestHandlingPtrOutput {
+	return o.ApplyT(func(v RuleGroupRuleActionAllowProperties) *RuleGroupCustomRequestHandling {
+		return v.CustomRequestHandling
+	}).(RuleGroupCustomRequestHandlingPtrOutput)
+}
+
+type RuleGroupRuleActionAllowPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRuleActionAllowPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRuleActionAllowProperties)(nil)).Elem()
+}
+
+func (o RuleGroupRuleActionAllowPropertiesPtrOutput) ToRuleGroupRuleActionAllowPropertiesPtrOutput() RuleGroupRuleActionAllowPropertiesPtrOutput {
+	return o
+}
+
+func (o RuleGroupRuleActionAllowPropertiesPtrOutput) ToRuleGroupRuleActionAllowPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionAllowPropertiesPtrOutput {
+	return o
+}
+
+func (o RuleGroupRuleActionAllowPropertiesPtrOutput) Elem() RuleGroupRuleActionAllowPropertiesOutput {
+	return o.ApplyT(func(v *RuleGroupRuleActionAllowProperties) RuleGroupRuleActionAllowProperties {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupRuleActionAllowProperties
+		return ret
+	}).(RuleGroupRuleActionAllowPropertiesOutput)
+}
+
+func (o RuleGroupRuleActionAllowPropertiesPtrOutput) CustomRequestHandling() RuleGroupCustomRequestHandlingPtrOutput {
+	return o.ApplyT(func(v *RuleGroupRuleActionAllowProperties) *RuleGroupCustomRequestHandling {
+		if v == nil {
+			return nil
+		}
+		return v.CustomRequestHandling
+	}).(RuleGroupCustomRequestHandlingPtrOutput)
+}
+
+// Block traffic towards application.
+type RuleGroupRuleActionBlockProperties struct {
+	CustomResponse *RuleGroupCustomResponse `pulumi:"customResponse"`
+}
+
+// RuleGroupRuleActionBlockPropertiesInput is an input type that accepts RuleGroupRuleActionBlockPropertiesArgs and RuleGroupRuleActionBlockPropertiesOutput values.
+// You can construct a concrete instance of `RuleGroupRuleActionBlockPropertiesInput` via:
+//
+//          RuleGroupRuleActionBlockPropertiesArgs{...}
+type RuleGroupRuleActionBlockPropertiesInput interface {
+	pulumi.Input
+
+	ToRuleGroupRuleActionBlockPropertiesOutput() RuleGroupRuleActionBlockPropertiesOutput
+	ToRuleGroupRuleActionBlockPropertiesOutputWithContext(context.Context) RuleGroupRuleActionBlockPropertiesOutput
+}
+
+// Block traffic towards application.
+type RuleGroupRuleActionBlockPropertiesArgs struct {
+	CustomResponse RuleGroupCustomResponsePtrInput `pulumi:"customResponse"`
+}
+
+func (RuleGroupRuleActionBlockPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRuleActionBlockProperties)(nil)).Elem()
+}
+
+func (i RuleGroupRuleActionBlockPropertiesArgs) ToRuleGroupRuleActionBlockPropertiesOutput() RuleGroupRuleActionBlockPropertiesOutput {
+	return i.ToRuleGroupRuleActionBlockPropertiesOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRuleActionBlockPropertiesArgs) ToRuleGroupRuleActionBlockPropertiesOutputWithContext(ctx context.Context) RuleGroupRuleActionBlockPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleActionBlockPropertiesOutput)
+}
+
+func (i RuleGroupRuleActionBlockPropertiesArgs) ToRuleGroupRuleActionBlockPropertiesPtrOutput() RuleGroupRuleActionBlockPropertiesPtrOutput {
+	return i.ToRuleGroupRuleActionBlockPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRuleActionBlockPropertiesArgs) ToRuleGroupRuleActionBlockPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionBlockPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleActionBlockPropertiesOutput).ToRuleGroupRuleActionBlockPropertiesPtrOutputWithContext(ctx)
+}
+
+// RuleGroupRuleActionBlockPropertiesPtrInput is an input type that accepts RuleGroupRuleActionBlockPropertiesArgs, RuleGroupRuleActionBlockPropertiesPtr and RuleGroupRuleActionBlockPropertiesPtrOutput values.
+// You can construct a concrete instance of `RuleGroupRuleActionBlockPropertiesPtrInput` via:
+//
+//          RuleGroupRuleActionBlockPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type RuleGroupRuleActionBlockPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupRuleActionBlockPropertiesPtrOutput() RuleGroupRuleActionBlockPropertiesPtrOutput
+	ToRuleGroupRuleActionBlockPropertiesPtrOutputWithContext(context.Context) RuleGroupRuleActionBlockPropertiesPtrOutput
+}
+
+type ruleGroupRuleActionBlockPropertiesPtrType RuleGroupRuleActionBlockPropertiesArgs
+
+func RuleGroupRuleActionBlockPropertiesPtr(v *RuleGroupRuleActionBlockPropertiesArgs) RuleGroupRuleActionBlockPropertiesPtrInput {
+	return (*ruleGroupRuleActionBlockPropertiesPtrType)(v)
+}
+
+func (*ruleGroupRuleActionBlockPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRuleActionBlockProperties)(nil)).Elem()
+}
+
+func (i *ruleGroupRuleActionBlockPropertiesPtrType) ToRuleGroupRuleActionBlockPropertiesPtrOutput() RuleGroupRuleActionBlockPropertiesPtrOutput {
+	return i.ToRuleGroupRuleActionBlockPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupRuleActionBlockPropertiesPtrType) ToRuleGroupRuleActionBlockPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionBlockPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleActionBlockPropertiesPtrOutput)
+}
+
+// Block traffic towards application.
+type RuleGroupRuleActionBlockPropertiesOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRuleActionBlockPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRuleActionBlockProperties)(nil)).Elem()
+}
+
+func (o RuleGroupRuleActionBlockPropertiesOutput) ToRuleGroupRuleActionBlockPropertiesOutput() RuleGroupRuleActionBlockPropertiesOutput {
+	return o
+}
+
+func (o RuleGroupRuleActionBlockPropertiesOutput) ToRuleGroupRuleActionBlockPropertiesOutputWithContext(ctx context.Context) RuleGroupRuleActionBlockPropertiesOutput {
+	return o
+}
+
+func (o RuleGroupRuleActionBlockPropertiesOutput) ToRuleGroupRuleActionBlockPropertiesPtrOutput() RuleGroupRuleActionBlockPropertiesPtrOutput {
+	return o.ToRuleGroupRuleActionBlockPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupRuleActionBlockPropertiesOutput) ToRuleGroupRuleActionBlockPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionBlockPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRuleActionBlockProperties) *RuleGroupRuleActionBlockProperties {
+		return &v
+	}).(RuleGroupRuleActionBlockPropertiesPtrOutput)
+}
+
+func (o RuleGroupRuleActionBlockPropertiesOutput) CustomResponse() RuleGroupCustomResponsePtrOutput {
+	return o.ApplyT(func(v RuleGroupRuleActionBlockProperties) *RuleGroupCustomResponse { return v.CustomResponse }).(RuleGroupCustomResponsePtrOutput)
+}
+
+type RuleGroupRuleActionBlockPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRuleActionBlockPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRuleActionBlockProperties)(nil)).Elem()
+}
+
+func (o RuleGroupRuleActionBlockPropertiesPtrOutput) ToRuleGroupRuleActionBlockPropertiesPtrOutput() RuleGroupRuleActionBlockPropertiesPtrOutput {
+	return o
+}
+
+func (o RuleGroupRuleActionBlockPropertiesPtrOutput) ToRuleGroupRuleActionBlockPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionBlockPropertiesPtrOutput {
+	return o
+}
+
+func (o RuleGroupRuleActionBlockPropertiesPtrOutput) Elem() RuleGroupRuleActionBlockPropertiesOutput {
+	return o.ApplyT(func(v *RuleGroupRuleActionBlockProperties) RuleGroupRuleActionBlockProperties {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupRuleActionBlockProperties
+		return ret
+	}).(RuleGroupRuleActionBlockPropertiesOutput)
+}
+
+func (o RuleGroupRuleActionBlockPropertiesPtrOutput) CustomResponse() RuleGroupCustomResponsePtrOutput {
+	return o.ApplyT(func(v *RuleGroupRuleActionBlockProperties) *RuleGroupCustomResponse {
+		if v == nil {
+			return nil
+		}
+		return v.CustomResponse
+	}).(RuleGroupCustomResponsePtrOutput)
+}
+
+// Count traffic towards application.
+type RuleGroupRuleActionCountProperties struct {
+	CustomRequestHandling *RuleGroupCustomRequestHandling `pulumi:"customRequestHandling"`
+}
+
+// RuleGroupRuleActionCountPropertiesInput is an input type that accepts RuleGroupRuleActionCountPropertiesArgs and RuleGroupRuleActionCountPropertiesOutput values.
+// You can construct a concrete instance of `RuleGroupRuleActionCountPropertiesInput` via:
+//
+//          RuleGroupRuleActionCountPropertiesArgs{...}
+type RuleGroupRuleActionCountPropertiesInput interface {
+	pulumi.Input
+
+	ToRuleGroupRuleActionCountPropertiesOutput() RuleGroupRuleActionCountPropertiesOutput
+	ToRuleGroupRuleActionCountPropertiesOutputWithContext(context.Context) RuleGroupRuleActionCountPropertiesOutput
+}
+
+// Count traffic towards application.
+type RuleGroupRuleActionCountPropertiesArgs struct {
+	CustomRequestHandling RuleGroupCustomRequestHandlingPtrInput `pulumi:"customRequestHandling"`
+}
+
+func (RuleGroupRuleActionCountPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRuleActionCountProperties)(nil)).Elem()
+}
+
+func (i RuleGroupRuleActionCountPropertiesArgs) ToRuleGroupRuleActionCountPropertiesOutput() RuleGroupRuleActionCountPropertiesOutput {
+	return i.ToRuleGroupRuleActionCountPropertiesOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRuleActionCountPropertiesArgs) ToRuleGroupRuleActionCountPropertiesOutputWithContext(ctx context.Context) RuleGroupRuleActionCountPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleActionCountPropertiesOutput)
+}
+
+func (i RuleGroupRuleActionCountPropertiesArgs) ToRuleGroupRuleActionCountPropertiesPtrOutput() RuleGroupRuleActionCountPropertiesPtrOutput {
+	return i.ToRuleGroupRuleActionCountPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRuleActionCountPropertiesArgs) ToRuleGroupRuleActionCountPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionCountPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleActionCountPropertiesOutput).ToRuleGroupRuleActionCountPropertiesPtrOutputWithContext(ctx)
+}
+
+// RuleGroupRuleActionCountPropertiesPtrInput is an input type that accepts RuleGroupRuleActionCountPropertiesArgs, RuleGroupRuleActionCountPropertiesPtr and RuleGroupRuleActionCountPropertiesPtrOutput values.
+// You can construct a concrete instance of `RuleGroupRuleActionCountPropertiesPtrInput` via:
+//
+//          RuleGroupRuleActionCountPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type RuleGroupRuleActionCountPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupRuleActionCountPropertiesPtrOutput() RuleGroupRuleActionCountPropertiesPtrOutput
+	ToRuleGroupRuleActionCountPropertiesPtrOutputWithContext(context.Context) RuleGroupRuleActionCountPropertiesPtrOutput
+}
+
+type ruleGroupRuleActionCountPropertiesPtrType RuleGroupRuleActionCountPropertiesArgs
+
+func RuleGroupRuleActionCountPropertiesPtr(v *RuleGroupRuleActionCountPropertiesArgs) RuleGroupRuleActionCountPropertiesPtrInput {
+	return (*ruleGroupRuleActionCountPropertiesPtrType)(v)
+}
+
+func (*ruleGroupRuleActionCountPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRuleActionCountProperties)(nil)).Elem()
+}
+
+func (i *ruleGroupRuleActionCountPropertiesPtrType) ToRuleGroupRuleActionCountPropertiesPtrOutput() RuleGroupRuleActionCountPropertiesPtrOutput {
+	return i.ToRuleGroupRuleActionCountPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupRuleActionCountPropertiesPtrType) ToRuleGroupRuleActionCountPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionCountPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleActionCountPropertiesPtrOutput)
+}
+
+// Count traffic towards application.
+type RuleGroupRuleActionCountPropertiesOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRuleActionCountPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRuleActionCountProperties)(nil)).Elem()
+}
+
+func (o RuleGroupRuleActionCountPropertiesOutput) ToRuleGroupRuleActionCountPropertiesOutput() RuleGroupRuleActionCountPropertiesOutput {
+	return o
+}
+
+func (o RuleGroupRuleActionCountPropertiesOutput) ToRuleGroupRuleActionCountPropertiesOutputWithContext(ctx context.Context) RuleGroupRuleActionCountPropertiesOutput {
+	return o
+}
+
+func (o RuleGroupRuleActionCountPropertiesOutput) ToRuleGroupRuleActionCountPropertiesPtrOutput() RuleGroupRuleActionCountPropertiesPtrOutput {
+	return o.ToRuleGroupRuleActionCountPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupRuleActionCountPropertiesOutput) ToRuleGroupRuleActionCountPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionCountPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRuleActionCountProperties) *RuleGroupRuleActionCountProperties {
+		return &v
+	}).(RuleGroupRuleActionCountPropertiesPtrOutput)
+}
+
+func (o RuleGroupRuleActionCountPropertiesOutput) CustomRequestHandling() RuleGroupCustomRequestHandlingPtrOutput {
+	return o.ApplyT(func(v RuleGroupRuleActionCountProperties) *RuleGroupCustomRequestHandling {
+		return v.CustomRequestHandling
+	}).(RuleGroupCustomRequestHandlingPtrOutput)
+}
+
+type RuleGroupRuleActionCountPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRuleActionCountPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRuleActionCountProperties)(nil)).Elem()
+}
+
+func (o RuleGroupRuleActionCountPropertiesPtrOutput) ToRuleGroupRuleActionCountPropertiesPtrOutput() RuleGroupRuleActionCountPropertiesPtrOutput {
+	return o
+}
+
+func (o RuleGroupRuleActionCountPropertiesPtrOutput) ToRuleGroupRuleActionCountPropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionCountPropertiesPtrOutput {
+	return o
+}
+
+func (o RuleGroupRuleActionCountPropertiesPtrOutput) Elem() RuleGroupRuleActionCountPropertiesOutput {
+	return o.ApplyT(func(v *RuleGroupRuleActionCountProperties) RuleGroupRuleActionCountProperties {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupRuleActionCountProperties
+		return ret
+	}).(RuleGroupRuleActionCountPropertiesOutput)
+}
+
+func (o RuleGroupRuleActionCountPropertiesPtrOutput) CustomRequestHandling() RuleGroupCustomRequestHandlingPtrOutput {
+	return o.ApplyT(func(v *RuleGroupRuleActionCountProperties) *RuleGroupCustomRequestHandling {
+		if v == nil {
+			return nil
+		}
+		return v.CustomRequestHandling
+	}).(RuleGroupCustomRequestHandlingPtrOutput)
 }
 
 // Size Constraint statement.
@@ -5987,10 +8246,10 @@ type WebACLFieldToMatch struct {
 	// The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
 	Method interface{} `pulumi:"method"`
 	// The query string of a web request. This is the part of a URL that appears after a ? character, if any.
-	QueryString  interface{} `pulumi:"queryString"`
-	SingleHeader interface{} `pulumi:"singleHeader"`
+	QueryString  interface{}                               `pulumi:"queryString"`
+	SingleHeader *WebACLFieldToMatchSingleHeaderProperties `pulumi:"singleHeader"`
 	// One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
-	SingleQueryArgument interface{} `pulumi:"singleQueryArgument"`
+	SingleQueryArgument *WebACLFieldToMatchSingleQueryArgumentProperties `pulumi:"singleQueryArgument"`
 	// The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
 	UriPath interface{} `pulumi:"uriPath"`
 }
@@ -6016,10 +8275,10 @@ type WebACLFieldToMatchArgs struct {
 	// The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
 	Method pulumi.Input `pulumi:"method"`
 	// The query string of a web request. This is the part of a URL that appears after a ? character, if any.
-	QueryString  pulumi.Input `pulumi:"queryString"`
-	SingleHeader pulumi.Input `pulumi:"singleHeader"`
+	QueryString  pulumi.Input                                     `pulumi:"queryString"`
+	SingleHeader WebACLFieldToMatchSingleHeaderPropertiesPtrInput `pulumi:"singleHeader"`
 	// One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
-	SingleQueryArgument pulumi.Input `pulumi:"singleQueryArgument"`
+	SingleQueryArgument WebACLFieldToMatchSingleQueryArgumentPropertiesPtrInput `pulumi:"singleQueryArgument"`
 	// The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
 	UriPath pulumi.Input `pulumi:"uriPath"`
 }
@@ -6126,13 +8385,15 @@ func (o WebACLFieldToMatchOutput) QueryString() pulumi.AnyOutput {
 	return o.ApplyT(func(v WebACLFieldToMatch) interface{} { return v.QueryString }).(pulumi.AnyOutput)
 }
 
-func (o WebACLFieldToMatchOutput) SingleHeader() pulumi.AnyOutput {
-	return o.ApplyT(func(v WebACLFieldToMatch) interface{} { return v.SingleHeader }).(pulumi.AnyOutput)
+func (o WebACLFieldToMatchOutput) SingleHeader() WebACLFieldToMatchSingleHeaderPropertiesPtrOutput {
+	return o.ApplyT(func(v WebACLFieldToMatch) *WebACLFieldToMatchSingleHeaderProperties { return v.SingleHeader }).(WebACLFieldToMatchSingleHeaderPropertiesPtrOutput)
 }
 
 // One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
-func (o WebACLFieldToMatchOutput) SingleQueryArgument() pulumi.AnyOutput {
-	return o.ApplyT(func(v WebACLFieldToMatch) interface{} { return v.SingleQueryArgument }).(pulumi.AnyOutput)
+func (o WebACLFieldToMatchOutput) SingleQueryArgument() WebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutput {
+	return o.ApplyT(func(v WebACLFieldToMatch) *WebACLFieldToMatchSingleQueryArgumentProperties {
+		return v.SingleQueryArgument
+	}).(WebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutput)
 }
 
 // The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
@@ -6213,23 +8474,23 @@ func (o WebACLFieldToMatchPtrOutput) QueryString() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-func (o WebACLFieldToMatchPtrOutput) SingleHeader() pulumi.AnyOutput {
-	return o.ApplyT(func(v *WebACLFieldToMatch) interface{} {
+func (o WebACLFieldToMatchPtrOutput) SingleHeader() WebACLFieldToMatchSingleHeaderPropertiesPtrOutput {
+	return o.ApplyT(func(v *WebACLFieldToMatch) *WebACLFieldToMatchSingleHeaderProperties {
 		if v == nil {
 			return nil
 		}
 		return v.SingleHeader
-	}).(pulumi.AnyOutput)
+	}).(WebACLFieldToMatchSingleHeaderPropertiesPtrOutput)
 }
 
 // One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
-func (o WebACLFieldToMatchPtrOutput) SingleQueryArgument() pulumi.AnyOutput {
-	return o.ApplyT(func(v *WebACLFieldToMatch) interface{} {
+func (o WebACLFieldToMatchPtrOutput) SingleQueryArgument() WebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutput {
+	return o.ApplyT(func(v *WebACLFieldToMatch) *WebACLFieldToMatchSingleQueryArgumentProperties {
 		if v == nil {
 			return nil
 		}
 		return v.SingleQueryArgument
-	}).(pulumi.AnyOutput)
+	}).(WebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutput)
 }
 
 // The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
@@ -6240,6 +8501,275 @@ func (o WebACLFieldToMatchPtrOutput) UriPath() pulumi.AnyOutput {
 		}
 		return v.UriPath
 	}).(pulumi.AnyOutput)
+}
+
+type WebACLFieldToMatchSingleHeaderProperties struct {
+	Name string `pulumi:"name"`
+}
+
+// WebACLFieldToMatchSingleHeaderPropertiesInput is an input type that accepts WebACLFieldToMatchSingleHeaderPropertiesArgs and WebACLFieldToMatchSingleHeaderPropertiesOutput values.
+// You can construct a concrete instance of `WebACLFieldToMatchSingleHeaderPropertiesInput` via:
+//
+//          WebACLFieldToMatchSingleHeaderPropertiesArgs{...}
+type WebACLFieldToMatchSingleHeaderPropertiesInput interface {
+	pulumi.Input
+
+	ToWebACLFieldToMatchSingleHeaderPropertiesOutput() WebACLFieldToMatchSingleHeaderPropertiesOutput
+	ToWebACLFieldToMatchSingleHeaderPropertiesOutputWithContext(context.Context) WebACLFieldToMatchSingleHeaderPropertiesOutput
+}
+
+type WebACLFieldToMatchSingleHeaderPropertiesArgs struct {
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (WebACLFieldToMatchSingleHeaderPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLFieldToMatchSingleHeaderProperties)(nil)).Elem()
+}
+
+func (i WebACLFieldToMatchSingleHeaderPropertiesArgs) ToWebACLFieldToMatchSingleHeaderPropertiesOutput() WebACLFieldToMatchSingleHeaderPropertiesOutput {
+	return i.ToWebACLFieldToMatchSingleHeaderPropertiesOutputWithContext(context.Background())
+}
+
+func (i WebACLFieldToMatchSingleHeaderPropertiesArgs) ToWebACLFieldToMatchSingleHeaderPropertiesOutputWithContext(ctx context.Context) WebACLFieldToMatchSingleHeaderPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLFieldToMatchSingleHeaderPropertiesOutput)
+}
+
+func (i WebACLFieldToMatchSingleHeaderPropertiesArgs) ToWebACLFieldToMatchSingleHeaderPropertiesPtrOutput() WebACLFieldToMatchSingleHeaderPropertiesPtrOutput {
+	return i.ToWebACLFieldToMatchSingleHeaderPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLFieldToMatchSingleHeaderPropertiesArgs) ToWebACLFieldToMatchSingleHeaderPropertiesPtrOutputWithContext(ctx context.Context) WebACLFieldToMatchSingleHeaderPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLFieldToMatchSingleHeaderPropertiesOutput).ToWebACLFieldToMatchSingleHeaderPropertiesPtrOutputWithContext(ctx)
+}
+
+// WebACLFieldToMatchSingleHeaderPropertiesPtrInput is an input type that accepts WebACLFieldToMatchSingleHeaderPropertiesArgs, WebACLFieldToMatchSingleHeaderPropertiesPtr and WebACLFieldToMatchSingleHeaderPropertiesPtrOutput values.
+// You can construct a concrete instance of `WebACLFieldToMatchSingleHeaderPropertiesPtrInput` via:
+//
+//          WebACLFieldToMatchSingleHeaderPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type WebACLFieldToMatchSingleHeaderPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToWebACLFieldToMatchSingleHeaderPropertiesPtrOutput() WebACLFieldToMatchSingleHeaderPropertiesPtrOutput
+	ToWebACLFieldToMatchSingleHeaderPropertiesPtrOutputWithContext(context.Context) WebACLFieldToMatchSingleHeaderPropertiesPtrOutput
+}
+
+type webACLFieldToMatchSingleHeaderPropertiesPtrType WebACLFieldToMatchSingleHeaderPropertiesArgs
+
+func WebACLFieldToMatchSingleHeaderPropertiesPtr(v *WebACLFieldToMatchSingleHeaderPropertiesArgs) WebACLFieldToMatchSingleHeaderPropertiesPtrInput {
+	return (*webACLFieldToMatchSingleHeaderPropertiesPtrType)(v)
+}
+
+func (*webACLFieldToMatchSingleHeaderPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLFieldToMatchSingleHeaderProperties)(nil)).Elem()
+}
+
+func (i *webACLFieldToMatchSingleHeaderPropertiesPtrType) ToWebACLFieldToMatchSingleHeaderPropertiesPtrOutput() WebACLFieldToMatchSingleHeaderPropertiesPtrOutput {
+	return i.ToWebACLFieldToMatchSingleHeaderPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLFieldToMatchSingleHeaderPropertiesPtrType) ToWebACLFieldToMatchSingleHeaderPropertiesPtrOutputWithContext(ctx context.Context) WebACLFieldToMatchSingleHeaderPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLFieldToMatchSingleHeaderPropertiesPtrOutput)
+}
+
+type WebACLFieldToMatchSingleHeaderPropertiesOutput struct{ *pulumi.OutputState }
+
+func (WebACLFieldToMatchSingleHeaderPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLFieldToMatchSingleHeaderProperties)(nil)).Elem()
+}
+
+func (o WebACLFieldToMatchSingleHeaderPropertiesOutput) ToWebACLFieldToMatchSingleHeaderPropertiesOutput() WebACLFieldToMatchSingleHeaderPropertiesOutput {
+	return o
+}
+
+func (o WebACLFieldToMatchSingleHeaderPropertiesOutput) ToWebACLFieldToMatchSingleHeaderPropertiesOutputWithContext(ctx context.Context) WebACLFieldToMatchSingleHeaderPropertiesOutput {
+	return o
+}
+
+func (o WebACLFieldToMatchSingleHeaderPropertiesOutput) ToWebACLFieldToMatchSingleHeaderPropertiesPtrOutput() WebACLFieldToMatchSingleHeaderPropertiesPtrOutput {
+	return o.ToWebACLFieldToMatchSingleHeaderPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLFieldToMatchSingleHeaderPropertiesOutput) ToWebACLFieldToMatchSingleHeaderPropertiesPtrOutputWithContext(ctx context.Context) WebACLFieldToMatchSingleHeaderPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLFieldToMatchSingleHeaderProperties) *WebACLFieldToMatchSingleHeaderProperties {
+		return &v
+	}).(WebACLFieldToMatchSingleHeaderPropertiesPtrOutput)
+}
+
+func (o WebACLFieldToMatchSingleHeaderPropertiesOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebACLFieldToMatchSingleHeaderProperties) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type WebACLFieldToMatchSingleHeaderPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLFieldToMatchSingleHeaderPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLFieldToMatchSingleHeaderProperties)(nil)).Elem()
+}
+
+func (o WebACLFieldToMatchSingleHeaderPropertiesPtrOutput) ToWebACLFieldToMatchSingleHeaderPropertiesPtrOutput() WebACLFieldToMatchSingleHeaderPropertiesPtrOutput {
+	return o
+}
+
+func (o WebACLFieldToMatchSingleHeaderPropertiesPtrOutput) ToWebACLFieldToMatchSingleHeaderPropertiesPtrOutputWithContext(ctx context.Context) WebACLFieldToMatchSingleHeaderPropertiesPtrOutput {
+	return o
+}
+
+func (o WebACLFieldToMatchSingleHeaderPropertiesPtrOutput) Elem() WebACLFieldToMatchSingleHeaderPropertiesOutput {
+	return o.ApplyT(func(v *WebACLFieldToMatchSingleHeaderProperties) WebACLFieldToMatchSingleHeaderProperties {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLFieldToMatchSingleHeaderProperties
+		return ret
+	}).(WebACLFieldToMatchSingleHeaderPropertiesOutput)
+}
+
+func (o WebACLFieldToMatchSingleHeaderPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebACLFieldToMatchSingleHeaderProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
+type WebACLFieldToMatchSingleQueryArgumentProperties struct {
+	Name string `pulumi:"name"`
+}
+
+// WebACLFieldToMatchSingleQueryArgumentPropertiesInput is an input type that accepts WebACLFieldToMatchSingleQueryArgumentPropertiesArgs and WebACLFieldToMatchSingleQueryArgumentPropertiesOutput values.
+// You can construct a concrete instance of `WebACLFieldToMatchSingleQueryArgumentPropertiesInput` via:
+//
+//          WebACLFieldToMatchSingleQueryArgumentPropertiesArgs{...}
+type WebACLFieldToMatchSingleQueryArgumentPropertiesInput interface {
+	pulumi.Input
+
+	ToWebACLFieldToMatchSingleQueryArgumentPropertiesOutput() WebACLFieldToMatchSingleQueryArgumentPropertiesOutput
+	ToWebACLFieldToMatchSingleQueryArgumentPropertiesOutputWithContext(context.Context) WebACLFieldToMatchSingleQueryArgumentPropertiesOutput
+}
+
+// One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
+type WebACLFieldToMatchSingleQueryArgumentPropertiesArgs struct {
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (WebACLFieldToMatchSingleQueryArgumentPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLFieldToMatchSingleQueryArgumentProperties)(nil)).Elem()
+}
+
+func (i WebACLFieldToMatchSingleQueryArgumentPropertiesArgs) ToWebACLFieldToMatchSingleQueryArgumentPropertiesOutput() WebACLFieldToMatchSingleQueryArgumentPropertiesOutput {
+	return i.ToWebACLFieldToMatchSingleQueryArgumentPropertiesOutputWithContext(context.Background())
+}
+
+func (i WebACLFieldToMatchSingleQueryArgumentPropertiesArgs) ToWebACLFieldToMatchSingleQueryArgumentPropertiesOutputWithContext(ctx context.Context) WebACLFieldToMatchSingleQueryArgumentPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLFieldToMatchSingleQueryArgumentPropertiesOutput)
+}
+
+func (i WebACLFieldToMatchSingleQueryArgumentPropertiesArgs) ToWebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutput() WebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutput {
+	return i.ToWebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLFieldToMatchSingleQueryArgumentPropertiesArgs) ToWebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutputWithContext(ctx context.Context) WebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLFieldToMatchSingleQueryArgumentPropertiesOutput).ToWebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutputWithContext(ctx)
+}
+
+// WebACLFieldToMatchSingleQueryArgumentPropertiesPtrInput is an input type that accepts WebACLFieldToMatchSingleQueryArgumentPropertiesArgs, WebACLFieldToMatchSingleQueryArgumentPropertiesPtr and WebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutput values.
+// You can construct a concrete instance of `WebACLFieldToMatchSingleQueryArgumentPropertiesPtrInput` via:
+//
+//          WebACLFieldToMatchSingleQueryArgumentPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type WebACLFieldToMatchSingleQueryArgumentPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToWebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutput() WebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutput
+	ToWebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutputWithContext(context.Context) WebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutput
+}
+
+type webACLFieldToMatchSingleQueryArgumentPropertiesPtrType WebACLFieldToMatchSingleQueryArgumentPropertiesArgs
+
+func WebACLFieldToMatchSingleQueryArgumentPropertiesPtr(v *WebACLFieldToMatchSingleQueryArgumentPropertiesArgs) WebACLFieldToMatchSingleQueryArgumentPropertiesPtrInput {
+	return (*webACLFieldToMatchSingleQueryArgumentPropertiesPtrType)(v)
+}
+
+func (*webACLFieldToMatchSingleQueryArgumentPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLFieldToMatchSingleQueryArgumentProperties)(nil)).Elem()
+}
+
+func (i *webACLFieldToMatchSingleQueryArgumentPropertiesPtrType) ToWebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutput() WebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutput {
+	return i.ToWebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLFieldToMatchSingleQueryArgumentPropertiesPtrType) ToWebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutputWithContext(ctx context.Context) WebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutput)
+}
+
+// One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
+type WebACLFieldToMatchSingleQueryArgumentPropertiesOutput struct{ *pulumi.OutputState }
+
+func (WebACLFieldToMatchSingleQueryArgumentPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLFieldToMatchSingleQueryArgumentProperties)(nil)).Elem()
+}
+
+func (o WebACLFieldToMatchSingleQueryArgumentPropertiesOutput) ToWebACLFieldToMatchSingleQueryArgumentPropertiesOutput() WebACLFieldToMatchSingleQueryArgumentPropertiesOutput {
+	return o
+}
+
+func (o WebACLFieldToMatchSingleQueryArgumentPropertiesOutput) ToWebACLFieldToMatchSingleQueryArgumentPropertiesOutputWithContext(ctx context.Context) WebACLFieldToMatchSingleQueryArgumentPropertiesOutput {
+	return o
+}
+
+func (o WebACLFieldToMatchSingleQueryArgumentPropertiesOutput) ToWebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutput() WebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutput {
+	return o.ToWebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLFieldToMatchSingleQueryArgumentPropertiesOutput) ToWebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutputWithContext(ctx context.Context) WebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLFieldToMatchSingleQueryArgumentProperties) *WebACLFieldToMatchSingleQueryArgumentProperties {
+		return &v
+	}).(WebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutput)
+}
+
+func (o WebACLFieldToMatchSingleQueryArgumentPropertiesOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebACLFieldToMatchSingleQueryArgumentProperties) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type WebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLFieldToMatchSingleQueryArgumentProperties)(nil)).Elem()
+}
+
+func (o WebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutput) ToWebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutput() WebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutput {
+	return o
+}
+
+func (o WebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutput) ToWebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutputWithContext(ctx context.Context) WebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutput {
+	return o
+}
+
+func (o WebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutput) Elem() WebACLFieldToMatchSingleQueryArgumentPropertiesOutput {
+	return o.ApplyT(func(v *WebACLFieldToMatchSingleQueryArgumentProperties) WebACLFieldToMatchSingleQueryArgumentProperties {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLFieldToMatchSingleQueryArgumentProperties
+		return ret
+	}).(WebACLFieldToMatchSingleQueryArgumentPropertiesOutput)
+}
+
+func (o WebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebACLFieldToMatchSingleQueryArgumentProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type WebACLForwardedIPConfiguration struct {
@@ -10066,18 +12596,44 @@ func (o WebACLXssMatchStatementPtrOutput) TextTransformations() WebACLTextTransf
 func init() {
 	pulumi.RegisterOutputType(IPSetTagOutput{})
 	pulumi.RegisterOutputType(IPSetTagArrayOutput{})
+	pulumi.RegisterOutputType(LoggingConfigurationConditionOutput{})
+	pulumi.RegisterOutputType(LoggingConfigurationConditionArrayOutput{})
+	pulumi.RegisterOutputType(LoggingConfigurationConditionActionConditionPropertiesOutput{})
+	pulumi.RegisterOutputType(LoggingConfigurationConditionActionConditionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(LoggingConfigurationConditionLabelNameConditionPropertiesOutput{})
+	pulumi.RegisterOutputType(LoggingConfigurationConditionLabelNameConditionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationFieldToMatchOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationFieldToMatchArrayOutput{})
+	pulumi.RegisterOutputType(LoggingConfigurationFieldToMatchJsonBodyPropertiesOutput{})
+	pulumi.RegisterOutputType(LoggingConfigurationFieldToMatchJsonBodyPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesOutput{})
+	pulumi.RegisterOutputType(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(LoggingConfigurationFieldToMatchSingleHeaderPropertiesOutput{})
+	pulumi.RegisterOutputType(LoggingConfigurationFieldToMatchSingleHeaderPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(LoggingConfigurationFilterOutput{})
+	pulumi.RegisterOutputType(LoggingConfigurationFilterArrayOutput{})
+	pulumi.RegisterOutputType(LoggingFilterPropertiesOutput{})
+	pulumi.RegisterOutputType(LoggingFilterPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RegexPatternSetTagOutput{})
 	pulumi.RegisterOutputType(RegexPatternSetTagArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupAndStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupAndStatementPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupByteMatchStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupByteMatchStatementPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupCustomHTTPHeaderOutput{})
+	pulumi.RegisterOutputType(RuleGroupCustomHTTPHeaderArrayOutput{})
+	pulumi.RegisterOutputType(RuleGroupCustomRequestHandlingOutput{})
+	pulumi.RegisterOutputType(RuleGroupCustomRequestHandlingPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupCustomResponseOutput{})
+	pulumi.RegisterOutputType(RuleGroupCustomResponsePtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupCustomResponseBodiesOutput{})
 	pulumi.RegisterOutputType(RuleGroupCustomResponseBodiesPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupFieldToMatchOutput{})
 	pulumi.RegisterOutputType(RuleGroupFieldToMatchPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupFieldToMatchSingleHeaderPropertiesOutput{})
+	pulumi.RegisterOutputType(RuleGroupFieldToMatchSingleHeaderPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupFieldToMatchSingleQueryArgumentPropertiesOutput{})
+	pulumi.RegisterOutputType(RuleGroupFieldToMatchSingleQueryArgumentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupForwardedIPConfigurationOutput{})
 	pulumi.RegisterOutputType(RuleGroupForwardedIPConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupGeoMatchStatementOutput{})
@@ -10108,6 +12664,12 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupRuleArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleActionOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleActionPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupRuleActionAllowPropertiesOutput{})
+	pulumi.RegisterOutputType(RuleGroupRuleActionAllowPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupRuleActionBlockPropertiesOutput{})
+	pulumi.RegisterOutputType(RuleGroupRuleActionBlockPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupRuleActionCountPropertiesOutput{})
+	pulumi.RegisterOutputType(RuleGroupRuleActionCountPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupSizeConstraintStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupSizeConstraintStatementPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupSqliMatchStatementOutput{})
@@ -10147,6 +12709,10 @@ func init() {
 	pulumi.RegisterOutputType(WebACLExcludedRuleArrayOutput{})
 	pulumi.RegisterOutputType(WebACLFieldToMatchOutput{})
 	pulumi.RegisterOutputType(WebACLFieldToMatchPtrOutput{})
+	pulumi.RegisterOutputType(WebACLFieldToMatchSingleHeaderPropertiesOutput{})
+	pulumi.RegisterOutputType(WebACLFieldToMatchSingleHeaderPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(WebACLFieldToMatchSingleQueryArgumentPropertiesOutput{})
+	pulumi.RegisterOutputType(WebACLFieldToMatchSingleQueryArgumentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(WebACLForwardedIPConfigurationOutput{})
 	pulumi.RegisterOutputType(WebACLForwardedIPConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WebACLGeoMatchStatementOutput{})

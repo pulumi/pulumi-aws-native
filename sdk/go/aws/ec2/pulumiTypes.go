@@ -12619,6 +12619,184 @@ func (o NetworkInterfaceTagArrayOutput) Index(i pulumi.IntInput) NetworkInterfac
 	}).(NetworkInterfaceTagOutput)
 }
 
+// The options for the transit gateway vpc attachment.
+type OptionsProperties struct {
+	// Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
+	ApplianceModeSupport *string `pulumi:"applianceModeSupport"`
+	// Indicates whether to enable DNS Support for Vpc Attachment. Valid Values: enable | disable
+	DnsSupport *string `pulumi:"dnsSupport"`
+	// Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
+	Ipv6Support *string `pulumi:"ipv6Support"`
+}
+
+// OptionsPropertiesInput is an input type that accepts OptionsPropertiesArgs and OptionsPropertiesOutput values.
+// You can construct a concrete instance of `OptionsPropertiesInput` via:
+//
+//          OptionsPropertiesArgs{...}
+type OptionsPropertiesInput interface {
+	pulumi.Input
+
+	ToOptionsPropertiesOutput() OptionsPropertiesOutput
+	ToOptionsPropertiesOutputWithContext(context.Context) OptionsPropertiesOutput
+}
+
+// The options for the transit gateway vpc attachment.
+type OptionsPropertiesArgs struct {
+	// Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
+	ApplianceModeSupport pulumi.StringPtrInput `pulumi:"applianceModeSupport"`
+	// Indicates whether to enable DNS Support for Vpc Attachment. Valid Values: enable | disable
+	DnsSupport pulumi.StringPtrInput `pulumi:"dnsSupport"`
+	// Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
+	Ipv6Support pulumi.StringPtrInput `pulumi:"ipv6Support"`
+}
+
+func (OptionsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptionsProperties)(nil)).Elem()
+}
+
+func (i OptionsPropertiesArgs) ToOptionsPropertiesOutput() OptionsPropertiesOutput {
+	return i.ToOptionsPropertiesOutputWithContext(context.Background())
+}
+
+func (i OptionsPropertiesArgs) ToOptionsPropertiesOutputWithContext(ctx context.Context) OptionsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptionsPropertiesOutput)
+}
+
+func (i OptionsPropertiesArgs) ToOptionsPropertiesPtrOutput() OptionsPropertiesPtrOutput {
+	return i.ToOptionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i OptionsPropertiesArgs) ToOptionsPropertiesPtrOutputWithContext(ctx context.Context) OptionsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptionsPropertiesOutput).ToOptionsPropertiesPtrOutputWithContext(ctx)
+}
+
+// OptionsPropertiesPtrInput is an input type that accepts OptionsPropertiesArgs, OptionsPropertiesPtr and OptionsPropertiesPtrOutput values.
+// You can construct a concrete instance of `OptionsPropertiesPtrInput` via:
+//
+//          OptionsPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type OptionsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToOptionsPropertiesPtrOutput() OptionsPropertiesPtrOutput
+	ToOptionsPropertiesPtrOutputWithContext(context.Context) OptionsPropertiesPtrOutput
+}
+
+type optionsPropertiesPtrType OptionsPropertiesArgs
+
+func OptionsPropertiesPtr(v *OptionsPropertiesArgs) OptionsPropertiesPtrInput {
+	return (*optionsPropertiesPtrType)(v)
+}
+
+func (*optionsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OptionsProperties)(nil)).Elem()
+}
+
+func (i *optionsPropertiesPtrType) ToOptionsPropertiesPtrOutput() OptionsPropertiesPtrOutput {
+	return i.ToOptionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *optionsPropertiesPtrType) ToOptionsPropertiesPtrOutputWithContext(ctx context.Context) OptionsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptionsPropertiesPtrOutput)
+}
+
+// The options for the transit gateway vpc attachment.
+type OptionsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (OptionsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptionsProperties)(nil)).Elem()
+}
+
+func (o OptionsPropertiesOutput) ToOptionsPropertiesOutput() OptionsPropertiesOutput {
+	return o
+}
+
+func (o OptionsPropertiesOutput) ToOptionsPropertiesOutputWithContext(ctx context.Context) OptionsPropertiesOutput {
+	return o
+}
+
+func (o OptionsPropertiesOutput) ToOptionsPropertiesPtrOutput() OptionsPropertiesPtrOutput {
+	return o.ToOptionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o OptionsPropertiesOutput) ToOptionsPropertiesPtrOutputWithContext(ctx context.Context) OptionsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OptionsProperties) *OptionsProperties {
+		return &v
+	}).(OptionsPropertiesPtrOutput)
+}
+
+// Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
+func (o OptionsPropertiesOutput) ApplianceModeSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OptionsProperties) *string { return v.ApplianceModeSupport }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether to enable DNS Support for Vpc Attachment. Valid Values: enable | disable
+func (o OptionsPropertiesOutput) DnsSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OptionsProperties) *string { return v.DnsSupport }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
+func (o OptionsPropertiesOutput) Ipv6Support() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OptionsProperties) *string { return v.Ipv6Support }).(pulumi.StringPtrOutput)
+}
+
+type OptionsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (OptionsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OptionsProperties)(nil)).Elem()
+}
+
+func (o OptionsPropertiesPtrOutput) ToOptionsPropertiesPtrOutput() OptionsPropertiesPtrOutput {
+	return o
+}
+
+func (o OptionsPropertiesPtrOutput) ToOptionsPropertiesPtrOutputWithContext(ctx context.Context) OptionsPropertiesPtrOutput {
+	return o
+}
+
+func (o OptionsPropertiesPtrOutput) Elem() OptionsPropertiesOutput {
+	return o.ApplyT(func(v *OptionsProperties) OptionsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret OptionsProperties
+		return ret
+	}).(OptionsPropertiesOutput)
+}
+
+// Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
+func (o OptionsPropertiesPtrOutput) ApplianceModeSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OptionsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplianceModeSupport
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether to enable DNS Support for Vpc Attachment. Valid Values: enable | disable
+func (o OptionsPropertiesPtrOutput) DnsSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OptionsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DnsSupport
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
+func (o OptionsPropertiesPtrOutput) Ipv6Support() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OptionsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Ipv6Support
+	}).(pulumi.StringPtrOutput)
+}
+
 type PrefixListEntry struct {
 	Cidr        string  `pulumi:"cidr"`
 	Description *string `pulumi:"description"`
@@ -18928,6 +19106,8 @@ func init() {
 	pulumi.RegisterOutputType(NetworkInterfacePrivateIpAddressSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceTagOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceTagArrayOutput{})
+	pulumi.RegisterOutputType(OptionsPropertiesOutput{})
+	pulumi.RegisterOutputType(OptionsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PrefixListEntryOutput{})
 	pulumi.RegisterOutputType(PrefixListEntryArrayOutput{})
 	pulumi.RegisterOutputType(PrefixListTagOutput{})

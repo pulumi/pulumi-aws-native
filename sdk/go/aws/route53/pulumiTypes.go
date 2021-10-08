@@ -10,6 +10,543 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// A complex type that identifies the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether the specified health check is healthy.
+type HealthCheckAlarmIdentifier struct {
+	// The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.
+	Name string `pulumi:"name"`
+	// For the CloudWatch alarm that you want Route 53 health checkers to use to determine whether this health check is healthy, the region that the alarm was created in.
+	Region string `pulumi:"region"`
+}
+
+// HealthCheckAlarmIdentifierInput is an input type that accepts HealthCheckAlarmIdentifierArgs and HealthCheckAlarmIdentifierOutput values.
+// You can construct a concrete instance of `HealthCheckAlarmIdentifierInput` via:
+//
+//          HealthCheckAlarmIdentifierArgs{...}
+type HealthCheckAlarmIdentifierInput interface {
+	pulumi.Input
+
+	ToHealthCheckAlarmIdentifierOutput() HealthCheckAlarmIdentifierOutput
+	ToHealthCheckAlarmIdentifierOutputWithContext(context.Context) HealthCheckAlarmIdentifierOutput
+}
+
+// A complex type that identifies the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether the specified health check is healthy.
+type HealthCheckAlarmIdentifierArgs struct {
+	// The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.
+	Name pulumi.StringInput `pulumi:"name"`
+	// For the CloudWatch alarm that you want Route 53 health checkers to use to determine whether this health check is healthy, the region that the alarm was created in.
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (HealthCheckAlarmIdentifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthCheckAlarmIdentifier)(nil)).Elem()
+}
+
+func (i HealthCheckAlarmIdentifierArgs) ToHealthCheckAlarmIdentifierOutput() HealthCheckAlarmIdentifierOutput {
+	return i.ToHealthCheckAlarmIdentifierOutputWithContext(context.Background())
+}
+
+func (i HealthCheckAlarmIdentifierArgs) ToHealthCheckAlarmIdentifierOutputWithContext(ctx context.Context) HealthCheckAlarmIdentifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckAlarmIdentifierOutput)
+}
+
+func (i HealthCheckAlarmIdentifierArgs) ToHealthCheckAlarmIdentifierPtrOutput() HealthCheckAlarmIdentifierPtrOutput {
+	return i.ToHealthCheckAlarmIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (i HealthCheckAlarmIdentifierArgs) ToHealthCheckAlarmIdentifierPtrOutputWithContext(ctx context.Context) HealthCheckAlarmIdentifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckAlarmIdentifierOutput).ToHealthCheckAlarmIdentifierPtrOutputWithContext(ctx)
+}
+
+// HealthCheckAlarmIdentifierPtrInput is an input type that accepts HealthCheckAlarmIdentifierArgs, HealthCheckAlarmIdentifierPtr and HealthCheckAlarmIdentifierPtrOutput values.
+// You can construct a concrete instance of `HealthCheckAlarmIdentifierPtrInput` via:
+//
+//          HealthCheckAlarmIdentifierArgs{...}
+//
+//  or:
+//
+//          nil
+type HealthCheckAlarmIdentifierPtrInput interface {
+	pulumi.Input
+
+	ToHealthCheckAlarmIdentifierPtrOutput() HealthCheckAlarmIdentifierPtrOutput
+	ToHealthCheckAlarmIdentifierPtrOutputWithContext(context.Context) HealthCheckAlarmIdentifierPtrOutput
+}
+
+type healthCheckAlarmIdentifierPtrType HealthCheckAlarmIdentifierArgs
+
+func HealthCheckAlarmIdentifierPtr(v *HealthCheckAlarmIdentifierArgs) HealthCheckAlarmIdentifierPtrInput {
+	return (*healthCheckAlarmIdentifierPtrType)(v)
+}
+
+func (*healthCheckAlarmIdentifierPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HealthCheckAlarmIdentifier)(nil)).Elem()
+}
+
+func (i *healthCheckAlarmIdentifierPtrType) ToHealthCheckAlarmIdentifierPtrOutput() HealthCheckAlarmIdentifierPtrOutput {
+	return i.ToHealthCheckAlarmIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (i *healthCheckAlarmIdentifierPtrType) ToHealthCheckAlarmIdentifierPtrOutputWithContext(ctx context.Context) HealthCheckAlarmIdentifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckAlarmIdentifierPtrOutput)
+}
+
+// A complex type that identifies the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether the specified health check is healthy.
+type HealthCheckAlarmIdentifierOutput struct{ *pulumi.OutputState }
+
+func (HealthCheckAlarmIdentifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthCheckAlarmIdentifier)(nil)).Elem()
+}
+
+func (o HealthCheckAlarmIdentifierOutput) ToHealthCheckAlarmIdentifierOutput() HealthCheckAlarmIdentifierOutput {
+	return o
+}
+
+func (o HealthCheckAlarmIdentifierOutput) ToHealthCheckAlarmIdentifierOutputWithContext(ctx context.Context) HealthCheckAlarmIdentifierOutput {
+	return o
+}
+
+func (o HealthCheckAlarmIdentifierOutput) ToHealthCheckAlarmIdentifierPtrOutput() HealthCheckAlarmIdentifierPtrOutput {
+	return o.ToHealthCheckAlarmIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (o HealthCheckAlarmIdentifierOutput) ToHealthCheckAlarmIdentifierPtrOutputWithContext(ctx context.Context) HealthCheckAlarmIdentifierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HealthCheckAlarmIdentifier) *HealthCheckAlarmIdentifier {
+		return &v
+	}).(HealthCheckAlarmIdentifierPtrOutput)
+}
+
+// The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.
+func (o HealthCheckAlarmIdentifierOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v HealthCheckAlarmIdentifier) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// For the CloudWatch alarm that you want Route 53 health checkers to use to determine whether this health check is healthy, the region that the alarm was created in.
+func (o HealthCheckAlarmIdentifierOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v HealthCheckAlarmIdentifier) string { return v.Region }).(pulumi.StringOutput)
+}
+
+type HealthCheckAlarmIdentifierPtrOutput struct{ *pulumi.OutputState }
+
+func (HealthCheckAlarmIdentifierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HealthCheckAlarmIdentifier)(nil)).Elem()
+}
+
+func (o HealthCheckAlarmIdentifierPtrOutput) ToHealthCheckAlarmIdentifierPtrOutput() HealthCheckAlarmIdentifierPtrOutput {
+	return o
+}
+
+func (o HealthCheckAlarmIdentifierPtrOutput) ToHealthCheckAlarmIdentifierPtrOutputWithContext(ctx context.Context) HealthCheckAlarmIdentifierPtrOutput {
+	return o
+}
+
+func (o HealthCheckAlarmIdentifierPtrOutput) Elem() HealthCheckAlarmIdentifierOutput {
+	return o.ApplyT(func(v *HealthCheckAlarmIdentifier) HealthCheckAlarmIdentifier {
+		if v != nil {
+			return *v
+		}
+		var ret HealthCheckAlarmIdentifier
+		return ret
+	}).(HealthCheckAlarmIdentifierOutput)
+}
+
+// The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.
+func (o HealthCheckAlarmIdentifierPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HealthCheckAlarmIdentifier) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// For the CloudWatch alarm that you want Route 53 health checkers to use to determine whether this health check is healthy, the region that the alarm was created in.
+func (o HealthCheckAlarmIdentifierPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HealthCheckAlarmIdentifier) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+// A complex type that contains information about the health check.
+type HealthCheckConfigProperties struct {
+	AlarmIdentifier              *HealthCheckAlarmIdentifier                              `pulumi:"alarmIdentifier"`
+	ChildHealthChecks            []string                                                 `pulumi:"childHealthChecks"`
+	EnableSNI                    *bool                                                    `pulumi:"enableSNI"`
+	FailureThreshold             *int                                                     `pulumi:"failureThreshold"`
+	FullyQualifiedDomainName     *string                                                  `pulumi:"fullyQualifiedDomainName"`
+	HealthThreshold              *int                                                     `pulumi:"healthThreshold"`
+	IPAddress                    *string                                                  `pulumi:"iPAddress"`
+	InsufficientDataHealthStatus *HealthCheckConfigPropertiesInsufficientDataHealthStatus `pulumi:"insufficientDataHealthStatus"`
+	Inverted                     *bool                                                    `pulumi:"inverted"`
+	MeasureLatency               *bool                                                    `pulumi:"measureLatency"`
+	Port                         *int                                                     `pulumi:"port"`
+	Regions                      []string                                                 `pulumi:"regions"`
+	RequestInterval              *int                                                     `pulumi:"requestInterval"`
+	ResourcePath                 *string                                                  `pulumi:"resourcePath"`
+	RoutingControlArn            *string                                                  `pulumi:"routingControlArn"`
+	SearchString                 *string                                                  `pulumi:"searchString"`
+	Type                         HealthCheckConfigPropertiesType                          `pulumi:"type"`
+}
+
+// HealthCheckConfigPropertiesInput is an input type that accepts HealthCheckConfigPropertiesArgs and HealthCheckConfigPropertiesOutput values.
+// You can construct a concrete instance of `HealthCheckConfigPropertiesInput` via:
+//
+//          HealthCheckConfigPropertiesArgs{...}
+type HealthCheckConfigPropertiesInput interface {
+	pulumi.Input
+
+	ToHealthCheckConfigPropertiesOutput() HealthCheckConfigPropertiesOutput
+	ToHealthCheckConfigPropertiesOutputWithContext(context.Context) HealthCheckConfigPropertiesOutput
+}
+
+// A complex type that contains information about the health check.
+type HealthCheckConfigPropertiesArgs struct {
+	AlarmIdentifier              HealthCheckAlarmIdentifierPtrInput                              `pulumi:"alarmIdentifier"`
+	ChildHealthChecks            pulumi.StringArrayInput                                         `pulumi:"childHealthChecks"`
+	EnableSNI                    pulumi.BoolPtrInput                                             `pulumi:"enableSNI"`
+	FailureThreshold             pulumi.IntPtrInput                                              `pulumi:"failureThreshold"`
+	FullyQualifiedDomainName     pulumi.StringPtrInput                                           `pulumi:"fullyQualifiedDomainName"`
+	HealthThreshold              pulumi.IntPtrInput                                              `pulumi:"healthThreshold"`
+	IPAddress                    pulumi.StringPtrInput                                           `pulumi:"iPAddress"`
+	InsufficientDataHealthStatus HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrInput `pulumi:"insufficientDataHealthStatus"`
+	Inverted                     pulumi.BoolPtrInput                                             `pulumi:"inverted"`
+	MeasureLatency               pulumi.BoolPtrInput                                             `pulumi:"measureLatency"`
+	Port                         pulumi.IntPtrInput                                              `pulumi:"port"`
+	Regions                      pulumi.StringArrayInput                                         `pulumi:"regions"`
+	RequestInterval              pulumi.IntPtrInput                                              `pulumi:"requestInterval"`
+	ResourcePath                 pulumi.StringPtrInput                                           `pulumi:"resourcePath"`
+	RoutingControlArn            pulumi.StringPtrInput                                           `pulumi:"routingControlArn"`
+	SearchString                 pulumi.StringPtrInput                                           `pulumi:"searchString"`
+	Type                         HealthCheckConfigPropertiesTypeInput                            `pulumi:"type"`
+}
+
+func (HealthCheckConfigPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthCheckConfigProperties)(nil)).Elem()
+}
+
+func (i HealthCheckConfigPropertiesArgs) ToHealthCheckConfigPropertiesOutput() HealthCheckConfigPropertiesOutput {
+	return i.ToHealthCheckConfigPropertiesOutputWithContext(context.Background())
+}
+
+func (i HealthCheckConfigPropertiesArgs) ToHealthCheckConfigPropertiesOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckConfigPropertiesOutput)
+}
+
+func (i HealthCheckConfigPropertiesArgs) ToHealthCheckConfigPropertiesPtrOutput() HealthCheckConfigPropertiesPtrOutput {
+	return i.ToHealthCheckConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i HealthCheckConfigPropertiesArgs) ToHealthCheckConfigPropertiesPtrOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckConfigPropertiesOutput).ToHealthCheckConfigPropertiesPtrOutputWithContext(ctx)
+}
+
+// HealthCheckConfigPropertiesPtrInput is an input type that accepts HealthCheckConfigPropertiesArgs, HealthCheckConfigPropertiesPtr and HealthCheckConfigPropertiesPtrOutput values.
+// You can construct a concrete instance of `HealthCheckConfigPropertiesPtrInput` via:
+//
+//          HealthCheckConfigPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type HealthCheckConfigPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToHealthCheckConfigPropertiesPtrOutput() HealthCheckConfigPropertiesPtrOutput
+	ToHealthCheckConfigPropertiesPtrOutputWithContext(context.Context) HealthCheckConfigPropertiesPtrOutput
+}
+
+type healthCheckConfigPropertiesPtrType HealthCheckConfigPropertiesArgs
+
+func HealthCheckConfigPropertiesPtr(v *HealthCheckConfigPropertiesArgs) HealthCheckConfigPropertiesPtrInput {
+	return (*healthCheckConfigPropertiesPtrType)(v)
+}
+
+func (*healthCheckConfigPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HealthCheckConfigProperties)(nil)).Elem()
+}
+
+func (i *healthCheckConfigPropertiesPtrType) ToHealthCheckConfigPropertiesPtrOutput() HealthCheckConfigPropertiesPtrOutput {
+	return i.ToHealthCheckConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *healthCheckConfigPropertiesPtrType) ToHealthCheckConfigPropertiesPtrOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckConfigPropertiesPtrOutput)
+}
+
+// A complex type that contains information about the health check.
+type HealthCheckConfigPropertiesOutput struct{ *pulumi.OutputState }
+
+func (HealthCheckConfigPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthCheckConfigProperties)(nil)).Elem()
+}
+
+func (o HealthCheckConfigPropertiesOutput) ToHealthCheckConfigPropertiesOutput() HealthCheckConfigPropertiesOutput {
+	return o
+}
+
+func (o HealthCheckConfigPropertiesOutput) ToHealthCheckConfigPropertiesOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesOutput {
+	return o
+}
+
+func (o HealthCheckConfigPropertiesOutput) ToHealthCheckConfigPropertiesPtrOutput() HealthCheckConfigPropertiesPtrOutput {
+	return o.ToHealthCheckConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o HealthCheckConfigPropertiesOutput) ToHealthCheckConfigPropertiesPtrOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HealthCheckConfigProperties) *HealthCheckConfigProperties {
+		return &v
+	}).(HealthCheckConfigPropertiesPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesOutput) AlarmIdentifier() HealthCheckAlarmIdentifierPtrOutput {
+	return o.ApplyT(func(v HealthCheckConfigProperties) *HealthCheckAlarmIdentifier { return v.AlarmIdentifier }).(HealthCheckAlarmIdentifierPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesOutput) ChildHealthChecks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HealthCheckConfigProperties) []string { return v.ChildHealthChecks }).(pulumi.StringArrayOutput)
+}
+
+func (o HealthCheckConfigPropertiesOutput) EnableSNI() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HealthCheckConfigProperties) *bool { return v.EnableSNI }).(pulumi.BoolPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesOutput) FailureThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HealthCheckConfigProperties) *int { return v.FailureThreshold }).(pulumi.IntPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesOutput) FullyQualifiedDomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HealthCheckConfigProperties) *string { return v.FullyQualifiedDomainName }).(pulumi.StringPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesOutput) HealthThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HealthCheckConfigProperties) *int { return v.HealthThreshold }).(pulumi.IntPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesOutput) IPAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HealthCheckConfigProperties) *string { return v.IPAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesOutput) InsufficientDataHealthStatus() HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput {
+	return o.ApplyT(func(v HealthCheckConfigProperties) *HealthCheckConfigPropertiesInsufficientDataHealthStatus {
+		return v.InsufficientDataHealthStatus
+	}).(HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesOutput) Inverted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HealthCheckConfigProperties) *bool { return v.Inverted }).(pulumi.BoolPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesOutput) MeasureLatency() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HealthCheckConfigProperties) *bool { return v.MeasureLatency }).(pulumi.BoolPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HealthCheckConfigProperties) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HealthCheckConfigProperties) []string { return v.Regions }).(pulumi.StringArrayOutput)
+}
+
+func (o HealthCheckConfigPropertiesOutput) RequestInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HealthCheckConfigProperties) *int { return v.RequestInterval }).(pulumi.IntPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesOutput) ResourcePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HealthCheckConfigProperties) *string { return v.ResourcePath }).(pulumi.StringPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesOutput) RoutingControlArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HealthCheckConfigProperties) *string { return v.RoutingControlArn }).(pulumi.StringPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesOutput) SearchString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HealthCheckConfigProperties) *string { return v.SearchString }).(pulumi.StringPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesOutput) Type() HealthCheckConfigPropertiesTypeOutput {
+	return o.ApplyT(func(v HealthCheckConfigProperties) HealthCheckConfigPropertiesType { return v.Type }).(HealthCheckConfigPropertiesTypeOutput)
+}
+
+type HealthCheckConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (HealthCheckConfigPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HealthCheckConfigProperties)(nil)).Elem()
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) ToHealthCheckConfigPropertiesPtrOutput() HealthCheckConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) ToHealthCheckConfigPropertiesPtrOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) Elem() HealthCheckConfigPropertiesOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) HealthCheckConfigProperties {
+		if v != nil {
+			return *v
+		}
+		var ret HealthCheckConfigProperties
+		return ret
+	}).(HealthCheckConfigPropertiesOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) AlarmIdentifier() HealthCheckAlarmIdentifierPtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *HealthCheckAlarmIdentifier {
+		if v == nil {
+			return nil
+		}
+		return v.AlarmIdentifier
+	}).(HealthCheckAlarmIdentifierPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) ChildHealthChecks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ChildHealthChecks
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) EnableSNI() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableSNI
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) FailureThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FailureThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) FullyQualifiedDomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FullyQualifiedDomainName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) HealthThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HealthThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) IPAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IPAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) InsufficientDataHealthStatus() HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *HealthCheckConfigPropertiesInsufficientDataHealthStatus {
+		if v == nil {
+			return nil
+		}
+		return v.InsufficientDataHealthStatus
+	}).(HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) Inverted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Inverted
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) MeasureLatency() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MeasureLatency
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Regions
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) RequestInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RequestInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) ResourcePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourcePath
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) RoutingControlArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoutingControlArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) SearchString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SearchString
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) Type() HealthCheckConfigPropertiesTypePtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *HealthCheckConfigPropertiesType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(HealthCheckConfigPropertiesTypePtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type HealthCheckTag struct {
 	// The key name of the tag.
@@ -1454,6 +1991,10 @@ func (o RecordSetGroupRecordSetArrayOutput) Index(i pulumi.IntInput) RecordSetGr
 }
 
 func init() {
+	pulumi.RegisterOutputType(HealthCheckAlarmIdentifierOutput{})
+	pulumi.RegisterOutputType(HealthCheckAlarmIdentifierPtrOutput{})
+	pulumi.RegisterOutputType(HealthCheckConfigPropertiesOutput{})
+	pulumi.RegisterOutputType(HealthCheckConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(HealthCheckTagOutput{})
 	pulumi.RegisterOutputType(HealthCheckTagArrayOutput{})
 	pulumi.RegisterOutputType(HostedZoneConfigOutput{})

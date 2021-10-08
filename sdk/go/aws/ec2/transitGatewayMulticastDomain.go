@@ -18,7 +18,7 @@ type TransitGatewayMulticastDomain struct {
 	// The time the transit gateway multicast domain was created.
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// The options for the transit gateway multicast domain.
-	Options pulumi.AnyOutput `pulumi:"options"`
+	Options OptionsPropertiesPtrOutput `pulumi:"options"`
 	// The state of the transit gateway multicast domain.
 	State pulumi.StringOutput `pulumi:"state"`
 	// The tags for the transit gateway multicast domain.
@@ -74,7 +74,7 @@ func (TransitGatewayMulticastDomainState) ElementType() reflect.Type {
 
 type transitGatewayMulticastDomainArgs struct {
 	// The options for the transit gateway multicast domain.
-	Options interface{} `pulumi:"options"`
+	Options *OptionsProperties `pulumi:"options"`
 	// The tags for the transit gateway multicast domain.
 	Tags []TransitGatewayMulticastDomainTag `pulumi:"tags"`
 	// The ID of the transit gateway.
@@ -84,7 +84,7 @@ type transitGatewayMulticastDomainArgs struct {
 // The set of arguments for constructing a TransitGatewayMulticastDomain resource.
 type TransitGatewayMulticastDomainArgs struct {
 	// The options for the transit gateway multicast domain.
-	Options pulumi.Input
+	Options OptionsPropertiesPtrInput
 	// The tags for the transit gateway multicast domain.
 	Tags TransitGatewayMulticastDomainTagArrayInput
 	// The ID of the transit gateway.

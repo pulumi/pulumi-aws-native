@@ -344,9 +344,176 @@ func (in *connectionAuthorizationTypePtr) ToConnectionAuthorizationTypePtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectionAuthorizationTypePtrOutput)
 }
 
+type ConnectionOAuthParametersHttpMethod string
+
+const (
+	ConnectionOAuthParametersHttpMethodGet  = ConnectionOAuthParametersHttpMethod("GET")
+	ConnectionOAuthParametersHttpMethodPost = ConnectionOAuthParametersHttpMethod("POST")
+	ConnectionOAuthParametersHttpMethodPut  = ConnectionOAuthParametersHttpMethod("PUT")
+)
+
+func (ConnectionOAuthParametersHttpMethod) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionOAuthParametersHttpMethod)(nil)).Elem()
+}
+
+func (e ConnectionOAuthParametersHttpMethod) ToConnectionOAuthParametersHttpMethodOutput() ConnectionOAuthParametersHttpMethodOutput {
+	return pulumi.ToOutput(e).(ConnectionOAuthParametersHttpMethodOutput)
+}
+
+func (e ConnectionOAuthParametersHttpMethod) ToConnectionOAuthParametersHttpMethodOutputWithContext(ctx context.Context) ConnectionOAuthParametersHttpMethodOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectionOAuthParametersHttpMethodOutput)
+}
+
+func (e ConnectionOAuthParametersHttpMethod) ToConnectionOAuthParametersHttpMethodPtrOutput() ConnectionOAuthParametersHttpMethodPtrOutput {
+	return e.ToConnectionOAuthParametersHttpMethodPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionOAuthParametersHttpMethod) ToConnectionOAuthParametersHttpMethodPtrOutputWithContext(ctx context.Context) ConnectionOAuthParametersHttpMethodPtrOutput {
+	return ConnectionOAuthParametersHttpMethod(e).ToConnectionOAuthParametersHttpMethodOutputWithContext(ctx).ToConnectionOAuthParametersHttpMethodPtrOutputWithContext(ctx)
+}
+
+func (e ConnectionOAuthParametersHttpMethod) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionOAuthParametersHttpMethod) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionOAuthParametersHttpMethod) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionOAuthParametersHttpMethod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectionOAuthParametersHttpMethodOutput struct{ *pulumi.OutputState }
+
+func (ConnectionOAuthParametersHttpMethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionOAuthParametersHttpMethod)(nil)).Elem()
+}
+
+func (o ConnectionOAuthParametersHttpMethodOutput) ToConnectionOAuthParametersHttpMethodOutput() ConnectionOAuthParametersHttpMethodOutput {
+	return o
+}
+
+func (o ConnectionOAuthParametersHttpMethodOutput) ToConnectionOAuthParametersHttpMethodOutputWithContext(ctx context.Context) ConnectionOAuthParametersHttpMethodOutput {
+	return o
+}
+
+func (o ConnectionOAuthParametersHttpMethodOutput) ToConnectionOAuthParametersHttpMethodPtrOutput() ConnectionOAuthParametersHttpMethodPtrOutput {
+	return o.ToConnectionOAuthParametersHttpMethodPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionOAuthParametersHttpMethodOutput) ToConnectionOAuthParametersHttpMethodPtrOutputWithContext(ctx context.Context) ConnectionOAuthParametersHttpMethodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionOAuthParametersHttpMethod) *ConnectionOAuthParametersHttpMethod {
+		return &v
+	}).(ConnectionOAuthParametersHttpMethodPtrOutput)
+}
+
+func (o ConnectionOAuthParametersHttpMethodOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectionOAuthParametersHttpMethodOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionOAuthParametersHttpMethod) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectionOAuthParametersHttpMethodOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionOAuthParametersHttpMethodOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionOAuthParametersHttpMethod) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionOAuthParametersHttpMethodPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionOAuthParametersHttpMethodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionOAuthParametersHttpMethod)(nil)).Elem()
+}
+
+func (o ConnectionOAuthParametersHttpMethodPtrOutput) ToConnectionOAuthParametersHttpMethodPtrOutput() ConnectionOAuthParametersHttpMethodPtrOutput {
+	return o
+}
+
+func (o ConnectionOAuthParametersHttpMethodPtrOutput) ToConnectionOAuthParametersHttpMethodPtrOutputWithContext(ctx context.Context) ConnectionOAuthParametersHttpMethodPtrOutput {
+	return o
+}
+
+func (o ConnectionOAuthParametersHttpMethodPtrOutput) Elem() ConnectionOAuthParametersHttpMethodOutput {
+	return o.ApplyT(func(v *ConnectionOAuthParametersHttpMethod) ConnectionOAuthParametersHttpMethod {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionOAuthParametersHttpMethod
+		return ret
+	}).(ConnectionOAuthParametersHttpMethodOutput)
+}
+
+func (o ConnectionOAuthParametersHttpMethodPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionOAuthParametersHttpMethodPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectionOAuthParametersHttpMethod) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectionOAuthParametersHttpMethodInput is an input type that accepts ConnectionOAuthParametersHttpMethodArgs and ConnectionOAuthParametersHttpMethodOutput values.
+// You can construct a concrete instance of `ConnectionOAuthParametersHttpMethodInput` via:
+//
+//          ConnectionOAuthParametersHttpMethodArgs{...}
+type ConnectionOAuthParametersHttpMethodInput interface {
+	pulumi.Input
+
+	ToConnectionOAuthParametersHttpMethodOutput() ConnectionOAuthParametersHttpMethodOutput
+	ToConnectionOAuthParametersHttpMethodOutputWithContext(context.Context) ConnectionOAuthParametersHttpMethodOutput
+}
+
+var connectionOAuthParametersHttpMethodPtrType = reflect.TypeOf((**ConnectionOAuthParametersHttpMethod)(nil)).Elem()
+
+type ConnectionOAuthParametersHttpMethodPtrInput interface {
+	pulumi.Input
+
+	ToConnectionOAuthParametersHttpMethodPtrOutput() ConnectionOAuthParametersHttpMethodPtrOutput
+	ToConnectionOAuthParametersHttpMethodPtrOutputWithContext(context.Context) ConnectionOAuthParametersHttpMethodPtrOutput
+}
+
+type connectionOAuthParametersHttpMethodPtr string
+
+func ConnectionOAuthParametersHttpMethodPtr(v string) ConnectionOAuthParametersHttpMethodPtrInput {
+	return (*connectionOAuthParametersHttpMethodPtr)(&v)
+}
+
+func (*connectionOAuthParametersHttpMethodPtr) ElementType() reflect.Type {
+	return connectionOAuthParametersHttpMethodPtrType
+}
+
+func (in *connectionOAuthParametersHttpMethodPtr) ToConnectionOAuthParametersHttpMethodPtrOutput() ConnectionOAuthParametersHttpMethodPtrOutput {
+	return pulumi.ToOutput(in).(ConnectionOAuthParametersHttpMethodPtrOutput)
+}
+
+func (in *connectionOAuthParametersHttpMethodPtr) ToConnectionOAuthParametersHttpMethodPtrOutputWithContext(ctx context.Context) ConnectionOAuthParametersHttpMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectionOAuthParametersHttpMethodPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApiDestinationHttpMethodOutput{})
 	pulumi.RegisterOutputType(ApiDestinationHttpMethodPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionAuthorizationTypeOutput{})
 	pulumi.RegisterOutputType(ConnectionAuthorizationTypePtrOutput{})
+	pulumi.RegisterOutputType(ConnectionOAuthParametersHttpMethodOutput{})
+	pulumi.RegisterOutputType(ConnectionOAuthParametersHttpMethodPtrOutput{})
 }

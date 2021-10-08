@@ -18,7 +18,7 @@ type LoggingConfiguration struct {
 	// The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL.
 	LogDestinationConfigs pulumi.StringArrayOutput `pulumi:"logDestinationConfigs"`
 	// Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
-	LoggingFilter pulumi.AnyOutput `pulumi:"loggingFilter"`
+	LoggingFilter LoggingFilterPropertiesPtrOutput `pulumi:"loggingFilter"`
 	// Indicates whether the logging configuration was created by AWS Firewall Manager, as part of an AWS WAF policy configuration. If true, only Firewall Manager can modify or delete the configuration.
 	ManagedByFirewallManager pulumi.BoolOutput `pulumi:"managedByFirewallManager"`
 	// The parts of the request that you want to keep out of the logs. For example, if you redact the HEADER field, the HEADER field in the firehose will be xxx.
@@ -75,7 +75,7 @@ type loggingConfigurationArgs struct {
 	// The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL.
 	LogDestinationConfigs []string `pulumi:"logDestinationConfigs"`
 	// Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
-	LoggingFilter interface{} `pulumi:"loggingFilter"`
+	LoggingFilter *LoggingFilterProperties `pulumi:"loggingFilter"`
 	// The parts of the request that you want to keep out of the logs. For example, if you redact the HEADER field, the HEADER field in the firehose will be xxx.
 	RedactedFields []LoggingConfigurationFieldToMatch `pulumi:"redactedFields"`
 	// The Amazon Resource Name (ARN) of the web ACL that you want to associate with LogDestinationConfigs.
@@ -87,7 +87,7 @@ type LoggingConfigurationArgs struct {
 	// The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL.
 	LogDestinationConfigs pulumi.StringArrayInput
 	// Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
-	LoggingFilter pulumi.Input
+	LoggingFilter LoggingFilterPropertiesPtrInput
 	// The parts of the request that you want to keep out of the logs. For example, if you redact the HEADER field, the HEADER field in the firehose will be xxx.
 	RedactedFields LoggingConfigurationFieldToMatchArrayInput
 	// The Amazon Resource Name (ARN) of the web ACL that you want to associate with LogDestinationConfigs.

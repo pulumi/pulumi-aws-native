@@ -122,7 +122,7 @@ func (o AddonTagArrayOutput) Index(i pulumi.IntInput) AddonTagOutput {
 // The encryption configuration for the cluster
 type ClusterEncryptionConfig struct {
 	// The encryption provider for the cluster.
-	Provider interface{} `pulumi:"provider"`
+	Provider *ClusterEncryptionConfigProviderProperties `pulumi:"provider"`
 	// Specifies the resources to be encrypted. The only supported value is "secrets".
 	Resources []string `pulumi:"resources"`
 }
@@ -141,7 +141,7 @@ type ClusterEncryptionConfigInput interface {
 // The encryption configuration for the cluster
 type ClusterEncryptionConfigArgs struct {
 	// The encryption provider for the cluster.
-	Provider pulumi.Input `pulumi:"provider"`
+	Provider ClusterEncryptionConfigProviderPropertiesPtrInput `pulumi:"provider"`
 	// Specifies the resources to be encrypted. The only supported value is "secrets".
 	Resources pulumi.StringArrayInput `pulumi:"resources"`
 }
@@ -199,8 +199,8 @@ func (o ClusterEncryptionConfigOutput) ToClusterEncryptionConfigOutputWithContex
 }
 
 // The encryption provider for the cluster.
-func (o ClusterEncryptionConfigOutput) Provider() pulumi.AnyOutput {
-	return o.ApplyT(func(v ClusterEncryptionConfig) interface{} { return v.Provider }).(pulumi.AnyOutput)
+func (o ClusterEncryptionConfigOutput) Provider() ClusterEncryptionConfigProviderPropertiesPtrOutput {
+	return o.ApplyT(func(v ClusterEncryptionConfig) *ClusterEncryptionConfigProviderProperties { return v.Provider }).(ClusterEncryptionConfigProviderPropertiesPtrOutput)
 }
 
 // Specifies the resources to be encrypted. The only supported value is "secrets".
@@ -226,6 +226,146 @@ func (o ClusterEncryptionConfigArrayOutput) Index(i pulumi.IntInput) ClusterEncr
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterEncryptionConfig {
 		return vs[0].([]ClusterEncryptionConfig)[vs[1].(int)]
 	}).(ClusterEncryptionConfigOutput)
+}
+
+// The encryption provider for the cluster.
+type ClusterEncryptionConfigProviderProperties struct {
+	// Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key.
+	KeyArn *string `pulumi:"keyArn"`
+}
+
+// ClusterEncryptionConfigProviderPropertiesInput is an input type that accepts ClusterEncryptionConfigProviderPropertiesArgs and ClusterEncryptionConfigProviderPropertiesOutput values.
+// You can construct a concrete instance of `ClusterEncryptionConfigProviderPropertiesInput` via:
+//
+//          ClusterEncryptionConfigProviderPropertiesArgs{...}
+type ClusterEncryptionConfigProviderPropertiesInput interface {
+	pulumi.Input
+
+	ToClusterEncryptionConfigProviderPropertiesOutput() ClusterEncryptionConfigProviderPropertiesOutput
+	ToClusterEncryptionConfigProviderPropertiesOutputWithContext(context.Context) ClusterEncryptionConfigProviderPropertiesOutput
+}
+
+// The encryption provider for the cluster.
+type ClusterEncryptionConfigProviderPropertiesArgs struct {
+	// Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key.
+	KeyArn pulumi.StringPtrInput `pulumi:"keyArn"`
+}
+
+func (ClusterEncryptionConfigProviderPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterEncryptionConfigProviderProperties)(nil)).Elem()
+}
+
+func (i ClusterEncryptionConfigProviderPropertiesArgs) ToClusterEncryptionConfigProviderPropertiesOutput() ClusterEncryptionConfigProviderPropertiesOutput {
+	return i.ToClusterEncryptionConfigProviderPropertiesOutputWithContext(context.Background())
+}
+
+func (i ClusterEncryptionConfigProviderPropertiesArgs) ToClusterEncryptionConfigProviderPropertiesOutputWithContext(ctx context.Context) ClusterEncryptionConfigProviderPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEncryptionConfigProviderPropertiesOutput)
+}
+
+func (i ClusterEncryptionConfigProviderPropertiesArgs) ToClusterEncryptionConfigProviderPropertiesPtrOutput() ClusterEncryptionConfigProviderPropertiesPtrOutput {
+	return i.ToClusterEncryptionConfigProviderPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterEncryptionConfigProviderPropertiesArgs) ToClusterEncryptionConfigProviderPropertiesPtrOutputWithContext(ctx context.Context) ClusterEncryptionConfigProviderPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEncryptionConfigProviderPropertiesOutput).ToClusterEncryptionConfigProviderPropertiesPtrOutputWithContext(ctx)
+}
+
+// ClusterEncryptionConfigProviderPropertiesPtrInput is an input type that accepts ClusterEncryptionConfigProviderPropertiesArgs, ClusterEncryptionConfigProviderPropertiesPtr and ClusterEncryptionConfigProviderPropertiesPtrOutput values.
+// You can construct a concrete instance of `ClusterEncryptionConfigProviderPropertiesPtrInput` via:
+//
+//          ClusterEncryptionConfigProviderPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterEncryptionConfigProviderPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToClusterEncryptionConfigProviderPropertiesPtrOutput() ClusterEncryptionConfigProviderPropertiesPtrOutput
+	ToClusterEncryptionConfigProviderPropertiesPtrOutputWithContext(context.Context) ClusterEncryptionConfigProviderPropertiesPtrOutput
+}
+
+type clusterEncryptionConfigProviderPropertiesPtrType ClusterEncryptionConfigProviderPropertiesArgs
+
+func ClusterEncryptionConfigProviderPropertiesPtr(v *ClusterEncryptionConfigProviderPropertiesArgs) ClusterEncryptionConfigProviderPropertiesPtrInput {
+	return (*clusterEncryptionConfigProviderPropertiesPtrType)(v)
+}
+
+func (*clusterEncryptionConfigProviderPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterEncryptionConfigProviderProperties)(nil)).Elem()
+}
+
+func (i *clusterEncryptionConfigProviderPropertiesPtrType) ToClusterEncryptionConfigProviderPropertiesPtrOutput() ClusterEncryptionConfigProviderPropertiesPtrOutput {
+	return i.ToClusterEncryptionConfigProviderPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterEncryptionConfigProviderPropertiesPtrType) ToClusterEncryptionConfigProviderPropertiesPtrOutputWithContext(ctx context.Context) ClusterEncryptionConfigProviderPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEncryptionConfigProviderPropertiesPtrOutput)
+}
+
+// The encryption provider for the cluster.
+type ClusterEncryptionConfigProviderPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ClusterEncryptionConfigProviderPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterEncryptionConfigProviderProperties)(nil)).Elem()
+}
+
+func (o ClusterEncryptionConfigProviderPropertiesOutput) ToClusterEncryptionConfigProviderPropertiesOutput() ClusterEncryptionConfigProviderPropertiesOutput {
+	return o
+}
+
+func (o ClusterEncryptionConfigProviderPropertiesOutput) ToClusterEncryptionConfigProviderPropertiesOutputWithContext(ctx context.Context) ClusterEncryptionConfigProviderPropertiesOutput {
+	return o
+}
+
+func (o ClusterEncryptionConfigProviderPropertiesOutput) ToClusterEncryptionConfigProviderPropertiesPtrOutput() ClusterEncryptionConfigProviderPropertiesPtrOutput {
+	return o.ToClusterEncryptionConfigProviderPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterEncryptionConfigProviderPropertiesOutput) ToClusterEncryptionConfigProviderPropertiesPtrOutputWithContext(ctx context.Context) ClusterEncryptionConfigProviderPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterEncryptionConfigProviderProperties) *ClusterEncryptionConfigProviderProperties {
+		return &v
+	}).(ClusterEncryptionConfigProviderPropertiesPtrOutput)
+}
+
+// Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key.
+func (o ClusterEncryptionConfigProviderPropertiesOutput) KeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterEncryptionConfigProviderProperties) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
+}
+
+type ClusterEncryptionConfigProviderPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterEncryptionConfigProviderPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterEncryptionConfigProviderProperties)(nil)).Elem()
+}
+
+func (o ClusterEncryptionConfigProviderPropertiesPtrOutput) ToClusterEncryptionConfigProviderPropertiesPtrOutput() ClusterEncryptionConfigProviderPropertiesPtrOutput {
+	return o
+}
+
+func (o ClusterEncryptionConfigProviderPropertiesPtrOutput) ToClusterEncryptionConfigProviderPropertiesPtrOutputWithContext(ctx context.Context) ClusterEncryptionConfigProviderPropertiesPtrOutput {
+	return o
+}
+
+func (o ClusterEncryptionConfigProviderPropertiesPtrOutput) Elem() ClusterEncryptionConfigProviderPropertiesOutput {
+	return o.ApplyT(func(v *ClusterEncryptionConfigProviderProperties) ClusterEncryptionConfigProviderProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterEncryptionConfigProviderProperties
+		return ret
+	}).(ClusterEncryptionConfigProviderPropertiesOutput)
+}
+
+// Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key.
+func (o ClusterEncryptionConfigProviderPropertiesPtrOutput) KeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterEncryptionConfigProviderProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Kubernetes network configuration for the cluster.
@@ -1884,6 +2024,8 @@ func init() {
 	pulumi.RegisterOutputType(AddonTagArrayOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionConfigOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionConfigArrayOutput{})
+	pulumi.RegisterOutputType(ClusterEncryptionConfigProviderPropertiesOutput{})
+	pulumi.RegisterOutputType(ClusterEncryptionConfigProviderPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigOutput{})
 	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterLoggingOutput{})

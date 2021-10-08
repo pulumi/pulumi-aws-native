@@ -10,6 +10,299 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type SuiteDefinitionConfigurationProperties struct {
+	DevicePermissionRoleArn  string                           `pulumi:"devicePermissionRoleArn"`
+	Devices                  []SuiteDefinitionDeviceUnderTest `pulumi:"devices"`
+	IntendedForQualification *bool                            `pulumi:"intendedForQualification"`
+	RootGroup                string                           `pulumi:"rootGroup"`
+	SuiteDefinitionName      *string                          `pulumi:"suiteDefinitionName"`
+}
+
+// SuiteDefinitionConfigurationPropertiesInput is an input type that accepts SuiteDefinitionConfigurationPropertiesArgs and SuiteDefinitionConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `SuiteDefinitionConfigurationPropertiesInput` via:
+//
+//          SuiteDefinitionConfigurationPropertiesArgs{...}
+type SuiteDefinitionConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToSuiteDefinitionConfigurationPropertiesOutput() SuiteDefinitionConfigurationPropertiesOutput
+	ToSuiteDefinitionConfigurationPropertiesOutputWithContext(context.Context) SuiteDefinitionConfigurationPropertiesOutput
+}
+
+type SuiteDefinitionConfigurationPropertiesArgs struct {
+	DevicePermissionRoleArn  pulumi.StringInput                       `pulumi:"devicePermissionRoleArn"`
+	Devices                  SuiteDefinitionDeviceUnderTestArrayInput `pulumi:"devices"`
+	IntendedForQualification pulumi.BoolPtrInput                      `pulumi:"intendedForQualification"`
+	RootGroup                pulumi.StringInput                       `pulumi:"rootGroup"`
+	SuiteDefinitionName      pulumi.StringPtrInput                    `pulumi:"suiteDefinitionName"`
+}
+
+func (SuiteDefinitionConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SuiteDefinitionConfigurationProperties)(nil)).Elem()
+}
+
+func (i SuiteDefinitionConfigurationPropertiesArgs) ToSuiteDefinitionConfigurationPropertiesOutput() SuiteDefinitionConfigurationPropertiesOutput {
+	return i.ToSuiteDefinitionConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i SuiteDefinitionConfigurationPropertiesArgs) ToSuiteDefinitionConfigurationPropertiesOutputWithContext(ctx context.Context) SuiteDefinitionConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SuiteDefinitionConfigurationPropertiesOutput)
+}
+
+func (i SuiteDefinitionConfigurationPropertiesArgs) ToSuiteDefinitionConfigurationPropertiesPtrOutput() SuiteDefinitionConfigurationPropertiesPtrOutput {
+	return i.ToSuiteDefinitionConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i SuiteDefinitionConfigurationPropertiesArgs) ToSuiteDefinitionConfigurationPropertiesPtrOutputWithContext(ctx context.Context) SuiteDefinitionConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SuiteDefinitionConfigurationPropertiesOutput).ToSuiteDefinitionConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// SuiteDefinitionConfigurationPropertiesPtrInput is an input type that accepts SuiteDefinitionConfigurationPropertiesArgs, SuiteDefinitionConfigurationPropertiesPtr and SuiteDefinitionConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `SuiteDefinitionConfigurationPropertiesPtrInput` via:
+//
+//          SuiteDefinitionConfigurationPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type SuiteDefinitionConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSuiteDefinitionConfigurationPropertiesPtrOutput() SuiteDefinitionConfigurationPropertiesPtrOutput
+	ToSuiteDefinitionConfigurationPropertiesPtrOutputWithContext(context.Context) SuiteDefinitionConfigurationPropertiesPtrOutput
+}
+
+type suiteDefinitionConfigurationPropertiesPtrType SuiteDefinitionConfigurationPropertiesArgs
+
+func SuiteDefinitionConfigurationPropertiesPtr(v *SuiteDefinitionConfigurationPropertiesArgs) SuiteDefinitionConfigurationPropertiesPtrInput {
+	return (*suiteDefinitionConfigurationPropertiesPtrType)(v)
+}
+
+func (*suiteDefinitionConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SuiteDefinitionConfigurationProperties)(nil)).Elem()
+}
+
+func (i *suiteDefinitionConfigurationPropertiesPtrType) ToSuiteDefinitionConfigurationPropertiesPtrOutput() SuiteDefinitionConfigurationPropertiesPtrOutput {
+	return i.ToSuiteDefinitionConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *suiteDefinitionConfigurationPropertiesPtrType) ToSuiteDefinitionConfigurationPropertiesPtrOutputWithContext(ctx context.Context) SuiteDefinitionConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SuiteDefinitionConfigurationPropertiesPtrOutput)
+}
+
+type SuiteDefinitionConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (SuiteDefinitionConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SuiteDefinitionConfigurationProperties)(nil)).Elem()
+}
+
+func (o SuiteDefinitionConfigurationPropertiesOutput) ToSuiteDefinitionConfigurationPropertiesOutput() SuiteDefinitionConfigurationPropertiesOutput {
+	return o
+}
+
+func (o SuiteDefinitionConfigurationPropertiesOutput) ToSuiteDefinitionConfigurationPropertiesOutputWithContext(ctx context.Context) SuiteDefinitionConfigurationPropertiesOutput {
+	return o
+}
+
+func (o SuiteDefinitionConfigurationPropertiesOutput) ToSuiteDefinitionConfigurationPropertiesPtrOutput() SuiteDefinitionConfigurationPropertiesPtrOutput {
+	return o.ToSuiteDefinitionConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o SuiteDefinitionConfigurationPropertiesOutput) ToSuiteDefinitionConfigurationPropertiesPtrOutputWithContext(ctx context.Context) SuiteDefinitionConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SuiteDefinitionConfigurationProperties) *SuiteDefinitionConfigurationProperties {
+		return &v
+	}).(SuiteDefinitionConfigurationPropertiesPtrOutput)
+}
+
+func (o SuiteDefinitionConfigurationPropertiesOutput) DevicePermissionRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v SuiteDefinitionConfigurationProperties) string { return v.DevicePermissionRoleArn }).(pulumi.StringOutput)
+}
+
+func (o SuiteDefinitionConfigurationPropertiesOutput) Devices() SuiteDefinitionDeviceUnderTestArrayOutput {
+	return o.ApplyT(func(v SuiteDefinitionConfigurationProperties) []SuiteDefinitionDeviceUnderTest { return v.Devices }).(SuiteDefinitionDeviceUnderTestArrayOutput)
+}
+
+func (o SuiteDefinitionConfigurationPropertiesOutput) IntendedForQualification() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SuiteDefinitionConfigurationProperties) *bool { return v.IntendedForQualification }).(pulumi.BoolPtrOutput)
+}
+
+func (o SuiteDefinitionConfigurationPropertiesOutput) RootGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v SuiteDefinitionConfigurationProperties) string { return v.RootGroup }).(pulumi.StringOutput)
+}
+
+func (o SuiteDefinitionConfigurationPropertiesOutput) SuiteDefinitionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SuiteDefinitionConfigurationProperties) *string { return v.SuiteDefinitionName }).(pulumi.StringPtrOutput)
+}
+
+type SuiteDefinitionConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SuiteDefinitionConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SuiteDefinitionConfigurationProperties)(nil)).Elem()
+}
+
+func (o SuiteDefinitionConfigurationPropertiesPtrOutput) ToSuiteDefinitionConfigurationPropertiesPtrOutput() SuiteDefinitionConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o SuiteDefinitionConfigurationPropertiesPtrOutput) ToSuiteDefinitionConfigurationPropertiesPtrOutputWithContext(ctx context.Context) SuiteDefinitionConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o SuiteDefinitionConfigurationPropertiesPtrOutput) Elem() SuiteDefinitionConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *SuiteDefinitionConfigurationProperties) SuiteDefinitionConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SuiteDefinitionConfigurationProperties
+		return ret
+	}).(SuiteDefinitionConfigurationPropertiesOutput)
+}
+
+func (o SuiteDefinitionConfigurationPropertiesPtrOutput) DevicePermissionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SuiteDefinitionConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DevicePermissionRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SuiteDefinitionConfigurationPropertiesPtrOutput) Devices() SuiteDefinitionDeviceUnderTestArrayOutput {
+	return o.ApplyT(func(v *SuiteDefinitionConfigurationProperties) []SuiteDefinitionDeviceUnderTest {
+		if v == nil {
+			return nil
+		}
+		return v.Devices
+	}).(SuiteDefinitionDeviceUnderTestArrayOutput)
+}
+
+func (o SuiteDefinitionConfigurationPropertiesPtrOutput) IntendedForQualification() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SuiteDefinitionConfigurationProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IntendedForQualification
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o SuiteDefinitionConfigurationPropertiesPtrOutput) RootGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SuiteDefinitionConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RootGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SuiteDefinitionConfigurationPropertiesPtrOutput) SuiteDefinitionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SuiteDefinitionConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SuiteDefinitionName
+	}).(pulumi.StringPtrOutput)
+}
+
+type SuiteDefinitionDeviceUnderTest struct {
+	CertificateArn *string `pulumi:"certificateArn"`
+	ThingArn       *string `pulumi:"thingArn"`
+}
+
+// SuiteDefinitionDeviceUnderTestInput is an input type that accepts SuiteDefinitionDeviceUnderTestArgs and SuiteDefinitionDeviceUnderTestOutput values.
+// You can construct a concrete instance of `SuiteDefinitionDeviceUnderTestInput` via:
+//
+//          SuiteDefinitionDeviceUnderTestArgs{...}
+type SuiteDefinitionDeviceUnderTestInput interface {
+	pulumi.Input
+
+	ToSuiteDefinitionDeviceUnderTestOutput() SuiteDefinitionDeviceUnderTestOutput
+	ToSuiteDefinitionDeviceUnderTestOutputWithContext(context.Context) SuiteDefinitionDeviceUnderTestOutput
+}
+
+type SuiteDefinitionDeviceUnderTestArgs struct {
+	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
+	ThingArn       pulumi.StringPtrInput `pulumi:"thingArn"`
+}
+
+func (SuiteDefinitionDeviceUnderTestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SuiteDefinitionDeviceUnderTest)(nil)).Elem()
+}
+
+func (i SuiteDefinitionDeviceUnderTestArgs) ToSuiteDefinitionDeviceUnderTestOutput() SuiteDefinitionDeviceUnderTestOutput {
+	return i.ToSuiteDefinitionDeviceUnderTestOutputWithContext(context.Background())
+}
+
+func (i SuiteDefinitionDeviceUnderTestArgs) ToSuiteDefinitionDeviceUnderTestOutputWithContext(ctx context.Context) SuiteDefinitionDeviceUnderTestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SuiteDefinitionDeviceUnderTestOutput)
+}
+
+// SuiteDefinitionDeviceUnderTestArrayInput is an input type that accepts SuiteDefinitionDeviceUnderTestArray and SuiteDefinitionDeviceUnderTestArrayOutput values.
+// You can construct a concrete instance of `SuiteDefinitionDeviceUnderTestArrayInput` via:
+//
+//          SuiteDefinitionDeviceUnderTestArray{ SuiteDefinitionDeviceUnderTestArgs{...} }
+type SuiteDefinitionDeviceUnderTestArrayInput interface {
+	pulumi.Input
+
+	ToSuiteDefinitionDeviceUnderTestArrayOutput() SuiteDefinitionDeviceUnderTestArrayOutput
+	ToSuiteDefinitionDeviceUnderTestArrayOutputWithContext(context.Context) SuiteDefinitionDeviceUnderTestArrayOutput
+}
+
+type SuiteDefinitionDeviceUnderTestArray []SuiteDefinitionDeviceUnderTestInput
+
+func (SuiteDefinitionDeviceUnderTestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SuiteDefinitionDeviceUnderTest)(nil)).Elem()
+}
+
+func (i SuiteDefinitionDeviceUnderTestArray) ToSuiteDefinitionDeviceUnderTestArrayOutput() SuiteDefinitionDeviceUnderTestArrayOutput {
+	return i.ToSuiteDefinitionDeviceUnderTestArrayOutputWithContext(context.Background())
+}
+
+func (i SuiteDefinitionDeviceUnderTestArray) ToSuiteDefinitionDeviceUnderTestArrayOutputWithContext(ctx context.Context) SuiteDefinitionDeviceUnderTestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SuiteDefinitionDeviceUnderTestArrayOutput)
+}
+
+type SuiteDefinitionDeviceUnderTestOutput struct{ *pulumi.OutputState }
+
+func (SuiteDefinitionDeviceUnderTestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SuiteDefinitionDeviceUnderTest)(nil)).Elem()
+}
+
+func (o SuiteDefinitionDeviceUnderTestOutput) ToSuiteDefinitionDeviceUnderTestOutput() SuiteDefinitionDeviceUnderTestOutput {
+	return o
+}
+
+func (o SuiteDefinitionDeviceUnderTestOutput) ToSuiteDefinitionDeviceUnderTestOutputWithContext(ctx context.Context) SuiteDefinitionDeviceUnderTestOutput {
+	return o
+}
+
+func (o SuiteDefinitionDeviceUnderTestOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SuiteDefinitionDeviceUnderTest) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
+}
+
+func (o SuiteDefinitionDeviceUnderTestOutput) ThingArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SuiteDefinitionDeviceUnderTest) *string { return v.ThingArn }).(pulumi.StringPtrOutput)
+}
+
+type SuiteDefinitionDeviceUnderTestArrayOutput struct{ *pulumi.OutputState }
+
+func (SuiteDefinitionDeviceUnderTestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SuiteDefinitionDeviceUnderTest)(nil)).Elem()
+}
+
+func (o SuiteDefinitionDeviceUnderTestArrayOutput) ToSuiteDefinitionDeviceUnderTestArrayOutput() SuiteDefinitionDeviceUnderTestArrayOutput {
+	return o
+}
+
+func (o SuiteDefinitionDeviceUnderTestArrayOutput) ToSuiteDefinitionDeviceUnderTestArrayOutputWithContext(ctx context.Context) SuiteDefinitionDeviceUnderTestArrayOutput {
+	return o
+}
+
+func (o SuiteDefinitionDeviceUnderTestArrayOutput) Index(i pulumi.IntInput) SuiteDefinitionDeviceUnderTestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SuiteDefinitionDeviceUnderTest {
+		return vs[0].([]SuiteDefinitionDeviceUnderTest)[vs[1].(int)]
+	}).(SuiteDefinitionDeviceUnderTestOutput)
+}
+
 // A key-value pair to associate with a resource.
 type SuiteDefinitionTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -120,6 +413,10 @@ func (o SuiteDefinitionTagArrayOutput) Index(i pulumi.IntInput) SuiteDefinitionT
 }
 
 func init() {
+	pulumi.RegisterOutputType(SuiteDefinitionConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(SuiteDefinitionConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SuiteDefinitionDeviceUnderTestOutput{})
+	pulumi.RegisterOutputType(SuiteDefinitionDeviceUnderTestArrayOutput{})
 	pulumi.RegisterOutputType(SuiteDefinitionTagOutput{})
 	pulumi.RegisterOutputType(SuiteDefinitionTagArrayOutput{})
 }

@@ -1032,6 +1032,106 @@ func (o SamplingRuleUpdatePtrOutput) URLPath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type TagsItemProperties struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// TagsItemPropertiesInput is an input type that accepts TagsItemPropertiesArgs and TagsItemPropertiesOutput values.
+// You can construct a concrete instance of `TagsItemPropertiesInput` via:
+//
+//          TagsItemPropertiesArgs{...}
+type TagsItemPropertiesInput interface {
+	pulumi.Input
+
+	ToTagsItemPropertiesOutput() TagsItemPropertiesOutput
+	ToTagsItemPropertiesOutputWithContext(context.Context) TagsItemPropertiesOutput
+}
+
+type TagsItemPropertiesArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TagsItemPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagsItemProperties)(nil)).Elem()
+}
+
+func (i TagsItemPropertiesArgs) ToTagsItemPropertiesOutput() TagsItemPropertiesOutput {
+	return i.ToTagsItemPropertiesOutputWithContext(context.Background())
+}
+
+func (i TagsItemPropertiesArgs) ToTagsItemPropertiesOutputWithContext(ctx context.Context) TagsItemPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagsItemPropertiesOutput)
+}
+
+// TagsItemPropertiesArrayInput is an input type that accepts TagsItemPropertiesArray and TagsItemPropertiesArrayOutput values.
+// You can construct a concrete instance of `TagsItemPropertiesArrayInput` via:
+//
+//          TagsItemPropertiesArray{ TagsItemPropertiesArgs{...} }
+type TagsItemPropertiesArrayInput interface {
+	pulumi.Input
+
+	ToTagsItemPropertiesArrayOutput() TagsItemPropertiesArrayOutput
+	ToTagsItemPropertiesArrayOutputWithContext(context.Context) TagsItemPropertiesArrayOutput
+}
+
+type TagsItemPropertiesArray []TagsItemPropertiesInput
+
+func (TagsItemPropertiesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TagsItemProperties)(nil)).Elem()
+}
+
+func (i TagsItemPropertiesArray) ToTagsItemPropertiesArrayOutput() TagsItemPropertiesArrayOutput {
+	return i.ToTagsItemPropertiesArrayOutputWithContext(context.Background())
+}
+
+func (i TagsItemPropertiesArray) ToTagsItemPropertiesArrayOutputWithContext(ctx context.Context) TagsItemPropertiesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagsItemPropertiesArrayOutput)
+}
+
+type TagsItemPropertiesOutput struct{ *pulumi.OutputState }
+
+func (TagsItemPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagsItemProperties)(nil)).Elem()
+}
+
+func (o TagsItemPropertiesOutput) ToTagsItemPropertiesOutput() TagsItemPropertiesOutput {
+	return o
+}
+
+func (o TagsItemPropertiesOutput) ToTagsItemPropertiesOutputWithContext(ctx context.Context) TagsItemPropertiesOutput {
+	return o
+}
+
+func (o TagsItemPropertiesOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TagsItemProperties) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o TagsItemPropertiesOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TagsItemProperties) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TagsItemPropertiesArrayOutput struct{ *pulumi.OutputState }
+
+func (TagsItemPropertiesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TagsItemProperties)(nil)).Elem()
+}
+
+func (o TagsItemPropertiesArrayOutput) ToTagsItemPropertiesArrayOutput() TagsItemPropertiesArrayOutput {
+	return o
+}
+
+func (o TagsItemPropertiesArrayOutput) ToTagsItemPropertiesArrayOutputWithContext(ctx context.Context) TagsItemPropertiesArrayOutput {
+	return o
+}
+
+func (o TagsItemPropertiesArrayOutput) Index(i pulumi.IntInput) TagsItemPropertiesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TagsItemProperties {
+		return vs[0].([]TagsItemProperties)[vs[1].(int)]
+	}).(TagsItemPropertiesOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GroupInsightsConfigurationOutput{})
 	pulumi.RegisterOutputType(GroupInsightsConfigurationPtrOutput{})
@@ -1041,4 +1141,6 @@ func init() {
 	pulumi.RegisterOutputType(SamplingRuleRecordPtrOutput{})
 	pulumi.RegisterOutputType(SamplingRuleUpdateOutput{})
 	pulumi.RegisterOutputType(SamplingRuleUpdatePtrOutput{})
+	pulumi.RegisterOutputType(TagsItemPropertiesOutput{})
+	pulumi.RegisterOutputType(TagsItemPropertiesArrayOutput{})
 }

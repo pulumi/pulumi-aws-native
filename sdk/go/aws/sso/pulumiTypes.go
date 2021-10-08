@@ -163,6 +163,144 @@ func (o InstanceAccessControlAttributeConfigurationAccessControlAttributeValueOu
 	}).(pulumi.StringArrayOutput)
 }
 
+// The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
+type InstanceAccessControlAttributeConfigurationProperties struct {
+	AccessControlAttributes []InstanceAccessControlAttributeConfigurationAccessControlAttribute `pulumi:"accessControlAttributes"`
+}
+
+// InstanceAccessControlAttributeConfigurationPropertiesInput is an input type that accepts InstanceAccessControlAttributeConfigurationPropertiesArgs and InstanceAccessControlAttributeConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `InstanceAccessControlAttributeConfigurationPropertiesInput` via:
+//
+//          InstanceAccessControlAttributeConfigurationPropertiesArgs{...}
+type InstanceAccessControlAttributeConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToInstanceAccessControlAttributeConfigurationPropertiesOutput() InstanceAccessControlAttributeConfigurationPropertiesOutput
+	ToInstanceAccessControlAttributeConfigurationPropertiesOutputWithContext(context.Context) InstanceAccessControlAttributeConfigurationPropertiesOutput
+}
+
+// The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
+type InstanceAccessControlAttributeConfigurationPropertiesArgs struct {
+	AccessControlAttributes InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayInput `pulumi:"accessControlAttributes"`
+}
+
+func (InstanceAccessControlAttributeConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceAccessControlAttributeConfigurationProperties)(nil)).Elem()
+}
+
+func (i InstanceAccessControlAttributeConfigurationPropertiesArgs) ToInstanceAccessControlAttributeConfigurationPropertiesOutput() InstanceAccessControlAttributeConfigurationPropertiesOutput {
+	return i.ToInstanceAccessControlAttributeConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i InstanceAccessControlAttributeConfigurationPropertiesArgs) ToInstanceAccessControlAttributeConfigurationPropertiesOutputWithContext(ctx context.Context) InstanceAccessControlAttributeConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceAccessControlAttributeConfigurationPropertiesOutput)
+}
+
+func (i InstanceAccessControlAttributeConfigurationPropertiesArgs) ToInstanceAccessControlAttributeConfigurationPropertiesPtrOutput() InstanceAccessControlAttributeConfigurationPropertiesPtrOutput {
+	return i.ToInstanceAccessControlAttributeConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceAccessControlAttributeConfigurationPropertiesArgs) ToInstanceAccessControlAttributeConfigurationPropertiesPtrOutputWithContext(ctx context.Context) InstanceAccessControlAttributeConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceAccessControlAttributeConfigurationPropertiesOutput).ToInstanceAccessControlAttributeConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// InstanceAccessControlAttributeConfigurationPropertiesPtrInput is an input type that accepts InstanceAccessControlAttributeConfigurationPropertiesArgs, InstanceAccessControlAttributeConfigurationPropertiesPtr and InstanceAccessControlAttributeConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `InstanceAccessControlAttributeConfigurationPropertiesPtrInput` via:
+//
+//          InstanceAccessControlAttributeConfigurationPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type InstanceAccessControlAttributeConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToInstanceAccessControlAttributeConfigurationPropertiesPtrOutput() InstanceAccessControlAttributeConfigurationPropertiesPtrOutput
+	ToInstanceAccessControlAttributeConfigurationPropertiesPtrOutputWithContext(context.Context) InstanceAccessControlAttributeConfigurationPropertiesPtrOutput
+}
+
+type instanceAccessControlAttributeConfigurationPropertiesPtrType InstanceAccessControlAttributeConfigurationPropertiesArgs
+
+func InstanceAccessControlAttributeConfigurationPropertiesPtr(v *InstanceAccessControlAttributeConfigurationPropertiesArgs) InstanceAccessControlAttributeConfigurationPropertiesPtrInput {
+	return (*instanceAccessControlAttributeConfigurationPropertiesPtrType)(v)
+}
+
+func (*instanceAccessControlAttributeConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceAccessControlAttributeConfigurationProperties)(nil)).Elem()
+}
+
+func (i *instanceAccessControlAttributeConfigurationPropertiesPtrType) ToInstanceAccessControlAttributeConfigurationPropertiesPtrOutput() InstanceAccessControlAttributeConfigurationPropertiesPtrOutput {
+	return i.ToInstanceAccessControlAttributeConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceAccessControlAttributeConfigurationPropertiesPtrType) ToInstanceAccessControlAttributeConfigurationPropertiesPtrOutputWithContext(ctx context.Context) InstanceAccessControlAttributeConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceAccessControlAttributeConfigurationPropertiesPtrOutput)
+}
+
+// The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
+type InstanceAccessControlAttributeConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (InstanceAccessControlAttributeConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceAccessControlAttributeConfigurationProperties)(nil)).Elem()
+}
+
+func (o InstanceAccessControlAttributeConfigurationPropertiesOutput) ToInstanceAccessControlAttributeConfigurationPropertiesOutput() InstanceAccessControlAttributeConfigurationPropertiesOutput {
+	return o
+}
+
+func (o InstanceAccessControlAttributeConfigurationPropertiesOutput) ToInstanceAccessControlAttributeConfigurationPropertiesOutputWithContext(ctx context.Context) InstanceAccessControlAttributeConfigurationPropertiesOutput {
+	return o
+}
+
+func (o InstanceAccessControlAttributeConfigurationPropertiesOutput) ToInstanceAccessControlAttributeConfigurationPropertiesPtrOutput() InstanceAccessControlAttributeConfigurationPropertiesPtrOutput {
+	return o.ToInstanceAccessControlAttributeConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceAccessControlAttributeConfigurationPropertiesOutput) ToInstanceAccessControlAttributeConfigurationPropertiesPtrOutputWithContext(ctx context.Context) InstanceAccessControlAttributeConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceAccessControlAttributeConfigurationProperties) *InstanceAccessControlAttributeConfigurationProperties {
+		return &v
+	}).(InstanceAccessControlAttributeConfigurationPropertiesPtrOutput)
+}
+
+func (o InstanceAccessControlAttributeConfigurationPropertiesOutput) AccessControlAttributes() InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutput {
+	return o.ApplyT(func(v InstanceAccessControlAttributeConfigurationProperties) []InstanceAccessControlAttributeConfigurationAccessControlAttribute {
+		return v.AccessControlAttributes
+	}).(InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutput)
+}
+
+type InstanceAccessControlAttributeConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceAccessControlAttributeConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceAccessControlAttributeConfigurationProperties)(nil)).Elem()
+}
+
+func (o InstanceAccessControlAttributeConfigurationPropertiesPtrOutput) ToInstanceAccessControlAttributeConfigurationPropertiesPtrOutput() InstanceAccessControlAttributeConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o InstanceAccessControlAttributeConfigurationPropertiesPtrOutput) ToInstanceAccessControlAttributeConfigurationPropertiesPtrOutputWithContext(ctx context.Context) InstanceAccessControlAttributeConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o InstanceAccessControlAttributeConfigurationPropertiesPtrOutput) Elem() InstanceAccessControlAttributeConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *InstanceAccessControlAttributeConfigurationProperties) InstanceAccessControlAttributeConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceAccessControlAttributeConfigurationProperties
+		return ret
+	}).(InstanceAccessControlAttributeConfigurationPropertiesOutput)
+}
+
+func (o InstanceAccessControlAttributeConfigurationPropertiesPtrOutput) AccessControlAttributes() InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutput {
+	return o.ApplyT(func(v *InstanceAccessControlAttributeConfigurationProperties) []InstanceAccessControlAttributeConfigurationAccessControlAttribute {
+		if v == nil {
+			return nil
+		}
+		return v.AccessControlAttributes
+	}).(InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutput)
+}
+
 // The metadata that you apply to the permission set to help you categorize and organize them.
 type PermissionSetTag struct {
 	Key   string `pulumi:"key"`
@@ -270,6 +408,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceAccessControlAttributeConfigurationAccessControlAttributeOutput{})
 	pulumi.RegisterOutputType(InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutput{})
 	pulumi.RegisterOutputType(InstanceAccessControlAttributeConfigurationAccessControlAttributeValueOutput{})
+	pulumi.RegisterOutputType(InstanceAccessControlAttributeConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(InstanceAccessControlAttributeConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PermissionSetTagOutput{})
 	pulumi.RegisterOutputType(PermissionSetTagArrayOutput{})
 }

@@ -367,6 +367,156 @@ func (o PolicyTagArrayOutput) Index(i pulumi.IntInput) PolicyTagOutput {
 	}).(PolicyTagOutput)
 }
 
+type SecurityServicePolicyDataProperties struct {
+	ManagedServiceData *string                                       `pulumi:"managedServiceData"`
+	Type               PolicySecurityServicePolicyDataPropertiesType `pulumi:"type"`
+}
+
+// SecurityServicePolicyDataPropertiesInput is an input type that accepts SecurityServicePolicyDataPropertiesArgs and SecurityServicePolicyDataPropertiesOutput values.
+// You can construct a concrete instance of `SecurityServicePolicyDataPropertiesInput` via:
+//
+//          SecurityServicePolicyDataPropertiesArgs{...}
+type SecurityServicePolicyDataPropertiesInput interface {
+	pulumi.Input
+
+	ToSecurityServicePolicyDataPropertiesOutput() SecurityServicePolicyDataPropertiesOutput
+	ToSecurityServicePolicyDataPropertiesOutputWithContext(context.Context) SecurityServicePolicyDataPropertiesOutput
+}
+
+type SecurityServicePolicyDataPropertiesArgs struct {
+	ManagedServiceData pulumi.StringPtrInput                              `pulumi:"managedServiceData"`
+	Type               PolicySecurityServicePolicyDataPropertiesTypeInput `pulumi:"type"`
+}
+
+func (SecurityServicePolicyDataPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityServicePolicyDataProperties)(nil)).Elem()
+}
+
+func (i SecurityServicePolicyDataPropertiesArgs) ToSecurityServicePolicyDataPropertiesOutput() SecurityServicePolicyDataPropertiesOutput {
+	return i.ToSecurityServicePolicyDataPropertiesOutputWithContext(context.Background())
+}
+
+func (i SecurityServicePolicyDataPropertiesArgs) ToSecurityServicePolicyDataPropertiesOutputWithContext(ctx context.Context) SecurityServicePolicyDataPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityServicePolicyDataPropertiesOutput)
+}
+
+func (i SecurityServicePolicyDataPropertiesArgs) ToSecurityServicePolicyDataPropertiesPtrOutput() SecurityServicePolicyDataPropertiesPtrOutput {
+	return i.ToSecurityServicePolicyDataPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityServicePolicyDataPropertiesArgs) ToSecurityServicePolicyDataPropertiesPtrOutputWithContext(ctx context.Context) SecurityServicePolicyDataPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityServicePolicyDataPropertiesOutput).ToSecurityServicePolicyDataPropertiesPtrOutputWithContext(ctx)
+}
+
+// SecurityServicePolicyDataPropertiesPtrInput is an input type that accepts SecurityServicePolicyDataPropertiesArgs, SecurityServicePolicyDataPropertiesPtr and SecurityServicePolicyDataPropertiesPtrOutput values.
+// You can construct a concrete instance of `SecurityServicePolicyDataPropertiesPtrInput` via:
+//
+//          SecurityServicePolicyDataPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type SecurityServicePolicyDataPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSecurityServicePolicyDataPropertiesPtrOutput() SecurityServicePolicyDataPropertiesPtrOutput
+	ToSecurityServicePolicyDataPropertiesPtrOutputWithContext(context.Context) SecurityServicePolicyDataPropertiesPtrOutput
+}
+
+type securityServicePolicyDataPropertiesPtrType SecurityServicePolicyDataPropertiesArgs
+
+func SecurityServicePolicyDataPropertiesPtr(v *SecurityServicePolicyDataPropertiesArgs) SecurityServicePolicyDataPropertiesPtrInput {
+	return (*securityServicePolicyDataPropertiesPtrType)(v)
+}
+
+func (*securityServicePolicyDataPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityServicePolicyDataProperties)(nil)).Elem()
+}
+
+func (i *securityServicePolicyDataPropertiesPtrType) ToSecurityServicePolicyDataPropertiesPtrOutput() SecurityServicePolicyDataPropertiesPtrOutput {
+	return i.ToSecurityServicePolicyDataPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *securityServicePolicyDataPropertiesPtrType) ToSecurityServicePolicyDataPropertiesPtrOutputWithContext(ctx context.Context) SecurityServicePolicyDataPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityServicePolicyDataPropertiesPtrOutput)
+}
+
+type SecurityServicePolicyDataPropertiesOutput struct{ *pulumi.OutputState }
+
+func (SecurityServicePolicyDataPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityServicePolicyDataProperties)(nil)).Elem()
+}
+
+func (o SecurityServicePolicyDataPropertiesOutput) ToSecurityServicePolicyDataPropertiesOutput() SecurityServicePolicyDataPropertiesOutput {
+	return o
+}
+
+func (o SecurityServicePolicyDataPropertiesOutput) ToSecurityServicePolicyDataPropertiesOutputWithContext(ctx context.Context) SecurityServicePolicyDataPropertiesOutput {
+	return o
+}
+
+func (o SecurityServicePolicyDataPropertiesOutput) ToSecurityServicePolicyDataPropertiesPtrOutput() SecurityServicePolicyDataPropertiesPtrOutput {
+	return o.ToSecurityServicePolicyDataPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityServicePolicyDataPropertiesOutput) ToSecurityServicePolicyDataPropertiesPtrOutputWithContext(ctx context.Context) SecurityServicePolicyDataPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityServicePolicyDataProperties) *SecurityServicePolicyDataProperties {
+		return &v
+	}).(SecurityServicePolicyDataPropertiesPtrOutput)
+}
+
+func (o SecurityServicePolicyDataPropertiesOutput) ManagedServiceData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityServicePolicyDataProperties) *string { return v.ManagedServiceData }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityServicePolicyDataPropertiesOutput) Type() PolicySecurityServicePolicyDataPropertiesTypeOutput {
+	return o.ApplyT(func(v SecurityServicePolicyDataProperties) PolicySecurityServicePolicyDataPropertiesType {
+		return v.Type
+	}).(PolicySecurityServicePolicyDataPropertiesTypeOutput)
+}
+
+type SecurityServicePolicyDataPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityServicePolicyDataPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityServicePolicyDataProperties)(nil)).Elem()
+}
+
+func (o SecurityServicePolicyDataPropertiesPtrOutput) ToSecurityServicePolicyDataPropertiesPtrOutput() SecurityServicePolicyDataPropertiesPtrOutput {
+	return o
+}
+
+func (o SecurityServicePolicyDataPropertiesPtrOutput) ToSecurityServicePolicyDataPropertiesPtrOutputWithContext(ctx context.Context) SecurityServicePolicyDataPropertiesPtrOutput {
+	return o
+}
+
+func (o SecurityServicePolicyDataPropertiesPtrOutput) Elem() SecurityServicePolicyDataPropertiesOutput {
+	return o.ApplyT(func(v *SecurityServicePolicyDataProperties) SecurityServicePolicyDataProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityServicePolicyDataProperties
+		return ret
+	}).(SecurityServicePolicyDataPropertiesOutput)
+}
+
+func (o SecurityServicePolicyDataPropertiesPtrOutput) ManagedServiceData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityServicePolicyDataProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedServiceData
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityServicePolicyDataPropertiesPtrOutput) Type() PolicySecurityServicePolicyDataPropertiesTypePtrOutput {
+	return o.ApplyT(func(v *SecurityServicePolicyDataProperties) *PolicySecurityServicePolicyDataPropertiesType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(PolicySecurityServicePolicyDataPropertiesTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PolicyIEMapOutput{})
 	pulumi.RegisterOutputType(PolicyIEMapPtrOutput{})
@@ -374,4 +524,6 @@ func init() {
 	pulumi.RegisterOutputType(PolicyResourceTagArrayOutput{})
 	pulumi.RegisterOutputType(PolicyTagOutput{})
 	pulumi.RegisterOutputType(PolicyTagArrayOutput{})
+	pulumi.RegisterOutputType(SecurityServicePolicyDataPropertiesOutput{})
+	pulumi.RegisterOutputType(SecurityServicePolicyDataPropertiesPtrOutput{})
 }

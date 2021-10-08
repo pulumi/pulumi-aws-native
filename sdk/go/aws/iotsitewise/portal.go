@@ -16,7 +16,7 @@ type Portal struct {
 	pulumi.CustomResourceState
 
 	// Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
-	Alarms pulumi.AnyOutput `pulumi:"alarms"`
+	Alarms AlarmsPropertiesPtrOutput `pulumi:"alarms"`
 	// The email address that sends alarm notifications.
 	NotificationSenderEmail pulumi.StringPtrOutput `pulumi:"notificationSenderEmail"`
 	// The ARN of the portal, which has the following format.
@@ -90,7 +90,7 @@ func (PortalState) ElementType() reflect.Type {
 
 type portalArgs struct {
 	// Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
-	Alarms interface{} `pulumi:"alarms"`
+	Alarms *AlarmsProperties `pulumi:"alarms"`
 	// The email address that sends alarm notifications.
 	NotificationSenderEmail *string `pulumi:"notificationSenderEmail"`
 	// The service to use to authenticate users to the portal. Choose from SSO or IAM. You can't change this value after you create a portal.
@@ -110,7 +110,7 @@ type portalArgs struct {
 // The set of arguments for constructing a Portal resource.
 type PortalArgs struct {
 	// Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
-	Alarms pulumi.Input
+	Alarms AlarmsPropertiesPtrInput
 	// The email address that sends alarm notifications.
 	NotificationSenderEmail pulumi.StringPtrInput
 	// The service to use to authenticate users to the portal. Choose from SSO or IAM. You can't change this value after you create a portal.

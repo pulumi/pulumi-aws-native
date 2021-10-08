@@ -22,7 +22,7 @@ type AccessPoint struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
 	ObjectLambdaConfiguration AccessPointObjectLambdaConfigurationPtrOutput `pulumi:"objectLambdaConfiguration"`
-	PolicyStatus              pulumi.AnyOutput                              `pulumi:"policyStatus"`
+	PolicyStatus              PolicyStatusPropertiesOutput                  `pulumi:"policyStatus"`
 	// The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
 	PublicAccessBlockConfiguration AccessPointPublicAccessBlockConfigurationOutput `pulumi:"publicAccessBlockConfiguration"`
 }

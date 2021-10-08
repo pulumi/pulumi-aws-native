@@ -21,7 +21,7 @@ type Table struct {
 	// The table name exposed as a read-only attribute.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The retention duration of the memory store and the magnetic store.
-	RetentionProperties pulumi.AnyOutput `pulumi:"retentionProperties"`
+	RetentionProperties RetentionPropertiesPropertiesPtrOutput `pulumi:"retentionProperties"`
 	// The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.
 	TableName pulumi.StringPtrOutput `pulumi:"tableName"`
 	// An array of key-value pairs to apply to this resource.
@@ -73,7 +73,7 @@ type tableArgs struct {
 	// The name for the database which the table to be created belongs to.
 	DatabaseName string `pulumi:"databaseName"`
 	// The retention duration of the memory store and the magnetic store.
-	RetentionProperties interface{} `pulumi:"retentionProperties"`
+	RetentionProperties *RetentionPropertiesProperties `pulumi:"retentionProperties"`
 	// The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.
 	TableName *string `pulumi:"tableName"`
 	// An array of key-value pairs to apply to this resource.
@@ -85,7 +85,7 @@ type TableArgs struct {
 	// The name for the database which the table to be created belongs to.
 	DatabaseName pulumi.StringInput
 	// The retention duration of the memory store and the magnetic store.
-	RetentionProperties pulumi.Input
+	RetentionProperties RetentionPropertiesPropertiesPtrInput
 	// The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.
 	TableName pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.

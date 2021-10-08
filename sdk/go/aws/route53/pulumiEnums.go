@@ -10,6 +10,341 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type HealthCheckConfigPropertiesInsufficientDataHealthStatus string
+
+const (
+	HealthCheckConfigPropertiesInsufficientDataHealthStatusHealthy         = HealthCheckConfigPropertiesInsufficientDataHealthStatus("Healthy")
+	HealthCheckConfigPropertiesInsufficientDataHealthStatusLastKnownStatus = HealthCheckConfigPropertiesInsufficientDataHealthStatus("LastKnownStatus")
+	HealthCheckConfigPropertiesInsufficientDataHealthStatusUnhealthy       = HealthCheckConfigPropertiesInsufficientDataHealthStatus("Unhealthy")
+)
+
+func (HealthCheckConfigPropertiesInsufficientDataHealthStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthCheckConfigPropertiesInsufficientDataHealthStatus)(nil)).Elem()
+}
+
+func (e HealthCheckConfigPropertiesInsufficientDataHealthStatus) ToHealthCheckConfigPropertiesInsufficientDataHealthStatusOutput() HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput {
+	return pulumi.ToOutput(e).(HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput)
+}
+
+func (e HealthCheckConfigPropertiesInsufficientDataHealthStatus) ToHealthCheckConfigPropertiesInsufficientDataHealthStatusOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput)
+}
+
+func (e HealthCheckConfigPropertiesInsufficientDataHealthStatus) ToHealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput() HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput {
+	return e.ToHealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutputWithContext(context.Background())
+}
+
+func (e HealthCheckConfigPropertiesInsufficientDataHealthStatus) ToHealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput {
+	return HealthCheckConfigPropertiesInsufficientDataHealthStatus(e).ToHealthCheckConfigPropertiesInsufficientDataHealthStatusOutputWithContext(ctx).ToHealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutputWithContext(ctx)
+}
+
+func (e HealthCheckConfigPropertiesInsufficientDataHealthStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HealthCheckConfigPropertiesInsufficientDataHealthStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HealthCheckConfigPropertiesInsufficientDataHealthStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HealthCheckConfigPropertiesInsufficientDataHealthStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput struct{ *pulumi.OutputState }
+
+func (HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthCheckConfigPropertiesInsufficientDataHealthStatus)(nil)).Elem()
+}
+
+func (o HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput) ToHealthCheckConfigPropertiesInsufficientDataHealthStatusOutput() HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput {
+	return o
+}
+
+func (o HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput) ToHealthCheckConfigPropertiesInsufficientDataHealthStatusOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput {
+	return o
+}
+
+func (o HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput) ToHealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput() HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput {
+	return o.ToHealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutputWithContext(context.Background())
+}
+
+func (o HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput) ToHealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HealthCheckConfigPropertiesInsufficientDataHealthStatus) *HealthCheckConfigPropertiesInsufficientDataHealthStatus {
+		return &v
+	}).(HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HealthCheckConfigPropertiesInsufficientDataHealthStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HealthCheckConfigPropertiesInsufficientDataHealthStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HealthCheckConfigPropertiesInsufficientDataHealthStatus)(nil)).Elem()
+}
+
+func (o HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput) ToHealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput() HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput {
+	return o
+}
+
+func (o HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput) ToHealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput {
+	return o
+}
+
+func (o HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput) Elem() HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput {
+	return o.ApplyT(func(v *HealthCheckConfigPropertiesInsufficientDataHealthStatus) HealthCheckConfigPropertiesInsufficientDataHealthStatus {
+		if v != nil {
+			return *v
+		}
+		var ret HealthCheckConfigPropertiesInsufficientDataHealthStatus
+		return ret
+	}).(HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput)
+}
+
+func (o HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HealthCheckConfigPropertiesInsufficientDataHealthStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// HealthCheckConfigPropertiesInsufficientDataHealthStatusInput is an input type that accepts HealthCheckConfigPropertiesInsufficientDataHealthStatusArgs and HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput values.
+// You can construct a concrete instance of `HealthCheckConfigPropertiesInsufficientDataHealthStatusInput` via:
+//
+//          HealthCheckConfigPropertiesInsufficientDataHealthStatusArgs{...}
+type HealthCheckConfigPropertiesInsufficientDataHealthStatusInput interface {
+	pulumi.Input
+
+	ToHealthCheckConfigPropertiesInsufficientDataHealthStatusOutput() HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput
+	ToHealthCheckConfigPropertiesInsufficientDataHealthStatusOutputWithContext(context.Context) HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput
+}
+
+var healthCheckConfigPropertiesInsufficientDataHealthStatusPtrType = reflect.TypeOf((**HealthCheckConfigPropertiesInsufficientDataHealthStatus)(nil)).Elem()
+
+type HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrInput interface {
+	pulumi.Input
+
+	ToHealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput() HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput
+	ToHealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutputWithContext(context.Context) HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput
+}
+
+type healthCheckConfigPropertiesInsufficientDataHealthStatusPtr string
+
+func HealthCheckConfigPropertiesInsufficientDataHealthStatusPtr(v string) HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrInput {
+	return (*healthCheckConfigPropertiesInsufficientDataHealthStatusPtr)(&v)
+}
+
+func (*healthCheckConfigPropertiesInsufficientDataHealthStatusPtr) ElementType() reflect.Type {
+	return healthCheckConfigPropertiesInsufficientDataHealthStatusPtrType
+}
+
+func (in *healthCheckConfigPropertiesInsufficientDataHealthStatusPtr) ToHealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput() HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput {
+	return pulumi.ToOutput(in).(HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput)
+}
+
+func (in *healthCheckConfigPropertiesInsufficientDataHealthStatusPtr) ToHealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput)
+}
+
+type HealthCheckConfigPropertiesType string
+
+const (
+	HealthCheckConfigPropertiesTypeCalculated       = HealthCheckConfigPropertiesType("CALCULATED")
+	HealthCheckConfigPropertiesTypeCloudwatchMetric = HealthCheckConfigPropertiesType("CLOUDWATCH_METRIC")
+	HealthCheckConfigPropertiesTypeHttp             = HealthCheckConfigPropertiesType("HTTP")
+	HealthCheckConfigPropertiesTypeHttpStrMatch     = HealthCheckConfigPropertiesType("HTTP_STR_MATCH")
+	HealthCheckConfigPropertiesTypeHttps            = HealthCheckConfigPropertiesType("HTTPS")
+	HealthCheckConfigPropertiesTypeHttpsStrMatch    = HealthCheckConfigPropertiesType("HTTPS_STR_MATCH")
+	HealthCheckConfigPropertiesTypeTcp              = HealthCheckConfigPropertiesType("TCP")
+	HealthCheckConfigPropertiesTypeRecoveryControl  = HealthCheckConfigPropertiesType("RECOVERY_CONTROL")
+)
+
+func (HealthCheckConfigPropertiesType) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthCheckConfigPropertiesType)(nil)).Elem()
+}
+
+func (e HealthCheckConfigPropertiesType) ToHealthCheckConfigPropertiesTypeOutput() HealthCheckConfigPropertiesTypeOutput {
+	return pulumi.ToOutput(e).(HealthCheckConfigPropertiesTypeOutput)
+}
+
+func (e HealthCheckConfigPropertiesType) ToHealthCheckConfigPropertiesTypeOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HealthCheckConfigPropertiesTypeOutput)
+}
+
+func (e HealthCheckConfigPropertiesType) ToHealthCheckConfigPropertiesTypePtrOutput() HealthCheckConfigPropertiesTypePtrOutput {
+	return e.ToHealthCheckConfigPropertiesTypePtrOutputWithContext(context.Background())
+}
+
+func (e HealthCheckConfigPropertiesType) ToHealthCheckConfigPropertiesTypePtrOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesTypePtrOutput {
+	return HealthCheckConfigPropertiesType(e).ToHealthCheckConfigPropertiesTypeOutputWithContext(ctx).ToHealthCheckConfigPropertiesTypePtrOutputWithContext(ctx)
+}
+
+func (e HealthCheckConfigPropertiesType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HealthCheckConfigPropertiesType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HealthCheckConfigPropertiesType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HealthCheckConfigPropertiesType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type HealthCheckConfigPropertiesTypeOutput struct{ *pulumi.OutputState }
+
+func (HealthCheckConfigPropertiesTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthCheckConfigPropertiesType)(nil)).Elem()
+}
+
+func (o HealthCheckConfigPropertiesTypeOutput) ToHealthCheckConfigPropertiesTypeOutput() HealthCheckConfigPropertiesTypeOutput {
+	return o
+}
+
+func (o HealthCheckConfigPropertiesTypeOutput) ToHealthCheckConfigPropertiesTypeOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesTypeOutput {
+	return o
+}
+
+func (o HealthCheckConfigPropertiesTypeOutput) ToHealthCheckConfigPropertiesTypePtrOutput() HealthCheckConfigPropertiesTypePtrOutput {
+	return o.ToHealthCheckConfigPropertiesTypePtrOutputWithContext(context.Background())
+}
+
+func (o HealthCheckConfigPropertiesTypeOutput) ToHealthCheckConfigPropertiesTypePtrOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HealthCheckConfigPropertiesType) *HealthCheckConfigPropertiesType {
+		return &v
+	}).(HealthCheckConfigPropertiesTypePtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HealthCheckConfigPropertiesTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HealthCheckConfigPropertiesType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HealthCheckConfigPropertiesTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HealthCheckConfigPropertiesTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HealthCheckConfigPropertiesType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HealthCheckConfigPropertiesTypePtrOutput struct{ *pulumi.OutputState }
+
+func (HealthCheckConfigPropertiesTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HealthCheckConfigPropertiesType)(nil)).Elem()
+}
+
+func (o HealthCheckConfigPropertiesTypePtrOutput) ToHealthCheckConfigPropertiesTypePtrOutput() HealthCheckConfigPropertiesTypePtrOutput {
+	return o
+}
+
+func (o HealthCheckConfigPropertiesTypePtrOutput) ToHealthCheckConfigPropertiesTypePtrOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesTypePtrOutput {
+	return o
+}
+
+func (o HealthCheckConfigPropertiesTypePtrOutput) Elem() HealthCheckConfigPropertiesTypeOutput {
+	return o.ApplyT(func(v *HealthCheckConfigPropertiesType) HealthCheckConfigPropertiesType {
+		if v != nil {
+			return *v
+		}
+		var ret HealthCheckConfigPropertiesType
+		return ret
+	}).(HealthCheckConfigPropertiesTypeOutput)
+}
+
+func (o HealthCheckConfigPropertiesTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HealthCheckConfigPropertiesTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HealthCheckConfigPropertiesType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// HealthCheckConfigPropertiesTypeInput is an input type that accepts HealthCheckConfigPropertiesTypeArgs and HealthCheckConfigPropertiesTypeOutput values.
+// You can construct a concrete instance of `HealthCheckConfigPropertiesTypeInput` via:
+//
+//          HealthCheckConfigPropertiesTypeArgs{...}
+type HealthCheckConfigPropertiesTypeInput interface {
+	pulumi.Input
+
+	ToHealthCheckConfigPropertiesTypeOutput() HealthCheckConfigPropertiesTypeOutput
+	ToHealthCheckConfigPropertiesTypeOutputWithContext(context.Context) HealthCheckConfigPropertiesTypeOutput
+}
+
+var healthCheckConfigPropertiesTypePtrType = reflect.TypeOf((**HealthCheckConfigPropertiesType)(nil)).Elem()
+
+type HealthCheckConfigPropertiesTypePtrInput interface {
+	pulumi.Input
+
+	ToHealthCheckConfigPropertiesTypePtrOutput() HealthCheckConfigPropertiesTypePtrOutput
+	ToHealthCheckConfigPropertiesTypePtrOutputWithContext(context.Context) HealthCheckConfigPropertiesTypePtrOutput
+}
+
+type healthCheckConfigPropertiesTypePtr string
+
+func HealthCheckConfigPropertiesTypePtr(v string) HealthCheckConfigPropertiesTypePtrInput {
+	return (*healthCheckConfigPropertiesTypePtr)(&v)
+}
+
+func (*healthCheckConfigPropertiesTypePtr) ElementType() reflect.Type {
+	return healthCheckConfigPropertiesTypePtrType
+}
+
+func (in *healthCheckConfigPropertiesTypePtr) ToHealthCheckConfigPropertiesTypePtrOutput() HealthCheckConfigPropertiesTypePtrOutput {
+	return pulumi.ToOutput(in).(HealthCheckConfigPropertiesTypePtrOutput)
+}
+
+func (in *healthCheckConfigPropertiesTypePtr) ToHealthCheckConfigPropertiesTypePtrOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HealthCheckConfigPropertiesTypePtrOutput)
+}
+
 // A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
 type KeySigningKeyStatus string
 
@@ -176,6 +511,10 @@ func (in *keySigningKeyStatusPtr) ToKeySigningKeyStatusPtrOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterOutputType(HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput{})
+	pulumi.RegisterOutputType(HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput{})
+	pulumi.RegisterOutputType(HealthCheckConfigPropertiesTypeOutput{})
+	pulumi.RegisterOutputType(HealthCheckConfigPropertiesTypePtrOutput{})
 	pulumi.RegisterOutputType(KeySigningKeyStatusOutput{})
 	pulumi.RegisterOutputType(KeySigningKeyStatusPtrOutput{})
 }

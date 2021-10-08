@@ -21,7 +21,7 @@ type Group struct {
 	// The case-sensitive name of the new group. Names must be unique.
 	GroupName             pulumi.StringPtrOutput              `pulumi:"groupName"`
 	InsightsConfiguration GroupInsightsConfigurationPtrOutput `pulumi:"insightsConfiguration"`
-	Tags                  pulumi.ArrayOutput                  `pulumi:"tags"`
+	Tags                  TagsItemPropertiesArrayOutput       `pulumi:"tags"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -68,7 +68,7 @@ type groupArgs struct {
 	// The case-sensitive name of the new group. Names must be unique.
 	GroupName             *string                     `pulumi:"groupName"`
 	InsightsConfiguration *GroupInsightsConfiguration `pulumi:"insightsConfiguration"`
-	Tags                  []interface{}               `pulumi:"tags"`
+	Tags                  []TagsItemProperties        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Group resource.
@@ -78,7 +78,7 @@ type GroupArgs struct {
 	// The case-sensitive name of the new group. Names must be unique.
 	GroupName             pulumi.StringPtrInput
 	InsightsConfiguration GroupInsightsConfigurationPtrInput
-	Tags                  pulumi.ArrayInput
+	Tags                  TagsItemPropertiesArrayInput
 }
 
 func (GroupArgs) ElementType() reflect.Type {

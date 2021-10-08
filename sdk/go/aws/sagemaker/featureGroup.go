@@ -22,9 +22,9 @@ type FeatureGroup struct {
 	// An Array of Feature Definition
 	FeatureDefinitions FeatureGroupFeatureDefinitionArrayOutput `pulumi:"featureDefinitions"`
 	// The Name of the FeatureGroup.
-	FeatureGroupName   pulumi.StringOutput `pulumi:"featureGroupName"`
-	OfflineStoreConfig pulumi.AnyOutput    `pulumi:"offlineStoreConfig"`
-	OnlineStoreConfig  pulumi.AnyOutput    `pulumi:"onlineStoreConfig"`
+	FeatureGroupName   pulumi.StringOutput                   `pulumi:"featureGroupName"`
+	OfflineStoreConfig OfflineStoreConfigPropertiesPtrOutput `pulumi:"offlineStoreConfig"`
+	OnlineStoreConfig  OnlineStoreConfigPropertiesPtrOutput  `pulumi:"onlineStoreConfig"`
 	// The Record Identifier Feature Name.
 	RecordIdentifierFeatureName pulumi.StringOutput `pulumi:"recordIdentifierFeatureName"`
 	// Role Arn
@@ -91,9 +91,9 @@ type featureGroupArgs struct {
 	// An Array of Feature Definition
 	FeatureDefinitions []FeatureGroupFeatureDefinition `pulumi:"featureDefinitions"`
 	// The Name of the FeatureGroup.
-	FeatureGroupName   string      `pulumi:"featureGroupName"`
-	OfflineStoreConfig interface{} `pulumi:"offlineStoreConfig"`
-	OnlineStoreConfig  interface{} `pulumi:"onlineStoreConfig"`
+	FeatureGroupName   string                        `pulumi:"featureGroupName"`
+	OfflineStoreConfig *OfflineStoreConfigProperties `pulumi:"offlineStoreConfig"`
+	OnlineStoreConfig  *OnlineStoreConfigProperties  `pulumi:"onlineStoreConfig"`
 	// The Record Identifier Feature Name.
 	RecordIdentifierFeatureName string `pulumi:"recordIdentifierFeatureName"`
 	// Role Arn
@@ -112,8 +112,8 @@ type FeatureGroupArgs struct {
 	FeatureDefinitions FeatureGroupFeatureDefinitionArrayInput
 	// The Name of the FeatureGroup.
 	FeatureGroupName   pulumi.StringInput
-	OfflineStoreConfig pulumi.Input
-	OnlineStoreConfig  pulumi.Input
+	OfflineStoreConfig OfflineStoreConfigPropertiesPtrInput
+	OnlineStoreConfig  OnlineStoreConfigPropertiesPtrInput
 	// The Record Identifier Feature Name.
 	RecordIdentifierFeatureName pulumi.StringInput
 	// Role Arn

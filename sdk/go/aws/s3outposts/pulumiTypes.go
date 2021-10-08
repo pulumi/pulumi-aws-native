@@ -287,6 +287,275 @@ func (o BucketAbortIncompleteMultipartUploadPtrOutput) DaysAfterInitiation() pul
 	}).(pulumi.IntPtrOutput)
 }
 
+type BucketFilterAndOperator struct {
+}
+
+// BucketFilterAndOperatorInput is an input type that accepts BucketFilterAndOperatorArgs and BucketFilterAndOperatorOutput values.
+// You can construct a concrete instance of `BucketFilterAndOperatorInput` via:
+//
+//          BucketFilterAndOperatorArgs{...}
+type BucketFilterAndOperatorInput interface {
+	pulumi.Input
+
+	ToBucketFilterAndOperatorOutput() BucketFilterAndOperatorOutput
+	ToBucketFilterAndOperatorOutputWithContext(context.Context) BucketFilterAndOperatorOutput
+}
+
+type BucketFilterAndOperatorArgs struct {
+}
+
+func (BucketFilterAndOperatorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketFilterAndOperator)(nil)).Elem()
+}
+
+func (i BucketFilterAndOperatorArgs) ToBucketFilterAndOperatorOutput() BucketFilterAndOperatorOutput {
+	return i.ToBucketFilterAndOperatorOutputWithContext(context.Background())
+}
+
+func (i BucketFilterAndOperatorArgs) ToBucketFilterAndOperatorOutputWithContext(ctx context.Context) BucketFilterAndOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketFilterAndOperatorOutput)
+}
+
+func (i BucketFilterAndOperatorArgs) ToBucketFilterAndOperatorPtrOutput() BucketFilterAndOperatorPtrOutput {
+	return i.ToBucketFilterAndOperatorPtrOutputWithContext(context.Background())
+}
+
+func (i BucketFilterAndOperatorArgs) ToBucketFilterAndOperatorPtrOutputWithContext(ctx context.Context) BucketFilterAndOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketFilterAndOperatorOutput).ToBucketFilterAndOperatorPtrOutputWithContext(ctx)
+}
+
+// BucketFilterAndOperatorPtrInput is an input type that accepts BucketFilterAndOperatorArgs, BucketFilterAndOperatorPtr and BucketFilterAndOperatorPtrOutput values.
+// You can construct a concrete instance of `BucketFilterAndOperatorPtrInput` via:
+//
+//          BucketFilterAndOperatorArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketFilterAndOperatorPtrInput interface {
+	pulumi.Input
+
+	ToBucketFilterAndOperatorPtrOutput() BucketFilterAndOperatorPtrOutput
+	ToBucketFilterAndOperatorPtrOutputWithContext(context.Context) BucketFilterAndOperatorPtrOutput
+}
+
+type bucketFilterAndOperatorPtrType BucketFilterAndOperatorArgs
+
+func BucketFilterAndOperatorPtr(v *BucketFilterAndOperatorArgs) BucketFilterAndOperatorPtrInput {
+	return (*bucketFilterAndOperatorPtrType)(v)
+}
+
+func (*bucketFilterAndOperatorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketFilterAndOperator)(nil)).Elem()
+}
+
+func (i *bucketFilterAndOperatorPtrType) ToBucketFilterAndOperatorPtrOutput() BucketFilterAndOperatorPtrOutput {
+	return i.ToBucketFilterAndOperatorPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketFilterAndOperatorPtrType) ToBucketFilterAndOperatorPtrOutputWithContext(ctx context.Context) BucketFilterAndOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketFilterAndOperatorPtrOutput)
+}
+
+type BucketFilterAndOperatorOutput struct{ *pulumi.OutputState }
+
+func (BucketFilterAndOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketFilterAndOperator)(nil)).Elem()
+}
+
+func (o BucketFilterAndOperatorOutput) ToBucketFilterAndOperatorOutput() BucketFilterAndOperatorOutput {
+	return o
+}
+
+func (o BucketFilterAndOperatorOutput) ToBucketFilterAndOperatorOutputWithContext(ctx context.Context) BucketFilterAndOperatorOutput {
+	return o
+}
+
+func (o BucketFilterAndOperatorOutput) ToBucketFilterAndOperatorPtrOutput() BucketFilterAndOperatorPtrOutput {
+	return o.ToBucketFilterAndOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o BucketFilterAndOperatorOutput) ToBucketFilterAndOperatorPtrOutputWithContext(ctx context.Context) BucketFilterAndOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketFilterAndOperator) *BucketFilterAndOperator {
+		return &v
+	}).(BucketFilterAndOperatorPtrOutput)
+}
+
+type BucketFilterAndOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketFilterAndOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketFilterAndOperator)(nil)).Elem()
+}
+
+func (o BucketFilterAndOperatorPtrOutput) ToBucketFilterAndOperatorPtrOutput() BucketFilterAndOperatorPtrOutput {
+	return o
+}
+
+func (o BucketFilterAndOperatorPtrOutput) ToBucketFilterAndOperatorPtrOutputWithContext(ctx context.Context) BucketFilterAndOperatorPtrOutput {
+	return o
+}
+
+func (o BucketFilterAndOperatorPtrOutput) Elem() BucketFilterAndOperatorOutput {
+	return o.ApplyT(func(v *BucketFilterAndOperator) BucketFilterAndOperator {
+		if v != nil {
+			return *v
+		}
+		var ret BucketFilterAndOperator
+		return ret
+	}).(BucketFilterAndOperatorOutput)
+}
+
+// Tag used to identify a subset of objects for an Amazon S3Outposts bucket.
+type BucketFilterTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// BucketFilterTagInput is an input type that accepts BucketFilterTagArgs and BucketFilterTagOutput values.
+// You can construct a concrete instance of `BucketFilterTagInput` via:
+//
+//          BucketFilterTagArgs{...}
+type BucketFilterTagInput interface {
+	pulumi.Input
+
+	ToBucketFilterTagOutput() BucketFilterTagOutput
+	ToBucketFilterTagOutputWithContext(context.Context) BucketFilterTagOutput
+}
+
+// Tag used to identify a subset of objects for an Amazon S3Outposts bucket.
+type BucketFilterTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (BucketFilterTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketFilterTag)(nil)).Elem()
+}
+
+func (i BucketFilterTagArgs) ToBucketFilterTagOutput() BucketFilterTagOutput {
+	return i.ToBucketFilterTagOutputWithContext(context.Background())
+}
+
+func (i BucketFilterTagArgs) ToBucketFilterTagOutputWithContext(ctx context.Context) BucketFilterTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketFilterTagOutput)
+}
+
+func (i BucketFilterTagArgs) ToBucketFilterTagPtrOutput() BucketFilterTagPtrOutput {
+	return i.ToBucketFilterTagPtrOutputWithContext(context.Background())
+}
+
+func (i BucketFilterTagArgs) ToBucketFilterTagPtrOutputWithContext(ctx context.Context) BucketFilterTagPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketFilterTagOutput).ToBucketFilterTagPtrOutputWithContext(ctx)
+}
+
+// BucketFilterTagPtrInput is an input type that accepts BucketFilterTagArgs, BucketFilterTagPtr and BucketFilterTagPtrOutput values.
+// You can construct a concrete instance of `BucketFilterTagPtrInput` via:
+//
+//          BucketFilterTagArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketFilterTagPtrInput interface {
+	pulumi.Input
+
+	ToBucketFilterTagPtrOutput() BucketFilterTagPtrOutput
+	ToBucketFilterTagPtrOutputWithContext(context.Context) BucketFilterTagPtrOutput
+}
+
+type bucketFilterTagPtrType BucketFilterTagArgs
+
+func BucketFilterTagPtr(v *BucketFilterTagArgs) BucketFilterTagPtrInput {
+	return (*bucketFilterTagPtrType)(v)
+}
+
+func (*bucketFilterTagPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketFilterTag)(nil)).Elem()
+}
+
+func (i *bucketFilterTagPtrType) ToBucketFilterTagPtrOutput() BucketFilterTagPtrOutput {
+	return i.ToBucketFilterTagPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketFilterTagPtrType) ToBucketFilterTagPtrOutputWithContext(ctx context.Context) BucketFilterTagPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketFilterTagPtrOutput)
+}
+
+// Tag used to identify a subset of objects for an Amazon S3Outposts bucket.
+type BucketFilterTagOutput struct{ *pulumi.OutputState }
+
+func (BucketFilterTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketFilterTag)(nil)).Elem()
+}
+
+func (o BucketFilterTagOutput) ToBucketFilterTagOutput() BucketFilterTagOutput {
+	return o
+}
+
+func (o BucketFilterTagOutput) ToBucketFilterTagOutputWithContext(ctx context.Context) BucketFilterTagOutput {
+	return o
+}
+
+func (o BucketFilterTagOutput) ToBucketFilterTagPtrOutput() BucketFilterTagPtrOutput {
+	return o.ToBucketFilterTagPtrOutputWithContext(context.Background())
+}
+
+func (o BucketFilterTagOutput) ToBucketFilterTagPtrOutputWithContext(ctx context.Context) BucketFilterTagPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketFilterTag) *BucketFilterTag {
+		return &v
+	}).(BucketFilterTagPtrOutput)
+}
+
+func (o BucketFilterTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketFilterTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o BucketFilterTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketFilterTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type BucketFilterTagPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketFilterTagPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketFilterTag)(nil)).Elem()
+}
+
+func (o BucketFilterTagPtrOutput) ToBucketFilterTagPtrOutput() BucketFilterTagPtrOutput {
+	return o
+}
+
+func (o BucketFilterTagPtrOutput) ToBucketFilterTagPtrOutputWithContext(ctx context.Context) BucketFilterTagPtrOutput {
+	return o
+}
+
+func (o BucketFilterTagPtrOutput) Elem() BucketFilterTagOutput {
+	return o.ApplyT(func(v *BucketFilterTag) BucketFilterTag {
+		if v != nil {
+			return *v
+		}
+		var ret BucketFilterTag
+		return ret
+	}).(BucketFilterTagOutput)
+}
+
+func (o BucketFilterTagPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketFilterTag) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o BucketFilterTagPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketFilterTag) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
 type BucketLifecycleConfiguration struct {
 	// A list of lifecycle rules for individual objects in an Amazon S3Outposts bucket.
 	Rules []BucketRule `pulumi:"rules"`
@@ -433,7 +702,7 @@ type BucketRule struct {
 	// Indicates the number of days after creation when objects are deleted from Amazon S3Outposts.
 	ExpirationInDays *int `pulumi:"expirationInDays"`
 	// The container for the filter of the lifecycle rule.
-	Filter interface{} `pulumi:"filter"`
+	Filter *BucketRuleFilterProperties `pulumi:"filter"`
 	// Unique identifier for the lifecycle rule. The value can't be longer than 255 characters.
 	Id     *string           `pulumi:"id"`
 	Status *BucketRuleStatus `pulumi:"status"`
@@ -459,7 +728,7 @@ type BucketRuleArgs struct {
 	// Indicates the number of days after creation when objects are deleted from Amazon S3Outposts.
 	ExpirationInDays pulumi.IntPtrInput `pulumi:"expirationInDays"`
 	// The container for the filter of the lifecycle rule.
-	Filter pulumi.Input `pulumi:"filter"`
+	Filter BucketRuleFilterPropertiesPtrInput `pulumi:"filter"`
 	// Unique identifier for the lifecycle rule. The value can't be longer than 255 characters.
 	Id     pulumi.StringPtrInput    `pulumi:"id"`
 	Status BucketRuleStatusPtrInput `pulumi:"status"`
@@ -533,8 +802,8 @@ func (o BucketRuleOutput) ExpirationInDays() pulumi.IntPtrOutput {
 }
 
 // The container for the filter of the lifecycle rule.
-func (o BucketRuleOutput) Filter() pulumi.AnyOutput {
-	return o.ApplyT(func(v BucketRule) interface{} { return v.Filter }).(pulumi.AnyOutput)
+func (o BucketRuleOutput) Filter() BucketRuleFilterPropertiesPtrOutput {
+	return o.ApplyT(func(v BucketRule) *BucketRuleFilterProperties { return v.Filter }).(BucketRuleFilterPropertiesPtrOutput)
 }
 
 // Unique identifier for the lifecycle rule. The value can't be longer than 255 characters.
@@ -564,6 +833,184 @@ func (o BucketRuleArrayOutput) Index(i pulumi.IntInput) BucketRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketRule {
 		return vs[0].([]BucketRule)[vs[1].(int)]
 	}).(BucketRuleOutput)
+}
+
+// The container for the filter of the lifecycle rule.
+type BucketRuleFilterProperties struct {
+	// The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags.
+	AndOperator *BucketFilterAndOperator `pulumi:"andOperator"`
+	// Object key prefix that identifies one or more objects to which this rule applies.
+	Prefix *string `pulumi:"prefix"`
+	// Specifies a tag used to identify a subset of objects for an Amazon S3Outposts bucket.
+	Tag *BucketFilterTag `pulumi:"tag"`
+}
+
+// BucketRuleFilterPropertiesInput is an input type that accepts BucketRuleFilterPropertiesArgs and BucketRuleFilterPropertiesOutput values.
+// You can construct a concrete instance of `BucketRuleFilterPropertiesInput` via:
+//
+//          BucketRuleFilterPropertiesArgs{...}
+type BucketRuleFilterPropertiesInput interface {
+	pulumi.Input
+
+	ToBucketRuleFilterPropertiesOutput() BucketRuleFilterPropertiesOutput
+	ToBucketRuleFilterPropertiesOutputWithContext(context.Context) BucketRuleFilterPropertiesOutput
+}
+
+// The container for the filter of the lifecycle rule.
+type BucketRuleFilterPropertiesArgs struct {
+	// The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags.
+	AndOperator BucketFilterAndOperatorPtrInput `pulumi:"andOperator"`
+	// Object key prefix that identifies one or more objects to which this rule applies.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// Specifies a tag used to identify a subset of objects for an Amazon S3Outposts bucket.
+	Tag BucketFilterTagPtrInput `pulumi:"tag"`
+}
+
+func (BucketRuleFilterPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketRuleFilterProperties)(nil)).Elem()
+}
+
+func (i BucketRuleFilterPropertiesArgs) ToBucketRuleFilterPropertiesOutput() BucketRuleFilterPropertiesOutput {
+	return i.ToBucketRuleFilterPropertiesOutputWithContext(context.Background())
+}
+
+func (i BucketRuleFilterPropertiesArgs) ToBucketRuleFilterPropertiesOutputWithContext(ctx context.Context) BucketRuleFilterPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketRuleFilterPropertiesOutput)
+}
+
+func (i BucketRuleFilterPropertiesArgs) ToBucketRuleFilterPropertiesPtrOutput() BucketRuleFilterPropertiesPtrOutput {
+	return i.ToBucketRuleFilterPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i BucketRuleFilterPropertiesArgs) ToBucketRuleFilterPropertiesPtrOutputWithContext(ctx context.Context) BucketRuleFilterPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketRuleFilterPropertiesOutput).ToBucketRuleFilterPropertiesPtrOutputWithContext(ctx)
+}
+
+// BucketRuleFilterPropertiesPtrInput is an input type that accepts BucketRuleFilterPropertiesArgs, BucketRuleFilterPropertiesPtr and BucketRuleFilterPropertiesPtrOutput values.
+// You can construct a concrete instance of `BucketRuleFilterPropertiesPtrInput` via:
+//
+//          BucketRuleFilterPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketRuleFilterPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToBucketRuleFilterPropertiesPtrOutput() BucketRuleFilterPropertiesPtrOutput
+	ToBucketRuleFilterPropertiesPtrOutputWithContext(context.Context) BucketRuleFilterPropertiesPtrOutput
+}
+
+type bucketRuleFilterPropertiesPtrType BucketRuleFilterPropertiesArgs
+
+func BucketRuleFilterPropertiesPtr(v *BucketRuleFilterPropertiesArgs) BucketRuleFilterPropertiesPtrInput {
+	return (*bucketRuleFilterPropertiesPtrType)(v)
+}
+
+func (*bucketRuleFilterPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketRuleFilterProperties)(nil)).Elem()
+}
+
+func (i *bucketRuleFilterPropertiesPtrType) ToBucketRuleFilterPropertiesPtrOutput() BucketRuleFilterPropertiesPtrOutput {
+	return i.ToBucketRuleFilterPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketRuleFilterPropertiesPtrType) ToBucketRuleFilterPropertiesPtrOutputWithContext(ctx context.Context) BucketRuleFilterPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketRuleFilterPropertiesPtrOutput)
+}
+
+// The container for the filter of the lifecycle rule.
+type BucketRuleFilterPropertiesOutput struct{ *pulumi.OutputState }
+
+func (BucketRuleFilterPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketRuleFilterProperties)(nil)).Elem()
+}
+
+func (o BucketRuleFilterPropertiesOutput) ToBucketRuleFilterPropertiesOutput() BucketRuleFilterPropertiesOutput {
+	return o
+}
+
+func (o BucketRuleFilterPropertiesOutput) ToBucketRuleFilterPropertiesOutputWithContext(ctx context.Context) BucketRuleFilterPropertiesOutput {
+	return o
+}
+
+func (o BucketRuleFilterPropertiesOutput) ToBucketRuleFilterPropertiesPtrOutput() BucketRuleFilterPropertiesPtrOutput {
+	return o.ToBucketRuleFilterPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o BucketRuleFilterPropertiesOutput) ToBucketRuleFilterPropertiesPtrOutputWithContext(ctx context.Context) BucketRuleFilterPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketRuleFilterProperties) *BucketRuleFilterProperties {
+		return &v
+	}).(BucketRuleFilterPropertiesPtrOutput)
+}
+
+// The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags.
+func (o BucketRuleFilterPropertiesOutput) AndOperator() BucketFilterAndOperatorPtrOutput {
+	return o.ApplyT(func(v BucketRuleFilterProperties) *BucketFilterAndOperator { return v.AndOperator }).(BucketFilterAndOperatorPtrOutput)
+}
+
+// Object key prefix that identifies one or more objects to which this rule applies.
+func (o BucketRuleFilterPropertiesOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketRuleFilterProperties) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a tag used to identify a subset of objects for an Amazon S3Outposts bucket.
+func (o BucketRuleFilterPropertiesOutput) Tag() BucketFilterTagPtrOutput {
+	return o.ApplyT(func(v BucketRuleFilterProperties) *BucketFilterTag { return v.Tag }).(BucketFilterTagPtrOutput)
+}
+
+type BucketRuleFilterPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketRuleFilterPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketRuleFilterProperties)(nil)).Elem()
+}
+
+func (o BucketRuleFilterPropertiesPtrOutput) ToBucketRuleFilterPropertiesPtrOutput() BucketRuleFilterPropertiesPtrOutput {
+	return o
+}
+
+func (o BucketRuleFilterPropertiesPtrOutput) ToBucketRuleFilterPropertiesPtrOutputWithContext(ctx context.Context) BucketRuleFilterPropertiesPtrOutput {
+	return o
+}
+
+func (o BucketRuleFilterPropertiesPtrOutput) Elem() BucketRuleFilterPropertiesOutput {
+	return o.ApplyT(func(v *BucketRuleFilterProperties) BucketRuleFilterProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BucketRuleFilterProperties
+		return ret
+	}).(BucketRuleFilterPropertiesOutput)
+}
+
+// The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags.
+func (o BucketRuleFilterPropertiesPtrOutput) AndOperator() BucketFilterAndOperatorPtrOutput {
+	return o.ApplyT(func(v *BucketRuleFilterProperties) *BucketFilterAndOperator {
+		if v == nil {
+			return nil
+		}
+		return v.AndOperator
+	}).(BucketFilterAndOperatorPtrOutput)
+}
+
+// Object key prefix that identifies one or more objects to which this rule applies.
+func (o BucketRuleFilterPropertiesPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketRuleFilterProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a tag used to identify a subset of objects for an Amazon S3Outposts bucket.
+func (o BucketRuleFilterPropertiesPtrOutput) Tag() BucketFilterTagPtrOutput {
+	return o.ApplyT(func(v *BucketRuleFilterProperties) *BucketFilterTag {
+		if v == nil {
+			return nil
+		}
+		return v.Tag
+	}).(BucketFilterTagPtrOutput)
 }
 
 type BucketTag struct {
@@ -768,10 +1215,16 @@ func init() {
 	pulumi.RegisterOutputType(AccessPointVpcConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(BucketAbortIncompleteMultipartUploadOutput{})
 	pulumi.RegisterOutputType(BucketAbortIncompleteMultipartUploadPtrOutput{})
+	pulumi.RegisterOutputType(BucketFilterAndOperatorOutput{})
+	pulumi.RegisterOutputType(BucketFilterAndOperatorPtrOutput{})
+	pulumi.RegisterOutputType(BucketFilterTagOutput{})
+	pulumi.RegisterOutputType(BucketFilterTagPtrOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleConfigurationOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(BucketRuleOutput{})
 	pulumi.RegisterOutputType(BucketRuleArrayOutput{})
+	pulumi.RegisterOutputType(BucketRuleFilterPropertiesOutput{})
+	pulumi.RegisterOutputType(BucketRuleFilterPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(BucketTagOutput{})
 	pulumi.RegisterOutputType(BucketTagArrayOutput{})
 	pulumi.RegisterOutputType(EndpointNetworkInterfaceOutput{})

@@ -113,6 +113,165 @@ func (o DatabaseTagArrayOutput) Index(i pulumi.IntInput) DatabaseTagOutput {
 	}).(DatabaseTagOutput)
 }
 
+// The retention duration of the memory store and the magnetic store.
+type RetentionPropertiesProperties struct {
+	// The duration for which data must be stored in the magnetic store.
+	MagneticStoreRetentionPeriodInDays *string `pulumi:"magneticStoreRetentionPeriodInDays"`
+	// The duration for which data must be stored in the memory store.
+	MemoryStoreRetentionPeriodInHours *string `pulumi:"memoryStoreRetentionPeriodInHours"`
+}
+
+// RetentionPropertiesPropertiesInput is an input type that accepts RetentionPropertiesPropertiesArgs and RetentionPropertiesPropertiesOutput values.
+// You can construct a concrete instance of `RetentionPropertiesPropertiesInput` via:
+//
+//          RetentionPropertiesPropertiesArgs{...}
+type RetentionPropertiesPropertiesInput interface {
+	pulumi.Input
+
+	ToRetentionPropertiesPropertiesOutput() RetentionPropertiesPropertiesOutput
+	ToRetentionPropertiesPropertiesOutputWithContext(context.Context) RetentionPropertiesPropertiesOutput
+}
+
+// The retention duration of the memory store and the magnetic store.
+type RetentionPropertiesPropertiesArgs struct {
+	// The duration for which data must be stored in the magnetic store.
+	MagneticStoreRetentionPeriodInDays pulumi.StringPtrInput `pulumi:"magneticStoreRetentionPeriodInDays"`
+	// The duration for which data must be stored in the memory store.
+	MemoryStoreRetentionPeriodInHours pulumi.StringPtrInput `pulumi:"memoryStoreRetentionPeriodInHours"`
+}
+
+func (RetentionPropertiesPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RetentionPropertiesProperties)(nil)).Elem()
+}
+
+func (i RetentionPropertiesPropertiesArgs) ToRetentionPropertiesPropertiesOutput() RetentionPropertiesPropertiesOutput {
+	return i.ToRetentionPropertiesPropertiesOutputWithContext(context.Background())
+}
+
+func (i RetentionPropertiesPropertiesArgs) ToRetentionPropertiesPropertiesOutputWithContext(ctx context.Context) RetentionPropertiesPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RetentionPropertiesPropertiesOutput)
+}
+
+func (i RetentionPropertiesPropertiesArgs) ToRetentionPropertiesPropertiesPtrOutput() RetentionPropertiesPropertiesPtrOutput {
+	return i.ToRetentionPropertiesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i RetentionPropertiesPropertiesArgs) ToRetentionPropertiesPropertiesPtrOutputWithContext(ctx context.Context) RetentionPropertiesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RetentionPropertiesPropertiesOutput).ToRetentionPropertiesPropertiesPtrOutputWithContext(ctx)
+}
+
+// RetentionPropertiesPropertiesPtrInput is an input type that accepts RetentionPropertiesPropertiesArgs, RetentionPropertiesPropertiesPtr and RetentionPropertiesPropertiesPtrOutput values.
+// You can construct a concrete instance of `RetentionPropertiesPropertiesPtrInput` via:
+//
+//          RetentionPropertiesPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type RetentionPropertiesPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToRetentionPropertiesPropertiesPtrOutput() RetentionPropertiesPropertiesPtrOutput
+	ToRetentionPropertiesPropertiesPtrOutputWithContext(context.Context) RetentionPropertiesPropertiesPtrOutput
+}
+
+type retentionPropertiesPropertiesPtrType RetentionPropertiesPropertiesArgs
+
+func RetentionPropertiesPropertiesPtr(v *RetentionPropertiesPropertiesArgs) RetentionPropertiesPropertiesPtrInput {
+	return (*retentionPropertiesPropertiesPtrType)(v)
+}
+
+func (*retentionPropertiesPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RetentionPropertiesProperties)(nil)).Elem()
+}
+
+func (i *retentionPropertiesPropertiesPtrType) ToRetentionPropertiesPropertiesPtrOutput() RetentionPropertiesPropertiesPtrOutput {
+	return i.ToRetentionPropertiesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *retentionPropertiesPropertiesPtrType) ToRetentionPropertiesPropertiesPtrOutputWithContext(ctx context.Context) RetentionPropertiesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RetentionPropertiesPropertiesPtrOutput)
+}
+
+// The retention duration of the memory store and the magnetic store.
+type RetentionPropertiesPropertiesOutput struct{ *pulumi.OutputState }
+
+func (RetentionPropertiesPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RetentionPropertiesProperties)(nil)).Elem()
+}
+
+func (o RetentionPropertiesPropertiesOutput) ToRetentionPropertiesPropertiesOutput() RetentionPropertiesPropertiesOutput {
+	return o
+}
+
+func (o RetentionPropertiesPropertiesOutput) ToRetentionPropertiesPropertiesOutputWithContext(ctx context.Context) RetentionPropertiesPropertiesOutput {
+	return o
+}
+
+func (o RetentionPropertiesPropertiesOutput) ToRetentionPropertiesPropertiesPtrOutput() RetentionPropertiesPropertiesPtrOutput {
+	return o.ToRetentionPropertiesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o RetentionPropertiesPropertiesOutput) ToRetentionPropertiesPropertiesPtrOutputWithContext(ctx context.Context) RetentionPropertiesPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetentionPropertiesProperties) *RetentionPropertiesProperties {
+		return &v
+	}).(RetentionPropertiesPropertiesPtrOutput)
+}
+
+// The duration for which data must be stored in the magnetic store.
+func (o RetentionPropertiesPropertiesOutput) MagneticStoreRetentionPeriodInDays() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RetentionPropertiesProperties) *string { return v.MagneticStoreRetentionPeriodInDays }).(pulumi.StringPtrOutput)
+}
+
+// The duration for which data must be stored in the memory store.
+func (o RetentionPropertiesPropertiesOutput) MemoryStoreRetentionPeriodInHours() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RetentionPropertiesProperties) *string { return v.MemoryStoreRetentionPeriodInHours }).(pulumi.StringPtrOutput)
+}
+
+type RetentionPropertiesPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RetentionPropertiesPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RetentionPropertiesProperties)(nil)).Elem()
+}
+
+func (o RetentionPropertiesPropertiesPtrOutput) ToRetentionPropertiesPropertiesPtrOutput() RetentionPropertiesPropertiesPtrOutput {
+	return o
+}
+
+func (o RetentionPropertiesPropertiesPtrOutput) ToRetentionPropertiesPropertiesPtrOutputWithContext(ctx context.Context) RetentionPropertiesPropertiesPtrOutput {
+	return o
+}
+
+func (o RetentionPropertiesPropertiesPtrOutput) Elem() RetentionPropertiesPropertiesOutput {
+	return o.ApplyT(func(v *RetentionPropertiesProperties) RetentionPropertiesProperties {
+		if v != nil {
+			return *v
+		}
+		var ret RetentionPropertiesProperties
+		return ret
+	}).(RetentionPropertiesPropertiesOutput)
+}
+
+// The duration for which data must be stored in the magnetic store.
+func (o RetentionPropertiesPropertiesPtrOutput) MagneticStoreRetentionPeriodInDays() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RetentionPropertiesProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MagneticStoreRetentionPeriodInDays
+	}).(pulumi.StringPtrOutput)
+}
+
+// The duration for which data must be stored in the memory store.
+func (o RetentionPropertiesPropertiesPtrOutput) MemoryStoreRetentionPeriodInHours() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RetentionPropertiesProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryStoreRetentionPeriodInHours
+	}).(pulumi.StringPtrOutput)
+}
+
 // You can use the Resource Tags property to apply tags to resources, which can help you identify and categorize those resources.
 type TableTag struct {
 	Key   *string `pulumi:"key"`
@@ -219,6 +378,8 @@ func (o TableTagArrayOutput) Index(i pulumi.IntInput) TableTagOutput {
 func init() {
 	pulumi.RegisterOutputType(DatabaseTagOutput{})
 	pulumi.RegisterOutputType(DatabaseTagArrayOutput{})
+	pulumi.RegisterOutputType(RetentionPropertiesPropertiesOutput{})
+	pulumi.RegisterOutputType(RetentionPropertiesPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TableTagOutput{})
 	pulumi.RegisterOutputType(TableTagArrayOutput{})
 }

@@ -7319,6 +7319,169 @@ func (o EndpointVariantPropertyArrayOutput) Index(i pulumi.IntInput) EndpointVar
 	}).(EndpointVariantPropertyOutput)
 }
 
+type FeatureGroupDataCatalogConfig struct {
+	Catalog   string `pulumi:"catalog"`
+	Database  string `pulumi:"database"`
+	TableName string `pulumi:"tableName"`
+}
+
+// FeatureGroupDataCatalogConfigInput is an input type that accepts FeatureGroupDataCatalogConfigArgs and FeatureGroupDataCatalogConfigOutput values.
+// You can construct a concrete instance of `FeatureGroupDataCatalogConfigInput` via:
+//
+//          FeatureGroupDataCatalogConfigArgs{...}
+type FeatureGroupDataCatalogConfigInput interface {
+	pulumi.Input
+
+	ToFeatureGroupDataCatalogConfigOutput() FeatureGroupDataCatalogConfigOutput
+	ToFeatureGroupDataCatalogConfigOutputWithContext(context.Context) FeatureGroupDataCatalogConfigOutput
+}
+
+type FeatureGroupDataCatalogConfigArgs struct {
+	Catalog   pulumi.StringInput `pulumi:"catalog"`
+	Database  pulumi.StringInput `pulumi:"database"`
+	TableName pulumi.StringInput `pulumi:"tableName"`
+}
+
+func (FeatureGroupDataCatalogConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupDataCatalogConfig)(nil)).Elem()
+}
+
+func (i FeatureGroupDataCatalogConfigArgs) ToFeatureGroupDataCatalogConfigOutput() FeatureGroupDataCatalogConfigOutput {
+	return i.ToFeatureGroupDataCatalogConfigOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupDataCatalogConfigArgs) ToFeatureGroupDataCatalogConfigOutputWithContext(ctx context.Context) FeatureGroupDataCatalogConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupDataCatalogConfigOutput)
+}
+
+func (i FeatureGroupDataCatalogConfigArgs) ToFeatureGroupDataCatalogConfigPtrOutput() FeatureGroupDataCatalogConfigPtrOutput {
+	return i.ToFeatureGroupDataCatalogConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupDataCatalogConfigArgs) ToFeatureGroupDataCatalogConfigPtrOutputWithContext(ctx context.Context) FeatureGroupDataCatalogConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupDataCatalogConfigOutput).ToFeatureGroupDataCatalogConfigPtrOutputWithContext(ctx)
+}
+
+// FeatureGroupDataCatalogConfigPtrInput is an input type that accepts FeatureGroupDataCatalogConfigArgs, FeatureGroupDataCatalogConfigPtr and FeatureGroupDataCatalogConfigPtrOutput values.
+// You can construct a concrete instance of `FeatureGroupDataCatalogConfigPtrInput` via:
+//
+//          FeatureGroupDataCatalogConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type FeatureGroupDataCatalogConfigPtrInput interface {
+	pulumi.Input
+
+	ToFeatureGroupDataCatalogConfigPtrOutput() FeatureGroupDataCatalogConfigPtrOutput
+	ToFeatureGroupDataCatalogConfigPtrOutputWithContext(context.Context) FeatureGroupDataCatalogConfigPtrOutput
+}
+
+type featureGroupDataCatalogConfigPtrType FeatureGroupDataCatalogConfigArgs
+
+func FeatureGroupDataCatalogConfigPtr(v *FeatureGroupDataCatalogConfigArgs) FeatureGroupDataCatalogConfigPtrInput {
+	return (*featureGroupDataCatalogConfigPtrType)(v)
+}
+
+func (*featureGroupDataCatalogConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupDataCatalogConfig)(nil)).Elem()
+}
+
+func (i *featureGroupDataCatalogConfigPtrType) ToFeatureGroupDataCatalogConfigPtrOutput() FeatureGroupDataCatalogConfigPtrOutput {
+	return i.ToFeatureGroupDataCatalogConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *featureGroupDataCatalogConfigPtrType) ToFeatureGroupDataCatalogConfigPtrOutputWithContext(ctx context.Context) FeatureGroupDataCatalogConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupDataCatalogConfigPtrOutput)
+}
+
+type FeatureGroupDataCatalogConfigOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupDataCatalogConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupDataCatalogConfig)(nil)).Elem()
+}
+
+func (o FeatureGroupDataCatalogConfigOutput) ToFeatureGroupDataCatalogConfigOutput() FeatureGroupDataCatalogConfigOutput {
+	return o
+}
+
+func (o FeatureGroupDataCatalogConfigOutput) ToFeatureGroupDataCatalogConfigOutputWithContext(ctx context.Context) FeatureGroupDataCatalogConfigOutput {
+	return o
+}
+
+func (o FeatureGroupDataCatalogConfigOutput) ToFeatureGroupDataCatalogConfigPtrOutput() FeatureGroupDataCatalogConfigPtrOutput {
+	return o.ToFeatureGroupDataCatalogConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FeatureGroupDataCatalogConfigOutput) ToFeatureGroupDataCatalogConfigPtrOutputWithContext(ctx context.Context) FeatureGroupDataCatalogConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeatureGroupDataCatalogConfig) *FeatureGroupDataCatalogConfig {
+		return &v
+	}).(FeatureGroupDataCatalogConfigPtrOutput)
+}
+
+func (o FeatureGroupDataCatalogConfigOutput) Catalog() pulumi.StringOutput {
+	return o.ApplyT(func(v FeatureGroupDataCatalogConfig) string { return v.Catalog }).(pulumi.StringOutput)
+}
+
+func (o FeatureGroupDataCatalogConfigOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v FeatureGroupDataCatalogConfig) string { return v.Database }).(pulumi.StringOutput)
+}
+
+func (o FeatureGroupDataCatalogConfigOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v FeatureGroupDataCatalogConfig) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+type FeatureGroupDataCatalogConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupDataCatalogConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupDataCatalogConfig)(nil)).Elem()
+}
+
+func (o FeatureGroupDataCatalogConfigPtrOutput) ToFeatureGroupDataCatalogConfigPtrOutput() FeatureGroupDataCatalogConfigPtrOutput {
+	return o
+}
+
+func (o FeatureGroupDataCatalogConfigPtrOutput) ToFeatureGroupDataCatalogConfigPtrOutputWithContext(ctx context.Context) FeatureGroupDataCatalogConfigPtrOutput {
+	return o
+}
+
+func (o FeatureGroupDataCatalogConfigPtrOutput) Elem() FeatureGroupDataCatalogConfigOutput {
+	return o.ApplyT(func(v *FeatureGroupDataCatalogConfig) FeatureGroupDataCatalogConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FeatureGroupDataCatalogConfig
+		return ret
+	}).(FeatureGroupDataCatalogConfigOutput)
+}
+
+func (o FeatureGroupDataCatalogConfigPtrOutput) Catalog() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupDataCatalogConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Catalog
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FeatureGroupDataCatalogConfigPtrOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupDataCatalogConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Database
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FeatureGroupDataCatalogConfigPtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupDataCatalogConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableName
+	}).(pulumi.StringPtrOutput)
+}
+
 type FeatureGroupFeatureDefinition struct {
 	FeatureName string                                   `pulumi:"featureName"`
 	FeatureType FeatureGroupFeatureDefinitionFeatureType `pulumi:"featureType"`
@@ -7417,6 +7580,287 @@ func (o FeatureGroupFeatureDefinitionArrayOutput) Index(i pulumi.IntInput) Featu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FeatureGroupFeatureDefinition {
 		return vs[0].([]FeatureGroupFeatureDefinition)[vs[1].(int)]
 	}).(FeatureGroupFeatureDefinitionOutput)
+}
+
+type FeatureGroupOnlineStoreSecurityConfig struct {
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+}
+
+// FeatureGroupOnlineStoreSecurityConfigInput is an input type that accepts FeatureGroupOnlineStoreSecurityConfigArgs and FeatureGroupOnlineStoreSecurityConfigOutput values.
+// You can construct a concrete instance of `FeatureGroupOnlineStoreSecurityConfigInput` via:
+//
+//          FeatureGroupOnlineStoreSecurityConfigArgs{...}
+type FeatureGroupOnlineStoreSecurityConfigInput interface {
+	pulumi.Input
+
+	ToFeatureGroupOnlineStoreSecurityConfigOutput() FeatureGroupOnlineStoreSecurityConfigOutput
+	ToFeatureGroupOnlineStoreSecurityConfigOutputWithContext(context.Context) FeatureGroupOnlineStoreSecurityConfigOutput
+}
+
+type FeatureGroupOnlineStoreSecurityConfigArgs struct {
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+}
+
+func (FeatureGroupOnlineStoreSecurityConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupOnlineStoreSecurityConfig)(nil)).Elem()
+}
+
+func (i FeatureGroupOnlineStoreSecurityConfigArgs) ToFeatureGroupOnlineStoreSecurityConfigOutput() FeatureGroupOnlineStoreSecurityConfigOutput {
+	return i.ToFeatureGroupOnlineStoreSecurityConfigOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupOnlineStoreSecurityConfigArgs) ToFeatureGroupOnlineStoreSecurityConfigOutputWithContext(ctx context.Context) FeatureGroupOnlineStoreSecurityConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupOnlineStoreSecurityConfigOutput)
+}
+
+func (i FeatureGroupOnlineStoreSecurityConfigArgs) ToFeatureGroupOnlineStoreSecurityConfigPtrOutput() FeatureGroupOnlineStoreSecurityConfigPtrOutput {
+	return i.ToFeatureGroupOnlineStoreSecurityConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupOnlineStoreSecurityConfigArgs) ToFeatureGroupOnlineStoreSecurityConfigPtrOutputWithContext(ctx context.Context) FeatureGroupOnlineStoreSecurityConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupOnlineStoreSecurityConfigOutput).ToFeatureGroupOnlineStoreSecurityConfigPtrOutputWithContext(ctx)
+}
+
+// FeatureGroupOnlineStoreSecurityConfigPtrInput is an input type that accepts FeatureGroupOnlineStoreSecurityConfigArgs, FeatureGroupOnlineStoreSecurityConfigPtr and FeatureGroupOnlineStoreSecurityConfigPtrOutput values.
+// You can construct a concrete instance of `FeatureGroupOnlineStoreSecurityConfigPtrInput` via:
+//
+//          FeatureGroupOnlineStoreSecurityConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type FeatureGroupOnlineStoreSecurityConfigPtrInput interface {
+	pulumi.Input
+
+	ToFeatureGroupOnlineStoreSecurityConfigPtrOutput() FeatureGroupOnlineStoreSecurityConfigPtrOutput
+	ToFeatureGroupOnlineStoreSecurityConfigPtrOutputWithContext(context.Context) FeatureGroupOnlineStoreSecurityConfigPtrOutput
+}
+
+type featureGroupOnlineStoreSecurityConfigPtrType FeatureGroupOnlineStoreSecurityConfigArgs
+
+func FeatureGroupOnlineStoreSecurityConfigPtr(v *FeatureGroupOnlineStoreSecurityConfigArgs) FeatureGroupOnlineStoreSecurityConfigPtrInput {
+	return (*featureGroupOnlineStoreSecurityConfigPtrType)(v)
+}
+
+func (*featureGroupOnlineStoreSecurityConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupOnlineStoreSecurityConfig)(nil)).Elem()
+}
+
+func (i *featureGroupOnlineStoreSecurityConfigPtrType) ToFeatureGroupOnlineStoreSecurityConfigPtrOutput() FeatureGroupOnlineStoreSecurityConfigPtrOutput {
+	return i.ToFeatureGroupOnlineStoreSecurityConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *featureGroupOnlineStoreSecurityConfigPtrType) ToFeatureGroupOnlineStoreSecurityConfigPtrOutputWithContext(ctx context.Context) FeatureGroupOnlineStoreSecurityConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupOnlineStoreSecurityConfigPtrOutput)
+}
+
+type FeatureGroupOnlineStoreSecurityConfigOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupOnlineStoreSecurityConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupOnlineStoreSecurityConfig)(nil)).Elem()
+}
+
+func (o FeatureGroupOnlineStoreSecurityConfigOutput) ToFeatureGroupOnlineStoreSecurityConfigOutput() FeatureGroupOnlineStoreSecurityConfigOutput {
+	return o
+}
+
+func (o FeatureGroupOnlineStoreSecurityConfigOutput) ToFeatureGroupOnlineStoreSecurityConfigOutputWithContext(ctx context.Context) FeatureGroupOnlineStoreSecurityConfigOutput {
+	return o
+}
+
+func (o FeatureGroupOnlineStoreSecurityConfigOutput) ToFeatureGroupOnlineStoreSecurityConfigPtrOutput() FeatureGroupOnlineStoreSecurityConfigPtrOutput {
+	return o.ToFeatureGroupOnlineStoreSecurityConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FeatureGroupOnlineStoreSecurityConfigOutput) ToFeatureGroupOnlineStoreSecurityConfigPtrOutputWithContext(ctx context.Context) FeatureGroupOnlineStoreSecurityConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeatureGroupOnlineStoreSecurityConfig) *FeatureGroupOnlineStoreSecurityConfig {
+		return &v
+	}).(FeatureGroupOnlineStoreSecurityConfigPtrOutput)
+}
+
+func (o FeatureGroupOnlineStoreSecurityConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeatureGroupOnlineStoreSecurityConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+type FeatureGroupOnlineStoreSecurityConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupOnlineStoreSecurityConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupOnlineStoreSecurityConfig)(nil)).Elem()
+}
+
+func (o FeatureGroupOnlineStoreSecurityConfigPtrOutput) ToFeatureGroupOnlineStoreSecurityConfigPtrOutput() FeatureGroupOnlineStoreSecurityConfigPtrOutput {
+	return o
+}
+
+func (o FeatureGroupOnlineStoreSecurityConfigPtrOutput) ToFeatureGroupOnlineStoreSecurityConfigPtrOutputWithContext(ctx context.Context) FeatureGroupOnlineStoreSecurityConfigPtrOutput {
+	return o
+}
+
+func (o FeatureGroupOnlineStoreSecurityConfigPtrOutput) Elem() FeatureGroupOnlineStoreSecurityConfigOutput {
+	return o.ApplyT(func(v *FeatureGroupOnlineStoreSecurityConfig) FeatureGroupOnlineStoreSecurityConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FeatureGroupOnlineStoreSecurityConfig
+		return ret
+	}).(FeatureGroupOnlineStoreSecurityConfigOutput)
+}
+
+func (o FeatureGroupOnlineStoreSecurityConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupOnlineStoreSecurityConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+type FeatureGroupS3StorageConfig struct {
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	S3Uri    string  `pulumi:"s3Uri"`
+}
+
+// FeatureGroupS3StorageConfigInput is an input type that accepts FeatureGroupS3StorageConfigArgs and FeatureGroupS3StorageConfigOutput values.
+// You can construct a concrete instance of `FeatureGroupS3StorageConfigInput` via:
+//
+//          FeatureGroupS3StorageConfigArgs{...}
+type FeatureGroupS3StorageConfigInput interface {
+	pulumi.Input
+
+	ToFeatureGroupS3StorageConfigOutput() FeatureGroupS3StorageConfigOutput
+	ToFeatureGroupS3StorageConfigOutputWithContext(context.Context) FeatureGroupS3StorageConfigOutput
+}
+
+type FeatureGroupS3StorageConfigArgs struct {
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	S3Uri    pulumi.StringInput    `pulumi:"s3Uri"`
+}
+
+func (FeatureGroupS3StorageConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupS3StorageConfig)(nil)).Elem()
+}
+
+func (i FeatureGroupS3StorageConfigArgs) ToFeatureGroupS3StorageConfigOutput() FeatureGroupS3StorageConfigOutput {
+	return i.ToFeatureGroupS3StorageConfigOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupS3StorageConfigArgs) ToFeatureGroupS3StorageConfigOutputWithContext(ctx context.Context) FeatureGroupS3StorageConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupS3StorageConfigOutput)
+}
+
+func (i FeatureGroupS3StorageConfigArgs) ToFeatureGroupS3StorageConfigPtrOutput() FeatureGroupS3StorageConfigPtrOutput {
+	return i.ToFeatureGroupS3StorageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupS3StorageConfigArgs) ToFeatureGroupS3StorageConfigPtrOutputWithContext(ctx context.Context) FeatureGroupS3StorageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupS3StorageConfigOutput).ToFeatureGroupS3StorageConfigPtrOutputWithContext(ctx)
+}
+
+// FeatureGroupS3StorageConfigPtrInput is an input type that accepts FeatureGroupS3StorageConfigArgs, FeatureGroupS3StorageConfigPtr and FeatureGroupS3StorageConfigPtrOutput values.
+// You can construct a concrete instance of `FeatureGroupS3StorageConfigPtrInput` via:
+//
+//          FeatureGroupS3StorageConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type FeatureGroupS3StorageConfigPtrInput interface {
+	pulumi.Input
+
+	ToFeatureGroupS3StorageConfigPtrOutput() FeatureGroupS3StorageConfigPtrOutput
+	ToFeatureGroupS3StorageConfigPtrOutputWithContext(context.Context) FeatureGroupS3StorageConfigPtrOutput
+}
+
+type featureGroupS3StorageConfigPtrType FeatureGroupS3StorageConfigArgs
+
+func FeatureGroupS3StorageConfigPtr(v *FeatureGroupS3StorageConfigArgs) FeatureGroupS3StorageConfigPtrInput {
+	return (*featureGroupS3StorageConfigPtrType)(v)
+}
+
+func (*featureGroupS3StorageConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupS3StorageConfig)(nil)).Elem()
+}
+
+func (i *featureGroupS3StorageConfigPtrType) ToFeatureGroupS3StorageConfigPtrOutput() FeatureGroupS3StorageConfigPtrOutput {
+	return i.ToFeatureGroupS3StorageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *featureGroupS3StorageConfigPtrType) ToFeatureGroupS3StorageConfigPtrOutputWithContext(ctx context.Context) FeatureGroupS3StorageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupS3StorageConfigPtrOutput)
+}
+
+type FeatureGroupS3StorageConfigOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupS3StorageConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupS3StorageConfig)(nil)).Elem()
+}
+
+func (o FeatureGroupS3StorageConfigOutput) ToFeatureGroupS3StorageConfigOutput() FeatureGroupS3StorageConfigOutput {
+	return o
+}
+
+func (o FeatureGroupS3StorageConfigOutput) ToFeatureGroupS3StorageConfigOutputWithContext(ctx context.Context) FeatureGroupS3StorageConfigOutput {
+	return o
+}
+
+func (o FeatureGroupS3StorageConfigOutput) ToFeatureGroupS3StorageConfigPtrOutput() FeatureGroupS3StorageConfigPtrOutput {
+	return o.ToFeatureGroupS3StorageConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FeatureGroupS3StorageConfigOutput) ToFeatureGroupS3StorageConfigPtrOutputWithContext(ctx context.Context) FeatureGroupS3StorageConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeatureGroupS3StorageConfig) *FeatureGroupS3StorageConfig {
+		return &v
+	}).(FeatureGroupS3StorageConfigPtrOutput)
+}
+
+func (o FeatureGroupS3StorageConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeatureGroupS3StorageConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o FeatureGroupS3StorageConfigOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v FeatureGroupS3StorageConfig) string { return v.S3Uri }).(pulumi.StringOutput)
+}
+
+type FeatureGroupS3StorageConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupS3StorageConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupS3StorageConfig)(nil)).Elem()
+}
+
+func (o FeatureGroupS3StorageConfigPtrOutput) ToFeatureGroupS3StorageConfigPtrOutput() FeatureGroupS3StorageConfigPtrOutput {
+	return o
+}
+
+func (o FeatureGroupS3StorageConfigPtrOutput) ToFeatureGroupS3StorageConfigPtrOutputWithContext(ctx context.Context) FeatureGroupS3StorageConfigPtrOutput {
+	return o
+}
+
+func (o FeatureGroupS3StorageConfigPtrOutput) Elem() FeatureGroupS3StorageConfigOutput {
+	return o.ApplyT(func(v *FeatureGroupS3StorageConfig) FeatureGroupS3StorageConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FeatureGroupS3StorageConfig
+		return ret
+	}).(FeatureGroupS3StorageConfigOutput)
+}
+
+func (o FeatureGroupS3StorageConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupS3StorageConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FeatureGroupS3StorageConfigPtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupS3StorageConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Uri
+	}).(pulumi.StringPtrOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -18789,6 +19233,317 @@ func (o NotebookInstanceTagArrayOutput) Index(i pulumi.IntInput) NotebookInstanc
 	}).(NotebookInstanceTagOutput)
 }
 
+type OfflineStoreConfigProperties struct {
+	DataCatalogConfig        *FeatureGroupDataCatalogConfig `pulumi:"dataCatalogConfig"`
+	DisableGlueTableCreation *bool                          `pulumi:"disableGlueTableCreation"`
+	S3StorageConfig          FeatureGroupS3StorageConfig    `pulumi:"s3StorageConfig"`
+}
+
+// OfflineStoreConfigPropertiesInput is an input type that accepts OfflineStoreConfigPropertiesArgs and OfflineStoreConfigPropertiesOutput values.
+// You can construct a concrete instance of `OfflineStoreConfigPropertiesInput` via:
+//
+//          OfflineStoreConfigPropertiesArgs{...}
+type OfflineStoreConfigPropertiesInput interface {
+	pulumi.Input
+
+	ToOfflineStoreConfigPropertiesOutput() OfflineStoreConfigPropertiesOutput
+	ToOfflineStoreConfigPropertiesOutputWithContext(context.Context) OfflineStoreConfigPropertiesOutput
+}
+
+type OfflineStoreConfigPropertiesArgs struct {
+	DataCatalogConfig        FeatureGroupDataCatalogConfigPtrInput `pulumi:"dataCatalogConfig"`
+	DisableGlueTableCreation pulumi.BoolPtrInput                   `pulumi:"disableGlueTableCreation"`
+	S3StorageConfig          FeatureGroupS3StorageConfigInput      `pulumi:"s3StorageConfig"`
+}
+
+func (OfflineStoreConfigPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OfflineStoreConfigProperties)(nil)).Elem()
+}
+
+func (i OfflineStoreConfigPropertiesArgs) ToOfflineStoreConfigPropertiesOutput() OfflineStoreConfigPropertiesOutput {
+	return i.ToOfflineStoreConfigPropertiesOutputWithContext(context.Background())
+}
+
+func (i OfflineStoreConfigPropertiesArgs) ToOfflineStoreConfigPropertiesOutputWithContext(ctx context.Context) OfflineStoreConfigPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OfflineStoreConfigPropertiesOutput)
+}
+
+func (i OfflineStoreConfigPropertiesArgs) ToOfflineStoreConfigPropertiesPtrOutput() OfflineStoreConfigPropertiesPtrOutput {
+	return i.ToOfflineStoreConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i OfflineStoreConfigPropertiesArgs) ToOfflineStoreConfigPropertiesPtrOutputWithContext(ctx context.Context) OfflineStoreConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OfflineStoreConfigPropertiesOutput).ToOfflineStoreConfigPropertiesPtrOutputWithContext(ctx)
+}
+
+// OfflineStoreConfigPropertiesPtrInput is an input type that accepts OfflineStoreConfigPropertiesArgs, OfflineStoreConfigPropertiesPtr and OfflineStoreConfigPropertiesPtrOutput values.
+// You can construct a concrete instance of `OfflineStoreConfigPropertiesPtrInput` via:
+//
+//          OfflineStoreConfigPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type OfflineStoreConfigPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToOfflineStoreConfigPropertiesPtrOutput() OfflineStoreConfigPropertiesPtrOutput
+	ToOfflineStoreConfigPropertiesPtrOutputWithContext(context.Context) OfflineStoreConfigPropertiesPtrOutput
+}
+
+type offlineStoreConfigPropertiesPtrType OfflineStoreConfigPropertiesArgs
+
+func OfflineStoreConfigPropertiesPtr(v *OfflineStoreConfigPropertiesArgs) OfflineStoreConfigPropertiesPtrInput {
+	return (*offlineStoreConfigPropertiesPtrType)(v)
+}
+
+func (*offlineStoreConfigPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OfflineStoreConfigProperties)(nil)).Elem()
+}
+
+func (i *offlineStoreConfigPropertiesPtrType) ToOfflineStoreConfigPropertiesPtrOutput() OfflineStoreConfigPropertiesPtrOutput {
+	return i.ToOfflineStoreConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *offlineStoreConfigPropertiesPtrType) ToOfflineStoreConfigPropertiesPtrOutputWithContext(ctx context.Context) OfflineStoreConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OfflineStoreConfigPropertiesPtrOutput)
+}
+
+type OfflineStoreConfigPropertiesOutput struct{ *pulumi.OutputState }
+
+func (OfflineStoreConfigPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OfflineStoreConfigProperties)(nil)).Elem()
+}
+
+func (o OfflineStoreConfigPropertiesOutput) ToOfflineStoreConfigPropertiesOutput() OfflineStoreConfigPropertiesOutput {
+	return o
+}
+
+func (o OfflineStoreConfigPropertiesOutput) ToOfflineStoreConfigPropertiesOutputWithContext(ctx context.Context) OfflineStoreConfigPropertiesOutput {
+	return o
+}
+
+func (o OfflineStoreConfigPropertiesOutput) ToOfflineStoreConfigPropertiesPtrOutput() OfflineStoreConfigPropertiesPtrOutput {
+	return o.ToOfflineStoreConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o OfflineStoreConfigPropertiesOutput) ToOfflineStoreConfigPropertiesPtrOutputWithContext(ctx context.Context) OfflineStoreConfigPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OfflineStoreConfigProperties) *OfflineStoreConfigProperties {
+		return &v
+	}).(OfflineStoreConfigPropertiesPtrOutput)
+}
+
+func (o OfflineStoreConfigPropertiesOutput) DataCatalogConfig() FeatureGroupDataCatalogConfigPtrOutput {
+	return o.ApplyT(func(v OfflineStoreConfigProperties) *FeatureGroupDataCatalogConfig { return v.DataCatalogConfig }).(FeatureGroupDataCatalogConfigPtrOutput)
+}
+
+func (o OfflineStoreConfigPropertiesOutput) DisableGlueTableCreation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OfflineStoreConfigProperties) *bool { return v.DisableGlueTableCreation }).(pulumi.BoolPtrOutput)
+}
+
+func (o OfflineStoreConfigPropertiesOutput) S3StorageConfig() FeatureGroupS3StorageConfigOutput {
+	return o.ApplyT(func(v OfflineStoreConfigProperties) FeatureGroupS3StorageConfig { return v.S3StorageConfig }).(FeatureGroupS3StorageConfigOutput)
+}
+
+type OfflineStoreConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (OfflineStoreConfigPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OfflineStoreConfigProperties)(nil)).Elem()
+}
+
+func (o OfflineStoreConfigPropertiesPtrOutput) ToOfflineStoreConfigPropertiesPtrOutput() OfflineStoreConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o OfflineStoreConfigPropertiesPtrOutput) ToOfflineStoreConfigPropertiesPtrOutputWithContext(ctx context.Context) OfflineStoreConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o OfflineStoreConfigPropertiesPtrOutput) Elem() OfflineStoreConfigPropertiesOutput {
+	return o.ApplyT(func(v *OfflineStoreConfigProperties) OfflineStoreConfigProperties {
+		if v != nil {
+			return *v
+		}
+		var ret OfflineStoreConfigProperties
+		return ret
+	}).(OfflineStoreConfigPropertiesOutput)
+}
+
+func (o OfflineStoreConfigPropertiesPtrOutput) DataCatalogConfig() FeatureGroupDataCatalogConfigPtrOutput {
+	return o.ApplyT(func(v *OfflineStoreConfigProperties) *FeatureGroupDataCatalogConfig {
+		if v == nil {
+			return nil
+		}
+		return v.DataCatalogConfig
+	}).(FeatureGroupDataCatalogConfigPtrOutput)
+}
+
+func (o OfflineStoreConfigPropertiesPtrOutput) DisableGlueTableCreation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OfflineStoreConfigProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableGlueTableCreation
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o OfflineStoreConfigPropertiesPtrOutput) S3StorageConfig() FeatureGroupS3StorageConfigPtrOutput {
+	return o.ApplyT(func(v *OfflineStoreConfigProperties) *FeatureGroupS3StorageConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.S3StorageConfig
+	}).(FeatureGroupS3StorageConfigPtrOutput)
+}
+
+type OnlineStoreConfigProperties struct {
+	EnableOnlineStore *bool                                  `pulumi:"enableOnlineStore"`
+	SecurityConfig    *FeatureGroupOnlineStoreSecurityConfig `pulumi:"securityConfig"`
+}
+
+// OnlineStoreConfigPropertiesInput is an input type that accepts OnlineStoreConfigPropertiesArgs and OnlineStoreConfigPropertiesOutput values.
+// You can construct a concrete instance of `OnlineStoreConfigPropertiesInput` via:
+//
+//          OnlineStoreConfigPropertiesArgs{...}
+type OnlineStoreConfigPropertiesInput interface {
+	pulumi.Input
+
+	ToOnlineStoreConfigPropertiesOutput() OnlineStoreConfigPropertiesOutput
+	ToOnlineStoreConfigPropertiesOutputWithContext(context.Context) OnlineStoreConfigPropertiesOutput
+}
+
+type OnlineStoreConfigPropertiesArgs struct {
+	EnableOnlineStore pulumi.BoolPtrInput                           `pulumi:"enableOnlineStore"`
+	SecurityConfig    FeatureGroupOnlineStoreSecurityConfigPtrInput `pulumi:"securityConfig"`
+}
+
+func (OnlineStoreConfigPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineStoreConfigProperties)(nil)).Elem()
+}
+
+func (i OnlineStoreConfigPropertiesArgs) ToOnlineStoreConfigPropertiesOutput() OnlineStoreConfigPropertiesOutput {
+	return i.ToOnlineStoreConfigPropertiesOutputWithContext(context.Background())
+}
+
+func (i OnlineStoreConfigPropertiesArgs) ToOnlineStoreConfigPropertiesOutputWithContext(ctx context.Context) OnlineStoreConfigPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnlineStoreConfigPropertiesOutput)
+}
+
+func (i OnlineStoreConfigPropertiesArgs) ToOnlineStoreConfigPropertiesPtrOutput() OnlineStoreConfigPropertiesPtrOutput {
+	return i.ToOnlineStoreConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i OnlineStoreConfigPropertiesArgs) ToOnlineStoreConfigPropertiesPtrOutputWithContext(ctx context.Context) OnlineStoreConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnlineStoreConfigPropertiesOutput).ToOnlineStoreConfigPropertiesPtrOutputWithContext(ctx)
+}
+
+// OnlineStoreConfigPropertiesPtrInput is an input type that accepts OnlineStoreConfigPropertiesArgs, OnlineStoreConfigPropertiesPtr and OnlineStoreConfigPropertiesPtrOutput values.
+// You can construct a concrete instance of `OnlineStoreConfigPropertiesPtrInput` via:
+//
+//          OnlineStoreConfigPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type OnlineStoreConfigPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToOnlineStoreConfigPropertiesPtrOutput() OnlineStoreConfigPropertiesPtrOutput
+	ToOnlineStoreConfigPropertiesPtrOutputWithContext(context.Context) OnlineStoreConfigPropertiesPtrOutput
+}
+
+type onlineStoreConfigPropertiesPtrType OnlineStoreConfigPropertiesArgs
+
+func OnlineStoreConfigPropertiesPtr(v *OnlineStoreConfigPropertiesArgs) OnlineStoreConfigPropertiesPtrInput {
+	return (*onlineStoreConfigPropertiesPtrType)(v)
+}
+
+func (*onlineStoreConfigPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnlineStoreConfigProperties)(nil)).Elem()
+}
+
+func (i *onlineStoreConfigPropertiesPtrType) ToOnlineStoreConfigPropertiesPtrOutput() OnlineStoreConfigPropertiesPtrOutput {
+	return i.ToOnlineStoreConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *onlineStoreConfigPropertiesPtrType) ToOnlineStoreConfigPropertiesPtrOutputWithContext(ctx context.Context) OnlineStoreConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnlineStoreConfigPropertiesPtrOutput)
+}
+
+type OnlineStoreConfigPropertiesOutput struct{ *pulumi.OutputState }
+
+func (OnlineStoreConfigPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineStoreConfigProperties)(nil)).Elem()
+}
+
+func (o OnlineStoreConfigPropertiesOutput) ToOnlineStoreConfigPropertiesOutput() OnlineStoreConfigPropertiesOutput {
+	return o
+}
+
+func (o OnlineStoreConfigPropertiesOutput) ToOnlineStoreConfigPropertiesOutputWithContext(ctx context.Context) OnlineStoreConfigPropertiesOutput {
+	return o
+}
+
+func (o OnlineStoreConfigPropertiesOutput) ToOnlineStoreConfigPropertiesPtrOutput() OnlineStoreConfigPropertiesPtrOutput {
+	return o.ToOnlineStoreConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o OnlineStoreConfigPropertiesOutput) ToOnlineStoreConfigPropertiesPtrOutputWithContext(ctx context.Context) OnlineStoreConfigPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OnlineStoreConfigProperties) *OnlineStoreConfigProperties {
+		return &v
+	}).(OnlineStoreConfigPropertiesPtrOutput)
+}
+
+func (o OnlineStoreConfigPropertiesOutput) EnableOnlineStore() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OnlineStoreConfigProperties) *bool { return v.EnableOnlineStore }).(pulumi.BoolPtrOutput)
+}
+
+func (o OnlineStoreConfigPropertiesOutput) SecurityConfig() FeatureGroupOnlineStoreSecurityConfigPtrOutput {
+	return o.ApplyT(func(v OnlineStoreConfigProperties) *FeatureGroupOnlineStoreSecurityConfig { return v.SecurityConfig }).(FeatureGroupOnlineStoreSecurityConfigPtrOutput)
+}
+
+type OnlineStoreConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (OnlineStoreConfigPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnlineStoreConfigProperties)(nil)).Elem()
+}
+
+func (o OnlineStoreConfigPropertiesPtrOutput) ToOnlineStoreConfigPropertiesPtrOutput() OnlineStoreConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o OnlineStoreConfigPropertiesPtrOutput) ToOnlineStoreConfigPropertiesPtrOutputWithContext(ctx context.Context) OnlineStoreConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o OnlineStoreConfigPropertiesPtrOutput) Elem() OnlineStoreConfigPropertiesOutput {
+	return o.ApplyT(func(v *OnlineStoreConfigProperties) OnlineStoreConfigProperties {
+		if v != nil {
+			return *v
+		}
+		var ret OnlineStoreConfigProperties
+		return ret
+	}).(OnlineStoreConfigPropertiesOutput)
+}
+
+func (o OnlineStoreConfigPropertiesPtrOutput) EnableOnlineStore() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OnlineStoreConfigProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableOnlineStore
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o OnlineStoreConfigPropertiesPtrOutput) SecurityConfig() FeatureGroupOnlineStoreSecurityConfigPtrOutput {
+	return o.ApplyT(func(v *OnlineStoreConfigProperties) *FeatureGroupOnlineStoreSecurityConfig {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityConfig
+	}).(FeatureGroupOnlineStoreSecurityConfigPtrOutput)
+}
+
 type PipelineTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -18887,6 +19642,115 @@ func (o PipelineTagArrayOutput) Index(i pulumi.IntInput) PipelineTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineTag {
 		return vs[0].([]PipelineTag)[vs[1].(int)]
 	}).(PipelineTagOutput)
+}
+
+// Information about a parameter used to provision a product.
+type ProjectProvisioningParameter struct {
+	// The parameter key.
+	Key string `pulumi:"key"`
+	// The parameter value.
+	Value string `pulumi:"value"`
+}
+
+// ProjectProvisioningParameterInput is an input type that accepts ProjectProvisioningParameterArgs and ProjectProvisioningParameterOutput values.
+// You can construct a concrete instance of `ProjectProvisioningParameterInput` via:
+//
+//          ProjectProvisioningParameterArgs{...}
+type ProjectProvisioningParameterInput interface {
+	pulumi.Input
+
+	ToProjectProvisioningParameterOutput() ProjectProvisioningParameterOutput
+	ToProjectProvisioningParameterOutputWithContext(context.Context) ProjectProvisioningParameterOutput
+}
+
+// Information about a parameter used to provision a product.
+type ProjectProvisioningParameterArgs struct {
+	// The parameter key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The parameter value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ProjectProvisioningParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectProvisioningParameter)(nil)).Elem()
+}
+
+func (i ProjectProvisioningParameterArgs) ToProjectProvisioningParameterOutput() ProjectProvisioningParameterOutput {
+	return i.ToProjectProvisioningParameterOutputWithContext(context.Background())
+}
+
+func (i ProjectProvisioningParameterArgs) ToProjectProvisioningParameterOutputWithContext(ctx context.Context) ProjectProvisioningParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectProvisioningParameterOutput)
+}
+
+// ProjectProvisioningParameterArrayInput is an input type that accepts ProjectProvisioningParameterArray and ProjectProvisioningParameterArrayOutput values.
+// You can construct a concrete instance of `ProjectProvisioningParameterArrayInput` via:
+//
+//          ProjectProvisioningParameterArray{ ProjectProvisioningParameterArgs{...} }
+type ProjectProvisioningParameterArrayInput interface {
+	pulumi.Input
+
+	ToProjectProvisioningParameterArrayOutput() ProjectProvisioningParameterArrayOutput
+	ToProjectProvisioningParameterArrayOutputWithContext(context.Context) ProjectProvisioningParameterArrayOutput
+}
+
+type ProjectProvisioningParameterArray []ProjectProvisioningParameterInput
+
+func (ProjectProvisioningParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectProvisioningParameter)(nil)).Elem()
+}
+
+func (i ProjectProvisioningParameterArray) ToProjectProvisioningParameterArrayOutput() ProjectProvisioningParameterArrayOutput {
+	return i.ToProjectProvisioningParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectProvisioningParameterArray) ToProjectProvisioningParameterArrayOutputWithContext(ctx context.Context) ProjectProvisioningParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectProvisioningParameterArrayOutput)
+}
+
+// Information about a parameter used to provision a product.
+type ProjectProvisioningParameterOutput struct{ *pulumi.OutputState }
+
+func (ProjectProvisioningParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectProvisioningParameter)(nil)).Elem()
+}
+
+func (o ProjectProvisioningParameterOutput) ToProjectProvisioningParameterOutput() ProjectProvisioningParameterOutput {
+	return o
+}
+
+func (o ProjectProvisioningParameterOutput) ToProjectProvisioningParameterOutputWithContext(ctx context.Context) ProjectProvisioningParameterOutput {
+	return o
+}
+
+// The parameter key.
+func (o ProjectProvisioningParameterOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectProvisioningParameter) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The parameter value.
+func (o ProjectProvisioningParameterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectProvisioningParameter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ProjectProvisioningParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectProvisioningParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectProvisioningParameter)(nil)).Elem()
+}
+
+func (o ProjectProvisioningParameterArrayOutput) ToProjectProvisioningParameterArrayOutput() ProjectProvisioningParameterArrayOutput {
+	return o
+}
+
+func (o ProjectProvisioningParameterArrayOutput) ToProjectProvisioningParameterArrayOutputWithContext(ctx context.Context) ProjectProvisioningParameterArrayOutput {
+	return o
+}
+
+func (o ProjectProvisioningParameterArrayOutput) Index(i pulumi.IntInput) ProjectProvisioningParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectProvisioningParameter {
+		return vs[0].([]ProjectProvisioningParameter)[vs[1].(int)]
+	}).(ProjectProvisioningParameterOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -18996,6 +19860,346 @@ func (o ProjectTagArrayOutput) Index(i pulumi.IntInput) ProjectTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectTag {
 		return vs[0].([]ProjectTag)[vs[1].(int)]
 	}).(ProjectTagOutput)
+}
+
+// Provisioned ServiceCatalog  Details
+type ServiceCatalogProvisionedProductDetailsProperties struct {
+	ProvisionedProductId            *string `pulumi:"provisionedProductId"`
+	ProvisionedProductStatusMessage *string `pulumi:"provisionedProductStatusMessage"`
+}
+
+// ServiceCatalogProvisionedProductDetailsPropertiesInput is an input type that accepts ServiceCatalogProvisionedProductDetailsPropertiesArgs and ServiceCatalogProvisionedProductDetailsPropertiesOutput values.
+// You can construct a concrete instance of `ServiceCatalogProvisionedProductDetailsPropertiesInput` via:
+//
+//          ServiceCatalogProvisionedProductDetailsPropertiesArgs{...}
+type ServiceCatalogProvisionedProductDetailsPropertiesInput interface {
+	pulumi.Input
+
+	ToServiceCatalogProvisionedProductDetailsPropertiesOutput() ServiceCatalogProvisionedProductDetailsPropertiesOutput
+	ToServiceCatalogProvisionedProductDetailsPropertiesOutputWithContext(context.Context) ServiceCatalogProvisionedProductDetailsPropertiesOutput
+}
+
+// Provisioned ServiceCatalog  Details
+type ServiceCatalogProvisionedProductDetailsPropertiesArgs struct {
+	ProvisionedProductId            pulumi.StringPtrInput `pulumi:"provisionedProductId"`
+	ProvisionedProductStatusMessage pulumi.StringPtrInput `pulumi:"provisionedProductStatusMessage"`
+}
+
+func (ServiceCatalogProvisionedProductDetailsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceCatalogProvisionedProductDetailsProperties)(nil)).Elem()
+}
+
+func (i ServiceCatalogProvisionedProductDetailsPropertiesArgs) ToServiceCatalogProvisionedProductDetailsPropertiesOutput() ServiceCatalogProvisionedProductDetailsPropertiesOutput {
+	return i.ToServiceCatalogProvisionedProductDetailsPropertiesOutputWithContext(context.Background())
+}
+
+func (i ServiceCatalogProvisionedProductDetailsPropertiesArgs) ToServiceCatalogProvisionedProductDetailsPropertiesOutputWithContext(ctx context.Context) ServiceCatalogProvisionedProductDetailsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceCatalogProvisionedProductDetailsPropertiesOutput)
+}
+
+func (i ServiceCatalogProvisionedProductDetailsPropertiesArgs) ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutput() ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput {
+	return i.ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceCatalogProvisionedProductDetailsPropertiesArgs) ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutputWithContext(ctx context.Context) ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceCatalogProvisionedProductDetailsPropertiesOutput).ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutputWithContext(ctx)
+}
+
+// ServiceCatalogProvisionedProductDetailsPropertiesPtrInput is an input type that accepts ServiceCatalogProvisionedProductDetailsPropertiesArgs, ServiceCatalogProvisionedProductDetailsPropertiesPtr and ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput values.
+// You can construct a concrete instance of `ServiceCatalogProvisionedProductDetailsPropertiesPtrInput` via:
+//
+//          ServiceCatalogProvisionedProductDetailsPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceCatalogProvisionedProductDetailsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutput() ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput
+	ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutputWithContext(context.Context) ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput
+}
+
+type serviceCatalogProvisionedProductDetailsPropertiesPtrType ServiceCatalogProvisionedProductDetailsPropertiesArgs
+
+func ServiceCatalogProvisionedProductDetailsPropertiesPtr(v *ServiceCatalogProvisionedProductDetailsPropertiesArgs) ServiceCatalogProvisionedProductDetailsPropertiesPtrInput {
+	return (*serviceCatalogProvisionedProductDetailsPropertiesPtrType)(v)
+}
+
+func (*serviceCatalogProvisionedProductDetailsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceCatalogProvisionedProductDetailsProperties)(nil)).Elem()
+}
+
+func (i *serviceCatalogProvisionedProductDetailsPropertiesPtrType) ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutput() ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput {
+	return i.ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceCatalogProvisionedProductDetailsPropertiesPtrType) ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutputWithContext(ctx context.Context) ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput)
+}
+
+// Provisioned ServiceCatalog  Details
+type ServiceCatalogProvisionedProductDetailsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ServiceCatalogProvisionedProductDetailsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceCatalogProvisionedProductDetailsProperties)(nil)).Elem()
+}
+
+func (o ServiceCatalogProvisionedProductDetailsPropertiesOutput) ToServiceCatalogProvisionedProductDetailsPropertiesOutput() ServiceCatalogProvisionedProductDetailsPropertiesOutput {
+	return o
+}
+
+func (o ServiceCatalogProvisionedProductDetailsPropertiesOutput) ToServiceCatalogProvisionedProductDetailsPropertiesOutputWithContext(ctx context.Context) ServiceCatalogProvisionedProductDetailsPropertiesOutput {
+	return o
+}
+
+func (o ServiceCatalogProvisionedProductDetailsPropertiesOutput) ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutput() ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput {
+	return o.ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceCatalogProvisionedProductDetailsPropertiesOutput) ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutputWithContext(ctx context.Context) ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceCatalogProvisionedProductDetailsProperties) *ServiceCatalogProvisionedProductDetailsProperties {
+		return &v
+	}).(ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput)
+}
+
+func (o ServiceCatalogProvisionedProductDetailsPropertiesOutput) ProvisionedProductId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceCatalogProvisionedProductDetailsProperties) *string { return v.ProvisionedProductId }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceCatalogProvisionedProductDetailsPropertiesOutput) ProvisionedProductStatusMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceCatalogProvisionedProductDetailsProperties) *string {
+		return v.ProvisionedProductStatusMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceCatalogProvisionedProductDetailsProperties)(nil)).Elem()
+}
+
+func (o ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput) ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutput() ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput {
+	return o
+}
+
+func (o ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput) ToServiceCatalogProvisionedProductDetailsPropertiesPtrOutputWithContext(ctx context.Context) ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput {
+	return o
+}
+
+func (o ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput) Elem() ServiceCatalogProvisionedProductDetailsPropertiesOutput {
+	return o.ApplyT(func(v *ServiceCatalogProvisionedProductDetailsProperties) ServiceCatalogProvisionedProductDetailsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceCatalogProvisionedProductDetailsProperties
+		return ret
+	}).(ServiceCatalogProvisionedProductDetailsPropertiesOutput)
+}
+
+func (o ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput) ProvisionedProductId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceCatalogProvisionedProductDetailsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisionedProductId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput) ProvisionedProductStatusMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceCatalogProvisionedProductDetailsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisionedProductStatusMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+// Input ServiceCatalog Provisioning Details
+type ServiceCatalogProvisioningDetailsProperties struct {
+	PathId                 *string `pulumi:"pathId"`
+	ProductId              string  `pulumi:"productId"`
+	ProvisioningArtifactId string  `pulumi:"provisioningArtifactId"`
+	// Parameters specified by the administrator that are required for provisioning the product.
+	ProvisioningParameters []ProjectProvisioningParameter `pulumi:"provisioningParameters"`
+}
+
+// ServiceCatalogProvisioningDetailsPropertiesInput is an input type that accepts ServiceCatalogProvisioningDetailsPropertiesArgs and ServiceCatalogProvisioningDetailsPropertiesOutput values.
+// You can construct a concrete instance of `ServiceCatalogProvisioningDetailsPropertiesInput` via:
+//
+//          ServiceCatalogProvisioningDetailsPropertiesArgs{...}
+type ServiceCatalogProvisioningDetailsPropertiesInput interface {
+	pulumi.Input
+
+	ToServiceCatalogProvisioningDetailsPropertiesOutput() ServiceCatalogProvisioningDetailsPropertiesOutput
+	ToServiceCatalogProvisioningDetailsPropertiesOutputWithContext(context.Context) ServiceCatalogProvisioningDetailsPropertiesOutput
+}
+
+// Input ServiceCatalog Provisioning Details
+type ServiceCatalogProvisioningDetailsPropertiesArgs struct {
+	PathId                 pulumi.StringPtrInput `pulumi:"pathId"`
+	ProductId              pulumi.StringInput    `pulumi:"productId"`
+	ProvisioningArtifactId pulumi.StringInput    `pulumi:"provisioningArtifactId"`
+	// Parameters specified by the administrator that are required for provisioning the product.
+	ProvisioningParameters ProjectProvisioningParameterArrayInput `pulumi:"provisioningParameters"`
+}
+
+func (ServiceCatalogProvisioningDetailsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceCatalogProvisioningDetailsProperties)(nil)).Elem()
+}
+
+func (i ServiceCatalogProvisioningDetailsPropertiesArgs) ToServiceCatalogProvisioningDetailsPropertiesOutput() ServiceCatalogProvisioningDetailsPropertiesOutput {
+	return i.ToServiceCatalogProvisioningDetailsPropertiesOutputWithContext(context.Background())
+}
+
+func (i ServiceCatalogProvisioningDetailsPropertiesArgs) ToServiceCatalogProvisioningDetailsPropertiesOutputWithContext(ctx context.Context) ServiceCatalogProvisioningDetailsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceCatalogProvisioningDetailsPropertiesOutput)
+}
+
+func (i ServiceCatalogProvisioningDetailsPropertiesArgs) ToServiceCatalogProvisioningDetailsPropertiesPtrOutput() ServiceCatalogProvisioningDetailsPropertiesPtrOutput {
+	return i.ToServiceCatalogProvisioningDetailsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceCatalogProvisioningDetailsPropertiesArgs) ToServiceCatalogProvisioningDetailsPropertiesPtrOutputWithContext(ctx context.Context) ServiceCatalogProvisioningDetailsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceCatalogProvisioningDetailsPropertiesOutput).ToServiceCatalogProvisioningDetailsPropertiesPtrOutputWithContext(ctx)
+}
+
+// ServiceCatalogProvisioningDetailsPropertiesPtrInput is an input type that accepts ServiceCatalogProvisioningDetailsPropertiesArgs, ServiceCatalogProvisioningDetailsPropertiesPtr and ServiceCatalogProvisioningDetailsPropertiesPtrOutput values.
+// You can construct a concrete instance of `ServiceCatalogProvisioningDetailsPropertiesPtrInput` via:
+//
+//          ServiceCatalogProvisioningDetailsPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceCatalogProvisioningDetailsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToServiceCatalogProvisioningDetailsPropertiesPtrOutput() ServiceCatalogProvisioningDetailsPropertiesPtrOutput
+	ToServiceCatalogProvisioningDetailsPropertiesPtrOutputWithContext(context.Context) ServiceCatalogProvisioningDetailsPropertiesPtrOutput
+}
+
+type serviceCatalogProvisioningDetailsPropertiesPtrType ServiceCatalogProvisioningDetailsPropertiesArgs
+
+func ServiceCatalogProvisioningDetailsPropertiesPtr(v *ServiceCatalogProvisioningDetailsPropertiesArgs) ServiceCatalogProvisioningDetailsPropertiesPtrInput {
+	return (*serviceCatalogProvisioningDetailsPropertiesPtrType)(v)
+}
+
+func (*serviceCatalogProvisioningDetailsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceCatalogProvisioningDetailsProperties)(nil)).Elem()
+}
+
+func (i *serviceCatalogProvisioningDetailsPropertiesPtrType) ToServiceCatalogProvisioningDetailsPropertiesPtrOutput() ServiceCatalogProvisioningDetailsPropertiesPtrOutput {
+	return i.ToServiceCatalogProvisioningDetailsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceCatalogProvisioningDetailsPropertiesPtrType) ToServiceCatalogProvisioningDetailsPropertiesPtrOutputWithContext(ctx context.Context) ServiceCatalogProvisioningDetailsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceCatalogProvisioningDetailsPropertiesPtrOutput)
+}
+
+// Input ServiceCatalog Provisioning Details
+type ServiceCatalogProvisioningDetailsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ServiceCatalogProvisioningDetailsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceCatalogProvisioningDetailsProperties)(nil)).Elem()
+}
+
+func (o ServiceCatalogProvisioningDetailsPropertiesOutput) ToServiceCatalogProvisioningDetailsPropertiesOutput() ServiceCatalogProvisioningDetailsPropertiesOutput {
+	return o
+}
+
+func (o ServiceCatalogProvisioningDetailsPropertiesOutput) ToServiceCatalogProvisioningDetailsPropertiesOutputWithContext(ctx context.Context) ServiceCatalogProvisioningDetailsPropertiesOutput {
+	return o
+}
+
+func (o ServiceCatalogProvisioningDetailsPropertiesOutput) ToServiceCatalogProvisioningDetailsPropertiesPtrOutput() ServiceCatalogProvisioningDetailsPropertiesPtrOutput {
+	return o.ToServiceCatalogProvisioningDetailsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceCatalogProvisioningDetailsPropertiesOutput) ToServiceCatalogProvisioningDetailsPropertiesPtrOutputWithContext(ctx context.Context) ServiceCatalogProvisioningDetailsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceCatalogProvisioningDetailsProperties) *ServiceCatalogProvisioningDetailsProperties {
+		return &v
+	}).(ServiceCatalogProvisioningDetailsPropertiesPtrOutput)
+}
+
+func (o ServiceCatalogProvisioningDetailsPropertiesOutput) PathId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceCatalogProvisioningDetailsProperties) *string { return v.PathId }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceCatalogProvisioningDetailsPropertiesOutput) ProductId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceCatalogProvisioningDetailsProperties) string { return v.ProductId }).(pulumi.StringOutput)
+}
+
+func (o ServiceCatalogProvisioningDetailsPropertiesOutput) ProvisioningArtifactId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceCatalogProvisioningDetailsProperties) string { return v.ProvisioningArtifactId }).(pulumi.StringOutput)
+}
+
+// Parameters specified by the administrator that are required for provisioning the product.
+func (o ServiceCatalogProvisioningDetailsPropertiesOutput) ProvisioningParameters() ProjectProvisioningParameterArrayOutput {
+	return o.ApplyT(func(v ServiceCatalogProvisioningDetailsProperties) []ProjectProvisioningParameter {
+		return v.ProvisioningParameters
+	}).(ProjectProvisioningParameterArrayOutput)
+}
+
+type ServiceCatalogProvisioningDetailsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceCatalogProvisioningDetailsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceCatalogProvisioningDetailsProperties)(nil)).Elem()
+}
+
+func (o ServiceCatalogProvisioningDetailsPropertiesPtrOutput) ToServiceCatalogProvisioningDetailsPropertiesPtrOutput() ServiceCatalogProvisioningDetailsPropertiesPtrOutput {
+	return o
+}
+
+func (o ServiceCatalogProvisioningDetailsPropertiesPtrOutput) ToServiceCatalogProvisioningDetailsPropertiesPtrOutputWithContext(ctx context.Context) ServiceCatalogProvisioningDetailsPropertiesPtrOutput {
+	return o
+}
+
+func (o ServiceCatalogProvisioningDetailsPropertiesPtrOutput) Elem() ServiceCatalogProvisioningDetailsPropertiesOutput {
+	return o.ApplyT(func(v *ServiceCatalogProvisioningDetailsProperties) ServiceCatalogProvisioningDetailsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceCatalogProvisioningDetailsProperties
+		return ret
+	}).(ServiceCatalogProvisioningDetailsPropertiesOutput)
+}
+
+func (o ServiceCatalogProvisioningDetailsPropertiesPtrOutput) PathId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceCatalogProvisioningDetailsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PathId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceCatalogProvisioningDetailsPropertiesPtrOutput) ProductId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceCatalogProvisioningDetailsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProductId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceCatalogProvisioningDetailsPropertiesPtrOutput) ProvisioningArtifactId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceCatalogProvisioningDetailsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProvisioningArtifactId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Parameters specified by the administrator that are required for provisioning the product.
+func (o ServiceCatalogProvisioningDetailsPropertiesPtrOutput) ProvisioningParameters() ProjectProvisioningParameterArrayOutput {
+	return o.ApplyT(func(v *ServiceCatalogProvisioningDetailsProperties) []ProjectProvisioningParameter {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningParameters
+	}).(ProjectProvisioningParameterArrayOutput)
 }
 
 // A custom SageMaker image.
@@ -20576,8 +21780,14 @@ func init() {
 	pulumi.RegisterOutputType(EndpointTrafficRoutingConfigPtrOutput{})
 	pulumi.RegisterOutputType(EndpointVariantPropertyOutput{})
 	pulumi.RegisterOutputType(EndpointVariantPropertyArrayOutput{})
+	pulumi.RegisterOutputType(FeatureGroupDataCatalogConfigOutput{})
+	pulumi.RegisterOutputType(FeatureGroupDataCatalogConfigPtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionOutput{})
 	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(FeatureGroupOnlineStoreSecurityConfigOutput{})
+	pulumi.RegisterOutputType(FeatureGroupOnlineStoreSecurityConfigPtrOutput{})
+	pulumi.RegisterOutputType(FeatureGroupS3StorageConfigOutput{})
+	pulumi.RegisterOutputType(FeatureGroupS3StorageConfigPtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupTagOutput{})
 	pulumi.RegisterOutputType(FeatureGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(ImageTagOutput{})
@@ -20724,10 +21934,20 @@ func init() {
 	pulumi.RegisterOutputType(NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayOutput{})
 	pulumi.RegisterOutputType(NotebookInstanceTagOutput{})
 	pulumi.RegisterOutputType(NotebookInstanceTagArrayOutput{})
+	pulumi.RegisterOutputType(OfflineStoreConfigPropertiesOutput{})
+	pulumi.RegisterOutputType(OfflineStoreConfigPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(OnlineStoreConfigPropertiesOutput{})
+	pulumi.RegisterOutputType(OnlineStoreConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PipelineTagOutput{})
 	pulumi.RegisterOutputType(PipelineTagArrayOutput{})
+	pulumi.RegisterOutputType(ProjectProvisioningParameterOutput{})
+	pulumi.RegisterOutputType(ProjectProvisioningParameterArrayOutput{})
 	pulumi.RegisterOutputType(ProjectTagOutput{})
 	pulumi.RegisterOutputType(ProjectTagArrayOutput{})
+	pulumi.RegisterOutputType(ServiceCatalogProvisionedProductDetailsPropertiesOutput{})
+	pulumi.RegisterOutputType(ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ServiceCatalogProvisioningDetailsPropertiesOutput{})
+	pulumi.RegisterOutputType(ServiceCatalogProvisioningDetailsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileCustomImageOutput{})
 	pulumi.RegisterOutputType(UserProfileCustomImageArrayOutput{})
 	pulumi.RegisterOutputType(UserProfileJupyterServerAppSettingsOutput{})

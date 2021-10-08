@@ -10,6 +10,146 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The agent permissions attached to this profiling group.
+type AgentPermissionsProperties struct {
+	// The principals for the agent permissions.
+	Principals []string `pulumi:"principals"`
+}
+
+// AgentPermissionsPropertiesInput is an input type that accepts AgentPermissionsPropertiesArgs and AgentPermissionsPropertiesOutput values.
+// You can construct a concrete instance of `AgentPermissionsPropertiesInput` via:
+//
+//          AgentPermissionsPropertiesArgs{...}
+type AgentPermissionsPropertiesInput interface {
+	pulumi.Input
+
+	ToAgentPermissionsPropertiesOutput() AgentPermissionsPropertiesOutput
+	ToAgentPermissionsPropertiesOutputWithContext(context.Context) AgentPermissionsPropertiesOutput
+}
+
+// The agent permissions attached to this profiling group.
+type AgentPermissionsPropertiesArgs struct {
+	// The principals for the agent permissions.
+	Principals pulumi.StringArrayInput `pulumi:"principals"`
+}
+
+func (AgentPermissionsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPermissionsProperties)(nil)).Elem()
+}
+
+func (i AgentPermissionsPropertiesArgs) ToAgentPermissionsPropertiesOutput() AgentPermissionsPropertiesOutput {
+	return i.ToAgentPermissionsPropertiesOutputWithContext(context.Background())
+}
+
+func (i AgentPermissionsPropertiesArgs) ToAgentPermissionsPropertiesOutputWithContext(ctx context.Context) AgentPermissionsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPermissionsPropertiesOutput)
+}
+
+func (i AgentPermissionsPropertiesArgs) ToAgentPermissionsPropertiesPtrOutput() AgentPermissionsPropertiesPtrOutput {
+	return i.ToAgentPermissionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i AgentPermissionsPropertiesArgs) ToAgentPermissionsPropertiesPtrOutputWithContext(ctx context.Context) AgentPermissionsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPermissionsPropertiesOutput).ToAgentPermissionsPropertiesPtrOutputWithContext(ctx)
+}
+
+// AgentPermissionsPropertiesPtrInput is an input type that accepts AgentPermissionsPropertiesArgs, AgentPermissionsPropertiesPtr and AgentPermissionsPropertiesPtrOutput values.
+// You can construct a concrete instance of `AgentPermissionsPropertiesPtrInput` via:
+//
+//          AgentPermissionsPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type AgentPermissionsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToAgentPermissionsPropertiesPtrOutput() AgentPermissionsPropertiesPtrOutput
+	ToAgentPermissionsPropertiesPtrOutputWithContext(context.Context) AgentPermissionsPropertiesPtrOutput
+}
+
+type agentPermissionsPropertiesPtrType AgentPermissionsPropertiesArgs
+
+func AgentPermissionsPropertiesPtr(v *AgentPermissionsPropertiesArgs) AgentPermissionsPropertiesPtrInput {
+	return (*agentPermissionsPropertiesPtrType)(v)
+}
+
+func (*agentPermissionsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPermissionsProperties)(nil)).Elem()
+}
+
+func (i *agentPermissionsPropertiesPtrType) ToAgentPermissionsPropertiesPtrOutput() AgentPermissionsPropertiesPtrOutput {
+	return i.ToAgentPermissionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *agentPermissionsPropertiesPtrType) ToAgentPermissionsPropertiesPtrOutputWithContext(ctx context.Context) AgentPermissionsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPermissionsPropertiesPtrOutput)
+}
+
+// The agent permissions attached to this profiling group.
+type AgentPermissionsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (AgentPermissionsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPermissionsProperties)(nil)).Elem()
+}
+
+func (o AgentPermissionsPropertiesOutput) ToAgentPermissionsPropertiesOutput() AgentPermissionsPropertiesOutput {
+	return o
+}
+
+func (o AgentPermissionsPropertiesOutput) ToAgentPermissionsPropertiesOutputWithContext(ctx context.Context) AgentPermissionsPropertiesOutput {
+	return o
+}
+
+func (o AgentPermissionsPropertiesOutput) ToAgentPermissionsPropertiesPtrOutput() AgentPermissionsPropertiesPtrOutput {
+	return o.ToAgentPermissionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o AgentPermissionsPropertiesOutput) ToAgentPermissionsPropertiesPtrOutputWithContext(ctx context.Context) AgentPermissionsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentPermissionsProperties) *AgentPermissionsProperties {
+		return &v
+	}).(AgentPermissionsPropertiesPtrOutput)
+}
+
+// The principals for the agent permissions.
+func (o AgentPermissionsPropertiesOutput) Principals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentPermissionsProperties) []string { return v.Principals }).(pulumi.StringArrayOutput)
+}
+
+type AgentPermissionsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentPermissionsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPermissionsProperties)(nil)).Elem()
+}
+
+func (o AgentPermissionsPropertiesPtrOutput) ToAgentPermissionsPropertiesPtrOutput() AgentPermissionsPropertiesPtrOutput {
+	return o
+}
+
+func (o AgentPermissionsPropertiesPtrOutput) ToAgentPermissionsPropertiesPtrOutputWithContext(ctx context.Context) AgentPermissionsPropertiesPtrOutput {
+	return o
+}
+
+func (o AgentPermissionsPropertiesPtrOutput) Elem() AgentPermissionsPropertiesOutput {
+	return o.ApplyT(func(v *AgentPermissionsProperties) AgentPermissionsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AgentPermissionsProperties
+		return ret
+	}).(AgentPermissionsPropertiesOutput)
+}
+
+// The principals for the agent permissions.
+func (o AgentPermissionsPropertiesPtrOutput) Principals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentPermissionsProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Principals
+	}).(pulumi.StringArrayOutput)
+}
+
 // Notification medium for users to get alerted for events that occur in application profile. We support SNS topic as a notification channel.
 type ProfilingGroupChannel struct {
 	ChannelId  *string `pulumi:"channelId"`
@@ -223,6 +363,8 @@ func (o ProfilingGroupTagArrayOutput) Index(i pulumi.IntInput) ProfilingGroupTag
 }
 
 func init() {
+	pulumi.RegisterOutputType(AgentPermissionsPropertiesOutput{})
+	pulumi.RegisterOutputType(AgentPermissionsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ProfilingGroupChannelOutput{})
 	pulumi.RegisterOutputType(ProfilingGroupChannelArrayOutput{})
 	pulumi.RegisterOutputType(ProfilingGroupTagOutput{})

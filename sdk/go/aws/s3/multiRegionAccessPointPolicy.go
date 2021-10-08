@@ -20,7 +20,7 @@ type MultiRegionAccessPointPolicy struct {
 	// Policy document to apply to a Multi Region Access Point
 	Policy pulumi.AnyOutput `pulumi:"policy"`
 	// The Policy Status associated with this Multi Region Access Point
-	PolicyStatus pulumi.AnyOutput `pulumi:"policyStatus"`
+	PolicyStatus PolicyStatusPropertiesOutput `pulumi:"policyStatus"`
 }
 
 // NewMultiRegionAccessPointPolicy registers a new resource with the given unique name, arguments, and options.
