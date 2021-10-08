@@ -10,14 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EKS.Inputs
 {
 
-    /// <summary>
-    /// The Kubernetes network configuration for the cluster.
-    /// </summary>
     public sealed class ClusterKubernetesNetworkConfigArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. 
-        /// </summary>
         [Input("serviceIpv4Cidr")]
         public Input<string>? ServiceIpv4Cidr { get; set; }
 

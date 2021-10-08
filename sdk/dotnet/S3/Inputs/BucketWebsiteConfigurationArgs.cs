@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
+    /// <summary>
+    /// Specifies website configuration parameters for an Amazon S3 bucket.
+    /// </summary>
     public sealed class BucketWebsiteConfigurationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the error document for the website.
+        /// </summary>
         [Input("errorDocument")]
         public Input<string>? ErrorDocument { get; set; }
 
+        /// <summary>
+        /// The name of the index document for the website.
+        /// </summary>
         [Input("indexDocument")]
         public Input<string>? IndexDocument { get; set; }
 

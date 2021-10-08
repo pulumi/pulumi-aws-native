@@ -10,16 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Outputs
 {
 
+    /// <summary>
+    /// You must specify at least one of "TransitionDate" and "TransitionInDays"
+    /// </summary>
     [OutputType]
     public sealed class BucketTransition
     {
-        public readonly string StorageClass;
+        public readonly Pulumi.AwsNative.S3.BucketTransitionStorageClass StorageClass;
         public readonly string? TransitionDate;
         public readonly int? TransitionInDays;
 
         [OutputConstructor]
         private BucketTransition(
-            string storageClass,
+            Pulumi.AwsNative.S3.BucketTransitionStorageClass storageClass,
 
             string? transitionDate,
 

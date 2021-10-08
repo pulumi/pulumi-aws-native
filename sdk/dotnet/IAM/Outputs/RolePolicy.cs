@@ -10,15 +10,24 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IAM.Outputs
 {
 
+    /// <summary>
+    /// The inline policy document that is embedded in the specified IAM role.
+    /// </summary>
     [OutputType]
     public sealed class RolePolicy
     {
-        public readonly object PolicyDocument;
+        /// <summary>
+        /// The policy document.
+        /// </summary>
+        public readonly string PolicyDocument;
+        /// <summary>
+        /// The friendly name (not ARN) identifying the policy.
+        /// </summary>
         public readonly string PolicyName;
 
         [OutputConstructor]
         private RolePolicy(
-            object policyDocument,
+            string policyDocument,
 
             string policyName)
         {

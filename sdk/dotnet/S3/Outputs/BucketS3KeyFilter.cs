@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Outputs
 {
 
+    /// <summary>
+    /// A container for object key name prefix and suffix filtering rules.
+    /// </summary>
     [OutputType]
     public sealed class BucketS3KeyFilter
     {

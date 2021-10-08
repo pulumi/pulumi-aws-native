@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.EC2.Inputs
         [Input("httpEndpoint")]
         public Input<string>? HttpEndpoint { get; set; }
 
+        [Input("httpProtocolIpv6")]
+        public Input<string>? HttpProtocolIpv6 { get; set; }
+
         [Input("httpPutResponseHopLimit")]
         public Input<int>? HttpPutResponseHopLimit { get; set; }
 

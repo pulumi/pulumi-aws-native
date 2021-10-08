@@ -44,7 +44,7 @@ namespace Pulumi.AwsNative.Backup
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public BackupVault(string name, BackupVaultArgs? args = null, CustomResourceOptions? options = null)
+        public BackupVault(string name, BackupVaultArgs args, CustomResourceOptions? options = null)
             : base("aws-native:backup:BackupVault", name, args ?? new BackupVaultArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -83,6 +83,9 @@ namespace Pulumi.AwsNative.Backup
     {
         [Input("accessPolicy")]
         public Input<object>? AccessPolicy { get; set; }
+
+        [Input("backupVaultName", required: true)]
+        public Input<string> BackupVaultName { get; set; } = null!;
 
         [Input("backupVaultTags")]
         public Input<object>? BackupVaultTags { get; set; }

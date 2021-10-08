@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.EC2
     [AwsNativeResourceType("aws-native:ec2:NetworkAcl")]
     public partial class NetworkAcl : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The tags to assign to the network ACL.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.NetworkAclTag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the VPC.
+        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -68,12 +74,19 @@ namespace Pulumi.AwsNative.EC2
     {
         [Input("tags")]
         private InputList<Inputs.NetworkAclTagArgs>? _tags;
+
+        /// <summary>
+        /// The tags to assign to the network ACL.
+        /// </summary>
         public InputList<Inputs.NetworkAclTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.NetworkAclTagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The ID of the VPC.
+        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 

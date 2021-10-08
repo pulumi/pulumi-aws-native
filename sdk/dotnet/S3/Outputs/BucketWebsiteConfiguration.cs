@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Outputs
 {
 
+    /// <summary>
+    /// Specifies website configuration parameters for an Amazon S3 bucket.
+    /// </summary>
     [OutputType]
     public sealed class BucketWebsiteConfiguration
     {
+        /// <summary>
+        /// The name of the error document for the website.
+        /// </summary>
         public readonly string? ErrorDocument;
+        /// <summary>
+        /// The name of the index document for the website.
+        /// </summary>
         public readonly string? IndexDocument;
         public readonly Outputs.BucketRedirectAllRequestsTo? RedirectAllRequestsTo;
         public readonly ImmutableArray<Outputs.BucketRoutingRule> RoutingRules;

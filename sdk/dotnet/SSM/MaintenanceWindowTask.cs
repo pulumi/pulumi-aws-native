@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SSM
     [AwsNativeResourceType("aws-native:ssm:MaintenanceWindowTask")]
     public partial class MaintenanceWindowTask : Pulumi.CustomResource
     {
+        [Output("cutoffBehavior")]
+        public Output<string?> CutoffBehavior { get; private set; } = null!;
+
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -100,6 +103,9 @@ namespace Pulumi.AwsNative.SSM
 
     public sealed class MaintenanceWindowTaskArgs : Pulumi.ResourceArgs
     {
+        [Input("cutoffBehavior")]
+        public Input<string>? CutoffBehavior { get; set; }
+
         [Input("description")]
         public Input<string>? Description { get; set; }
 

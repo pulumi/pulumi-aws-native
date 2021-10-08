@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
+    /// <summary>
+    /// The Object Lock rule in place for the specified object.
+    /// </summary>
     public sealed class BucketObjectLockRuleArgs : Pulumi.ResourceArgs
     {
         [Input("defaultRetention")]

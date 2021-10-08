@@ -10,14 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
+    /// <summary>
+    /// The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.
+    /// </summary>
     public sealed class BucketQueueConfigurationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon S3 bucket event about which you want to publish messages to Amazon SQS.
+        /// </summary>
         [Input("event", required: true)]
         public Input<string> Event { get; set; } = null!;
 
+        /// <summary>
+        /// The filtering rules that determine which objects trigger notifications.
+        /// </summary>
         [Input("filter")]
         public Input<Inputs.BucketNotificationFilterArgs>? Filter { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon SQS queue to which Amazon S3 publishes a message when it detects events of the specified type.
+        /// </summary>
         [Input("queue", required: true)]
         public Input<string> Queue { get; set; } = null!;
 

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.S3.Inputs
 
     public sealed class BucketLoggingConfigurationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of an Amazon S3 bucket where Amazon S3 store server access log files. You can store log files in any bucket that you own. By default, logs are stored in the bucket where the LoggingConfiguration property is defined.
+        /// </summary>
         [Input("destinationBucketName")]
         public Input<string>? DestinationBucketName { get; set; }
 

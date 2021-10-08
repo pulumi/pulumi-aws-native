@@ -10,14 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AutoScaling.Inputs
 {
 
+    /// <summary>
+    /// MetadataOptions is a property of AWS::AutoScaling::LaunchConfiguration that describes metadata options for the instances.
+    /// </summary>
     public sealed class LaunchConfigurationMetadataOptionsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// This parameter enables or disables the HTTP metadata endpoint on your instances.
+        /// </summary>
         [Input("httpEndpoint")]
         public Input<string>? HttpEndpoint { get; set; }
 
+        /// <summary>
+        /// The desired HTTP PUT response hop limit for instance metadata requests.
+        /// </summary>
         [Input("httpPutResponseHopLimit")]
         public Input<int>? HttpPutResponseHopLimit { get; set; }
 
+        /// <summary>
+        /// The state of token usage for your instance metadata requests.
+        /// </summary>
         [Input("httpTokens")]
         public Input<string>? HttpTokens { get; set; }
 

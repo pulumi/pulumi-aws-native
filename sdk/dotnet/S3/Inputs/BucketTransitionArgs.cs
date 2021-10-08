@@ -10,10 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
+    /// <summary>
+    /// You must specify at least one of "TransitionDate" and "TransitionInDays"
+    /// </summary>
     public sealed class BucketTransitionArgs : Pulumi.ResourceArgs
     {
         [Input("storageClass", required: true)]
-        public Input<string> StorageClass { get; set; } = null!;
+        public Input<Pulumi.AwsNative.S3.BucketTransitionStorageClass> StorageClass { get; set; } = null!;
 
         [Input("transitionDate")]
         public Input<string>? TransitionDate { get; set; }

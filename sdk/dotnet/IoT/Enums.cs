@@ -271,6 +271,63 @@ namespace Pulumi.AwsNative.IoT
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct JobTemplateAction : IEquatable<JobTemplateAction>
+    {
+        private readonly string _value;
+
+        private JobTemplateAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static JobTemplateAction Cancel { get; } = new JobTemplateAction("CANCEL");
+
+        public static bool operator ==(JobTemplateAction left, JobTemplateAction right) => left.Equals(right);
+        public static bool operator !=(JobTemplateAction left, JobTemplateAction right) => !left.Equals(right);
+
+        public static explicit operator string(JobTemplateAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is JobTemplateAction other && Equals(other);
+        public bool Equals(JobTemplateAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct JobTemplateFailureType : IEquatable<JobTemplateFailureType>
+    {
+        private readonly string _value;
+
+        private JobTemplateFailureType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static JobTemplateFailureType Failed { get; } = new JobTemplateFailureType("FAILED");
+        public static JobTemplateFailureType Rejected { get; } = new JobTemplateFailureType("REJECTED");
+        public static JobTemplateFailureType TimedOut { get; } = new JobTemplateFailureType("TIMED_OUT");
+        public static JobTemplateFailureType All { get; } = new JobTemplateFailureType("ALL");
+
+        public static bool operator ==(JobTemplateFailureType left, JobTemplateFailureType right) => left.Equals(right);
+        public static bool operator !=(JobTemplateFailureType left, JobTemplateFailureType right) => !left.Equals(right);
+
+        public static explicit operator string(JobTemplateFailureType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is JobTemplateFailureType other && Equals(other);
+        public bool Equals(JobTemplateFailureType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     ///  Specifies which types of information are logged.
     /// </summary>

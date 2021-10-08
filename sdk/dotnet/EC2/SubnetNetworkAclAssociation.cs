@@ -18,9 +18,15 @@ namespace Pulumi.AwsNative.EC2
         [Output("associationId")]
         public Output<string> AssociationId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the network ACL
+        /// </summary>
         [Output("networkAclId")]
         public Output<string> NetworkAclId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the subnet
+        /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
 
@@ -69,9 +75,15 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class SubnetNetworkAclAssociationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the network ACL
+        /// </summary>
         [Input("networkAclId", required: true)]
         public Input<string> NetworkAclId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the subnet
+        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 

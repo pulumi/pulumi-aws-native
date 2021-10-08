@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
+    /// <summary>
+    /// A container that describes additional filters for identifying the source objects that you want to replicate.
+    /// </summary>
     public sealed class BucketSourceSelectionCriteriaArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A filter that you can specify for selection for modifications on replicas.
+        /// </summary>
         [Input("replicaModifications")]
         public Input<Inputs.BucketReplicaModificationsArgs>? ReplicaModifications { get; set; }
 
+        /// <summary>
+        /// A container for filter information for the selection of Amazon S3 objects encrypted with AWS KMS.
+        /// </summary>
         [Input("sseKmsEncryptedObjects")]
         public Input<Inputs.BucketSseKmsEncryptedObjectsArgs>? SseKmsEncryptedObjects { get; set; }
 

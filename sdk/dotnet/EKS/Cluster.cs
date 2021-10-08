@@ -10,81 +10,45 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EKS
 {
     /// <summary>
-    /// An object representing an Amazon EKS cluster.
+    /// Resource Type definition for AWS::EKS::Cluster
     /// </summary>
     [Obsolete(@"Cluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:eks:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The certificate-authority-data for your cluster.
-        /// </summary>
         [Output("certificateAuthorityData")]
         public Output<string> CertificateAuthorityData { get; private set; } = null!;
 
-        /// <summary>
-        /// The cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control plane to data plane communication.
-        /// </summary>
         [Output("clusterSecurityGroupId")]
         public Output<string> ClusterSecurityGroupId { get; private set; } = null!;
 
         [Output("encryptionConfig")]
         public Output<ImmutableArray<Outputs.ClusterEncryptionConfig>> EncryptionConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) or alias of the customer master key (CMK).
-        /// </summary>
         [Output("encryptionConfigKeyArn")]
         public Output<string> EncryptionConfigKeyArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The endpoint for your Kubernetes API server, such as https://5E1D0CEXAMPLEA591B746AFC5AB30262.yl4.us-west-2.eks.amazonaws.com.
-        /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
 
         [Output("kubernetesNetworkConfig")]
         public Output<Outputs.ClusterKubernetesNetworkConfig?> KubernetesNetworkConfig { get; private set; } = null!;
 
-        [Output("logging")]
-        public Output<Outputs.ClusterLogging?> Logging { get; private set; } = null!;
-
-        /// <summary>
-        /// The unique name to give to your cluster.
-        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The issuer URL for the cluster's OIDC identity provider, such as https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E. If you need to remove https:// from this output value, you can include the following code in your template.
-        /// </summary>
         [Output("openIdConnectIssuerUrl")]
         public Output<string> OpenIdConnectIssuerUrl { get; private set; } = null!;
 
         [Output("resourcesVpcConfig")]
         public Output<Outputs.ClusterResourcesVpcConfig> ResourcesVpcConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
-        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// An array of key-value pairs to apply to this resource.
-        /// </summary>
-        [Output("tags")]
-        public Output<ImmutableArray<Outputs.ClusterTag>> Tags { get; private set; } = null!;
-
-        /// <summary>
-        /// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
-        /// </summary>
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
 
@@ -144,39 +108,15 @@ namespace Pulumi.AwsNative.EKS
         [Input("kubernetesNetworkConfig")]
         public Input<Inputs.ClusterKubernetesNetworkConfigArgs>? KubernetesNetworkConfig { get; set; }
 
-        [Input("logging")]
-        public Input<Inputs.ClusterLoggingArgs>? Logging { get; set; }
-
-        /// <summary>
-        /// The unique name to give to your cluster.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("resourcesVpcConfig", required: true)]
         public Input<Inputs.ClusterResourcesVpcConfigArgs> ResourcesVpcConfig { get; set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
-        [Input("tags")]
-        private InputList<Inputs.ClusterTagArgs>? _tags;
-
-        /// <summary>
-        /// An array of key-value pairs to apply to this resource.
-        /// </summary>
-        public InputList<Inputs.ClusterTagArgs> Tags
-        {
-            get => _tags ?? (_tags = new InputList<Inputs.ClusterTagArgs>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
-        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

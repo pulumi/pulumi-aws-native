@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     public sealed class BucketDeleteMarkerReplicationArgs : Pulumi.ResourceArgs
     {
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public Input<Pulumi.AwsNative.S3.BucketDeleteMarkerReplicationStatus>? Status { get; set; }
 
         public BucketDeleteMarkerReplicationArgs()
         {

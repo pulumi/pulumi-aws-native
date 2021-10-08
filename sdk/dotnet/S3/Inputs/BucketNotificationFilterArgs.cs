@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
+    /// <summary>
+    /// Specifies object key name filtering rules.
+    /// </summary>
     public sealed class BucketNotificationFilterArgs : Pulumi.ResourceArgs
     {
         [Input("s3Key", required: true)]

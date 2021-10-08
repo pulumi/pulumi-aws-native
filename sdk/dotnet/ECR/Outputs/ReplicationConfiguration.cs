@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.ECR.Outputs
     public sealed class ReplicationConfiguration
     {
         /// <summary>
-        /// An array of objects representing the replication rules for a replication configuration. A replication configuration may contain only one replication rule but the rule may contain one or more replication destinations.
+        /// An array of objects representing the replication rules for a replication configuration. A replication configuration may contain a maximum of 10 rules.
         /// </summary>
         public readonly ImmutableArray<Outputs.ReplicationConfigurationReplicationRule> Rules;
 

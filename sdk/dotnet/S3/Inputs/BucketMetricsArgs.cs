@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.S3.Inputs
         public Input<Inputs.BucketReplicationTimeValueArgs>? EventThreshold { get; set; }
 
         [Input("status", required: true)]
-        public Input<string> Status { get; set; } = null!;
+        public Input<Pulumi.AwsNative.S3.BucketMetricsStatus> Status { get; set; } = null!;
 
         public BucketMetricsArgs()
         {

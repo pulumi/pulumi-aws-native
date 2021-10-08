@@ -10,11 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.StepFunctions
 {
     /// <summary>
-    /// Resource Type definition for AWS::StepFunctions::Activity
+    /// Resource schema for Activity
     /// </summary>
     [AwsNativeResourceType("aws-native:stepfunctions:Activity")]
     public partial class Activity : Pulumi.CustomResource
     {
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 

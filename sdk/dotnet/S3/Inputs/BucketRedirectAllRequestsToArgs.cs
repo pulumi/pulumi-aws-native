@@ -10,13 +10,22 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
+    /// <summary>
+    /// Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket.
+    /// </summary>
     public sealed class BucketRedirectAllRequestsToArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the host where requests are redirected.
+        /// </summary>
         [Input("hostName", required: true)]
         public Input<string> HostName { get; set; } = null!;
 
+        /// <summary>
+        /// Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
+        /// </summary>
         [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
+        public Input<Pulumi.AwsNative.S3.BucketRedirectAllRequestsToProtocol>? Protocol { get; set; }
 
         public BucketRedirectAllRequestsToArgs()
         {

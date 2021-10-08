@@ -10,17 +10,32 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
+    /// <summary>
+    /// Specifies information about where to publish analysis or configuration results for an Amazon S3 bucket and S3 Replication Time Control (S3 RTC).
+    /// </summary>
     public sealed class BucketDestinationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The account ID that owns the destination S3 bucket. 
+        /// </summary>
         [Input("bucketAccountId")]
         public Input<string>? BucketAccountId { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the bucket to which data is exported.
+        /// </summary>
         [Input("bucketArn", required: true)]
         public Input<string> BucketArn { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the file format used when exporting data to Amazon S3.
+        /// </summary>
         [Input("format", required: true)]
-        public Input<string> Format { get; set; } = null!;
+        public Input<Pulumi.AwsNative.S3.BucketDestinationFormat> Format { get; set; } = null!;
 
+        /// <summary>
+        /// The prefix to use when exporting data. The prefix is prepended to all results.
+        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 

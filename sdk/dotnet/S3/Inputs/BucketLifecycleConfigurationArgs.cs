@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.S3.Inputs
     {
         [Input("rules", required: true)]
         private InputList<Inputs.BucketRuleArgs>? _rules;
+
+        /// <summary>
+        /// A lifecycle rule for individual objects in an Amazon S3 bucket.
+        /// </summary>
         public InputList<Inputs.BucketRuleArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.BucketRuleArgs>());

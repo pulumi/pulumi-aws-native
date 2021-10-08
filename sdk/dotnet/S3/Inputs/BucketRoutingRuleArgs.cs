@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
+    /// <summary>
+    /// Specifies the redirect behavior and when a redirect is applied.
+    /// </summary>
     public sealed class BucketRoutingRuleArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can specify a different error code to return.
+        /// </summary>
         [Input("redirectRule", required: true)]
         public Input<Inputs.BucketRedirectRuleArgs> RedirectRule { get; set; } = null!;
 
