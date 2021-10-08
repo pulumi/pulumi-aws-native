@@ -7,11 +7,13 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'PolicyIEMap',
     'PolicyResourceTag',
     'PolicyTag',
+    'SecurityServicePolicyDataProperties',
 ]
 
 @pulumi.output_type
@@ -109,5 +111,42 @@ class PolicyTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SecurityServicePolicyDataProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedServiceData":
+            suggest = "managed_service_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityServicePolicyDataProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityServicePolicyDataProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityServicePolicyDataProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: 'PolicySecurityServicePolicyDataPropertiesType',
+                 managed_service_data: Optional[str] = None):
+        pulumi.set(__self__, "type", type)
+        if managed_service_data is not None:
+            pulumi.set(__self__, "managed_service_data", managed_service_data)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'PolicySecurityServicePolicyDataPropertiesType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="managedServiceData")
+    def managed_service_data(self) -> Optional[str]:
+        return pulumi.get(self, "managed_service_data")
 
 

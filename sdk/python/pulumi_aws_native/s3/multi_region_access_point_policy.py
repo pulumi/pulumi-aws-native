@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._enums import *
 
 __all__ = ['MultiRegionAccessPointPolicyArgs', 'MultiRegionAccessPointPolicy']
 
@@ -154,7 +156,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyStatus")
-    def policy_status(self) -> pulumi.Output[Any]:
+    def policy_status(self) -> pulumi.Output['outputs.PolicyStatusProperties']:
         """
         The Policy Status associated with this Multi Region Access Point
         """

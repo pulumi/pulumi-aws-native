@@ -12,12 +12,25 @@ from ._enums import *
 
 __all__ = [
     'IPSetTag',
+    'LoggingConfigurationCondition',
+    'LoggingConfigurationConditionActionConditionProperties',
+    'LoggingConfigurationConditionLabelNameConditionProperties',
     'LoggingConfigurationFieldToMatch',
+    'LoggingConfigurationFieldToMatchJsonBodyProperties',
+    'LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties',
+    'LoggingConfigurationFieldToMatchSingleHeaderProperties',
+    'LoggingConfigurationFilter',
+    'LoggingFilterProperties',
     'RegexPatternSetTag',
     'RuleGroupAndStatement',
     'RuleGroupByteMatchStatement',
+    'RuleGroupCustomHTTPHeader',
+    'RuleGroupCustomRequestHandling',
+    'RuleGroupCustomResponse',
     'RuleGroupCustomResponseBodies',
     'RuleGroupFieldToMatch',
+    'RuleGroupFieldToMatchSingleHeaderProperties',
+    'RuleGroupFieldToMatchSingleQueryArgumentProperties',
     'RuleGroupForwardedIPConfiguration',
     'RuleGroupGeoMatchStatement',
     'RuleGroupIPSetForwardedIPConfiguration',
@@ -33,6 +46,9 @@ __all__ = [
     'RuleGroupRegexPatternSetReferenceStatement',
     'RuleGroupRule',
     'RuleGroupRuleAction',
+    'RuleGroupRuleActionAllowProperties',
+    'RuleGroupRuleActionBlockProperties',
+    'RuleGroupRuleActionCountProperties',
     'RuleGroupSizeConstraintStatement',
     'RuleGroupSqliMatchStatement',
     'RuleGroupStatement',
@@ -52,6 +68,8 @@ __all__ = [
     'WebACLDefaultAction',
     'WebACLExcludedRule',
     'WebACLFieldToMatch',
+    'WebACLFieldToMatchSingleHeaderProperties',
+    'WebACLFieldToMatchSingleQueryArgumentProperties',
     'WebACLForwardedIPConfiguration',
     'WebACLGeoMatchStatement',
     'WebACLIPSetForwardedIPConfiguration',
@@ -100,6 +118,117 @@ class IPSetTag(dict):
 
 
 @pulumi.output_type
+class LoggingConfigurationCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionCondition":
+            suggest = "action_condition"
+        elif key == "labelNameCondition":
+            suggest = "label_name_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoggingConfigurationCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoggingConfigurationCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoggingConfigurationCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action_condition: Optional['outputs.LoggingConfigurationConditionActionConditionProperties'] = None,
+                 label_name_condition: Optional['outputs.LoggingConfigurationConditionLabelNameConditionProperties'] = None):
+        """
+        :param 'LoggingConfigurationConditionActionConditionProperties' action_condition: A single action condition.
+        :param 'LoggingConfigurationConditionLabelNameConditionProperties' label_name_condition: A single label name condition.
+        """
+        if action_condition is not None:
+            pulumi.set(__self__, "action_condition", action_condition)
+        if label_name_condition is not None:
+            pulumi.set(__self__, "label_name_condition", label_name_condition)
+
+    @property
+    @pulumi.getter(name="actionCondition")
+    def action_condition(self) -> Optional['outputs.LoggingConfigurationConditionActionConditionProperties']:
+        """
+        A single action condition.
+        """
+        return pulumi.get(self, "action_condition")
+
+    @property
+    @pulumi.getter(name="labelNameCondition")
+    def label_name_condition(self) -> Optional['outputs.LoggingConfigurationConditionLabelNameConditionProperties']:
+        """
+        A single label name condition.
+        """
+        return pulumi.get(self, "label_name_condition")
+
+
+@pulumi.output_type
+class LoggingConfigurationConditionActionConditionProperties(dict):
+    """
+    A single action condition.
+    """
+    def __init__(__self__, *,
+                 action: 'LoggingConfigurationConditionActionConditionPropertiesAction'):
+        """
+        A single action condition.
+        :param 'LoggingConfigurationConditionActionConditionPropertiesAction' action: Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
+        """
+        pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter
+    def action(self) -> 'LoggingConfigurationConditionActionConditionPropertiesAction':
+        """
+        Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
+        """
+        return pulumi.get(self, "action")
+
+
+@pulumi.output_type
+class LoggingConfigurationConditionLabelNameConditionProperties(dict):
+    """
+    A single label name condition.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "labelName":
+            suggest = "label_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoggingConfigurationConditionLabelNameConditionProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoggingConfigurationConditionLabelNameConditionProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoggingConfigurationConditionLabelNameConditionProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 label_name: str):
+        """
+        A single label name condition.
+        :param str label_name: The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label. 
+        """
+        pulumi.set(__self__, "label_name", label_name)
+
+    @property
+    @pulumi.getter(name="labelName")
+    def label_name(self) -> str:
+        """
+        The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label. 
+        """
+        return pulumi.get(self, "label_name")
+
+
+@pulumi.output_type
 class LoggingConfigurationFieldToMatch(dict):
     """
     A key-value pair to associate with a resource.
@@ -128,17 +257,17 @@ class LoggingConfigurationFieldToMatch(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 json_body: Optional[Any] = None,
+                 json_body: Optional['outputs.LoggingConfigurationFieldToMatchJsonBodyProperties'] = None,
                  method: Optional[Any] = None,
                  query_string: Optional[Any] = None,
-                 single_header: Optional[Any] = None,
+                 single_header: Optional['outputs.LoggingConfigurationFieldToMatchSingleHeaderProperties'] = None,
                  uri_path: Optional[Any] = None):
         """
         A key-value pair to associate with a resource.
-        :param Any json_body: Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
+        :param 'LoggingConfigurationFieldToMatchJsonBodyProperties' json_body: Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
         :param Any method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform. 
         :param Any query_string: Inspect the query string. This is the part of a URL that appears after a ? character, if any. 
-        :param Any single_header: Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
+        :param 'LoggingConfigurationFieldToMatchSingleHeaderProperties' single_header: Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
         :param Any uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg. 
         """
         if json_body is not None:
@@ -154,7 +283,7 @@ class LoggingConfigurationFieldToMatch(dict):
 
     @property
     @pulumi.getter(name="jsonBody")
-    def json_body(self) -> Optional[Any]:
+    def json_body(self) -> Optional['outputs.LoggingConfigurationFieldToMatchJsonBodyProperties']:
         """
         Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
         """
@@ -178,7 +307,7 @@ class LoggingConfigurationFieldToMatch(dict):
 
     @property
     @pulumi.getter(name="singleHeader")
-    def single_header(self) -> Optional[Any]:
+    def single_header(self) -> Optional['outputs.LoggingConfigurationFieldToMatchSingleHeaderProperties']:
         """
         Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
         """
@@ -191,6 +320,236 @@ class LoggingConfigurationFieldToMatch(dict):
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg. 
         """
         return pulumi.get(self, "uri_path")
+
+
+@pulumi.output_type
+class LoggingConfigurationFieldToMatchJsonBodyProperties(dict):
+    """
+    Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchPattern":
+            suggest = "match_pattern"
+        elif key == "matchScope":
+            suggest = "match_scope"
+        elif key == "invalidFallbackBehavior":
+            suggest = "invalid_fallback_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoggingConfigurationFieldToMatchJsonBodyProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoggingConfigurationFieldToMatchJsonBodyProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoggingConfigurationFieldToMatchJsonBodyProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_pattern: 'outputs.LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties',
+                 match_scope: 'LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope',
+                 invalid_fallback_behavior: Optional['LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior'] = None):
+        """
+        Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
+        :param 'LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties' match_pattern: The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. 
+        :param 'LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope' match_scope: The parts of the JSON to match against using the MatchPattern. If you specify All, AWS WAF matches against keys and values. 
+        :param 'LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior' invalid_fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body.
+        """
+        pulumi.set(__self__, "match_pattern", match_pattern)
+        pulumi.set(__self__, "match_scope", match_scope)
+        if invalid_fallback_behavior is not None:
+            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+
+    @property
+    @pulumi.getter(name="matchPattern")
+    def match_pattern(self) -> 'outputs.LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties':
+        """
+        The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. 
+        """
+        return pulumi.get(self, "match_pattern")
+
+    @property
+    @pulumi.getter(name="matchScope")
+    def match_scope(self) -> 'LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope':
+        """
+        The parts of the JSON to match against using the MatchPattern. If you specify All, AWS WAF matches against keys and values. 
+        """
+        return pulumi.get(self, "match_scope")
+
+    @property
+    @pulumi.getter(name="invalidFallbackBehavior")
+    def invalid_fallback_behavior(self) -> Optional['LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior']:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body.
+        """
+        return pulumi.get(self, "invalid_fallback_behavior")
+
+
+@pulumi.output_type
+class LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties(dict):
+    """
+    The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. 
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includedPaths":
+            suggest = "included_paths"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 all: Optional[Any] = None,
+                 included_paths: Optional[Sequence[str]] = None):
+        """
+        The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. 
+        :param Any all: Match all of the elements. See also MatchScope in JsonBody. You must specify either this setting or the IncludedPaths setting, but not both.
+        :param Sequence[str] included_paths: Match only the specified include paths. See also MatchScope in JsonBody.
+        """
+        if all is not None:
+            pulumi.set(__self__, "all", all)
+        if included_paths is not None:
+            pulumi.set(__self__, "included_paths", included_paths)
+
+    @property
+    @pulumi.getter
+    def all(self) -> Optional[Any]:
+        """
+        Match all of the elements. See also MatchScope in JsonBody. You must specify either this setting or the IncludedPaths setting, but not both.
+        """
+        return pulumi.get(self, "all")
+
+    @property
+    @pulumi.getter(name="includedPaths")
+    def included_paths(self) -> Optional[Sequence[str]]:
+        """
+        Match only the specified include paths. See also MatchScope in JsonBody.
+        """
+        return pulumi.get(self, "included_paths")
+
+
+@pulumi.output_type
+class LoggingConfigurationFieldToMatchSingleHeaderProperties(dict):
+    """
+    Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
+    """
+    def __init__(__self__, *,
+                 name: str):
+        """
+        Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
+        :param str name: The name of the query header to inspect.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the query header to inspect.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class LoggingConfigurationFilter(dict):
+    def __init__(__self__, *,
+                 behavior: 'LoggingConfigurationFilterBehavior',
+                 conditions: Sequence['outputs.LoggingConfigurationCondition'],
+                 requirement: 'LoggingConfigurationFilterRequirement'):
+        """
+        :param 'LoggingConfigurationFilterBehavior' behavior: How to handle logs that satisfy the filter's conditions and requirement. 
+        :param Sequence['LoggingConfigurationCondition'] conditions: Match conditions for the filter.
+        :param 'LoggingConfigurationFilterRequirement' requirement: Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
+        """
+        pulumi.set(__self__, "behavior", behavior)
+        pulumi.set(__self__, "conditions", conditions)
+        pulumi.set(__self__, "requirement", requirement)
+
+    @property
+    @pulumi.getter
+    def behavior(self) -> 'LoggingConfigurationFilterBehavior':
+        """
+        How to handle logs that satisfy the filter's conditions and requirement. 
+        """
+        return pulumi.get(self, "behavior")
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Sequence['outputs.LoggingConfigurationCondition']:
+        """
+        Match conditions for the filter.
+        """
+        return pulumi.get(self, "conditions")
+
+    @property
+    @pulumi.getter
+    def requirement(self) -> 'LoggingConfigurationFilterRequirement':
+        """
+        Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
+        """
+        return pulumi.get(self, "requirement")
+
+
+@pulumi.output_type
+class LoggingFilterProperties(dict):
+    """
+    Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultBehavior":
+            suggest = "default_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoggingFilterProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoggingFilterProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoggingFilterProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_behavior: 'LoggingConfigurationLoggingFilterPropertiesDefaultBehavior',
+                 filters: Sequence['outputs.LoggingConfigurationFilter']):
+        """
+        Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
+        :param 'LoggingConfigurationLoggingFilterPropertiesDefaultBehavior' default_behavior: Default handling for logs that don't match any of the specified filtering conditions.
+        :param Sequence['LoggingConfigurationFilter'] filters: The filters that you want to apply to the logs.
+        """
+        pulumi.set(__self__, "default_behavior", default_behavior)
+        pulumi.set(__self__, "filters", filters)
+
+    @property
+    @pulumi.getter(name="defaultBehavior")
+    def default_behavior(self) -> 'LoggingConfigurationLoggingFilterPropertiesDefaultBehavior':
+        """
+        Default handling for logs that don't match any of the specified filtering conditions.
+        """
+        return pulumi.get(self, "default_behavior")
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Sequence['outputs.LoggingConfigurationFilter']:
+        """
+        The filters that you want to apply to the logs.
+        """
+        return pulumi.get(self, "filters")
 
 
 @pulumi.output_type
@@ -300,6 +659,133 @@ class RuleGroupByteMatchStatement(dict):
 
 
 @pulumi.output_type
+class RuleGroupCustomHTTPHeader(dict):
+    """
+    HTTP header.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        HTTP header.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class RuleGroupCustomRequestHandling(dict):
+    """
+    Custom request handling.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "insertHeaders":
+            suggest = "insert_headers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupCustomRequestHandling. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupCustomRequestHandling.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupCustomRequestHandling.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 insert_headers: Sequence['outputs.RuleGroupCustomHTTPHeader']):
+        """
+        Custom request handling.
+        :param Sequence['RuleGroupCustomHTTPHeader'] insert_headers: Collection of HTTP headers.
+        """
+        pulumi.set(__self__, "insert_headers", insert_headers)
+
+    @property
+    @pulumi.getter(name="insertHeaders")
+    def insert_headers(self) -> Sequence['outputs.RuleGroupCustomHTTPHeader']:
+        """
+        Collection of HTTP headers.
+        """
+        return pulumi.get(self, "insert_headers")
+
+
+@pulumi.output_type
+class RuleGroupCustomResponse(dict):
+    """
+    Custom response.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "responseCode":
+            suggest = "response_code"
+        elif key == "customResponseBodyKey":
+            suggest = "custom_response_body_key"
+        elif key == "responseHeaders":
+            suggest = "response_headers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupCustomResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupCustomResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupCustomResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 response_code: int,
+                 custom_response_body_key: Optional[str] = None,
+                 response_headers: Optional[Sequence['outputs.RuleGroupCustomHTTPHeader']] = None):
+        """
+        Custom response.
+        :param str custom_response_body_key: Custom response body key.
+        :param Sequence['RuleGroupCustomHTTPHeader'] response_headers: Collection of HTTP headers.
+        """
+        pulumi.set(__self__, "response_code", response_code)
+        if custom_response_body_key is not None:
+            pulumi.set(__self__, "custom_response_body_key", custom_response_body_key)
+        if response_headers is not None:
+            pulumi.set(__self__, "response_headers", response_headers)
+
+    @property
+    @pulumi.getter(name="responseCode")
+    def response_code(self) -> int:
+        return pulumi.get(self, "response_code")
+
+    @property
+    @pulumi.getter(name="customResponseBodyKey")
+    def custom_response_body_key(self) -> Optional[str]:
+        """
+        Custom response body key.
+        """
+        return pulumi.get(self, "custom_response_body_key")
+
+    @property
+    @pulumi.getter(name="responseHeaders")
+    def response_headers(self) -> Optional[Sequence['outputs.RuleGroupCustomHTTPHeader']]:
+        """
+        Collection of HTTP headers.
+        """
+        return pulumi.get(self, "response_headers")
+
+
+@pulumi.output_type
 class RuleGroupCustomResponseBodies(dict):
     """
     Custom response key and body map.
@@ -349,8 +835,8 @@ class RuleGroupFieldToMatch(dict):
                  json_body: Optional['outputs.RuleGroupJsonBody'] = None,
                  method: Optional[Any] = None,
                  query_string: Optional[Any] = None,
-                 single_header: Optional[Any] = None,
-                 single_query_argument: Optional[Any] = None,
+                 single_header: Optional['outputs.RuleGroupFieldToMatchSingleHeaderProperties'] = None,
+                 single_query_argument: Optional['outputs.RuleGroupFieldToMatchSingleQueryArgumentProperties'] = None,
                  uri_path: Optional[Any] = None):
         """
         Field of the request to match.
@@ -358,7 +844,7 @@ class RuleGroupFieldToMatch(dict):
         :param Any body: The body of a web request. This immediately follows the request headers.
         :param Any method: The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
         :param Any query_string: The query string of a web request. This is the part of a URL that appears after a ? character, if any.
-        :param Any single_query_argument: One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
+        :param 'RuleGroupFieldToMatchSingleQueryArgumentProperties' single_query_argument: One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
         :param Any uri_path: The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
         """
         if all_query_arguments is not None:
@@ -417,12 +903,12 @@ class RuleGroupFieldToMatch(dict):
 
     @property
     @pulumi.getter(name="singleHeader")
-    def single_header(self) -> Optional[Any]:
+    def single_header(self) -> Optional['outputs.RuleGroupFieldToMatchSingleHeaderProperties']:
         return pulumi.get(self, "single_header")
 
     @property
     @pulumi.getter(name="singleQueryArgument")
-    def single_query_argument(self) -> Optional[Any]:
+    def single_query_argument(self) -> Optional['outputs.RuleGroupFieldToMatchSingleQueryArgumentProperties']:
         """
         One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
         """
@@ -435,6 +921,36 @@ class RuleGroupFieldToMatch(dict):
         The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
         """
         return pulumi.get(self, "uri_path")
+
+
+@pulumi.output_type
+class RuleGroupFieldToMatchSingleHeaderProperties(dict):
+    def __init__(__self__, *,
+                 name: str):
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class RuleGroupFieldToMatchSingleQueryArgumentProperties(dict):
+    """
+    One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
+    """
+    def __init__(__self__, *,
+                 name: str):
+        """
+        One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -952,14 +1468,14 @@ class RuleGroupRuleAction(dict):
     Action taken when Rule matches its condition.
     """
     def __init__(__self__, *,
-                 allow: Optional[Any] = None,
-                 block: Optional[Any] = None,
-                 count: Optional[Any] = None):
+                 allow: Optional['outputs.RuleGroupRuleActionAllowProperties'] = None,
+                 block: Optional['outputs.RuleGroupRuleActionBlockProperties'] = None,
+                 count: Optional['outputs.RuleGroupRuleActionCountProperties'] = None):
         """
         Action taken when Rule matches its condition.
-        :param Any allow: Allow traffic towards application.
-        :param Any block: Block traffic towards application.
-        :param Any count: Count traffic towards application.
+        :param 'RuleGroupRuleActionAllowProperties' allow: Allow traffic towards application.
+        :param 'RuleGroupRuleActionBlockProperties' block: Block traffic towards application.
+        :param 'RuleGroupRuleActionCountProperties' count: Count traffic towards application.
         """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
@@ -970,7 +1486,7 @@ class RuleGroupRuleAction(dict):
 
     @property
     @pulumi.getter
-    def allow(self) -> Optional[Any]:
+    def allow(self) -> Optional['outputs.RuleGroupRuleActionAllowProperties']:
         """
         Allow traffic towards application.
         """
@@ -978,7 +1494,7 @@ class RuleGroupRuleAction(dict):
 
     @property
     @pulumi.getter
-    def block(self) -> Optional[Any]:
+    def block(self) -> Optional['outputs.RuleGroupRuleActionBlockProperties']:
         """
         Block traffic towards application.
         """
@@ -986,11 +1502,119 @@ class RuleGroupRuleAction(dict):
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[Any]:
+    def count(self) -> Optional['outputs.RuleGroupRuleActionCountProperties']:
         """
         Count traffic towards application.
         """
         return pulumi.get(self, "count")
+
+
+@pulumi.output_type
+class RuleGroupRuleActionAllowProperties(dict):
+    """
+    Allow traffic towards application.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customRequestHandling":
+            suggest = "custom_request_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleActionAllowProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleActionAllowProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleActionAllowProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_request_handling: Optional['outputs.RuleGroupCustomRequestHandling'] = None):
+        """
+        Allow traffic towards application.
+        """
+        if custom_request_handling is not None:
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+
+    @property
+    @pulumi.getter(name="customRequestHandling")
+    def custom_request_handling(self) -> Optional['outputs.RuleGroupCustomRequestHandling']:
+        return pulumi.get(self, "custom_request_handling")
+
+
+@pulumi.output_type
+class RuleGroupRuleActionBlockProperties(dict):
+    """
+    Block traffic towards application.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customResponse":
+            suggest = "custom_response"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleActionBlockProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleActionBlockProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleActionBlockProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_response: Optional['outputs.RuleGroupCustomResponse'] = None):
+        """
+        Block traffic towards application.
+        """
+        if custom_response is not None:
+            pulumi.set(__self__, "custom_response", custom_response)
+
+    @property
+    @pulumi.getter(name="customResponse")
+    def custom_response(self) -> Optional['outputs.RuleGroupCustomResponse']:
+        return pulumi.get(self, "custom_response")
+
+
+@pulumi.output_type
+class RuleGroupRuleActionCountProperties(dict):
+    """
+    Count traffic towards application.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customRequestHandling":
+            suggest = "custom_request_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleActionCountProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleActionCountProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleActionCountProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_request_handling: Optional['outputs.RuleGroupCustomRequestHandling'] = None):
+        """
+        Count traffic towards application.
+        """
+        if custom_request_handling is not None:
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+
+    @property
+    @pulumi.getter(name="customRequestHandling")
+    def custom_request_handling(self) -> Optional['outputs.RuleGroupCustomRequestHandling']:
+        return pulumi.get(self, "custom_request_handling")
 
 
 @pulumi.output_type
@@ -1801,8 +2425,8 @@ class WebACLFieldToMatch(dict):
                  json_body: Optional['outputs.WebACLJsonBody'] = None,
                  method: Optional[Any] = None,
                  query_string: Optional[Any] = None,
-                 single_header: Optional[Any] = None,
-                 single_query_argument: Optional[Any] = None,
+                 single_header: Optional['outputs.WebACLFieldToMatchSingleHeaderProperties'] = None,
+                 single_query_argument: Optional['outputs.WebACLFieldToMatchSingleQueryArgumentProperties'] = None,
                  uri_path: Optional[Any] = None):
         """
         Field of the request to match.
@@ -1810,7 +2434,7 @@ class WebACLFieldToMatch(dict):
         :param Any body: The body of a web request. This immediately follows the request headers.
         :param Any method: The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
         :param Any query_string: The query string of a web request. This is the part of a URL that appears after a ? character, if any.
-        :param Any single_query_argument: One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
+        :param 'WebACLFieldToMatchSingleQueryArgumentProperties' single_query_argument: One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
         :param Any uri_path: The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
         """
         if all_query_arguments is not None:
@@ -1869,12 +2493,12 @@ class WebACLFieldToMatch(dict):
 
     @property
     @pulumi.getter(name="singleHeader")
-    def single_header(self) -> Optional[Any]:
+    def single_header(self) -> Optional['outputs.WebACLFieldToMatchSingleHeaderProperties']:
         return pulumi.get(self, "single_header")
 
     @property
     @pulumi.getter(name="singleQueryArgument")
-    def single_query_argument(self) -> Optional[Any]:
+    def single_query_argument(self) -> Optional['outputs.WebACLFieldToMatchSingleQueryArgumentProperties']:
         """
         One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
         """
@@ -1887,6 +2511,36 @@ class WebACLFieldToMatch(dict):
         The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
         """
         return pulumi.get(self, "uri_path")
+
+
+@pulumi.output_type
+class WebACLFieldToMatchSingleHeaderProperties(dict):
+    def __init__(__self__, *,
+                 name: str):
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class WebACLFieldToMatchSingleQueryArgumentProperties(dict):
+    """
+    One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
+    """
+    def __init__(__self__, *,
+                 name: str):
+        """
+        One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

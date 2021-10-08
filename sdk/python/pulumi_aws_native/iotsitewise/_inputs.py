@@ -17,6 +17,7 @@ __all__ = [
     'AccessPolicyProjectArgs',
     'AccessPolicyResourceArgs',
     'AccessPolicyUserArgs',
+    'AlarmsPropertiesArgs',
     'AssetHierarchyArgs',
     'AssetModelAttributeArgs',
     'AssetModelCompositeModelArgs',
@@ -235,6 +236,46 @@ class AccessPolicyUserArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class AlarmsPropertiesArgs:
+    def __init__(__self__, *,
+                 alarm_role_arn: Optional[pulumi.Input[str]] = None,
+                 notification_lambda_arn: Optional[pulumi.Input[str]] = None):
+        """
+        Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
+        :param pulumi.Input[str] alarm_role_arn: The ARN of the IAM role that allows the alarm to perform actions and access AWS resources and services, such as AWS IoT Events.
+        :param pulumi.Input[str] notification_lambda_arn: The ARN of the AWS Lambda function that manages alarm notifications. For more information, see Managing alarm notifications in the AWS IoT Events Developer Guide.
+        """
+        if alarm_role_arn is not None:
+            pulumi.set(__self__, "alarm_role_arn", alarm_role_arn)
+        if notification_lambda_arn is not None:
+            pulumi.set(__self__, "notification_lambda_arn", notification_lambda_arn)
+
+    @property
+    @pulumi.getter(name="alarmRoleArn")
+    def alarm_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the IAM role that allows the alarm to perform actions and access AWS resources and services, such as AWS IoT Events.
+        """
+        return pulumi.get(self, "alarm_role_arn")
+
+    @alarm_role_arn.setter
+    def alarm_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alarm_role_arn", value)
+
+    @property
+    @pulumi.getter(name="notificationLambdaArn")
+    def notification_lambda_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the AWS Lambda function that manages alarm notifications. For more information, see Managing alarm notifications in the AWS IoT Events Developer Guide.
+        """
+        return pulumi.get(self, "notification_lambda_arn")
+
+    @notification_lambda_arn.setter
+    def notification_lambda_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "notification_lambda_arn", value)
 
 
 @pulumi.input_type

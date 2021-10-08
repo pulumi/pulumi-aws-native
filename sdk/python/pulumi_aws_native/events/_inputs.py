@@ -10,6 +10,13 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AuthParametersPropertiesArgs',
+    'ConnectionApiKeyAuthParametersArgs',
+    'ConnectionBasicAuthParametersArgs',
+    'ConnectionClientParametersArgs',
+    'ConnectionHttpParametersArgs',
+    'ConnectionOAuthParametersArgs',
+    'ConnectionParameterArgs',
     'EventBusPolicyConditionArgs',
     'RuleAwsVpcConfigurationArgs',
     'RuleBatchArrayPropertiesArgs',
@@ -32,6 +39,270 @@ __all__ = [
     'RuleTagArgs',
     'RuleTargetArgs',
 ]
+
+@pulumi.input_type
+class AuthParametersPropertiesArgs:
+    def __init__(__self__, *,
+                 api_key_auth_parameters: Optional[pulumi.Input['ConnectionApiKeyAuthParametersArgs']] = None,
+                 basic_auth_parameters: Optional[pulumi.Input['ConnectionBasicAuthParametersArgs']] = None,
+                 invocation_http_parameters: Optional[pulumi.Input['ConnectionHttpParametersArgs']] = None,
+                 o_auth_parameters: Optional[pulumi.Input['ConnectionOAuthParametersArgs']] = None):
+        if api_key_auth_parameters is not None:
+            pulumi.set(__self__, "api_key_auth_parameters", api_key_auth_parameters)
+        if basic_auth_parameters is not None:
+            pulumi.set(__self__, "basic_auth_parameters", basic_auth_parameters)
+        if invocation_http_parameters is not None:
+            pulumi.set(__self__, "invocation_http_parameters", invocation_http_parameters)
+        if o_auth_parameters is not None:
+            pulumi.set(__self__, "o_auth_parameters", o_auth_parameters)
+
+    @property
+    @pulumi.getter(name="apiKeyAuthParameters")
+    def api_key_auth_parameters(self) -> Optional[pulumi.Input['ConnectionApiKeyAuthParametersArgs']]:
+        return pulumi.get(self, "api_key_auth_parameters")
+
+    @api_key_auth_parameters.setter
+    def api_key_auth_parameters(self, value: Optional[pulumi.Input['ConnectionApiKeyAuthParametersArgs']]):
+        pulumi.set(self, "api_key_auth_parameters", value)
+
+    @property
+    @pulumi.getter(name="basicAuthParameters")
+    def basic_auth_parameters(self) -> Optional[pulumi.Input['ConnectionBasicAuthParametersArgs']]:
+        return pulumi.get(self, "basic_auth_parameters")
+
+    @basic_auth_parameters.setter
+    def basic_auth_parameters(self, value: Optional[pulumi.Input['ConnectionBasicAuthParametersArgs']]):
+        pulumi.set(self, "basic_auth_parameters", value)
+
+    @property
+    @pulumi.getter(name="invocationHttpParameters")
+    def invocation_http_parameters(self) -> Optional[pulumi.Input['ConnectionHttpParametersArgs']]:
+        return pulumi.get(self, "invocation_http_parameters")
+
+    @invocation_http_parameters.setter
+    def invocation_http_parameters(self, value: Optional[pulumi.Input['ConnectionHttpParametersArgs']]):
+        pulumi.set(self, "invocation_http_parameters", value)
+
+    @property
+    @pulumi.getter(name="oAuthParameters")
+    def o_auth_parameters(self) -> Optional[pulumi.Input['ConnectionOAuthParametersArgs']]:
+        return pulumi.get(self, "o_auth_parameters")
+
+    @o_auth_parameters.setter
+    def o_auth_parameters(self, value: Optional[pulumi.Input['ConnectionOAuthParametersArgs']]):
+        pulumi.set(self, "o_auth_parameters", value)
+
+
+@pulumi.input_type
+class ConnectionApiKeyAuthParametersArgs:
+    def __init__(__self__, *,
+                 api_key_name: pulumi.Input[str],
+                 api_key_value: pulumi.Input[str]):
+        pulumi.set(__self__, "api_key_name", api_key_name)
+        pulumi.set(__self__, "api_key_value", api_key_value)
+
+    @property
+    @pulumi.getter(name="apiKeyName")
+    def api_key_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "api_key_name")
+
+    @api_key_name.setter
+    def api_key_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "api_key_name", value)
+
+    @property
+    @pulumi.getter(name="apiKeyValue")
+    def api_key_value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "api_key_value")
+
+    @api_key_value.setter
+    def api_key_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "api_key_value", value)
+
+
+@pulumi.input_type
+class ConnectionBasicAuthParametersArgs:
+    def __init__(__self__, *,
+                 password: pulumi.Input[str],
+                 username: pulumi.Input[str]):
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class ConnectionClientParametersArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: pulumi.Input[str]):
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+
+    @property
+    @pulumi.getter(name="clientID")
+    def client_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret", value)
+
+
+@pulumi.input_type
+class ConnectionHttpParametersArgs:
+    def __init__(__self__, *,
+                 body_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionParameterArgs']]]] = None,
+                 header_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionParameterArgs']]]] = None,
+                 query_string_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionParameterArgs']]]] = None):
+        if body_parameters is not None:
+            pulumi.set(__self__, "body_parameters", body_parameters)
+        if header_parameters is not None:
+            pulumi.set(__self__, "header_parameters", header_parameters)
+        if query_string_parameters is not None:
+            pulumi.set(__self__, "query_string_parameters", query_string_parameters)
+
+    @property
+    @pulumi.getter(name="bodyParameters")
+    def body_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionParameterArgs']]]]:
+        return pulumi.get(self, "body_parameters")
+
+    @body_parameters.setter
+    def body_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionParameterArgs']]]]):
+        pulumi.set(self, "body_parameters", value)
+
+    @property
+    @pulumi.getter(name="headerParameters")
+    def header_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionParameterArgs']]]]:
+        return pulumi.get(self, "header_parameters")
+
+    @header_parameters.setter
+    def header_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionParameterArgs']]]]):
+        pulumi.set(self, "header_parameters", value)
+
+    @property
+    @pulumi.getter(name="queryStringParameters")
+    def query_string_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionParameterArgs']]]]:
+        return pulumi.get(self, "query_string_parameters")
+
+    @query_string_parameters.setter
+    def query_string_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionParameterArgs']]]]):
+        pulumi.set(self, "query_string_parameters", value)
+
+
+@pulumi.input_type
+class ConnectionOAuthParametersArgs:
+    def __init__(__self__, *,
+                 authorization_endpoint: pulumi.Input[str],
+                 client_parameters: pulumi.Input['ConnectionClientParametersArgs'],
+                 http_method: pulumi.Input['ConnectionOAuthParametersHttpMethod'],
+                 o_auth_http_parameters: Optional[pulumi.Input['ConnectionHttpParametersArgs']] = None):
+        pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+        pulumi.set(__self__, "client_parameters", client_parameters)
+        pulumi.set(__self__, "http_method", http_method)
+        if o_auth_http_parameters is not None:
+            pulumi.set(__self__, "o_auth_http_parameters", o_auth_http_parameters)
+
+    @property
+    @pulumi.getter(name="authorizationEndpoint")
+    def authorization_endpoint(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "authorization_endpoint")
+
+    @authorization_endpoint.setter
+    def authorization_endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "authorization_endpoint", value)
+
+    @property
+    @pulumi.getter(name="clientParameters")
+    def client_parameters(self) -> pulumi.Input['ConnectionClientParametersArgs']:
+        return pulumi.get(self, "client_parameters")
+
+    @client_parameters.setter
+    def client_parameters(self, value: pulumi.Input['ConnectionClientParametersArgs']):
+        pulumi.set(self, "client_parameters", value)
+
+    @property
+    @pulumi.getter(name="httpMethod")
+    def http_method(self) -> pulumi.Input['ConnectionOAuthParametersHttpMethod']:
+        return pulumi.get(self, "http_method")
+
+    @http_method.setter
+    def http_method(self, value: pulumi.Input['ConnectionOAuthParametersHttpMethod']):
+        pulumi.set(self, "http_method", value)
+
+    @property
+    @pulumi.getter(name="oAuthHttpParameters")
+    def o_auth_http_parameters(self) -> Optional[pulumi.Input['ConnectionHttpParametersArgs']]:
+        return pulumi.get(self, "o_auth_http_parameters")
+
+    @o_auth_http_parameters.setter
+    def o_auth_http_parameters(self, value: Optional[pulumi.Input['ConnectionHttpParametersArgs']]):
+        pulumi.set(self, "o_auth_http_parameters", value)
+
+
+@pulumi.input_type
+class ConnectionParameterArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str],
+                 is_value_secret: Optional[pulumi.Input[bool]] = None):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+        if is_value_secret is not None:
+            pulumi.set(__self__, "is_value_secret", is_value_secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter(name="isValueSecret")
+    def is_value_secret(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_value_secret")
+
+    @is_value_secret.setter
+    def is_value_secret(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_value_secret", value)
+
 
 @pulumi.input_type
 class EventBusPolicyConditionArgs:

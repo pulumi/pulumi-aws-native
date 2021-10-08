@@ -16,12 +16,12 @@ __all__ = ['TransitGatewayMulticastDomainArgs', 'TransitGatewayMulticastDomain']
 class TransitGatewayMulticastDomainArgs:
     def __init__(__self__, *,
                  transit_gateway_id: pulumi.Input[str],
-                 options: Optional[Any] = None,
+                 options: Optional[pulumi.Input['OptionsPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayMulticastDomainTagArgs']]]] = None):
         """
         The set of arguments for constructing a TransitGatewayMulticastDomain resource.
         :param pulumi.Input[str] transit_gateway_id: The ID of the transit gateway.
-        :param Any options: The options for the transit gateway multicast domain.
+        :param pulumi.Input['OptionsPropertiesArgs'] options: The options for the transit gateway multicast domain.
         :param pulumi.Input[Sequence[pulumi.Input['TransitGatewayMulticastDomainTagArgs']]] tags: The tags for the transit gateway multicast domain.
         """
         pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
@@ -44,14 +44,14 @@ class TransitGatewayMulticastDomainArgs:
 
     @property
     @pulumi.getter
-    def options(self) -> Optional[Any]:
+    def options(self) -> Optional[pulumi.Input['OptionsPropertiesArgs']]:
         """
         The options for the transit gateway multicast domain.
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[Any]):
+    def options(self, value: Optional[pulumi.Input['OptionsPropertiesArgs']]):
         pulumi.set(self, "options", value)
 
     @property
@@ -72,7 +72,7 @@ class TransitGatewayMulticastDomain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 options: Optional[Any] = None,
+                 options: Optional[pulumi.Input[pulumi.InputType['OptionsPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransitGatewayMulticastDomainTagArgs']]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -81,7 +81,7 @@ class TransitGatewayMulticastDomain(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any options: The options for the transit gateway multicast domain.
+        :param pulumi.Input[pulumi.InputType['OptionsPropertiesArgs']] options: The options for the transit gateway multicast domain.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransitGatewayMulticastDomainTagArgs']]]] tags: The tags for the transit gateway multicast domain.
         :param pulumi.Input[str] transit_gateway_id: The ID of the transit gateway.
         """
@@ -109,7 +109,7 @@ class TransitGatewayMulticastDomain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 options: Optional[Any] = None,
+                 options: Optional[pulumi.Input[pulumi.InputType['OptionsPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransitGatewayMulticastDomainTagArgs']]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -174,7 +174,7 @@ class TransitGatewayMulticastDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def options(self) -> pulumi.Output[Optional[Any]]:
+    def options(self) -> pulumi.Output[Optional['outputs.OptionsProperties']]:
         """
         The options for the transit gateway multicast domain.
         """

@@ -61,7 +61,10 @@ __all__ = [
     'EndpointTagArgs',
     'EndpointTrafficRoutingConfigArgs',
     'EndpointVariantPropertyArgs',
+    'FeatureGroupDataCatalogConfigArgs',
     'FeatureGroupFeatureDefinitionArgs',
+    'FeatureGroupOnlineStoreSecurityConfigArgs',
+    'FeatureGroupS3StorageConfigArgs',
     'FeatureGroupTagArgs',
     'ImageTagArgs',
     'ModelBiasJobDefinitionClusterConfigArgs',
@@ -137,8 +140,12 @@ __all__ = [
     'MonitoringScheduleVpcConfigArgs',
     'NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs',
     'NotebookInstanceTagArgs',
+    'OfflineStoreConfigPropertiesArgs',
+    'OnlineStoreConfigPropertiesArgs',
     'PipelineTagArgs',
+    'ProjectProvisioningParameterArgs',
     'ProjectTagArgs',
+    'ServiceCatalogProvisioningDetailsPropertiesArgs',
     'UserProfileCustomImageArgs',
     'UserProfileJupyterServerAppSettingsArgs',
     'UserProfileKernelGatewayAppSettingsArgs',
@@ -2144,6 +2151,44 @@ class EndpointVariantPropertyArgs:
 
 
 @pulumi.input_type
+class FeatureGroupDataCatalogConfigArgs:
+    def __init__(__self__, *,
+                 catalog: pulumi.Input[str],
+                 database: pulumi.Input[str],
+                 table_name: pulumi.Input[str]):
+        pulumi.set(__self__, "catalog", catalog)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "table_name", table_name)
+
+    @property
+    @pulumi.getter
+    def catalog(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "catalog")
+
+    @catalog.setter
+    def catalog(self, value: pulumi.Input[str]):
+        pulumi.set(self, "catalog", value)
+
+    @property
+    @pulumi.getter
+    def database(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "table_name", value)
+
+
+@pulumi.input_type
 class FeatureGroupFeatureDefinitionArgs:
     def __init__(__self__, *,
                  feature_name: pulumi.Input[str],
@@ -2168,6 +2213,51 @@ class FeatureGroupFeatureDefinitionArgs:
     @feature_type.setter
     def feature_type(self, value: pulumi.Input['FeatureGroupFeatureDefinitionFeatureType']):
         pulumi.set(self, "feature_type", value)
+
+
+@pulumi.input_type
+class FeatureGroupOnlineStoreSecurityConfigArgs:
+    def __init__(__self__, *,
+                 kms_key_id: Optional[pulumi.Input[str]] = None):
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+
+@pulumi.input_type
+class FeatureGroupS3StorageConfigArgs:
+    def __init__(__self__, *,
+                 s3_uri: pulumi.Input[str],
+                 kms_key_id: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "s3_uri")
+
+    @s3_uri.setter
+    def s3_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_uri", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
 
 
 @pulumi.input_type
@@ -5463,6 +5553,75 @@ class NotebookInstanceTagArgs:
 
 
 @pulumi.input_type
+class OfflineStoreConfigPropertiesArgs:
+    def __init__(__self__, *,
+                 s3_storage_config: pulumi.Input['FeatureGroupS3StorageConfigArgs'],
+                 data_catalog_config: Optional[pulumi.Input['FeatureGroupDataCatalogConfigArgs']] = None,
+                 disable_glue_table_creation: Optional[pulumi.Input[bool]] = None):
+        pulumi.set(__self__, "s3_storage_config", s3_storage_config)
+        if data_catalog_config is not None:
+            pulumi.set(__self__, "data_catalog_config", data_catalog_config)
+        if disable_glue_table_creation is not None:
+            pulumi.set(__self__, "disable_glue_table_creation", disable_glue_table_creation)
+
+    @property
+    @pulumi.getter(name="s3StorageConfig")
+    def s3_storage_config(self) -> pulumi.Input['FeatureGroupS3StorageConfigArgs']:
+        return pulumi.get(self, "s3_storage_config")
+
+    @s3_storage_config.setter
+    def s3_storage_config(self, value: pulumi.Input['FeatureGroupS3StorageConfigArgs']):
+        pulumi.set(self, "s3_storage_config", value)
+
+    @property
+    @pulumi.getter(name="dataCatalogConfig")
+    def data_catalog_config(self) -> Optional[pulumi.Input['FeatureGroupDataCatalogConfigArgs']]:
+        return pulumi.get(self, "data_catalog_config")
+
+    @data_catalog_config.setter
+    def data_catalog_config(self, value: Optional[pulumi.Input['FeatureGroupDataCatalogConfigArgs']]):
+        pulumi.set(self, "data_catalog_config", value)
+
+    @property
+    @pulumi.getter(name="disableGlueTableCreation")
+    def disable_glue_table_creation(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "disable_glue_table_creation")
+
+    @disable_glue_table_creation.setter
+    def disable_glue_table_creation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_glue_table_creation", value)
+
+
+@pulumi.input_type
+class OnlineStoreConfigPropertiesArgs:
+    def __init__(__self__, *,
+                 enable_online_store: Optional[pulumi.Input[bool]] = None,
+                 security_config: Optional[pulumi.Input['FeatureGroupOnlineStoreSecurityConfigArgs']] = None):
+        if enable_online_store is not None:
+            pulumi.set(__self__, "enable_online_store", enable_online_store)
+        if security_config is not None:
+            pulumi.set(__self__, "security_config", security_config)
+
+    @property
+    @pulumi.getter(name="enableOnlineStore")
+    def enable_online_store(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_online_store")
+
+    @enable_online_store.setter
+    def enable_online_store(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_online_store", value)
+
+    @property
+    @pulumi.getter(name="securityConfig")
+    def security_config(self) -> Optional[pulumi.Input['FeatureGroupOnlineStoreSecurityConfigArgs']]:
+        return pulumi.get(self, "security_config")
+
+    @security_config.setter
+    def security_config(self, value: Optional[pulumi.Input['FeatureGroupOnlineStoreSecurityConfigArgs']]):
+        pulumi.set(self, "security_config", value)
+
+
+@pulumi.input_type
 class PipelineTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -5482,6 +5641,44 @@ class PipelineTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ProjectProvisioningParameterArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        Information about a parameter used to provision a product.
+        :param pulumi.Input[str] key: The parameter key.
+        :param pulumi.Input[str] value: The parameter value.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The parameter key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The parameter value.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -5525,6 +5722,64 @@ class ProjectTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ServiceCatalogProvisioningDetailsPropertiesArgs:
+    def __init__(__self__, *,
+                 product_id: pulumi.Input[str],
+                 provisioning_artifact_id: pulumi.Input[str],
+                 path_id: Optional[pulumi.Input[str]] = None,
+                 provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProvisioningParameterArgs']]]] = None):
+        """
+        Input ServiceCatalog Provisioning Details
+        :param pulumi.Input[Sequence[pulumi.Input['ProjectProvisioningParameterArgs']]] provisioning_parameters: Parameters specified by the administrator that are required for provisioning the product.
+        """
+        pulumi.set(__self__, "product_id", product_id)
+        pulumi.set(__self__, "provisioning_artifact_id", provisioning_artifact_id)
+        if path_id is not None:
+            pulumi.set(__self__, "path_id", path_id)
+        if provisioning_parameters is not None:
+            pulumi.set(__self__, "provisioning_parameters", provisioning_parameters)
+
+    @property
+    @pulumi.getter(name="productId")
+    def product_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "product_id")
+
+    @product_id.setter
+    def product_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "product_id", value)
+
+    @property
+    @pulumi.getter(name="provisioningArtifactId")
+    def provisioning_artifact_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "provisioning_artifact_id")
+
+    @provisioning_artifact_id.setter
+    def provisioning_artifact_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "provisioning_artifact_id", value)
+
+    @property
+    @pulumi.getter(name="pathId")
+    def path_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "path_id")
+
+    @path_id.setter
+    def path_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path_id", value)
+
+    @property
+    @pulumi.getter(name="provisioningParameters")
+    def provisioning_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProvisioningParameterArgs']]]]:
+        """
+        Parameters specified by the administrator that are required for provisioning the product.
+        """
+        return pulumi.get(self, "provisioning_parameters")
+
+    @provisioning_parameters.setter
+    def provisioning_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProvisioningParameterArgs']]]]):
+        pulumi.set(self, "provisioning_parameters", value)
 
 
 @pulumi.input_type

@@ -50,6 +50,7 @@ __all__ = [
     'RecipeConditionExpressionArgs',
     'RecipeDataCatalogInputDefinitionArgs',
     'RecipeParameterMapArgs',
+    'RecipeParametersInputPropertiesArgs',
     'RecipeParametersArgs',
     'RecipeS3LocationArgs',
     'RecipeSecondaryInputArgs',
@@ -1576,6 +1577,38 @@ class RecipeParameterMapArgs:
 
 
 @pulumi.input_type
+class RecipeParametersInputPropertiesArgs:
+    def __init__(__self__, *,
+                 data_catalog_input_definition: Optional[pulumi.Input['RecipeDataCatalogInputDefinitionArgs']] = None,
+                 s3_input_definition: Optional[pulumi.Input['RecipeS3LocationArgs']] = None):
+        """
+        Input
+        """
+        if data_catalog_input_definition is not None:
+            pulumi.set(__self__, "data_catalog_input_definition", data_catalog_input_definition)
+        if s3_input_definition is not None:
+            pulumi.set(__self__, "s3_input_definition", s3_input_definition)
+
+    @property
+    @pulumi.getter(name="dataCatalogInputDefinition")
+    def data_catalog_input_definition(self) -> Optional[pulumi.Input['RecipeDataCatalogInputDefinitionArgs']]:
+        return pulumi.get(self, "data_catalog_input_definition")
+
+    @data_catalog_input_definition.setter
+    def data_catalog_input_definition(self, value: Optional[pulumi.Input['RecipeDataCatalogInputDefinitionArgs']]):
+        pulumi.set(self, "data_catalog_input_definition", value)
+
+    @property
+    @pulumi.getter(name="s3InputDefinition")
+    def s3_input_definition(self) -> Optional[pulumi.Input['RecipeS3LocationArgs']]:
+        return pulumi.get(self, "s3_input_definition")
+
+    @s3_input_definition.setter
+    def s3_input_definition(self, value: Optional[pulumi.Input['RecipeS3LocationArgs']]):
+        pulumi.set(self, "s3_input_definition", value)
+
+
+@pulumi.input_type
 class RecipeParametersArgs:
     def __init__(__self__, *,
                  aggregate_function: Optional[pulumi.Input[str]] = None,
@@ -1607,7 +1640,7 @@ class RecipeParametersArgs:
                  hidden_columns: Optional[pulumi.Input[str]] = None,
                  ignore_case: Optional[pulumi.Input[str]] = None,
                  include_in_split: Optional[pulumi.Input[str]] = None,
-                 input: Optional[Any] = None,
+                 input: Optional[pulumi.Input['RecipeParametersInputPropertiesArgs']] = None,
                  interval: Optional[pulumi.Input[str]] = None,
                  is_text: Optional[pulumi.Input[str]] = None,
                  join_keys: Optional[pulumi.Input[str]] = None,
@@ -1680,7 +1713,7 @@ class RecipeParametersArgs:
                  value_column: Optional[pulumi.Input[str]] = None,
                  view_frame: Optional[pulumi.Input[str]] = None):
         """
-        :param Any input: Input
+        :param pulumi.Input['RecipeParametersInputPropertiesArgs'] input: Input
         """
         if aggregate_function is not None:
             pulumi.set(__self__, "aggregate_function", aggregate_function)
@@ -2148,14 +2181,14 @@ class RecipeParametersArgs:
 
     @property
     @pulumi.getter
-    def input(self) -> Optional[Any]:
+    def input(self) -> Optional[pulumi.Input['RecipeParametersInputPropertiesArgs']]:
         """
         Input
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[Any]):
+    def input(self, value: Optional[pulumi.Input['RecipeParametersInputPropertiesArgs']]):
         pulumi.set(self, "input", value)
 
     @property

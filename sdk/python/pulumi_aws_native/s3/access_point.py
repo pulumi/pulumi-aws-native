@@ -18,7 +18,7 @@ class AccessPointArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
                  policy: Optional[Any] = None,
-                 policy_status: Optional[Any] = None,
+                 policy_status: Optional[pulumi.Input['PolicyStatusPropertiesArgs']] = None,
                  public_access_block_configuration: Optional[pulumi.Input['AccessPointPublicAccessBlockConfigurationArgs']] = None,
                  vpc_configuration: Optional[pulumi.Input['AccessPointVpcConfigurationArgs']] = None):
         """
@@ -64,11 +64,11 @@ class AccessPointArgs:
 
     @property
     @pulumi.getter(name="policyStatus")
-    def policy_status(self) -> Optional[Any]:
+    def policy_status(self) -> Optional[pulumi.Input['PolicyStatusPropertiesArgs']]:
         return pulumi.get(self, "policy_status")
 
     @policy_status.setter
-    def policy_status(self, value: Optional[Any]):
+    def policy_status(self, value: Optional[pulumi.Input['PolicyStatusPropertiesArgs']]):
         pulumi.set(self, "policy_status", value)
 
     @property
@@ -103,7 +103,7 @@ class AccessPoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
                  policy: Optional[Any] = None,
-                 policy_status: Optional[Any] = None,
+                 policy_status: Optional[pulumi.Input[pulumi.InputType['PolicyStatusPropertiesArgs']]] = None,
                  public_access_block_configuration: Optional[pulumi.Input[pulumi.InputType['AccessPointPublicAccessBlockConfigurationArgs']]] = None,
                  vpc_configuration: Optional[pulumi.Input[pulumi.InputType['AccessPointVpcConfigurationArgs']]] = None,
                  __props__=None):
@@ -143,7 +143,7 @@ class AccessPoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
                  policy: Optional[Any] = None,
-                 policy_status: Optional[Any] = None,
+                 policy_status: Optional[pulumi.Input[pulumi.InputType['PolicyStatusPropertiesArgs']]] = None,
                  public_access_block_configuration: Optional[pulumi.Input[pulumi.InputType['AccessPointPublicAccessBlockConfigurationArgs']]] = None,
                  vpc_configuration: Optional[pulumi.Input[pulumi.InputType['AccessPointVpcConfigurationArgs']]] = None,
                  __props__=None):
@@ -252,7 +252,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyStatus")
-    def policy_status(self) -> pulumi.Output[Optional[Any]]:
+    def policy_status(self) -> pulumi.Output[Optional['outputs.PolicyStatusProperties']]:
         return pulumi.get(self, "policy_status")
 
     @property

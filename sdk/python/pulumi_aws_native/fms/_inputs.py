@@ -7,11 +7,13 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'PolicyIEMapArgs',
     'PolicyResourceTagArgs',
     'PolicyTagArgs',
+    'SecurityServicePolicyDataPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -105,5 +107,33 @@ class PolicyTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SecurityServicePolicyDataPropertiesArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['PolicySecurityServicePolicyDataPropertiesType'],
+                 managed_service_data: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "type", type)
+        if managed_service_data is not None:
+            pulumi.set(__self__, "managed_service_data", managed_service_data)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['PolicySecurityServicePolicyDataPropertiesType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['PolicySecurityServicePolicyDataPropertiesType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="managedServiceData")
+    def managed_service_data(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "managed_service_data")
+
+    @managed_service_data.setter
+    def managed_service_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_service_data", value)
 
 

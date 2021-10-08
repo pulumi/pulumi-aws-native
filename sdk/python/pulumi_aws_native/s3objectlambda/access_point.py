@@ -174,7 +174,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyStatus")
-    def policy_status(self) -> pulumi.Output[Any]:
+    def policy_status(self) -> pulumi.Output['outputs.PolicyStatusProperties']:
         return pulumi.get(self, "policy_status")
 
     @property

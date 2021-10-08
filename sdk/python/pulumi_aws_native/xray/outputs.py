@@ -14,6 +14,7 @@ __all__ = [
     'SamplingRule',
     'SamplingRuleRecord',
     'SamplingRuleUpdate',
+    'TagsItemProperties',
 ]
 
 @pulumi.output_type
@@ -488,5 +489,24 @@ class SamplingRuleUpdate(dict):
         Matches the path from a request URL.
         """
         return pulumi.get(self, "u_rl_path")
+
+
+@pulumi.output_type
+class TagsItemProperties(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 

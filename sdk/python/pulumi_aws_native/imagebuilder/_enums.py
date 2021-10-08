@@ -11,6 +11,7 @@ __all__ = [
     'ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType',
     'ContainerRecipePlatformOverride',
     'ContainerRecipeTargetContainerRepositoryService',
+    'DistributionConfigurationTargetContainerRepositoryService',
     'ImagePipelineSchedulePipelineExecutionStartCondition',
     'ImagePipelineStatus',
     'ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType',
@@ -64,6 +65,13 @@ class ContainerRecipePlatformOverride(str, Enum):
 class ContainerRecipeTargetContainerRepositoryService(str, Enum):
     """
     Specifies the service in which this image was registered.
+    """
+    ECR = "ECR"
+
+
+class DistributionConfigurationTargetContainerRepositoryService(str, Enum):
+    """
+    The service of target container repository.
     """
     ECR = "ECR"
 

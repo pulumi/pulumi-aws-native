@@ -17,14 +17,14 @@ __all__ = ['ProfilingGroupArgs', 'ProfilingGroup']
 class ProfilingGroupArgs:
     def __init__(__self__, *,
                  profiling_group_name: pulumi.Input[str],
-                 agent_permissions: Optional[Any] = None,
+                 agent_permissions: Optional[pulumi.Input['AgentPermissionsPropertiesArgs']] = None,
                  anomaly_detection_notification_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['ProfilingGroupChannelArgs']]]] = None,
                  compute_platform: Optional[pulumi.Input['ProfilingGroupComputePlatform']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProfilingGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a ProfilingGroup resource.
         :param pulumi.Input[str] profiling_group_name: The name of the profiling group.
-        :param Any agent_permissions: The agent permissions attached to this profiling group.
+        :param pulumi.Input['AgentPermissionsPropertiesArgs'] agent_permissions: The agent permissions attached to this profiling group.
         :param pulumi.Input[Sequence[pulumi.Input['ProfilingGroupChannelArgs']]] anomaly_detection_notification_configuration: Configuration for Notification Channels for Anomaly Detection feature in CodeGuru Profiler which enables customers to detect anomalies in the application profile for those methods that represent the highest proportion of CPU time or latency
         :param pulumi.Input['ProfilingGroupComputePlatform'] compute_platform: The compute platform of the profiling group.
         :param pulumi.Input[Sequence[pulumi.Input['ProfilingGroupTagArgs']]] tags: The tags associated with a profiling group.
@@ -53,14 +53,14 @@ class ProfilingGroupArgs:
 
     @property
     @pulumi.getter(name="agentPermissions")
-    def agent_permissions(self) -> Optional[Any]:
+    def agent_permissions(self) -> Optional[pulumi.Input['AgentPermissionsPropertiesArgs']]:
         """
         The agent permissions attached to this profiling group.
         """
         return pulumi.get(self, "agent_permissions")
 
     @agent_permissions.setter
-    def agent_permissions(self, value: Optional[Any]):
+    def agent_permissions(self, value: Optional[pulumi.Input['AgentPermissionsPropertiesArgs']]):
         pulumi.set(self, "agent_permissions", value)
 
     @property
@@ -105,7 +105,7 @@ class ProfilingGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_permissions: Optional[Any] = None,
+                 agent_permissions: Optional[pulumi.Input[pulumi.InputType['AgentPermissionsPropertiesArgs']]] = None,
                  anomaly_detection_notification_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfilingGroupChannelArgs']]]]] = None,
                  compute_platform: Optional[pulumi.Input['ProfilingGroupComputePlatform']] = None,
                  profiling_group_name: Optional[pulumi.Input[str]] = None,
@@ -116,7 +116,7 @@ class ProfilingGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any agent_permissions: The agent permissions attached to this profiling group.
+        :param pulumi.Input[pulumi.InputType['AgentPermissionsPropertiesArgs']] agent_permissions: The agent permissions attached to this profiling group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfilingGroupChannelArgs']]]] anomaly_detection_notification_configuration: Configuration for Notification Channels for Anomaly Detection feature in CodeGuru Profiler which enables customers to detect anomalies in the application profile for those methods that represent the highest proportion of CPU time or latency
         :param pulumi.Input['ProfilingGroupComputePlatform'] compute_platform: The compute platform of the profiling group.
         :param pulumi.Input[str] profiling_group_name: The name of the profiling group.
@@ -146,7 +146,7 @@ class ProfilingGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_permissions: Optional[Any] = None,
+                 agent_permissions: Optional[pulumi.Input[pulumi.InputType['AgentPermissionsPropertiesArgs']]] = None,
                  anomaly_detection_notification_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfilingGroupChannelArgs']]]]] = None,
                  compute_platform: Optional[pulumi.Input['ProfilingGroupComputePlatform']] = None,
                  profiling_group_name: Optional[pulumi.Input[str]] = None,
@@ -203,7 +203,7 @@ class ProfilingGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="agentPermissions")
-    def agent_permissions(self) -> pulumi.Output[Optional[Any]]:
+    def agent_permissions(self) -> pulumi.Output[Optional['outputs.AgentPermissionsProperties']]:
         """
         The agent permissions attached to this profiling group.
         """

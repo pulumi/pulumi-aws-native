@@ -7,14 +7,16 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['ConnectionArgs', 'Connection']
 
 @pulumi.input_type
 class ConnectionArgs:
     def __init__(__self__, *,
-                 auth_parameters: Any,
+                 auth_parameters: pulumi.Input['AuthParametersPropertiesArgs'],
                  authorization_type: pulumi.Input['ConnectionAuthorizationType'],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
@@ -32,11 +34,11 @@ class ConnectionArgs:
 
     @property
     @pulumi.getter(name="authParameters")
-    def auth_parameters(self) -> Any:
+    def auth_parameters(self) -> pulumi.Input['AuthParametersPropertiesArgs']:
         return pulumi.get(self, "auth_parameters")
 
     @auth_parameters.setter
-    def auth_parameters(self, value: Any):
+    def auth_parameters(self, value: pulumi.Input['AuthParametersPropertiesArgs']):
         pulumi.set(self, "auth_parameters", value)
 
     @property
@@ -78,7 +80,7 @@ class Connection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_parameters: Optional[Any] = None,
+                 auth_parameters: Optional[pulumi.Input[pulumi.InputType['AuthParametersPropertiesArgs']]] = None,
                  authorization_type: Optional[pulumi.Input['ConnectionAuthorizationType']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -115,7 +117,7 @@ class Connection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_parameters: Optional[Any] = None,
+                 auth_parameters: Optional[pulumi.Input[pulumi.InputType['AuthParametersPropertiesArgs']]] = None,
                  authorization_type: Optional[pulumi.Input['ConnectionAuthorizationType']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -181,7 +183,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authParameters")
-    def auth_parameters(self) -> pulumi.Output[Any]:
+    def auth_parameters(self) -> pulumi.Output['outputs.AuthParametersProperties']:
         return pulumi.get(self, "auth_parameters")
 
     @property

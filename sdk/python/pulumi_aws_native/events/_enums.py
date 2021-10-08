@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'ApiDestinationHttpMethod',
     'ConnectionAuthorizationType',
+    'ConnectionOAuthParametersHttpMethod',
 ]
 
 
@@ -24,3 +25,9 @@ class ConnectionAuthorizationType(str, Enum):
     API_KEY = "API_KEY"
     BASIC = "BASIC"
     OAUTH_CLIENT_CREDENTIALS = "OAUTH_CLIENT_CREDENTIALS"
+
+
+class ConnectionOAuthParametersHttpMethod(str, Enum):
+    GET = "GET"
+    POST = "POST"
+    PUT = "PUT"

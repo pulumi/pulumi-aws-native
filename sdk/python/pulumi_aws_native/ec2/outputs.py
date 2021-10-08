@@ -99,6 +99,7 @@ __all__ = [
     'NetworkInterfaceInstanceIpv6Address',
     'NetworkInterfacePrivateIpAddressSpecification',
     'NetworkInterfaceTag',
+    'OptionsProperties',
     'PrefixListEntry',
     'PrefixListTag',
     'RouteTableTag',
@@ -4464,6 +4465,74 @@ class NetworkInterfaceTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OptionsProperties(dict):
+    """
+    The options for the transit gateway vpc attachment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applianceModeSupport":
+            suggest = "appliance_mode_support"
+        elif key == "dnsSupport":
+            suggest = "dns_support"
+        elif key == "ipv6Support":
+            suggest = "ipv6_support"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OptionsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OptionsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OptionsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 appliance_mode_support: Optional[str] = None,
+                 dns_support: Optional[str] = None,
+                 ipv6_support: Optional[str] = None):
+        """
+        The options for the transit gateway vpc attachment.
+        :param str appliance_mode_support: Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
+        :param str dns_support: Indicates whether to enable DNS Support for Vpc Attachment. Valid Values: enable | disable
+        :param str ipv6_support: Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
+        """
+        if appliance_mode_support is not None:
+            pulumi.set(__self__, "appliance_mode_support", appliance_mode_support)
+        if dns_support is not None:
+            pulumi.set(__self__, "dns_support", dns_support)
+        if ipv6_support is not None:
+            pulumi.set(__self__, "ipv6_support", ipv6_support)
+
+    @property
+    @pulumi.getter(name="applianceModeSupport")
+    def appliance_mode_support(self) -> Optional[str]:
+        """
+        Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
+        """
+        return pulumi.get(self, "appliance_mode_support")
+
+    @property
+    @pulumi.getter(name="dnsSupport")
+    def dns_support(self) -> Optional[str]:
+        """
+        Indicates whether to enable DNS Support for Vpc Attachment. Valid Values: enable | disable
+        """
+        return pulumi.get(self, "dns_support")
+
+    @property
+    @pulumi.getter(name="ipv6Support")
+    def ipv6_support(self) -> Optional[str]:
+        """
+        Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
+        """
+        return pulumi.get(self, "ipv6_support")
 
 
 @pulumi.output_type

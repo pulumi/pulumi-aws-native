@@ -7,6 +7,12 @@ from enum import Enum
 __all__ = [
     'IPSetIPAddressVersion',
     'IPSetScope',
+    'LoggingConfigurationConditionActionConditionPropertiesAction',
+    'LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior',
+    'LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope',
+    'LoggingConfigurationFilterBehavior',
+    'LoggingConfigurationFilterRequirement',
+    'LoggingConfigurationLoggingFilterPropertiesDefaultBehavior',
     'RegexPatternSetScope',
     'RuleGroupBodyParsingFallbackBehavior',
     'RuleGroupForwardedIPConfigurationFallbackBehavior',
@@ -47,6 +53,57 @@ class IPSetScope(str, Enum):
     """
     CLOUDFRONT = "CLOUDFRONT"
     REGIONAL = "REGIONAL"
+
+
+class LoggingConfigurationConditionActionConditionPropertiesAction(str, Enum):
+    """
+    Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
+    """
+    ALLOW = "ALLOW"
+    BLOCK = "BLOCK"
+    COUNT = "COUNT"
+
+
+class LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior(str, Enum):
+    """
+    What AWS WAF should do if it fails to completely parse the JSON body.
+    """
+    MATCH = "MATCH"
+    NO_MATCH = "NO_MATCH"
+    EVALUATE_AS_STRING = "EVALUATE_AS_STRING"
+
+
+class LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope(str, Enum):
+    """
+    The parts of the JSON to match against using the MatchPattern. If you specify All, AWS WAF matches against keys and values. 
+    """
+    ALL = "ALL"
+    KEY = "KEY"
+    VALUE = "VALUE"
+
+
+class LoggingConfigurationFilterBehavior(str, Enum):
+    """
+    How to handle logs that satisfy the filter's conditions and requirement. 
+    """
+    KEEP = "KEEP"
+    DROP = "DROP"
+
+
+class LoggingConfigurationFilterRequirement(str, Enum):
+    """
+    Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
+    """
+    MEETS_ALL = "MEETS_ALL"
+    MEETS_ANY = "MEETS_ANY"
+
+
+class LoggingConfigurationLoggingFilterPropertiesDefaultBehavior(str, Enum):
+    """
+    Default handling for logs that don't match any of the specified filtering conditions.
+    """
+    KEEP = "KEEP"
+    DROP = "DROP"
 
 
 class RegexPatternSetScope(str, Enum):

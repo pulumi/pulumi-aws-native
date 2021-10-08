@@ -5,8 +5,27 @@
 from enum import Enum
 
 __all__ = [
+    'HealthCheckConfigPropertiesInsufficientDataHealthStatus',
+    'HealthCheckConfigPropertiesType',
     'KeySigningKeyStatus',
 ]
+
+
+class HealthCheckConfigPropertiesInsufficientDataHealthStatus(str, Enum):
+    HEALTHY = "Healthy"
+    LAST_KNOWN_STATUS = "LastKnownStatus"
+    UNHEALTHY = "Unhealthy"
+
+
+class HealthCheckConfigPropertiesType(str, Enum):
+    CALCULATED = "CALCULATED"
+    CLOUDWATCH_METRIC = "CLOUDWATCH_METRIC"
+    HTTP = "HTTP"
+    HTTP_STR_MATCH = "HTTP_STR_MATCH"
+    HTTPS = "HTTPS"
+    HTTPS_STR_MATCH = "HTTPS_STR_MATCH"
+    TCP = "TCP"
+    RECOVERY_CONTROL = "RECOVERY_CONTROL"
 
 
 class KeySigningKeyStatus(str, Enum):
