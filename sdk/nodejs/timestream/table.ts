@@ -47,7 +47,7 @@ export class Table extends pulumi.CustomResource {
     /**
      * The retention duration of the memory store and the magnetic store.
      */
-    public readonly retentionProperties!: pulumi.Output<any | undefined>;
+    public readonly retentionProperties!: pulumi.Output<outputs.timestream.RetentionPropertiesProperties | undefined>;
     /**
      * The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.
      */
@@ -103,7 +103,7 @@ export interface TableArgs {
     /**
      * The retention duration of the memory store and the magnetic store.
      */
-    retentionProperties?: any;
+    retentionProperties?: pulumi.Input<inputs.timestream.RetentionPropertiesPropertiesArgs>;
     /**
      * The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.
      */

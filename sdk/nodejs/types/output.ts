@@ -4664,6 +4664,16 @@ export namespace codedeploy {
 
 export namespace codeguruprofiler {
     /**
+     * The agent permissions attached to this profiling group.
+     */
+    export interface AgentPermissionsProperties {
+        /**
+         * The principals for the agent permissions.
+         */
+        principals: string[];
+    }
+
+    /**
      * Notification medium for users to get alerted for events that occur in application profile. We support SNS topic as a notification channel.
      */
     export interface ProfilingGroupChannel {
@@ -6482,7 +6492,7 @@ export namespace databrew {
         /**
          * Input
          */
-        input?: any;
+        input?: outputs.databrew.RecipeParametersInputProperties;
         interval?: string;
         isText?: string;
         joinKeys?: string;
@@ -6554,6 +6564,14 @@ export namespace databrew {
         value2?: string;
         valueColumn?: string;
         viewFrame?: string;
+    }
+
+    /**
+     * Input
+     */
+    export interface RecipeParametersInputProperties {
+        dataCatalogInputDefinition?: outputs.databrew.RecipeDataCatalogInputDefinition;
+        s3InputDefinition?: outputs.databrew.RecipeS3Location;
     }
 
     /**
@@ -7989,6 +8007,24 @@ export namespace ec2 {
         value: string;
     }
 
+    /**
+     * The options for the transit gateway vpc attachment.
+     */
+    export interface OptionsProperties {
+        /**
+         * Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
+         */
+        applianceModeSupport?: string;
+        /**
+         * Indicates whether to enable DNS Support for Vpc Attachment. Valid Values: enable | disable
+         */
+        dnsSupport?: string;
+        /**
+         * Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
+         */
+        ipv6Support?: string;
+    }
+
     export interface PrefixListEntry {
         cidr: string;
         description?: string;
@@ -8955,11 +8991,21 @@ export namespace eks {
         /**
          * The encryption provider for the cluster.
          */
-        provider?: any;
+        provider?: outputs.eks.ClusterEncryptionConfigProviderProperties;
         /**
          * Specifies the resources to be encrypted. The only supported value is "secrets".
          */
         resources?: string[];
+    }
+
+    /**
+     * The encryption provider for the cluster.
+     */
+    export interface ClusterEncryptionConfigProviderProperties {
+        /**
+         * Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key.
+         */
+        keyArn?: string;
     }
 
     /**
@@ -10009,6 +10055,47 @@ export namespace emrcontainers {
 }
 
 export namespace events {
+    export interface AuthParametersProperties {
+        apiKeyAuthParameters?: outputs.events.ConnectionApiKeyAuthParameters;
+        basicAuthParameters?: outputs.events.ConnectionBasicAuthParameters;
+        invocationHttpParameters?: outputs.events.ConnectionHttpParameters;
+        oAuthParameters?: outputs.events.ConnectionOAuthParameters;
+    }
+
+    export interface ConnectionApiKeyAuthParameters {
+        apiKeyName: string;
+        apiKeyValue: string;
+    }
+
+    export interface ConnectionBasicAuthParameters {
+        password: string;
+        username: string;
+    }
+
+    export interface ConnectionClientParameters {
+        clientID: string;
+        clientSecret: string;
+    }
+
+    export interface ConnectionHttpParameters {
+        bodyParameters?: outputs.events.ConnectionParameter[];
+        headerParameters?: outputs.events.ConnectionParameter[];
+        queryStringParameters?: outputs.events.ConnectionParameter[];
+    }
+
+    export interface ConnectionOAuthParameters {
+        authorizationEndpoint: string;
+        clientParameters: outputs.events.ConnectionClientParameters;
+        httpMethod: enums.events.ConnectionOAuthParametersHttpMethod;
+        oAuthHttpParameters?: outputs.events.ConnectionHttpParameters;
+    }
+
+    export interface ConnectionParameter {
+        isValueSecret?: boolean;
+        key: string;
+        value: string;
+    }
+
     export interface EventBusPolicyCondition {
         key?: string;
         type?: string;
@@ -10238,6 +10325,11 @@ export namespace fms {
     export interface PolicyTag {
         key: string;
         value: string;
+    }
+
+    export interface SecurityServicePolicyDataProperties {
+        managedServiceData?: string;
+        type: enums.fms.PolicySecurityServicePolicyDataPropertiesType;
     }
 
 }
@@ -11997,11 +12089,11 @@ export namespace imagebuilder {
         /**
          * The specific AMI settings (for example, launch permissions, AMI tags).
          */
-        amiDistributionConfiguration?: any;
+        amiDistributionConfiguration?: outputs.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationProperties;
         /**
          * Container distribution settings for encryption, licensing, and sharing in a specific Region.
          */
-        containerDistributionConfiguration?: any;
+        containerDistributionConfiguration?: outputs.imagebuilder.DistributionConfigurationDistributionContainerDistributionConfigurationProperties;
         /**
          * A group of launchTemplateConfiguration settings that apply to image distribution.
          */
@@ -12014,6 +12106,68 @@ export namespace imagebuilder {
          * region
          */
         region: string;
+    }
+
+    /**
+     * The specific AMI settings (for example, launch permissions, AMI tags).
+     */
+    export interface DistributionConfigurationDistributionAmiDistributionConfigurationProperties {
+        /**
+         * The tags to apply to AMIs distributed to this Region.
+         */
+        amiTags?: any;
+        /**
+         * The description of the AMI distribution configuration.
+         */
+        description?: string;
+        /**
+         * The KMS key identifier used to encrypt the distributed image.
+         */
+        kmsKeyId?: string;
+        /**
+         * Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.
+         */
+        launchPermissionConfiguration?: outputs.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties;
+        /**
+         * The name of the AMI distribution configuration.
+         */
+        name?: string;
+        /**
+         * The ID of accounts to which you want to distribute an image.
+         */
+        targetAccountIds?: string[];
+    }
+
+    /**
+     * Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.
+     */
+    export interface DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties {
+        /**
+         * The name of the group.
+         */
+        userGroups?: string[];
+        /**
+         * The AWS account ID.
+         */
+        userIds?: string[];
+    }
+
+    /**
+     * Container distribution settings for encryption, licensing, and sharing in a specific Region.
+     */
+    export interface DistributionConfigurationDistributionContainerDistributionConfigurationProperties {
+        /**
+         * Tags that are attached to the container distribution configuration.
+         */
+        containerTags?: string[];
+        /**
+         * The description of the container distribution configuration.
+         */
+        description?: string;
+        /**
+         * The destination repository for the container distribution configuration.
+         */
+        targetRepository?: outputs.imagebuilder.DistributionConfigurationTargetContainerRepository;
     }
 
     /**
@@ -12032,6 +12186,20 @@ export namespace imagebuilder {
          * Set the specified EC2 launch template as the default launch template for the specified account.
          */
         setDefaultVersion?: boolean;
+    }
+
+    /**
+     * The destination repository for the container image.
+     */
+    export interface DistributionConfigurationTargetContainerRepository {
+        /**
+         * The repository name of target container repository.
+         */
+        repositoryName?: string;
+        /**
+         * The service of target container repository.
+         */
+        service?: enums.imagebuilder.DistributionConfigurationTargetContainerRepositoryService;
     }
 
     /**
@@ -13151,6 +13319,19 @@ export namespace iotanalytics {
 }
 
 export namespace iotcoredeviceadvisor {
+    export interface SuiteDefinitionConfigurationProperties {
+        devicePermissionRoleArn: string;
+        devices?: outputs.iotcoredeviceadvisor.SuiteDefinitionDeviceUnderTest[];
+        intendedForQualification?: boolean;
+        rootGroup: string;
+        suiteDefinitionName?: string;
+    }
+
+    export interface SuiteDefinitionDeviceUnderTest {
+        certificateArn?: string;
+        thingArn?: string;
+    }
+
     /**
      * A key-value pair to associate with a resource.
      */
@@ -13705,6 +13886,20 @@ export namespace iotsitewise {
          * The AWS SSO ID of the user.
          */
         id?: string;
+    }
+
+    /**
+     * Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
+     */
+    export interface AlarmsProperties {
+        /**
+         * The ARN of the IAM role that allows the alarm to perform actions and access AWS resources and services, such as AWS IoT Events.
+         */
+        alarmRoleArn?: string;
+        /**
+         * The ARN of the AWS Lambda function that manages alarm notifications. For more information, see Managing alarm notifications in the AWS IoT Events Developer Guide.
+         */
+        notificationLambdaArn?: string;
     }
 
     /**
@@ -20615,6 +20810,43 @@ export namespace robomaker {
 
 export namespace route53 {
     /**
+     * A complex type that identifies the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether the specified health check is healthy.
+     */
+    export interface HealthCheckAlarmIdentifier {
+        /**
+         * The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.
+         */
+        name: string;
+        /**
+         * For the CloudWatch alarm that you want Route 53 health checkers to use to determine whether this health check is healthy, the region that the alarm was created in.
+         */
+        region: string;
+    }
+
+    /**
+     * A complex type that contains information about the health check.
+     */
+    export interface HealthCheckConfigProperties {
+        alarmIdentifier?: outputs.route53.HealthCheckAlarmIdentifier;
+        childHealthChecks?: string[];
+        enableSNI?: boolean;
+        failureThreshold?: number;
+        fullyQualifiedDomainName?: string;
+        healthThreshold?: number;
+        iPAddress?: string;
+        insufficientDataHealthStatus?: enums.route53.HealthCheckConfigPropertiesInsufficientDataHealthStatus;
+        inverted?: boolean;
+        measureLatency?: boolean;
+        port?: number;
+        regions?: string[];
+        requestInterval?: number;
+        resourcePath?: string;
+        routingControlArn?: string;
+        searchString?: string;
+        type: enums.route53.HealthCheckConfigPropertiesType;
+    }
+
+    /**
      * A key-value pair to associate with a resource.
      */
     export interface HealthCheckTag {
@@ -21349,6 +21581,16 @@ export namespace s3 {
     }
 
     /**
+     * The Policy Status associated with this Multi Region Access Point
+     */
+    export interface PolicyStatusProperties {
+        /**
+         * Specifies whether the policy is public or not.
+         */
+        isPublic: enums.s3.MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic;
+    }
+
+    /**
      * Account-level metrics configurations.
      */
     export interface StorageLensAccountLevel {
@@ -21534,6 +21776,13 @@ export namespace s3objectlambda {
         contentTransformation?: any;
     }
 
+    export interface PolicyStatusProperties {
+        /**
+         * Specifies whether the Object lambda Access Point Policy is Public or not. Object lambda Access Points are private by default.
+         */
+        isPublic?: boolean;
+    }
+
 }
 
 export namespace s3outposts {
@@ -21552,6 +21801,17 @@ export namespace s3outposts {
          * Specifies the number of days after which Amazon S3Outposts aborts an incomplete multipart upload.
          */
         daysAfterInitiation: number;
+    }
+
+    export interface BucketFilterAndOperator {
+    }
+
+    /**
+     * Tag used to identify a subset of objects for an Amazon S3Outposts bucket.
+     */
+    export interface BucketFilterTag {
+        key: string;
+        value: string;
     }
 
     export interface BucketLifecycleConfiguration {
@@ -21580,12 +21840,30 @@ export namespace s3outposts {
         /**
          * The container for the filter of the lifecycle rule.
          */
-        filter?: any;
+        filter?: outputs.s3outposts.BucketRuleFilterProperties;
         /**
          * Unique identifier for the lifecycle rule. The value can't be longer than 255 characters.
          */
         id?: string;
         status?: enums.s3outposts.BucketRuleStatus;
+    }
+
+    /**
+     * The container for the filter of the lifecycle rule.
+     */
+    export interface BucketRuleFilterProperties {
+        /**
+         * The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags.
+         */
+        andOperator?: outputs.s3outposts.BucketFilterAndOperator;
+        /**
+         * Object key prefix that identifies one or more objects to which this rule applies.
+         */
+        prefix?: string;
+        /**
+         * Specifies a tag used to identify a subset of objects for an Amazon S3Outposts bucket.
+         */
+        tag?: outputs.s3outposts.BucketFilterTag;
     }
 
     export interface BucketTag {
@@ -22136,9 +22414,24 @@ export namespace sagemaker {
         variantPropertyType?: string;
     }
 
+    export interface FeatureGroupDataCatalogConfig {
+        catalog: string;
+        database: string;
+        tableName: string;
+    }
+
     export interface FeatureGroupFeatureDefinition {
         featureName: string;
         featureType: enums.sagemaker.FeatureGroupFeatureDefinitionFeatureType;
+    }
+
+    export interface FeatureGroupOnlineStoreSecurityConfig {
+        kmsKeyId?: string;
+    }
+
+    export interface FeatureGroupS3StorageConfig {
+        kmsKeyId?: string;
+        s3Uri: string;
     }
 
     /**
@@ -23135,8 +23428,33 @@ export namespace sagemaker {
         value: string;
     }
 
+    export interface OfflineStoreConfigProperties {
+        dataCatalogConfig?: outputs.sagemaker.FeatureGroupDataCatalogConfig;
+        disableGlueTableCreation?: boolean;
+        s3StorageConfig: outputs.sagemaker.FeatureGroupS3StorageConfig;
+    }
+
+    export interface OnlineStoreConfigProperties {
+        enableOnlineStore?: boolean;
+        securityConfig?: outputs.sagemaker.FeatureGroupOnlineStoreSecurityConfig;
+    }
+
     export interface PipelineTag {
         key: string;
+        value: string;
+    }
+
+    /**
+     * Information about a parameter used to provision a product.
+     */
+    export interface ProjectProvisioningParameter {
+        /**
+         * The parameter key.
+         */
+        key: string;
+        /**
+         * The parameter value.
+         */
         value: string;
     }
 
@@ -23152,6 +23470,27 @@ export namespace sagemaker {
          * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
          */
         value: string;
+    }
+
+    /**
+     * Provisioned ServiceCatalog  Details
+     */
+    export interface ServiceCatalogProvisionedProductDetailsProperties {
+        provisionedProductId?: string;
+        provisionedProductStatusMessage?: string;
+    }
+
+    /**
+     * Input ServiceCatalog Provisioning Details
+     */
+    export interface ServiceCatalogProvisioningDetailsProperties {
+        pathId?: string;
+        productId: string;
+        provisioningArtifactId: string;
+        /**
+         * Parameters specified by the administrator that are required for provisioning the product.
+         */
+        provisioningParameters?: outputs.sagemaker.ProjectProvisioningParameter[];
     }
 
     /**
@@ -23941,6 +24280,13 @@ export namespace sso {
     }
 
     /**
+     * The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
+     */
+    export interface InstanceAccessControlAttributeConfigurationProperties {
+        accessControlAttributes: outputs.sso.InstanceAccessControlAttributeConfigurationAccessControlAttribute[];
+    }
+
+    /**
      * The metadata that you apply to the permission set to help you categorize and organize them.
      */
     export interface PermissionSetTag {
@@ -24077,6 +24423,20 @@ export namespace timestream {
     export interface DatabaseTag {
         key?: string;
         value?: string;
+    }
+
+    /**
+     * The retention duration of the memory store and the magnetic store.
+     */
+    export interface RetentionPropertiesProperties {
+        /**
+         * The duration for which data must be stored in the magnetic store.
+         */
+        magneticStoreRetentionPeriodInDays?: string;
+        /**
+         * The duration for which data must be stored in the memory store.
+         */
+        memoryStoreRetentionPeriodInHours?: string;
     }
 
     /**
@@ -24301,6 +24661,37 @@ export namespace wafv2 {
         value?: string;
     }
 
+    export interface LoggingConfigurationCondition {
+        /**
+         * A single action condition.
+         */
+        actionCondition?: outputs.wafv2.LoggingConfigurationConditionActionConditionProperties;
+        /**
+         * A single label name condition.
+         */
+        labelNameCondition?: outputs.wafv2.LoggingConfigurationConditionLabelNameConditionProperties;
+    }
+
+    /**
+     * A single action condition.
+     */
+    export interface LoggingConfigurationConditionActionConditionProperties {
+        /**
+         * Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
+         */
+        action: enums.wafv2.LoggingConfigurationConditionActionConditionPropertiesAction;
+    }
+
+    /**
+     * A single label name condition.
+     */
+    export interface LoggingConfigurationConditionLabelNameConditionProperties {
+        /**
+         * The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label. 
+         */
+        labelName: string;
+    }
+
     /**
      * A key-value pair to associate with a resource.
      */
@@ -24308,7 +24699,7 @@ export namespace wafv2 {
         /**
          * Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
          */
-        jsonBody?: any;
+        jsonBody?: outputs.wafv2.LoggingConfigurationFieldToMatchJsonBodyProperties;
         /**
          * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform. 
          */
@@ -24320,11 +24711,82 @@ export namespace wafv2 {
         /**
          * Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
          */
-        singleHeader?: any;
+        singleHeader?: outputs.wafv2.LoggingConfigurationFieldToMatchSingleHeaderProperties;
         /**
          * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg. 
          */
         uriPath?: any;
+    }
+
+    /**
+     * Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
+     */
+    export interface LoggingConfigurationFieldToMatchJsonBodyProperties {
+        /**
+         * What AWS WAF should do if it fails to completely parse the JSON body.
+         */
+        invalidFallbackBehavior?: enums.wafv2.LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior;
+        /**
+         * The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. 
+         */
+        matchPattern: outputs.wafv2.LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties;
+        /**
+         * The parts of the JSON to match against using the MatchPattern. If you specify All, AWS WAF matches against keys and values. 
+         */
+        matchScope: enums.wafv2.LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope;
+    }
+
+    /**
+     * The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. 
+     */
+    export interface LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties {
+        /**
+         * Match all of the elements. See also MatchScope in JsonBody. You must specify either this setting or the IncludedPaths setting, but not both.
+         */
+        all?: any;
+        /**
+         * Match only the specified include paths. See also MatchScope in JsonBody.
+         */
+        includedPaths?: string[];
+    }
+
+    /**
+     * Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
+     */
+    export interface LoggingConfigurationFieldToMatchSingleHeaderProperties {
+        /**
+         * The name of the query header to inspect.
+         */
+        name: string;
+    }
+
+    export interface LoggingConfigurationFilter {
+        /**
+         * How to handle logs that satisfy the filter's conditions and requirement. 
+         */
+        behavior: enums.wafv2.LoggingConfigurationFilterBehavior;
+        /**
+         * Match conditions for the filter.
+         */
+        conditions: outputs.wafv2.LoggingConfigurationCondition[];
+        /**
+         * Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
+         */
+        requirement: enums.wafv2.LoggingConfigurationFilterRequirement;
+    }
+
+    /**
+     * Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
+     */
+    export interface LoggingFilterProperties {
+        /**
+         * Default handling for logs that don't match any of the specified filtering conditions.
+         */
+        defaultBehavior: enums.wafv2.LoggingConfigurationLoggingFilterPropertiesDefaultBehavior;
+        /**
+         * The filters that you want to apply to the logs.
+         */
+        filters: outputs.wafv2.LoggingConfigurationFilter[];
     }
 
     export interface RegexPatternSetTag {
@@ -24345,6 +24807,39 @@ export namespace wafv2 {
         searchString?: string;
         searchStringBase64?: string;
         textTransformations: outputs.wafv2.RuleGroupTextTransformation[];
+    }
+
+    /**
+     * HTTP header.
+     */
+    export interface RuleGroupCustomHTTPHeader {
+        name: string;
+        value: string;
+    }
+
+    /**
+     * Custom request handling.
+     */
+    export interface RuleGroupCustomRequestHandling {
+        /**
+         * Collection of HTTP headers.
+         */
+        insertHeaders: outputs.wafv2.RuleGroupCustomHTTPHeader[];
+    }
+
+    /**
+     * Custom response.
+     */
+    export interface RuleGroupCustomResponse {
+        /**
+         * Custom response body key.
+         */
+        customResponseBodyKey?: string;
+        responseCode: number;
+        /**
+         * Collection of HTTP headers.
+         */
+        responseHeaders?: outputs.wafv2.RuleGroupCustomHTTPHeader[];
     }
 
     /**
@@ -24374,15 +24869,26 @@ export namespace wafv2 {
          * The query string of a web request. This is the part of a URL that appears after a ? character, if any.
          */
         queryString?: any;
-        singleHeader?: any;
+        singleHeader?: outputs.wafv2.RuleGroupFieldToMatchSingleHeaderProperties;
         /**
          * One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
          */
-        singleQueryArgument?: any;
+        singleQueryArgument?: outputs.wafv2.RuleGroupFieldToMatchSingleQueryArgumentProperties;
         /**
          * The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
          */
         uriPath?: any;
+    }
+
+    export interface RuleGroupFieldToMatchSingleHeaderProperties {
+        name: string;
+    }
+
+    /**
+     * One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
+     */
+    export interface RuleGroupFieldToMatchSingleQueryArgumentProperties {
+        name: string;
     }
 
     export interface RuleGroupForwardedIPConfiguration {
@@ -24482,15 +24988,36 @@ export namespace wafv2 {
         /**
          * Allow traffic towards application.
          */
-        allow?: any;
+        allow?: outputs.wafv2.RuleGroupRuleActionAllowProperties;
         /**
          * Block traffic towards application.
          */
-        block?: any;
+        block?: outputs.wafv2.RuleGroupRuleActionBlockProperties;
         /**
          * Count traffic towards application.
          */
-        count?: any;
+        count?: outputs.wafv2.RuleGroupRuleActionCountProperties;
+    }
+
+    /**
+     * Allow traffic towards application.
+     */
+    export interface RuleGroupRuleActionAllowProperties {
+        customRequestHandling?: outputs.wafv2.RuleGroupCustomRequestHandling;
+    }
+
+    /**
+     * Block traffic towards application.
+     */
+    export interface RuleGroupRuleActionBlockProperties {
+        customResponse?: outputs.wafv2.RuleGroupCustomResponse;
+    }
+
+    /**
+     * Count traffic towards application.
+     */
+    export interface RuleGroupRuleActionCountProperties {
+        customRequestHandling?: outputs.wafv2.RuleGroupCustomRequestHandling;
     }
 
     /**
@@ -24670,15 +25197,26 @@ export namespace wafv2 {
          * The query string of a web request. This is the part of a URL that appears after a ? character, if any.
          */
         queryString?: any;
-        singleHeader?: any;
+        singleHeader?: outputs.wafv2.WebACLFieldToMatchSingleHeaderProperties;
         /**
          * One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
          */
-        singleQueryArgument?: any;
+        singleQueryArgument?: outputs.wafv2.WebACLFieldToMatchSingleQueryArgumentProperties;
         /**
          * The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
          */
         uriPath?: any;
+    }
+
+    export interface WebACLFieldToMatchSingleHeaderProperties {
+        name: string;
+    }
+
+    /**
+     * One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
+     */
+    export interface WebACLFieldToMatchSingleQueryArgumentProperties {
+        name: string;
     }
 
     export interface WebACLForwardedIPConfiguration {
@@ -24871,7 +25409,6 @@ export namespace wafv2 {
         fieldToMatch: outputs.wafv2.WebACLFieldToMatch;
         textTransformations: outputs.wafv2.WebACLTextTransformation[];
     }
-
 }
 
 export namespace workspaces {
@@ -25018,6 +25555,11 @@ export namespace xray {
          * Matches the path from a request URL.
          */
         uRLPath?: string;
+    }
+
+    export interface TagsItemProperties {
+        key: string;
+        value: string;
     }
 
 }

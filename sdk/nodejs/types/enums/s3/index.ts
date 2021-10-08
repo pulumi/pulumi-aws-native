@@ -12,6 +12,26 @@ export const AccessPointNetworkOrigin = {
  */
 export type AccessPointNetworkOrigin = (typeof AccessPointNetworkOrigin)[keyof typeof AccessPointNetworkOrigin];
 
+export const AccessPointPolicyStatusPropertiesIsPublic = {
+    True: "true",
+    False: "false",
+} as const;
+
+/**
+ * Specifies whether the policy is public or not.
+ */
+export type AccessPointPolicyStatusPropertiesIsPublic = (typeof AccessPointPolicyStatusPropertiesIsPublic)[keyof typeof AccessPointPolicyStatusPropertiesIsPublic];
+
+export const MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic = {
+    True: "true",
+    False: "false",
+} as const;
+
+/**
+ * Specifies whether the policy is public or not.
+ */
+export type MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic = (typeof MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic)[keyof typeof MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic];
+
 export const StorageLensS3BucketDestinationFormat = {
     Csv: "CSV",
     Parquet: "Parquet",

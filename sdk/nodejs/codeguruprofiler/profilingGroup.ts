@@ -38,7 +38,7 @@ export class ProfilingGroup extends pulumi.CustomResource {
     /**
      * The agent permissions attached to this profiling group.
      */
-    public readonly agentPermissions!: pulumi.Output<any | undefined>;
+    public readonly agentPermissions!: pulumi.Output<outputs.codeguruprofiler.AgentPermissionsProperties | undefined>;
     /**
      * Configuration for Notification Channels for Anomaly Detection feature in CodeGuru Profiler which enables customers to detect anomalies in the application profile for those methods that represent the highest proportion of CPU time or latency
      */
@@ -102,7 +102,7 @@ export interface ProfilingGroupArgs {
     /**
      * The agent permissions attached to this profiling group.
      */
-    agentPermissions?: any;
+    agentPermissions?: pulumi.Input<inputs.codeguruprofiler.AgentPermissionsPropertiesArgs>;
     /**
      * Configuration for Notification Channels for Anomaly Detection feature in CodeGuru Profiler which enables customers to detect anomalies in the application profile for those methods that represent the highest proportion of CPU time or latency
      */

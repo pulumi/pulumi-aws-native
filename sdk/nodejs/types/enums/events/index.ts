@@ -21,3 +21,11 @@ export const ConnectionAuthorizationType = {
 } as const;
 
 export type ConnectionAuthorizationType = (typeof ConnectionAuthorizationType)[keyof typeof ConnectionAuthorizationType];
+
+export const ConnectionOAuthParametersHttpMethod = {
+    Get: "GET",
+    Post: "POST",
+    Put: "PUT",
+} as const;
+
+export type ConnectionOAuthParametersHttpMethod = (typeof ConnectionOAuthParametersHttpMethod)[keyof typeof ConnectionOAuthParametersHttpMethod];

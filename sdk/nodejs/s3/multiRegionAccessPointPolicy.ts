@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -45,7 +46,7 @@ export class MultiRegionAccessPointPolicy extends pulumi.CustomResource {
     /**
      * The Policy Status associated with this Multi Region Access Point
      */
-    public /*out*/ readonly policyStatus!: pulumi.Output<any>;
+    public /*out*/ readonly policyStatus!: pulumi.Output<outputs.s3.PolicyStatusProperties>;
 
     /**
      * Create a MultiRegionAccessPointPolicy resource with the given unique name, arguments, and options.

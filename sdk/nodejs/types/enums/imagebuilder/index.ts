@@ -65,6 +65,15 @@ export const ContainerRecipeTargetContainerRepositoryService = {
  */
 export type ContainerRecipeTargetContainerRepositoryService = (typeof ContainerRecipeTargetContainerRepositoryService)[keyof typeof ContainerRecipeTargetContainerRepositoryService];
 
+export const DistributionConfigurationTargetContainerRepositoryService = {
+    Ecr: "ECR",
+} as const;
+
+/**
+ * The service of target container repository.
+ */
+export type DistributionConfigurationTargetContainerRepositoryService = (typeof DistributionConfigurationTargetContainerRepositoryService)[keyof typeof DistributionConfigurationTargetContainerRepositoryService];
+
 export const ImagePipelineSchedulePipelineExecutionStartCondition = {
     ExpressionMatchOnly: "EXPRESSION_MATCH_ONLY",
     ExpressionMatchAndDependencyUpdatesAvailable: "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE",

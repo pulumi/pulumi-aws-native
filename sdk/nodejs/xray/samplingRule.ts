@@ -40,7 +40,7 @@ export class SamplingRule extends pulumi.CustomResource {
     public readonly samplingRule!: pulumi.Output<outputs.xray.SamplingRule | undefined>;
     public readonly samplingRuleRecord!: pulumi.Output<outputs.xray.SamplingRuleRecord | undefined>;
     public readonly samplingRuleUpdate!: pulumi.Output<outputs.xray.SamplingRuleUpdate | undefined>;
-    public readonly tags!: pulumi.Output<any[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.xray.TagsItemProperties[] | undefined>;
 
     /**
      * Create a SamplingRule resource with the given unique name, arguments, and options.
@@ -82,5 +82,5 @@ export interface SamplingRuleArgs {
     samplingRule?: pulumi.Input<inputs.xray.SamplingRuleArgs>;
     samplingRuleRecord?: pulumi.Input<inputs.xray.SamplingRuleRecordArgs>;
     samplingRuleUpdate?: pulumi.Input<inputs.xray.SamplingRuleUpdateArgs>;
-    tags?: pulumi.Input<any[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.xray.TagsItemPropertiesArgs>[]>;
 }

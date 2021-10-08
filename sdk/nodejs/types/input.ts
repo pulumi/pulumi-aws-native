@@ -5287,6 +5287,16 @@ export namespace codedeploy {
 
 export namespace codeguruprofiler {
     /**
+     * The agent permissions attached to this profiling group.
+     */
+    export interface AgentPermissionsPropertiesArgs {
+        /**
+         * The principals for the agent permissions.
+         */
+        principals: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * Notification medium for users to get alerted for events that occur in application profile. We support SNS topic as a notification channel.
      */
     export interface ProfilingGroupChannelArgs {
@@ -6392,7 +6402,7 @@ export namespace databrew {
         /**
          * Input
          */
-        input?: any;
+        input?: pulumi.Input<inputs.databrew.RecipeParametersInputPropertiesArgs>;
         interval?: pulumi.Input<string>;
         isText?: pulumi.Input<string>;
         joinKeys?: pulumi.Input<string>;
@@ -6464,6 +6474,14 @@ export namespace databrew {
         value2?: pulumi.Input<string>;
         valueColumn?: pulumi.Input<string>;
         viewFrame?: pulumi.Input<string>;
+    }
+
+    /**
+     * Input
+     */
+    export interface RecipeParametersInputPropertiesArgs {
+        dataCatalogInputDefinition?: pulumi.Input<inputs.databrew.RecipeDataCatalogInputDefinitionArgs>;
+        s3InputDefinition?: pulumi.Input<inputs.databrew.RecipeS3LocationArgs>;
     }
 
     /**
@@ -7761,6 +7779,24 @@ export namespace ec2 {
         value: pulumi.Input<string>;
     }
 
+    /**
+     * The options for the transit gateway vpc attachment.
+     */
+    export interface OptionsPropertiesArgs {
+        /**
+         * Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
+         */
+        applianceModeSupport?: pulumi.Input<string>;
+        /**
+         * Indicates whether to enable DNS Support for Vpc Attachment. Valid Values: enable | disable
+         */
+        dnsSupport?: pulumi.Input<string>;
+        /**
+         * Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
+         */
+        ipv6Support?: pulumi.Input<string>;
+    }
+
     export interface PrefixListEntryArgs {
         cidr: pulumi.Input<string>;
         description?: pulumi.Input<string>;
@@ -8713,11 +8749,21 @@ export namespace eks {
         /**
          * The encryption provider for the cluster.
          */
-        provider?: any;
+        provider?: pulumi.Input<inputs.eks.ClusterEncryptionConfigProviderPropertiesArgs>;
         /**
          * Specifies the resources to be encrypted. The only supported value is "secrets".
          */
         resources?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * The encryption provider for the cluster.
+     */
+    export interface ClusterEncryptionConfigProviderPropertiesArgs {
+        /**
+         * Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key.
+         */
+        keyArn?: pulumi.Input<string>;
     }
 
     /**
@@ -9759,6 +9805,47 @@ export namespace emrcontainers {
 }
 
 export namespace events {
+    export interface AuthParametersPropertiesArgs {
+        apiKeyAuthParameters?: pulumi.Input<inputs.events.ConnectionApiKeyAuthParametersArgs>;
+        basicAuthParameters?: pulumi.Input<inputs.events.ConnectionBasicAuthParametersArgs>;
+        invocationHttpParameters?: pulumi.Input<inputs.events.ConnectionHttpParametersArgs>;
+        oAuthParameters?: pulumi.Input<inputs.events.ConnectionOAuthParametersArgs>;
+    }
+
+    export interface ConnectionApiKeyAuthParametersArgs {
+        apiKeyName: pulumi.Input<string>;
+        apiKeyValue: pulumi.Input<string>;
+    }
+
+    export interface ConnectionBasicAuthParametersArgs {
+        password: pulumi.Input<string>;
+        username: pulumi.Input<string>;
+    }
+
+    export interface ConnectionClientParametersArgs {
+        clientID: pulumi.Input<string>;
+        clientSecret: pulumi.Input<string>;
+    }
+
+    export interface ConnectionHttpParametersArgs {
+        bodyParameters?: pulumi.Input<pulumi.Input<inputs.events.ConnectionParameterArgs>[]>;
+        headerParameters?: pulumi.Input<pulumi.Input<inputs.events.ConnectionParameterArgs>[]>;
+        queryStringParameters?: pulumi.Input<pulumi.Input<inputs.events.ConnectionParameterArgs>[]>;
+    }
+
+    export interface ConnectionOAuthParametersArgs {
+        authorizationEndpoint: pulumi.Input<string>;
+        clientParameters: pulumi.Input<inputs.events.ConnectionClientParametersArgs>;
+        httpMethod: pulumi.Input<enums.events.ConnectionOAuthParametersHttpMethod>;
+        oAuthHttpParameters?: pulumi.Input<inputs.events.ConnectionHttpParametersArgs>;
+    }
+
+    export interface ConnectionParameterArgs {
+        isValueSecret?: pulumi.Input<boolean>;
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
     export interface EventBusPolicyConditionArgs {
         key?: pulumi.Input<string>;
         type?: pulumi.Input<string>;
@@ -9985,6 +10072,11 @@ export namespace fms {
     export interface PolicyTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
+    }
+
+    export interface SecurityServicePolicyDataPropertiesArgs {
+        managedServiceData?: pulumi.Input<string>;
+        type: pulumi.Input<enums.fms.PolicySecurityServicePolicyDataPropertiesType>;
     }
 }
 
@@ -11718,11 +11810,11 @@ export namespace imagebuilder {
         /**
          * The specific AMI settings (for example, launch permissions, AMI tags).
          */
-        amiDistributionConfiguration?: any;
+        amiDistributionConfiguration?: pulumi.Input<inputs.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesArgs>;
         /**
          * Container distribution settings for encryption, licensing, and sharing in a specific Region.
          */
-        containerDistributionConfiguration?: any;
+        containerDistributionConfiguration?: pulumi.Input<inputs.imagebuilder.DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesArgs>;
         /**
          * A group of launchTemplateConfiguration settings that apply to image distribution.
          */
@@ -11735,6 +11827,68 @@ export namespace imagebuilder {
          * region
          */
         region: pulumi.Input<string>;
+    }
+
+    /**
+     * The specific AMI settings (for example, launch permissions, AMI tags).
+     */
+    export interface DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesArgs {
+        /**
+         * The tags to apply to AMIs distributed to this Region.
+         */
+        amiTags?: any;
+        /**
+         * The description of the AMI distribution configuration.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The KMS key identifier used to encrypt the distributed image.
+         */
+        kmsKeyId?: pulumi.Input<string>;
+        /**
+         * Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.
+         */
+        launchPermissionConfiguration?: pulumi.Input<inputs.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesArgs>;
+        /**
+         * The name of the AMI distribution configuration.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The ID of accounts to which you want to distribute an image.
+         */
+        targetAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.
+     */
+    export interface DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationPropertiesArgs {
+        /**
+         * The name of the group.
+         */
+        userGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The AWS account ID.
+         */
+        userIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Container distribution settings for encryption, licensing, and sharing in a specific Region.
+     */
+    export interface DistributionConfigurationDistributionContainerDistributionConfigurationPropertiesArgs {
+        /**
+         * Tags that are attached to the container distribution configuration.
+         */
+        containerTags?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The description of the container distribution configuration.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The destination repository for the container distribution configuration.
+         */
+        targetRepository?: pulumi.Input<inputs.imagebuilder.DistributionConfigurationTargetContainerRepositoryArgs>;
     }
 
     /**
@@ -11753,6 +11907,20 @@ export namespace imagebuilder {
          * Set the specified EC2 launch template as the default launch template for the specified account.
          */
         setDefaultVersion?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * The destination repository for the container image.
+     */
+    export interface DistributionConfigurationTargetContainerRepositoryArgs {
+        /**
+         * The repository name of target container repository.
+         */
+        repositoryName?: pulumi.Input<string>;
+        /**
+         * The service of target container repository.
+         */
+        service?: pulumi.Input<enums.imagebuilder.DistributionConfigurationTargetContainerRepositoryService>;
     }
 
     /**
@@ -11925,6 +12093,7 @@ export namespace imagebuilder {
          */
         s3KeyPrefix?: pulumi.Input<string>;
     }
+
 }
 
 export namespace inspector {
@@ -12862,6 +13031,19 @@ export namespace iotanalytics {
 }
 
 export namespace iotcoredeviceadvisor {
+    export interface SuiteDefinitionConfigurationPropertiesArgs {
+        devicePermissionRoleArn: pulumi.Input<string>;
+        devices?: pulumi.Input<pulumi.Input<inputs.iotcoredeviceadvisor.SuiteDefinitionDeviceUnderTestArgs>[]>;
+        intendedForQualification?: pulumi.Input<boolean>;
+        rootGroup: pulumi.Input<string>;
+        suiteDefinitionName?: pulumi.Input<string>;
+    }
+
+    export interface SuiteDefinitionDeviceUnderTestArgs {
+        certificateArn?: pulumi.Input<string>;
+        thingArn?: pulumi.Input<string>;
+    }
+
     /**
      * A key-value pair to associate with a resource.
      */
@@ -13414,6 +13596,20 @@ export namespace iotsitewise {
          * The AWS SSO ID of the user.
          */
         id?: pulumi.Input<string>;
+    }
+
+    /**
+     * Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
+     */
+    export interface AlarmsPropertiesArgs {
+        /**
+         * The ARN of the IAM role that allows the alarm to perform actions and access AWS resources and services, such as AWS IoT Events.
+         */
+        alarmRoleArn?: pulumi.Input<string>;
+        /**
+         * The ARN of the AWS Lambda function that manages alarm notifications. For more information, see Managing alarm notifications in the AWS IoT Events Developer Guide.
+         */
+        notificationLambdaArn?: pulumi.Input<string>;
     }
 
     /**
@@ -19930,6 +20126,43 @@ export namespace robomaker {
 
 export namespace route53 {
     /**
+     * A complex type that identifies the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether the specified health check is healthy.
+     */
+    export interface HealthCheckAlarmIdentifierArgs {
+        /**
+         * The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * For the CloudWatch alarm that you want Route 53 health checkers to use to determine whether this health check is healthy, the region that the alarm was created in.
+         */
+        region: pulumi.Input<string>;
+    }
+
+    /**
+     * A complex type that contains information about the health check.
+     */
+    export interface HealthCheckConfigPropertiesArgs {
+        alarmIdentifier?: pulumi.Input<inputs.route53.HealthCheckAlarmIdentifierArgs>;
+        childHealthChecks?: pulumi.Input<pulumi.Input<string>[]>;
+        enableSNI?: pulumi.Input<boolean>;
+        failureThreshold?: pulumi.Input<number>;
+        fullyQualifiedDomainName?: pulumi.Input<string>;
+        healthThreshold?: pulumi.Input<number>;
+        iPAddress?: pulumi.Input<string>;
+        insufficientDataHealthStatus?: pulumi.Input<enums.route53.HealthCheckConfigPropertiesInsufficientDataHealthStatus>;
+        inverted?: pulumi.Input<boolean>;
+        measureLatency?: pulumi.Input<boolean>;
+        port?: pulumi.Input<number>;
+        regions?: pulumi.Input<pulumi.Input<string>[]>;
+        requestInterval?: pulumi.Input<number>;
+        resourcePath?: pulumi.Input<string>;
+        routingControlArn?: pulumi.Input<string>;
+        searchString?: pulumi.Input<string>;
+        type: pulumi.Input<enums.route53.HealthCheckConfigPropertiesType>;
+    }
+
+    /**
      * A key-value pair to associate with a resource.
      */
     export interface HealthCheckTagArgs {
@@ -20655,6 +20888,16 @@ export namespace s3 {
     }
 
     /**
+     * The Policy Status associated with this Multi Region Access Point
+     */
+    export interface PolicyStatusPropertiesArgs {
+        /**
+         * Specifies whether the policy is public or not.
+         */
+        isPublic: pulumi.Input<enums.s3.MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic>;
+    }
+
+    /**
      * Account-level metrics configurations.
      */
     export interface StorageLensAccountLevelArgs {
@@ -20812,6 +21055,7 @@ export namespace s3objectlambda {
         actions?: pulumi.Input<pulumi.Input<string>[]>;
         contentTransformation?: any;
     }
+
 }
 
 export namespace s3outposts {
@@ -20830,6 +21074,17 @@ export namespace s3outposts {
          * Specifies the number of days after which Amazon S3Outposts aborts an incomplete multipart upload.
          */
         daysAfterInitiation: pulumi.Input<number>;
+    }
+
+    export interface BucketFilterAndOperatorArgs {
+    }
+
+    /**
+     * Tag used to identify a subset of objects for an Amazon S3Outposts bucket.
+     */
+    export interface BucketFilterTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
     }
 
     export interface BucketLifecycleConfigurationArgs {
@@ -20858,12 +21113,30 @@ export namespace s3outposts {
         /**
          * The container for the filter of the lifecycle rule.
          */
-        filter?: any;
+        filter?: pulumi.Input<inputs.s3outposts.BucketRuleFilterPropertiesArgs>;
         /**
          * Unique identifier for the lifecycle rule. The value can't be longer than 255 characters.
          */
         id?: pulumi.Input<string>;
         status?: pulumi.Input<enums.s3outposts.BucketRuleStatus>;
+    }
+
+    /**
+     * The container for the filter of the lifecycle rule.
+     */
+    export interface BucketRuleFilterPropertiesArgs {
+        /**
+         * The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags.
+         */
+        andOperator?: pulumi.Input<inputs.s3outposts.BucketFilterAndOperatorArgs>;
+        /**
+         * Object key prefix that identifies one or more objects to which this rule applies.
+         */
+        prefix?: pulumi.Input<string>;
+        /**
+         * Specifies a tag used to identify a subset of objects for an Amazon S3Outposts bucket.
+         */
+        tag?: pulumi.Input<inputs.s3outposts.BucketFilterTagArgs>;
     }
 
     export interface BucketTagArgs {
@@ -21407,9 +21680,24 @@ export namespace sagemaker {
         variantPropertyType?: pulumi.Input<string>;
     }
 
+    export interface FeatureGroupDataCatalogConfigArgs {
+        catalog: pulumi.Input<string>;
+        database: pulumi.Input<string>;
+        tableName: pulumi.Input<string>;
+    }
+
     export interface FeatureGroupFeatureDefinitionArgs {
         featureName: pulumi.Input<string>;
         featureType: pulumi.Input<enums.sagemaker.FeatureGroupFeatureDefinitionFeatureType>;
+    }
+
+    export interface FeatureGroupOnlineStoreSecurityConfigArgs {
+        kmsKeyId?: pulumi.Input<string>;
+    }
+
+    export interface FeatureGroupS3StorageConfigArgs {
+        kmsKeyId?: pulumi.Input<string>;
+        s3Uri: pulumi.Input<string>;
     }
 
     /**
@@ -22406,8 +22694,33 @@ export namespace sagemaker {
         value: pulumi.Input<string>;
     }
 
+    export interface OfflineStoreConfigPropertiesArgs {
+        dataCatalogConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupDataCatalogConfigArgs>;
+        disableGlueTableCreation?: pulumi.Input<boolean>;
+        s3StorageConfig: pulumi.Input<inputs.sagemaker.FeatureGroupS3StorageConfigArgs>;
+    }
+
+    export interface OnlineStoreConfigPropertiesArgs {
+        enableOnlineStore?: pulumi.Input<boolean>;
+        securityConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupOnlineStoreSecurityConfigArgs>;
+    }
+
     export interface PipelineTagArgs {
         key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * Information about a parameter used to provision a product.
+     */
+    export interface ProjectProvisioningParameterArgs {
+        /**
+         * The parameter key.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The parameter value.
+         */
         value: pulumi.Input<string>;
     }
 
@@ -22423,6 +22736,19 @@ export namespace sagemaker {
          * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
          */
         value: pulumi.Input<string>;
+    }
+
+    /**
+     * Input ServiceCatalog Provisioning Details
+     */
+    export interface ServiceCatalogProvisioningDetailsPropertiesArgs {
+        pathId?: pulumi.Input<string>;
+        productId: pulumi.Input<string>;
+        provisioningArtifactId: pulumi.Input<string>;
+        /**
+         * Parameters specified by the administrator that are required for provisioning the product.
+         */
+        provisioningParameters?: pulumi.Input<pulumi.Input<inputs.sagemaker.ProjectProvisioningParameterArgs>[]>;
     }
 
     /**
@@ -23201,6 +23527,13 @@ export namespace sso {
     }
 
     /**
+     * The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
+     */
+    export interface InstanceAccessControlAttributeConfigurationPropertiesArgs {
+        accessControlAttributes: pulumi.Input<pulumi.Input<inputs.sso.InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs>[]>;
+    }
+
+    /**
      * The metadata that you apply to the permission set to help you categorize and organize them.
      */
     export interface PermissionSetTagArgs {
@@ -23334,6 +23667,20 @@ export namespace timestream {
     export interface DatabaseTagArgs {
         key?: pulumi.Input<string>;
         value?: pulumi.Input<string>;
+    }
+
+    /**
+     * The retention duration of the memory store and the magnetic store.
+     */
+    export interface RetentionPropertiesPropertiesArgs {
+        /**
+         * The duration for which data must be stored in the magnetic store.
+         */
+        magneticStoreRetentionPeriodInDays?: pulumi.Input<string>;
+        /**
+         * The duration for which data must be stored in the memory store.
+         */
+        memoryStoreRetentionPeriodInHours?: pulumi.Input<string>;
     }
 
     /**
@@ -23554,6 +23901,37 @@ export namespace wafv2 {
         value?: pulumi.Input<string>;
     }
 
+    export interface LoggingConfigurationConditionArgs {
+        /**
+         * A single action condition.
+         */
+        actionCondition?: pulumi.Input<inputs.wafv2.LoggingConfigurationConditionActionConditionPropertiesArgs>;
+        /**
+         * A single label name condition.
+         */
+        labelNameCondition?: pulumi.Input<inputs.wafv2.LoggingConfigurationConditionLabelNameConditionPropertiesArgs>;
+    }
+
+    /**
+     * A single action condition.
+     */
+    export interface LoggingConfigurationConditionActionConditionPropertiesArgs {
+        /**
+         * Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
+         */
+        action: pulumi.Input<enums.wafv2.LoggingConfigurationConditionActionConditionPropertiesAction>;
+    }
+
+    /**
+     * A single label name condition.
+     */
+    export interface LoggingConfigurationConditionLabelNameConditionPropertiesArgs {
+        /**
+         * The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label. 
+         */
+        labelName: pulumi.Input<string>;
+    }
+
     /**
      * A key-value pair to associate with a resource.
      */
@@ -23561,7 +23939,7 @@ export namespace wafv2 {
         /**
          * Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
          */
-        jsonBody?: any;
+        jsonBody?: pulumi.Input<inputs.wafv2.LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs>;
         /**
          * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform. 
          */
@@ -23573,11 +23951,82 @@ export namespace wafv2 {
         /**
          * Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
          */
-        singleHeader?: any;
+        singleHeader?: pulumi.Input<inputs.wafv2.LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs>;
         /**
          * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg. 
          */
         uriPath?: any;
+    }
+
+    /**
+     * Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
+     */
+    export interface LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs {
+        /**
+         * What AWS WAF should do if it fails to completely parse the JSON body.
+         */
+        invalidFallbackBehavior?: pulumi.Input<enums.wafv2.LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior>;
+        /**
+         * The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. 
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs>;
+        /**
+         * The parts of the JSON to match against using the MatchPattern. If you specify All, AWS WAF matches against keys and values. 
+         */
+        matchScope: pulumi.Input<enums.wafv2.LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope>;
+    }
+
+    /**
+     * The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. 
+     */
+    export interface LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs {
+        /**
+         * Match all of the elements. See also MatchScope in JsonBody. You must specify either this setting or the IncludedPaths setting, but not both.
+         */
+        all?: any;
+        /**
+         * Match only the specified include paths. See also MatchScope in JsonBody.
+         */
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
+     */
+    export interface LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs {
+        /**
+         * The name of the query header to inspect.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface LoggingConfigurationFilterArgs {
+        /**
+         * How to handle logs that satisfy the filter's conditions and requirement. 
+         */
+        behavior: pulumi.Input<enums.wafv2.LoggingConfigurationFilterBehavior>;
+        /**
+         * Match conditions for the filter.
+         */
+        conditions: pulumi.Input<pulumi.Input<inputs.wafv2.LoggingConfigurationConditionArgs>[]>;
+        /**
+         * Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
+         */
+        requirement: pulumi.Input<enums.wafv2.LoggingConfigurationFilterRequirement>;
+    }
+
+    /**
+     * Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
+     */
+    export interface LoggingFilterPropertiesArgs {
+        /**
+         * Default handling for logs that don't match any of the specified filtering conditions.
+         */
+        defaultBehavior: pulumi.Input<enums.wafv2.LoggingConfigurationLoggingFilterPropertiesDefaultBehavior>;
+        /**
+         * The filters that you want to apply to the logs.
+         */
+        filters: pulumi.Input<pulumi.Input<inputs.wafv2.LoggingConfigurationFilterArgs>[]>;
     }
 
     export interface RegexPatternSetTagArgs {
@@ -23598,6 +24047,39 @@ export namespace wafv2 {
         searchString?: pulumi.Input<string>;
         searchStringBase64?: pulumi.Input<string>;
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupTextTransformationArgs>[]>;
+    }
+
+    /**
+     * HTTP header.
+     */
+    export interface RuleGroupCustomHTTPHeaderArgs {
+        name: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * Custom request handling.
+     */
+    export interface RuleGroupCustomRequestHandlingArgs {
+        /**
+         * Collection of HTTP headers.
+         */
+        insertHeaders: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupCustomHTTPHeaderArgs>[]>;
+    }
+
+    /**
+     * Custom response.
+     */
+    export interface RuleGroupCustomResponseArgs {
+        /**
+         * Custom response body key.
+         */
+        customResponseBodyKey?: pulumi.Input<string>;
+        responseCode: pulumi.Input<number>;
+        /**
+         * Collection of HTTP headers.
+         */
+        responseHeaders?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupCustomHTTPHeaderArgs>[]>;
     }
 
     /**
@@ -23627,15 +24109,26 @@ export namespace wafv2 {
          * The query string of a web request. This is the part of a URL that appears after a ? character, if any.
          */
         queryString?: any;
-        singleHeader?: any;
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupFieldToMatchSingleHeaderPropertiesArgs>;
         /**
          * One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
          */
-        singleQueryArgument?: any;
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs>;
         /**
          * The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
          */
         uriPath?: any;
+    }
+
+    export interface RuleGroupFieldToMatchSingleHeaderPropertiesArgs {
+        name: pulumi.Input<string>;
+    }
+
+    /**
+     * One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
+     */
+    export interface RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs {
+        name: pulumi.Input<string>;
     }
 
     export interface RuleGroupForwardedIPConfigurationArgs {
@@ -23731,15 +24224,36 @@ export namespace wafv2 {
         /**
          * Allow traffic towards application.
          */
-        allow?: any;
+        allow?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionAllowPropertiesArgs>;
         /**
          * Block traffic towards application.
          */
-        block?: any;
+        block?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionBlockPropertiesArgs>;
         /**
          * Count traffic towards application.
          */
-        count?: any;
+        count?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionCountPropertiesArgs>;
+    }
+
+    /**
+     * Allow traffic towards application.
+     */
+    export interface RuleGroupRuleActionAllowPropertiesArgs {
+        customRequestHandling?: pulumi.Input<inputs.wafv2.RuleGroupCustomRequestHandlingArgs>;
+    }
+
+    /**
+     * Block traffic towards application.
+     */
+    export interface RuleGroupRuleActionBlockPropertiesArgs {
+        customResponse?: pulumi.Input<inputs.wafv2.RuleGroupCustomResponseArgs>;
+    }
+
+    /**
+     * Count traffic towards application.
+     */
+    export interface RuleGroupRuleActionCountPropertiesArgs {
+        customRequestHandling?: pulumi.Input<inputs.wafv2.RuleGroupCustomRequestHandlingArgs>;
     }
 
     /**
@@ -23919,15 +24433,26 @@ export namespace wafv2 {
          * The query string of a web request. This is the part of a URL that appears after a ? character, if any.
          */
         queryString?: any;
-        singleHeader?: any;
+        singleHeader?: pulumi.Input<inputs.wafv2.WebACLFieldToMatchSingleHeaderPropertiesArgs>;
         /**
          * One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
          */
-        singleQueryArgument?: any;
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.WebACLFieldToMatchSingleQueryArgumentPropertiesArgs>;
         /**
          * The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
          */
         uriPath?: any;
+    }
+
+    export interface WebACLFieldToMatchSingleHeaderPropertiesArgs {
+        name: pulumi.Input<string>;
+    }
+
+    /**
+     * One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
+     */
+    export interface WebACLFieldToMatchSingleQueryArgumentPropertiesArgs {
+        name: pulumi.Input<string>;
     }
 
     export interface WebACLForwardedIPConfigurationArgs {
@@ -24120,6 +24645,7 @@ export namespace wafv2 {
         fieldToMatch: pulumi.Input<inputs.wafv2.WebACLFieldToMatchArgs>;
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLTextTransformationArgs>[]>;
     }
+
 }
 
 export namespace workspaces {
@@ -24258,5 +24784,10 @@ export namespace xray {
          * Matches the path from a request URL.
          */
         uRLPath?: pulumi.Input<string>;
+    }
+
+    export interface TagsItemPropertiesArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
     }
 }

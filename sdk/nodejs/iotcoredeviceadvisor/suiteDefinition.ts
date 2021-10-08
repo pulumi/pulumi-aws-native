@@ -39,7 +39,7 @@ export class SuiteDefinition extends pulumi.CustomResource {
      * The Amazon Resource name for the suite definition.
      */
     public /*out*/ readonly suiteDefinitionArn!: pulumi.Output<string>;
-    public readonly suiteDefinitionConfiguration!: pulumi.Output<any>;
+    public readonly suiteDefinitionConfiguration!: pulumi.Output<outputs.iotcoredeviceadvisor.SuiteDefinitionConfigurationProperties>;
     /**
      * The unique identifier for the suite definition.
      */
@@ -90,7 +90,7 @@ export class SuiteDefinition extends pulumi.CustomResource {
  * The set of arguments for constructing a SuiteDefinition resource.
  */
 export interface SuiteDefinitionArgs {
-    suiteDefinitionConfiguration: any;
+    suiteDefinitionConfiguration: pulumi.Input<inputs.iotcoredeviceadvisor.SuiteDefinitionConfigurationPropertiesArgs>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

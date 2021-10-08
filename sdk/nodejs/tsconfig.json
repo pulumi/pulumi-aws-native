@@ -976,6 +976,7 @@
         "types/enums/emr/index.ts",
         "types/enums/events/index.ts",
         "types/enums/finspace/index.ts",
+        "types/enums/fms/index.ts",
         "types/enums/frauddetector/index.ts",
         "types/enums/gamelift/index.ts",
         "types/enums/globalaccelerator/index.ts",
