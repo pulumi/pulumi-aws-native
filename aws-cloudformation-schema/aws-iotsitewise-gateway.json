@@ -77,6 +77,7 @@
       "description" : "A list of key-value pairs that contain metadata for the gateway.",
       "type" : "array",
       "uniqueItems" : false,
+      "insertionOrder" : false,
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
@@ -89,12 +90,14 @@
       "description" : "A list of gateway capability summaries that each contain a namespace and status.",
       "type" : "array",
       "uniqueItems" : true,
+      "insertionOrder" : true,
       "items" : {
         "$ref" : "#/definitions/GatewayCapabilitySummary"
       }
     }
   },
   "additionalProperties" : false,
+  "taggable" : true,
   "required" : [ "GatewayName", "GatewayPlatform" ],
   "readOnlyProperties" : [ "/properties/GatewayId" ],
   "createOnlyProperties" : [ "/properties/GatewayPlatform" ],

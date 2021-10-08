@@ -303,6 +303,7 @@
     }
   },
   "additionalProperties" : false,
+  "taggable" : true,
   "required" : [ "AssetModelName" ],
   "readOnlyProperties" : [ "/properties/AssetModelArn", "/properties/AssetModelId" ],
   "primaryIdentifier" : [ "/properties/AssetModelId" ],

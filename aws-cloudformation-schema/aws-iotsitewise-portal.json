@@ -85,6 +85,7 @@
     }
   },
   "additionalProperties" : false,
+  "taggable" : true,
   "required" : [ "PortalContactEmail", "PortalName", "RoleArn" ],
   "createOnlyProperties" : [ "/properties/PortalAuthMode" ],
   "readOnlyProperties" : [ "/properties/PortalArn", "/properties/PortalClientId", "/properties/PortalId", "/properties/PortalStartUrl" ],

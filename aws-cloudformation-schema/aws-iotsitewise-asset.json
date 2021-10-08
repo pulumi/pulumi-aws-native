@@ -102,6 +102,7 @@
     }
   },
   "additionalProperties" : false,
+  "taggable" : true,
   "required" : [ "AssetName", "AssetModelId" ],
   "readOnlyProperties" : [ "/properties/AssetArn", "/properties/AssetId" ],
   "primaryIdentifier" : [ "/properties/AssetId" ],
