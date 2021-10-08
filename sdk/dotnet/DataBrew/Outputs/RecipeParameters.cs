@@ -45,7 +45,7 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
         /// <summary>
         /// Input
         /// </summary>
-        public readonly object? Input;
+        public readonly Outputs.RecipeParametersInputProperties? Input;
         public readonly string? Interval;
         public readonly string? IsText;
         public readonly string? JoinKeys;
@@ -178,7 +178,7 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
 
             string? includeInSplit,
 
-            object? input,
+            Outputs.RecipeParametersInputProperties? input,
 
             string? interval,
 

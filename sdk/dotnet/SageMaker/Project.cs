@@ -43,13 +43,13 @@ namespace Pulumi.AwsNative.SageMaker
         /// Provisioned ServiceCatalog  Details
         /// </summary>
         [Output("serviceCatalogProvisionedProductDetails")]
-        public Output<object> ServiceCatalogProvisionedProductDetails { get; private set; } = null!;
+        public Output<Outputs.ServiceCatalogProvisionedProductDetailsProperties> ServiceCatalogProvisionedProductDetails { get; private set; } = null!;
 
         /// <summary>
         /// Input ServiceCatalog Provisioning Details
         /// </summary>
         [Output("serviceCatalogProvisioningDetails")]
-        public Output<object> ServiceCatalogProvisioningDetails { get; private set; } = null!;
+        public Output<Outputs.ServiceCatalogProvisioningDetailsProperties> ServiceCatalogProvisioningDetails { get; private set; } = null!;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// Input ServiceCatalog Provisioning Details
         /// </summary>
         [Input("serviceCatalogProvisioningDetails", required: true)]
-        public Input<object> ServiceCatalogProvisioningDetails { get; set; } = null!;
+        public Input<Inputs.ServiceCatalogProvisioningDetailsPropertiesArgs> ServiceCatalogProvisioningDetails { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.ProjectTagArgs>? _tags;

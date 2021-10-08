@@ -19,23 +19,23 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         /// <summary>
         /// Allow traffic towards application.
         /// </summary>
-        public readonly object? Allow;
+        public readonly Outputs.RuleGroupRuleActionAllowProperties? Allow;
         /// <summary>
         /// Block traffic towards application.
         /// </summary>
-        public readonly object? Block;
+        public readonly Outputs.RuleGroupRuleActionBlockProperties? Block;
         /// <summary>
         /// Count traffic towards application.
         /// </summary>
-        public readonly object? Count;
+        public readonly Outputs.RuleGroupRuleActionCountProperties? Count;
 
         [OutputConstructor]
         private RuleGroupRuleAction(
-            object? allow,
+            Outputs.RuleGroupRuleActionAllowProperties? allow,
 
-            object? block,
+            Outputs.RuleGroupRuleActionBlockProperties? block,
 
-            object? count)
+            Outputs.RuleGroupRuleActionCountProperties? count)
         {
             Allow = allow;
             Block = block;

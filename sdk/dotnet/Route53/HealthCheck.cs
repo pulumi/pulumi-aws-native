@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Route53
         /// A complex type that contains information about the health check.
         /// </summary>
         [Output("healthCheckConfig")]
-        public Output<object> HealthCheckConfig { get; private set; } = null!;
+        public Output<Outputs.HealthCheckConfigProperties> HealthCheckConfig { get; private set; } = null!;
 
         [Output("healthCheckId")]
         public Output<string> HealthCheckId { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.Route53
         /// A complex type that contains information about the health check.
         /// </summary>
         [Input("healthCheckConfig", required: true)]
-        public Input<object> HealthCheckConfig { get; set; } = null!;
+        public Input<Inputs.HealthCheckConfigPropertiesArgs> HealthCheckConfig { get; set; } = null!;
 
         [Input("healthCheckTags")]
         private InputList<Inputs.HealthCheckTagArgs>? _healthCheckTags;

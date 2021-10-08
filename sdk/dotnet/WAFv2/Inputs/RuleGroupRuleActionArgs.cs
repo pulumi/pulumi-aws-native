@@ -19,19 +19,19 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         /// Allow traffic towards application.
         /// </summary>
         [Input("allow")]
-        public Input<object>? Allow { get; set; }
+        public Input<Inputs.RuleGroupRuleActionAllowPropertiesArgs>? Allow { get; set; }
 
         /// <summary>
         /// Block traffic towards application.
         /// </summary>
         [Input("block")]
-        public Input<object>? Block { get; set; }
+        public Input<Inputs.RuleGroupRuleActionBlockPropertiesArgs>? Block { get; set; }
 
         /// <summary>
         /// Count traffic towards application.
         /// </summary>
         [Input("count")]
-        public Input<object>? Count { get; set; }
+        public Input<Inputs.RuleGroupRuleActionCountPropertiesArgs>? Count { get; set; }
 
         public RuleGroupRuleActionArgs()
         {

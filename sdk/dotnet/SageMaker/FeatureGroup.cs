@@ -40,10 +40,10 @@ namespace Pulumi.AwsNative.SageMaker
         public Output<string> FeatureGroupName { get; private set; } = null!;
 
         [Output("offlineStoreConfig")]
-        public Output<object?> OfflineStoreConfig { get; private set; } = null!;
+        public Output<Outputs.OfflineStoreConfigProperties?> OfflineStoreConfig { get; private set; } = null!;
 
         [Output("onlineStoreConfig")]
-        public Output<object?> OnlineStoreConfig { get; private set; } = null!;
+        public Output<Outputs.OnlineStoreConfigProperties?> OnlineStoreConfig { get; private set; } = null!;
 
         /// <summary>
         /// The Record Identifier Feature Name.
@@ -139,10 +139,10 @@ namespace Pulumi.AwsNative.SageMaker
         public Input<string> FeatureGroupName { get; set; } = null!;
 
         [Input("offlineStoreConfig")]
-        public Input<object>? OfflineStoreConfig { get; set; }
+        public Input<Inputs.OfflineStoreConfigPropertiesArgs>? OfflineStoreConfig { get; set; }
 
         [Input("onlineStoreConfig")]
-        public Input<object>? OnlineStoreConfig { get; set; }
+        public Input<Inputs.OnlineStoreConfigPropertiesArgs>? OnlineStoreConfig { get; set; }
 
         /// <summary>
         /// The Record Identifier Feature Name.

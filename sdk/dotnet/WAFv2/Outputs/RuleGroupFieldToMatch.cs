@@ -33,11 +33,11 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         /// The query string of a web request. This is the part of a URL that appears after a ? character, if any.
         /// </summary>
         public readonly object? QueryString;
-        public readonly object? SingleHeader;
+        public readonly Outputs.RuleGroupFieldToMatchSingleHeaderProperties? SingleHeader;
         /// <summary>
         /// One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
         /// </summary>
-        public readonly object? SingleQueryArgument;
+        public readonly Outputs.RuleGroupFieldToMatchSingleQueryArgumentProperties? SingleQueryArgument;
         /// <summary>
         /// The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
         /// </summary>
@@ -55,9 +55,9 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
             object? queryString,
 
-            object? singleHeader,
+            Outputs.RuleGroupFieldToMatchSingleHeaderProperties? singleHeader,
 
-            object? singleQueryArgument,
+            Outputs.RuleGroupFieldToMatchSingleQueryArgumentProperties? singleQueryArgument,
 
             object? uriPath)
         {

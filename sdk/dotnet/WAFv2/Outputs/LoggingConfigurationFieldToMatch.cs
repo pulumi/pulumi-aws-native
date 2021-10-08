@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         /// <summary>
         /// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
         /// </summary>
-        public readonly object? JsonBody;
+        public readonly Outputs.LoggingConfigurationFieldToMatchJsonBodyProperties? JsonBody;
         /// <summary>
         /// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform. 
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         /// <summary>
         /// Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
         /// </summary>
-        public readonly object? SingleHeader;
+        public readonly Outputs.LoggingConfigurationFieldToMatchSingleHeaderProperties? SingleHeader;
         /// <summary>
         /// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg. 
         /// </summary>
@@ -39,13 +39,13 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
         [OutputConstructor]
         private LoggingConfigurationFieldToMatch(
-            object? jsonBody,
+            Outputs.LoggingConfigurationFieldToMatchJsonBodyProperties? jsonBody,
 
             object? method,
 
             object? queryString,
 
-            object? singleHeader,
+            Outputs.LoggingConfigurationFieldToMatchSingleHeaderProperties? singleHeader,
 
             object? uriPath)
         {

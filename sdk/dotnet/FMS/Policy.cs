@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.FMS
         public Output<ImmutableArray<string>> ResourceTypeList { get; private set; } = null!;
 
         [Output("securityServicePolicyData")]
-        public Output<object> SecurityServicePolicyData { get; private set; } = null!;
+        public Output<Outputs.SecurityServicePolicyDataProperties> SecurityServicePolicyData { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.PolicyTag>> Tags { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.AwsNative.FMS
         }
 
         [Input("securityServicePolicyData", required: true)]
-        public Input<object> SecurityServicePolicyData { get; set; } = null!;
+        public Input<Inputs.SecurityServicePolicyDataPropertiesArgs> SecurityServicePolicyData { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.PolicyTagArgs>? _tags;

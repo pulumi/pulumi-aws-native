@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.CodeGuruProfiler
         /// The agent permissions attached to this profiling group.
         /// </summary>
         [Output("agentPermissions")]
-        public Output<object?> AgentPermissions { get; private set; } = null!;
+        public Output<Outputs.AgentPermissionsProperties?> AgentPermissions { get; private set; } = null!;
 
         /// <summary>
         /// Configuration for Notification Channels for Anomaly Detection feature in CodeGuru Profiler which enables customers to detect anomalies in the application profile for those methods that represent the highest proportion of CPU time or latency
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.CodeGuruProfiler
         /// The agent permissions attached to this profiling group.
         /// </summary>
         [Input("agentPermissions")]
-        public Input<object>? AgentPermissions { get; set; }
+        public Input<Inputs.AgentPermissionsPropertiesArgs>? AgentPermissions { get; set; }
 
         [Input("anomalyDetectionNotificationConfiguration")]
         private InputList<Inputs.ProfilingGroupChannelArgs>? _anomalyDetectionNotificationConfiguration;

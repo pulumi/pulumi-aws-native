@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.WAFv2
         /// Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
         /// </summary>
         [Output("loggingFilter")]
-        public Output<object?> LoggingFilter { get; private set; } = null!;
+        public Output<Outputs.LoggingFilterProperties?> LoggingFilter { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether the logging configuration was created by AWS Firewall Manager, as part of an AWS WAF policy configuration. If true, only Firewall Manager can modify or delete the configuration.
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.WAFv2
         /// Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
         /// </summary>
         [Input("loggingFilter")]
-        public Input<object>? LoggingFilter { get; set; }
+        public Input<Inputs.LoggingFilterPropertiesArgs>? LoggingFilter { get; set; }
 
         [Input("redactedFields")]
         private InputList<Inputs.LoggingConfigurationFieldToMatchArgs>? _redactedFields;

@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.S3Outposts.Inputs
         /// The container for the filter of the lifecycle rule.
         /// </summary>
         [Input("filter")]
-        public Input<object>? Filter { get; set; }
+        public Input<Inputs.BucketRuleFilterPropertiesArgs>? Filter { get; set; }
 
         /// <summary>
         /// Unique identifier for the lifecycle rule. The value can't be longer than 255 characters.

@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Events
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("authParameters")]
-        public Output<object> AuthParameters { get; private set; } = null!;
+        public Output<Outputs.AuthParametersProperties> AuthParameters { get; private set; } = null!;
 
         [Output("authorizationType")]
         public Output<Pulumi.AwsNative.Events.ConnectionAuthorizationType> AuthorizationType { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.Events
     public sealed class ConnectionArgs : Pulumi.ResourceArgs
     {
         [Input("authParameters", required: true)]
-        public Input<object> AuthParameters { get; set; } = null!;
+        public Input<Inputs.AuthParametersPropertiesArgs> AuthParameters { get; set; } = null!;
 
         [Input("authorizationType", required: true)]
         public Input<Pulumi.AwsNative.Events.ConnectionAuthorizationType> AuthorizationType { get; set; } = null!;

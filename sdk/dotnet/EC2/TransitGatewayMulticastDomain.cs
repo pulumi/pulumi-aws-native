@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
         /// The options for the transit gateway multicast domain.
         /// </summary>
         [Output("options")]
-        public Output<object?> Options { get; private set; } = null!;
+        public Output<Outputs.OptionsProperties?> Options { get; private set; } = null!;
 
         /// <summary>
         /// The state of the transit gateway multicast domain.
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.EC2
         /// The options for the transit gateway multicast domain.
         /// </summary>
         [Input("options")]
-        public Input<object>? Options { get; set; }
+        public Input<Inputs.OptionsPropertiesArgs>? Options { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.TransitGatewayMulticastDomainTagArgs>? _tags;

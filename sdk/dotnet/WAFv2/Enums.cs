@@ -70,6 +70,195 @@ namespace Pulumi.AwsNative.WAFv2
     }
 
     /// <summary>
+    /// Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
+    /// </summary>
+    [EnumType]
+    public readonly struct LoggingConfigurationConditionActionConditionPropertiesAction : IEquatable<LoggingConfigurationConditionActionConditionPropertiesAction>
+    {
+        private readonly string _value;
+
+        private LoggingConfigurationConditionActionConditionPropertiesAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LoggingConfigurationConditionActionConditionPropertiesAction Allow { get; } = new LoggingConfigurationConditionActionConditionPropertiesAction("ALLOW");
+        public static LoggingConfigurationConditionActionConditionPropertiesAction Block { get; } = new LoggingConfigurationConditionActionConditionPropertiesAction("BLOCK");
+        public static LoggingConfigurationConditionActionConditionPropertiesAction Count { get; } = new LoggingConfigurationConditionActionConditionPropertiesAction("COUNT");
+
+        public static bool operator ==(LoggingConfigurationConditionActionConditionPropertiesAction left, LoggingConfigurationConditionActionConditionPropertiesAction right) => left.Equals(right);
+        public static bool operator !=(LoggingConfigurationConditionActionConditionPropertiesAction left, LoggingConfigurationConditionActionConditionPropertiesAction right) => !left.Equals(right);
+
+        public static explicit operator string(LoggingConfigurationConditionActionConditionPropertiesAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LoggingConfigurationConditionActionConditionPropertiesAction other && Equals(other);
+        public bool Equals(LoggingConfigurationConditionActionConditionPropertiesAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// What AWS WAF should do if it fails to completely parse the JSON body.
+    /// </summary>
+    [EnumType]
+    public readonly struct LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior : IEquatable<LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior>
+    {
+        private readonly string _value;
+
+        private LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior Match { get; } = new LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior("MATCH");
+        public static LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior NoMatch { get; } = new LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior("NO_MATCH");
+        public static LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior EvaluateAsString { get; } = new LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior("EVALUATE_AS_STRING");
+
+        public static bool operator ==(LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior left, LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior right) => left.Equals(right);
+        public static bool operator !=(LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior left, LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior other && Equals(other);
+        public bool Equals(LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The parts of the JSON to match against using the MatchPattern. If you specify All, AWS WAF matches against keys and values. 
+    /// </summary>
+    [EnumType]
+    public readonly struct LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope : IEquatable<LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope>
+    {
+        private readonly string _value;
+
+        private LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope All { get; } = new LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope("ALL");
+        public static LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope Key { get; } = new LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope("KEY");
+        public static LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope Value { get; } = new LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope("VALUE");
+
+        public static bool operator ==(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope left, LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope right) => left.Equals(right);
+        public static bool operator !=(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope left, LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope right) => !left.Equals(right);
+
+        public static explicit operator string(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope other && Equals(other);
+        public bool Equals(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// How to handle logs that satisfy the filter's conditions and requirement. 
+    /// </summary>
+    [EnumType]
+    public readonly struct LoggingConfigurationFilterBehavior : IEquatable<LoggingConfigurationFilterBehavior>
+    {
+        private readonly string _value;
+
+        private LoggingConfigurationFilterBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LoggingConfigurationFilterBehavior Keep { get; } = new LoggingConfigurationFilterBehavior("KEEP");
+        public static LoggingConfigurationFilterBehavior Drop { get; } = new LoggingConfigurationFilterBehavior("DROP");
+
+        public static bool operator ==(LoggingConfigurationFilterBehavior left, LoggingConfigurationFilterBehavior right) => left.Equals(right);
+        public static bool operator !=(LoggingConfigurationFilterBehavior left, LoggingConfigurationFilterBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(LoggingConfigurationFilterBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LoggingConfigurationFilterBehavior other && Equals(other);
+        public bool Equals(LoggingConfigurationFilterBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
+    /// </summary>
+    [EnumType]
+    public readonly struct LoggingConfigurationFilterRequirement : IEquatable<LoggingConfigurationFilterRequirement>
+    {
+        private readonly string _value;
+
+        private LoggingConfigurationFilterRequirement(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LoggingConfigurationFilterRequirement MeetsAll { get; } = new LoggingConfigurationFilterRequirement("MEETS_ALL");
+        public static LoggingConfigurationFilterRequirement MeetsAny { get; } = new LoggingConfigurationFilterRequirement("MEETS_ANY");
+
+        public static bool operator ==(LoggingConfigurationFilterRequirement left, LoggingConfigurationFilterRequirement right) => left.Equals(right);
+        public static bool operator !=(LoggingConfigurationFilterRequirement left, LoggingConfigurationFilterRequirement right) => !left.Equals(right);
+
+        public static explicit operator string(LoggingConfigurationFilterRequirement value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LoggingConfigurationFilterRequirement other && Equals(other);
+        public bool Equals(LoggingConfigurationFilterRequirement other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Default handling for logs that don't match any of the specified filtering conditions.
+    /// </summary>
+    [EnumType]
+    public readonly struct LoggingConfigurationLoggingFilterPropertiesDefaultBehavior : IEquatable<LoggingConfigurationLoggingFilterPropertiesDefaultBehavior>
+    {
+        private readonly string _value;
+
+        private LoggingConfigurationLoggingFilterPropertiesDefaultBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LoggingConfigurationLoggingFilterPropertiesDefaultBehavior Keep { get; } = new LoggingConfigurationLoggingFilterPropertiesDefaultBehavior("KEEP");
+        public static LoggingConfigurationLoggingFilterPropertiesDefaultBehavior Drop { get; } = new LoggingConfigurationLoggingFilterPropertiesDefaultBehavior("DROP");
+
+        public static bool operator ==(LoggingConfigurationLoggingFilterPropertiesDefaultBehavior left, LoggingConfigurationLoggingFilterPropertiesDefaultBehavior right) => left.Equals(right);
+        public static bool operator !=(LoggingConfigurationLoggingFilterPropertiesDefaultBehavior left, LoggingConfigurationLoggingFilterPropertiesDefaultBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(LoggingConfigurationLoggingFilterPropertiesDefaultBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LoggingConfigurationLoggingFilterPropertiesDefaultBehavior other && Equals(other);
+        public bool Equals(LoggingConfigurationLoggingFilterPropertiesDefaultBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
     /// </summary>
     [EnumType]
