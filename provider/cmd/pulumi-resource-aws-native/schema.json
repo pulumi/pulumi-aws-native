@@ -6971,6 +6971,22 @@
                 "value"
             ]
         },
+        "aws-native:codeguruprofiler:AgentPermissionsProperties": {
+            "description": "The agent permissions attached to this profiling group.",
+            "properties": {
+                "principals": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The principals for the agent permissions."
+                }
+            },
+            "type": "object",
+            "required": [
+                "principals"
+            ]
+        },
         "aws-native:codeguruprofiler:ProfilingGroupChannel": {
             "description": "Notification medium for users to get alerted for events that occur in application profile. We support SNS topic as a notification channel.",
             "properties": {
@@ -10847,7 +10863,7 @@
                     "type": "string"
                 },
                 "input": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:databrew:RecipeParametersInputProperties",
                     "description": "Input"
                 },
                 "interval": {
@@ -11071,6 +11087,18 @@
                 },
                 "viewFrame": {
                     "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:databrew:RecipeParametersInputProperties": {
+            "description": "Input",
+            "properties": {
+                "dataCatalogInputDefinition": {
+                    "$ref": "#/types/aws-native:databrew:RecipeDataCatalogInputDefinition"
+                },
+                "s3InputDefinition": {
+                    "$ref": "#/types/aws-native:databrew:RecipeS3Location"
                 }
             },
             "type": "object"
@@ -13202,6 +13230,24 @@
             "required": [
                 "key"
             ]
+        },
+        "aws-native:ec2:OptionsProperties": {
+            "description": "The options for the transit gateway vpc attachment.",
+            "properties": {
+                "applianceModeSupport": {
+                    "type": "string",
+                    "description": "Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable"
+                },
+                "dnsSupport": {
+                    "type": "string",
+                    "description": "Indicates whether to enable DNS Support for Vpc Attachment. Valid Values: enable | disable"
+                },
+                "ipv6Support": {
+                    "type": "string",
+                    "description": "Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable"
+                }
+            },
+            "type": "object"
         },
         "aws-native:ec2:PrefixListAddressFamily": {
             "description": "Ip Version of Prefix List.",
@@ -16459,6 +16505,38 @@
                 }
             ]
         },
+        "aws-native:events:AuthParametersProperties": {
+            "properties": {
+                "apiKeyAuthParameters": {
+                    "$ref": "#/types/aws-native:events:ConnectionApiKeyAuthParameters"
+                },
+                "basicAuthParameters": {
+                    "$ref": "#/types/aws-native:events:ConnectionBasicAuthParameters"
+                },
+                "invocationHttpParameters": {
+                    "$ref": "#/types/aws-native:events:ConnectionHttpParameters"
+                },
+                "oAuthParameters": {
+                    "$ref": "#/types/aws-native:events:ConnectionOAuthParameters"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:events:ConnectionApiKeyAuthParameters": {
+            "properties": {
+                "apiKeyName": {
+                    "type": "string"
+                },
+                "apiKeyValue": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "apiKeyName",
+                "apiKeyValue"
+            ]
+        },
         "aws-native:events:ConnectionAuthorizationType": {
             "type": "string",
             "enum": [
@@ -16474,6 +16552,116 @@
                     "name": "OauthClientCredentials",
                     "value": "OAUTH_CLIENT_CREDENTIALS"
                 }
+            ]
+        },
+        "aws-native:events:ConnectionBasicAuthParameters": {
+            "properties": {
+                "password": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "password",
+                "username"
+            ]
+        },
+        "aws-native:events:ConnectionClientParameters": {
+            "properties": {
+                "clientID": {
+                    "type": "string"
+                },
+                "clientSecret": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "clientID",
+                "clientSecret"
+            ]
+        },
+        "aws-native:events:ConnectionHttpParameters": {
+            "properties": {
+                "bodyParameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:events:ConnectionParameter"
+                    }
+                },
+                "headerParameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:events:ConnectionParameter"
+                    }
+                },
+                "queryStringParameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:events:ConnectionParameter"
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:events:ConnectionOAuthParameters": {
+            "properties": {
+                "authorizationEndpoint": {
+                    "type": "string"
+                },
+                "clientParameters": {
+                    "$ref": "#/types/aws-native:events:ConnectionClientParameters"
+                },
+                "httpMethod": {
+                    "$ref": "#/types/aws-native:events:ConnectionOAuthParametersHttpMethod"
+                },
+                "oAuthHttpParameters": {
+                    "$ref": "#/types/aws-native:events:ConnectionHttpParameters"
+                }
+            },
+            "type": "object",
+            "required": [
+                "authorizationEndpoint",
+                "clientParameters",
+                "httpMethod"
+            ]
+        },
+        "aws-native:events:ConnectionOAuthParametersHttpMethod": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Get",
+                    "value": "GET"
+                },
+                {
+                    "name": "Post",
+                    "value": "POST"
+                },
+                {
+                    "name": "Put",
+                    "value": "PUT"
+                }
+            ]
+        },
+        "aws-native:events:ConnectionParameter": {
+            "properties": {
+                "isValueSecret": {
+                    "type": "boolean"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
             ]
         },
         "aws-native:finspace:EnvironmentFederationMode": {
@@ -16621,6 +16809,43 @@
                 "key"
             ]
         },
+        "aws-native:fms:PolicySecurityServicePolicyDataPropertiesType": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Waf",
+                    "value": "WAF"
+                },
+                {
+                    "name": "Wafv2",
+                    "value": "WAFV2"
+                },
+                {
+                    "name": "ShieldAdvanced",
+                    "value": "SHIELD_ADVANCED"
+                },
+                {
+                    "name": "SecurityGroupsCommon",
+                    "value": "SECURITY_GROUPS_COMMON"
+                },
+                {
+                    "name": "SecurityGroupsContentAudit",
+                    "value": "SECURITY_GROUPS_CONTENT_AUDIT"
+                },
+                {
+                    "name": "SecurityGroupsUsageAudit",
+                    "value": "SECURITY_GROUPS_USAGE_AUDIT"
+                },
+                {
+                    "name": "NetworkFirewall",
+                    "value": "NETWORK_FIREWALL"
+                },
+                {
+                    "name": "DnsFirewall",
+                    "value": "DNS_FIREWALL"
+                }
+            ]
+        },
         "aws-native:fms:PolicyTag": {
             "description": "A policy tag.",
             "properties": {
@@ -16635,6 +16860,20 @@
             "required": [
                 "key",
                 "value"
+            ]
+        },
+        "aws-native:fms:SecurityServicePolicyDataProperties": {
+            "properties": {
+                "managedServiceData": {
+                    "type": "string"
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:fms:PolicySecurityServicePolicyDataPropertiesType"
+                }
+            },
+            "type": "object",
+            "required": [
+                "type"
             ]
         },
         "aws-native:frauddetector:DetectorEntityType": {
@@ -19242,11 +19481,11 @@
             "description": "The distributions of the distribution configuration.",
             "properties": {
                 "amiDistributionConfiguration": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:imagebuilder:DistributionConfigurationDistributionAmiDistributionConfigurationProperties",
                     "description": "The specific AMI settings (for example, launch permissions, AMI tags)."
                 },
                 "containerDistributionConfiguration": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:imagebuilder:DistributionConfigurationDistributionContainerDistributionConfigurationProperties",
                     "description": "Container distribution settings for encryption, licensing, and sharing in a specific Region."
                 },
                 "launchTemplateConfigurations": {
@@ -19273,6 +19512,80 @@
                 "region"
             ]
         },
+        "aws-native:imagebuilder:DistributionConfigurationDistributionAmiDistributionConfigurationProperties": {
+            "description": "The specific AMI settings (for example, launch permissions, AMI tags).",
+            "properties": {
+                "amiTags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "The tags to apply to AMIs distributed to this Region."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the AMI distribution configuration."
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "The KMS key identifier used to encrypt the distributed image."
+                },
+                "launchPermissionConfiguration": {
+                    "$ref": "#/types/aws-native:imagebuilder:DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties",
+                    "description": "Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the AMI distribution configuration."
+                },
+                "targetAccountIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The ID of accounts to which you want to distribute an image."
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:imagebuilder:DistributionConfigurationDistributionAmiDistributionConfigurationPropertiesLaunchPermissionConfigurationProperties": {
+            "description": "Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.",
+            "properties": {
+                "userGroups": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The name of the group."
+                },
+                "userIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The AWS account ID."
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:imagebuilder:DistributionConfigurationDistributionContainerDistributionConfigurationProperties": {
+            "description": "Container distribution settings for encryption, licensing, and sharing in a specific Region.",
+            "properties": {
+                "containerTags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Tags that are attached to the container distribution configuration."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the container distribution configuration."
+                },
+                "targetRepository": {
+                    "$ref": "#/types/aws-native:imagebuilder:DistributionConfigurationTargetContainerRepository",
+                    "description": "The destination repository for the container distribution configuration."
+                }
+            },
+            "type": "object"
+        },
         "aws-native:imagebuilder:DistributionConfigurationLaunchTemplateConfiguration": {
             "description": "launchTemplateConfiguration settings that apply to image distribution.",
             "properties": {
@@ -19290,6 +19603,30 @@
                 }
             },
             "type": "object"
+        },
+        "aws-native:imagebuilder:DistributionConfigurationTargetContainerRepository": {
+            "description": "The destination repository for the container image.",
+            "properties": {
+                "repositoryName": {
+                    "type": "string",
+                    "description": "The repository name of target container repository."
+                },
+                "service": {
+                    "$ref": "#/types/aws-native:imagebuilder:DistributionConfigurationTargetContainerRepositoryService",
+                    "description": "The service of target container repository."
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:imagebuilder:DistributionConfigurationTargetContainerRepositoryService": {
+            "description": "The service of target container repository.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Ecr",
+                    "value": "ECR"
+                }
+            ]
         },
         "aws-native:imagebuilder:ImagePipelineImageTestsConfiguration": {
             "description": "Image tests configuration.",
@@ -22982,6 +23319,44 @@
                 "value"
             ]
         },
+        "aws-native:iotcoredeviceadvisor:SuiteDefinitionConfigurationProperties": {
+            "properties": {
+                "devicePermissionRoleArn": {
+                    "type": "string"
+                },
+                "devices": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotcoredeviceadvisor:SuiteDefinitionDeviceUnderTest"
+                    }
+                },
+                "intendedForQualification": {
+                    "type": "boolean"
+                },
+                "rootGroup": {
+                    "type": "string"
+                },
+                "suiteDefinitionName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "devicePermissionRoleArn",
+                "rootGroup"
+            ]
+        },
+        "aws-native:iotcoredeviceadvisor:SuiteDefinitionDeviceUnderTest": {
+            "properties": {
+                "certificateArn": {
+                    "type": "string"
+                },
+                "thingArn": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
         "aws-native:iotcoredeviceadvisor:SuiteDefinitionTag": {
             "description": "A key-value pair to associate with a resource.",
             "properties": {
@@ -23694,6 +24069,20 @@
                 "id": {
                     "type": "string",
                     "description": "The AWS SSO ID of the user."
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:iotsitewise:AlarmsProperties": {
+            "description": "Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.",
+            "properties": {
+                "alarmRoleArn": {
+                    "type": "string",
+                    "description": "The ARN of the IAM role that allows the alarm to perform actions and access AWS resources and services, such as AWS IoT Events."
+                },
+                "notificationLambdaArn": {
+                    "type": "string",
+                    "description": "The ARN of the AWS Lambda function that manages alarm notifications. For more information, see Managing alarm notifications in the AWS IoT Events Developer Guide."
                 }
             },
             "type": "object"
@@ -34495,6 +34884,144 @@
             "description": "A key-value pair to associate with a resource.",
             "type": "object"
         },
+        "aws-native:route53:HealthCheckAlarmIdentifier": {
+            "description": "A complex type that identifies the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether the specified health check is healthy.",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy."
+                },
+                "region": {
+                    "type": "string",
+                    "description": "For the CloudWatch alarm that you want Route 53 health checkers to use to determine whether this health check is healthy, the region that the alarm was created in."
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "region"
+            ]
+        },
+        "aws-native:route53:HealthCheckConfigProperties": {
+            "description": "A complex type that contains information about the health check.",
+            "properties": {
+                "alarmIdentifier": {
+                    "$ref": "#/types/aws-native:route53:HealthCheckAlarmIdentifier"
+                },
+                "childHealthChecks": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "enableSNI": {
+                    "type": "boolean"
+                },
+                "failureThreshold": {
+                    "type": "integer"
+                },
+                "fullyQualifiedDomainName": {
+                    "type": "string"
+                },
+                "healthThreshold": {
+                    "type": "integer"
+                },
+                "iPAddress": {
+                    "type": "string"
+                },
+                "insufficientDataHealthStatus": {
+                    "$ref": "#/types/aws-native:route53:HealthCheckConfigPropertiesInsufficientDataHealthStatus"
+                },
+                "inverted": {
+                    "type": "boolean"
+                },
+                "measureLatency": {
+                    "type": "boolean"
+                },
+                "port": {
+                    "type": "integer"
+                },
+                "regions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "requestInterval": {
+                    "type": "integer"
+                },
+                "resourcePath": {
+                    "type": "string"
+                },
+                "routingControlArn": {
+                    "type": "string"
+                },
+                "searchString": {
+                    "type": "string"
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:route53:HealthCheckConfigPropertiesType"
+                }
+            },
+            "type": "object",
+            "required": [
+                "type"
+            ]
+        },
+        "aws-native:route53:HealthCheckConfigPropertiesInsufficientDataHealthStatus": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Healthy",
+                    "value": "Healthy"
+                },
+                {
+                    "name": "LastKnownStatus",
+                    "value": "LastKnownStatus"
+                },
+                {
+                    "name": "Unhealthy",
+                    "value": "Unhealthy"
+                }
+            ]
+        },
+        "aws-native:route53:HealthCheckConfigPropertiesType": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Calculated",
+                    "value": "CALCULATED"
+                },
+                {
+                    "name": "CloudwatchMetric",
+                    "value": "CLOUDWATCH_METRIC"
+                },
+                {
+                    "name": "Http",
+                    "value": "HTTP"
+                },
+                {
+                    "name": "HttpStrMatch",
+                    "value": "HTTP_STR_MATCH"
+                },
+                {
+                    "name": "Https",
+                    "value": "HTTPS"
+                },
+                {
+                    "name": "HttpsStrMatch",
+                    "value": "HTTPS_STR_MATCH"
+                },
+                {
+                    "name": "Tcp",
+                    "value": "TCP"
+                },
+                {
+                    "name": "RecoveryControl",
+                    "value": "RECOVERY_CONTROL"
+                }
+            ]
+        },
         "aws-native:route53:HealthCheckTag": {
             "description": "A key-value pair to associate with a resource.",
             "properties": {
@@ -35282,6 +35809,20 @@
                 {
                     "name": "Vpc",
                     "value": "VPC"
+                }
+            ]
+        },
+        "aws-native:s3:AccessPointPolicyStatusPropertiesIsPublic": {
+            "description": "Specifies whether the policy is public or not.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "True",
+                    "value": "true"
+                },
+                {
+                    "name": "False",
+                    "value": "false"
                 }
             ]
         },
@@ -36236,6 +36777,20 @@
             },
             "type": "object"
         },
+        "aws-native:s3:MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic": {
+            "description": "Specifies whether the policy is public or not.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "True",
+                    "value": "true"
+                },
+                {
+                    "name": "False",
+                    "value": "false"
+                }
+            ]
+        },
         "aws-native:s3:MultiRegionAccessPointPublicAccessBlockConfiguration": {
             "properties": {
                 "blockPublicAcls": {
@@ -36266,6 +36821,19 @@
             "type": "object",
             "required": [
                 "bucket"
+            ]
+        },
+        "aws-native:s3:PolicyStatusProperties": {
+            "description": "The Policy Status associated with this Multi Region Access Point",
+            "properties": {
+                "isPublic": {
+                    "$ref": "#/types/aws-native:s3:MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic",
+                    "description": "Specifies whether the policy is public or not."
+                }
+            },
+            "type": "object",
+            "required": [
+                "isPublic"
             ]
         },
         "aws-native:s3:StorageLensAccountLevel": {
@@ -36569,6 +37137,15 @@
             },
             "type": "object"
         },
+        "aws-native:s3objectlambda:PolicyStatusProperties": {
+            "properties": {
+                "isPublic": {
+                    "type": "boolean",
+                    "description": "Specifies whether the Object lambda Access Point Policy is Public or not. Object lambda Access Points are private by default."
+                }
+            },
+            "type": "object"
+        },
         "aws-native:s3outposts:AccessPointVpcConfiguration": {
             "properties": {
                 "vpcId": {
@@ -36589,6 +37166,25 @@
             "type": "object",
             "required": [
                 "daysAfterInitiation"
+            ]
+        },
+        "aws-native:s3outposts:BucketFilterAndOperator": {
+            "type": "object"
+        },
+        "aws-native:s3outposts:BucketFilterTag": {
+            "description": "Tag used to identify a subset of objects for an Amazon S3Outposts bucket.",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
             ]
         },
         "aws-native:s3outposts:BucketLifecycleConfiguration": {
@@ -36622,7 +37218,7 @@
                     "description": "Indicates the number of days after creation when objects are deleted from Amazon S3Outposts."
                 },
                 "filter": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:s3outposts:BucketRuleFilterProperties",
                     "description": "The container for the filter of the lifecycle rule."
                 },
                 "id": {
@@ -36631,6 +37227,24 @@
                 },
                 "status": {
                     "$ref": "#/types/aws-native:s3outposts:BucketRuleStatus"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:s3outposts:BucketRuleFilterProperties": {
+            "description": "The container for the filter of the lifecycle rule.",
+            "properties": {
+                "andOperator": {
+                    "$ref": "#/types/aws-native:s3outposts:BucketFilterAndOperator",
+                    "description": "The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags."
+                },
+                "prefix": {
+                    "type": "string",
+                    "description": "Object key prefix that identifies one or more objects to which this rule applies."
+                },
+                "tag": {
+                    "$ref": "#/types/aws-native:s3outposts:BucketFilterTag",
+                    "description": "Specifies a tag used to identify a subset of objects for an Amazon S3Outposts bucket."
                 }
             },
             "type": "object"
@@ -37648,6 +38262,25 @@
             },
             "type": "object"
         },
+        "aws-native:sagemaker:FeatureGroupDataCatalogConfig": {
+            "properties": {
+                "catalog": {
+                    "type": "string"
+                },
+                "database": {
+                    "type": "string"
+                },
+                "tableName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "catalog",
+                "database",
+                "tableName"
+            ]
+        },
         "aws-native:sagemaker:FeatureGroupFeatureDefinition": {
             "properties": {
                 "featureName": {
@@ -37678,6 +38311,28 @@
                     "name": "String",
                     "value": "String"
                 }
+            ]
+        },
+        "aws-native:sagemaker:FeatureGroupOnlineStoreSecurityConfig": {
+            "properties": {
+                "kmsKeyId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:sagemaker:FeatureGroupS3StorageConfig": {
+            "properties": {
+                "kmsKeyId": {
+                    "type": "string"
+                },
+                "s3Uri": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "s3Uri"
             ]
         },
         "aws-native:sagemaker:FeatureGroupTag": {
@@ -39262,6 +39917,34 @@
                 "subnets"
             ]
         },
+        "aws-native:sagemaker:OfflineStoreConfigProperties": {
+            "properties": {
+                "dataCatalogConfig": {
+                    "$ref": "#/types/aws-native:sagemaker:FeatureGroupDataCatalogConfig"
+                },
+                "disableGlueTableCreation": {
+                    "type": "boolean"
+                },
+                "s3StorageConfig": {
+                    "$ref": "#/types/aws-native:sagemaker:FeatureGroupS3StorageConfig"
+                }
+            },
+            "type": "object",
+            "required": [
+                "s3StorageConfig"
+            ]
+        },
+        "aws-native:sagemaker:OnlineStoreConfigProperties": {
+            "properties": {
+                "enableOnlineStore": {
+                    "type": "boolean"
+                },
+                "securityConfig": {
+                    "$ref": "#/types/aws-native:sagemaker:FeatureGroupOnlineStoreSecurityConfig"
+                }
+            },
+            "type": "object"
+        },
         "aws-native:sagemaker:PipelineTag": {
             "properties": {
                 "key": {
@@ -39269,6 +39952,24 @@
                 },
                 "value": {
                     "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ]
+        },
+        "aws-native:sagemaker:ProjectProvisioningParameter": {
+            "description": "Information about a parameter used to provision a product.",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The parameter key."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The parameter value."
                 }
             },
             "type": "object",
@@ -39327,6 +40028,44 @@
             "required": [
                 "key",
                 "value"
+            ]
+        },
+        "aws-native:sagemaker:ServiceCatalogProvisionedProductDetailsProperties": {
+            "description": "Provisioned ServiceCatalog  Details",
+            "properties": {
+                "provisionedProductId": {
+                    "type": "string"
+                },
+                "provisionedProductStatusMessage": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:sagemaker:ServiceCatalogProvisioningDetailsProperties": {
+            "description": "Input ServiceCatalog Provisioning Details",
+            "properties": {
+                "pathId": {
+                    "type": "string"
+                },
+                "productId": {
+                    "type": "string"
+                },
+                "provisioningArtifactId": {
+                    "type": "string"
+                },
+                "provisioningParameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:sagemaker:ProjectProvisioningParameter"
+                    },
+                    "description": "Parameters specified by the administrator that are required for provisioning the product."
+                }
+            },
+            "type": "object",
+            "required": [
+                "productId",
+                "provisioningArtifactId"
             ]
         },
         "aws-native:sagemaker:UserProfileCustomImage": {
@@ -40459,6 +41198,21 @@
                 "source"
             ]
         },
+        "aws-native:sso:InstanceAccessControlAttributeConfigurationProperties": {
+            "description": "The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.",
+            "properties": {
+                "accessControlAttributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:sso:InstanceAccessControlAttributeConfigurationAccessControlAttribute"
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "accessControlAttributes"
+            ]
+        },
         "aws-native:sso:PermissionSetTag": {
             "description": "The metadata that you apply to the permission set to help you categorize and organize them.",
             "properties": {
@@ -40754,6 +41508,20 @@
             },
             "type": "object"
         },
+        "aws-native:timestream:RetentionPropertiesProperties": {
+            "description": "The retention duration of the memory store and the magnetic store.",
+            "properties": {
+                "magneticStoreRetentionPeriodInDays": {
+                    "type": "string",
+                    "description": "The duration for which data must be stored in the magnetic store."
+                },
+                "memoryStoreRetentionPeriodInHours": {
+                    "type": "string",
+                    "description": "The duration for which data must be stored in the memory store."
+                }
+            },
+            "type": "object"
+        },
         "aws-native:timestream:TableTag": {
             "description": "You can use the Resource Tags property to apply tags to resources, which can help you identify and categorize those resources.",
             "properties": {
@@ -40805,11 +41573,68 @@
             },
             "type": "object"
         },
+        "aws-native:wafv2:LoggingConfigurationCondition": {
+            "properties": {
+                "actionCondition": {
+                    "$ref": "#/types/aws-native:wafv2:LoggingConfigurationConditionActionConditionProperties",
+                    "description": "A single action condition."
+                },
+                "labelNameCondition": {
+                    "$ref": "#/types/aws-native:wafv2:LoggingConfigurationConditionLabelNameConditionProperties",
+                    "description": "A single label name condition."
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:wafv2:LoggingConfigurationConditionActionConditionProperties": {
+            "description": "A single action condition.",
+            "properties": {
+                "action": {
+                    "$ref": "#/types/aws-native:wafv2:LoggingConfigurationConditionActionConditionPropertiesAction",
+                    "description": "Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition."
+                }
+            },
+            "type": "object",
+            "required": [
+                "action"
+            ]
+        },
+        "aws-native:wafv2:LoggingConfigurationConditionActionConditionPropertiesAction": {
+            "description": "Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Allow",
+                    "value": "ALLOW"
+                },
+                {
+                    "name": "Block",
+                    "value": "BLOCK"
+                },
+                {
+                    "name": "Count",
+                    "value": "COUNT"
+                }
+            ]
+        },
+        "aws-native:wafv2:LoggingConfigurationConditionLabelNameConditionProperties": {
+            "description": "A single label name condition.",
+            "properties": {
+                "labelName": {
+                    "type": "string",
+                    "description": "The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label. "
+                }
+            },
+            "type": "object",
+            "required": [
+                "labelName"
+            ]
+        },
         "aws-native:wafv2:LoggingConfigurationFieldToMatch": {
             "description": "A key-value pair to associate with a resource.",
             "properties": {
                 "jsonBody": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:wafv2:LoggingConfigurationFieldToMatchJsonBodyProperties",
                     "description": "Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. "
                 },
                 "method": {
@@ -40821,7 +41646,7 @@
                     "description": "Inspect the query string. This is the part of a URL that appears after a ? character, if any. "
                 },
                 "singleHeader": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:wafv2:LoggingConfigurationFieldToMatchSingleHeaderProperties",
                     "description": "Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive."
                 },
                 "uriPath": {
@@ -40830,6 +41655,182 @@
                 }
             },
             "type": "object"
+        },
+        "aws-native:wafv2:LoggingConfigurationFieldToMatchJsonBodyProperties": {
+            "description": "Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. ",
+            "properties": {
+                "invalidFallbackBehavior": {
+                    "$ref": "#/types/aws-native:wafv2:LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior",
+                    "description": "What AWS WAF should do if it fails to completely parse the JSON body."
+                },
+                "matchPattern": {
+                    "$ref": "#/types/aws-native:wafv2:LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties",
+                    "description": "The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. "
+                },
+                "matchScope": {
+                    "$ref": "#/types/aws-native:wafv2:LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope",
+                    "description": "The parts of the JSON to match against using the MatchPattern. If you specify All, AWS WAF matches against keys and values. "
+                }
+            },
+            "type": "object",
+            "required": [
+                "matchPattern",
+                "matchScope"
+            ]
+        },
+        "aws-native:wafv2:LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior": {
+            "description": "What AWS WAF should do if it fails to completely parse the JSON body.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Match",
+                    "value": "MATCH"
+                },
+                {
+                    "name": "NoMatch",
+                    "value": "NO_MATCH"
+                },
+                {
+                    "name": "EvaluateAsString",
+                    "value": "EVALUATE_AS_STRING"
+                }
+            ]
+        },
+        "aws-native:wafv2:LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties": {
+            "description": "The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. ",
+            "properties": {
+                "all": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "Match all of the elements. See also MatchScope in JsonBody. You must specify either this setting or the IncludedPaths setting, but not both."
+                },
+                "includedPaths": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Match only the specified include paths. See also MatchScope in JsonBody."
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:wafv2:LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope": {
+            "description": "The parts of the JSON to match against using the MatchPattern. If you specify All, AWS WAF matches against keys and values. ",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "All",
+                    "value": "ALL"
+                },
+                {
+                    "name": "Key",
+                    "value": "KEY"
+                },
+                {
+                    "name": "Value",
+                    "value": "VALUE"
+                }
+            ]
+        },
+        "aws-native:wafv2:LoggingConfigurationFieldToMatchSingleHeaderProperties": {
+            "description": "Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the query header to inspect."
+                }
+            },
+            "type": "object",
+            "required": [
+                "name"
+            ]
+        },
+        "aws-native:wafv2:LoggingConfigurationFilter": {
+            "properties": {
+                "behavior": {
+                    "$ref": "#/types/aws-native:wafv2:LoggingConfigurationFilterBehavior",
+                    "description": "How to handle logs that satisfy the filter's conditions and requirement. "
+                },
+                "conditions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:wafv2:LoggingConfigurationCondition"
+                    },
+                    "description": "Match conditions for the filter."
+                },
+                "requirement": {
+                    "$ref": "#/types/aws-native:wafv2:LoggingConfigurationFilterRequirement",
+                    "description": "Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition."
+                }
+            },
+            "type": "object",
+            "required": [
+                "behavior",
+                "conditions",
+                "requirement"
+            ]
+        },
+        "aws-native:wafv2:LoggingConfigurationFilterBehavior": {
+            "description": "How to handle logs that satisfy the filter's conditions and requirement. ",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Keep",
+                    "value": "KEEP"
+                },
+                {
+                    "name": "Drop",
+                    "value": "DROP"
+                }
+            ]
+        },
+        "aws-native:wafv2:LoggingConfigurationFilterRequirement": {
+            "description": "Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "MeetsAll",
+                    "value": "MEETS_ALL"
+                },
+                {
+                    "name": "MeetsAny",
+                    "value": "MEETS_ANY"
+                }
+            ]
+        },
+        "aws-native:wafv2:LoggingConfigurationLoggingFilterPropertiesDefaultBehavior": {
+            "description": "Default handling for logs that don't match any of the specified filtering conditions.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Keep",
+                    "value": "KEEP"
+                },
+                {
+                    "name": "Drop",
+                    "value": "DROP"
+                }
+            ]
+        },
+        "aws-native:wafv2:LoggingFilterProperties": {
+            "description": "Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.",
+            "properties": {
+                "defaultBehavior": {
+                    "$ref": "#/types/aws-native:wafv2:LoggingConfigurationLoggingFilterPropertiesDefaultBehavior",
+                    "description": "Default handling for logs that don't match any of the specified filtering conditions."
+                },
+                "filters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:wafv2:LoggingConfigurationFilter"
+                    },
+                    "description": "The filters that you want to apply to the logs."
+                }
+            },
+            "type": "object",
+            "required": [
+                "defaultBehavior",
+                "filters"
+            ]
         },
         "aws-native:wafv2:RegexPatternSetScope": {
             "description": "Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.",
@@ -40917,6 +41918,61 @@
                 "textTransformations"
             ]
         },
+        "aws-native:wafv2:RuleGroupCustomHTTPHeader": {
+            "description": "HTTP header.",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ]
+        },
+        "aws-native:wafv2:RuleGroupCustomRequestHandling": {
+            "description": "Custom request handling.",
+            "properties": {
+                "insertHeaders": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:wafv2:RuleGroupCustomHTTPHeader"
+                    },
+                    "description": "Collection of HTTP headers."
+                }
+            },
+            "type": "object",
+            "required": [
+                "insertHeaders"
+            ]
+        },
+        "aws-native:wafv2:RuleGroupCustomResponse": {
+            "description": "Custom response.",
+            "properties": {
+                "customResponseBodyKey": {
+                    "type": "string",
+                    "description": "Custom response body key."
+                },
+                "responseCode": {
+                    "type": "integer"
+                },
+                "responseHeaders": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:wafv2:RuleGroupCustomHTTPHeader"
+                    },
+                    "description": "Collection of HTTP headers."
+                }
+            },
+            "type": "object",
+            "required": [
+                "responseCode"
+            ]
+        },
         "aws-native:wafv2:RuleGroupCustomResponseBodies": {
             "description": "Custom response key and body map.",
             "type": "object"
@@ -40944,10 +42000,10 @@
                     "description": "The query string of a web request. This is the part of a URL that appears after a ? character, if any."
                 },
                 "singleHeader": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupFieldToMatchSingleHeaderProperties"
                 },
                 "singleQueryArgument": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupFieldToMatchSingleQueryArgumentProperties",
                     "description": "One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive."
                 },
                 "uriPath": {
@@ -40956,6 +42012,29 @@
                 }
             },
             "type": "object"
+        },
+        "aws-native:wafv2:RuleGroupFieldToMatchSingleHeaderProperties": {
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name"
+            ]
+        },
+        "aws-native:wafv2:RuleGroupFieldToMatchSingleQueryArgumentProperties": {
+            "description": "One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.",
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name"
+            ]
         },
         "aws-native:wafv2:RuleGroupForwardedIPConfiguration": {
             "properties": {
@@ -41307,16 +42386,43 @@
             "description": "Action taken when Rule matches its condition.",
             "properties": {
                 "allow": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupRuleActionAllowProperties",
                     "description": "Allow traffic towards application."
                 },
                 "block": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupRuleActionBlockProperties",
                     "description": "Block traffic towards application."
                 },
                 "count": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupRuleActionCountProperties",
                     "description": "Count traffic towards application."
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:wafv2:RuleGroupRuleActionAllowProperties": {
+            "description": "Allow traffic towards application.",
+            "properties": {
+                "customRequestHandling": {
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupCustomRequestHandling"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:wafv2:RuleGroupRuleActionBlockProperties": {
+            "description": "Block traffic towards application.",
+            "properties": {
+                "customResponse": {
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupCustomResponse"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:wafv2:RuleGroupRuleActionCountProperties": {
+            "description": "Count traffic towards application.",
+            "properties": {
+                "customRequestHandling": {
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupCustomRequestHandling"
                 }
             },
             "type": "object"
@@ -41802,10 +42908,10 @@
                     "description": "The query string of a web request. This is the part of a URL that appears after a ? character, if any."
                 },
                 "singleHeader": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:wafv2:WebACLFieldToMatchSingleHeaderProperties"
                 },
                 "singleQueryArgument": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:wafv2:WebACLFieldToMatchSingleQueryArgumentProperties",
                     "description": "One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive."
                 },
                 "uriPath": {
@@ -41814,6 +42920,29 @@
                 }
             },
             "type": "object"
+        },
+        "aws-native:wafv2:WebACLFieldToMatchSingleHeaderProperties": {
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name"
+            ]
+        },
+        "aws-native:wafv2:WebACLFieldToMatchSingleQueryArgumentProperties": {
+            "description": "One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.",
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name"
+            ]
         },
         "aws-native:wafv2:WebACLForwardedIPConfiguration": {
             "properties": {
@@ -42730,6 +43859,21 @@
                 }
             },
             "type": "object"
+        },
+        "aws-native:xray:TagsItemProperties": {
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ]
         }
     },
     "provider": {
@@ -47541,7 +48685,7 @@
             "description": "This resource schema represents the Profiling Group resource in the Amazon CodeGuru Profiler service.",
             "properties": {
                 "agentPermissions": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:codeguruprofiler:AgentPermissionsProperties",
                     "description": "The agent permissions attached to this profiling group."
                 },
                 "anomalyDetectionNotificationConfiguration": {
@@ -47578,7 +48722,7 @@
             ],
             "inputProperties": {
                 "agentPermissions": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:codeguruprofiler:AgentPermissionsProperties",
                     "description": "The agent permissions attached to this profiling group."
                 },
                 "anomalyDetectionNotificationConfiguration": {
@@ -51096,7 +52240,7 @@
                     "description": "The time the transit gateway multicast domain was created."
                 },
                 "options": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:ec2:OptionsProperties",
                     "description": "The options for the transit gateway multicast domain."
                 },
                 "state": {
@@ -51133,7 +52277,7 @@
             ],
             "inputProperties": {
                 "options": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:ec2:OptionsProperties",
                     "description": "The options for the transit gateway multicast domain."
                 },
                 "tags": {
@@ -51469,7 +52613,7 @@
                     }
                 },
                 "options": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:ec2:OptionsProperties",
                     "description": "The options for the transit gateway vpc attachment."
                 },
                 "removeSubnetIds": {
@@ -51506,7 +52650,7 @@
                     }
                 },
                 "options": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:ec2:OptionsProperties",
                     "description": "The options for the transit gateway vpc attachment."
                 },
                 "removeSubnetIds": {
@@ -53542,14 +54686,14 @@
             ]
         },
         "aws-native:events:Connection": {
-            "description": "Resource Type definition for AWS::Events::Connection.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var config = new Config();\n        var pagerDutyAPIKeyParam = config.Require(\"pagerDutyAPIKeyParam\");\n        var myConnection = new AwsNative.Events.Connection(\"myConnection\", new AwsNative.Events.ConnectionArgs\n        {\n            AuthorizationType = \"API_KEY\",\n            Description = \"Connection to PagerDuty API\",\n            AuthParameters = \n            {\n                { \"apiKeyAuthParameters\", \n                {\n                    { \"apiKeyName\", \"PagerDuty Authorization\" },\n                    { \"apiKeyValue\", pagerDutyAPIKeyParam },\n                } },\n            },\n        });\n        var myApiDestination = new AwsNative.Events.ApiDestination(\"myApiDestination\", new AwsNative.Events.ApiDestinationArgs\n        {\n            ConnectionArn = myConnection.Arn,\n            Description = \"API Destination to send events to PagerDuty\",\n            HttpMethod = \"POST\",\n            InvocationEndpoint = \"https://events.pagerduty.com/v2/enqueue\",\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/events\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tcfg := config.New(ctx, \"\")\n\t\tpagerDutyAPIKeyParam := cfg.Require(\"pagerDutyAPIKeyParam\")\n\t\tmyConnection, err := events.NewConnection(ctx, \"myConnection\", \u0026events.ConnectionArgs{\n\t\t\tAuthorizationType: \"API_KEY\",\n\t\t\tDescription:       pulumi.String(\"Connection to PagerDuty API\"),\n\t\t\tAuthParameters: pulumi.Any{\n\t\t\t\tApiKeyAuthParameters: map[string]interface{}{\n\t\t\t\t\t\"apiKeyName\":  \"PagerDuty Authorization\",\n\t\t\t\t\t\"apiKeyValue\": pagerDutyAPIKeyParam,\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = events.NewApiDestination(ctx, \"myApiDestination\", \u0026events.ApiDestinationArgs{\n\t\t\tConnectionArn:      myConnection.Arn,\n\t\t\tDescription:        pulumi.String(\"API Destination to send events to PagerDuty\"),\n\t\t\tHttpMethod:         \"POST\",\n\t\t\tInvocationEndpoint: pulumi.String(\"https://events.pagerduty.com/v2/enqueue\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst config = new pulumi.Config();\nconst pagerDutyAPIKeyParam = config.require(\"pagerDutyAPIKeyParam\");\nconst myConnection = new aws_native.events.Connection(\"myConnection\", {\n    authorizationType: \"API_KEY\",\n    description: \"Connection to PagerDuty API\",\n    authParameters: {\n        apiKeyAuthParameters: {\n            apiKeyName: \"PagerDuty Authorization\",\n            apiKeyValue: pagerDutyAPIKeyParam,\n        },\n    },\n});\nconst myApiDestination = new aws_native.events.ApiDestination(\"myApiDestination\", {\n    connectionArn: myConnection.arn,\n    description: \"API Destination to send events to PagerDuty\",\n    httpMethod: \"POST\",\n    invocationEndpoint: \"https://events.pagerduty.com/v2/enqueue\",\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nconfig = pulumi.Config()\npager_duty_api_key_param = config.require(\"pagerDutyAPIKeyParam\")\nmy_connection = aws_native.events.Connection(\"myConnection\",\n    authorization_type=\"API_KEY\",\n    description=\"Connection to PagerDuty API\",\n    auth_parameters={\n        \"apiKeyAuthParameters\": {\n            \"apiKeyName\": \"PagerDuty Authorization\",\n            \"apiKeyValue\": pager_duty_api_key_param,\n        },\n    })\nmy_api_destination = aws_native.events.ApiDestination(\"myApiDestination\",\n    connection_arn=my_connection.arn,\n    description=\"API Destination to send events to PagerDuty\",\n    http_method=\"POST\",\n    invocation_endpoint=\"https://events.pagerduty.com/v2/enqueue\")\n\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "description": "Resource Type definition for AWS::Events::Connection.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var config = new Config();\n        var pagerDutyAPIKeyParam = config.Require(\"pagerDutyAPIKeyParam\");\n        var myConnection = new AwsNative.Events.Connection(\"myConnection\", new AwsNative.Events.ConnectionArgs\n        {\n            AuthorizationType = \"API_KEY\",\n            Description = \"Connection to PagerDuty API\",\n            AuthParameters = new AwsNative.Events.Inputs.AuthParametersPropertiesArgs\n            {\n                ApiKeyAuthParameters = new AwsNative.Events.Inputs.ConnectionApiKeyAuthParametersArgs\n                {\n                    ApiKeyName = \"PagerDuty Authorization\",\n                    ApiKeyValue = pagerDutyAPIKeyParam,\n                },\n            },\n        });\n        var myApiDestination = new AwsNative.Events.ApiDestination(\"myApiDestination\", new AwsNative.Events.ApiDestinationArgs\n        {\n            ConnectionArn = myConnection.Arn,\n            Description = \"API Destination to send events to PagerDuty\",\n            HttpMethod = \"POST\",\n            InvocationEndpoint = \"https://events.pagerduty.com/v2/enqueue\",\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/events\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tcfg := config.New(ctx, \"\")\n\t\tpagerDutyAPIKeyParam := cfg.Require(\"pagerDutyAPIKeyParam\")\n\t\tmyConnection, err := events.NewConnection(ctx, \"myConnection\", \u0026events.ConnectionArgs{\n\t\t\tAuthorizationType: \"API_KEY\",\n\t\t\tDescription:       pulumi.String(\"Connection to PagerDuty API\"),\n\t\t\tAuthParameters: \u0026events.AuthParametersPropertiesArgs{\n\t\t\t\tApiKeyAuthParameters: \u0026events.ConnectionApiKeyAuthParametersArgs{\n\t\t\t\t\tApiKeyName:  pulumi.String(\"PagerDuty Authorization\"),\n\t\t\t\t\tApiKeyValue: pulumi.String(pagerDutyAPIKeyParam),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = events.NewApiDestination(ctx, \"myApiDestination\", \u0026events.ApiDestinationArgs{\n\t\t\tConnectionArn:      myConnection.Arn,\n\t\t\tDescription:        pulumi.String(\"API Destination to send events to PagerDuty\"),\n\t\t\tHttpMethod:         \"POST\",\n\t\t\tInvocationEndpoint: pulumi.String(\"https://events.pagerduty.com/v2/enqueue\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst config = new pulumi.Config();\nconst pagerDutyAPIKeyParam = config.require(\"pagerDutyAPIKeyParam\");\nconst myConnection = new aws_native.events.Connection(\"myConnection\", {\n    authorizationType: \"API_KEY\",\n    description: \"Connection to PagerDuty API\",\n    authParameters: {\n        apiKeyAuthParameters: {\n            apiKeyName: \"PagerDuty Authorization\",\n            apiKeyValue: pagerDutyAPIKeyParam,\n        },\n    },\n});\nconst myApiDestination = new aws_native.events.ApiDestination(\"myApiDestination\", {\n    connectionArn: myConnection.arn,\n    description: \"API Destination to send events to PagerDuty\",\n    httpMethod: \"POST\",\n    invocationEndpoint: \"https://events.pagerduty.com/v2/enqueue\",\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nconfig = pulumi.Config()\npager_duty_api_key_param = config.require(\"pagerDutyAPIKeyParam\")\nmy_connection = aws_native.events.Connection(\"myConnection\",\n    authorization_type=\"API_KEY\",\n    description=\"Connection to PagerDuty API\",\n    auth_parameters=aws_native.events.AuthParametersPropertiesArgs(\n        api_key_auth_parameters=aws_native.events.ConnectionApiKeyAuthParametersArgs(\n            api_key_name=\"PagerDuty Authorization\",\n            api_key_value=pager_duty_api_key_param,\n        ),\n    ))\nmy_api_destination = aws_native.events.ApiDestination(\"myApiDestination\",\n    connection_arn=my_connection.arn,\n    description=\"API Destination to send events to PagerDuty\",\n    http_method=\"POST\",\n    invocation_endpoint=\"https://events.pagerduty.com/v2/enqueue\")\n\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
             "properties": {
                 "arn": {
                     "type": "string",
                     "description": "The arn of the connection resource."
                 },
                 "authParameters": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:events:AuthParametersProperties"
                 },
                 "authorizationType": {
                     "$ref": "#/types/aws-native:events:ConnectionAuthorizationType"
@@ -53576,7 +54720,7 @@
             ],
             "inputProperties": {
                 "authParameters": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:events:AuthParametersProperties"
                 },
                 "authorizationType": {
                     "$ref": "#/types/aws-native:events:ConnectionAuthorizationType"
@@ -53848,7 +54992,7 @@
                     }
                 },
                 "securityServicePolicyData": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:fms:SecurityServicePolicyDataProperties"
                 },
                 "tags": {
                     "type": "array",
@@ -53901,7 +55045,7 @@
                     }
                 },
                 "securityServicePolicyData": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:fms:SecurityServicePolicyDataProperties"
                 },
                 "tags": {
                     "type": "array",
@@ -57526,14 +58670,14 @@
             }
         },
         "aws-native:iotcoredeviceadvisor:SuiteDefinition": {
-            "description": "An example resource schema demonstrating some basic constructs and validation rules.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var testSuiteDefinition = new AwsNative.IoTCoreDeviceAdvisor.SuiteDefinition(\"testSuiteDefinition\", new AwsNative.IoTCoreDeviceAdvisor.SuiteDefinitionArgs\n        {\n            SuiteDefinitionConfiguration = \n            {\n                { \"suiteDefinitionName\", \"SuiteDefinitionName\" },\n                { \"devicePermissionRoleArn\", \"arn:aws:iam::123456789012:role/RoleName\" },\n                { \"devices\", \n                {\n                    \n                    {\n                        { \"thingArn\", \"arn:aws:iot:us-east-1:123456789012:thing/ThingName\" },\n                    },\n                } },\n                { \"rootGroup\", @\"{\n\"\"configuration\"\": {},\n\"\"tests\"\": [{\n\"\"name\"\": \"\"TestGroup\"\",\n\"\"configuration\"\": {\n\"\"EXECUTION_TIMEOUT\"\": \"\"30\"\"\n},\n\"\"tests\"\": [{\n\"\"name\"\": \"\"MQTTPublishTest\"\",\n\"\"configuration\"\": {\n\"\"TOPIC_FOR_PUBLISH_VALIDATION\"\": \"\"target\"\"\n},\n\"\"test\"\": {\n\"\"id\"\": \"\"MQTT_Publish\"\",\n\"\"version\"\": \"\"0.0.0\"\"\n}\n}]\n}]\n}\" },\n                { \"intendedForQualification\", false },\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/iotcoredeviceadvisor\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := iotcoredeviceadvisor.NewSuiteDefinition(ctx, \"testSuiteDefinition\", \u0026iotcoredeviceadvisor.SuiteDefinitionArgs{\n\t\t\tSuiteDefinitionConfiguration: pulumi.Any{\n\t\t\t\tSuiteDefinitionName:     \"SuiteDefinitionName\",\n\t\t\t\tDevicePermissionRoleArn: \"arn:aws:iam::123456789012:role/RoleName\",\n\t\t\t\tDevices: []map[string]interface{}{\n\t\t\t\t\tmap[string]interface{}{\n\t\t\t\t\t\t\"thingArn\": \"arn:aws:iot:us-east-1:123456789012:thing/ThingName\",\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tRootGroup:                \"{\\n\\\"configuration\\\": {},\\n\\\"tests\\\": [{\\n\\\"name\\\": \\\"TestGroup\\\",\\n\\\"configuration\\\": {\\n\\\"EXECUTION_TIMEOUT\\\": \\\"30\\\"\\n},\\n\\\"tests\\\": [{\\n\\\"name\\\": \\\"MQTTPublishTest\\\",\\n\\\"configuration\\\": {\\n\\\"TOPIC_FOR_PUBLISH_VALIDATION\\\": \\\"target\\\"\\n},\\n\\\"test\\\": {\\n\\\"id\\\": \\\"MQTT_Publish\\\",\\n\\\"version\\\": \\\"0.0.0\\\"\\n}\\n}]\\n}]\\n}\",\n\t\t\t\tIntendedForQualification: false,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst testSuiteDefinition = new aws_native.iotcoredeviceadvisor.SuiteDefinition(\"testSuiteDefinition\", {suiteDefinitionConfiguration: {\n    suiteDefinitionName: \"SuiteDefinitionName\",\n    devicePermissionRoleArn: \"arn:aws:iam::123456789012:role/RoleName\",\n    devices: [{\n        thingArn: \"arn:aws:iot:us-east-1:123456789012:thing/ThingName\",\n    }],\n    rootGroup: `{\n\"configuration\": {},\n\"tests\": [{\n\"name\": \"TestGroup\",\n\"configuration\": {\n\"EXECUTION_TIMEOUT\": \"30\"\n},\n\"tests\": [{\n\"name\": \"MQTTPublishTest\",\n\"configuration\": {\n\"TOPIC_FOR_PUBLISH_VALIDATION\": \"target\"\n},\n\"test\": {\n\"id\": \"MQTT_Publish\",\n\"version\": \"0.0.0\"\n}\n}]\n}]\n}`,\n    intendedForQualification: false,\n}});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\ntest_suite_definition = aws_native.iotcoredeviceadvisor.SuiteDefinition(\"testSuiteDefinition\", suite_definition_configuration={\n    \"suiteDefinitionName\": \"SuiteDefinitionName\",\n    \"devicePermissionRoleArn\": \"arn:aws:iam::123456789012:role/RoleName\",\n    \"devices\": [{\n        \"thingArn\": \"arn:aws:iot:us-east-1:123456789012:thing/ThingName\",\n    }],\n    \"rootGroup\": \"\"\"{\n\"configuration\": {},\n\"tests\": [{\n\"name\": \"TestGroup\",\n\"configuration\": {\n\"EXECUTION_TIMEOUT\": \"30\"\n},\n\"tests\": [{\n\"name\": \"MQTTPublishTest\",\n\"configuration\": {\n\"TOPIC_FOR_PUBLISH_VALIDATION\": \"target\"\n},\n\"test\": {\n\"id\": \"MQTT_Publish\",\n\"version\": \"0.0.0\"\n}\n}]\n}]\n}\"\"\",\n    \"intendedForQualification\": False,\n})\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var testSuiteDefinition = new AwsNative.IoTCoreDeviceAdvisor.SuiteDefinition(\"testSuiteDefinition\", new AwsNative.IoTCoreDeviceAdvisor.SuiteDefinitionArgs\n        {\n            SuiteDefinitionConfiguration = \n            {\n                { \"suiteDefinitionName\", \"SuiteDefinitionName\" },\n                { \"devicePermissionRoleArn\", \"arn:aws:iam::123456789012:role/RoleName\" },\n                { \"devices\", \n                {\n                    \n                    {\n                        { \"thingArn\", \"arn:aws:iot:us-east-1:123456789012:thing/ThingName\" },\n                    },\n                } },\n                { \"rootGroup\", \"{ \\\"configuration\\\": {}, \\\"tests\\\": [{ \\\"name\\\": \\\"TestGroup\\\", \\\"configuration\\\": { \\\"EXECUTION_TIMEOUT\\\": \\\"30\\\" }, \\\"tests\\\": [{ \\\"name\\\": \\\"MQTTPublishTest\\\", \\\"configuration\\\": { \\\"TOPIC_FOR_PUBLISH_VALIDATION\\\": \\\"target\\\" }, \\\"test\\\": { \\\"id\\\": \\\"MQTT_Publish\\\", \\\"version\\\": \\\"0.0.0\\\" } }] }] }\" },\n                { \"intendedForQualification\", false },\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/iotcoredeviceadvisor\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := iotcoredeviceadvisor.NewSuiteDefinition(ctx, \"testSuiteDefinition\", \u0026iotcoredeviceadvisor.SuiteDefinitionArgs{\n\t\t\tSuiteDefinitionConfiguration: pulumi.Any{\n\t\t\t\tSuiteDefinitionName:     \"SuiteDefinitionName\",\n\t\t\t\tDevicePermissionRoleArn: \"arn:aws:iam::123456789012:role/RoleName\",\n\t\t\t\tDevices: []map[string]interface{}{\n\t\t\t\t\tmap[string]interface{}{\n\t\t\t\t\t\t\"thingArn\": \"arn:aws:iot:us-east-1:123456789012:thing/ThingName\",\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tRootGroup:                \"{ \\\"configuration\\\": {}, \\\"tests\\\": [{ \\\"name\\\": \\\"TestGroup\\\", \\\"configuration\\\": { \\\"EXECUTION_TIMEOUT\\\": \\\"30\\\" }, \\\"tests\\\": [{ \\\"name\\\": \\\"MQTTPublishTest\\\", \\\"configuration\\\": { \\\"TOPIC_FOR_PUBLISH_VALIDATION\\\": \\\"target\\\" }, \\\"test\\\": { \\\"id\\\": \\\"MQTT_Publish\\\", \\\"version\\\": \\\"0.0.0\\\" } }] }] }\",\n\t\t\t\tIntendedForQualification: false,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst testSuiteDefinition = new aws_native.iotcoredeviceadvisor.SuiteDefinition(\"testSuiteDefinition\", {suiteDefinitionConfiguration: {\n    suiteDefinitionName: \"SuiteDefinitionName\",\n    devicePermissionRoleArn: \"arn:aws:iam::123456789012:role/RoleName\",\n    devices: [{\n        thingArn: \"arn:aws:iot:us-east-1:123456789012:thing/ThingName\",\n    }],\n    rootGroup: \"{ \\\"configuration\\\": {}, \\\"tests\\\": [{ \\\"name\\\": \\\"TestGroup\\\", \\\"configuration\\\": { \\\"EXECUTION_TIMEOUT\\\": \\\"30\\\" }, \\\"tests\\\": [{ \\\"name\\\": \\\"MQTTPublishTest\\\", \\\"configuration\\\": { \\\"TOPIC_FOR_PUBLISH_VALIDATION\\\": \\\"target\\\" }, \\\"test\\\": { \\\"id\\\": \\\"MQTT_Publish\\\", \\\"version\\\": \\\"0.0.0\\\" } }] }] }\",\n    intendedForQualification: false,\n}});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\ntest_suite_definition = aws_native.iotcoredeviceadvisor.SuiteDefinition(\"testSuiteDefinition\", suite_definition_configuration={\n    \"suiteDefinitionName\": \"SuiteDefinitionName\",\n    \"devicePermissionRoleArn\": \"arn:aws:iam::123456789012:role/RoleName\",\n    \"devices\": [{\n        \"thingArn\": \"arn:aws:iot:us-east-1:123456789012:thing/ThingName\",\n    }],\n    \"rootGroup\": \"{ \\\"configuration\\\": {}, \\\"tests\\\": [{ \\\"name\\\": \\\"TestGroup\\\", \\\"configuration\\\": { \\\"EXECUTION_TIMEOUT\\\": \\\"30\\\" }, \\\"tests\\\": [{ \\\"name\\\": \\\"MQTTPublishTest\\\", \\\"configuration\\\": { \\\"TOPIC_FOR_PUBLISH_VALIDATION\\\": \\\"target\\\" }, \\\"test\\\": { \\\"id\\\": \\\"MQTT_Publish\\\", \\\"version\\\": \\\"0.0.0\\\" } }] }] }\",\n    \"intendedForQualification\": False,\n})\n\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "description": "An example resource schema demonstrating some basic constructs and validation rules.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var testSuiteDefinition = new AwsNative.IoTCoreDeviceAdvisor.SuiteDefinition(\"testSuiteDefinition\", new AwsNative.IoTCoreDeviceAdvisor.SuiteDefinitionArgs\n        {\n            SuiteDefinitionConfiguration = new AwsNative.IoTCoreDeviceAdvisor.Inputs.SuiteDefinitionConfigurationPropertiesArgs\n            {\n                SuiteDefinitionName = \"SuiteDefinitionName\",\n                DevicePermissionRoleArn = \"arn:aws:iam::123456789012:role/RoleName\",\n                Devices = \n                {\n                    new AwsNative.IoTCoreDeviceAdvisor.Inputs.SuiteDefinitionDeviceUnderTestArgs\n                    {\n                        ThingArn = \"arn:aws:iot:us-east-1:123456789012:thing/ThingName\",\n                    },\n                },\n                RootGroup = @\"{\n\"\"configuration\"\": {},\n\"\"tests\"\": [{\n\"\"name\"\": \"\"TestGroup\"\",\n\"\"configuration\"\": {\n\"\"EXECUTION_TIMEOUT\"\": \"\"30\"\"\n},\n\"\"tests\"\": [{\n\"\"name\"\": \"\"MQTTPublishTest\"\",\n\"\"configuration\"\": {\n\"\"TOPIC_FOR_PUBLISH_VALIDATION\"\": \"\"target\"\"\n},\n\"\"test\"\": {\n\"\"id\"\": \"\"MQTT_Publish\"\",\n\"\"version\"\": \"\"0.0.0\"\"\n}\n}]\n}]\n}\",\n                IntendedForQualification = false,\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/iotcoredeviceadvisor\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := iotcoredeviceadvisor.NewSuiteDefinition(ctx, \"testSuiteDefinition\", \u0026iotcoredeviceadvisor.SuiteDefinitionArgs{\n\t\t\tSuiteDefinitionConfiguration: \u0026iotcoredeviceadvisor.SuiteDefinitionConfigurationPropertiesArgs{\n\t\t\t\tSuiteDefinitionName:     pulumi.String(\"SuiteDefinitionName\"),\n\t\t\t\tDevicePermissionRoleArn: pulumi.String(\"arn:aws:iam::123456789012:role/RoleName\"),\n\t\t\t\tDevices: iotcoredeviceadvisor.SuiteDefinitionDeviceUnderTestArray{\n\t\t\t\t\t\u0026iotcoredeviceadvisor.SuiteDefinitionDeviceUnderTestArgs{\n\t\t\t\t\t\tThingArn: pulumi.String(\"arn:aws:iot:us-east-1:123456789012:thing/ThingName\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tRootGroup:                pulumi.String(\"{\\n\\\"configuration\\\": {},\\n\\\"tests\\\": [{\\n\\\"name\\\": \\\"TestGroup\\\",\\n\\\"configuration\\\": {\\n\\\"EXECUTION_TIMEOUT\\\": \\\"30\\\"\\n},\\n\\\"tests\\\": [{\\n\\\"name\\\": \\\"MQTTPublishTest\\\",\\n\\\"configuration\\\": {\\n\\\"TOPIC_FOR_PUBLISH_VALIDATION\\\": \\\"target\\\"\\n},\\n\\\"test\\\": {\\n\\\"id\\\": \\\"MQTT_Publish\\\",\\n\\\"version\\\": \\\"0.0.0\\\"\\n}\\n}]\\n}]\\n}\"),\n\t\t\t\tIntendedForQualification: pulumi.Bool(false),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst testSuiteDefinition = new aws_native.iotcoredeviceadvisor.SuiteDefinition(\"testSuiteDefinition\", {suiteDefinitionConfiguration: {\n    suiteDefinitionName: \"SuiteDefinitionName\",\n    devicePermissionRoleArn: \"arn:aws:iam::123456789012:role/RoleName\",\n    devices: [{\n        thingArn: \"arn:aws:iot:us-east-1:123456789012:thing/ThingName\",\n    }],\n    rootGroup: `{\n\"configuration\": {},\n\"tests\": [{\n\"name\": \"TestGroup\",\n\"configuration\": {\n\"EXECUTION_TIMEOUT\": \"30\"\n},\n\"tests\": [{\n\"name\": \"MQTTPublishTest\",\n\"configuration\": {\n\"TOPIC_FOR_PUBLISH_VALIDATION\": \"target\"\n},\n\"test\": {\n\"id\": \"MQTT_Publish\",\n\"version\": \"0.0.0\"\n}\n}]\n}]\n}`,\n    intendedForQualification: false,\n}});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\ntest_suite_definition = aws_native.iotcoredeviceadvisor.SuiteDefinition(\"testSuiteDefinition\", suite_definition_configuration=aws_native.iotcoredeviceadvisor.SuiteDefinitionConfigurationPropertiesArgs(\n    suite_definition_name=\"SuiteDefinitionName\",\n    device_permission_role_arn=\"arn:aws:iam::123456789012:role/RoleName\",\n    devices=[aws_native.iotcoredeviceadvisor.SuiteDefinitionDeviceUnderTestArgs(\n        thing_arn=\"arn:aws:iot:us-east-1:123456789012:thing/ThingName\",\n    )],\n    root_group=\"\"\"{\n\"configuration\": {},\n\"tests\": [{\n\"name\": \"TestGroup\",\n\"configuration\": {\n\"EXECUTION_TIMEOUT\": \"30\"\n},\n\"tests\": [{\n\"name\": \"MQTTPublishTest\",\n\"configuration\": {\n\"TOPIC_FOR_PUBLISH_VALIDATION\": \"target\"\n},\n\"test\": {\n\"id\": \"MQTT_Publish\",\n\"version\": \"0.0.0\"\n}\n}]\n}]\n}\"\"\",\n    intended_for_qualification=False,\n))\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var testSuiteDefinition = new AwsNative.IoTCoreDeviceAdvisor.SuiteDefinition(\"testSuiteDefinition\", new AwsNative.IoTCoreDeviceAdvisor.SuiteDefinitionArgs\n        {\n            SuiteDefinitionConfiguration = new AwsNative.IoTCoreDeviceAdvisor.Inputs.SuiteDefinitionConfigurationPropertiesArgs\n            {\n                SuiteDefinitionName = \"SuiteDefinitionName\",\n                DevicePermissionRoleArn = \"arn:aws:iam::123456789012:role/RoleName\",\n                Devices = \n                {\n                    new AwsNative.IoTCoreDeviceAdvisor.Inputs.SuiteDefinitionDeviceUnderTestArgs\n                    {\n                        ThingArn = \"arn:aws:iot:us-east-1:123456789012:thing/ThingName\",\n                    },\n                },\n                RootGroup = \"{ \\\"configuration\\\": {}, \\\"tests\\\": [{ \\\"name\\\": \\\"TestGroup\\\", \\\"configuration\\\": { \\\"EXECUTION_TIMEOUT\\\": \\\"30\\\" }, \\\"tests\\\": [{ \\\"name\\\": \\\"MQTTPublishTest\\\", \\\"configuration\\\": { \\\"TOPIC_FOR_PUBLISH_VALIDATION\\\": \\\"target\\\" }, \\\"test\\\": { \\\"id\\\": \\\"MQTT_Publish\\\", \\\"version\\\": \\\"0.0.0\\\" } }] }] }\",\n                IntendedForQualification = false,\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/iotcoredeviceadvisor\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := iotcoredeviceadvisor.NewSuiteDefinition(ctx, \"testSuiteDefinition\", \u0026iotcoredeviceadvisor.SuiteDefinitionArgs{\n\t\t\tSuiteDefinitionConfiguration: \u0026iotcoredeviceadvisor.SuiteDefinitionConfigurationPropertiesArgs{\n\t\t\t\tSuiteDefinitionName:     pulumi.String(\"SuiteDefinitionName\"),\n\t\t\t\tDevicePermissionRoleArn: pulumi.String(\"arn:aws:iam::123456789012:role/RoleName\"),\n\t\t\t\tDevices: iotcoredeviceadvisor.SuiteDefinitionDeviceUnderTestArray{\n\t\t\t\t\t\u0026iotcoredeviceadvisor.SuiteDefinitionDeviceUnderTestArgs{\n\t\t\t\t\t\tThingArn: pulumi.String(\"arn:aws:iot:us-east-1:123456789012:thing/ThingName\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tRootGroup:                pulumi.String(\"{ \\\"configuration\\\": {}, \\\"tests\\\": [{ \\\"name\\\": \\\"TestGroup\\\", \\\"configuration\\\": { \\\"EXECUTION_TIMEOUT\\\": \\\"30\\\" }, \\\"tests\\\": [{ \\\"name\\\": \\\"MQTTPublishTest\\\", \\\"configuration\\\": { \\\"TOPIC_FOR_PUBLISH_VALIDATION\\\": \\\"target\\\" }, \\\"test\\\": { \\\"id\\\": \\\"MQTT_Publish\\\", \\\"version\\\": \\\"0.0.0\\\" } }] }] }\"),\n\t\t\t\tIntendedForQualification: pulumi.Bool(false),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst testSuiteDefinition = new aws_native.iotcoredeviceadvisor.SuiteDefinition(\"testSuiteDefinition\", {suiteDefinitionConfiguration: {\n    suiteDefinitionName: \"SuiteDefinitionName\",\n    devicePermissionRoleArn: \"arn:aws:iam::123456789012:role/RoleName\",\n    devices: [{\n        thingArn: \"arn:aws:iot:us-east-1:123456789012:thing/ThingName\",\n    }],\n    rootGroup: \"{ \\\"configuration\\\": {}, \\\"tests\\\": [{ \\\"name\\\": \\\"TestGroup\\\", \\\"configuration\\\": { \\\"EXECUTION_TIMEOUT\\\": \\\"30\\\" }, \\\"tests\\\": [{ \\\"name\\\": \\\"MQTTPublishTest\\\", \\\"configuration\\\": { \\\"TOPIC_FOR_PUBLISH_VALIDATION\\\": \\\"target\\\" }, \\\"test\\\": { \\\"id\\\": \\\"MQTT_Publish\\\", \\\"version\\\": \\\"0.0.0\\\" } }] }] }\",\n    intendedForQualification: false,\n}});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\ntest_suite_definition = aws_native.iotcoredeviceadvisor.SuiteDefinition(\"testSuiteDefinition\", suite_definition_configuration=aws_native.iotcoredeviceadvisor.SuiteDefinitionConfigurationPropertiesArgs(\n    suite_definition_name=\"SuiteDefinitionName\",\n    device_permission_role_arn=\"arn:aws:iam::123456789012:role/RoleName\",\n    devices=[aws_native.iotcoredeviceadvisor.SuiteDefinitionDeviceUnderTestArgs(\n        thing_arn=\"arn:aws:iot:us-east-1:123456789012:thing/ThingName\",\n    )],\n    root_group=\"{ \\\"configuration\\\": {}, \\\"tests\\\": [{ \\\"name\\\": \\\"TestGroup\\\", \\\"configuration\\\": { \\\"EXECUTION_TIMEOUT\\\": \\\"30\\\" }, \\\"tests\\\": [{ \\\"name\\\": \\\"MQTTPublishTest\\\", \\\"configuration\\\": { \\\"TOPIC_FOR_PUBLISH_VALIDATION\\\": \\\"target\\\" }, \\\"test\\\": { \\\"id\\\": \\\"MQTT_Publish\\\", \\\"version\\\": \\\"0.0.0\\\" } }] }] }\",\n    intended_for_qualification=False,\n))\n\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
             "properties": {
                 "suiteDefinitionArn": {
                     "type": "string",
                     "description": "The Amazon Resource name for the suite definition."
                 },
                 "suiteDefinitionConfiguration": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:iotcoredeviceadvisor:SuiteDefinitionConfigurationProperties"
                 },
                 "suiteDefinitionId": {
                     "type": "string",
@@ -57560,7 +58704,7 @@
             ],
             "inputProperties": {
                 "suiteDefinitionConfiguration": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:iotcoredeviceadvisor:SuiteDefinitionConfigurationProperties"
                 },
                 "tags": {
                     "type": "array",
@@ -58165,7 +59309,7 @@
             "description": "Resource schema for AWS::IoTSiteWise::Portal",
             "properties": {
                 "alarms": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:iotsitewise:AlarmsProperties",
                     "description": "Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range."
                 },
                 "notificationSenderEmail": {
@@ -58228,7 +59372,7 @@
             ],
             "inputProperties": {
                 "alarms": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:iotsitewise:AlarmsProperties",
                     "description": "Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range."
                 },
                 "notificationSenderEmail": {
@@ -65357,7 +66501,7 @@
             "description": "Resource schema for AWS::Route53::HealthCheck.",
             "properties": {
                 "healthCheckConfig": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:route53:HealthCheckConfigProperties",
                     "description": "A complex type that contains information about the health check."
                 },
                 "healthCheckId": {
@@ -65378,7 +66522,7 @@
             ],
             "inputProperties": {
                 "healthCheckConfig": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:route53:HealthCheckConfigProperties",
                     "description": "A complex type that contains information about the health check."
                 },
                 "healthCheckTags": {
@@ -66387,7 +67531,7 @@
                     "description": "The Access Point Policy you want to apply to this access point."
                 },
                 "policyStatus": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:s3:PolicyStatusProperties"
                 },
                 "publicAccessBlockConfiguration": {
                     "$ref": "#/types/aws-native:s3:AccessPointPublicAccessBlockConfiguration",
@@ -66416,7 +67560,7 @@
                     "description": "The Access Point Policy you want to apply to this access point."
                 },
                 "policyStatus": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:s3:PolicyStatusProperties"
                 },
                 "publicAccessBlockConfiguration": {
                     "$ref": "#/types/aws-native:s3:AccessPointPublicAccessBlockConfiguration",
@@ -66677,7 +67821,7 @@
                     "description": "Policy document to apply to a Multi Region Access Point"
                 },
                 "policyStatus": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:s3:PolicyStatusProperties",
                     "description": "The Policy Status associated with this Multi Region Access Point"
                 }
             },
@@ -66755,7 +67899,7 @@
                     "description": "The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions"
                 },
                 "policyStatus": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:s3objectlambda:PolicyStatusProperties"
                 },
                 "publicAccessBlockConfiguration": {
                     "$ref": "#/types/aws-native:s3objectlambda:AccessPointPublicAccessBlockConfiguration",
@@ -67541,10 +68685,10 @@
                     "description": "The Name of the FeatureGroup."
                 },
                 "offlineStoreConfig": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:sagemaker:OfflineStoreConfigProperties"
                 },
                 "onlineStoreConfig": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:sagemaker:OnlineStoreConfigProperties"
                 },
                 "recordIdentifierFeatureName": {
                     "type": "string",
@@ -67590,10 +68734,10 @@
                     "description": "The Name of the FeatureGroup."
                 },
                 "offlineStoreConfig": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:sagemaker:OfflineStoreConfigProperties"
                 },
                 "onlineStoreConfig": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:sagemaker:OnlineStoreConfigProperties"
                 },
                 "recordIdentifierFeatureName": {
                     "type": "string",
@@ -68242,7 +69386,7 @@
             ]
         },
         "aws-native:sagemaker:Project": {
-            "description": "Resource Type definition for AWS::SageMaker::Project\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var sampleProject = new AwsNative.SageMaker.Project(\"sampleProject\", new AwsNative.SageMaker.ProjectArgs\n        {\n            ProjectName = \"project1\",\n            ProjectDescription = \"Project Description\",\n            ServiceCatalogProvisioningDetails = \n            {\n                { \"productId\", \"prod-53ibyqbj2cgmo\" },\n                { \"provisioningArtifactId\", \"pa-sm4pjfuzictpe\" },\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/sagemaker\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := sagemaker.NewProject(ctx, \"sampleProject\", \u0026sagemaker.ProjectArgs{\n\t\t\tProjectName:        pulumi.String(\"project1\"),\n\t\t\tProjectDescription: pulumi.String(\"Project Description\"),\n\t\t\tServiceCatalogProvisioningDetails: pulumi.Any{\n\t\t\t\tProductId:              \"prod-53ibyqbj2cgmo\",\n\t\t\t\tProvisioningArtifactId: \"pa-sm4pjfuzictpe\",\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst sampleProject = new aws_native.sagemaker.Project(\"sampleProject\", {\n    projectName: \"project1\",\n    projectDescription: \"Project Description\",\n    serviceCatalogProvisioningDetails: {\n        productId: \"prod-53ibyqbj2cgmo\",\n        provisioningArtifactId: \"pa-sm4pjfuzictpe\",\n    },\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nsample_project = aws_native.sagemaker.Project(\"sampleProject\",\n    project_name=\"project1\",\n    project_description=\"Project Description\",\n    service_catalog_provisioning_details={\n        \"productId\": \"prod-53ibyqbj2cgmo\",\n        \"provisioningArtifactId\": \"pa-sm4pjfuzictpe\",\n    })\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var sampleProject = new AwsNative.SageMaker.Project(\"sampleProject\", new AwsNative.SageMaker.ProjectArgs\n        {\n            ProjectName = \"SampleProject\",\n            ProjectDescription = \"Project Description\",\n            ServiceCatalogProvisioningDetails = \n            {\n                { \"productId\", \"prod-53ibyqbj2cgmo\" },\n                { \"provisioningArtifactId\", \"pa-sm4pjfuzictpe\" },\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/sagemaker\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := sagemaker.NewProject(ctx, \"sampleProject\", \u0026sagemaker.ProjectArgs{\n\t\t\tProjectName:        pulumi.String(\"SampleProject\"),\n\t\t\tProjectDescription: pulumi.String(\"Project Description\"),\n\t\t\tServiceCatalogProvisioningDetails: pulumi.Any{\n\t\t\t\tProductId:              \"prod-53ibyqbj2cgmo\",\n\t\t\t\tProvisioningArtifactId: \"pa-sm4pjfuzictpe\",\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst sampleProject = new aws_native.sagemaker.Project(\"sampleProject\", {\n    projectName: \"SampleProject\",\n    projectDescription: \"Project Description\",\n    serviceCatalogProvisioningDetails: {\n        productId: \"prod-53ibyqbj2cgmo\",\n        provisioningArtifactId: \"pa-sm4pjfuzictpe\",\n    },\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nsample_project = aws_native.sagemaker.Project(\"sampleProject\",\n    project_name=\"SampleProject\",\n    project_description=\"Project Description\",\n    service_catalog_provisioning_details={\n        \"productId\": \"prod-53ibyqbj2cgmo\",\n        \"provisioningArtifactId\": \"pa-sm4pjfuzictpe\",\n    })\n\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "description": "Resource Type definition for AWS::SageMaker::Project\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var sampleProject = new AwsNative.SageMaker.Project(\"sampleProject\", new AwsNative.SageMaker.ProjectArgs\n        {\n            ProjectName = \"project1\",\n            ProjectDescription = \"Project Description\",\n            ServiceCatalogProvisioningDetails = new AwsNative.SageMaker.Inputs.ServiceCatalogProvisioningDetailsPropertiesArgs\n            {\n                ProductId = \"prod-53ibyqbj2cgmo\",\n                ProvisioningArtifactId = \"pa-sm4pjfuzictpe\",\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/sagemaker\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := sagemaker.NewProject(ctx, \"sampleProject\", \u0026sagemaker.ProjectArgs{\n\t\t\tProjectName:        pulumi.String(\"project1\"),\n\t\t\tProjectDescription: pulumi.String(\"Project Description\"),\n\t\t\tServiceCatalogProvisioningDetails: \u0026sagemaker.ServiceCatalogProvisioningDetailsPropertiesArgs{\n\t\t\t\tProductId:              pulumi.String(\"prod-53ibyqbj2cgmo\"),\n\t\t\t\tProvisioningArtifactId: pulumi.String(\"pa-sm4pjfuzictpe\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst sampleProject = new aws_native.sagemaker.Project(\"sampleProject\", {\n    projectName: \"project1\",\n    projectDescription: \"Project Description\",\n    serviceCatalogProvisioningDetails: {\n        productId: \"prod-53ibyqbj2cgmo\",\n        provisioningArtifactId: \"pa-sm4pjfuzictpe\",\n    },\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nsample_project = aws_native.sagemaker.Project(\"sampleProject\",\n    project_name=\"project1\",\n    project_description=\"Project Description\",\n    service_catalog_provisioning_details=aws_native.sagemaker.ServiceCatalogProvisioningDetailsPropertiesArgs(\n        product_id=\"prod-53ibyqbj2cgmo\",\n        provisioning_artifact_id=\"pa-sm4pjfuzictpe\",\n    ))\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var sampleProject = new AwsNative.SageMaker.Project(\"sampleProject\", new AwsNative.SageMaker.ProjectArgs\n        {\n            ProjectName = \"SampleProject\",\n            ProjectDescription = \"Project Description\",\n            ServiceCatalogProvisioningDetails = new AwsNative.SageMaker.Inputs.ServiceCatalogProvisioningDetailsPropertiesArgs\n            {\n                ProductId = \"prod-53ibyqbj2cgmo\",\n                ProvisioningArtifactId = \"pa-sm4pjfuzictpe\",\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/sagemaker\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := sagemaker.NewProject(ctx, \"sampleProject\", \u0026sagemaker.ProjectArgs{\n\t\t\tProjectName:        pulumi.String(\"SampleProject\"),\n\t\t\tProjectDescription: pulumi.String(\"Project Description\"),\n\t\t\tServiceCatalogProvisioningDetails: \u0026sagemaker.ServiceCatalogProvisioningDetailsPropertiesArgs{\n\t\t\t\tProductId:              pulumi.String(\"prod-53ibyqbj2cgmo\"),\n\t\t\t\tProvisioningArtifactId: pulumi.String(\"pa-sm4pjfuzictpe\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst sampleProject = new aws_native.sagemaker.Project(\"sampleProject\", {\n    projectName: \"SampleProject\",\n    projectDescription: \"Project Description\",\n    serviceCatalogProvisioningDetails: {\n        productId: \"prod-53ibyqbj2cgmo\",\n        provisioningArtifactId: \"pa-sm4pjfuzictpe\",\n    },\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nsample_project = aws_native.sagemaker.Project(\"sampleProject\",\n    project_name=\"SampleProject\",\n    project_description=\"Project Description\",\n    service_catalog_provisioning_details=aws_native.sagemaker.ServiceCatalogProvisioningDetailsPropertiesArgs(\n        product_id=\"prod-53ibyqbj2cgmo\",\n        provisioning_artifact_id=\"pa-sm4pjfuzictpe\",\n    ))\n\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
             "properties": {
                 "creationTime": {
                     "type": "string",
@@ -68265,11 +69409,11 @@
                     "description": "The status of a project."
                 },
                 "serviceCatalogProvisionedProductDetails": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:sagemaker:ServiceCatalogProvisionedProductDetailsProperties",
                     "description": "Provisioned ServiceCatalog  Details"
                 },
                 "serviceCatalogProvisioningDetails": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:sagemaker:ServiceCatalogProvisioningDetailsProperties",
                     "description": "Input ServiceCatalog Provisioning Details"
                 },
                 "tags": {
@@ -68298,7 +69442,7 @@
                     "type": "string"
                 },
                 "serviceCatalogProvisioningDetails": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:sagemaker:ServiceCatalogProvisioningDetailsProperties",
                     "description": "Input ServiceCatalog Provisioning Details"
                 },
                 "tags": {
@@ -69593,7 +70737,7 @@
                     }
                 },
                 "instanceAccessControlAttributeConfiguration": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:sso:InstanceAccessControlAttributeConfigurationProperties",
                     "description": "The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.",
                     "language": {
                         "csharp": {
@@ -69618,7 +70762,7 @@
                     }
                 },
                 "instanceAccessControlAttributeConfiguration": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:sso:InstanceAccessControlAttributeConfigurationProperties",
                     "description": "The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.",
                     "language": {
                         "csharp": {
@@ -70046,7 +71190,7 @@
                     "description": "The table name exposed as a read-only attribute."
                 },
                 "retentionProperties": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:timestream:RetentionPropertiesProperties",
                     "description": "The retention duration of the memory store and the magnetic store."
                 },
                 "tableName": {
@@ -70073,7 +71217,7 @@
                     "description": "The name for the database which the table to be created belongs to."
                 },
                 "retentionProperties": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:timestream:RetentionPropertiesProperties",
                     "description": "The retention duration of the memory store and the magnetic store."
                 },
                 "tableName": {
@@ -70165,7 +71309,7 @@
             ]
         },
         "aws-native:wafv2:LoggingConfiguration": {
-            "description": "A WAFv2 Logging Configuration Resource Provider\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var loggingConfiguration = new AwsNative.WAFv2.LoggingConfiguration(\"loggingConfiguration\", new AwsNative.WAFv2.LoggingConfigurationArgs\n        {\n            ResourceArn = \"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\",\n            LogDestinationConfigs = \n            {\n                \"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\",\n            },\n            RedactedFields = \n            {\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    JsonBody = \n                    {\n                        { \"invalidFallbackBehavior\", \"EVALUATE_AS_STRING\" },\n                        { \"matchPattern\", \n                        {\n                            { \"includedPaths\", \n                            {\n                                \"/path/0/name\",\n                                \"/path/1/name\",\n                            } },\n                        } },\n                        { \"matchScope\", \"ALL\" },\n                    },\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    Method = ,\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    QueryString = ,\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    SingleHeader = \n                    {\n                        { \"name\", \"password\" },\n                    },\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    UriPath = ,\n                },\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/wafv2\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := wafv2.NewLoggingConfiguration(ctx, \"loggingConfiguration\", \u0026wafv2.LoggingConfigurationArgs{\n\t\t\tResourceArn: pulumi.String(\"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\"),\n\t\t\tLogDestinationConfigs: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\"),\n\t\t\t},\n\t\t\tRedactedFields: []wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tJsonBody: pulumi.Any{\n\t\t\t\t\t\tInvalidFallbackBehavior: \"EVALUATE_AS_STRING\",\n\t\t\t\t\t\tMatchPattern: map[string]interface{}{\n\t\t\t\t\t\t\t\"includedPaths\": []string{\n\t\t\t\t\t\t\t\t\"/path/0/name\",\n\t\t\t\t\t\t\t\t\"/path/1/name\",\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t\tMatchScope: \"ALL\",\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tMethod: nil,\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tQueryString: nil,\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tSingleHeader: pulumi.Any{\n\t\t\t\t\t\tName: \"password\",\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tUriPath: nil,\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst loggingConfiguration = new aws_native.wafv2.LoggingConfiguration(\"loggingConfiguration\", {\n    resourceArn: \"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\",\n    logDestinationConfigs: [\"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\"],\n    redactedFields: [\n        {\n            jsonBody: {\n                invalidFallbackBehavior: \"EVALUATE_AS_STRING\",\n                matchPattern: {\n                    includedPaths: [\n                        \"/path/0/name\",\n                        \"/path/1/name\",\n                    ],\n                },\n                matchScope: \"ALL\",\n            },\n        },\n        {\n            method: {},\n        },\n        {\n            queryString: {},\n        },\n        {\n            singleHeader: {\n                name: \"password\",\n            },\n        },\n        {\n            uriPath: {},\n        },\n    ],\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nlogging_configuration = aws_native.wafv2.LoggingConfiguration(\"loggingConfiguration\",\n    resource_arn=\"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\",\n    log_destination_configs=[\"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\"],\n    redacted_fields=[\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            json_body={\n                \"invalidFallbackBehavior\": \"EVALUATE_AS_STRING\",\n                \"matchPattern\": {\n                    \"includedPaths\": [\n                        \"/path/0/name\",\n                        \"/path/1/name\",\n                    ],\n                },\n                \"matchScope\": \"ALL\",\n            },\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            method={},\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            query_string={},\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            single_header={\n                \"name\": \"password\",\n            },\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            uri_path={},\n        ),\n    ])\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var loggingConfiguration = new AwsNative.WAFv2.LoggingConfiguration(\"loggingConfiguration\", new AwsNative.WAFv2.LoggingConfigurationArgs\n        {\n            ResourceArn = \"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\",\n            LogDestinationConfigs = \n            {\n                \"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\",\n            },\n            RedactedFields = \n            {\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    JsonBody = \n                    {\n                        { \"invalidFallbackBehavior\", \"EVALUATE_AS_STRING\" },\n                        { \"matchPattern\", \n                        {\n                            { \"includedPaths\", \n                            {\n                                \"/path/0/name\",\n                                \"/path/1/name\",\n                            } },\n                        } },\n                        { \"matchScope\", \"ALL\" },\n                    },\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    Method = ,\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    QueryString = ,\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    SingleHeader = \n                    {\n                        { \"name\", \"password\" },\n                    },\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    UriPath = ,\n                },\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/wafv2\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := wafv2.NewLoggingConfiguration(ctx, \"loggingConfiguration\", \u0026wafv2.LoggingConfigurationArgs{\n\t\t\tResourceArn: pulumi.String(\"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\"),\n\t\t\tLogDestinationConfigs: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\"),\n\t\t\t},\n\t\t\tRedactedFields: []wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tJsonBody: pulumi.Any{\n\t\t\t\t\t\tInvalidFallbackBehavior: \"EVALUATE_AS_STRING\",\n\t\t\t\t\t\tMatchPattern: map[string]interface{}{\n\t\t\t\t\t\t\t\"includedPaths\": []string{\n\t\t\t\t\t\t\t\t\"/path/0/name\",\n\t\t\t\t\t\t\t\t\"/path/1/name\",\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t\tMatchScope: \"ALL\",\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tMethod: nil,\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tQueryString: nil,\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tSingleHeader: pulumi.Any{\n\t\t\t\t\t\tName: \"password\",\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tUriPath: nil,\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst loggingConfiguration = new aws_native.wafv2.LoggingConfiguration(\"loggingConfiguration\", {\n    resourceArn: \"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\",\n    logDestinationConfigs: [\"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\"],\n    redactedFields: [\n        {\n            jsonBody: {\n                invalidFallbackBehavior: \"EVALUATE_AS_STRING\",\n                matchPattern: {\n                    includedPaths: [\n                        \"/path/0/name\",\n                        \"/path/1/name\",\n                    ],\n                },\n                matchScope: \"ALL\",\n            },\n        },\n        {\n            method: {},\n        },\n        {\n            queryString: {},\n        },\n        {\n            singleHeader: {\n                name: \"password\",\n            },\n        },\n        {\n            uriPath: {},\n        },\n    ],\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nlogging_configuration = aws_native.wafv2.LoggingConfiguration(\"loggingConfiguration\",\n    resource_arn=\"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\",\n    log_destination_configs=[\"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\"],\n    redacted_fields=[\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            json_body={\n                \"invalidFallbackBehavior\": \"EVALUATE_AS_STRING\",\n                \"matchPattern\": {\n                    \"includedPaths\": [\n                        \"/path/0/name\",\n                        \"/path/1/name\",\n                    ],\n                },\n                \"matchScope\": \"ALL\",\n            },\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            method={},\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            query_string={},\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            single_header={\n                \"name\": \"password\",\n            },\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            uri_path={},\n        ),\n    ])\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var loggingConfiguration = new AwsNative.WAFv2.LoggingConfiguration(\"loggingConfiguration\", new AwsNative.WAFv2.LoggingConfigurationArgs\n        {\n            ResourceArn = \"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\",\n            LogDestinationConfigs = \n            {\n                \"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\",\n            },\n            RedactedFields = \n            {\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    JsonBody = \n                    {\n                        { \"invalidFallbackBehavior\", \"EVALUATE_AS_STRING\" },\n                        { \"matchPattern\", \n                        {\n                            { \"includedPaths\", \n                            {\n                                \"/path/0/name\",\n                                \"/path/1/name\",\n                            } },\n                        } },\n                        { \"matchScope\", \"ALL\" },\n                    },\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    Method = ,\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    QueryString = ,\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    SingleHeader = \n                    {\n                        { \"name\", \"password\" },\n                    },\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    UriPath = ,\n                },\n            },\n            LoggingFilter = \n            {\n                { \"defaultBehavior\", \"KEEP\" },\n                { \"filters\", \n                {\n                    \n                    {\n                        { \"behavior\", \"KEEP\" },\n                        { \"conditions\", \n                        {\n                            \n                            {\n                                { \"actionCondition\", \n                                {\n                                    { \"action\", \"BLOCK\" },\n                                } },\n                            },\n                            \n                            {\n                                { \"labelNameCondition\", \n                                {\n                                    { \"labelName\", \"fooLabel\" },\n                                } },\n                            },\n                        } },\n                        { \"requirement\", \"MEETS_ANY\" },\n                    },\n                } },\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/wafv2\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := wafv2.NewLoggingConfiguration(ctx, \"loggingConfiguration\", \u0026wafv2.LoggingConfigurationArgs{\n\t\t\tResourceArn: pulumi.String(\"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\"),\n\t\t\tLogDestinationConfigs: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\"),\n\t\t\t},\n\t\t\tRedactedFields: []wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tJsonBody: pulumi.Any{\n\t\t\t\t\t\tInvalidFallbackBehavior: \"EVALUATE_AS_STRING\",\n\t\t\t\t\t\tMatchPattern: map[string]interface{}{\n\t\t\t\t\t\t\t\"includedPaths\": []string{\n\t\t\t\t\t\t\t\t\"/path/0/name\",\n\t\t\t\t\t\t\t\t\"/path/1/name\",\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t\tMatchScope: \"ALL\",\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tMethod: nil,\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tQueryString: nil,\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tSingleHeader: pulumi.Any{\n\t\t\t\t\t\tName: \"password\",\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tUriPath: nil,\n\t\t\t\t},\n\t\t\t},\n\t\t\tLoggingFilter: pulumi.Any{\n\t\t\t\tDefaultBehavior: \"KEEP\",\n\t\t\t\tFilters: []map[string]interface{}{\n\t\t\t\t\tmap[string]interface{}{\n\t\t\t\t\t\t\"behavior\": \"KEEP\",\n\t\t\t\t\t\t\"conditions\": []interface{}{\n\t\t\t\t\t\t\tmap[string]interface{}{\n\t\t\t\t\t\t\t\t\"actionCondition\": map[string]interface{}{\n\t\t\t\t\t\t\t\t\t\"action\": \"BLOCK\",\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\tmap[string]interface{}{\n\t\t\t\t\t\t\t\t\"labelNameCondition\": map[string]interface{}{\n\t\t\t\t\t\t\t\t\t\"labelName\": \"fooLabel\",\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"requirement\": \"MEETS_ANY\",\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst loggingConfiguration = new aws_native.wafv2.LoggingConfiguration(\"loggingConfiguration\", {\n    resourceArn: \"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\",\n    logDestinationConfigs: [\"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\"],\n    redactedFields: [\n        {\n            jsonBody: {\n                invalidFallbackBehavior: \"EVALUATE_AS_STRING\",\n                matchPattern: {\n                    includedPaths: [\n                        \"/path/0/name\",\n                        \"/path/1/name\",\n                    ],\n                },\n                matchScope: \"ALL\",\n            },\n        },\n        {\n            method: {},\n        },\n        {\n            queryString: {},\n        },\n        {\n            singleHeader: {\n                name: \"password\",\n            },\n        },\n        {\n            uriPath: {},\n        },\n    ],\n    loggingFilter: {\n        defaultBehavior: \"KEEP\",\n        filters: [{\n            behavior: \"KEEP\",\n            conditions: [\n                {\n                    actionCondition: {\n                        action: \"BLOCK\",\n                    },\n                },\n                {\n                    labelNameCondition: {\n                        labelName: \"fooLabel\",\n                    },\n                },\n            ],\n            requirement: \"MEETS_ANY\",\n        }],\n    },\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nlogging_configuration = aws_native.wafv2.LoggingConfiguration(\"loggingConfiguration\",\n    resource_arn=\"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\",\n    log_destination_configs=[\"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\"],\n    redacted_fields=[\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            json_body={\n                \"invalidFallbackBehavior\": \"EVALUATE_AS_STRING\",\n                \"matchPattern\": {\n                    \"includedPaths\": [\n                        \"/path/0/name\",\n                        \"/path/1/name\",\n                    ],\n                },\n                \"matchScope\": \"ALL\",\n            },\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            method={},\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            query_string={},\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            single_header={\n                \"name\": \"password\",\n            },\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            uri_path={},\n        ),\n    ],\n    logging_filter={\n        \"defaultBehavior\": \"KEEP\",\n        \"filters\": [{\n            \"behavior\": \"KEEP\",\n            \"conditions\": [\n                {\n                    \"actionCondition\": {\n                        \"action\": \"BLOCK\",\n                    },\n                },\n                {\n                    \"labelNameCondition\": {\n                        \"labelName\": \"fooLabel\",\n                    },\n                },\n            ],\n            \"requirement\": \"MEETS_ANY\",\n        }],\n    })\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var loggingConfiguration = new AwsNative.WAFv2.LoggingConfiguration(\"loggingConfiguration\", new AwsNative.WAFv2.LoggingConfigurationArgs\n        {\n            ResourceArn = \"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\",\n            LogDestinationConfigs = \n            {\n                \"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\",\n            },\n            RedactedFields = \n            {\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    JsonBody = \n                    {\n                        { \"invalidFallbackBehavior\", \"EVALUATE_AS_STRING\" },\n                        { \"matchPattern\", \n                        {\n                            { \"includedPaths\", \n                            {\n                                \"/path/0/name\",\n                                \"/path/1/name\",\n                            } },\n                        } },\n                        { \"matchScope\", \"ALL\" },\n                    },\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    Method = ,\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    QueryString = ,\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    SingleHeader = \n                    {\n                        { \"name\", \"password\" },\n                    },\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    UriPath = ,\n                },\n            },\n            LoggingFilter = \n            {\n                { \"defaultBehavior\", \"KEEP\" },\n                { \"filters\", \n                {\n                    \n                    {\n                        { \"behavior\", \"KEEP\" },\n                        { \"conditions\", \n                        {\n                            \n                            {\n                                { \"actionCondition\", \n                                {\n                                    { \"action\", \"BLOCK\" },\n                                } },\n                            },\n                            \n                            {\n                                { \"labelNameCondition\", \n                                {\n                                    { \"labelName\", \"fooLabel\" },\n                                } },\n                            },\n                        } },\n                        { \"requirement\", \"MEETS_ANY\" },\n                    },\n                } },\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/wafv2\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := wafv2.NewLoggingConfiguration(ctx, \"loggingConfiguration\", \u0026wafv2.LoggingConfigurationArgs{\n\t\t\tResourceArn: pulumi.String(\"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\"),\n\t\t\tLogDestinationConfigs: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\"),\n\t\t\t},\n\t\t\tRedactedFields: []wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tJsonBody: pulumi.Any{\n\t\t\t\t\t\tInvalidFallbackBehavior: \"EVALUATE_AS_STRING\",\n\t\t\t\t\t\tMatchPattern: map[string]interface{}{\n\t\t\t\t\t\t\t\"includedPaths\": []string{\n\t\t\t\t\t\t\t\t\"/path/0/name\",\n\t\t\t\t\t\t\t\t\"/path/1/name\",\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t\tMatchScope: \"ALL\",\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tMethod: nil,\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tQueryString: nil,\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tSingleHeader: pulumi.Any{\n\t\t\t\t\t\tName: \"password\",\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tUriPath: nil,\n\t\t\t\t},\n\t\t\t},\n\t\t\tLoggingFilter: pulumi.Any{\n\t\t\t\tDefaultBehavior: \"KEEP\",\n\t\t\t\tFilters: []map[string]interface{}{\n\t\t\t\t\tmap[string]interface{}{\n\t\t\t\t\t\t\"behavior\": \"KEEP\",\n\t\t\t\t\t\t\"conditions\": []interface{}{\n\t\t\t\t\t\t\tmap[string]interface{}{\n\t\t\t\t\t\t\t\t\"actionCondition\": map[string]interface{}{\n\t\t\t\t\t\t\t\t\t\"action\": \"BLOCK\",\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\tmap[string]interface{}{\n\t\t\t\t\t\t\t\t\"labelNameCondition\": map[string]interface{}{\n\t\t\t\t\t\t\t\t\t\"labelName\": \"fooLabel\",\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"requirement\": \"MEETS_ANY\",\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst loggingConfiguration = new aws_native.wafv2.LoggingConfiguration(\"loggingConfiguration\", {\n    resourceArn: \"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\",\n    logDestinationConfigs: [\"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\"],\n    redactedFields: [\n        {\n            jsonBody: {\n                invalidFallbackBehavior: \"EVALUATE_AS_STRING\",\n                matchPattern: {\n                    includedPaths: [\n                        \"/path/0/name\",\n                        \"/path/1/name\",\n                    ],\n                },\n                matchScope: \"ALL\",\n            },\n        },\n        {\n            method: {},\n        },\n        {\n            queryString: {},\n        },\n        {\n            singleHeader: {\n                name: \"password\",\n            },\n        },\n        {\n            uriPath: {},\n        },\n    ],\n    loggingFilter: {\n        defaultBehavior: \"KEEP\",\n        filters: [{\n            behavior: \"KEEP\",\n            conditions: [\n                {\n                    actionCondition: {\n                        action: \"BLOCK\",\n                    },\n                },\n                {\n                    labelNameCondition: {\n                        labelName: \"fooLabel\",\n                    },\n                },\n            ],\n            requirement: \"MEETS_ANY\",\n        }],\n    },\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nlogging_configuration = aws_native.wafv2.LoggingConfiguration(\"loggingConfiguration\",\n    resource_arn=\"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\",\n    log_destination_configs=[\"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\"],\n    redacted_fields=[\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            json_body={\n                \"invalidFallbackBehavior\": \"EVALUATE_AS_STRING\",\n                \"matchPattern\": {\n                    \"includedPaths\": [\n                        \"/path/0/name\",\n                        \"/path/1/name\",\n                    ],\n                },\n                \"matchScope\": \"ALL\",\n            },\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            method={},\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            query_string={},\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            single_header={\n                \"name\": \"password\",\n            },\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            uri_path={},\n        ),\n    ],\n    logging_filter={\n        \"defaultBehavior\": \"KEEP\",\n        \"filters\": [{\n            \"behavior\": \"KEEP\",\n            \"conditions\": [\n                {\n                    \"actionCondition\": {\n                        \"action\": \"BLOCK\",\n                    },\n                },\n                {\n                    \"labelNameCondition\": {\n                        \"labelName\": \"fooLabel\",\n                    },\n                },\n            ],\n            \"requirement\": \"MEETS_ANY\",\n        }],\n    })\n\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "description": "A WAFv2 Logging Configuration Resource Provider\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var loggingConfiguration = new AwsNative.WAFv2.LoggingConfiguration(\"loggingConfiguration\", new AwsNative.WAFv2.LoggingConfigurationArgs\n        {\n            ResourceArn = \"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\",\n            LogDestinationConfigs = \n            {\n                \"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\",\n            },\n            RedactedFields = \n            {\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    JsonBody = new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs\n                    {\n                        InvalidFallbackBehavior = \"EVALUATE_AS_STRING\",\n                        MatchPattern = new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs\n                        {\n                            IncludedPaths = \n                            {\n                                \"/path/0/name\",\n                                \"/path/1/name\",\n                            },\n                        },\n                        MatchScope = \"ALL\",\n                    },\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    Method = ,\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    QueryString = ,\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    SingleHeader = new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs\n                    {\n                        Name = \"password\",\n                    },\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    UriPath = ,\n                },\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/wafv2\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := wafv2.NewLoggingConfiguration(ctx, \"loggingConfiguration\", \u0026wafv2.LoggingConfigurationArgs{\n\t\t\tResourceArn: pulumi.String(\"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\"),\n\t\t\tLogDestinationConfigs: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\"),\n\t\t\t},\n\t\t\tRedactedFields: []wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tJsonBody: \u0026wafv2.LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs{\n\t\t\t\t\t\tInvalidFallbackBehavior: \"EVALUATE_AS_STRING\",\n\t\t\t\t\t\tMatchPattern: \u0026wafv2.LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs{\n\t\t\t\t\t\t\tIncludedPaths: pulumi.StringArray{\n\t\t\t\t\t\t\t\tpulumi.String(\"/path/0/name\"),\n\t\t\t\t\t\t\t\tpulumi.String(\"/path/1/name\"),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t\tMatchScope: \"ALL\",\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tMethod: nil,\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tQueryString: nil,\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tSingleHeader: \u0026wafv2.LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs{\n\t\t\t\t\t\tName: pulumi.String(\"password\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tUriPath: nil,\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst loggingConfiguration = new aws_native.wafv2.LoggingConfiguration(\"loggingConfiguration\", {\n    resourceArn: \"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\",\n    logDestinationConfigs: [\"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\"],\n    redactedFields: [\n        {\n            jsonBody: {\n                invalidFallbackBehavior: \"EVALUATE_AS_STRING\",\n                matchPattern: {\n                    includedPaths: [\n                        \"/path/0/name\",\n                        \"/path/1/name\",\n                    ],\n                },\n                matchScope: \"ALL\",\n            },\n        },\n        {\n            method: {},\n        },\n        {\n            queryString: {},\n        },\n        {\n            singleHeader: {\n                name: \"password\",\n            },\n        },\n        {\n            uriPath: {},\n        },\n    ],\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nlogging_configuration = aws_native.wafv2.LoggingConfiguration(\"loggingConfiguration\",\n    resource_arn=\"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\",\n    log_destination_configs=[\"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\"],\n    redacted_fields=[\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            json_body=aws_native.wafv2.LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs(\n                invalid_fallback_behavior=\"EVALUATE_AS_STRING\",\n                match_pattern=aws_native.wafv2.LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs(\n                    included_paths=[\n                        \"/path/0/name\",\n                        \"/path/1/name\",\n                    ],\n                ),\n                match_scope=\"ALL\",\n            ),\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            method={},\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            query_string={},\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            single_header=aws_native.wafv2.LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs(\n                name=\"password\",\n            ),\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            uri_path={},\n        ),\n    ])\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var loggingConfiguration = new AwsNative.WAFv2.LoggingConfiguration(\"loggingConfiguration\", new AwsNative.WAFv2.LoggingConfigurationArgs\n        {\n            ResourceArn = \"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\",\n            LogDestinationConfigs = \n            {\n                \"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\",\n            },\n            RedactedFields = \n            {\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    JsonBody = new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs\n                    {\n                        InvalidFallbackBehavior = \"EVALUATE_AS_STRING\",\n                        MatchPattern = new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs\n                        {\n                            IncludedPaths = \n                            {\n                                \"/path/0/name\",\n                                \"/path/1/name\",\n                            },\n                        },\n                        MatchScope = \"ALL\",\n                    },\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    Method = ,\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    QueryString = ,\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    SingleHeader = new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs\n                    {\n                        Name = \"password\",\n                    },\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    UriPath = ,\n                },\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/wafv2\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := wafv2.NewLoggingConfiguration(ctx, \"loggingConfiguration\", \u0026wafv2.LoggingConfigurationArgs{\n\t\t\tResourceArn: pulumi.String(\"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\"),\n\t\t\tLogDestinationConfigs: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\"),\n\t\t\t},\n\t\t\tRedactedFields: []wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tJsonBody: \u0026wafv2.LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs{\n\t\t\t\t\t\tInvalidFallbackBehavior: \"EVALUATE_AS_STRING\",\n\t\t\t\t\t\tMatchPattern: \u0026wafv2.LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs{\n\t\t\t\t\t\t\tIncludedPaths: pulumi.StringArray{\n\t\t\t\t\t\t\t\tpulumi.String(\"/path/0/name\"),\n\t\t\t\t\t\t\t\tpulumi.String(\"/path/1/name\"),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t\tMatchScope: \"ALL\",\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tMethod: nil,\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tQueryString: nil,\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tSingleHeader: \u0026wafv2.LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs{\n\t\t\t\t\t\tName: pulumi.String(\"password\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tUriPath: nil,\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst loggingConfiguration = new aws_native.wafv2.LoggingConfiguration(\"loggingConfiguration\", {\n    resourceArn: \"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\",\n    logDestinationConfigs: [\"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\"],\n    redactedFields: [\n        {\n            jsonBody: {\n                invalidFallbackBehavior: \"EVALUATE_AS_STRING\",\n                matchPattern: {\n                    includedPaths: [\n                        \"/path/0/name\",\n                        \"/path/1/name\",\n                    ],\n                },\n                matchScope: \"ALL\",\n            },\n        },\n        {\n            method: {},\n        },\n        {\n            queryString: {},\n        },\n        {\n            singleHeader: {\n                name: \"password\",\n            },\n        },\n        {\n            uriPath: {},\n        },\n    ],\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nlogging_configuration = aws_native.wafv2.LoggingConfiguration(\"loggingConfiguration\",\n    resource_arn=\"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\",\n    log_destination_configs=[\"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\"],\n    redacted_fields=[\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            json_body=aws_native.wafv2.LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs(\n                invalid_fallback_behavior=\"EVALUATE_AS_STRING\",\n                match_pattern=aws_native.wafv2.LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs(\n                    included_paths=[\n                        \"/path/0/name\",\n                        \"/path/1/name\",\n                    ],\n                ),\n                match_scope=\"ALL\",\n            ),\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            method={},\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            query_string={},\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            single_header=aws_native.wafv2.LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs(\n                name=\"password\",\n            ),\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            uri_path={},\n        ),\n    ])\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var loggingConfiguration = new AwsNative.WAFv2.LoggingConfiguration(\"loggingConfiguration\", new AwsNative.WAFv2.LoggingConfigurationArgs\n        {\n            ResourceArn = \"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\",\n            LogDestinationConfigs = \n            {\n                \"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\",\n            },\n            RedactedFields = \n            {\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    JsonBody = new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs\n                    {\n                        InvalidFallbackBehavior = \"EVALUATE_AS_STRING\",\n                        MatchPattern = new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs\n                        {\n                            IncludedPaths = \n                            {\n                                \"/path/0/name\",\n                                \"/path/1/name\",\n                            },\n                        },\n                        MatchScope = \"ALL\",\n                    },\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    Method = ,\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    QueryString = ,\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    SingleHeader = new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs\n                    {\n                        Name = \"password\",\n                    },\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    UriPath = ,\n                },\n            },\n            LoggingFilter = new AwsNative.WAFv2.Inputs.LoggingFilterPropertiesArgs\n            {\n                DefaultBehavior = \"KEEP\",\n                Filters = \n                {\n                    new AwsNative.WAFv2.Inputs.LoggingConfigurationFilterArgs\n                    {\n                        Behavior = \"KEEP\",\n                        Conditions = \n                        {\n                            new AwsNative.WAFv2.Inputs.LoggingConfigurationConditionArgs\n                            {\n                                ActionCondition = new AwsNative.WAFv2.Inputs.LoggingConfigurationConditionActionConditionPropertiesArgs\n                                {\n                                    Action = \"BLOCK\",\n                                },\n                            },\n                            new AwsNative.WAFv2.Inputs.LoggingConfigurationConditionArgs\n                            {\n                                LabelNameCondition = new AwsNative.WAFv2.Inputs.LoggingConfigurationConditionLabelNameConditionPropertiesArgs\n                                {\n                                    LabelName = \"fooLabel\",\n                                },\n                            },\n                        },\n                        Requirement = \"MEETS_ANY\",\n                    },\n                },\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/wafv2\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := wafv2.NewLoggingConfiguration(ctx, \"loggingConfiguration\", \u0026wafv2.LoggingConfigurationArgs{\n\t\t\tResourceArn: pulumi.String(\"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\"),\n\t\t\tLogDestinationConfigs: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\"),\n\t\t\t},\n\t\t\tRedactedFields: []wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tJsonBody: \u0026wafv2.LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs{\n\t\t\t\t\t\tInvalidFallbackBehavior: \"EVALUATE_AS_STRING\",\n\t\t\t\t\t\tMatchPattern: \u0026wafv2.LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs{\n\t\t\t\t\t\t\tIncludedPaths: pulumi.StringArray{\n\t\t\t\t\t\t\t\tpulumi.String(\"/path/0/name\"),\n\t\t\t\t\t\t\t\tpulumi.String(\"/path/1/name\"),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t\tMatchScope: \"ALL\",\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tMethod: nil,\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tQueryString: nil,\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tSingleHeader: \u0026wafv2.LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs{\n\t\t\t\t\t\tName: pulumi.String(\"password\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tUriPath: nil,\n\t\t\t\t},\n\t\t\t},\n\t\t\tLoggingFilter: \u0026wafv2.LoggingFilterPropertiesArgs{\n\t\t\t\tDefaultBehavior: \"KEEP\",\n\t\t\t\tFilters: []wafv2.LoggingConfigurationFilterArgs{\n\t\t\t\t\t\u0026wafv2.LoggingConfigurationFilterArgs{\n\t\t\t\t\t\tBehavior: \"KEEP\",\n\t\t\t\t\t\tConditions: []wafv2.LoggingConfigurationConditionArgs{\n\t\t\t\t\t\t\t\u0026wafv2.LoggingConfigurationConditionArgs{\n\t\t\t\t\t\t\t\tActionCondition: \u0026wafv2.LoggingConfigurationConditionActionConditionPropertiesArgs{\n\t\t\t\t\t\t\t\t\tAction: \"BLOCK\",\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\u0026wafv2.LoggingConfigurationConditionArgs{\n\t\t\t\t\t\t\t\tLabelNameCondition: \u0026wafv2.LoggingConfigurationConditionLabelNameConditionPropertiesArgs{\n\t\t\t\t\t\t\t\t\tLabelName: pulumi.String(\"fooLabel\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t\tRequirement: \"MEETS_ANY\",\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst loggingConfiguration = new aws_native.wafv2.LoggingConfiguration(\"loggingConfiguration\", {\n    resourceArn: \"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\",\n    logDestinationConfigs: [\"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\"],\n    redactedFields: [\n        {\n            jsonBody: {\n                invalidFallbackBehavior: \"EVALUATE_AS_STRING\",\n                matchPattern: {\n                    includedPaths: [\n                        \"/path/0/name\",\n                        \"/path/1/name\",\n                    ],\n                },\n                matchScope: \"ALL\",\n            },\n        },\n        {\n            method: {},\n        },\n        {\n            queryString: {},\n        },\n        {\n            singleHeader: {\n                name: \"password\",\n            },\n        },\n        {\n            uriPath: {},\n        },\n    ],\n    loggingFilter: {\n        defaultBehavior: \"KEEP\",\n        filters: [{\n            behavior: \"KEEP\",\n            conditions: [\n                {\n                    actionCondition: {\n                        action: \"BLOCK\",\n                    },\n                },\n                {\n                    labelNameCondition: {\n                        labelName: \"fooLabel\",\n                    },\n                },\n            ],\n            requirement: \"MEETS_ANY\",\n        }],\n    },\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nlogging_configuration = aws_native.wafv2.LoggingConfiguration(\"loggingConfiguration\",\n    resource_arn=\"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\",\n    log_destination_configs=[\"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\"],\n    redacted_fields=[\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            json_body=aws_native.wafv2.LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs(\n                invalid_fallback_behavior=\"EVALUATE_AS_STRING\",\n                match_pattern=aws_native.wafv2.LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs(\n                    included_paths=[\n                        \"/path/0/name\",\n                        \"/path/1/name\",\n                    ],\n                ),\n                match_scope=\"ALL\",\n            ),\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            method={},\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            query_string={},\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            single_header=aws_native.wafv2.LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs(\n                name=\"password\",\n            ),\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            uri_path={},\n        ),\n    ],\n    logging_filter=aws_native.wafv2.LoggingFilterPropertiesArgs(\n        default_behavior=\"KEEP\",\n        filters=[aws_native.wafv2.LoggingConfigurationFilterArgs(\n            behavior=\"KEEP\",\n            conditions=[\n                aws_native.wafv2.LoggingConfigurationConditionArgs(\n                    action_condition=aws_native.wafv2.LoggingConfigurationConditionActionConditionPropertiesArgs(\n                        action=\"BLOCK\",\n                    ),\n                ),\n                aws_native.wafv2.LoggingConfigurationConditionArgs(\n                    label_name_condition=aws_native.wafv2.LoggingConfigurationConditionLabelNameConditionPropertiesArgs(\n                        label_name=\"fooLabel\",\n                    ),\n                ),\n            ],\n            requirement=\"MEETS_ANY\",\n        )],\n    ))\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var loggingConfiguration = new AwsNative.WAFv2.LoggingConfiguration(\"loggingConfiguration\", new AwsNative.WAFv2.LoggingConfigurationArgs\n        {\n            ResourceArn = \"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\",\n            LogDestinationConfigs = \n            {\n                \"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\",\n            },\n            RedactedFields = \n            {\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    JsonBody = new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs\n                    {\n                        InvalidFallbackBehavior = \"EVALUATE_AS_STRING\",\n                        MatchPattern = new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs\n                        {\n                            IncludedPaths = \n                            {\n                                \"/path/0/name\",\n                                \"/path/1/name\",\n                            },\n                        },\n                        MatchScope = \"ALL\",\n                    },\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    Method = ,\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    QueryString = ,\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    SingleHeader = new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs\n                    {\n                        Name = \"password\",\n                    },\n                },\n                new AwsNative.WAFv2.Inputs.LoggingConfigurationFieldToMatchArgs\n                {\n                    UriPath = ,\n                },\n            },\n            LoggingFilter = new AwsNative.WAFv2.Inputs.LoggingFilterPropertiesArgs\n            {\n                DefaultBehavior = \"KEEP\",\n                Filters = \n                {\n                    new AwsNative.WAFv2.Inputs.LoggingConfigurationFilterArgs\n                    {\n                        Behavior = \"KEEP\",\n                        Conditions = \n                        {\n                            new AwsNative.WAFv2.Inputs.LoggingConfigurationConditionArgs\n                            {\n                                ActionCondition = new AwsNative.WAFv2.Inputs.LoggingConfigurationConditionActionConditionPropertiesArgs\n                                {\n                                    Action = \"BLOCK\",\n                                },\n                            },\n                            new AwsNative.WAFv2.Inputs.LoggingConfigurationConditionArgs\n                            {\n                                LabelNameCondition = new AwsNative.WAFv2.Inputs.LoggingConfigurationConditionLabelNameConditionPropertiesArgs\n                                {\n                                    LabelName = \"fooLabel\",\n                                },\n                            },\n                        },\n                        Requirement = \"MEETS_ANY\",\n                    },\n                },\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/wafv2\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := wafv2.NewLoggingConfiguration(ctx, \"loggingConfiguration\", \u0026wafv2.LoggingConfigurationArgs{\n\t\t\tResourceArn: pulumi.String(\"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\"),\n\t\t\tLogDestinationConfigs: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\"),\n\t\t\t},\n\t\t\tRedactedFields: []wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tJsonBody: \u0026wafv2.LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs{\n\t\t\t\t\t\tInvalidFallbackBehavior: \"EVALUATE_AS_STRING\",\n\t\t\t\t\t\tMatchPattern: \u0026wafv2.LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs{\n\t\t\t\t\t\t\tIncludedPaths: pulumi.StringArray{\n\t\t\t\t\t\t\t\tpulumi.String(\"/path/0/name\"),\n\t\t\t\t\t\t\t\tpulumi.String(\"/path/1/name\"),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t\tMatchScope: \"ALL\",\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tMethod: nil,\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tQueryString: nil,\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tSingleHeader: \u0026wafv2.LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs{\n\t\t\t\t\t\tName: pulumi.String(\"password\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026wafv2.LoggingConfigurationFieldToMatchArgs{\n\t\t\t\t\tUriPath: nil,\n\t\t\t\t},\n\t\t\t},\n\t\t\tLoggingFilter: \u0026wafv2.LoggingFilterPropertiesArgs{\n\t\t\t\tDefaultBehavior: \"KEEP\",\n\t\t\t\tFilters: []wafv2.LoggingConfigurationFilterArgs{\n\t\t\t\t\t\u0026wafv2.LoggingConfigurationFilterArgs{\n\t\t\t\t\t\tBehavior: \"KEEP\",\n\t\t\t\t\t\tConditions: []wafv2.LoggingConfigurationConditionArgs{\n\t\t\t\t\t\t\t\u0026wafv2.LoggingConfigurationConditionArgs{\n\t\t\t\t\t\t\t\tActionCondition: \u0026wafv2.LoggingConfigurationConditionActionConditionPropertiesArgs{\n\t\t\t\t\t\t\t\t\tAction: \"BLOCK\",\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\u0026wafv2.LoggingConfigurationConditionArgs{\n\t\t\t\t\t\t\t\tLabelNameCondition: \u0026wafv2.LoggingConfigurationConditionLabelNameConditionPropertiesArgs{\n\t\t\t\t\t\t\t\t\tLabelName: pulumi.String(\"fooLabel\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t\tRequirement: \"MEETS_ANY\",\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst loggingConfiguration = new aws_native.wafv2.LoggingConfiguration(\"loggingConfiguration\", {\n    resourceArn: \"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\",\n    logDestinationConfigs: [\"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\"],\n    redactedFields: [\n        {\n            jsonBody: {\n                invalidFallbackBehavior: \"EVALUATE_AS_STRING\",\n                matchPattern: {\n                    includedPaths: [\n                        \"/path/0/name\",\n                        \"/path/1/name\",\n                    ],\n                },\n                matchScope: \"ALL\",\n            },\n        },\n        {\n            method: {},\n        },\n        {\n            queryString: {},\n        },\n        {\n            singleHeader: {\n                name: \"password\",\n            },\n        },\n        {\n            uriPath: {},\n        },\n    ],\n    loggingFilter: {\n        defaultBehavior: \"KEEP\",\n        filters: [{\n            behavior: \"KEEP\",\n            conditions: [\n                {\n                    actionCondition: {\n                        action: \"BLOCK\",\n                    },\n                },\n                {\n                    labelNameCondition: {\n                        labelName: \"fooLabel\",\n                    },\n                },\n            ],\n            requirement: \"MEETS_ANY\",\n        }],\n    },\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nlogging_configuration = aws_native.wafv2.LoggingConfiguration(\"loggingConfiguration\",\n    resource_arn=\"arn:aws:wafv2:us-east-1:123456789000:regional/webacl/test-webaclv2/abcd1234-123b-1234-1234-123456789abc\",\n    log_destination_configs=[\"arn:aws:firehose:us-east-1:123456789000:deliverystream/aws-waf-logs-firehose\"],\n    redacted_fields=[\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            json_body=aws_native.wafv2.LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs(\n                invalid_fallback_behavior=\"EVALUATE_AS_STRING\",\n                match_pattern=aws_native.wafv2.LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs(\n                    included_paths=[\n                        \"/path/0/name\",\n                        \"/path/1/name\",\n                    ],\n                ),\n                match_scope=\"ALL\",\n            ),\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            method={},\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            query_string={},\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            single_header=aws_native.wafv2.LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs(\n                name=\"password\",\n            ),\n        ),\n        aws_native.wafv2.LoggingConfigurationFieldToMatchArgs(\n            uri_path={},\n        ),\n    ],\n    logging_filter=aws_native.wafv2.LoggingFilterPropertiesArgs(\n        default_behavior=\"KEEP\",\n        filters=[aws_native.wafv2.LoggingConfigurationFilterArgs(\n            behavior=\"KEEP\",\n            conditions=[\n                aws_native.wafv2.LoggingConfigurationConditionArgs(\n                    action_condition=aws_native.wafv2.LoggingConfigurationConditionActionConditionPropertiesArgs(\n                        action=\"BLOCK\",\n                    ),\n                ),\n                aws_native.wafv2.LoggingConfigurationConditionArgs(\n                    label_name_condition=aws_native.wafv2.LoggingConfigurationConditionLabelNameConditionPropertiesArgs(\n                        label_name=\"fooLabel\",\n                    ),\n                ),\n            ],\n            requirement=\"MEETS_ANY\",\n        )],\n    ))\n\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
             "properties": {
                 "logDestinationConfigs": {
                     "type": "array",
@@ -70175,7 +71319,7 @@
                     "description": "The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL."
                 },
                 "loggingFilter": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:wafv2:LoggingFilterProperties",
                     "description": "Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation."
                 },
                 "managedByFirewallManager": {
@@ -70209,7 +71353,7 @@
                     "description": "The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL."
                 },
                 "loggingFilter": {
-                    "$ref": "pulumi.json#/Any",
+                    "$ref": "#/types/aws-native:wafv2:LoggingFilterProperties",
                     "description": "Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation."
                 },
                 "redactedFields": {
@@ -70590,7 +71734,7 @@
                 "tags": {
                     "type": "array",
                     "items": {
-                        "$ref": "pulumi.json#/Any"
+                        "$ref": "#/types/aws-native:xray:TagsItemProperties"
                     }
                 }
             },
@@ -70613,7 +71757,7 @@
                 "tags": {
                     "type": "array",
                     "items": {
-                        "$ref": "pulumi.json#/Any"
+                        "$ref": "#/types/aws-native:xray:TagsItemProperties"
                     }
                 }
             }
@@ -70644,7 +71788,7 @@
                 "tags": {
                     "type": "array",
                     "items": {
-                        "$ref": "pulumi.json#/Any"
+                        "$ref": "#/types/aws-native:xray:TagsItemProperties"
                     }
                 }
             },
@@ -70673,7 +71817,7 @@
                 "tags": {
                     "type": "array",
                     "items": {
-                        "$ref": "pulumi.json#/Any"
+                        "$ref": "#/types/aws-native:xray:TagsItemProperties"
                     }
                 }
             }
