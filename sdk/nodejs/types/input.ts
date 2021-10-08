@@ -1213,33 +1213,99 @@ export namespace apigateway {
     }
 
     export interface MethodIntegrationArgs {
+        /**
+         * A list of request parameters whose values API Gateway caches.
+         */
         cacheKeyParameters?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An API-specific tag group of related cached parameters.
+         */
         cacheNamespace?: pulumi.Input<string>;
+        /**
+         * The ID of the VpcLink used for the integration when connectionType=VPC_LINK, otherwise undefined.
+         */
         connectionId?: pulumi.Input<string>;
-        connectionType?: pulumi.Input<string>;
-        contentHandling?: pulumi.Input<string>;
+        /**
+         * The type of the network connection to the integration endpoint.
+         */
+        connectionType?: pulumi.Input<enums.apigateway.MethodIntegrationConnectionType>;
+        /**
+         * Specifies how to handle request payload content type conversions.
+         */
+        contentHandling?: pulumi.Input<enums.apigateway.MethodIntegrationContentHandling>;
+        /**
+         * The credentials that are required for the integration.
+         */
         credentials?: pulumi.Input<string>;
+        /**
+         * The integration's HTTP method type.
+         */
         integrationHttpMethod?: pulumi.Input<string>;
+        /**
+         * The response that API Gateway provides after a method's backend completes processing a request.
+         */
         integrationResponses?: pulumi.Input<pulumi.Input<inputs.apigateway.MethodIntegrationResponseArgs>[]>;
-        passthroughBehavior?: pulumi.Input<string>;
+        /**
+         * Indicates when API Gateway passes requests to the targeted backend.
+         */
+        passthroughBehavior?: pulumi.Input<enums.apigateway.MethodIntegrationPassthroughBehavior>;
+        /**
+         * The request parameters that API Gateway sends with the backend request.
+         */
         requestParameters?: any;
+        /**
+         * A map of Apache Velocity templates that are applied on the request payload.
+         */
         requestTemplates?: any;
+        /**
+         * Custom timeout between 50 and 29,000 milliseconds.
+         */
         timeoutInMillis?: pulumi.Input<number>;
-        type?: pulumi.Input<string>;
+        /**
+         * The type of backend that your method is running.
+         */
+        type: pulumi.Input<enums.apigateway.MethodIntegrationType>;
+        /**
+         * The Uniform Resource Identifier (URI) for the integration.
+         */
         uri?: pulumi.Input<string>;
     }
 
     export interface MethodIntegrationResponseArgs {
-        contentHandling?: pulumi.Input<string>;
+        /**
+         * Specifies how to handle request payload content type conversions.
+         */
+        contentHandling?: pulumi.Input<enums.apigateway.MethodIntegrationResponseContentHandling>;
+        /**
+         * The response parameters from the backend response that API Gateway sends to the method response.
+         */
         responseParameters?: any;
+        /**
+         * The templates that are used to transform the integration response body. Specify templates as key-value pairs (string-to-string mappings), with a content type as the key and a template as the value.
+         */
         responseTemplates?: any;
+        /**
+         * A regular expression that specifies which error strings or status codes from the backend map to the integration response.
+         */
         selectionPattern?: pulumi.Input<string>;
+        /**
+         * The status code that API Gateway uses to map the integration response to a MethodResponse status code.
+         */
         statusCode: pulumi.Input<string>;
     }
 
     export interface MethodResponseArgs {
+        /**
+         * The resources used for the response's content type. Specify response models as key-value pairs (string-to-string maps), with a content type as the key and a Model resource name as the value.
+         */
         responseModels?: any;
+        /**
+         * Response parameters that API Gateway sends to the client that called a method. Specify response parameters as key-value pairs (string-to-Boolean maps), with a destination as the key and a Boolean as the value.
+         */
         responseParameters?: any;
+        /**
+         * The method response's status code, which you map to an IntegrationResponse.
+         */
         statusCode: pulumi.Input<string>;
     }
 
@@ -1260,33 +1326,99 @@ export namespace apigateway {
         value: pulumi.Input<string>;
     }
 
+    /**
+     * Specifies settings for logging access in this stage.
+     */
     export interface StageAccessLogSettingArgs {
+        /**
+         * The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with amazon-apigateway-. This parameter is required to enable access logging.
+         */
         destinationArn?: pulumi.Input<string>;
+        /**
+         * A single line format of the access logs of data, as specified by selected $context variables (https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference). The format must include at least $context.requestId. This parameter is required to enable access logging.
+         */
         format?: pulumi.Input<string>;
     }
 
+    /**
+     * Specifies settings for the canary deployment in this stage.
+     */
     export interface StageCanarySettingArgs {
+        /**
+         * The identifier of the deployment that the stage points to.
+         */
         deploymentId?: pulumi.Input<string>;
+        /**
+         * The percentage (0-100) of traffic diverted to a canary deployment.
+         */
         percentTraffic?: pulumi.Input<number>;
+        /**
+         * Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
+         */
         stageVariableOverrides?: any;
+        /**
+         * Whether the canary deployment uses the stage cache or not.
+         */
         useStageCache?: pulumi.Input<boolean>;
     }
 
+    /**
+     * Configures settings for all methods in a stage.
+     */
     export interface StageMethodSettingArgs {
+        /**
+         * Indicates whether the cached responses are encrypted.
+         */
         cacheDataEncrypted?: pulumi.Input<boolean>;
+        /**
+         * The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses.
+         */
         cacheTtlInSeconds?: pulumi.Input<number>;
+        /**
+         * Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses.
+         */
         cachingEnabled?: pulumi.Input<boolean>;
+        /**
+         * Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs.
+         */
         dataTraceEnabled?: pulumi.Input<boolean>;
+        /**
+         * The HTTP method. You can use an asterisk (*) as a wildcard to apply method settings to multiple methods.
+         */
         httpMethod?: pulumi.Input<string>;
+        /**
+         * The logging level for this method. For valid values, see the loggingLevel property of the Stage (https://docs.aws.amazon.com/apigateway/api-reference/resource/stage/#loggingLevel) resource in the Amazon API Gateway API Reference.
+         */
         loggingLevel?: pulumi.Input<string>;
+        /**
+         * Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
+         */
         metricsEnabled?: pulumi.Input<boolean>;
+        /**
+         * The resource path for this method. Forward slashes (/) are encoded as ~1 and the initial slash must include a forward slash. For example, the path value /resource/subresource must be encoded as /~1resource~1subresource. To specify the root path, use only a slash (/). You can use an asterisk (*) as a wildcard to apply method settings to multiple methods.
+         */
         resourcePath?: pulumi.Input<string>;
+        /**
+         * The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+         */
         throttlingBurstLimit?: pulumi.Input<number>;
+        /**
+         * The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+         */
         throttlingRateLimit?: pulumi.Input<number>;
     }
 
+    /**
+     * Identify and categorize resources.
+     */
     export interface StageTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:.
+         */
         key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:.
+         */
         value: pulumi.Input<string>;
     }
 
@@ -3820,26 +3952,77 @@ export namespace autoscaling {
         value: pulumi.Input<string>;
     }
 
+    /**
+     * BlockDevice is a subproperty of BlockDeviceMapping that describes an Amazon EBS volume.
+     */
     export interface LaunchConfigurationBlockDeviceArgs {
+        /**
+         * Indicates whether the volume is deleted on instance termination. 
+         */
         deleteOnTermination?: pulumi.Input<boolean>;
+        /**
+         * Specifies whether the volume should be encrypted. 
+         */
         encrypted?: pulumi.Input<boolean>;
+        /**
+         * The number of input/output (I/O) operations per second (IOPS) to provision for the volume. 
+         */
         iops?: pulumi.Input<number>;
+        /**
+         * The snapshot ID of the volume to use.
+         */
         snapshotId?: pulumi.Input<string>;
+        /**
+         * The throughput (MiBps) to provision for a gp3 volume.
+         */
         throughput?: pulumi.Input<number>;
+        /**
+         * The volume size, in GiBs.
+         */
         volumeSize?: pulumi.Input<number>;
+        /**
+         * The volume type.
+         */
         volumeType?: pulumi.Input<string>;
     }
 
+    /**
+     * BlockDeviceMapping is a property of AWS::AutoScaling::LaunchConfiguration that describes a block device mapping for an Auto Scaling group.
+     */
     export interface LaunchConfigurationBlockDeviceMappingArgs {
+        /**
+         * The device name exposed to the EC2 instance (for example, /dev/sdh or xvdh). 
+         */
         deviceName: pulumi.Input<string>;
+        /**
+         * Parameters used to automatically set up EBS volumes when an instance is launched.
+         */
         ebs?: pulumi.Input<inputs.autoscaling.LaunchConfigurationBlockDeviceArgs>;
+        /**
+         * Setting this value to true suppresses the specified device included in the block device mapping of the AMI.
+         */
         noDevice?: pulumi.Input<boolean>;
+        /**
+         * The name of the virtual device.
+         */
         virtualName?: pulumi.Input<string>;
     }
 
+    /**
+     * MetadataOptions is a property of AWS::AutoScaling::LaunchConfiguration that describes metadata options for the instances.
+     */
     export interface LaunchConfigurationMetadataOptionsArgs {
+        /**
+         * This parameter enables or disables the HTTP metadata endpoint on your instances.
+         */
         httpEndpoint?: pulumi.Input<string>;
+        /**
+         * The desired HTTP PUT response hop limit for instance metadata requests.
+         */
         httpPutResponseHopLimit?: pulumi.Input<number>;
+        /**
+         * The state of token usage for your instance metadata requests.
+         */
         httpTokens?: pulumi.Input<string>;
     }
 
@@ -4026,12 +4209,106 @@ export namespace backup {
     export interface BackupVaultLockConfigurationTypeArgs {
         changeableForDays?: pulumi.Input<number>;
         maxRetentionDays?: pulumi.Input<number>;
-        minRetentionDays?: pulumi.Input<number>;
+        minRetentionDays: pulumi.Input<number>;
     }
 
     export interface BackupVaultNotificationObjectTypeArgs {
         backupVaultEvents: pulumi.Input<pulumi.Input<string>[]>;
         sNSTopicArn: pulumi.Input<string>;
+    }
+
+    export interface FrameworkControlArgs {
+        /**
+         * A list of ParameterName and ParameterValue pairs.
+         */
+        controlInputParameters?: pulumi.Input<pulumi.Input<inputs.backup.FrameworkControlInputParameterArgs>[]>;
+        /**
+         * The name of a control. This name is between 1 and 256 characters.
+         */
+        controlName: pulumi.Input<string>;
+        /**
+         * The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans.
+         */
+        controlScope?: pulumi.Input<inputs.backup.FrameworkControlControlScopePropertiesArgs>;
+    }
+
+    /**
+     * The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans.
+     */
+    export interface FrameworkControlControlScopePropertiesArgs {
+        /**
+         * The ID of the only AWS resource that you want your control scope to contain.
+         */
+        complianceResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Describes whether the control scope includes one or more types of resources, such as `EFS` or `RDS`.
+         */
+        complianceResourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Describes whether the control scope includes resources with one or more tags. Each tag is a key-value pair.
+         */
+        tags?: pulumi.Input<pulumi.Input<inputs.backup.FrameworkTagArgs>[]>;
+    }
+
+    export interface FrameworkControlInputParameterArgs {
+        parameterName: pulumi.Input<string>;
+        parameterValue: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface FrameworkTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A structure that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.
+     */
+    export interface ReportDeliveryChannelPropertiesArgs {
+        /**
+         * A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
+         */
+        formats?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The unique name of the S3 bucket that receives your reports.
+         */
+        s3BucketName: pulumi.Input<string>;
+        /**
+         * The prefix for where AWS Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
+         */
+        s3KeyPrefix?: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ReportPlanTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    /**
+     * Identifies the report template for the report. Reports are built using a report template.
+     */
+    export interface ReportSettingPropertiesArgs {
+        /**
+         * Identifies the report template for the report. Reports are built using a report template. The report templates are: `BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`
+         */
+        reportTemplate: pulumi.Input<string>;
     }
 }
 
@@ -7670,6 +7947,7 @@ export namespace ec2 {
 
     export interface LaunchTemplateMetadataOptionsArgs {
         httpEndpoint?: pulumi.Input<string>;
+        httpProtocolIpv6?: pulumi.Input<string>;
         httpPutResponseHopLimit?: pulumi.Input<number>;
         httpTokens?: pulumi.Input<string>;
     }
@@ -8123,7 +8401,7 @@ export namespace ecr {
      */
     export interface ReplicationConfigurationArgs {
         /**
-         * An array of objects representing the replication rules for a replication configuration. A replication configuration may contain only one replication rule but the rule may contain one or more replication destinations.
+         * An array of objects representing the replication rules for a replication configuration. A replication configuration may contain a maximum of 10 rules.
          */
         rules: pulumi.Input<pulumi.Input<inputs.ecr.ReplicationConfigurationReplicationRuleArgs>[]>;
     }
@@ -8742,88 +9020,22 @@ export namespace eks {
         value: pulumi.Input<string>;
     }
 
-    /**
-     * The encryption configuration for the cluster
-     */
     export interface ClusterEncryptionConfigArgs {
-        /**
-         * The encryption provider for the cluster.
-         */
-        provider?: pulumi.Input<inputs.eks.ClusterEncryptionConfigProviderPropertiesArgs>;
-        /**
-         * Specifies the resources to be encrypted. The only supported value is "secrets".
-         */
+        provider?: pulumi.Input<inputs.eks.ClusterProviderArgs>;
         resources?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    /**
-     * The encryption provider for the cluster.
-     */
-    export interface ClusterEncryptionConfigProviderPropertiesArgs {
-        /**
-         * Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key.
-         */
-        keyArn?: pulumi.Input<string>;
-    }
-
-    /**
-     * The Kubernetes network configuration for the cluster.
-     */
     export interface ClusterKubernetesNetworkConfigArgs {
-        /**
-         * The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. 
-         */
         serviceIpv4Cidr?: pulumi.Input<string>;
     }
 
-    /**
-     * Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
-     */
-    export interface ClusterLoggingArgs {
-        /**
-         * The cluster control plane logging configuration for your cluster. 
-         */
-        clusterLogging?: pulumi.Input<inputs.eks.ClusterLoggingArgs>;
+    export interface ClusterProviderArgs {
+        keyArn?: pulumi.Input<string>;
     }
 
-    /**
-     * An object representing the VPC configuration to use for an Amazon EKS cluster.
-     */
     export interface ClusterResourcesVpcConfigArgs {
-        /**
-         * Set this value to true to enable private access for your cluster's Kubernetes API server endpoint. If you enable private access, Kubernetes API requests from within your cluster's VPC use the private VPC endpoint. The default value for this parameter is false, which disables private access for your Kubernetes API server. If you disable private access and you have nodes or AWS Fargate pods in the cluster, then ensure that publicAccessCidrs includes the necessary CIDR blocks for communication with the nodes or Fargate pods.
-         */
-        endpointPrivateAccess?: pulumi.Input<boolean>;
-        /**
-         * Set this value to false to disable public access to your cluster's Kubernetes API server endpoint. If you disable public access, your cluster's Kubernetes API server can only receive requests from within the cluster VPC. The default value for this parameter is true, which enables public access for your Kubernetes API server.
-         */
-        endpointPublicAccess?: pulumi.Input<boolean>;
-        /**
-         * The CIDR blocks that are allowed access to your cluster's public Kubernetes API server endpoint. Communication to the endpoint from addresses outside of the CIDR blocks that you specify is denied. The default value is 0.0.0.0/0. If you've disabled private endpoint access and you have nodes or AWS Fargate pods in the cluster, then ensure that you specify the necessary CIDR blocks.
-         */
-        publicAccessCidrs?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * Specify one or more security groups for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane. If you don't specify a security group, the default security group for your VPC is used.
-         */
         securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * Specify subnets for your Amazon EKS nodes. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your nodes and the Kubernetes control plane.
-         */
         subnetIds: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ClusterTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -11640,13 +11852,31 @@ export namespace iam {
         value: pulumi.Input<string>;
     }
 
+    /**
+     * The inline policy document that is embedded in the specified IAM role.
+     */
     export interface RolePolicyArgs {
-        policyDocument: any;
+        /**
+         * The policy document.
+         */
+        policyDocument: pulumi.Input<string>;
+        /**
+         * The friendly name (not ARN) identifying the policy.
+         */
         policyName: pulumi.Input<string>;
     }
 
+    /**
+     * A key-value pair to associate with a resource.
+     */
     export interface RoleTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         value: pulumi.Input<string>;
     }
 
@@ -12110,6 +12340,13 @@ export namespace inspector {
 
 export namespace iot {
     /**
+     * The criteria that determine when and how a job abort takes place.
+     */
+    export interface AbortConfigPropertiesArgs {
+        criteriaList: pulumi.Input<pulumi.Input<inputs.iot.JobTemplateAbortCriteriaArgs>[]>;
+    }
+
+    /**
      * The configuration for a specific audit check.
      */
     export interface AccountAuditConfigurationAuditCheckConfigurationArgs {
@@ -12233,6 +12470,79 @@ export namespace iot {
     }
 
     /**
+     * Allows you to create a staged rollout of a job.
+     */
+    export interface JobExecutionsRolloutConfigPropertiesArgs {
+        /**
+         * The rate of increase for a job rollout. This parameter allows you to define an exponential rate for a job rollout.
+         */
+        exponentialRolloutRate?: pulumi.Input<inputs.iot.JobTemplateExponentialRolloutRateArgs>;
+        /**
+         * The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout.
+         */
+        maximumPerMinute?: pulumi.Input<number>;
+    }
+
+    /**
+     * The criteria that determine when and how a job abort takes place.
+     */
+    export interface JobTemplateAbortCriteriaArgs {
+        /**
+         * The type of job action to take to initiate the job abort.
+         */
+        action: pulumi.Input<enums.iot.JobTemplateAction>;
+        /**
+         * The type of job execution failures that can initiate a job abort.
+         */
+        failureType: pulumi.Input<enums.iot.JobTemplateFailureType>;
+        /**
+         * The minimum number of things which must receive job execution notifications before the job can be aborted.
+         */
+        minNumberOfExecutedThings: pulumi.Input<number>;
+        /**
+         * The minimum percentage of job execution failures that must occur to initiate the job abort.
+         */
+        thresholdPercentage: pulumi.Input<number>;
+    }
+
+    /**
+     * Allows you to create an exponential rate of rollout for a job.
+     */
+    export interface JobTemplateExponentialRolloutRateArgs {
+        /**
+         * The minimum number of things that will be notified of a pending job, per minute at the start of job rollout. This parameter allows you to define the initial rate of rollout.
+         */
+        baseRatePerMinute: pulumi.Input<number>;
+        /**
+         * The exponential factor to increase the rate of rollout for a job.
+         */
+        incrementFactor: pulumi.Input<number>;
+        /**
+         * The criteria to initiate the increase in rate of rollout for a job.
+         */
+        rateIncreaseCriteria: pulumi.Input<inputs.iot.JobTemplateRateIncreaseCriteriaArgs>;
+    }
+
+    export interface JobTemplateRateIncreaseCriteriaArgs {
+        numberOfNotifiedThings?: pulumi.Input<number>;
+        numberOfSucceededThings?: pulumi.Input<number>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface JobTemplateTagArgs {
+        /**
+         * The tag's key.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The tag's value.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
      * The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).
      */
     export interface MitigationActionActionParamsArgs {
@@ -12315,6 +12625,14 @@ export namespace iot {
      */
     export interface MitigationActionUpdateDeviceCertificateParamsArgs {
         action: pulumi.Input<enums.iot.MitigationActionUpdateDeviceCertificateParamsAction>;
+    }
+
+    /**
+     * Configuration for pre-signed S3 URLs.
+     */
+    export interface PresignedUrlConfigPropertiesArgs {
+        expiresInSec?: pulumi.Input<number>;
+        roleArn: pulumi.Input<string>;
     }
 
     export interface ProvisioningTemplateProvisioningHookArgs {
@@ -12477,6 +12795,13 @@ export namespace iot {
 
     export interface ThingAttributePayloadArgs {
         attributes?: any;
+    }
+
+    /**
+     * Specifies the amount of time each device has to finish its execution of the job.
+     */
+    export interface TimeoutConfigPropertiesArgs {
+        inProgressTimeoutInMinutes: pulumi.Input<number>;
     }
 
     export interface TopicRuleActionArgs {
@@ -15480,6 +15805,224 @@ export namespace licensemanager {
          * Validity begin date for the license.
          */
         end: pulumi.Input<string>;
+    }
+}
+
+export namespace lightsail {
+    /**
+     * A addon associate with a resource.
+     */
+    export interface DiskAddOnArgs {
+        /**
+         * The add-on type
+         */
+        addOnType: pulumi.Input<string>;
+        autoSnapshotAddOnRequest?: pulumi.Input<inputs.lightsail.DiskAutoSnapshotAddOnArgs>;
+        /**
+         * Status of the Addon
+         */
+        status?: pulumi.Input<enums.lightsail.DiskAddOnStatus>;
+    }
+
+    /**
+     * An object that represents additional parameters when enabling or modifying the automatic snapshot add-on
+     */
+    export interface DiskAutoSnapshotAddOnArgs {
+        /**
+         * The daily time when an automatic snapshot will be created.
+         */
+        snapshotTimeOfDay?: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface DiskTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    /**
+     * A addon associate with a resource.
+     */
+    export interface InstanceAddOnArgs {
+        /**
+         * The add-on type
+         */
+        addOnType: pulumi.Input<string>;
+        autoSnapshotAddOnRequest?: pulumi.Input<inputs.lightsail.InstanceAutoSnapshotAddOnArgs>;
+        /**
+         * Status of the Addon
+         */
+        status?: pulumi.Input<enums.lightsail.InstanceAddOnStatus>;
+    }
+
+    /**
+     * An object that represents additional parameters when enabling or modifying the automatic snapshot add-on
+     */
+    export interface InstanceAutoSnapshotAddOnArgs {
+        /**
+         * The daily time when an automatic snapshot will be created.
+         */
+        snapshotTimeOfDay?: pulumi.Input<string>;
+    }
+
+    /**
+     * Disk associated with the Instance.
+     */
+    export interface InstanceDiskArgs {
+        /**
+         * Instance attached to the disk.
+         */
+        attachedTo?: pulumi.Input<string>;
+        /**
+         * Attachment state of the disk.
+         */
+        attachmentState?: pulumi.Input<string>;
+        /**
+         * The names to use for your new Lightsail disk.
+         */
+        diskName: pulumi.Input<string>;
+        /**
+         * IOPS of disk.
+         */
+        iOPS?: pulumi.Input<number>;
+        /**
+         * Is the Attached disk is the system disk of the Instance.
+         */
+        isSystemDisk?: pulumi.Input<boolean>;
+        /**
+         * Path of the disk attached to the instance.
+         */
+        path: pulumi.Input<string>;
+        /**
+         * Size of the disk attached to the Instance.
+         */
+        sizeInGb?: pulumi.Input<string>;
+    }
+
+    /**
+     * Hardware of the Instance.
+     */
+    export interface InstanceHardwareArgs {
+        /**
+         * CPU count of the Instance.
+         */
+        cpuCount?: pulumi.Input<number>;
+        /**
+         * Disks attached to the Instance.
+         */
+        disks?: pulumi.Input<pulumi.Input<inputs.lightsail.InstanceDiskArgs>[]>;
+        /**
+         * RAM Size of the Instance.
+         */
+        ramSizeInGb?: pulumi.Input<number>;
+    }
+
+    /**
+     * Location of a resource.
+     */
+    export interface InstanceLocationArgs {
+        /**
+         * The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
+         */
+        availabilityZone?: pulumi.Input<string>;
+        /**
+         * The Region Name in which to create your instance.
+         */
+        regionName?: pulumi.Input<string>;
+    }
+
+    /**
+     * Monthly Transfer of the Instance.
+     */
+    export interface InstanceMonthlyTransferArgs {
+        /**
+         * GbPerMonthAllocated of the Instance.
+         */
+        gbPerMonthAllocated?: pulumi.Input<string>;
+    }
+
+    /**
+     * Networking of the Instance.
+     */
+    export interface InstanceNetworkingArgs {
+        monthlyTransfer?: pulumi.Input<inputs.lightsail.InstanceMonthlyTransferArgs>;
+        /**
+         * Ports to the Instance.
+         */
+        ports: pulumi.Input<pulumi.Input<inputs.lightsail.InstancePortArgs>[]>;
+    }
+
+    /**
+     * Port of the Instance.
+     */
+    export interface InstancePortArgs {
+        /**
+         * Access Direction for Protocol of the Instance(inbound/outbound).
+         */
+        accessDirection?: pulumi.Input<string>;
+        /**
+         * Access From Protocol of the Instance.
+         */
+        accessFrom?: pulumi.Input<string>;
+        /**
+         * Access Type Protocol of the Instance.
+         */
+        accessType?: pulumi.Input<string>;
+        cidrListAliases?: pulumi.Input<pulumi.Input<string>[]>;
+        cidrs?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * CommonName for Protocol of the Instance.
+         */
+        commonName?: pulumi.Input<string>;
+        /**
+         * From Port of the Instance.
+         */
+        fromPort?: pulumi.Input<number>;
+        ipv6Cidrs?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Port Protocol of the Instance.
+         */
+        protocol?: pulumi.Input<string>;
+        /**
+         * To Port of the Instance.
+         */
+        toPort?: pulumi.Input<number>;
+    }
+
+    /**
+     * Current State of the Instance.
+     */
+    export interface InstanceStateArgs {
+        /**
+         * Status code of the Instance.
+         */
+        code?: pulumi.Input<number>;
+        /**
+         * Status code of the Instance.
+         */
+        name?: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface InstanceTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value?: pulumi.Input<string>;
     }
 }
 
@@ -20548,20 +21091,41 @@ export namespace s3 {
         vpcId?: pulumi.Input<string>;
     }
 
+    /**
+     * Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload.
+     */
     export interface BucketAbortIncompleteMultipartUploadArgs {
+        /**
+         * Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.
+         */
         daysAfterInitiation: pulumi.Input<number>;
     }
 
     export interface BucketAccelerateConfigurationArgs {
-        accelerationStatus: pulumi.Input<string>;
+        /**
+         * Configures the transfer acceleration state for an Amazon S3 bucket.
+         */
+        accelerationStatus: pulumi.Input<enums.s3.BucketAccelerateConfigurationAccelerationStatus>;
     }
 
+    /**
+     * Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object.
+     */
     export interface BucketAccessControlTranslationArgs {
         owner: pulumi.Input<string>;
     }
 
+    /**
+     * Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
+     */
     export interface BucketAnalyticsConfigurationArgs {
+        /**
+         * The ID that identifies the analytics configuration.
+         */
         id: pulumi.Input<string>;
+        /**
+         * The prefix that an object must have to be included in the analytics results.
+         */
         prefix?: pulumi.Input<string>;
         storageClassAnalysis: pulumi.Input<inputs.s3.BucketStorageClassAnalysisArgs>;
         tagFilters?: pulumi.Input<pulumi.Input<inputs.s3.BucketTagFilterArgs>[]>;
@@ -20571,86 +21135,197 @@ export namespace s3 {
         corsRules: pulumi.Input<pulumi.Input<inputs.s3.BucketCorsRuleArgs>[]>;
     }
 
+    /**
+     * A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.
+     */
     export interface BucketCorsRuleArgs {
+        /**
+         * Headers that are specified in the Access-Control-Request-Headers header.
+         */
         allowedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
-        allowedMethods: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An HTTP method that you allow the origin to execute.
+         */
+        allowedMethods: pulumi.Input<pulumi.Input<enums.s3.BucketCorsRuleAllowedMethodsItem>[]>;
+        /**
+         * One or more origins you want customers to be able to access the bucket from.
+         */
         allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript XMLHttpRequest object).
+         */
         exposedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A unique identifier for this rule.
+         */
         id?: pulumi.Input<string>;
+        /**
+         * The time in seconds that your browser is to cache the preflight response for the specified resource.
+         */
         maxAge?: pulumi.Input<number>;
     }
 
+    /**
+     * Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.
+     */
     export interface BucketDataExportArgs {
         destination: pulumi.Input<inputs.s3.BucketDestinationArgs>;
+        /**
+         * The version of the output schema to use when exporting data.
+         */
         outputSchemaVersion: pulumi.Input<string>;
     }
 
+    /**
+     * The default retention period that you want to apply to new objects placed in the specified bucket.
+     */
     export interface BucketDefaultRetentionArgs {
         days?: pulumi.Input<number>;
-        mode?: pulumi.Input<string>;
+        mode?: pulumi.Input<enums.s3.BucketDefaultRetentionMode>;
         years?: pulumi.Input<number>;
     }
 
     export interface BucketDeleteMarkerReplicationArgs {
-        status?: pulumi.Input<string>;
+        status?: pulumi.Input<enums.s3.BucketDeleteMarkerReplicationStatus>;
     }
 
+    /**
+     * Specifies information about where to publish analysis or configuration results for an Amazon S3 bucket and S3 Replication Time Control (S3 RTC).
+     */
     export interface BucketDestinationArgs {
+        /**
+         * The account ID that owns the destination S3 bucket. 
+         */
         bucketAccountId?: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the bucket to which data is exported.
+         */
         bucketArn: pulumi.Input<string>;
-        format: pulumi.Input<string>;
+        /**
+         * Specifies the file format used when exporting data to Amazon S3.
+         */
+        format: pulumi.Input<enums.s3.BucketDestinationFormat>;
+        /**
+         * The prefix to use when exporting data. The prefix is prepended to all results.
+         */
         prefix?: pulumi.Input<string>;
     }
 
+    /**
+     * Specifies default encryption for a bucket using server-side encryption with either Amazon S3-managed keys (SSE-S3) or AWS KMS-managed keys (SSE-KMS).
+     */
     export interface BucketEncryptionArgs {
+        /**
+         * Specifies the default server-side-encryption configuration.
+         */
         serverSideEncryptionConfiguration: pulumi.Input<pulumi.Input<inputs.s3.BucketServerSideEncryptionRuleArgs>[]>;
     }
 
+    /**
+     * Specifies encryption-related information for an Amazon S3 bucket that is a destination for replicated objects.
+     */
     export interface BucketEncryptionConfigurationArgs {
+        /**
+         * Specifies the ID (Key ARN or Alias ARN) of the customer managed customer master key (CMK) stored in AWS Key Management Service (KMS) for the destination bucket.
+         */
         replicaKmsKeyID: pulumi.Input<string>;
     }
 
+    /**
+     * Specifies the Amazon S3 object key name to filter on and whether to filter on the suffix or prefix of the key name.
+     */
     export interface BucketFilterRuleArgs {
         name: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
 
     export interface BucketIntelligentTieringConfigurationArgs {
+        /**
+         * The ID used to identify the S3 Intelligent-Tiering configuration.
+         */
         id: pulumi.Input<string>;
+        /**
+         * An object key name prefix that identifies the subset of objects to which the rule applies.
+         */
         prefix?: pulumi.Input<string>;
-        status: pulumi.Input<string>;
+        /**
+         * Specifies the status of the configuration.
+         */
+        status: pulumi.Input<enums.s3.BucketIntelligentTieringConfigurationStatus>;
+        /**
+         * A container for a key-value pair.
+         */
         tagFilters?: pulumi.Input<pulumi.Input<inputs.s3.BucketTagFilterArgs>[]>;
+        /**
+         * Specifies a list of S3 Intelligent-Tiering storage class tiers in the configuration. At least one tier must be defined in the list. At most, you can specify two tiers in the list, one for each available AccessTier: ARCHIVE_ACCESS and DEEP_ARCHIVE_ACCESS.
+         */
         tierings: pulumi.Input<pulumi.Input<inputs.s3.BucketTieringArgs>[]>;
     }
 
     export interface BucketInventoryConfigurationArgs {
         destination: pulumi.Input<inputs.s3.BucketDestinationArgs>;
+        /**
+         * Specifies whether the inventory is enabled or disabled.
+         */
         enabled: pulumi.Input<boolean>;
+        /**
+         * The ID used to identify the inventory configuration.
+         */
         id: pulumi.Input<string>;
-        includedObjectVersions: pulumi.Input<string>;
-        optionalFields?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Object versions to include in the inventory list.
+         */
+        includedObjectVersions: pulumi.Input<enums.s3.BucketInventoryConfigurationIncludedObjectVersions>;
+        /**
+         * Contains the optional fields that are included in the inventory results.
+         */
+        optionalFields?: pulumi.Input<pulumi.Input<enums.s3.BucketInventoryConfigurationOptionalFieldsItem>[]>;
+        /**
+         * The prefix that is prepended to all inventory results.
+         */
         prefix?: pulumi.Input<string>;
-        scheduleFrequency: pulumi.Input<string>;
+        /**
+         * Specifies the schedule for generating inventory results.
+         */
+        scheduleFrequency: pulumi.Input<enums.s3.BucketInventoryConfigurationScheduleFrequency>;
     }
 
+    /**
+     * Describes the AWS Lambda functions to invoke and the events for which to invoke them.
+     */
     export interface BucketLambdaConfigurationArgs {
+        /**
+         * The Amazon S3 bucket event for which to invoke the AWS Lambda function.
+         */
         event: pulumi.Input<string>;
+        /**
+         * The filtering rules that determine which objects invoke the AWS Lambda function.
+         */
         filter?: pulumi.Input<inputs.s3.BucketNotificationFilterArgs>;
+        /**
+         * The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon S3 invokes when the specified event type occurs.
+         */
         function: pulumi.Input<string>;
     }
 
     export interface BucketLifecycleConfigurationArgs {
+        /**
+         * A lifecycle rule for individual objects in an Amazon S3 bucket.
+         */
         rules: pulumi.Input<pulumi.Input<inputs.s3.BucketRuleArgs>[]>;
     }
 
     export interface BucketLoggingConfigurationArgs {
+        /**
+         * The name of an Amazon S3 bucket where Amazon S3 store server access log files. You can store log files in any bucket that you own. By default, logs are stored in the bucket where the LoggingConfiguration property is defined.
+         */
         destinationBucketName?: pulumi.Input<string>;
         logFilePrefix?: pulumi.Input<string>;
     }
 
     export interface BucketMetricsArgs {
         eventThreshold?: pulumi.Input<inputs.s3.BucketReplicationTimeValueArgs>;
-        status: pulumi.Input<string>;
+        status: pulumi.Input<enums.s3.BucketMetricsStatus>;
     }
 
     export interface BucketMetricsConfigurationArgs {
@@ -20660,17 +21335,32 @@ export namespace s3 {
         tagFilters?: pulumi.Input<pulumi.Input<inputs.s3.BucketTagFilterArgs>[]>;
     }
 
+    /**
+     * Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER, or DEEP_ARCHIVE storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER, or DEEP_ARCHIVE storage class at a specific period in the object's lifetime.
+     */
     export interface BucketNoncurrentVersionTransitionArgs {
-        storageClass: pulumi.Input<string>;
+        /**
+         * The class of storage used to store the object.
+         */
+        storageClass: pulumi.Input<enums.s3.BucketNoncurrentVersionTransitionStorageClass>;
+        /**
+         * Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action.
+         */
         transitionInDays: pulumi.Input<number>;
     }
 
+    /**
+     * Describes the notification configuration for an Amazon S3 bucket.
+     */
     export interface BucketNotificationConfigurationArgs {
         lambdaConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.BucketLambdaConfigurationArgs>[]>;
         queueConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.BucketQueueConfigurationArgs>[]>;
         topicConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.BucketTopicConfigurationArgs>[]>;
     }
 
+    /**
+     * Specifies object key name filtering rules.
+     */
     export interface BucketNotificationFilterArgs {
         s3Key: pulumi.Input<inputs.s3.BucketS3KeyFilterArgs>;
     }
@@ -20680,6 +21370,9 @@ export namespace s3 {
         rule?: pulumi.Input<inputs.s3.BucketObjectLockRuleArgs>;
     }
 
+    /**
+     * The Object Lock rule in place for the specified object.
+     */
     export interface BucketObjectLockRuleArgs {
         defaultRetention?: pulumi.Input<inputs.s3.BucketDefaultRetentionArgs>;
     }
@@ -20689,44 +21382,122 @@ export namespace s3 {
     }
 
     export interface BucketOwnershipControlsRuleArgs {
-        objectOwnership?: pulumi.Input<string>;
+        /**
+         * Specifies an object ownership rule.
+         */
+        objectOwnership?: pulumi.Input<enums.s3.BucketOwnershipControlsRuleObjectOwnership>;
     }
 
+    /**
+     * Configuration that defines how Amazon S3 handles public access.
+     */
     export interface BucketPublicAccessBlockConfigurationArgs {
+        /**
+         * Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to TRUE causes the following behavior:
+         * - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+         *  - PUT Object calls fail if the request includes a public ACL.
+         * Enabling this setting doesn't affect existing policies or ACLs.
+         */
         blockPublicAcls?: pulumi.Input<boolean>;
+        /**
+         * Specifies whether Amazon S3 should block public bucket policies for this bucket. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+         * Enabling this setting doesn't affect existing bucket policies.
+         */
         blockPublicPolicy?: pulumi.Input<boolean>;
+        /**
+         * Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on this bucket and objects in this bucket.
+         * Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
+         */
         ignorePublicAcls?: pulumi.Input<boolean>;
+        /**
+         * Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
+         * Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
+         */
         restrictPublicBuckets?: pulumi.Input<boolean>;
     }
 
+    /**
+     * The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.
+     */
     export interface BucketQueueConfigurationArgs {
+        /**
+         * The Amazon S3 bucket event about which you want to publish messages to Amazon SQS.
+         */
         event: pulumi.Input<string>;
+        /**
+         * The filtering rules that determine which objects trigger notifications.
+         */
         filter?: pulumi.Input<inputs.s3.BucketNotificationFilterArgs>;
+        /**
+         * The Amazon Resource Name (ARN) of the Amazon SQS queue to which Amazon S3 publishes a message when it detects events of the specified type.
+         */
         queue: pulumi.Input<string>;
     }
 
+    /**
+     * Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket.
+     */
     export interface BucketRedirectAllRequestsToArgs {
+        /**
+         * Name of the host where requests are redirected.
+         */
         hostName: pulumi.Input<string>;
-        protocol?: pulumi.Input<string>;
+        /**
+         * Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
+         */
+        protocol?: pulumi.Input<enums.s3.BucketRedirectAllRequestsToProtocol>;
     }
 
+    /**
+     * Specifies how requests are redirected. In the event of an error, you can specify a different error code to return.
+     */
     export interface BucketRedirectRuleArgs {
+        /**
+         * The host name to use in the redirect request.
+         */
         hostName?: pulumi.Input<string>;
+        /**
+         * The HTTP redirect code to use on the response. Not required if one of the siblings is present.
+         */
         httpRedirectCode?: pulumi.Input<string>;
-        protocol?: pulumi.Input<string>;
+        /**
+         * Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
+         */
+        protocol?: pulumi.Input<enums.s3.BucketRedirectRuleProtocol>;
+        /**
+         * The object key prefix to use in the redirect request.
+         */
         replaceKeyPrefixWith?: pulumi.Input<string>;
+        /**
+         * The specific object key to use in the redirect request.d
+         */
         replaceKeyWith?: pulumi.Input<string>;
     }
 
     export interface BucketReplicaModificationsArgs {
-        status: pulumi.Input<string>;
+        /**
+         * Specifies whether Amazon S3 replicates modifications on replicas.
+         */
+        status: pulumi.Input<enums.s3.BucketReplicaModificationsStatus>;
     }
 
+    /**
+     * A container for replication rules. You can add up to 1,000 rules. The maximum size of a replication configuration is 2 MB.
+     */
     export interface BucketReplicationConfigurationArgs {
+        /**
+         * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that Amazon S3 assumes when replicating objects.
+         */
         role: pulumi.Input<string>;
+        /**
+         * A container for one or more replication rules.
+         */
         rules: pulumi.Input<pulumi.Input<inputs.s3.BucketReplicationRuleArgs>[]>;
     }
 
+    /**
+     * Specifies which Amazon S3 bucket to store replicated objects in and their storage class.
+     */
     export interface BucketReplicationDestinationArgs {
         accessControlTranslation?: pulumi.Input<inputs.s3.BucketAccessControlTranslationArgs>;
         account?: pulumi.Input<string>;
@@ -20734,18 +21505,33 @@ export namespace s3 {
         encryptionConfiguration?: pulumi.Input<inputs.s3.BucketEncryptionConfigurationArgs>;
         metrics?: pulumi.Input<inputs.s3.BucketMetricsArgs>;
         replicationTime?: pulumi.Input<inputs.s3.BucketReplicationTimeArgs>;
-        storageClass?: pulumi.Input<string>;
+        /**
+         * The storage class to use when replicating objects, such as S3 Standard or reduced redundancy.
+         */
+        storageClass?: pulumi.Input<enums.s3.BucketReplicationDestinationStorageClass>;
     }
 
+    /**
+     * Specifies which Amazon S3 objects to replicate and where to store the replicas.
+     */
     export interface BucketReplicationRuleArgs {
         deleteMarkerReplication?: pulumi.Input<inputs.s3.BucketDeleteMarkerReplicationArgs>;
         destination: pulumi.Input<inputs.s3.BucketReplicationDestinationArgs>;
         filter?: pulumi.Input<inputs.s3.BucketReplicationRuleFilterArgs>;
+        /**
+         * A unique identifier for the rule.
+         */
         id?: pulumi.Input<string>;
+        /**
+         * An object key name prefix that identifies the object or objects to which the rule applies.
+         */
         prefix?: pulumi.Input<string>;
         priority?: pulumi.Input<number>;
         sourceSelectionCriteria?: pulumi.Input<inputs.s3.BucketSourceSelectionCriteriaArgs>;
-        status: pulumi.Input<string>;
+        /**
+         * Specifies whether the rule is enabled.
+         */
+        status: pulumi.Input<enums.s3.BucketReplicationRuleStatus>;
     }
 
     export interface BucketReplicationRuleAndOperatorArgs {
@@ -20760,7 +21546,7 @@ export namespace s3 {
     }
 
     export interface BucketReplicationTimeArgs {
-        status: pulumi.Input<string>;
+        status: pulumi.Input<enums.s3.BucketReplicationTimeStatus>;
         time: pulumi.Input<inputs.s3.BucketReplicationTimeValueArgs>;
     }
 
@@ -20768,16 +21554,34 @@ export namespace s3 {
         minutes: pulumi.Input<number>;
     }
 
+    /**
+     * Specifies the redirect behavior and when a redirect is applied.
+     */
     export interface BucketRoutingRuleArgs {
+        /**
+         * Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can specify a different error code to return.
+         */
         redirectRule: pulumi.Input<inputs.s3.BucketRedirectRuleArgs>;
         routingRuleCondition?: pulumi.Input<inputs.s3.BucketRoutingRuleConditionArgs>;
     }
 
+    /**
+     * A container for describing a condition that must be met for the specified redirect to apply.You must specify at least one of HttpErrorCodeReturnedEquals and KeyPrefixEquals
+     */
     export interface BucketRoutingRuleConditionArgs {
+        /**
+         * The HTTP error code when the redirect is applied. 
+         */
         httpErrorCodeReturnedEquals?: pulumi.Input<string>;
+        /**
+         * The object key name prefix when the redirect is applied.
+         */
         keyPrefixEquals?: pulumi.Input<string>;
     }
 
+    /**
+     * You must specify at least one of the following properties: AbortIncompleteMultipartUpload, ExpirationDate, ExpirationInDays, NoncurrentVersionExpirationInDays, NoncurrentVersionTransition, NoncurrentVersionTransitions, Transition, or Transitions.
+     */
     export interface BucketRuleArgs {
         abortIncompleteMultipartUpload?: pulumi.Input<inputs.s3.BucketAbortIncompleteMultipartUploadArgs>;
         expirationDate?: pulumi.Input<string>;
@@ -20788,35 +21592,68 @@ export namespace s3 {
         noncurrentVersionTransition?: pulumi.Input<inputs.s3.BucketNoncurrentVersionTransitionArgs>;
         noncurrentVersionTransitions?: pulumi.Input<pulumi.Input<inputs.s3.BucketNoncurrentVersionTransitionArgs>[]>;
         prefix?: pulumi.Input<string>;
-        status: pulumi.Input<string>;
+        status: pulumi.Input<enums.s3.BucketRuleStatus>;
         tagFilters?: pulumi.Input<pulumi.Input<inputs.s3.BucketTagFilterArgs>[]>;
         transition?: pulumi.Input<inputs.s3.BucketTransitionArgs>;
         transitions?: pulumi.Input<pulumi.Input<inputs.s3.BucketTransitionArgs>[]>;
     }
 
+    /**
+     * A container for object key name prefix and suffix filtering rules.
+     */
     export interface BucketS3KeyFilterArgs {
         rules: pulumi.Input<pulumi.Input<inputs.s3.BucketFilterRuleArgs>[]>;
     }
 
+    /**
+     * Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
+     */
     export interface BucketServerSideEncryptionByDefaultArgs {
+        /**
+         * "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms.
+         */
         kMSMasterKeyID?: pulumi.Input<string>;
-        sSEAlgorithm: pulumi.Input<string>;
+        sSEAlgorithm: pulumi.Input<enums.s3.BucketServerSideEncryptionByDefaultSSEAlgorithm>;
     }
 
+    /**
+     * Specifies the default server-side encryption configuration.
+     */
     export interface BucketServerSideEncryptionRuleArgs {
+        /**
+         * Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the BucketKeyEnabled element to true causes Amazon S3 to use an S3 Bucket Key. By default, S3 Bucket Key is not enabled.
+         */
         bucketKeyEnabled?: pulumi.Input<boolean>;
         serverSideEncryptionByDefault?: pulumi.Input<inputs.s3.BucketServerSideEncryptionByDefaultArgs>;
     }
 
+    /**
+     * A container that describes additional filters for identifying the source objects that you want to replicate.
+     */
     export interface BucketSourceSelectionCriteriaArgs {
+        /**
+         * A filter that you can specify for selection for modifications on replicas.
+         */
         replicaModifications?: pulumi.Input<inputs.s3.BucketReplicaModificationsArgs>;
+        /**
+         * A container for filter information for the selection of Amazon S3 objects encrypted with AWS KMS.
+         */
         sseKmsEncryptedObjects?: pulumi.Input<inputs.s3.BucketSseKmsEncryptedObjectsArgs>;
     }
 
+    /**
+     * A container for filter information for the selection of S3 objects encrypted with AWS KMS.
+     */
     export interface BucketSseKmsEncryptedObjectsArgs {
-        status: pulumi.Input<string>;
+        /**
+         * Specifies whether Amazon S3 replicates objects created with server-side encryption using a customer master key (CMK) stored in AWS Key Management Service.
+         */
+        status: pulumi.Input<enums.s3.BucketSseKmsEncryptedObjectsStatus>;
     }
 
+    /**
+     * Specifies data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes for an Amazon S3 bucket.
+     */
     export interface BucketStorageClassAnalysisArgs {
         dataExport?: pulumi.Input<inputs.s3.BucketDataExportArgs>;
     }
@@ -20826,34 +21663,73 @@ export namespace s3 {
         value: pulumi.Input<string>;
     }
 
+    /**
+     * Tags to use to identify a subset of objects for an Amazon S3 bucket.
+     */
     export interface BucketTagFilterArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
 
     export interface BucketTieringArgs {
-        accessTier: pulumi.Input<string>;
+        /**
+         * S3 Intelligent-Tiering access tier. See Storage class for automatically optimizing frequently and infrequently accessed objects for a list of access tiers in the S3 Intelligent-Tiering storage class.
+         */
+        accessTier: pulumi.Input<enums.s3.BucketTieringAccessTier>;
+        /**
+         * The number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier. The minimum number of days specified for Archive Access tier must be at least 90 days and Deep Archive Access tier must be at least 180 days. The maximum can be up to 2 years (730 days).
+         */
         days: pulumi.Input<number>;
     }
 
+    /**
+     * The topic to which notifications are sent and the events for which notifications are generated.
+     */
     export interface BucketTopicConfigurationArgs {
+        /**
+         * The Amazon S3 bucket event about which to send notifications.
+         */
         event: pulumi.Input<string>;
+        /**
+         * The filtering rules that determine for which objects to send notifications.
+         */
         filter?: pulumi.Input<inputs.s3.BucketNotificationFilterArgs>;
+        /**
+         * The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon S3 publishes a message when it detects events of the specified type.
+         */
         topic: pulumi.Input<string>;
     }
 
+    /**
+     * You must specify at least one of "TransitionDate" and "TransitionInDays"
+     */
     export interface BucketTransitionArgs {
-        storageClass: pulumi.Input<string>;
+        storageClass: pulumi.Input<enums.s3.BucketTransitionStorageClass>;
         transitionDate?: pulumi.Input<string>;
         transitionInDays?: pulumi.Input<number>;
     }
 
+    /**
+     * Describes the versioning state of an Amazon S3 bucket.
+     */
     export interface BucketVersioningConfigurationArgs {
-        status: pulumi.Input<string>;
+        /**
+         * The versioning state of the bucket.
+         */
+        status: pulumi.Input<enums.s3.BucketVersioningConfigurationStatus>;
     }
 
+    /**
+     * Specifies website configuration parameters for an Amazon S3 bucket.
+     */
     export interface BucketWebsiteConfigurationArgs {
+        /**
+         * The name of the error document for the website.
+         */
         errorDocument?: pulumi.Input<string>;
+        /**
+         * The name of the index document for the website.
+         */
         indexDocument?: pulumi.Input<string>;
         redirectAllRequestsTo?: pulumi.Input<inputs.s3.BucketRedirectAllRequestsToArgs>;
         routingRules?: pulumi.Input<pulumi.Input<inputs.s3.BucketRoutingRuleArgs>[]>;
@@ -23585,6 +24461,13 @@ export namespace stepfunctions {
 }
 
 export namespace synthetics {
+    export interface CanaryArtifactConfigArgs {
+        /**
+         * Encryption configuration for uploading artifacts to S3
+         */
+        s3Encryption?: pulumi.Input<inputs.synthetics.CanaryS3EncryptionArgs>;
+    }
+
     export interface CanaryBaseScreenshotArgs {
         /**
          * List of coordinates of rectangles to be ignored during visual testing
@@ -23621,6 +24504,17 @@ export namespace synthetics {
          * Provide maximum canary timeout per run in seconds
          */
         timeoutInSeconds?: pulumi.Input<number>;
+    }
+
+    export interface CanaryS3EncryptionArgs {
+        /**
+         * Encryption mode for encrypting artifacts when uploading to S3. Valid values: SSE_S3 and SSE_KMS.
+         */
+        encryptionMode?: pulumi.Input<string>;
+        /**
+         * KMS key Arn for encrypting artifacts when uploading to S3. You must specify KMS key Arn for SSE_KMS encryption mode only.
+         */
+        kmsKeyArn?: pulumi.Input<string>;
     }
 
     export interface CanaryScheduleArgs {

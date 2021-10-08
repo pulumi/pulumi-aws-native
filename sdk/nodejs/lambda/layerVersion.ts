@@ -38,6 +38,7 @@ export class LayerVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === LayerVersion.__pulumiType;
     }
 
+    public readonly compatibleArchitectures!: pulumi.Output<string[] | undefined>;
     public readonly compatibleRuntimes!: pulumi.Output<string[] | undefined>;
     public readonly content!: pulumi.Output<outputs.lambda.LayerVersionContent>;
     public readonly description!: pulumi.Output<string | undefined>;
@@ -60,12 +61,14 @@ export class LayerVersion extends pulumi.CustomResource {
             if ((!args || args.content === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
+            inputs["compatibleArchitectures"] = args ? args.compatibleArchitectures : undefined;
             inputs["compatibleRuntimes"] = args ? args.compatibleRuntimes : undefined;
             inputs["content"] = args ? args.content : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["layerName"] = args ? args.layerName : undefined;
             inputs["licenseInfo"] = args ? args.licenseInfo : undefined;
         } else {
+            inputs["compatibleArchitectures"] = undefined /*out*/;
             inputs["compatibleRuntimes"] = undefined /*out*/;
             inputs["content"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
@@ -83,6 +86,7 @@ export class LayerVersion extends pulumi.CustomResource {
  * The set of arguments for constructing a LayerVersion resource.
  */
 export interface LayerVersionArgs {
+    compatibleArchitectures?: pulumi.Input<pulumi.Input<string>[]>;
     compatibleRuntimes?: pulumi.Input<pulumi.Input<string>[]>;
     content: pulumi.Input<inputs.lambda.LayerVersionContentArgs>;
     description?: pulumi.Input<string>;

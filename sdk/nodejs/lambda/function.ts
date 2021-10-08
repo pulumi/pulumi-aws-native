@@ -35,6 +35,7 @@ export class Function extends pulumi.CustomResource {
         return obj['__pulumiType'] === Function.__pulumiType;
     }
 
+    public readonly architectures!: pulumi.Output<enums.lambda.FunctionArchitecturesItem[] | undefined>;
     /**
      * Unique identifier for function resources
      */
@@ -137,6 +138,7 @@ export class Function extends pulumi.CustomResource {
             if ((!args || args.role === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
+            inputs["architectures"] = args ? args.architectures : undefined;
             inputs["code"] = args ? args.code : undefined;
             inputs["codeSigningConfigArn"] = args ? args.codeSigningConfigArn : undefined;
             inputs["deadLetterConfig"] = args ? args.deadLetterConfig : undefined;
@@ -159,6 +161,7 @@ export class Function extends pulumi.CustomResource {
             inputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             inputs["arn"] = undefined /*out*/;
         } else {
+            inputs["architectures"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
             inputs["code"] = undefined /*out*/;
             inputs["codeSigningConfigArn"] = undefined /*out*/;
@@ -192,6 +195,7 @@ export class Function extends pulumi.CustomResource {
  * The set of arguments for constructing a Function resource.
  */
 export interface FunctionArgs {
+    architectures?: pulumi.Input<pulumi.Input<enums.lambda.FunctionArchitecturesItem>[]>;
     /**
      * The code for the function.
      */

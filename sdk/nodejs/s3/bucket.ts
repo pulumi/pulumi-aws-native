@@ -35,30 +35,93 @@ export class Bucket extends pulumi.CustomResource {
         return obj['__pulumiType'] === Bucket.__pulumiType;
     }
 
+    /**
+     * Configuration for the transfer acceleration state.
+     */
     public readonly accelerateConfiguration!: pulumi.Output<outputs.s3.BucketAccelerateConfiguration | undefined>;
-    public readonly accessControl!: pulumi.Output<string | undefined>;
+    /**
+     * A canned access control list (ACL) that grants predefined permissions to the bucket.
+     */
+    public readonly accessControl!: pulumi.Output<enums.s3.BucketAccessControl | undefined>;
+    /**
+     * The configuration and any analyses for the analytics filter of an Amazon S3 bucket.
+     */
     public readonly analyticsConfigurations!: pulumi.Output<outputs.s3.BucketAnalyticsConfiguration[] | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the specified bucket.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly bucketEncryption!: pulumi.Output<outputs.s3.BucketEncryption | undefined>;
+    /**
+     * A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+     */
     public readonly bucketName!: pulumi.Output<string | undefined>;
+    /**
+     * Rules that define cross-origin resource sharing of objects in this bucket.
+     */
     public readonly corsConfiguration!: pulumi.Output<outputs.s3.BucketCorsConfiguration | undefined>;
+    /**
+     * The IPv4 DNS name of the specified bucket.
+     */
     public /*out*/ readonly domainName!: pulumi.Output<string>;
+    /**
+     * The IPv6 DNS name of the specified bucket. For more information about dual-stack endpoints, see [Using Amazon S3 Dual-Stack Endpoints](https://docs.aws.amazon.com/AmazonS3/latest/dev/dual-stack-endpoints.html).
+     */
     public /*out*/ readonly dualStackDomainName!: pulumi.Output<string>;
+    /**
+     * Specifies the S3 Intelligent-Tiering configuration for an Amazon S3 bucket.
+     */
     public readonly intelligentTieringConfigurations!: pulumi.Output<outputs.s3.BucketIntelligentTieringConfiguration[] | undefined>;
+    /**
+     * The inventory configuration for an Amazon S3 bucket.
+     */
     public readonly inventoryConfigurations!: pulumi.Output<outputs.s3.BucketInventoryConfiguration[] | undefined>;
+    /**
+     * Rules that define how Amazon S3 manages objects during their lifetime.
+     */
     public readonly lifecycleConfiguration!: pulumi.Output<outputs.s3.BucketLifecycleConfiguration | undefined>;
+    /**
+     * Settings that define where logs are stored.
+     */
     public readonly loggingConfiguration!: pulumi.Output<outputs.s3.BucketLoggingConfiguration | undefined>;
+    /**
+     * Settings that define a metrics configuration for the CloudWatch request metrics from the bucket.
+     */
     public readonly metricsConfigurations!: pulumi.Output<outputs.s3.BucketMetricsConfiguration[] | undefined>;
+    /**
+     * Configuration that defines how Amazon S3 handles bucket notifications.
+     */
     public readonly notificationConfiguration!: pulumi.Output<outputs.s3.BucketNotificationConfiguration | undefined>;
+    /**
+     * Places an Object Lock configuration on the specified bucket.
+     */
     public readonly objectLockConfiguration!: pulumi.Output<outputs.s3.BucketObjectLockConfiguration | undefined>;
+    /**
+     * Indicates whether this bucket has an Object Lock configuration enabled.
+     */
     public readonly objectLockEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies the container element for object ownership rules.
+     */
     public readonly ownershipControls!: pulumi.Output<outputs.s3.BucketOwnershipControls | undefined>;
     public readonly publicAccessBlockConfiguration!: pulumi.Output<outputs.s3.BucketPublicAccessBlockConfiguration | undefined>;
+    /**
+     * Returns the regional domain name of the specified bucket.
+     */
     public /*out*/ readonly regionalDomainName!: pulumi.Output<string>;
+    /**
+     * Configuration for replicating objects in an S3 bucket.
+     */
     public readonly replicationConfiguration!: pulumi.Output<outputs.s3.BucketReplicationConfiguration | undefined>;
+    /**
+     * An arbitrary set of tags (key-value pairs) for this S3 bucket.
+     */
     public readonly tags!: pulumi.Output<outputs.s3.BucketTag[] | undefined>;
     public readonly versioningConfiguration!: pulumi.Output<outputs.s3.BucketVersioningConfiguration | undefined>;
     public readonly websiteConfiguration!: pulumi.Output<outputs.s3.BucketWebsiteConfiguration | undefined>;
+    /**
+     * The Amazon S3 website endpoint for the specified bucket.
+     */
     public /*out*/ readonly websiteURL!: pulumi.Output<string>;
 
     /**
@@ -135,23 +198,71 @@ export class Bucket extends pulumi.CustomResource {
  * The set of arguments for constructing a Bucket resource.
  */
 export interface BucketArgs {
+    /**
+     * Configuration for the transfer acceleration state.
+     */
     accelerateConfiguration?: pulumi.Input<inputs.s3.BucketAccelerateConfigurationArgs>;
-    accessControl?: pulumi.Input<string>;
+    /**
+     * A canned access control list (ACL) that grants predefined permissions to the bucket.
+     */
+    accessControl?: pulumi.Input<enums.s3.BucketAccessControl>;
+    /**
+     * The configuration and any analyses for the analytics filter of an Amazon S3 bucket.
+     */
     analyticsConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.BucketAnalyticsConfigurationArgs>[]>;
     bucketEncryption?: pulumi.Input<inputs.s3.BucketEncryptionArgs>;
+    /**
+     * A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+     */
     bucketName?: pulumi.Input<string>;
+    /**
+     * Rules that define cross-origin resource sharing of objects in this bucket.
+     */
     corsConfiguration?: pulumi.Input<inputs.s3.BucketCorsConfigurationArgs>;
+    /**
+     * Specifies the S3 Intelligent-Tiering configuration for an Amazon S3 bucket.
+     */
     intelligentTieringConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.BucketIntelligentTieringConfigurationArgs>[]>;
+    /**
+     * The inventory configuration for an Amazon S3 bucket.
+     */
     inventoryConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.BucketInventoryConfigurationArgs>[]>;
+    /**
+     * Rules that define how Amazon S3 manages objects during their lifetime.
+     */
     lifecycleConfiguration?: pulumi.Input<inputs.s3.BucketLifecycleConfigurationArgs>;
+    /**
+     * Settings that define where logs are stored.
+     */
     loggingConfiguration?: pulumi.Input<inputs.s3.BucketLoggingConfigurationArgs>;
+    /**
+     * Settings that define a metrics configuration for the CloudWatch request metrics from the bucket.
+     */
     metricsConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.BucketMetricsConfigurationArgs>[]>;
+    /**
+     * Configuration that defines how Amazon S3 handles bucket notifications.
+     */
     notificationConfiguration?: pulumi.Input<inputs.s3.BucketNotificationConfigurationArgs>;
+    /**
+     * Places an Object Lock configuration on the specified bucket.
+     */
     objectLockConfiguration?: pulumi.Input<inputs.s3.BucketObjectLockConfigurationArgs>;
+    /**
+     * Indicates whether this bucket has an Object Lock configuration enabled.
+     */
     objectLockEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies the container element for object ownership rules.
+     */
     ownershipControls?: pulumi.Input<inputs.s3.BucketOwnershipControlsArgs>;
     publicAccessBlockConfiguration?: pulumi.Input<inputs.s3.BucketPublicAccessBlockConfigurationArgs>;
+    /**
+     * Configuration for replicating objects in an S3 bucket.
+     */
     replicationConfiguration?: pulumi.Input<inputs.s3.BucketReplicationConfigurationArgs>;
+    /**
+     * An arbitrary set of tags (key-value pairs) for this S3 bucket.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.s3.BucketTagArgs>[]>;
     versioningConfiguration?: pulumi.Input<inputs.s3.BucketVersioningConfigurationArgs>;
     websiteConfiguration?: pulumi.Input<inputs.s3.BucketWebsiteConfigurationArgs>;

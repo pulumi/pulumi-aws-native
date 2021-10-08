@@ -35,16 +35,49 @@ export class Role extends pulumi.CustomResource {
         return obj['__pulumiType'] === Role.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) for the role.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The trust policy that is associated with this role.
+     */
     public readonly assumeRolePolicyDocument!: pulumi.Output<any>;
+    /**
+     * A description of the role that you provide.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role. 
+     */
     public readonly managedPolicyArns!: pulumi.Output<string[] | undefined>;
+    /**
+     * The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours. 
+     */
     public readonly maxSessionDuration!: pulumi.Output<number | undefined>;
+    /**
+     * The path to the role.
+     */
     public readonly path!: pulumi.Output<string | undefined>;
+    /**
+     * The ARN of the policy used to set the permissions boundary for the role.
+     */
     public readonly permissionsBoundary!: pulumi.Output<string | undefined>;
+    /**
+     * Adds or updates an inline policy document that is embedded in the specified IAM role. 
+     */
     public readonly policies!: pulumi.Output<outputs.iam.RolePolicy[] | undefined>;
+    /**
+     * The stable and unique string identifying the role.
+     */
     public /*out*/ readonly roleId!: pulumi.Output<string>;
+    /**
+     * A name for the IAM role, up to 64 characters in length.
+     */
     public readonly roleName!: pulumi.Output<string | undefined>;
+    /**
+     * A list of tags that are attached to the role.
+     */
     public readonly tags!: pulumi.Output<outputs.iam.RoleTag[] | undefined>;
 
     /**
@@ -96,13 +129,40 @@ export class Role extends pulumi.CustomResource {
  * The set of arguments for constructing a Role resource.
  */
 export interface RoleArgs {
+    /**
+     * The trust policy that is associated with this role.
+     */
     assumeRolePolicyDocument: any;
+    /**
+     * A description of the role that you provide.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role. 
+     */
     managedPolicyArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours. 
+     */
     maxSessionDuration?: pulumi.Input<number>;
+    /**
+     * The path to the role.
+     */
     path?: pulumi.Input<string>;
+    /**
+     * The ARN of the policy used to set the permissions boundary for the role.
+     */
     permissionsBoundary?: pulumi.Input<string>;
+    /**
+     * Adds or updates an inline policy document that is embedded in the specified IAM role. 
+     */
     policies?: pulumi.Input<pulumi.Input<inputs.iam.RolePolicyArgs>[]>;
+    /**
+     * A name for the IAM role, up to 64 characters in length.
+     */
     roleName?: pulumi.Input<string>;
+    /**
+     * A list of tags that are attached to the role.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.iam.RoleTagArgs>[]>;
 }

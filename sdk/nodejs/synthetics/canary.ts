@@ -36,6 +36,10 @@ export class Canary extends pulumi.CustomResource {
     }
 
     /**
+     * Provide artifact configuration
+     */
+    public readonly artifactConfig!: pulumi.Output<outputs.synthetics.CanaryArtifactConfig | undefined>;
+    /**
      * Provide the s3 bucket output location for test results
      */
     public readonly artifactS3Location!: pulumi.Output<string>;
@@ -121,6 +125,7 @@ export class Canary extends pulumi.CustomResource {
             if ((!args || args.startCanaryAfterCreation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'startCanaryAfterCreation'");
             }
+            inputs["artifactConfig"] = args ? args.artifactConfig : undefined;
             inputs["artifactS3Location"] = args ? args.artifactS3Location : undefined;
             inputs["code"] = args ? args.code : undefined;
             inputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
@@ -136,6 +141,7 @@ export class Canary extends pulumi.CustomResource {
             inputs["visualReference"] = args ? args.visualReference : undefined;
             inputs["state"] = undefined /*out*/;
         } else {
+            inputs["artifactConfig"] = undefined /*out*/;
             inputs["artifactS3Location"] = undefined /*out*/;
             inputs["code"] = undefined /*out*/;
             inputs["executionRoleArn"] = undefined /*out*/;
@@ -162,6 +168,10 @@ export class Canary extends pulumi.CustomResource {
  * The set of arguments for constructing a Canary resource.
  */
 export interface CanaryArgs {
+    /**
+     * Provide artifact configuration
+     */
+    artifactConfig?: pulumi.Input<inputs.synthetics.CanaryArtifactConfigArgs>;
     /**
      * Provide the s3 bucket output location for test results
      */

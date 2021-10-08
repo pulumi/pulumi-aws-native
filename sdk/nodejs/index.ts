@@ -129,6 +129,7 @@ import * as kms from "./kms";
 import * as lakeformation from "./lakeformation";
 import * as lambda from "./lambda";
 import * as licensemanager from "./licensemanager";
+import * as lightsail from "./lightsail";
 import * as location from "./location";
 import * as logs from "./logs";
 import * as lookoutmetrics from "./lookoutmetrics";
@@ -300,6 +301,7 @@ export {
     lakeformation,
     lambda,
     licensemanager,
+    lightsail,
     location,
     logs,
     lookoutmetrics,

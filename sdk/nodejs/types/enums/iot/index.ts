@@ -77,6 +77,21 @@ export const DomainConfigurationStatus = {
 
 export type DomainConfigurationStatus = (typeof DomainConfigurationStatus)[keyof typeof DomainConfigurationStatus];
 
+export const JobTemplateAction = {
+    Cancel: "CANCEL",
+} as const;
+
+export type JobTemplateAction = (typeof JobTemplateAction)[keyof typeof JobTemplateAction];
+
+export const JobTemplateFailureType = {
+    Failed: "FAILED",
+    Rejected: "REJECTED",
+    TimedOut: "TIMED_OUT",
+    All: "ALL",
+} as const;
+
+export type JobTemplateFailureType = (typeof JobTemplateFailureType)[keyof typeof JobTemplateFailureType];
+
 export const MitigationActionEnableIoTLoggingParamsLogLevel = {
     Debug: "DEBUG",
     Info: "INFO",

@@ -32,6 +32,13 @@ export const EventSourceMappingSourceAccessConfigurationType = {
  */
 export type EventSourceMappingSourceAccessConfigurationType = (typeof EventSourceMappingSourceAccessConfigurationType)[keyof typeof EventSourceMappingSourceAccessConfigurationType];
 
+export const FunctionArchitecturesItem = {
+    X8664: "x86_64",
+    Arm64: "arm64",
+} as const;
+
+export type FunctionArchitecturesItem = (typeof FunctionArchitecturesItem)[keyof typeof FunctionArchitecturesItem];
+
 export const FunctionPackageType = {
     Image: "Image",
     Zip: "Zip",
