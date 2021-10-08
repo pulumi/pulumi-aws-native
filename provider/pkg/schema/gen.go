@@ -735,6 +735,31 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 		}
 	}
 
+	// Inline properties.
+	if len(propSchema.Properties) > 0 {
+		typName := parentName + "Properties"
+		tok := fmt.Sprintf("%s:%s:%s", packageName, ctx.mod, typName)
+		specs, requiredSpecs, err := ctx.genProperties(typName, propSchema)
+		if err != nil {
+			return nil, err
+		}
+
+		ctx.pkg.Types[tok] = pschema.ComplexTypeSpec{
+			ObjectTypeSpec: pschema.ObjectTypeSpec{
+				Description: propSchema.Description,
+				Type:        "object",
+				Properties:  specs,
+				Required:    requiredSpecs.SortedValues(),
+			},
+		}
+		ctx.metadata.Types[tok] = CloudAPIType{
+			Type:       "object",
+			Properties: specs,
+		}
+		referencedTypeName := fmt.Sprintf("#/types/%s", tok)
+		return &pschema.TypeSpec{Ref: referencedTypeName}, nil
+	}
+
 	// Union types.
 	if len(propSchema.AnyOf) > 0 {
 		var types []pschema.TypeSpec
@@ -785,7 +810,7 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 		}
 	}
 
-	return nil, errors.New("failed to generate property types")
+	return nil, errors.Errorf("failed to generate property types for %+v", propSchema)
 }
 
 func (ctx *context) genProperties(parentName string, typeSchema *jsschema.Schema) (map[string]pschema.PropertySpec, codegen.StringSet, error) {
