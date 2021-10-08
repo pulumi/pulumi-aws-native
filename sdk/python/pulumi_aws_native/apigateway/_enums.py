@@ -5,8 +5,68 @@
 from enum import Enum
 
 __all__ = [
+    'MethodAuthorizationType',
+    'MethodIntegrationConnectionType',
+    'MethodIntegrationContentHandling',
+    'MethodIntegrationPassthroughBehavior',
+    'MethodIntegrationResponseContentHandling',
+    'MethodIntegrationType',
     'UsagePlanKeyKeyType',
 ]
+
+
+class MethodAuthorizationType(str, Enum):
+    """
+    The method's authorization type.
+    """
+    NONE = "NONE"
+    AWS_IAM = "AWS_IAM"
+    CUSTOM = "CUSTOM"
+    COGNITO_USER_POOLS = "COGNITO_USER_POOLS"
+
+
+class MethodIntegrationConnectionType(str, Enum):
+    """
+    The type of the network connection to the integration endpoint.
+    """
+    INTERNET = "INTERNET"
+    VPC_LINK = "VPC_LINK"
+
+
+class MethodIntegrationContentHandling(str, Enum):
+    """
+    Specifies how to handle request payload content type conversions.
+    """
+    CONVERT_TO_BINARY = "CONVERT_TO_BINARY"
+    CONVERT_TO_TEXT = "CONVERT_TO_TEXT"
+
+
+class MethodIntegrationPassthroughBehavior(str, Enum):
+    """
+    Indicates when API Gateway passes requests to the targeted backend.
+    """
+    WHEN_NO_MATCH = "WHEN_NO_MATCH"
+    WHEN_NO_TEMPLATES = "WHEN_NO_TEMPLATES"
+    NEVER = "NEVER"
+
+
+class MethodIntegrationResponseContentHandling(str, Enum):
+    """
+    Specifies how to handle request payload content type conversions.
+    """
+    CONVERT_TO_BINARY = "CONVERT_TO_BINARY"
+    CONVERT_TO_TEXT = "CONVERT_TO_TEXT"
+
+
+class MethodIntegrationType(str, Enum):
+    """
+    The type of backend that your method is running.
+    """
+    AWS = "AWS"
+    AWS_PROXY = "AWS_PROXY"
+    HTTP = "HTTP"
+    HTTP_PROXY = "HTTP_PROXY"
+    MOCK = "MOCK"
 
 
 class UsagePlanKeyKeyType(str, Enum):

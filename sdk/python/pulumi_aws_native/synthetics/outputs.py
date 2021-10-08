@@ -10,14 +10,52 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'CanaryArtifactConfig',
     'CanaryBaseScreenshot',
     'CanaryCode',
     'CanaryRunConfig',
+    'CanaryS3Encryption',
     'CanarySchedule',
     'CanaryTag',
     'CanaryVPCConfig',
     'CanaryVisualReference',
 ]
+
+@pulumi.output_type
+class CanaryArtifactConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Encryption":
+            suggest = "s3_encryption"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CanaryArtifactConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CanaryArtifactConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CanaryArtifactConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_encryption: Optional['outputs.CanaryS3Encryption'] = None):
+        """
+        :param 'CanaryS3Encryption' s3_encryption: Encryption configuration for uploading artifacts to S3
+        """
+        if s3_encryption is not None:
+            pulumi.set(__self__, "s3_encryption", s3_encryption)
+
+    @property
+    @pulumi.getter(name="s3Encryption")
+    def s3_encryption(self) -> Optional['outputs.CanaryS3Encryption']:
+        """
+        Encryption configuration for uploading artifacts to S3
+        """
+        return pulumi.get(self, "s3_encryption")
+
 
 @pulumi.output_type
 class CanaryBaseScreenshot(dict):
@@ -209,6 +247,56 @@ class CanaryRunConfig(dict):
         Provide maximum canary timeout per run in seconds
         """
         return pulumi.get(self, "timeout_in_seconds")
+
+
+@pulumi.output_type
+class CanaryS3Encryption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionMode":
+            suggest = "encryption_mode"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CanaryS3Encryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CanaryS3Encryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CanaryS3Encryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_mode: Optional[str] = None,
+                 kms_key_arn: Optional[str] = None):
+        """
+        :param str encryption_mode: Encryption mode for encrypting artifacts when uploading to S3. Valid values: SSE_S3 and SSE_KMS.
+        :param str kms_key_arn: KMS key Arn for encrypting artifacts when uploading to S3. You must specify KMS key Arn for SSE_KMS encryption mode only.
+        """
+        if encryption_mode is not None:
+            pulumi.set(__self__, "encryption_mode", encryption_mode)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @property
+    @pulumi.getter(name="encryptionMode")
+    def encryption_mode(self) -> Optional[str]:
+        """
+        Encryption mode for encrypting artifacts when uploading to S3. Valid values: SSE_S3 and SSE_KMS.
+        """
+        return pulumi.get(self, "encryption_mode")
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[str]:
+        """
+        KMS key Arn for encrypting artifacts when uploading to S3. You must specify KMS key Arn for SSE_KMS encryption mode only.
+        """
+        return pulumi.get(self, "kms_key_arn")
 
 
 @pulumi.output_type

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['MethodArgs', 'Method']
@@ -20,7 +21,7 @@ class MethodArgs:
                  rest_api_id: pulumi.Input[str],
                  api_key_required: Optional[pulumi.Input[bool]] = None,
                  authorization_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 authorization_type: Optional[pulumi.Input[str]] = None,
+                 authorization_type: Optional[pulumi.Input['MethodAuthorizationType']] = None,
                  authorizer_id: Optional[pulumi.Input[str]] = None,
                  integration: Optional[pulumi.Input['MethodIntegrationArgs']] = None,
                  method_responses: Optional[pulumi.Input[Sequence[pulumi.Input['MethodResponseArgs']]]] = None,
@@ -30,6 +31,19 @@ class MethodArgs:
                  request_validator_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Method resource.
+        :param pulumi.Input[str] http_method: The backend system that the method calls when it receives a request.
+        :param pulumi.Input[str] resource_id: The ID of an API Gateway resource.
+        :param pulumi.Input[str] rest_api_id: The ID of the RestApi resource in which API Gateway creates the method.
+        :param pulumi.Input[bool] api_key_required: Indicates whether the method requires clients to submit a valid API key.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorization_scopes: A list of authorization scopes configured on the method.
+        :param pulumi.Input['MethodAuthorizationType'] authorization_type: The method's authorization type.
+        :param pulumi.Input[str] authorizer_id: The identifier of the authorizer to use on this method.
+        :param pulumi.Input['MethodIntegrationArgs'] integration: The backend system that the method calls when it receives a request.
+        :param pulumi.Input[Sequence[pulumi.Input['MethodResponseArgs']]] method_responses: The responses that can be sent to the client who calls the method.
+        :param pulumi.Input[str] operation_name: A friendly operation name for the method.
+        :param Any request_models: The resources that are used for the request's content type. Specify request models as key-value pairs (string-to-string mapping), with a content type as the key and a Model resource name as the value.
+        :param Any request_parameters: The request parameters that API Gateway accepts. Specify request parameters as key-value pairs (string-to-Boolean mapping), with a source as the key and a Boolean as the value.
+        :param pulumi.Input[str] request_validator_id: The ID of the associated request validator.
         """
         pulumi.set(__self__, "http_method", http_method)
         pulumi.set(__self__, "resource_id", resource_id)
@@ -58,6 +72,9 @@ class MethodArgs:
     @property
     @pulumi.getter(name="httpMethod")
     def http_method(self) -> pulumi.Input[str]:
+        """
+        The backend system that the method calls when it receives a request.
+        """
         return pulumi.get(self, "http_method")
 
     @http_method.setter
@@ -67,6 +84,9 @@ class MethodArgs:
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[str]:
+        """
+        The ID of an API Gateway resource.
+        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -76,6 +96,9 @@ class MethodArgs:
     @property
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the RestApi resource in which API Gateway creates the method.
+        """
         return pulumi.get(self, "rest_api_id")
 
     @rest_api_id.setter
@@ -85,6 +108,9 @@ class MethodArgs:
     @property
     @pulumi.getter(name="apiKeyRequired")
     def api_key_required(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the method requires clients to submit a valid API key.
+        """
         return pulumi.get(self, "api_key_required")
 
     @api_key_required.setter
@@ -94,6 +120,9 @@ class MethodArgs:
     @property
     @pulumi.getter(name="authorizationScopes")
     def authorization_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of authorization scopes configured on the method.
+        """
         return pulumi.get(self, "authorization_scopes")
 
     @authorization_scopes.setter
@@ -102,16 +131,22 @@ class MethodArgs:
 
     @property
     @pulumi.getter(name="authorizationType")
-    def authorization_type(self) -> Optional[pulumi.Input[str]]:
+    def authorization_type(self) -> Optional[pulumi.Input['MethodAuthorizationType']]:
+        """
+        The method's authorization type.
+        """
         return pulumi.get(self, "authorization_type")
 
     @authorization_type.setter
-    def authorization_type(self, value: Optional[pulumi.Input[str]]):
+    def authorization_type(self, value: Optional[pulumi.Input['MethodAuthorizationType']]):
         pulumi.set(self, "authorization_type", value)
 
     @property
     @pulumi.getter(name="authorizerId")
     def authorizer_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the authorizer to use on this method.
+        """
         return pulumi.get(self, "authorizer_id")
 
     @authorizer_id.setter
@@ -121,6 +156,9 @@ class MethodArgs:
     @property
     @pulumi.getter
     def integration(self) -> Optional[pulumi.Input['MethodIntegrationArgs']]:
+        """
+        The backend system that the method calls when it receives a request.
+        """
         return pulumi.get(self, "integration")
 
     @integration.setter
@@ -130,6 +168,9 @@ class MethodArgs:
     @property
     @pulumi.getter(name="methodResponses")
     def method_responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MethodResponseArgs']]]]:
+        """
+        The responses that can be sent to the client who calls the method.
+        """
         return pulumi.get(self, "method_responses")
 
     @method_responses.setter
@@ -139,6 +180,9 @@ class MethodArgs:
     @property
     @pulumi.getter(name="operationName")
     def operation_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly operation name for the method.
+        """
         return pulumi.get(self, "operation_name")
 
     @operation_name.setter
@@ -148,6 +192,9 @@ class MethodArgs:
     @property
     @pulumi.getter(name="requestModels")
     def request_models(self) -> Optional[Any]:
+        """
+        The resources that are used for the request's content type. Specify request models as key-value pairs (string-to-string mapping), with a content type as the key and a Model resource name as the value.
+        """
         return pulumi.get(self, "request_models")
 
     @request_models.setter
@@ -157,6 +204,9 @@ class MethodArgs:
     @property
     @pulumi.getter(name="requestParameters")
     def request_parameters(self) -> Optional[Any]:
+        """
+        The request parameters that API Gateway accepts. Specify request parameters as key-value pairs (string-to-Boolean mapping), with a source as the key and a Boolean as the value.
+        """
         return pulumi.get(self, "request_parameters")
 
     @request_parameters.setter
@@ -166,6 +216,9 @@ class MethodArgs:
     @property
     @pulumi.getter(name="requestValidatorId")
     def request_validator_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the associated request validator.
+        """
         return pulumi.get(self, "request_validator_id")
 
     @request_validator_id.setter
@@ -180,7 +233,7 @@ class Method(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key_required: Optional[pulumi.Input[bool]] = None,
                  authorization_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 authorization_type: Optional[pulumi.Input[str]] = None,
+                 authorization_type: Optional[pulumi.Input['MethodAuthorizationType']] = None,
                  authorizer_id: Optional[pulumi.Input[str]] = None,
                  http_method: Optional[pulumi.Input[str]] = None,
                  integration: Optional[pulumi.Input[pulumi.InputType['MethodIntegrationArgs']]] = None,
@@ -197,6 +250,19 @@ class Method(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] api_key_required: Indicates whether the method requires clients to submit a valid API key.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorization_scopes: A list of authorization scopes configured on the method.
+        :param pulumi.Input['MethodAuthorizationType'] authorization_type: The method's authorization type.
+        :param pulumi.Input[str] authorizer_id: The identifier of the authorizer to use on this method.
+        :param pulumi.Input[str] http_method: The backend system that the method calls when it receives a request.
+        :param pulumi.Input[pulumi.InputType['MethodIntegrationArgs']] integration: The backend system that the method calls when it receives a request.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MethodResponseArgs']]]] method_responses: The responses that can be sent to the client who calls the method.
+        :param pulumi.Input[str] operation_name: A friendly operation name for the method.
+        :param Any request_models: The resources that are used for the request's content type. Specify request models as key-value pairs (string-to-string mapping), with a content type as the key and a Model resource name as the value.
+        :param Any request_parameters: The request parameters that API Gateway accepts. Specify request parameters as key-value pairs (string-to-Boolean mapping), with a source as the key and a Boolean as the value.
+        :param pulumi.Input[str] request_validator_id: The ID of the associated request validator.
+        :param pulumi.Input[str] resource_id: The ID of an API Gateway resource.
+        :param pulumi.Input[str] rest_api_id: The ID of the RestApi resource in which API Gateway creates the method.
         """
         ...
     @overload
@@ -224,7 +290,7 @@ class Method(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key_required: Optional[pulumi.Input[bool]] = None,
                  authorization_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 authorization_type: Optional[pulumi.Input[str]] = None,
+                 authorization_type: Optional[pulumi.Input['MethodAuthorizationType']] = None,
                  authorizer_id: Optional[pulumi.Input[str]] = None,
                  http_method: Optional[pulumi.Input[str]] = None,
                  integration: Optional[pulumi.Input[pulumi.InputType['MethodIntegrationArgs']]] = None,
@@ -306,65 +372,104 @@ class Method(pulumi.CustomResource):
     @property
     @pulumi.getter(name="apiKeyRequired")
     def api_key_required(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether the method requires clients to submit a valid API key.
+        """
         return pulumi.get(self, "api_key_required")
 
     @property
     @pulumi.getter(name="authorizationScopes")
     def authorization_scopes(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of authorization scopes configured on the method.
+        """
         return pulumi.get(self, "authorization_scopes")
 
     @property
     @pulumi.getter(name="authorizationType")
-    def authorization_type(self) -> pulumi.Output[Optional[str]]:
+    def authorization_type(self) -> pulumi.Output[Optional['MethodAuthorizationType']]:
+        """
+        The method's authorization type.
+        """
         return pulumi.get(self, "authorization_type")
 
     @property
     @pulumi.getter(name="authorizerId")
     def authorizer_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The identifier of the authorizer to use on this method.
+        """
         return pulumi.get(self, "authorizer_id")
 
     @property
     @pulumi.getter(name="httpMethod")
     def http_method(self) -> pulumi.Output[str]:
+        """
+        The backend system that the method calls when it receives a request.
+        """
         return pulumi.get(self, "http_method")
 
     @property
     @pulumi.getter
     def integration(self) -> pulumi.Output[Optional['outputs.MethodIntegration']]:
+        """
+        The backend system that the method calls when it receives a request.
+        """
         return pulumi.get(self, "integration")
 
     @property
     @pulumi.getter(name="methodResponses")
     def method_responses(self) -> pulumi.Output[Optional[Sequence['outputs.MethodResponse']]]:
+        """
+        The responses that can be sent to the client who calls the method.
+        """
         return pulumi.get(self, "method_responses")
 
     @property
     @pulumi.getter(name="operationName")
     def operation_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        A friendly operation name for the method.
+        """
         return pulumi.get(self, "operation_name")
 
     @property
     @pulumi.getter(name="requestModels")
     def request_models(self) -> pulumi.Output[Optional[Any]]:
+        """
+        The resources that are used for the request's content type. Specify request models as key-value pairs (string-to-string mapping), with a content type as the key and a Model resource name as the value.
+        """
         return pulumi.get(self, "request_models")
 
     @property
     @pulumi.getter(name="requestParameters")
     def request_parameters(self) -> pulumi.Output[Optional[Any]]:
+        """
+        The request parameters that API Gateway accepts. Specify request parameters as key-value pairs (string-to-Boolean mapping), with a source as the key and a Boolean as the value.
+        """
         return pulumi.get(self, "request_parameters")
 
     @property
     @pulumi.getter(name="requestValidatorId")
     def request_validator_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the associated request validator.
+        """
         return pulumi.get(self, "request_validator_id")
 
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[str]:
+        """
+        The ID of an API Gateway resource.
+        """
         return pulumi.get(self, "resource_id")
 
     @property
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the RestApi resource in which API Gateway creates the method.
+        """
         return pulumi.get(self, "rest_api_id")
 

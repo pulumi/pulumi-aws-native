@@ -10,6 +10,7 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AbortConfigPropertiesArgs',
     'AccountAuditConfigurationAuditCheckConfigurationsArgs',
     'AccountAuditConfigurationAuditCheckConfigurationArgs',
     'AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs',
@@ -21,6 +22,11 @@ __all__ = [
     'DomainConfigurationTagArgs',
     'FleetMetricAggregationTypeArgs',
     'FleetMetricTagArgs',
+    'JobExecutionsRolloutConfigPropertiesArgs',
+    'JobTemplateAbortCriteriaArgs',
+    'JobTemplateExponentialRolloutRateArgs',
+    'JobTemplateRateIncreaseCriteriaArgs',
+    'JobTemplateTagArgs',
     'MitigationActionActionParamsArgs',
     'MitigationActionAddThingsToThingGroupParamsArgs',
     'MitigationActionEnableIoTLoggingParamsArgs',
@@ -29,6 +35,7 @@ __all__ = [
     'MitigationActionTagArgs',
     'MitigationActionUpdateCACertificateParamsArgs',
     'MitigationActionUpdateDeviceCertificateParamsArgs',
+    'PresignedUrlConfigPropertiesArgs',
     'ProvisioningTemplateProvisioningHookArgs',
     'ProvisioningTemplateTagArgs',
     'ScheduledAuditTagArgs',
@@ -41,6 +48,7 @@ __all__ = [
     'SecurityProfileStatisticalThresholdArgs',
     'SecurityProfileTagArgs',
     'ThingAttributePayloadArgs',
+    'TimeoutConfigPropertiesArgs',
     'TopicRuleActionArgs',
     'TopicRuleAssetPropertyTimestampArgs',
     'TopicRuleAssetPropertyValueArgs',
@@ -78,6 +86,25 @@ __all__ = [
     'TopicRuleTimestreamDimensionArgs',
     'TopicRuleTimestreamTimestampArgs',
 ]
+
+@pulumi.input_type
+class AbortConfigPropertiesArgs:
+    def __init__(__self__, *,
+                 criteria_list: pulumi.Input[Sequence[pulumi.Input['JobTemplateAbortCriteriaArgs']]]):
+        """
+        The criteria that determine when and how a job abort takes place.
+        """
+        pulumi.set(__self__, "criteria_list", criteria_list)
+
+    @property
+    @pulumi.getter(name="criteriaList")
+    def criteria_list(self) -> pulumi.Input[Sequence[pulumi.Input['JobTemplateAbortCriteriaArgs']]]:
+        return pulumi.get(self, "criteria_list")
+
+    @criteria_list.setter
+    def criteria_list(self, value: pulumi.Input[Sequence[pulumi.Input['JobTemplateAbortCriteriaArgs']]]):
+        pulumi.set(self, "criteria_list", value)
+
 
 @pulumi.input_type
 class AccountAuditConfigurationAuditCheckConfigurationsArgs:
@@ -590,6 +617,234 @@ class FleetMetricTagArgs:
 
 
 @pulumi.input_type
+class JobExecutionsRolloutConfigPropertiesArgs:
+    def __init__(__self__, *,
+                 exponential_rollout_rate: Optional[pulumi.Input['JobTemplateExponentialRolloutRateArgs']] = None,
+                 maximum_per_minute: Optional[pulumi.Input[int]] = None):
+        """
+        Allows you to create a staged rollout of a job.
+        :param pulumi.Input['JobTemplateExponentialRolloutRateArgs'] exponential_rollout_rate: The rate of increase for a job rollout. This parameter allows you to define an exponential rate for a job rollout.
+        :param pulumi.Input[int] maximum_per_minute: The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout.
+        """
+        if exponential_rollout_rate is not None:
+            pulumi.set(__self__, "exponential_rollout_rate", exponential_rollout_rate)
+        if maximum_per_minute is not None:
+            pulumi.set(__self__, "maximum_per_minute", maximum_per_minute)
+
+    @property
+    @pulumi.getter(name="exponentialRolloutRate")
+    def exponential_rollout_rate(self) -> Optional[pulumi.Input['JobTemplateExponentialRolloutRateArgs']]:
+        """
+        The rate of increase for a job rollout. This parameter allows you to define an exponential rate for a job rollout.
+        """
+        return pulumi.get(self, "exponential_rollout_rate")
+
+    @exponential_rollout_rate.setter
+    def exponential_rollout_rate(self, value: Optional[pulumi.Input['JobTemplateExponentialRolloutRateArgs']]):
+        pulumi.set(self, "exponential_rollout_rate", value)
+
+    @property
+    @pulumi.getter(name="maximumPerMinute")
+    def maximum_per_minute(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout.
+        """
+        return pulumi.get(self, "maximum_per_minute")
+
+    @maximum_per_minute.setter
+    def maximum_per_minute(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_per_minute", value)
+
+
+@pulumi.input_type
+class JobTemplateAbortCriteriaArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input['JobTemplateAction'],
+                 failure_type: pulumi.Input['JobTemplateFailureType'],
+                 min_number_of_executed_things: pulumi.Input[int],
+                 threshold_percentage: pulumi.Input[float]):
+        """
+        The criteria that determine when and how a job abort takes place.
+        :param pulumi.Input['JobTemplateAction'] action: The type of job action to take to initiate the job abort.
+        :param pulumi.Input['JobTemplateFailureType'] failure_type: The type of job execution failures that can initiate a job abort.
+        :param pulumi.Input[int] min_number_of_executed_things: The minimum number of things which must receive job execution notifications before the job can be aborted.
+        :param pulumi.Input[float] threshold_percentage: The minimum percentage of job execution failures that must occur to initiate the job abort.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "failure_type", failure_type)
+        pulumi.set(__self__, "min_number_of_executed_things", min_number_of_executed_things)
+        pulumi.set(__self__, "threshold_percentage", threshold_percentage)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input['JobTemplateAction']:
+        """
+        The type of job action to take to initiate the job abort.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input['JobTemplateAction']):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter(name="failureType")
+    def failure_type(self) -> pulumi.Input['JobTemplateFailureType']:
+        """
+        The type of job execution failures that can initiate a job abort.
+        """
+        return pulumi.get(self, "failure_type")
+
+    @failure_type.setter
+    def failure_type(self, value: pulumi.Input['JobTemplateFailureType']):
+        pulumi.set(self, "failure_type", value)
+
+    @property
+    @pulumi.getter(name="minNumberOfExecutedThings")
+    def min_number_of_executed_things(self) -> pulumi.Input[int]:
+        """
+        The minimum number of things which must receive job execution notifications before the job can be aborted.
+        """
+        return pulumi.get(self, "min_number_of_executed_things")
+
+    @min_number_of_executed_things.setter
+    def min_number_of_executed_things(self, value: pulumi.Input[int]):
+        pulumi.set(self, "min_number_of_executed_things", value)
+
+    @property
+    @pulumi.getter(name="thresholdPercentage")
+    def threshold_percentage(self) -> pulumi.Input[float]:
+        """
+        The minimum percentage of job execution failures that must occur to initiate the job abort.
+        """
+        return pulumi.get(self, "threshold_percentage")
+
+    @threshold_percentage.setter
+    def threshold_percentage(self, value: pulumi.Input[float]):
+        pulumi.set(self, "threshold_percentage", value)
+
+
+@pulumi.input_type
+class JobTemplateExponentialRolloutRateArgs:
+    def __init__(__self__, *,
+                 base_rate_per_minute: pulumi.Input[int],
+                 increment_factor: pulumi.Input[float],
+                 rate_increase_criteria: pulumi.Input['JobTemplateRateIncreaseCriteriaArgs']):
+        """
+        Allows you to create an exponential rate of rollout for a job.
+        :param pulumi.Input[int] base_rate_per_minute: The minimum number of things that will be notified of a pending job, per minute at the start of job rollout. This parameter allows you to define the initial rate of rollout.
+        :param pulumi.Input[float] increment_factor: The exponential factor to increase the rate of rollout for a job.
+        :param pulumi.Input['JobTemplateRateIncreaseCriteriaArgs'] rate_increase_criteria: The criteria to initiate the increase in rate of rollout for a job.
+        """
+        pulumi.set(__self__, "base_rate_per_minute", base_rate_per_minute)
+        pulumi.set(__self__, "increment_factor", increment_factor)
+        pulumi.set(__self__, "rate_increase_criteria", rate_increase_criteria)
+
+    @property
+    @pulumi.getter(name="baseRatePerMinute")
+    def base_rate_per_minute(self) -> pulumi.Input[int]:
+        """
+        The minimum number of things that will be notified of a pending job, per minute at the start of job rollout. This parameter allows you to define the initial rate of rollout.
+        """
+        return pulumi.get(self, "base_rate_per_minute")
+
+    @base_rate_per_minute.setter
+    def base_rate_per_minute(self, value: pulumi.Input[int]):
+        pulumi.set(self, "base_rate_per_minute", value)
+
+    @property
+    @pulumi.getter(name="incrementFactor")
+    def increment_factor(self) -> pulumi.Input[float]:
+        """
+        The exponential factor to increase the rate of rollout for a job.
+        """
+        return pulumi.get(self, "increment_factor")
+
+    @increment_factor.setter
+    def increment_factor(self, value: pulumi.Input[float]):
+        pulumi.set(self, "increment_factor", value)
+
+    @property
+    @pulumi.getter(name="rateIncreaseCriteria")
+    def rate_increase_criteria(self) -> pulumi.Input['JobTemplateRateIncreaseCriteriaArgs']:
+        """
+        The criteria to initiate the increase in rate of rollout for a job.
+        """
+        return pulumi.get(self, "rate_increase_criteria")
+
+    @rate_increase_criteria.setter
+    def rate_increase_criteria(self, value: pulumi.Input['JobTemplateRateIncreaseCriteriaArgs']):
+        pulumi.set(self, "rate_increase_criteria", value)
+
+
+@pulumi.input_type
+class JobTemplateRateIncreaseCriteriaArgs:
+    def __init__(__self__, *,
+                 number_of_notified_things: Optional[pulumi.Input[int]] = None,
+                 number_of_succeeded_things: Optional[pulumi.Input[int]] = None):
+        if number_of_notified_things is not None:
+            pulumi.set(__self__, "number_of_notified_things", number_of_notified_things)
+        if number_of_succeeded_things is not None:
+            pulumi.set(__self__, "number_of_succeeded_things", number_of_succeeded_things)
+
+    @property
+    @pulumi.getter(name="numberOfNotifiedThings")
+    def number_of_notified_things(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "number_of_notified_things")
+
+    @number_of_notified_things.setter
+    def number_of_notified_things(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "number_of_notified_things", value)
+
+    @property
+    @pulumi.getter(name="numberOfSucceededThings")
+    def number_of_succeeded_things(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "number_of_succeeded_things")
+
+    @number_of_succeeded_things.setter
+    def number_of_succeeded_things(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "number_of_succeeded_things", value)
+
+
+@pulumi.input_type
+class JobTemplateTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The tag's key.
+        :param pulumi.Input[str] value: The tag's value.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The tag's key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The tag's value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class MitigationActionActionParamsArgs:
     def __init__(__self__, *,
                  add_things_to_thing_group_params: Optional[pulumi.Input['MitigationActionAddThingsToThingGroupParamsArgs']] = None,
@@ -862,6 +1117,37 @@ class MitigationActionUpdateDeviceCertificateParamsArgs:
     @action.setter
     def action(self, value: pulumi.Input['MitigationActionUpdateDeviceCertificateParamsAction']):
         pulumi.set(self, "action", value)
+
+
+@pulumi.input_type
+class PresignedUrlConfigPropertiesArgs:
+    def __init__(__self__, *,
+                 role_arn: pulumi.Input[str],
+                 expires_in_sec: Optional[pulumi.Input[int]] = None):
+        """
+        Configuration for pre-signed S3 URLs.
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        if expires_in_sec is not None:
+            pulumi.set(__self__, "expires_in_sec", expires_in_sec)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="expiresInSec")
+    def expires_in_sec(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "expires_in_sec")
+
+    @expires_in_sec.setter
+    def expires_in_sec(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "expires_in_sec", value)
 
 
 @pulumi.input_type
@@ -1424,6 +1710,25 @@ class ThingAttributePayloadArgs:
     @attributes.setter
     def attributes(self, value: Optional[Any]):
         pulumi.set(self, "attributes", value)
+
+
+@pulumi.input_type
+class TimeoutConfigPropertiesArgs:
+    def __init__(__self__, *,
+                 in_progress_timeout_in_minutes: pulumi.Input[int]):
+        """
+        Specifies the amount of time each device has to finish its execution of the job.
+        """
+        pulumi.set(__self__, "in_progress_timeout_in_minutes", in_progress_timeout_in_minutes)
+
+    @property
+    @pulumi.getter(name="inProgressTimeoutInMinutes")
+    def in_progress_timeout_in_minutes(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "in_progress_timeout_in_minutes")
+
+    @in_progress_timeout_in_minutes.setter
+    def in_progress_timeout_in_minutes(self, value: pulumi.Input[int]):
+        pulumi.set(self, "in_progress_timeout_in_minutes", value)
 
 
 @pulumi.input_type

@@ -22,6 +22,7 @@ class CanaryArgs:
                  runtime_version: pulumi.Input[str],
                  schedule: pulumi.Input['CanaryScheduleArgs'],
                  start_canary_after_creation: pulumi.Input[bool],
+                 artifact_config: Optional[pulumi.Input['CanaryArtifactConfigArgs']] = None,
                  failure_retention_period: Optional[pulumi.Input[int]] = None,
                  run_config: Optional[pulumi.Input['CanaryRunConfigArgs']] = None,
                  success_retention_period: Optional[pulumi.Input[int]] = None,
@@ -37,6 +38,7 @@ class CanaryArgs:
         :param pulumi.Input[str] runtime_version: Runtime version of Synthetics Library
         :param pulumi.Input['CanaryScheduleArgs'] schedule: Frequency to run your canaries
         :param pulumi.Input[bool] start_canary_after_creation: Runs canary if set to True. Default is False
+        :param pulumi.Input['CanaryArtifactConfigArgs'] artifact_config: Provide artifact configuration
         :param pulumi.Input[int] failure_retention_period: Retention period of failed canary runs represented in number of days
         :param pulumi.Input['CanaryRunConfigArgs'] run_config: Provide canary run configuration
         :param pulumi.Input[int] success_retention_period: Retention period of successful canary runs represented in number of days
@@ -50,6 +52,8 @@ class CanaryArgs:
         pulumi.set(__self__, "runtime_version", runtime_version)
         pulumi.set(__self__, "schedule", schedule)
         pulumi.set(__self__, "start_canary_after_creation", start_canary_after_creation)
+        if artifact_config is not None:
+            pulumi.set(__self__, "artifact_config", artifact_config)
         if failure_retention_period is not None:
             pulumi.set(__self__, "failure_retention_period", failure_retention_period)
         if run_config is not None:
@@ -148,6 +152,18 @@ class CanaryArgs:
         pulumi.set(self, "start_canary_after_creation", value)
 
     @property
+    @pulumi.getter(name="artifactConfig")
+    def artifact_config(self) -> Optional[pulumi.Input['CanaryArtifactConfigArgs']]:
+        """
+        Provide artifact configuration
+        """
+        return pulumi.get(self, "artifact_config")
+
+    @artifact_config.setter
+    def artifact_config(self, value: Optional[pulumi.Input['CanaryArtifactConfigArgs']]):
+        pulumi.set(self, "artifact_config", value)
+
+    @property
     @pulumi.getter(name="failureRetentionPeriod")
     def failure_retention_period(self) -> Optional[pulumi.Input[int]]:
         """
@@ -222,6 +238,7 @@ class Canary(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 artifact_config: Optional[pulumi.Input[pulumi.InputType['CanaryArtifactConfigArgs']]] = None,
                  artifact_s3_location: Optional[pulumi.Input[str]] = None,
                  code: Optional[pulumi.Input[pulumi.InputType['CanaryCodeArgs']]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
@@ -241,6 +258,7 @@ class Canary(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['CanaryArtifactConfigArgs']] artifact_config: Provide artifact configuration
         :param pulumi.Input[str] artifact_s3_location: Provide the s3 bucket output location for test results
         :param pulumi.Input[pulumi.InputType['CanaryCodeArgs']] code: Provide the canary script source
         :param pulumi.Input[str] execution_role_arn: Lambda Execution role used to run your canaries
@@ -278,6 +296,7 @@ class Canary(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 artifact_config: Optional[pulumi.Input[pulumi.InputType['CanaryArtifactConfigArgs']]] = None,
                  artifact_s3_location: Optional[pulumi.Input[str]] = None,
                  code: Optional[pulumi.Input[pulumi.InputType['CanaryCodeArgs']]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
@@ -303,6 +322,7 @@ class Canary(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CanaryArgs.__new__(CanaryArgs)
 
+            __props__.__dict__["artifact_config"] = artifact_config
             if artifact_s3_location is None and not opts.urn:
                 raise TypeError("Missing required property 'artifact_s3_location'")
             __props__.__dict__["artifact_s3_location"] = artifact_s3_location
@@ -353,6 +373,7 @@ class Canary(pulumi.CustomResource):
 
         __props__ = CanaryArgs.__new__(CanaryArgs)
 
+        __props__.__dict__["artifact_config"] = None
         __props__.__dict__["artifact_s3_location"] = None
         __props__.__dict__["code"] = None
         __props__.__dict__["execution_role_arn"] = None
@@ -368,6 +389,14 @@ class Canary(pulumi.CustomResource):
         __props__.__dict__["v_pc_config"] = None
         __props__.__dict__["visual_reference"] = None
         return Canary(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="artifactConfig")
+    def artifact_config(self) -> pulumi.Output[Optional['outputs.CanaryArtifactConfig']]:
+        """
+        Provide artifact configuration
+        """
+        return pulumi.get(self, "artifact_config")
 
     @property
     @pulumi.getter(name="artifactS3Location")

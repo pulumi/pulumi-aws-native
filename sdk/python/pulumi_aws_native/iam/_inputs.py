@@ -89,23 +89,34 @@ class OIDCProviderTagArgs:
 @pulumi.input_type
 class RolePolicyArgs:
     def __init__(__self__, *,
-                 policy_document: Any,
+                 policy_document: pulumi.Input[str],
                  policy_name: pulumi.Input[str]):
+        """
+        The inline policy document that is embedded in the specified IAM role.
+        :param pulumi.Input[str] policy_document: The policy document.
+        :param pulumi.Input[str] policy_name: The friendly name (not ARN) identifying the policy.
+        """
         pulumi.set(__self__, "policy_document", policy_document)
         pulumi.set(__self__, "policy_name", policy_name)
 
     @property
     @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> Any:
+    def policy_document(self) -> pulumi.Input[str]:
+        """
+        The policy document.
+        """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
-    def policy_document(self, value: Any):
+    def policy_document(self, value: pulumi.Input[str]):
         pulumi.set(self, "policy_document", value)
 
     @property
     @pulumi.getter(name="policyName")
     def policy_name(self) -> pulumi.Input[str]:
+        """
+        The friendly name (not ARN) identifying the policy.
+        """
         return pulumi.get(self, "policy_name")
 
     @policy_name.setter
@@ -118,12 +129,20 @@ class RoleTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -133,6 +152,9 @@ class RoleTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
         return pulumi.get(self, "value")
 
     @value.setter

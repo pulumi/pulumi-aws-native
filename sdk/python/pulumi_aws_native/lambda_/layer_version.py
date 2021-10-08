@@ -16,6 +16,7 @@ __all__ = ['LayerVersionArgs', 'LayerVersion']
 class LayerVersionArgs:
     def __init__(__self__, *,
                  content: pulumi.Input['LayerVersionContentArgs'],
+                 compatible_architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  compatible_runtimes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  layer_name: Optional[pulumi.Input[str]] = None,
@@ -24,6 +25,8 @@ class LayerVersionArgs:
         The set of arguments for constructing a LayerVersion resource.
         """
         pulumi.set(__self__, "content", content)
+        if compatible_architectures is not None:
+            pulumi.set(__self__, "compatible_architectures", compatible_architectures)
         if compatible_runtimes is not None:
             pulumi.set(__self__, "compatible_runtimes", compatible_runtimes)
         if description is not None:
@@ -41,6 +44,15 @@ class LayerVersionArgs:
     @content.setter
     def content(self, value: pulumi.Input['LayerVersionContentArgs']):
         pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter(name="compatibleArchitectures")
+    def compatible_architectures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "compatible_architectures")
+
+    @compatible_architectures.setter
+    def compatible_architectures(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "compatible_architectures", value)
 
     @property
     @pulumi.getter(name="compatibleRuntimes")
@@ -89,6 +101,7 @@ class LayerVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 compatible_architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  compatible_runtimes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  content: Optional[pulumi.Input[pulumi.InputType['LayerVersionContentArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -125,6 +138,7 @@ class LayerVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 compatible_architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  compatible_runtimes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  content: Optional[pulumi.Input[pulumi.InputType['LayerVersionContentArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -143,6 +157,7 @@ class LayerVersion(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LayerVersionArgs.__new__(LayerVersionArgs)
 
+            __props__.__dict__["compatible_architectures"] = compatible_architectures
             __props__.__dict__["compatible_runtimes"] = compatible_runtimes
             if content is None and not opts.urn:
                 raise TypeError("Missing required property 'content'")
@@ -172,12 +187,18 @@ class LayerVersion(pulumi.CustomResource):
 
         __props__ = LayerVersionArgs.__new__(LayerVersionArgs)
 
+        __props__.__dict__["compatible_architectures"] = None
         __props__.__dict__["compatible_runtimes"] = None
         __props__.__dict__["content"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["layer_name"] = None
         __props__.__dict__["license_info"] = None
         return LayerVersion(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="compatibleArchitectures")
+    def compatible_architectures(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        return pulumi.get(self, "compatible_architectures")
 
     @property
     @pulumi.getter(name="compatibleRuntimes")

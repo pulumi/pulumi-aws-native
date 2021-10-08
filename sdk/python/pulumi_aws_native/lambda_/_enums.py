@@ -8,6 +8,7 @@ __all__ = [
     'CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment',
     'EventSourceMappingFunctionResponseTypesItem',
     'EventSourceMappingSourceAccessConfigurationType',
+    'FunctionArchitecturesItem',
     'FunctionPackageType',
     'FunctionTracingConfigMode',
 ]
@@ -35,6 +36,11 @@ class EventSourceMappingSourceAccessConfigurationType(str, Enum):
     SASL_SCRAM512_AUTH = "SASL_SCRAM_512_AUTH"
     SASL_SCRAM256_AUTH = "SASL_SCRAM_256_AUTH"
     VIRTUAL_HOST = "VIRTUAL_HOST"
+
+
+class FunctionArchitecturesItem(str, Enum):
+    X8664 = "x86_64"
+    ARM64 = "arm64"
 
 
 class FunctionPackageType(str, Enum):

@@ -15,6 +15,7 @@ __all__ = ['BackupVaultArgs', 'BackupVault']
 @pulumi.input_type
 class BackupVaultArgs:
     def __init__(__self__, *,
+                 backup_vault_name: pulumi.Input[str],
                  access_policy: Optional[Any] = None,
                  backup_vault_tags: Optional[Any] = None,
                  encryption_key_arn: Optional[pulumi.Input[str]] = None,
@@ -23,6 +24,7 @@ class BackupVaultArgs:
         """
         The set of arguments for constructing a BackupVault resource.
         """
+        pulumi.set(__self__, "backup_vault_name", backup_vault_name)
         if access_policy is not None:
             pulumi.set(__self__, "access_policy", access_policy)
         if backup_vault_tags is not None:
@@ -33,6 +35,15 @@ class BackupVaultArgs:
             pulumi.set(__self__, "lock_configuration", lock_configuration)
         if notifications is not None:
             pulumi.set(__self__, "notifications", notifications)
+
+    @property
+    @pulumi.getter(name="backupVaultName")
+    def backup_vault_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "backup_vault_name")
+
+    @backup_vault_name.setter
+    def backup_vault_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "backup_vault_name", value)
 
     @property
     @pulumi.getter(name="accessPolicy")
@@ -86,6 +97,7 @@ class BackupVault(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policy: Optional[Any] = None,
+                 backup_vault_name: Optional[pulumi.Input[str]] = None,
                  backup_vault_tags: Optional[Any] = None,
                  encryption_key_arn: Optional[pulumi.Input[str]] = None,
                  lock_configuration: Optional[pulumi.Input[pulumi.InputType['BackupVaultLockConfigurationTypeArgs']]] = None,
@@ -101,7 +113,7 @@ class BackupVault(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[BackupVaultArgs] = None,
+                 args: BackupVaultArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Backup::BackupVault
@@ -122,6 +134,7 @@ class BackupVault(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policy: Optional[Any] = None,
+                 backup_vault_name: Optional[pulumi.Input[str]] = None,
                  backup_vault_tags: Optional[Any] = None,
                  encryption_key_arn: Optional[pulumi.Input[str]] = None,
                  lock_configuration: Optional[pulumi.Input[pulumi.InputType['BackupVaultLockConfigurationTypeArgs']]] = None,
@@ -139,12 +152,14 @@ class BackupVault(pulumi.CustomResource):
             __props__ = BackupVaultArgs.__new__(BackupVaultArgs)
 
             __props__.__dict__["access_policy"] = access_policy
+            if backup_vault_name is None and not opts.urn:
+                raise TypeError("Missing required property 'backup_vault_name'")
+            __props__.__dict__["backup_vault_name"] = backup_vault_name
             __props__.__dict__["backup_vault_tags"] = backup_vault_tags
             __props__.__dict__["encryption_key_arn"] = encryption_key_arn
             __props__.__dict__["lock_configuration"] = lock_configuration
             __props__.__dict__["notifications"] = notifications
             __props__.__dict__["backup_vault_arn"] = None
-            __props__.__dict__["backup_vault_name"] = None
         super(BackupVault, __self__).__init__(
             'aws-native:backup:BackupVault',
             resource_name,

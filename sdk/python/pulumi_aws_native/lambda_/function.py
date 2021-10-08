@@ -18,6 +18,7 @@ class FunctionArgs:
     def __init__(__self__, *,
                  code: pulumi.Input['FunctionCodeArgs'],
                  role: pulumi.Input[str],
+                 architectures: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionArchitecturesItem']]]] = None,
                  code_signing_config_arn: Optional[pulumi.Input[str]] = None,
                  dead_letter_config: Optional[pulumi.Input['FunctionDeadLetterConfigArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -61,6 +62,8 @@ class FunctionArgs:
         """
         pulumi.set(__self__, "code", code)
         pulumi.set(__self__, "role", role)
+        if architectures is not None:
+            pulumi.set(__self__, "architectures", architectures)
         if code_signing_config_arn is not None:
             pulumi.set(__self__, "code_signing_config_arn", code_signing_config_arn)
         if dead_letter_config is not None:
@@ -121,6 +124,15 @@ class FunctionArgs:
     @role.setter
     def role(self, value: pulumi.Input[str]):
         pulumi.set(self, "role", value)
+
+    @property
+    @pulumi.getter
+    def architectures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionArchitecturesItem']]]]:
+        return pulumi.get(self, "architectures")
+
+    @architectures.setter
+    def architectures(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionArchitecturesItem']]]]):
+        pulumi.set(self, "architectures", value)
 
     @property
     @pulumi.getter(name="codeSigningConfigArn")
@@ -344,6 +356,7 @@ class Function(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 architectures: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionArchitecturesItem']]]] = None,
                  code: Optional[pulumi.Input[pulumi.InputType['FunctionCodeArgs']]] = None,
                  code_signing_config_arn: Optional[pulumi.Input[str]] = None,
                  dead_letter_config: Optional[pulumi.Input[pulumi.InputType['FunctionDeadLetterConfigArgs']]] = None,
@@ -415,6 +428,7 @@ class Function(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 architectures: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionArchitecturesItem']]]] = None,
                  code: Optional[pulumi.Input[pulumi.InputType['FunctionCodeArgs']]] = None,
                  code_signing_config_arn: Optional[pulumi.Input[str]] = None,
                  dead_letter_config: Optional[pulumi.Input[pulumi.InputType['FunctionDeadLetterConfigArgs']]] = None,
@@ -447,6 +461,7 @@ class Function(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FunctionArgs.__new__(FunctionArgs)
 
+            __props__.__dict__["architectures"] = architectures
             if code is None and not opts.urn:
                 raise TypeError("Missing required property 'code'")
             __props__.__dict__["code"] = code
@@ -494,6 +509,7 @@ class Function(pulumi.CustomResource):
 
         __props__ = FunctionArgs.__new__(FunctionArgs)
 
+        __props__.__dict__["architectures"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["code"] = None
         __props__.__dict__["code_signing_config_arn"] = None
@@ -516,6 +532,11 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["tracing_config"] = None
         __props__.__dict__["vpc_config"] = None
         return Function(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def architectures(self) -> pulumi.Output[Optional[Sequence['FunctionArchitecturesItem']]]:
+        return pulumi.get(self, "architectures")
 
     @property
     @pulumi.getter

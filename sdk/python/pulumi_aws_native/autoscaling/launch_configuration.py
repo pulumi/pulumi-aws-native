@@ -36,6 +36,25 @@ class LaunchConfigurationArgs:
                  user_data: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LaunchConfiguration resource.
+        :param pulumi.Input[str] image_id: Provides the unique ID of the Amazon Machine Image (AMI) that was assigned during registration.
+        :param pulumi.Input[str] instance_type: Specifies the instance type of the EC2 instance.
+        :param pulumi.Input[bool] associate_public_ip_address: For Auto Scaling groups that are running in a virtual private cloud (VPC), specifies whether to assign a public IP address to the group's instances.
+        :param pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationBlockDeviceMappingArgs']]] block_device_mappings: Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
+        :param pulumi.Input[str] classic_link_vpc_id: The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] classic_link_vpc_security_groups: The IDs of one or more security groups for the VPC that you specified in the ClassicLinkVPCId property.
+        :param pulumi.Input[bool] ebs_optimized: Specifies whether the launch configuration is optimized for EBS I/O (true) or not (false).
+        :param pulumi.Input[str] iam_instance_profile: Provides the name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role.
+        :param pulumi.Input[str] instance_id: The ID of the Amazon EC2 instance you want to use to create the launch configuration.
+        :param pulumi.Input[bool] instance_monitoring: Controls whether instances in this group are launched with detailed (true) or basic (false) monitoring.
+        :param pulumi.Input[str] kernel_id: Provides the ID of the kernel associated with the EC2 AMI.
+        :param pulumi.Input[str] key_name: Provides the name of the EC2 key pair.
+        :param pulumi.Input[str] launch_configuration_name: The name of the launch configuration. This name must be unique per Region per account.
+        :param pulumi.Input['LaunchConfigurationMetadataOptionsArgs'] metadata_options: The metadata options for the instances.
+        :param pulumi.Input[str] placement_tenancy: The tenancy of the instance, either default or dedicated.
+        :param pulumi.Input[str] ram_disk_id: The ID of the RAM disk to select.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list that contains the security groups to assign to the instances in the Auto Scaling group.
+        :param pulumi.Input[str] spot_price: The maximum hourly price you are willing to pay for any Spot Instances launched to fulfill the request.
+        :param pulumi.Input[str] user_data: The Base64-encoded user data to make available to the launched EC2 instances.
         """
         pulumi.set(__self__, "image_id", image_id)
         pulumi.set(__self__, "instance_type", instance_type)
@@ -77,6 +96,9 @@ class LaunchConfigurationArgs:
     @property
     @pulumi.getter(name="imageId")
     def image_id(self) -> pulumi.Input[str]:
+        """
+        Provides the unique ID of the Amazon Machine Image (AMI) that was assigned during registration.
+        """
         return pulumi.get(self, "image_id")
 
     @image_id.setter
@@ -86,6 +108,9 @@ class LaunchConfigurationArgs:
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Input[str]:
+        """
+        Specifies the instance type of the EC2 instance.
+        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -95,6 +120,9 @@ class LaunchConfigurationArgs:
     @property
     @pulumi.getter(name="associatePublicIpAddress")
     def associate_public_ip_address(self) -> Optional[pulumi.Input[bool]]:
+        """
+        For Auto Scaling groups that are running in a virtual private cloud (VPC), specifies whether to assign a public IP address to the group's instances.
+        """
         return pulumi.get(self, "associate_public_ip_address")
 
     @associate_public_ip_address.setter
@@ -104,6 +132,9 @@ class LaunchConfigurationArgs:
     @property
     @pulumi.getter(name="blockDeviceMappings")
     def block_device_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationBlockDeviceMappingArgs']]]]:
+        """
+        Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
+        """
         return pulumi.get(self, "block_device_mappings")
 
     @block_device_mappings.setter
@@ -113,6 +144,9 @@ class LaunchConfigurationArgs:
     @property
     @pulumi.getter(name="classicLinkVPCId")
     def classic_link_vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.
+        """
         return pulumi.get(self, "classic_link_vpc_id")
 
     @classic_link_vpc_id.setter
@@ -122,6 +156,9 @@ class LaunchConfigurationArgs:
     @property
     @pulumi.getter(name="classicLinkVPCSecurityGroups")
     def classic_link_vpc_security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The IDs of one or more security groups for the VPC that you specified in the ClassicLinkVPCId property.
+        """
         return pulumi.get(self, "classic_link_vpc_security_groups")
 
     @classic_link_vpc_security_groups.setter
@@ -131,6 +168,9 @@ class LaunchConfigurationArgs:
     @property
     @pulumi.getter(name="ebsOptimized")
     def ebs_optimized(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the launch configuration is optimized for EBS I/O (true) or not (false).
+        """
         return pulumi.get(self, "ebs_optimized")
 
     @ebs_optimized.setter
@@ -140,6 +180,9 @@ class LaunchConfigurationArgs:
     @property
     @pulumi.getter(name="iamInstanceProfile")
     def iam_instance_profile(self) -> Optional[pulumi.Input[str]]:
+        """
+        Provides the name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role.
+        """
         return pulumi.get(self, "iam_instance_profile")
 
     @iam_instance_profile.setter
@@ -149,6 +192,9 @@ class LaunchConfigurationArgs:
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Amazon EC2 instance you want to use to create the launch configuration.
+        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -158,6 +204,9 @@ class LaunchConfigurationArgs:
     @property
     @pulumi.getter(name="instanceMonitoring")
     def instance_monitoring(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Controls whether instances in this group are launched with detailed (true) or basic (false) monitoring.
+        """
         return pulumi.get(self, "instance_monitoring")
 
     @instance_monitoring.setter
@@ -167,6 +216,9 @@ class LaunchConfigurationArgs:
     @property
     @pulumi.getter(name="kernelId")
     def kernel_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Provides the ID of the kernel associated with the EC2 AMI.
+        """
         return pulumi.get(self, "kernel_id")
 
     @kernel_id.setter
@@ -176,6 +228,9 @@ class LaunchConfigurationArgs:
     @property
     @pulumi.getter(name="keyName")
     def key_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Provides the name of the EC2 key pair.
+        """
         return pulumi.get(self, "key_name")
 
     @key_name.setter
@@ -185,6 +240,9 @@ class LaunchConfigurationArgs:
     @property
     @pulumi.getter(name="launchConfigurationName")
     def launch_configuration_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the launch configuration. This name must be unique per Region per account.
+        """
         return pulumi.get(self, "launch_configuration_name")
 
     @launch_configuration_name.setter
@@ -194,6 +252,9 @@ class LaunchConfigurationArgs:
     @property
     @pulumi.getter(name="metadataOptions")
     def metadata_options(self) -> Optional[pulumi.Input['LaunchConfigurationMetadataOptionsArgs']]:
+        """
+        The metadata options for the instances.
+        """
         return pulumi.get(self, "metadata_options")
 
     @metadata_options.setter
@@ -203,6 +264,9 @@ class LaunchConfigurationArgs:
     @property
     @pulumi.getter(name="placementTenancy")
     def placement_tenancy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tenancy of the instance, either default or dedicated.
+        """
         return pulumi.get(self, "placement_tenancy")
 
     @placement_tenancy.setter
@@ -212,6 +276,9 @@ class LaunchConfigurationArgs:
     @property
     @pulumi.getter(name="ramDiskId")
     def ram_disk_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the RAM disk to select.
+        """
         return pulumi.get(self, "ram_disk_id")
 
     @ram_disk_id.setter
@@ -221,6 +288,9 @@ class LaunchConfigurationArgs:
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list that contains the security groups to assign to the instances in the Auto Scaling group.
+        """
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
@@ -230,6 +300,9 @@ class LaunchConfigurationArgs:
     @property
     @pulumi.getter(name="spotPrice")
     def spot_price(self) -> Optional[pulumi.Input[str]]:
+        """
+        The maximum hourly price you are willing to pay for any Spot Instances launched to fulfill the request.
+        """
         return pulumi.get(self, "spot_price")
 
     @spot_price.setter
@@ -239,6 +312,9 @@ class LaunchConfigurationArgs:
     @property
     @pulumi.getter(name="userData")
     def user_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Base64-encoded user data to make available to the launched EC2 instances.
+        """
         return pulumi.get(self, "user_data")
 
     @user_data.setter
@@ -272,10 +348,29 @@ class LaunchConfiguration(pulumi.CustomResource):
                  user_data: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::AutoScaling::LaunchConfiguration
+        The AWS::AutoScaling::LaunchConfiguration resource specifies the launch configuration that can be used by an Auto Scaling group to configure Amazon EC2 instances.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] associate_public_ip_address: For Auto Scaling groups that are running in a virtual private cloud (VPC), specifies whether to assign a public IP address to the group's instances.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchConfigurationBlockDeviceMappingArgs']]]] block_device_mappings: Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
+        :param pulumi.Input[str] classic_link_vpc_id: The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] classic_link_vpc_security_groups: The IDs of one or more security groups for the VPC that you specified in the ClassicLinkVPCId property.
+        :param pulumi.Input[bool] ebs_optimized: Specifies whether the launch configuration is optimized for EBS I/O (true) or not (false).
+        :param pulumi.Input[str] iam_instance_profile: Provides the name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role.
+        :param pulumi.Input[str] image_id: Provides the unique ID of the Amazon Machine Image (AMI) that was assigned during registration.
+        :param pulumi.Input[str] instance_id: The ID of the Amazon EC2 instance you want to use to create the launch configuration.
+        :param pulumi.Input[bool] instance_monitoring: Controls whether instances in this group are launched with detailed (true) or basic (false) monitoring.
+        :param pulumi.Input[str] instance_type: Specifies the instance type of the EC2 instance.
+        :param pulumi.Input[str] kernel_id: Provides the ID of the kernel associated with the EC2 AMI.
+        :param pulumi.Input[str] key_name: Provides the name of the EC2 key pair.
+        :param pulumi.Input[str] launch_configuration_name: The name of the launch configuration. This name must be unique per Region per account.
+        :param pulumi.Input[pulumi.InputType['LaunchConfigurationMetadataOptionsArgs']] metadata_options: The metadata options for the instances.
+        :param pulumi.Input[str] placement_tenancy: The tenancy of the instance, either default or dedicated.
+        :param pulumi.Input[str] ram_disk_id: The ID of the RAM disk to select.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list that contains the security groups to assign to the instances in the Auto Scaling group.
+        :param pulumi.Input[str] spot_price: The maximum hourly price you are willing to pay for any Spot Instances launched to fulfill the request.
+        :param pulumi.Input[str] user_data: The Base64-encoded user data to make available to the launched EC2 instances.
         """
         ...
     @overload
@@ -284,7 +379,7 @@ class LaunchConfiguration(pulumi.CustomResource):
                  args: LaunchConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::AutoScaling::LaunchConfiguration
+        The AWS::AutoScaling::LaunchConfiguration resource specifies the launch configuration that can be used by an Auto Scaling group to configure Amazon EC2 instances.
 
         :param str resource_name: The name of the resource.
         :param LaunchConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -401,95 +496,152 @@ class LaunchConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="associatePublicIpAddress")
     def associate_public_ip_address(self) -> pulumi.Output[Optional[bool]]:
+        """
+        For Auto Scaling groups that are running in a virtual private cloud (VPC), specifies whether to assign a public IP address to the group's instances.
+        """
         return pulumi.get(self, "associate_public_ip_address")
 
     @property
     @pulumi.getter(name="blockDeviceMappings")
     def block_device_mappings(self) -> pulumi.Output[Optional[Sequence['outputs.LaunchConfigurationBlockDeviceMapping']]]:
+        """
+        Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
+        """
         return pulumi.get(self, "block_device_mappings")
 
     @property
     @pulumi.getter(name="classicLinkVPCId")
     def classic_link_vpc_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.
+        """
         return pulumi.get(self, "classic_link_vpc_id")
 
     @property
     @pulumi.getter(name="classicLinkVPCSecurityGroups")
     def classic_link_vpc_security_groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The IDs of one or more security groups for the VPC that you specified in the ClassicLinkVPCId property.
+        """
         return pulumi.get(self, "classic_link_vpc_security_groups")
 
     @property
     @pulumi.getter(name="ebsOptimized")
     def ebs_optimized(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether the launch configuration is optimized for EBS I/O (true) or not (false).
+        """
         return pulumi.get(self, "ebs_optimized")
 
     @property
     @pulumi.getter(name="iamInstanceProfile")
     def iam_instance_profile(self) -> pulumi.Output[Optional[str]]:
+        """
+        Provides the name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role.
+        """
         return pulumi.get(self, "iam_instance_profile")
 
     @property
     @pulumi.getter(name="imageId")
     def image_id(self) -> pulumi.Output[str]:
+        """
+        Provides the unique ID of the Amazon Machine Image (AMI) that was assigned during registration.
+        """
         return pulumi.get(self, "image_id")
 
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the Amazon EC2 instance you want to use to create the launch configuration.
+        """
         return pulumi.get(self, "instance_id")
 
     @property
     @pulumi.getter(name="instanceMonitoring")
     def instance_monitoring(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Controls whether instances in this group are launched with detailed (true) or basic (false) monitoring.
+        """
         return pulumi.get(self, "instance_monitoring")
 
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Output[str]:
+        """
+        Specifies the instance type of the EC2 instance.
+        """
         return pulumi.get(self, "instance_type")
 
     @property
     @pulumi.getter(name="kernelId")
     def kernel_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Provides the ID of the kernel associated with the EC2 AMI.
+        """
         return pulumi.get(self, "kernel_id")
 
     @property
     @pulumi.getter(name="keyName")
     def key_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        Provides the name of the EC2 key pair.
+        """
         return pulumi.get(self, "key_name")
 
     @property
     @pulumi.getter(name="launchConfigurationName")
     def launch_configuration_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the launch configuration. This name must be unique per Region per account.
+        """
         return pulumi.get(self, "launch_configuration_name")
 
     @property
     @pulumi.getter(name="metadataOptions")
     def metadata_options(self) -> pulumi.Output[Optional['outputs.LaunchConfigurationMetadataOptions']]:
+        """
+        The metadata options for the instances.
+        """
         return pulumi.get(self, "metadata_options")
 
     @property
     @pulumi.getter(name="placementTenancy")
     def placement_tenancy(self) -> pulumi.Output[Optional[str]]:
+        """
+        The tenancy of the instance, either default or dedicated.
+        """
         return pulumi.get(self, "placement_tenancy")
 
     @property
     @pulumi.getter(name="ramDiskId")
     def ram_disk_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the RAM disk to select.
+        """
         return pulumi.get(self, "ram_disk_id")
 
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list that contains the security groups to assign to the instances in the Auto Scaling group.
+        """
         return pulumi.get(self, "security_groups")
 
     @property
     @pulumi.getter(name="spotPrice")
     def spot_price(self) -> pulumi.Output[Optional[str]]:
+        """
+        The maximum hourly price you are willing to pay for any Spot Instances launched to fulfill the request.
+        """
         return pulumi.get(self, "spot_price")
 
     @property
     @pulumi.getter(name="userData")
     def user_data(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Base64-encoded user data to make available to the launched EC2 instances.
+        """
         return pulumi.get(self, "user_data")
 

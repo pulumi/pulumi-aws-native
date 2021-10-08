@@ -31,6 +31,20 @@ class StageArgs:
                  variables: Optional[Any] = None):
         """
         The set of arguments for constructing a Stage resource.
+        :param pulumi.Input[str] rest_api_id: The ID of the RestApi resource that you're deploying with this stage.
+        :param pulumi.Input['StageAccessLogSettingArgs'] access_log_setting: Specifies settings for logging access in this stage.
+        :param pulumi.Input[bool] cache_cluster_enabled: Indicates whether cache clustering is enabled for the stage.
+        :param pulumi.Input[str] cache_cluster_size: The stage's cache cluster size.
+        :param pulumi.Input['StageCanarySettingArgs'] canary_setting: Specifies settings for the canary deployment in this stage.
+        :param pulumi.Input[str] client_certificate_id: The ID of the client certificate that API Gateway uses to call your integration endpoints in the stage. 
+        :param pulumi.Input[str] deployment_id: The ID of the deployment that the stage is associated with. This parameter is required to create a stage. 
+        :param pulumi.Input[str] description: A description of the stage.
+        :param pulumi.Input[str] documentation_version: The version ID of the API documentation snapshot.
+        :param pulumi.Input[Sequence[pulumi.Input['StageMethodSettingArgs']]] method_settings: Settings for all methods in the stage.
+        :param pulumi.Input[str] stage_name: The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).
+        :param pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]] tags: An array of arbitrary tags (key-value pairs) to associate with the stage.
+        :param pulumi.Input[bool] tracing_enabled: Specifies whether active X-Ray tracing is enabled for this stage.
+        :param Any variables: A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value.
         """
         pulumi.set(__self__, "rest_api_id", rest_api_id)
         if access_log_setting is not None:
@@ -63,6 +77,9 @@ class StageArgs:
     @property
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the RestApi resource that you're deploying with this stage.
+        """
         return pulumi.get(self, "rest_api_id")
 
     @rest_api_id.setter
@@ -72,6 +89,9 @@ class StageArgs:
     @property
     @pulumi.getter(name="accessLogSetting")
     def access_log_setting(self) -> Optional[pulumi.Input['StageAccessLogSettingArgs']]:
+        """
+        Specifies settings for logging access in this stage.
+        """
         return pulumi.get(self, "access_log_setting")
 
     @access_log_setting.setter
@@ -81,6 +101,9 @@ class StageArgs:
     @property
     @pulumi.getter(name="cacheClusterEnabled")
     def cache_cluster_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether cache clustering is enabled for the stage.
+        """
         return pulumi.get(self, "cache_cluster_enabled")
 
     @cache_cluster_enabled.setter
@@ -90,6 +113,9 @@ class StageArgs:
     @property
     @pulumi.getter(name="cacheClusterSize")
     def cache_cluster_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        The stage's cache cluster size.
+        """
         return pulumi.get(self, "cache_cluster_size")
 
     @cache_cluster_size.setter
@@ -99,6 +125,9 @@ class StageArgs:
     @property
     @pulumi.getter(name="canarySetting")
     def canary_setting(self) -> Optional[pulumi.Input['StageCanarySettingArgs']]:
+        """
+        Specifies settings for the canary deployment in this stage.
+        """
         return pulumi.get(self, "canary_setting")
 
     @canary_setting.setter
@@ -108,6 +137,9 @@ class StageArgs:
     @property
     @pulumi.getter(name="clientCertificateId")
     def client_certificate_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the client certificate that API Gateway uses to call your integration endpoints in the stage. 
+        """
         return pulumi.get(self, "client_certificate_id")
 
     @client_certificate_id.setter
@@ -117,6 +149,9 @@ class StageArgs:
     @property
     @pulumi.getter(name="deploymentId")
     def deployment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the deployment that the stage is associated with. This parameter is required to create a stage. 
+        """
         return pulumi.get(self, "deployment_id")
 
     @deployment_id.setter
@@ -126,6 +161,9 @@ class StageArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the stage.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -135,6 +173,9 @@ class StageArgs:
     @property
     @pulumi.getter(name="documentationVersion")
     def documentation_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version ID of the API documentation snapshot.
+        """
         return pulumi.get(self, "documentation_version")
 
     @documentation_version.setter
@@ -144,6 +185,9 @@ class StageArgs:
     @property
     @pulumi.getter(name="methodSettings")
     def method_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StageMethodSettingArgs']]]]:
+        """
+        Settings for all methods in the stage.
+        """
         return pulumi.get(self, "method_settings")
 
     @method_settings.setter
@@ -153,6 +197,9 @@ class StageArgs:
     @property
     @pulumi.getter(name="stageName")
     def stage_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).
+        """
         return pulumi.get(self, "stage_name")
 
     @stage_name.setter
@@ -162,6 +209,9 @@ class StageArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]]]:
+        """
+        An array of arbitrary tags (key-value pairs) to associate with the stage.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -171,6 +221,9 @@ class StageArgs:
     @property
     @pulumi.getter(name="tracingEnabled")
     def tracing_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether active X-Ray tracing is enabled for this stage.
+        """
         return pulumi.get(self, "tracing_enabled")
 
     @tracing_enabled.setter
@@ -180,6 +233,9 @@ class StageArgs:
     @property
     @pulumi.getter
     def variables(self) -> Optional[Any]:
+        """
+        A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value.
+        """
         return pulumi.get(self, "variables")
 
     @variables.setter
@@ -212,6 +268,20 @@ class Stage(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['StageAccessLogSettingArgs']] access_log_setting: Specifies settings for logging access in this stage.
+        :param pulumi.Input[bool] cache_cluster_enabled: Indicates whether cache clustering is enabled for the stage.
+        :param pulumi.Input[str] cache_cluster_size: The stage's cache cluster size.
+        :param pulumi.Input[pulumi.InputType['StageCanarySettingArgs']] canary_setting: Specifies settings for the canary deployment in this stage.
+        :param pulumi.Input[str] client_certificate_id: The ID of the client certificate that API Gateway uses to call your integration endpoints in the stage. 
+        :param pulumi.Input[str] deployment_id: The ID of the deployment that the stage is associated with. This parameter is required to create a stage. 
+        :param pulumi.Input[str] description: A description of the stage.
+        :param pulumi.Input[str] documentation_version: The version ID of the API documentation snapshot.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageMethodSettingArgs']]]] method_settings: Settings for all methods in the stage.
+        :param pulumi.Input[str] rest_api_id: The ID of the RestApi resource that you're deploying with this stage.
+        :param pulumi.Input[str] stage_name: The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageTagArgs']]]] tags: An array of arbitrary tags (key-value pairs) to associate with the stage.
+        :param pulumi.Input[bool] tracing_enabled: Specifies whether active X-Ray tracing is enabled for this stage.
+        :param Any variables: A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value.
         """
         ...
     @overload
@@ -320,70 +390,112 @@ class Stage(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accessLogSetting")
     def access_log_setting(self) -> pulumi.Output[Optional['outputs.StageAccessLogSetting']]:
+        """
+        Specifies settings for logging access in this stage.
+        """
         return pulumi.get(self, "access_log_setting")
 
     @property
     @pulumi.getter(name="cacheClusterEnabled")
     def cache_cluster_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether cache clustering is enabled for the stage.
+        """
         return pulumi.get(self, "cache_cluster_enabled")
 
     @property
     @pulumi.getter(name="cacheClusterSize")
     def cache_cluster_size(self) -> pulumi.Output[Optional[str]]:
+        """
+        The stage's cache cluster size.
+        """
         return pulumi.get(self, "cache_cluster_size")
 
     @property
     @pulumi.getter(name="canarySetting")
     def canary_setting(self) -> pulumi.Output[Optional['outputs.StageCanarySetting']]:
+        """
+        Specifies settings for the canary deployment in this stage.
+        """
         return pulumi.get(self, "canary_setting")
 
     @property
     @pulumi.getter(name="clientCertificateId")
     def client_certificate_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the client certificate that API Gateway uses to call your integration endpoints in the stage. 
+        """
         return pulumi.get(self, "client_certificate_id")
 
     @property
     @pulumi.getter(name="deploymentId")
     def deployment_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the deployment that the stage is associated with. This parameter is required to create a stage. 
+        """
         return pulumi.get(self, "deployment_id")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the stage.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="documentationVersion")
     def documentation_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The version ID of the API documentation snapshot.
+        """
         return pulumi.get(self, "documentation_version")
 
     @property
     @pulumi.getter(name="methodSettings")
     def method_settings(self) -> pulumi.Output[Optional[Sequence['outputs.StageMethodSetting']]]:
+        """
+        Settings for all methods in the stage.
+        """
         return pulumi.get(self, "method_settings")
 
     @property
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the RestApi resource that you're deploying with this stage.
+        """
         return pulumi.get(self, "rest_api_id")
 
     @property
     @pulumi.getter(name="stageName")
     def stage_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).
+        """
         return pulumi.get(self, "stage_name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.StageTag']]]:
+        """
+        An array of arbitrary tags (key-value pairs) to associate with the stage.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tracingEnabled")
     def tracing_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether active X-Ray tracing is enabled for this stage.
+        """
         return pulumi.get(self, "tracing_enabled")
 
     @property
     @pulumi.getter
     def variables(self) -> pulumi.Output[Optional[Any]]:
+        """
+        A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value.
+        """
         return pulumi.get(self, "variables")
 

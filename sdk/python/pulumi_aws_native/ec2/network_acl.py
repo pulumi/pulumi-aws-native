@@ -19,6 +19,8 @@ class NetworkAclArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclTagArgs']]]] = None):
         """
         The set of arguments for constructing a NetworkAcl resource.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkAclTagArgs']]] tags: The tags to assign to the network ACL.
         """
         pulumi.set(__self__, "vpc_id", vpc_id)
         if tags is not None:
@@ -27,6 +29,9 @@ class NetworkAclArgs:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the VPC.
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -36,6 +41,9 @@ class NetworkAclArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclTagArgs']]]]:
+        """
+        The tags to assign to the network ACL.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -56,6 +64,8 @@ class NetworkAcl(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclTagArgs']]]] tags: The tags to assign to the network ACL.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC.
         """
         ...
     @overload
@@ -128,10 +138,16 @@ class NetworkAcl(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.NetworkAclTag']]]:
+        """
+        The tags to assign to the network ACL.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the VPC.
+        """
         return pulumi.get(self, "vpc_id")
 

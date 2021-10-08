@@ -9,14 +9,39 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'CanaryArtifactConfigArgs',
     'CanaryBaseScreenshotArgs',
     'CanaryCodeArgs',
     'CanaryRunConfigArgs',
+    'CanaryS3EncryptionArgs',
     'CanaryScheduleArgs',
     'CanaryTagArgs',
     'CanaryVPCConfigArgs',
     'CanaryVisualReferenceArgs',
 ]
+
+@pulumi.input_type
+class CanaryArtifactConfigArgs:
+    def __init__(__self__, *,
+                 s3_encryption: Optional[pulumi.Input['CanaryS3EncryptionArgs']] = None):
+        """
+        :param pulumi.Input['CanaryS3EncryptionArgs'] s3_encryption: Encryption configuration for uploading artifacts to S3
+        """
+        if s3_encryption is not None:
+            pulumi.set(__self__, "s3_encryption", s3_encryption)
+
+    @property
+    @pulumi.getter(name="s3Encryption")
+    def s3_encryption(self) -> Optional[pulumi.Input['CanaryS3EncryptionArgs']]:
+        """
+        Encryption configuration for uploading artifacts to S3
+        """
+        return pulumi.get(self, "s3_encryption")
+
+    @s3_encryption.setter
+    def s3_encryption(self, value: Optional[pulumi.Input['CanaryS3EncryptionArgs']]):
+        pulumi.set(self, "s3_encryption", value)
+
 
 @pulumi.input_type
 class CanaryBaseScreenshotArgs:
@@ -189,6 +214,45 @@ class CanaryRunConfigArgs:
     @timeout_in_seconds.setter
     def timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "timeout_in_seconds", value)
+
+
+@pulumi.input_type
+class CanaryS3EncryptionArgs:
+    def __init__(__self__, *,
+                 encryption_mode: Optional[pulumi.Input[str]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] encryption_mode: Encryption mode for encrypting artifacts when uploading to S3. Valid values: SSE_S3 and SSE_KMS.
+        :param pulumi.Input[str] kms_key_arn: KMS key Arn for encrypting artifacts when uploading to S3. You must specify KMS key Arn for SSE_KMS encryption mode only.
+        """
+        if encryption_mode is not None:
+            pulumi.set(__self__, "encryption_mode", encryption_mode)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @property
+    @pulumi.getter(name="encryptionMode")
+    def encryption_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Encryption mode for encrypting artifacts when uploading to S3. Valid values: SSE_S3 and SSE_KMS.
+        """
+        return pulumi.get(self, "encryption_mode")
+
+    @encryption_mode.setter
+    def encryption_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_mode", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        KMS key Arn for encrypting artifacts when uploading to S3. You must specify KMS key Arn for SSE_KMS encryption mode only.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_arn", value)
 
 
 @pulumi.input_type

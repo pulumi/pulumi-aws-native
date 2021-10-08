@@ -17,6 +17,8 @@ class SubnetNetworkAclAssociationArgs:
                  subnet_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a SubnetNetworkAclAssociation resource.
+        :param pulumi.Input[str] network_acl_id: The ID of the network ACL
+        :param pulumi.Input[str] subnet_id: The ID of the subnet
         """
         pulumi.set(__self__, "network_acl_id", network_acl_id)
         pulumi.set(__self__, "subnet_id", subnet_id)
@@ -24,6 +26,9 @@ class SubnetNetworkAclAssociationArgs:
     @property
     @pulumi.getter(name="networkAclId")
     def network_acl_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the network ACL
+        """
         return pulumi.get(self, "network_acl_id")
 
     @network_acl_id.setter
@@ -33,6 +38,9 @@ class SubnetNetworkAclAssociationArgs:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the subnet
+        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -53,6 +61,8 @@ class SubnetNetworkAclAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] network_acl_id: The ID of the network ACL
+        :param pulumi.Input[str] subnet_id: The ID of the subnet
         """
         ...
     @overload
@@ -134,10 +144,16 @@ class SubnetNetworkAclAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="networkAclId")
     def network_acl_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the network ACL
+        """
         return pulumi.get(self, "network_acl_id")
 
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the subnet
+        """
         return pulumi.get(self, "subnet_id")
 

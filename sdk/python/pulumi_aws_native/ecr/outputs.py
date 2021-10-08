@@ -30,7 +30,7 @@ class ReplicationConfiguration(dict):
                  rules: Sequence['outputs.ReplicationConfigurationReplicationRule']):
         """
         An object representing the replication configuration for a registry.
-        :param Sequence['ReplicationConfigurationReplicationRule'] rules: An array of objects representing the replication rules for a replication configuration. A replication configuration may contain only one replication rule but the rule may contain one or more replication destinations.
+        :param Sequence['ReplicationConfigurationReplicationRule'] rules: An array of objects representing the replication rules for a replication configuration. A replication configuration may contain a maximum of 10 rules.
         """
         pulumi.set(__self__, "rules", rules)
 
@@ -38,7 +38,7 @@ class ReplicationConfiguration(dict):
     @pulumi.getter
     def rules(self) -> Sequence['outputs.ReplicationConfigurationReplicationRule']:
         """
-        An array of objects representing the replication rules for a replication configuration. A replication configuration may contain only one replication rule but the rule may contain one or more replication destinations.
+        An array of objects representing the replication rules for a replication configuration. A replication configuration may contain a maximum of 10 rules.
         """
         return pulumi.get(self, "rules")
 

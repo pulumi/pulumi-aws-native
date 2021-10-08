@@ -479,6 +479,9 @@ class AutoScalingGroupTagProperty(dict):
 
 @pulumi.output_type
 class LaunchConfigurationBlockDevice(dict):
+    """
+    BlockDevice is a subproperty of BlockDeviceMapping that describes an Amazon EBS volume.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -510,6 +513,16 @@ class LaunchConfigurationBlockDevice(dict):
                  throughput: Optional[int] = None,
                  volume_size: Optional[int] = None,
                  volume_type: Optional[str] = None):
+        """
+        BlockDevice is a subproperty of BlockDeviceMapping that describes an Amazon EBS volume.
+        :param bool delete_on_termination: Indicates whether the volume is deleted on instance termination. 
+        :param bool encrypted: Specifies whether the volume should be encrypted. 
+        :param int iops: The number of input/output (I/O) operations per second (IOPS) to provision for the volume. 
+        :param str snapshot_id: The snapshot ID of the volume to use.
+        :param int throughput: The throughput (MiBps) to provision for a gp3 volume.
+        :param int volume_size: The volume size, in GiBs.
+        :param str volume_type: The volume type.
+        """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
         if encrypted is not None:
@@ -528,41 +541,65 @@ class LaunchConfigurationBlockDevice(dict):
     @property
     @pulumi.getter(name="deleteOnTermination")
     def delete_on_termination(self) -> Optional[bool]:
+        """
+        Indicates whether the volume is deleted on instance termination. 
+        """
         return pulumi.get(self, "delete_on_termination")
 
     @property
     @pulumi.getter
     def encrypted(self) -> Optional[bool]:
+        """
+        Specifies whether the volume should be encrypted. 
+        """
         return pulumi.get(self, "encrypted")
 
     @property
     @pulumi.getter
     def iops(self) -> Optional[int]:
+        """
+        The number of input/output (I/O) operations per second (IOPS) to provision for the volume. 
+        """
         return pulumi.get(self, "iops")
 
     @property
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> Optional[str]:
+        """
+        The snapshot ID of the volume to use.
+        """
         return pulumi.get(self, "snapshot_id")
 
     @property
     @pulumi.getter
     def throughput(self) -> Optional[int]:
+        """
+        The throughput (MiBps) to provision for a gp3 volume.
+        """
         return pulumi.get(self, "throughput")
 
     @property
     @pulumi.getter(name="volumeSize")
     def volume_size(self) -> Optional[int]:
+        """
+        The volume size, in GiBs.
+        """
         return pulumi.get(self, "volume_size")
 
     @property
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[str]:
+        """
+        The volume type.
+        """
         return pulumi.get(self, "volume_type")
 
 
 @pulumi.output_type
 class LaunchConfigurationBlockDeviceMapping(dict):
+    """
+    BlockDeviceMapping is a property of AWS::AutoScaling::LaunchConfiguration that describes a block device mapping for an Auto Scaling group.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -589,6 +626,13 @@ class LaunchConfigurationBlockDeviceMapping(dict):
                  ebs: Optional['outputs.LaunchConfigurationBlockDevice'] = None,
                  no_device: Optional[bool] = None,
                  virtual_name: Optional[str] = None):
+        """
+        BlockDeviceMapping is a property of AWS::AutoScaling::LaunchConfiguration that describes a block device mapping for an Auto Scaling group.
+        :param str device_name: The device name exposed to the EC2 instance (for example, /dev/sdh or xvdh). 
+        :param 'LaunchConfigurationBlockDevice' ebs: Parameters used to automatically set up EBS volumes when an instance is launched.
+        :param bool no_device: Setting this value to true suppresses the specified device included in the block device mapping of the AMI.
+        :param str virtual_name: The name of the virtual device.
+        """
         pulumi.set(__self__, "device_name", device_name)
         if ebs is not None:
             pulumi.set(__self__, "ebs", ebs)
@@ -600,26 +644,41 @@ class LaunchConfigurationBlockDeviceMapping(dict):
     @property
     @pulumi.getter(name="deviceName")
     def device_name(self) -> str:
+        """
+        The device name exposed to the EC2 instance (for example, /dev/sdh or xvdh). 
+        """
         return pulumi.get(self, "device_name")
 
     @property
     @pulumi.getter
     def ebs(self) -> Optional['outputs.LaunchConfigurationBlockDevice']:
+        """
+        Parameters used to automatically set up EBS volumes when an instance is launched.
+        """
         return pulumi.get(self, "ebs")
 
     @property
     @pulumi.getter(name="noDevice")
     def no_device(self) -> Optional[bool]:
+        """
+        Setting this value to true suppresses the specified device included in the block device mapping of the AMI.
+        """
         return pulumi.get(self, "no_device")
 
     @property
     @pulumi.getter(name="virtualName")
     def virtual_name(self) -> Optional[str]:
+        """
+        The name of the virtual device.
+        """
         return pulumi.get(self, "virtual_name")
 
 
 @pulumi.output_type
 class LaunchConfigurationMetadataOptions(dict):
+    """
+    MetadataOptions is a property of AWS::AutoScaling::LaunchConfiguration that describes metadata options for the instances.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -645,6 +704,12 @@ class LaunchConfigurationMetadataOptions(dict):
                  http_endpoint: Optional[str] = None,
                  http_put_response_hop_limit: Optional[int] = None,
                  http_tokens: Optional[str] = None):
+        """
+        MetadataOptions is a property of AWS::AutoScaling::LaunchConfiguration that describes metadata options for the instances.
+        :param str http_endpoint: This parameter enables or disables the HTTP metadata endpoint on your instances.
+        :param int http_put_response_hop_limit: The desired HTTP PUT response hop limit for instance metadata requests.
+        :param str http_tokens: The state of token usage for your instance metadata requests.
+        """
         if http_endpoint is not None:
             pulumi.set(__self__, "http_endpoint", http_endpoint)
         if http_put_response_hop_limit is not None:
@@ -655,16 +720,25 @@ class LaunchConfigurationMetadataOptions(dict):
     @property
     @pulumi.getter(name="httpEndpoint")
     def http_endpoint(self) -> Optional[str]:
+        """
+        This parameter enables or disables the HTTP metadata endpoint on your instances.
+        """
         return pulumi.get(self, "http_endpoint")
 
     @property
     @pulumi.getter(name="httpPutResponseHopLimit")
     def http_put_response_hop_limit(self) -> Optional[int]:
+        """
+        The desired HTTP PUT response hop limit for instance metadata requests.
+        """
         return pulumi.get(self, "http_put_response_hop_limit")
 
     @property
     @pulumi.getter(name="httpTokens")
     def http_tokens(self) -> Optional[str]:
+        """
+        The state of token usage for your instance metadata requests.
+        """
         return pulumi.get(self, "http_tokens")
 
 

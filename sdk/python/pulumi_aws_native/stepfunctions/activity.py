@@ -52,7 +52,7 @@ class Activity(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActivityTagsEntryArgs']]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::StepFunctions::Activity
+        Resource schema for Activity
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -64,7 +64,7 @@ class Activity(pulumi.CustomResource):
                  args: ActivityArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::StepFunctions::Activity
+        Resource schema for Activity
 
         :param str resource_name: The name of the resource.
         :param ActivityArgs args: The arguments to use to populate this resource's properties.
@@ -99,6 +99,7 @@ class Activity(pulumi.CustomResource):
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
         super(Activity, __self__).__init__(
             'aws-native:stepfunctions:Activity',
             resource_name,
@@ -121,9 +122,15 @@ class Activity(pulumi.CustomResource):
 
         __props__ = ActivityArgs.__new__(ActivityArgs)
 
+        __props__.__dict__["arn"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
         return Activity(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
