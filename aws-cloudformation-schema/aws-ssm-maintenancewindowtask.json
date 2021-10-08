@@ -43,6 +43,9 @@
     "TaskType" : {
       "type" : "string"
     },
+    "CutoffBehavior" : {
+      "type" : "string"
+    },
     "Id" : {
       "type" : "string"
     },

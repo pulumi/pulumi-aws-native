@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Outputs
 {
 
+    /// <summary>
+    /// Identify and categorize resources.
+    /// </summary>
     [OutputType]
     public sealed class StageTag
     {
+        /// <summary>
+        /// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

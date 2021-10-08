@@ -73,5 +73,6 @@
     "list" : {
       "permissions" : [ "gamelift:ListAliases" ]
     }
-  }
+  },
+  "taggable" : true
 }

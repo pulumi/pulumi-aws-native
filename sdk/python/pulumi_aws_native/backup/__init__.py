@@ -8,5 +8,7 @@ import typing
 from .backup_plan import *
 from .backup_selection import *
 from .backup_vault import *
+from .framework import *
+from .report_plan import *
 from ._inputs import *
 from . import outputs

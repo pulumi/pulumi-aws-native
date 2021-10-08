@@ -237,6 +237,8 @@ if typing.TYPE_CHECKING:
     lambda_ = __lambda_
     import pulumi_aws_native.licensemanager as __licensemanager
     licensemanager = __licensemanager
+    import pulumi_aws_native.lightsail as __lightsail
+    lightsail = __lightsail
     import pulumi_aws_native.location as __location
     location = __location
     import pulumi_aws_native.logs as __logs
@@ -466,6 +468,7 @@ else:
     lakeformation = _utilities.lazy_import('pulumi_aws_native.lakeformation')
     lambda_ = _utilities.lazy_import('pulumi_aws_native.lambda_')
     licensemanager = _utilities.lazy_import('pulumi_aws_native.licensemanager')
+    lightsail = _utilities.lazy_import('pulumi_aws_native.lightsail')
     location = _utilities.lazy_import('pulumi_aws_native.location')
     logs = _utilities.lazy_import('pulumi_aws_native.logs')
     lookoutmetrics = _utilities.lazy_import('pulumi_aws_native.lookoutmetrics')
@@ -776,7 +779,9 @@ _utilities.register(
   "classes": {
    "aws-native:backup:BackupPlan": "BackupPlan",
    "aws-native:backup:BackupSelection": "BackupSelection",
-   "aws-native:backup:BackupVault": "BackupVault"
+   "aws-native:backup:BackupVault": "BackupVault",
+   "aws-native:backup:Framework": "Framework",
+   "aws-native:backup:ReportPlan": "ReportPlan"
   }
  },
  {
@@ -1598,6 +1603,7 @@ _utilities.register(
    "aws-native:iot:Dimension": "Dimension",
    "aws-native:iot:DomainConfiguration": "DomainConfiguration",
    "aws-native:iot:FleetMetric": "FleetMetric",
+   "aws-native:iot:JobTemplate": "JobTemplate",
    "aws-native:iot:MitigationAction": "MitigationAction",
    "aws-native:iot:Policy": "Policy",
    "aws-native:iot:PolicyPrincipalAttachment": "PolicyPrincipalAttachment",
@@ -1793,6 +1799,15 @@ _utilities.register(
   "classes": {
    "aws-native:licensemanager:Grant": "Grant",
    "aws-native:licensemanager:License": "License"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "lightsail",
+  "fqn": "pulumi_aws_native.lightsail",
+  "classes": {
+   "aws-native:lightsail:Disk": "Disk",
+   "aws-native:lightsail:Instance": "Instance"
   }
  },
  {

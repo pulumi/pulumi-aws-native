@@ -126,6 +126,9 @@
     },
     "delete" : {
       "permissions" : [ "globalaccelerator:DeleteEndpointGroup", "globalaccelerator:DescribeEndpointGroup", "globalaccelerator:DescribeAccelerator" ]
+    },
+    "list" : {
+      "permissions" : [ "globalaccelerator:ListEndpointGroups" ]
     }
   },
   "additionalProperties" : false

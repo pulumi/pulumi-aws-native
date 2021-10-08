@@ -10,11 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
+    /// <summary>
+    /// Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.
+    /// </summary>
     public sealed class BucketDataExportArgs : Pulumi.ResourceArgs
     {
         [Input("destination", required: true)]
         public Input<Inputs.BucketDestinationArgs> Destination { get; set; } = null!;
 
+        /// <summary>
+        /// The version of the output schema to use when exporting data.
+        /// </summary>
         [Input("outputSchemaVersion", required: true)]
         public Input<string> OutputSchemaVersion { get; set; } = null!;
 

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
+    /// <summary>
+    /// You must specify at least one of the following properties: AbortIncompleteMultipartUpload, ExpirationDate, ExpirationInDays, NoncurrentVersionExpirationInDays, NoncurrentVersionTransition, NoncurrentVersionTransitions, Transition, or Transitions.
+    /// </summary>
     public sealed class BucketRuleArgs : Pulumi.ResourceArgs
     {
         [Input("abortIncompleteMultipartUpload")]
@@ -45,7 +48,7 @@ namespace Pulumi.AwsNative.S3.Inputs
         public Input<string>? Prefix { get; set; }
 
         [Input("status", required: true)]
-        public Input<string> Status { get; set; } = null!;
+        public Input<Pulumi.AwsNative.S3.BucketRuleStatus> Status { get; set; } = null!;
 
         [Input("tagFilters")]
         private InputList<Inputs.BucketTagFilterArgs>? _tagFilters;

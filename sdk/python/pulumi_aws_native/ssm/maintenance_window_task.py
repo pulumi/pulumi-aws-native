@@ -19,6 +19,7 @@ class MaintenanceWindowTaskArgs:
                  task_arn: pulumi.Input[str],
                  task_type: pulumi.Input[str],
                  window_id: pulumi.Input[str],
+                 cutoff_behavior: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  logging_info: Optional[pulumi.Input['MaintenanceWindowTaskLoggingInfoArgs']] = None,
                  max_concurrency: Optional[pulumi.Input[str]] = None,
@@ -35,6 +36,8 @@ class MaintenanceWindowTaskArgs:
         pulumi.set(__self__, "task_arn", task_arn)
         pulumi.set(__self__, "task_type", task_type)
         pulumi.set(__self__, "window_id", window_id)
+        if cutoff_behavior is not None:
+            pulumi.set(__self__, "cutoff_behavior", cutoff_behavior)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if logging_info is not None:
@@ -89,6 +92,15 @@ class MaintenanceWindowTaskArgs:
     @window_id.setter
     def window_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "window_id", value)
+
+    @property
+    @pulumi.getter(name="cutoffBehavior")
+    def cutoff_behavior(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cutoff_behavior")
+
+    @cutoff_behavior.setter
+    def cutoff_behavior(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cutoff_behavior", value)
 
     @property
     @pulumi.getter
@@ -182,6 +194,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cutoff_behavior: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  logging_info: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowTaskLoggingInfoArgs']]] = None,
                  max_concurrency: Optional[pulumi.Input[str]] = None,
@@ -226,6 +239,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cutoff_behavior: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  logging_info: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowTaskLoggingInfoArgs']]] = None,
                  max_concurrency: Optional[pulumi.Input[str]] = None,
@@ -252,6 +266,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MaintenanceWindowTaskArgs.__new__(MaintenanceWindowTaskArgs)
 
+            __props__.__dict__["cutoff_behavior"] = cutoff_behavior
             __props__.__dict__["description"] = description
             __props__.__dict__["logging_info"] = logging_info
             __props__.__dict__["max_concurrency"] = max_concurrency
@@ -295,6 +310,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
         __props__ = MaintenanceWindowTaskArgs.__new__(MaintenanceWindowTaskArgs)
 
+        __props__.__dict__["cutoff_behavior"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["logging_info"] = None
         __props__.__dict__["max_concurrency"] = None
@@ -309,6 +325,11 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         __props__.__dict__["task_type"] = None
         __props__.__dict__["window_id"] = None
         return MaintenanceWindowTask(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="cutoffBehavior")
+    def cutoff_behavior(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "cutoff_behavior")
 
     @property
     @pulumi.getter

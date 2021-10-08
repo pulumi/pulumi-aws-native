@@ -8,11 +8,15 @@ import * as utilities from "../utilities";
 export * from "./backupPlan";
 export * from "./backupSelection";
 export * from "./backupVault";
+export * from "./framework";
+export * from "./reportPlan";
 
 // Import resources to register:
 import { BackupPlan } from "./backupPlan";
 import { BackupSelection } from "./backupSelection";
 import { BackupVault } from "./backupVault";
+import { Framework } from "./framework";
+import { ReportPlan } from "./reportPlan";
 
 const _module = {
     version: utilities.getVersion(),
@@ -24,6 +28,10 @@ const _module = {
                 return new BackupSelection(name, <any>undefined, { urn })
             case "aws-native:backup:BackupVault":
                 return new BackupVault(name, <any>undefined, { urn })
+            case "aws-native:backup:Framework":
+                return new Framework(name, <any>undefined, { urn })
+            case "aws-native:backup:ReportPlan":
+                return new ReportPlan(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

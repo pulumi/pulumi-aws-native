@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.Backup.Outputs
     {
         public readonly double? ChangeableForDays;
         public readonly double? MaxRetentionDays;
-        public readonly double? MinRetentionDays;
+        public readonly double MinRetentionDays;
 
         [OutputConstructor]
         private BackupVaultLockConfigurationType(
@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.Backup.Outputs
 
             double? maxRetentionDays,
 
-            double? minRetentionDays)
+            double minRetentionDays)
         {
             ChangeableForDays = changeableForDays;
             MaxRetentionDays = maxRetentionDays;

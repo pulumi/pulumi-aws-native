@@ -14,6 +14,8 @@ __all__ = [
     'DomainConfigurationServerCertificateSummaryServerCertificateStatus',
     'DomainConfigurationServiceType',
     'DomainConfigurationStatus',
+    'JobTemplateAction',
+    'JobTemplateFailureType',
     'MitigationActionEnableIoTLoggingParamsLogLevel',
     'MitigationActionReplaceDefaultPolicyVersionParamsTemplateName',
     'MitigationActionUpdateCACertificateParamsAction',
@@ -84,6 +86,17 @@ class DomainConfigurationServiceType(str, Enum):
 class DomainConfigurationStatus(str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
+
+
+class JobTemplateAction(str, Enum):
+    CANCEL = "CANCEL"
+
+
+class JobTemplateFailureType(str, Enum):
+    FAILED = "FAILED"
+    REJECTED = "REJECTED"
+    TIMED_OUT = "TIMED_OUT"
+    ALL = "ALL"
 
 
 class MitigationActionEnableIoTLoggingParamsLogLevel(str, Enum):

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
+    /// <summary>
+    /// Specifies which Amazon S3 objects to replicate and where to store the replicas.
+    /// </summary>
     public sealed class BucketReplicationRuleArgs : Pulumi.ResourceArgs
     {
         [Input("deleteMarkerReplication")]
@@ -21,9 +24,15 @@ namespace Pulumi.AwsNative.S3.Inputs
         [Input("filter")]
         public Input<Inputs.BucketReplicationRuleFilterArgs>? Filter { get; set; }
 
+        /// <summary>
+        /// A unique identifier for the rule.
+        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// An object key name prefix that identifies the object or objects to which the rule applies.
+        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
@@ -33,8 +42,11 @@ namespace Pulumi.AwsNative.S3.Inputs
         [Input("sourceSelectionCriteria")]
         public Input<Inputs.BucketSourceSelectionCriteriaArgs>? SourceSelectionCriteria { get; set; }
 
+        /// <summary>
+        /// Specifies whether the rule is enabled.
+        /// </summary>
         [Input("status", required: true)]
-        public Input<string> Status { get; set; } = null!;
+        public Input<Pulumi.AwsNative.S3.BucketReplicationRuleStatus> Status { get; set; } = null!;
 
         public BucketReplicationRuleArgs()
         {

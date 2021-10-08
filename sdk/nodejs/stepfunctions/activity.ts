@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::StepFunctions::Activity
+ * Resource schema for Activity
  */
 export class Activity extends pulumi.CustomResource {
     /**
@@ -35,6 +35,7 @@ export class Activity extends pulumi.CustomResource {
         return obj['__pulumiType'] === Activity.__pulumiType;
     }
 
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.stepfunctions.ActivityTagsEntry[] | undefined>;
 
@@ -54,7 +55,9 @@ export class Activity extends pulumi.CustomResource {
             }
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
         } else {
+            inputs["arn"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }

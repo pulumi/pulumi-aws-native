@@ -15,19 +15,32 @@ import (
 type Method struct {
 	pulumi.CustomResourceState
 
-	ApiKeyRequired      pulumi.BoolPtrOutput       `pulumi:"apiKeyRequired"`
-	AuthorizationScopes pulumi.StringArrayOutput   `pulumi:"authorizationScopes"`
-	AuthorizationType   pulumi.StringPtrOutput     `pulumi:"authorizationType"`
-	AuthorizerId        pulumi.StringPtrOutput     `pulumi:"authorizerId"`
-	HttpMethod          pulumi.StringOutput        `pulumi:"httpMethod"`
-	Integration         MethodIntegrationPtrOutput `pulumi:"integration"`
-	MethodResponses     MethodResponseArrayOutput  `pulumi:"methodResponses"`
-	OperationName       pulumi.StringPtrOutput     `pulumi:"operationName"`
-	RequestModels       pulumi.AnyOutput           `pulumi:"requestModels"`
-	RequestParameters   pulumi.AnyOutput           `pulumi:"requestParameters"`
-	RequestValidatorId  pulumi.StringPtrOutput     `pulumi:"requestValidatorId"`
-	ResourceId          pulumi.StringOutput        `pulumi:"resourceId"`
-	RestApiId           pulumi.StringOutput        `pulumi:"restApiId"`
+	// Indicates whether the method requires clients to submit a valid API key.
+	ApiKeyRequired pulumi.BoolPtrOutput `pulumi:"apiKeyRequired"`
+	// A list of authorization scopes configured on the method.
+	AuthorizationScopes pulumi.StringArrayOutput `pulumi:"authorizationScopes"`
+	// The method's authorization type.
+	AuthorizationType MethodAuthorizationTypePtrOutput `pulumi:"authorizationType"`
+	// The identifier of the authorizer to use on this method.
+	AuthorizerId pulumi.StringPtrOutput `pulumi:"authorizerId"`
+	// The backend system that the method calls when it receives a request.
+	HttpMethod pulumi.StringOutput `pulumi:"httpMethod"`
+	// The backend system that the method calls when it receives a request.
+	Integration MethodIntegrationPtrOutput `pulumi:"integration"`
+	// The responses that can be sent to the client who calls the method.
+	MethodResponses MethodResponseArrayOutput `pulumi:"methodResponses"`
+	// A friendly operation name for the method.
+	OperationName pulumi.StringPtrOutput `pulumi:"operationName"`
+	// The resources that are used for the request's content type. Specify request models as key-value pairs (string-to-string mapping), with a content type as the key and a Model resource name as the value.
+	RequestModels pulumi.AnyOutput `pulumi:"requestModels"`
+	// The request parameters that API Gateway accepts. Specify request parameters as key-value pairs (string-to-Boolean mapping), with a source as the key and a Boolean as the value.
+	RequestParameters pulumi.AnyOutput `pulumi:"requestParameters"`
+	// The ID of the associated request validator.
+	RequestValidatorId pulumi.StringPtrOutput `pulumi:"requestValidatorId"`
+	// The ID of an API Gateway resource.
+	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
+	// The ID of the RestApi resource in which API Gateway creates the method.
+	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
 }
 
 // NewMethod registers a new resource with the given unique name, arguments, and options.
@@ -78,36 +91,62 @@ func (MethodState) ElementType() reflect.Type {
 }
 
 type methodArgs struct {
-	ApiKeyRequired      *bool              `pulumi:"apiKeyRequired"`
-	AuthorizationScopes []string           `pulumi:"authorizationScopes"`
-	AuthorizationType   *string            `pulumi:"authorizationType"`
-	AuthorizerId        *string            `pulumi:"authorizerId"`
-	HttpMethod          string             `pulumi:"httpMethod"`
-	Integration         *MethodIntegration `pulumi:"integration"`
-	MethodResponses     []MethodResponse   `pulumi:"methodResponses"`
-	OperationName       *string            `pulumi:"operationName"`
-	RequestModels       interface{}        `pulumi:"requestModels"`
-	RequestParameters   interface{}        `pulumi:"requestParameters"`
-	RequestValidatorId  *string            `pulumi:"requestValidatorId"`
-	ResourceId          string             `pulumi:"resourceId"`
-	RestApiId           string             `pulumi:"restApiId"`
+	// Indicates whether the method requires clients to submit a valid API key.
+	ApiKeyRequired *bool `pulumi:"apiKeyRequired"`
+	// A list of authorization scopes configured on the method.
+	AuthorizationScopes []string `pulumi:"authorizationScopes"`
+	// The method's authorization type.
+	AuthorizationType *MethodAuthorizationType `pulumi:"authorizationType"`
+	// The identifier of the authorizer to use on this method.
+	AuthorizerId *string `pulumi:"authorizerId"`
+	// The backend system that the method calls when it receives a request.
+	HttpMethod string `pulumi:"httpMethod"`
+	// The backend system that the method calls when it receives a request.
+	Integration *MethodIntegration `pulumi:"integration"`
+	// The responses that can be sent to the client who calls the method.
+	MethodResponses []MethodResponse `pulumi:"methodResponses"`
+	// A friendly operation name for the method.
+	OperationName *string `pulumi:"operationName"`
+	// The resources that are used for the request's content type. Specify request models as key-value pairs (string-to-string mapping), with a content type as the key and a Model resource name as the value.
+	RequestModels interface{} `pulumi:"requestModels"`
+	// The request parameters that API Gateway accepts. Specify request parameters as key-value pairs (string-to-Boolean mapping), with a source as the key and a Boolean as the value.
+	RequestParameters interface{} `pulumi:"requestParameters"`
+	// The ID of the associated request validator.
+	RequestValidatorId *string `pulumi:"requestValidatorId"`
+	// The ID of an API Gateway resource.
+	ResourceId string `pulumi:"resourceId"`
+	// The ID of the RestApi resource in which API Gateway creates the method.
+	RestApiId string `pulumi:"restApiId"`
 }
 
 // The set of arguments for constructing a Method resource.
 type MethodArgs struct {
-	ApiKeyRequired      pulumi.BoolPtrInput
+	// Indicates whether the method requires clients to submit a valid API key.
+	ApiKeyRequired pulumi.BoolPtrInput
+	// A list of authorization scopes configured on the method.
 	AuthorizationScopes pulumi.StringArrayInput
-	AuthorizationType   pulumi.StringPtrInput
-	AuthorizerId        pulumi.StringPtrInput
-	HttpMethod          pulumi.StringInput
-	Integration         MethodIntegrationPtrInput
-	MethodResponses     MethodResponseArrayInput
-	OperationName       pulumi.StringPtrInput
-	RequestModels       pulumi.Input
-	RequestParameters   pulumi.Input
-	RequestValidatorId  pulumi.StringPtrInput
-	ResourceId          pulumi.StringInput
-	RestApiId           pulumi.StringInput
+	// The method's authorization type.
+	AuthorizationType MethodAuthorizationTypePtrInput
+	// The identifier of the authorizer to use on this method.
+	AuthorizerId pulumi.StringPtrInput
+	// The backend system that the method calls when it receives a request.
+	HttpMethod pulumi.StringInput
+	// The backend system that the method calls when it receives a request.
+	Integration MethodIntegrationPtrInput
+	// The responses that can be sent to the client who calls the method.
+	MethodResponses MethodResponseArrayInput
+	// A friendly operation name for the method.
+	OperationName pulumi.StringPtrInput
+	// The resources that are used for the request's content type. Specify request models as key-value pairs (string-to-string mapping), with a content type as the key and a Model resource name as the value.
+	RequestModels pulumi.Input
+	// The request parameters that API Gateway accepts. Specify request parameters as key-value pairs (string-to-Boolean mapping), with a source as the key and a Boolean as the value.
+	RequestParameters pulumi.Input
+	// The ID of the associated request validator.
+	RequestValidatorId pulumi.StringPtrInput
+	// The ID of an API Gateway resource.
+	ResourceId pulumi.StringInput
+	// The ID of the RestApi resource in which API Gateway creates the method.
+	RestApiId pulumi.StringInput
 }
 
 func (MethodArgs) ElementType() reflect.Type {

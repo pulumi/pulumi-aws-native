@@ -15,14 +15,17 @@ import (
 type NotificationRule struct {
 	pulumi.CustomResourceState
 
-	Arn          pulumi.StringOutput               `pulumi:"arn"`
-	DetailType   NotificationRuleDetailTypeOutput  `pulumi:"detailType"`
-	EventTypeIds pulumi.StringArrayOutput          `pulumi:"eventTypeIds"`
-	Name         pulumi.StringOutput               `pulumi:"name"`
-	Resource     pulumi.StringOutput               `pulumi:"resource"`
-	Status       NotificationRuleStatusPtrOutput   `pulumi:"status"`
-	Tags         pulumi.AnyOutput                  `pulumi:"tags"`
-	Targets      NotificationRuleTargetArrayOutput `pulumi:"targets"`
+	Arn           pulumi.StringOutput               `pulumi:"arn"`
+	CreatedBy     pulumi.StringPtrOutput            `pulumi:"createdBy"`
+	DetailType    NotificationRuleDetailTypeOutput  `pulumi:"detailType"`
+	EventTypeId   pulumi.StringPtrOutput            `pulumi:"eventTypeId"`
+	EventTypeIds  pulumi.StringArrayOutput          `pulumi:"eventTypeIds"`
+	Name          pulumi.StringOutput               `pulumi:"name"`
+	Resource      pulumi.StringOutput               `pulumi:"resource"`
+	Status        NotificationRuleStatusPtrOutput   `pulumi:"status"`
+	Tags          pulumi.AnyOutput                  `pulumi:"tags"`
+	TargetAddress pulumi.StringPtrOutput            `pulumi:"targetAddress"`
+	Targets       NotificationRuleTargetArrayOutput `pulumi:"targets"`
 }
 
 // NewNotificationRule registers a new resource with the given unique name, arguments, and options.
@@ -79,24 +82,30 @@ func (NotificationRuleState) ElementType() reflect.Type {
 }
 
 type notificationRuleArgs struct {
-	DetailType   NotificationRuleDetailType `pulumi:"detailType"`
-	EventTypeIds []string                   `pulumi:"eventTypeIds"`
-	Name         string                     `pulumi:"name"`
-	Resource     string                     `pulumi:"resource"`
-	Status       *NotificationRuleStatus    `pulumi:"status"`
-	Tags         interface{}                `pulumi:"tags"`
-	Targets      []NotificationRuleTarget   `pulumi:"targets"`
+	CreatedBy     *string                    `pulumi:"createdBy"`
+	DetailType    NotificationRuleDetailType `pulumi:"detailType"`
+	EventTypeId   *string                    `pulumi:"eventTypeId"`
+	EventTypeIds  []string                   `pulumi:"eventTypeIds"`
+	Name          string                     `pulumi:"name"`
+	Resource      string                     `pulumi:"resource"`
+	Status        *NotificationRuleStatus    `pulumi:"status"`
+	Tags          interface{}                `pulumi:"tags"`
+	TargetAddress *string                    `pulumi:"targetAddress"`
+	Targets       []NotificationRuleTarget   `pulumi:"targets"`
 }
 
 // The set of arguments for constructing a NotificationRule resource.
 type NotificationRuleArgs struct {
-	DetailType   NotificationRuleDetailTypeInput
-	EventTypeIds pulumi.StringArrayInput
-	Name         pulumi.StringInput
-	Resource     pulumi.StringInput
-	Status       NotificationRuleStatusPtrInput
-	Tags         pulumi.Input
-	Targets      NotificationRuleTargetArrayInput
+	CreatedBy     pulumi.StringPtrInput
+	DetailType    NotificationRuleDetailTypeInput
+	EventTypeId   pulumi.StringPtrInput
+	EventTypeIds  pulumi.StringArrayInput
+	Name          pulumi.StringInput
+	Resource      pulumi.StringInput
+	Status        NotificationRuleStatusPtrInput
+	Tags          pulumi.Input
+	TargetAddress pulumi.StringPtrInput
+	Targets       NotificationRuleTargetArrayInput
 }
 
 func (NotificationRuleArgs) ElementType() reflect.Type {

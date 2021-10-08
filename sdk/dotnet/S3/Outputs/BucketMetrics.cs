@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.S3.Outputs
     public sealed class BucketMetrics
     {
         public readonly Outputs.BucketReplicationTimeValue? EventThreshold;
-        public readonly string Status;
+        public readonly Pulumi.AwsNative.S3.BucketMetricsStatus Status;
 
         [OutputConstructor]
         private BucketMetrics(
             Outputs.BucketReplicationTimeValue? eventThreshold,
 
-            string status)
+            Pulumi.AwsNative.S3.BucketMetricsStatus status)
         {
             EventThreshold = eventThreshold;
             Status = status;

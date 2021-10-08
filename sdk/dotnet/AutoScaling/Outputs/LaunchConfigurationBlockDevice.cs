@@ -10,15 +10,39 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AutoScaling.Outputs
 {
 
+    /// <summary>
+    /// BlockDevice is a subproperty of BlockDeviceMapping that describes an Amazon EBS volume.
+    /// </summary>
     [OutputType]
     public sealed class LaunchConfigurationBlockDevice
     {
+        /// <summary>
+        /// Indicates whether the volume is deleted on instance termination. 
+        /// </summary>
         public readonly bool? DeleteOnTermination;
+        /// <summary>
+        /// Specifies whether the volume should be encrypted. 
+        /// </summary>
         public readonly bool? Encrypted;
+        /// <summary>
+        /// The number of input/output (I/O) operations per second (IOPS) to provision for the volume. 
+        /// </summary>
         public readonly int? Iops;
+        /// <summary>
+        /// The snapshot ID of the volume to use.
+        /// </summary>
         public readonly string? SnapshotId;
+        /// <summary>
+        /// The throughput (MiBps) to provision for a gp3 volume.
+        /// </summary>
         public readonly int? Throughput;
+        /// <summary>
+        /// The volume size, in GiBs.
+        /// </summary>
         public readonly int? VolumeSize;
+        /// <summary>
+        /// The volume type.
+        /// </summary>
         public readonly string? VolumeType;
 
         [OutputConstructor]

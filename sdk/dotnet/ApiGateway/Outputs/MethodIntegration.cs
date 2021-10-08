@@ -13,19 +13,61 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
     [OutputType]
     public sealed class MethodIntegration
     {
+        /// <summary>
+        /// A list of request parameters whose values API Gateway caches.
+        /// </summary>
         public readonly ImmutableArray<string> CacheKeyParameters;
+        /// <summary>
+        /// An API-specific tag group of related cached parameters.
+        /// </summary>
         public readonly string? CacheNamespace;
+        /// <summary>
+        /// The ID of the VpcLink used for the integration when connectionType=VPC_LINK, otherwise undefined.
+        /// </summary>
         public readonly string? ConnectionId;
-        public readonly string? ConnectionType;
-        public readonly string? ContentHandling;
+        /// <summary>
+        /// The type of the network connection to the integration endpoint.
+        /// </summary>
+        public readonly Pulumi.AwsNative.ApiGateway.MethodIntegrationConnectionType? ConnectionType;
+        /// <summary>
+        /// Specifies how to handle request payload content type conversions.
+        /// </summary>
+        public readonly Pulumi.AwsNative.ApiGateway.MethodIntegrationContentHandling? ContentHandling;
+        /// <summary>
+        /// The credentials that are required for the integration.
+        /// </summary>
         public readonly string? Credentials;
+        /// <summary>
+        /// The integration's HTTP method type.
+        /// </summary>
         public readonly string? IntegrationHttpMethod;
+        /// <summary>
+        /// The response that API Gateway provides after a method's backend completes processing a request.
+        /// </summary>
         public readonly ImmutableArray<Outputs.MethodIntegrationResponse> IntegrationResponses;
-        public readonly string? PassthroughBehavior;
+        /// <summary>
+        /// Indicates when API Gateway passes requests to the targeted backend.
+        /// </summary>
+        public readonly Pulumi.AwsNative.ApiGateway.MethodIntegrationPassthroughBehavior? PassthroughBehavior;
+        /// <summary>
+        /// The request parameters that API Gateway sends with the backend request.
+        /// </summary>
         public readonly object? RequestParameters;
+        /// <summary>
+        /// A map of Apache Velocity templates that are applied on the request payload.
+        /// </summary>
         public readonly object? RequestTemplates;
+        /// <summary>
+        /// Custom timeout between 50 and 29,000 milliseconds.
+        /// </summary>
         public readonly int? TimeoutInMillis;
-        public readonly string? Type;
+        /// <summary>
+        /// The type of backend that your method is running.
+        /// </summary>
+        public readonly Pulumi.AwsNative.ApiGateway.MethodIntegrationType Type;
+        /// <summary>
+        /// The Uniform Resource Identifier (URI) for the integration.
+        /// </summary>
         public readonly string? Uri;
 
         [OutputConstructor]
@@ -36,9 +78,9 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
 
             string? connectionId,
 
-            string? connectionType,
+            Pulumi.AwsNative.ApiGateway.MethodIntegrationConnectionType? connectionType,
 
-            string? contentHandling,
+            Pulumi.AwsNative.ApiGateway.MethodIntegrationContentHandling? contentHandling,
 
             string? credentials,
 
@@ -46,7 +88,7 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
 
             ImmutableArray<Outputs.MethodIntegrationResponse> integrationResponses,
 
-            string? passthroughBehavior,
+            Pulumi.AwsNative.ApiGateway.MethodIntegrationPassthroughBehavior? passthroughBehavior,
 
             object? requestParameters,
 
@@ -54,7 +96,7 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
 
             int? timeoutInMillis,
 
-            string? type,
+            Pulumi.AwsNative.ApiGateway.MethodIntegrationType type,
 
             string? uri)
         {

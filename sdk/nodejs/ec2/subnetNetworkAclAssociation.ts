@@ -35,7 +35,13 @@ export class SubnetNetworkAclAssociation extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly associationId!: pulumi.Output<string>;
+    /**
+     * The ID of the network ACL
+     */
     public readonly networkAclId!: pulumi.Output<string>;
+    /**
+     * The ID of the subnet
+     */
     public readonly subnetId!: pulumi.Output<string>;
 
     /**
@@ -74,6 +80,12 @@ export class SubnetNetworkAclAssociation extends pulumi.CustomResource {
  * The set of arguments for constructing a SubnetNetworkAclAssociation resource.
  */
 export interface SubnetNetworkAclAssociationArgs {
+    /**
+     * The ID of the network ACL
+     */
     networkAclId: pulumi.Input<string>;
+    /**
+     * The ID of the subnet
+     */
     subnetId: pulumi.Input<string>;
 }

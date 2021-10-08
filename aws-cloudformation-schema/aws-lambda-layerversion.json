@@ -16,14 +16,21 @@
     "Description" : {
       "type" : "string"
     },
-    "Id" : {
-      "type" : "string"
-    },
     "LayerName" : {
       "type" : "string"
     },
     "Content" : {
       "$ref" : "#/definitions/Content"
+    },
+    "Id" : {
+      "type" : "string"
+    },
+    "CompatibleArchitectures" : {
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "type" : "string"
+      }
     }
   },
   "definitions" : {
@@ -45,7 +52,7 @@
     }
   },
   "required" : [ "Content" ],
-  "createOnlyProperties" : [ "/properties/CompatibleRuntimes", "/properties/LicenseInfo", "/properties/LayerName", "/properties/Description", "/properties/Content" ],
+  "createOnlyProperties" : [ "/properties/CompatibleRuntimes", "/properties/LicenseInfo", "/properties/CompatibleArchitectures", "/properties/LayerName", "/properties/Description", "/properties/Content" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]
 }

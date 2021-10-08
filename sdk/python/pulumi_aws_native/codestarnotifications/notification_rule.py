@@ -21,8 +21,11 @@ class NotificationRuleArgs:
                  name: pulumi.Input[str],
                  resource: pulumi.Input[str],
                  targets: pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArgs']]],
+                 created_by: Optional[pulumi.Input[str]] = None,
+                 event_type_id: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['NotificationRuleStatus']] = None,
-                 tags: Optional[Any] = None):
+                 tags: Optional[Any] = None,
+                 target_address: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a NotificationRule resource.
         """
@@ -31,10 +34,16 @@ class NotificationRuleArgs:
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource", resource)
         pulumi.set(__self__, "targets", targets)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if event_type_id is not None:
+            pulumi.set(__self__, "event_type_id", event_type_id)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if target_address is not None:
+            pulumi.set(__self__, "target_address", target_address)
 
     @property
     @pulumi.getter(name="detailType")
@@ -82,6 +91,24 @@ class NotificationRuleArgs:
         pulumi.set(self, "targets", value)
 
     @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "created_by")
+
+    @created_by.setter
+    def created_by(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_by", value)
+
+    @property
+    @pulumi.getter(name="eventTypeId")
+    def event_type_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "event_type_id")
+
+    @event_type_id.setter
+    def event_type_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_type_id", value)
+
+    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input['NotificationRuleStatus']]:
         return pulumi.get(self, "status")
@@ -99,18 +126,30 @@ class NotificationRuleArgs:
     def tags(self, value: Optional[Any]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="targetAddress")
+    def target_address(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "target_address")
+
+    @target_address.setter
+    def target_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_address", value)
+
 
 class NotificationRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 created_by: Optional[pulumi.Input[str]] = None,
                  detail_type: Optional[pulumi.Input['NotificationRuleDetailType']] = None,
+                 event_type_id: Optional[pulumi.Input[str]] = None,
                  event_type_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['NotificationRuleStatus']] = None,
                  tags: Optional[Any] = None,
+                 target_address: Optional[pulumi.Input[str]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationRuleTargetArgs']]]]] = None,
                  __props__=None):
         """
@@ -143,12 +182,15 @@ class NotificationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 created_by: Optional[pulumi.Input[str]] = None,
                  detail_type: Optional[pulumi.Input['NotificationRuleDetailType']] = None,
+                 event_type_id: Optional[pulumi.Input[str]] = None,
                  event_type_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['NotificationRuleStatus']] = None,
                  tags: Optional[Any] = None,
+                 target_address: Optional[pulumi.Input[str]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationRuleTargetArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -162,9 +204,11 @@ class NotificationRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NotificationRuleArgs.__new__(NotificationRuleArgs)
 
+            __props__.__dict__["created_by"] = created_by
             if detail_type is None and not opts.urn:
                 raise TypeError("Missing required property 'detail_type'")
             __props__.__dict__["detail_type"] = detail_type
+            __props__.__dict__["event_type_id"] = event_type_id
             if event_type_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'event_type_ids'")
             __props__.__dict__["event_type_ids"] = event_type_ids
@@ -176,6 +220,7 @@ class NotificationRule(pulumi.CustomResource):
             __props__.__dict__["resource"] = resource
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["target_address"] = target_address
             if targets is None and not opts.urn:
                 raise TypeError("Missing required property 'targets'")
             __props__.__dict__["targets"] = targets
@@ -203,12 +248,15 @@ class NotificationRule(pulumi.CustomResource):
         __props__ = NotificationRuleArgs.__new__(NotificationRuleArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["created_by"] = None
         __props__.__dict__["detail_type"] = None
+        __props__.__dict__["event_type_id"] = None
         __props__.__dict__["event_type_ids"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["resource"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["target_address"] = None
         __props__.__dict__["targets"] = None
         return NotificationRule(resource_name, opts=opts, __props__=__props__)
 
@@ -218,9 +266,19 @@ class NotificationRule(pulumi.CustomResource):
         return pulumi.get(self, "arn")
 
     @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "created_by")
+
+    @property
     @pulumi.getter(name="detailType")
     def detail_type(self) -> pulumi.Output['NotificationRuleDetailType']:
         return pulumi.get(self, "detail_type")
+
+    @property
+    @pulumi.getter(name="eventTypeId")
+    def event_type_id(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "event_type_id")
 
     @property
     @pulumi.getter(name="eventTypeIds")
@@ -246,6 +304,11 @@ class NotificationRule(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Any]]:
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="targetAddress")
+    def target_address(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "target_address")
 
     @property
     @pulumi.getter

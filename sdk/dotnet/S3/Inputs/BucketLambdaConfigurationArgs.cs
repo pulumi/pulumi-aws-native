@@ -10,14 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
+    /// <summary>
+    /// Describes the AWS Lambda functions to invoke and the events for which to invoke them.
+    /// </summary>
     public sealed class BucketLambdaConfigurationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon S3 bucket event for which to invoke the AWS Lambda function.
+        /// </summary>
         [Input("event", required: true)]
         public Input<string> Event { get; set; } = null!;
 
+        /// <summary>
+        /// The filtering rules that determine which objects invoke the AWS Lambda function.
+        /// </summary>
         [Input("filter")]
         public Input<Inputs.BucketNotificationFilterArgs>? Filter { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon S3 invokes when the specified event type occurs.
+        /// </summary>
         [Input("function", required: true)]
         public Input<string> Function { get; set; } = null!;
 

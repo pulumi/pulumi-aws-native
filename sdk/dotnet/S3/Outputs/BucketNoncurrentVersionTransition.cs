@@ -10,15 +10,24 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Outputs
 {
 
+    /// <summary>
+    /// Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER, or DEEP_ARCHIVE storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER, or DEEP_ARCHIVE storage class at a specific period in the object's lifetime.
+    /// </summary>
     [OutputType]
     public sealed class BucketNoncurrentVersionTransition
     {
-        public readonly string StorageClass;
+        /// <summary>
+        /// The class of storage used to store the object.
+        /// </summary>
+        public readonly Pulumi.AwsNative.S3.BucketNoncurrentVersionTransitionStorageClass StorageClass;
+        /// <summary>
+        /// Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action.
+        /// </summary>
         public readonly int TransitionInDays;
 
         [OutputConstructor]
         private BucketNoncurrentVersionTransition(
-            string storageClass,
+            Pulumi.AwsNative.S3.BucketNoncurrentVersionTransitionStorageClass storageClass,
 
             int transitionInDays)
         {

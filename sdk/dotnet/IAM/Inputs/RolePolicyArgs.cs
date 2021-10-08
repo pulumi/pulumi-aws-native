@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IAM.Inputs
 {
 
+    /// <summary>
+    /// The inline policy document that is embedded in the specified IAM role.
+    /// </summary>
     public sealed class RolePolicyArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The policy document.
+        /// </summary>
         [Input("policyDocument", required: true)]
-        public Input<object> PolicyDocument { get; set; } = null!;
+        public Input<string> PolicyDocument { get; set; } = null!;
 
+        /// <summary>
+        /// The friendly name (not ARN) identifying the policy.
+        /// </summary>
         [Input("policyName", required: true)]
         public Input<string> PolicyName { get; set; } = null!;
 

@@ -12,8 +12,11 @@ namespace Pulumi.AwsNative.S3.Inputs
 
     public sealed class BucketAccelerateConfigurationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configures the transfer acceleration state for an Amazon S3 bucket.
+        /// </summary>
         [Input("accelerationStatus", required: true)]
-        public Input<string> AccelerationStatus { get; set; } = null!;
+        public Input<Pulumi.AwsNative.S3.BucketAccelerateConfigurationAccelerationStatus> AccelerationStatus { get; set; } = null!;
 
         public BucketAccelerateConfigurationArgs()
         {

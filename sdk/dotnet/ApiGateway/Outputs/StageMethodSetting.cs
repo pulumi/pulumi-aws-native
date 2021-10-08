@@ -10,18 +10,51 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Outputs
 {
 
+    /// <summary>
+    /// Configures settings for all methods in a stage.
+    /// </summary>
     [OutputType]
     public sealed class StageMethodSetting
     {
+        /// <summary>
+        /// Indicates whether the cached responses are encrypted.
+        /// </summary>
         public readonly bool? CacheDataEncrypted;
+        /// <summary>
+        /// The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses.
+        /// </summary>
         public readonly int? CacheTtlInSeconds;
+        /// <summary>
+        /// Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses.
+        /// </summary>
         public readonly bool? CachingEnabled;
+        /// <summary>
+        /// Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs.
+        /// </summary>
         public readonly bool? DataTraceEnabled;
+        /// <summary>
+        /// The HTTP method. You can use an asterisk (*) as a wildcard to apply method settings to multiple methods.
+        /// </summary>
         public readonly string? HttpMethod;
+        /// <summary>
+        /// The logging level for this method. For valid values, see the loggingLevel property of the Stage (https://docs.aws.amazon.com/apigateway/api-reference/resource/stage/#loggingLevel) resource in the Amazon API Gateway API Reference.
+        /// </summary>
         public readonly string? LoggingLevel;
+        /// <summary>
+        /// Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
+        /// </summary>
         public readonly bool? MetricsEnabled;
+        /// <summary>
+        /// The resource path for this method. Forward slashes (/) are encoded as ~1 and the initial slash must include a forward slash. For example, the path value /resource/subresource must be encoded as /~1resource~1subresource. To specify the root path, use only a slash (/). You can use an asterisk (*) as a wildcard to apply method settings to multiple methods.
+        /// </summary>
         public readonly string? ResourcePath;
+        /// <summary>
+        /// The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+        /// </summary>
         public readonly int? ThrottlingBurstLimit;
+        /// <summary>
+        /// The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+        /// </summary>
         public readonly double? ThrottlingRateLimit;
 
         [OutputConstructor]

@@ -100,6 +100,34 @@ namespace Pulumi.AwsNative.Lambda
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct FunctionArchitecturesItem : IEquatable<FunctionArchitecturesItem>
+    {
+        private readonly string _value;
+
+        private FunctionArchitecturesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FunctionArchitecturesItem X8664 { get; } = new FunctionArchitecturesItem("x86_64");
+        public static FunctionArchitecturesItem Arm64 { get; } = new FunctionArchitecturesItem("arm64");
+
+        public static bool operator ==(FunctionArchitecturesItem left, FunctionArchitecturesItem right) => left.Equals(right);
+        public static bool operator !=(FunctionArchitecturesItem left, FunctionArchitecturesItem right) => !left.Equals(right);
+
+        public static explicit operator string(FunctionArchitecturesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FunctionArchitecturesItem other && Equals(other);
+        public bool Equals(FunctionArchitecturesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// PackageType.
     /// </summary>

@@ -19,6 +19,13 @@ __all__ = [
     'BackupSelectionResourceType',
     'BackupVaultLockConfigurationType',
     'BackupVaultNotificationObjectType',
+    'FrameworkControl',
+    'FrameworkControlControlScopeProperties',
+    'FrameworkControlInputParameter',
+    'FrameworkTag',
+    'ReportDeliveryChannelProperties',
+    'ReportPlanTag',
+    'ReportSettingProperties',
 ]
 
 @pulumi.output_type
@@ -398,12 +405,12 @@ class BackupVaultLockConfigurationType(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "changeableForDays":
+        if key == "minRetentionDays":
+            suggest = "min_retention_days"
+        elif key == "changeableForDays":
             suggest = "changeable_for_days"
         elif key == "maxRetentionDays":
             suggest = "max_retention_days"
-        elif key == "minRetentionDays":
-            suggest = "min_retention_days"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BackupVaultLockConfigurationType. Access the value via the '{suggest}' property getter instead.")
@@ -417,15 +424,19 @@ class BackupVaultLockConfigurationType(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 min_retention_days: float,
                  changeable_for_days: Optional[float] = None,
-                 max_retention_days: Optional[float] = None,
-                 min_retention_days: Optional[float] = None):
+                 max_retention_days: Optional[float] = None):
+        pulumi.set(__self__, "min_retention_days", min_retention_days)
         if changeable_for_days is not None:
             pulumi.set(__self__, "changeable_for_days", changeable_for_days)
         if max_retention_days is not None:
             pulumi.set(__self__, "max_retention_days", max_retention_days)
-        if min_retention_days is not None:
-            pulumi.set(__self__, "min_retention_days", min_retention_days)
+
+    @property
+    @pulumi.getter(name="minRetentionDays")
+    def min_retention_days(self) -> float:
+        return pulumi.get(self, "min_retention_days")
 
     @property
     @pulumi.getter(name="changeableForDays")
@@ -436,11 +447,6 @@ class BackupVaultLockConfigurationType(dict):
     @pulumi.getter(name="maxRetentionDays")
     def max_retention_days(self) -> Optional[float]:
         return pulumi.get(self, "max_retention_days")
-
-    @property
-    @pulumi.getter(name="minRetentionDays")
-    def min_retention_days(self) -> Optional[float]:
-        return pulumi.get(self, "min_retention_days")
 
 
 @pulumi.output_type
@@ -479,5 +485,344 @@ class BackupVaultNotificationObjectType(dict):
     @pulumi.getter(name="sNSTopicArn")
     def s_ns_topic_arn(self) -> str:
         return pulumi.get(self, "s_ns_topic_arn")
+
+
+@pulumi.output_type
+class FrameworkControl(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "controlName":
+            suggest = "control_name"
+        elif key == "controlInputParameters":
+            suggest = "control_input_parameters"
+        elif key == "controlScope":
+            suggest = "control_scope"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrameworkControl. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrameworkControl.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrameworkControl.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 control_name: str,
+                 control_input_parameters: Optional[Sequence['outputs.FrameworkControlInputParameter']] = None,
+                 control_scope: Optional['outputs.FrameworkControlControlScopeProperties'] = None):
+        """
+        :param str control_name: The name of a control. This name is between 1 and 256 characters.
+        :param Sequence['FrameworkControlInputParameter'] control_input_parameters: A list of ParameterName and ParameterValue pairs.
+        :param 'FrameworkControlControlScopeProperties' control_scope: The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans.
+        """
+        pulumi.set(__self__, "control_name", control_name)
+        if control_input_parameters is not None:
+            pulumi.set(__self__, "control_input_parameters", control_input_parameters)
+        if control_scope is not None:
+            pulumi.set(__self__, "control_scope", control_scope)
+
+    @property
+    @pulumi.getter(name="controlName")
+    def control_name(self) -> str:
+        """
+        The name of a control. This name is between 1 and 256 characters.
+        """
+        return pulumi.get(self, "control_name")
+
+    @property
+    @pulumi.getter(name="controlInputParameters")
+    def control_input_parameters(self) -> Optional[Sequence['outputs.FrameworkControlInputParameter']]:
+        """
+        A list of ParameterName and ParameterValue pairs.
+        """
+        return pulumi.get(self, "control_input_parameters")
+
+    @property
+    @pulumi.getter(name="controlScope")
+    def control_scope(self) -> Optional['outputs.FrameworkControlControlScopeProperties']:
+        """
+        The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans.
+        """
+        return pulumi.get(self, "control_scope")
+
+
+@pulumi.output_type
+class FrameworkControlControlScopeProperties(dict):
+    """
+    The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "complianceResourceIds":
+            suggest = "compliance_resource_ids"
+        elif key == "complianceResourceTypes":
+            suggest = "compliance_resource_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrameworkControlControlScopeProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrameworkControlControlScopeProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrameworkControlControlScopeProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compliance_resource_ids: Optional[Sequence[str]] = None,
+                 compliance_resource_types: Optional[Sequence[str]] = None,
+                 tags: Optional[Sequence['outputs.FrameworkTag']] = None):
+        """
+        The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans.
+        :param Sequence[str] compliance_resource_ids: The ID of the only AWS resource that you want your control scope to contain.
+        :param Sequence[str] compliance_resource_types: Describes whether the control scope includes one or more types of resources, such as `EFS` or `RDS`.
+        :param Sequence['FrameworkTag'] tags: Describes whether the control scope includes resources with one or more tags. Each tag is a key-value pair.
+        """
+        if compliance_resource_ids is not None:
+            pulumi.set(__self__, "compliance_resource_ids", compliance_resource_ids)
+        if compliance_resource_types is not None:
+            pulumi.set(__self__, "compliance_resource_types", compliance_resource_types)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="complianceResourceIds")
+    def compliance_resource_ids(self) -> Optional[Sequence[str]]:
+        """
+        The ID of the only AWS resource that you want your control scope to contain.
+        """
+        return pulumi.get(self, "compliance_resource_ids")
+
+    @property
+    @pulumi.getter(name="complianceResourceTypes")
+    def compliance_resource_types(self) -> Optional[Sequence[str]]:
+        """
+        Describes whether the control scope includes one or more types of resources, such as `EFS` or `RDS`.
+        """
+        return pulumi.get(self, "compliance_resource_types")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.FrameworkTag']]:
+        """
+        Describes whether the control scope includes resources with one or more tags. Each tag is a key-value pair.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class FrameworkControlInputParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "parameterName":
+            suggest = "parameter_name"
+        elif key == "parameterValue":
+            suggest = "parameter_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrameworkControlInputParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrameworkControlInputParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrameworkControlInputParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 parameter_name: str,
+                 parameter_value: str):
+        pulumi.set(__self__, "parameter_name", parameter_name)
+        pulumi.set(__self__, "parameter_value", parameter_value)
+
+    @property
+    @pulumi.getter(name="parameterName")
+    def parameter_name(self) -> str:
+        return pulumi.get(self, "parameter_name")
+
+    @property
+    @pulumi.getter(name="parameterValue")
+    def parameter_value(self) -> str:
+        return pulumi.get(self, "parameter_value")
+
+
+@pulumi.output_type
+class FrameworkTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ReportDeliveryChannelProperties(dict):
+    """
+    A structure that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3BucketName":
+            suggest = "s3_bucket_name"
+        elif key == "s3KeyPrefix":
+            suggest = "s3_key_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReportDeliveryChannelProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReportDeliveryChannelProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReportDeliveryChannelProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_bucket_name: str,
+                 formats: Optional[Sequence[str]] = None,
+                 s3_key_prefix: Optional[str] = None):
+        """
+        A structure that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.
+        :param str s3_bucket_name: The unique name of the S3 bucket that receives your reports.
+        :param Sequence[str] formats: A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
+        :param str s3_key_prefix: The prefix for where AWS Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
+        """
+        pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+        if formats is not None:
+            pulumi.set(__self__, "formats", formats)
+        if s3_key_prefix is not None:
+            pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
+
+    @property
+    @pulumi.getter(name="s3BucketName")
+    def s3_bucket_name(self) -> str:
+        """
+        The unique name of the S3 bucket that receives your reports.
+        """
+        return pulumi.get(self, "s3_bucket_name")
+
+    @property
+    @pulumi.getter
+    def formats(self) -> Optional[Sequence[str]]:
+        """
+        A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
+        """
+        return pulumi.get(self, "formats")
+
+    @property
+    @pulumi.getter(name="s3KeyPrefix")
+    def s3_key_prefix(self) -> Optional[str]:
+        """
+        The prefix for where AWS Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
+        """
+        return pulumi.get(self, "s3_key_prefix")
+
+
+@pulumi.output_type
+class ReportPlanTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ReportSettingProperties(dict):
+    """
+    Identifies the report template for the report. Reports are built using a report template.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "reportTemplate":
+            suggest = "report_template"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReportSettingProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReportSettingProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReportSettingProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 report_template: str):
+        """
+        Identifies the report template for the report. Reports are built using a report template.
+        :param str report_template: Identifies the report template for the report. Reports are built using a report template. The report templates are: `BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`
+        """
+        pulumi.set(__self__, "report_template", report_template)
+
+    @property
+    @pulumi.getter(name="reportTemplate")
+    def report_template(self) -> str:
+        """
+        Identifies the report template for the report. Reports are built using a report template. The report templates are: `BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`
+        """
+        return pulumi.get(self, "report_template")
 
 

@@ -38,6 +38,7 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
         return obj['__pulumiType'] === MaintenanceWindowTask.__pulumiType;
     }
 
+    public readonly cutoffBehavior!: pulumi.Output<string | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly loggingInfo!: pulumi.Output<outputs.ssm.MaintenanceWindowTaskLoggingInfo | undefined>;
     public readonly maxConcurrency!: pulumi.Output<string | undefined>;
@@ -77,6 +78,7 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
             if ((!args || args.windowId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'windowId'");
             }
+            inputs["cutoffBehavior"] = args ? args.cutoffBehavior : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["loggingInfo"] = args ? args.loggingInfo : undefined;
             inputs["maxConcurrency"] = args ? args.maxConcurrency : undefined;
@@ -91,6 +93,7 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
             inputs["taskType"] = args ? args.taskType : undefined;
             inputs["windowId"] = args ? args.windowId : undefined;
         } else {
+            inputs["cutoffBehavior"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["loggingInfo"] = undefined /*out*/;
             inputs["maxConcurrency"] = undefined /*out*/;
@@ -116,6 +119,7 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
  * The set of arguments for constructing a MaintenanceWindowTask resource.
  */
 export interface MaintenanceWindowTaskArgs {
+    cutoffBehavior?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     loggingInfo?: pulumi.Input<inputs.ssm.MaintenanceWindowTaskLoggingInfoArgs>;
     maxConcurrency?: pulumi.Input<string>;

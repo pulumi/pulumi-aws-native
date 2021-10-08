@@ -767,75 +767,99 @@
             "cf": "AWS::ApiGateway::Authorizer",
             "inputs": {
                 "authType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Optional customer-defined field, used in OpenAPI imports and exports without functional impact."
                 },
                 "authorizerCredentials": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer."
                 },
                 "authorizerResultTtlInSeconds": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The TTL in seconds of cached authorizer results."
                 },
                 "authorizerUri": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Specifies the authorizer's Uniform Resource Identifier (URI)."
                 },
                 "identitySource": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The identity source for which authorization is requested."
                 },
                 "identityValidationExpression": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "A validation expression for the incoming identity token."
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the authorizer."
                 },
                 "providerARNs": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer."
                 },
                 "restApiId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The identifier of the API."
                 },
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The authorizer type."
                 }
             },
             "outputs": {
                 "authType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Optional customer-defined field, used in OpenAPI imports and exports without functional impact."
                 },
                 "authorizerCredentials": {
+                    "type": "string",
+                    "description": "Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer."
+                },
+                "authorizerId": {
                     "type": "string"
                 },
                 "authorizerResultTtlInSeconds": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The TTL in seconds of cached authorizer results."
                 },
                 "authorizerUri": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Specifies the authorizer's Uniform Resource Identifier (URI)."
                 },
                 "identitySource": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The identity source for which authorization is requested."
                 },
                 "identityValidationExpression": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "A validation expression for the incoming identity token."
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the authorizer."
                 },
                 "providerARNs": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer."
                 },
                 "restApiId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The identifier of the API."
                 },
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The authorizer type."
                 }
             },
             "required": [
+                "name",
                 "restApiId",
                 "type"
             ],
@@ -847,30 +871,38 @@
             "cf": "AWS::ApiGateway::BasePathMapping",
             "inputs": {
                 "basePath": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The base path name that callers of the API must provide in the URL after the domain name."
                 },
                 "domainName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The DomainName of an AWS::ApiGateway::DomainName resource."
                 },
                 "restApiId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the API."
                 },
                 "stage": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the API's stage."
                 }
             },
             "outputs": {
                 "basePath": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The base path name that callers of the API must provide in the URL after the domain name."
                 },
                 "domainName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The DomainName of an AWS::ApiGateway::DomainName resource."
                 },
                 "restApiId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the API."
                 },
                 "stage": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the API's stage."
                 }
             },
             "required": [
@@ -1053,99 +1085,130 @@
             "cf": "AWS::ApiGateway::Method",
             "inputs": {
                 "apiKeyRequired": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Indicates whether the method requires clients to submit a valid API key."
                 },
                 "authorizationScopes": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "A list of authorization scopes configured on the method."
                 },
                 "authorizationType": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:apigateway:MethodAuthorizationType",
+                    "description": "The method's authorization type."
                 },
                 "authorizerId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The identifier of the authorizer to use on this method."
                 },
                 "httpMethod": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The backend system that the method calls when it receives a request."
                 },
                 "integration": {
-                    "$ref": "#/types/aws-native:apigateway:MethodIntegration"
+                    "$ref": "#/types/aws-native:apigateway:MethodIntegration",
+                    "description": "The backend system that the method calls when it receives a request."
                 },
                 "methodResponses": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:apigateway:MethodResponse"
-                    }
+                    },
+                    "description": "The responses that can be sent to the client who calls the method."
                 },
                 "operationName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "A friendly operation name for the method."
                 },
                 "requestModels": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "pulumi.json#/Any",
+                    "description": "The resources that are used for the request's content type. Specify request models as key-value pairs (string-to-string mapping), with a content type as the key and a Model resource name as the value."
                 },
                 "requestParameters": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "pulumi.json#/Any",
+                    "description": "The request parameters that API Gateway accepts. Specify request parameters as key-value pairs (string-to-Boolean mapping), with a source as the key and a Boolean as the value."
                 },
                 "requestValidatorId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the associated request validator."
                 },
                 "resourceId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of an API Gateway resource."
                 },
                 "restApiId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the RestApi resource in which API Gateway creates the method."
                 }
             },
             "outputs": {
                 "apiKeyRequired": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Indicates whether the method requires clients to submit a valid API key."
                 },
                 "authorizationScopes": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "A list of authorization scopes configured on the method."
                 },
                 "authorizationType": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:apigateway:MethodAuthorizationType",
+                    "description": "The method's authorization type."
                 },
                 "authorizerId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The identifier of the authorizer to use on this method."
                 },
                 "httpMethod": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The backend system that the method calls when it receives a request."
                 },
                 "integration": {
-                    "$ref": "#/types/aws-native:apigateway:MethodIntegration"
+                    "$ref": "#/types/aws-native:apigateway:MethodIntegration",
+                    "description": "The backend system that the method calls when it receives a request."
                 },
                 "methodResponses": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:apigateway:MethodResponse"
-                    }
+                    },
+                    "description": "The responses that can be sent to the client who calls the method."
                 },
                 "operationName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "A friendly operation name for the method."
                 },
                 "requestModels": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "pulumi.json#/Any",
+                    "description": "The resources that are used for the request's content type. Specify request models as key-value pairs (string-to-string mapping), with a content type as the key and a Model resource name as the value."
                 },
                 "requestParameters": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "pulumi.json#/Any",
+                    "description": "The request parameters that API Gateway accepts. Specify request parameters as key-value pairs (string-to-Boolean mapping), with a source as the key and a Boolean as the value."
                 },
                 "requestValidatorId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the associated request validator."
                 },
                 "resourceId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of an API Gateway resource."
                 },
                 "restApiId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the RestApi resource in which API Gateway creates the method."
                 }
             },
             "required": [
+                "httpMethod",
+                "resourceId",
+                "restApiId"
+            ],
+            "createOnly": [
                 "httpMethod",
                 "resourceId",
                 "restApiId"
@@ -1305,102 +1368,130 @@
             "cf": "AWS::ApiGateway::Stage",
             "inputs": {
                 "accessLogSetting": {
-                    "$ref": "#/types/aws-native:apigateway:StageAccessLogSetting"
+                    "$ref": "#/types/aws-native:apigateway:StageAccessLogSetting",
+                    "description": "Specifies settings for logging access in this stage."
                 },
                 "cacheClusterEnabled": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Indicates whether cache clustering is enabled for the stage."
                 },
                 "cacheClusterSize": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The stage's cache cluster size."
                 },
                 "canarySetting": {
-                    "$ref": "#/types/aws-native:apigateway:StageCanarySetting"
+                    "$ref": "#/types/aws-native:apigateway:StageCanarySetting",
+                    "description": "Specifies settings for the canary deployment in this stage."
                 },
                 "clientCertificateId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the client certificate that API Gateway uses to call your integration endpoints in the stage. "
                 },
                 "deploymentId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the deployment that the stage is associated with. This parameter is required to create a stage. "
                 },
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "A description of the stage."
                 },
                 "documentationVersion": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The version ID of the API documentation snapshot."
                 },
                 "methodSettings": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:apigateway:StageMethodSetting"
-                    }
+                    },
+                    "description": "Settings for all methods in the stage."
                 },
                 "restApiId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the RestApi resource that you're deploying with this stage."
                 },
                 "stageName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI)."
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:apigateway:StageTag"
-                    }
+                    },
+                    "description": "An array of arbitrary tags (key-value pairs) to associate with the stage."
                 },
                 "tracingEnabled": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Specifies whether active X-Ray tracing is enabled for this stage."
                 },
                 "variables": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value."
                 }
             },
             "outputs": {
                 "accessLogSetting": {
-                    "$ref": "#/types/aws-native:apigateway:StageAccessLogSetting"
+                    "$ref": "#/types/aws-native:apigateway:StageAccessLogSetting",
+                    "description": "Specifies settings for logging access in this stage."
                 },
                 "cacheClusterEnabled": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Indicates whether cache clustering is enabled for the stage."
                 },
                 "cacheClusterSize": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The stage's cache cluster size."
                 },
                 "canarySetting": {
-                    "$ref": "#/types/aws-native:apigateway:StageCanarySetting"
+                    "$ref": "#/types/aws-native:apigateway:StageCanarySetting",
+                    "description": "Specifies settings for the canary deployment in this stage."
                 },
                 "clientCertificateId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the client certificate that API Gateway uses to call your integration endpoints in the stage. "
                 },
                 "deploymentId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the deployment that the stage is associated with. This parameter is required to create a stage. "
                 },
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "A description of the stage."
                 },
                 "documentationVersion": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The version ID of the API documentation snapshot."
                 },
                 "methodSettings": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:apigateway:StageMethodSetting"
-                    }
+                    },
+                    "description": "Settings for all methods in the stage."
                 },
                 "restApiId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the RestApi resource that you're deploying with this stage."
                 },
                 "stageName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI)."
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:apigateway:StageTag"
-                    }
+                    },
+                    "description": "An array of arbitrary tags (key-value pairs) to associate with the stage."
                 },
                 "tracingEnabled": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Specifies whether active X-Ray tracing is enabled for this stage."
                 },
                 "variables": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value."
                 }
             },
             "required": [
@@ -2413,138 +2504,176 @@
             "cf": "AWS::AutoScaling::LaunchConfiguration",
             "inputs": {
                 "associatePublicIpAddress": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "For Auto Scaling groups that are running in a virtual private cloud (VPC), specifies whether to assign a public IP address to the group's instances."
                 },
                 "blockDeviceMappings": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:autoscaling:LaunchConfigurationBlockDeviceMapping"
-                    }
+                    },
+                    "description": "Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes."
                 },
                 "classicLinkVPCId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to."
                 },
                 "classicLinkVPCSecurityGroups": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "The IDs of one or more security groups for the VPC that you specified in the ClassicLinkVPCId property."
                 },
                 "ebsOptimized": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Specifies whether the launch configuration is optimized for EBS I/O (true) or not (false)."
                 },
                 "iamInstanceProfile": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Provides the name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role."
                 },
                 "imageId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Provides the unique ID of the Amazon Machine Image (AMI) that was assigned during registration."
                 },
                 "instanceId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the Amazon EC2 instance you want to use to create the launch configuration."
                 },
                 "instanceMonitoring": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Controls whether instances in this group are launched with detailed (true) or basic (false) monitoring."
                 },
                 "instanceType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Specifies the instance type of the EC2 instance."
                 },
                 "kernelId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Provides the ID of the kernel associated with the EC2 AMI."
                 },
                 "keyName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Provides the name of the EC2 key pair."
                 },
                 "launchConfigurationName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the launch configuration. This name must be unique per Region per account."
                 },
                 "metadataOptions": {
-                    "$ref": "#/types/aws-native:autoscaling:LaunchConfigurationMetadataOptions"
+                    "$ref": "#/types/aws-native:autoscaling:LaunchConfigurationMetadataOptions",
+                    "description": "The metadata options for the instances."
                 },
                 "placementTenancy": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The tenancy of the instance, either default or dedicated."
                 },
                 "ramDiskId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the RAM disk to select."
                 },
                 "securityGroups": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "A list that contains the security groups to assign to the instances in the Auto Scaling group."
                 },
                 "spotPrice": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The maximum hourly price you are willing to pay for any Spot Instances launched to fulfill the request."
                 },
                 "userData": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Base64-encoded user data to make available to the launched EC2 instances."
                 }
             },
             "outputs": {
                 "associatePublicIpAddress": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "For Auto Scaling groups that are running in a virtual private cloud (VPC), specifies whether to assign a public IP address to the group's instances."
                 },
                 "blockDeviceMappings": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:autoscaling:LaunchConfigurationBlockDeviceMapping"
-                    }
+                    },
+                    "description": "Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes."
                 },
                 "classicLinkVPCId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to."
                 },
                 "classicLinkVPCSecurityGroups": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "The IDs of one or more security groups for the VPC that you specified in the ClassicLinkVPCId property."
                 },
                 "ebsOptimized": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Specifies whether the launch configuration is optimized for EBS I/O (true) or not (false)."
                 },
                 "iamInstanceProfile": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Provides the name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role."
                 },
                 "imageId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Provides the unique ID of the Amazon Machine Image (AMI) that was assigned during registration."
                 },
                 "instanceId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the Amazon EC2 instance you want to use to create the launch configuration."
                 },
                 "instanceMonitoring": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Controls whether instances in this group are launched with detailed (true) or basic (false) monitoring."
                 },
                 "instanceType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Specifies the instance type of the EC2 instance."
                 },
                 "kernelId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Provides the ID of the kernel associated with the EC2 AMI."
                 },
                 "keyName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Provides the name of the EC2 key pair."
                 },
                 "launchConfigurationName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the launch configuration. This name must be unique per Region per account."
                 },
                 "metadataOptions": {
-                    "$ref": "#/types/aws-native:autoscaling:LaunchConfigurationMetadataOptions"
+                    "$ref": "#/types/aws-native:autoscaling:LaunchConfigurationMetadataOptions",
+                    "description": "The metadata options for the instances."
                 },
                 "placementTenancy": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The tenancy of the instance, either default or dedicated."
                 },
                 "ramDiskId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the RAM disk to select."
                 },
                 "securityGroups": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "A list that contains the security groups to assign to the instances in the Auto Scaling group."
                 },
                 "spotPrice": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The maximum hourly price you are willing to pay for any Spot Instances launched to fulfill the request."
                 },
                 "userData": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Base64-encoded user data to make available to the launched EC2 instances."
                 }
             },
             "required": [
@@ -2693,6 +2822,9 @@
                 "accessPolicy": {
                     "$ref": "pulumi.json#/Any"
                 },
+                "backupVaultName": {
+                    "type": "string"
+                },
                 "backupVaultTags": {
                     "$ref": "pulumi.json#/Any"
                 },
@@ -2729,9 +2861,149 @@
                     "$ref": "#/types/aws-native:backup:BackupVaultNotificationObjectType"
                 }
             },
+            "required": [
+                "backupVaultName"
+            ],
             "createOnly": [
                 "backupVaultName",
                 "encryptionKeyArn"
+            ]
+        },
+        "aws-native:backup:Framework": {
+            "cf": "AWS::Backup::Framework",
+            "inputs": {
+                "frameworkControls": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:backup:FrameworkControl"
+                    },
+                    "description": "Contains detailed information about all of the controls of a framework. Each framework must contain at least one control."
+                },
+                "frameworkDescription": {
+                    "type": "string",
+                    "description": "An optional description of the framework with a maximum 1,024 characters."
+                },
+                "frameworkName": {
+                    "type": "string",
+                    "description": "The unique name of a framework. This name is between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_)."
+                },
+                "frameworkTags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:backup:FrameworkTag"
+                    },
+                    "description": "Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair."
+                }
+            },
+            "outputs": {
+                "creationTime": {
+                    "type": "number",
+                    "description": "The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC). The value of `CreationTime` is accurate to milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM."
+                },
+                "deploymentStatus": {
+                    "type": "string",
+                    "description": "The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS | UPDATE_IN_PROGRESS | DELETE_IN_PROGRESS | COMPLETED | FAILED`"
+                },
+                "frameworkArn": {
+                    "type": "string",
+                    "description": "An Amazon Resource Name (ARN) that uniquely identifies Framework as a resource"
+                },
+                "frameworkControls": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:backup:FrameworkControl"
+                    },
+                    "description": "Contains detailed information about all of the controls of a framework. Each framework must contain at least one control."
+                },
+                "frameworkDescription": {
+                    "type": "string",
+                    "description": "An optional description of the framework with a maximum 1,024 characters."
+                },
+                "frameworkName": {
+                    "type": "string",
+                    "description": "The unique name of a framework. This name is between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_)."
+                },
+                "frameworkStatus": {
+                    "type": "string",
+                    "description": "A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. The statuses are:\n\n`ACTIVE` when recording is turned on for all resources governed by the framework.\n\n`PARTIALLY_ACTIVE` when recording is turned off for at least one resource governed by the framework.\n\n`INACTIVE` when recording is turned off for all resources governed by the framework.\n\n`UNAVAILABLE` when AWS Backup is unable to validate recording status at this time."
+                },
+                "frameworkTags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:backup:FrameworkTag"
+                    },
+                    "description": "Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair."
+                }
+            },
+            "required": [
+                "frameworkControls"
+            ],
+            "createOnly": [
+                "frameworkName"
+            ]
+        },
+        "aws-native:backup:ReportPlan": {
+            "cf": "AWS::Backup::ReportPlan",
+            "inputs": {
+                "reportDeliveryChannel": {
+                    "$ref": "#/types/aws-native:backup:ReportDeliveryChannelProperties",
+                    "description": "A structure that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports."
+                },
+                "reportPlanDescription": {
+                    "type": "string",
+                    "description": "An optional description of the report plan with a maximum of 1,024 characters."
+                },
+                "reportPlanName": {
+                    "type": "string",
+                    "description": "The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_)."
+                },
+                "reportPlanTags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:backup:ReportPlanTag"
+                    },
+                    "description": "Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair."
+                },
+                "reportSetting": {
+                    "$ref": "#/types/aws-native:backup:ReportSettingProperties",
+                    "description": "Identifies the report template for the report. Reports are built using a report template."
+                }
+            },
+            "outputs": {
+                "reportDeliveryChannel": {
+                    "$ref": "#/types/aws-native:backup:ReportDeliveryChannelProperties",
+                    "description": "A structure that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports."
+                },
+                "reportPlanArn": {
+                    "type": "string",
+                    "description": "An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN depends on the resource type."
+                },
+                "reportPlanDescription": {
+                    "type": "string",
+                    "description": "An optional description of the report plan with a maximum of 1,024 characters."
+                },
+                "reportPlanName": {
+                    "type": "string",
+                    "description": "The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_)."
+                },
+                "reportPlanTags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:backup:ReportPlanTag"
+                    },
+                    "description": "Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair."
+                },
+                "reportSetting": {
+                    "$ref": "#/types/aws-native:backup:ReportSettingProperties",
+                    "description": "Identifies the report template for the report. Reports are built using a report template."
+                }
+            },
+            "required": [
+                "reportDeliveryChannel",
+                "reportSetting"
+            ],
+            "createOnly": [
+                "reportPlanName"
             ]
         },
         "aws-native:budgets:BudgetsAction": {
@@ -4623,8 +4895,14 @@
         "aws-native:codestarnotifications:NotificationRule": {
             "cf": "AWS::CodeStarNotifications::NotificationRule",
             "inputs": {
+                "createdBy": {
+                    "type": "string"
+                },
                 "detailType": {
                     "$ref": "#/types/aws-native:codestarnotifications:NotificationRuleDetailType"
+                },
+                "eventTypeId": {
+                    "type": "string"
                 },
                 "eventTypeIds": {
                     "type": "array",
@@ -4643,6 +4921,9 @@
                 },
                 "tags": {
                     "$ref": "pulumi.json#/Any"
+                },
+                "targetAddress": {
+                    "type": "string"
                 },
                 "targets": {
                     "type": "array",
@@ -4655,8 +4936,14 @@
                 "arn": {
                     "type": "string"
                 },
+                "createdBy": {
+                    "type": "string"
+                },
                 "detailType": {
                     "$ref": "#/types/aws-native:codestarnotifications:NotificationRuleDetailType"
+                },
+                "eventTypeId": {
+                    "type": "string"
                 },
                 "eventTypeIds": {
                     "type": "array",
@@ -4675,6 +4962,9 @@
                 },
                 "tags": {
                     "$ref": "pulumi.json#/Any"
+                },
+                "targetAddress": {
+                    "type": "string"
                 },
                 "targets": {
                     "type": "array",
@@ -7312,10 +7602,12 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:ec2:NetworkAclTag"
-                    }
+                    },
+                    "description": "The tags to assign to the network ACL."
                 },
                 "vpcId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the VPC."
                 }
             },
             "outputs": {
@@ -7323,10 +7615,12 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:ec2:NetworkAclTag"
-                    }
+                    },
+                    "description": "The tags to assign to the network ACL."
                 },
                 "vpcId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the VPC."
                 }
             },
             "required": [
@@ -7586,21 +7880,29 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:ec2:RouteTableTag"
-                    }
+                    },
+                    "description": "Any tags assigned to the route table."
                 },
                 "vpcId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the VPC."
                 }
             },
             "outputs": {
+                "routeTableId": {
+                    "type": "string",
+                    "description": "The route table ID."
+                },
                 "tags": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:ec2:RouteTableTag"
-                    }
+                    },
+                    "description": "Any tags assigned to the route table."
                 },
                 "vpcId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the VPC."
                 }
             },
             "required": [
@@ -7650,10 +7952,12 @@
             "cf": "AWS::EC2::SubnetNetworkAclAssociation",
             "inputs": {
                 "networkAclId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the network ACL"
                 },
                 "subnetId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the subnet"
                 }
             },
             "outputs": {
@@ -7661,10 +7965,12 @@
                     "type": "string"
                 },
                 "networkAclId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the network ACL"
                 },
                 "subnetId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the subnet"
                 }
             },
             "required": [
@@ -7699,6 +8005,7 @@
                 "subnetId"
             ],
             "createOnly": [
+                "routeTableId",
                 "subnetId"
             ]
         },
@@ -12235,84 +12542,104 @@
             "cf": "AWS::IAM::Role",
             "inputs": {
                 "assumeRolePolicyDocument": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "pulumi.json#/Any",
+                    "description": "The trust policy that is associated with this role."
                 },
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "A description of the role that you provide."
                 },
                 "managedPolicyArns": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role. "
                 },
                 "maxSessionDuration": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours. "
                 },
                 "path": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The path to the role."
                 },
                 "permissionsBoundary": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ARN of the policy used to set the permissions boundary for the role."
                 },
                 "policies": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:iam:RolePolicy"
-                    }
+                    },
+                    "description": "Adds or updates an inline policy document that is embedded in the specified IAM role. "
                 },
                 "roleName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "A name for the IAM role, up to 64 characters in length."
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:iam:RoleTag"
-                    }
+                    },
+                    "description": "A list of tags that are attached to the role."
                 }
             },
             "outputs": {
                 "arn": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) for the role."
                 },
                 "assumeRolePolicyDocument": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "pulumi.json#/Any",
+                    "description": "The trust policy that is associated with this role."
                 },
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "A description of the role that you provide."
                 },
                 "managedPolicyArns": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role. "
                 },
                 "maxSessionDuration": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours. "
                 },
                 "path": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The path to the role."
                 },
                 "permissionsBoundary": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ARN of the policy used to set the permissions boundary for the role."
                 },
                 "policies": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:iam:RolePolicy"
-                    }
+                    },
+                    "description": "Adds or updates an inline policy document that is embedded in the specified IAM role. "
                 },
                 "roleId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The stable and unique string identifying the role."
                 },
                 "roleName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "A name for the IAM role, up to 64 characters in length."
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:iam:RoleTag"
-                    }
+                    },
+                    "description": "A list of tags that are attached to the role."
                 }
             },
             "required": [
@@ -13733,6 +14060,116 @@
             ],
             "createOnly": [
                 "metricName"
+            ]
+        },
+        "aws-native:iot:JobTemplate": {
+            "cf": "AWS::IoT::JobTemplate",
+            "inputs": {
+                "abortConfig": {
+                    "$ref": "#/types/aws-native:iot:AbortConfigProperties",
+                    "description": "The criteria that determine when and how a job abort takes place."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description of the Job Template."
+                },
+                "document": {
+                    "type": "string",
+                    "description": "The job document. Required if you don't specify a value for documentSource."
+                },
+                "documentSource": {
+                    "type": "string",
+                    "description": "An S3 link to the job document to use in the template. Required if you don't specify a value for document."
+                },
+                "jobArn": {
+                    "type": "string",
+                    "description": "Optional for copying a JobTemplate from a pre-existing Job configuration."
+                },
+                "jobExecutionsRolloutConfig": {
+                    "$ref": "#/types/aws-native:iot:JobExecutionsRolloutConfigProperties",
+                    "description": "Allows you to create a staged rollout of a job."
+                },
+                "jobTemplateId": {
+                    "type": "string"
+                },
+                "presignedUrlConfig": {
+                    "$ref": "#/types/aws-native:iot:PresignedUrlConfigProperties",
+                    "description": "Configuration for pre-signed S3 URLs."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iot:JobTemplateTag"
+                    },
+                    "description": "Metadata that can be used to manage the JobTemplate."
+                },
+                "timeoutConfig": {
+                    "$ref": "#/types/aws-native:iot:TimeoutConfigProperties",
+                    "description": "Specifies the amount of time each device has to finish its execution of the job."
+                }
+            },
+            "outputs": {
+                "abortConfig": {
+                    "$ref": "#/types/aws-native:iot:AbortConfigProperties",
+                    "description": "The criteria that determine when and how a job abort takes place."
+                },
+                "arn": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description of the Job Template."
+                },
+                "document": {
+                    "type": "string",
+                    "description": "The job document. Required if you don't specify a value for documentSource."
+                },
+                "documentSource": {
+                    "type": "string",
+                    "description": "An S3 link to the job document to use in the template. Required if you don't specify a value for document."
+                },
+                "jobArn": {
+                    "type": "string",
+                    "description": "Optional for copying a JobTemplate from a pre-existing Job configuration."
+                },
+                "jobExecutionsRolloutConfig": {
+                    "$ref": "#/types/aws-native:iot:JobExecutionsRolloutConfigProperties",
+                    "description": "Allows you to create a staged rollout of a job."
+                },
+                "jobTemplateId": {
+                    "type": "string"
+                },
+                "presignedUrlConfig": {
+                    "$ref": "#/types/aws-native:iot:PresignedUrlConfigProperties",
+                    "description": "Configuration for pre-signed S3 URLs."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iot:JobTemplateTag"
+                    },
+                    "description": "Metadata that can be used to manage the JobTemplate."
+                },
+                "timeoutConfig": {
+                    "$ref": "#/types/aws-native:iot:TimeoutConfigProperties",
+                    "description": "Specifies the amount of time each device has to finish its execution of the job."
+                }
+            },
+            "required": [
+                "description",
+                "jobTemplateId"
+            ],
+            "createOnly": [
+                "abortConfig",
+                "description",
+                "document",
+                "documentSource",
+                "jobArn",
+                "jobExecutionsRolloutConfig",
+                "jobTemplateId",
+                "presignedUrlConfig",
+                "tags",
+                "timeoutConfig"
             ]
         },
         "aws-native:iot:MitigationAction": {
@@ -16311,6 +16748,12 @@
         "aws-native:lambda:Function": {
             "cf": "AWS::Lambda::Function",
             "inputs": {
+                "architectures": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lambda:FunctionArchitecturesItem"
+                    }
+                },
                 "code": {
                     "$ref": "#/types/aws-native:lambda:FunctionCode",
                     "description": "The code for the function."
@@ -16402,6 +16845,12 @@
                 }
             },
             "outputs": {
+                "architectures": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lambda:FunctionArchitecturesItem"
+                    }
+                },
                 "arn": {
                     "type": "string",
                     "description": "Unique identifier for function resources"
@@ -16683,6 +17132,253 @@
                 "licenseName",
                 "productName",
                 "validity"
+            ]
+        },
+        "aws-native:lightsail:Disk": {
+            "cf": "AWS::Lightsail::Disk",
+            "inputs": {
+                "addOns": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lightsail:DiskAddOn"
+                    },
+                    "description": "An array of objects representing the add-ons to enable for the new instance."
+                },
+                "availabilityZone": {
+                    "type": "string",
+                    "description": "The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request."
+                },
+                "diskName": {
+                    "type": "string",
+                    "description": "The names to use for your new Lightsail disk."
+                },
+                "sizeInGb": {
+                    "type": "integer",
+                    "description": "Size of the Lightsail disk"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lightsail:DiskTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                }
+            },
+            "outputs": {
+                "addOns": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lightsail:DiskAddOn"
+                    },
+                    "description": "An array of objects representing the add-ons to enable for the new instance."
+                },
+                "attachedTo": {
+                    "type": "string",
+                    "description": "Name of the attached Lightsail Instance"
+                },
+                "attachmentState": {
+                    "type": "string",
+                    "description": "Attachment State of the Lightsail disk"
+                },
+                "availabilityZone": {
+                    "type": "string",
+                    "description": "The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request."
+                },
+                "diskArn": {
+                    "type": "string"
+                },
+                "diskName": {
+                    "type": "string",
+                    "description": "The names to use for your new Lightsail disk."
+                },
+                "iops": {
+                    "type": "integer",
+                    "description": "Iops of the Lightsail disk"
+                },
+                "isAttached": {
+                    "type": "boolean",
+                    "description": "Check is Disk is attached state"
+                },
+                "location": {
+                    "$ref": "#/types/aws-native:lightsail:DiskLocation"
+                },
+                "path": {
+                    "type": "string",
+                    "description": "Path of the  attached Disk"
+                },
+                "resourceType": {
+                    "type": "string",
+                    "description": "Resource type of Lightsail instance."
+                },
+                "sizeInGb": {
+                    "type": "integer",
+                    "description": "Size of the Lightsail disk"
+                },
+                "state": {
+                    "type": "string",
+                    "description": "State of the Lightsail disk"
+                },
+                "supportCode": {
+                    "type": "string",
+                    "description": "Support code to help identify any issues"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lightsail:DiskTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                }
+            },
+            "required": [
+                "diskName",
+                "sizeInGb"
+            ],
+            "createOnly": [
+                "availabilityZone",
+                "diskName",
+                "sizeInGb"
+            ]
+        },
+        "aws-native:lightsail:Instance": {
+            "cf": "AWS::Lightsail::Instance",
+            "inputs": {
+                "addOns": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lightsail:InstanceAddOn"
+                    },
+                    "description": "An array of objects representing the add-ons to enable for the new instance."
+                },
+                "availabilityZone": {
+                    "type": "string",
+                    "description": "The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request."
+                },
+                "blueprintId": {
+                    "type": "string",
+                    "description": "The ID for a virtual private server image (e.g., app_wordpress_4_4 or app_lamp_7_0 ). Use the get blueprints operation to return a list of available images (or blueprints )."
+                },
+                "bundleId": {
+                    "type": "string",
+                    "description": "The bundle of specification information for your virtual private server (or instance ), including the pricing plan (e.g., micro_1_0 )."
+                },
+                "hardware": {
+                    "$ref": "#/types/aws-native:lightsail:InstanceHardware"
+                },
+                "instanceName": {
+                    "type": "string",
+                    "description": "The names to use for your new Lightsail instance."
+                },
+                "location": {
+                    "$ref": "#/types/aws-native:lightsail:InstanceLocation"
+                },
+                "networking": {
+                    "$ref": "#/types/aws-native:lightsail:InstanceNetworking"
+                },
+                "state": {
+                    "$ref": "#/types/aws-native:lightsail:InstanceState"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lightsail:InstanceTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                }
+            },
+            "outputs": {
+                "addOns": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lightsail:InstanceAddOn"
+                    },
+                    "description": "An array of objects representing the add-ons to enable for the new instance."
+                },
+                "availabilityZone": {
+                    "type": "string",
+                    "description": "The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request."
+                },
+                "blueprintId": {
+                    "type": "string",
+                    "description": "The ID for a virtual private server image (e.g., app_wordpress_4_4 or app_lamp_7_0 ). Use the get blueprints operation to return a list of available images (or blueprints )."
+                },
+                "bundleId": {
+                    "type": "string",
+                    "description": "The bundle of specification information for your virtual private server (or instance ), including the pricing plan (e.g., micro_1_0 )."
+                },
+                "hardware": {
+                    "$ref": "#/types/aws-native:lightsail:InstanceHardware"
+                },
+                "instanceArn": {
+                    "type": "string"
+                },
+                "instanceName": {
+                    "type": "string",
+                    "description": "The names to use for your new Lightsail instance."
+                },
+                "isStaticIp": {
+                    "type": "boolean",
+                    "description": "Is the IP Address of the Instance is the static IP"
+                },
+                "keyPairName": {
+                    "type": "string",
+                    "description": "The name of your key pair."
+                },
+                "location": {
+                    "$ref": "#/types/aws-native:lightsail:InstanceLocation"
+                },
+                "networking": {
+                    "$ref": "#/types/aws-native:lightsail:InstanceNetworking"
+                },
+                "privateIpAddress": {
+                    "type": "string",
+                    "description": "Private IP Address of the Instance"
+                },
+                "publicIpAddress": {
+                    "type": "string",
+                    "description": "Public IP Address of the Instance"
+                },
+                "resourceType": {
+                    "type": "string",
+                    "description": "Resource type of Lightsail instance."
+                },
+                "sshKeyName": {
+                    "type": "string",
+                    "description": "SSH Key Name of the  Lightsail instance."
+                },
+                "state": {
+                    "$ref": "#/types/aws-native:lightsail:InstanceState"
+                },
+                "supportCode": {
+                    "type": "string",
+                    "description": "Support code to help identify any issues"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lightsail:InstanceTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                },
+                "userData": {
+                    "type": "string",
+                    "description": "A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update."
+                },
+                "userName": {
+                    "type": "string",
+                    "description": "Username of the  Lightsail instance."
+                }
+            },
+            "required": [
+                "blueprintId",
+                "bundleId",
+                "instanceName"
+            ],
+            "createOnly": [
+                "availabilityZone",
+                "blueprintId",
+                "bundleId",
+                "instanceName"
             ]
         },
         "aws-native:location:GeofenceCollection": {
@@ -22639,73 +23335,89 @@
             "cf": "AWS::S3::Bucket",
             "inputs": {
                 "accelerateConfiguration": {
-                    "$ref": "#/types/aws-native:s3:BucketAccelerateConfiguration"
+                    "$ref": "#/types/aws-native:s3:BucketAccelerateConfiguration",
+                    "description": "Configuration for the transfer acceleration state."
                 },
                 "accessControl": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:s3:BucketAccessControl",
+                    "description": "A canned access control list (ACL) that grants predefined permissions to the bucket."
                 },
                 "analyticsConfigurations": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:s3:BucketAnalyticsConfiguration"
-                    }
+                    },
+                    "description": "The configuration and any analyses for the analytics filter of an Amazon S3 bucket."
                 },
                 "bucketEncryption": {
                     "$ref": "#/types/aws-native:s3:BucketEncryption"
                 },
                 "bucketName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name."
                 },
                 "corsConfiguration": {
-                    "$ref": "#/types/aws-native:s3:BucketCorsConfiguration"
+                    "$ref": "#/types/aws-native:s3:BucketCorsConfiguration",
+                    "description": "Rules that define cross-origin resource sharing of objects in this bucket."
                 },
                 "intelligentTieringConfigurations": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:s3:BucketIntelligentTieringConfiguration"
-                    }
+                    },
+                    "description": "Specifies the S3 Intelligent-Tiering configuration for an Amazon S3 bucket."
                 },
                 "inventoryConfigurations": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:s3:BucketInventoryConfiguration"
-                    }
+                    },
+                    "description": "The inventory configuration for an Amazon S3 bucket."
                 },
                 "lifecycleConfiguration": {
-                    "$ref": "#/types/aws-native:s3:BucketLifecycleConfiguration"
+                    "$ref": "#/types/aws-native:s3:BucketLifecycleConfiguration",
+                    "description": "Rules that define how Amazon S3 manages objects during their lifetime."
                 },
                 "loggingConfiguration": {
-                    "$ref": "#/types/aws-native:s3:BucketLoggingConfiguration"
+                    "$ref": "#/types/aws-native:s3:BucketLoggingConfiguration",
+                    "description": "Settings that define where logs are stored."
                 },
                 "metricsConfigurations": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:s3:BucketMetricsConfiguration"
-                    }
+                    },
+                    "description": "Settings that define a metrics configuration for the CloudWatch request metrics from the bucket."
                 },
                 "notificationConfiguration": {
-                    "$ref": "#/types/aws-native:s3:BucketNotificationConfiguration"
+                    "$ref": "#/types/aws-native:s3:BucketNotificationConfiguration",
+                    "description": "Configuration that defines how Amazon S3 handles bucket notifications."
                 },
                 "objectLockConfiguration": {
-                    "$ref": "#/types/aws-native:s3:BucketObjectLockConfiguration"
+                    "$ref": "#/types/aws-native:s3:BucketObjectLockConfiguration",
+                    "description": "Places an Object Lock configuration on the specified bucket."
                 },
                 "objectLockEnabled": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Indicates whether this bucket has an Object Lock configuration enabled."
                 },
                 "ownershipControls": {
-                    "$ref": "#/types/aws-native:s3:BucketOwnershipControls"
+                    "$ref": "#/types/aws-native:s3:BucketOwnershipControls",
+                    "description": "Specifies the container element for object ownership rules."
                 },
                 "publicAccessBlockConfiguration": {
                     "$ref": "#/types/aws-native:s3:BucketPublicAccessBlockConfiguration"
                 },
                 "replicationConfiguration": {
-                    "$ref": "#/types/aws-native:s3:BucketReplicationConfiguration"
+                    "$ref": "#/types/aws-native:s3:BucketReplicationConfiguration",
+                    "description": "Configuration for replicating objects in an S3 bucket."
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:s3:BucketTag"
-                    }
+                    },
+                    "description": "An arbitrary set of tags (key-value pairs) for this S3 bucket."
                 },
                 "versioningConfiguration": {
                     "$ref": "#/types/aws-native:s3:BucketVersioningConfiguration"
@@ -22716,85 +23428,105 @@
             },
             "outputs": {
                 "accelerateConfiguration": {
-                    "$ref": "#/types/aws-native:s3:BucketAccelerateConfiguration"
+                    "$ref": "#/types/aws-native:s3:BucketAccelerateConfiguration",
+                    "description": "Configuration for the transfer acceleration state."
                 },
                 "accessControl": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:s3:BucketAccessControl",
+                    "description": "A canned access control list (ACL) that grants predefined permissions to the bucket."
                 },
                 "analyticsConfigurations": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:s3:BucketAnalyticsConfiguration"
-                    }
+                    },
+                    "description": "The configuration and any analyses for the analytics filter of an Amazon S3 bucket."
                 },
                 "arn": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the specified bucket."
                 },
                 "bucketEncryption": {
                     "$ref": "#/types/aws-native:s3:BucketEncryption"
                 },
                 "bucketName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name."
                 },
                 "corsConfiguration": {
-                    "$ref": "#/types/aws-native:s3:BucketCorsConfiguration"
+                    "$ref": "#/types/aws-native:s3:BucketCorsConfiguration",
+                    "description": "Rules that define cross-origin resource sharing of objects in this bucket."
                 },
                 "domainName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The IPv4 DNS name of the specified bucket."
                 },
                 "dualStackDomainName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The IPv6 DNS name of the specified bucket. For more information about dual-stack endpoints, see [Using Amazon S3 Dual-Stack Endpoints](https://docs.aws.amazon.com/AmazonS3/latest/dev/dual-stack-endpoints.html)."
                 },
                 "intelligentTieringConfigurations": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:s3:BucketIntelligentTieringConfiguration"
-                    }
+                    },
+                    "description": "Specifies the S3 Intelligent-Tiering configuration for an Amazon S3 bucket."
                 },
                 "inventoryConfigurations": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:s3:BucketInventoryConfiguration"
-                    }
+                    },
+                    "description": "The inventory configuration for an Amazon S3 bucket."
                 },
                 "lifecycleConfiguration": {
-                    "$ref": "#/types/aws-native:s3:BucketLifecycleConfiguration"
+                    "$ref": "#/types/aws-native:s3:BucketLifecycleConfiguration",
+                    "description": "Rules that define how Amazon S3 manages objects during their lifetime."
                 },
                 "loggingConfiguration": {
-                    "$ref": "#/types/aws-native:s3:BucketLoggingConfiguration"
+                    "$ref": "#/types/aws-native:s3:BucketLoggingConfiguration",
+                    "description": "Settings that define where logs are stored."
                 },
                 "metricsConfigurations": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:s3:BucketMetricsConfiguration"
-                    }
+                    },
+                    "description": "Settings that define a metrics configuration for the CloudWatch request metrics from the bucket."
                 },
                 "notificationConfiguration": {
-                    "$ref": "#/types/aws-native:s3:BucketNotificationConfiguration"
+                    "$ref": "#/types/aws-native:s3:BucketNotificationConfiguration",
+                    "description": "Configuration that defines how Amazon S3 handles bucket notifications."
                 },
                 "objectLockConfiguration": {
-                    "$ref": "#/types/aws-native:s3:BucketObjectLockConfiguration"
+                    "$ref": "#/types/aws-native:s3:BucketObjectLockConfiguration",
+                    "description": "Places an Object Lock configuration on the specified bucket."
                 },
                 "objectLockEnabled": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Indicates whether this bucket has an Object Lock configuration enabled."
                 },
                 "ownershipControls": {
-                    "$ref": "#/types/aws-native:s3:BucketOwnershipControls"
+                    "$ref": "#/types/aws-native:s3:BucketOwnershipControls",
+                    "description": "Specifies the container element for object ownership rules."
                 },
                 "publicAccessBlockConfiguration": {
                     "$ref": "#/types/aws-native:s3:BucketPublicAccessBlockConfiguration"
                 },
                 "regionalDomainName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Returns the regional domain name of the specified bucket."
                 },
                 "replicationConfiguration": {
-                    "$ref": "#/types/aws-native:s3:BucketReplicationConfiguration"
+                    "$ref": "#/types/aws-native:s3:BucketReplicationConfiguration",
+                    "description": "Configuration for replicating objects in an S3 bucket."
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:s3:BucketTag"
-                    }
+                    },
+                    "description": "An arbitrary set of tags (key-value pairs) for this S3 bucket."
                 },
                 "versioningConfiguration": {
                     "$ref": "#/types/aws-native:s3:BucketVersioningConfiguration"
@@ -22803,7 +23535,8 @@
                     "$ref": "#/types/aws-native:s3:BucketWebsiteConfiguration"
                 },
                 "websiteURL": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Amazon S3 website endpoint for the specified bucket."
                 }
             },
             "createOnly": [
@@ -25855,6 +26588,9 @@
                 }
             },
             "outputs": {
+                "arn": {
+                    "type": "string"
+                },
                 "name": {
                     "type": "string"
                 },
@@ -25960,6 +26696,10 @@
         "aws-native:synthetics:Canary": {
             "cf": "AWS::Synthetics::Canary",
             "inputs": {
+                "artifactConfig": {
+                    "$ref": "#/types/aws-native:synthetics:CanaryArtifactConfig",
+                    "description": "Provide artifact configuration"
+                },
                 "artifactS3Location": {
                     "type": "string",
                     "description": "Provide the s3 bucket output location for test results"
@@ -26016,6 +26756,10 @@
                 }
             },
             "outputs": {
+                "artifactConfig": {
+                    "$ref": "#/types/aws-native:synthetics:CanaryArtifactConfig",
+                    "description": "Provide artifact configuration"
+                },
                 "artifactS3Location": {
                     "type": "string",
                     "description": "Provide the s3 bucket output location for test results"
@@ -27462,6 +28206,9 @@
                 }
             }
         },
+        "aws-native:apigateway:MethodAuthorizationType": {
+            "type": "string"
+        },
         "aws-native:apigateway:MethodIntegration": {
             "type": "object",
             "properties": {
@@ -27469,83 +28216,120 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "A list of request parameters whose values API Gateway caches."
                 },
                 "cacheNamespace": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "An API-specific tag group of related cached parameters."
                 },
                 "connectionId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the VpcLink used for the integration when connectionType=VPC_LINK, otherwise undefined."
                 },
                 "connectionType": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:apigateway:MethodIntegrationConnectionType",
+                    "description": "The type of the network connection to the integration endpoint."
                 },
                 "contentHandling": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:apigateway:MethodIntegrationContentHandling",
+                    "description": "Specifies how to handle request payload content type conversions."
                 },
                 "credentials": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The credentials that are required for the integration."
                 },
                 "integrationHttpMethod": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The integration's HTTP method type."
                 },
                 "integrationResponses": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:apigateway:MethodIntegrationResponse"
-                    }
+                    },
+                    "description": "The response that API Gateway provides after a method's backend completes processing a request."
                 },
                 "passthroughBehavior": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:apigateway:MethodIntegrationPassthroughBehavior",
+                    "description": "Indicates when API Gateway passes requests to the targeted backend."
                 },
                 "requestParameters": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "pulumi.json#/Any",
+                    "description": "The request parameters that API Gateway sends with the backend request."
                 },
                 "requestTemplates": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A map of Apache Velocity templates that are applied on the request payload."
                 },
                 "timeoutInMillis": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "Custom timeout between 50 and 29,000 milliseconds."
                 },
                 "type": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:apigateway:MethodIntegrationType",
+                    "description": "The type of backend that your method is running."
                 },
                 "uri": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Uniform Resource Identifier (URI) for the integration."
                 }
             }
+        },
+        "aws-native:apigateway:MethodIntegrationConnectionType": {
+            "type": "string"
+        },
+        "aws-native:apigateway:MethodIntegrationContentHandling": {
+            "type": "string"
+        },
+        "aws-native:apigateway:MethodIntegrationPassthroughBehavior": {
+            "type": "string"
         },
         "aws-native:apigateway:MethodIntegrationResponse": {
             "type": "object",
             "properties": {
                 "contentHandling": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:apigateway:MethodIntegrationResponseContentHandling",
+                    "description": "Specifies how to handle request payload content type conversions."
                 },
                 "responseParameters": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "pulumi.json#/Any",
+                    "description": "The response parameters from the backend response that API Gateway sends to the method response."
                 },
                 "responseTemplates": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "pulumi.json#/Any",
+                    "description": "The templates that are used to transform the integration response body. Specify templates as key-value pairs (string-to-string mappings), with a content type as the key and a template as the value."
                 },
                 "selectionPattern": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "A regular expression that specifies which error strings or status codes from the backend map to the integration response."
                 },
                 "statusCode": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The status code that API Gateway uses to map the integration response to a MethodResponse status code."
                 }
             }
+        },
+        "aws-native:apigateway:MethodIntegrationResponseContentHandling": {
+            "type": "string"
+        },
+        "aws-native:apigateway:MethodIntegrationType": {
+            "type": "string"
         },
         "aws-native:apigateway:MethodResponse": {
             "type": "object",
             "properties": {
                 "responseModels": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "pulumi.json#/Any",
+                    "description": "The resources used for the response's content type. Specify response models as key-value pairs (string-to-string maps), with a content type as the key and a Model resource name as the value."
                 },
                 "responseParameters": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "pulumi.json#/Any",
+                    "description": "Response parameters that API Gateway sends to the client that called a method. Specify response parameters as key-value pairs (string-to-Boolean maps), with a destination as the key and a Boolean as the value."
                 },
                 "statusCode": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The method response's status code, which you map to an IntegrationResponse."
                 }
             }
         },
@@ -27553,10 +28337,12 @@
             "type": "object",
             "properties": {
                 "destinationArn": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with amazon-apigateway-. This parameter is required to enable access logging."
                 },
                 "format": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "A single line format of the access logs of data, as specified by selected $context variables (https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference). The format must include at least $context.requestId. This parameter is required to enable access logging."
                 }
             }
         },
@@ -27564,16 +28350,20 @@
             "type": "object",
             "properties": {
                 "deploymentId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The identifier of the deployment that the stage points to."
                 },
                 "percentTraffic": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "The percentage (0-100) of traffic diverted to a canary deployment."
                 },
                 "stageVariableOverrides": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "pulumi.json#/Any",
+                    "description": "Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values."
                 },
                 "useStageCache": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Whether the canary deployment uses the stage cache or not."
                 }
             }
         },
@@ -27581,34 +28371,44 @@
             "type": "object",
             "properties": {
                 "cacheDataEncrypted": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Indicates whether the cached responses are encrypted."
                 },
                 "cacheTtlInSeconds": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses."
                 },
                 "cachingEnabled": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses."
                 },
                 "dataTraceEnabled": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs."
                 },
                 "httpMethod": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The HTTP method. You can use an asterisk (*) as a wildcard to apply method settings to multiple methods."
                 },
                 "loggingLevel": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The logging level for this method. For valid values, see the loggingLevel property of the Stage (https://docs.aws.amazon.com/apigateway/api-reference/resource/stage/#loggingLevel) resource in the Amazon API Gateway API Reference."
                 },
                 "metricsEnabled": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage."
                 },
                 "resourcePath": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The resource path for this method. Forward slashes (/) are encoded as ~1 and the initial slash must include a forward slash. For example, the path value /resource/subresource must be encoded as /~1resource~1subresource. To specify the root path, use only a slash (/). You can use an asterisk (*) as a wildcard to apply method settings to multiple methods."
                 },
                 "throttlingBurstLimit": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account."
                 },
                 "throttlingRateLimit": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account."
                 }
             }
         },
@@ -27616,10 +28416,12 @@
             "type": "object",
             "properties": {
                 "key": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:."
                 },
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:."
                 }
             }
         },
@@ -29685,25 +30487,32 @@
             "type": "object",
             "properties": {
                 "deleteOnTermination": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Indicates whether the volume is deleted on instance termination. "
                 },
                 "encrypted": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Specifies whether the volume should be encrypted. "
                 },
                 "iops": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The number of input/output (I/O) operations per second (IOPS) to provision for the volume. "
                 },
                 "snapshotId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The snapshot ID of the volume to use."
                 },
                 "throughput": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The throughput (MiBps) to provision for a gp3 volume."
                 },
                 "volumeSize": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The volume size, in GiBs."
                 },
                 "volumeType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The volume type."
                 }
             }
         },
@@ -29711,16 +30520,20 @@
             "type": "object",
             "properties": {
                 "deviceName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The device name exposed to the EC2 instance (for example, /dev/sdh or xvdh). "
                 },
                 "ebs": {
-                    "$ref": "#/types/aws-native:autoscaling:LaunchConfigurationBlockDevice"
+                    "$ref": "#/types/aws-native:autoscaling:LaunchConfigurationBlockDevice",
+                    "description": "Parameters used to automatically set up EBS volumes when an instance is launched."
                 },
                 "noDevice": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Setting this value to true suppresses the specified device included in the block device mapping of the AMI."
                 },
                 "virtualName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the virtual device."
                 }
             }
         },
@@ -29728,13 +30541,16 @@
             "type": "object",
             "properties": {
                 "httpEndpoint": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "This parameter enables or disables the HTTP metadata endpoint on your instances."
                 },
                 "httpPutResponseHopLimit": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The desired HTTP PUT response hop limit for instance metadata requests."
                 },
                 "httpTokens": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The state of token usage for your instance metadata requests."
                 }
             }
         },
@@ -29888,6 +30704,118 @@
                 },
                 "sNSTopicArn": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:backup:FrameworkControl": {
+            "type": "object",
+            "properties": {
+                "controlInputParameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:backup:FrameworkControlInputParameter"
+                    },
+                    "description": "A list of ParameterName and ParameterValue pairs."
+                },
+                "controlName": {
+                    "type": "string",
+                    "description": "The name of a control. This name is between 1 and 256 characters."
+                },
+                "controlScope": {
+                    "$ref": "#/types/aws-native:backup:FrameworkControlControlScopeProperties",
+                    "description": "The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans."
+                }
+            }
+        },
+        "aws-native:backup:FrameworkControlControlScopeProperties": {
+            "type": "object",
+            "properties": {
+                "complianceResourceIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The ID of the only AWS resource that you want your control scope to contain."
+                },
+                "complianceResourceTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Describes whether the control scope includes one or more types of resources, such as `EFS` or `RDS`."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:backup:FrameworkTag"
+                    },
+                    "description": "Describes whether the control scope includes resources with one or more tags. Each tag is a key-value pair."
+                }
+            }
+        },
+        "aws-native:backup:FrameworkControlInputParameter": {
+            "type": "object",
+            "properties": {
+                "parameterName": {
+                    "type": "string"
+                },
+                "parameterValue": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:backup:FrameworkTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
+        "aws-native:backup:ReportDeliveryChannelProperties": {
+            "type": "object",
+            "properties": {
+                "formats": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV."
+                },
+                "s3BucketName": {
+                    "type": "string",
+                    "description": "The unique name of the S3 bucket that receives your reports."
+                },
+                "s3KeyPrefix": {
+                    "type": "string",
+                    "description": "The prefix for where AWS Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix."
+                }
+            }
+        },
+        "aws-native:backup:ReportPlanTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
+        "aws-native:backup:ReportSettingProperties": {
+            "type": "object",
+            "properties": {
+                "reportTemplate": {
+                    "type": "string",
+                    "description": "Identifies the report template for the report. Reports are built using a report template. The report templates are: `BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`"
                 }
             }
         },
@@ -34631,7 +35559,7 @@
                     "items": {
                         "$ref": "#/types/aws-native:ecr:ReplicationConfigurationReplicationRule"
                     },
-                    "description": "An array of objects representing the replication rules for a replication configuration. A replication configuration may contain only one replication rule but the rule may contain one or more replication destinations."
+                    "description": "An array of objects representing the replication rules for a replication configuration. A replication configuration may contain a maximum of 10 rules."
                 }
             }
         },
@@ -38046,10 +38974,12 @@
             "type": "object",
             "properties": {
                 "policyDocument": {
-                    "$ref": "pulumi.json#/Any"
+                    "type": "string",
+                    "description": "The policy document."
                 },
                 "policyName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The friendly name (not ARN) identifying the policy."
                 }
             }
         },
@@ -38057,10 +38987,12 @@
             "type": "object",
             "properties": {
                 "key": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
                 },
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
                 }
             }
         },
@@ -38525,6 +39457,17 @@
                 }
             }
         },
+        "aws-native:iot:AbortConfigProperties": {
+            "type": "object",
+            "properties": {
+                "criteriaList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iot:JobTemplateAbortCriteria"
+                    }
+                }
+            }
+        },
         "aws-native:iot:AccountAuditConfigurationAuditCheckConfiguration": {
             "type": "object",
             "properties": {
@@ -38735,6 +39678,87 @@
                 }
             }
         },
+        "aws-native:iot:JobExecutionsRolloutConfigProperties": {
+            "type": "object",
+            "properties": {
+                "exponentialRolloutRate": {
+                    "$ref": "#/types/aws-native:iot:JobTemplateExponentialRolloutRate",
+                    "description": "The rate of increase for a job rollout. This parameter allows you to define an exponential rate for a job rollout."
+                },
+                "maximumPerMinute": {
+                    "type": "integer",
+                    "description": "The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout."
+                }
+            }
+        },
+        "aws-native:iot:JobTemplateAbortCriteria": {
+            "type": "object",
+            "properties": {
+                "action": {
+                    "$ref": "#/types/aws-native:iot:JobTemplateAction",
+                    "description": "The type of job action to take to initiate the job abort."
+                },
+                "failureType": {
+                    "$ref": "#/types/aws-native:iot:JobTemplateFailureType",
+                    "description": "The type of job execution failures that can initiate a job abort."
+                },
+                "minNumberOfExecutedThings": {
+                    "type": "integer",
+                    "description": "The minimum number of things which must receive job execution notifications before the job can be aborted."
+                },
+                "thresholdPercentage": {
+                    "type": "number",
+                    "description": "The minimum percentage of job execution failures that must occur to initiate the job abort."
+                }
+            }
+        },
+        "aws-native:iot:JobTemplateAction": {
+            "type": "string"
+        },
+        "aws-native:iot:JobTemplateExponentialRolloutRate": {
+            "type": "object",
+            "properties": {
+                "baseRatePerMinute": {
+                    "type": "integer",
+                    "description": "The minimum number of things that will be notified of a pending job, per minute at the start of job rollout. This parameter allows you to define the initial rate of rollout."
+                },
+                "incrementFactor": {
+                    "type": "number",
+                    "description": "The exponential factor to increase the rate of rollout for a job."
+                },
+                "rateIncreaseCriteria": {
+                    "$ref": "#/types/aws-native:iot:JobTemplateRateIncreaseCriteria",
+                    "description": "The criteria to initiate the increase in rate of rollout for a job."
+                }
+            }
+        },
+        "aws-native:iot:JobTemplateFailureType": {
+            "type": "string"
+        },
+        "aws-native:iot:JobTemplateRateIncreaseCriteria": {
+            "type": "object",
+            "properties": {
+                "numberOfNotifiedThings": {
+                    "type": "integer"
+                },
+                "numberOfSucceededThings": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:iot:JobTemplateTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The tag's key."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The tag's value."
+                }
+            }
+        },
         "aws-native:iot:MitigationActionActionParams": {
             "type": "object",
             "properties": {
@@ -38844,6 +39868,17 @@
         },
         "aws-native:iot:MitigationActionUpdateDeviceCertificateParamsAction": {
             "type": "string"
+        },
+        "aws-native:iot:PresignedUrlConfigProperties": {
+            "type": "object",
+            "properties": {
+                "expiresInSec": {
+                    "type": "integer"
+                },
+                "roleArn": {
+                    "type": "string"
+                }
+            }
         },
         "aws-native:iot:ProvisioningTemplateProvisioningHook": {
             "type": "object",
@@ -39045,6 +40080,14 @@
                 "value": {
                     "type": "string",
                     "description": "The tag's value."
+                }
+            }
+        },
+        "aws-native:iot:TimeoutConfigProperties": {
+            "type": "object",
+            "properties": {
+                "inProgressTimeoutInMinutes": {
+                    "type": "integer"
                 }
             }
         },
@@ -43064,6 +44107,9 @@
         "aws-native:lambda:EventSourceMappingSourceAccessConfigurationType": {
             "type": "string"
         },
+        "aws-native:lambda:FunctionArchitecturesItem": {
+            "type": "string"
+        },
         "aws-native:lambda:FunctionCode": {
             "type": "object",
             "properties": {
@@ -43278,6 +44324,255 @@
                 "end": {
                     "type": "string",
                     "description": "Validity begin date for the license."
+                }
+            }
+        },
+        "aws-native:lightsail:DiskAddOn": {
+            "type": "object",
+            "properties": {
+                "addOnType": {
+                    "type": "string",
+                    "description": "The add-on type"
+                },
+                "autoSnapshotAddOnRequest": {
+                    "$ref": "#/types/aws-native:lightsail:DiskAutoSnapshotAddOn"
+                },
+                "status": {
+                    "$ref": "#/types/aws-native:lightsail:DiskAddOnStatus",
+                    "description": "Status of the Addon"
+                }
+            }
+        },
+        "aws-native:lightsail:DiskAddOnStatus": {
+            "type": "string"
+        },
+        "aws-native:lightsail:DiskAutoSnapshotAddOn": {
+            "type": "object",
+            "properties": {
+                "snapshotTimeOfDay": {
+                    "type": "string",
+                    "description": "The daily time when an automatic snapshot will be created."
+                }
+            }
+        },
+        "aws-native:lightsail:DiskLocation": {
+            "type": "object",
+            "properties": {
+                "availabilityZone": {
+                    "type": "string",
+                    "description": "The Availability Zone in which to create your disk. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request."
+                },
+                "regionName": {
+                    "type": "string",
+                    "description": "The Region Name in which to create your disk."
+                }
+            }
+        },
+        "aws-native:lightsail:DiskTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
+        "aws-native:lightsail:InstanceAddOn": {
+            "type": "object",
+            "properties": {
+                "addOnType": {
+                    "type": "string",
+                    "description": "The add-on type"
+                },
+                "autoSnapshotAddOnRequest": {
+                    "$ref": "#/types/aws-native:lightsail:InstanceAutoSnapshotAddOn"
+                },
+                "status": {
+                    "$ref": "#/types/aws-native:lightsail:InstanceAddOnStatus",
+                    "description": "Status of the Addon"
+                }
+            }
+        },
+        "aws-native:lightsail:InstanceAddOnStatus": {
+            "type": "string"
+        },
+        "aws-native:lightsail:InstanceAutoSnapshotAddOn": {
+            "type": "object",
+            "properties": {
+                "snapshotTimeOfDay": {
+                    "type": "string",
+                    "description": "The daily time when an automatic snapshot will be created."
+                }
+            }
+        },
+        "aws-native:lightsail:InstanceDisk": {
+            "type": "object",
+            "properties": {
+                "attachedTo": {
+                    "type": "string",
+                    "description": "Instance attached to the disk."
+                },
+                "attachmentState": {
+                    "type": "string",
+                    "description": "Attachment state of the disk."
+                },
+                "diskName": {
+                    "type": "string",
+                    "description": "The names to use for your new Lightsail disk."
+                },
+                "iOPS": {
+                    "type": "integer",
+                    "description": "IOPS of disk."
+                },
+                "isSystemDisk": {
+                    "type": "boolean",
+                    "description": "Is the Attached disk is the system disk of the Instance."
+                },
+                "path": {
+                    "type": "string",
+                    "description": "Path of the disk attached to the instance."
+                },
+                "sizeInGb": {
+                    "type": "string",
+                    "description": "Size of the disk attached to the Instance."
+                }
+            }
+        },
+        "aws-native:lightsail:InstanceHardware": {
+            "type": "object",
+            "properties": {
+                "cpuCount": {
+                    "type": "integer",
+                    "description": "CPU count of the Instance."
+                },
+                "disks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lightsail:InstanceDisk"
+                    },
+                    "description": "Disks attached to the Instance."
+                },
+                "ramSizeInGb": {
+                    "type": "integer",
+                    "description": "RAM Size of the Instance."
+                }
+            }
+        },
+        "aws-native:lightsail:InstanceLocation": {
+            "type": "object",
+            "properties": {
+                "availabilityZone": {
+                    "type": "string",
+                    "description": "The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request."
+                },
+                "regionName": {
+                    "type": "string",
+                    "description": "The Region Name in which to create your instance."
+                }
+            }
+        },
+        "aws-native:lightsail:InstanceMonthlyTransfer": {
+            "type": "object",
+            "properties": {
+                "gbPerMonthAllocated": {
+                    "type": "string",
+                    "description": "GbPerMonthAllocated of the Instance."
+                }
+            }
+        },
+        "aws-native:lightsail:InstanceNetworking": {
+            "type": "object",
+            "properties": {
+                "monthlyTransfer": {
+                    "$ref": "#/types/aws-native:lightsail:InstanceMonthlyTransfer"
+                },
+                "ports": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lightsail:InstancePort"
+                    },
+                    "description": "Ports to the Instance."
+                }
+            }
+        },
+        "aws-native:lightsail:InstancePort": {
+            "type": "object",
+            "properties": {
+                "accessDirection": {
+                    "type": "string",
+                    "description": "Access Direction for Protocol of the Instance(inbound/outbound)."
+                },
+                "accessFrom": {
+                    "type": "string",
+                    "description": "Access From Protocol of the Instance."
+                },
+                "accessType": {
+                    "type": "string",
+                    "description": "Access Type Protocol of the Instance."
+                },
+                "cidrListAliases": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "cidrs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "commonName": {
+                    "type": "string",
+                    "description": "CommonName for Protocol of the Instance."
+                },
+                "fromPort": {
+                    "type": "integer",
+                    "description": "From Port of the Instance."
+                },
+                "ipv6Cidrs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "protocol": {
+                    "type": "string",
+                    "description": "Port Protocol of the Instance."
+                },
+                "toPort": {
+                    "type": "integer",
+                    "description": "To Port of the Instance."
+                }
+            }
+        },
+        "aws-native:lightsail:InstanceState": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "description": "Status code of the Instance."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Status code of the Instance."
+                }
+            }
+        },
+        "aws-native:lightsail:InstanceTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
                 }
             }
         },
@@ -48053,7 +49348,8 @@
             "type": "object",
             "properties": {
                 "daysAfterInitiation": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload."
                 }
             }
         },
@@ -48061,9 +49357,16 @@
             "type": "object",
             "properties": {
                 "accelerationStatus": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:s3:BucketAccelerateConfigurationAccelerationStatus",
+                    "description": "Configures the transfer acceleration state for an Amazon S3 bucket."
                 }
             }
+        },
+        "aws-native:s3:BucketAccelerateConfigurationAccelerationStatus": {
+            "type": "string"
+        },
+        "aws-native:s3:BucketAccessControl": {
+            "type": "string"
         },
         "aws-native:s3:BucketAccessControlTranslation": {
             "type": "object",
@@ -48077,10 +49380,12 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID that identifies the analytics configuration."
                 },
                 "prefix": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The prefix that an object must have to be included in the analytics results."
                 },
                 "storageClassAnalysis": {
                     "$ref": "#/types/aws-native:s3:BucketStorageClassAnalysis"
@@ -48111,33 +49416,42 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Headers that are specified in the Access-Control-Request-Headers header."
                 },
                 "allowedMethods": {
                     "type": "array",
                     "items": {
-                        "type": "string"
-                    }
+                        "$ref": "#/types/aws-native:s3:BucketCorsRuleAllowedMethodsItem"
+                    },
+                    "description": "An HTTP method that you allow the origin to execute."
                 },
                 "allowedOrigins": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "One or more origins you want customers to be able to access the bucket from."
                 },
                 "exposedHeaders": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript XMLHttpRequest object)."
                 },
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "A unique identifier for this rule."
                 },
                 "maxAge": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The time in seconds that your browser is to cache the preflight response for the specified resource."
                 }
             }
+        },
+        "aws-native:s3:BucketCorsRuleAllowedMethodsItem": {
+            "type": "string"
         },
         "aws-native:s3:BucketDataExport": {
             "type": "object",
@@ -48146,7 +49460,8 @@
                     "$ref": "#/types/aws-native:s3:BucketDestination"
                 },
                 "outputSchemaVersion": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The version of the output schema to use when exporting data."
                 }
             }
         },
@@ -48157,37 +49472,50 @@
                     "type": "integer"
                 },
                 "mode": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:s3:BucketDefaultRetentionMode"
                 },
                 "years": {
                     "type": "integer"
                 }
             }
         },
+        "aws-native:s3:BucketDefaultRetentionMode": {
+            "type": "string"
+        },
         "aws-native:s3:BucketDeleteMarkerReplication": {
             "type": "object",
             "properties": {
                 "status": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:s3:BucketDeleteMarkerReplicationStatus"
                 }
             }
+        },
+        "aws-native:s3:BucketDeleteMarkerReplicationStatus": {
+            "type": "string"
         },
         "aws-native:s3:BucketDestination": {
             "type": "object",
             "properties": {
                 "bucketAccountId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The account ID that owns the destination S3 bucket. "
                 },
                 "bucketArn": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the bucket to which data is exported."
                 },
                 "format": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:s3:BucketDestinationFormat",
+                    "description": "Specifies the file format used when exporting data to Amazon S3."
                 },
                 "prefix": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The prefix to use when exporting data. The prefix is prepended to all results."
                 }
             }
+        },
+        "aws-native:s3:BucketDestinationFormat": {
+            "type": "string"
         },
         "aws-native:s3:BucketEncryption": {
             "type": "object",
@@ -48196,7 +49524,8 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:s3:BucketServerSideEncryptionRule"
-                    }
+                    },
+                    "description": "Specifies the default server-side-encryption configuration."
                 }
             }
         },
@@ -48204,7 +49533,8 @@
             "type": "object",
             "properties": {
                 "replicaKmsKeyID": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Specifies the ID (Key ARN or Alias ARN) of the customer managed customer master key (CMK) stored in AWS Key Management Service (KMS) for the destination bucket."
                 }
             }
         },
@@ -48223,27 +49553,35 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID used to identify the S3 Intelligent-Tiering configuration."
                 },
                 "prefix": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "An object key name prefix that identifies the subset of objects to which the rule applies."
                 },
                 "status": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:s3:BucketIntelligentTieringConfigurationStatus",
+                    "description": "Specifies the status of the configuration."
                 },
                 "tagFilters": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:s3:BucketTagFilter"
-                    }
+                    },
+                    "description": "A container for a key-value pair."
                 },
                 "tierings": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:s3:BucketTiering"
-                    }
+                    },
+                    "description": "Specifies a list of S3 Intelligent-Tiering storage class tiers in the configuration. At least one tier must be defined in the list. At most, you can specify two tiers in the list, one for each available AccessTier: ARCHIVE_ACCESS and DEEP_ARCHIVE_ACCESS."
                 }
             }
+        },
+        "aws-native:s3:BucketIntelligentTieringConfigurationStatus": {
+            "type": "string"
         },
         "aws-native:s3:BucketInventoryConfiguration": {
             "type": "object",
@@ -48252,39 +49590,57 @@
                     "$ref": "#/types/aws-native:s3:BucketDestination"
                 },
                 "enabled": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Specifies whether the inventory is enabled or disabled."
                 },
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID used to identify the inventory configuration."
                 },
                 "includedObjectVersions": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:s3:BucketInventoryConfigurationIncludedObjectVersions",
+                    "description": "Object versions to include in the inventory list."
                 },
                 "optionalFields": {
                     "type": "array",
                     "items": {
-                        "type": "string"
-                    }
+                        "$ref": "#/types/aws-native:s3:BucketInventoryConfigurationOptionalFieldsItem"
+                    },
+                    "description": "Contains the optional fields that are included in the inventory results."
                 },
                 "prefix": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The prefix that is prepended to all inventory results."
                 },
                 "scheduleFrequency": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:s3:BucketInventoryConfigurationScheduleFrequency",
+                    "description": "Specifies the schedule for generating inventory results."
                 }
             }
+        },
+        "aws-native:s3:BucketInventoryConfigurationIncludedObjectVersions": {
+            "type": "string"
+        },
+        "aws-native:s3:BucketInventoryConfigurationOptionalFieldsItem": {
+            "type": "string"
+        },
+        "aws-native:s3:BucketInventoryConfigurationScheduleFrequency": {
+            "type": "string"
         },
         "aws-native:s3:BucketLambdaConfiguration": {
             "type": "object",
             "properties": {
                 "event": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Amazon S3 bucket event for which to invoke the AWS Lambda function."
                 },
                 "filter": {
-                    "$ref": "#/types/aws-native:s3:BucketNotificationFilter"
+                    "$ref": "#/types/aws-native:s3:BucketNotificationFilter",
+                    "description": "The filtering rules that determine which objects invoke the AWS Lambda function."
                 },
                 "function": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon S3 invokes when the specified event type occurs."
                 }
             }
         },
@@ -48295,7 +49651,8 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:s3:BucketRule"
-                    }
+                    },
+                    "description": "A lifecycle rule for individual objects in an Amazon S3 bucket."
                 }
             }
         },
@@ -48303,7 +49660,8 @@
             "type": "object",
             "properties": {
                 "destinationBucketName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of an Amazon S3 bucket where Amazon S3 store server access log files. You can store log files in any bucket that you own. By default, logs are stored in the bucket where the LoggingConfiguration property is defined."
                 },
                 "logFilePrefix": {
                     "type": "string"
@@ -48317,7 +49675,7 @@
                     "$ref": "#/types/aws-native:s3:BucketReplicationTimeValue"
                 },
                 "status": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:s3:BucketMetricsStatus"
                 }
             }
         },
@@ -48341,16 +49699,24 @@
                 }
             }
         },
+        "aws-native:s3:BucketMetricsStatus": {
+            "type": "string"
+        },
         "aws-native:s3:BucketNoncurrentVersionTransition": {
             "type": "object",
             "properties": {
                 "storageClass": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:s3:BucketNoncurrentVersionTransitionStorageClass",
+                    "description": "The class of storage used to store the object."
                 },
                 "transitionInDays": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action."
                 }
             }
+        },
+        "aws-native:s3:BucketNoncurrentVersionTransitionStorageClass": {
+            "type": "string"
         },
         "aws-native:s3:BucketNotificationConfiguration": {
             "type": "object",
@@ -48417,24 +49783,32 @@
             "type": "object",
             "properties": {
                 "objectOwnership": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:s3:BucketOwnershipControlsRuleObjectOwnership",
+                    "description": "Specifies an object ownership rule."
                 }
             }
+        },
+        "aws-native:s3:BucketOwnershipControlsRuleObjectOwnership": {
+            "type": "string"
         },
         "aws-native:s3:BucketPublicAccessBlockConfiguration": {
             "type": "object",
             "properties": {
                 "blockPublicAcls": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to TRUE causes the following behavior:\n- PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.\n - PUT Object calls fail if the request includes a public ACL.\nEnabling this setting doesn't affect existing policies or ACLs."
                 },
                 "blockPublicPolicy": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Specifies whether Amazon S3 should block public bucket policies for this bucket. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access.\nEnabling this setting doesn't affect existing bucket policies."
                 },
                 "ignorePublicAcls": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on this bucket and objects in this bucket.\nEnabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set."
                 },
                 "restrictPublicBuckets": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.\nEnabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked."
                 }
             }
         },
@@ -48442,13 +49816,16 @@
             "type": "object",
             "properties": {
                 "event": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Amazon S3 bucket event about which you want to publish messages to Amazon SQS."
                 },
                 "filter": {
-                    "$ref": "#/types/aws-native:s3:BucketNotificationFilter"
+                    "$ref": "#/types/aws-native:s3:BucketNotificationFilter",
+                    "description": "The filtering rules that determine which objects trigger notifications."
                 },
                 "queue": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the Amazon SQS queue to which Amazon S3 publishes a message when it detects events of the specified type."
                 }
             }
         },
@@ -48456,52 +49833,71 @@
             "type": "object",
             "properties": {
                 "hostName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the host where requests are redirected."
                 },
                 "protocol": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:s3:BucketRedirectAllRequestsToProtocol",
+                    "description": "Protocol to use when redirecting requests. The default is the protocol that is used in the original request."
                 }
             }
+        },
+        "aws-native:s3:BucketRedirectAllRequestsToProtocol": {
+            "type": "string"
         },
         "aws-native:s3:BucketRedirectRule": {
             "type": "object",
             "properties": {
                 "hostName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The host name to use in the redirect request."
                 },
                 "httpRedirectCode": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The HTTP redirect code to use on the response. Not required if one of the siblings is present."
                 },
                 "protocol": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:s3:BucketRedirectRuleProtocol",
+                    "description": "Protocol to use when redirecting requests. The default is the protocol that is used in the original request."
                 },
                 "replaceKeyPrefixWith": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The object key prefix to use in the redirect request."
                 },
                 "replaceKeyWith": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The specific object key to use in the redirect request.d"
                 }
             }
+        },
+        "aws-native:s3:BucketRedirectRuleProtocol": {
+            "type": "string"
         },
         "aws-native:s3:BucketReplicaModifications": {
             "type": "object",
             "properties": {
                 "status": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:s3:BucketReplicaModificationsStatus",
+                    "description": "Specifies whether Amazon S3 replicates modifications on replicas."
                 }
             }
+        },
+        "aws-native:s3:BucketReplicaModificationsStatus": {
+            "type": "string"
         },
         "aws-native:s3:BucketReplicationConfiguration": {
             "type": "object",
             "properties": {
                 "role": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that Amazon S3 assumes when replicating objects."
                 },
                 "rules": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:s3:BucketReplicationRule"
-                    }
+                    },
+                    "description": "A container for one or more replication rules."
                 }
             }
         },
@@ -48527,9 +49923,13 @@
                     "$ref": "#/types/aws-native:s3:BucketReplicationTime"
                 },
                 "storageClass": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:s3:BucketReplicationDestinationStorageClass",
+                    "description": "The storage class to use when replicating objects, such as S3 Standard or reduced redundancy."
                 }
             }
+        },
+        "aws-native:s3:BucketReplicationDestinationStorageClass": {
+            "type": "string"
         },
         "aws-native:s3:BucketReplicationRule": {
             "type": "object",
@@ -48544,10 +49944,12 @@
                     "$ref": "#/types/aws-native:s3:BucketReplicationRuleFilter"
                 },
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "A unique identifier for the rule."
                 },
                 "prefix": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "An object key name prefix that identifies the object or objects to which the rule applies."
                 },
                 "priority": {
                     "type": "integer"
@@ -48556,7 +49958,8 @@
                     "$ref": "#/types/aws-native:s3:BucketSourceSelectionCriteria"
                 },
                 "status": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:s3:BucketReplicationRuleStatus",
+                    "description": "Specifies whether the rule is enabled."
                 }
             }
         },
@@ -48588,16 +49991,22 @@
                 }
             }
         },
+        "aws-native:s3:BucketReplicationRuleStatus": {
+            "type": "string"
+        },
         "aws-native:s3:BucketReplicationTime": {
             "type": "object",
             "properties": {
                 "status": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:s3:BucketReplicationTimeStatus"
                 },
                 "time": {
                     "$ref": "#/types/aws-native:s3:BucketReplicationTimeValue"
                 }
             }
+        },
+        "aws-native:s3:BucketReplicationTimeStatus": {
+            "type": "string"
         },
         "aws-native:s3:BucketReplicationTimeValue": {
             "type": "object",
@@ -48611,7 +50020,8 @@
             "type": "object",
             "properties": {
                 "redirectRule": {
-                    "$ref": "#/types/aws-native:s3:BucketRedirectRule"
+                    "$ref": "#/types/aws-native:s3:BucketRedirectRule",
+                    "description": "Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can specify a different error code to return."
                 },
                 "routingRuleCondition": {
                     "$ref": "#/types/aws-native:s3:BucketRoutingRuleCondition"
@@ -48622,10 +50032,12 @@
             "type": "object",
             "properties": {
                 "httpErrorCodeReturnedEquals": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The HTTP error code when the redirect is applied. "
                 },
                 "keyPrefixEquals": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The object key name prefix when the redirect is applied."
                 }
             }
         },
@@ -48663,7 +50075,7 @@
                     "type": "string"
                 },
                 "status": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:s3:BucketRuleStatus"
                 },
                 "tagFilters": {
                     "type": "array",
@@ -48682,6 +50094,9 @@
                 }
             }
         },
+        "aws-native:s3:BucketRuleStatus": {
+            "type": "string"
+        },
         "aws-native:s3:BucketS3KeyFilter": {
             "type": "object",
             "properties": {
@@ -48697,18 +50112,23 @@
             "type": "object",
             "properties": {
                 "kMSMasterKeyID": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\"KMSMasterKeyID\" can only be used when you set the value of SSEAlgorithm as aws:kms."
                 },
                 "sSEAlgorithm": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:s3:BucketServerSideEncryptionByDefaultSSEAlgorithm"
                 }
             }
+        },
+        "aws-native:s3:BucketServerSideEncryptionByDefaultSSEAlgorithm": {
+            "type": "string"
         },
         "aws-native:s3:BucketServerSideEncryptionRule": {
             "type": "object",
             "properties": {
                 "bucketKeyEnabled": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the BucketKeyEnabled element to true causes Amazon S3 to use an S3 Bucket Key. By default, S3 Bucket Key is not enabled."
                 },
                 "serverSideEncryptionByDefault": {
                     "$ref": "#/types/aws-native:s3:BucketServerSideEncryptionByDefault"
@@ -48719,10 +50139,12 @@
             "type": "object",
             "properties": {
                 "replicaModifications": {
-                    "$ref": "#/types/aws-native:s3:BucketReplicaModifications"
+                    "$ref": "#/types/aws-native:s3:BucketReplicaModifications",
+                    "description": "A filter that you can specify for selection for modifications on replicas."
                 },
                 "sseKmsEncryptedObjects": {
-                    "$ref": "#/types/aws-native:s3:BucketSseKmsEncryptedObjects"
+                    "$ref": "#/types/aws-native:s3:BucketSseKmsEncryptedObjects",
+                    "description": "A container for filter information for the selection of Amazon S3 objects encrypted with AWS KMS."
                 }
             }
         },
@@ -48730,9 +50152,13 @@
             "type": "object",
             "properties": {
                 "status": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:s3:BucketSseKmsEncryptedObjectsStatus",
+                    "description": "Specifies whether Amazon S3 replicates objects created with server-side encryption using a customer master key (CMK) stored in AWS Key Management Service."
                 }
             }
+        },
+        "aws-native:s3:BucketSseKmsEncryptedObjectsStatus": {
+            "type": "string"
         },
         "aws-native:s3:BucketStorageClassAnalysis": {
             "type": "object",
@@ -48768,24 +50194,32 @@
             "type": "object",
             "properties": {
                 "accessTier": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:s3:BucketTieringAccessTier",
+                    "description": "S3 Intelligent-Tiering access tier. See Storage class for automatically optimizing frequently and infrequently accessed objects for a list of access tiers in the S3 Intelligent-Tiering storage class."
                 },
                 "days": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier. The minimum number of days specified for Archive Access tier must be at least 90 days and Deep Archive Access tier must be at least 180 days. The maximum can be up to 2 years (730 days)."
                 }
             }
+        },
+        "aws-native:s3:BucketTieringAccessTier": {
+            "type": "string"
         },
         "aws-native:s3:BucketTopicConfiguration": {
             "type": "object",
             "properties": {
                 "event": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Amazon S3 bucket event about which to send notifications."
                 },
                 "filter": {
-                    "$ref": "#/types/aws-native:s3:BucketNotificationFilter"
+                    "$ref": "#/types/aws-native:s3:BucketNotificationFilter",
+                    "description": "The filtering rules that determine for which objects to send notifications."
                 },
                 "topic": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon S3 publishes a message when it detects events of the specified type."
                 }
             }
         },
@@ -48793,7 +50227,7 @@
             "type": "object",
             "properties": {
                 "storageClass": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:s3:BucketTransitionStorageClass"
                 },
                 "transitionDate": {
                     "type": "string"
@@ -48803,22 +50237,31 @@
                 }
             }
         },
+        "aws-native:s3:BucketTransitionStorageClass": {
+            "type": "string"
+        },
         "aws-native:s3:BucketVersioningConfiguration": {
             "type": "object",
             "properties": {
                 "status": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:s3:BucketVersioningConfigurationStatus",
+                    "description": "The versioning state of the bucket."
                 }
             }
+        },
+        "aws-native:s3:BucketVersioningConfigurationStatus": {
+            "type": "string"
         },
         "aws-native:s3:BucketWebsiteConfiguration": {
             "type": "object",
             "properties": {
                 "errorDocument": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the error document for the website."
                 },
                 "indexDocument": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the index document for the website."
                 },
                 "redirectAllRequestsTo": {
                     "$ref": "#/types/aws-native:s3:BucketRedirectAllRequestsTo"
@@ -51705,6 +53148,15 @@
         "aws-native:stepfunctions:StateMachineType": {
             "type": "string"
         },
+        "aws-native:synthetics:CanaryArtifactConfig": {
+            "type": "object",
+            "properties": {
+                "s3Encryption": {
+                    "$ref": "#/types/aws-native:synthetics:CanaryS3Encryption",
+                    "description": "Encryption configuration for uploading artifacts to S3"
+                }
+            }
+        },
         "aws-native:synthetics:CanaryBaseScreenshot": {
             "type": "object",
             "properties": {
@@ -51759,6 +53211,19 @@
                 "timeoutInSeconds": {
                     "type": "integer",
                     "description": "Provide maximum canary timeout per run in seconds"
+                }
+            }
+        },
+        "aws-native:synthetics:CanaryS3Encryption": {
+            "type": "object",
+            "properties": {
+                "encryptionMode": {
+                    "type": "string",
+                    "description": "Encryption mode for encrypting artifacts when uploading to S3. Valid values: SSE_S3 and SSE_KMS."
+                },
+                "kmsKeyArn": {
+                    "type": "string",
+                    "description": "KMS key Arn for encrypting artifacts when uploading to S3. You must specify KMS key Arn for SSE_KMS encryption mode only."
                 }
             }
         },

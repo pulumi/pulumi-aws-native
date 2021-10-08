@@ -35,18 +35,57 @@ export class Method extends pulumi.CustomResource {
         return obj['__pulumiType'] === Method.__pulumiType;
     }
 
+    /**
+     * Indicates whether the method requires clients to submit a valid API key.
+     */
     public readonly apiKeyRequired!: pulumi.Output<boolean | undefined>;
+    /**
+     * A list of authorization scopes configured on the method.
+     */
     public readonly authorizationScopes!: pulumi.Output<string[] | undefined>;
-    public readonly authorizationType!: pulumi.Output<string | undefined>;
+    /**
+     * The method's authorization type.
+     */
+    public readonly authorizationType!: pulumi.Output<enums.apigateway.MethodAuthorizationType | undefined>;
+    /**
+     * The identifier of the authorizer to use on this method.
+     */
     public readonly authorizerId!: pulumi.Output<string | undefined>;
+    /**
+     * The backend system that the method calls when it receives a request.
+     */
     public readonly httpMethod!: pulumi.Output<string>;
+    /**
+     * The backend system that the method calls when it receives a request.
+     */
     public readonly integration!: pulumi.Output<outputs.apigateway.MethodIntegration | undefined>;
+    /**
+     * The responses that can be sent to the client who calls the method.
+     */
     public readonly methodResponses!: pulumi.Output<outputs.apigateway.MethodResponse[] | undefined>;
+    /**
+     * A friendly operation name for the method.
+     */
     public readonly operationName!: pulumi.Output<string | undefined>;
+    /**
+     * The resources that are used for the request's content type. Specify request models as key-value pairs (string-to-string mapping), with a content type as the key and a Model resource name as the value.
+     */
     public readonly requestModels!: pulumi.Output<any | undefined>;
+    /**
+     * The request parameters that API Gateway accepts. Specify request parameters as key-value pairs (string-to-Boolean mapping), with a source as the key and a Boolean as the value.
+     */
     public readonly requestParameters!: pulumi.Output<any | undefined>;
+    /**
+     * The ID of the associated request validator.
+     */
     public readonly requestValidatorId!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of an API Gateway resource.
+     */
     public readonly resourceId!: pulumi.Output<string>;
+    /**
+     * The ID of the RestApi resource in which API Gateway creates the method.
+     */
     public readonly restApiId!: pulumi.Output<string>;
 
     /**
@@ -108,17 +147,56 @@ export class Method extends pulumi.CustomResource {
  * The set of arguments for constructing a Method resource.
  */
 export interface MethodArgs {
+    /**
+     * Indicates whether the method requires clients to submit a valid API key.
+     */
     apiKeyRequired?: pulumi.Input<boolean>;
+    /**
+     * A list of authorization scopes configured on the method.
+     */
     authorizationScopes?: pulumi.Input<pulumi.Input<string>[]>;
-    authorizationType?: pulumi.Input<string>;
+    /**
+     * The method's authorization type.
+     */
+    authorizationType?: pulumi.Input<enums.apigateway.MethodAuthorizationType>;
+    /**
+     * The identifier of the authorizer to use on this method.
+     */
     authorizerId?: pulumi.Input<string>;
+    /**
+     * The backend system that the method calls when it receives a request.
+     */
     httpMethod: pulumi.Input<string>;
+    /**
+     * The backend system that the method calls when it receives a request.
+     */
     integration?: pulumi.Input<inputs.apigateway.MethodIntegrationArgs>;
+    /**
+     * The responses that can be sent to the client who calls the method.
+     */
     methodResponses?: pulumi.Input<pulumi.Input<inputs.apigateway.MethodResponseArgs>[]>;
+    /**
+     * A friendly operation name for the method.
+     */
     operationName?: pulumi.Input<string>;
+    /**
+     * The resources that are used for the request's content type. Specify request models as key-value pairs (string-to-string mapping), with a content type as the key and a Model resource name as the value.
+     */
     requestModels?: any;
+    /**
+     * The request parameters that API Gateway accepts. Specify request parameters as key-value pairs (string-to-Boolean mapping), with a source as the key and a Boolean as the value.
+     */
     requestParameters?: any;
+    /**
+     * The ID of the associated request validator.
+     */
     requestValidatorId?: pulumi.Input<string>;
+    /**
+     * The ID of an API Gateway resource.
+     */
     resourceId: pulumi.Input<string>;
+    /**
+     * The ID of the RestApi resource in which API Gateway creates the method.
+     */
     restApiId: pulumi.Input<string>;
 }

@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Synthetics
     public partial class Canary : Pulumi.CustomResource
     {
         /// <summary>
+        /// Provide artifact configuration
+        /// </summary>
+        [Output("artifactConfig")]
+        public Output<Outputs.CanaryArtifactConfig?> ArtifactConfig { get; private set; } = null!;
+
+        /// <summary>
         /// Provide the s3 bucket output location for test results
         /// </summary>
         [Output("artifactS3Location")]
@@ -141,6 +147,12 @@ namespace Pulumi.AwsNative.Synthetics
 
     public sealed class CanaryArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Provide artifact configuration
+        /// </summary>
+        [Input("artifactConfig")]
+        public Input<Inputs.CanaryArtifactConfigArgs>? ArtifactConfig { get; set; }
+
         /// <summary>
         /// Provide the s3 bucket output location for test results
         /// </summary>

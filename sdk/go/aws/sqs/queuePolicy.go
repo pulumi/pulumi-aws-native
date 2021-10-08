@@ -17,8 +17,10 @@ import (
 type QueuePolicy struct {
 	pulumi.CustomResourceState
 
-	PolicyDocument pulumi.AnyOutput         `pulumi:"policyDocument"`
-	Queues         pulumi.StringArrayOutput `pulumi:"queues"`
+	// A policy document that contains the permissions for the specified Amazon SQS queues. For more information about Amazon SQS policies, see Creating Custom Policies Using the Access Policy Language in the Amazon Simple Queue Service Developer Guide.
+	PolicyDocument pulumi.AnyOutput `pulumi:"policyDocument"`
+	// The URLs of the queues to which you want to add the policy. You can use the Ref function to specify an AWS::SQS::Queue resource.
+	Queues pulumi.StringArrayOutput `pulumi:"queues"`
 }
 
 // NewQueuePolicy registers a new resource with the given unique name, arguments, and options.
@@ -66,14 +68,18 @@ func (QueuePolicyState) ElementType() reflect.Type {
 }
 
 type queuePolicyArgs struct {
+	// A policy document that contains the permissions for the specified Amazon SQS queues. For more information about Amazon SQS policies, see Creating Custom Policies Using the Access Policy Language in the Amazon Simple Queue Service Developer Guide.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
-	Queues         []string    `pulumi:"queues"`
+	// The URLs of the queues to which you want to add the policy. You can use the Ref function to specify an AWS::SQS::Queue resource.
+	Queues []string `pulumi:"queues"`
 }
 
 // The set of arguments for constructing a QueuePolicy resource.
 type QueuePolicyArgs struct {
+	// A policy document that contains the permissions for the specified Amazon SQS queues. For more information about Amazon SQS policies, see Creating Custom Policies Using the Access Policy Language in the Amazon Simple Queue Service Developer Guide.
 	PolicyDocument pulumi.Input
-	Queues         pulumi.StringArrayInput
+	// The URLs of the queues to which you want to add the policy. You can use the Ref function to specify an AWS::SQS::Queue resource.
+	Queues pulumi.StringArrayInput
 }
 
 func (QueuePolicyArgs) ElementType() reflect.Type {

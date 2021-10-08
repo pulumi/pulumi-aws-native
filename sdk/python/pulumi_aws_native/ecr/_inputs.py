@@ -125,7 +125,7 @@ class ReplicationConfigurationArgs:
                  rules: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]]):
         """
         An object representing the replication configuration for a registry.
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]] rules: An array of objects representing the replication rules for a replication configuration. A replication configuration may contain only one replication rule but the rule may contain one or more replication destinations.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]] rules: An array of objects representing the replication rules for a replication configuration. A replication configuration may contain a maximum of 10 rules.
         """
         pulumi.set(__self__, "rules", rules)
 
@@ -133,7 +133,7 @@ class ReplicationConfigurationArgs:
     @pulumi.getter
     def rules(self) -> pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]]:
         """
-        An array of objects representing the replication rules for a replication configuration. A replication configuration may contain only one replication rule but the rule may contain one or more replication destinations.
+        An array of objects representing the replication rules for a replication configuration. A replication configuration may contain a maximum of 10 rules.
         """
         return pulumi.get(self, "rules")
 

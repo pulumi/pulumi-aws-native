@@ -13,10 +13,13 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class BucketOwnershipControlsRule
     {
-        public readonly string? ObjectOwnership;
+        /// <summary>
+        /// Specifies an object ownership rule.
+        /// </summary>
+        public readonly Pulumi.AwsNative.S3.BucketOwnershipControlsRuleObjectOwnership? ObjectOwnership;
 
         [OutputConstructor]
-        private BucketOwnershipControlsRule(string? objectOwnership)
+        private BucketOwnershipControlsRule(Pulumi.AwsNative.S3.BucketOwnershipControlsRuleObjectOwnership? objectOwnership)
         {
             ObjectOwnership = objectOwnership;
         }

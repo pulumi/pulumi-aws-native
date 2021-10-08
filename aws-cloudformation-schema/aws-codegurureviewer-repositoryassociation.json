@@ -89,6 +89,9 @@
     },
     "delete" : {
       "permissions" : [ "codeguru-reviewer:DisassociateRepository", "codecommit:UntagResource", "events:DeleteRule", "events:RemoveTargets", "codestar-connections:UntagResource" ]
+    },
+    "list" : {
+      "permissions" : [ "codeguru-reviewer:ListRepositoryAssociations" ]
     }
   }
 }

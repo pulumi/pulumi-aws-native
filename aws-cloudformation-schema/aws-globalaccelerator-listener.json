@@ -68,6 +68,9 @@
     },
     "delete" : {
       "permissions" : [ "globalaccelerator:DescribeListener", "globalaccelerator:DeleteListener" ]
+    },
+    "list" : {
+      "permissions" : [ "globalaccelerator:ListListeners" ]
     }
   },
   "additionalProperties" : false

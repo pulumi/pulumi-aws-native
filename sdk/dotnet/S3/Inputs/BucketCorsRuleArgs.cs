@@ -10,10 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
+    /// <summary>
+    /// A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.
+    /// </summary>
     public sealed class BucketCorsRuleArgs : Pulumi.ResourceArgs
     {
         [Input("allowedHeaders")]
         private InputList<string>? _allowedHeaders;
+
+        /// <summary>
+        /// Headers that are specified in the Access-Control-Request-Headers header.
+        /// </summary>
         public InputList<string> AllowedHeaders
         {
             get => _allowedHeaders ?? (_allowedHeaders = new InputList<string>());
@@ -21,15 +28,23 @@ namespace Pulumi.AwsNative.S3.Inputs
         }
 
         [Input("allowedMethods", required: true)]
-        private InputList<string>? _allowedMethods;
-        public InputList<string> AllowedMethods
+        private InputList<Pulumi.AwsNative.S3.BucketCorsRuleAllowedMethodsItem>? _allowedMethods;
+
+        /// <summary>
+        /// An HTTP method that you allow the origin to execute.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.S3.BucketCorsRuleAllowedMethodsItem> AllowedMethods
         {
-            get => _allowedMethods ?? (_allowedMethods = new InputList<string>());
+            get => _allowedMethods ?? (_allowedMethods = new InputList<Pulumi.AwsNative.S3.BucketCorsRuleAllowedMethodsItem>());
             set => _allowedMethods = value;
         }
 
         [Input("allowedOrigins", required: true)]
         private InputList<string>? _allowedOrigins;
+
+        /// <summary>
+        /// One or more origins you want customers to be able to access the bucket from.
+        /// </summary>
         public InputList<string> AllowedOrigins
         {
             get => _allowedOrigins ?? (_allowedOrigins = new InputList<string>());
@@ -38,15 +53,25 @@ namespace Pulumi.AwsNative.S3.Inputs
 
         [Input("exposedHeaders")]
         private InputList<string>? _exposedHeaders;
+
+        /// <summary>
+        /// One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript XMLHttpRequest object).
+        /// </summary>
         public InputList<string> ExposedHeaders
         {
             get => _exposedHeaders ?? (_exposedHeaders = new InputList<string>());
             set => _exposedHeaders = value;
         }
 
+        /// <summary>
+        /// A unique identifier for this rule.
+        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// The time in seconds that your browser is to cache the preflight response for the specified resource.
+        /// </summary>
         [Input("maxAge")]
         public Input<int>? MaxAge { get; set; }
 

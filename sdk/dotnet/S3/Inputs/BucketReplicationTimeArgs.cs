@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     public sealed class BucketReplicationTimeArgs : Pulumi.ResourceArgs
     {
         [Input("status", required: true)]
-        public Input<string> Status { get; set; } = null!;
+        public Input<Pulumi.AwsNative.S3.BucketReplicationTimeStatus> Status { get; set; } = null!;
 
         [Input("time", required: true)]
         public Input<Inputs.BucketReplicationTimeValueArgs> Time { get; set; } = null!;

@@ -26,6 +26,15 @@ class RoleArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['RoleTagArgs']]]] = None):
         """
         The set of arguments for constructing a Role resource.
+        :param Any assume_role_policy_document: The trust policy that is associated with this role.
+        :param pulumi.Input[str] description: A description of the role that you provide.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] managed_policy_arns: A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role. 
+        :param pulumi.Input[int] max_session_duration: The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours. 
+        :param pulumi.Input[str] path: The path to the role.
+        :param pulumi.Input[str] permissions_boundary: The ARN of the policy used to set the permissions boundary for the role.
+        :param pulumi.Input[Sequence[pulumi.Input['RolePolicyArgs']]] policies: Adds or updates an inline policy document that is embedded in the specified IAM role. 
+        :param pulumi.Input[str] role_name: A name for the IAM role, up to 64 characters in length.
+        :param pulumi.Input[Sequence[pulumi.Input['RoleTagArgs']]] tags: A list of tags that are attached to the role.
         """
         pulumi.set(__self__, "assume_role_policy_document", assume_role_policy_document)
         if description is not None:
@@ -48,6 +57,9 @@ class RoleArgs:
     @property
     @pulumi.getter(name="assumeRolePolicyDocument")
     def assume_role_policy_document(self) -> Any:
+        """
+        The trust policy that is associated with this role.
+        """
         return pulumi.get(self, "assume_role_policy_document")
 
     @assume_role_policy_document.setter
@@ -57,6 +69,9 @@ class RoleArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the role that you provide.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -66,6 +81,9 @@ class RoleArgs:
     @property
     @pulumi.getter(name="managedPolicyArns")
     def managed_policy_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role. 
+        """
         return pulumi.get(self, "managed_policy_arns")
 
     @managed_policy_arns.setter
@@ -75,6 +93,9 @@ class RoleArgs:
     @property
     @pulumi.getter(name="maxSessionDuration")
     def max_session_duration(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours. 
+        """
         return pulumi.get(self, "max_session_duration")
 
     @max_session_duration.setter
@@ -84,6 +105,9 @@ class RoleArgs:
     @property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the role.
+        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -93,6 +117,9 @@ class RoleArgs:
     @property
     @pulumi.getter(name="permissionsBoundary")
     def permissions_boundary(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the policy used to set the permissions boundary for the role.
+        """
         return pulumi.get(self, "permissions_boundary")
 
     @permissions_boundary.setter
@@ -102,6 +129,9 @@ class RoleArgs:
     @property
     @pulumi.getter
     def policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RolePolicyArgs']]]]:
+        """
+        Adds or updates an inline policy document that is embedded in the specified IAM role. 
+        """
         return pulumi.get(self, "policies")
 
     @policies.setter
@@ -111,6 +141,9 @@ class RoleArgs:
     @property
     @pulumi.getter(name="roleName")
     def role_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for the IAM role, up to 64 characters in length.
+        """
         return pulumi.get(self, "role_name")
 
     @role_name.setter
@@ -120,6 +153,9 @@ class RoleArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoleTagArgs']]]]:
+        """
+        A list of tags that are attached to the role.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -147,6 +183,15 @@ class Role(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any assume_role_policy_document: The trust policy that is associated with this role.
+        :param pulumi.Input[str] description: A description of the role that you provide.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] managed_policy_arns: A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role. 
+        :param pulumi.Input[int] max_session_duration: The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours. 
+        :param pulumi.Input[str] path: The path to the role.
+        :param pulumi.Input[str] permissions_boundary: The ARN of the policy used to set the permissions boundary for the role.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RolePolicyArgs']]]] policies: Adds or updates an inline policy document that is embedded in the specified IAM role. 
+        :param pulumi.Input[str] role_name: A name for the IAM role, up to 64 characters in length.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleTagArgs']]]] tags: A list of tags that are attached to the role.
         """
         ...
     @overload
@@ -244,55 +289,88 @@ class Role(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) for the role.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="assumeRolePolicyDocument")
     def assume_role_policy_document(self) -> pulumi.Output[Any]:
+        """
+        The trust policy that is associated with this role.
+        """
         return pulumi.get(self, "assume_role_policy_document")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the role that you provide.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="managedPolicyArns")
     def managed_policy_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role. 
+        """
         return pulumi.get(self, "managed_policy_arns")
 
     @property
     @pulumi.getter(name="maxSessionDuration")
     def max_session_duration(self) -> pulumi.Output[Optional[int]]:
+        """
+        The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours. 
+        """
         return pulumi.get(self, "max_session_duration")
 
     @property
     @pulumi.getter
     def path(self) -> pulumi.Output[Optional[str]]:
+        """
+        The path to the role.
+        """
         return pulumi.get(self, "path")
 
     @property
     @pulumi.getter(name="permissionsBoundary")
     def permissions_boundary(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of the policy used to set the permissions boundary for the role.
+        """
         return pulumi.get(self, "permissions_boundary")
 
     @property
     @pulumi.getter
     def policies(self) -> pulumi.Output[Optional[Sequence['outputs.RolePolicy']]]:
+        """
+        Adds or updates an inline policy document that is embedded in the specified IAM role. 
+        """
         return pulumi.get(self, "policies")
 
     @property
     @pulumi.getter(name="roleId")
     def role_id(self) -> pulumi.Output[str]:
+        """
+        The stable and unique string identifying the role.
+        """
         return pulumi.get(self, "role_id")
 
     @property
     @pulumi.getter(name="roleName")
     def role_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        A name for the IAM role, up to 64 characters in length.
+        """
         return pulumi.get(self, "role_name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.RoleTag']]]:
+        """
+        A list of tags that are attached to the role.
+        """
         return pulumi.get(self, "tags")
 

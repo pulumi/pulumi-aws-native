@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
+    /// <summary>
+    /// Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
+    /// </summary>
     public sealed class BucketAnalyticsConfigurationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID that identifies the analytics configuration.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        /// <summary>
+        /// The prefix that an object must have to be included in the analytics results.
+        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 

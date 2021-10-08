@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.Backup.Inputs
         [Input("maxRetentionDays")]
         public Input<double>? MaxRetentionDays { get; set; }
 
-        [Input("minRetentionDays")]
-        public Input<double>? MinRetentionDays { get; set; }
+        [Input("minRetentionDays", required: true)]
+        public Input<double> MinRetentionDays { get; set; } = null!;
 
         public BackupVaultLockConfigurationTypeArgs()
         {

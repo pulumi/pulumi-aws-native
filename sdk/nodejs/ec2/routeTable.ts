@@ -35,7 +35,17 @@ export class RouteTable extends pulumi.CustomResource {
         return obj['__pulumiType'] === RouteTable.__pulumiType;
     }
 
+    /**
+     * The route table ID.
+     */
+    public /*out*/ readonly routeTableId!: pulumi.Output<string>;
+    /**
+     * Any tags assigned to the route table.
+     */
     public readonly tags!: pulumi.Output<outputs.ec2.RouteTableTag[] | undefined>;
+    /**
+     * The ID of the VPC.
+     */
     public readonly vpcId!: pulumi.Output<string>;
 
     /**
@@ -54,7 +64,9 @@ export class RouteTable extends pulumi.CustomResource {
             }
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
+            inputs["routeTableId"] = undefined /*out*/;
         } else {
+            inputs["routeTableId"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
@@ -69,6 +81,12 @@ export class RouteTable extends pulumi.CustomResource {
  * The set of arguments for constructing a RouteTable resource.
  */
 export interface RouteTableArgs {
+    /**
+     * Any tags assigned to the route table.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.ec2.RouteTableTagArgs>[]>;
+    /**
+     * The ID of the VPC.
+     */
     vpcId: pulumi.Input<string>;
 }

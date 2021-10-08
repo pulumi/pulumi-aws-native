@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Outputs
 {
 
+    /// <summary>
+    /// Specifies encryption-related information for an Amazon S3 bucket that is a destination for replicated objects.
+    /// </summary>
     [OutputType]
     public sealed class BucketEncryptionConfiguration
     {
+        /// <summary>
+        /// Specifies the ID (Key ARN or Alias ARN) of the customer managed customer master key (CMK) stored in AWS Key Management Service (KMS) for the destination bucket.
+        /// </summary>
         public readonly string ReplicaKmsKeyID;
 
         [OutputConstructor]

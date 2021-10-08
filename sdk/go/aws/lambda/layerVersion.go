@@ -17,11 +17,12 @@ import (
 type LayerVersion struct {
 	pulumi.CustomResourceState
 
-	CompatibleRuntimes pulumi.StringArrayOutput  `pulumi:"compatibleRuntimes"`
-	Content            LayerVersionContentOutput `pulumi:"content"`
-	Description        pulumi.StringPtrOutput    `pulumi:"description"`
-	LayerName          pulumi.StringPtrOutput    `pulumi:"layerName"`
-	LicenseInfo        pulumi.StringPtrOutput    `pulumi:"licenseInfo"`
+	CompatibleArchitectures pulumi.StringArrayOutput  `pulumi:"compatibleArchitectures"`
+	CompatibleRuntimes      pulumi.StringArrayOutput  `pulumi:"compatibleRuntimes"`
+	Content                 LayerVersionContentOutput `pulumi:"content"`
+	Description             pulumi.StringPtrOutput    `pulumi:"description"`
+	LayerName               pulumi.StringPtrOutput    `pulumi:"layerName"`
+	LicenseInfo             pulumi.StringPtrOutput    `pulumi:"licenseInfo"`
 }
 
 // NewLayerVersion registers a new resource with the given unique name, arguments, and options.
@@ -66,20 +67,22 @@ func (LayerVersionState) ElementType() reflect.Type {
 }
 
 type layerVersionArgs struct {
-	CompatibleRuntimes []string            `pulumi:"compatibleRuntimes"`
-	Content            LayerVersionContent `pulumi:"content"`
-	Description        *string             `pulumi:"description"`
-	LayerName          *string             `pulumi:"layerName"`
-	LicenseInfo        *string             `pulumi:"licenseInfo"`
+	CompatibleArchitectures []string            `pulumi:"compatibleArchitectures"`
+	CompatibleRuntimes      []string            `pulumi:"compatibleRuntimes"`
+	Content                 LayerVersionContent `pulumi:"content"`
+	Description             *string             `pulumi:"description"`
+	LayerName               *string             `pulumi:"layerName"`
+	LicenseInfo             *string             `pulumi:"licenseInfo"`
 }
 
 // The set of arguments for constructing a LayerVersion resource.
 type LayerVersionArgs struct {
-	CompatibleRuntimes pulumi.StringArrayInput
-	Content            LayerVersionContentInput
-	Description        pulumi.StringPtrInput
-	LayerName          pulumi.StringPtrInput
-	LicenseInfo        pulumi.StringPtrInput
+	CompatibleArchitectures pulumi.StringArrayInput
+	CompatibleRuntimes      pulumi.StringArrayInput
+	Content                 LayerVersionContentInput
+	Description             pulumi.StringPtrInput
+	LayerName               pulumi.StringPtrInput
+	LicenseInfo             pulumi.StringPtrInput
 }
 
 func (LayerVersionArgs) ElementType() reflect.Type {

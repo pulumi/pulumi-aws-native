@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
+    /// <summary>
+    /// Specifies data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes for an Amazon S3 bucket.
+    /// </summary>
     public sealed class BucketStorageClassAnalysisArgs : Pulumi.ResourceArgs
     {
         [Input("dataExport")]

@@ -13,12 +13,18 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class BucketTiering
     {
-        public readonly string AccessTier;
+        /// <summary>
+        /// S3 Intelligent-Tiering access tier. See Storage class for automatically optimizing frequently and infrequently accessed objects for a list of access tiers in the S3 Intelligent-Tiering storage class.
+        /// </summary>
+        public readonly Pulumi.AwsNative.S3.BucketTieringAccessTier AccessTier;
+        /// <summary>
+        /// The number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier. The minimum number of days specified for Archive Access tier must be at least 90 days and Deep Archive Access tier must be at least 180 days. The maximum can be up to 2 years (730 days).
+        /// </summary>
         public readonly int Days;
 
         [OutputConstructor]
         private BucketTiering(
-            string accessTier,
+            Pulumi.AwsNative.S3.BucketTieringAccessTier accessTier,
 
             int days)
         {

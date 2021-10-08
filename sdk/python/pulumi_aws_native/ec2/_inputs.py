@@ -2533,10 +2533,13 @@ class LaunchTemplateLicenseSpecificationArgs:
 class LaunchTemplateMetadataOptionsArgs:
     def __init__(__self__, *,
                  http_endpoint: Optional[pulumi.Input[str]] = None,
+                 http_protocol_ipv6: Optional[pulumi.Input[str]] = None,
                  http_put_response_hop_limit: Optional[pulumi.Input[int]] = None,
                  http_tokens: Optional[pulumi.Input[str]] = None):
         if http_endpoint is not None:
             pulumi.set(__self__, "http_endpoint", http_endpoint)
+        if http_protocol_ipv6 is not None:
+            pulumi.set(__self__, "http_protocol_ipv6", http_protocol_ipv6)
         if http_put_response_hop_limit is not None:
             pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
         if http_tokens is not None:
@@ -2550,6 +2553,15 @@ class LaunchTemplateMetadataOptionsArgs:
     @http_endpoint.setter
     def http_endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "http_endpoint", value)
+
+    @property
+    @pulumi.getter(name="httpProtocolIpv6")
+    def http_protocol_ipv6(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "http_protocol_ipv6")
+
+    @http_protocol_ipv6.setter
+    def http_protocol_ipv6(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "http_protocol_ipv6", value)
 
     @property
     @pulumi.getter(name="httpPutResponseHopLimit")

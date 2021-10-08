@@ -9,6 +9,7 @@
       "properties" : {
         "BackupVaultEvents" : {
           "type" : "array",
+          "insertionOrder" : false,
           "uniqueItems" : false,
           "items" : {
             "type" : "string"
@@ -24,16 +25,17 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "minRetentionDays" : {
+        "MinRetentionDays" : {
           "type" : "number"
         },
-        "maxRetentionDays" : {
+        "MaxRetentionDays" : {
           "type" : "number"
         },
-        "changeableForDays" : {
+        "ChangeableForDays" : {
           "type" : "number"
         }
-      }
+      },
+      "required" : [ "MinRetentionDays" ]
     },
     "BackupVaultNamePattern" : {
       "type" : "string",
@@ -70,9 +72,10 @@
     }
   },
   "additionalProperties" : false,
+  "taggable" : true,
   "required" : [ "BackupVaultName" ],
   "createOnlyProperties" : [ "/properties/BackupVaultName", "/properties/EncryptionKeyArn" ],
-  "readOnlyProperties" : [ "/properties/BackupVaultName", "/properties/BackupVaultArn" ],
+  "readOnlyProperties" : [ "/properties/BackupVaultArn" ],
   "primaryIdentifier" : [ "/properties/BackupVaultName" ],
   "handlers" : {
     "create" : {
@@ -82,7 +85,7 @@
       "permissions" : [ "backup:DescribeBackupVault", "backup:GetBackupVaultNotifications", "backup:GetBackupVaultAccessPolicy", "backup:ListTags" ]
     },
     "update" : {
-      "permissions" : [ "backup:DescribeBackupVault", "backup:DeleteBackupVaultAccessPolicy", "backup:DeleteBackupVaultNotifications", "backup:DeleteBackupVaultLockConfiguration", "backup:ListTags", "backup:TagResource", "backup:UntagResource", "backup:PutBackupVaultAccessPolicy", "backup:PutBackupVaultNotifications" ]
+      "permissions" : [ "backup:DescribeBackupVault", "backup:DeleteBackupVaultAccessPolicy", "backup:DeleteBackupVaultNotifications", "backup:DeleteBackupVaultLockConfiguration", "backup:ListTags", "backup:TagResource", "backup:UntagResource", "backup:PutBackupVaultAccessPolicy", "backup:PutBackupVaultNotifications", "backup:PutBackupVaultLockConfiguration" ]
     },
     "delete" : {
       "permissions" : [ "backup:DeleteBackupVault" ]

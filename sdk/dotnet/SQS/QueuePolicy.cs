@@ -16,9 +16,15 @@ namespace Pulumi.AwsNative.SQS
     [AwsNativeResourceType("aws-native:sqs:QueuePolicy")]
     public partial class QueuePolicy : Pulumi.CustomResource
     {
+        /// <summary>
+        /// A policy document that contains the permissions for the specified Amazon SQS queues. For more information about Amazon SQS policies, see Creating Custom Policies Using the Access Policy Language in the Amazon Simple Queue Service Developer Guide.
+        /// </summary>
         [Output("policyDocument")]
         public Output<object> PolicyDocument { get; private set; } = null!;
 
+        /// <summary>
+        /// The URLs of the queues to which you want to add the policy. You can use the Ref function to specify an AWS::SQS::Queue resource.
+        /// </summary>
         [Output("queues")]
         public Output<ImmutableArray<string>> Queues { get; private set; } = null!;
 
@@ -67,11 +73,18 @@ namespace Pulumi.AwsNative.SQS
 
     public sealed class QueuePolicyArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A policy document that contains the permissions for the specified Amazon SQS queues. For more information about Amazon SQS policies, see Creating Custom Policies Using the Access Policy Language in the Amazon Simple Queue Service Developer Guide.
+        /// </summary>
         [Input("policyDocument", required: true)]
         public Input<object> PolicyDocument { get; set; } = null!;
 
         [Input("queues", required: true)]
         private InputList<string>? _queues;
+
+        /// <summary>
+        /// The URLs of the queues to which you want to add the policy. You can use the Ref function to specify an AWS::SQS::Queue resource.
+        /// </summary>
         public InputList<string> Queues
         {
             get => _queues ?? (_queues = new InputList<string>());

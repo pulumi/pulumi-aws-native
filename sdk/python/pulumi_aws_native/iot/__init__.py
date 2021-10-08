@@ -13,6 +13,7 @@ from .custom_metric import *
 from .dimension import *
 from .domain_configuration import *
 from .fleet_metric import *
+from .job_template import *
 from .mitigation_action import *
 from .policy import *
 from .policy_principal_attachment import *

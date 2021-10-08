@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['BucketArgs', 'Bucket']
@@ -16,7 +17,7 @@ __all__ = ['BucketArgs', 'Bucket']
 class BucketArgs:
     def __init__(__self__, *,
                  accelerate_configuration: Optional[pulumi.Input['BucketAccelerateConfigurationArgs']] = None,
-                 access_control: Optional[pulumi.Input[str]] = None,
+                 access_control: Optional[pulumi.Input['BucketAccessControl']] = None,
                  analytics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['BucketAnalyticsConfigurationArgs']]]] = None,
                  bucket_encryption: Optional[pulumi.Input['BucketEncryptionArgs']] = None,
                  bucket_name: Optional[pulumi.Input[str]] = None,
@@ -37,6 +38,22 @@ class BucketArgs:
                  website_configuration: Optional[pulumi.Input['BucketWebsiteConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Bucket resource.
+        :param pulumi.Input['BucketAccelerateConfigurationArgs'] accelerate_configuration: Configuration for the transfer acceleration state.
+        :param pulumi.Input['BucketAccessControl'] access_control: A canned access control list (ACL) that grants predefined permissions to the bucket.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketAnalyticsConfigurationArgs']]] analytics_configurations: The configuration and any analyses for the analytics filter of an Amazon S3 bucket.
+        :param pulumi.Input[str] bucket_name: A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+        :param pulumi.Input['BucketCorsConfigurationArgs'] cors_configuration: Rules that define cross-origin resource sharing of objects in this bucket.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketIntelligentTieringConfigurationArgs']]] intelligent_tiering_configurations: Specifies the S3 Intelligent-Tiering configuration for an Amazon S3 bucket.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketInventoryConfigurationArgs']]] inventory_configurations: The inventory configuration for an Amazon S3 bucket.
+        :param pulumi.Input['BucketLifecycleConfigurationArgs'] lifecycle_configuration: Rules that define how Amazon S3 manages objects during their lifetime.
+        :param pulumi.Input['BucketLoggingConfigurationArgs'] logging_configuration: Settings that define where logs are stored.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketMetricsConfigurationArgs']]] metrics_configurations: Settings that define a metrics configuration for the CloudWatch request metrics from the bucket.
+        :param pulumi.Input['BucketNotificationConfigurationArgs'] notification_configuration: Configuration that defines how Amazon S3 handles bucket notifications.
+        :param pulumi.Input['BucketObjectLockConfigurationArgs'] object_lock_configuration: Places an Object Lock configuration on the specified bucket.
+        :param pulumi.Input[bool] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled.
+        :param pulumi.Input['BucketOwnershipControlsArgs'] ownership_controls: Specifies the container element for object ownership rules.
+        :param pulumi.Input['BucketReplicationConfigurationArgs'] replication_configuration: Configuration for replicating objects in an S3 bucket.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this S3 bucket.
         """
         if accelerate_configuration is not None:
             pulumi.set(__self__, "accelerate_configuration", accelerate_configuration)
@@ -82,6 +99,9 @@ class BucketArgs:
     @property
     @pulumi.getter(name="accelerateConfiguration")
     def accelerate_configuration(self) -> Optional[pulumi.Input['BucketAccelerateConfigurationArgs']]:
+        """
+        Configuration for the transfer acceleration state.
+        """
         return pulumi.get(self, "accelerate_configuration")
 
     @accelerate_configuration.setter
@@ -90,16 +110,22 @@ class BucketArgs:
 
     @property
     @pulumi.getter(name="accessControl")
-    def access_control(self) -> Optional[pulumi.Input[str]]:
+    def access_control(self) -> Optional[pulumi.Input['BucketAccessControl']]:
+        """
+        A canned access control list (ACL) that grants predefined permissions to the bucket.
+        """
         return pulumi.get(self, "access_control")
 
     @access_control.setter
-    def access_control(self, value: Optional[pulumi.Input[str]]):
+    def access_control(self, value: Optional[pulumi.Input['BucketAccessControl']]):
         pulumi.set(self, "access_control", value)
 
     @property
     @pulumi.getter(name="analyticsConfigurations")
     def analytics_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketAnalyticsConfigurationArgs']]]]:
+        """
+        The configuration and any analyses for the analytics filter of an Amazon S3 bucket.
+        """
         return pulumi.get(self, "analytics_configurations")
 
     @analytics_configurations.setter
@@ -118,6 +144,9 @@ class BucketArgs:
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -127,6 +156,9 @@ class BucketArgs:
     @property
     @pulumi.getter(name="corsConfiguration")
     def cors_configuration(self) -> Optional[pulumi.Input['BucketCorsConfigurationArgs']]:
+        """
+        Rules that define cross-origin resource sharing of objects in this bucket.
+        """
         return pulumi.get(self, "cors_configuration")
 
     @cors_configuration.setter
@@ -136,6 +168,9 @@ class BucketArgs:
     @property
     @pulumi.getter(name="intelligentTieringConfigurations")
     def intelligent_tiering_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketIntelligentTieringConfigurationArgs']]]]:
+        """
+        Specifies the S3 Intelligent-Tiering configuration for an Amazon S3 bucket.
+        """
         return pulumi.get(self, "intelligent_tiering_configurations")
 
     @intelligent_tiering_configurations.setter
@@ -145,6 +180,9 @@ class BucketArgs:
     @property
     @pulumi.getter(name="inventoryConfigurations")
     def inventory_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketInventoryConfigurationArgs']]]]:
+        """
+        The inventory configuration for an Amazon S3 bucket.
+        """
         return pulumi.get(self, "inventory_configurations")
 
     @inventory_configurations.setter
@@ -154,6 +192,9 @@ class BucketArgs:
     @property
     @pulumi.getter(name="lifecycleConfiguration")
     def lifecycle_configuration(self) -> Optional[pulumi.Input['BucketLifecycleConfigurationArgs']]:
+        """
+        Rules that define how Amazon S3 manages objects during their lifetime.
+        """
         return pulumi.get(self, "lifecycle_configuration")
 
     @lifecycle_configuration.setter
@@ -163,6 +204,9 @@ class BucketArgs:
     @property
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> Optional[pulumi.Input['BucketLoggingConfigurationArgs']]:
+        """
+        Settings that define where logs are stored.
+        """
         return pulumi.get(self, "logging_configuration")
 
     @logging_configuration.setter
@@ -172,6 +216,9 @@ class BucketArgs:
     @property
     @pulumi.getter(name="metricsConfigurations")
     def metrics_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketMetricsConfigurationArgs']]]]:
+        """
+        Settings that define a metrics configuration for the CloudWatch request metrics from the bucket.
+        """
         return pulumi.get(self, "metrics_configurations")
 
     @metrics_configurations.setter
@@ -181,6 +228,9 @@ class BucketArgs:
     @property
     @pulumi.getter(name="notificationConfiguration")
     def notification_configuration(self) -> Optional[pulumi.Input['BucketNotificationConfigurationArgs']]:
+        """
+        Configuration that defines how Amazon S3 handles bucket notifications.
+        """
         return pulumi.get(self, "notification_configuration")
 
     @notification_configuration.setter
@@ -190,6 +240,9 @@ class BucketArgs:
     @property
     @pulumi.getter(name="objectLockConfiguration")
     def object_lock_configuration(self) -> Optional[pulumi.Input['BucketObjectLockConfigurationArgs']]:
+        """
+        Places an Object Lock configuration on the specified bucket.
+        """
         return pulumi.get(self, "object_lock_configuration")
 
     @object_lock_configuration.setter
@@ -199,6 +252,9 @@ class BucketArgs:
     @property
     @pulumi.getter(name="objectLockEnabled")
     def object_lock_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether this bucket has an Object Lock configuration enabled.
+        """
         return pulumi.get(self, "object_lock_enabled")
 
     @object_lock_enabled.setter
@@ -208,6 +264,9 @@ class BucketArgs:
     @property
     @pulumi.getter(name="ownershipControls")
     def ownership_controls(self) -> Optional[pulumi.Input['BucketOwnershipControlsArgs']]:
+        """
+        Specifies the container element for object ownership rules.
+        """
         return pulumi.get(self, "ownership_controls")
 
     @ownership_controls.setter
@@ -226,6 +285,9 @@ class BucketArgs:
     @property
     @pulumi.getter(name="replicationConfiguration")
     def replication_configuration(self) -> Optional[pulumi.Input['BucketReplicationConfigurationArgs']]:
+        """
+        Configuration for replicating objects in an S3 bucket.
+        """
         return pulumi.get(self, "replication_configuration")
 
     @replication_configuration.setter
@@ -235,6 +297,9 @@ class BucketArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]]]:
+        """
+        An arbitrary set of tags (key-value pairs) for this S3 bucket.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -266,7 +331,7 @@ class Bucket(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accelerate_configuration: Optional[pulumi.Input[pulumi.InputType['BucketAccelerateConfigurationArgs']]] = None,
-                 access_control: Optional[pulumi.Input[str]] = None,
+                 access_control: Optional[pulumi.Input['BucketAccessControl']] = None,
                  analytics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketAnalyticsConfigurationArgs']]]]] = None,
                  bucket_encryption: Optional[pulumi.Input[pulumi.InputType['BucketEncryptionArgs']]] = None,
                  bucket_name: Optional[pulumi.Input[str]] = None,
@@ -291,6 +356,22 @@ class Bucket(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['BucketAccelerateConfigurationArgs']] accelerate_configuration: Configuration for the transfer acceleration state.
+        :param pulumi.Input['BucketAccessControl'] access_control: A canned access control list (ACL) that grants predefined permissions to the bucket.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketAnalyticsConfigurationArgs']]]] analytics_configurations: The configuration and any analyses for the analytics filter of an Amazon S3 bucket.
+        :param pulumi.Input[str] bucket_name: A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+        :param pulumi.Input[pulumi.InputType['BucketCorsConfigurationArgs']] cors_configuration: Rules that define cross-origin resource sharing of objects in this bucket.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketIntelligentTieringConfigurationArgs']]]] intelligent_tiering_configurations: Specifies the S3 Intelligent-Tiering configuration for an Amazon S3 bucket.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketInventoryConfigurationArgs']]]] inventory_configurations: The inventory configuration for an Amazon S3 bucket.
+        :param pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationArgs']] lifecycle_configuration: Rules that define how Amazon S3 manages objects during their lifetime.
+        :param pulumi.Input[pulumi.InputType['BucketLoggingConfigurationArgs']] logging_configuration: Settings that define where logs are stored.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketMetricsConfigurationArgs']]]] metrics_configurations: Settings that define a metrics configuration for the CloudWatch request metrics from the bucket.
+        :param pulumi.Input[pulumi.InputType['BucketNotificationConfigurationArgs']] notification_configuration: Configuration that defines how Amazon S3 handles bucket notifications.
+        :param pulumi.Input[pulumi.InputType['BucketObjectLockConfigurationArgs']] object_lock_configuration: Places an Object Lock configuration on the specified bucket.
+        :param pulumi.Input[bool] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled.
+        :param pulumi.Input[pulumi.InputType['BucketOwnershipControlsArgs']] ownership_controls: Specifies the container element for object ownership rules.
+        :param pulumi.Input[pulumi.InputType['BucketReplicationConfigurationArgs']] replication_configuration: Configuration for replicating objects in an S3 bucket.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketTagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this S3 bucket.
         """
         ...
     @overload
@@ -317,7 +398,7 @@ class Bucket(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accelerate_configuration: Optional[pulumi.Input[pulumi.InputType['BucketAccelerateConfigurationArgs']]] = None,
-                 access_control: Optional[pulumi.Input[str]] = None,
+                 access_control: Optional[pulumi.Input['BucketAccessControl']] = None,
                  analytics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketAnalyticsConfigurationArgs']]]]] = None,
                  bucket_encryption: Optional[pulumi.Input[pulumi.InputType['BucketEncryptionArgs']]] = None,
                  bucket_name: Optional[pulumi.Input[str]] = None,
@@ -425,21 +506,33 @@ class Bucket(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accelerateConfiguration")
     def accelerate_configuration(self) -> pulumi.Output[Optional['outputs.BucketAccelerateConfiguration']]:
+        """
+        Configuration for the transfer acceleration state.
+        """
         return pulumi.get(self, "accelerate_configuration")
 
     @property
     @pulumi.getter(name="accessControl")
-    def access_control(self) -> pulumi.Output[Optional[str]]:
+    def access_control(self) -> pulumi.Output[Optional['BucketAccessControl']]:
+        """
+        A canned access control list (ACL) that grants predefined permissions to the bucket.
+        """
         return pulumi.get(self, "access_control")
 
     @property
     @pulumi.getter(name="analyticsConfigurations")
     def analytics_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.BucketAnalyticsConfiguration']]]:
+        """
+        The configuration and any analyses for the analytics filter of an Amazon S3 bucket.
+        """
         return pulumi.get(self, "analytics_configurations")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the specified bucket.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -450,66 +543,105 @@ class Bucket(pulumi.CustomResource):
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+        """
         return pulumi.get(self, "bucket_name")
 
     @property
     @pulumi.getter(name="corsConfiguration")
     def cors_configuration(self) -> pulumi.Output[Optional['outputs.BucketCorsConfiguration']]:
+        """
+        Rules that define cross-origin resource sharing of objects in this bucket.
+        """
         return pulumi.get(self, "cors_configuration")
 
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
+        """
+        The IPv4 DNS name of the specified bucket.
+        """
         return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter(name="dualStackDomainName")
     def dual_stack_domain_name(self) -> pulumi.Output[str]:
+        """
+        The IPv6 DNS name of the specified bucket. For more information about dual-stack endpoints, see [Using Amazon S3 Dual-Stack Endpoints](https://docs.aws.amazon.com/AmazonS3/latest/dev/dual-stack-endpoints.html).
+        """
         return pulumi.get(self, "dual_stack_domain_name")
 
     @property
     @pulumi.getter(name="intelligentTieringConfigurations")
     def intelligent_tiering_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.BucketIntelligentTieringConfiguration']]]:
+        """
+        Specifies the S3 Intelligent-Tiering configuration for an Amazon S3 bucket.
+        """
         return pulumi.get(self, "intelligent_tiering_configurations")
 
     @property
     @pulumi.getter(name="inventoryConfigurations")
     def inventory_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.BucketInventoryConfiguration']]]:
+        """
+        The inventory configuration for an Amazon S3 bucket.
+        """
         return pulumi.get(self, "inventory_configurations")
 
     @property
     @pulumi.getter(name="lifecycleConfiguration")
     def lifecycle_configuration(self) -> pulumi.Output[Optional['outputs.BucketLifecycleConfiguration']]:
+        """
+        Rules that define how Amazon S3 manages objects during their lifetime.
+        """
         return pulumi.get(self, "lifecycle_configuration")
 
     @property
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> pulumi.Output[Optional['outputs.BucketLoggingConfiguration']]:
+        """
+        Settings that define where logs are stored.
+        """
         return pulumi.get(self, "logging_configuration")
 
     @property
     @pulumi.getter(name="metricsConfigurations")
     def metrics_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.BucketMetricsConfiguration']]]:
+        """
+        Settings that define a metrics configuration for the CloudWatch request metrics from the bucket.
+        """
         return pulumi.get(self, "metrics_configurations")
 
     @property
     @pulumi.getter(name="notificationConfiguration")
     def notification_configuration(self) -> pulumi.Output[Optional['outputs.BucketNotificationConfiguration']]:
+        """
+        Configuration that defines how Amazon S3 handles bucket notifications.
+        """
         return pulumi.get(self, "notification_configuration")
 
     @property
     @pulumi.getter(name="objectLockConfiguration")
     def object_lock_configuration(self) -> pulumi.Output[Optional['outputs.BucketObjectLockConfiguration']]:
+        """
+        Places an Object Lock configuration on the specified bucket.
+        """
         return pulumi.get(self, "object_lock_configuration")
 
     @property
     @pulumi.getter(name="objectLockEnabled")
     def object_lock_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether this bucket has an Object Lock configuration enabled.
+        """
         return pulumi.get(self, "object_lock_enabled")
 
     @property
     @pulumi.getter(name="ownershipControls")
     def ownership_controls(self) -> pulumi.Output[Optional['outputs.BucketOwnershipControls']]:
+        """
+        Specifies the container element for object ownership rules.
+        """
         return pulumi.get(self, "ownership_controls")
 
     @property
@@ -520,16 +652,25 @@ class Bucket(pulumi.CustomResource):
     @property
     @pulumi.getter(name="regionalDomainName")
     def regional_domain_name(self) -> pulumi.Output[str]:
+        """
+        Returns the regional domain name of the specified bucket.
+        """
         return pulumi.get(self, "regional_domain_name")
 
     @property
     @pulumi.getter(name="replicationConfiguration")
     def replication_configuration(self) -> pulumi.Output[Optional['outputs.BucketReplicationConfiguration']]:
+        """
+        Configuration for replicating objects in an S3 bucket.
+        """
         return pulumi.get(self, "replication_configuration")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.BucketTag']]]:
+        """
+        An arbitrary set of tags (key-value pairs) for this S3 bucket.
+        """
         return pulumi.get(self, "tags")
 
     @property
@@ -545,5 +686,8 @@ class Bucket(pulumi.CustomResource):
     @property
     @pulumi.getter(name="websiteURL")
     def website_url(self) -> pulumi.Output[str]:
+        """
+        The Amazon S3 website endpoint for the specified bucket.
+        """
         return pulumi.get(self, "website_url")
 

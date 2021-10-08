@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Lambda
     [AwsNativeResourceType("aws-native:lambda:LayerVersion")]
     public partial class LayerVersion : Pulumi.CustomResource
     {
+        [Output("compatibleArchitectures")]
+        public Output<ImmutableArray<string>> CompatibleArchitectures { get; private set; } = null!;
+
         [Output("compatibleRuntimes")]
         public Output<ImmutableArray<string>> CompatibleRuntimes { get; private set; } = null!;
 
@@ -76,6 +79,14 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class LayerVersionArgs : Pulumi.ResourceArgs
     {
+        [Input("compatibleArchitectures")]
+        private InputList<string>? _compatibleArchitectures;
+        public InputList<string> CompatibleArchitectures
+        {
+            get => _compatibleArchitectures ?? (_compatibleArchitectures = new InputList<string>());
+            set => _compatibleArchitectures = value;
+        }
+
         [Input("compatibleRuntimes")]
         private InputList<string>? _compatibleRuntimes;
         public InputList<string> CompatibleRuntimes

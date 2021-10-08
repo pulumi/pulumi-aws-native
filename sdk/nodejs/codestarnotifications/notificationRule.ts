@@ -36,12 +36,15 @@ export class NotificationRule extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly createdBy!: pulumi.Output<string | undefined>;
     public readonly detailType!: pulumi.Output<enums.codestarnotifications.NotificationRuleDetailType>;
+    public readonly eventTypeId!: pulumi.Output<string | undefined>;
     public readonly eventTypeIds!: pulumi.Output<string[]>;
     public readonly name!: pulumi.Output<string>;
     public readonly resource!: pulumi.Output<string>;
     public readonly status!: pulumi.Output<enums.codestarnotifications.NotificationRuleStatus | undefined>;
     public readonly tags!: pulumi.Output<any | undefined>;
+    public readonly targetAddress!: pulumi.Output<string | undefined>;
     public readonly targets!: pulumi.Output<outputs.codestarnotifications.NotificationRuleTarget[]>;
 
     /**
@@ -70,22 +73,28 @@ export class NotificationRule extends pulumi.CustomResource {
             if ((!args || args.targets === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targets'");
             }
+            inputs["createdBy"] = args ? args.createdBy : undefined;
             inputs["detailType"] = args ? args.detailType : undefined;
+            inputs["eventTypeId"] = args ? args.eventTypeId : undefined;
             inputs["eventTypeIds"] = args ? args.eventTypeIds : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resource"] = args ? args.resource : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["targetAddress"] = args ? args.targetAddress : undefined;
             inputs["targets"] = args ? args.targets : undefined;
             inputs["arn"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
+            inputs["createdBy"] = undefined /*out*/;
             inputs["detailType"] = undefined /*out*/;
+            inputs["eventTypeId"] = undefined /*out*/;
             inputs["eventTypeIds"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["resource"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
+            inputs["targetAddress"] = undefined /*out*/;
             inputs["targets"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -99,11 +108,14 @@ export class NotificationRule extends pulumi.CustomResource {
  * The set of arguments for constructing a NotificationRule resource.
  */
 export interface NotificationRuleArgs {
+    createdBy?: pulumi.Input<string>;
     detailType: pulumi.Input<enums.codestarnotifications.NotificationRuleDetailType>;
+    eventTypeId?: pulumi.Input<string>;
     eventTypeIds: pulumi.Input<pulumi.Input<string>[]>;
     name: pulumi.Input<string>;
     resource: pulumi.Input<string>;
     status?: pulumi.Input<enums.codestarnotifications.NotificationRuleStatus>;
     tags?: any;
+    targetAddress?: pulumi.Input<string>;
     targets: pulumi.Input<pulumi.Input<inputs.codestarnotifications.NotificationRuleTargetArgs>[]>;
 }

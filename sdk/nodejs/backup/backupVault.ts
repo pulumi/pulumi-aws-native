@@ -37,7 +37,7 @@ export class BackupVault extends pulumi.CustomResource {
 
     public readonly accessPolicy!: pulumi.Output<any | undefined>;
     public /*out*/ readonly backupVaultArn!: pulumi.Output<string>;
-    public /*out*/ readonly backupVaultName!: pulumi.Output<string>;
+    public readonly backupVaultName!: pulumi.Output<string>;
     public readonly backupVaultTags!: pulumi.Output<any | undefined>;
     public readonly encryptionKeyArn!: pulumi.Output<string | undefined>;
     public readonly lockConfiguration!: pulumi.Output<outputs.backup.BackupVaultLockConfigurationType | undefined>;
@@ -50,17 +50,20 @@ export class BackupVault extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: BackupVaultArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: BackupVaultArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.backupVaultName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'backupVaultName'");
+            }
             inputs["accessPolicy"] = args ? args.accessPolicy : undefined;
+            inputs["backupVaultName"] = args ? args.backupVaultName : undefined;
             inputs["backupVaultTags"] = args ? args.backupVaultTags : undefined;
             inputs["encryptionKeyArn"] = args ? args.encryptionKeyArn : undefined;
             inputs["lockConfiguration"] = args ? args.lockConfiguration : undefined;
             inputs["notifications"] = args ? args.notifications : undefined;
             inputs["backupVaultArn"] = undefined /*out*/;
-            inputs["backupVaultName"] = undefined /*out*/;
         } else {
             inputs["accessPolicy"] = undefined /*out*/;
             inputs["backupVaultArn"] = undefined /*out*/;
@@ -82,6 +85,7 @@ export class BackupVault extends pulumi.CustomResource {
  */
 export interface BackupVaultArgs {
     accessPolicy?: any;
+    backupVaultName: pulumi.Input<string>;
     backupVaultTags?: any;
     encryptionKeyArn?: pulumi.Input<string>;
     lockConfiguration?: pulumi.Input<inputs.backup.BackupVaultLockConfigurationTypeArgs>;

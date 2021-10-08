@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
+    /// <summary>
+    /// Specifies the Amazon S3 object key name to filter on and whether to filter on the suffix or prefix of the key name.
+    /// </summary>
     public sealed class BucketFilterRuleArgs : Pulumi.ResourceArgs
     {
         [Input("name", required: true)]

@@ -111,6 +111,7 @@
     }
   },
   "additionalProperties" : false,
+  "taggable" : false,
   "required" : [ "AccessPolicyIdentity", "AccessPolicyPermission", "AccessPolicyResource" ],
   "readOnlyProperties" : [ "/properties/AccessPolicyArn", "/properties/AccessPolicyId" ],
   "primaryIdentifier" : [ "/properties/AccessPolicyId" ],

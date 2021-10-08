@@ -1225,14 +1225,22 @@ func (o AutoScalingGroupTagPropertyArrayOutput) Index(i pulumi.IntInput) AutoSca
 	}).(AutoScalingGroupTagPropertyOutput)
 }
 
+// BlockDevice is a subproperty of BlockDeviceMapping that describes an Amazon EBS volume.
 type LaunchConfigurationBlockDevice struct {
-	DeleteOnTermination *bool   `pulumi:"deleteOnTermination"`
-	Encrypted           *bool   `pulumi:"encrypted"`
-	Iops                *int    `pulumi:"iops"`
-	SnapshotId          *string `pulumi:"snapshotId"`
-	Throughput          *int    `pulumi:"throughput"`
-	VolumeSize          *int    `pulumi:"volumeSize"`
-	VolumeType          *string `pulumi:"volumeType"`
+	// Indicates whether the volume is deleted on instance termination.
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	// Specifies whether the volume should be encrypted.
+	Encrypted *bool `pulumi:"encrypted"`
+	// The number of input/output (I/O) operations per second (IOPS) to provision for the volume.
+	Iops *int `pulumi:"iops"`
+	// The snapshot ID of the volume to use.
+	SnapshotId *string `pulumi:"snapshotId"`
+	// The throughput (MiBps) to provision for a gp3 volume.
+	Throughput *int `pulumi:"throughput"`
+	// The volume size, in GiBs.
+	VolumeSize *int `pulumi:"volumeSize"`
+	// The volume type.
+	VolumeType *string `pulumi:"volumeType"`
 }
 
 // LaunchConfigurationBlockDeviceInput is an input type that accepts LaunchConfigurationBlockDeviceArgs and LaunchConfigurationBlockDeviceOutput values.
@@ -1246,14 +1254,22 @@ type LaunchConfigurationBlockDeviceInput interface {
 	ToLaunchConfigurationBlockDeviceOutputWithContext(context.Context) LaunchConfigurationBlockDeviceOutput
 }
 
+// BlockDevice is a subproperty of BlockDeviceMapping that describes an Amazon EBS volume.
 type LaunchConfigurationBlockDeviceArgs struct {
-	DeleteOnTermination pulumi.BoolPtrInput   `pulumi:"deleteOnTermination"`
-	Encrypted           pulumi.BoolPtrInput   `pulumi:"encrypted"`
-	Iops                pulumi.IntPtrInput    `pulumi:"iops"`
-	SnapshotId          pulumi.StringPtrInput `pulumi:"snapshotId"`
-	Throughput          pulumi.IntPtrInput    `pulumi:"throughput"`
-	VolumeSize          pulumi.IntPtrInput    `pulumi:"volumeSize"`
-	VolumeType          pulumi.StringPtrInput `pulumi:"volumeType"`
+	// Indicates whether the volume is deleted on instance termination.
+	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
+	// Specifies whether the volume should be encrypted.
+	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
+	// The number of input/output (I/O) operations per second (IOPS) to provision for the volume.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// The snapshot ID of the volume to use.
+	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+	// The throughput (MiBps) to provision for a gp3 volume.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	// The volume size, in GiBs.
+	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
+	// The volume type.
+	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
 func (LaunchConfigurationBlockDeviceArgs) ElementType() reflect.Type {
@@ -1309,6 +1325,7 @@ func (i *launchConfigurationBlockDevicePtrType) ToLaunchConfigurationBlockDevice
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationBlockDevicePtrOutput)
 }
 
+// BlockDevice is a subproperty of BlockDeviceMapping that describes an Amazon EBS volume.
 type LaunchConfigurationBlockDeviceOutput struct{ *pulumi.OutputState }
 
 func (LaunchConfigurationBlockDeviceOutput) ElementType() reflect.Type {
@@ -1333,30 +1350,37 @@ func (o LaunchConfigurationBlockDeviceOutput) ToLaunchConfigurationBlockDevicePt
 	}).(LaunchConfigurationBlockDevicePtrOutput)
 }
 
+// Indicates whether the volume is deleted on instance termination.
 func (o LaunchConfigurationBlockDeviceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchConfigurationBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies whether the volume should be encrypted.
 func (o LaunchConfigurationBlockDeviceOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchConfigurationBlockDevice) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
+// The number of input/output (I/O) operations per second (IOPS) to provision for the volume.
 func (o LaunchConfigurationBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchConfigurationBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
+// The snapshot ID of the volume to use.
 func (o LaunchConfigurationBlockDeviceOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchConfigurationBlockDevice) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
+// The throughput (MiBps) to provision for a gp3 volume.
 func (o LaunchConfigurationBlockDeviceOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchConfigurationBlockDevice) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
+// The volume size, in GiBs.
 func (o LaunchConfigurationBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchConfigurationBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
+// The volume type.
 func (o LaunchConfigurationBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchConfigurationBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -1385,6 +1409,7 @@ func (o LaunchConfigurationBlockDevicePtrOutput) Elem() LaunchConfigurationBlock
 	}).(LaunchConfigurationBlockDeviceOutput)
 }
 
+// Indicates whether the volume is deleted on instance termination.
 func (o LaunchConfigurationBlockDevicePtrOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LaunchConfigurationBlockDevice) *bool {
 		if v == nil {
@@ -1394,6 +1419,7 @@ func (o LaunchConfigurationBlockDevicePtrOutput) DeleteOnTermination() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Specifies whether the volume should be encrypted.
 func (o LaunchConfigurationBlockDevicePtrOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LaunchConfigurationBlockDevice) *bool {
 		if v == nil {
@@ -1403,6 +1429,7 @@ func (o LaunchConfigurationBlockDevicePtrOutput) Encrypted() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The number of input/output (I/O) operations per second (IOPS) to provision for the volume.
 func (o LaunchConfigurationBlockDevicePtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchConfigurationBlockDevice) *int {
 		if v == nil {
@@ -1412,6 +1439,7 @@ func (o LaunchConfigurationBlockDevicePtrOutput) Iops() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The snapshot ID of the volume to use.
 func (o LaunchConfigurationBlockDevicePtrOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchConfigurationBlockDevice) *string {
 		if v == nil {
@@ -1421,6 +1449,7 @@ func (o LaunchConfigurationBlockDevicePtrOutput) SnapshotId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The throughput (MiBps) to provision for a gp3 volume.
 func (o LaunchConfigurationBlockDevicePtrOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchConfigurationBlockDevice) *int {
 		if v == nil {
@@ -1430,6 +1459,7 @@ func (o LaunchConfigurationBlockDevicePtrOutput) Throughput() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
+// The volume size, in GiBs.
 func (o LaunchConfigurationBlockDevicePtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchConfigurationBlockDevice) *int {
 		if v == nil {
@@ -1439,6 +1469,7 @@ func (o LaunchConfigurationBlockDevicePtrOutput) VolumeSize() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
+// The volume type.
 func (o LaunchConfigurationBlockDevicePtrOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchConfigurationBlockDevice) *string {
 		if v == nil {
@@ -1448,11 +1479,16 @@ func (o LaunchConfigurationBlockDevicePtrOutput) VolumeType() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// BlockDeviceMapping is a property of AWS::AutoScaling::LaunchConfiguration that describes a block device mapping for an Auto Scaling group.
 type LaunchConfigurationBlockDeviceMapping struct {
-	DeviceName  string                          `pulumi:"deviceName"`
-	Ebs         *LaunchConfigurationBlockDevice `pulumi:"ebs"`
-	NoDevice    *bool                           `pulumi:"noDevice"`
-	VirtualName *string                         `pulumi:"virtualName"`
+	// The device name exposed to the EC2 instance (for example, /dev/sdh or xvdh).
+	DeviceName string `pulumi:"deviceName"`
+	// Parameters used to automatically set up EBS volumes when an instance is launched.
+	Ebs *LaunchConfigurationBlockDevice `pulumi:"ebs"`
+	// Setting this value to true suppresses the specified device included in the block device mapping of the AMI.
+	NoDevice *bool `pulumi:"noDevice"`
+	// The name of the virtual device.
+	VirtualName *string `pulumi:"virtualName"`
 }
 
 // LaunchConfigurationBlockDeviceMappingInput is an input type that accepts LaunchConfigurationBlockDeviceMappingArgs and LaunchConfigurationBlockDeviceMappingOutput values.
@@ -1466,11 +1502,16 @@ type LaunchConfigurationBlockDeviceMappingInput interface {
 	ToLaunchConfigurationBlockDeviceMappingOutputWithContext(context.Context) LaunchConfigurationBlockDeviceMappingOutput
 }
 
+// BlockDeviceMapping is a property of AWS::AutoScaling::LaunchConfiguration that describes a block device mapping for an Auto Scaling group.
 type LaunchConfigurationBlockDeviceMappingArgs struct {
-	DeviceName  pulumi.StringInput                     `pulumi:"deviceName"`
-	Ebs         LaunchConfigurationBlockDevicePtrInput `pulumi:"ebs"`
-	NoDevice    pulumi.BoolPtrInput                    `pulumi:"noDevice"`
-	VirtualName pulumi.StringPtrInput                  `pulumi:"virtualName"`
+	// The device name exposed to the EC2 instance (for example, /dev/sdh or xvdh).
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// Parameters used to automatically set up EBS volumes when an instance is launched.
+	Ebs LaunchConfigurationBlockDevicePtrInput `pulumi:"ebs"`
+	// Setting this value to true suppresses the specified device included in the block device mapping of the AMI.
+	NoDevice pulumi.BoolPtrInput `pulumi:"noDevice"`
+	// The name of the virtual device.
+	VirtualName pulumi.StringPtrInput `pulumi:"virtualName"`
 }
 
 func (LaunchConfigurationBlockDeviceMappingArgs) ElementType() reflect.Type {
@@ -1510,6 +1551,7 @@ func (i LaunchConfigurationBlockDeviceMappingArray) ToLaunchConfigurationBlockDe
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationBlockDeviceMappingArrayOutput)
 }
 
+// BlockDeviceMapping is a property of AWS::AutoScaling::LaunchConfiguration that describes a block device mapping for an Auto Scaling group.
 type LaunchConfigurationBlockDeviceMappingOutput struct{ *pulumi.OutputState }
 
 func (LaunchConfigurationBlockDeviceMappingOutput) ElementType() reflect.Type {
@@ -1524,18 +1566,22 @@ func (o LaunchConfigurationBlockDeviceMappingOutput) ToLaunchConfigurationBlockD
 	return o
 }
 
+// The device name exposed to the EC2 instance (for example, /dev/sdh or xvdh).
 func (o LaunchConfigurationBlockDeviceMappingOutput) DeviceName() pulumi.StringOutput {
 	return o.ApplyT(func(v LaunchConfigurationBlockDeviceMapping) string { return v.DeviceName }).(pulumi.StringOutput)
 }
 
+// Parameters used to automatically set up EBS volumes when an instance is launched.
 func (o LaunchConfigurationBlockDeviceMappingOutput) Ebs() LaunchConfigurationBlockDevicePtrOutput {
 	return o.ApplyT(func(v LaunchConfigurationBlockDeviceMapping) *LaunchConfigurationBlockDevice { return v.Ebs }).(LaunchConfigurationBlockDevicePtrOutput)
 }
 
+// Setting this value to true suppresses the specified device included in the block device mapping of the AMI.
 func (o LaunchConfigurationBlockDeviceMappingOutput) NoDevice() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchConfigurationBlockDeviceMapping) *bool { return v.NoDevice }).(pulumi.BoolPtrOutput)
 }
 
+// The name of the virtual device.
 func (o LaunchConfigurationBlockDeviceMappingOutput) VirtualName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchConfigurationBlockDeviceMapping) *string { return v.VirtualName }).(pulumi.StringPtrOutput)
 }
@@ -1560,10 +1606,14 @@ func (o LaunchConfigurationBlockDeviceMappingArrayOutput) Index(i pulumi.IntInpu
 	}).(LaunchConfigurationBlockDeviceMappingOutput)
 }
 
+// MetadataOptions is a property of AWS::AutoScaling::LaunchConfiguration that describes metadata options for the instances.
 type LaunchConfigurationMetadataOptions struct {
-	HttpEndpoint            *string `pulumi:"httpEndpoint"`
-	HttpPutResponseHopLimit *int    `pulumi:"httpPutResponseHopLimit"`
-	HttpTokens              *string `pulumi:"httpTokens"`
+	// This parameter enables or disables the HTTP metadata endpoint on your instances.
+	HttpEndpoint *string `pulumi:"httpEndpoint"`
+	// The desired HTTP PUT response hop limit for instance metadata requests.
+	HttpPutResponseHopLimit *int `pulumi:"httpPutResponseHopLimit"`
+	// The state of token usage for your instance metadata requests.
+	HttpTokens *string `pulumi:"httpTokens"`
 }
 
 // LaunchConfigurationMetadataOptionsInput is an input type that accepts LaunchConfigurationMetadataOptionsArgs and LaunchConfigurationMetadataOptionsOutput values.
@@ -1577,10 +1627,14 @@ type LaunchConfigurationMetadataOptionsInput interface {
 	ToLaunchConfigurationMetadataOptionsOutputWithContext(context.Context) LaunchConfigurationMetadataOptionsOutput
 }
 
+// MetadataOptions is a property of AWS::AutoScaling::LaunchConfiguration that describes metadata options for the instances.
 type LaunchConfigurationMetadataOptionsArgs struct {
-	HttpEndpoint            pulumi.StringPtrInput `pulumi:"httpEndpoint"`
-	HttpPutResponseHopLimit pulumi.IntPtrInput    `pulumi:"httpPutResponseHopLimit"`
-	HttpTokens              pulumi.StringPtrInput `pulumi:"httpTokens"`
+	// This parameter enables or disables the HTTP metadata endpoint on your instances.
+	HttpEndpoint pulumi.StringPtrInput `pulumi:"httpEndpoint"`
+	// The desired HTTP PUT response hop limit for instance metadata requests.
+	HttpPutResponseHopLimit pulumi.IntPtrInput `pulumi:"httpPutResponseHopLimit"`
+	// The state of token usage for your instance metadata requests.
+	HttpTokens pulumi.StringPtrInput `pulumi:"httpTokens"`
 }
 
 func (LaunchConfigurationMetadataOptionsArgs) ElementType() reflect.Type {
@@ -1636,6 +1690,7 @@ func (i *launchConfigurationMetadataOptionsPtrType) ToLaunchConfigurationMetadat
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationMetadataOptionsPtrOutput)
 }
 
+// MetadataOptions is a property of AWS::AutoScaling::LaunchConfiguration that describes metadata options for the instances.
 type LaunchConfigurationMetadataOptionsOutput struct{ *pulumi.OutputState }
 
 func (LaunchConfigurationMetadataOptionsOutput) ElementType() reflect.Type {
@@ -1660,14 +1715,17 @@ func (o LaunchConfigurationMetadataOptionsOutput) ToLaunchConfigurationMetadataO
 	}).(LaunchConfigurationMetadataOptionsPtrOutput)
 }
 
+// This parameter enables or disables the HTTP metadata endpoint on your instances.
 func (o LaunchConfigurationMetadataOptionsOutput) HttpEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchConfigurationMetadataOptions) *string { return v.HttpEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// The desired HTTP PUT response hop limit for instance metadata requests.
 func (o LaunchConfigurationMetadataOptionsOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchConfigurationMetadataOptions) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
 }
 
+// The state of token usage for your instance metadata requests.
 func (o LaunchConfigurationMetadataOptionsOutput) HttpTokens() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchConfigurationMetadataOptions) *string { return v.HttpTokens }).(pulumi.StringPtrOutput)
 }
@@ -1696,6 +1754,7 @@ func (o LaunchConfigurationMetadataOptionsPtrOutput) Elem() LaunchConfigurationM
 	}).(LaunchConfigurationMetadataOptionsOutput)
 }
 
+// This parameter enables or disables the HTTP metadata endpoint on your instances.
 func (o LaunchConfigurationMetadataOptionsPtrOutput) HttpEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchConfigurationMetadataOptions) *string {
 		if v == nil {
@@ -1705,6 +1764,7 @@ func (o LaunchConfigurationMetadataOptionsPtrOutput) HttpEndpoint() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The desired HTTP PUT response hop limit for instance metadata requests.
 func (o LaunchConfigurationMetadataOptionsPtrOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchConfigurationMetadataOptions) *int {
 		if v == nil {
@@ -1714,6 +1774,7 @@ func (o LaunchConfigurationMetadataOptionsPtrOutput) HttpPutResponseHopLimit() p
 	}).(pulumi.IntPtrOutput)
 }
 
+// The state of token usage for your instance metadata requests.
 func (o LaunchConfigurationMetadataOptionsPtrOutput) HttpTokens() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchConfigurationMetadataOptions) *string {
 		if v == nil {

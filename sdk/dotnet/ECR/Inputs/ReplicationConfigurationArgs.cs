@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.ECR.Inputs
         private InputList<Inputs.ReplicationConfigurationReplicationRuleArgs>? _rules;
 
         /// <summary>
-        /// An array of objects representing the replication rules for a replication configuration. A replication configuration may contain only one replication rule but the rule may contain one or more replication destinations.
+        /// An array of objects representing the replication rules for a replication configuration. A replication configuration may contain a maximum of 10 rules.
         /// </summary>
         public InputList<Inputs.ReplicationConfigurationReplicationRuleArgs> Rules
         {

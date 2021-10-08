@@ -35,19 +35,61 @@ export class Stage extends pulumi.CustomResource {
         return obj['__pulumiType'] === Stage.__pulumiType;
     }
 
+    /**
+     * Specifies settings for logging access in this stage.
+     */
     public readonly accessLogSetting!: pulumi.Output<outputs.apigateway.StageAccessLogSetting | undefined>;
+    /**
+     * Indicates whether cache clustering is enabled for the stage.
+     */
     public readonly cacheClusterEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The stage's cache cluster size.
+     */
     public readonly cacheClusterSize!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies settings for the canary deployment in this stage.
+     */
     public readonly canarySetting!: pulumi.Output<outputs.apigateway.StageCanarySetting | undefined>;
+    /**
+     * The ID of the client certificate that API Gateway uses to call your integration endpoints in the stage. 
+     */
     public readonly clientCertificateId!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the deployment that the stage is associated with. This parameter is required to create a stage. 
+     */
     public readonly deploymentId!: pulumi.Output<string | undefined>;
+    /**
+     * A description of the stage.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The version ID of the API documentation snapshot.
+     */
     public readonly documentationVersion!: pulumi.Output<string | undefined>;
+    /**
+     * Settings for all methods in the stage.
+     */
     public readonly methodSettings!: pulumi.Output<outputs.apigateway.StageMethodSetting[] | undefined>;
+    /**
+     * The ID of the RestApi resource that you're deploying with this stage.
+     */
     public readonly restApiId!: pulumi.Output<string>;
+    /**
+     * The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).
+     */
     public readonly stageName!: pulumi.Output<string | undefined>;
+    /**
+     * An array of arbitrary tags (key-value pairs) to associate with the stage.
+     */
     public readonly tags!: pulumi.Output<outputs.apigateway.StageTag[] | undefined>;
+    /**
+     * Specifies whether active X-Ray tracing is enabled for this stage.
+     */
     public readonly tracingEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value.
+     */
     public readonly variables!: pulumi.Output<any | undefined>;
 
     /**
@@ -105,18 +147,60 @@ export class Stage extends pulumi.CustomResource {
  * The set of arguments for constructing a Stage resource.
  */
 export interface StageArgs {
+    /**
+     * Specifies settings for logging access in this stage.
+     */
     accessLogSetting?: pulumi.Input<inputs.apigateway.StageAccessLogSettingArgs>;
+    /**
+     * Indicates whether cache clustering is enabled for the stage.
+     */
     cacheClusterEnabled?: pulumi.Input<boolean>;
+    /**
+     * The stage's cache cluster size.
+     */
     cacheClusterSize?: pulumi.Input<string>;
+    /**
+     * Specifies settings for the canary deployment in this stage.
+     */
     canarySetting?: pulumi.Input<inputs.apigateway.StageCanarySettingArgs>;
+    /**
+     * The ID of the client certificate that API Gateway uses to call your integration endpoints in the stage. 
+     */
     clientCertificateId?: pulumi.Input<string>;
+    /**
+     * The ID of the deployment that the stage is associated with. This parameter is required to create a stage. 
+     */
     deploymentId?: pulumi.Input<string>;
+    /**
+     * A description of the stage.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The version ID of the API documentation snapshot.
+     */
     documentationVersion?: pulumi.Input<string>;
+    /**
+     * Settings for all methods in the stage.
+     */
     methodSettings?: pulumi.Input<pulumi.Input<inputs.apigateway.StageMethodSettingArgs>[]>;
+    /**
+     * The ID of the RestApi resource that you're deploying with this stage.
+     */
     restApiId: pulumi.Input<string>;
+    /**
+     * The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).
+     */
     stageName?: pulumi.Input<string>;
+    /**
+     * An array of arbitrary tags (key-value pairs) to associate with the stage.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.apigateway.StageTagArgs>[]>;
+    /**
+     * Specifies whether active X-Ray tracing is enabled for this stage.
+     */
     tracingEnabled?: pulumi.Input<boolean>;
+    /**
+     * A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value.
+     */
     variables?: any;
 }

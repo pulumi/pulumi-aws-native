@@ -16,8 +16,10 @@ type SubnetNetworkAclAssociation struct {
 	pulumi.CustomResourceState
 
 	AssociationId pulumi.StringOutput `pulumi:"associationId"`
-	NetworkAclId  pulumi.StringOutput `pulumi:"networkAclId"`
-	SubnetId      pulumi.StringOutput `pulumi:"subnetId"`
+	// The ID of the network ACL
+	NetworkAclId pulumi.StringOutput `pulumi:"networkAclId"`
+	// The ID of the subnet
+	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 }
 
 // NewSubnetNetworkAclAssociation registers a new resource with the given unique name, arguments, and options.
@@ -65,14 +67,18 @@ func (SubnetNetworkAclAssociationState) ElementType() reflect.Type {
 }
 
 type subnetNetworkAclAssociationArgs struct {
+	// The ID of the network ACL
 	NetworkAclId string `pulumi:"networkAclId"`
-	SubnetId     string `pulumi:"subnetId"`
+	// The ID of the subnet
+	SubnetId string `pulumi:"subnetId"`
 }
 
 // The set of arguments for constructing a SubnetNetworkAclAssociation resource.
 type SubnetNetworkAclAssociationArgs struct {
+	// The ID of the network ACL
 	NetworkAclId pulumi.StringInput
-	SubnetId     pulumi.StringInput
+	// The ID of the subnet
+	SubnetId pulumi.StringInput
 }
 
 func (SubnetNetworkAclAssociationArgs) ElementType() reflect.Type {

@@ -37,7 +37,13 @@ export class QueuePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === QueuePolicy.__pulumiType;
     }
 
+    /**
+     * A policy document that contains the permissions for the specified Amazon SQS queues. For more information about Amazon SQS policies, see Creating Custom Policies Using the Access Policy Language in the Amazon Simple Queue Service Developer Guide.
+     */
     public readonly policyDocument!: pulumi.Output<any>;
+    /**
+     * The URLs of the queues to which you want to add the policy. You can use the Ref function to specify an AWS::SQS::Queue resource.
+     */
     public readonly queues!: pulumi.Output<string[]>;
 
     /**
@@ -76,6 +82,12 @@ export class QueuePolicy extends pulumi.CustomResource {
  * The set of arguments for constructing a QueuePolicy resource.
  */
 export interface QueuePolicyArgs {
+    /**
+     * A policy document that contains the permissions for the specified Amazon SQS queues. For more information about Amazon SQS policies, see Creating Custom Policies Using the Access Policy Language in the Amazon Simple Queue Service Developer Guide.
+     */
     policyDocument: any;
+    /**
+     * The URLs of the queues to which you want to add the policy. You can use the Ref function to specify an AWS::SQS::Queue resource.
+     */
     queues: pulumi.Input<pulumi.Input<string>[]>;
 }

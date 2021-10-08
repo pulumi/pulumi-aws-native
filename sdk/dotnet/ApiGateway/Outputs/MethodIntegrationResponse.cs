@@ -13,15 +13,30 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
     [OutputType]
     public sealed class MethodIntegrationResponse
     {
-        public readonly string? ContentHandling;
+        /// <summary>
+        /// Specifies how to handle request payload content type conversions.
+        /// </summary>
+        public readonly Pulumi.AwsNative.ApiGateway.MethodIntegrationResponseContentHandling? ContentHandling;
+        /// <summary>
+        /// The response parameters from the backend response that API Gateway sends to the method response.
+        /// </summary>
         public readonly object? ResponseParameters;
+        /// <summary>
+        /// The templates that are used to transform the integration response body. Specify templates as key-value pairs (string-to-string mappings), with a content type as the key and a template as the value.
+        /// </summary>
         public readonly object? ResponseTemplates;
+        /// <summary>
+        /// A regular expression that specifies which error strings or status codes from the backend map to the integration response.
+        /// </summary>
         public readonly string? SelectionPattern;
+        /// <summary>
+        /// The status code that API Gateway uses to map the integration response to a MethodResponse status code.
+        /// </summary>
         public readonly string StatusCode;
 
         [OutputConstructor]
         private MethodIntegrationResponse(
-            string? contentHandling,
+            Pulumi.AwsNative.ApiGateway.MethodIntegrationResponseContentHandling? contentHandling,
 
             object? responseParameters,
 

@@ -12,8 +12,11 @@ namespace Pulumi.AwsNative.S3.Inputs
 
     public sealed class BucketOwnershipControlsRuleArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies an object ownership rule.
+        /// </summary>
         [Input("objectOwnership")]
-        public Input<string>? ObjectOwnership { get; set; }
+        public Input<Pulumi.AwsNative.S3.BucketOwnershipControlsRuleObjectOwnership>? ObjectOwnership { get; set; }
 
         public BucketOwnershipControlsRuleArgs()
         {

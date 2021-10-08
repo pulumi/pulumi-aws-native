@@ -54,6 +54,7 @@
     }
   },
   "additionalProperties" : false,
+  "taggable" : true,
   "required" : [ "DashboardDefinition", "DashboardDescription", "DashboardName" ],
   "readOnlyProperties" : [ "/properties/DashboardArn", "/properties/DashboardId" ],
   "createOnlyProperties" : [ "/properties/ProjectId" ],

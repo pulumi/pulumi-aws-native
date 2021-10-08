@@ -165,6 +165,9 @@
         "HttpTokens" : {
           "type" : "string"
         },
+        "HttpProtocolIpv6" : {
+          "type" : "string"
+        },
         "HttpEndpoint" : {
           "type" : "string"
         }
