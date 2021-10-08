@@ -552,6 +552,215 @@ func (in *eventSourceMappingSourceAccessConfigurationTypePtr) ToEventSourceMappi
 	return pulumi.ToOutputWithContext(ctx, in).(EventSourceMappingSourceAccessConfigurationTypePtrOutput)
 }
 
+type FunctionArchitecturesItem string
+
+const (
+	FunctionArchitecturesItemX8664 = FunctionArchitecturesItem("x86_64")
+	FunctionArchitecturesItemArm64 = FunctionArchitecturesItem("arm64")
+)
+
+func (FunctionArchitecturesItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionArchitecturesItem)(nil)).Elem()
+}
+
+func (e FunctionArchitecturesItem) ToFunctionArchitecturesItemOutput() FunctionArchitecturesItemOutput {
+	return pulumi.ToOutput(e).(FunctionArchitecturesItemOutput)
+}
+
+func (e FunctionArchitecturesItem) ToFunctionArchitecturesItemOutputWithContext(ctx context.Context) FunctionArchitecturesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FunctionArchitecturesItemOutput)
+}
+
+func (e FunctionArchitecturesItem) ToFunctionArchitecturesItemPtrOutput() FunctionArchitecturesItemPtrOutput {
+	return e.ToFunctionArchitecturesItemPtrOutputWithContext(context.Background())
+}
+
+func (e FunctionArchitecturesItem) ToFunctionArchitecturesItemPtrOutputWithContext(ctx context.Context) FunctionArchitecturesItemPtrOutput {
+	return FunctionArchitecturesItem(e).ToFunctionArchitecturesItemOutputWithContext(ctx).ToFunctionArchitecturesItemPtrOutputWithContext(ctx)
+}
+
+func (e FunctionArchitecturesItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FunctionArchitecturesItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FunctionArchitecturesItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FunctionArchitecturesItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FunctionArchitecturesItemOutput struct{ *pulumi.OutputState }
+
+func (FunctionArchitecturesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionArchitecturesItem)(nil)).Elem()
+}
+
+func (o FunctionArchitecturesItemOutput) ToFunctionArchitecturesItemOutput() FunctionArchitecturesItemOutput {
+	return o
+}
+
+func (o FunctionArchitecturesItemOutput) ToFunctionArchitecturesItemOutputWithContext(ctx context.Context) FunctionArchitecturesItemOutput {
+	return o
+}
+
+func (o FunctionArchitecturesItemOutput) ToFunctionArchitecturesItemPtrOutput() FunctionArchitecturesItemPtrOutput {
+	return o.ToFunctionArchitecturesItemPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionArchitecturesItemOutput) ToFunctionArchitecturesItemPtrOutputWithContext(ctx context.Context) FunctionArchitecturesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionArchitecturesItem) *FunctionArchitecturesItem {
+		return &v
+	}).(FunctionArchitecturesItemPtrOutput)
+}
+
+func (o FunctionArchitecturesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FunctionArchitecturesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FunctionArchitecturesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FunctionArchitecturesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionArchitecturesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FunctionArchitecturesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FunctionArchitecturesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionArchitecturesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionArchitecturesItem)(nil)).Elem()
+}
+
+func (o FunctionArchitecturesItemPtrOutput) ToFunctionArchitecturesItemPtrOutput() FunctionArchitecturesItemPtrOutput {
+	return o
+}
+
+func (o FunctionArchitecturesItemPtrOutput) ToFunctionArchitecturesItemPtrOutputWithContext(ctx context.Context) FunctionArchitecturesItemPtrOutput {
+	return o
+}
+
+func (o FunctionArchitecturesItemPtrOutput) Elem() FunctionArchitecturesItemOutput {
+	return o.ApplyT(func(v *FunctionArchitecturesItem) FunctionArchitecturesItem {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionArchitecturesItem
+		return ret
+	}).(FunctionArchitecturesItemOutput)
+}
+
+func (o FunctionArchitecturesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionArchitecturesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FunctionArchitecturesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FunctionArchitecturesItemInput is an input type that accepts FunctionArchitecturesItemArgs and FunctionArchitecturesItemOutput values.
+// You can construct a concrete instance of `FunctionArchitecturesItemInput` via:
+//
+//          FunctionArchitecturesItemArgs{...}
+type FunctionArchitecturesItemInput interface {
+	pulumi.Input
+
+	ToFunctionArchitecturesItemOutput() FunctionArchitecturesItemOutput
+	ToFunctionArchitecturesItemOutputWithContext(context.Context) FunctionArchitecturesItemOutput
+}
+
+var functionArchitecturesItemPtrType = reflect.TypeOf((**FunctionArchitecturesItem)(nil)).Elem()
+
+type FunctionArchitecturesItemPtrInput interface {
+	pulumi.Input
+
+	ToFunctionArchitecturesItemPtrOutput() FunctionArchitecturesItemPtrOutput
+	ToFunctionArchitecturesItemPtrOutputWithContext(context.Context) FunctionArchitecturesItemPtrOutput
+}
+
+type functionArchitecturesItemPtr string
+
+func FunctionArchitecturesItemPtr(v string) FunctionArchitecturesItemPtrInput {
+	return (*functionArchitecturesItemPtr)(&v)
+}
+
+func (*functionArchitecturesItemPtr) ElementType() reflect.Type {
+	return functionArchitecturesItemPtrType
+}
+
+func (in *functionArchitecturesItemPtr) ToFunctionArchitecturesItemPtrOutput() FunctionArchitecturesItemPtrOutput {
+	return pulumi.ToOutput(in).(FunctionArchitecturesItemPtrOutput)
+}
+
+func (in *functionArchitecturesItemPtr) ToFunctionArchitecturesItemPtrOutputWithContext(ctx context.Context) FunctionArchitecturesItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FunctionArchitecturesItemPtrOutput)
+}
+
+// FunctionArchitecturesItemArrayInput is an input type that accepts FunctionArchitecturesItemArray and FunctionArchitecturesItemArrayOutput values.
+// You can construct a concrete instance of `FunctionArchitecturesItemArrayInput` via:
+//
+//          FunctionArchitecturesItemArray{ FunctionArchitecturesItemArgs{...} }
+type FunctionArchitecturesItemArrayInput interface {
+	pulumi.Input
+
+	ToFunctionArchitecturesItemArrayOutput() FunctionArchitecturesItemArrayOutput
+	ToFunctionArchitecturesItemArrayOutputWithContext(context.Context) FunctionArchitecturesItemArrayOutput
+}
+
+type FunctionArchitecturesItemArray []FunctionArchitecturesItem
+
+func (FunctionArchitecturesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionArchitecturesItem)(nil)).Elem()
+}
+
+func (i FunctionArchitecturesItemArray) ToFunctionArchitecturesItemArrayOutput() FunctionArchitecturesItemArrayOutput {
+	return i.ToFunctionArchitecturesItemArrayOutputWithContext(context.Background())
+}
+
+func (i FunctionArchitecturesItemArray) ToFunctionArchitecturesItemArrayOutputWithContext(ctx context.Context) FunctionArchitecturesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionArchitecturesItemArrayOutput)
+}
+
+type FunctionArchitecturesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (FunctionArchitecturesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionArchitecturesItem)(nil)).Elem()
+}
+
+func (o FunctionArchitecturesItemArrayOutput) ToFunctionArchitecturesItemArrayOutput() FunctionArchitecturesItemArrayOutput {
+	return o
+}
+
+func (o FunctionArchitecturesItemArrayOutput) ToFunctionArchitecturesItemArrayOutputWithContext(ctx context.Context) FunctionArchitecturesItemArrayOutput {
+	return o
+}
+
+func (o FunctionArchitecturesItemArrayOutput) Index(i pulumi.IntInput) FunctionArchitecturesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionArchitecturesItem {
+		return vs[0].([]FunctionArchitecturesItem)[vs[1].(int)]
+	}).(FunctionArchitecturesItemOutput)
+}
+
 // PackageType.
 type FunctionPackageType string
 
@@ -890,6 +1099,9 @@ func init() {
 	pulumi.RegisterOutputType(EventSourceMappingFunctionResponseTypesItemArrayOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSourceAccessConfigurationTypeOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSourceAccessConfigurationTypePtrOutput{})
+	pulumi.RegisterOutputType(FunctionArchitecturesItemOutput{})
+	pulumi.RegisterOutputType(FunctionArchitecturesItemPtrOutput{})
+	pulumi.RegisterOutputType(FunctionArchitecturesItemArrayOutput{})
 	pulumi.RegisterOutputType(FunctionPackageTypeOutput{})
 	pulumi.RegisterOutputType(FunctionPackageTypePtrOutput{})
 	pulumi.RegisterOutputType(FunctionTracingConfigModeOutput{})

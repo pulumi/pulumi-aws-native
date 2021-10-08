@@ -2022,20 +2022,34 @@ func (o DomainNameTagArrayOutput) Index(i pulumi.IntInput) DomainNameTagOutput {
 }
 
 type MethodIntegration struct {
-	CacheKeyParameters    []string                    `pulumi:"cacheKeyParameters"`
-	CacheNamespace        *string                     `pulumi:"cacheNamespace"`
-	ConnectionId          *string                     `pulumi:"connectionId"`
-	ConnectionType        *string                     `pulumi:"connectionType"`
-	ContentHandling       *string                     `pulumi:"contentHandling"`
-	Credentials           *string                     `pulumi:"credentials"`
-	IntegrationHttpMethod *string                     `pulumi:"integrationHttpMethod"`
-	IntegrationResponses  []MethodIntegrationResponse `pulumi:"integrationResponses"`
-	PassthroughBehavior   *string                     `pulumi:"passthroughBehavior"`
-	RequestParameters     interface{}                 `pulumi:"requestParameters"`
-	RequestTemplates      interface{}                 `pulumi:"requestTemplates"`
-	TimeoutInMillis       *int                        `pulumi:"timeoutInMillis"`
-	Type                  *string                     `pulumi:"type"`
-	Uri                   *string                     `pulumi:"uri"`
+	// A list of request parameters whose values API Gateway caches.
+	CacheKeyParameters []string `pulumi:"cacheKeyParameters"`
+	// An API-specific tag group of related cached parameters.
+	CacheNamespace *string `pulumi:"cacheNamespace"`
+	// The ID of the VpcLink used for the integration when connectionType=VPC_LINK, otherwise undefined.
+	ConnectionId *string `pulumi:"connectionId"`
+	// The type of the network connection to the integration endpoint.
+	ConnectionType *MethodIntegrationConnectionType `pulumi:"connectionType"`
+	// Specifies how to handle request payload content type conversions.
+	ContentHandling *MethodIntegrationContentHandling `pulumi:"contentHandling"`
+	// The credentials that are required for the integration.
+	Credentials *string `pulumi:"credentials"`
+	// The integration's HTTP method type.
+	IntegrationHttpMethod *string `pulumi:"integrationHttpMethod"`
+	// The response that API Gateway provides after a method's backend completes processing a request.
+	IntegrationResponses []MethodIntegrationResponse `pulumi:"integrationResponses"`
+	// Indicates when API Gateway passes requests to the targeted backend.
+	PassthroughBehavior *MethodIntegrationPassthroughBehavior `pulumi:"passthroughBehavior"`
+	// The request parameters that API Gateway sends with the backend request.
+	RequestParameters interface{} `pulumi:"requestParameters"`
+	// A map of Apache Velocity templates that are applied on the request payload.
+	RequestTemplates interface{} `pulumi:"requestTemplates"`
+	// Custom timeout between 50 and 29,000 milliseconds.
+	TimeoutInMillis *int `pulumi:"timeoutInMillis"`
+	// The type of backend that your method is running.
+	Type MethodIntegrationType `pulumi:"type"`
+	// The Uniform Resource Identifier (URI) for the integration.
+	Uri *string `pulumi:"uri"`
 }
 
 // MethodIntegrationInput is an input type that accepts MethodIntegrationArgs and MethodIntegrationOutput values.
@@ -2050,20 +2064,34 @@ type MethodIntegrationInput interface {
 }
 
 type MethodIntegrationArgs struct {
-	CacheKeyParameters    pulumi.StringArrayInput             `pulumi:"cacheKeyParameters"`
-	CacheNamespace        pulumi.StringPtrInput               `pulumi:"cacheNamespace"`
-	ConnectionId          pulumi.StringPtrInput               `pulumi:"connectionId"`
-	ConnectionType        pulumi.StringPtrInput               `pulumi:"connectionType"`
-	ContentHandling       pulumi.StringPtrInput               `pulumi:"contentHandling"`
-	Credentials           pulumi.StringPtrInput               `pulumi:"credentials"`
-	IntegrationHttpMethod pulumi.StringPtrInput               `pulumi:"integrationHttpMethod"`
-	IntegrationResponses  MethodIntegrationResponseArrayInput `pulumi:"integrationResponses"`
-	PassthroughBehavior   pulumi.StringPtrInput               `pulumi:"passthroughBehavior"`
-	RequestParameters     pulumi.Input                        `pulumi:"requestParameters"`
-	RequestTemplates      pulumi.Input                        `pulumi:"requestTemplates"`
-	TimeoutInMillis       pulumi.IntPtrInput                  `pulumi:"timeoutInMillis"`
-	Type                  pulumi.StringPtrInput               `pulumi:"type"`
-	Uri                   pulumi.StringPtrInput               `pulumi:"uri"`
+	// A list of request parameters whose values API Gateway caches.
+	CacheKeyParameters pulumi.StringArrayInput `pulumi:"cacheKeyParameters"`
+	// An API-specific tag group of related cached parameters.
+	CacheNamespace pulumi.StringPtrInput `pulumi:"cacheNamespace"`
+	// The ID of the VpcLink used for the integration when connectionType=VPC_LINK, otherwise undefined.
+	ConnectionId pulumi.StringPtrInput `pulumi:"connectionId"`
+	// The type of the network connection to the integration endpoint.
+	ConnectionType MethodIntegrationConnectionTypePtrInput `pulumi:"connectionType"`
+	// Specifies how to handle request payload content type conversions.
+	ContentHandling MethodIntegrationContentHandlingPtrInput `pulumi:"contentHandling"`
+	// The credentials that are required for the integration.
+	Credentials pulumi.StringPtrInput `pulumi:"credentials"`
+	// The integration's HTTP method type.
+	IntegrationHttpMethod pulumi.StringPtrInput `pulumi:"integrationHttpMethod"`
+	// The response that API Gateway provides after a method's backend completes processing a request.
+	IntegrationResponses MethodIntegrationResponseArrayInput `pulumi:"integrationResponses"`
+	// Indicates when API Gateway passes requests to the targeted backend.
+	PassthroughBehavior MethodIntegrationPassthroughBehaviorPtrInput `pulumi:"passthroughBehavior"`
+	// The request parameters that API Gateway sends with the backend request.
+	RequestParameters pulumi.Input `pulumi:"requestParameters"`
+	// A map of Apache Velocity templates that are applied on the request payload.
+	RequestTemplates pulumi.Input `pulumi:"requestTemplates"`
+	// Custom timeout between 50 and 29,000 milliseconds.
+	TimeoutInMillis pulumi.IntPtrInput `pulumi:"timeoutInMillis"`
+	// The type of backend that your method is running.
+	Type MethodIntegrationTypeInput `pulumi:"type"`
+	// The Uniform Resource Identifier (URI) for the integration.
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
 }
 
 func (MethodIntegrationArgs) ElementType() reflect.Type {
@@ -2143,58 +2171,72 @@ func (o MethodIntegrationOutput) ToMethodIntegrationPtrOutputWithContext(ctx con
 	}).(MethodIntegrationPtrOutput)
 }
 
+// A list of request parameters whose values API Gateway caches.
 func (o MethodIntegrationOutput) CacheKeyParameters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MethodIntegration) []string { return v.CacheKeyParameters }).(pulumi.StringArrayOutput)
 }
 
+// An API-specific tag group of related cached parameters.
 func (o MethodIntegrationOutput) CacheNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MethodIntegration) *string { return v.CacheNamespace }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the VpcLink used for the integration when connectionType=VPC_LINK, otherwise undefined.
 func (o MethodIntegrationOutput) ConnectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MethodIntegration) *string { return v.ConnectionId }).(pulumi.StringPtrOutput)
 }
 
-func (o MethodIntegrationOutput) ConnectionType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MethodIntegration) *string { return v.ConnectionType }).(pulumi.StringPtrOutput)
+// The type of the network connection to the integration endpoint.
+func (o MethodIntegrationOutput) ConnectionType() MethodIntegrationConnectionTypePtrOutput {
+	return o.ApplyT(func(v MethodIntegration) *MethodIntegrationConnectionType { return v.ConnectionType }).(MethodIntegrationConnectionTypePtrOutput)
 }
 
-func (o MethodIntegrationOutput) ContentHandling() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MethodIntegration) *string { return v.ContentHandling }).(pulumi.StringPtrOutput)
+// Specifies how to handle request payload content type conversions.
+func (o MethodIntegrationOutput) ContentHandling() MethodIntegrationContentHandlingPtrOutput {
+	return o.ApplyT(func(v MethodIntegration) *MethodIntegrationContentHandling { return v.ContentHandling }).(MethodIntegrationContentHandlingPtrOutput)
 }
 
+// The credentials that are required for the integration.
 func (o MethodIntegrationOutput) Credentials() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MethodIntegration) *string { return v.Credentials }).(pulumi.StringPtrOutput)
 }
 
+// The integration's HTTP method type.
 func (o MethodIntegrationOutput) IntegrationHttpMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MethodIntegration) *string { return v.IntegrationHttpMethod }).(pulumi.StringPtrOutput)
 }
 
+// The response that API Gateway provides after a method's backend completes processing a request.
 func (o MethodIntegrationOutput) IntegrationResponses() MethodIntegrationResponseArrayOutput {
 	return o.ApplyT(func(v MethodIntegration) []MethodIntegrationResponse { return v.IntegrationResponses }).(MethodIntegrationResponseArrayOutput)
 }
 
-func (o MethodIntegrationOutput) PassthroughBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MethodIntegration) *string { return v.PassthroughBehavior }).(pulumi.StringPtrOutput)
+// Indicates when API Gateway passes requests to the targeted backend.
+func (o MethodIntegrationOutput) PassthroughBehavior() MethodIntegrationPassthroughBehaviorPtrOutput {
+	return o.ApplyT(func(v MethodIntegration) *MethodIntegrationPassthroughBehavior { return v.PassthroughBehavior }).(MethodIntegrationPassthroughBehaviorPtrOutput)
 }
 
+// The request parameters that API Gateway sends with the backend request.
 func (o MethodIntegrationOutput) RequestParameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v MethodIntegration) interface{} { return v.RequestParameters }).(pulumi.AnyOutput)
 }
 
+// A map of Apache Velocity templates that are applied on the request payload.
 func (o MethodIntegrationOutput) RequestTemplates() pulumi.AnyOutput {
 	return o.ApplyT(func(v MethodIntegration) interface{} { return v.RequestTemplates }).(pulumi.AnyOutput)
 }
 
+// Custom timeout between 50 and 29,000 milliseconds.
 func (o MethodIntegrationOutput) TimeoutInMillis() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MethodIntegration) *int { return v.TimeoutInMillis }).(pulumi.IntPtrOutput)
 }
 
-func (o MethodIntegrationOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MethodIntegration) *string { return v.Type }).(pulumi.StringPtrOutput)
+// The type of backend that your method is running.
+func (o MethodIntegrationOutput) Type() MethodIntegrationTypeOutput {
+	return o.ApplyT(func(v MethodIntegration) MethodIntegrationType { return v.Type }).(MethodIntegrationTypeOutput)
 }
 
+// The Uniform Resource Identifier (URI) for the integration.
 func (o MethodIntegrationOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MethodIntegration) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
@@ -2223,6 +2265,7 @@ func (o MethodIntegrationPtrOutput) Elem() MethodIntegrationOutput {
 	}).(MethodIntegrationOutput)
 }
 
+// A list of request parameters whose values API Gateway caches.
 func (o MethodIntegrationPtrOutput) CacheKeyParameters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MethodIntegration) []string {
 		if v == nil {
@@ -2232,6 +2275,7 @@ func (o MethodIntegrationPtrOutput) CacheKeyParameters() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
+// An API-specific tag group of related cached parameters.
 func (o MethodIntegrationPtrOutput) CacheNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MethodIntegration) *string {
 		if v == nil {
@@ -2241,6 +2285,7 @@ func (o MethodIntegrationPtrOutput) CacheNamespace() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the VpcLink used for the integration when connectionType=VPC_LINK, otherwise undefined.
 func (o MethodIntegrationPtrOutput) ConnectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MethodIntegration) *string {
 		if v == nil {
@@ -2250,24 +2295,27 @@ func (o MethodIntegrationPtrOutput) ConnectionId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o MethodIntegrationPtrOutput) ConnectionType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MethodIntegration) *string {
+// The type of the network connection to the integration endpoint.
+func (o MethodIntegrationPtrOutput) ConnectionType() MethodIntegrationConnectionTypePtrOutput {
+	return o.ApplyT(func(v *MethodIntegration) *MethodIntegrationConnectionType {
 		if v == nil {
 			return nil
 		}
 		return v.ConnectionType
-	}).(pulumi.StringPtrOutput)
+	}).(MethodIntegrationConnectionTypePtrOutput)
 }
 
-func (o MethodIntegrationPtrOutput) ContentHandling() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MethodIntegration) *string {
+// Specifies how to handle request payload content type conversions.
+func (o MethodIntegrationPtrOutput) ContentHandling() MethodIntegrationContentHandlingPtrOutput {
+	return o.ApplyT(func(v *MethodIntegration) *MethodIntegrationContentHandling {
 		if v == nil {
 			return nil
 		}
 		return v.ContentHandling
-	}).(pulumi.StringPtrOutput)
+	}).(MethodIntegrationContentHandlingPtrOutput)
 }
 
+// The credentials that are required for the integration.
 func (o MethodIntegrationPtrOutput) Credentials() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MethodIntegration) *string {
 		if v == nil {
@@ -2277,6 +2325,7 @@ func (o MethodIntegrationPtrOutput) Credentials() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The integration's HTTP method type.
 func (o MethodIntegrationPtrOutput) IntegrationHttpMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MethodIntegration) *string {
 		if v == nil {
@@ -2286,6 +2335,7 @@ func (o MethodIntegrationPtrOutput) IntegrationHttpMethod() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The response that API Gateway provides after a method's backend completes processing a request.
 func (o MethodIntegrationPtrOutput) IntegrationResponses() MethodIntegrationResponseArrayOutput {
 	return o.ApplyT(func(v *MethodIntegration) []MethodIntegrationResponse {
 		if v == nil {
@@ -2295,15 +2345,17 @@ func (o MethodIntegrationPtrOutput) IntegrationResponses() MethodIntegrationResp
 	}).(MethodIntegrationResponseArrayOutput)
 }
 
-func (o MethodIntegrationPtrOutput) PassthroughBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MethodIntegration) *string {
+// Indicates when API Gateway passes requests to the targeted backend.
+func (o MethodIntegrationPtrOutput) PassthroughBehavior() MethodIntegrationPassthroughBehaviorPtrOutput {
+	return o.ApplyT(func(v *MethodIntegration) *MethodIntegrationPassthroughBehavior {
 		if v == nil {
 			return nil
 		}
 		return v.PassthroughBehavior
-	}).(pulumi.StringPtrOutput)
+	}).(MethodIntegrationPassthroughBehaviorPtrOutput)
 }
 
+// The request parameters that API Gateway sends with the backend request.
 func (o MethodIntegrationPtrOutput) RequestParameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v *MethodIntegration) interface{} {
 		if v == nil {
@@ -2313,6 +2365,7 @@ func (o MethodIntegrationPtrOutput) RequestParameters() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
+// A map of Apache Velocity templates that are applied on the request payload.
 func (o MethodIntegrationPtrOutput) RequestTemplates() pulumi.AnyOutput {
 	return o.ApplyT(func(v *MethodIntegration) interface{} {
 		if v == nil {
@@ -2322,6 +2375,7 @@ func (o MethodIntegrationPtrOutput) RequestTemplates() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
+// Custom timeout between 50 and 29,000 milliseconds.
 func (o MethodIntegrationPtrOutput) TimeoutInMillis() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MethodIntegration) *int {
 		if v == nil {
@@ -2331,15 +2385,17 @@ func (o MethodIntegrationPtrOutput) TimeoutInMillis() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o MethodIntegrationPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MethodIntegration) *string {
+// The type of backend that your method is running.
+func (o MethodIntegrationPtrOutput) Type() MethodIntegrationTypePtrOutput {
+	return o.ApplyT(func(v *MethodIntegration) *MethodIntegrationType {
 		if v == nil {
 			return nil
 		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
+		return &v.Type
+	}).(MethodIntegrationTypePtrOutput)
 }
 
+// The Uniform Resource Identifier (URI) for the integration.
 func (o MethodIntegrationPtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MethodIntegration) *string {
 		if v == nil {
@@ -2350,11 +2406,16 @@ func (o MethodIntegrationPtrOutput) Uri() pulumi.StringPtrOutput {
 }
 
 type MethodIntegrationResponse struct {
-	ContentHandling    *string     `pulumi:"contentHandling"`
+	// Specifies how to handle request payload content type conversions.
+	ContentHandling *MethodIntegrationResponseContentHandling `pulumi:"contentHandling"`
+	// The response parameters from the backend response that API Gateway sends to the method response.
 	ResponseParameters interface{} `pulumi:"responseParameters"`
-	ResponseTemplates  interface{} `pulumi:"responseTemplates"`
-	SelectionPattern   *string     `pulumi:"selectionPattern"`
-	StatusCode         string      `pulumi:"statusCode"`
+	// The templates that are used to transform the integration response body. Specify templates as key-value pairs (string-to-string mappings), with a content type as the key and a template as the value.
+	ResponseTemplates interface{} `pulumi:"responseTemplates"`
+	// A regular expression that specifies which error strings or status codes from the backend map to the integration response.
+	SelectionPattern *string `pulumi:"selectionPattern"`
+	// The status code that API Gateway uses to map the integration response to a MethodResponse status code.
+	StatusCode string `pulumi:"statusCode"`
 }
 
 // MethodIntegrationResponseInput is an input type that accepts MethodIntegrationResponseArgs and MethodIntegrationResponseOutput values.
@@ -2369,11 +2430,16 @@ type MethodIntegrationResponseInput interface {
 }
 
 type MethodIntegrationResponseArgs struct {
-	ContentHandling    pulumi.StringPtrInput `pulumi:"contentHandling"`
-	ResponseParameters pulumi.Input          `pulumi:"responseParameters"`
-	ResponseTemplates  pulumi.Input          `pulumi:"responseTemplates"`
-	SelectionPattern   pulumi.StringPtrInput `pulumi:"selectionPattern"`
-	StatusCode         pulumi.StringInput    `pulumi:"statusCode"`
+	// Specifies how to handle request payload content type conversions.
+	ContentHandling MethodIntegrationResponseContentHandlingPtrInput `pulumi:"contentHandling"`
+	// The response parameters from the backend response that API Gateway sends to the method response.
+	ResponseParameters pulumi.Input `pulumi:"responseParameters"`
+	// The templates that are used to transform the integration response body. Specify templates as key-value pairs (string-to-string mappings), with a content type as the key and a template as the value.
+	ResponseTemplates pulumi.Input `pulumi:"responseTemplates"`
+	// A regular expression that specifies which error strings or status codes from the backend map to the integration response.
+	SelectionPattern pulumi.StringPtrInput `pulumi:"selectionPattern"`
+	// The status code that API Gateway uses to map the integration response to a MethodResponse status code.
+	StatusCode pulumi.StringInput `pulumi:"statusCode"`
 }
 
 func (MethodIntegrationResponseArgs) ElementType() reflect.Type {
@@ -2427,22 +2493,27 @@ func (o MethodIntegrationResponseOutput) ToMethodIntegrationResponseOutputWithCo
 	return o
 }
 
-func (o MethodIntegrationResponseOutput) ContentHandling() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MethodIntegrationResponse) *string { return v.ContentHandling }).(pulumi.StringPtrOutput)
+// Specifies how to handle request payload content type conversions.
+func (o MethodIntegrationResponseOutput) ContentHandling() MethodIntegrationResponseContentHandlingPtrOutput {
+	return o.ApplyT(func(v MethodIntegrationResponse) *MethodIntegrationResponseContentHandling { return v.ContentHandling }).(MethodIntegrationResponseContentHandlingPtrOutput)
 }
 
+// The response parameters from the backend response that API Gateway sends to the method response.
 func (o MethodIntegrationResponseOutput) ResponseParameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v MethodIntegrationResponse) interface{} { return v.ResponseParameters }).(pulumi.AnyOutput)
 }
 
+// The templates that are used to transform the integration response body. Specify templates as key-value pairs (string-to-string mappings), with a content type as the key and a template as the value.
 func (o MethodIntegrationResponseOutput) ResponseTemplates() pulumi.AnyOutput {
 	return o.ApplyT(func(v MethodIntegrationResponse) interface{} { return v.ResponseTemplates }).(pulumi.AnyOutput)
 }
 
+// A regular expression that specifies which error strings or status codes from the backend map to the integration response.
 func (o MethodIntegrationResponseOutput) SelectionPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MethodIntegrationResponse) *string { return v.SelectionPattern }).(pulumi.StringPtrOutput)
 }
 
+// The status code that API Gateway uses to map the integration response to a MethodResponse status code.
 func (o MethodIntegrationResponseOutput) StatusCode() pulumi.StringOutput {
 	return o.ApplyT(func(v MethodIntegrationResponse) string { return v.StatusCode }).(pulumi.StringOutput)
 }
@@ -2468,9 +2539,12 @@ func (o MethodIntegrationResponseArrayOutput) Index(i pulumi.IntInput) MethodInt
 }
 
 type MethodResponse struct {
-	ResponseModels     interface{} `pulumi:"responseModels"`
+	// The resources used for the response's content type. Specify response models as key-value pairs (string-to-string maps), with a content type as the key and a Model resource name as the value.
+	ResponseModels interface{} `pulumi:"responseModels"`
+	// Response parameters that API Gateway sends to the client that called a method. Specify response parameters as key-value pairs (string-to-Boolean maps), with a destination as the key and a Boolean as the value.
 	ResponseParameters interface{} `pulumi:"responseParameters"`
-	StatusCode         string      `pulumi:"statusCode"`
+	// The method response's status code, which you map to an IntegrationResponse.
+	StatusCode string `pulumi:"statusCode"`
 }
 
 // MethodResponseInput is an input type that accepts MethodResponseArgs and MethodResponseOutput values.
@@ -2485,9 +2559,12 @@ type MethodResponseInput interface {
 }
 
 type MethodResponseArgs struct {
-	ResponseModels     pulumi.Input       `pulumi:"responseModels"`
-	ResponseParameters pulumi.Input       `pulumi:"responseParameters"`
-	StatusCode         pulumi.StringInput `pulumi:"statusCode"`
+	// The resources used for the response's content type. Specify response models as key-value pairs (string-to-string maps), with a content type as the key and a Model resource name as the value.
+	ResponseModels pulumi.Input `pulumi:"responseModels"`
+	// Response parameters that API Gateway sends to the client that called a method. Specify response parameters as key-value pairs (string-to-Boolean maps), with a destination as the key and a Boolean as the value.
+	ResponseParameters pulumi.Input `pulumi:"responseParameters"`
+	// The method response's status code, which you map to an IntegrationResponse.
+	StatusCode pulumi.StringInput `pulumi:"statusCode"`
 }
 
 func (MethodResponseArgs) ElementType() reflect.Type {
@@ -2541,14 +2618,17 @@ func (o MethodResponseOutput) ToMethodResponseOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The resources used for the response's content type. Specify response models as key-value pairs (string-to-string maps), with a content type as the key and a Model resource name as the value.
 func (o MethodResponseOutput) ResponseModels() pulumi.AnyOutput {
 	return o.ApplyT(func(v MethodResponse) interface{} { return v.ResponseModels }).(pulumi.AnyOutput)
 }
 
+// Response parameters that API Gateway sends to the client that called a method. Specify response parameters as key-value pairs (string-to-Boolean maps), with a destination as the key and a Boolean as the value.
 func (o MethodResponseOutput) ResponseParameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v MethodResponse) interface{} { return v.ResponseParameters }).(pulumi.AnyOutput)
 }
 
+// The method response's status code, which you map to an IntegrationResponse.
 func (o MethodResponseOutput) StatusCode() pulumi.StringOutput {
 	return o.ApplyT(func(v MethodResponse) string { return v.StatusCode }).(pulumi.StringOutput)
 }
@@ -2999,9 +3079,12 @@ func (o RestApiTagArrayOutput) Index(i pulumi.IntInput) RestApiTagOutput {
 	}).(RestApiTagOutput)
 }
 
+// Specifies settings for logging access in this stage.
 type StageAccessLogSetting struct {
+	// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with amazon-apigateway-. This parameter is required to enable access logging.
 	DestinationArn *string `pulumi:"destinationArn"`
-	Format         *string `pulumi:"format"`
+	// A single line format of the access logs of data, as specified by selected $context variables (https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference). The format must include at least $context.requestId. This parameter is required to enable access logging.
+	Format *string `pulumi:"format"`
 }
 
 // StageAccessLogSettingInput is an input type that accepts StageAccessLogSettingArgs and StageAccessLogSettingOutput values.
@@ -3015,9 +3098,12 @@ type StageAccessLogSettingInput interface {
 	ToStageAccessLogSettingOutputWithContext(context.Context) StageAccessLogSettingOutput
 }
 
+// Specifies settings for logging access in this stage.
 type StageAccessLogSettingArgs struct {
+	// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with amazon-apigateway-. This parameter is required to enable access logging.
 	DestinationArn pulumi.StringPtrInput `pulumi:"destinationArn"`
-	Format         pulumi.StringPtrInput `pulumi:"format"`
+	// A single line format of the access logs of data, as specified by selected $context variables (https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference). The format must include at least $context.requestId. This parameter is required to enable access logging.
+	Format pulumi.StringPtrInput `pulumi:"format"`
 }
 
 func (StageAccessLogSettingArgs) ElementType() reflect.Type {
@@ -3073,6 +3159,7 @@ func (i *stageAccessLogSettingPtrType) ToStageAccessLogSettingPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(StageAccessLogSettingPtrOutput)
 }
 
+// Specifies settings for logging access in this stage.
 type StageAccessLogSettingOutput struct{ *pulumi.OutputState }
 
 func (StageAccessLogSettingOutput) ElementType() reflect.Type {
@@ -3097,10 +3184,12 @@ func (o StageAccessLogSettingOutput) ToStageAccessLogSettingPtrOutputWithContext
 	}).(StageAccessLogSettingPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with amazon-apigateway-. This parameter is required to enable access logging.
 func (o StageAccessLogSettingOutput) DestinationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StageAccessLogSetting) *string { return v.DestinationArn }).(pulumi.StringPtrOutput)
 }
 
+// A single line format of the access logs of data, as specified by selected $context variables (https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference). The format must include at least $context.requestId. This parameter is required to enable access logging.
 func (o StageAccessLogSettingOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StageAccessLogSetting) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
@@ -3129,6 +3218,7 @@ func (o StageAccessLogSettingPtrOutput) Elem() StageAccessLogSettingOutput {
 	}).(StageAccessLogSettingOutput)
 }
 
+// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with amazon-apigateway-. This parameter is required to enable access logging.
 func (o StageAccessLogSettingPtrOutput) DestinationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StageAccessLogSetting) *string {
 		if v == nil {
@@ -3138,6 +3228,7 @@ func (o StageAccessLogSettingPtrOutput) DestinationArn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// A single line format of the access logs of data, as specified by selected $context variables (https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference). The format must include at least $context.requestId. This parameter is required to enable access logging.
 func (o StageAccessLogSettingPtrOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StageAccessLogSetting) *string {
 		if v == nil {
@@ -3147,11 +3238,16 @@ func (o StageAccessLogSettingPtrOutput) Format() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies settings for the canary deployment in this stage.
 type StageCanarySetting struct {
-	DeploymentId           *string     `pulumi:"deploymentId"`
-	PercentTraffic         *float64    `pulumi:"percentTraffic"`
+	// The identifier of the deployment that the stage points to.
+	DeploymentId *string `pulumi:"deploymentId"`
+	// The percentage (0-100) of traffic diverted to a canary deployment.
+	PercentTraffic *float64 `pulumi:"percentTraffic"`
+	// Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
 	StageVariableOverrides interface{} `pulumi:"stageVariableOverrides"`
-	UseStageCache          *bool       `pulumi:"useStageCache"`
+	// Whether the canary deployment uses the stage cache or not.
+	UseStageCache *bool `pulumi:"useStageCache"`
 }
 
 // StageCanarySettingInput is an input type that accepts StageCanarySettingArgs and StageCanarySettingOutput values.
@@ -3165,11 +3261,16 @@ type StageCanarySettingInput interface {
 	ToStageCanarySettingOutputWithContext(context.Context) StageCanarySettingOutput
 }
 
+// Specifies settings for the canary deployment in this stage.
 type StageCanarySettingArgs struct {
-	DeploymentId           pulumi.StringPtrInput  `pulumi:"deploymentId"`
-	PercentTraffic         pulumi.Float64PtrInput `pulumi:"percentTraffic"`
-	StageVariableOverrides pulumi.Input           `pulumi:"stageVariableOverrides"`
-	UseStageCache          pulumi.BoolPtrInput    `pulumi:"useStageCache"`
+	// The identifier of the deployment that the stage points to.
+	DeploymentId pulumi.StringPtrInput `pulumi:"deploymentId"`
+	// The percentage (0-100) of traffic diverted to a canary deployment.
+	PercentTraffic pulumi.Float64PtrInput `pulumi:"percentTraffic"`
+	// Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
+	StageVariableOverrides pulumi.Input `pulumi:"stageVariableOverrides"`
+	// Whether the canary deployment uses the stage cache or not.
+	UseStageCache pulumi.BoolPtrInput `pulumi:"useStageCache"`
 }
 
 func (StageCanarySettingArgs) ElementType() reflect.Type {
@@ -3225,6 +3326,7 @@ func (i *stageCanarySettingPtrType) ToStageCanarySettingPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(StageCanarySettingPtrOutput)
 }
 
+// Specifies settings for the canary deployment in this stage.
 type StageCanarySettingOutput struct{ *pulumi.OutputState }
 
 func (StageCanarySettingOutput) ElementType() reflect.Type {
@@ -3249,18 +3351,22 @@ func (o StageCanarySettingOutput) ToStageCanarySettingPtrOutputWithContext(ctx c
 	}).(StageCanarySettingPtrOutput)
 }
 
+// The identifier of the deployment that the stage points to.
 func (o StageCanarySettingOutput) DeploymentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StageCanarySetting) *string { return v.DeploymentId }).(pulumi.StringPtrOutput)
 }
 
+// The percentage (0-100) of traffic diverted to a canary deployment.
 func (o StageCanarySettingOutput) PercentTraffic() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v StageCanarySetting) *float64 { return v.PercentTraffic }).(pulumi.Float64PtrOutput)
 }
 
+// Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
 func (o StageCanarySettingOutput) StageVariableOverrides() pulumi.AnyOutput {
 	return o.ApplyT(func(v StageCanarySetting) interface{} { return v.StageVariableOverrides }).(pulumi.AnyOutput)
 }
 
+// Whether the canary deployment uses the stage cache or not.
 func (o StageCanarySettingOutput) UseStageCache() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StageCanarySetting) *bool { return v.UseStageCache }).(pulumi.BoolPtrOutput)
 }
@@ -3289,6 +3395,7 @@ func (o StageCanarySettingPtrOutput) Elem() StageCanarySettingOutput {
 	}).(StageCanarySettingOutput)
 }
 
+// The identifier of the deployment that the stage points to.
 func (o StageCanarySettingPtrOutput) DeploymentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StageCanarySetting) *string {
 		if v == nil {
@@ -3298,6 +3405,7 @@ func (o StageCanarySettingPtrOutput) DeploymentId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The percentage (0-100) of traffic diverted to a canary deployment.
 func (o StageCanarySettingPtrOutput) PercentTraffic() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *StageCanarySetting) *float64 {
 		if v == nil {
@@ -3307,6 +3415,7 @@ func (o StageCanarySettingPtrOutput) PercentTraffic() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
 func (o StageCanarySettingPtrOutput) StageVariableOverrides() pulumi.AnyOutput {
 	return o.ApplyT(func(v *StageCanarySetting) interface{} {
 		if v == nil {
@@ -3316,6 +3425,7 @@ func (o StageCanarySettingPtrOutput) StageVariableOverrides() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
+// Whether the canary deployment uses the stage cache or not.
 func (o StageCanarySettingPtrOutput) UseStageCache() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StageCanarySetting) *bool {
 		if v == nil {
@@ -3325,17 +3435,28 @@ func (o StageCanarySettingPtrOutput) UseStageCache() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Configures settings for all methods in a stage.
 type StageMethodSetting struct {
-	CacheDataEncrypted   *bool    `pulumi:"cacheDataEncrypted"`
-	CacheTtlInSeconds    *int     `pulumi:"cacheTtlInSeconds"`
-	CachingEnabled       *bool    `pulumi:"cachingEnabled"`
-	DataTraceEnabled     *bool    `pulumi:"dataTraceEnabled"`
-	HttpMethod           *string  `pulumi:"httpMethod"`
-	LoggingLevel         *string  `pulumi:"loggingLevel"`
-	MetricsEnabled       *bool    `pulumi:"metricsEnabled"`
-	ResourcePath         *string  `pulumi:"resourcePath"`
-	ThrottlingBurstLimit *int     `pulumi:"throttlingBurstLimit"`
-	ThrottlingRateLimit  *float64 `pulumi:"throttlingRateLimit"`
+	// Indicates whether the cached responses are encrypted.
+	CacheDataEncrypted *bool `pulumi:"cacheDataEncrypted"`
+	// The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses.
+	CacheTtlInSeconds *int `pulumi:"cacheTtlInSeconds"`
+	// Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses.
+	CachingEnabled *bool `pulumi:"cachingEnabled"`
+	// Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs.
+	DataTraceEnabled *bool `pulumi:"dataTraceEnabled"`
+	// The HTTP method. You can use an asterisk (*) as a wildcard to apply method settings to multiple methods.
+	HttpMethod *string `pulumi:"httpMethod"`
+	// The logging level for this method. For valid values, see the loggingLevel property of the Stage (https://docs.aws.amazon.com/apigateway/api-reference/resource/stage/#loggingLevel) resource in the Amazon API Gateway API Reference.
+	LoggingLevel *string `pulumi:"loggingLevel"`
+	// Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
+	MetricsEnabled *bool `pulumi:"metricsEnabled"`
+	// The resource path for this method. Forward slashes (/) are encoded as ~1 and the initial slash must include a forward slash. For example, the path value /resource/subresource must be encoded as /~1resource~1subresource. To specify the root path, use only a slash (/). You can use an asterisk (*) as a wildcard to apply method settings to multiple methods.
+	ResourcePath *string `pulumi:"resourcePath"`
+	// The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+	ThrottlingBurstLimit *int `pulumi:"throttlingBurstLimit"`
+	// The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+	ThrottlingRateLimit *float64 `pulumi:"throttlingRateLimit"`
 }
 
 // StageMethodSettingInput is an input type that accepts StageMethodSettingArgs and StageMethodSettingOutput values.
@@ -3349,17 +3470,28 @@ type StageMethodSettingInput interface {
 	ToStageMethodSettingOutputWithContext(context.Context) StageMethodSettingOutput
 }
 
+// Configures settings for all methods in a stage.
 type StageMethodSettingArgs struct {
-	CacheDataEncrypted   pulumi.BoolPtrInput    `pulumi:"cacheDataEncrypted"`
-	CacheTtlInSeconds    pulumi.IntPtrInput     `pulumi:"cacheTtlInSeconds"`
-	CachingEnabled       pulumi.BoolPtrInput    `pulumi:"cachingEnabled"`
-	DataTraceEnabled     pulumi.BoolPtrInput    `pulumi:"dataTraceEnabled"`
-	HttpMethod           pulumi.StringPtrInput  `pulumi:"httpMethod"`
-	LoggingLevel         pulumi.StringPtrInput  `pulumi:"loggingLevel"`
-	MetricsEnabled       pulumi.BoolPtrInput    `pulumi:"metricsEnabled"`
-	ResourcePath         pulumi.StringPtrInput  `pulumi:"resourcePath"`
-	ThrottlingBurstLimit pulumi.IntPtrInput     `pulumi:"throttlingBurstLimit"`
-	ThrottlingRateLimit  pulumi.Float64PtrInput `pulumi:"throttlingRateLimit"`
+	// Indicates whether the cached responses are encrypted.
+	CacheDataEncrypted pulumi.BoolPtrInput `pulumi:"cacheDataEncrypted"`
+	// The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses.
+	CacheTtlInSeconds pulumi.IntPtrInput `pulumi:"cacheTtlInSeconds"`
+	// Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses.
+	CachingEnabled pulumi.BoolPtrInput `pulumi:"cachingEnabled"`
+	// Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs.
+	DataTraceEnabled pulumi.BoolPtrInput `pulumi:"dataTraceEnabled"`
+	// The HTTP method. You can use an asterisk (*) as a wildcard to apply method settings to multiple methods.
+	HttpMethod pulumi.StringPtrInput `pulumi:"httpMethod"`
+	// The logging level for this method. For valid values, see the loggingLevel property of the Stage (https://docs.aws.amazon.com/apigateway/api-reference/resource/stage/#loggingLevel) resource in the Amazon API Gateway API Reference.
+	LoggingLevel pulumi.StringPtrInput `pulumi:"loggingLevel"`
+	// Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
+	MetricsEnabled pulumi.BoolPtrInput `pulumi:"metricsEnabled"`
+	// The resource path for this method. Forward slashes (/) are encoded as ~1 and the initial slash must include a forward slash. For example, the path value /resource/subresource must be encoded as /~1resource~1subresource. To specify the root path, use only a slash (/). You can use an asterisk (*) as a wildcard to apply method settings to multiple methods.
+	ResourcePath pulumi.StringPtrInput `pulumi:"resourcePath"`
+	// The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+	ThrottlingBurstLimit pulumi.IntPtrInput `pulumi:"throttlingBurstLimit"`
+	// The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+	ThrottlingRateLimit pulumi.Float64PtrInput `pulumi:"throttlingRateLimit"`
 }
 
 func (StageMethodSettingArgs) ElementType() reflect.Type {
@@ -3399,6 +3531,7 @@ func (i StageMethodSettingArray) ToStageMethodSettingArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(StageMethodSettingArrayOutput)
 }
 
+// Configures settings for all methods in a stage.
 type StageMethodSettingOutput struct{ *pulumi.OutputState }
 
 func (StageMethodSettingOutput) ElementType() reflect.Type {
@@ -3413,42 +3546,52 @@ func (o StageMethodSettingOutput) ToStageMethodSettingOutputWithContext(ctx cont
 	return o
 }
 
+// Indicates whether the cached responses are encrypted.
 func (o StageMethodSettingOutput) CacheDataEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StageMethodSetting) *bool { return v.CacheDataEncrypted }).(pulumi.BoolPtrOutput)
 }
 
+// The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses.
 func (o StageMethodSettingOutput) CacheTtlInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StageMethodSetting) *int { return v.CacheTtlInSeconds }).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses.
 func (o StageMethodSettingOutput) CachingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StageMethodSetting) *bool { return v.CachingEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs.
 func (o StageMethodSettingOutput) DataTraceEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StageMethodSetting) *bool { return v.DataTraceEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The HTTP method. You can use an asterisk (*) as a wildcard to apply method settings to multiple methods.
 func (o StageMethodSettingOutput) HttpMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StageMethodSetting) *string { return v.HttpMethod }).(pulumi.StringPtrOutput)
 }
 
+// The logging level for this method. For valid values, see the loggingLevel property of the Stage (https://docs.aws.amazon.com/apigateway/api-reference/resource/stage/#loggingLevel) resource in the Amazon API Gateway API Reference.
 func (o StageMethodSettingOutput) LoggingLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StageMethodSetting) *string { return v.LoggingLevel }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
 func (o StageMethodSettingOutput) MetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StageMethodSetting) *bool { return v.MetricsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The resource path for this method. Forward slashes (/) are encoded as ~1 and the initial slash must include a forward slash. For example, the path value /resource/subresource must be encoded as /~1resource~1subresource. To specify the root path, use only a slash (/). You can use an asterisk (*) as a wildcard to apply method settings to multiple methods.
 func (o StageMethodSettingOutput) ResourcePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StageMethodSetting) *string { return v.ResourcePath }).(pulumi.StringPtrOutput)
 }
 
+// The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
 func (o StageMethodSettingOutput) ThrottlingBurstLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StageMethodSetting) *int { return v.ThrottlingBurstLimit }).(pulumi.IntPtrOutput)
 }
 
+// The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
 func (o StageMethodSettingOutput) ThrottlingRateLimit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v StageMethodSetting) *float64 { return v.ThrottlingRateLimit }).(pulumi.Float64PtrOutput)
 }
@@ -3473,8 +3616,11 @@ func (o StageMethodSettingArrayOutput) Index(i pulumi.IntInput) StageMethodSetti
 	}).(StageMethodSettingOutput)
 }
 
+// Identify and categorize resources.
 type StageTag struct {
-	Key   string `pulumi:"key"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:.
 	Value string `pulumi:"value"`
 }
 
@@ -3489,8 +3635,11 @@ type StageTagInput interface {
 	ToStageTagOutputWithContext(context.Context) StageTagOutput
 }
 
+// Identify and categorize resources.
 type StageTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -3531,6 +3680,7 @@ func (i StageTagArray) ToStageTagArrayOutputWithContext(ctx context.Context) Sta
 	return pulumi.ToOutputWithContext(ctx, i).(StageTagArrayOutput)
 }
 
+// Identify and categorize resources.
 type StageTagOutput struct{ *pulumi.OutputState }
 
 func (StageTagOutput) ElementType() reflect.Type {
@@ -3545,10 +3695,12 @@ func (o StageTagOutput) ToStageTagOutputWithContext(ctx context.Context) StageTa
 	return o
 }
 
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:.
 func (o StageTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v StageTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:.
 func (o StageTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v StageTag) string { return v.Value }).(pulumi.StringOutput)
 }

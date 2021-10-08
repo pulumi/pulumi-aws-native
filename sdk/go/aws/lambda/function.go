@@ -15,6 +15,7 @@ import (
 type Function struct {
 	pulumi.CustomResourceState
 
+	Architectures FunctionArchitecturesItemArrayOutput `pulumi:"architectures"`
 	// Unique identifier for function resources
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The code for the function.
@@ -104,6 +105,7 @@ func (FunctionState) ElementType() reflect.Type {
 }
 
 type functionArgs struct {
+	Architectures []FunctionArchitecturesItem `pulumi:"architectures"`
 	// The code for the function.
 	Code FunctionCode `pulumi:"code"`
 	// A unique Arn for CodeSigningConfig resource
@@ -148,6 +150,7 @@ type functionArgs struct {
 
 // The set of arguments for constructing a Function resource.
 type FunctionArgs struct {
+	Architectures FunctionArchitecturesItemArrayInput
 	// The code for the function.
 	Code FunctionCodeInput
 	// A unique Arn for CodeSigningConfig resource

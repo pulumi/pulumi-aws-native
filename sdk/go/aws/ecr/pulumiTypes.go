@@ -12,7 +12,7 @@ import (
 
 // An object representing the replication configuration for a registry.
 type ReplicationConfigurationType struct {
-	// An array of objects representing the replication rules for a replication configuration. A replication configuration may contain only one replication rule but the rule may contain one or more replication destinations.
+	// An array of objects representing the replication rules for a replication configuration. A replication configuration may contain a maximum of 10 rules.
 	Rules []ReplicationConfigurationReplicationRule `pulumi:"rules"`
 }
 
@@ -29,7 +29,7 @@ type ReplicationConfigurationTypeInput interface {
 
 // An object representing the replication configuration for a registry.
 type ReplicationConfigurationTypeArgs struct {
-	// An array of objects representing the replication rules for a replication configuration. A replication configuration may contain only one replication rule but the rule may contain one or more replication destinations.
+	// An array of objects representing the replication rules for a replication configuration. A replication configuration may contain a maximum of 10 rules.
 	Rules ReplicationConfigurationReplicationRuleArrayInput `pulumi:"rules"`
 }
 
@@ -111,7 +111,7 @@ func (o ReplicationConfigurationTypeOutput) ToReplicationConfigurationTypePtrOut
 	}).(ReplicationConfigurationTypePtrOutput)
 }
 
-// An array of objects representing the replication rules for a replication configuration. A replication configuration may contain only one replication rule but the rule may contain one or more replication destinations.
+// An array of objects representing the replication rules for a replication configuration. A replication configuration may contain a maximum of 10 rules.
 func (o ReplicationConfigurationTypeOutput) Rules() ReplicationConfigurationReplicationRuleArrayOutput {
 	return o.ApplyT(func(v ReplicationConfigurationType) []ReplicationConfigurationReplicationRule { return v.Rules }).(ReplicationConfigurationReplicationRuleArrayOutput)
 }
@@ -140,7 +140,7 @@ func (o ReplicationConfigurationTypePtrOutput) Elem() ReplicationConfigurationTy
 	}).(ReplicationConfigurationTypeOutput)
 }
 
-// An array of objects representing the replication rules for a replication configuration. A replication configuration may contain only one replication rule but the rule may contain one or more replication destinations.
+// An array of objects representing the replication rules for a replication configuration. A replication configuration may contain a maximum of 10 rules.
 func (o ReplicationConfigurationTypePtrOutput) Rules() ReplicationConfigurationReplicationRuleArrayOutput {
 	return o.ApplyT(func(v *ReplicationConfigurationType) []ReplicationConfigurationReplicationRule {
 		if v == nil {

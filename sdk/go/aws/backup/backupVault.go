@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,9 +28,12 @@ type BackupVault struct {
 func NewBackupVault(ctx *pulumi.Context,
 	name string, args *BackupVaultArgs, opts ...pulumi.ResourceOption) (*BackupVault, error) {
 	if args == nil {
-		args = &BackupVaultArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.BackupVaultName == nil {
+		return nil, errors.New("invalid value for required argument 'BackupVaultName'")
+	}
 	var resource BackupVault
 	err := ctx.RegisterResource("aws-native:backup:BackupVault", name, args, &resource, opts...)
 	if err != nil {
@@ -63,6 +67,7 @@ func (BackupVaultState) ElementType() reflect.Type {
 
 type backupVaultArgs struct {
 	AccessPolicy      interface{}                        `pulumi:"accessPolicy"`
+	BackupVaultName   string                             `pulumi:"backupVaultName"`
 	BackupVaultTags   interface{}                        `pulumi:"backupVaultTags"`
 	EncryptionKeyArn  *string                            `pulumi:"encryptionKeyArn"`
 	LockConfiguration *BackupVaultLockConfigurationType  `pulumi:"lockConfiguration"`
@@ -72,6 +77,7 @@ type backupVaultArgs struct {
 // The set of arguments for constructing a BackupVault resource.
 type BackupVaultArgs struct {
 	AccessPolicy      pulumi.Input
+	BackupVaultName   pulumi.StringInput
 	BackupVaultTags   pulumi.Input
 	EncryptionKeyArn  pulumi.StringPtrInput
 	LockConfiguration BackupVaultLockConfigurationTypePtrInput

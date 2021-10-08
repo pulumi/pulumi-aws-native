@@ -15,17 +15,28 @@ import (
 type Role struct {
 	pulumi.CustomResourceState
 
-	Arn                      pulumi.StringOutput      `pulumi:"arn"`
-	AssumeRolePolicyDocument pulumi.AnyOutput         `pulumi:"assumeRolePolicyDocument"`
-	Description              pulumi.StringPtrOutput   `pulumi:"description"`
-	ManagedPolicyArns        pulumi.StringArrayOutput `pulumi:"managedPolicyArns"`
-	MaxSessionDuration       pulumi.IntPtrOutput      `pulumi:"maxSessionDuration"`
-	Path                     pulumi.StringPtrOutput   `pulumi:"path"`
-	PermissionsBoundary      pulumi.StringPtrOutput   `pulumi:"permissionsBoundary"`
-	Policies                 RolePolicyArrayOutput    `pulumi:"policies"`
-	RoleId                   pulumi.StringOutput      `pulumi:"roleId"`
-	RoleName                 pulumi.StringPtrOutput   `pulumi:"roleName"`
-	Tags                     RoleTagArrayOutput       `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) for the role.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The trust policy that is associated with this role.
+	AssumeRolePolicyDocument pulumi.AnyOutput `pulumi:"assumeRolePolicyDocument"`
+	// A description of the role that you provide.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role.
+	ManagedPolicyArns pulumi.StringArrayOutput `pulumi:"managedPolicyArns"`
+	// The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
+	MaxSessionDuration pulumi.IntPtrOutput `pulumi:"maxSessionDuration"`
+	// The path to the role.
+	Path pulumi.StringPtrOutput `pulumi:"path"`
+	// The ARN of the policy used to set the permissions boundary for the role.
+	PermissionsBoundary pulumi.StringPtrOutput `pulumi:"permissionsBoundary"`
+	// Adds or updates an inline policy document that is embedded in the specified IAM role.
+	Policies RolePolicyArrayOutput `pulumi:"policies"`
+	// The stable and unique string identifying the role.
+	RoleId pulumi.StringOutput `pulumi:"roleId"`
+	// A name for the IAM role, up to 64 characters in length.
+	RoleName pulumi.StringPtrOutput `pulumi:"roleName"`
+	// A list of tags that are attached to the role.
+	Tags RoleTagArrayOutput `pulumi:"tags"`
 }
 
 // NewRole registers a new resource with the given unique name, arguments, and options.
@@ -70,28 +81,46 @@ func (RoleState) ElementType() reflect.Type {
 }
 
 type roleArgs struct {
-	AssumeRolePolicyDocument interface{}  `pulumi:"assumeRolePolicyDocument"`
-	Description              *string      `pulumi:"description"`
-	ManagedPolicyArns        []string     `pulumi:"managedPolicyArns"`
-	MaxSessionDuration       *int         `pulumi:"maxSessionDuration"`
-	Path                     *string      `pulumi:"path"`
-	PermissionsBoundary      *string      `pulumi:"permissionsBoundary"`
-	Policies                 []RolePolicy `pulumi:"policies"`
-	RoleName                 *string      `pulumi:"roleName"`
-	Tags                     []RoleTag    `pulumi:"tags"`
+	// The trust policy that is associated with this role.
+	AssumeRolePolicyDocument interface{} `pulumi:"assumeRolePolicyDocument"`
+	// A description of the role that you provide.
+	Description *string `pulumi:"description"`
+	// A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role.
+	ManagedPolicyArns []string `pulumi:"managedPolicyArns"`
+	// The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
+	MaxSessionDuration *int `pulumi:"maxSessionDuration"`
+	// The path to the role.
+	Path *string `pulumi:"path"`
+	// The ARN of the policy used to set the permissions boundary for the role.
+	PermissionsBoundary *string `pulumi:"permissionsBoundary"`
+	// Adds or updates an inline policy document that is embedded in the specified IAM role.
+	Policies []RolePolicy `pulumi:"policies"`
+	// A name for the IAM role, up to 64 characters in length.
+	RoleName *string `pulumi:"roleName"`
+	// A list of tags that are attached to the role.
+	Tags []RoleTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Role resource.
 type RoleArgs struct {
+	// The trust policy that is associated with this role.
 	AssumeRolePolicyDocument pulumi.Input
-	Description              pulumi.StringPtrInput
-	ManagedPolicyArns        pulumi.StringArrayInput
-	MaxSessionDuration       pulumi.IntPtrInput
-	Path                     pulumi.StringPtrInput
-	PermissionsBoundary      pulumi.StringPtrInput
-	Policies                 RolePolicyArrayInput
-	RoleName                 pulumi.StringPtrInput
-	Tags                     RoleTagArrayInput
+	// A description of the role that you provide.
+	Description pulumi.StringPtrInput
+	// A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role.
+	ManagedPolicyArns pulumi.StringArrayInput
+	// The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
+	MaxSessionDuration pulumi.IntPtrInput
+	// The path to the role.
+	Path pulumi.StringPtrInput
+	// The ARN of the policy used to set the permissions boundary for the role.
+	PermissionsBoundary pulumi.StringPtrInput
+	// Adds or updates an inline policy document that is embedded in the specified IAM role.
+	Policies RolePolicyArrayInput
+	// A name for the IAM role, up to 64 characters in length.
+	RoleName pulumi.StringPtrInput
+	// A list of tags that are attached to the role.
+	Tags RoleTagArrayInput
 }
 
 func (RoleArgs) ElementType() reflect.Type {

@@ -15,6 +15,8 @@ import (
 type Canary struct {
 	pulumi.CustomResourceState
 
+	// Provide artifact configuration
+	ArtifactConfig CanaryArtifactConfigPtrOutput `pulumi:"artifactConfig"`
 	// Provide the s3 bucket output location for test results
 	ArtifactS3Location pulumi.StringOutput `pulumi:"artifactS3Location"`
 	// Provide the canary script source
@@ -104,6 +106,8 @@ func (CanaryState) ElementType() reflect.Type {
 }
 
 type canaryArgs struct {
+	// Provide artifact configuration
+	ArtifactConfig *CanaryArtifactConfig `pulumi:"artifactConfig"`
 	// Provide the s3 bucket output location for test results
 	ArtifactS3Location string `pulumi:"artifactS3Location"`
 	// Provide the canary script source
@@ -133,6 +137,8 @@ type canaryArgs struct {
 
 // The set of arguments for constructing a Canary resource.
 type CanaryArgs struct {
+	// Provide artifact configuration
+	ArtifactConfig CanaryArtifactConfigPtrInput
 	// Provide the s3 bucket output location for test results
 	ArtifactS3Location pulumi.StringInput
 	// Provide the canary script source

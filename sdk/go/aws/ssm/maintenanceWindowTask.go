@@ -17,6 +17,7 @@ import (
 type MaintenanceWindowTask struct {
 	pulumi.CustomResourceState
 
+	CutoffBehavior           pulumi.StringPtrOutput                                 `pulumi:"cutoffBehavior"`
 	Description              pulumi.StringPtrOutput                                 `pulumi:"description"`
 	LoggingInfo              MaintenanceWindowTaskLoggingInfoPtrOutput              `pulumi:"loggingInfo"`
 	MaxConcurrency           pulumi.StringPtrOutput                                 `pulumi:"maxConcurrency"`
@@ -83,6 +84,7 @@ func (MaintenanceWindowTaskState) ElementType() reflect.Type {
 }
 
 type maintenanceWindowTaskArgs struct {
+	CutoffBehavior           *string                                        `pulumi:"cutoffBehavior"`
 	Description              *string                                        `pulumi:"description"`
 	LoggingInfo              *MaintenanceWindowTaskLoggingInfo              `pulumi:"loggingInfo"`
 	MaxConcurrency           *string                                        `pulumi:"maxConcurrency"`
@@ -100,6 +102,7 @@ type maintenanceWindowTaskArgs struct {
 
 // The set of arguments for constructing a MaintenanceWindowTask resource.
 type MaintenanceWindowTaskArgs struct {
+	CutoffBehavior           pulumi.StringPtrInput
 	Description              pulumi.StringPtrInput
 	LoggingInfo              MaintenanceWindowTaskLoggingInfoPtrInput
 	MaxConcurrency           pulumi.StringPtrInput

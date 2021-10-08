@@ -15,8 +15,10 @@ import (
 type NetworkAcl struct {
 	pulumi.CustomResourceState
 
-	Tags  NetworkAclTagArrayOutput `pulumi:"tags"`
-	VpcId pulumi.StringOutput      `pulumi:"vpcId"`
+	// The tags to assign to the network ACL.
+	Tags NetworkAclTagArrayOutput `pulumi:"tags"`
+	// The ID of the VPC.
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewNetworkAcl registers a new resource with the given unique name, arguments, and options.
@@ -61,13 +63,17 @@ func (NetworkAclState) ElementType() reflect.Type {
 }
 
 type networkAclArgs struct {
-	Tags  []NetworkAclTag `pulumi:"tags"`
-	VpcId string          `pulumi:"vpcId"`
+	// The tags to assign to the network ACL.
+	Tags []NetworkAclTag `pulumi:"tags"`
+	// The ID of the VPC.
+	VpcId string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a NetworkAcl resource.
 type NetworkAclArgs struct {
-	Tags  NetworkAclTagArrayInput
+	// The tags to assign to the network ACL.
+	Tags NetworkAclTagArrayInput
+	// The ID of the VPC.
 	VpcId pulumi.StringInput
 }
 

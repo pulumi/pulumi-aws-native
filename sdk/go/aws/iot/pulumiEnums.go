@@ -1494,6 +1494,335 @@ func (in *domainConfigurationStatusPtr) ToDomainConfigurationStatusPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(DomainConfigurationStatusPtrOutput)
 }
 
+type JobTemplateAction string
+
+const (
+	JobTemplateActionCancel = JobTemplateAction("CANCEL")
+)
+
+func (JobTemplateAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateAction)(nil)).Elem()
+}
+
+func (e JobTemplateAction) ToJobTemplateActionOutput() JobTemplateActionOutput {
+	return pulumi.ToOutput(e).(JobTemplateActionOutput)
+}
+
+func (e JobTemplateAction) ToJobTemplateActionOutputWithContext(ctx context.Context) JobTemplateActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(JobTemplateActionOutput)
+}
+
+func (e JobTemplateAction) ToJobTemplateActionPtrOutput() JobTemplateActionPtrOutput {
+	return e.ToJobTemplateActionPtrOutputWithContext(context.Background())
+}
+
+func (e JobTemplateAction) ToJobTemplateActionPtrOutputWithContext(ctx context.Context) JobTemplateActionPtrOutput {
+	return JobTemplateAction(e).ToJobTemplateActionOutputWithContext(ctx).ToJobTemplateActionPtrOutputWithContext(ctx)
+}
+
+func (e JobTemplateAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JobTemplateAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JobTemplateAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e JobTemplateAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type JobTemplateActionOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateAction)(nil)).Elem()
+}
+
+func (o JobTemplateActionOutput) ToJobTemplateActionOutput() JobTemplateActionOutput {
+	return o
+}
+
+func (o JobTemplateActionOutput) ToJobTemplateActionOutputWithContext(ctx context.Context) JobTemplateActionOutput {
+	return o
+}
+
+func (o JobTemplateActionOutput) ToJobTemplateActionPtrOutput() JobTemplateActionPtrOutput {
+	return o.ToJobTemplateActionPtrOutputWithContext(context.Background())
+}
+
+func (o JobTemplateActionOutput) ToJobTemplateActionPtrOutputWithContext(ctx context.Context) JobTemplateActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobTemplateAction) *JobTemplateAction {
+		return &v
+	}).(JobTemplateActionPtrOutput)
+}
+
+func (o JobTemplateActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o JobTemplateActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e JobTemplateAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o JobTemplateActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o JobTemplateActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e JobTemplateAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobTemplateActionPtrOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateAction)(nil)).Elem()
+}
+
+func (o JobTemplateActionPtrOutput) ToJobTemplateActionPtrOutput() JobTemplateActionPtrOutput {
+	return o
+}
+
+func (o JobTemplateActionPtrOutput) ToJobTemplateActionPtrOutputWithContext(ctx context.Context) JobTemplateActionPtrOutput {
+	return o
+}
+
+func (o JobTemplateActionPtrOutput) Elem() JobTemplateActionOutput {
+	return o.ApplyT(func(v *JobTemplateAction) JobTemplateAction {
+		if v != nil {
+			return *v
+		}
+		var ret JobTemplateAction
+		return ret
+	}).(JobTemplateActionOutput)
+}
+
+func (o JobTemplateActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o JobTemplateActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *JobTemplateAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// JobTemplateActionInput is an input type that accepts JobTemplateActionArgs and JobTemplateActionOutput values.
+// You can construct a concrete instance of `JobTemplateActionInput` via:
+//
+//          JobTemplateActionArgs{...}
+type JobTemplateActionInput interface {
+	pulumi.Input
+
+	ToJobTemplateActionOutput() JobTemplateActionOutput
+	ToJobTemplateActionOutputWithContext(context.Context) JobTemplateActionOutput
+}
+
+var jobTemplateActionPtrType = reflect.TypeOf((**JobTemplateAction)(nil)).Elem()
+
+type JobTemplateActionPtrInput interface {
+	pulumi.Input
+
+	ToJobTemplateActionPtrOutput() JobTemplateActionPtrOutput
+	ToJobTemplateActionPtrOutputWithContext(context.Context) JobTemplateActionPtrOutput
+}
+
+type jobTemplateActionPtr string
+
+func JobTemplateActionPtr(v string) JobTemplateActionPtrInput {
+	return (*jobTemplateActionPtr)(&v)
+}
+
+func (*jobTemplateActionPtr) ElementType() reflect.Type {
+	return jobTemplateActionPtrType
+}
+
+func (in *jobTemplateActionPtr) ToJobTemplateActionPtrOutput() JobTemplateActionPtrOutput {
+	return pulumi.ToOutput(in).(JobTemplateActionPtrOutput)
+}
+
+func (in *jobTemplateActionPtr) ToJobTemplateActionPtrOutputWithContext(ctx context.Context) JobTemplateActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(JobTemplateActionPtrOutput)
+}
+
+type JobTemplateFailureType string
+
+const (
+	JobTemplateFailureTypeFailed   = JobTemplateFailureType("FAILED")
+	JobTemplateFailureTypeRejected = JobTemplateFailureType("REJECTED")
+	JobTemplateFailureTypeTimedOut = JobTemplateFailureType("TIMED_OUT")
+	JobTemplateFailureTypeAll      = JobTemplateFailureType("ALL")
+)
+
+func (JobTemplateFailureType) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateFailureType)(nil)).Elem()
+}
+
+func (e JobTemplateFailureType) ToJobTemplateFailureTypeOutput() JobTemplateFailureTypeOutput {
+	return pulumi.ToOutput(e).(JobTemplateFailureTypeOutput)
+}
+
+func (e JobTemplateFailureType) ToJobTemplateFailureTypeOutputWithContext(ctx context.Context) JobTemplateFailureTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(JobTemplateFailureTypeOutput)
+}
+
+func (e JobTemplateFailureType) ToJobTemplateFailureTypePtrOutput() JobTemplateFailureTypePtrOutput {
+	return e.ToJobTemplateFailureTypePtrOutputWithContext(context.Background())
+}
+
+func (e JobTemplateFailureType) ToJobTemplateFailureTypePtrOutputWithContext(ctx context.Context) JobTemplateFailureTypePtrOutput {
+	return JobTemplateFailureType(e).ToJobTemplateFailureTypeOutputWithContext(ctx).ToJobTemplateFailureTypePtrOutputWithContext(ctx)
+}
+
+func (e JobTemplateFailureType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JobTemplateFailureType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JobTemplateFailureType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e JobTemplateFailureType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type JobTemplateFailureTypeOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateFailureTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateFailureType)(nil)).Elem()
+}
+
+func (o JobTemplateFailureTypeOutput) ToJobTemplateFailureTypeOutput() JobTemplateFailureTypeOutput {
+	return o
+}
+
+func (o JobTemplateFailureTypeOutput) ToJobTemplateFailureTypeOutputWithContext(ctx context.Context) JobTemplateFailureTypeOutput {
+	return o
+}
+
+func (o JobTemplateFailureTypeOutput) ToJobTemplateFailureTypePtrOutput() JobTemplateFailureTypePtrOutput {
+	return o.ToJobTemplateFailureTypePtrOutputWithContext(context.Background())
+}
+
+func (o JobTemplateFailureTypeOutput) ToJobTemplateFailureTypePtrOutputWithContext(ctx context.Context) JobTemplateFailureTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobTemplateFailureType) *JobTemplateFailureType {
+		return &v
+	}).(JobTemplateFailureTypePtrOutput)
+}
+
+func (o JobTemplateFailureTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o JobTemplateFailureTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e JobTemplateFailureType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o JobTemplateFailureTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o JobTemplateFailureTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e JobTemplateFailureType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobTemplateFailureTypePtrOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateFailureTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateFailureType)(nil)).Elem()
+}
+
+func (o JobTemplateFailureTypePtrOutput) ToJobTemplateFailureTypePtrOutput() JobTemplateFailureTypePtrOutput {
+	return o
+}
+
+func (o JobTemplateFailureTypePtrOutput) ToJobTemplateFailureTypePtrOutputWithContext(ctx context.Context) JobTemplateFailureTypePtrOutput {
+	return o
+}
+
+func (o JobTemplateFailureTypePtrOutput) Elem() JobTemplateFailureTypeOutput {
+	return o.ApplyT(func(v *JobTemplateFailureType) JobTemplateFailureType {
+		if v != nil {
+			return *v
+		}
+		var ret JobTemplateFailureType
+		return ret
+	}).(JobTemplateFailureTypeOutput)
+}
+
+func (o JobTemplateFailureTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o JobTemplateFailureTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *JobTemplateFailureType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// JobTemplateFailureTypeInput is an input type that accepts JobTemplateFailureTypeArgs and JobTemplateFailureTypeOutput values.
+// You can construct a concrete instance of `JobTemplateFailureTypeInput` via:
+//
+//          JobTemplateFailureTypeArgs{...}
+type JobTemplateFailureTypeInput interface {
+	pulumi.Input
+
+	ToJobTemplateFailureTypeOutput() JobTemplateFailureTypeOutput
+	ToJobTemplateFailureTypeOutputWithContext(context.Context) JobTemplateFailureTypeOutput
+}
+
+var jobTemplateFailureTypePtrType = reflect.TypeOf((**JobTemplateFailureType)(nil)).Elem()
+
+type JobTemplateFailureTypePtrInput interface {
+	pulumi.Input
+
+	ToJobTemplateFailureTypePtrOutput() JobTemplateFailureTypePtrOutput
+	ToJobTemplateFailureTypePtrOutputWithContext(context.Context) JobTemplateFailureTypePtrOutput
+}
+
+type jobTemplateFailureTypePtr string
+
+func JobTemplateFailureTypePtr(v string) JobTemplateFailureTypePtrInput {
+	return (*jobTemplateFailureTypePtr)(&v)
+}
+
+func (*jobTemplateFailureTypePtr) ElementType() reflect.Type {
+	return jobTemplateFailureTypePtrType
+}
+
+func (in *jobTemplateFailureTypePtr) ToJobTemplateFailureTypePtrOutput() JobTemplateFailureTypePtrOutput {
+	return pulumi.ToOutput(in).(JobTemplateFailureTypePtrOutput)
+}
+
+func (in *jobTemplateFailureTypePtr) ToJobTemplateFailureTypePtrOutputWithContext(ctx context.Context) JobTemplateFailureTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(JobTemplateFailureTypePtrOutput)
+}
+
 //  Specifies which types of information are logged.
 type MitigationActionEnableIoTLoggingParamsLogLevel string
 
@@ -3520,6 +3849,10 @@ func init() {
 	pulumi.RegisterOutputType(DomainConfigurationServiceTypePtrOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationStatusOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationStatusPtrOutput{})
+	pulumi.RegisterOutputType(JobTemplateActionOutput{})
+	pulumi.RegisterOutputType(JobTemplateActionPtrOutput{})
+	pulumi.RegisterOutputType(JobTemplateFailureTypeOutput{})
+	pulumi.RegisterOutputType(JobTemplateFailureTypePtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionEnableIoTLoggingParamsLogLevelOutput{})
 	pulumi.RegisterOutputType(MitigationActionEnableIoTLoggingParamsLogLevelPtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionReplaceDefaultPolicyVersionParamsTemplateNameOutput{})

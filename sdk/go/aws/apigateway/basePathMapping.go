@@ -15,10 +15,14 @@ import (
 type BasePathMapping struct {
 	pulumi.CustomResourceState
 
-	BasePath   pulumi.StringPtrOutput `pulumi:"basePath"`
-	DomainName pulumi.StringOutput    `pulumi:"domainName"`
-	RestApiId  pulumi.StringPtrOutput `pulumi:"restApiId"`
-	Stage      pulumi.StringPtrOutput `pulumi:"stage"`
+	// The base path name that callers of the API must provide in the URL after the domain name.
+	BasePath pulumi.StringPtrOutput `pulumi:"basePath"`
+	// The DomainName of an AWS::ApiGateway::DomainName resource.
+	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	// The ID of the API.
+	RestApiId pulumi.StringPtrOutput `pulumi:"restApiId"`
+	// The name of the API's stage.
+	Stage pulumi.StringPtrOutput `pulumi:"stage"`
 }
 
 // NewBasePathMapping registers a new resource with the given unique name, arguments, and options.
@@ -63,18 +67,26 @@ func (BasePathMappingState) ElementType() reflect.Type {
 }
 
 type basePathMappingArgs struct {
-	BasePath   *string `pulumi:"basePath"`
-	DomainName string  `pulumi:"domainName"`
-	RestApiId  *string `pulumi:"restApiId"`
-	Stage      *string `pulumi:"stage"`
+	// The base path name that callers of the API must provide in the URL after the domain name.
+	BasePath *string `pulumi:"basePath"`
+	// The DomainName of an AWS::ApiGateway::DomainName resource.
+	DomainName string `pulumi:"domainName"`
+	// The ID of the API.
+	RestApiId *string `pulumi:"restApiId"`
+	// The name of the API's stage.
+	Stage *string `pulumi:"stage"`
 }
 
 // The set of arguments for constructing a BasePathMapping resource.
 type BasePathMappingArgs struct {
-	BasePath   pulumi.StringPtrInput
+	// The base path name that callers of the API must provide in the URL after the domain name.
+	BasePath pulumi.StringPtrInput
+	// The DomainName of an AWS::ApiGateway::DomainName resource.
 	DomainName pulumi.StringInput
-	RestApiId  pulumi.StringPtrInput
-	Stage      pulumi.StringPtrInput
+	// The ID of the API.
+	RestApiId pulumi.StringPtrInput
+	// The name of the API's stage.
+	Stage pulumi.StringPtrInput
 }
 
 func (BasePathMappingArgs) ElementType() reflect.Type {

@@ -219,9 +219,12 @@ func (o OIDCProviderTagArrayOutput) Index(i pulumi.IntInput) OIDCProviderTagOutp
 	}).(OIDCProviderTagOutput)
 }
 
+// The inline policy document that is embedded in the specified IAM role.
 type RolePolicy struct {
-	PolicyDocument interface{} `pulumi:"policyDocument"`
-	PolicyName     string      `pulumi:"policyName"`
+	// The policy document.
+	PolicyDocument string `pulumi:"policyDocument"`
+	// The friendly name (not ARN) identifying the policy.
+	PolicyName string `pulumi:"policyName"`
 }
 
 // RolePolicyInput is an input type that accepts RolePolicyArgs and RolePolicyOutput values.
@@ -235,9 +238,12 @@ type RolePolicyInput interface {
 	ToRolePolicyOutputWithContext(context.Context) RolePolicyOutput
 }
 
+// The inline policy document that is embedded in the specified IAM role.
 type RolePolicyArgs struct {
-	PolicyDocument pulumi.Input       `pulumi:"policyDocument"`
-	PolicyName     pulumi.StringInput `pulumi:"policyName"`
+	// The policy document.
+	PolicyDocument pulumi.StringInput `pulumi:"policyDocument"`
+	// The friendly name (not ARN) identifying the policy.
+	PolicyName pulumi.StringInput `pulumi:"policyName"`
 }
 
 func (RolePolicyArgs) ElementType() reflect.Type {
@@ -277,6 +283,7 @@ func (i RolePolicyArray) ToRolePolicyArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(RolePolicyArrayOutput)
 }
 
+// The inline policy document that is embedded in the specified IAM role.
 type RolePolicyOutput struct{ *pulumi.OutputState }
 
 func (RolePolicyOutput) ElementType() reflect.Type {
@@ -291,10 +298,12 @@ func (o RolePolicyOutput) ToRolePolicyOutputWithContext(ctx context.Context) Rol
 	return o
 }
 
-func (o RolePolicyOutput) PolicyDocument() pulumi.AnyOutput {
-	return o.ApplyT(func(v RolePolicy) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
+// The policy document.
+func (o RolePolicyOutput) PolicyDocument() pulumi.StringOutput {
+	return o.ApplyT(func(v RolePolicy) string { return v.PolicyDocument }).(pulumi.StringOutput)
 }
 
+// The friendly name (not ARN) identifying the policy.
 func (o RolePolicyOutput) PolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v RolePolicy) string { return v.PolicyName }).(pulumi.StringOutput)
 }
@@ -319,8 +328,11 @@ func (o RolePolicyArrayOutput) Index(i pulumi.IntInput) RolePolicyOutput {
 	}).(RolePolicyOutput)
 }
 
+// A key-value pair to associate with a resource.
 type RoleTag struct {
-	Key   string `pulumi:"key"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
 }
 
@@ -335,8 +347,11 @@ type RoleTagInput interface {
 	ToRoleTagOutputWithContext(context.Context) RoleTagOutput
 }
 
+// A key-value pair to associate with a resource.
 type RoleTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -377,6 +392,7 @@ func (i RoleTagArray) ToRoleTagArrayOutputWithContext(ctx context.Context) RoleT
 	return pulumi.ToOutputWithContext(ctx, i).(RoleTagArrayOutput)
 }
 
+// A key-value pair to associate with a resource.
 type RoleTagOutput struct{ *pulumi.OutputState }
 
 func (RoleTagOutput) ElementType() reflect.Type {
@@ -391,10 +407,12 @@ func (o RoleTagOutput) ToRoleTagOutputWithContext(ctx context.Context) RoleTagOu
 	return o
 }
 
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 func (o RoleTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v RoleTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 func (o RoleTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v RoleTag) string { return v.Value }).(pulumi.StringOutput)
 }

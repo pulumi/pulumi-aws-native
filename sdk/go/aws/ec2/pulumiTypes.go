@@ -8049,6 +8049,7 @@ func (o LaunchTemplateLicenseSpecificationArrayOutput) Index(i pulumi.IntInput) 
 
 type LaunchTemplateMetadataOptions struct {
 	HttpEndpoint            *string `pulumi:"httpEndpoint"`
+	HttpProtocolIpv6        *string `pulumi:"httpProtocolIpv6"`
 	HttpPutResponseHopLimit *int    `pulumi:"httpPutResponseHopLimit"`
 	HttpTokens              *string `pulumi:"httpTokens"`
 }
@@ -8066,6 +8067,7 @@ type LaunchTemplateMetadataOptionsInput interface {
 
 type LaunchTemplateMetadataOptionsArgs struct {
 	HttpEndpoint            pulumi.StringPtrInput `pulumi:"httpEndpoint"`
+	HttpProtocolIpv6        pulumi.StringPtrInput `pulumi:"httpProtocolIpv6"`
 	HttpPutResponseHopLimit pulumi.IntPtrInput    `pulumi:"httpPutResponseHopLimit"`
 	HttpTokens              pulumi.StringPtrInput `pulumi:"httpTokens"`
 }
@@ -8151,6 +8153,10 @@ func (o LaunchTemplateMetadataOptionsOutput) HttpEndpoint() pulumi.StringPtrOutp
 	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.HttpEndpoint }).(pulumi.StringPtrOutput)
 }
 
+func (o LaunchTemplateMetadataOptionsOutput) HttpProtocolIpv6() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.HttpProtocolIpv6 }).(pulumi.StringPtrOutput)
+}
+
 func (o LaunchTemplateMetadataOptionsOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
 }
@@ -8189,6 +8195,15 @@ func (o LaunchTemplateMetadataOptionsPtrOutput) HttpEndpoint() pulumi.StringPtrO
 			return nil
 		}
 		return v.HttpEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateMetadataOptionsPtrOutput) HttpProtocolIpv6() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpProtocolIpv6
 	}).(pulumi.StringPtrOutput)
 }
 

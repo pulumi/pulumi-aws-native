@@ -11,36 +11,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An object representing an Amazon EKS cluster.
+// Resource Type definition for AWS::EKS::Cluster
 //
 // Deprecated: Cluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Cluster struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The certificate-authority-data for your cluster.
-	CertificateAuthorityData pulumi.StringOutput `pulumi:"certificateAuthorityData"`
-	// The cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control plane to data plane communication.
-	ClusterSecurityGroupId pulumi.StringOutput                `pulumi:"clusterSecurityGroupId"`
-	EncryptionConfig       ClusterEncryptionConfigArrayOutput `pulumi:"encryptionConfig"`
-	// Amazon Resource Name (ARN) or alias of the customer master key (CMK).
-	EncryptionConfigKeyArn pulumi.StringOutput `pulumi:"encryptionConfigKeyArn"`
-	// The endpoint for your Kubernetes API server, such as https://5E1D0CEXAMPLEA591B746AFC5AB30262.yl4.us-west-2.eks.amazonaws.com.
-	Endpoint                pulumi.StringOutput                     `pulumi:"endpoint"`
-	KubernetesNetworkConfig ClusterKubernetesNetworkConfigPtrOutput `pulumi:"kubernetesNetworkConfig"`
-	Logging                 ClusterLoggingPtrOutput                 `pulumi:"logging"`
-	// The unique name to give to your cluster.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The issuer URL for the cluster's OIDC identity provider, such as https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E. If you need to remove https:// from this output value, you can include the following code in your template.
-	OpenIdConnectIssuerUrl pulumi.StringOutput             `pulumi:"openIdConnectIssuerUrl"`
-	ResourcesVpcConfig     ClusterResourcesVpcConfigOutput `pulumi:"resourcesVpcConfig"`
-	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// An array of key-value pairs to apply to this resource.
-	Tags ClusterTagArrayOutput `pulumi:"tags"`
-	// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
-	Version pulumi.StringPtrOutput `pulumi:"version"`
+	Arn                      pulumi.StringOutput                     `pulumi:"arn"`
+	CertificateAuthorityData pulumi.StringOutput                     `pulumi:"certificateAuthorityData"`
+	ClusterSecurityGroupId   pulumi.StringOutput                     `pulumi:"clusterSecurityGroupId"`
+	EncryptionConfig         ClusterEncryptionConfigArrayOutput      `pulumi:"encryptionConfig"`
+	EncryptionConfigKeyArn   pulumi.StringOutput                     `pulumi:"encryptionConfigKeyArn"`
+	Endpoint                 pulumi.StringOutput                     `pulumi:"endpoint"`
+	KubernetesNetworkConfig  ClusterKubernetesNetworkConfigPtrOutput `pulumi:"kubernetesNetworkConfig"`
+	Name                     pulumi.StringPtrOutput                  `pulumi:"name"`
+	OpenIdConnectIssuerUrl   pulumi.StringOutput                     `pulumi:"openIdConnectIssuerUrl"`
+	ResourcesVpcConfig       ClusterResourcesVpcConfigOutput         `pulumi:"resourcesVpcConfig"`
+	RoleArn                  pulumi.StringOutput                     `pulumi:"roleArn"`
+	Version                  pulumi.StringPtrOutput                  `pulumi:"version"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -90,32 +78,20 @@ func (ClusterState) ElementType() reflect.Type {
 type clusterArgs struct {
 	EncryptionConfig        []ClusterEncryptionConfig       `pulumi:"encryptionConfig"`
 	KubernetesNetworkConfig *ClusterKubernetesNetworkConfig `pulumi:"kubernetesNetworkConfig"`
-	Logging                 *ClusterLogging                 `pulumi:"logging"`
-	// The unique name to give to your cluster.
-	Name               *string                   `pulumi:"name"`
-	ResourcesVpcConfig ClusterResourcesVpcConfig `pulumi:"resourcesVpcConfig"`
-	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
-	RoleArn string `pulumi:"roleArn"`
-	// An array of key-value pairs to apply to this resource.
-	Tags []ClusterTag `pulumi:"tags"`
-	// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
-	Version *string `pulumi:"version"`
+	Name                    *string                         `pulumi:"name"`
+	ResourcesVpcConfig      ClusterResourcesVpcConfig       `pulumi:"resourcesVpcConfig"`
+	RoleArn                 string                          `pulumi:"roleArn"`
+	Version                 *string                         `pulumi:"version"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
 	EncryptionConfig        ClusterEncryptionConfigArrayInput
 	KubernetesNetworkConfig ClusterKubernetesNetworkConfigPtrInput
-	Logging                 ClusterLoggingPtrInput
-	// The unique name to give to your cluster.
-	Name               pulumi.StringPtrInput
-	ResourcesVpcConfig ClusterResourcesVpcConfigInput
-	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
-	RoleArn pulumi.StringInput
-	// An array of key-value pairs to apply to this resource.
-	Tags ClusterTagArrayInput
-	// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
-	Version pulumi.StringPtrInput
+	Name                    pulumi.StringPtrInput
+	ResourcesVpcConfig      ClusterResourcesVpcConfigInput
+	RoleArn                 pulumi.StringInput
+	Version                 pulumi.StringPtrInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {

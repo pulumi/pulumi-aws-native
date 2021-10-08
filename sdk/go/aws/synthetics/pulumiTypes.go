@@ -10,6 +10,143 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type CanaryArtifactConfig struct {
+	// Encryption configuration for uploading artifacts to S3
+	S3Encryption *CanaryS3Encryption `pulumi:"s3Encryption"`
+}
+
+// CanaryArtifactConfigInput is an input type that accepts CanaryArtifactConfigArgs and CanaryArtifactConfigOutput values.
+// You can construct a concrete instance of `CanaryArtifactConfigInput` via:
+//
+//          CanaryArtifactConfigArgs{...}
+type CanaryArtifactConfigInput interface {
+	pulumi.Input
+
+	ToCanaryArtifactConfigOutput() CanaryArtifactConfigOutput
+	ToCanaryArtifactConfigOutputWithContext(context.Context) CanaryArtifactConfigOutput
+}
+
+type CanaryArtifactConfigArgs struct {
+	// Encryption configuration for uploading artifacts to S3
+	S3Encryption CanaryS3EncryptionPtrInput `pulumi:"s3Encryption"`
+}
+
+func (CanaryArtifactConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanaryArtifactConfig)(nil)).Elem()
+}
+
+func (i CanaryArtifactConfigArgs) ToCanaryArtifactConfigOutput() CanaryArtifactConfigOutput {
+	return i.ToCanaryArtifactConfigOutputWithContext(context.Background())
+}
+
+func (i CanaryArtifactConfigArgs) ToCanaryArtifactConfigOutputWithContext(ctx context.Context) CanaryArtifactConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryArtifactConfigOutput)
+}
+
+func (i CanaryArtifactConfigArgs) ToCanaryArtifactConfigPtrOutput() CanaryArtifactConfigPtrOutput {
+	return i.ToCanaryArtifactConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CanaryArtifactConfigArgs) ToCanaryArtifactConfigPtrOutputWithContext(ctx context.Context) CanaryArtifactConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryArtifactConfigOutput).ToCanaryArtifactConfigPtrOutputWithContext(ctx)
+}
+
+// CanaryArtifactConfigPtrInput is an input type that accepts CanaryArtifactConfigArgs, CanaryArtifactConfigPtr and CanaryArtifactConfigPtrOutput values.
+// You can construct a concrete instance of `CanaryArtifactConfigPtrInput` via:
+//
+//          CanaryArtifactConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type CanaryArtifactConfigPtrInput interface {
+	pulumi.Input
+
+	ToCanaryArtifactConfigPtrOutput() CanaryArtifactConfigPtrOutput
+	ToCanaryArtifactConfigPtrOutputWithContext(context.Context) CanaryArtifactConfigPtrOutput
+}
+
+type canaryArtifactConfigPtrType CanaryArtifactConfigArgs
+
+func CanaryArtifactConfigPtr(v *CanaryArtifactConfigArgs) CanaryArtifactConfigPtrInput {
+	return (*canaryArtifactConfigPtrType)(v)
+}
+
+func (*canaryArtifactConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CanaryArtifactConfig)(nil)).Elem()
+}
+
+func (i *canaryArtifactConfigPtrType) ToCanaryArtifactConfigPtrOutput() CanaryArtifactConfigPtrOutput {
+	return i.ToCanaryArtifactConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *canaryArtifactConfigPtrType) ToCanaryArtifactConfigPtrOutputWithContext(ctx context.Context) CanaryArtifactConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryArtifactConfigPtrOutput)
+}
+
+type CanaryArtifactConfigOutput struct{ *pulumi.OutputState }
+
+func (CanaryArtifactConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanaryArtifactConfig)(nil)).Elem()
+}
+
+func (o CanaryArtifactConfigOutput) ToCanaryArtifactConfigOutput() CanaryArtifactConfigOutput {
+	return o
+}
+
+func (o CanaryArtifactConfigOutput) ToCanaryArtifactConfigOutputWithContext(ctx context.Context) CanaryArtifactConfigOutput {
+	return o
+}
+
+func (o CanaryArtifactConfigOutput) ToCanaryArtifactConfigPtrOutput() CanaryArtifactConfigPtrOutput {
+	return o.ToCanaryArtifactConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CanaryArtifactConfigOutput) ToCanaryArtifactConfigPtrOutputWithContext(ctx context.Context) CanaryArtifactConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CanaryArtifactConfig) *CanaryArtifactConfig {
+		return &v
+	}).(CanaryArtifactConfigPtrOutput)
+}
+
+// Encryption configuration for uploading artifacts to S3
+func (o CanaryArtifactConfigOutput) S3Encryption() CanaryS3EncryptionPtrOutput {
+	return o.ApplyT(func(v CanaryArtifactConfig) *CanaryS3Encryption { return v.S3Encryption }).(CanaryS3EncryptionPtrOutput)
+}
+
+type CanaryArtifactConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CanaryArtifactConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CanaryArtifactConfig)(nil)).Elem()
+}
+
+func (o CanaryArtifactConfigPtrOutput) ToCanaryArtifactConfigPtrOutput() CanaryArtifactConfigPtrOutput {
+	return o
+}
+
+func (o CanaryArtifactConfigPtrOutput) ToCanaryArtifactConfigPtrOutputWithContext(ctx context.Context) CanaryArtifactConfigPtrOutput {
+	return o
+}
+
+func (o CanaryArtifactConfigPtrOutput) Elem() CanaryArtifactConfigOutput {
+	return o.ApplyT(func(v *CanaryArtifactConfig) CanaryArtifactConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CanaryArtifactConfig
+		return ret
+	}).(CanaryArtifactConfigOutput)
+}
+
+// Encryption configuration for uploading artifacts to S3
+func (o CanaryArtifactConfigPtrOutput) S3Encryption() CanaryS3EncryptionPtrOutput {
+	return o.ApplyT(func(v *CanaryArtifactConfig) *CanaryS3Encryption {
+		if v == nil {
+			return nil
+		}
+		return v.S3Encryption
+	}).(CanaryS3EncryptionPtrOutput)
+}
+
 type CanaryBaseScreenshot struct {
 	// List of coordinates of rectangles to be ignored during visual testing
 	IgnoreCoordinates []string `pulumi:"ignoreCoordinates"`
@@ -501,6 +638,162 @@ func (o CanaryRunConfigPtrOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
 		}
 		return v.TimeoutInSeconds
 	}).(pulumi.IntPtrOutput)
+}
+
+type CanaryS3Encryption struct {
+	// Encryption mode for encrypting artifacts when uploading to S3. Valid values: SSE_S3 and SSE_KMS.
+	EncryptionMode *string `pulumi:"encryptionMode"`
+	// KMS key Arn for encrypting artifacts when uploading to S3. You must specify KMS key Arn for SSE_KMS encryption mode only.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+}
+
+// CanaryS3EncryptionInput is an input type that accepts CanaryS3EncryptionArgs and CanaryS3EncryptionOutput values.
+// You can construct a concrete instance of `CanaryS3EncryptionInput` via:
+//
+//          CanaryS3EncryptionArgs{...}
+type CanaryS3EncryptionInput interface {
+	pulumi.Input
+
+	ToCanaryS3EncryptionOutput() CanaryS3EncryptionOutput
+	ToCanaryS3EncryptionOutputWithContext(context.Context) CanaryS3EncryptionOutput
+}
+
+type CanaryS3EncryptionArgs struct {
+	// Encryption mode for encrypting artifacts when uploading to S3. Valid values: SSE_S3 and SSE_KMS.
+	EncryptionMode pulumi.StringPtrInput `pulumi:"encryptionMode"`
+	// KMS key Arn for encrypting artifacts when uploading to S3. You must specify KMS key Arn for SSE_KMS encryption mode only.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+}
+
+func (CanaryS3EncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanaryS3Encryption)(nil)).Elem()
+}
+
+func (i CanaryS3EncryptionArgs) ToCanaryS3EncryptionOutput() CanaryS3EncryptionOutput {
+	return i.ToCanaryS3EncryptionOutputWithContext(context.Background())
+}
+
+func (i CanaryS3EncryptionArgs) ToCanaryS3EncryptionOutputWithContext(ctx context.Context) CanaryS3EncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryS3EncryptionOutput)
+}
+
+func (i CanaryS3EncryptionArgs) ToCanaryS3EncryptionPtrOutput() CanaryS3EncryptionPtrOutput {
+	return i.ToCanaryS3EncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i CanaryS3EncryptionArgs) ToCanaryS3EncryptionPtrOutputWithContext(ctx context.Context) CanaryS3EncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryS3EncryptionOutput).ToCanaryS3EncryptionPtrOutputWithContext(ctx)
+}
+
+// CanaryS3EncryptionPtrInput is an input type that accepts CanaryS3EncryptionArgs, CanaryS3EncryptionPtr and CanaryS3EncryptionPtrOutput values.
+// You can construct a concrete instance of `CanaryS3EncryptionPtrInput` via:
+//
+//          CanaryS3EncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type CanaryS3EncryptionPtrInput interface {
+	pulumi.Input
+
+	ToCanaryS3EncryptionPtrOutput() CanaryS3EncryptionPtrOutput
+	ToCanaryS3EncryptionPtrOutputWithContext(context.Context) CanaryS3EncryptionPtrOutput
+}
+
+type canaryS3EncryptionPtrType CanaryS3EncryptionArgs
+
+func CanaryS3EncryptionPtr(v *CanaryS3EncryptionArgs) CanaryS3EncryptionPtrInput {
+	return (*canaryS3EncryptionPtrType)(v)
+}
+
+func (*canaryS3EncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CanaryS3Encryption)(nil)).Elem()
+}
+
+func (i *canaryS3EncryptionPtrType) ToCanaryS3EncryptionPtrOutput() CanaryS3EncryptionPtrOutput {
+	return i.ToCanaryS3EncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *canaryS3EncryptionPtrType) ToCanaryS3EncryptionPtrOutputWithContext(ctx context.Context) CanaryS3EncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryS3EncryptionPtrOutput)
+}
+
+type CanaryS3EncryptionOutput struct{ *pulumi.OutputState }
+
+func (CanaryS3EncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanaryS3Encryption)(nil)).Elem()
+}
+
+func (o CanaryS3EncryptionOutput) ToCanaryS3EncryptionOutput() CanaryS3EncryptionOutput {
+	return o
+}
+
+func (o CanaryS3EncryptionOutput) ToCanaryS3EncryptionOutputWithContext(ctx context.Context) CanaryS3EncryptionOutput {
+	return o
+}
+
+func (o CanaryS3EncryptionOutput) ToCanaryS3EncryptionPtrOutput() CanaryS3EncryptionPtrOutput {
+	return o.ToCanaryS3EncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o CanaryS3EncryptionOutput) ToCanaryS3EncryptionPtrOutputWithContext(ctx context.Context) CanaryS3EncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CanaryS3Encryption) *CanaryS3Encryption {
+		return &v
+	}).(CanaryS3EncryptionPtrOutput)
+}
+
+// Encryption mode for encrypting artifacts when uploading to S3. Valid values: SSE_S3 and SSE_KMS.
+func (o CanaryS3EncryptionOutput) EncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CanaryS3Encryption) *string { return v.EncryptionMode }).(pulumi.StringPtrOutput)
+}
+
+// KMS key Arn for encrypting artifacts when uploading to S3. You must specify KMS key Arn for SSE_KMS encryption mode only.
+func (o CanaryS3EncryptionOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CanaryS3Encryption) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+type CanaryS3EncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (CanaryS3EncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CanaryS3Encryption)(nil)).Elem()
+}
+
+func (o CanaryS3EncryptionPtrOutput) ToCanaryS3EncryptionPtrOutput() CanaryS3EncryptionPtrOutput {
+	return o
+}
+
+func (o CanaryS3EncryptionPtrOutput) ToCanaryS3EncryptionPtrOutputWithContext(ctx context.Context) CanaryS3EncryptionPtrOutput {
+	return o
+}
+
+func (o CanaryS3EncryptionPtrOutput) Elem() CanaryS3EncryptionOutput {
+	return o.ApplyT(func(v *CanaryS3Encryption) CanaryS3Encryption {
+		if v != nil {
+			return *v
+		}
+		var ret CanaryS3Encryption
+		return ret
+	}).(CanaryS3EncryptionOutput)
+}
+
+// Encryption mode for encrypting artifacts when uploading to S3. Valid values: SSE_S3 and SSE_KMS.
+func (o CanaryS3EncryptionPtrOutput) EncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CanaryS3Encryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// KMS key Arn for encrypting artifacts when uploading to S3. You must specify KMS key Arn for SSE_KMS encryption mode only.
+func (o CanaryS3EncryptionPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CanaryS3Encryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type CanarySchedule struct {
@@ -1080,12 +1373,16 @@ func (o CanaryVisualReferencePtrOutput) BaseScreenshots() CanaryBaseScreenshotAr
 }
 
 func init() {
+	pulumi.RegisterOutputType(CanaryArtifactConfigOutput{})
+	pulumi.RegisterOutputType(CanaryArtifactConfigPtrOutput{})
 	pulumi.RegisterOutputType(CanaryBaseScreenshotOutput{})
 	pulumi.RegisterOutputType(CanaryBaseScreenshotArrayOutput{})
 	pulumi.RegisterOutputType(CanaryCodeOutput{})
 	pulumi.RegisterOutputType(CanaryCodePtrOutput{})
 	pulumi.RegisterOutputType(CanaryRunConfigOutput{})
 	pulumi.RegisterOutputType(CanaryRunConfigPtrOutput{})
+	pulumi.RegisterOutputType(CanaryS3EncryptionOutput{})
+	pulumi.RegisterOutputType(CanaryS3EncryptionPtrOutput{})
 	pulumi.RegisterOutputType(CanaryScheduleOutput{})
 	pulumi.RegisterOutputType(CanarySchedulePtrOutput{})
 	pulumi.RegisterOutputType(CanaryTagOutput{})

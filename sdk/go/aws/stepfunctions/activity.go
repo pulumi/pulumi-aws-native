@@ -11,10 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::StepFunctions::Activity
+// Resource schema for Activity
 type Activity struct {
 	pulumi.CustomResourceState
 
+	Arn  pulumi.StringOutput          `pulumi:"arn"`
 	Name pulumi.StringOutput          `pulumi:"name"`
 	Tags ActivityTagsEntryArrayOutput `pulumi:"tags"`
 }
