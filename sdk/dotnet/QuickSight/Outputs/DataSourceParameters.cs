@@ -19,6 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DataSourceParameters
     {
         public readonly Outputs.DataSourceAmazonElasticsearchParameters? AmazonElasticsearchParameters;
+        public readonly Outputs.DataSourceAmazonOpenSearchParameters? AmazonOpenSearchParameters;
         public readonly Outputs.DataSourceAthenaParameters? AthenaParameters;
         public readonly Outputs.DataSourceAuroraParameters? AuroraParameters;
         public readonly Outputs.DataSourceAuroraPostgreSqlParameters? AuroraPostgreSqlParameters;
@@ -38,6 +39,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         [OutputConstructor]
         private DataSourceParameters(
             Outputs.DataSourceAmazonElasticsearchParameters? amazonElasticsearchParameters,
+
+            Outputs.DataSourceAmazonOpenSearchParameters? amazonOpenSearchParameters,
 
             Outputs.DataSourceAthenaParameters? athenaParameters,
 
@@ -70,6 +73,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             Outputs.DataSourceTeradataParameters? teradataParameters)
         {
             AmazonElasticsearchParameters = amazonElasticsearchParameters;
+            AmazonOpenSearchParameters = amazonOpenSearchParameters;
             AthenaParameters = athenaParameters;
             AuroraParameters = auroraParameters;
             AuroraPostgreSqlParameters = auroraPostgreSqlParameters;

@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
     public sealed class FlowSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of encryption that is used on the content ingested from this source.
+        /// The type of decryption that is used on the content ingested from this source.
         /// </summary>
         [Input("decryption")]
         public Input<Inputs.FlowEncryptionArgs>? Decryption { get; set; }
@@ -58,6 +58,12 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
         public Input<int>? MaxLatency { get; set; }
 
         /// <summary>
+        /// The minimum latency in milliseconds.
+        /// </summary>
+        [Input("minLatency")]
+        public Input<int>? MinLatency { get; set; }
+
+        /// <summary>
         /// The name of the source.
         /// </summary>
         [Input("name")]
@@ -74,6 +80,12 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
         /// </summary>
         [Input("sourceArn")]
         public Input<string>? SourceArn { get; set; }
+
+        /// <summary>
+        /// The port that the flow will be listening on for incoming content.(ReadOnly)
+        /// </summary>
+        [Input("sourceIngestPort")]
+        public Input<string>? SourceIngestPort { get; set; }
 
         /// <summary>
         /// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.

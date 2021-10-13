@@ -151,6 +151,34 @@ namespace Pulumi.AwsNative.Location
     }
 
     [EnumType]
+    public readonly struct TrackerPositionFiltering : IEquatable<TrackerPositionFiltering>
+    {
+        private readonly string _value;
+
+        private TrackerPositionFiltering(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TrackerPositionFiltering TimeBased { get; } = new TrackerPositionFiltering("TimeBased");
+        public static TrackerPositionFiltering DistanceBased { get; } = new TrackerPositionFiltering("DistanceBased");
+
+        public static bool operator ==(TrackerPositionFiltering left, TrackerPositionFiltering right) => left.Equals(right);
+        public static bool operator !=(TrackerPositionFiltering left, TrackerPositionFiltering right) => !left.Equals(right);
+
+        public static explicit operator string(TrackerPositionFiltering value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TrackerPositionFiltering other && Equals(other);
+        public bool Equals(TrackerPositionFiltering other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct TrackerPricingPlan : IEquatable<TrackerPricingPlan>
     {
         private readonly string _value;

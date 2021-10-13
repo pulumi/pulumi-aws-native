@@ -34,6 +34,9 @@ namespace Pulumi.AwsNative.Batch
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
+        [Output("unmanagedvCpus")]
+        public Output<int?> UnmanagedvCpus { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ComputeEnvironment resource with the given unique name, arguments, and options.
@@ -96,6 +99,9 @@ namespace Pulumi.AwsNative.Batch
 
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        [Input("unmanagedvCpus")]
+        public Input<int>? UnmanagedvCpus { get; set; }
 
         public ComputeEnvironmentArgs()
         {

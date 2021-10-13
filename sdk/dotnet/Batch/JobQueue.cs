@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.Batch
         [Output("priority")]
         public Output<int> Priority { get; private set; } = null!;
 
+        [Output("schedulingPolicyArn")]
+        public Output<string?> SchedulingPolicyArn { get; private set; } = null!;
+
         [Output("state")]
         public Output<string?> State { get; private set; } = null!;
 
@@ -89,6 +92,9 @@ namespace Pulumi.AwsNative.Batch
 
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
+
+        [Input("schedulingPolicyArn")]
+        public Input<string>? SchedulingPolicyArn { get; set; }
 
         [Input("state")]
         public Input<string>? State { get; set; }

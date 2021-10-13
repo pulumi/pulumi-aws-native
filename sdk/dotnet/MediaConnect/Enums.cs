@@ -54,6 +54,7 @@ namespace Pulumi.AwsNative.MediaConnect
 
         public static FlowEncryptionKeyType Speke { get; } = new FlowEncryptionKeyType("speke");
         public static FlowEncryptionKeyType StaticKey { get; } = new FlowEncryptionKeyType("static-key");
+        public static FlowEncryptionKeyType SrtPassword { get; } = new FlowEncryptionKeyType("srt-password");
 
         public static bool operator ==(FlowEncryptionKeyType left, FlowEncryptionKeyType right) => left.Equals(right);
         public static bool operator !=(FlowEncryptionKeyType left, FlowEncryptionKeyType right) => !left.Equals(right);
@@ -238,6 +239,7 @@ namespace Pulumi.AwsNative.MediaConnect
         }
 
         public static FlowOutputEncryptionKeyType StaticKey { get; } = new FlowOutputEncryptionKeyType("static-key");
+        public static FlowOutputEncryptionKeyType SrtPassword { get; } = new FlowOutputEncryptionKeyType("srt-password");
 
         public static bool operator ==(FlowOutputEncryptionKeyType left, FlowOutputEncryptionKeyType right) => left.Equals(right);
         public static bool operator !=(FlowOutputEncryptionKeyType left, FlowOutputEncryptionKeyType right) => !left.Equals(right);
@@ -272,6 +274,7 @@ namespace Pulumi.AwsNative.MediaConnect
         public static FlowOutputProtocol Rtp { get; } = new FlowOutputProtocol("rtp");
         public static FlowOutputProtocol ZixiPull { get; } = new FlowOutputProtocol("zixi-pull");
         public static FlowOutputProtocol Rist { get; } = new FlowOutputProtocol("rist");
+        public static FlowOutputProtocol SrtListener { get; } = new FlowOutputProtocol("srt-listener");
 
         public static bool operator ==(FlowOutputProtocol left, FlowOutputProtocol right) => left.Equals(right);
         public static bool operator !=(FlowOutputProtocol left, FlowOutputProtocol right) => !left.Equals(right);
@@ -352,7 +355,7 @@ namespace Pulumi.AwsNative.MediaConnect
     }
 
     /// <summary>
-    /// The protocol that is used by the source.
+    /// The protocol that is used by the source or output.
     /// </summary>
     [EnumType]
     public readonly struct FlowSourceProtocol : IEquatable<FlowSourceProtocol>
@@ -368,6 +371,7 @@ namespace Pulumi.AwsNative.MediaConnect
         public static FlowSourceProtocol RtpFec { get; } = new FlowSourceProtocol("rtp-fec");
         public static FlowSourceProtocol Rtp { get; } = new FlowSourceProtocol("rtp");
         public static FlowSourceProtocol Rist { get; } = new FlowSourceProtocol("rist");
+        public static FlowSourceProtocol SrtListener { get; } = new FlowSourceProtocol("srt-listener");
 
         public static bool operator ==(FlowSourceProtocol left, FlowSourceProtocol right) => left.Equals(right);
         public static bool operator !=(FlowSourceProtocol left, FlowSourceProtocol right) => !left.Equals(right);

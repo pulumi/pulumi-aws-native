@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.MediaConnect
         public Output<int?> MaxLatency { get; private set; } = null!;
 
         /// <summary>
+        /// The minimum latency in milliseconds.
+        /// </summary>
+        [Output("minLatency")]
+        public Output<int?> MinLatency { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the output. This value must be unique within the current flow.
         /// </summary>
         [Output("name")]
@@ -185,6 +191,12 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         [Input("maxLatency")]
         public Input<int>? MaxLatency { get; set; }
+
+        /// <summary>
+        /// The minimum latency in milliseconds.
+        /// </summary>
+        [Input("minLatency")]
+        public Input<int>? MinLatency { get; set; }
 
         /// <summary>
         /// The name of the output. This value must be unique within the current flow.

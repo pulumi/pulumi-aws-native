@@ -45,6 +45,12 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         [Output("status")]
         public Output<Pulumi.AwsNative.Route53RecoveryControl.SafetyRuleStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// A collection of tags associated with a resource
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.SafetyRuleTag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a SafetyRule resource with the given unique name, arguments, and options.
@@ -107,6 +113,18 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
 
         [Input("ruleConfig")]
         public Input<Inputs.SafetyRuleRuleConfigArgs>? RuleConfig { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.SafetyRuleTagArgs>? _tags;
+
+        /// <summary>
+        /// A collection of tags associated with a resource
+        /// </summary>
+        public InputList<Inputs.SafetyRuleTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.SafetyRuleTagArgs>());
+            set => _tags = value;
+        }
 
         public SafetyRuleArgs()
         {

@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
         /// <summary>
         /// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         /// </summary>
-        [Input("algorithm", required: true)]
-        public Input<Pulumi.AwsNative.MediaConnect.FlowOutputEncryptionAlgorithm> Algorithm { get; set; } = null!;
+        [Input("algorithm")]
+        public Input<Pulumi.AwsNative.MediaConnect.FlowOutputEncryptionAlgorithm>? Algorithm { get; set; }
 
         /// <summary>
         /// The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).

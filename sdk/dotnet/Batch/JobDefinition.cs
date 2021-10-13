@@ -37,6 +37,9 @@ namespace Pulumi.AwsNative.Batch
         [Output("retryStrategy")]
         public Output<Outputs.JobDefinitionRetryStrategy?> RetryStrategy { get; private set; } = null!;
 
+        [Output("schedulingPriority")]
+        public Output<int?> SchedulingPriority { get; private set; } = null!;
+
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
 
@@ -116,6 +119,9 @@ namespace Pulumi.AwsNative.Batch
 
         [Input("retryStrategy")]
         public Input<Inputs.JobDefinitionRetryStrategyArgs>? RetryStrategy { get; set; }
+
+        [Input("schedulingPriority")]
+        public Input<int>? SchedulingPriority { get; set; }
 
         [Input("tags")]
         public Input<object>? Tags { get; set; }
