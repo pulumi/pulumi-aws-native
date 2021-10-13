@@ -13578,6 +13578,7 @@ func (o ThemeTileStylePtrOutput) Border() ThemeBorderStylePtrOutput {
 	}).(ThemeBorderStylePtrOutput)
 }
 
+// <p>The typeface for the theme.</p>
 type ThemeTypography struct {
 	FontFamilies []ThemeFont `pulumi:"fontFamilies"`
 }
@@ -13593,6 +13594,7 @@ type ThemeTypographyInput interface {
 	ToThemeTypographyOutputWithContext(context.Context) ThemeTypographyOutput
 }
 
+// <p>The typeface for the theme.</p>
 type ThemeTypographyArgs struct {
 	FontFamilies ThemeFontArrayInput `pulumi:"fontFamilies"`
 }
@@ -13650,6 +13652,7 @@ func (i *themeTypographyPtrType) ToThemeTypographyPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeTypographyPtrOutput)
 }
 
+// <p>The typeface for the theme.</p>
 type ThemeTypographyOutput struct{ *pulumi.OutputState }
 
 func (ThemeTypographyOutput) ElementType() reflect.Type {

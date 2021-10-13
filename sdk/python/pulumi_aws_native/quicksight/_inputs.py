@@ -3360,6 +3360,9 @@ class ThemeTileStyleArgs:
 class ThemeTypographyArgs:
     def __init__(__self__, *,
                  font_families: Optional[pulumi.Input[Sequence[pulumi.Input['ThemeFontArgs']]]] = None):
+        """
+        <p>The typeface for the theme.</p>
+        """
         if font_families is not None:
             pulumi.set(__self__, "font_families", font_families)
 

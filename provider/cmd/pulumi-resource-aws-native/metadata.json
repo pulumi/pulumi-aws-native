@@ -7873,45 +7873,6 @@
                 "prefixListName"
             ]
         },
-        "aws-native:ec2:RouteTable": {
-            "cf": "AWS::EC2::RouteTable",
-            "inputs": {
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:ec2:RouteTableTag"
-                    },
-                    "description": "Any tags assigned to the route table."
-                },
-                "vpcId": {
-                    "type": "string",
-                    "description": "The ID of the VPC."
-                }
-            },
-            "outputs": {
-                "routeTableId": {
-                    "type": "string",
-                    "description": "The route table ID."
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:ec2:RouteTableTag"
-                    },
-                    "description": "Any tags assigned to the route table."
-                },
-                "vpcId": {
-                    "type": "string",
-                    "description": "The ID of the VPC."
-                }
-            },
-            "required": [
-                "vpcId"
-            ],
-            "createOnly": [
-                "vpcId"
-            ]
-        },
         "aws-native:ec2:SpotFleet": {
             "cf": "AWS::EC2::SpotFleet",
             "inputs": {
@@ -35059,17 +35020,6 @@
             }
         },
         "aws-native:ec2:PrefixListTag": {
-            "type": "object",
-            "properties": {
-                "key": {
-                    "type": "string"
-                },
-                "value": {
-                    "type": "string"
-                }
-            }
-        },
-        "aws-native:ec2:RouteTableTag": {
             "type": "object",
             "properties": {
                 "key": {

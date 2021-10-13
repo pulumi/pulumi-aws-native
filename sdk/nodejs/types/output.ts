@@ -21167,6 +21167,9 @@ export namespace quicksight {
         border?: outputs.quicksight.ThemeBorderStyle;
     }
 
+    /**
+     * <p>The typeface for the theme.</p>
+     */
     export interface ThemeTypography {
         fontFamilies?: outputs.quicksight.ThemeFont[];
     }

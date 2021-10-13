@@ -13600,21 +13600,6 @@
                 "key"
             ]
         },
-        "aws-native:ec2:RouteTableTag": {
-            "properties": {
-                "key": {
-                    "type": "string"
-                },
-                "value": {
-                    "type": "string"
-                }
-            },
-            "type": "object",
-            "required": [
-                "key",
-                "value"
-            ]
-        },
         "aws-native:ec2:SpotFleetBlockDeviceMapping": {
             "properties": {
                 "deviceName": {
@@ -35155,6 +35140,7 @@
             ]
         },
         "aws-native:quicksight:ThemeTypography": {
+            "description": "\u003cp\u003eThe typeface for the theme.\u003c/p\u003e",
             "properties": {
                 "fontFamilies": {
                     "type": "array",
@@ -53804,47 +53790,6 @@
                 "addressFamily",
                 "maxEntries",
                 "prefixListName"
-            ]
-        },
-        "aws-native:ec2:RouteTable": {
-            "description": "Resource Type definition for AWS::EC2::RouteTable",
-            "properties": {
-                "routeTableId": {
-                    "type": "string",
-                    "description": "The route table ID."
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:ec2:RouteTableTag"
-                    },
-                    "description": "Any tags assigned to the route table."
-                },
-                "vpcId": {
-                    "type": "string",
-                    "description": "The ID of the VPC."
-                }
-            },
-            "type": "object",
-            "required": [
-                "routeTableId",
-                "vpcId"
-            ],
-            "inputProperties": {
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:ec2:RouteTableTag"
-                    },
-                    "description": "Any tags assigned to the route table."
-                },
-                "vpcId": {
-                    "type": "string",
-                    "description": "The ID of the VPC."
-                }
-            },
-            "requiredInputs": [
-                "vpcId"
             ]
         },
         "aws-native:ec2:SpotFleet": {

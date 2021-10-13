@@ -12,6 +12,7 @@ namespace Pulumi.AwsNative.EC2
     /// <summary>
     /// Resource Type definition for AWS::EC2::RouteTable
     /// </summary>
+    [Obsolete(@"RouteTable is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:RouteTable")]
     public partial class RouteTable : Pulumi.CustomResource
     {

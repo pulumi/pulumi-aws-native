@@ -20498,6 +20498,9 @@ export namespace quicksight {
         border?: pulumi.Input<inputs.quicksight.ThemeBorderStyleArgs>;
     }
 
+    /**
+     * <p>The typeface for the theme.</p>
+     */
     export interface ThemeTypographyArgs {
         fontFamilies?: pulumi.Input<pulumi.Input<inputs.quicksight.ThemeFontArgs>[]>;
     }

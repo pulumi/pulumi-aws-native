@@ -12,6 +12,8 @@ import (
 )
 
 // Resource Type definition for AWS::EC2::RouteTable
+//
+// Deprecated: RouteTable is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type RouteTable struct {
 	pulumi.CustomResourceState
 

@@ -4415,6 +4415,9 @@ class ThemeTileStyle(dict):
 
 @pulumi.output_type
 class ThemeTypography(dict):
+    """
+    <p>The typeface for the theme.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4434,6 +4437,9 @@ class ThemeTypography(dict):
 
     def __init__(__self__, *,
                  font_families: Optional[Sequence['outputs.ThemeFont']] = None):
+        """
+        <p>The typeface for the theme.</p>
+        """
         if font_families is not None:
             pulumi.set(__self__, "font_families", font_families)
 
