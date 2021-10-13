@@ -175,6 +175,170 @@ func (in *destinationExpressionTypePtr) ToDestinationExpressionTypePtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(DestinationExpressionTypePtrOutput)
 }
 
+// The partner type
+type PartnerAccountPartnerType string
+
+const (
+	PartnerAccountPartnerTypeSidewalk = PartnerAccountPartnerType("Sidewalk")
+)
+
+func (PartnerAccountPartnerType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerAccountPartnerType)(nil)).Elem()
+}
+
+func (e PartnerAccountPartnerType) ToPartnerAccountPartnerTypeOutput() PartnerAccountPartnerTypeOutput {
+	return pulumi.ToOutput(e).(PartnerAccountPartnerTypeOutput)
+}
+
+func (e PartnerAccountPartnerType) ToPartnerAccountPartnerTypeOutputWithContext(ctx context.Context) PartnerAccountPartnerTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PartnerAccountPartnerTypeOutput)
+}
+
+func (e PartnerAccountPartnerType) ToPartnerAccountPartnerTypePtrOutput() PartnerAccountPartnerTypePtrOutput {
+	return e.ToPartnerAccountPartnerTypePtrOutputWithContext(context.Background())
+}
+
+func (e PartnerAccountPartnerType) ToPartnerAccountPartnerTypePtrOutputWithContext(ctx context.Context) PartnerAccountPartnerTypePtrOutput {
+	return PartnerAccountPartnerType(e).ToPartnerAccountPartnerTypeOutputWithContext(ctx).ToPartnerAccountPartnerTypePtrOutputWithContext(ctx)
+}
+
+func (e PartnerAccountPartnerType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PartnerAccountPartnerType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PartnerAccountPartnerType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PartnerAccountPartnerType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PartnerAccountPartnerTypeOutput struct{ *pulumi.OutputState }
+
+func (PartnerAccountPartnerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerAccountPartnerType)(nil)).Elem()
+}
+
+func (o PartnerAccountPartnerTypeOutput) ToPartnerAccountPartnerTypeOutput() PartnerAccountPartnerTypeOutput {
+	return o
+}
+
+func (o PartnerAccountPartnerTypeOutput) ToPartnerAccountPartnerTypeOutputWithContext(ctx context.Context) PartnerAccountPartnerTypeOutput {
+	return o
+}
+
+func (o PartnerAccountPartnerTypeOutput) ToPartnerAccountPartnerTypePtrOutput() PartnerAccountPartnerTypePtrOutput {
+	return o.ToPartnerAccountPartnerTypePtrOutputWithContext(context.Background())
+}
+
+func (o PartnerAccountPartnerTypeOutput) ToPartnerAccountPartnerTypePtrOutputWithContext(ctx context.Context) PartnerAccountPartnerTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartnerAccountPartnerType) *PartnerAccountPartnerType {
+		return &v
+	}).(PartnerAccountPartnerTypePtrOutput)
+}
+
+func (o PartnerAccountPartnerTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PartnerAccountPartnerTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PartnerAccountPartnerType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PartnerAccountPartnerTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PartnerAccountPartnerTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PartnerAccountPartnerType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PartnerAccountPartnerTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PartnerAccountPartnerTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartnerAccountPartnerType)(nil)).Elem()
+}
+
+func (o PartnerAccountPartnerTypePtrOutput) ToPartnerAccountPartnerTypePtrOutput() PartnerAccountPartnerTypePtrOutput {
+	return o
+}
+
+func (o PartnerAccountPartnerTypePtrOutput) ToPartnerAccountPartnerTypePtrOutputWithContext(ctx context.Context) PartnerAccountPartnerTypePtrOutput {
+	return o
+}
+
+func (o PartnerAccountPartnerTypePtrOutput) Elem() PartnerAccountPartnerTypeOutput {
+	return o.ApplyT(func(v *PartnerAccountPartnerType) PartnerAccountPartnerType {
+		if v != nil {
+			return *v
+		}
+		var ret PartnerAccountPartnerType
+		return ret
+	}).(PartnerAccountPartnerTypeOutput)
+}
+
+func (o PartnerAccountPartnerTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PartnerAccountPartnerTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PartnerAccountPartnerType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PartnerAccountPartnerTypeInput is an input type that accepts PartnerAccountPartnerTypeArgs and PartnerAccountPartnerTypeOutput values.
+// You can construct a concrete instance of `PartnerAccountPartnerTypeInput` via:
+//
+//          PartnerAccountPartnerTypeArgs{...}
+type PartnerAccountPartnerTypeInput interface {
+	pulumi.Input
+
+	ToPartnerAccountPartnerTypeOutput() PartnerAccountPartnerTypeOutput
+	ToPartnerAccountPartnerTypeOutputWithContext(context.Context) PartnerAccountPartnerTypeOutput
+}
+
+var partnerAccountPartnerTypePtrType = reflect.TypeOf((**PartnerAccountPartnerType)(nil)).Elem()
+
+type PartnerAccountPartnerTypePtrInput interface {
+	pulumi.Input
+
+	ToPartnerAccountPartnerTypePtrOutput() PartnerAccountPartnerTypePtrOutput
+	ToPartnerAccountPartnerTypePtrOutputWithContext(context.Context) PartnerAccountPartnerTypePtrOutput
+}
+
+type partnerAccountPartnerTypePtr string
+
+func PartnerAccountPartnerTypePtr(v string) PartnerAccountPartnerTypePtrInput {
+	return (*partnerAccountPartnerTypePtr)(&v)
+}
+
+func (*partnerAccountPartnerTypePtr) ElementType() reflect.Type {
+	return partnerAccountPartnerTypePtrType
+}
+
+func (in *partnerAccountPartnerTypePtr) ToPartnerAccountPartnerTypePtrOutput() PartnerAccountPartnerTypePtrOutput {
+	return pulumi.ToOutput(in).(PartnerAccountPartnerTypePtrOutput)
+}
+
+func (in *partnerAccountPartnerTypePtr) ToPartnerAccountPartnerTypePtrOutputWithContext(ctx context.Context) PartnerAccountPartnerTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PartnerAccountPartnerTypePtrOutput)
+}
+
 // A filter to list only the wireless gateway task definitions that use this task definition type
 type TaskDefinitionType string
 
@@ -507,6 +671,8 @@ func (in *wirelessDeviceTypePtr) ToWirelessDeviceTypePtrOutputWithContext(ctx co
 func init() {
 	pulumi.RegisterOutputType(DestinationExpressionTypeOutput{})
 	pulumi.RegisterOutputType(DestinationExpressionTypePtrOutput{})
+	pulumi.RegisterOutputType(PartnerAccountPartnerTypeOutput{})
+	pulumi.RegisterOutputType(PartnerAccountPartnerTypePtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionTypeOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionTypePtrOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceTypeOutput{})

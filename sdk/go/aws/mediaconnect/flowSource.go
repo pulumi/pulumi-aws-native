@@ -37,6 +37,8 @@ type FlowSource struct {
 	Protocol FlowSourceProtocolPtrOutput `pulumi:"protocol"`
 	// The ARN of the source.
 	SourceArn pulumi.StringOutput `pulumi:"sourceArn"`
+	// The port that the flow will be listening on for incoming content.(ReadOnly)
+	SourceIngestPort pulumi.StringOutput `pulumi:"sourceIngestPort"`
 	// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
 	StreamId pulumi.StringPtrOutput `pulumi:"streamId"`
 	// The name of the VPC Interface this Source is configured with.

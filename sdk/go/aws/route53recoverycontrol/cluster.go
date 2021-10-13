@@ -22,6 +22,8 @@ type Cluster struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
 	Status ClusterStatusOutput `pulumi:"status"`
+	// A collection of tags associated with a resource
+	Tags ClusterTagArrayOutput `pulumi:"tags"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -65,12 +67,16 @@ func (ClusterState) ElementType() reflect.Type {
 type clusterArgs struct {
 	// Name of a Cluster. You can use any non-white space character in the name
 	Name *string `pulumi:"name"`
+	// A collection of tags associated with a resource
+	Tags []ClusterTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
 	// Name of a Cluster. You can use any non-white space character in the name
 	Name pulumi.StringPtrInput
+	// A collection of tags associated with a resource
+	Tags ClusterTagArrayInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {

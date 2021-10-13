@@ -17,15 +17,24 @@ import (
 type NetworkAclEntry struct {
 	pulumi.CustomResourceState
 
-	CidrBlock     pulumi.StringPtrOutput            `pulumi:"cidrBlock"`
-	Egress        pulumi.BoolPtrOutput              `pulumi:"egress"`
-	Icmp          NetworkAclEntryIcmpPtrOutput      `pulumi:"icmp"`
-	Ipv6CidrBlock pulumi.StringPtrOutput            `pulumi:"ipv6CidrBlock"`
-	NetworkAclId  pulumi.StringOutput               `pulumi:"networkAclId"`
-	PortRange     NetworkAclEntryPortRangePtrOutput `pulumi:"portRange"`
-	Protocol      pulumi.IntOutput                  `pulumi:"protocol"`
-	RuleAction    pulumi.StringOutput               `pulumi:"ruleAction"`
-	RuleNumber    pulumi.IntOutput                  `pulumi:"ruleNumber"`
+	// The IPv4 CIDR range to allow or deny, in CIDR notation (for example, 172.16.0.0/24). Requirement is conditional: You must specify the CidrBlock or Ipv6CidrBlock property
+	CidrBlock pulumi.StringPtrOutput `pulumi:"cidrBlock"`
+	// Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet)
+	Egress pulumi.BoolPtrOutput `pulumi:"egress"`
+	// The Internet Control Message Protocol (ICMP) code and type. Requirement is conditional: Required if specifying 1 (ICMP) for the protocol parameter
+	Icmp NetworkAclEntryIcmpPtrOutput `pulumi:"icmp"`
+	// The IPv6 network range to allow or deny, in CIDR notation (for example 2001:db8:1234:1a00::/64)
+	Ipv6CidrBlock pulumi.StringPtrOutput `pulumi:"ipv6CidrBlock"`
+	// The ID of the network ACL
+	NetworkAclId pulumi.StringOutput `pulumi:"networkAclId"`
+	// The IPv4 network range to allow or deny, in CIDR notation (for example 172.16.0.0/24). We modify the specified CIDR block to its canonical form; for example, if you specify 100.68.0.18/18, we modify it to 100.68.0.0/18
+	PortRange NetworkAclEntryPortRangePtrOutput `pulumi:"portRange"`
+	// The protocol number. A value of "-1" means all protocols. If you specify "-1" or a protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code
+	Protocol pulumi.IntOutput `pulumi:"protocol"`
+	// Indicates whether to allow or deny the traffic that matches the rule
+	RuleAction pulumi.StringOutput `pulumi:"ruleAction"`
+	// Rule number to assign to the entry, such as 100. ACL entries are processed in ascending order by rule number. Entries can't use the same rule number unless one is an egress rule and the other is an ingress rule
+	RuleNumber pulumi.IntOutput `pulumi:"ruleNumber"`
 }
 
 // NewNetworkAclEntry registers a new resource with the given unique name, arguments, and options.
@@ -79,28 +88,46 @@ func (NetworkAclEntryState) ElementType() reflect.Type {
 }
 
 type networkAclEntryArgs struct {
-	CidrBlock     *string                   `pulumi:"cidrBlock"`
-	Egress        *bool                     `pulumi:"egress"`
-	Icmp          *NetworkAclEntryIcmp      `pulumi:"icmp"`
-	Ipv6CidrBlock *string                   `pulumi:"ipv6CidrBlock"`
-	NetworkAclId  string                    `pulumi:"networkAclId"`
-	PortRange     *NetworkAclEntryPortRange `pulumi:"portRange"`
-	Protocol      int                       `pulumi:"protocol"`
-	RuleAction    string                    `pulumi:"ruleAction"`
-	RuleNumber    int                       `pulumi:"ruleNumber"`
+	// The IPv4 CIDR range to allow or deny, in CIDR notation (for example, 172.16.0.0/24). Requirement is conditional: You must specify the CidrBlock or Ipv6CidrBlock property
+	CidrBlock *string `pulumi:"cidrBlock"`
+	// Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet)
+	Egress *bool `pulumi:"egress"`
+	// The Internet Control Message Protocol (ICMP) code and type. Requirement is conditional: Required if specifying 1 (ICMP) for the protocol parameter
+	Icmp *NetworkAclEntryIcmp `pulumi:"icmp"`
+	// The IPv6 network range to allow or deny, in CIDR notation (for example 2001:db8:1234:1a00::/64)
+	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
+	// The ID of the network ACL
+	NetworkAclId string `pulumi:"networkAclId"`
+	// The IPv4 network range to allow or deny, in CIDR notation (for example 172.16.0.0/24). We modify the specified CIDR block to its canonical form; for example, if you specify 100.68.0.18/18, we modify it to 100.68.0.0/18
+	PortRange *NetworkAclEntryPortRange `pulumi:"portRange"`
+	// The protocol number. A value of "-1" means all protocols. If you specify "-1" or a protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code
+	Protocol int `pulumi:"protocol"`
+	// Indicates whether to allow or deny the traffic that matches the rule
+	RuleAction string `pulumi:"ruleAction"`
+	// Rule number to assign to the entry, such as 100. ACL entries are processed in ascending order by rule number. Entries can't use the same rule number unless one is an egress rule and the other is an ingress rule
+	RuleNumber int `pulumi:"ruleNumber"`
 }
 
 // The set of arguments for constructing a NetworkAclEntry resource.
 type NetworkAclEntryArgs struct {
-	CidrBlock     pulumi.StringPtrInput
-	Egress        pulumi.BoolPtrInput
-	Icmp          NetworkAclEntryIcmpPtrInput
+	// The IPv4 CIDR range to allow or deny, in CIDR notation (for example, 172.16.0.0/24). Requirement is conditional: You must specify the CidrBlock or Ipv6CidrBlock property
+	CidrBlock pulumi.StringPtrInput
+	// Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet)
+	Egress pulumi.BoolPtrInput
+	// The Internet Control Message Protocol (ICMP) code and type. Requirement is conditional: Required if specifying 1 (ICMP) for the protocol parameter
+	Icmp NetworkAclEntryIcmpPtrInput
+	// The IPv6 network range to allow or deny, in CIDR notation (for example 2001:db8:1234:1a00::/64)
 	Ipv6CidrBlock pulumi.StringPtrInput
-	NetworkAclId  pulumi.StringInput
-	PortRange     NetworkAclEntryPortRangePtrInput
-	Protocol      pulumi.IntInput
-	RuleAction    pulumi.StringInput
-	RuleNumber    pulumi.IntInput
+	// The ID of the network ACL
+	NetworkAclId pulumi.StringInput
+	// The IPv4 network range to allow or deny, in CIDR notation (for example 172.16.0.0/24). We modify the specified CIDR block to its canonical form; for example, if you specify 100.68.0.18/18, we modify it to 100.68.0.0/18
+	PortRange NetworkAclEntryPortRangePtrInput
+	// The protocol number. A value of "-1" means all protocols. If you specify "-1" or a protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code
+	Protocol pulumi.IntInput
+	// Indicates whether to allow or deny the traffic that matches the rule
+	RuleAction pulumi.StringInput
+	// Rule number to assign to the entry, such as 100. ACL entries are processed in ascending order by rule number. Entries can't use the same rule number unless one is an egress rule and the other is an ingress rule
+	RuleNumber pulumi.IntInput
 }
 
 func (NetworkAclEntryArgs) ElementType() reflect.Type {

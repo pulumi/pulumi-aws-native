@@ -10,6 +10,828 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The dimensions to evaluate
+type AnomalyMonitorMonitorDimension string
+
+const (
+	AnomalyMonitorMonitorDimensionService = AnomalyMonitorMonitorDimension("SERVICE")
+)
+
+func (AnomalyMonitorMonitorDimension) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyMonitorMonitorDimension)(nil)).Elem()
+}
+
+func (e AnomalyMonitorMonitorDimension) ToAnomalyMonitorMonitorDimensionOutput() AnomalyMonitorMonitorDimensionOutput {
+	return pulumi.ToOutput(e).(AnomalyMonitorMonitorDimensionOutput)
+}
+
+func (e AnomalyMonitorMonitorDimension) ToAnomalyMonitorMonitorDimensionOutputWithContext(ctx context.Context) AnomalyMonitorMonitorDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnomalyMonitorMonitorDimensionOutput)
+}
+
+func (e AnomalyMonitorMonitorDimension) ToAnomalyMonitorMonitorDimensionPtrOutput() AnomalyMonitorMonitorDimensionPtrOutput {
+	return e.ToAnomalyMonitorMonitorDimensionPtrOutputWithContext(context.Background())
+}
+
+func (e AnomalyMonitorMonitorDimension) ToAnomalyMonitorMonitorDimensionPtrOutputWithContext(ctx context.Context) AnomalyMonitorMonitorDimensionPtrOutput {
+	return AnomalyMonitorMonitorDimension(e).ToAnomalyMonitorMonitorDimensionOutputWithContext(ctx).ToAnomalyMonitorMonitorDimensionPtrOutputWithContext(ctx)
+}
+
+func (e AnomalyMonitorMonitorDimension) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnomalyMonitorMonitorDimension) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnomalyMonitorMonitorDimension) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnomalyMonitorMonitorDimension) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnomalyMonitorMonitorDimensionOutput struct{ *pulumi.OutputState }
+
+func (AnomalyMonitorMonitorDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyMonitorMonitorDimension)(nil)).Elem()
+}
+
+func (o AnomalyMonitorMonitorDimensionOutput) ToAnomalyMonitorMonitorDimensionOutput() AnomalyMonitorMonitorDimensionOutput {
+	return o
+}
+
+func (o AnomalyMonitorMonitorDimensionOutput) ToAnomalyMonitorMonitorDimensionOutputWithContext(ctx context.Context) AnomalyMonitorMonitorDimensionOutput {
+	return o
+}
+
+func (o AnomalyMonitorMonitorDimensionOutput) ToAnomalyMonitorMonitorDimensionPtrOutput() AnomalyMonitorMonitorDimensionPtrOutput {
+	return o.ToAnomalyMonitorMonitorDimensionPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalyMonitorMonitorDimensionOutput) ToAnomalyMonitorMonitorDimensionPtrOutputWithContext(ctx context.Context) AnomalyMonitorMonitorDimensionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalyMonitorMonitorDimension) *AnomalyMonitorMonitorDimension {
+		return &v
+	}).(AnomalyMonitorMonitorDimensionPtrOutput)
+}
+
+func (o AnomalyMonitorMonitorDimensionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnomalyMonitorMonitorDimensionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnomalyMonitorMonitorDimension) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnomalyMonitorMonitorDimensionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalyMonitorMonitorDimensionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnomalyMonitorMonitorDimension) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnomalyMonitorMonitorDimensionPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalyMonitorMonitorDimensionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyMonitorMonitorDimension)(nil)).Elem()
+}
+
+func (o AnomalyMonitorMonitorDimensionPtrOutput) ToAnomalyMonitorMonitorDimensionPtrOutput() AnomalyMonitorMonitorDimensionPtrOutput {
+	return o
+}
+
+func (o AnomalyMonitorMonitorDimensionPtrOutput) ToAnomalyMonitorMonitorDimensionPtrOutputWithContext(ctx context.Context) AnomalyMonitorMonitorDimensionPtrOutput {
+	return o
+}
+
+func (o AnomalyMonitorMonitorDimensionPtrOutput) Elem() AnomalyMonitorMonitorDimensionOutput {
+	return o.ApplyT(func(v *AnomalyMonitorMonitorDimension) AnomalyMonitorMonitorDimension {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalyMonitorMonitorDimension
+		return ret
+	}).(AnomalyMonitorMonitorDimensionOutput)
+}
+
+func (o AnomalyMonitorMonitorDimensionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalyMonitorMonitorDimensionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnomalyMonitorMonitorDimension) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnomalyMonitorMonitorDimensionInput is an input type that accepts AnomalyMonitorMonitorDimensionArgs and AnomalyMonitorMonitorDimensionOutput values.
+// You can construct a concrete instance of `AnomalyMonitorMonitorDimensionInput` via:
+//
+//          AnomalyMonitorMonitorDimensionArgs{...}
+type AnomalyMonitorMonitorDimensionInput interface {
+	pulumi.Input
+
+	ToAnomalyMonitorMonitorDimensionOutput() AnomalyMonitorMonitorDimensionOutput
+	ToAnomalyMonitorMonitorDimensionOutputWithContext(context.Context) AnomalyMonitorMonitorDimensionOutput
+}
+
+var anomalyMonitorMonitorDimensionPtrType = reflect.TypeOf((**AnomalyMonitorMonitorDimension)(nil)).Elem()
+
+type AnomalyMonitorMonitorDimensionPtrInput interface {
+	pulumi.Input
+
+	ToAnomalyMonitorMonitorDimensionPtrOutput() AnomalyMonitorMonitorDimensionPtrOutput
+	ToAnomalyMonitorMonitorDimensionPtrOutputWithContext(context.Context) AnomalyMonitorMonitorDimensionPtrOutput
+}
+
+type anomalyMonitorMonitorDimensionPtr string
+
+func AnomalyMonitorMonitorDimensionPtr(v string) AnomalyMonitorMonitorDimensionPtrInput {
+	return (*anomalyMonitorMonitorDimensionPtr)(&v)
+}
+
+func (*anomalyMonitorMonitorDimensionPtr) ElementType() reflect.Type {
+	return anomalyMonitorMonitorDimensionPtrType
+}
+
+func (in *anomalyMonitorMonitorDimensionPtr) ToAnomalyMonitorMonitorDimensionPtrOutput() AnomalyMonitorMonitorDimensionPtrOutput {
+	return pulumi.ToOutput(in).(AnomalyMonitorMonitorDimensionPtrOutput)
+}
+
+func (in *anomalyMonitorMonitorDimensionPtr) ToAnomalyMonitorMonitorDimensionPtrOutputWithContext(ctx context.Context) AnomalyMonitorMonitorDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnomalyMonitorMonitorDimensionPtrOutput)
+}
+
+type AnomalyMonitorMonitorType string
+
+const (
+	AnomalyMonitorMonitorTypeDimensional = AnomalyMonitorMonitorType("DIMENSIONAL")
+	AnomalyMonitorMonitorTypeCustom      = AnomalyMonitorMonitorType("CUSTOM")
+)
+
+func (AnomalyMonitorMonitorType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyMonitorMonitorType)(nil)).Elem()
+}
+
+func (e AnomalyMonitorMonitorType) ToAnomalyMonitorMonitorTypeOutput() AnomalyMonitorMonitorTypeOutput {
+	return pulumi.ToOutput(e).(AnomalyMonitorMonitorTypeOutput)
+}
+
+func (e AnomalyMonitorMonitorType) ToAnomalyMonitorMonitorTypeOutputWithContext(ctx context.Context) AnomalyMonitorMonitorTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnomalyMonitorMonitorTypeOutput)
+}
+
+func (e AnomalyMonitorMonitorType) ToAnomalyMonitorMonitorTypePtrOutput() AnomalyMonitorMonitorTypePtrOutput {
+	return e.ToAnomalyMonitorMonitorTypePtrOutputWithContext(context.Background())
+}
+
+func (e AnomalyMonitorMonitorType) ToAnomalyMonitorMonitorTypePtrOutputWithContext(ctx context.Context) AnomalyMonitorMonitorTypePtrOutput {
+	return AnomalyMonitorMonitorType(e).ToAnomalyMonitorMonitorTypeOutputWithContext(ctx).ToAnomalyMonitorMonitorTypePtrOutputWithContext(ctx)
+}
+
+func (e AnomalyMonitorMonitorType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnomalyMonitorMonitorType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnomalyMonitorMonitorType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnomalyMonitorMonitorType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnomalyMonitorMonitorTypeOutput struct{ *pulumi.OutputState }
+
+func (AnomalyMonitorMonitorTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyMonitorMonitorType)(nil)).Elem()
+}
+
+func (o AnomalyMonitorMonitorTypeOutput) ToAnomalyMonitorMonitorTypeOutput() AnomalyMonitorMonitorTypeOutput {
+	return o
+}
+
+func (o AnomalyMonitorMonitorTypeOutput) ToAnomalyMonitorMonitorTypeOutputWithContext(ctx context.Context) AnomalyMonitorMonitorTypeOutput {
+	return o
+}
+
+func (o AnomalyMonitorMonitorTypeOutput) ToAnomalyMonitorMonitorTypePtrOutput() AnomalyMonitorMonitorTypePtrOutput {
+	return o.ToAnomalyMonitorMonitorTypePtrOutputWithContext(context.Background())
+}
+
+func (o AnomalyMonitorMonitorTypeOutput) ToAnomalyMonitorMonitorTypePtrOutputWithContext(ctx context.Context) AnomalyMonitorMonitorTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalyMonitorMonitorType) *AnomalyMonitorMonitorType {
+		return &v
+	}).(AnomalyMonitorMonitorTypePtrOutput)
+}
+
+func (o AnomalyMonitorMonitorTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnomalyMonitorMonitorTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnomalyMonitorMonitorType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnomalyMonitorMonitorTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalyMonitorMonitorTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnomalyMonitorMonitorType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnomalyMonitorMonitorTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalyMonitorMonitorTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyMonitorMonitorType)(nil)).Elem()
+}
+
+func (o AnomalyMonitorMonitorTypePtrOutput) ToAnomalyMonitorMonitorTypePtrOutput() AnomalyMonitorMonitorTypePtrOutput {
+	return o
+}
+
+func (o AnomalyMonitorMonitorTypePtrOutput) ToAnomalyMonitorMonitorTypePtrOutputWithContext(ctx context.Context) AnomalyMonitorMonitorTypePtrOutput {
+	return o
+}
+
+func (o AnomalyMonitorMonitorTypePtrOutput) Elem() AnomalyMonitorMonitorTypeOutput {
+	return o.ApplyT(func(v *AnomalyMonitorMonitorType) AnomalyMonitorMonitorType {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalyMonitorMonitorType
+		return ret
+	}).(AnomalyMonitorMonitorTypeOutput)
+}
+
+func (o AnomalyMonitorMonitorTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalyMonitorMonitorTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnomalyMonitorMonitorType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnomalyMonitorMonitorTypeInput is an input type that accepts AnomalyMonitorMonitorTypeArgs and AnomalyMonitorMonitorTypeOutput values.
+// You can construct a concrete instance of `AnomalyMonitorMonitorTypeInput` via:
+//
+//          AnomalyMonitorMonitorTypeArgs{...}
+type AnomalyMonitorMonitorTypeInput interface {
+	pulumi.Input
+
+	ToAnomalyMonitorMonitorTypeOutput() AnomalyMonitorMonitorTypeOutput
+	ToAnomalyMonitorMonitorTypeOutputWithContext(context.Context) AnomalyMonitorMonitorTypeOutput
+}
+
+var anomalyMonitorMonitorTypePtrType = reflect.TypeOf((**AnomalyMonitorMonitorType)(nil)).Elem()
+
+type AnomalyMonitorMonitorTypePtrInput interface {
+	pulumi.Input
+
+	ToAnomalyMonitorMonitorTypePtrOutput() AnomalyMonitorMonitorTypePtrOutput
+	ToAnomalyMonitorMonitorTypePtrOutputWithContext(context.Context) AnomalyMonitorMonitorTypePtrOutput
+}
+
+type anomalyMonitorMonitorTypePtr string
+
+func AnomalyMonitorMonitorTypePtr(v string) AnomalyMonitorMonitorTypePtrInput {
+	return (*anomalyMonitorMonitorTypePtr)(&v)
+}
+
+func (*anomalyMonitorMonitorTypePtr) ElementType() reflect.Type {
+	return anomalyMonitorMonitorTypePtrType
+}
+
+func (in *anomalyMonitorMonitorTypePtr) ToAnomalyMonitorMonitorTypePtrOutput() AnomalyMonitorMonitorTypePtrOutput {
+	return pulumi.ToOutput(in).(AnomalyMonitorMonitorTypePtrOutput)
+}
+
+func (in *anomalyMonitorMonitorTypePtr) ToAnomalyMonitorMonitorTypePtrOutputWithContext(ctx context.Context) AnomalyMonitorMonitorTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnomalyMonitorMonitorTypePtrOutput)
+}
+
+// The frequency at which anomaly reports are sent over email.
+type AnomalySubscriptionFrequency string
+
+const (
+	AnomalySubscriptionFrequencyDaily     = AnomalySubscriptionFrequency("DAILY")
+	AnomalySubscriptionFrequencyImmediate = AnomalySubscriptionFrequency("IMMEDIATE")
+	AnomalySubscriptionFrequencyWeekly    = AnomalySubscriptionFrequency("WEEKLY")
+)
+
+func (AnomalySubscriptionFrequency) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionFrequency)(nil)).Elem()
+}
+
+func (e AnomalySubscriptionFrequency) ToAnomalySubscriptionFrequencyOutput() AnomalySubscriptionFrequencyOutput {
+	return pulumi.ToOutput(e).(AnomalySubscriptionFrequencyOutput)
+}
+
+func (e AnomalySubscriptionFrequency) ToAnomalySubscriptionFrequencyOutputWithContext(ctx context.Context) AnomalySubscriptionFrequencyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnomalySubscriptionFrequencyOutput)
+}
+
+func (e AnomalySubscriptionFrequency) ToAnomalySubscriptionFrequencyPtrOutput() AnomalySubscriptionFrequencyPtrOutput {
+	return e.ToAnomalySubscriptionFrequencyPtrOutputWithContext(context.Background())
+}
+
+func (e AnomalySubscriptionFrequency) ToAnomalySubscriptionFrequencyPtrOutputWithContext(ctx context.Context) AnomalySubscriptionFrequencyPtrOutput {
+	return AnomalySubscriptionFrequency(e).ToAnomalySubscriptionFrequencyOutputWithContext(ctx).ToAnomalySubscriptionFrequencyPtrOutputWithContext(ctx)
+}
+
+func (e AnomalySubscriptionFrequency) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnomalySubscriptionFrequency) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnomalySubscriptionFrequency) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnomalySubscriptionFrequency) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnomalySubscriptionFrequencyOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionFrequencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionFrequency)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionFrequencyOutput) ToAnomalySubscriptionFrequencyOutput() AnomalySubscriptionFrequencyOutput {
+	return o
+}
+
+func (o AnomalySubscriptionFrequencyOutput) ToAnomalySubscriptionFrequencyOutputWithContext(ctx context.Context) AnomalySubscriptionFrequencyOutput {
+	return o
+}
+
+func (o AnomalySubscriptionFrequencyOutput) ToAnomalySubscriptionFrequencyPtrOutput() AnomalySubscriptionFrequencyPtrOutput {
+	return o.ToAnomalySubscriptionFrequencyPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalySubscriptionFrequencyOutput) ToAnomalySubscriptionFrequencyPtrOutputWithContext(ctx context.Context) AnomalySubscriptionFrequencyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalySubscriptionFrequency) *AnomalySubscriptionFrequency {
+		return &v
+	}).(AnomalySubscriptionFrequencyPtrOutput)
+}
+
+func (o AnomalySubscriptionFrequencyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnomalySubscriptionFrequencyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnomalySubscriptionFrequency) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnomalySubscriptionFrequencyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalySubscriptionFrequencyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnomalySubscriptionFrequency) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnomalySubscriptionFrequencyPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionFrequencyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalySubscriptionFrequency)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionFrequencyPtrOutput) ToAnomalySubscriptionFrequencyPtrOutput() AnomalySubscriptionFrequencyPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionFrequencyPtrOutput) ToAnomalySubscriptionFrequencyPtrOutputWithContext(ctx context.Context) AnomalySubscriptionFrequencyPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionFrequencyPtrOutput) Elem() AnomalySubscriptionFrequencyOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionFrequency) AnomalySubscriptionFrequency {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalySubscriptionFrequency
+		return ret
+	}).(AnomalySubscriptionFrequencyOutput)
+}
+
+func (o AnomalySubscriptionFrequencyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalySubscriptionFrequencyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnomalySubscriptionFrequency) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnomalySubscriptionFrequencyInput is an input type that accepts AnomalySubscriptionFrequencyArgs and AnomalySubscriptionFrequencyOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionFrequencyInput` via:
+//
+//          AnomalySubscriptionFrequencyArgs{...}
+type AnomalySubscriptionFrequencyInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionFrequencyOutput() AnomalySubscriptionFrequencyOutput
+	ToAnomalySubscriptionFrequencyOutputWithContext(context.Context) AnomalySubscriptionFrequencyOutput
+}
+
+var anomalySubscriptionFrequencyPtrType = reflect.TypeOf((**AnomalySubscriptionFrequency)(nil)).Elem()
+
+type AnomalySubscriptionFrequencyPtrInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionFrequencyPtrOutput() AnomalySubscriptionFrequencyPtrOutput
+	ToAnomalySubscriptionFrequencyPtrOutputWithContext(context.Context) AnomalySubscriptionFrequencyPtrOutput
+}
+
+type anomalySubscriptionFrequencyPtr string
+
+func AnomalySubscriptionFrequencyPtr(v string) AnomalySubscriptionFrequencyPtrInput {
+	return (*anomalySubscriptionFrequencyPtr)(&v)
+}
+
+func (*anomalySubscriptionFrequencyPtr) ElementType() reflect.Type {
+	return anomalySubscriptionFrequencyPtrType
+}
+
+func (in *anomalySubscriptionFrequencyPtr) ToAnomalySubscriptionFrequencyPtrOutput() AnomalySubscriptionFrequencyPtrOutput {
+	return pulumi.ToOutput(in).(AnomalySubscriptionFrequencyPtrOutput)
+}
+
+func (in *anomalySubscriptionFrequencyPtr) ToAnomalySubscriptionFrequencyPtrOutputWithContext(ctx context.Context) AnomalySubscriptionFrequencyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnomalySubscriptionFrequencyPtrOutput)
+}
+
+type AnomalySubscriptionSubscriberStatus string
+
+const (
+	AnomalySubscriptionSubscriberStatusConfirmed = AnomalySubscriptionSubscriberStatus("CONFIRMED")
+	AnomalySubscriptionSubscriberStatusDeclined  = AnomalySubscriptionSubscriberStatus("DECLINED")
+)
+
+func (AnomalySubscriptionSubscriberStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionSubscriberStatus)(nil)).Elem()
+}
+
+func (e AnomalySubscriptionSubscriberStatus) ToAnomalySubscriptionSubscriberStatusOutput() AnomalySubscriptionSubscriberStatusOutput {
+	return pulumi.ToOutput(e).(AnomalySubscriptionSubscriberStatusOutput)
+}
+
+func (e AnomalySubscriptionSubscriberStatus) ToAnomalySubscriptionSubscriberStatusOutputWithContext(ctx context.Context) AnomalySubscriptionSubscriberStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnomalySubscriptionSubscriberStatusOutput)
+}
+
+func (e AnomalySubscriptionSubscriberStatus) ToAnomalySubscriptionSubscriberStatusPtrOutput() AnomalySubscriptionSubscriberStatusPtrOutput {
+	return e.ToAnomalySubscriptionSubscriberStatusPtrOutputWithContext(context.Background())
+}
+
+func (e AnomalySubscriptionSubscriberStatus) ToAnomalySubscriptionSubscriberStatusPtrOutputWithContext(ctx context.Context) AnomalySubscriptionSubscriberStatusPtrOutput {
+	return AnomalySubscriptionSubscriberStatus(e).ToAnomalySubscriptionSubscriberStatusOutputWithContext(ctx).ToAnomalySubscriptionSubscriberStatusPtrOutputWithContext(ctx)
+}
+
+func (e AnomalySubscriptionSubscriberStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnomalySubscriptionSubscriberStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnomalySubscriptionSubscriberStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnomalySubscriptionSubscriberStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnomalySubscriptionSubscriberStatusOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionSubscriberStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionSubscriberStatus)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionSubscriberStatusOutput) ToAnomalySubscriptionSubscriberStatusOutput() AnomalySubscriptionSubscriberStatusOutput {
+	return o
+}
+
+func (o AnomalySubscriptionSubscriberStatusOutput) ToAnomalySubscriptionSubscriberStatusOutputWithContext(ctx context.Context) AnomalySubscriptionSubscriberStatusOutput {
+	return o
+}
+
+func (o AnomalySubscriptionSubscriberStatusOutput) ToAnomalySubscriptionSubscriberStatusPtrOutput() AnomalySubscriptionSubscriberStatusPtrOutput {
+	return o.ToAnomalySubscriptionSubscriberStatusPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalySubscriptionSubscriberStatusOutput) ToAnomalySubscriptionSubscriberStatusPtrOutputWithContext(ctx context.Context) AnomalySubscriptionSubscriberStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalySubscriptionSubscriberStatus) *AnomalySubscriptionSubscriberStatus {
+		return &v
+	}).(AnomalySubscriptionSubscriberStatusPtrOutput)
+}
+
+func (o AnomalySubscriptionSubscriberStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnomalySubscriptionSubscriberStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnomalySubscriptionSubscriberStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnomalySubscriptionSubscriberStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalySubscriptionSubscriberStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnomalySubscriptionSubscriberStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnomalySubscriptionSubscriberStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionSubscriberStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalySubscriptionSubscriberStatus)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionSubscriberStatusPtrOutput) ToAnomalySubscriptionSubscriberStatusPtrOutput() AnomalySubscriptionSubscriberStatusPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionSubscriberStatusPtrOutput) ToAnomalySubscriptionSubscriberStatusPtrOutputWithContext(ctx context.Context) AnomalySubscriptionSubscriberStatusPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionSubscriberStatusPtrOutput) Elem() AnomalySubscriptionSubscriberStatusOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionSubscriberStatus) AnomalySubscriptionSubscriberStatus {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalySubscriptionSubscriberStatus
+		return ret
+	}).(AnomalySubscriptionSubscriberStatusOutput)
+}
+
+func (o AnomalySubscriptionSubscriberStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalySubscriptionSubscriberStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnomalySubscriptionSubscriberStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnomalySubscriptionSubscriberStatusInput is an input type that accepts AnomalySubscriptionSubscriberStatusArgs and AnomalySubscriptionSubscriberStatusOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionSubscriberStatusInput` via:
+//
+//          AnomalySubscriptionSubscriberStatusArgs{...}
+type AnomalySubscriptionSubscriberStatusInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionSubscriberStatusOutput() AnomalySubscriptionSubscriberStatusOutput
+	ToAnomalySubscriptionSubscriberStatusOutputWithContext(context.Context) AnomalySubscriptionSubscriberStatusOutput
+}
+
+var anomalySubscriptionSubscriberStatusPtrType = reflect.TypeOf((**AnomalySubscriptionSubscriberStatus)(nil)).Elem()
+
+type AnomalySubscriptionSubscriberStatusPtrInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionSubscriberStatusPtrOutput() AnomalySubscriptionSubscriberStatusPtrOutput
+	ToAnomalySubscriptionSubscriberStatusPtrOutputWithContext(context.Context) AnomalySubscriptionSubscriberStatusPtrOutput
+}
+
+type anomalySubscriptionSubscriberStatusPtr string
+
+func AnomalySubscriptionSubscriberStatusPtr(v string) AnomalySubscriptionSubscriberStatusPtrInput {
+	return (*anomalySubscriptionSubscriberStatusPtr)(&v)
+}
+
+func (*anomalySubscriptionSubscriberStatusPtr) ElementType() reflect.Type {
+	return anomalySubscriptionSubscriberStatusPtrType
+}
+
+func (in *anomalySubscriptionSubscriberStatusPtr) ToAnomalySubscriptionSubscriberStatusPtrOutput() AnomalySubscriptionSubscriberStatusPtrOutput {
+	return pulumi.ToOutput(in).(AnomalySubscriptionSubscriberStatusPtrOutput)
+}
+
+func (in *anomalySubscriptionSubscriberStatusPtr) ToAnomalySubscriptionSubscriberStatusPtrOutputWithContext(ctx context.Context) AnomalySubscriptionSubscriberStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnomalySubscriptionSubscriberStatusPtrOutput)
+}
+
+type AnomalySubscriptionSubscriberType string
+
+const (
+	AnomalySubscriptionSubscriberTypeEmail = AnomalySubscriptionSubscriberType("EMAIL")
+	AnomalySubscriptionSubscriberTypeSns   = AnomalySubscriptionSubscriberType("SNS")
+)
+
+func (AnomalySubscriptionSubscriberType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionSubscriberType)(nil)).Elem()
+}
+
+func (e AnomalySubscriptionSubscriberType) ToAnomalySubscriptionSubscriberTypeOutput() AnomalySubscriptionSubscriberTypeOutput {
+	return pulumi.ToOutput(e).(AnomalySubscriptionSubscriberTypeOutput)
+}
+
+func (e AnomalySubscriptionSubscriberType) ToAnomalySubscriptionSubscriberTypeOutputWithContext(ctx context.Context) AnomalySubscriptionSubscriberTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnomalySubscriptionSubscriberTypeOutput)
+}
+
+func (e AnomalySubscriptionSubscriberType) ToAnomalySubscriptionSubscriberTypePtrOutput() AnomalySubscriptionSubscriberTypePtrOutput {
+	return e.ToAnomalySubscriptionSubscriberTypePtrOutputWithContext(context.Background())
+}
+
+func (e AnomalySubscriptionSubscriberType) ToAnomalySubscriptionSubscriberTypePtrOutputWithContext(ctx context.Context) AnomalySubscriptionSubscriberTypePtrOutput {
+	return AnomalySubscriptionSubscriberType(e).ToAnomalySubscriptionSubscriberTypeOutputWithContext(ctx).ToAnomalySubscriptionSubscriberTypePtrOutputWithContext(ctx)
+}
+
+func (e AnomalySubscriptionSubscriberType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnomalySubscriptionSubscriberType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnomalySubscriptionSubscriberType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnomalySubscriptionSubscriberType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnomalySubscriptionSubscriberTypeOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionSubscriberTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionSubscriberType)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionSubscriberTypeOutput) ToAnomalySubscriptionSubscriberTypeOutput() AnomalySubscriptionSubscriberTypeOutput {
+	return o
+}
+
+func (o AnomalySubscriptionSubscriberTypeOutput) ToAnomalySubscriptionSubscriberTypeOutputWithContext(ctx context.Context) AnomalySubscriptionSubscriberTypeOutput {
+	return o
+}
+
+func (o AnomalySubscriptionSubscriberTypeOutput) ToAnomalySubscriptionSubscriberTypePtrOutput() AnomalySubscriptionSubscriberTypePtrOutput {
+	return o.ToAnomalySubscriptionSubscriberTypePtrOutputWithContext(context.Background())
+}
+
+func (o AnomalySubscriptionSubscriberTypeOutput) ToAnomalySubscriptionSubscriberTypePtrOutputWithContext(ctx context.Context) AnomalySubscriptionSubscriberTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalySubscriptionSubscriberType) *AnomalySubscriptionSubscriberType {
+		return &v
+	}).(AnomalySubscriptionSubscriberTypePtrOutput)
+}
+
+func (o AnomalySubscriptionSubscriberTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnomalySubscriptionSubscriberTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnomalySubscriptionSubscriberType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnomalySubscriptionSubscriberTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalySubscriptionSubscriberTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnomalySubscriptionSubscriberType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnomalySubscriptionSubscriberTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionSubscriberTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalySubscriptionSubscriberType)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionSubscriberTypePtrOutput) ToAnomalySubscriptionSubscriberTypePtrOutput() AnomalySubscriptionSubscriberTypePtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionSubscriberTypePtrOutput) ToAnomalySubscriptionSubscriberTypePtrOutputWithContext(ctx context.Context) AnomalySubscriptionSubscriberTypePtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionSubscriberTypePtrOutput) Elem() AnomalySubscriptionSubscriberTypeOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionSubscriberType) AnomalySubscriptionSubscriberType {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalySubscriptionSubscriberType
+		return ret
+	}).(AnomalySubscriptionSubscriberTypeOutput)
+}
+
+func (o AnomalySubscriptionSubscriberTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalySubscriptionSubscriberTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnomalySubscriptionSubscriberType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnomalySubscriptionSubscriberTypeInput is an input type that accepts AnomalySubscriptionSubscriberTypeArgs and AnomalySubscriptionSubscriberTypeOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionSubscriberTypeInput` via:
+//
+//          AnomalySubscriptionSubscriberTypeArgs{...}
+type AnomalySubscriptionSubscriberTypeInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionSubscriberTypeOutput() AnomalySubscriptionSubscriberTypeOutput
+	ToAnomalySubscriptionSubscriberTypeOutputWithContext(context.Context) AnomalySubscriptionSubscriberTypeOutput
+}
+
+var anomalySubscriptionSubscriberTypePtrType = reflect.TypeOf((**AnomalySubscriptionSubscriberType)(nil)).Elem()
+
+type AnomalySubscriptionSubscriberTypePtrInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionSubscriberTypePtrOutput() AnomalySubscriptionSubscriberTypePtrOutput
+	ToAnomalySubscriptionSubscriberTypePtrOutputWithContext(context.Context) AnomalySubscriptionSubscriberTypePtrOutput
+}
+
+type anomalySubscriptionSubscriberTypePtr string
+
+func AnomalySubscriptionSubscriberTypePtr(v string) AnomalySubscriptionSubscriberTypePtrInput {
+	return (*anomalySubscriptionSubscriberTypePtr)(&v)
+}
+
+func (*anomalySubscriptionSubscriberTypePtr) ElementType() reflect.Type {
+	return anomalySubscriptionSubscriberTypePtrType
+}
+
+func (in *anomalySubscriptionSubscriberTypePtr) ToAnomalySubscriptionSubscriberTypePtrOutput() AnomalySubscriptionSubscriberTypePtrOutput {
+	return pulumi.ToOutput(in).(AnomalySubscriptionSubscriberTypePtrOutput)
+}
+
+func (in *anomalySubscriptionSubscriberTypePtr) ToAnomalySubscriptionSubscriberTypePtrOutputWithContext(ctx context.Context) AnomalySubscriptionSubscriberTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnomalySubscriptionSubscriberTypePtrOutput)
+}
+
 type CostCategoryRuleVersion string
 
 const (
@@ -174,6 +996,16 @@ func (in *costCategoryRuleVersionPtr) ToCostCategoryRuleVersionPtrOutputWithCont
 }
 
 func init() {
+	pulumi.RegisterOutputType(AnomalyMonitorMonitorDimensionOutput{})
+	pulumi.RegisterOutputType(AnomalyMonitorMonitorDimensionPtrOutput{})
+	pulumi.RegisterOutputType(AnomalyMonitorMonitorTypeOutput{})
+	pulumi.RegisterOutputType(AnomalyMonitorMonitorTypePtrOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionFrequencyOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionFrequencyPtrOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionSubscriberStatusOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionSubscriberStatusPtrOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionSubscriberTypeOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionSubscriberTypePtrOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleVersionOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleVersionPtrOutput{})
 }

@@ -27,6 +27,8 @@ type FlowOutputResource struct {
 	FlowArn pulumi.StringOutput `pulumi:"flowArn"`
 	// The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
 	MaxLatency pulumi.IntPtrOutput `pulumi:"maxLatency"`
+	// The minimum latency in milliseconds.
+	MinLatency pulumi.IntPtrOutput `pulumi:"minLatency"`
 	// The name of the output. This value must be unique within the current flow.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The ARN of the output.
@@ -102,6 +104,8 @@ type flowOutputResourceArgs struct {
 	FlowArn string `pulumi:"flowArn"`
 	// The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
 	MaxLatency *int `pulumi:"maxLatency"`
+	// The minimum latency in milliseconds.
+	MinLatency *int `pulumi:"minLatency"`
 	// The name of the output. This value must be unique within the current flow.
 	Name *string `pulumi:"name"`
 	// The port to use when content is distributed to this output.
@@ -132,6 +136,8 @@ type FlowOutputResourceArgs struct {
 	FlowArn pulumi.StringInput
 	// The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
 	MaxLatency pulumi.IntPtrInput
+	// The minimum latency in milliseconds.
+	MinLatency pulumi.IntPtrInput
 	// The name of the output. This value must be unique within the current flow.
 	Name pulumi.StringPtrInput
 	// The port to use when content is distributed to this output.

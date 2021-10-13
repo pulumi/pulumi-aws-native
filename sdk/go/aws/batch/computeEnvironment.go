@@ -23,6 +23,7 @@ type ComputeEnvironment struct {
 	State                  pulumi.StringPtrOutput                      `pulumi:"state"`
 	Tags                   pulumi.AnyOutput                            `pulumi:"tags"`
 	Type                   pulumi.StringOutput                         `pulumi:"type"`
+	UnmanagedvCpus         pulumi.IntPtrOutput                         `pulumi:"unmanagedvCpus"`
 }
 
 // NewComputeEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -73,6 +74,7 @@ type computeEnvironmentArgs struct {
 	State                  *string                             `pulumi:"state"`
 	Tags                   interface{}                         `pulumi:"tags"`
 	Type                   string                              `pulumi:"type"`
+	UnmanagedvCpus         *int                                `pulumi:"unmanagedvCpus"`
 }
 
 // The set of arguments for constructing a ComputeEnvironment resource.
@@ -83,6 +85,7 @@ type ComputeEnvironmentArgs struct {
 	State                  pulumi.StringPtrInput
 	Tags                   pulumi.Input
 	Type                   pulumi.StringInput
+	UnmanagedvCpus         pulumi.IntPtrInput
 }
 
 func (ComputeEnvironmentArgs) ElementType() reflect.Type {

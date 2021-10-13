@@ -27,6 +27,8 @@ type ControlPanel struct {
 	RoutingControlCount pulumi.IntOutput `pulumi:"routingControlCount"`
 	// The deployment status of control panel. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
 	Status ControlPanelStatusOutput `pulumi:"status"`
+	// A collection of tags associated with a resource
+	Tags ControlPanelTagArrayOutput `pulumi:"tags"`
 }
 
 // NewControlPanel registers a new resource with the given unique name, arguments, and options.
@@ -75,6 +77,8 @@ type controlPanelArgs struct {
 	ClusterArn *string `pulumi:"clusterArn"`
 	// The name of the control panel. You can use any non-white space character in the name.
 	Name string `pulumi:"name"`
+	// A collection of tags associated with a resource
+	Tags []ControlPanelTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ControlPanel resource.
@@ -83,6 +87,8 @@ type ControlPanelArgs struct {
 	ClusterArn pulumi.StringPtrInput
 	// The name of the control panel. You can use any non-white space character in the name.
 	Name pulumi.StringInput
+	// A collection of tags associated with a resource
+	Tags ControlPanelTagArrayInput
 }
 
 func (ControlPanelArgs) ElementType() reflect.Type {

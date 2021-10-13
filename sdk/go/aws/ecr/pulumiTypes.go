@@ -10,6 +10,115 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// A key-value pair to associate with a resource.
+type PublicRepositoryTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// PublicRepositoryTagInput is an input type that accepts PublicRepositoryTagArgs and PublicRepositoryTagOutput values.
+// You can construct a concrete instance of `PublicRepositoryTagInput` via:
+//
+//          PublicRepositoryTagArgs{...}
+type PublicRepositoryTagInput interface {
+	pulumi.Input
+
+	ToPublicRepositoryTagOutput() PublicRepositoryTagOutput
+	ToPublicRepositoryTagOutputWithContext(context.Context) PublicRepositoryTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type PublicRepositoryTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (PublicRepositoryTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicRepositoryTag)(nil)).Elem()
+}
+
+func (i PublicRepositoryTagArgs) ToPublicRepositoryTagOutput() PublicRepositoryTagOutput {
+	return i.ToPublicRepositoryTagOutputWithContext(context.Background())
+}
+
+func (i PublicRepositoryTagArgs) ToPublicRepositoryTagOutputWithContext(ctx context.Context) PublicRepositoryTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicRepositoryTagOutput)
+}
+
+// PublicRepositoryTagArrayInput is an input type that accepts PublicRepositoryTagArray and PublicRepositoryTagArrayOutput values.
+// You can construct a concrete instance of `PublicRepositoryTagArrayInput` via:
+//
+//          PublicRepositoryTagArray{ PublicRepositoryTagArgs{...} }
+type PublicRepositoryTagArrayInput interface {
+	pulumi.Input
+
+	ToPublicRepositoryTagArrayOutput() PublicRepositoryTagArrayOutput
+	ToPublicRepositoryTagArrayOutputWithContext(context.Context) PublicRepositoryTagArrayOutput
+}
+
+type PublicRepositoryTagArray []PublicRepositoryTagInput
+
+func (PublicRepositoryTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PublicRepositoryTag)(nil)).Elem()
+}
+
+func (i PublicRepositoryTagArray) ToPublicRepositoryTagArrayOutput() PublicRepositoryTagArrayOutput {
+	return i.ToPublicRepositoryTagArrayOutputWithContext(context.Background())
+}
+
+func (i PublicRepositoryTagArray) ToPublicRepositoryTagArrayOutputWithContext(ctx context.Context) PublicRepositoryTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicRepositoryTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type PublicRepositoryTagOutput struct{ *pulumi.OutputState }
+
+func (PublicRepositoryTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicRepositoryTag)(nil)).Elem()
+}
+
+func (o PublicRepositoryTagOutput) ToPublicRepositoryTagOutput() PublicRepositoryTagOutput {
+	return o
+}
+
+func (o PublicRepositoryTagOutput) ToPublicRepositoryTagOutputWithContext(ctx context.Context) PublicRepositoryTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o PublicRepositoryTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v PublicRepositoryTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o PublicRepositoryTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v PublicRepositoryTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type PublicRepositoryTagArrayOutput struct{ *pulumi.OutputState }
+
+func (PublicRepositoryTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PublicRepositoryTag)(nil)).Elem()
+}
+
+func (o PublicRepositoryTagArrayOutput) ToPublicRepositoryTagArrayOutput() PublicRepositoryTagArrayOutput {
+	return o
+}
+
+func (o PublicRepositoryTagArrayOutput) ToPublicRepositoryTagArrayOutputWithContext(ctx context.Context) PublicRepositoryTagArrayOutput {
+	return o
+}
+
+func (o PublicRepositoryTagArrayOutput) Index(i pulumi.IntInput) PublicRepositoryTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PublicRepositoryTag {
+		return vs[0].([]PublicRepositoryTag)[vs[1].(int)]
+	}).(PublicRepositoryTagOutput)
+}
+
 // An object representing the replication configuration for a registry.
 type ReplicationConfigurationType struct {
 	// An array of objects representing the replication rules for a replication configuration. A replication configuration may contain a maximum of 10 rules.
@@ -469,6 +578,202 @@ func (o ReplicationConfigurationRepositoryFilterArrayOutput) Index(i pulumi.IntI
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationConfigurationRepositoryFilter {
 		return vs[0].([]ReplicationConfigurationRepositoryFilter)[vs[1].(int)]
 	}).(ReplicationConfigurationRepositoryFilterOutput)
+}
+
+// The CatalogData property type specifies Catalog data for ECR Public Repository. For information about Catalog Data, see <link>
+type RepositoryCatalogDataProperties struct {
+	AboutText             *string  `pulumi:"aboutText"`
+	Architectures         []string `pulumi:"architectures"`
+	OperatingSystems      []string `pulumi:"operatingSystems"`
+	RepositoryDescription *string  `pulumi:"repositoryDescription"`
+	UsageText             *string  `pulumi:"usageText"`
+}
+
+// RepositoryCatalogDataPropertiesInput is an input type that accepts RepositoryCatalogDataPropertiesArgs and RepositoryCatalogDataPropertiesOutput values.
+// You can construct a concrete instance of `RepositoryCatalogDataPropertiesInput` via:
+//
+//          RepositoryCatalogDataPropertiesArgs{...}
+type RepositoryCatalogDataPropertiesInput interface {
+	pulumi.Input
+
+	ToRepositoryCatalogDataPropertiesOutput() RepositoryCatalogDataPropertiesOutput
+	ToRepositoryCatalogDataPropertiesOutputWithContext(context.Context) RepositoryCatalogDataPropertiesOutput
+}
+
+// The CatalogData property type specifies Catalog data for ECR Public Repository. For information about Catalog Data, see <link>
+type RepositoryCatalogDataPropertiesArgs struct {
+	AboutText             pulumi.StringPtrInput   `pulumi:"aboutText"`
+	Architectures         pulumi.StringArrayInput `pulumi:"architectures"`
+	OperatingSystems      pulumi.StringArrayInput `pulumi:"operatingSystems"`
+	RepositoryDescription pulumi.StringPtrInput   `pulumi:"repositoryDescription"`
+	UsageText             pulumi.StringPtrInput   `pulumi:"usageText"`
+}
+
+func (RepositoryCatalogDataPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryCatalogDataProperties)(nil)).Elem()
+}
+
+func (i RepositoryCatalogDataPropertiesArgs) ToRepositoryCatalogDataPropertiesOutput() RepositoryCatalogDataPropertiesOutput {
+	return i.ToRepositoryCatalogDataPropertiesOutputWithContext(context.Background())
+}
+
+func (i RepositoryCatalogDataPropertiesArgs) ToRepositoryCatalogDataPropertiesOutputWithContext(ctx context.Context) RepositoryCatalogDataPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCatalogDataPropertiesOutput)
+}
+
+func (i RepositoryCatalogDataPropertiesArgs) ToRepositoryCatalogDataPropertiesPtrOutput() RepositoryCatalogDataPropertiesPtrOutput {
+	return i.ToRepositoryCatalogDataPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i RepositoryCatalogDataPropertiesArgs) ToRepositoryCatalogDataPropertiesPtrOutputWithContext(ctx context.Context) RepositoryCatalogDataPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCatalogDataPropertiesOutput).ToRepositoryCatalogDataPropertiesPtrOutputWithContext(ctx)
+}
+
+// RepositoryCatalogDataPropertiesPtrInput is an input type that accepts RepositoryCatalogDataPropertiesArgs, RepositoryCatalogDataPropertiesPtr and RepositoryCatalogDataPropertiesPtrOutput values.
+// You can construct a concrete instance of `RepositoryCatalogDataPropertiesPtrInput` via:
+//
+//          RepositoryCatalogDataPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type RepositoryCatalogDataPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryCatalogDataPropertiesPtrOutput() RepositoryCatalogDataPropertiesPtrOutput
+	ToRepositoryCatalogDataPropertiesPtrOutputWithContext(context.Context) RepositoryCatalogDataPropertiesPtrOutput
+}
+
+type repositoryCatalogDataPropertiesPtrType RepositoryCatalogDataPropertiesArgs
+
+func RepositoryCatalogDataPropertiesPtr(v *RepositoryCatalogDataPropertiesArgs) RepositoryCatalogDataPropertiesPtrInput {
+	return (*repositoryCatalogDataPropertiesPtrType)(v)
+}
+
+func (*repositoryCatalogDataPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryCatalogDataProperties)(nil)).Elem()
+}
+
+func (i *repositoryCatalogDataPropertiesPtrType) ToRepositoryCatalogDataPropertiesPtrOutput() RepositoryCatalogDataPropertiesPtrOutput {
+	return i.ToRepositoryCatalogDataPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryCatalogDataPropertiesPtrType) ToRepositoryCatalogDataPropertiesPtrOutputWithContext(ctx context.Context) RepositoryCatalogDataPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCatalogDataPropertiesPtrOutput)
+}
+
+// The CatalogData property type specifies Catalog data for ECR Public Repository. For information about Catalog Data, see <link>
+type RepositoryCatalogDataPropertiesOutput struct{ *pulumi.OutputState }
+
+func (RepositoryCatalogDataPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryCatalogDataProperties)(nil)).Elem()
+}
+
+func (o RepositoryCatalogDataPropertiesOutput) ToRepositoryCatalogDataPropertiesOutput() RepositoryCatalogDataPropertiesOutput {
+	return o
+}
+
+func (o RepositoryCatalogDataPropertiesOutput) ToRepositoryCatalogDataPropertiesOutputWithContext(ctx context.Context) RepositoryCatalogDataPropertiesOutput {
+	return o
+}
+
+func (o RepositoryCatalogDataPropertiesOutput) ToRepositoryCatalogDataPropertiesPtrOutput() RepositoryCatalogDataPropertiesPtrOutput {
+	return o.ToRepositoryCatalogDataPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryCatalogDataPropertiesOutput) ToRepositoryCatalogDataPropertiesPtrOutputWithContext(ctx context.Context) RepositoryCatalogDataPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryCatalogDataProperties) *RepositoryCatalogDataProperties {
+		return &v
+	}).(RepositoryCatalogDataPropertiesPtrOutput)
+}
+
+func (o RepositoryCatalogDataPropertiesOutput) AboutText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryCatalogDataProperties) *string { return v.AboutText }).(pulumi.StringPtrOutput)
+}
+
+func (o RepositoryCatalogDataPropertiesOutput) Architectures() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RepositoryCatalogDataProperties) []string { return v.Architectures }).(pulumi.StringArrayOutput)
+}
+
+func (o RepositoryCatalogDataPropertiesOutput) OperatingSystems() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RepositoryCatalogDataProperties) []string { return v.OperatingSystems }).(pulumi.StringArrayOutput)
+}
+
+func (o RepositoryCatalogDataPropertiesOutput) RepositoryDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryCatalogDataProperties) *string { return v.RepositoryDescription }).(pulumi.StringPtrOutput)
+}
+
+func (o RepositoryCatalogDataPropertiesOutput) UsageText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryCatalogDataProperties) *string { return v.UsageText }).(pulumi.StringPtrOutput)
+}
+
+type RepositoryCatalogDataPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryCatalogDataPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryCatalogDataProperties)(nil)).Elem()
+}
+
+func (o RepositoryCatalogDataPropertiesPtrOutput) ToRepositoryCatalogDataPropertiesPtrOutput() RepositoryCatalogDataPropertiesPtrOutput {
+	return o
+}
+
+func (o RepositoryCatalogDataPropertiesPtrOutput) ToRepositoryCatalogDataPropertiesPtrOutputWithContext(ctx context.Context) RepositoryCatalogDataPropertiesPtrOutput {
+	return o
+}
+
+func (o RepositoryCatalogDataPropertiesPtrOutput) Elem() RepositoryCatalogDataPropertiesOutput {
+	return o.ApplyT(func(v *RepositoryCatalogDataProperties) RepositoryCatalogDataProperties {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryCatalogDataProperties
+		return ret
+	}).(RepositoryCatalogDataPropertiesOutput)
+}
+
+func (o RepositoryCatalogDataPropertiesPtrOutput) AboutText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryCatalogDataProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AboutText
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RepositoryCatalogDataPropertiesPtrOutput) Architectures() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RepositoryCatalogDataProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Architectures
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o RepositoryCatalogDataPropertiesPtrOutput) OperatingSystems() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RepositoryCatalogDataProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OperatingSystems
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o RepositoryCatalogDataPropertiesPtrOutput) RepositoryDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryCatalogDataProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryDescription
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RepositoryCatalogDataPropertiesPtrOutput) UsageText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RepositoryCatalogDataProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UsageText
+	}).(pulumi.StringPtrOutput)
 }
 
 // The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
@@ -1031,6 +1336,8 @@ func (o RepositoryTagArrayOutput) Index(i pulumi.IntInput) RepositoryTagOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(PublicRepositoryTagOutput{})
+	pulumi.RegisterOutputType(PublicRepositoryTagArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationTypeOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationDestinationOutput{})
@@ -1039,6 +1346,8 @@ func init() {
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationRuleArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationRepositoryFilterOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationRepositoryFilterArrayOutput{})
+	pulumi.RegisterOutputType(RepositoryCatalogDataPropertiesOutput{})
+	pulumi.RegisterOutputType(RepositoryCatalogDataPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(RepositoryEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryImageScanningConfigurationOutput{})
