@@ -3,13 +3,16 @@
 package main
 
 import (
+	"archive/zip"
 	"bytes"
 	"compress/gzip"
 	ctx "context"
 	"encoding/json"
 	"flag"
 	"fmt"
+	"io"
 	"io/ioutil"
+	"net/http"
 	"os"
 	"path/filepath"
 	"sort"
@@ -32,7 +35,7 @@ import (
 
 func main() {
 	flag.Usage = func() {
-		const usageFormat = "Usage: %s <languages> <schema-file> <root-dir>"
+		const usageFormat = "Usage: %s <languages> <schema-folder> <version> (<schema urls>)"
 		_, err := fmt.Fprintf(flag.CommandLine.Output(), usageFormat, os.Args[0])
 		contract.IgnoreError(err)
 		flag.PrintDefaults()
@@ -52,7 +55,16 @@ func main() {
 	genDir := filepath.Join(".", "provider", "cmd", "pulumi-gen-aws-native")
 
 	if languages == "discovery" {
+		if len(args) < 4 {
+			flag.Usage()
+			return
+		}
+		jsonSchemaUrls := strings.Split(args[3], ",")
+
 		if err := writeSupportedResourceTypes(genDir); err != nil {
+			panic(err)
+		}
+		if err := downloadCloudFormationSchemas(jsonSchemaUrls, filepath.Join(".", schemaFolder)); err != nil {
 			panic(err)
 		}
 		return
@@ -179,6 +191,51 @@ func writeSupportedResourceTypes(outDir string) error {
 
 	val := strings.Join(result, "\n")
 	return emitFile(outDir, supportedResourcesFile, []byte(val))
+}
+
+func downloadCloudFormationSchemas(urls []string, outDir string) error {
+	for _, url := range urls {
+		resp, err := http.Get(url)
+		if err != nil {
+			return err
+		}
+		defer resp.Body.Close()
+
+		body, err := ioutil.ReadAll(resp.Body)
+		if err != nil {
+			return err
+		}
+
+		zipReader, err := zip.NewReader(bytes.NewReader(body), int64(len(body)))
+		if err != nil {
+			return err
+		}
+
+		// Read all the files from zip archive
+		for _, f := range zipReader.File {
+			outPath := filepath.Join(outDir, f.Name)
+
+			outFile, err := os.OpenFile(outPath, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, f.Mode())
+			if err != nil {
+				return err
+			}
+
+			rc, err := f.Open()
+			if err != nil {
+				return err
+			}
+
+			_, err = io.Copy(outFile, rc)
+			if err != nil {
+				return err
+			}
+
+			outFile.Close()
+			rc.Close()
+		}
+	}
+
+	return nil
 }
 
 func generate(ppkg *pschema.Package, language string) (map[string][]byte, error) {
