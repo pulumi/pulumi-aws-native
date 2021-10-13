@@ -251,6 +251,7 @@
     },
     "Typography" : {
       "type" : "object",
+      "description" : "<p>The typeface for the theme.</p>",
       "properties" : {
         "FontFamilies" : {
           "type" : "array",
@@ -427,7 +428,7 @@
   },
   "required" : [ "AwsAccountId", "ThemeId" ],
   "additionalProperties" : false,
-  "readOnlyProperties" : [ "/properties/CreatedTime", "/properties/Version", "/properties/LastUpdatedTime", "/properties/Arn", "/properties/Type" ],
+  "readOnlyProperties" : [ "/properties/ThemeError", "/properties/CreatedTime", "/properties/Version", "/properties/LastUpdatedTime", "/properties/Arn", "/properties/Type" ],
   "writeOnlyProperties" : [ "/properties/VersionDescription", "/properties/Configuration", "/properties/BaseThemeId" ],
   "createOnlyProperties" : [ "/properties/ThemeId", "/properties/AwsAccountId" ],
   "primaryIdentifier" : [ "/properties/ThemeId", "/properties/AwsAccountId" ],
