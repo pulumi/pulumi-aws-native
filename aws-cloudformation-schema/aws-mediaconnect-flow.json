@@ -39,7 +39,7 @@
         },
         "Decryption" : {
           "$ref" : "#/definitions/Encryption",
-          "description" : "The type of encryption that is used on the content ingested from this source."
+          "description" : "The type of decryption that is used on the content ingested from this source."
         },
         "Description" : {
           "type" : "string",
@@ -66,18 +66,27 @@
           "description" : "The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.",
           "default" : 2000
         },
+        "MinLatency" : {
+          "type" : "integer",
+          "description" : "The minimum latency in milliseconds.",
+          "default" : 2000
+        },
         "Name" : {
           "type" : "string",
           "description" : "The name of the source."
         },
         "Protocol" : {
           "type" : "string",
-          "enum" : [ "zixi-push", "rtp-fec", "rtp", "rist" ],
+          "enum" : [ "zixi-push", "rtp-fec", "rtp", "rist", "srt-listener" ],
           "description" : "The protocol that is used by the source or output."
         },
         "StreamId" : {
           "type" : "string",
           "description" : "The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams."
+        },
+        "SourceIngestPort" : {
+          "type" : "string",
+          "description" : "The port that the flow will be listening on for incoming content.(ReadOnly)"
         },
         "VpcInterfaceName" : {
           "type" : "string",
@@ -109,7 +118,7 @@
         },
         "KeyType" : {
           "type" : "string",
-          "enum" : [ "speke", "static-key" ],
+          "enum" : [ "speke", "static-key", "srt-password" ],
           "description" : "The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).",
           "default" : "static-key"
         },
@@ -135,7 +144,7 @@
         }
       },
       "additionalProperties" : false,
-      "required" : [ "Algorithm", "RoleArn" ]
+      "required" : [ "RoleArn" ]
     },
     "FailoverConfig" : {
       "type" : "object",
@@ -156,7 +165,7 @@
   "required" : [ "Name", "Source" ],
   "additionalProperties" : false,
   "createOnlyProperties" : [ "/properties/Name", "/properties/AvailabilityZone", "/properties/Source/Name" ],
-  "readOnlyProperties" : [ "/properties/FlowArn", "/properties/FlowAvailabilityZone", "/properties/Source/SourceArn", "/properties/Source/IngestIp" ],
+  "readOnlyProperties" : [ "/properties/FlowArn", "/properties/FlowAvailabilityZone", "/properties/Source/SourceArn", "/properties/Source/IngestIp", "/properties/Source/SourceIngestPort" ],
   "primaryIdentifier" : [ "/properties/FlowArn" ],
   "handlers" : {
     "create" : {

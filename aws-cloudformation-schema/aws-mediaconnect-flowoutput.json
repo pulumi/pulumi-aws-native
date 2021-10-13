@@ -14,7 +14,7 @@
         },
         "KeyType" : {
           "type" : "string",
-          "enum" : [ "static-key" ],
+          "enum" : [ "static-key", "srt-password" ],
           "description" : "The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).",
           "default" : "static-key"
         },
@@ -28,7 +28,7 @@
         }
       },
       "additionalProperties" : false,
-      "required" : [ "Algorithm", "RoleArn", "SecretArn" ]
+      "required" : [ "RoleArn", "SecretArn" ]
     },
     "VpcInterfaceAttachment" : {
       "type" : "object",
@@ -58,6 +58,10 @@
         "type" : "string"
       }
     },
+    "Encryption" : {
+      "$ref" : "#/definitions/Encryption",
+      "description" : "The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key)."
+    },
     "Description" : {
       "type" : "string",
       "description" : "A description of the output."
@@ -66,13 +70,13 @@
       "type" : "string",
       "description" : "The address where you want to send the output."
     },
-    "Encryption" : {
-      "$ref" : "#/definitions/Encryption",
-      "description" : "The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key)."
-    },
     "MaxLatency" : {
       "type" : "integer",
       "description" : "The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams."
+    },
+    "MinLatency" : {
+      "type" : "integer",
+      "description" : "The minimum latency in milliseconds."
     },
     "Name" : {
       "type" : "string",
@@ -84,7 +88,7 @@
     },
     "Protocol" : {
       "type" : "string",
-      "enum" : [ "zixi-push", "rtp-fec", "rtp", "zixi-pull", "rist" ],
+      "enum" : [ "zixi-push", "rtp-fec", "rtp", "zixi-pull", "rist", "srt-listener" ],
       "description" : "The protocol that is used by the source or output."
     },
     "RemoteId" : {

@@ -102,6 +102,10 @@
       "type" : "string",
       "description" : "The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams."
     },
+    "SourceIngestPort" : {
+      "type" : "string",
+      "description" : "The port that the flow will be listening on for incoming content.(ReadOnly)"
+    },
     "VpcInterfaceName" : {
       "type" : "string",
       "description" : "The name of the VPC Interface this Source is configured with."
@@ -113,7 +117,7 @@
   },
   "additionalProperties" : false,
   "required" : [ "Name", "Description" ],
-  "readOnlyProperties" : [ "/properties/IngestIp", "/properties/SourceArn" ],
+  "readOnlyProperties" : [ "/properties/IngestIp", "/properties/SourceArn", "/properties/SourceIngestPort" ],
   "createOnlyProperties" : [ "/properties/Name" ],
   "primaryIdentifier" : [ "/properties/SourceArn" ],
   "handlers" : {

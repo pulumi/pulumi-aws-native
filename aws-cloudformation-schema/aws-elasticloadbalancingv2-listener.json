@@ -249,6 +249,7 @@
   "primaryIdentifier" : [ "/properties/ListenerArn" ],
   "readOnlyProperties" : [ "/properties/ListenerArn" ],
   "writeOnlyProperties" : [ "/properties/DefaultActions/*/AuthenticateOidcConfig/ClientSecret", "/properties/DefaultActions/*/ForwardConfig", "/properties/DefaultActions/*/TargetGroupArn" ],
+  "taggable" : false,
   "handlers" : {
     "create" : {
       "permissions" : [ "elasticloadbalancing:CreateListener", "elasticloadbalancing:DescribeListeners" ]
