@@ -52,6 +52,7 @@ __all__ = [
     'DataSetRowLevelPermissionDataSet',
     'DataSetTag',
     'DataSourceAmazonElasticsearchParameters',
+    'DataSourceAmazonOpenSearchParameters',
     'DataSourceAthenaParameters',
     'DataSourceAuroraParameters',
     'DataSourceAuroraPostgreSqlParameters',
@@ -1949,6 +1950,28 @@ class DataSourceAmazonElasticsearchParameters(dict):
 
 
 @pulumi.output_type
+class DataSourceAmazonOpenSearchParameters(dict):
+    """
+    <p>Amazon OpenSearch Service parameters.</p>
+    """
+    def __init__(__self__, *,
+                 domain: str):
+        """
+        <p>Amazon OpenSearch Service parameters.</p>
+        :param str domain: <p>The Amazon OpenSearch Service domain.</p>
+        """
+        pulumi.set(__self__, "domain", domain)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> str:
+        """
+        <p>The Amazon OpenSearch Service domain.</p>
+        """
+        return pulumi.get(self, "domain")
+
+
+@pulumi.output_type
 class DataSourceAthenaParameters(dict):
     """
     <p>Amazon Athena parameters.</p>
@@ -2402,6 +2425,8 @@ class DataSourceParameters(dict):
         suggest = None
         if key == "amazonElasticsearchParameters":
             suggest = "amazon_elasticsearch_parameters"
+        elif key == "amazonOpenSearchParameters":
+            suggest = "amazon_open_search_parameters"
         elif key == "athenaParameters":
             suggest = "athena_parameters"
         elif key == "auroraParameters":
@@ -2446,6 +2471,7 @@ class DataSourceParameters(dict):
 
     def __init__(__self__, *,
                  amazon_elasticsearch_parameters: Optional['outputs.DataSourceAmazonElasticsearchParameters'] = None,
+                 amazon_open_search_parameters: Optional['outputs.DataSourceAmazonOpenSearchParameters'] = None,
                  athena_parameters: Optional['outputs.DataSourceAthenaParameters'] = None,
                  aurora_parameters: Optional['outputs.DataSourceAuroraParameters'] = None,
                  aurora_postgre_sql_parameters: Optional['outputs.DataSourceAuroraPostgreSqlParameters'] = None,
@@ -2468,6 +2494,8 @@ class DataSourceParameters(dict):
         """
         if amazon_elasticsearch_parameters is not None:
             pulumi.set(__self__, "amazon_elasticsearch_parameters", amazon_elasticsearch_parameters)
+        if amazon_open_search_parameters is not None:
+            pulumi.set(__self__, "amazon_open_search_parameters", amazon_open_search_parameters)
         if athena_parameters is not None:
             pulumi.set(__self__, "athena_parameters", athena_parameters)
         if aurora_parameters is not None:
@@ -2503,6 +2531,11 @@ class DataSourceParameters(dict):
     @pulumi.getter(name="amazonElasticsearchParameters")
     def amazon_elasticsearch_parameters(self) -> Optional['outputs.DataSourceAmazonElasticsearchParameters']:
         return pulumi.get(self, "amazon_elasticsearch_parameters")
+
+    @property
+    @pulumi.getter(name="amazonOpenSearchParameters")
+    def amazon_open_search_parameters(self) -> Optional['outputs.DataSourceAmazonOpenSearchParameters']:
+        return pulumi.get(self, "amazon_open_search_parameters")
 
     @property
     @pulumi.getter(name="athenaParameters")

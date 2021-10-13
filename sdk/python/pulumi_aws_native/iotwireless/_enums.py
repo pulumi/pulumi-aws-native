@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'DestinationExpressionType',
+    'PartnerAccountPartnerType',
     'TaskDefinitionType',
     'WirelessDeviceType',
 ]
@@ -17,6 +18,13 @@ class DestinationExpressionType(str, Enum):
     """
     RULE_NAME = "RuleName"
     MQTT_TOPIC = "MqttTopic"
+
+
+class PartnerAccountPartnerType(str, Enum):
+    """
+    The partner type
+    """
+    SIDEWALK = "Sidewalk"
 
 
 class TaskDefinitionType(str, Enum):

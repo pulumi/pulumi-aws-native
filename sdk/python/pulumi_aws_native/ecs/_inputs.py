@@ -54,6 +54,7 @@ __all__ = [
     'TaskDefinitionProxyConfigurationArgs',
     'TaskDefinitionRepositoryCredentialsArgs',
     'TaskDefinitionResourceRequirementArgs',
+    'TaskDefinitionRuntimePlatformArgs',
     'TaskDefinitionSecretArgs',
     'TaskDefinitionSystemControlArgs',
     'TaskDefinitionTagArgs',
@@ -2205,6 +2206,35 @@ class TaskDefinitionResourceRequirementArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class TaskDefinitionRuntimePlatformArgs:
+    def __init__(__self__, *,
+                 cpu_architecture: Optional[pulumi.Input[str]] = None,
+                 operating_system_family: Optional[pulumi.Input[str]] = None):
+        if cpu_architecture is not None:
+            pulumi.set(__self__, "cpu_architecture", cpu_architecture)
+        if operating_system_family is not None:
+            pulumi.set(__self__, "operating_system_family", operating_system_family)
+
+    @property
+    @pulumi.getter(name="cpuArchitecture")
+    def cpu_architecture(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cpu_architecture")
+
+    @cpu_architecture.setter
+    def cpu_architecture(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cpu_architecture", value)
+
+    @property
+    @pulumi.getter(name="operatingSystemFamily")
+    def operating_system_family(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "operating_system_family")
+
+    @operating_system_family.setter
+    def operating_system_family(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "operating_system_family", value)
 
 
 @pulumi.input_type

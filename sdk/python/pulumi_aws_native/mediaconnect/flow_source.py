@@ -313,6 +313,7 @@ class FlowSource(pulumi.CustomResource):
             __props__.__dict__["whitelist_cidr"] = whitelist_cidr
             __props__.__dict__["ingest_ip"] = None
             __props__.__dict__["source_arn"] = None
+            __props__.__dict__["source_ingest_port"] = None
         super(FlowSource, __self__).__init__(
             'aws-native:mediaconnect:FlowSource',
             resource_name,
@@ -346,6 +347,7 @@ class FlowSource(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["protocol"] = None
         __props__.__dict__["source_arn"] = None
+        __props__.__dict__["source_ingest_port"] = None
         __props__.__dict__["stream_id"] = None
         __props__.__dict__["vpc_interface_name"] = None
         __props__.__dict__["whitelist_cidr"] = None
@@ -438,6 +440,14 @@ class FlowSource(pulumi.CustomResource):
         The ARN of the source.
         """
         return pulumi.get(self, "source_arn")
+
+    @property
+    @pulumi.getter(name="sourceIngestPort")
+    def source_ingest_port(self) -> pulumi.Output[str]:
+        """
+        The port that the flow will be listening on for incoming content.(ReadOnly)
+        """
+        return pulumi.get(self, "source_ingest_port")
 
     @property
     @pulumi.getter(name="streamId")

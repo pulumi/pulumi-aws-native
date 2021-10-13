@@ -6,4 +6,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .anomaly_monitor import *
+from .anomaly_subscription import *
 from .cost_category import *
+from ._inputs import *
+from . import outputs

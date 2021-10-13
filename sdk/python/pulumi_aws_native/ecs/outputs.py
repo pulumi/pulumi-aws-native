@@ -55,6 +55,7 @@ __all__ = [
     'TaskDefinitionProxyConfiguration',
     'TaskDefinitionRepositoryCredentials',
     'TaskDefinitionResourceRequirement',
+    'TaskDefinitionRuntimePlatform',
     'TaskDefinitionSecret',
     'TaskDefinitionSystemControl',
     'TaskDefinitionTag',
@@ -2235,6 +2236,46 @@ class TaskDefinitionResourceRequirement(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskDefinitionRuntimePlatform(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuArchitecture":
+            suggest = "cpu_architecture"
+        elif key == "operatingSystemFamily":
+            suggest = "operating_system_family"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionRuntimePlatform. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskDefinitionRuntimePlatform.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskDefinitionRuntimePlatform.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cpu_architecture: Optional[str] = None,
+                 operating_system_family: Optional[str] = None):
+        if cpu_architecture is not None:
+            pulumi.set(__self__, "cpu_architecture", cpu_architecture)
+        if operating_system_family is not None:
+            pulumi.set(__self__, "operating_system_family", operating_system_family)
+
+    @property
+    @pulumi.getter(name="cpuArchitecture")
+    def cpu_architecture(self) -> Optional[str]:
+        return pulumi.get(self, "cpu_architecture")
+
+    @property
+    @pulumi.getter(name="operatingSystemFamily")
+    def operating_system_family(self) -> Optional[str]:
+        return pulumi.get(self, "operating_system_family")
 
 
 @pulumi.output_type

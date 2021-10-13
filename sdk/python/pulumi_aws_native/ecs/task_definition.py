@@ -29,6 +29,7 @@ class TaskDefinitionArgs:
                  placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionPlacementConstraintArgs']]]] = None,
                  proxy_configuration: Optional[pulumi.Input['TaskDefinitionProxyConfigurationArgs']] = None,
                  requires_compatibilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 runtime_platform: Optional[pulumi.Input['TaskDefinitionRuntimePlatformArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionTagArgs']]]] = None,
                  task_role_arn: Optional[pulumi.Input[str]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionVolumeArgs']]]] = None):
@@ -61,6 +62,8 @@ class TaskDefinitionArgs:
             pulumi.set(__self__, "proxy_configuration", proxy_configuration)
         if requires_compatibilities is not None:
             pulumi.set(__self__, "requires_compatibilities", requires_compatibilities)
+        if runtime_platform is not None:
+            pulumi.set(__self__, "runtime_platform", runtime_platform)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if task_role_arn is not None:
@@ -186,6 +189,15 @@ class TaskDefinitionArgs:
         pulumi.set(self, "requires_compatibilities", value)
 
     @property
+    @pulumi.getter(name="runtimePlatform")
+    def runtime_platform(self) -> Optional[pulumi.Input['TaskDefinitionRuntimePlatformArgs']]:
+        return pulumi.get(self, "runtime_platform")
+
+    @runtime_platform.setter
+    def runtime_platform(self, value: Optional[pulumi.Input['TaskDefinitionRuntimePlatformArgs']]):
+        pulumi.set(self, "runtime_platform", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionTagArgs']]]]:
         return pulumi.get(self, "tags")
@@ -231,6 +243,7 @@ class TaskDefinition(pulumi.CustomResource):
                  placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionPlacementConstraintArgs']]]]] = None,
                  proxy_configuration: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionProxyConfigurationArgs']]] = None,
                  requires_compatibilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 runtime_platform: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionRuntimePlatformArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionTagArgs']]]]] = None,
                  task_role_arn: Optional[pulumi.Input[str]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionVolumeArgs']]]]] = None,
@@ -278,6 +291,7 @@ class TaskDefinition(pulumi.CustomResource):
                  placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionPlacementConstraintArgs']]]]] = None,
                  proxy_configuration: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionProxyConfigurationArgs']]] = None,
                  requires_compatibilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 runtime_platform: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionRuntimePlatformArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionTagArgs']]]]] = None,
                  task_role_arn: Optional[pulumi.Input[str]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionVolumeArgs']]]]] = None,
@@ -306,6 +320,7 @@ class TaskDefinition(pulumi.CustomResource):
             __props__.__dict__["placement_constraints"] = placement_constraints
             __props__.__dict__["proxy_configuration"] = proxy_configuration
             __props__.__dict__["requires_compatibilities"] = requires_compatibilities
+            __props__.__dict__["runtime_platform"] = runtime_platform
             __props__.__dict__["tags"] = tags
             __props__.__dict__["task_role_arn"] = task_role_arn
             __props__.__dict__["volumes"] = volumes
@@ -345,6 +360,7 @@ class TaskDefinition(pulumi.CustomResource):
         __props__.__dict__["placement_constraints"] = None
         __props__.__dict__["proxy_configuration"] = None
         __props__.__dict__["requires_compatibilities"] = None
+        __props__.__dict__["runtime_platform"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["task_definition_arn"] = None
         __props__.__dict__["task_role_arn"] = None
@@ -415,6 +431,11 @@ class TaskDefinition(pulumi.CustomResource):
     @pulumi.getter(name="requiresCompatibilities")
     def requires_compatibilities(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "requires_compatibilities")
+
+    @property
+    @pulumi.getter(name="runtimePlatform")
+    def runtime_platform(self) -> pulumi.Output[Optional['outputs.TaskDefinitionRuntimePlatform']]:
+        return pulumi.get(self, "runtime_platform")
 
     @property
     @pulumi.getter

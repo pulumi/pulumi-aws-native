@@ -10,6 +10,7 @@ __all__ = [
     'PlaceIndexIntendedUse',
     'PlaceIndexPricingPlan',
     'RouteCalculatorPricingPlan',
+    'TrackerPositionFiltering',
     'TrackerPricingPlan',
 ]
 
@@ -40,6 +41,11 @@ class PlaceIndexPricingPlan(str, Enum):
 class RouteCalculatorPricingPlan(str, Enum):
     REQUEST_BASED_USAGE = "RequestBasedUsage"
     MOBILE_ASSET_MANAGEMENT = "MobileAssetManagement"
+
+
+class TrackerPositionFiltering(str, Enum):
+    TIME_BASED = "TimeBased"
+    DISTANCE_BASED = "DistanceBased"
 
 
 class TrackerPricingPlan(str, Enum):

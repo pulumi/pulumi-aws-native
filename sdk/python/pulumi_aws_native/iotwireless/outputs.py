@@ -14,6 +14,10 @@ __all__ = [
     'DestinationTag',
     'DeviceProfileLoRaWANDeviceProfile',
     'DeviceProfileTag',
+    'PartnerAccountSidewalkAccountInfo',
+    'PartnerAccountSidewalkAccountInfoWithFingerprint',
+    'PartnerAccountSidewalkUpdateAccount',
+    'PartnerAccountTag',
     'ServiceProfileLoRaWANServiceProfile',
     'ServiceProfileTag',
     'TaskDefinitionLoRaWANGatewayVersion',
@@ -216,6 +220,132 @@ class DeviceProfileLoRaWANDeviceProfile(dict):
 
 @pulumi.output_type
 class DeviceProfileTag(dict):
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class PartnerAccountSidewalkAccountInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appServerPrivateKey":
+            suggest = "app_server_private_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PartnerAccountSidewalkAccountInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PartnerAccountSidewalkAccountInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PartnerAccountSidewalkAccountInfo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 app_server_private_key: str):
+        pulumi.set(__self__, "app_server_private_key", app_server_private_key)
+
+    @property
+    @pulumi.getter(name="appServerPrivateKey")
+    def app_server_private_key(self) -> str:
+        return pulumi.get(self, "app_server_private_key")
+
+
+@pulumi.output_type
+class PartnerAccountSidewalkAccountInfoWithFingerprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "amazonId":
+            suggest = "amazon_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PartnerAccountSidewalkAccountInfoWithFingerprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PartnerAccountSidewalkAccountInfoWithFingerprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PartnerAccountSidewalkAccountInfoWithFingerprint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 amazon_id: Optional[str] = None,
+                 arn: Optional[str] = None,
+                 fingerprint: Optional[str] = None):
+        if amazon_id is not None:
+            pulumi.set(__self__, "amazon_id", amazon_id)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if fingerprint is not None:
+            pulumi.set(__self__, "fingerprint", fingerprint)
+
+    @property
+    @pulumi.getter(name="amazonId")
+    def amazon_id(self) -> Optional[str]:
+        return pulumi.get(self, "amazon_id")
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[str]:
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def fingerprint(self) -> Optional[str]:
+        return pulumi.get(self, "fingerprint")
+
+
+@pulumi.output_type
+class PartnerAccountSidewalkUpdateAccount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appServerPrivateKey":
+            suggest = "app_server_private_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PartnerAccountSidewalkUpdateAccount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PartnerAccountSidewalkUpdateAccount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PartnerAccountSidewalkUpdateAccount.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 app_server_private_key: Optional[str] = None):
+        if app_server_private_key is not None:
+            pulumi.set(__self__, "app_server_private_key", app_server_private_key)
+
+    @property
+    @pulumi.getter(name="appServerPrivateKey")
+    def app_server_private_key(self) -> Optional[str]:
+        return pulumi.get(self, "app_server_private_key")
+
+
+@pulumi.output_type
+class PartnerAccountTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):

@@ -26,6 +26,15 @@ class NetworkAclEntryArgs:
                  port_range: Optional[pulumi.Input['NetworkAclEntryPortRangeArgs']] = None):
         """
         The set of arguments for constructing a NetworkAclEntry resource.
+        :param pulumi.Input[str] network_acl_id: The ID of the network ACL
+        :param pulumi.Input[int] protocol: The protocol number. A value of "-1" means all protocols. If you specify "-1" or a protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code
+        :param pulumi.Input[str] rule_action: Indicates whether to allow or deny the traffic that matches the rule
+        :param pulumi.Input[int] rule_number: Rule number to assign to the entry, such as 100. ACL entries are processed in ascending order by rule number. Entries can't use the same rule number unless one is an egress rule and the other is an ingress rule
+        :param pulumi.Input[str] cidr_block: The IPv4 CIDR range to allow or deny, in CIDR notation (for example, 172.16.0.0/24). Requirement is conditional: You must specify the CidrBlock or Ipv6CidrBlock property
+        :param pulumi.Input[bool] egress: Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet)
+        :param pulumi.Input['NetworkAclEntryIcmpArgs'] icmp: The Internet Control Message Protocol (ICMP) code and type. Requirement is conditional: Required if specifying 1 (ICMP) for the protocol parameter
+        :param pulumi.Input[str] ipv6_cidr_block: The IPv6 network range to allow or deny, in CIDR notation (for example 2001:db8:1234:1a00::/64)
+        :param pulumi.Input['NetworkAclEntryPortRangeArgs'] port_range: The IPv4 network range to allow or deny, in CIDR notation (for example 172.16.0.0/24). We modify the specified CIDR block to its canonical form; for example, if you specify 100.68.0.18/18, we modify it to 100.68.0.0/18
         """
         pulumi.set(__self__, "network_acl_id", network_acl_id)
         pulumi.set(__self__, "protocol", protocol)
@@ -45,6 +54,9 @@ class NetworkAclEntryArgs:
     @property
     @pulumi.getter(name="networkAclId")
     def network_acl_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the network ACL
+        """
         return pulumi.get(self, "network_acl_id")
 
     @network_acl_id.setter
@@ -54,6 +66,9 @@ class NetworkAclEntryArgs:
     @property
     @pulumi.getter
     def protocol(self) -> pulumi.Input[int]:
+        """
+        The protocol number. A value of "-1" means all protocols. If you specify "-1" or a protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code
+        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -63,6 +78,9 @@ class NetworkAclEntryArgs:
     @property
     @pulumi.getter(name="ruleAction")
     def rule_action(self) -> pulumi.Input[str]:
+        """
+        Indicates whether to allow or deny the traffic that matches the rule
+        """
         return pulumi.get(self, "rule_action")
 
     @rule_action.setter
@@ -72,6 +90,9 @@ class NetworkAclEntryArgs:
     @property
     @pulumi.getter(name="ruleNumber")
     def rule_number(self) -> pulumi.Input[int]:
+        """
+        Rule number to assign to the entry, such as 100. ACL entries are processed in ascending order by rule number. Entries can't use the same rule number unless one is an egress rule and the other is an ingress rule
+        """
         return pulumi.get(self, "rule_number")
 
     @rule_number.setter
@@ -81,6 +102,9 @@ class NetworkAclEntryArgs:
     @property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv4 CIDR range to allow or deny, in CIDR notation (for example, 172.16.0.0/24). Requirement is conditional: You must specify the CidrBlock or Ipv6CidrBlock property
+        """
         return pulumi.get(self, "cidr_block")
 
     @cidr_block.setter
@@ -90,6 +114,9 @@ class NetworkAclEntryArgs:
     @property
     @pulumi.getter
     def egress(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet)
+        """
         return pulumi.get(self, "egress")
 
     @egress.setter
@@ -99,6 +126,9 @@ class NetworkAclEntryArgs:
     @property
     @pulumi.getter
     def icmp(self) -> Optional[pulumi.Input['NetworkAclEntryIcmpArgs']]:
+        """
+        The Internet Control Message Protocol (ICMP) code and type. Requirement is conditional: Required if specifying 1 (ICMP) for the protocol parameter
+        """
         return pulumi.get(self, "icmp")
 
     @icmp.setter
@@ -108,6 +138,9 @@ class NetworkAclEntryArgs:
     @property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv6 network range to allow or deny, in CIDR notation (for example 2001:db8:1234:1a00::/64)
+        """
         return pulumi.get(self, "ipv6_cidr_block")
 
     @ipv6_cidr_block.setter
@@ -117,6 +150,9 @@ class NetworkAclEntryArgs:
     @property
     @pulumi.getter(name="portRange")
     def port_range(self) -> Optional[pulumi.Input['NetworkAclEntryPortRangeArgs']]:
+        """
+        The IPv4 network range to allow or deny, in CIDR notation (for example 172.16.0.0/24). We modify the specified CIDR block to its canonical form; for example, if you specify 100.68.0.18/18, we modify it to 100.68.0.0/18
+        """
         return pulumi.get(self, "port_range")
 
     @port_range.setter
@@ -149,6 +185,15 @@ class NetworkAclEntry(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cidr_block: The IPv4 CIDR range to allow or deny, in CIDR notation (for example, 172.16.0.0/24). Requirement is conditional: You must specify the CidrBlock or Ipv6CidrBlock property
+        :param pulumi.Input[bool] egress: Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet)
+        :param pulumi.Input[pulumi.InputType['NetworkAclEntryIcmpArgs']] icmp: The Internet Control Message Protocol (ICMP) code and type. Requirement is conditional: Required if specifying 1 (ICMP) for the protocol parameter
+        :param pulumi.Input[str] ipv6_cidr_block: The IPv6 network range to allow or deny, in CIDR notation (for example 2001:db8:1234:1a00::/64)
+        :param pulumi.Input[str] network_acl_id: The ID of the network ACL
+        :param pulumi.Input[pulumi.InputType['NetworkAclEntryPortRangeArgs']] port_range: The IPv4 network range to allow or deny, in CIDR notation (for example 172.16.0.0/24). We modify the specified CIDR block to its canonical form; for example, if you specify 100.68.0.18/18, we modify it to 100.68.0.0/18
+        :param pulumi.Input[int] protocol: The protocol number. A value of "-1" means all protocols. If you specify "-1" or a protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code
+        :param pulumi.Input[str] rule_action: Indicates whether to allow or deny the traffic that matches the rule
+        :param pulumi.Input[int] rule_number: Rule number to assign to the entry, such as 100. ACL entries are processed in ascending order by rule number. Entries can't use the same rule number unless one is an egress rule and the other is an ingress rule
         """
         ...
     @overload
@@ -249,45 +294,72 @@ class NetworkAclEntry(pulumi.CustomResource):
     @property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> pulumi.Output[Optional[str]]:
+        """
+        The IPv4 CIDR range to allow or deny, in CIDR notation (for example, 172.16.0.0/24). Requirement is conditional: You must specify the CidrBlock or Ipv6CidrBlock property
+        """
         return pulumi.get(self, "cidr_block")
 
     @property
     @pulumi.getter
     def egress(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet)
+        """
         return pulumi.get(self, "egress")
 
     @property
     @pulumi.getter
     def icmp(self) -> pulumi.Output[Optional['outputs.NetworkAclEntryIcmp']]:
+        """
+        The Internet Control Message Protocol (ICMP) code and type. Requirement is conditional: Required if specifying 1 (ICMP) for the protocol parameter
+        """
         return pulumi.get(self, "icmp")
 
     @property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> pulumi.Output[Optional[str]]:
+        """
+        The IPv6 network range to allow or deny, in CIDR notation (for example 2001:db8:1234:1a00::/64)
+        """
         return pulumi.get(self, "ipv6_cidr_block")
 
     @property
     @pulumi.getter(name="networkAclId")
     def network_acl_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the network ACL
+        """
         return pulumi.get(self, "network_acl_id")
 
     @property
     @pulumi.getter(name="portRange")
     def port_range(self) -> pulumi.Output[Optional['outputs.NetworkAclEntryPortRange']]:
+        """
+        The IPv4 network range to allow or deny, in CIDR notation (for example 172.16.0.0/24). We modify the specified CIDR block to its canonical form; for example, if you specify 100.68.0.18/18, we modify it to 100.68.0.0/18
+        """
         return pulumi.get(self, "port_range")
 
     @property
     @pulumi.getter
     def protocol(self) -> pulumi.Output[int]:
+        """
+        The protocol number. A value of "-1" means all protocols. If you specify "-1" or a protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code
+        """
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter(name="ruleAction")
     def rule_action(self) -> pulumi.Output[str]:
+        """
+        Indicates whether to allow or deny the traffic that matches the rule
+        """
         return pulumi.get(self, "rule_action")
 
     @property
     @pulumi.getter(name="ruleNumber")
     def rule_number(self) -> pulumi.Output[int]:
+        """
+        Rule number to assign to the entry, such as 100. ACL entries are processed in ascending order by rule number. Entries can't use the same rule number unless one is an egress rule and the other is an ingress rule
+        """
         return pulumi.get(self, "rule_number")
 

@@ -6,9 +6,6 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .public_repository import *
-from .registry_policy import *
-from .replication_configuration import *
-from .repository import *
+from .inference_scheduler import *
 from ._inputs import *
 from . import outputs

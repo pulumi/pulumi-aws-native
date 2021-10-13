@@ -20,10 +20,12 @@ class SafetyRuleArgs:
                  control_panel_arn: Optional[pulumi.Input[str]] = None,
                  gating_rule: Optional[pulumi.Input['SafetyRuleGatingRuleArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rule_config: Optional[pulumi.Input['SafetyRuleRuleConfigArgs']] = None):
+                 rule_config: Optional[pulumi.Input['SafetyRuleRuleConfigArgs']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SafetyRuleTagArgs']]]] = None):
         """
         The set of arguments for constructing a SafetyRule resource.
         :param pulumi.Input[str] control_panel_arn: The Amazon Resource Name (ARN) of the control panel.
+        :param pulumi.Input[Sequence[pulumi.Input['SafetyRuleTagArgs']]] tags: A collection of tags associated with a resource
         """
         if assertion_rule is not None:
             pulumi.set(__self__, "assertion_rule", assertion_rule)
@@ -35,6 +37,8 @@ class SafetyRuleArgs:
             pulumi.set(__self__, "name", name)
         if rule_config is not None:
             pulumi.set(__self__, "rule_config", rule_config)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="assertionRule")
@@ -84,6 +88,18 @@ class SafetyRuleArgs:
     def rule_config(self, value: Optional[pulumi.Input['SafetyRuleRuleConfigArgs']]):
         pulumi.set(self, "rule_config", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SafetyRuleTagArgs']]]]:
+        """
+        A collection of tags associated with a resource
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SafetyRuleTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class SafetyRule(pulumi.CustomResource):
     @overload
@@ -95,6 +111,7 @@ class SafetyRule(pulumi.CustomResource):
                  gating_rule: Optional[pulumi.Input[pulumi.InputType['SafetyRuleGatingRuleArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rule_config: Optional[pulumi.Input[pulumi.InputType['SafetyRuleRuleConfigArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SafetyRuleTagArgs']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS Route53 Recovery Control basic constructs and validation rules.
@@ -102,6 +119,7 @@ class SafetyRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] control_panel_arn: The Amazon Resource Name (ARN) of the control panel.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SafetyRuleTagArgs']]]] tags: A collection of tags associated with a resource
         """
         ...
     @overload
@@ -132,6 +150,7 @@ class SafetyRule(pulumi.CustomResource):
                  gating_rule: Optional[pulumi.Input[pulumi.InputType['SafetyRuleGatingRuleArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rule_config: Optional[pulumi.Input[pulumi.InputType['SafetyRuleRuleConfigArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SafetyRuleTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -149,6 +168,7 @@ class SafetyRule(pulumi.CustomResource):
             __props__.__dict__["gating_rule"] = gating_rule
             __props__.__dict__["name"] = name
             __props__.__dict__["rule_config"] = rule_config
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["safety_rule_arn"] = None
             __props__.__dict__["status"] = None
         super(SafetyRule, __self__).__init__(
@@ -180,6 +200,7 @@ class SafetyRule(pulumi.CustomResource):
         __props__.__dict__["rule_config"] = None
         __props__.__dict__["safety_rule_arn"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["tags"] = None
         return SafetyRule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -225,4 +246,12 @@ class SafetyRule(pulumi.CustomResource):
         The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.SafetyRuleTag']]]:
+        """
+        A collection of tags associated with a resource
+        """
+        return pulumi.get(self, "tags")
 

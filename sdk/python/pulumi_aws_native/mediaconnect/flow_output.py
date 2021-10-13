@@ -23,6 +23,7 @@ class FlowOutputArgs:
                  destination: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input['FlowOutputEncryptionArgs']] = None,
                  max_latency: Optional[pulumi.Input[int]] = None,
+                 min_latency: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  remote_id: Optional[pulumi.Input[str]] = None,
@@ -38,6 +39,7 @@ class FlowOutputArgs:
         :param pulumi.Input[str] destination: The address where you want to send the output.
         :param pulumi.Input['FlowOutputEncryptionArgs'] encryption: The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
         :param pulumi.Input[int] max_latency: The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
+        :param pulumi.Input[int] min_latency: The minimum latency in milliseconds.
         :param pulumi.Input[str] name: The name of the output. This value must be unique within the current flow.
         :param pulumi.Input[int] port: The port to use when content is distributed to this output.
         :param pulumi.Input[str] remote_id: The remote ID for the Zixi-pull stream.
@@ -57,6 +59,8 @@ class FlowOutputArgs:
             pulumi.set(__self__, "encryption", encryption)
         if max_latency is not None:
             pulumi.set(__self__, "max_latency", max_latency)
+        if min_latency is not None:
+            pulumi.set(__self__, "min_latency", min_latency)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if port is not None:
@@ -155,6 +159,18 @@ class FlowOutputArgs:
         pulumi.set(self, "max_latency", value)
 
     @property
+    @pulumi.getter(name="minLatency")
+    def min_latency(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum latency in milliseconds.
+        """
+        return pulumi.get(self, "min_latency")
+
+    @min_latency.setter
+    def min_latency(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_latency", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -238,6 +254,7 @@ class FlowOutput(pulumi.CustomResource):
                  encryption: Optional[pulumi.Input[pulumi.InputType['FlowOutputEncryptionArgs']]] = None,
                  flow_arn: Optional[pulumi.Input[str]] = None,
                  max_latency: Optional[pulumi.Input[int]] = None,
+                 min_latency: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input['FlowOutputProtocol']] = None,
@@ -257,6 +274,7 @@ class FlowOutput(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FlowOutputEncryptionArgs']] encryption: The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
         :param pulumi.Input[str] flow_arn: The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
         :param pulumi.Input[int] max_latency: The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
+        :param pulumi.Input[int] min_latency: The minimum latency in milliseconds.
         :param pulumi.Input[str] name: The name of the output. This value must be unique within the current flow.
         :param pulumi.Input[int] port: The port to use when content is distributed to this output.
         :param pulumi.Input['FlowOutputProtocol'] protocol: The protocol that is used by the source or output.
@@ -295,6 +313,7 @@ class FlowOutput(pulumi.CustomResource):
                  encryption: Optional[pulumi.Input[pulumi.InputType['FlowOutputEncryptionArgs']]] = None,
                  flow_arn: Optional[pulumi.Input[str]] = None,
                  max_latency: Optional[pulumi.Input[int]] = None,
+                 min_latency: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input['FlowOutputProtocol']] = None,
@@ -322,6 +341,7 @@ class FlowOutput(pulumi.CustomResource):
                 raise TypeError("Missing required property 'flow_arn'")
             __props__.__dict__["flow_arn"] = flow_arn
             __props__.__dict__["max_latency"] = max_latency
+            __props__.__dict__["min_latency"] = min_latency
             __props__.__dict__["name"] = name
             __props__.__dict__["port"] = port
             if protocol is None and not opts.urn:
@@ -360,6 +380,7 @@ class FlowOutput(pulumi.CustomResource):
         __props__.__dict__["encryption"] = None
         __props__.__dict__["flow_arn"] = None
         __props__.__dict__["max_latency"] = None
+        __props__.__dict__["min_latency"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["output_arn"] = None
         __props__.__dict__["port"] = None
@@ -417,6 +438,14 @@ class FlowOutput(pulumi.CustomResource):
         The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
         """
         return pulumi.get(self, "max_latency")
+
+    @property
+    @pulumi.getter(name="minLatency")
+    def min_latency(self) -> pulumi.Output[Optional[int]]:
+        """
+        The minimum latency in milliseconds.
+        """
+        return pulumi.get(self, "min_latency")
 
     @property
     @pulumi.getter
