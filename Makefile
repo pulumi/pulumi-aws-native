@@ -29,7 +29,7 @@ update_submodules:: init_submodules
 	done
 
 discovery:: update_submodules codegen
-	$(WORKING_DIR)/bin/$(CODEGEN) discovery $(CFN_SCHEMA_DIR) ${VERSION}
+	$(WORKING_DIR)/bin/$(CODEGEN) discovery $(CFN_SCHEMA_DIR) ${VERSION} https://schema.cloudformation.us-east-1.amazonaws.com/CloudformationSchema.zip,https://schema.cloudformation.us-west-2.amazonaws.com/CloudformationSchema.zip
 
 ensure:: init_submodules
 	@echo "GO111MODULE=on go mod tidy"
