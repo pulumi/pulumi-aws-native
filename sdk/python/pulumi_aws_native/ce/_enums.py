@@ -5,8 +5,44 @@
 from enum import Enum
 
 __all__ = [
+    'AnomalyMonitorMonitorDimension',
+    'AnomalyMonitorMonitorType',
+    'AnomalySubscriptionFrequency',
+    'AnomalySubscriptionSubscriberStatus',
+    'AnomalySubscriptionSubscriberType',
     'CostCategoryRuleVersion',
 ]
+
+
+class AnomalyMonitorMonitorDimension(str, Enum):
+    """
+    The dimensions to evaluate
+    """
+    SERVICE = "SERVICE"
+
+
+class AnomalyMonitorMonitorType(str, Enum):
+    DIMENSIONAL = "DIMENSIONAL"
+    CUSTOM = "CUSTOM"
+
+
+class AnomalySubscriptionFrequency(str, Enum):
+    """
+    The frequency at which anomaly reports are sent over email. 
+    """
+    DAILY = "DAILY"
+    IMMEDIATE = "IMMEDIATE"
+    WEEKLY = "WEEKLY"
+
+
+class AnomalySubscriptionSubscriberStatus(str, Enum):
+    CONFIRMED = "CONFIRMED"
+    DECLINED = "DECLINED"
+
+
+class AnomalySubscriptionSubscriberType(str, Enum):
+    EMAIL = "EMAIL"
+    SNS = "SNS"
 
 
 class CostCategoryRuleVersion(str, Enum):

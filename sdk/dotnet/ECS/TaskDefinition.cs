@@ -54,6 +54,9 @@ namespace Pulumi.AwsNative.ECS
         [Output("requiresCompatibilities")]
         public Output<ImmutableArray<string>> RequiresCompatibilities { get; private set; } = null!;
 
+        [Output("runtimePlatform")]
+        public Output<Outputs.TaskDefinitionRuntimePlatform?> RuntimePlatform { get; private set; } = null!;
+
         [Output("tags")]
         public Output<ImmutableArray<Outputs.TaskDefinitionTag>> Tags { get; private set; } = null!;
 
@@ -172,6 +175,9 @@ namespace Pulumi.AwsNative.ECS
             get => _requiresCompatibilities ?? (_requiresCompatibilities = new InputList<string>());
             set => _requiresCompatibilities = value;
         }
+
+        [Input("runtimePlatform")]
+        public Input<Inputs.TaskDefinitionRuntimePlatformArgs>? RuntimePlatform { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.TaskDefinitionTagArgs>? _tags;

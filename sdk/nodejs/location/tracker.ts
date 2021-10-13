@@ -39,6 +39,7 @@ export class Tracker extends pulumi.CustomResource {
     public /*out*/ readonly createTime!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    public readonly positionFiltering!: pulumi.Output<enums.location.TrackerPositionFiltering | undefined>;
     public readonly pricingPlan!: pulumi.Output<enums.location.TrackerPricingPlan>;
     public readonly pricingPlanDataSource!: pulumi.Output<string | undefined>;
     public /*out*/ readonly trackerArn!: pulumi.Output<string>;
@@ -64,6 +65,7 @@ export class Tracker extends pulumi.CustomResource {
             }
             inputs["description"] = args ? args.description : undefined;
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            inputs["positionFiltering"] = args ? args.positionFiltering : undefined;
             inputs["pricingPlan"] = args ? args.pricingPlan : undefined;
             inputs["pricingPlanDataSource"] = args ? args.pricingPlanDataSource : undefined;
             inputs["trackerName"] = args ? args.trackerName : undefined;
@@ -76,6 +78,7 @@ export class Tracker extends pulumi.CustomResource {
             inputs["createTime"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["kmsKeyId"] = undefined /*out*/;
+            inputs["positionFiltering"] = undefined /*out*/;
             inputs["pricingPlan"] = undefined /*out*/;
             inputs["pricingPlanDataSource"] = undefined /*out*/;
             inputs["trackerArn"] = undefined /*out*/;
@@ -95,6 +98,7 @@ export class Tracker extends pulumi.CustomResource {
 export interface TrackerArgs {
     description?: pulumi.Input<string>;
     kmsKeyId?: pulumi.Input<string>;
+    positionFiltering?: pulumi.Input<enums.location.TrackerPositionFiltering>;
     pricingPlan: pulumi.Input<enums.location.TrackerPricingPlan>;
     pricingPlanDataSource?: pulumi.Input<string>;
     trackerName: pulumi.Input<string>;

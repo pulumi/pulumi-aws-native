@@ -15,15 +15,16 @@ import (
 type Tracker struct {
 	pulumi.CustomResourceState
 
-	Arn                   pulumi.StringOutput      `pulumi:"arn"`
-	CreateTime            pulumi.StringOutput      `pulumi:"createTime"`
-	Description           pulumi.StringPtrOutput   `pulumi:"description"`
-	KmsKeyId              pulumi.StringPtrOutput   `pulumi:"kmsKeyId"`
-	PricingPlan           TrackerPricingPlanOutput `pulumi:"pricingPlan"`
-	PricingPlanDataSource pulumi.StringPtrOutput   `pulumi:"pricingPlanDataSource"`
-	TrackerArn            pulumi.StringOutput      `pulumi:"trackerArn"`
-	TrackerName           pulumi.StringOutput      `pulumi:"trackerName"`
-	UpdateTime            pulumi.StringOutput      `pulumi:"updateTime"`
+	Arn                   pulumi.StringOutput               `pulumi:"arn"`
+	CreateTime            pulumi.StringOutput               `pulumi:"createTime"`
+	Description           pulumi.StringPtrOutput            `pulumi:"description"`
+	KmsKeyId              pulumi.StringPtrOutput            `pulumi:"kmsKeyId"`
+	PositionFiltering     TrackerPositionFilteringPtrOutput `pulumi:"positionFiltering"`
+	PricingPlan           TrackerPricingPlanOutput          `pulumi:"pricingPlan"`
+	PricingPlanDataSource pulumi.StringPtrOutput            `pulumi:"pricingPlanDataSource"`
+	TrackerArn            pulumi.StringOutput               `pulumi:"trackerArn"`
+	TrackerName           pulumi.StringOutput               `pulumi:"trackerName"`
+	UpdateTime            pulumi.StringOutput               `pulumi:"updateTime"`
 }
 
 // NewTracker registers a new resource with the given unique name, arguments, and options.
@@ -71,17 +72,19 @@ func (TrackerState) ElementType() reflect.Type {
 }
 
 type trackerArgs struct {
-	Description           *string            `pulumi:"description"`
-	KmsKeyId              *string            `pulumi:"kmsKeyId"`
-	PricingPlan           TrackerPricingPlan `pulumi:"pricingPlan"`
-	PricingPlanDataSource *string            `pulumi:"pricingPlanDataSource"`
-	TrackerName           string             `pulumi:"trackerName"`
+	Description           *string                   `pulumi:"description"`
+	KmsKeyId              *string                   `pulumi:"kmsKeyId"`
+	PositionFiltering     *TrackerPositionFiltering `pulumi:"positionFiltering"`
+	PricingPlan           TrackerPricingPlan        `pulumi:"pricingPlan"`
+	PricingPlanDataSource *string                   `pulumi:"pricingPlanDataSource"`
+	TrackerName           string                    `pulumi:"trackerName"`
 }
 
 // The set of arguments for constructing a Tracker resource.
 type TrackerArgs struct {
 	Description           pulumi.StringPtrInput
 	KmsKeyId              pulumi.StringPtrInput
+	PositionFiltering     TrackerPositionFilteringPtrInput
 	PricingPlan           TrackerPricingPlanInput
 	PricingPlanDataSource pulumi.StringPtrInput
 	TrackerName           pulumi.StringInput

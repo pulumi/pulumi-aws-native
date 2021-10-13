@@ -59,6 +59,10 @@ export class ControlPanel extends pulumi.CustomResource {
      * The deployment status of control panel. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
      */
     public /*out*/ readonly status!: pulumi.Output<enums.route53recoverycontrol.ControlPanelStatus>;
+    /**
+     * A collection of tags associated with a resource
+     */
+    public readonly tags!: pulumi.Output<outputs.route53recoverycontrol.ControlPanelTag[] | undefined>;
 
     /**
      * Create a ControlPanel resource with the given unique name, arguments, and options.
@@ -76,6 +80,7 @@ export class ControlPanel extends pulumi.CustomResource {
             }
             inputs["clusterArn"] = args ? args.clusterArn : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["controlPanelArn"] = undefined /*out*/;
             inputs["defaultControlPanel"] = undefined /*out*/;
             inputs["routingControlCount"] = undefined /*out*/;
@@ -87,6 +92,7 @@ export class ControlPanel extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["routingControlCount"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -107,4 +113,8 @@ export interface ControlPanelArgs {
      * The name of the control panel. You can use any non-white space character in the name.
      */
     name: pulumi.Input<string>;
+    /**
+     * A collection of tags associated with a resource
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.route53recoverycontrol.ControlPanelTagArgs>[]>;
 }

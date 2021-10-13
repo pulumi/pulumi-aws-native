@@ -27,6 +27,7 @@ type TaskDefinition struct {
 	PlacementConstraints    TaskDefinitionPlacementConstraintArrayOutput  `pulumi:"placementConstraints"`
 	ProxyConfiguration      TaskDefinitionProxyConfigurationPtrOutput     `pulumi:"proxyConfiguration"`
 	RequiresCompatibilities pulumi.StringArrayOutput                      `pulumi:"requiresCompatibilities"`
+	RuntimePlatform         TaskDefinitionRuntimePlatformPtrOutput        `pulumi:"runtimePlatform"`
 	Tags                    TaskDefinitionTagArrayOutput                  `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) of the Amazon ECS task definition
 	TaskDefinitionArn pulumi.StringOutput             `pulumi:"taskDefinitionArn"`
@@ -86,6 +87,7 @@ type taskDefinitionArgs struct {
 	PlacementConstraints    []TaskDefinitionPlacementConstraint  `pulumi:"placementConstraints"`
 	ProxyConfiguration      *TaskDefinitionProxyConfiguration    `pulumi:"proxyConfiguration"`
 	RequiresCompatibilities []string                             `pulumi:"requiresCompatibilities"`
+	RuntimePlatform         *TaskDefinitionRuntimePlatform       `pulumi:"runtimePlatform"`
 	Tags                    []TaskDefinitionTag                  `pulumi:"tags"`
 	TaskRoleArn             *string                              `pulumi:"taskRoleArn"`
 	Volumes                 []TaskDefinitionVolume               `pulumi:"volumes"`
@@ -106,6 +108,7 @@ type TaskDefinitionArgs struct {
 	PlacementConstraints    TaskDefinitionPlacementConstraintArrayInput
 	ProxyConfiguration      TaskDefinitionProxyConfigurationPtrInput
 	RequiresCompatibilities pulumi.StringArrayInput
+	RuntimePlatform         TaskDefinitionRuntimePlatformPtrInput
 	Tags                    TaskDefinitionTagArrayInput
 	TaskRoleArn             pulumi.StringPtrInput
 	Volumes                 TaskDefinitionVolumeArrayInput

@@ -39,6 +39,12 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         [Output("status")]
         public Output<Pulumi.AwsNative.Route53RecoveryControl.ClusterStatus> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// A collection of tags associated with a resource
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.ClusterTag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Cluster resource with the given unique name, arguments, and options.
@@ -89,6 +95,18 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.ClusterTagArgs>? _tags;
+
+        /// <summary>
+        /// A collection of tags associated with a resource
+        /// </summary>
+        public InputList<Inputs.ClusterTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.ClusterTagArgs>());
+            set => _tags = value;
+        }
 
         public ClusterArgs()
         {

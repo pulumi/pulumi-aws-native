@@ -82,6 +82,12 @@ namespace Pulumi.AwsNative.MediaConnect
         public Output<string> SourceArn { get; private set; } = null!;
 
         /// <summary>
+        /// The port that the flow will be listening on for incoming content.(ReadOnly)
+        /// </summary>
+        [Output("sourceIngestPort")]
+        public Output<string> SourceIngestPort { get; private set; } = null!;
+
+        /// <summary>
         /// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
         /// </summary>
         [Output("streamId")]

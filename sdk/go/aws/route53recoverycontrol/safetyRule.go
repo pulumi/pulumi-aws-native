@@ -24,6 +24,8 @@ type SafetyRule struct {
 	SafetyRuleArn pulumi.StringOutput `pulumi:"safetyRuleArn"`
 	// The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
 	Status SafetyRuleStatusOutput `pulumi:"status"`
+	// A collection of tags associated with a resource
+	Tags SafetyRuleTagArrayOutput `pulumi:"tags"`
 }
 
 // NewSafetyRule registers a new resource with the given unique name, arguments, and options.
@@ -71,6 +73,8 @@ type safetyRuleArgs struct {
 	GatingRule      *SafetyRuleGatingRule `pulumi:"gatingRule"`
 	Name            *string               `pulumi:"name"`
 	RuleConfig      *SafetyRuleRuleConfig `pulumi:"ruleConfig"`
+	// A collection of tags associated with a resource
+	Tags []SafetyRuleTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SafetyRule resource.
@@ -81,6 +85,8 @@ type SafetyRuleArgs struct {
 	GatingRule      SafetyRuleGatingRulePtrInput
 	Name            pulumi.StringPtrInput
 	RuleConfig      SafetyRuleRuleConfigPtrInput
+	// A collection of tags associated with a resource
+	Tags SafetyRuleTagArrayInput
 }
 
 func (SafetyRuleArgs) ElementType() reflect.Type {

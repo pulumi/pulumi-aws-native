@@ -18,6 +18,7 @@ class JobQueueArgs:
                  compute_environment_order: pulumi.Input[Sequence[pulumi.Input['JobQueueComputeEnvironmentOrderArgs']]],
                  priority: pulumi.Input[int],
                  job_queue_name: Optional[pulumi.Input[str]] = None,
+                 scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None):
         """
@@ -27,6 +28,8 @@ class JobQueueArgs:
         pulumi.set(__self__, "priority", priority)
         if job_queue_name is not None:
             pulumi.set(__self__, "job_queue_name", job_queue_name)
+        if scheduling_policy_arn is not None:
+            pulumi.set(__self__, "scheduling_policy_arn", scheduling_policy_arn)
         if state is not None:
             pulumi.set(__self__, "state", state)
         if tags is not None:
@@ -60,6 +63,15 @@ class JobQueueArgs:
         pulumi.set(self, "job_queue_name", value)
 
     @property
+    @pulumi.getter(name="schedulingPolicyArn")
+    def scheduling_policy_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "scheduling_policy_arn")
+
+    @scheduling_policy_arn.setter
+    def scheduling_policy_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scheduling_policy_arn", value)
+
+    @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "state")
@@ -91,6 +103,7 @@ class JobQueue(pulumi.CustomResource):
                  compute_environment_order: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobQueueComputeEnvironmentOrderArgs']]]]] = None,
                  job_queue_name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
+                 scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
@@ -127,6 +140,7 @@ class JobQueue(pulumi.CustomResource):
                  compute_environment_order: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobQueueComputeEnvironmentOrderArgs']]]]] = None,
                  job_queue_name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
+                 scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
@@ -149,6 +163,7 @@ class JobQueue(pulumi.CustomResource):
             if priority is None and not opts.urn:
                 raise TypeError("Missing required property 'priority'")
             __props__.__dict__["priority"] = priority
+            __props__.__dict__["scheduling_policy_arn"] = scheduling_policy_arn
             __props__.__dict__["state"] = state
             __props__.__dict__["tags"] = tags
         super(JobQueue, __self__).__init__(
@@ -176,6 +191,7 @@ class JobQueue(pulumi.CustomResource):
         __props__.__dict__["compute_environment_order"] = None
         __props__.__dict__["job_queue_name"] = None
         __props__.__dict__["priority"] = None
+        __props__.__dict__["scheduling_policy_arn"] = None
         __props__.__dict__["state"] = None
         __props__.__dict__["tags"] = None
         return JobQueue(resource_name, opts=opts, __props__=__props__)
@@ -194,6 +210,11 @@ class JobQueue(pulumi.CustomResource):
     @pulumi.getter
     def priority(self) -> pulumi.Output[int]:
         return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="schedulingPolicyArn")
+    def scheduling_policy_arn(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "scheduling_policy_arn")
 
     @property
     @pulumi.getter

@@ -421,6 +421,7 @@ namespace Pulumi.AwsNative.QuickSight
 
         public static DataSourceType AdobeAnalytics { get; } = new DataSourceType("ADOBE_ANALYTICS");
         public static DataSourceType AmazonElasticsearch { get; } = new DataSourceType("AMAZON_ELASTICSEARCH");
+        public static DataSourceType AmazonOpensearch { get; } = new DataSourceType("AMAZON_OPENSEARCH");
         public static DataSourceType Athena { get; } = new DataSourceType("ATHENA");
         public static DataSourceType Aurora { get; } = new DataSourceType("AURORA");
         public static DataSourceType AuroraPostgresql { get; } = new DataSourceType("AURORA_POSTGRESQL");

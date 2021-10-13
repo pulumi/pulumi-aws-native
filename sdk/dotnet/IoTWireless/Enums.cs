@@ -39,6 +39,36 @@ namespace Pulumi.AwsNative.IoTWireless
     }
 
     /// <summary>
+    /// The partner type
+    /// </summary>
+    [EnumType]
+    public readonly struct PartnerAccountPartnerType : IEquatable<PartnerAccountPartnerType>
+    {
+        private readonly string _value;
+
+        private PartnerAccountPartnerType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PartnerAccountPartnerType Sidewalk { get; } = new PartnerAccountPartnerType("Sidewalk");
+
+        public static bool operator ==(PartnerAccountPartnerType left, PartnerAccountPartnerType right) => left.Equals(right);
+        public static bool operator !=(PartnerAccountPartnerType left, PartnerAccountPartnerType right) => !left.Equals(right);
+
+        public static explicit operator string(PartnerAccountPartnerType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PartnerAccountPartnerType other && Equals(other);
+        public bool Equals(PartnerAccountPartnerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// A filter to list only the wireless gateway task definitions that use this task definition type
     /// </summary>
     [EnumType]

@@ -180,8 +180,9 @@ func (in *flowEncryptionAlgorithmPtr) ToFlowEncryptionAlgorithmPtrOutputWithCont
 type FlowEncryptionKeyType string
 
 const (
-	FlowEncryptionKeyTypeSpeke     = FlowEncryptionKeyType("speke")
-	FlowEncryptionKeyTypeStaticKey = FlowEncryptionKeyType("static-key")
+	FlowEncryptionKeyTypeSpeke       = FlowEncryptionKeyType("speke")
+	FlowEncryptionKeyTypeStaticKey   = FlowEncryptionKeyType("static-key")
+	FlowEncryptionKeyTypeSrtPassword = FlowEncryptionKeyType("srt-password")
 )
 
 func (FlowEncryptionKeyType) ElementType() reflect.Type {
@@ -1171,7 +1172,8 @@ func (in *flowOutputEncryptionAlgorithmPtr) ToFlowOutputEncryptionAlgorithmPtrOu
 type FlowOutputEncryptionKeyType string
 
 const (
-	FlowOutputEncryptionKeyTypeStaticKey = FlowOutputEncryptionKeyType("static-key")
+	FlowOutputEncryptionKeyTypeStaticKey   = FlowOutputEncryptionKeyType("static-key")
+	FlowOutputEncryptionKeyTypeSrtPassword = FlowOutputEncryptionKeyType("srt-password")
 )
 
 func (FlowOutputEncryptionKeyType) ElementType() reflect.Type {
@@ -1335,11 +1337,12 @@ func (in *flowOutputEncryptionKeyTypePtr) ToFlowOutputEncryptionKeyTypePtrOutput
 type FlowOutputProtocol string
 
 const (
-	FlowOutputProtocolZixiPush = FlowOutputProtocol("zixi-push")
-	FlowOutputProtocolRtpFec   = FlowOutputProtocol("rtp-fec")
-	FlowOutputProtocolRtp      = FlowOutputProtocol("rtp")
-	FlowOutputProtocolZixiPull = FlowOutputProtocol("zixi-pull")
-	FlowOutputProtocolRist     = FlowOutputProtocol("rist")
+	FlowOutputProtocolZixiPush    = FlowOutputProtocol("zixi-push")
+	FlowOutputProtocolRtpFec      = FlowOutputProtocol("rtp-fec")
+	FlowOutputProtocolRtp         = FlowOutputProtocol("rtp")
+	FlowOutputProtocolZixiPull    = FlowOutputProtocol("zixi-pull")
+	FlowOutputProtocolRist        = FlowOutputProtocol("rist")
+	FlowOutputProtocolSrtListener = FlowOutputProtocol("srt-listener")
 )
 
 func (FlowOutputProtocol) ElementType() reflect.Type {
@@ -1830,14 +1833,15 @@ func (in *flowSourceEncryptionKeyTypePtr) ToFlowSourceEncryptionKeyTypePtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(FlowSourceEncryptionKeyTypePtrOutput)
 }
 
-// The protocol that is used by the source.
+// The protocol that is used by the source or output.
 type FlowSourceProtocol string
 
 const (
-	FlowSourceProtocolZixiPush = FlowSourceProtocol("zixi-push")
-	FlowSourceProtocolRtpFec   = FlowSourceProtocol("rtp-fec")
-	FlowSourceProtocolRtp      = FlowSourceProtocol("rtp")
-	FlowSourceProtocolRist     = FlowSourceProtocol("rist")
+	FlowSourceProtocolZixiPush    = FlowSourceProtocol("zixi-push")
+	FlowSourceProtocolRtpFec      = FlowSourceProtocol("rtp-fec")
+	FlowSourceProtocolRtp         = FlowSourceProtocol("rtp")
+	FlowSourceProtocolRist        = FlowSourceProtocol("rist")
+	FlowSourceProtocolSrtListener = FlowSourceProtocol("srt-listener")
 )
 
 func (FlowSourceProtocol) ElementType() reflect.Type {

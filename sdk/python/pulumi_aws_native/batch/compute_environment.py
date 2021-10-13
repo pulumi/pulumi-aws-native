@@ -20,7 +20,8 @@ class ComputeEnvironmentArgs:
                  compute_resources: Optional[pulumi.Input['ComputeEnvironmentComputeResourcesArgs']] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None):
+                 tags: Optional[Any] = None,
+                 unmanagedv_cpus: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a ComputeEnvironment resource.
         """
@@ -35,6 +36,8 @@ class ComputeEnvironmentArgs:
             pulumi.set(__self__, "state", state)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if unmanagedv_cpus is not None:
+            pulumi.set(__self__, "unmanagedv_cpus", unmanagedv_cpus)
 
     @property
     @pulumi.getter
@@ -90,6 +93,15 @@ class ComputeEnvironmentArgs:
     def tags(self, value: Optional[Any]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="unmanagedvCpus")
+    def unmanagedv_cpus(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "unmanagedv_cpus")
+
+    @unmanagedv_cpus.setter
+    def unmanagedv_cpus(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "unmanagedv_cpus", value)
+
 
 warnings.warn("""ComputeEnvironment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
@@ -107,6 +119,7 @@ class ComputeEnvironment(pulumi.CustomResource):
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 unmanagedv_cpus: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Batch::ComputeEnvironment
@@ -144,6 +157,7 @@ class ComputeEnvironment(pulumi.CustomResource):
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 unmanagedv_cpus: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         pulumi.log.warn("""ComputeEnvironment is deprecated: ComputeEnvironment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
@@ -165,6 +179,7 @@ class ComputeEnvironment(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            __props__.__dict__["unmanagedv_cpus"] = unmanagedv_cpus
         super(ComputeEnvironment, __self__).__init__(
             'aws-native:batch:ComputeEnvironment',
             resource_name,
@@ -193,6 +208,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         __props__.__dict__["state"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["unmanagedv_cpus"] = None
         return ComputeEnvironment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -224,4 +240,9 @@ class ComputeEnvironment(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="unmanagedvCpus")
+    def unmanagedv_cpus(self) -> pulumi.Output[Optional[int]]:
+        return pulumi.get(self, "unmanagedv_cpus")
 

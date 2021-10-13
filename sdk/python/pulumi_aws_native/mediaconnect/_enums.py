@@ -35,6 +35,7 @@ class FlowEncryptionKeyType(str, Enum):
     """
     SPEKE = "speke"
     STATIC_KEY = "static-key"
+    SRT_PASSWORD = "srt-password"
 
 
 class FlowEntitlementEncryptionAlgorithm(str, Enum):
@@ -81,6 +82,7 @@ class FlowOutputEncryptionKeyType(str, Enum):
     The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
     """
     STATIC_KEY = "static-key"
+    SRT_PASSWORD = "srt-password"
 
 
 class FlowOutputProtocol(str, Enum):
@@ -92,6 +94,7 @@ class FlowOutputProtocol(str, Enum):
     RTP = "rtp"
     ZIXI_PULL = "zixi-pull"
     RIST = "rist"
+    SRT_LISTENER = "srt-listener"
 
 
 class FlowSourceEncryptionAlgorithm(str, Enum):
@@ -113,9 +116,10 @@ class FlowSourceEncryptionKeyType(str, Enum):
 
 class FlowSourceProtocol(str, Enum):
     """
-    The protocol that is used by the source.
+    The protocol that is used by the source or output.
     """
     ZIXI_PUSH = "zixi-push"
     RTP_FEC = "rtp-fec"
     RTP = "rtp"
     RIST = "rist"
+    SRT_LISTENER = "srt-listener"

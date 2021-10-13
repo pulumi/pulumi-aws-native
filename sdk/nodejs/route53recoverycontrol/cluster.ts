@@ -51,6 +51,10 @@ export class Cluster extends pulumi.CustomResource {
      * Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
      */
     public /*out*/ readonly status!: pulumi.Output<enums.route53recoverycontrol.ClusterStatus>;
+    /**
+     * A collection of tags associated with a resource
+     */
+    public readonly tags!: pulumi.Output<outputs.route53recoverycontrol.ClusterTag[] | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -64,6 +68,7 @@ export class Cluster extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             inputs["name"] = args ? args.name : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["clusterArn"] = undefined /*out*/;
             inputs["clusterEndpoints"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
@@ -72,6 +77,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["clusterEndpoints"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -88,4 +94,8 @@ export interface ClusterArgs {
      * Name of a Cluster. You can use any non-white space character in the name
      */
     name?: pulumi.Input<string>;
+    /**
+     * A collection of tags associated with a resource
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.route53recoverycontrol.ClusterTagArgs>[]>;
 }

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Location
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
+        [Output("positionFiltering")]
+        public Output<Pulumi.AwsNative.Location.TrackerPositionFiltering?> PositionFiltering { get; private set; } = null!;
+
         [Output("pricingPlan")]
         public Output<Pulumi.AwsNative.Location.TrackerPricingPlan> PricingPlan { get; private set; } = null!;
 
@@ -92,6 +95,9 @@ namespace Pulumi.AwsNative.Location
 
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
+
+        [Input("positionFiltering")]
+        public Input<Pulumi.AwsNative.Location.TrackerPositionFiltering>? PositionFiltering { get; set; }
 
         [Input("pricingPlan", required: true)]
         public Input<Pulumi.AwsNative.Location.TrackerPricingPlan> PricingPlan { get; set; } = null!;

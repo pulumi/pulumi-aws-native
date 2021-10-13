@@ -110,6 +110,206 @@ func (o ClusterEndpointArrayOutput) Index(i pulumi.IntInput) ClusterEndpointOutp
 	}).(ClusterEndpointOutput)
 }
 
+type ClusterTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// ClusterTagInput is an input type that accepts ClusterTagArgs and ClusterTagOutput values.
+// You can construct a concrete instance of `ClusterTagInput` via:
+//
+//          ClusterTagArgs{...}
+type ClusterTagInput interface {
+	pulumi.Input
+
+	ToClusterTagOutput() ClusterTagOutput
+	ToClusterTagOutputWithContext(context.Context) ClusterTagOutput
+}
+
+type ClusterTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ClusterTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterTag)(nil)).Elem()
+}
+
+func (i ClusterTagArgs) ToClusterTagOutput() ClusterTagOutput {
+	return i.ToClusterTagOutputWithContext(context.Background())
+}
+
+func (i ClusterTagArgs) ToClusterTagOutputWithContext(ctx context.Context) ClusterTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterTagOutput)
+}
+
+// ClusterTagArrayInput is an input type that accepts ClusterTagArray and ClusterTagArrayOutput values.
+// You can construct a concrete instance of `ClusterTagArrayInput` via:
+//
+//          ClusterTagArray{ ClusterTagArgs{...} }
+type ClusterTagArrayInput interface {
+	pulumi.Input
+
+	ToClusterTagArrayOutput() ClusterTagArrayOutput
+	ToClusterTagArrayOutputWithContext(context.Context) ClusterTagArrayOutput
+}
+
+type ClusterTagArray []ClusterTagInput
+
+func (ClusterTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterTag)(nil)).Elem()
+}
+
+func (i ClusterTagArray) ToClusterTagArrayOutput() ClusterTagArrayOutput {
+	return i.ToClusterTagArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterTagArray) ToClusterTagArrayOutputWithContext(ctx context.Context) ClusterTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterTagArrayOutput)
+}
+
+type ClusterTagOutput struct{ *pulumi.OutputState }
+
+func (ClusterTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterTag)(nil)).Elem()
+}
+
+func (o ClusterTagOutput) ToClusterTagOutput() ClusterTagOutput {
+	return o
+}
+
+func (o ClusterTagOutput) ToClusterTagOutputWithContext(ctx context.Context) ClusterTagOutput {
+	return o
+}
+
+func (o ClusterTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o ClusterTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ClusterTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterTag)(nil)).Elem()
+}
+
+func (o ClusterTagArrayOutput) ToClusterTagArrayOutput() ClusterTagArrayOutput {
+	return o
+}
+
+func (o ClusterTagArrayOutput) ToClusterTagArrayOutputWithContext(ctx context.Context) ClusterTagArrayOutput {
+	return o
+}
+
+func (o ClusterTagArrayOutput) Index(i pulumi.IntInput) ClusterTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterTag {
+		return vs[0].([]ClusterTag)[vs[1].(int)]
+	}).(ClusterTagOutput)
+}
+
+type ControlPanelTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// ControlPanelTagInput is an input type that accepts ControlPanelTagArgs and ControlPanelTagOutput values.
+// You can construct a concrete instance of `ControlPanelTagInput` via:
+//
+//          ControlPanelTagArgs{...}
+type ControlPanelTagInput interface {
+	pulumi.Input
+
+	ToControlPanelTagOutput() ControlPanelTagOutput
+	ToControlPanelTagOutputWithContext(context.Context) ControlPanelTagOutput
+}
+
+type ControlPanelTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ControlPanelTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ControlPanelTag)(nil)).Elem()
+}
+
+func (i ControlPanelTagArgs) ToControlPanelTagOutput() ControlPanelTagOutput {
+	return i.ToControlPanelTagOutputWithContext(context.Background())
+}
+
+func (i ControlPanelTagArgs) ToControlPanelTagOutputWithContext(ctx context.Context) ControlPanelTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ControlPanelTagOutput)
+}
+
+// ControlPanelTagArrayInput is an input type that accepts ControlPanelTagArray and ControlPanelTagArrayOutput values.
+// You can construct a concrete instance of `ControlPanelTagArrayInput` via:
+//
+//          ControlPanelTagArray{ ControlPanelTagArgs{...} }
+type ControlPanelTagArrayInput interface {
+	pulumi.Input
+
+	ToControlPanelTagArrayOutput() ControlPanelTagArrayOutput
+	ToControlPanelTagArrayOutputWithContext(context.Context) ControlPanelTagArrayOutput
+}
+
+type ControlPanelTagArray []ControlPanelTagInput
+
+func (ControlPanelTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ControlPanelTag)(nil)).Elem()
+}
+
+func (i ControlPanelTagArray) ToControlPanelTagArrayOutput() ControlPanelTagArrayOutput {
+	return i.ToControlPanelTagArrayOutputWithContext(context.Background())
+}
+
+func (i ControlPanelTagArray) ToControlPanelTagArrayOutputWithContext(ctx context.Context) ControlPanelTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ControlPanelTagArrayOutput)
+}
+
+type ControlPanelTagOutput struct{ *pulumi.OutputState }
+
+func (ControlPanelTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ControlPanelTag)(nil)).Elem()
+}
+
+func (o ControlPanelTagOutput) ToControlPanelTagOutput() ControlPanelTagOutput {
+	return o
+}
+
+func (o ControlPanelTagOutput) ToControlPanelTagOutputWithContext(ctx context.Context) ControlPanelTagOutput {
+	return o
+}
+
+func (o ControlPanelTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ControlPanelTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o ControlPanelTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ControlPanelTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ControlPanelTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ControlPanelTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ControlPanelTag)(nil)).Elem()
+}
+
+func (o ControlPanelTagArrayOutput) ToControlPanelTagArrayOutput() ControlPanelTagArrayOutput {
+	return o
+}
+
+func (o ControlPanelTagArrayOutput) ToControlPanelTagArrayOutputWithContext(ctx context.Context) ControlPanelTagArrayOutput {
+	return o
+}
+
+func (o ControlPanelTagArrayOutput) Index(i pulumi.IntInput) ControlPanelTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ControlPanelTag {
+		return vs[0].([]ControlPanelTag)[vs[1].(int)]
+	}).(ControlPanelTagOutput)
+}
+
 // An assertion rule enforces that, when a routing control state is changed, that the criteria set by the rule configuration is met. Otherwise, the change to the routing control is not accepted.
 type SafetyRuleAssertionRule struct {
 	// The routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed. For example, you might include three routing controls, one for each of three AWS Regions.
@@ -625,13 +825,119 @@ func (o SafetyRuleRuleConfigPtrOutput) Type() SafetyRuleRuleTypePtrOutput {
 	}).(SafetyRuleRuleTypePtrOutput)
 }
 
+type SafetyRuleTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// SafetyRuleTagInput is an input type that accepts SafetyRuleTagArgs and SafetyRuleTagOutput values.
+// You can construct a concrete instance of `SafetyRuleTagInput` via:
+//
+//          SafetyRuleTagArgs{...}
+type SafetyRuleTagInput interface {
+	pulumi.Input
+
+	ToSafetyRuleTagOutput() SafetyRuleTagOutput
+	ToSafetyRuleTagOutputWithContext(context.Context) SafetyRuleTagOutput
+}
+
+type SafetyRuleTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (SafetyRuleTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SafetyRuleTag)(nil)).Elem()
+}
+
+func (i SafetyRuleTagArgs) ToSafetyRuleTagOutput() SafetyRuleTagOutput {
+	return i.ToSafetyRuleTagOutputWithContext(context.Background())
+}
+
+func (i SafetyRuleTagArgs) ToSafetyRuleTagOutputWithContext(ctx context.Context) SafetyRuleTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SafetyRuleTagOutput)
+}
+
+// SafetyRuleTagArrayInput is an input type that accepts SafetyRuleTagArray and SafetyRuleTagArrayOutput values.
+// You can construct a concrete instance of `SafetyRuleTagArrayInput` via:
+//
+//          SafetyRuleTagArray{ SafetyRuleTagArgs{...} }
+type SafetyRuleTagArrayInput interface {
+	pulumi.Input
+
+	ToSafetyRuleTagArrayOutput() SafetyRuleTagArrayOutput
+	ToSafetyRuleTagArrayOutputWithContext(context.Context) SafetyRuleTagArrayOutput
+}
+
+type SafetyRuleTagArray []SafetyRuleTagInput
+
+func (SafetyRuleTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SafetyRuleTag)(nil)).Elem()
+}
+
+func (i SafetyRuleTagArray) ToSafetyRuleTagArrayOutput() SafetyRuleTagArrayOutput {
+	return i.ToSafetyRuleTagArrayOutputWithContext(context.Background())
+}
+
+func (i SafetyRuleTagArray) ToSafetyRuleTagArrayOutputWithContext(ctx context.Context) SafetyRuleTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SafetyRuleTagArrayOutput)
+}
+
+type SafetyRuleTagOutput struct{ *pulumi.OutputState }
+
+func (SafetyRuleTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SafetyRuleTag)(nil)).Elem()
+}
+
+func (o SafetyRuleTagOutput) ToSafetyRuleTagOutput() SafetyRuleTagOutput {
+	return o
+}
+
+func (o SafetyRuleTagOutput) ToSafetyRuleTagOutputWithContext(ctx context.Context) SafetyRuleTagOutput {
+	return o
+}
+
+func (o SafetyRuleTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SafetyRuleTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o SafetyRuleTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v SafetyRuleTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type SafetyRuleTagArrayOutput struct{ *pulumi.OutputState }
+
+func (SafetyRuleTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SafetyRuleTag)(nil)).Elem()
+}
+
+func (o SafetyRuleTagArrayOutput) ToSafetyRuleTagArrayOutput() SafetyRuleTagArrayOutput {
+	return o
+}
+
+func (o SafetyRuleTagArrayOutput) ToSafetyRuleTagArrayOutputWithContext(ctx context.Context) SafetyRuleTagArrayOutput {
+	return o
+}
+
+func (o SafetyRuleTagArrayOutput) Index(i pulumi.IntInput) SafetyRuleTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SafetyRuleTag {
+		return vs[0].([]SafetyRuleTag)[vs[1].(int)]
+	}).(SafetyRuleTagOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ClusterEndpointOutput{})
 	pulumi.RegisterOutputType(ClusterEndpointArrayOutput{})
+	pulumi.RegisterOutputType(ClusterTagOutput{})
+	pulumi.RegisterOutputType(ClusterTagArrayOutput{})
+	pulumi.RegisterOutputType(ControlPanelTagOutput{})
+	pulumi.RegisterOutputType(ControlPanelTagArrayOutput{})
 	pulumi.RegisterOutputType(SafetyRuleAssertionRuleOutput{})
 	pulumi.RegisterOutputType(SafetyRuleAssertionRulePtrOutput{})
 	pulumi.RegisterOutputType(SafetyRuleGatingRuleOutput{})
 	pulumi.RegisterOutputType(SafetyRuleGatingRulePtrOutput{})
 	pulumi.RegisterOutputType(SafetyRuleRuleConfigOutput{})
 	pulumi.RegisterOutputType(SafetyRuleRuleConfigPtrOutput{})
+	pulumi.RegisterOutputType(SafetyRuleTagOutput{})
+	pulumi.RegisterOutputType(SafetyRuleTagArrayOutput{})
 }

@@ -10,15 +10,55 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'PublicRepositoryTagArgs',
     'ReplicationConfigurationReplicationDestinationArgs',
     'ReplicationConfigurationReplicationRuleArgs',
     'ReplicationConfigurationRepositoryFilterArgs',
     'ReplicationConfigurationArgs',
+    'RepositoryCatalogDataPropertiesArgs',
     'RepositoryEncryptionConfigurationArgs',
     'RepositoryImageScanningConfigurationArgs',
     'RepositoryLifecyclePolicyArgs',
     'RepositoryTagArgs',
 ]
+
+@pulumi.input_type
+class PublicRepositoryTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
 
 @pulumi.input_type
 class ReplicationConfigurationReplicationDestinationArgs:
@@ -140,6 +180,74 @@ class ReplicationConfigurationArgs:
     @rules.setter
     def rules(self, value: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]]):
         pulumi.set(self, "rules", value)
+
+
+@pulumi.input_type
+class RepositoryCatalogDataPropertiesArgs:
+    def __init__(__self__, *,
+                 about_text: Optional[pulumi.Input[str]] = None,
+                 architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 operating_systems: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 repository_description: Optional[pulumi.Input[str]] = None,
+                 usage_text: Optional[pulumi.Input[str]] = None):
+        """
+        The CatalogData property type specifies Catalog data for ECR Public Repository. For information about Catalog Data, see <link>
+        """
+        if about_text is not None:
+            pulumi.set(__self__, "about_text", about_text)
+        if architectures is not None:
+            pulumi.set(__self__, "architectures", architectures)
+        if operating_systems is not None:
+            pulumi.set(__self__, "operating_systems", operating_systems)
+        if repository_description is not None:
+            pulumi.set(__self__, "repository_description", repository_description)
+        if usage_text is not None:
+            pulumi.set(__self__, "usage_text", usage_text)
+
+    @property
+    @pulumi.getter(name="aboutText")
+    def about_text(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "about_text")
+
+    @about_text.setter
+    def about_text(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "about_text", value)
+
+    @property
+    @pulumi.getter
+    def architectures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "architectures")
+
+    @architectures.setter
+    def architectures(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "architectures", value)
+
+    @property
+    @pulumi.getter(name="operatingSystems")
+    def operating_systems(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "operating_systems")
+
+    @operating_systems.setter
+    def operating_systems(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "operating_systems", value)
+
+    @property
+    @pulumi.getter(name="repositoryDescription")
+    def repository_description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "repository_description")
+
+    @repository_description.setter
+    def repository_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_description", value)
+
+    @property
+    @pulumi.getter(name="usageText")
+    def usage_text(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "usage_text")
+
+    @usage_text.setter
+    def usage_text(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "usage_text", value)
 
 
 @pulumi.input_type

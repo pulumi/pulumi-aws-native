@@ -9247,6 +9247,9 @@
                         "type": "string"
                     }
                 },
+                "runtimePlatform": {
+                    "$ref": "#/types/aws-native:ecs:TaskDefinitionRuntimePlatform"
+                },
                 "tags": {
                     "type": "array",
                     "items": {
@@ -9315,6 +9318,9 @@
                         "type": "string"
                     }
                 },
+                "runtimePlatform": {
+                    "$ref": "#/types/aws-native:ecs:TaskDefinitionRuntimePlatform"
+                },
                 "tags": {
                     "type": "array",
                     "items": {
@@ -9349,6 +9355,7 @@
                 "placementConstraints",
                 "proxyConfiguration",
                 "requiresCompatibilities",
+                "runtimePlatform",
                 "taskRoleArn",
                 "volumes"
             ]
@@ -17621,6 +17628,9 @@
                 "kmsKeyId": {
                     "type": "string"
                 },
+                "positionFiltering": {
+                    "$ref": "#/types/aws-native:location:TrackerPositionFiltering"
+                },
                 "pricingPlan": {
                     "$ref": "#/types/aws-native:location:TrackerPricingPlan"
                 },
@@ -17643,6 +17653,9 @@
                 },
                 "kmsKeyId": {
                     "type": "string"
+                },
+                "positionFiltering": {
+                    "$ref": "#/types/aws-native:location:TrackerPositionFiltering"
                 },
                 "pricingPlan": {
                     "$ref": "#/types/aws-native:location:TrackerPricingPlan"
@@ -17667,6 +17680,7 @@
             "createOnly": [
                 "description",
                 "kmsKeyId",
+                "positionFiltering",
                 "pricingPlan",
                 "pricingPlanDataSource",
                 "trackerName"
@@ -18306,6 +18320,10 @@
                     "type": "integer",
                     "description": "The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams."
                 },
+                "minLatency": {
+                    "type": "integer",
+                    "description": "The minimum latency in milliseconds."
+                },
                 "name": {
                     "type": "string",
                     "description": "The name of the output. This value must be unique within the current flow."
@@ -18362,6 +18380,10 @@
                 "maxLatency": {
                     "type": "integer",
                     "description": "The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams."
+                },
+                "minLatency": {
+                    "type": "integer",
+                    "description": "The minimum latency in milliseconds."
                 },
                 "name": {
                     "type": "string",
@@ -18500,6 +18522,10 @@
                 "sourceArn": {
                     "type": "string",
                     "description": "The ARN of the source."
+                },
+                "sourceIngestPort": {
+                    "type": "string",
+                    "description": "The port that the flow will be listening on for incoming content.(ReadOnly)"
                 },
                 "streamId": {
                     "type": "string",
@@ -22480,6 +22506,13 @@
                 "name": {
                     "type": "string",
                     "description": "Name of a Cluster. You can use any non-white space character in the name"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:route53recoverycontrol:ClusterTag"
+                    },
+                    "description": "A collection of tags associated with a resource"
                 }
             },
             "outputs": {
@@ -22501,10 +22534,18 @@
                 "status": {
                     "$ref": "#/types/aws-native:route53recoverycontrol:ClusterStatus",
                     "description": "Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:route53recoverycontrol:ClusterTag"
+                    },
+                    "description": "A collection of tags associated with a resource"
                 }
             },
             "createOnly": [
-                "name"
+                "name",
+                "tags"
             ]
         },
         "aws-native:route53recoverycontrol:ControlPanel": {
@@ -22517,6 +22558,13 @@
                 "name": {
                     "type": "string",
                     "description": "The name of the control panel. You can use any non-white space character in the name."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:route53recoverycontrol:ControlPanelTag"
+                    },
+                    "description": "A collection of tags associated with a resource"
                 }
             },
             "outputs": {
@@ -22543,13 +22591,21 @@
                 "status": {
                     "$ref": "#/types/aws-native:route53recoverycontrol:ControlPanelStatus",
                     "description": "The deployment status of control panel. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:route53recoverycontrol:ControlPanelTag"
+                    },
+                    "description": "A collection of tags associated with a resource"
                 }
             },
             "required": [
                 "name"
             ],
             "createOnly": [
-                "clusterArn"
+                "clusterArn",
+                "tags"
             ]
         },
         "aws-native:route53recoverycontrol:RoutingControl": {
@@ -22616,6 +22672,13 @@
                 },
                 "ruleConfig": {
                     "$ref": "#/types/aws-native:route53recoverycontrol:SafetyRuleRuleConfig"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:route53recoverycontrol:SafetyRuleTag"
+                    },
+                    "description": "A collection of tags associated with a resource"
                 }
             },
             "outputs": {
@@ -22642,11 +22705,19 @@
                 "status": {
                     "$ref": "#/types/aws-native:route53recoverycontrol:SafetyRuleStatus",
                     "description": "The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:route53recoverycontrol:SafetyRuleTag"
+                    },
+                    "description": "A collection of tags associated with a resource"
                 }
             },
             "createOnly": [
                 "controlPanelArn",
-                "ruleConfig"
+                "ruleConfig",
+                "tags"
             ]
         },
         "aws-native:route53recoveryreadiness:Cell": {
@@ -36476,6 +36547,17 @@
                 }
             }
         },
+        "aws-native:ecs:TaskDefinitionRuntimePlatform": {
+            "type": "object",
+            "properties": {
+                "cpuArchitecture": {
+                    "type": "string"
+                },
+                "operatingSystemFamily": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:ecs:TaskDefinitionSecret": {
             "type": "object",
             "properties": {
@@ -44607,6 +44689,9 @@
         "aws-native:location:RouteCalculatorPricingPlan": {
             "type": "string"
         },
+        "aws-native:location:TrackerPositionFiltering": {
+            "type": "string"
+        },
         "aws-native:location:TrackerPricingPlan": {
             "type": "string"
         },
@@ -45114,7 +45199,7 @@
             "properties": {
                 "decryption": {
                     "$ref": "#/types/aws-native:mediaconnect:FlowEncryption",
-                    "description": "The type of encryption that is used on the content ingested from this source."
+                    "description": "The type of decryption that is used on the content ingested from this source."
                 },
                 "description": {
                     "type": "string",
@@ -45140,6 +45225,10 @@
                     "type": "integer",
                     "description": "The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams."
                 },
+                "minLatency": {
+                    "type": "integer",
+                    "description": "The minimum latency in milliseconds."
+                },
                 "name": {
                     "type": "string",
                     "description": "The name of the source."
@@ -45151,6 +45240,10 @@
                 "sourceArn": {
                     "type": "string",
                     "description": "The ARN of the source."
+                },
+                "sourceIngestPort": {
+                    "type": "string",
+                    "description": "The port that the flow will be listening on for incoming content.(ReadOnly)"
                 },
                 "streamId": {
                     "type": "string",
@@ -47637,6 +47730,15 @@
                 }
             }
         },
+        "aws-native:quicksight:DataSourceAmazonOpenSearchParameters": {
+            "type": "object",
+            "properties": {
+                "domain": {
+                    "type": "string",
+                    "description": "\u003cp\u003eThe Amazon OpenSearch Service domain.\u003c/p\u003e"
+                }
+            }
+        },
         "aws-native:quicksight:DataSourceAthenaParameters": {
             "type": "object",
             "properties": {
@@ -47793,6 +47895,9 @@
             "properties": {
                 "amazonElasticsearchParameters": {
                     "$ref": "#/types/aws-native:quicksight:DataSourceAmazonElasticsearchParameters"
+                },
+                "amazonOpenSearchParameters": {
+                    "$ref": "#/types/aws-native:quicksight:DataSourceAmazonOpenSearchParameters"
                 },
                 "athenaParameters": {
                     "$ref": "#/types/aws-native:quicksight:DataSourceAthenaParameters"
@@ -48994,8 +49099,30 @@
         "aws-native:route53recoverycontrol:ClusterStatus": {
             "type": "string"
         },
+        "aws-native:route53recoverycontrol:ClusterTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:route53recoverycontrol:ControlPanelStatus": {
             "type": "string"
+        },
+        "aws-native:route53recoverycontrol:ControlPanelTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
         },
         "aws-native:route53recoverycontrol:RoutingControlStatus": {
             "type": "string"
@@ -49060,6 +49187,17 @@
         },
         "aws-native:route53recoverycontrol:SafetyRuleStatus": {
             "type": "string"
+        },
+        "aws-native:route53recoverycontrol:SafetyRuleTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
         },
         "aws-native:route53recoveryreadiness:CellTag": {
             "type": "object",

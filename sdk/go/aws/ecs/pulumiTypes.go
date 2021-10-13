@@ -6133,6 +6133,154 @@ func (o TaskDefinitionResourceRequirementArrayOutput) Index(i pulumi.IntInput) T
 	}).(TaskDefinitionResourceRequirementOutput)
 }
 
+type TaskDefinitionRuntimePlatform struct {
+	CpuArchitecture       *string `pulumi:"cpuArchitecture"`
+	OperatingSystemFamily *string `pulumi:"operatingSystemFamily"`
+}
+
+// TaskDefinitionRuntimePlatformInput is an input type that accepts TaskDefinitionRuntimePlatformArgs and TaskDefinitionRuntimePlatformOutput values.
+// You can construct a concrete instance of `TaskDefinitionRuntimePlatformInput` via:
+//
+//          TaskDefinitionRuntimePlatformArgs{...}
+type TaskDefinitionRuntimePlatformInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionRuntimePlatformOutput() TaskDefinitionRuntimePlatformOutput
+	ToTaskDefinitionRuntimePlatformOutputWithContext(context.Context) TaskDefinitionRuntimePlatformOutput
+}
+
+type TaskDefinitionRuntimePlatformArgs struct {
+	CpuArchitecture       pulumi.StringPtrInput `pulumi:"cpuArchitecture"`
+	OperatingSystemFamily pulumi.StringPtrInput `pulumi:"operatingSystemFamily"`
+}
+
+func (TaskDefinitionRuntimePlatformArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionRuntimePlatform)(nil)).Elem()
+}
+
+func (i TaskDefinitionRuntimePlatformArgs) ToTaskDefinitionRuntimePlatformOutput() TaskDefinitionRuntimePlatformOutput {
+	return i.ToTaskDefinitionRuntimePlatformOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionRuntimePlatformArgs) ToTaskDefinitionRuntimePlatformOutputWithContext(ctx context.Context) TaskDefinitionRuntimePlatformOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionRuntimePlatformOutput)
+}
+
+func (i TaskDefinitionRuntimePlatformArgs) ToTaskDefinitionRuntimePlatformPtrOutput() TaskDefinitionRuntimePlatformPtrOutput {
+	return i.ToTaskDefinitionRuntimePlatformPtrOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionRuntimePlatformArgs) ToTaskDefinitionRuntimePlatformPtrOutputWithContext(ctx context.Context) TaskDefinitionRuntimePlatformPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionRuntimePlatformOutput).ToTaskDefinitionRuntimePlatformPtrOutputWithContext(ctx)
+}
+
+// TaskDefinitionRuntimePlatformPtrInput is an input type that accepts TaskDefinitionRuntimePlatformArgs, TaskDefinitionRuntimePlatformPtr and TaskDefinitionRuntimePlatformPtrOutput values.
+// You can construct a concrete instance of `TaskDefinitionRuntimePlatformPtrInput` via:
+//
+//          TaskDefinitionRuntimePlatformArgs{...}
+//
+//  or:
+//
+//          nil
+type TaskDefinitionRuntimePlatformPtrInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionRuntimePlatformPtrOutput() TaskDefinitionRuntimePlatformPtrOutput
+	ToTaskDefinitionRuntimePlatformPtrOutputWithContext(context.Context) TaskDefinitionRuntimePlatformPtrOutput
+}
+
+type taskDefinitionRuntimePlatformPtrType TaskDefinitionRuntimePlatformArgs
+
+func TaskDefinitionRuntimePlatformPtr(v *TaskDefinitionRuntimePlatformArgs) TaskDefinitionRuntimePlatformPtrInput {
+	return (*taskDefinitionRuntimePlatformPtrType)(v)
+}
+
+func (*taskDefinitionRuntimePlatformPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionRuntimePlatform)(nil)).Elem()
+}
+
+func (i *taskDefinitionRuntimePlatformPtrType) ToTaskDefinitionRuntimePlatformPtrOutput() TaskDefinitionRuntimePlatformPtrOutput {
+	return i.ToTaskDefinitionRuntimePlatformPtrOutputWithContext(context.Background())
+}
+
+func (i *taskDefinitionRuntimePlatformPtrType) ToTaskDefinitionRuntimePlatformPtrOutputWithContext(ctx context.Context) TaskDefinitionRuntimePlatformPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionRuntimePlatformPtrOutput)
+}
+
+type TaskDefinitionRuntimePlatformOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionRuntimePlatformOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionRuntimePlatform)(nil)).Elem()
+}
+
+func (o TaskDefinitionRuntimePlatformOutput) ToTaskDefinitionRuntimePlatformOutput() TaskDefinitionRuntimePlatformOutput {
+	return o
+}
+
+func (o TaskDefinitionRuntimePlatformOutput) ToTaskDefinitionRuntimePlatformOutputWithContext(ctx context.Context) TaskDefinitionRuntimePlatformOutput {
+	return o
+}
+
+func (o TaskDefinitionRuntimePlatformOutput) ToTaskDefinitionRuntimePlatformPtrOutput() TaskDefinitionRuntimePlatformPtrOutput {
+	return o.ToTaskDefinitionRuntimePlatformPtrOutputWithContext(context.Background())
+}
+
+func (o TaskDefinitionRuntimePlatformOutput) ToTaskDefinitionRuntimePlatformPtrOutputWithContext(ctx context.Context) TaskDefinitionRuntimePlatformPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionRuntimePlatform) *TaskDefinitionRuntimePlatform {
+		return &v
+	}).(TaskDefinitionRuntimePlatformPtrOutput)
+}
+
+func (o TaskDefinitionRuntimePlatformOutput) CpuArchitecture() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionRuntimePlatform) *string { return v.CpuArchitecture }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskDefinitionRuntimePlatformOutput) OperatingSystemFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionRuntimePlatform) *string { return v.OperatingSystemFamily }).(pulumi.StringPtrOutput)
+}
+
+type TaskDefinitionRuntimePlatformPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionRuntimePlatformPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionRuntimePlatform)(nil)).Elem()
+}
+
+func (o TaskDefinitionRuntimePlatformPtrOutput) ToTaskDefinitionRuntimePlatformPtrOutput() TaskDefinitionRuntimePlatformPtrOutput {
+	return o
+}
+
+func (o TaskDefinitionRuntimePlatformPtrOutput) ToTaskDefinitionRuntimePlatformPtrOutputWithContext(ctx context.Context) TaskDefinitionRuntimePlatformPtrOutput {
+	return o
+}
+
+func (o TaskDefinitionRuntimePlatformPtrOutput) Elem() TaskDefinitionRuntimePlatformOutput {
+	return o.ApplyT(func(v *TaskDefinitionRuntimePlatform) TaskDefinitionRuntimePlatform {
+		if v != nil {
+			return *v
+		}
+		var ret TaskDefinitionRuntimePlatform
+		return ret
+	}).(TaskDefinitionRuntimePlatformOutput)
+}
+
+func (o TaskDefinitionRuntimePlatformPtrOutput) CpuArchitecture() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionRuntimePlatform) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CpuArchitecture
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TaskDefinitionRuntimePlatformPtrOutput) OperatingSystemFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionRuntimePlatform) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OperatingSystemFamily
+	}).(pulumi.StringPtrOutput)
+}
+
 type TaskDefinitionSecret struct {
 	Name      string `pulumi:"name"`
 	ValueFrom string `pulumi:"valueFrom"`
@@ -7669,6 +7817,8 @@ func init() {
 	pulumi.RegisterOutputType(TaskDefinitionRepositoryCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionResourceRequirementOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionResourceRequirementArrayOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionRuntimePlatformOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionRuntimePlatformPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionSecretOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionSecretArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionSystemControlOutput{})

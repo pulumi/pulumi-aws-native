@@ -7,7 +7,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['ControlPanelArgs', 'ControlPanel']
 
@@ -15,15 +17,19 @@ __all__ = ['ControlPanelArgs', 'ControlPanel']
 class ControlPanelArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 cluster_arn: Optional[pulumi.Input[str]] = None):
+                 cluster_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ControlPanelTagArgs']]]] = None):
         """
         The set of arguments for constructing a ControlPanel resource.
         :param pulumi.Input[str] name: The name of the control panel. You can use any non-white space character in the name.
         :param pulumi.Input[str] cluster_arn: Cluster to associate with the Control Panel
+        :param pulumi.Input[Sequence[pulumi.Input['ControlPanelTagArgs']]] tags: A collection of tags associated with a resource
         """
         pulumi.set(__self__, "name", name)
         if cluster_arn is not None:
             pulumi.set(__self__, "cluster_arn", cluster_arn)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -49,6 +55,18 @@ class ControlPanelArgs:
     def cluster_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cluster_arn", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ControlPanelTagArgs']]]]:
+        """
+        A collection of tags associated with a resource
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ControlPanelTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class ControlPanel(pulumi.CustomResource):
     @overload
@@ -57,6 +75,7 @@ class ControlPanel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ControlPanelTagArgs']]]]] = None,
                  __props__=None):
         """
         AWS Route53 Recovery Control Control Panel resource schema .
@@ -65,6 +84,7 @@ class ControlPanel(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_arn: Cluster to associate with the Control Panel
         :param pulumi.Input[str] name: The name of the control panel. You can use any non-white space character in the name.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ControlPanelTagArgs']]]] tags: A collection of tags associated with a resource
         """
         ...
     @overload
@@ -92,6 +112,7 @@ class ControlPanel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ControlPanelTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -108,6 +129,7 @@ class ControlPanel(pulumi.CustomResource):
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["control_panel_arn"] = None
             __props__.__dict__["default_control_panel"] = None
             __props__.__dict__["routing_control_count"] = None
@@ -140,6 +162,7 @@ class ControlPanel(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["routing_control_count"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["tags"] = None
         return ControlPanel(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -189,4 +212,12 @@ class ControlPanel(pulumi.CustomResource):
         The deployment status of control panel. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ControlPanelTag']]]:
+        """
+        A collection of tags associated with a resource
+        """
+        return pulumi.get(self, "tags")
 

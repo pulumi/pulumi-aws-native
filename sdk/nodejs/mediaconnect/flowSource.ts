@@ -80,6 +80,10 @@ export class FlowSource extends pulumi.CustomResource {
      */
     public /*out*/ readonly sourceArn!: pulumi.Output<string>;
     /**
+     * The port that the flow will be listening on for incoming content.(ReadOnly)
+     */
+    public /*out*/ readonly sourceIngestPort!: pulumi.Output<string>;
+    /**
      * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
      */
     public readonly streamId!: pulumi.Output<string | undefined>;
@@ -123,6 +127,7 @@ export class FlowSource extends pulumi.CustomResource {
             inputs["whitelistCidr"] = args ? args.whitelistCidr : undefined;
             inputs["ingestIp"] = undefined /*out*/;
             inputs["sourceArn"] = undefined /*out*/;
+            inputs["sourceIngestPort"] = undefined /*out*/;
         } else {
             inputs["decryption"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
@@ -135,6 +140,7 @@ export class FlowSource extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["protocol"] = undefined /*out*/;
             inputs["sourceArn"] = undefined /*out*/;
+            inputs["sourceIngestPort"] = undefined /*out*/;
             inputs["streamId"] = undefined /*out*/;
             inputs["vpcInterfaceName"] = undefined /*out*/;
             inputs["whitelistCidr"] = undefined /*out*/;

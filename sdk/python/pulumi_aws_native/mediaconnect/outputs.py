@@ -53,8 +53,8 @@ class FlowEncryption(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 algorithm: 'FlowEncryptionAlgorithm',
                  role_arn: str,
+                 algorithm: Optional['FlowEncryptionAlgorithm'] = None,
                  constant_initialization_vector: Optional[str] = None,
                  device_id: Optional[str] = None,
                  key_type: Optional['FlowEncryptionKeyType'] = None,
@@ -64,8 +64,8 @@ class FlowEncryption(dict):
                  url: Optional[str] = None):
         """
         Information about the encryption of the flow.
-        :param 'FlowEncryptionAlgorithm' algorithm: The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         :param str role_arn: The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
+        :param 'FlowEncryptionAlgorithm' algorithm: The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         :param str constant_initialization_vector: A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
         :param str device_id: The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         :param 'FlowEncryptionKeyType' key_type: The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
@@ -74,8 +74,9 @@ class FlowEncryption(dict):
         :param str secret_arn:  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
         :param str url: The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         """
-        pulumi.set(__self__, "algorithm", algorithm)
         pulumi.set(__self__, "role_arn", role_arn)
+        if algorithm is not None:
+            pulumi.set(__self__, "algorithm", algorithm)
         if constant_initialization_vector is not None:
             pulumi.set(__self__, "constant_initialization_vector", constant_initialization_vector)
         if device_id is not None:
@@ -92,20 +93,20 @@ class FlowEncryption(dict):
             pulumi.set(__self__, "url", url)
 
     @property
-    @pulumi.getter
-    def algorithm(self) -> 'FlowEncryptionAlgorithm':
-        """
-        The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-        """
-        return pulumi.get(self, "algorithm")
-
-    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         """
         The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
         """
         return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter
+    def algorithm(self) -> Optional['FlowEncryptionAlgorithm']:
+        """
+        The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
+        """
+        return pulumi.get(self, "algorithm")
 
     @property
     @pulumi.getter(name="constantInitializationVector")
@@ -383,30 +384,23 @@ class FlowOutputEncryption(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 algorithm: 'FlowOutputEncryptionAlgorithm',
                  role_arn: str,
                  secret_arn: str,
+                 algorithm: Optional['FlowOutputEncryptionAlgorithm'] = None,
                  key_type: Optional['FlowOutputEncryptionKeyType'] = None):
         """
         Information about the encryption of the flow.
-        :param 'FlowOutputEncryptionAlgorithm' algorithm: The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         :param str role_arn: The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
         :param str secret_arn:  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
+        :param 'FlowOutputEncryptionAlgorithm' algorithm: The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         :param 'FlowOutputEncryptionKeyType' key_type: The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
         """
-        pulumi.set(__self__, "algorithm", algorithm)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "secret_arn", secret_arn)
+        if algorithm is not None:
+            pulumi.set(__self__, "algorithm", algorithm)
         if key_type is not None:
             pulumi.set(__self__, "key_type", key_type)
-
-    @property
-    @pulumi.getter
-    def algorithm(self) -> 'FlowOutputEncryptionAlgorithm':
-        """
-        The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-        """
-        return pulumi.get(self, "algorithm")
 
     @property
     @pulumi.getter(name="roleArn")
@@ -423,6 +417,14 @@ class FlowOutputEncryption(dict):
          The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
         """
         return pulumi.get(self, "secret_arn")
+
+    @property
+    @pulumi.getter
+    def algorithm(self) -> Optional['FlowOutputEncryptionAlgorithm']:
+        """
+        The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
+        """
+        return pulumi.get(self, "algorithm")
 
     @property
     @pulumi.getter(name="keyType")
@@ -491,8 +493,12 @@ class FlowSource(dict):
             suggest = "max_bitrate"
         elif key == "maxLatency":
             suggest = "max_latency"
+        elif key == "minLatency":
+            suggest = "min_latency"
         elif key == "sourceArn":
             suggest = "source_arn"
+        elif key == "sourceIngestPort":
+            suggest = "source_ingest_port"
         elif key == "streamId":
             suggest = "stream_id"
         elif key == "vpcInterfaceName":
@@ -519,24 +525,28 @@ class FlowSource(dict):
                  ingest_port: Optional[int] = None,
                  max_bitrate: Optional[int] = None,
                  max_latency: Optional[int] = None,
+                 min_latency: Optional[int] = None,
                  name: Optional[str] = None,
                  protocol: Optional['FlowSourceProtocol'] = None,
                  source_arn: Optional[str] = None,
+                 source_ingest_port: Optional[str] = None,
                  stream_id: Optional[str] = None,
                  vpc_interface_name: Optional[str] = None,
                  whitelist_cidr: Optional[str] = None):
         """
         The settings for the source of the flow.
-        :param 'FlowEncryption' decryption: The type of encryption that is used on the content ingested from this source.
+        :param 'FlowEncryption' decryption: The type of decryption that is used on the content ingested from this source.
         :param str description: A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
         :param str entitlement_arn: The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
         :param str ingest_ip: The IP address that the flow will be listening on for incoming content.
         :param int ingest_port: The port that the flow will be listening on for incoming content.
         :param int max_bitrate: The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
         :param int max_latency: The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
+        :param int min_latency: The minimum latency in milliseconds.
         :param str name: The name of the source.
         :param 'FlowSourceProtocol' protocol: The protocol that is used by the source or output.
         :param str source_arn: The ARN of the source.
+        :param str source_ingest_port: The port that the flow will be listening on for incoming content.(ReadOnly)
         :param str stream_id: The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
         :param str vpc_interface_name: The name of the VPC Interface this Source is configured with.
         :param str whitelist_cidr: The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
@@ -555,12 +565,16 @@ class FlowSource(dict):
             pulumi.set(__self__, "max_bitrate", max_bitrate)
         if max_latency is not None:
             pulumi.set(__self__, "max_latency", max_latency)
+        if min_latency is not None:
+            pulumi.set(__self__, "min_latency", min_latency)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
         if source_arn is not None:
             pulumi.set(__self__, "source_arn", source_arn)
+        if source_ingest_port is not None:
+            pulumi.set(__self__, "source_ingest_port", source_ingest_port)
         if stream_id is not None:
             pulumi.set(__self__, "stream_id", stream_id)
         if vpc_interface_name is not None:
@@ -572,7 +586,7 @@ class FlowSource(dict):
     @pulumi.getter
     def decryption(self) -> Optional['outputs.FlowEncryption']:
         """
-        The type of encryption that is used on the content ingested from this source.
+        The type of decryption that is used on the content ingested from this source.
         """
         return pulumi.get(self, "decryption")
 
@@ -625,6 +639,14 @@ class FlowSource(dict):
         return pulumi.get(self, "max_latency")
 
     @property
+    @pulumi.getter(name="minLatency")
+    def min_latency(self) -> Optional[int]:
+        """
+        The minimum latency in milliseconds.
+        """
+        return pulumi.get(self, "min_latency")
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
@@ -647,6 +669,14 @@ class FlowSource(dict):
         The ARN of the source.
         """
         return pulumi.get(self, "source_arn")
+
+    @property
+    @pulumi.getter(name="sourceIngestPort")
+    def source_ingest_port(self) -> Optional[str]:
+        """
+        The port that the flow will be listening on for incoming content.(ReadOnly)
+        """
+        return pulumi.get(self, "source_ingest_port")
 
     @property
     @pulumi.getter(name="streamId")

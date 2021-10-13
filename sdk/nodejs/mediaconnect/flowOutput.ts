@@ -60,6 +60,10 @@ export class FlowOutput extends pulumi.CustomResource {
      */
     public readonly maxLatency!: pulumi.Output<number | undefined>;
     /**
+     * The minimum latency in milliseconds.
+     */
+    public readonly minLatency!: pulumi.Output<number | undefined>;
+    /**
      * The name of the output. This value must be unique within the current flow.
      */
     public readonly name!: pulumi.Output<string | undefined>;
@@ -115,6 +119,7 @@ export class FlowOutput extends pulumi.CustomResource {
             inputs["encryption"] = args ? args.encryption : undefined;
             inputs["flowArn"] = args ? args.flowArn : undefined;
             inputs["maxLatency"] = args ? args.maxLatency : undefined;
+            inputs["minLatency"] = args ? args.minLatency : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["port"] = args ? args.port : undefined;
             inputs["protocol"] = args ? args.protocol : undefined;
@@ -130,6 +135,7 @@ export class FlowOutput extends pulumi.CustomResource {
             inputs["encryption"] = undefined /*out*/;
             inputs["flowArn"] = undefined /*out*/;
             inputs["maxLatency"] = undefined /*out*/;
+            inputs["minLatency"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["outputArn"] = undefined /*out*/;
             inputs["port"] = undefined /*out*/;
@@ -174,6 +180,10 @@ export interface FlowOutputArgs {
      * The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
      */
     maxLatency?: pulumi.Input<number>;
+    /**
+     * The minimum latency in milliseconds.
+     */
+    minLatency?: pulumi.Input<number>;
     /**
      * The name of the output. This value must be unique within the current flow.
      */

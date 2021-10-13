@@ -362,6 +362,7 @@
   "primaryIdentifier" : [ "/properties/RuleArn" ],
   "readOnlyProperties" : [ "/properties/RuleArn", "/properties/IsDefault" ],
   "writeOnlyProperties" : [ "/properties/Actions/*/AuthenticateOidcConfig/ClientSecret", "/properties/Actions/*/ForwardConfig", "/properties/Actions/*/TargetGroupArn" ],
+  "taggable" : false,
   "handlers" : {
     "create" : {
       "permissions" : [ "elasticloadbalancing:CreateRule", "elasticloadbalancing:DescribeRules" ]

@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
     public sealed class FlowSource
     {
         /// <summary>
-        /// The type of encryption that is used on the content ingested from this source.
+        /// The type of decryption that is used on the content ingested from this source.
         /// </summary>
         public readonly Outputs.FlowEncryption? Decryption;
         /// <summary>
@@ -45,6 +45,10 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
         /// </summary>
         public readonly int? MaxLatency;
         /// <summary>
+        /// The minimum latency in milliseconds.
+        /// </summary>
+        public readonly int? MinLatency;
+        /// <summary>
         /// The name of the source.
         /// </summary>
         public readonly string? Name;
@@ -56,6 +60,10 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
         /// The ARN of the source.
         /// </summary>
         public readonly string? SourceArn;
+        /// <summary>
+        /// The port that the flow will be listening on for incoming content.(ReadOnly)
+        /// </summary>
+        public readonly string? SourceIngestPort;
         /// <summary>
         /// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
         /// </summary>
@@ -85,11 +93,15 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
 
             int? maxLatency,
 
+            int? minLatency,
+
             string? name,
 
             Pulumi.AwsNative.MediaConnect.FlowSourceProtocol? protocol,
 
             string? sourceArn,
+
+            string? sourceIngestPort,
 
             string? streamId,
 
@@ -104,9 +116,11 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
             IngestPort = ingestPort;
             MaxBitrate = maxBitrate;
             MaxLatency = maxLatency;
+            MinLatency = minLatency;
             Name = name;
             Protocol = protocol;
             SourceArn = sourceArn;
+            SourceIngestPort = sourceIngestPort;
             StreamId = streamId;
             VpcInterfaceName = vpcInterfaceName;
             WhitelistCidr = whitelistCidr;

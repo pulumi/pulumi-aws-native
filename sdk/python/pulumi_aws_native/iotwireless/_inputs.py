@@ -13,6 +13,9 @@ __all__ = [
     'DestinationTagArgs',
     'DeviceProfileLoRaWANDeviceProfileArgs',
     'DeviceProfileTagArgs',
+    'PartnerAccountSidewalkAccountInfoArgs',
+    'PartnerAccountSidewalkUpdateAccountArgs',
+    'PartnerAccountTagArgs',
     'ServiceProfileLoRaWANServiceProfileArgs',
     'ServiceProfileTagArgs',
     'TaskDefinitionLoRaWANGatewayVersionArgs',
@@ -236,6 +239,68 @@ class DeviceProfileLoRaWANDeviceProfileArgs:
 
 @pulumi.input_type
 class DeviceProfileTagArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class PartnerAccountSidewalkAccountInfoArgs:
+    def __init__(__self__, *,
+                 app_server_private_key: pulumi.Input[str]):
+        pulumi.set(__self__, "app_server_private_key", app_server_private_key)
+
+    @property
+    @pulumi.getter(name="appServerPrivateKey")
+    def app_server_private_key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "app_server_private_key")
+
+    @app_server_private_key.setter
+    def app_server_private_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_server_private_key", value)
+
+
+@pulumi.input_type
+class PartnerAccountSidewalkUpdateAccountArgs:
+    def __init__(__self__, *,
+                 app_server_private_key: Optional[pulumi.Input[str]] = None):
+        if app_server_private_key is not None:
+            pulumi.set(__self__, "app_server_private_key", app_server_private_key)
+
+    @property
+    @pulumi.getter(name="appServerPrivateKey")
+    def app_server_private_key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "app_server_private_key")
+
+    @app_server_private_key.setter
+    def app_server_private_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_server_private_key", value)
+
+
+@pulumi.input_type
+class PartnerAccountTagArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):

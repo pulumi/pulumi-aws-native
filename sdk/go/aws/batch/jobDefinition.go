@@ -24,6 +24,7 @@ type JobDefinition struct {
 	PlatformCapabilities pulumi.StringArrayOutput                  `pulumi:"platformCapabilities"`
 	PropagateTags        pulumi.BoolPtrOutput                      `pulumi:"propagateTags"`
 	RetryStrategy        JobDefinitionRetryStrategyPtrOutput       `pulumi:"retryStrategy"`
+	SchedulingPriority   pulumi.IntPtrOutput                       `pulumi:"schedulingPriority"`
 	Tags                 pulumi.AnyOutput                          `pulumi:"tags"`
 	Timeout              JobDefinitionTimeoutPtrOutput             `pulumi:"timeout"`
 	Type                 pulumi.StringOutput                       `pulumi:"type"`
@@ -78,6 +79,7 @@ type jobDefinitionArgs struct {
 	PlatformCapabilities []string                          `pulumi:"platformCapabilities"`
 	PropagateTags        *bool                             `pulumi:"propagateTags"`
 	RetryStrategy        *JobDefinitionRetryStrategy       `pulumi:"retryStrategy"`
+	SchedulingPriority   *int                              `pulumi:"schedulingPriority"`
 	Tags                 interface{}                       `pulumi:"tags"`
 	Timeout              *JobDefinitionTimeout             `pulumi:"timeout"`
 	Type                 string                            `pulumi:"type"`
@@ -92,6 +94,7 @@ type JobDefinitionArgs struct {
 	PlatformCapabilities pulumi.StringArrayInput
 	PropagateTags        pulumi.BoolPtrInput
 	RetryStrategy        JobDefinitionRetryStrategyPtrInput
+	SchedulingPriority   pulumi.IntPtrInput
 	Tags                 pulumi.Input
 	Timeout              JobDefinitionTimeoutPtrInput
 	Type                 pulumi.StringInput

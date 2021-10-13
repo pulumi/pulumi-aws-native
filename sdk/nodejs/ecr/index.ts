@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./publicRepository";
 export * from "./registryPolicy";
 export * from "./replicationConfiguration";
 export * from "./repository";
@@ -13,6 +14,7 @@ export * from "./repository";
 export * from "../types/enums/ecr";
 
 // Import resources to register:
+import { PublicRepository } from "./publicRepository";
 import { RegistryPolicy } from "./registryPolicy";
 import { ReplicationConfiguration } from "./replicationConfiguration";
 import { Repository } from "./repository";
@@ -21,6 +23,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:ecr:PublicRepository":
+                return new PublicRepository(name, <any>undefined, { urn })
             case "aws-native:ecr:RegistryPolicy":
                 return new RegistryPolicy(name, <any>undefined, { urn })
             case "aws-native:ecr:ReplicationConfiguration":

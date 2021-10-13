@@ -20,6 +20,7 @@ type JobQueue struct {
 	ComputeEnvironmentOrder JobQueueComputeEnvironmentOrderArrayOutput `pulumi:"computeEnvironmentOrder"`
 	JobQueueName            pulumi.StringPtrOutput                     `pulumi:"jobQueueName"`
 	Priority                pulumi.IntOutput                           `pulumi:"priority"`
+	SchedulingPolicyArn     pulumi.StringPtrOutput                     `pulumi:"schedulingPolicyArn"`
 	State                   pulumi.StringPtrOutput                     `pulumi:"state"`
 	Tags                    pulumi.AnyOutput                           `pulumi:"tags"`
 }
@@ -72,6 +73,7 @@ type jobQueueArgs struct {
 	ComputeEnvironmentOrder []JobQueueComputeEnvironmentOrder `pulumi:"computeEnvironmentOrder"`
 	JobQueueName            *string                           `pulumi:"jobQueueName"`
 	Priority                int                               `pulumi:"priority"`
+	SchedulingPolicyArn     *string                           `pulumi:"schedulingPolicyArn"`
 	State                   *string                           `pulumi:"state"`
 	Tags                    interface{}                       `pulumi:"tags"`
 }
@@ -81,6 +83,7 @@ type JobQueueArgs struct {
 	ComputeEnvironmentOrder JobQueueComputeEnvironmentOrderArrayInput
 	JobQueueName            pulumi.StringPtrInput
 	Priority                pulumi.IntInput
+	SchedulingPolicyArn     pulumi.StringPtrInput
 	State                   pulumi.StringPtrInput
 	Tags                    pulumi.Input
 }

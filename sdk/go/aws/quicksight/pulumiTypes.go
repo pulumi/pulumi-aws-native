@@ -5562,6 +5562,146 @@ func (o DataSourceAmazonElasticsearchParametersPtrOutput) Domain() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>Amazon OpenSearch Service parameters.</p>
+type DataSourceAmazonOpenSearchParameters struct {
+	// <p>The Amazon OpenSearch Service domain.</p>
+	Domain string `pulumi:"domain"`
+}
+
+// DataSourceAmazonOpenSearchParametersInput is an input type that accepts DataSourceAmazonOpenSearchParametersArgs and DataSourceAmazonOpenSearchParametersOutput values.
+// You can construct a concrete instance of `DataSourceAmazonOpenSearchParametersInput` via:
+//
+//          DataSourceAmazonOpenSearchParametersArgs{...}
+type DataSourceAmazonOpenSearchParametersInput interface {
+	pulumi.Input
+
+	ToDataSourceAmazonOpenSearchParametersOutput() DataSourceAmazonOpenSearchParametersOutput
+	ToDataSourceAmazonOpenSearchParametersOutputWithContext(context.Context) DataSourceAmazonOpenSearchParametersOutput
+}
+
+// <p>Amazon OpenSearch Service parameters.</p>
+type DataSourceAmazonOpenSearchParametersArgs struct {
+	// <p>The Amazon OpenSearch Service domain.</p>
+	Domain pulumi.StringInput `pulumi:"domain"`
+}
+
+func (DataSourceAmazonOpenSearchParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceAmazonOpenSearchParameters)(nil)).Elem()
+}
+
+func (i DataSourceAmazonOpenSearchParametersArgs) ToDataSourceAmazonOpenSearchParametersOutput() DataSourceAmazonOpenSearchParametersOutput {
+	return i.ToDataSourceAmazonOpenSearchParametersOutputWithContext(context.Background())
+}
+
+func (i DataSourceAmazonOpenSearchParametersArgs) ToDataSourceAmazonOpenSearchParametersOutputWithContext(ctx context.Context) DataSourceAmazonOpenSearchParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceAmazonOpenSearchParametersOutput)
+}
+
+func (i DataSourceAmazonOpenSearchParametersArgs) ToDataSourceAmazonOpenSearchParametersPtrOutput() DataSourceAmazonOpenSearchParametersPtrOutput {
+	return i.ToDataSourceAmazonOpenSearchParametersPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceAmazonOpenSearchParametersArgs) ToDataSourceAmazonOpenSearchParametersPtrOutputWithContext(ctx context.Context) DataSourceAmazonOpenSearchParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceAmazonOpenSearchParametersOutput).ToDataSourceAmazonOpenSearchParametersPtrOutputWithContext(ctx)
+}
+
+// DataSourceAmazonOpenSearchParametersPtrInput is an input type that accepts DataSourceAmazonOpenSearchParametersArgs, DataSourceAmazonOpenSearchParametersPtr and DataSourceAmazonOpenSearchParametersPtrOutput values.
+// You can construct a concrete instance of `DataSourceAmazonOpenSearchParametersPtrInput` via:
+//
+//          DataSourceAmazonOpenSearchParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type DataSourceAmazonOpenSearchParametersPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceAmazonOpenSearchParametersPtrOutput() DataSourceAmazonOpenSearchParametersPtrOutput
+	ToDataSourceAmazonOpenSearchParametersPtrOutputWithContext(context.Context) DataSourceAmazonOpenSearchParametersPtrOutput
+}
+
+type dataSourceAmazonOpenSearchParametersPtrType DataSourceAmazonOpenSearchParametersArgs
+
+func DataSourceAmazonOpenSearchParametersPtr(v *DataSourceAmazonOpenSearchParametersArgs) DataSourceAmazonOpenSearchParametersPtrInput {
+	return (*dataSourceAmazonOpenSearchParametersPtrType)(v)
+}
+
+func (*dataSourceAmazonOpenSearchParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceAmazonOpenSearchParameters)(nil)).Elem()
+}
+
+func (i *dataSourceAmazonOpenSearchParametersPtrType) ToDataSourceAmazonOpenSearchParametersPtrOutput() DataSourceAmazonOpenSearchParametersPtrOutput {
+	return i.ToDataSourceAmazonOpenSearchParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceAmazonOpenSearchParametersPtrType) ToDataSourceAmazonOpenSearchParametersPtrOutputWithContext(ctx context.Context) DataSourceAmazonOpenSearchParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceAmazonOpenSearchParametersPtrOutput)
+}
+
+// <p>Amazon OpenSearch Service parameters.</p>
+type DataSourceAmazonOpenSearchParametersOutput struct{ *pulumi.OutputState }
+
+func (DataSourceAmazonOpenSearchParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceAmazonOpenSearchParameters)(nil)).Elem()
+}
+
+func (o DataSourceAmazonOpenSearchParametersOutput) ToDataSourceAmazonOpenSearchParametersOutput() DataSourceAmazonOpenSearchParametersOutput {
+	return o
+}
+
+func (o DataSourceAmazonOpenSearchParametersOutput) ToDataSourceAmazonOpenSearchParametersOutputWithContext(ctx context.Context) DataSourceAmazonOpenSearchParametersOutput {
+	return o
+}
+
+func (o DataSourceAmazonOpenSearchParametersOutput) ToDataSourceAmazonOpenSearchParametersPtrOutput() DataSourceAmazonOpenSearchParametersPtrOutput {
+	return o.ToDataSourceAmazonOpenSearchParametersPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceAmazonOpenSearchParametersOutput) ToDataSourceAmazonOpenSearchParametersPtrOutputWithContext(ctx context.Context) DataSourceAmazonOpenSearchParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceAmazonOpenSearchParameters) *DataSourceAmazonOpenSearchParameters {
+		return &v
+	}).(DataSourceAmazonOpenSearchParametersPtrOutput)
+}
+
+// <p>The Amazon OpenSearch Service domain.</p>
+func (o DataSourceAmazonOpenSearchParametersOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceAmazonOpenSearchParameters) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+type DataSourceAmazonOpenSearchParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceAmazonOpenSearchParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceAmazonOpenSearchParameters)(nil)).Elem()
+}
+
+func (o DataSourceAmazonOpenSearchParametersPtrOutput) ToDataSourceAmazonOpenSearchParametersPtrOutput() DataSourceAmazonOpenSearchParametersPtrOutput {
+	return o
+}
+
+func (o DataSourceAmazonOpenSearchParametersPtrOutput) ToDataSourceAmazonOpenSearchParametersPtrOutputWithContext(ctx context.Context) DataSourceAmazonOpenSearchParametersPtrOutput {
+	return o
+}
+
+func (o DataSourceAmazonOpenSearchParametersPtrOutput) Elem() DataSourceAmazonOpenSearchParametersOutput {
+	return o.ApplyT(func(v *DataSourceAmazonOpenSearchParameters) DataSourceAmazonOpenSearchParameters {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceAmazonOpenSearchParameters
+		return ret
+	}).(DataSourceAmazonOpenSearchParametersOutput)
+}
+
+// <p>The Amazon OpenSearch Service domain.</p>
+func (o DataSourceAmazonOpenSearchParametersPtrOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceAmazonOpenSearchParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Domain
+	}).(pulumi.StringPtrOutput)
+}
+
 // <p>Amazon Athena parameters.</p>
 type DataSourceAthenaParameters struct {
 	// <p>The workgroup that Amazon Athena uses.</p>
@@ -7276,6 +7416,7 @@ func (o DataSourceOracleParametersPtrOutput) Port() pulumi.Float64PtrOutput {
 //             attributes can be non-null.</p>
 type DataSourceParameters struct {
 	AmazonElasticsearchParameters *DataSourceAmazonElasticsearchParameters `pulumi:"amazonElasticsearchParameters"`
+	AmazonOpenSearchParameters    *DataSourceAmazonOpenSearchParameters    `pulumi:"amazonOpenSearchParameters"`
 	AthenaParameters              *DataSourceAthenaParameters              `pulumi:"athenaParameters"`
 	AuroraParameters              *DataSourceAuroraParameters              `pulumi:"auroraParameters"`
 	AuroraPostgreSqlParameters    *DataSourceAuroraPostgreSqlParameters    `pulumi:"auroraPostgreSqlParameters"`
@@ -7309,6 +7450,7 @@ type DataSourceParametersInput interface {
 //             attributes can be non-null.</p>
 type DataSourceParametersArgs struct {
 	AmazonElasticsearchParameters DataSourceAmazonElasticsearchParametersPtrInput `pulumi:"amazonElasticsearchParameters"`
+	AmazonOpenSearchParameters    DataSourceAmazonOpenSearchParametersPtrInput    `pulumi:"amazonOpenSearchParameters"`
 	AthenaParameters              DataSourceAthenaParametersPtrInput              `pulumi:"athenaParameters"`
 	AuroraParameters              DataSourceAuroraParametersPtrInput              `pulumi:"auroraParameters"`
 	AuroraPostgreSqlParameters    DataSourceAuroraPostgreSqlParametersPtrInput    `pulumi:"auroraPostgreSqlParameters"`
@@ -7437,6 +7579,12 @@ func (o DataSourceParametersOutput) AmazonElasticsearchParameters() DataSourceAm
 	}).(DataSourceAmazonElasticsearchParametersPtrOutput)
 }
 
+func (o DataSourceParametersOutput) AmazonOpenSearchParameters() DataSourceAmazonOpenSearchParametersPtrOutput {
+	return o.ApplyT(func(v DataSourceParameters) *DataSourceAmazonOpenSearchParameters {
+		return v.AmazonOpenSearchParameters
+	}).(DataSourceAmazonOpenSearchParametersPtrOutput)
+}
+
 func (o DataSourceParametersOutput) AthenaParameters() DataSourceAthenaParametersPtrOutput {
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceAthenaParameters { return v.AthenaParameters }).(DataSourceAthenaParametersPtrOutput)
 }
@@ -7530,6 +7678,15 @@ func (o DataSourceParametersPtrOutput) AmazonElasticsearchParameters() DataSourc
 		}
 		return v.AmazonElasticsearchParameters
 	}).(DataSourceAmazonElasticsearchParametersPtrOutput)
+}
+
+func (o DataSourceParametersPtrOutput) AmazonOpenSearchParameters() DataSourceAmazonOpenSearchParametersPtrOutput {
+	return o.ApplyT(func(v *DataSourceParameters) *DataSourceAmazonOpenSearchParameters {
+		if v == nil {
+			return nil
+		}
+		return v.AmazonOpenSearchParameters
+	}).(DataSourceAmazonOpenSearchParametersPtrOutput)
 }
 
 func (o DataSourceParametersPtrOutput) AthenaParameters() DataSourceAthenaParametersPtrOutput {
@@ -14383,6 +14540,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSetTagArrayOutput{})
 	pulumi.RegisterOutputType(DataSourceAmazonElasticsearchParametersOutput{})
 	pulumi.RegisterOutputType(DataSourceAmazonElasticsearchParametersPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceAmazonOpenSearchParametersOutput{})
+	pulumi.RegisterOutputType(DataSourceAmazonOpenSearchParametersPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceAthenaParametersOutput{})
 	pulumi.RegisterOutputType(DataSourceAthenaParametersPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceAuroraParametersOutput{})

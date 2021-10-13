@@ -3,6 +3,9 @@
   "description" : "Resource Type definition for AWS::Batch::ComputeEnvironment",
   "additionalProperties" : false,
   "properties" : {
+    "UnmanagedvCpus" : {
+      "type" : "integer"
+    },
     "Type" : {
       "type" : "string"
     },

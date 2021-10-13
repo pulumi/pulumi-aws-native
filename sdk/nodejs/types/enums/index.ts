@@ -18,6 +18,7 @@ import * as codeguruprofiler from "./codeguruprofiler";
 import * as codegurureviewer from "./codegurureviewer";
 import * as codestarnotifications from "./codestarnotifications";
 import * as connect from "./connect";
+import * as cur from "./cur";
 import * as customerprofiles from "./customerprofiles";
 import * as databrew from "./databrew";
 import * as datasync from "./datasync";
@@ -51,10 +52,12 @@ import * as kms from "./kms";
 import * as lambda from "./lambda";
 import * as lightsail from "./lightsail";
 import * as location from "./location";
+import * as lookoutequipment from "./lookoutequipment";
 import * as lookoutmetrics from "./lookoutmetrics";
 import * as macie from "./macie";
 import * as mediaconnect from "./mediaconnect";
 import * as mediapackage from "./mediapackage";
+import * as memorydb from "./memorydb";
 import * as mwaa from "./mwaa";
 import * as networkfirewall from "./networkfirewall";
 import * as quicksight from "./quicksight";
@@ -95,6 +98,7 @@ export {
     codegurureviewer,
     codestarnotifications,
     connect,
+    cur,
     customerprofiles,
     databrew,
     datasync,
@@ -128,10 +132,12 @@ export {
     lambda,
     lightsail,
     location,
+    lookoutequipment,
     lookoutmetrics,
     macie,
     mediaconnect,
     mediapackage,
+    memorydb,
     mwaa,
     networkfirewall,
     quicksight,

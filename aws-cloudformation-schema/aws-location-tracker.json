@@ -10,6 +10,10 @@
       "description" : "The datetime value in ISO 8601 format. The timezone is always UTC. (YYYY-MM-DDThh:mm:ss.sssZ)",
       "type" : "string",
       "pattern" : "^([0-2]\\d{3})-(0[0-9]|1[0-2])-([0-2]\\d|3[01])T([01]\\d|2[0-4]):([0-5]\\d):([0-6]\\d)((\\.\\d{3})?)Z$"
+    },
+    "PositionFiltering" : {
+      "type" : "string",
+      "enum" : [ "TimeBased", "DistanceBased" ]
     }
   },
   "properties" : {
@@ -32,6 +36,9 @@
     "PricingPlanDataSource" : {
       "type" : "string"
     },
+    "PositionFiltering" : {
+      "$ref" : "#/definitions/PositionFiltering"
+    },
     "TrackerArn" : {
       "type" : "string",
       "maxLength" : 1600,
@@ -53,7 +60,7 @@
     }
   },
   "readOnlyProperties" : [ "/properties/CreateTime", "/properties/TrackerArn", "/properties/Arn", "/properties/UpdateTime" ],
-  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/PricingPlanDataSource", "/properties/TrackerName", "/properties/PricingPlan", "/properties/Description" ],
+  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/PricingPlanDataSource", "/properties/TrackerName", "/properties/PricingPlan", "/properties/Description", "/properties/PositionFiltering" ],
   "required" : [ "PricingPlan", "TrackerName" ],
   "primaryIdentifier" : [ "/properties/TrackerName" ],
   "additionalProperties" : false,

@@ -12,6 +12,9 @@
     "NodeProperties" : {
       "$ref" : "#/definitions/NodeProperties"
     },
+    "SchedulingPriority" : {
+      "type" : "integer"
+    },
     "Timeout" : {
       "$ref" : "#/definitions/Timeout"
     },

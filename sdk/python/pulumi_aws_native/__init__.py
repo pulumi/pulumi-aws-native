@@ -115,6 +115,8 @@ if typing.TYPE_CHECKING:
     configuration = __configuration
     import pulumi_aws_native.connect as __connect
     connect = __connect
+    import pulumi_aws_native.cur as __cur
+    cur = __cur
     import pulumi_aws_native.customerprofiles as __customerprofiles
     customerprofiles = __customerprofiles
     import pulumi_aws_native.databrew as __databrew
@@ -243,6 +245,8 @@ if typing.TYPE_CHECKING:
     location = __location
     import pulumi_aws_native.logs as __logs
     logs = __logs
+    import pulumi_aws_native.lookoutequipment as __lookoutequipment
+    lookoutequipment = __lookoutequipment
     import pulumi_aws_native.lookoutmetrics as __lookoutmetrics
     lookoutmetrics = __lookoutmetrics
     import pulumi_aws_native.lookoutvision as __lookoutvision
@@ -261,6 +265,8 @@ if typing.TYPE_CHECKING:
     mediapackage = __mediapackage
     import pulumi_aws_native.mediastore as __mediastore
     mediastore = __mediastore
+    import pulumi_aws_native.memorydb as __memorydb
+    memorydb = __memorydb
     import pulumi_aws_native.msk as __msk
     msk = __msk
     import pulumi_aws_native.mwaa as __mwaa
@@ -407,6 +413,7 @@ else:
     config = _utilities.lazy_import('pulumi_aws_native.config')
     configuration = _utilities.lazy_import('pulumi_aws_native.configuration')
     connect = _utilities.lazy_import('pulumi_aws_native.connect')
+    cur = _utilities.lazy_import('pulumi_aws_native.cur')
     customerprofiles = _utilities.lazy_import('pulumi_aws_native.customerprofiles')
     databrew = _utilities.lazy_import('pulumi_aws_native.databrew')
     datapipeline = _utilities.lazy_import('pulumi_aws_native.datapipeline')
@@ -471,6 +478,7 @@ else:
     lightsail = _utilities.lazy_import('pulumi_aws_native.lightsail')
     location = _utilities.lazy_import('pulumi_aws_native.location')
     logs = _utilities.lazy_import('pulumi_aws_native.logs')
+    lookoutequipment = _utilities.lazy_import('pulumi_aws_native.lookoutequipment')
     lookoutmetrics = _utilities.lazy_import('pulumi_aws_native.lookoutmetrics')
     lookoutvision = _utilities.lazy_import('pulumi_aws_native.lookoutvision')
     macie = _utilities.lazy_import('pulumi_aws_native.macie')
@@ -480,6 +488,7 @@ else:
     medialive = _utilities.lazy_import('pulumi_aws_native.medialive')
     mediapackage = _utilities.lazy_import('pulumi_aws_native.mediapackage')
     mediastore = _utilities.lazy_import('pulumi_aws_native.mediastore')
+    memorydb = _utilities.lazy_import('pulumi_aws_native.memorydb')
     msk = _utilities.lazy_import('pulumi_aws_native.msk')
     mwaa = _utilities.lazy_import('pulumi_aws_native.mwaa')
     neptune = _utilities.lazy_import('pulumi_aws_native.neptune')
@@ -817,6 +826,8 @@ _utilities.register(
   "mod": "ce",
   "fqn": "pulumi_aws_native.ce",
   "classes": {
+   "aws-native:ce:AnomalyMonitor": "AnomalyMonitor",
+   "aws-native:ce:AnomalySubscription": "AnomalySubscription",
    "aws-native:ce:CostCategory": "CostCategory"
   }
  },
@@ -1035,6 +1046,14 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "cur",
+  "fqn": "pulumi_aws_native.cur",
+  "classes": {
+   "aws-native:cur:ReportDefinition": "ReportDefinition"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "customerprofiles",
   "fqn": "pulumi_aws_native.customerprofiles",
   "classes": {
@@ -1241,6 +1260,7 @@ _utilities.register(
   "mod": "ecr",
   "fqn": "pulumi_aws_native.ecr",
   "classes": {
+   "aws-native:ecr:PublicRepository": "PublicRepository",
    "aws-native:ecr:RegistryPolicy": "RegistryPolicy",
    "aws-native:ecr:ReplicationConfiguration": "ReplicationConfiguration",
    "aws-native:ecr:Repository": "Repository"
@@ -1691,6 +1711,7 @@ _utilities.register(
   "classes": {
    "aws-native:iotwireless:Destination": "Destination",
    "aws-native:iotwireless:DeviceProfile": "DeviceProfile",
+   "aws-native:iotwireless:PartnerAccount": "PartnerAccount",
    "aws-native:iotwireless:ServiceProfile": "ServiceProfile",
    "aws-native:iotwireless:TaskDefinition": "TaskDefinition",
    "aws-native:iotwireless:WirelessDevice": "WirelessDevice",
@@ -1839,6 +1860,14 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "lookoutequipment",
+  "fqn": "pulumi_aws_native.lookoutequipment",
+  "classes": {
+   "aws-native:lookoutequipment:InferenceScheduler": "InferenceScheduler"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "lookoutmetrics",
   "fqn": "pulumi_aws_native.lookoutmetrics",
   "classes": {
@@ -1923,6 +1952,18 @@ _utilities.register(
   "fqn": "pulumi_aws_native.mediastore",
   "classes": {
    "aws-native:mediastore:Container": "Container"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "memorydb",
+  "fqn": "pulumi_aws_native.memorydb",
+  "classes": {
+   "aws-native:memorydb:ACL": "ACL",
+   "aws-native:memorydb:Cluster": "Cluster",
+   "aws-native:memorydb:ParameterGroup": "ParameterGroup",
+   "aws-native:memorydb:SubnetGroup": "SubnetGroup",
+   "aws-native:memorydb:User": "User"
   }
  },
  {

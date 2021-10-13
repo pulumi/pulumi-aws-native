@@ -38,14 +38,41 @@ export class NetworkAclEntry extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkAclEntry.__pulumiType;
     }
 
+    /**
+     * The IPv4 CIDR range to allow or deny, in CIDR notation (for example, 172.16.0.0/24). Requirement is conditional: You must specify the CidrBlock or Ipv6CidrBlock property
+     */
     public readonly cidrBlock!: pulumi.Output<string | undefined>;
+    /**
+     * Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet)
+     */
     public readonly egress!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Internet Control Message Protocol (ICMP) code and type. Requirement is conditional: Required if specifying 1 (ICMP) for the protocol parameter
+     */
     public readonly icmp!: pulumi.Output<outputs.ec2.NetworkAclEntryIcmp | undefined>;
+    /**
+     * The IPv6 network range to allow or deny, in CIDR notation (for example 2001:db8:1234:1a00::/64)
+     */
     public readonly ipv6CidrBlock!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the network ACL
+     */
     public readonly networkAclId!: pulumi.Output<string>;
+    /**
+     * The IPv4 network range to allow or deny, in CIDR notation (for example 172.16.0.0/24). We modify the specified CIDR block to its canonical form; for example, if you specify 100.68.0.18/18, we modify it to 100.68.0.0/18
+     */
     public readonly portRange!: pulumi.Output<outputs.ec2.NetworkAclEntryPortRange | undefined>;
+    /**
+     * The protocol number. A value of "-1" means all protocols. If you specify "-1" or a protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code
+     */
     public readonly protocol!: pulumi.Output<number>;
+    /**
+     * Indicates whether to allow or deny the traffic that matches the rule
+     */
     public readonly ruleAction!: pulumi.Output<string>;
+    /**
+     * Rule number to assign to the entry, such as 100. ACL entries are processed in ascending order by rule number. Entries can't use the same rule number unless one is an egress rule and the other is an ingress rule
+     */
     public readonly ruleNumber!: pulumi.Output<number>;
 
     /**
@@ -104,13 +131,40 @@ export class NetworkAclEntry extends pulumi.CustomResource {
  * The set of arguments for constructing a NetworkAclEntry resource.
  */
 export interface NetworkAclEntryArgs {
+    /**
+     * The IPv4 CIDR range to allow or deny, in CIDR notation (for example, 172.16.0.0/24). Requirement is conditional: You must specify the CidrBlock or Ipv6CidrBlock property
+     */
     cidrBlock?: pulumi.Input<string>;
+    /**
+     * Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet)
+     */
     egress?: pulumi.Input<boolean>;
+    /**
+     * The Internet Control Message Protocol (ICMP) code and type. Requirement is conditional: Required if specifying 1 (ICMP) for the protocol parameter
+     */
     icmp?: pulumi.Input<inputs.ec2.NetworkAclEntryIcmpArgs>;
+    /**
+     * The IPv6 network range to allow or deny, in CIDR notation (for example 2001:db8:1234:1a00::/64)
+     */
     ipv6CidrBlock?: pulumi.Input<string>;
+    /**
+     * The ID of the network ACL
+     */
     networkAclId: pulumi.Input<string>;
+    /**
+     * The IPv4 network range to allow or deny, in CIDR notation (for example 172.16.0.0/24). We modify the specified CIDR block to its canonical form; for example, if you specify 100.68.0.18/18, we modify it to 100.68.0.0/18
+     */
     portRange?: pulumi.Input<inputs.ec2.NetworkAclEntryPortRangeArgs>;
+    /**
+     * The protocol number. A value of "-1" means all protocols. If you specify "-1" or a protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code
+     */
     protocol: pulumi.Input<number>;
+    /**
+     * Indicates whether to allow or deny the traffic that matches the rule
+     */
     ruleAction: pulumi.Input<string>;
+    /**
+     * Rule number to assign to the entry, such as 100. ACL entries are processed in ascending order by rule number. Entries can't use the same rule number unless one is an egress rule and the other is an ingress rule
+     */
     ruleNumber: pulumi.Input<number>;
 }

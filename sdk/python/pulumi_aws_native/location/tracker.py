@@ -18,6 +18,7 @@ class TrackerArgs:
                  tracker_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
+                 position_filtering: Optional[pulumi.Input['TrackerPositionFiltering']] = None,
                  pricing_plan_data_source: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Tracker resource.
@@ -28,6 +29,8 @@ class TrackerArgs:
             pulumi.set(__self__, "description", description)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if position_filtering is not None:
+            pulumi.set(__self__, "position_filtering", position_filtering)
         if pricing_plan_data_source is not None:
             pulumi.set(__self__, "pricing_plan_data_source", pricing_plan_data_source)
 
@@ -68,6 +71,15 @@ class TrackerArgs:
         pulumi.set(self, "kms_key_id", value)
 
     @property
+    @pulumi.getter(name="positionFiltering")
+    def position_filtering(self) -> Optional[pulumi.Input['TrackerPositionFiltering']]:
+        return pulumi.get(self, "position_filtering")
+
+    @position_filtering.setter
+    def position_filtering(self, value: Optional[pulumi.Input['TrackerPositionFiltering']]):
+        pulumi.set(self, "position_filtering", value)
+
+    @property
     @pulumi.getter(name="pricingPlanDataSource")
     def pricing_plan_data_source(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "pricing_plan_data_source")
@@ -84,6 +96,7 @@ class Tracker(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
+                 position_filtering: Optional[pulumi.Input['TrackerPositionFiltering']] = None,
                  pricing_plan: Optional[pulumi.Input['TrackerPricingPlan']] = None,
                  pricing_plan_data_source: Optional[pulumi.Input[str]] = None,
                  tracker_name: Optional[pulumi.Input[str]] = None,
@@ -120,6 +133,7 @@ class Tracker(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
+                 position_filtering: Optional[pulumi.Input['TrackerPositionFiltering']] = None,
                  pricing_plan: Optional[pulumi.Input['TrackerPricingPlan']] = None,
                  pricing_plan_data_source: Optional[pulumi.Input[str]] = None,
                  tracker_name: Optional[pulumi.Input[str]] = None,
@@ -137,6 +151,7 @@ class Tracker(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["kms_key_id"] = kms_key_id
+            __props__.__dict__["position_filtering"] = position_filtering
             if pricing_plan is None and not opts.urn:
                 raise TypeError("Missing required property 'pricing_plan'")
             __props__.__dict__["pricing_plan"] = pricing_plan
@@ -174,6 +189,7 @@ class Tracker(pulumi.CustomResource):
         __props__.__dict__["create_time"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["kms_key_id"] = None
+        __props__.__dict__["position_filtering"] = None
         __props__.__dict__["pricing_plan"] = None
         __props__.__dict__["pricing_plan_data_source"] = None
         __props__.__dict__["tracker_arn"] = None
@@ -200,6 +216,11 @@ class Tracker(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="positionFiltering")
+    def position_filtering(self) -> pulumi.Output[Optional['TrackerPositionFiltering']]:
+        return pulumi.get(self, "position_filtering")
 
     @property
     @pulumi.getter(name="pricingPlan")

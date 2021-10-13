@@ -16,6 +16,7 @@ export type FlowEncryptionAlgorithm = (typeof FlowEncryptionAlgorithm)[keyof typ
 export const FlowEncryptionKeyType = {
     Speke: "speke",
     StaticKey: "static-key",
+    SrtPassword: "srt-password",
 } as const;
 
 /**
@@ -74,6 +75,7 @@ export type FlowOutputEncryptionAlgorithm = (typeof FlowOutputEncryptionAlgorith
 
 export const FlowOutputEncryptionKeyType = {
     StaticKey: "static-key",
+    SrtPassword: "srt-password",
 } as const;
 
 /**
@@ -87,6 +89,7 @@ export const FlowOutputProtocol = {
     Rtp: "rtp",
     ZixiPull: "zixi-pull",
     Rist: "rist",
+    SrtListener: "srt-listener",
 } as const;
 
 /**
@@ -120,9 +123,10 @@ export const FlowSourceProtocol = {
     RtpFec: "rtp-fec",
     Rtp: "rtp",
     Rist: "rist",
+    SrtListener: "srt-listener",
 } as const;
 
 /**
- * The protocol that is used by the source.
+ * The protocol that is used by the source or output.
  */
 export type FlowSourceProtocol = (typeof FlowSourceProtocol)[keyof typeof FlowSourceProtocol];

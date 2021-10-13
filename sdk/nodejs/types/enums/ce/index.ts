@@ -2,6 +2,47 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AnomalyMonitorMonitorDimension = {
+    Service: "SERVICE",
+} as const;
+
+/**
+ * The dimensions to evaluate
+ */
+export type AnomalyMonitorMonitorDimension = (typeof AnomalyMonitorMonitorDimension)[keyof typeof AnomalyMonitorMonitorDimension];
+
+export const AnomalyMonitorMonitorType = {
+    Dimensional: "DIMENSIONAL",
+    Custom: "CUSTOM",
+} as const;
+
+export type AnomalyMonitorMonitorType = (typeof AnomalyMonitorMonitorType)[keyof typeof AnomalyMonitorMonitorType];
+
+export const AnomalySubscriptionFrequency = {
+    Daily: "DAILY",
+    Immediate: "IMMEDIATE",
+    Weekly: "WEEKLY",
+} as const;
+
+/**
+ * The frequency at which anomaly reports are sent over email. 
+ */
+export type AnomalySubscriptionFrequency = (typeof AnomalySubscriptionFrequency)[keyof typeof AnomalySubscriptionFrequency];
+
+export const AnomalySubscriptionSubscriberStatus = {
+    Confirmed: "CONFIRMED",
+    Declined: "DECLINED",
+} as const;
+
+export type AnomalySubscriptionSubscriberStatus = (typeof AnomalySubscriptionSubscriberStatus)[keyof typeof AnomalySubscriptionSubscriberStatus];
+
+export const AnomalySubscriptionSubscriberType = {
+    Email: "EMAIL",
+    Sns: "SNS",
+} as const;
+
+export type AnomalySubscriptionSubscriberType = (typeof AnomalySubscriptionSubscriberType)[keyof typeof AnomalySubscriptionSubscriberType];
+
 export const CostCategoryRuleVersion = {
     CostCategoryExpressionV1: "CostCategoryExpression.v1",
 } as const;

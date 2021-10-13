@@ -3988,6 +3988,15 @@ export namespace cassandra {
 
 }
 
+export namespace ce {
+    export interface AnomalySubscriptionSubscriber {
+        address: string;
+        status?: enums.ce.AnomalySubscriptionSubscriberStatus;
+        type: enums.ce.AnomalySubscriptionSubscriberType;
+    }
+
+}
+
 export namespace certificatemanager {
     export interface AccountExpiryEventsConfiguration {
         daysBeforeExpiry?: number;
@@ -8636,6 +8645,20 @@ export namespace ec2 {
 
 export namespace ecr {
     /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface PublicRepositoryTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: string;
+    }
+
+    /**
      * An object representing the replication configuration for a registry.
      */
     export interface ReplicationConfiguration {
@@ -8673,6 +8696,17 @@ export namespace ecr {
     export interface ReplicationConfigurationRepositoryFilter {
         filter: string;
         filterType: enums.ecr.ReplicationConfigurationFilterType;
+    }
+
+    /**
+     * The CatalogData property type specifies Catalog data for ECR Public Repository. For information about Catalog Data, see <link>
+     */
+    export interface RepositoryCatalogDataProperties {
+        aboutText?: string;
+        architectures?: string[];
+        operatingSystems?: string[];
+        repositoryDescription?: string;
+        usageText?: string;
     }
 
     /**
@@ -9064,6 +9098,11 @@ export namespace ecs {
     export interface TaskDefinitionResourceRequirement {
         type: string;
         value: string;
+    }
+
+    export interface TaskDefinitionRuntimePlatform {
+        cpuArchitecture?: string;
+        operatingSystemFamily?: string;
     }
 
     export interface TaskDefinitionSecret {
@@ -14508,6 +14547,25 @@ export namespace iotwireless {
         value?: string;
     }
 
+    export interface PartnerAccountSidewalkAccountInfo {
+        appServerPrivateKey: string;
+    }
+
+    export interface PartnerAccountSidewalkAccountInfoWithFingerprint {
+        amazonId?: string;
+        arn?: string;
+        fingerprint?: string;
+    }
+
+    export interface PartnerAccountSidewalkUpdateAccount {
+        appServerPrivateKey?: string;
+    }
+
+    export interface PartnerAccountTag {
+        key?: string;
+        value?: string;
+    }
+
     export interface ServiceProfileLoRaWANServiceProfile {
         addGwMetadata?: boolean;
         channelMask?: string;
@@ -16362,6 +16420,76 @@ export namespace logs {
 
 }
 
+export namespace lookoutequipment {
+    /**
+     * Specifies configuration information for the input data for the inference scheduler, including delimiter, format, and dataset location.
+     */
+    export interface DataInputConfigurationProperties {
+        inferenceInputNameConfiguration?: outputs.lookoutequipment.InferenceSchedulerInputNameConfiguration;
+        /**
+         * Indicates the difference between your time zone and Greenwich Mean Time (GMT).
+         */
+        inputTimeZoneOffset?: string;
+        s3InputConfiguration: outputs.lookoutequipment.InferenceSchedulerS3InputConfiguration;
+    }
+
+    /**
+     * Specifies configuration information for the output results for the inference scheduler, including the S3 location for the output.
+     */
+    export interface DataOutputConfigurationProperties {
+        /**
+         * The ID number for the AWS KMS key used to encrypt the inference output.
+         */
+        kmsKeyId?: string;
+        s3OutputConfiguration: outputs.lookoutequipment.InferenceSchedulerS3OutputConfiguration;
+    }
+
+    /**
+     * Specifies configuration information for the input data for the inference, including timestamp format and delimiter.
+     */
+    export interface InferenceSchedulerInputNameConfiguration {
+        /**
+         * Indicates the delimiter character used between items in the data.
+         */
+        componentTimestampDelimiter?: string;
+        /**
+         * The format of the timestamp, whether Epoch time, or standard, with or without hyphens (-).
+         */
+        timestampFormat?: string;
+    }
+
+    /**
+     * Specifies configuration information for the input data for the inference, including input data S3 location.
+     */
+    export interface InferenceSchedulerS3InputConfiguration {
+        bucket: string;
+        prefix?: string;
+    }
+
+    /**
+     * Specifies configuration information for the output results from the inference, including output S3 location.
+     */
+    export interface InferenceSchedulerS3OutputConfiguration {
+        bucket: string;
+        prefix?: string;
+    }
+
+    /**
+     * A tag is a key-value pair that can be added to a resource as metadata.
+     */
+    export interface InferenceSchedulerTag {
+        /**
+         * The key for the specified tag.
+         */
+        key: string;
+        /**
+         * The value for the specified tag.
+         */
+        value: string;
+    }
+
+}
+
 export namespace lookoutmetrics {
     export interface AlertAction {
         lambdaConfiguration?: outputs.lookoutmetrics.AlertLambdaConfiguration;
@@ -16601,7 +16729,7 @@ export namespace mediaconnect {
         /**
          * The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
          */
-        algorithm: enums.mediaconnect.FlowEncryptionAlgorithm;
+        algorithm?: enums.mediaconnect.FlowEncryptionAlgorithm;
         /**
          * A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
          */
@@ -16696,7 +16824,7 @@ export namespace mediaconnect {
         /**
          * The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
          */
-        algorithm: enums.mediaconnect.FlowOutputEncryptionAlgorithm;
+        algorithm?: enums.mediaconnect.FlowOutputEncryptionAlgorithm;
         /**
          * The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
          */
@@ -16726,7 +16854,7 @@ export namespace mediaconnect {
      */
     export interface FlowSource {
         /**
-         * The type of encryption that is used on the content ingested from this source.
+         * The type of decryption that is used on the content ingested from this source.
          */
         decryption?: outputs.mediaconnect.FlowEncryption;
         /**
@@ -16754,6 +16882,10 @@ export namespace mediaconnect {
          */
         maxLatency?: number;
         /**
+         * The minimum latency in milliseconds.
+         */
+        minLatency?: number;
+        /**
          * The name of the source.
          */
         name?: string;
@@ -16765,6 +16897,10 @@ export namespace mediaconnect {
          * The ARN of the source.
          */
         sourceArn?: string;
+        /**
+         * The port that the flow will be listening on for incoming content.(ReadOnly)
+         */
+        sourceIngestPort?: string;
         /**
          * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
          */
@@ -18538,6 +18674,101 @@ export namespace mediastore {
 
 }
 
+export namespace memorydb {
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ACLTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    export interface AuthenticationModeProperties {
+        /**
+         * Passwords used for this user account. You can create up to two passwords for each user.
+         */
+        passwords?: string[];
+        /**
+         * Type of authentication strategy for this user.
+         */
+        type?: enums.memorydb.UserAuthenticationModePropertiesType;
+    }
+
+    export interface ClusterEndpoint {
+        /**
+         * The DNS address of the primary read-write node.
+         */
+        address?: string;
+        /**
+         * The port number that the engine is listening on. 
+         */
+        port?: number;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ClusterTag {
+        /**
+         * The key for the tag. May not be null.
+         */
+        key: string;
+        /**
+         * The tag's value. May be null.
+         */
+        value: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ParameterGroupTag {
+        /**
+         * The key for the tag. May not be null.
+         */
+        key: string;
+        /**
+         * The tag's value. May be null.
+         */
+        value: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface SubnetGroupTag {
+        /**
+         * The key for the tag. May not be null.
+         */
+        key: string;
+        /**
+         * The tag's value. May be null.
+         */
+        value: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface UserTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+}
+
 export namespace msk {
     export interface ClusterBrokerLogs {
         cloudWatchLogs?: outputs.msk.ClusterCloudWatchLogs;
@@ -20161,6 +20392,16 @@ export namespace quicksight {
     }
 
     /**
+     * <p>Amazon OpenSearch Service parameters.</p>
+     */
+    export interface DataSourceAmazonOpenSearchParameters {
+        /**
+         * <p>The Amazon OpenSearch Service domain.</p>
+         */
+        domain: string;
+    }
+
+    /**
      * <p>Amazon Athena parameters.</p>
      */
     export interface DataSourceAthenaParameters {
@@ -20321,6 +20562,7 @@ export namespace quicksight {
      */
     export interface DataSourceParameters {
         amazonElasticsearchParameters?: outputs.quicksight.DataSourceAmazonElasticsearchParameters;
+        amazonOpenSearchParameters?: outputs.quicksight.DataSourceAmazonOpenSearchParameters;
         athenaParameters?: outputs.quicksight.DataSourceAthenaParameters;
         auroraParameters?: outputs.quicksight.DataSourceAuroraParameters;
         auroraPostgreSqlParameters?: outputs.quicksight.DataSourceAuroraPostgreSqlParameters;
@@ -21518,6 +21760,16 @@ export namespace route53recoverycontrol {
         region?: string;
     }
 
+    export interface ClusterTag {
+        key: string;
+        value: string;
+    }
+
+    export interface ControlPanelTag {
+        key: string;
+        value: string;
+    }
+
     /**
      * An assertion rule enforces that, when a routing control state is changed, that the criteria set by the rule configuration is met. Otherwise, the change to the routing control is not accepted.
      */
@@ -21564,6 +21816,11 @@ export namespace route53recoverycontrol {
          */
         threshold: number;
         type: enums.route53recoverycontrol.SafetyRuleRuleType;
+    }
+
+    export interface SafetyRuleTag {
+        key: string;
+        value: string;
     }
 
 }

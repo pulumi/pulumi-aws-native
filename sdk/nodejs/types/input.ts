@@ -4619,6 +4619,14 @@ export namespace cassandra {
     }
 }
 
+export namespace ce {
+    export interface AnomalySubscriptionSubscriberArgs {
+        address: pulumi.Input<string>;
+        status?: pulumi.Input<enums.ce.AnomalySubscriptionSubscriberStatus>;
+        type: pulumi.Input<enums.ce.AnomalySubscriptionSubscriberType>;
+    }
+}
+
 export namespace certificatemanager {
     export interface AccountExpiryEventsConfigurationArgs {
         daysBeforeExpiry?: pulumi.Input<number>;
@@ -8397,6 +8405,20 @@ export namespace ec2 {
 
 export namespace ecr {
     /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface PublicRepositoryTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
      * An object representing the replication configuration for a registry.
      */
     export interface ReplicationConfigurationArgs {
@@ -8434,6 +8456,17 @@ export namespace ecr {
     export interface ReplicationConfigurationRepositoryFilterArgs {
         filter: pulumi.Input<string>;
         filterType: pulumi.Input<enums.ecr.ReplicationConfigurationFilterType>;
+    }
+
+    /**
+     * The CatalogData property type specifies Catalog data for ECR Public Repository. For information about Catalog Data, see <link>
+     */
+    export interface RepositoryCatalogDataPropertiesArgs {
+        aboutText?: pulumi.Input<string>;
+        architectures?: pulumi.Input<pulumi.Input<string>[]>;
+        operatingSystems?: pulumi.Input<pulumi.Input<string>[]>;
+        repositoryDescription?: pulumi.Input<string>;
+        usageText?: pulumi.Input<string>;
     }
 
     /**
@@ -8826,6 +8859,11 @@ export namespace ecs {
         value: pulumi.Input<string>;
     }
 
+    export interface TaskDefinitionRuntimePlatformArgs {
+        cpuArchitecture?: pulumi.Input<string>;
+        operatingSystemFamily?: pulumi.Input<string>;
+    }
+
     export interface TaskDefinitionSecretArgs {
         name: pulumi.Input<string>;
         valueFrom: pulumi.Input<string>;
@@ -8941,6 +8979,7 @@ export namespace ecs {
          */
         registryArn?: pulumi.Input<string>;
     }
+
 }
 
 export namespace efs {
@@ -14217,6 +14256,19 @@ export namespace iotwireless {
         value?: pulumi.Input<string>;
     }
 
+    export interface PartnerAccountSidewalkAccountInfoArgs {
+        appServerPrivateKey: pulumi.Input<string>;
+    }
+
+    export interface PartnerAccountSidewalkUpdateAccountArgs {
+        appServerPrivateKey?: pulumi.Input<string>;
+    }
+
+    export interface PartnerAccountTagArgs {
+        key?: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
+    }
+
     export interface ServiceProfileLoRaWANServiceProfileArgs {
         addGwMetadata?: pulumi.Input<boolean>;
         channelMask?: pulumi.Input<string>;
@@ -16045,6 +16097,75 @@ export namespace logs {
     }
 }
 
+export namespace lookoutequipment {
+    /**
+     * Specifies configuration information for the input data for the inference scheduler, including delimiter, format, and dataset location.
+     */
+    export interface DataInputConfigurationPropertiesArgs {
+        inferenceInputNameConfiguration?: pulumi.Input<inputs.lookoutequipment.InferenceSchedulerInputNameConfigurationArgs>;
+        /**
+         * Indicates the difference between your time zone and Greenwich Mean Time (GMT).
+         */
+        inputTimeZoneOffset?: pulumi.Input<string>;
+        s3InputConfiguration: pulumi.Input<inputs.lookoutequipment.InferenceSchedulerS3InputConfigurationArgs>;
+    }
+
+    /**
+     * Specifies configuration information for the output results for the inference scheduler, including the S3 location for the output.
+     */
+    export interface DataOutputConfigurationPropertiesArgs {
+        /**
+         * The ID number for the AWS KMS key used to encrypt the inference output.
+         */
+        kmsKeyId?: pulumi.Input<string>;
+        s3OutputConfiguration: pulumi.Input<inputs.lookoutequipment.InferenceSchedulerS3OutputConfigurationArgs>;
+    }
+
+    /**
+     * Specifies configuration information for the input data for the inference, including timestamp format and delimiter.
+     */
+    export interface InferenceSchedulerInputNameConfigurationArgs {
+        /**
+         * Indicates the delimiter character used between items in the data.
+         */
+        componentTimestampDelimiter?: pulumi.Input<string>;
+        /**
+         * The format of the timestamp, whether Epoch time, or standard, with or without hyphens (-).
+         */
+        timestampFormat?: pulumi.Input<string>;
+    }
+
+    /**
+     * Specifies configuration information for the input data for the inference, including input data S3 location.
+     */
+    export interface InferenceSchedulerS3InputConfigurationArgs {
+        bucket: pulumi.Input<string>;
+        prefix?: pulumi.Input<string>;
+    }
+
+    /**
+     * Specifies configuration information for the output results from the inference, including output S3 location.
+     */
+    export interface InferenceSchedulerS3OutputConfigurationArgs {
+        bucket: pulumi.Input<string>;
+        prefix?: pulumi.Input<string>;
+    }
+
+    /**
+     * A tag is a key-value pair that can be added to a resource as metadata.
+     */
+    export interface InferenceSchedulerTagArgs {
+        /**
+         * The key for the specified tag.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the specified tag.
+         */
+        value: pulumi.Input<string>;
+    }
+}
+
 export namespace lookoutmetrics {
     export interface AlertActionArgs {
         lambdaConfiguration?: pulumi.Input<inputs.lookoutmetrics.AlertLambdaConfigurationArgs>;
@@ -16274,7 +16395,7 @@ export namespace mediaconnect {
         /**
          * The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
          */
-        algorithm: pulumi.Input<enums.mediaconnect.FlowEncryptionAlgorithm>;
+        algorithm?: pulumi.Input<enums.mediaconnect.FlowEncryptionAlgorithm>;
         /**
          * A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
          */
@@ -16369,7 +16490,7 @@ export namespace mediaconnect {
         /**
          * The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
          */
-        algorithm: pulumi.Input<enums.mediaconnect.FlowOutputEncryptionAlgorithm>;
+        algorithm?: pulumi.Input<enums.mediaconnect.FlowOutputEncryptionAlgorithm>;
         /**
          * The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
          */
@@ -16399,7 +16520,7 @@ export namespace mediaconnect {
      */
     export interface FlowSourceArgs {
         /**
-         * The type of encryption that is used on the content ingested from this source.
+         * The type of decryption that is used on the content ingested from this source.
          */
         decryption?: pulumi.Input<inputs.mediaconnect.FlowEncryptionArgs>;
         /**
@@ -16427,6 +16548,10 @@ export namespace mediaconnect {
          */
         maxLatency?: pulumi.Input<number>;
         /**
+         * The minimum latency in milliseconds.
+         */
+        minLatency?: pulumi.Input<number>;
+        /**
          * The name of the source.
          */
         name?: pulumi.Input<string>;
@@ -16438,6 +16563,10 @@ export namespace mediaconnect {
          * The ARN of the source.
          */
         sourceArn?: pulumi.Input<string>;
+        /**
+         * The port that the flow will be listening on for incoming content.(ReadOnly)
+         */
+        sourceIngestPort?: pulumi.Input<string>;
         /**
          * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
          */
@@ -18162,6 +18291,100 @@ export namespace mediastore {
     }
 }
 
+export namespace memorydb {
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ACLTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface AuthenticationModePropertiesArgs {
+        /**
+         * Passwords used for this user account. You can create up to two passwords for each user.
+         */
+        passwords?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Type of authentication strategy for this user.
+         */
+        type?: pulumi.Input<enums.memorydb.UserAuthenticationModePropertiesType>;
+    }
+
+    export interface ClusterEndpointArgs {
+        /**
+         * The DNS address of the primary read-write node.
+         */
+        address?: pulumi.Input<string>;
+        /**
+         * The port number that the engine is listening on. 
+         */
+        port?: pulumi.Input<number>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ClusterTagArgs {
+        /**
+         * The key for the tag. May not be null.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The tag's value. May be null.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ParameterGroupTagArgs {
+        /**
+         * The key for the tag. May not be null.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The tag's value. May be null.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface SubnetGroupTagArgs {
+        /**
+         * The key for the tag. May not be null.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The tag's value. May be null.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface UserTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+}
+
 export namespace msk {
     export interface ClusterBrokerLogsArgs {
         cloudWatchLogs?: pulumi.Input<inputs.msk.ClusterCloudWatchLogsArgs>;
@@ -19650,6 +19873,16 @@ export namespace quicksight {
     }
 
     /**
+     * <p>Amazon OpenSearch Service parameters.</p>
+     */
+    export interface DataSourceAmazonOpenSearchParametersArgs {
+        /**
+         * <p>The Amazon OpenSearch Service domain.</p>
+         */
+        domain: pulumi.Input<string>;
+    }
+
+    /**
      * <p>Amazon Athena parameters.</p>
      */
     export interface DataSourceAthenaParametersArgs {
@@ -19810,6 +20043,7 @@ export namespace quicksight {
      */
     export interface DataSourceParametersArgs {
         amazonElasticsearchParameters?: pulumi.Input<inputs.quicksight.DataSourceAmazonElasticsearchParametersArgs>;
+        amazonOpenSearchParameters?: pulumi.Input<inputs.quicksight.DataSourceAmazonOpenSearchParametersArgs>;
         athenaParameters?: pulumi.Input<inputs.quicksight.DataSourceAthenaParametersArgs>;
         auroraParameters?: pulumi.Input<inputs.quicksight.DataSourceAuroraParametersArgs>;
         auroraPostgreSqlParameters?: pulumi.Input<inputs.quicksight.DataSourceAuroraPostgreSqlParametersArgs>;
@@ -20813,6 +21047,16 @@ export namespace route53 {
 }
 
 export namespace route53recoverycontrol {
+    export interface ClusterTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface ControlPanelTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
     /**
      * An assertion rule enforces that, when a routing control state is changed, that the criteria set by the rule configuration is met. Otherwise, the change to the routing control is not accepted.
      */
@@ -20859,6 +21103,11 @@ export namespace route53recoverycontrol {
          */
         threshold: pulumi.Input<number>;
         type: pulumi.Input<enums.route53recoverycontrol.SafetyRuleRuleType>;
+    }
+
+    export interface SafetyRuleTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
     }
 }
 

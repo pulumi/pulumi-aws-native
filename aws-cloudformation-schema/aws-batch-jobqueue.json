@@ -10,13 +10,16 @@
         "$ref" : "#/definitions/ComputeEnvironmentOrder"
       }
     },
-    "Id" : {
-      "type" : "string"
-    },
     "Priority" : {
       "type" : "integer"
     },
     "State" : {
+      "type" : "string"
+    },
+    "SchedulingPolicyArn" : {
+      "type" : "string"
+    },
+    "Id" : {
       "type" : "string"
     },
     "JobQueueName" : {

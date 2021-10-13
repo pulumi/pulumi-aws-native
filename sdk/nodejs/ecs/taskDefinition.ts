@@ -48,6 +48,7 @@ export class TaskDefinition extends pulumi.CustomResource {
     public readonly placementConstraints!: pulumi.Output<outputs.ecs.TaskDefinitionPlacementConstraint[] | undefined>;
     public readonly proxyConfiguration!: pulumi.Output<outputs.ecs.TaskDefinitionProxyConfiguration | undefined>;
     public readonly requiresCompatibilities!: pulumi.Output<string[] | undefined>;
+    public readonly runtimePlatform!: pulumi.Output<outputs.ecs.TaskDefinitionRuntimePlatform | undefined>;
     public readonly tags!: pulumi.Output<outputs.ecs.TaskDefinitionTag[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon ECS task definition
@@ -80,6 +81,7 @@ export class TaskDefinition extends pulumi.CustomResource {
             inputs["placementConstraints"] = args ? args.placementConstraints : undefined;
             inputs["proxyConfiguration"] = args ? args.proxyConfiguration : undefined;
             inputs["requiresCompatibilities"] = args ? args.requiresCompatibilities : undefined;
+            inputs["runtimePlatform"] = args ? args.runtimePlatform : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["taskRoleArn"] = args ? args.taskRoleArn : undefined;
             inputs["volumes"] = args ? args.volumes : undefined;
@@ -98,6 +100,7 @@ export class TaskDefinition extends pulumi.CustomResource {
             inputs["placementConstraints"] = undefined /*out*/;
             inputs["proxyConfiguration"] = undefined /*out*/;
             inputs["requiresCompatibilities"] = undefined /*out*/;
+            inputs["runtimePlatform"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["taskDefinitionArn"] = undefined /*out*/;
             inputs["taskRoleArn"] = undefined /*out*/;
@@ -127,6 +130,7 @@ export interface TaskDefinitionArgs {
     placementConstraints?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionPlacementConstraintArgs>[]>;
     proxyConfiguration?: pulumi.Input<inputs.ecs.TaskDefinitionProxyConfigurationArgs>;
     requiresCompatibilities?: pulumi.Input<pulumi.Input<string>[]>;
+    runtimePlatform?: pulumi.Input<inputs.ecs.TaskDefinitionRuntimePlatformArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionTagArgs>[]>;
     taskRoleArn?: pulumi.Input<string>;
     volumes?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionVolumeArgs>[]>;

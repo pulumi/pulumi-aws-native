@@ -23,6 +23,7 @@ class JobDefinitionArgs:
                  platform_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  propagate_tags: Optional[pulumi.Input[bool]] = None,
                  retry_strategy: Optional[pulumi.Input['JobDefinitionRetryStrategyArgs']] = None,
+                 scheduling_priority: Optional[pulumi.Input[int]] = None,
                  tags: Optional[Any] = None,
                  timeout: Optional[pulumi.Input['JobDefinitionTimeoutArgs']] = None):
         """
@@ -43,6 +44,8 @@ class JobDefinitionArgs:
             pulumi.set(__self__, "propagate_tags", propagate_tags)
         if retry_strategy is not None:
             pulumi.set(__self__, "retry_strategy", retry_strategy)
+        if scheduling_priority is not None:
+            pulumi.set(__self__, "scheduling_priority", scheduling_priority)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeout is not None:
@@ -121,6 +124,15 @@ class JobDefinitionArgs:
         pulumi.set(self, "retry_strategy", value)
 
     @property
+    @pulumi.getter(name="schedulingPriority")
+    def scheduling_priority(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "scheduling_priority")
+
+    @scheduling_priority.setter
+    def scheduling_priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "scheduling_priority", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
         return pulumi.get(self, "tags")
@@ -156,6 +168,7 @@ class JobDefinition(pulumi.CustomResource):
                  platform_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  propagate_tags: Optional[pulumi.Input[bool]] = None,
                  retry_strategy: Optional[pulumi.Input[pulumi.InputType['JobDefinitionRetryStrategyArgs']]] = None,
+                 scheduling_priority: Optional[pulumi.Input[int]] = None,
                  tags: Optional[Any] = None,
                  timeout: Optional[pulumi.Input[pulumi.InputType['JobDefinitionTimeoutArgs']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -197,6 +210,7 @@ class JobDefinition(pulumi.CustomResource):
                  platform_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  propagate_tags: Optional[pulumi.Input[bool]] = None,
                  retry_strategy: Optional[pulumi.Input[pulumi.InputType['JobDefinitionRetryStrategyArgs']]] = None,
+                 scheduling_priority: Optional[pulumi.Input[int]] = None,
                  tags: Optional[Any] = None,
                  timeout: Optional[pulumi.Input[pulumi.InputType['JobDefinitionTimeoutArgs']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -220,6 +234,7 @@ class JobDefinition(pulumi.CustomResource):
             __props__.__dict__["platform_capabilities"] = platform_capabilities
             __props__.__dict__["propagate_tags"] = propagate_tags
             __props__.__dict__["retry_strategy"] = retry_strategy
+            __props__.__dict__["scheduling_priority"] = scheduling_priority
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeout"] = timeout
             if type is None and not opts.urn:
@@ -254,6 +269,7 @@ class JobDefinition(pulumi.CustomResource):
         __props__.__dict__["platform_capabilities"] = None
         __props__.__dict__["propagate_tags"] = None
         __props__.__dict__["retry_strategy"] = None
+        __props__.__dict__["scheduling_priority"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["timeout"] = None
         __props__.__dict__["type"] = None
@@ -293,6 +309,11 @@ class JobDefinition(pulumi.CustomResource):
     @pulumi.getter(name="retryStrategy")
     def retry_strategy(self) -> pulumi.Output[Optional['outputs.JobDefinitionRetryStrategy']]:
         return pulumi.get(self, "retry_strategy")
+
+    @property
+    @pulumi.getter(name="schedulingPriority")
+    def scheduling_priority(self) -> pulumi.Output[Optional[int]]:
+        return pulumi.get(self, "scheduling_priority")
 
     @property
     @pulumi.getter

@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("amazonElasticsearchParameters")]
         public Input<Inputs.DataSourceAmazonElasticsearchParametersArgs>? AmazonElasticsearchParameters { get; set; }
 
+        [Input("amazonOpenSearchParameters")]
+        public Input<Inputs.DataSourceAmazonOpenSearchParametersArgs>? AmazonOpenSearchParameters { get; set; }
+
         [Input("athenaParameters")]
         public Input<Inputs.DataSourceAthenaParametersArgs>? AthenaParameters { get; set; }
 

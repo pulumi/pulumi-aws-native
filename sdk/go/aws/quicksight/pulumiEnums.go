@@ -2185,6 +2185,7 @@ type DataSourceType string
 const (
 	DataSourceTypeAdobeAnalytics      = DataSourceType("ADOBE_ANALYTICS")
 	DataSourceTypeAmazonElasticsearch = DataSourceType("AMAZON_ELASTICSEARCH")
+	DataSourceTypeAmazonOpensearch    = DataSourceType("AMAZON_OPENSEARCH")
 	DataSourceTypeAthena              = DataSourceType("ATHENA")
 	DataSourceTypeAurora              = DataSourceType("AURORA")
 	DataSourceTypeAuroraPostgresql    = DataSourceType("AURORA_POSTGRESQL")

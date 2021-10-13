@@ -833,6 +833,170 @@ func (in *routeCalculatorPricingPlanPtr) ToRouteCalculatorPricingPlanPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(RouteCalculatorPricingPlanPtrOutput)
 }
 
+type TrackerPositionFiltering string
+
+const (
+	TrackerPositionFilteringTimeBased     = TrackerPositionFiltering("TimeBased")
+	TrackerPositionFilteringDistanceBased = TrackerPositionFiltering("DistanceBased")
+)
+
+func (TrackerPositionFiltering) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrackerPositionFiltering)(nil)).Elem()
+}
+
+func (e TrackerPositionFiltering) ToTrackerPositionFilteringOutput() TrackerPositionFilteringOutput {
+	return pulumi.ToOutput(e).(TrackerPositionFilteringOutput)
+}
+
+func (e TrackerPositionFiltering) ToTrackerPositionFilteringOutputWithContext(ctx context.Context) TrackerPositionFilteringOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TrackerPositionFilteringOutput)
+}
+
+func (e TrackerPositionFiltering) ToTrackerPositionFilteringPtrOutput() TrackerPositionFilteringPtrOutput {
+	return e.ToTrackerPositionFilteringPtrOutputWithContext(context.Background())
+}
+
+func (e TrackerPositionFiltering) ToTrackerPositionFilteringPtrOutputWithContext(ctx context.Context) TrackerPositionFilteringPtrOutput {
+	return TrackerPositionFiltering(e).ToTrackerPositionFilteringOutputWithContext(ctx).ToTrackerPositionFilteringPtrOutputWithContext(ctx)
+}
+
+func (e TrackerPositionFiltering) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TrackerPositionFiltering) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TrackerPositionFiltering) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TrackerPositionFiltering) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TrackerPositionFilteringOutput struct{ *pulumi.OutputState }
+
+func (TrackerPositionFilteringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrackerPositionFiltering)(nil)).Elem()
+}
+
+func (o TrackerPositionFilteringOutput) ToTrackerPositionFilteringOutput() TrackerPositionFilteringOutput {
+	return o
+}
+
+func (o TrackerPositionFilteringOutput) ToTrackerPositionFilteringOutputWithContext(ctx context.Context) TrackerPositionFilteringOutput {
+	return o
+}
+
+func (o TrackerPositionFilteringOutput) ToTrackerPositionFilteringPtrOutput() TrackerPositionFilteringPtrOutput {
+	return o.ToTrackerPositionFilteringPtrOutputWithContext(context.Background())
+}
+
+func (o TrackerPositionFilteringOutput) ToTrackerPositionFilteringPtrOutputWithContext(ctx context.Context) TrackerPositionFilteringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrackerPositionFiltering) *TrackerPositionFiltering {
+		return &v
+	}).(TrackerPositionFilteringPtrOutput)
+}
+
+func (o TrackerPositionFilteringOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TrackerPositionFilteringOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TrackerPositionFiltering) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TrackerPositionFilteringOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TrackerPositionFilteringOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TrackerPositionFiltering) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TrackerPositionFilteringPtrOutput struct{ *pulumi.OutputState }
+
+func (TrackerPositionFilteringPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrackerPositionFiltering)(nil)).Elem()
+}
+
+func (o TrackerPositionFilteringPtrOutput) ToTrackerPositionFilteringPtrOutput() TrackerPositionFilteringPtrOutput {
+	return o
+}
+
+func (o TrackerPositionFilteringPtrOutput) ToTrackerPositionFilteringPtrOutputWithContext(ctx context.Context) TrackerPositionFilteringPtrOutput {
+	return o
+}
+
+func (o TrackerPositionFilteringPtrOutput) Elem() TrackerPositionFilteringOutput {
+	return o.ApplyT(func(v *TrackerPositionFiltering) TrackerPositionFiltering {
+		if v != nil {
+			return *v
+		}
+		var ret TrackerPositionFiltering
+		return ret
+	}).(TrackerPositionFilteringOutput)
+}
+
+func (o TrackerPositionFilteringPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TrackerPositionFilteringPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TrackerPositionFiltering) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TrackerPositionFilteringInput is an input type that accepts TrackerPositionFilteringArgs and TrackerPositionFilteringOutput values.
+// You can construct a concrete instance of `TrackerPositionFilteringInput` via:
+//
+//          TrackerPositionFilteringArgs{...}
+type TrackerPositionFilteringInput interface {
+	pulumi.Input
+
+	ToTrackerPositionFilteringOutput() TrackerPositionFilteringOutput
+	ToTrackerPositionFilteringOutputWithContext(context.Context) TrackerPositionFilteringOutput
+}
+
+var trackerPositionFilteringPtrType = reflect.TypeOf((**TrackerPositionFiltering)(nil)).Elem()
+
+type TrackerPositionFilteringPtrInput interface {
+	pulumi.Input
+
+	ToTrackerPositionFilteringPtrOutput() TrackerPositionFilteringPtrOutput
+	ToTrackerPositionFilteringPtrOutputWithContext(context.Context) TrackerPositionFilteringPtrOutput
+}
+
+type trackerPositionFilteringPtr string
+
+func TrackerPositionFilteringPtr(v string) TrackerPositionFilteringPtrInput {
+	return (*trackerPositionFilteringPtr)(&v)
+}
+
+func (*trackerPositionFilteringPtr) ElementType() reflect.Type {
+	return trackerPositionFilteringPtrType
+}
+
+func (in *trackerPositionFilteringPtr) ToTrackerPositionFilteringPtrOutput() TrackerPositionFilteringPtrOutput {
+	return pulumi.ToOutput(in).(TrackerPositionFilteringPtrOutput)
+}
+
+func (in *trackerPositionFilteringPtr) ToTrackerPositionFilteringPtrOutputWithContext(ctx context.Context) TrackerPositionFilteringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TrackerPositionFilteringPtrOutput)
+}
+
 type TrackerPricingPlan string
 
 const (
@@ -1009,6 +1173,8 @@ func init() {
 	pulumi.RegisterOutputType(PlaceIndexPricingPlanPtrOutput{})
 	pulumi.RegisterOutputType(RouteCalculatorPricingPlanOutput{})
 	pulumi.RegisterOutputType(RouteCalculatorPricingPlanPtrOutput{})
+	pulumi.RegisterOutputType(TrackerPositionFilteringOutput{})
+	pulumi.RegisterOutputType(TrackerPositionFilteringPtrOutput{})
 	pulumi.RegisterOutputType(TrackerPricingPlanOutput{})
 	pulumi.RegisterOutputType(TrackerPricingPlanPtrOutput{})
 }

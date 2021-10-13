@@ -13,7 +13,7 @@ import (
 // Information about the encryption of the flow.
 type FlowEncryption struct {
 	// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-	Algorithm FlowEncryptionAlgorithm `pulumi:"algorithm"`
+	Algorithm *FlowEncryptionAlgorithm `pulumi:"algorithm"`
 	// A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
 	ConstantInitializationVector *string `pulumi:"constantInitializationVector"`
 	// The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
@@ -46,7 +46,7 @@ type FlowEncryptionInput interface {
 // Information about the encryption of the flow.
 type FlowEncryptionArgs struct {
 	// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-	Algorithm FlowEncryptionAlgorithmInput `pulumi:"algorithm"`
+	Algorithm FlowEncryptionAlgorithmPtrInput `pulumi:"algorithm"`
 	// A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
 	ConstantInitializationVector pulumi.StringPtrInput `pulumi:"constantInitializationVector"`
 	// The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
@@ -144,8 +144,8 @@ func (o FlowEncryptionOutput) ToFlowEncryptionPtrOutputWithContext(ctx context.C
 }
 
 // The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-func (o FlowEncryptionOutput) Algorithm() FlowEncryptionAlgorithmOutput {
-	return o.ApplyT(func(v FlowEncryption) FlowEncryptionAlgorithm { return v.Algorithm }).(FlowEncryptionAlgorithmOutput)
+func (o FlowEncryptionOutput) Algorithm() FlowEncryptionAlgorithmPtrOutput {
+	return o.ApplyT(func(v FlowEncryption) *FlowEncryptionAlgorithm { return v.Algorithm }).(FlowEncryptionAlgorithmPtrOutput)
 }
 
 // A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
@@ -218,7 +218,7 @@ func (o FlowEncryptionPtrOutput) Algorithm() FlowEncryptionAlgorithmPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Algorithm
+		return v.Algorithm
 	}).(FlowEncryptionAlgorithmPtrOutput)
 }
 
@@ -752,7 +752,7 @@ func (o FlowFailoverConfigPtrOutput) State() FlowFailoverConfigStatePtrOutput {
 // Information about the encryption of the flow.
 type FlowOutputEncryption struct {
 	// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-	Algorithm FlowOutputEncryptionAlgorithm `pulumi:"algorithm"`
+	Algorithm *FlowOutputEncryptionAlgorithm `pulumi:"algorithm"`
 	// The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
 	KeyType *FlowOutputEncryptionKeyType `pulumi:"keyType"`
 	// The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
@@ -775,7 +775,7 @@ type FlowOutputEncryptionInput interface {
 // Information about the encryption of the flow.
 type FlowOutputEncryptionArgs struct {
 	// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-	Algorithm FlowOutputEncryptionAlgorithmInput `pulumi:"algorithm"`
+	Algorithm FlowOutputEncryptionAlgorithmPtrInput `pulumi:"algorithm"`
 	// The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
 	KeyType FlowOutputEncryptionKeyTypePtrInput `pulumi:"keyType"`
 	// The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
@@ -863,8 +863,8 @@ func (o FlowOutputEncryptionOutput) ToFlowOutputEncryptionPtrOutputWithContext(c
 }
 
 // The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-func (o FlowOutputEncryptionOutput) Algorithm() FlowOutputEncryptionAlgorithmOutput {
-	return o.ApplyT(func(v FlowOutputEncryption) FlowOutputEncryptionAlgorithm { return v.Algorithm }).(FlowOutputEncryptionAlgorithmOutput)
+func (o FlowOutputEncryptionOutput) Algorithm() FlowOutputEncryptionAlgorithmPtrOutput {
+	return o.ApplyT(func(v FlowOutputEncryption) *FlowOutputEncryptionAlgorithm { return v.Algorithm }).(FlowOutputEncryptionAlgorithmPtrOutput)
 }
 
 // The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
@@ -912,7 +912,7 @@ func (o FlowOutputEncryptionPtrOutput) Algorithm() FlowOutputEncryptionAlgorithm
 		if v == nil {
 			return nil
 		}
-		return &v.Algorithm
+		return v.Algorithm
 	}).(FlowOutputEncryptionAlgorithmPtrOutput)
 }
 
@@ -1088,7 +1088,7 @@ func (o FlowOutputVpcInterfaceAttachmentPtrOutput) VpcInterfaceName() pulumi.Str
 
 // The settings for the source of the flow.
 type FlowSourceType struct {
-	// The type of encryption that is used on the content ingested from this source.
+	// The type of decryption that is used on the content ingested from this source.
 	Decryption *FlowEncryption `pulumi:"decryption"`
 	// A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
 	Description *string `pulumi:"description"`
@@ -1102,12 +1102,16 @@ type FlowSourceType struct {
 	MaxBitrate *int `pulumi:"maxBitrate"`
 	// The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
 	MaxLatency *int `pulumi:"maxLatency"`
+	// The minimum latency in milliseconds.
+	MinLatency *int `pulumi:"minLatency"`
 	// The name of the source.
 	Name *string `pulumi:"name"`
 	// The protocol that is used by the source or output.
 	Protocol *FlowSourceProtocol `pulumi:"protocol"`
 	// The ARN of the source.
 	SourceArn *string `pulumi:"sourceArn"`
+	// The port that the flow will be listening on for incoming content.(ReadOnly)
+	SourceIngestPort *string `pulumi:"sourceIngestPort"`
 	// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
 	StreamId *string `pulumi:"streamId"`
 	// The name of the VPC Interface this Source is configured with.
@@ -1129,7 +1133,7 @@ type FlowSourceTypeInput interface {
 
 // The settings for the source of the flow.
 type FlowSourceTypeArgs struct {
-	// The type of encryption that is used on the content ingested from this source.
+	// The type of decryption that is used on the content ingested from this source.
 	Decryption FlowEncryptionPtrInput `pulumi:"decryption"`
 	// A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -1143,12 +1147,16 @@ type FlowSourceTypeArgs struct {
 	MaxBitrate pulumi.IntPtrInput `pulumi:"maxBitrate"`
 	// The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
 	MaxLatency pulumi.IntPtrInput `pulumi:"maxLatency"`
+	// The minimum latency in milliseconds.
+	MinLatency pulumi.IntPtrInput `pulumi:"minLatency"`
 	// The name of the source.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The protocol that is used by the source or output.
 	Protocol FlowSourceProtocolPtrInput `pulumi:"protocol"`
 	// The ARN of the source.
 	SourceArn pulumi.StringPtrInput `pulumi:"sourceArn"`
+	// The port that the flow will be listening on for incoming content.(ReadOnly)
+	SourceIngestPort pulumi.StringPtrInput `pulumi:"sourceIngestPort"`
 	// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
 	StreamId pulumi.StringPtrInput `pulumi:"streamId"`
 	// The name of the VPC Interface this Source is configured with.
@@ -1235,7 +1243,7 @@ func (o FlowSourceTypeOutput) ToFlowSourceTypePtrOutputWithContext(ctx context.C
 	}).(FlowSourceTypePtrOutput)
 }
 
-// The type of encryption that is used on the content ingested from this source.
+// The type of decryption that is used on the content ingested from this source.
 func (o FlowSourceTypeOutput) Decryption() FlowEncryptionPtrOutput {
 	return o.ApplyT(func(v FlowSourceType) *FlowEncryption { return v.Decryption }).(FlowEncryptionPtrOutput)
 }
@@ -1270,6 +1278,11 @@ func (o FlowSourceTypeOutput) MaxLatency() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FlowSourceType) *int { return v.MaxLatency }).(pulumi.IntPtrOutput)
 }
 
+// The minimum latency in milliseconds.
+func (o FlowSourceTypeOutput) MinLatency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlowSourceType) *int { return v.MinLatency }).(pulumi.IntPtrOutput)
+}
+
 // The name of the source.
 func (o FlowSourceTypeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowSourceType) *string { return v.Name }).(pulumi.StringPtrOutput)
@@ -1283,6 +1296,11 @@ func (o FlowSourceTypeOutput) Protocol() FlowSourceProtocolPtrOutput {
 // The ARN of the source.
 func (o FlowSourceTypeOutput) SourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowSourceType) *string { return v.SourceArn }).(pulumi.StringPtrOutput)
+}
+
+// The port that the flow will be listening on for incoming content.(ReadOnly)
+func (o FlowSourceTypeOutput) SourceIngestPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowSourceType) *string { return v.SourceIngestPort }).(pulumi.StringPtrOutput)
 }
 
 // The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
@@ -1324,7 +1342,7 @@ func (o FlowSourceTypePtrOutput) Elem() FlowSourceTypeOutput {
 	}).(FlowSourceTypeOutput)
 }
 
-// The type of encryption that is used on the content ingested from this source.
+// The type of decryption that is used on the content ingested from this source.
 func (o FlowSourceTypePtrOutput) Decryption() FlowEncryptionPtrOutput {
 	return o.ApplyT(func(v *FlowSourceType) *FlowEncryption {
 		if v == nil {
@@ -1394,6 +1412,16 @@ func (o FlowSourceTypePtrOutput) MaxLatency() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum latency in milliseconds.
+func (o FlowSourceTypePtrOutput) MinLatency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowSourceType) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinLatency
+	}).(pulumi.IntPtrOutput)
+}
+
 // The name of the source.
 func (o FlowSourceTypePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceType) *string {
@@ -1421,6 +1449,16 @@ func (o FlowSourceTypePtrOutput) SourceArn() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.SourceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The port that the flow will be listening on for incoming content.(ReadOnly)
+func (o FlowSourceTypePtrOutput) SourceIngestPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowSourceType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceIngestPort
 	}).(pulumi.StringPtrOutput)
 }
 

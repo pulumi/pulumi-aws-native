@@ -12,6 +12,15 @@ export const DestinationExpressionType = {
  */
 export type DestinationExpressionType = (typeof DestinationExpressionType)[keyof typeof DestinationExpressionType];
 
+export const PartnerAccountPartnerType = {
+    Sidewalk: "Sidewalk",
+} as const;
+
+/**
+ * The partner type
+ */
+export type PartnerAccountPartnerType = (typeof PartnerAccountPartnerType)[keyof typeof PartnerAccountPartnerType];
+
 export const TaskDefinitionType = {
     Update: "UPDATE",
 } as const;
