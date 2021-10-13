@@ -51,6 +51,10 @@ export class SafetyRule extends pulumi.CustomResource {
      * The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
      */
     public /*out*/ readonly status!: pulumi.Output<enums.route53recoverycontrol.SafetyRuleStatus>;
+    /**
+     * A collection of tags associated with a resource
+     */
+    public readonly tags!: pulumi.Output<outputs.route53recoverycontrol.SafetyRuleTag[] | undefined>;
 
     /**
      * Create a SafetyRule resource with the given unique name, arguments, and options.
@@ -68,6 +72,7 @@ export class SafetyRule extends pulumi.CustomResource {
             inputs["gatingRule"] = args ? args.gatingRule : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["ruleConfig"] = args ? args.ruleConfig : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["safetyRuleArn"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         } else {
@@ -78,6 +83,7 @@ export class SafetyRule extends pulumi.CustomResource {
             inputs["ruleConfig"] = undefined /*out*/;
             inputs["safetyRuleArn"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -98,4 +104,8 @@ export interface SafetyRuleArgs {
     gatingRule?: pulumi.Input<inputs.route53recoverycontrol.SafetyRuleGatingRuleArgs>;
     name?: pulumi.Input<string>;
     ruleConfig?: pulumi.Input<inputs.route53recoverycontrol.SafetyRuleRuleConfigArgs>;
+    /**
+     * A collection of tags associated with a resource
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.route53recoverycontrol.SafetyRuleTagArgs>[]>;
 }

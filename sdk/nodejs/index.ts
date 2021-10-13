@@ -68,6 +68,7 @@ import * as cognito from "./cognito";
 import * as config from "./config";
 import * as configuration from "./configuration";
 import * as connect from "./connect";
+import * as cur from "./cur";
 import * as customerprofiles from "./customerprofiles";
 import * as databrew from "./databrew";
 import * as datapipeline from "./datapipeline";
@@ -132,6 +133,7 @@ import * as licensemanager from "./licensemanager";
 import * as lightsail from "./lightsail";
 import * as location from "./location";
 import * as logs from "./logs";
+import * as lookoutequipment from "./lookoutequipment";
 import * as lookoutmetrics from "./lookoutmetrics";
 import * as lookoutvision from "./lookoutvision";
 import * as macie from "./macie";
@@ -141,6 +143,7 @@ import * as mediaconvert from "./mediaconvert";
 import * as medialive from "./medialive";
 import * as mediapackage from "./mediapackage";
 import * as mediastore from "./mediastore";
+import * as memorydb from "./memorydb";
 import * as msk from "./msk";
 import * as mwaa from "./mwaa";
 import * as neptune from "./neptune";
@@ -240,6 +243,7 @@ export {
     config,
     configuration,
     connect,
+    cur,
     customerprofiles,
     databrew,
     datapipeline,
@@ -304,6 +308,7 @@ export {
     lightsail,
     location,
     logs,
+    lookoutequipment,
     lookoutmetrics,
     lookoutvision,
     macie,
@@ -313,6 +318,7 @@ export {
     medialive,
     mediapackage,
     mediastore,
+    memorydb,
     msk,
     mwaa,
     neptune,

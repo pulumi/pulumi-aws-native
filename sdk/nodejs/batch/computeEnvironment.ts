@@ -44,6 +44,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
     public readonly state!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<any | undefined>;
     public readonly type!: pulumi.Output<string>;
+    public readonly unmanagedvCpus!: pulumi.Output<number | undefined>;
 
     /**
      * Create a ComputeEnvironment resource with the given unique name, arguments, and options.
@@ -67,6 +68,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             inputs["state"] = args ? args.state : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["unmanagedvCpus"] = args ? args.unmanagedvCpus : undefined;
         } else {
             inputs["computeEnvironmentName"] = undefined /*out*/;
             inputs["computeResources"] = undefined /*out*/;
@@ -74,6 +76,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             inputs["state"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["unmanagedvCpus"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -92,4 +95,5 @@ export interface ComputeEnvironmentArgs {
     state?: pulumi.Input<string>;
     tags?: any;
     type: pulumi.Input<string>;
+    unmanagedvCpus?: pulumi.Input<number>;
 }

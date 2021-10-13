@@ -45,6 +45,7 @@ export class JobDefinition extends pulumi.CustomResource {
     public readonly platformCapabilities!: pulumi.Output<string[] | undefined>;
     public readonly propagateTags!: pulumi.Output<boolean | undefined>;
     public readonly retryStrategy!: pulumi.Output<outputs.batch.JobDefinitionRetryStrategy | undefined>;
+    public readonly schedulingPriority!: pulumi.Output<number | undefined>;
     public readonly tags!: pulumi.Output<any | undefined>;
     public readonly timeout!: pulumi.Output<outputs.batch.JobDefinitionTimeout | undefined>;
     public readonly type!: pulumi.Output<string>;
@@ -72,6 +73,7 @@ export class JobDefinition extends pulumi.CustomResource {
             inputs["platformCapabilities"] = args ? args.platformCapabilities : undefined;
             inputs["propagateTags"] = args ? args.propagateTags : undefined;
             inputs["retryStrategy"] = args ? args.retryStrategy : undefined;
+            inputs["schedulingPriority"] = args ? args.schedulingPriority : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["timeout"] = args ? args.timeout : undefined;
             inputs["type"] = args ? args.type : undefined;
@@ -83,6 +85,7 @@ export class JobDefinition extends pulumi.CustomResource {
             inputs["platformCapabilities"] = undefined /*out*/;
             inputs["propagateTags"] = undefined /*out*/;
             inputs["retryStrategy"] = undefined /*out*/;
+            inputs["schedulingPriority"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["timeout"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -105,6 +108,7 @@ export interface JobDefinitionArgs {
     platformCapabilities?: pulumi.Input<pulumi.Input<string>[]>;
     propagateTags?: pulumi.Input<boolean>;
     retryStrategy?: pulumi.Input<inputs.batch.JobDefinitionRetryStrategyArgs>;
+    schedulingPriority?: pulumi.Input<number>;
     tags?: any;
     timeout?: pulumi.Input<inputs.batch.JobDefinitionTimeoutArgs>;
     type: pulumi.Input<string>;

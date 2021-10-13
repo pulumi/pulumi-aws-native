@@ -5,18 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./anomalyMonitor";
+export * from "./anomalySubscription";
 export * from "./costCategory";
 
 // Export enums:
 export * from "../types/enums/ce";
 
 // Import resources to register:
+import { AnomalyMonitor } from "./anomalyMonitor";
+import { AnomalySubscription } from "./anomalySubscription";
 import { CostCategory } from "./costCategory";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:ce:AnomalyMonitor":
+                return new AnomalyMonitor(name, <any>undefined, { urn })
+            case "aws-native:ce:AnomalySubscription":
+                return new AnomalySubscription(name, <any>undefined, { urn })
             case "aws-native:ce:CostCategory":
                 return new CostCategory(name, <any>undefined, { urn })
             default:

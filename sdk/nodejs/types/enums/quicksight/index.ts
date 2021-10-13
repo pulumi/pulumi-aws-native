@@ -134,6 +134,7 @@ export type DataSourceResourceStatus = (typeof DataSourceResourceStatus)[keyof t
 export const DataSourceType = {
     AdobeAnalytics: "ADOBE_ANALYTICS",
     AmazonElasticsearch: "AMAZON_ELASTICSEARCH",
+    AmazonOpensearch: "AMAZON_OPENSEARCH",
     Athena: "ATHENA",
     Aurora: "AURORA",
     AuroraPostgresql: "AURORA_POSTGRESQL",

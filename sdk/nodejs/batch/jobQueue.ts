@@ -41,6 +41,7 @@ export class JobQueue extends pulumi.CustomResource {
     public readonly computeEnvironmentOrder!: pulumi.Output<outputs.batch.JobQueueComputeEnvironmentOrder[]>;
     public readonly jobQueueName!: pulumi.Output<string | undefined>;
     public readonly priority!: pulumi.Output<number>;
+    public readonly schedulingPolicyArn!: pulumi.Output<string | undefined>;
     public readonly state!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<any | undefined>;
 
@@ -66,12 +67,14 @@ export class JobQueue extends pulumi.CustomResource {
             inputs["computeEnvironmentOrder"] = args ? args.computeEnvironmentOrder : undefined;
             inputs["jobQueueName"] = args ? args.jobQueueName : undefined;
             inputs["priority"] = args ? args.priority : undefined;
+            inputs["schedulingPolicyArn"] = args ? args.schedulingPolicyArn : undefined;
             inputs["state"] = args ? args.state : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         } else {
             inputs["computeEnvironmentOrder"] = undefined /*out*/;
             inputs["jobQueueName"] = undefined /*out*/;
             inputs["priority"] = undefined /*out*/;
+            inputs["schedulingPolicyArn"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
@@ -89,6 +92,7 @@ export interface JobQueueArgs {
     computeEnvironmentOrder: pulumi.Input<pulumi.Input<inputs.batch.JobQueueComputeEnvironmentOrderArgs>[]>;
     jobQueueName?: pulumi.Input<string>;
     priority: pulumi.Input<number>;
+    schedulingPolicyArn?: pulumi.Input<string>;
     state?: pulumi.Input<string>;
     tags?: any;
 }
