@@ -897,7 +897,16 @@ func (ctx *context) genEnumType(enumName string, propSchema *jsschema.Schema) (*
 			same = same && values.Has(val.Name)
 		}
 		if !same {
-			return nil, errors.Errorf("duplicate enum %q: %+v vs. %+v", tok, enumSpec.Enum, other.Enum)
+			switch tok {
+			case "aws-native:mediaconnect:FlowSourceProtocol":
+				// FlowSourceProtocol is defined in two resources and one is a subset of the other.
+				// They seem to be the same type. Pick the longer one here to avoid losing values.
+				if len(enumSpec.Enum) < len(other.Enum) {
+					enumSpec = &other
+				}
+			default:
+				return nil, errors.Errorf("duplicate enum %q: %+v vs. %+v", tok, enumSpec.Enum, other.Enum)
+			}
 		}
 	}
 	ctx.pkg.Types[tok] = *enumSpec
