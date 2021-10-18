@@ -235,7 +235,7 @@ func (p *cfnProvider) DiffConfig(ctx context.Context, req *pulumirpc.DiffRequest
 	news, err := plugin.UnmarshalProperties(req.GetNews(), plugin.MarshalOptions{
 		Label:        fmt.Sprintf("%s.news", label),
 		KeepUnknowns: true,
-		RejectAssets: true,
+		RejectAssets: false,
 	})
 	if err != nil {
 		return nil, errors.Wrapf(err, "diffConfig failed because of malformed resource inputs")
@@ -511,7 +511,7 @@ func (p *cfnProvider) Check(ctx context.Context, req *pulumirpc.CheckRequest) (*
 	newInputs, err := plugin.UnmarshalProperties(req.GetNews(), plugin.MarshalOptions{
 		Label:        fmt.Sprintf("%s.properties", label),
 		KeepUnknowns: true,
-		RejectAssets: true,
+		RejectAssets: false,
 		KeepSecrets:  true,
 	})
 	if err != nil {
@@ -579,7 +579,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 	inputs, err := plugin.UnmarshalProperties(req.GetProperties(), plugin.MarshalOptions{
 		Label:        fmt.Sprintf("%s.properties", label),
 		KeepUnknowns: true,
-		RejectAssets: true,
+		RejectAssets: false,
 		KeepSecrets:  true,
 	})
 	if err != nil {
@@ -611,7 +611,10 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 		cfType = spec.CfType
 
 		// Convert SDK inputs to CFN payload.
-		payload = schema.SdkToCfn(&spec, p.resourceMap.Types, inputs.MapRepl(nil, mapReplStripSecrets))
+		payload, err = schema.SdkToCfn(&spec, p.resourceMap.Types, inputs.MapRepl(nil, mapReplStripSecrets))
+		if err != nil {
+			return nil, fmt.Errorf("failed to convert SDK inputs to CFN: %w", err)
+		}
 	}
 
 	// Serialize inputs as a desired state JSON.
@@ -814,7 +817,7 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 	newInputs, err := plugin.UnmarshalProperties(req.GetNews(), plugin.MarshalOptions{
 		Label:        fmt.Sprintf("%s.newInputs", label),
 		KeepUnknowns: true,
-		RejectAssets: true,
+		RejectAssets: false,
 		KeepSecrets:  true,
 	})
 	if err != nil {
@@ -1001,7 +1004,7 @@ func (p *cfnProvider) diffState(olds *pbstruct.Struct, news *pbstruct.Struct, la
 	oldState, err := plugin.UnmarshalProperties(olds, plugin.MarshalOptions{
 		Label:        fmt.Sprintf("%s.oldState", label),
 		KeepUnknowns: true,
-		RejectAssets: true,
+		RejectAssets: false,
 		KeepSecrets:  true,
 	})
 	if err != nil {
@@ -1014,7 +1017,7 @@ func (p *cfnProvider) diffState(olds *pbstruct.Struct, news *pbstruct.Struct, la
 	newInputs, err := plugin.UnmarshalProperties(news, plugin.MarshalOptions{
 		Label:        fmt.Sprintf("%s.newInputs", label),
 		KeepUnknowns: true,
-		RejectAssets: true,
+		RejectAssets: false,
 		KeepSecrets:  true,
 	})
 	if err != nil {

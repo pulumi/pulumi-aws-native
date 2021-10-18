@@ -344,13 +344,13 @@ class FunctionCodeArgs:
                  s3_bucket: Optional[pulumi.Input[str]] = None,
                  s3_key: Optional[pulumi.Input[str]] = None,
                  s3_object_version: Optional[pulumi.Input[str]] = None,
-                 zip_file: Optional[pulumi.Input[str]] = None):
+                 zip_file: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None):
         """
         :param pulumi.Input[str] image_uri: ImageUri.
         :param pulumi.Input[str] s3_bucket: An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
         :param pulumi.Input[str] s3_key: The Amazon S3 key of the deployment package.
         :param pulumi.Input[str] s3_object_version: For versioned objects, the version of the deployment package object to use.
-        :param pulumi.Input[str] zip_file: The source code of your Lambda function. If you include your function source inline with this parameter, AWS CloudFormation places it in a file named index and zips it to create a deployment package..
+        :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] zip_file: The source code of your Lambda function. If you include your function source inline with this parameter, AWS CloudFormation places it in a file named index and zips it to create a deployment package..
         """
         if image_uri is not None:
             pulumi.set(__self__, "image_uri", image_uri)
@@ -413,14 +413,14 @@ class FunctionCodeArgs:
 
     @property
     @pulumi.getter(name="zipFile")
-    def zip_file(self) -> Optional[pulumi.Input[str]]:
+    def zip_file(self) -> Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]]:
         """
         The source code of your Lambda function. If you include your function source inline with this parameter, AWS CloudFormation places it in a file named index and zips it to create a deployment package..
         """
         return pulumi.get(self, "zip_file")
 
     @zip_file.setter
-    def zip_file(self, value: Optional[pulumi.Input[str]]):
+    def zip_file(self, value: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]]):
         pulumi.set(self, "zip_file", value)
 
 

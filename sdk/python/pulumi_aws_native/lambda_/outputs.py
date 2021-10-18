@@ -484,13 +484,13 @@ class FunctionCode(dict):
                  s3_bucket: Optional[str] = None,
                  s3_key: Optional[str] = None,
                  s3_object_version: Optional[str] = None,
-                 zip_file: Optional[str] = None):
+                 zip_file: Optional[Union[pulumi.Asset, pulumi.Archive]] = None):
         """
         :param str image_uri: ImageUri.
         :param str s3_bucket: An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
         :param str s3_key: The Amazon S3 key of the deployment package.
         :param str s3_object_version: For versioned objects, the version of the deployment package object to use.
-        :param str zip_file: The source code of your Lambda function. If you include your function source inline with this parameter, AWS CloudFormation places it in a file named index and zips it to create a deployment package..
+        :param Union[pulumi.Asset, pulumi.Archive] zip_file: The source code of your Lambda function. If you include your function source inline with this parameter, AWS CloudFormation places it in a file named index and zips it to create a deployment package..
         """
         if image_uri is not None:
             pulumi.set(__self__, "image_uri", image_uri)
@@ -537,7 +537,7 @@ class FunctionCode(dict):
 
     @property
     @pulumi.getter(name="zipFile")
-    def zip_file(self) -> Optional[str]:
+    def zip_file(self) -> Optional[Union[pulumi.Asset, pulumi.Archive]]:
         """
         The source code of your Lambda function. If you include your function source inline with this parameter, AWS CloudFormation places it in a file named index and zips it to create a deployment package..
         """

@@ -1,5 +1,7 @@
 ## HEAD (Unreleased)
 
+- Add lambda.Function support for pulumi Assets [#182](https://github.com/pulumi/pulumi-aws-native/pull/182)
+
 ## 0.2.0 (October 8, 2021)
 
 - Deduplicate type names [#160](https://github.com/pulumi/pulumi-aws-native/issues/160)

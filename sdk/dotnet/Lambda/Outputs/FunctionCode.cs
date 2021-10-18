@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.Lambda.Outputs
         /// <summary>
         /// The source code of your Lambda function. If you include your function source inline with this parameter, AWS CloudFormation places it in a file named index and zips it to create a deployment package..
         /// </summary>
-        public readonly string? ZipFile;
+        public readonly AssetOrArchive? ZipFile;
 
         [OutputConstructor]
         private FunctionCode(
@@ -44,7 +44,7 @@ namespace Pulumi.AwsNative.Lambda.Outputs
 
             string? s3ObjectVersion,
 
-            string? zipFile)
+            AssetOrArchive? zipFile)
         {
             ImageUri = imageUri;
             S3Bucket = s3Bucket;
