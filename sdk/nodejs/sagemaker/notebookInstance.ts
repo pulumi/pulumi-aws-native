@@ -46,6 +46,7 @@ export class NotebookInstance extends pulumi.CustomResource {
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     public readonly lifecycleConfigName!: pulumi.Output<string | undefined>;
     public readonly notebookInstanceName!: pulumi.Output<string | undefined>;
+    public readonly platformIdentifier!: pulumi.Output<string | undefined>;
     public readonly roleArn!: pulumi.Output<string>;
     public readonly rootAccess!: pulumi.Output<string | undefined>;
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
@@ -80,6 +81,7 @@ export class NotebookInstance extends pulumi.CustomResource {
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             inputs["lifecycleConfigName"] = args ? args.lifecycleConfigName : undefined;
             inputs["notebookInstanceName"] = args ? args.notebookInstanceName : undefined;
+            inputs["platformIdentifier"] = args ? args.platformIdentifier : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["rootAccess"] = args ? args.rootAccess : undefined;
             inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
@@ -95,6 +97,7 @@ export class NotebookInstance extends pulumi.CustomResource {
             inputs["kmsKeyId"] = undefined /*out*/;
             inputs["lifecycleConfigName"] = undefined /*out*/;
             inputs["notebookInstanceName"] = undefined /*out*/;
+            inputs["platformIdentifier"] = undefined /*out*/;
             inputs["roleArn"] = undefined /*out*/;
             inputs["rootAccess"] = undefined /*out*/;
             inputs["securityGroupIds"] = undefined /*out*/;
@@ -121,6 +124,7 @@ export interface NotebookInstanceArgs {
     kmsKeyId?: pulumi.Input<string>;
     lifecycleConfigName?: pulumi.Input<string>;
     notebookInstanceName?: pulumi.Input<string>;
+    platformIdentifier?: pulumi.Input<string>;
     roleArn: pulumi.Input<string>;
     rootAccess?: pulumi.Input<string>;
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;

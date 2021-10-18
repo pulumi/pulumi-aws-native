@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::NimbleStudio::StudioComponent.
+ * Represents a studio component which connects a non-Nimble Studio resource in your account to your studio
  */
 export class StudioComponent extends pulumi.CustomResource {
     /**
@@ -36,16 +36,34 @@ export class StudioComponent extends pulumi.CustomResource {
     }
 
     public readonly configuration!: pulumi.Output<outputs.nimblestudio.StudioComponentConfiguration | undefined>;
+    /**
+     * <p>The description.</p>
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * <p>The EC2 security groups that control access to the studio component.</p>
+     */
     public readonly ec2SecurityGroupIds!: pulumi.Output<string[] | undefined>;
+    /**
+     * <p>Initialization scripts for studio components.</p>
+     */
     public readonly initializationScripts!: pulumi.Output<outputs.nimblestudio.StudioComponentInitializationScript[] | undefined>;
+    /**
+     * <p>The name for the studio component.</p>
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * <p>Parameters for the studio component scripts.</p>
+     */
     public readonly scriptParameters!: pulumi.Output<outputs.nimblestudio.StudioComponentScriptParameterKeyValue[] | undefined>;
     public /*out*/ readonly studioComponentId!: pulumi.Output<string>;
+    /**
+     * <p>The studioId. </p>
+     */
     public readonly studioId!: pulumi.Output<string>;
-    public readonly subtype!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<any | undefined>;
-    public readonly type!: pulumi.Output<string>;
+    public readonly subtype!: pulumi.Output<enums.nimblestudio.StudioComponentSubtype | undefined>;
+    public readonly tags!: pulumi.Output<outputs.nimblestudio.StudioComponentTags | undefined>;
+    public readonly type!: pulumi.Output<enums.nimblestudio.StudioComponentType>;
 
     /**
      * Create a StudioComponent resource with the given unique name, arguments, and options.
@@ -103,13 +121,31 @@ export class StudioComponent extends pulumi.CustomResource {
  */
 export interface StudioComponentArgs {
     configuration?: pulumi.Input<inputs.nimblestudio.StudioComponentConfigurationArgs>;
+    /**
+     * <p>The description.</p>
+     */
     description?: pulumi.Input<string>;
+    /**
+     * <p>The EC2 security groups that control access to the studio component.</p>
+     */
     ec2SecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * <p>Initialization scripts for studio components.</p>
+     */
     initializationScripts?: pulumi.Input<pulumi.Input<inputs.nimblestudio.StudioComponentInitializationScriptArgs>[]>;
+    /**
+     * <p>The name for the studio component.</p>
+     */
     name: pulumi.Input<string>;
+    /**
+     * <p>Parameters for the studio component scripts.</p>
+     */
     scriptParameters?: pulumi.Input<pulumi.Input<inputs.nimblestudio.StudioComponentScriptParameterKeyValueArgs>[]>;
+    /**
+     * <p>The studioId. </p>
+     */
     studioId: pulumi.Input<string>;
-    subtype?: pulumi.Input<string>;
-    tags?: any;
-    type: pulumi.Input<string>;
+    subtype?: pulumi.Input<enums.nimblestudio.StudioComponentSubtype>;
+    tags?: pulumi.Input<inputs.nimblestudio.StudioComponentTagsArgs>;
+    type: pulumi.Input<enums.nimblestudio.StudioComponentType>;
 }

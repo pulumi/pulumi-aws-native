@@ -12,19 +12,25 @@ import (
 )
 
 // Resource Type definition for AWS::AutoScaling::LifecycleHook
-//
-// Deprecated: LifecycleHook is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type LifecycleHook struct {
 	pulumi.CustomResourceState
 
-	AutoScalingGroupName  pulumi.StringOutput    `pulumi:"autoScalingGroupName"`
-	DefaultResult         pulumi.StringPtrOutput `pulumi:"defaultResult"`
-	HeartbeatTimeout      pulumi.IntPtrOutput    `pulumi:"heartbeatTimeout"`
-	LifecycleHookName     pulumi.StringPtrOutput `pulumi:"lifecycleHookName"`
-	LifecycleTransition   pulumi.StringOutput    `pulumi:"lifecycleTransition"`
-	NotificationMetadata  pulumi.StringPtrOutput `pulumi:"notificationMetadata"`
+	// The name of the Auto Scaling group for the lifecycle hook.
+	AutoScalingGroupName pulumi.StringOutput `pulumi:"autoScalingGroupName"`
+	// The action the Auto Scaling group takes when the lifecycle hook timeout elapses or if an unexpected failure occurs. The valid values are CONTINUE and ABANDON (default).
+	DefaultResult pulumi.StringPtrOutput `pulumi:"defaultResult"`
+	// The maximum time, in seconds, that can elapse before the lifecycle hook times out. The range is from 30 to 7200 seconds. The default value is 3600 seconds (1 hour). If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action that you specified in the DefaultResult property.
+	HeartbeatTimeout pulumi.IntPtrOutput `pulumi:"heartbeatTimeout"`
+	// The name of the lifecycle hook.
+	LifecycleHookName pulumi.StringPtrOutput `pulumi:"lifecycleHookName"`
+	// The instance state to which you want to attach the lifecycle hook.
+	LifecycleTransition pulumi.StringOutput `pulumi:"lifecycleTransition"`
+	// Additional information that is included any time Amazon EC2 Auto Scaling sends a message to the notification target.
+	NotificationMetadata pulumi.StringPtrOutput `pulumi:"notificationMetadata"`
+	// The Amazon Resource Name (ARN) of the notification target that Amazon EC2 Auto Scaling uses to notify you when an instance is in the transition state for the lifecycle hook. You can specify an Amazon SQS queue or an Amazon SNS topic. The notification message includes the following information: lifecycle action token, user account ID, Auto Scaling group name, lifecycle hook name, instance ID, lifecycle transition, and notification metadata.
 	NotificationTargetARN pulumi.StringPtrOutput `pulumi:"notificationTargetARN"`
-	RoleARN               pulumi.StringPtrOutput `pulumi:"roleARN"`
+	// The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target, for example, an Amazon SNS topic or an Amazon SQS queue.
+	RoleARN pulumi.StringPtrOutput `pulumi:"roleARN"`
 }
 
 // NewLifecycleHook registers a new resource with the given unique name, arguments, and options.
@@ -72,26 +78,42 @@ func (LifecycleHookState) ElementType() reflect.Type {
 }
 
 type lifecycleHookArgs struct {
-	AutoScalingGroupName  string  `pulumi:"autoScalingGroupName"`
-	DefaultResult         *string `pulumi:"defaultResult"`
-	HeartbeatTimeout      *int    `pulumi:"heartbeatTimeout"`
-	LifecycleHookName     *string `pulumi:"lifecycleHookName"`
-	LifecycleTransition   string  `pulumi:"lifecycleTransition"`
-	NotificationMetadata  *string `pulumi:"notificationMetadata"`
+	// The name of the Auto Scaling group for the lifecycle hook.
+	AutoScalingGroupName string `pulumi:"autoScalingGroupName"`
+	// The action the Auto Scaling group takes when the lifecycle hook timeout elapses or if an unexpected failure occurs. The valid values are CONTINUE and ABANDON (default).
+	DefaultResult *string `pulumi:"defaultResult"`
+	// The maximum time, in seconds, that can elapse before the lifecycle hook times out. The range is from 30 to 7200 seconds. The default value is 3600 seconds (1 hour). If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action that you specified in the DefaultResult property.
+	HeartbeatTimeout *int `pulumi:"heartbeatTimeout"`
+	// The name of the lifecycle hook.
+	LifecycleHookName *string `pulumi:"lifecycleHookName"`
+	// The instance state to which you want to attach the lifecycle hook.
+	LifecycleTransition string `pulumi:"lifecycleTransition"`
+	// Additional information that is included any time Amazon EC2 Auto Scaling sends a message to the notification target.
+	NotificationMetadata *string `pulumi:"notificationMetadata"`
+	// The Amazon Resource Name (ARN) of the notification target that Amazon EC2 Auto Scaling uses to notify you when an instance is in the transition state for the lifecycle hook. You can specify an Amazon SQS queue or an Amazon SNS topic. The notification message includes the following information: lifecycle action token, user account ID, Auto Scaling group name, lifecycle hook name, instance ID, lifecycle transition, and notification metadata.
 	NotificationTargetARN *string `pulumi:"notificationTargetARN"`
-	RoleARN               *string `pulumi:"roleARN"`
+	// The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target, for example, an Amazon SNS topic or an Amazon SQS queue.
+	RoleARN *string `pulumi:"roleARN"`
 }
 
 // The set of arguments for constructing a LifecycleHook resource.
 type LifecycleHookArgs struct {
-	AutoScalingGroupName  pulumi.StringInput
-	DefaultResult         pulumi.StringPtrInput
-	HeartbeatTimeout      pulumi.IntPtrInput
-	LifecycleHookName     pulumi.StringPtrInput
-	LifecycleTransition   pulumi.StringInput
-	NotificationMetadata  pulumi.StringPtrInput
+	// The name of the Auto Scaling group for the lifecycle hook.
+	AutoScalingGroupName pulumi.StringInput
+	// The action the Auto Scaling group takes when the lifecycle hook timeout elapses or if an unexpected failure occurs. The valid values are CONTINUE and ABANDON (default).
+	DefaultResult pulumi.StringPtrInput
+	// The maximum time, in seconds, that can elapse before the lifecycle hook times out. The range is from 30 to 7200 seconds. The default value is 3600 seconds (1 hour). If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action that you specified in the DefaultResult property.
+	HeartbeatTimeout pulumi.IntPtrInput
+	// The name of the lifecycle hook.
+	LifecycleHookName pulumi.StringPtrInput
+	// The instance state to which you want to attach the lifecycle hook.
+	LifecycleTransition pulumi.StringInput
+	// Additional information that is included any time Amazon EC2 Auto Scaling sends a message to the notification target.
+	NotificationMetadata pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the notification target that Amazon EC2 Auto Scaling uses to notify you when an instance is in the transition state for the lifecycle hook. You can specify an Amazon SQS queue or an Amazon SNS topic. The notification message includes the following information: lifecycle action token, user account ID, Auto Scaling group name, lifecycle hook name, instance ID, lifecycle transition, and notification metadata.
 	NotificationTargetARN pulumi.StringPtrInput
-	RoleARN               pulumi.StringPtrInput
+	// The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target, for example, an Amazon SNS topic or an Amazon SQS queue.
+	RoleARN pulumi.StringPtrInput
 }
 
 func (LifecycleHookArgs) ElementType() reflect.Type {

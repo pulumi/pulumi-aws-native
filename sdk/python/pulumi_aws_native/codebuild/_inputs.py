@@ -178,10 +178,13 @@ class ProjectBatchRestrictionsArgs:
 @pulumi.input_type
 class ProjectBuildBatchConfigArgs:
     def __init__(__self__, *,
+                 batch_report_mode: Optional[pulumi.Input[str]] = None,
                  combine_artifacts: Optional[pulumi.Input[bool]] = None,
                  restrictions: Optional[pulumi.Input['ProjectBatchRestrictionsArgs']] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
                  timeout_in_mins: Optional[pulumi.Input[int]] = None):
+        if batch_report_mode is not None:
+            pulumi.set(__self__, "batch_report_mode", batch_report_mode)
         if combine_artifacts is not None:
             pulumi.set(__self__, "combine_artifacts", combine_artifacts)
         if restrictions is not None:
@@ -190,6 +193,15 @@ class ProjectBuildBatchConfigArgs:
             pulumi.set(__self__, "service_role", service_role)
         if timeout_in_mins is not None:
             pulumi.set(__self__, "timeout_in_mins", timeout_in_mins)
+
+    @property
+    @pulumi.getter(name="batchReportMode")
+    def batch_report_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "batch_report_mode")
+
+    @batch_report_mode.setter
+    def batch_report_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "batch_report_mode", value)
 
     @property
     @pulumi.getter(name="combineArtifacts")

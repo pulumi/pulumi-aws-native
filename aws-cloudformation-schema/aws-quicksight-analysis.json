@@ -350,11 +350,11 @@
       "description" : "<p>The ARN of the theme of the analysis.</p>"
     }
   },
-  "required" : [ "AwsAccountId", "AnalysisId" ],
+  "required" : [ "AwsAccountId", "AnalysisId", "SourceEntity" ],
   "additionalProperties" : false,
   "writeOnlyProperties" : [ "/properties/Parameters", "/properties/SourceEntity", "/properties/LastUpdatedTime", "/properties/Status", "/properties/Sheets" ],
   "createOnlyProperties" : [ "/properties/AnalysisId", "/properties/AwsAccountId" ],
-  "readOnlyProperties" : [ "/properties/CreatedTime", "/properties/LastUpdatedTime", "/properties/Status", "/properties/Sheets", "/properties/DataSetArns", "/properties/Arn" ],
+  "readOnlyProperties" : [ "/properties/AnalysisError", "/properties/CreatedTime", "/properties/LastUpdatedTime", "/properties/Status", "/properties/Sheets", "/properties/DataSetArns", "/properties/Arn" ],
   "primaryIdentifier" : [ "/properties/AnalysisId", "/properties/AwsAccountId" ],
   "handlers" : {
     "read" : {

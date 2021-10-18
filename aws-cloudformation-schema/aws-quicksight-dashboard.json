@@ -456,9 +456,9 @@
       "description" : "<p>A description for the first version of the dashboard being created.</p>"
     }
   },
-  "required" : [ "AwsAccountId", "DashboardId" ],
+  "required" : [ "AwsAccountId", "DashboardId", "SourceEntity" ],
   "additionalProperties" : false,
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedTime", "/properties/LastPublishedTime", "/properties/LastUpdatedTime", "/properties/Version" ],
+  "readOnlyProperties" : [ "/properties/DashboardError", "/properties/Arn", "/properties/CreatedTime", "/properties/LastPublishedTime", "/properties/LastUpdatedTime", "/properties/Version" ],
   "writeOnlyProperties" : [ "/properties/DashboardPublishOptions", "/properties/Parameters", "/properties/SourceEntity", "/properties/ThemeArn", "/properties/VersionDescription", "/properties/Version", "/properties/CreatedTime", "/properties/LastUpdatedTime" ],
   "createOnlyProperties" : [ "/properties/AwsAccountId", "/properties/DashboardId" ],
   "primaryIdentifier" : [ "/properties/AwsAccountId", "/properties/DashboardId" ],

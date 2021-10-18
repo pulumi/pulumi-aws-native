@@ -24,6 +24,7 @@ class NotebookInstanceArgs:
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lifecycle_config_name: Optional[pulumi.Input[str]] = None,
                  notebook_instance_name: Optional[pulumi.Input[str]] = None,
+                 platform_identifier: Optional[pulumi.Input[str]] = None,
                  root_access: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
@@ -48,6 +49,8 @@ class NotebookInstanceArgs:
             pulumi.set(__self__, "lifecycle_config_name", lifecycle_config_name)
         if notebook_instance_name is not None:
             pulumi.set(__self__, "notebook_instance_name", notebook_instance_name)
+        if platform_identifier is not None:
+            pulumi.set(__self__, "platform_identifier", platform_identifier)
         if root_access is not None:
             pulumi.set(__self__, "root_access", root_access)
         if security_group_ids is not None:
@@ -141,6 +144,15 @@ class NotebookInstanceArgs:
         pulumi.set(self, "notebook_instance_name", value)
 
     @property
+    @pulumi.getter(name="platformIdentifier")
+    def platform_identifier(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "platform_identifier")
+
+    @platform_identifier.setter
+    def platform_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "platform_identifier", value)
+
+    @property
     @pulumi.getter(name="rootAccess")
     def root_access(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "root_access")
@@ -204,6 +216,7 @@ class NotebookInstance(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lifecycle_config_name: Optional[pulumi.Input[str]] = None,
                  notebook_instance_name: Optional[pulumi.Input[str]] = None,
+                 platform_identifier: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  root_access: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -249,6 +262,7 @@ class NotebookInstance(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lifecycle_config_name: Optional[pulumi.Input[str]] = None,
                  notebook_instance_name: Optional[pulumi.Input[str]] = None,
+                 platform_identifier: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  root_access: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -278,6 +292,7 @@ class NotebookInstance(pulumi.CustomResource):
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["lifecycle_config_name"] = lifecycle_config_name
             __props__.__dict__["notebook_instance_name"] = notebook_instance_name
+            __props__.__dict__["platform_identifier"] = platform_identifier
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
@@ -316,6 +331,7 @@ class NotebookInstance(pulumi.CustomResource):
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["lifecycle_config_name"] = None
         __props__.__dict__["notebook_instance_name"] = None
+        __props__.__dict__["platform_identifier"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["root_access"] = None
         __props__.__dict__["security_group_ids"] = None
@@ -363,6 +379,11 @@ class NotebookInstance(pulumi.CustomResource):
     @pulumi.getter(name="notebookInstanceName")
     def notebook_instance_name(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "notebook_instance_name")
+
+    @property
+    @pulumi.getter(name="platformIdentifier")
+    def platform_identifier(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "platform_identifier")
 
     @property
     @pulumi.getter(name="roleArn")

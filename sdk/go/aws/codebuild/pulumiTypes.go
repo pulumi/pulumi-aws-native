@@ -457,6 +457,7 @@ func (o ProjectBatchRestrictionsPtrOutput) MaximumBuildsAllowed() pulumi.IntPtrO
 }
 
 type ProjectBuildBatchConfig struct {
+	BatchReportMode  *string                   `pulumi:"batchReportMode"`
 	CombineArtifacts *bool                     `pulumi:"combineArtifacts"`
 	Restrictions     *ProjectBatchRestrictions `pulumi:"restrictions"`
 	ServiceRole      *string                   `pulumi:"serviceRole"`
@@ -475,6 +476,7 @@ type ProjectBuildBatchConfigInput interface {
 }
 
 type ProjectBuildBatchConfigArgs struct {
+	BatchReportMode  pulumi.StringPtrInput            `pulumi:"batchReportMode"`
 	CombineArtifacts pulumi.BoolPtrInput              `pulumi:"combineArtifacts"`
 	Restrictions     ProjectBatchRestrictionsPtrInput `pulumi:"restrictions"`
 	ServiceRole      pulumi.StringPtrInput            `pulumi:"serviceRole"`
@@ -558,6 +560,10 @@ func (o ProjectBuildBatchConfigOutput) ToProjectBuildBatchConfigPtrOutputWithCon
 	}).(ProjectBuildBatchConfigPtrOutput)
 }
 
+func (o ProjectBuildBatchConfigOutput) BatchReportMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectBuildBatchConfig) *string { return v.BatchReportMode }).(pulumi.StringPtrOutput)
+}
+
 func (o ProjectBuildBatchConfigOutput) CombineArtifacts() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProjectBuildBatchConfig) *bool { return v.CombineArtifacts }).(pulumi.BoolPtrOutput)
 }
@@ -596,6 +602,15 @@ func (o ProjectBuildBatchConfigPtrOutput) Elem() ProjectBuildBatchConfigOutput {
 		var ret ProjectBuildBatchConfig
 		return ret
 	}).(ProjectBuildBatchConfigOutput)
+}
+
+func (o ProjectBuildBatchConfigPtrOutput) BatchReportMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectBuildBatchConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BatchReportMode
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o ProjectBuildBatchConfigPtrOutput) CombineArtifacts() pulumi.BoolPtrOutput {

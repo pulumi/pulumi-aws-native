@@ -53,7 +53,7 @@ export class SubnetGroup extends pulumi.CustomResource {
     /**
      * A list of VPC subnet IDs for the subnet group.
      */
-    public readonly subnetIds!: pulumi.Output<string[] | undefined>;
+    public readonly subnetIds!: pulumi.Output<string[]>;
     /**
      * An array of key-value pairs to apply to this subnet group.
      */
@@ -74,6 +74,9 @@ export class SubnetGroup extends pulumi.CustomResource {
         if (!opts.id) {
             if ((!args || args.subnetGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetGroupName'");
+            }
+            if ((!args || args.subnetIds === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'subnetIds'");
             }
             inputs["description"] = args ? args.description : undefined;
             inputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
@@ -109,7 +112,7 @@ export interface SubnetGroupArgs {
     /**
      * A list of VPC subnet IDs for the subnet group.
      */
-    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * An array of key-value pairs to apply to this subnet group.
      */

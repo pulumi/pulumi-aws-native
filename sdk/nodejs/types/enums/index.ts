@@ -22,6 +22,7 @@ import * as cur from "./cur";
 import * as customerprofiles from "./customerprofiles";
 import * as databrew from "./databrew";
 import * as datasync from "./datasync";
+import * as devicefarm from "./devicefarm";
 import * as devopsguru from "./devopsguru";
 import * as ec2 from "./ec2";
 import * as ecr from "./ecr";
@@ -60,6 +61,7 @@ import * as mediapackage from "./mediapackage";
 import * as memorydb from "./memorydb";
 import * as mwaa from "./mwaa";
 import * as networkfirewall from "./networkfirewall";
+import * as nimblestudio from "./nimblestudio";
 import * as quicksight from "./quicksight";
 import * as rds from "./rds";
 import * as resourcegroups from "./resourcegroups";
@@ -79,6 +81,7 @@ import * as ssmincidents from "./ssmincidents";
 import * as sso from "./sso";
 import * as stepfunctions from "./stepfunctions";
 import * as wafv2 from "./wafv2";
+import * as wisdom from "./wisdom";
 import * as workspaces from "./workspaces";
 
 export {
@@ -102,6 +105,7 @@ export {
     customerprofiles,
     databrew,
     datasync,
+    devicefarm,
     devopsguru,
     ec2,
     ecr,
@@ -140,6 +144,7 @@ export {
     memorydb,
     mwaa,
     networkfirewall,
+    nimblestudio,
     quicksight,
     rds,
     resourcegroups,
@@ -159,6 +164,7 @@ export {
     sso,
     stepfunctions,
     wafv2,
+    wisdom,
     workspaces,
 };
 

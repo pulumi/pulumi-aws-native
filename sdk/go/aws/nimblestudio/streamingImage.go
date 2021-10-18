@@ -11,20 +11,27 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::NimbleStudio::StreamingImage.
+// Represents a streaming session machine image that can be used to launch a streaming session
 type StreamingImage struct {
 	pulumi.CustomResourceState
 
-	Description             pulumi.StringPtrOutput                      `pulumi:"description"`
+	// <p>A human-readable description of the streaming image.</p>
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// <p>The ID of an EC2 machine image with which to create this streaming image.</p>
 	Ec2ImageId              pulumi.StringOutput                         `pulumi:"ec2ImageId"`
 	EncryptionConfiguration StreamingImageEncryptionConfigurationOutput `pulumi:"encryptionConfiguration"`
-	EulaIds                 pulumi.StringArrayOutput                    `pulumi:"eulaIds"`
-	Name                    pulumi.StringOutput                         `pulumi:"name"`
-	Owner                   pulumi.StringOutput                         `pulumi:"owner"`
-	Platform                pulumi.StringOutput                         `pulumi:"platform"`
-	StreamingImageId        pulumi.StringOutput                         `pulumi:"streamingImageId"`
-	StudioId                pulumi.StringOutput                         `pulumi:"studioId"`
-	Tags                    pulumi.AnyOutput                            `pulumi:"tags"`
+	// <p>The list of EULAs that must be accepted before a Streaming Session can be started using this streaming image.</p>
+	EulaIds pulumi.StringArrayOutput `pulumi:"eulaIds"`
+	// <p>A friendly name for a streaming image resource.</p>
+	Name pulumi.StringOutput `pulumi:"name"`
+	// <p>The owner of the streaming image, either the studioId that contains the streaming image, or 'amazon' for images that are provided by Amazon Nimble Studio.</p>
+	Owner pulumi.StringOutput `pulumi:"owner"`
+	// <p>The platform of the streaming image, either WINDOWS or LINUX.</p>
+	Platform         pulumi.StringOutput `pulumi:"platform"`
+	StreamingImageId pulumi.StringOutput `pulumi:"streamingImageId"`
+	// <p>The studioId. </p>
+	StudioId pulumi.StringOutput         `pulumi:"studioId"`
+	Tags     StreamingImageTagsPtrOutput `pulumi:"tags"`
 }
 
 // NewStreamingImage registers a new resource with the given unique name, arguments, and options.
@@ -75,20 +82,28 @@ func (StreamingImageState) ElementType() reflect.Type {
 }
 
 type streamingImageArgs struct {
-	Description *string     `pulumi:"description"`
-	Ec2ImageId  string      `pulumi:"ec2ImageId"`
-	Name        string      `pulumi:"name"`
-	StudioId    string      `pulumi:"studioId"`
-	Tags        interface{} `pulumi:"tags"`
+	// <p>A human-readable description of the streaming image.</p>
+	Description *string `pulumi:"description"`
+	// <p>The ID of an EC2 machine image with which to create this streaming image.</p>
+	Ec2ImageId string `pulumi:"ec2ImageId"`
+	// <p>A friendly name for a streaming image resource.</p>
+	Name string `pulumi:"name"`
+	// <p>The studioId. </p>
+	StudioId string              `pulumi:"studioId"`
+	Tags     *StreamingImageTags `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a StreamingImage resource.
 type StreamingImageArgs struct {
+	// <p>A human-readable description of the streaming image.</p>
 	Description pulumi.StringPtrInput
-	Ec2ImageId  pulumi.StringInput
-	Name        pulumi.StringInput
-	StudioId    pulumi.StringInput
-	Tags        pulumi.Input
+	// <p>The ID of an EC2 machine image with which to create this streaming image.</p>
+	Ec2ImageId pulumi.StringInput
+	// <p>A friendly name for a streaming image resource.</p>
+	Name pulumi.StringInput
+	// <p>The studioId. </p>
+	StudioId pulumi.StringInput
+	Tags     StreamingImageTagsPtrInput
 }
 
 func (StreamingImageArgs) ElementType() reflect.Type {

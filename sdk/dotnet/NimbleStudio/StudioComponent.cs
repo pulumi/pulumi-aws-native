@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio
 {
     /// <summary>
-    /// Resource schema for AWS::NimbleStudio::StudioComponent.
+    /// Represents a studio component which connects a non-Nimble Studio resource in your account to your studio
     /// </summary>
     [AwsNativeResourceType("aws-native:nimblestudio:StudioComponent")]
     public partial class StudioComponent : Pulumi.CustomResource
@@ -18,35 +18,53 @@ namespace Pulumi.AwsNative.NimbleStudio
         [Output("configuration")]
         public Output<Outputs.StudioComponentConfiguration?> Configuration { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The description.&lt;/p&gt;
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The EC2 security groups that control access to the studio component.&lt;/p&gt;
+        /// </summary>
         [Output("ec2SecurityGroupIds")]
         public Output<ImmutableArray<string>> Ec2SecurityGroupIds { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;Initialization scripts for studio components.&lt;/p&gt;
+        /// </summary>
         [Output("initializationScripts")]
         public Output<ImmutableArray<Outputs.StudioComponentInitializationScript>> InitializationScripts { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The name for the studio component.&lt;/p&gt;
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;Parameters for the studio component scripts.&lt;/p&gt;
+        /// </summary>
         [Output("scriptParameters")]
         public Output<ImmutableArray<Outputs.StudioComponentScriptParameterKeyValue>> ScriptParameters { get; private set; } = null!;
 
         [Output("studioComponentId")]
         public Output<string> StudioComponentId { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The studioId. &lt;/p&gt;
+        /// </summary>
         [Output("studioId")]
         public Output<string> StudioId { get; private set; } = null!;
 
         [Output("subtype")]
-        public Output<string?> Subtype { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.NimbleStudio.StudioComponentSubtype?> Subtype { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<object?> Tags { get; private set; } = null!;
+        public Output<Outputs.StudioComponentTags?> Tags { get; private set; } = null!;
 
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.NimbleStudio.StudioComponentType> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -96,11 +114,18 @@ namespace Pulumi.AwsNative.NimbleStudio
         [Input("configuration")]
         public Input<Inputs.StudioComponentConfigurationArgs>? Configuration { get; set; }
 
+        /// <summary>
+        /// &lt;p&gt;The description.&lt;/p&gt;
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("ec2SecurityGroupIds")]
         private InputList<string>? _ec2SecurityGroupIds;
+
+        /// <summary>
+        /// &lt;p&gt;The EC2 security groups that control access to the studio component.&lt;/p&gt;
+        /// </summary>
         public InputList<string> Ec2SecurityGroupIds
         {
             get => _ec2SecurityGroupIds ?? (_ec2SecurityGroupIds = new InputList<string>());
@@ -109,34 +134,48 @@ namespace Pulumi.AwsNative.NimbleStudio
 
         [Input("initializationScripts")]
         private InputList<Inputs.StudioComponentInitializationScriptArgs>? _initializationScripts;
+
+        /// <summary>
+        /// &lt;p&gt;Initialization scripts for studio components.&lt;/p&gt;
+        /// </summary>
         public InputList<Inputs.StudioComponentInitializationScriptArgs> InitializationScripts
         {
             get => _initializationScripts ?? (_initializationScripts = new InputList<Inputs.StudioComponentInitializationScriptArgs>());
             set => _initializationScripts = value;
         }
 
+        /// <summary>
+        /// &lt;p&gt;The name for the studio component.&lt;/p&gt;
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("scriptParameters")]
         private InputList<Inputs.StudioComponentScriptParameterKeyValueArgs>? _scriptParameters;
+
+        /// <summary>
+        /// &lt;p&gt;Parameters for the studio component scripts.&lt;/p&gt;
+        /// </summary>
         public InputList<Inputs.StudioComponentScriptParameterKeyValueArgs> ScriptParameters
         {
             get => _scriptParameters ?? (_scriptParameters = new InputList<Inputs.StudioComponentScriptParameterKeyValueArgs>());
             set => _scriptParameters = value;
         }
 
+        /// <summary>
+        /// &lt;p&gt;The studioId. &lt;/p&gt;
+        /// </summary>
         [Input("studioId", required: true)]
         public Input<string> StudioId { get; set; } = null!;
 
         [Input("subtype")]
-        public Input<string>? Subtype { get; set; }
+        public Input<Pulumi.AwsNative.NimbleStudio.StudioComponentSubtype>? Subtype { get; set; }
 
         [Input("tags")]
-        public Input<object>? Tags { get; set; }
+        public Input<Inputs.StudioComponentTagsArgs>? Tags { get; set; }
 
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AwsNative.NimbleStudio.StudioComponentType> Type { get; set; } = null!;
 
         public StudioComponentArgs()
         {

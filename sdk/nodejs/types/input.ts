@@ -5267,6 +5267,7 @@ export namespace codebuild {
     }
 
     export interface ProjectBuildBatchConfigArgs {
+        batchReportMode?: pulumi.Input<string>;
         combineArtifacts?: pulumi.Input<boolean>;
         restrictions?: pulumi.Input<inputs.codebuild.ProjectBatchRestrictionsArgs>;
         serviceRole?: pulumi.Input<string>;
@@ -7118,6 +7119,71 @@ export namespace detective {
          * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. Valid characters are Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @ 
          */
         value?: pulumi.Input<string>;
+    }
+}
+
+export namespace devicefarm {
+    /**
+     * Represents a condition for a device pool.
+     */
+    export interface DevicePoolRuleArgs {
+        /**
+         * The rule's stringified attribute.
+         */
+        attribute?: pulumi.Input<enums.devicefarm.DevicePoolRuleAttribute>;
+        /**
+         * Specifies how Device Farm compares the rule's attribute to the value.
+         */
+        operator?: pulumi.Input<enums.devicefarm.DevicePoolRuleOperator>;
+        /**
+         * The rule's value.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface DevicePoolTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface InstanceProfileTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface NetworkProfileTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface ProjectTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface TestGridProjectTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * The VPC security groups and subnets that are attached to a TestGrid project.
+     */
+    export interface TestGridProjectVpcConfigArgs {
+        /**
+         * A list of VPC security group IDs in your Amazon VPC.
+         */
+        securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of VPC subnet IDs in your Amazon VPC.
+         */
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+        vpcId: pulumi.Input<string>;
+    }
+
+    export interface VPCEConfigurationTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
     }
 }
 
@@ -18822,29 +18888,80 @@ export namespace networkmanager {
 }
 
 export namespace nimblestudio {
+    /**
+     * <p>A configuration for a streaming session.</p>
+     */
     export interface LaunchProfileStreamConfigurationArgs {
-        clipboardMode: pulumi.Input<string>;
-        ec2InstanceTypes: pulumi.Input<pulumi.Input<string>[]>;
+        clipboardMode: pulumi.Input<enums.nimblestudio.LaunchProfileStreamingClipboardMode>;
+        /**
+         * <p>The EC2 instance types that users can select from when launching a streaming session with this launch profile.</p>
+         */
+        ec2InstanceTypes: pulumi.Input<pulumi.Input<enums.nimblestudio.LaunchProfileStreamingInstanceType>[]>;
+        /**
+         * <p>The length of time, in minutes, that a streaming session can run. After this point, Nimble Studio automatically terminates the session.</p>
+         */
         maxSessionLengthInMinutes?: pulumi.Input<number>;
+        /**
+         * <p>The streaming images that users can select from when launching a streaming session with this launch profile.</p>
+         */
         streamingImageIds: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface LaunchProfileTagsArgs {
+    }
+
+    export interface StreamingImageTagsArgs {
+    }
+
+    /**
+     * <p>An LDAP attribute of an Active Directory computer account, in the form of a name:value pair.</p>
+     */
     export interface StudioComponentActiveDirectoryComputerAttributeArgs {
+        /**
+         * <p>The name for the LDAP attribute.</p>
+         */
         name?: pulumi.Input<string>;
+        /**
+         * <p>The value for the LDAP attribute.</p>
+         */
         value?: pulumi.Input<string>;
     }
 
+    /**
+     * <p>The configuration for a Microsoft Active Directory (Microsoft AD) studio resource.</p>
+     */
     export interface StudioComponentActiveDirectoryConfigurationArgs {
+        /**
+         * <p>A collection of custom attributes for an Active Directory computer.</p>
+         */
         computerAttributes?: pulumi.Input<pulumi.Input<inputs.nimblestudio.StudioComponentActiveDirectoryComputerAttributeArgs>[]>;
+        /**
+         * <p>The directory ID of the Directory Service for Microsoft Active Directory to access using this studio component.</p>
+         */
         directoryId?: pulumi.Input<string>;
+        /**
+         * <p>The distinguished name (DN) and organizational unit (OU) of an Active Directory computer.</p>
+         */
         organizationalUnitDistinguishedName?: pulumi.Input<string>;
     }
 
+    /**
+     * <p>The configuration for a render farm that is associated with a studio resource.</p>
+     */
     export interface StudioComponentComputeFarmConfigurationArgs {
+        /**
+         * <p>The name of an Active Directory user that is used on ComputeFarm worker instances.</p>
+         */
         activeDirectoryUser?: pulumi.Input<string>;
+        /**
+         * <p>The endpoint of the ComputeFarm that is accessed by the studio component resource.</p>
+         */
         endpoint?: pulumi.Input<string>;
     }
 
+    /**
+     * <p>The configuration of the studio component, based on component type.</p>
+     */
     export interface StudioComponentConfigurationArgs {
         activeDirectoryConfiguration?: pulumi.Input<inputs.nimblestudio.StudioComponentActiveDirectoryConfigurationArgs>;
         computeFarmConfiguration?: pulumi.Input<inputs.nimblestudio.StudioComponentComputeFarmConfigurationArgs>;
@@ -18852,33 +18969,87 @@ export namespace nimblestudio {
         sharedFileSystemConfiguration?: pulumi.Input<inputs.nimblestudio.StudioComponentSharedFileSystemConfigurationArgs>;
     }
 
+    /**
+     * <p>Initialization scripts for studio components.</p>
+     */
     export interface StudioComponentInitializationScriptArgs {
+        /**
+         * <p>The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".</p>
+         */
         launchProfileProtocolVersion?: pulumi.Input<string>;
-        platform?: pulumi.Input<string>;
-        runContext?: pulumi.Input<string>;
+        platform?: pulumi.Input<enums.nimblestudio.StudioComponentLaunchProfilePlatform>;
+        runContext?: pulumi.Input<enums.nimblestudio.StudioComponentInitializationScriptRunContext>;
+        /**
+         * <p>The initialization script.</p>
+         */
         script?: pulumi.Input<string>;
     }
 
+    /**
+     * <p>The configuration for a license service that is associated with a studio resource.</p>
+     */
     export interface StudioComponentLicenseServiceConfigurationArgs {
+        /**
+         * <p>The endpoint of the license service that is accessed by the studio component resource.</p>
+         */
         endpoint?: pulumi.Input<string>;
     }
 
+    /**
+     * <p>A parameter for a studio component script, in the form of a key:value pair.</p>
+     */
     export interface StudioComponentScriptParameterKeyValueArgs {
+        /**
+         * <p>A script parameter key.</p>
+         */
         key?: pulumi.Input<string>;
+        /**
+         * <p>A script parameter value.</p>
+         */
         value?: pulumi.Input<string>;
     }
 
+    /**
+     * <p>The configuration for a shared file storage system that is associated with a studio resource.</p>
+     */
     export interface StudioComponentSharedFileSystemConfigurationArgs {
+        /**
+         * <p>The endpoint of the shared file system that is accessed by the studio component resource.</p>
+         */
         endpoint?: pulumi.Input<string>;
+        /**
+         * <p>The unique identifier for a file system.</p>
+         */
         fileSystemId?: pulumi.Input<string>;
+        /**
+         * <p>The mount location for a shared file system on a Linux virtual workstation.</p>
+         */
         linuxMountPoint?: pulumi.Input<string>;
+        /**
+         * <p>The name of the file share.</p>
+         */
         shareName?: pulumi.Input<string>;
+        /**
+         * <p>The mount location for a shared file system on a Windows virtual workstation.</p>
+         */
         windowsMountDrive?: pulumi.Input<string>;
     }
 
+    export interface StudioComponentTagsArgs {
+    }
+
+    /**
+     * <p>Configuration of the encryption method that is used for the studio.</p>
+     */
     export interface StudioEncryptionConfigurationArgs {
+        /**
+         * <p>The ARN for a KMS key that is used to encrypt studio data.</p>
+         */
         keyArn?: pulumi.Input<string>;
-        keyType: pulumi.Input<string>;
+        keyType: pulumi.Input<enums.nimblestudio.StudioEncryptionConfigurationKeyType>;
+    }
+
+    export interface StudioTagsArgs {
     }
 }
 
@@ -20498,6 +20669,9 @@ export namespace quicksight {
         border?: pulumi.Input<inputs.quicksight.ThemeBorderStyleArgs>;
     }
 
+    /**
+     * <p>The typeface for the theme.</p>
+     */
     export interface ThemeTypographyArgs {
         fontFamilies?: pulumi.Input<pulumi.Input<inputs.quicksight.ThemeFontArgs>[]>;
     }
@@ -25789,6 +25963,48 @@ export namespace wafv2 {
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLTextTransformationArgs>[]>;
     }
 
+}
+
+export namespace wisdom {
+    export interface AssistantAssociationAssociationDataArgs {
+        knowledgeBaseId: pulumi.Input<string>;
+    }
+
+    export interface AssistantAssociationTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface AssistantServerSideEncryptionConfigurationArgs {
+        kmsKeyId?: pulumi.Input<string>;
+    }
+
+    export interface AssistantTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface KnowledgeBaseAppIntegrationsConfigurationArgs {
+        appIntegrationArn: pulumi.Input<string>;
+        objectFields: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface KnowledgeBaseRenderingConfigurationArgs {
+        templateUri?: pulumi.Input<string>;
+    }
+
+    export interface KnowledgeBaseServerSideEncryptionConfigurationArgs {
+        kmsKeyId?: pulumi.Input<string>;
+    }
+
+    export interface KnowledgeBaseSourceConfigurationArgs {
+        appIntegrations?: pulumi.Input<inputs.wisdom.KnowledgeBaseAppIntegrationsConfigurationArgs>;
+    }
+
+    export interface KnowledgeBaseTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
 }
 
 export namespace workspaces {

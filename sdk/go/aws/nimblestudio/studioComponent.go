@@ -11,21 +11,27 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::NimbleStudio::StudioComponent.
+// Represents a studio component which connects a non-Nimble Studio resource in your account to your studio
 type StudioComponent struct {
 	pulumi.CustomResourceState
 
-	Configuration         StudioComponentConfigurationPtrOutput             `pulumi:"configuration"`
-	Description           pulumi.StringPtrOutput                            `pulumi:"description"`
-	Ec2SecurityGroupIds   pulumi.StringArrayOutput                          `pulumi:"ec2SecurityGroupIds"`
-	InitializationScripts StudioComponentInitializationScriptArrayOutput    `pulumi:"initializationScripts"`
-	Name                  pulumi.StringOutput                               `pulumi:"name"`
-	ScriptParameters      StudioComponentScriptParameterKeyValueArrayOutput `pulumi:"scriptParameters"`
-	StudioComponentId     pulumi.StringOutput                               `pulumi:"studioComponentId"`
-	StudioId              pulumi.StringOutput                               `pulumi:"studioId"`
-	Subtype               pulumi.StringPtrOutput                            `pulumi:"subtype"`
-	Tags                  pulumi.AnyOutput                                  `pulumi:"tags"`
-	Type                  pulumi.StringOutput                               `pulumi:"type"`
+	Configuration StudioComponentConfigurationPtrOutput `pulumi:"configuration"`
+	// <p>The description.</p>
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// <p>The EC2 security groups that control access to the studio component.</p>
+	Ec2SecurityGroupIds pulumi.StringArrayOutput `pulumi:"ec2SecurityGroupIds"`
+	// <p>Initialization scripts for studio components.</p>
+	InitializationScripts StudioComponentInitializationScriptArrayOutput `pulumi:"initializationScripts"`
+	// <p>The name for the studio component.</p>
+	Name pulumi.StringOutput `pulumi:"name"`
+	// <p>Parameters for the studio component scripts.</p>
+	ScriptParameters  StudioComponentScriptParameterKeyValueArrayOutput `pulumi:"scriptParameters"`
+	StudioComponentId pulumi.StringOutput                               `pulumi:"studioComponentId"`
+	// <p>The studioId. </p>
+	StudioId pulumi.StringOutput             `pulumi:"studioId"`
+	Subtype  StudioComponentSubtypePtrOutput `pulumi:"subtype"`
+	Tags     StudioComponentTagsPtrOutput    `pulumi:"tags"`
+	Type     StudioComponentTypeOutput       `pulumi:"type"`
 }
 
 // NewStudioComponent registers a new resource with the given unique name, arguments, and options.
@@ -76,30 +82,42 @@ func (StudioComponentState) ElementType() reflect.Type {
 }
 
 type studioComponentArgs struct {
-	Configuration         *StudioComponentConfiguration            `pulumi:"configuration"`
-	Description           *string                                  `pulumi:"description"`
-	Ec2SecurityGroupIds   []string                                 `pulumi:"ec2SecurityGroupIds"`
-	InitializationScripts []StudioComponentInitializationScript    `pulumi:"initializationScripts"`
-	Name                  string                                   `pulumi:"name"`
-	ScriptParameters      []StudioComponentScriptParameterKeyValue `pulumi:"scriptParameters"`
-	StudioId              string                                   `pulumi:"studioId"`
-	Subtype               *string                                  `pulumi:"subtype"`
-	Tags                  interface{}                              `pulumi:"tags"`
-	Type                  string                                   `pulumi:"type"`
+	Configuration *StudioComponentConfiguration `pulumi:"configuration"`
+	// <p>The description.</p>
+	Description *string `pulumi:"description"`
+	// <p>The EC2 security groups that control access to the studio component.</p>
+	Ec2SecurityGroupIds []string `pulumi:"ec2SecurityGroupIds"`
+	// <p>Initialization scripts for studio components.</p>
+	InitializationScripts []StudioComponentInitializationScript `pulumi:"initializationScripts"`
+	// <p>The name for the studio component.</p>
+	Name string `pulumi:"name"`
+	// <p>Parameters for the studio component scripts.</p>
+	ScriptParameters []StudioComponentScriptParameterKeyValue `pulumi:"scriptParameters"`
+	// <p>The studioId. </p>
+	StudioId string                  `pulumi:"studioId"`
+	Subtype  *StudioComponentSubtype `pulumi:"subtype"`
+	Tags     *StudioComponentTags    `pulumi:"tags"`
+	Type     StudioComponentType     `pulumi:"type"`
 }
 
 // The set of arguments for constructing a StudioComponent resource.
 type StudioComponentArgs struct {
-	Configuration         StudioComponentConfigurationPtrInput
-	Description           pulumi.StringPtrInput
-	Ec2SecurityGroupIds   pulumi.StringArrayInput
+	Configuration StudioComponentConfigurationPtrInput
+	// <p>The description.</p>
+	Description pulumi.StringPtrInput
+	// <p>The EC2 security groups that control access to the studio component.</p>
+	Ec2SecurityGroupIds pulumi.StringArrayInput
+	// <p>Initialization scripts for studio components.</p>
 	InitializationScripts StudioComponentInitializationScriptArrayInput
-	Name                  pulumi.StringInput
-	ScriptParameters      StudioComponentScriptParameterKeyValueArrayInput
-	StudioId              pulumi.StringInput
-	Subtype               pulumi.StringPtrInput
-	Tags                  pulumi.Input
-	Type                  pulumi.StringInput
+	// <p>The name for the studio component.</p>
+	Name pulumi.StringInput
+	// <p>Parameters for the studio component scripts.</p>
+	ScriptParameters StudioComponentScriptParameterKeyValueArrayInput
+	// <p>The studioId. </p>
+	StudioId pulumi.StringInput
+	Subtype  StudioComponentSubtypePtrInput
+	Tags     StudioComponentTagsPtrInput
+	Type     StudioComponentTypeInput
 }
 
 func (StudioComponentArgs) ElementType() reflect.Type {

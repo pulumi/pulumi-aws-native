@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio.Inputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The configuration of the studio component, based on component type.&lt;/p&gt;
+    /// </summary>
     public sealed class StudioComponentConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("activeDirectoryConfiguration")]

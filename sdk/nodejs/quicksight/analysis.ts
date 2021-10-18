@@ -75,7 +75,7 @@ export class Analysis extends pulumi.CustomResource {
      * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
      */
     public /*out*/ readonly sheets!: pulumi.Output<outputs.quicksight.AnalysisSheet[]>;
-    public readonly sourceEntity!: pulumi.Output<outputs.quicksight.AnalysisSourceEntity | undefined>;
+    public readonly sourceEntity!: pulumi.Output<outputs.quicksight.AnalysisSourceEntity>;
     public /*out*/ readonly status!: pulumi.Output<enums.quicksight.AnalysisResourceStatus>;
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
@@ -103,6 +103,9 @@ export class Analysis extends pulumi.CustomResource {
             }
             if ((!args || args.awsAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'awsAccountId'");
+            }
+            if ((!args || args.sourceEntity === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'sourceEntity'");
             }
             inputs["analysisId"] = args ? args.analysisId : undefined;
             inputs["awsAccountId"] = args ? args.awsAccountId : undefined;
@@ -167,7 +170,7 @@ export interface AnalysisArgs {
      *         <p>To specify no permissions, omit <code>Permissions</code>.</p>
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisResourcePermissionArgs>[]>;
-    sourceEntity?: pulumi.Input<inputs.quicksight.AnalysisSourceEntityArgs>;
+    sourceEntity: pulumi.Input<inputs.quicksight.AnalysisSourceEntityArgs>;
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
      *             analysis.</p>

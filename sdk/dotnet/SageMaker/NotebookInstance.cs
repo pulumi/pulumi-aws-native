@@ -40,6 +40,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("notebookInstanceName")]
         public Output<string?> NotebookInstanceName { get; private set; } = null!;
 
+        [Output("platformIdentifier")]
+        public Output<string?> PlatformIdentifier { get; private set; } = null!;
+
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
@@ -136,6 +139,9 @@ namespace Pulumi.AwsNative.SageMaker
 
         [Input("notebookInstanceName")]
         public Input<string>? NotebookInstanceName { get; set; }
+
+        [Input("platformIdentifier")]
+        public Input<string>? PlatformIdentifier { get; set; }
 
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;

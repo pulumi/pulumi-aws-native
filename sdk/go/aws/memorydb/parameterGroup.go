@@ -22,7 +22,7 @@ type ParameterGroup struct {
 	// A description of the parameter group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the parameter group family that this parameter group is compatible with.
-	Family pulumi.StringPtrOutput `pulumi:"family"`
+	Family pulumi.StringOutput `pulumi:"family"`
 	// The name of the parameter group.
 	ParameterGroupName pulumi.StringOutput `pulumi:"parameterGroupName"`
 	// An map of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional.
@@ -38,6 +38,9 @@ func NewParameterGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Family == nil {
+		return nil, errors.New("invalid value for required argument 'Family'")
+	}
 	if args.ParameterGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ParameterGroupName'")
 	}
@@ -76,7 +79,7 @@ type parameterGroupArgs struct {
 	// A description of the parameter group.
 	Description *string `pulumi:"description"`
 	// The name of the parameter group family that this parameter group is compatible with.
-	Family *string `pulumi:"family"`
+	Family string `pulumi:"family"`
 	// The name of the parameter group.
 	ParameterGroupName string `pulumi:"parameterGroupName"`
 	// An map of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional.
@@ -90,7 +93,7 @@ type ParameterGroupArgs struct {
 	// A description of the parameter group.
 	Description pulumi.StringPtrInput
 	// The name of the parameter group family that this parameter group is compatible with.
-	Family pulumi.StringPtrInput
+	Family pulumi.StringInput
 	// The name of the parameter group.
 	ParameterGroupName pulumi.StringInput
 	// An map of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional.

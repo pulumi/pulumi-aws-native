@@ -15,8 +15,9 @@ __all__ = ['ClusterArgs', 'Cluster']
 @pulumi.input_type
 class ClusterArgs:
     def __init__(__self__, *,
+                 a_cl_name: pulumi.Input[str],
                  cluster_name: pulumi.Input[str],
-                 a_cl_name: Optional[pulumi.Input[str]] = None,
+                 node_type: pulumi.Input[str],
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  cluster_endpoint: Optional[pulumi.Input['ClusterEndpointArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -24,7 +25,6 @@ class ClusterArgs:
                  final_snapshot_name: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
-                 node_type: Optional[pulumi.Input[str]] = None,
                  num_replicas_per_shard: Optional[pulumi.Input[int]] = None,
                  num_shards: Optional[pulumi.Input[int]] = None,
                  parameter_group_name: Optional[pulumi.Input[str]] = None,
@@ -41,8 +41,9 @@ class ClusterArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
-        :param pulumi.Input[str] cluster_name: The name of the cluster. This value must be unique as it also serves as the cluster identifier.
         :param pulumi.Input[str] a_cl_name: The name of the Access Control List to associate with the cluster.
+        :param pulumi.Input[str] cluster_name: The name of the cluster. This value must be unique as it also serves as the cluster identifier.
+        :param pulumi.Input[str] node_type: The compute and memory capacity of the nodes in the cluster.
         :param pulumi.Input[bool] auto_minor_version_upgrade: A flag that enables automatic minor version upgrade when set to true.
                
                You cannot modify the value of AutoMinorVersionUpgrade after the cluster is created. To enable AutoMinorVersionUpgrade on a cluster you must set AutoMinorVersionUpgrade to true when you create a cluster.
@@ -52,7 +53,6 @@ class ClusterArgs:
         :param pulumi.Input[str] final_snapshot_name: The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. MemoryDB creates the snapshot, and then deletes the cluster immediately afterward.
         :param pulumi.Input[str] kms_key_id: The ID of the KMS key used to encrypt the cluster.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period.
-        :param pulumi.Input[str] node_type: The compute and memory capacity of the nodes in the cluster.
         :param pulumi.Input[int] num_replicas_per_shard: The number of replicas to apply to each shard. The limit is 5.
         :param pulumi.Input[int] num_shards: The number of shards the cluster will contain.
         :param pulumi.Input[str] parameter_group_name: The name of the parameter group associated with the cluster.
@@ -70,9 +70,9 @@ class ClusterArgs:
                You cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]] tags: An array of key-value pairs to apply to this cluster.
         """
+        pulumi.set(__self__, "a_cl_name", a_cl_name)
         pulumi.set(__self__, "cluster_name", cluster_name)
-        if a_cl_name is not None:
-            pulumi.set(__self__, "a_cl_name", a_cl_name)
+        pulumi.set(__self__, "node_type", node_type)
         if auto_minor_version_upgrade is not None:
             pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
         if cluster_endpoint is not None:
@@ -87,8 +87,6 @@ class ClusterArgs:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if maintenance_window is not None:
             pulumi.set(__self__, "maintenance_window", maintenance_window)
-        if node_type is not None:
-            pulumi.set(__self__, "node_type", node_type)
         if num_replicas_per_shard is not None:
             pulumi.set(__self__, "num_replicas_per_shard", num_replicas_per_shard)
         if num_shards is not None:
@@ -119,6 +117,18 @@ class ClusterArgs:
             pulumi.set(__self__, "tags", tags)
 
     @property
+    @pulumi.getter(name="aCLName")
+    def a_cl_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Access Control List to associate with the cluster.
+        """
+        return pulumi.get(self, "a_cl_name")
+
+    @a_cl_name.setter
+    def a_cl_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "a_cl_name", value)
+
+    @property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Input[str]:
         """
@@ -131,16 +141,16 @@ class ClusterArgs:
         pulumi.set(self, "cluster_name", value)
 
     @property
-    @pulumi.getter(name="aCLName")
-    def a_cl_name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="nodeType")
+    def node_type(self) -> pulumi.Input[str]:
         """
-        The name of the Access Control List to associate with the cluster.
+        The compute and memory capacity of the nodes in the cluster.
         """
-        return pulumi.get(self, "a_cl_name")
+        return pulumi.get(self, "node_type")
 
-    @a_cl_name.setter
-    def a_cl_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "a_cl_name", value)
+    @node_type.setter
+    def node_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "node_type", value)
 
     @property
     @pulumi.getter(name="autoMinorVersionUpgrade")
@@ -227,18 +237,6 @@ class ClusterArgs:
     @maintenance_window.setter
     def maintenance_window(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "maintenance_window", value)
-
-    @property
-    @pulumi.getter(name="nodeType")
-    def node_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The compute and memory capacity of the nodes in the cluster.
-        """
-        return pulumi.get(self, "node_type")
-
-    @node_type.setter
-    def node_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "node_type", value)
 
     @property
     @pulumi.getter(name="numReplicasPerShard")
@@ -541,6 +539,8 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
+            if a_cl_name is None and not opts.urn:
+                raise TypeError("Missing required property 'a_cl_name'")
             __props__.__dict__["a_cl_name"] = a_cl_name
             __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
             __props__.__dict__["cluster_endpoint"] = cluster_endpoint
@@ -552,6 +552,8 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["final_snapshot_name"] = final_snapshot_name
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["maintenance_window"] = maintenance_window
+            if node_type is None and not opts.urn:
+                raise TypeError("Missing required property 'node_type'")
             __props__.__dict__["node_type"] = node_type
             __props__.__dict__["num_replicas_per_shard"] = num_replicas_per_shard
             __props__.__dict__["num_shards"] = num_shards
@@ -623,7 +625,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="aCLName")
-    def a_cl_name(self) -> pulumi.Output[Optional[str]]:
+    def a_cl_name(self) -> pulumi.Output[str]:
         """
         The name of the Access Control List to associate with the cluster.
         """
@@ -705,7 +707,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeType")
-    def node_type(self) -> pulumi.Output[Optional[str]]:
+    def node_type(self) -> pulumi.Output[str]:
         """
         The compute and memory capacity of the nodes in the cluster.
         """

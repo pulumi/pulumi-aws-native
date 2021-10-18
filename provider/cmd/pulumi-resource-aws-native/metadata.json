@@ -763,110 +763,6 @@
                 "value"
             ]
         },
-        "aws-native:apigateway:Authorizer": {
-            "cf": "AWS::ApiGateway::Authorizer",
-            "inputs": {
-                "authType": {
-                    "type": "string",
-                    "description": "Optional customer-defined field, used in OpenAPI imports and exports without functional impact."
-                },
-                "authorizerCredentials": {
-                    "type": "string",
-                    "description": "Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer."
-                },
-                "authorizerResultTtlInSeconds": {
-                    "type": "integer",
-                    "description": "The TTL in seconds of cached authorizer results."
-                },
-                "authorizerUri": {
-                    "type": "string",
-                    "description": "Specifies the authorizer's Uniform Resource Identifier (URI)."
-                },
-                "identitySource": {
-                    "type": "string",
-                    "description": "The identity source for which authorization is requested."
-                },
-                "identityValidationExpression": {
-                    "type": "string",
-                    "description": "A validation expression for the incoming identity token."
-                },
-                "name": {
-                    "type": "string",
-                    "description": "The name of the authorizer."
-                },
-                "providerARNs": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer."
-                },
-                "restApiId": {
-                    "type": "string",
-                    "description": "The identifier of the API."
-                },
-                "type": {
-                    "type": "string",
-                    "description": "The authorizer type."
-                }
-            },
-            "outputs": {
-                "authType": {
-                    "type": "string",
-                    "description": "Optional customer-defined field, used in OpenAPI imports and exports without functional impact."
-                },
-                "authorizerCredentials": {
-                    "type": "string",
-                    "description": "Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer."
-                },
-                "authorizerId": {
-                    "type": "string"
-                },
-                "authorizerResultTtlInSeconds": {
-                    "type": "integer",
-                    "description": "The TTL in seconds of cached authorizer results."
-                },
-                "authorizerUri": {
-                    "type": "string",
-                    "description": "Specifies the authorizer's Uniform Resource Identifier (URI)."
-                },
-                "identitySource": {
-                    "type": "string",
-                    "description": "The identity source for which authorization is requested."
-                },
-                "identityValidationExpression": {
-                    "type": "string",
-                    "description": "A validation expression for the incoming identity token."
-                },
-                "name": {
-                    "type": "string",
-                    "description": "The name of the authorizer."
-                },
-                "providerARNs": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer."
-                },
-                "restApiId": {
-                    "type": "string",
-                    "description": "The identifier of the API."
-                },
-                "type": {
-                    "type": "string",
-                    "description": "The authorizer type."
-                }
-            },
-            "required": [
-                "name",
-                "restApiId",
-                "type"
-            ],
-            "createOnly": [
-                "restApiId"
-            ]
-        },
         "aws-native:apigateway:BasePathMapping": {
             "cf": "AWS::ApiGateway::BasePathMapping",
             "inputs": {
@@ -2700,6 +2596,85 @@
                 "securityGroups",
                 "spotPrice",
                 "userData"
+            ]
+        },
+        "aws-native:autoscaling:LifecycleHook": {
+            "cf": "AWS::AutoScaling::LifecycleHook",
+            "inputs": {
+                "autoScalingGroupName": {
+                    "type": "string",
+                    "description": "The name of the Auto Scaling group for the lifecycle hook."
+                },
+                "defaultResult": {
+                    "type": "string",
+                    "description": "The action the Auto Scaling group takes when the lifecycle hook timeout elapses or if an unexpected failure occurs. The valid values are CONTINUE and ABANDON (default)."
+                },
+                "heartbeatTimeout": {
+                    "type": "integer",
+                    "description": "The maximum time, in seconds, that can elapse before the lifecycle hook times out. The range is from 30 to 7200 seconds. The default value is 3600 seconds (1 hour). If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action that you specified in the DefaultResult property."
+                },
+                "lifecycleHookName": {
+                    "type": "string",
+                    "description": "The name of the lifecycle hook."
+                },
+                "lifecycleTransition": {
+                    "type": "string",
+                    "description": "The instance state to which you want to attach the lifecycle hook."
+                },
+                "notificationMetadata": {
+                    "type": "string",
+                    "description": "Additional information that is included any time Amazon EC2 Auto Scaling sends a message to the notification target."
+                },
+                "notificationTargetARN": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the notification target that Amazon EC2 Auto Scaling uses to notify you when an instance is in the transition state for the lifecycle hook. You can specify an Amazon SQS queue or an Amazon SNS topic. The notification message includes the following information: lifecycle action token, user account ID, Auto Scaling group name, lifecycle hook name, instance ID, lifecycle transition, and notification metadata."
+                },
+                "roleARN": {
+                    "type": "string",
+                    "description": "The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target, for example, an Amazon SNS topic or an Amazon SQS queue."
+                }
+            },
+            "outputs": {
+                "autoScalingGroupName": {
+                    "type": "string",
+                    "description": "The name of the Auto Scaling group for the lifecycle hook."
+                },
+                "defaultResult": {
+                    "type": "string",
+                    "description": "The action the Auto Scaling group takes when the lifecycle hook timeout elapses or if an unexpected failure occurs. The valid values are CONTINUE and ABANDON (default)."
+                },
+                "heartbeatTimeout": {
+                    "type": "integer",
+                    "description": "The maximum time, in seconds, that can elapse before the lifecycle hook times out. The range is from 30 to 7200 seconds. The default value is 3600 seconds (1 hour). If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action that you specified in the DefaultResult property."
+                },
+                "lifecycleHookName": {
+                    "type": "string",
+                    "description": "The name of the lifecycle hook."
+                },
+                "lifecycleTransition": {
+                    "type": "string",
+                    "description": "The instance state to which you want to attach the lifecycle hook."
+                },
+                "notificationMetadata": {
+                    "type": "string",
+                    "description": "Additional information that is included any time Amazon EC2 Auto Scaling sends a message to the notification target."
+                },
+                "notificationTargetARN": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the notification target that Amazon EC2 Auto Scaling uses to notify you when an instance is in the transition state for the lifecycle hook. You can specify an Amazon SQS queue or an Amazon SNS topic. The notification message includes the following information: lifecycle action token, user account ID, Auto Scaling group name, lifecycle hook name, instance ID, lifecycle transition, and notification metadata."
+                },
+                "roleARN": {
+                    "type": "string",
+                    "description": "The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target, for example, an Amazon SNS topic or an Amazon SQS queue."
+                }
+            },
+            "required": [
+                "autoScalingGroupName",
+                "lifecycleTransition"
+            ],
+            "createOnly": [
+                "autoScalingGroupName",
+                "lifecycleHookName"
             ]
         },
         "aws-native:autoscaling:WarmPool": {
@@ -6825,6 +6800,359 @@
                 "memberId"
             ]
         },
+        "aws-native:devicefarm:DevicePool": {
+            "cf": "AWS::DeviceFarm::DevicePool",
+            "inputs": {
+                "description": {
+                    "type": "string"
+                },
+                "maxDevices": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "projectArn": {
+                    "type": "string"
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:devicefarm:DevicePoolRule"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:devicefarm:DevicePoolTag"
+                    }
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "maxDevices": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "projectArn": {
+                    "type": "string"
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:devicefarm:DevicePoolRule"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:devicefarm:DevicePoolTag"
+                    }
+                }
+            },
+            "required": [
+                "name",
+                "projectArn",
+                "rules"
+            ],
+            "createOnly": [
+                "projectArn"
+            ]
+        },
+        "aws-native:devicefarm:InstanceProfile": {
+            "cf": "AWS::DeviceFarm::InstanceProfile",
+            "inputs": {
+                "description": {
+                    "type": "string"
+                },
+                "excludeAppPackagesFromCleanup": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "packageCleanup": {
+                    "type": "boolean"
+                },
+                "rebootAfterUse": {
+                    "type": "boolean"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:devicefarm:InstanceProfileTag"
+                    }
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "excludeAppPackagesFromCleanup": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "packageCleanup": {
+                    "type": "boolean"
+                },
+                "rebootAfterUse": {
+                    "type": "boolean"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:devicefarm:InstanceProfileTag"
+                    }
+                }
+            },
+            "required": [
+                "name"
+            ]
+        },
+        "aws-native:devicefarm:NetworkProfile": {
+            "cf": "AWS::DeviceFarm::NetworkProfile",
+            "inputs": {
+                "description": {
+                    "type": "string"
+                },
+                "downlinkBandwidthBits": {
+                    "type": "integer"
+                },
+                "downlinkDelayMs": {
+                    "type": "integer"
+                },
+                "downlinkJitterMs": {
+                    "type": "integer"
+                },
+                "downlinkLossPercent": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "projectArn": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:devicefarm:NetworkProfileTag"
+                    }
+                },
+                "uplinkBandwidthBits": {
+                    "type": "integer"
+                },
+                "uplinkDelayMs": {
+                    "type": "integer"
+                },
+                "uplinkJitterMs": {
+                    "type": "integer"
+                },
+                "uplinkLossPercent": {
+                    "type": "integer"
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "downlinkBandwidthBits": {
+                    "type": "integer"
+                },
+                "downlinkDelayMs": {
+                    "type": "integer"
+                },
+                "downlinkJitterMs": {
+                    "type": "integer"
+                },
+                "downlinkLossPercent": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "projectArn": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:devicefarm:NetworkProfileTag"
+                    }
+                },
+                "uplinkBandwidthBits": {
+                    "type": "integer"
+                },
+                "uplinkDelayMs": {
+                    "type": "integer"
+                },
+                "uplinkJitterMs": {
+                    "type": "integer"
+                },
+                "uplinkLossPercent": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "name",
+                "projectArn"
+            ],
+            "createOnly": [
+                "projectArn"
+            ]
+        },
+        "aws-native:devicefarm:Project": {
+            "cf": "AWS::DeviceFarm::Project",
+            "inputs": {
+                "defaultJobTimeoutMinutes": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:devicefarm:ProjectTag"
+                    }
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "defaultJobTimeoutMinutes": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:devicefarm:ProjectTag"
+                    }
+                }
+            },
+            "required": [
+                "name"
+            ]
+        },
+        "aws-native:devicefarm:TestGridProject": {
+            "cf": "AWS::DeviceFarm::TestGridProject",
+            "inputs": {
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:devicefarm:TestGridProjectTag"
+                    }
+                },
+                "vpcConfig": {
+                    "$ref": "#/types/aws-native:devicefarm:TestGridProjectVpcConfig"
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:devicefarm:TestGridProjectTag"
+                    }
+                },
+                "vpcConfig": {
+                    "$ref": "#/types/aws-native:devicefarm:TestGridProjectVpcConfig"
+                }
+            },
+            "required": [
+                "name"
+            ]
+        },
+        "aws-native:devicefarm:VPCEConfiguration": {
+            "cf": "AWS::DeviceFarm::VPCEConfiguration",
+            "inputs": {
+                "serviceDnsName": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:devicefarm:VPCEConfigurationTag"
+                    }
+                },
+                "vpceConfigurationDescription": {
+                    "type": "string"
+                },
+                "vpceConfigurationName": {
+                    "type": "string"
+                },
+                "vpceServiceName": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "serviceDnsName": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:devicefarm:VPCEConfigurationTag"
+                    }
+                },
+                "vpceConfigurationDescription": {
+                    "type": "string"
+                },
+                "vpceConfigurationName": {
+                    "type": "string"
+                },
+                "vpceServiceName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "serviceDnsName",
+                "vpceConfigurationName",
+                "vpceServiceName"
+            ]
+        },
         "aws-native:devopsguru:NotificationChannel": {
             "cf": "AWS::DevOpsGuru::NotificationChannel",
             "inputs": {
@@ -7873,45 +8201,6 @@
                 "prefixListName"
             ]
         },
-        "aws-native:ec2:RouteTable": {
-            "cf": "AWS::EC2::RouteTable",
-            "inputs": {
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:ec2:RouteTableTag"
-                    },
-                    "description": "Any tags assigned to the route table."
-                },
-                "vpcId": {
-                    "type": "string",
-                    "description": "The ID of the VPC."
-                }
-            },
-            "outputs": {
-                "routeTableId": {
-                    "type": "string",
-                    "description": "The route table ID."
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:ec2:RouteTableTag"
-                    },
-                    "description": "Any tags assigned to the route table."
-                },
-                "vpcId": {
-                    "type": "string",
-                    "description": "The ID of the VPC."
-                }
-            },
-            "required": [
-                "vpcId"
-            ],
-            "createOnly": [
-                "vpcId"
-            ]
-        },
         "aws-native:ec2:SpotFleet": {
             "cf": "AWS::EC2::SpotFleet",
             "inputs": {
@@ -7946,6 +8235,89 @@
                 "spotFleetRequestConfigData/Type",
                 "spotFleetRequestConfigData/ValidFrom",
                 "spotFleetRequestConfigData/ValidUntil"
+            ]
+        },
+        "aws-native:ec2:Subnet": {
+            "cf": "AWS::EC2::Subnet",
+            "inputs": {
+                "assignIpv6AddressOnCreation": {
+                    "type": "boolean"
+                },
+                "availabilityZone": {
+                    "type": "string"
+                },
+                "cidrBlock": {
+                    "type": "string"
+                },
+                "ipv6CidrBlock": {
+                    "type": "string"
+                },
+                "mapPublicIpOnLaunch": {
+                    "type": "boolean"
+                },
+                "outpostArn": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:SubnetTag"
+                    }
+                },
+                "vpcId": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "assignIpv6AddressOnCreation": {
+                    "type": "boolean"
+                },
+                "availabilityZone": {
+                    "type": "string"
+                },
+                "cidrBlock": {
+                    "type": "string"
+                },
+                "ipv6CidrBlock": {
+                    "type": "string"
+                },
+                "ipv6CidrBlocks": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "mapPublicIpOnLaunch": {
+                    "type": "boolean"
+                },
+                "networkAclAssociationId": {
+                    "type": "string"
+                },
+                "outpostArn": {
+                    "type": "string"
+                },
+                "subnetId": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:SubnetTag"
+                    }
+                },
+                "vpcId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "cidrBlock",
+                "vpcId"
+            ],
+            "createOnly": [
+                "availabilityZone",
+                "cidrBlock",
+                "outpostArn",
+                "vpcId"
             ]
         },
         "aws-native:ec2:SubnetNetworkAclAssociation": {
@@ -12044,8 +12416,7 @@
                 "name"
             ],
             "createOnly": [
-                "name",
-                "tags"
+                "name"
             ]
         },
         "aws-native:glue:Schema": {
@@ -12138,8 +12509,7 @@
                 "dataFormat",
                 "name",
                 "registry",
-                "schemaDefinition",
-                "tags"
+                "schemaDefinition"
             ]
         },
         "aws-native:glue:SchemaVersion": {
@@ -19815,22 +20185,26 @@
             "cf": "AWS::NimbleStudio::LaunchProfile",
             "inputs": {
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe description.\u003c/p\u003e"
                 },
                 "ec2SubnetIds": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "\u003cp\u003eSpecifies the IDs of the EC2 subnets where streaming sessions will be accessible from. These subnets must support the specified instance types. \u003c/p\u003e"
                 },
                 "launchProfileProtocolVersions": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "\u003cp\u003eThe version number of the protocol that is used by the launch profile. The only valid version is \"2021-03-31\".\u003c/p\u003e"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe name for the launch profile.\u003c/p\u003e"
                 },
                 "streamConfiguration": {
                     "$ref": "#/types/aws-native:nimblestudio:LaunchProfileStreamConfiguration"
@@ -19839,24 +20213,28 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "\u003cp\u003eUnique identifiers for a collection of studio components that can be used with this launch profile.\u003c/p\u003e"
                 },
                 "studioId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe studioId. \u003c/p\u003e"
                 },
                 "tags": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:nimblestudio:LaunchProfileTags"
                 }
             },
             "outputs": {
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe description.\u003c/p\u003e"
                 },
                 "ec2SubnetIds": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "\u003cp\u003eSpecifies the IDs of the EC2 subnets where streaming sessions will be accessible from. These subnets must support the specified instance types. \u003c/p\u003e"
                 },
                 "launchProfileId": {
                     "type": "string"
@@ -19865,10 +20243,12 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "\u003cp\u003eThe version number of the protocol that is used by the launch profile. The only valid version is \"2021-03-31\".\u003c/p\u003e"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe name for the launch profile.\u003c/p\u003e"
                 },
                 "streamConfiguration": {
                     "$ref": "#/types/aws-native:nimblestudio:LaunchProfileStreamConfiguration"
@@ -19877,13 +20257,15 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "\u003cp\u003eUnique identifiers for a collection of studio components that can be used with this launch profile.\u003c/p\u003e"
                 },
                 "studioId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe studioId. \u003c/p\u003e"
                 },
                 "tags": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:nimblestudio:LaunchProfileTags"
                 }
             },
             "required": [
@@ -19904,27 +20286,33 @@
             "cf": "AWS::NimbleStudio::StreamingImage",
             "inputs": {
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eA human-readable description of the streaming image.\u003c/p\u003e"
                 },
                 "ec2ImageId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe ID of an EC2 machine image with which to create this streaming image.\u003c/p\u003e"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eA friendly name for a streaming image resource.\u003c/p\u003e"
                 },
                 "studioId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe studioId. \u003c/p\u003e"
                 },
                 "tags": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:nimblestudio:StreamingImageTags"
                 }
             },
             "outputs": {
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eA human-readable description of the streaming image.\u003c/p\u003e"
                 },
                 "ec2ImageId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe ID of an EC2 machine image with which to create this streaming image.\u003c/p\u003e"
                 },
                 "encryptionConfiguration": {
                     "$ref": "#/types/aws-native:nimblestudio:StreamingImageEncryptionConfiguration"
@@ -19933,25 +20321,30 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "\u003cp\u003eThe list of EULAs that must be accepted before a Streaming Session can be started using this streaming image.\u003c/p\u003e"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eA friendly name for a streaming image resource.\u003c/p\u003e"
                 },
                 "owner": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe owner of the streaming image, either the studioId that contains the streaming image, or 'amazon' for images that are provided by Amazon Nimble Studio.\u003c/p\u003e"
                 },
                 "platform": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe platform of the streaming image, either WINDOWS or LINUX.\u003c/p\u003e"
                 },
                 "streamingImageId": {
                     "type": "string"
                 },
                 "studioId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe studioId. \u003c/p\u003e"
                 },
                 "tags": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:nimblestudio:StreamingImageTags"
                 }
             },
             "required": [
@@ -19969,36 +20362,44 @@
             "cf": "AWS::NimbleStudio::Studio",
             "inputs": {
                 "adminRoleArn": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe IAM role that Studio Admins will assume when logging in to the Nimble Studio portal.\u003c/p\u003e"
                 },
                 "displayName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eA friendly name for the studio.\u003c/p\u003e"
                 },
                 "studioEncryptionConfiguration": {
                     "$ref": "#/types/aws-native:nimblestudio:StudioEncryptionConfiguration"
                 },
                 "studioName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.\u003c/p\u003e"
                 },
                 "tags": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:nimblestudio:StudioTags"
                 },
                 "userRoleArn": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe IAM role that Studio Users will assume when logging in to the Nimble Studio portal.\u003c/p\u003e"
                 }
             },
             "outputs": {
                 "adminRoleArn": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe IAM role that Studio Admins will assume when logging in to the Nimble Studio portal.\u003c/p\u003e"
                 },
                 "displayName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eA friendly name for the studio.\u003c/p\u003e"
                 },
                 "homeRegion": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe Amazon Web Services Region where the studio resource is located.\u003c/p\u003e"
                 },
                 "ssoClientId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe Amazon Web Services SSO application client ID used to integrate with Amazon Web Services SSO to enable Amazon Web Services SSO users to log in to Nimble Studio portal.\u003c/p\u003e"
                 },
                 "studioEncryptionConfiguration": {
                     "$ref": "#/types/aws-native:nimblestudio:StudioEncryptionConfiguration"
@@ -20007,16 +20408,19 @@
                     "type": "string"
                 },
                 "studioName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.\u003c/p\u003e"
                 },
                 "studioUrl": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe address of the web page for the studio.\u003c/p\u003e"
                 },
                 "tags": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:nimblestudio:StudioTags"
                 },
                 "userRoleArn": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe IAM role that Studio Users will assume when logging in to the Nimble Studio portal.\u003c/p\u003e"
                 }
             },
             "required": [
@@ -20037,40 +20441,46 @@
                     "$ref": "#/types/aws-native:nimblestudio:StudioComponentConfiguration"
                 },
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe description.\u003c/p\u003e"
                 },
                 "ec2SecurityGroupIds": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "\u003cp\u003eThe EC2 security groups that control access to the studio component.\u003c/p\u003e"
                 },
                 "initializationScripts": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:nimblestudio:StudioComponentInitializationScript"
-                    }
+                    },
+                    "description": "\u003cp\u003eInitialization scripts for studio components.\u003c/p\u003e"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe name for the studio component.\u003c/p\u003e"
                 },
                 "scriptParameters": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:nimblestudio:StudioComponentScriptParameterKeyValue"
-                    }
+                    },
+                    "description": "\u003cp\u003eParameters for the studio component scripts.\u003c/p\u003e"
                 },
                 "studioId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe studioId. \u003c/p\u003e"
                 },
                 "subtype": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:nimblestudio:StudioComponentSubtype"
                 },
                 "tags": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:nimblestudio:StudioComponentTags"
                 },
                 "type": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:nimblestudio:StudioComponentType"
                 }
             },
             "outputs": {
@@ -20078,43 +20488,49 @@
                     "$ref": "#/types/aws-native:nimblestudio:StudioComponentConfiguration"
                 },
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe description.\u003c/p\u003e"
                 },
                 "ec2SecurityGroupIds": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "\u003cp\u003eThe EC2 security groups that control access to the studio component.\u003c/p\u003e"
                 },
                 "initializationScripts": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:nimblestudio:StudioComponentInitializationScript"
-                    }
+                    },
+                    "description": "\u003cp\u003eInitialization scripts for studio components.\u003c/p\u003e"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe name for the studio component.\u003c/p\u003e"
                 },
                 "scriptParameters": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:nimblestudio:StudioComponentScriptParameterKeyValue"
-                    }
+                    },
+                    "description": "\u003cp\u003eParameters for the studio component scripts.\u003c/p\u003e"
                 },
                 "studioComponentId": {
                     "type": "string"
                 },
                 "studioId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe studioId. \u003c/p\u003e"
                 },
                 "subtype": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:nimblestudio:StudioComponentSubtype"
                 },
                 "tags": {
-                    "$ref": "pulumi.json#/Any"
+                    "$ref": "#/types/aws-native:nimblestudio:StudioComponentTags"
                 },
                 "type": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:nimblestudio:StudioComponentType"
                 }
             },
             "required": [
@@ -20631,7 +21047,8 @@
             },
             "required": [
                 "analysisId",
-                "awsAccountId"
+                "awsAccountId",
+                "sourceEntity"
             ],
             "createOnly": [
                 "analysisId",
@@ -20747,7 +21164,8 @@
             },
             "required": [
                 "awsAccountId",
-                "dashboardId"
+                "dashboardId",
+                "sourceEntity"
             ],
             "createOnly": [
                 "awsAccountId",
@@ -21108,6 +21526,7 @@
             },
             "required": [
                 "awsAccountId",
+                "sourceEntity",
                 "templateId"
             ],
             "createOnly": [
@@ -27413,6 +27832,196 @@
             "createOnly": [
                 "resourceArn",
                 "webACLArn"
+            ]
+        },
+        "aws-native:wisdom:Assistant": {
+            "cf": "AWS::Wisdom::Assistant",
+            "inputs": {
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "serverSideEncryptionConfiguration": {
+                    "$ref": "#/types/aws-native:wisdom:AssistantServerSideEncryptionConfiguration"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:wisdom:AssistantTag"
+                    }
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:wisdom:AssistantType"
+                }
+            },
+            "outputs": {
+                "assistantArn": {
+                    "type": "string"
+                },
+                "assistantId": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "serverSideEncryptionConfiguration": {
+                    "$ref": "#/types/aws-native:wisdom:AssistantServerSideEncryptionConfiguration"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:wisdom:AssistantTag"
+                    }
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:wisdom:AssistantType"
+                }
+            },
+            "required": [
+                "name",
+                "type"
+            ],
+            "createOnly": [
+                "description",
+                "name",
+                "serverSideEncryptionConfiguration",
+                "tags",
+                "type"
+            ]
+        },
+        "aws-native:wisdom:AssistantAssociation": {
+            "cf": "AWS::Wisdom::AssistantAssociation",
+            "inputs": {
+                "assistantId": {
+                    "type": "string"
+                },
+                "association": {
+                    "$ref": "#/types/aws-native:wisdom:AssistantAssociationAssociationData"
+                },
+                "associationType": {
+                    "$ref": "#/types/aws-native:wisdom:AssistantAssociationAssociationType"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:wisdom:AssistantAssociationTag"
+                    }
+                }
+            },
+            "outputs": {
+                "assistantArn": {
+                    "type": "string"
+                },
+                "assistantAssociationArn": {
+                    "type": "string"
+                },
+                "assistantAssociationId": {
+                    "type": "string"
+                },
+                "assistantId": {
+                    "type": "string"
+                },
+                "association": {
+                    "$ref": "#/types/aws-native:wisdom:AssistantAssociationAssociationData"
+                },
+                "associationType": {
+                    "$ref": "#/types/aws-native:wisdom:AssistantAssociationAssociationType"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:wisdom:AssistantAssociationTag"
+                    }
+                }
+            },
+            "required": [
+                "assistantId",
+                "association",
+                "associationType"
+            ],
+            "createOnly": [
+                "assistantId",
+                "association",
+                "associationType",
+                "tags"
+            ]
+        },
+        "aws-native:wisdom:KnowledgeBase": {
+            "cf": "AWS::Wisdom::KnowledgeBase",
+            "inputs": {
+                "description": {
+                    "type": "string"
+                },
+                "knowledgeBaseType": {
+                    "$ref": "#/types/aws-native:wisdom:KnowledgeBaseType"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "renderingConfiguration": {
+                    "$ref": "#/types/aws-native:wisdom:KnowledgeBaseRenderingConfiguration"
+                },
+                "serverSideEncryptionConfiguration": {
+                    "$ref": "#/types/aws-native:wisdom:KnowledgeBaseServerSideEncryptionConfiguration"
+                },
+                "sourceConfiguration": {
+                    "$ref": "#/types/aws-native:wisdom:KnowledgeBaseSourceConfiguration"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:wisdom:KnowledgeBaseTag"
+                    }
+                }
+            },
+            "outputs": {
+                "description": {
+                    "type": "string"
+                },
+                "knowledgeBaseArn": {
+                    "type": "string"
+                },
+                "knowledgeBaseId": {
+                    "type": "string"
+                },
+                "knowledgeBaseType": {
+                    "$ref": "#/types/aws-native:wisdom:KnowledgeBaseType"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "renderingConfiguration": {
+                    "$ref": "#/types/aws-native:wisdom:KnowledgeBaseRenderingConfiguration"
+                },
+                "serverSideEncryptionConfiguration": {
+                    "$ref": "#/types/aws-native:wisdom:KnowledgeBaseServerSideEncryptionConfiguration"
+                },
+                "sourceConfiguration": {
+                    "$ref": "#/types/aws-native:wisdom:KnowledgeBaseSourceConfiguration"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:wisdom:KnowledgeBaseTag"
+                    }
+                }
+            },
+            "required": [
+                "knowledgeBaseType",
+                "name"
+            ],
+            "createOnly": [
+                "description",
+                "knowledgeBaseType",
+                "name",
+                "serverSideEncryptionConfiguration",
+                "sourceConfiguration",
+                "tags"
             ]
         },
         "aws-native:workspaces:ConnectionAlias": {
@@ -34077,6 +34686,117 @@
                 }
             }
         },
+        "aws-native:devicefarm:DevicePoolRule": {
+            "type": "object",
+            "properties": {
+                "attribute": {
+                    "$ref": "#/types/aws-native:devicefarm:DevicePoolRuleAttribute",
+                    "description": "The rule's stringified attribute."
+                },
+                "operator": {
+                    "$ref": "#/types/aws-native:devicefarm:DevicePoolRuleOperator",
+                    "description": "Specifies how Device Farm compares the rule's attribute to the value."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The rule's value."
+                }
+            }
+        },
+        "aws-native:devicefarm:DevicePoolRuleAttribute": {
+            "type": "string"
+        },
+        "aws-native:devicefarm:DevicePoolRuleOperator": {
+            "type": "string"
+        },
+        "aws-native:devicefarm:DevicePoolTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:devicefarm:InstanceProfileTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:devicefarm:NetworkProfileTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:devicefarm:ProjectTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:devicefarm:TestGridProjectTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:devicefarm:TestGridProjectVpcConfig": {
+            "type": "object",
+            "properties": {
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of VPC security group IDs in your Amazon VPC."
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of VPC subnet IDs in your Amazon VPC."
+                },
+                "vpcId": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:devicefarm:VPCEConfigurationTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:devopsguru:NotificationChannelConfig": {
             "type": "object",
             "properties": {
@@ -35069,17 +35789,6 @@
                 }
             }
         },
-        "aws-native:ec2:RouteTableTag": {
-            "type": "object",
-            "properties": {
-                "key": {
-                    "type": "string"
-                },
-                "value": {
-                    "type": "string"
-                }
-            }
-        },
         "aws-native:ec2:SpotFleetBlockDeviceMapping": {
             "type": "object",
             "properties": {
@@ -35525,6 +36234,17 @@
                     "items": {
                         "$ref": "#/types/aws-native:ec2:SpotFleetTargetGroup"
                     }
+                }
+            }
+        },
+        "aws-native:ec2:SubnetTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
                 }
             }
         },
@@ -46683,44 +47403,65 @@
             "type": "object",
             "properties": {
                 "clipboardMode": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:nimblestudio:LaunchProfileStreamingClipboardMode"
                 },
                 "ec2InstanceTypes": {
                     "type": "array",
                     "items": {
-                        "type": "string"
-                    }
+                        "$ref": "#/types/aws-native:nimblestudio:LaunchProfileStreamingInstanceType"
+                    },
+                    "description": "\u003cp\u003eThe EC2 instance types that users can select from when launching a streaming session with this launch profile.\u003c/p\u003e"
                 },
                 "maxSessionLengthInMinutes": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "\u003cp\u003eThe length of time, in minutes, that a streaming session can run. After this point, Nimble Studio automatically terminates the session.\u003c/p\u003e"
                 },
                 "streamingImageIds": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "\u003cp\u003eThe streaming images that users can select from when launching a streaming session with this launch profile.\u003c/p\u003e"
                 }
             }
+        },
+        "aws-native:nimblestudio:LaunchProfileStreamingClipboardMode": {
+            "type": "string"
+        },
+        "aws-native:nimblestudio:LaunchProfileStreamingInstanceType": {
+            "type": "string"
+        },
+        "aws-native:nimblestudio:LaunchProfileTags": {
+            "type": "object"
         },
         "aws-native:nimblestudio:StreamingImageEncryptionConfiguration": {
             "type": "object",
             "properties": {
                 "keyArn": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe ARN for a KMS key that is used to encrypt studio data.\u003c/p\u003e"
                 },
                 "keyType": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:nimblestudio:StreamingImageEncryptionConfigurationKeyType"
                 }
             }
+        },
+        "aws-native:nimblestudio:StreamingImageEncryptionConfigurationKeyType": {
+            "type": "string"
+        },
+        "aws-native:nimblestudio:StreamingImageTags": {
+            "type": "object"
         },
         "aws-native:nimblestudio:StudioComponentActiveDirectoryComputerAttribute": {
             "type": "object",
             "properties": {
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe name for the LDAP attribute.\u003c/p\u003e"
                 },
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe value for the LDAP attribute.\u003c/p\u003e"
                 }
             }
         },
@@ -46731,13 +47472,16 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:nimblestudio:StudioComponentActiveDirectoryComputerAttribute"
-                    }
+                    },
+                    "description": "\u003cp\u003eA collection of custom attributes for an Active Directory computer.\u003c/p\u003e"
                 },
                 "directoryId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe directory ID of the Directory Service for Microsoft Active Directory to access using this studio component.\u003c/p\u003e"
                 },
                 "organizationalUnitDistinguishedName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe distinguished name (DN) and organizational unit (OU) of an Active Directory computer.\u003c/p\u003e"
                 }
             }
         },
@@ -46745,10 +47489,12 @@
             "type": "object",
             "properties": {
                 "activeDirectoryUser": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe name of an Active Directory user that is used on ComputeFarm worker instances.\u003c/p\u003e"
                 },
                 "endpoint": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe endpoint of the ComputeFarm that is accessed by the studio component resource.\u003c/p\u003e"
                 }
             }
         },
@@ -46773,24 +47519,33 @@
             "type": "object",
             "properties": {
                 "launchProfileProtocolVersion": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe version number of the protocol that is used by the launch profile. The only valid version is \"2021-03-31\".\u003c/p\u003e"
                 },
                 "platform": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:nimblestudio:StudioComponentLaunchProfilePlatform"
                 },
                 "runContext": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:nimblestudio:StudioComponentInitializationScriptRunContext"
                 },
                 "script": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe initialization script.\u003c/p\u003e"
                 }
             }
+        },
+        "aws-native:nimblestudio:StudioComponentInitializationScriptRunContext": {
+            "type": "string"
+        },
+        "aws-native:nimblestudio:StudioComponentLaunchProfilePlatform": {
+            "type": "string"
         },
         "aws-native:nimblestudio:StudioComponentLicenseServiceConfiguration": {
             "type": "object",
             "properties": {
                 "endpoint": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe endpoint of the license service that is accessed by the studio component resource.\u003c/p\u003e"
                 }
             }
         },
@@ -46798,10 +47553,12 @@
             "type": "object",
             "properties": {
                 "key": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eA script parameter key.\u003c/p\u003e"
                 },
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eA script parameter value.\u003c/p\u003e"
                 }
             }
         },
@@ -46809,32 +47566,53 @@
             "type": "object",
             "properties": {
                 "endpoint": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe endpoint of the shared file system that is accessed by the studio component resource.\u003c/p\u003e"
                 },
                 "fileSystemId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe unique identifier for a file system.\u003c/p\u003e"
                 },
                 "linuxMountPoint": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe mount location for a shared file system on a Linux virtual workstation.\u003c/p\u003e"
                 },
                 "shareName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe name of the file share.\u003c/p\u003e"
                 },
                 "windowsMountDrive": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe mount location for a shared file system on a Windows virtual workstation.\u003c/p\u003e"
                 }
             }
+        },
+        "aws-native:nimblestudio:StudioComponentSubtype": {
+            "type": "string"
+        },
+        "aws-native:nimblestudio:StudioComponentTags": {
+            "type": "object"
+        },
+        "aws-native:nimblestudio:StudioComponentType": {
+            "type": "string"
         },
         "aws-native:nimblestudio:StudioEncryptionConfiguration": {
             "type": "object",
             "properties": {
                 "keyArn": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe ARN for a KMS key that is used to encrypt studio data.\u003c/p\u003e"
                 },
                 "keyType": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:nimblestudio:StudioEncryptionConfigurationKeyType"
                 }
             }
+        },
+        "aws-native:nimblestudio:StudioEncryptionConfigurationKeyType": {
+            "type": "string"
+        },
+        "aws-native:nimblestudio:StudioTags": {
+            "type": "object"
         },
         "aws-native:opensearchservice:DomainAdvancedSecurityOptionsInput": {
             "type": "object",
@@ -54739,6 +55517,102 @@
                     }
                 }
             }
+        },
+        "aws-native:wisdom:AssistantAssociationAssociationData": {
+            "type": "object",
+            "properties": {
+                "knowledgeBaseId": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:wisdom:AssistantAssociationAssociationType": {
+            "type": "string"
+        },
+        "aws-native:wisdom:AssistantAssociationTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:wisdom:AssistantServerSideEncryptionConfiguration": {
+            "type": "object",
+            "properties": {
+                "kmsKeyId": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:wisdom:AssistantTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:wisdom:AssistantType": {
+            "type": "string"
+        },
+        "aws-native:wisdom:KnowledgeBaseAppIntegrationsConfiguration": {
+            "type": "object",
+            "properties": {
+                "appIntegrationArn": {
+                    "type": "string"
+                },
+                "objectFields": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "aws-native:wisdom:KnowledgeBaseRenderingConfiguration": {
+            "type": "object",
+            "properties": {
+                "templateUri": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:wisdom:KnowledgeBaseServerSideEncryptionConfiguration": {
+            "type": "object",
+            "properties": {
+                "kmsKeyId": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:wisdom:KnowledgeBaseSourceConfiguration": {
+            "type": "object",
+            "properties": {
+                "appIntegrations": {
+                    "$ref": "#/types/aws-native:wisdom:KnowledgeBaseAppIntegrationsConfiguration"
+                }
+            }
+        },
+        "aws-native:wisdom:KnowledgeBaseTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:wisdom:KnowledgeBaseType": {
+            "type": "string"
         },
         "aws-native:workspaces:ConnectionAliasAssociation": {
             "type": "object",

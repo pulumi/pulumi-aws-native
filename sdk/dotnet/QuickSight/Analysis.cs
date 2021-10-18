@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<ImmutableArray<Outputs.AnalysisSheet>> Sheets { get; private set; } = null!;
 
         [Output("sourceEntity")]
-        public Output<Outputs.AnalysisSourceEntity?> SourceEntity { get; private set; } = null!;
+        public Output<Outputs.AnalysisSourceEntity> SourceEntity { get; private set; } = null!;
 
         [Output("status")]
         public Output<Pulumi.AwsNative.QuickSight.AnalysisResourceStatus> Status { get; private set; } = null!;
@@ -185,8 +185,8 @@ namespace Pulumi.AwsNative.QuickSight
             set => _permissions = value;
         }
 
-        [Input("sourceEntity")]
-        public Input<Inputs.AnalysisSourceEntityArgs>? SourceEntity { get; set; }
+        [Input("sourceEntity", required: true)]
+        public Input<Inputs.AnalysisSourceEntityArgs> SourceEntity { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.AnalysisTagArgs>? _tags;

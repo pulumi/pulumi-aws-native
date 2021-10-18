@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.CodeBuild.Outputs
     [OutputType]
     public sealed class ProjectBuildBatchConfig
     {
+        public readonly string? BatchReportMode;
         public readonly bool? CombineArtifacts;
         public readonly Outputs.ProjectBatchRestrictions? Restrictions;
         public readonly string? ServiceRole;
@@ -20,6 +21,8 @@ namespace Pulumi.AwsNative.CodeBuild.Outputs
 
         [OutputConstructor]
         private ProjectBuildBatchConfig(
+            string? batchReportMode,
+
             bool? combineArtifacts,
 
             Outputs.ProjectBatchRestrictions? restrictions,
@@ -28,6 +31,7 @@ namespace Pulumi.AwsNative.CodeBuild.Outputs
 
             int? timeoutInMins)
         {
+            BatchReportMode = batchReportMode;
             CombineArtifacts = combineArtifacts;
             Restrictions = restrictions;
             ServiceRole = serviceRole;

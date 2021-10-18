@@ -41,7 +41,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The name of the Access Control List to associate with the cluster.
      */
-    public readonly aCLName!: pulumi.Output<string | undefined>;
+    public readonly aCLName!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the cluster.
      */
@@ -83,7 +83,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The compute and memory capacity of the nodes in the cluster.
      */
-    public readonly nodeType!: pulumi.Output<string | undefined>;
+    public readonly nodeType!: pulumi.Output<string>;
     /**
      * The number of replicas to apply to each shard. The limit is 5.
      */
@@ -164,8 +164,14 @@ export class Cluster extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.aCLName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'aCLName'");
+            }
             if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
+            }
+            if ((!args || args.nodeType === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'nodeType'");
             }
             inputs["aCLName"] = args ? args.aCLName : undefined;
             inputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
@@ -237,7 +243,7 @@ export interface ClusterArgs {
     /**
      * The name of the Access Control List to associate with the cluster.
      */
-    aCLName?: pulumi.Input<string>;
+    aCLName: pulumi.Input<string>;
     /**
      * A flag that enables automatic minor version upgrade when set to true.
      *
@@ -275,7 +281,7 @@ export interface ClusterArgs {
     /**
      * The compute and memory capacity of the nodes in the cluster.
      */
-    nodeType?: pulumi.Input<string>;
+    nodeType: pulumi.Input<string>;
     /**
      * The number of replicas to apply to each shard. The limit is 5.
      */

@@ -10,6 +10,9 @@ export * from "./streamingImage";
 export * from "./studio";
 export * from "./studioComponent";
 
+// Export enums:
+export * from "../types/enums/nimblestudio";
+
 // Import resources to register:
 import { LaunchProfile } from "./launchProfile";
 import { StreamingImage } from "./streamingImage";

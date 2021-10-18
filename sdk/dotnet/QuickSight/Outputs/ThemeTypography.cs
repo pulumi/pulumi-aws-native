@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The typeface for the theme.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class ThemeTypography
     {

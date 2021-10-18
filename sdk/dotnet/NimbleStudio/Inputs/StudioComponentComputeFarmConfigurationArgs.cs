@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio.Inputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The configuration for a render farm that is associated with a studio resource.&lt;/p&gt;
+    /// </summary>
     public sealed class StudioComponentComputeFarmConfigurationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// &lt;p&gt;The name of an Active Directory user that is used on ComputeFarm worker instances.&lt;/p&gt;
+        /// </summary>
         [Input("activeDirectoryUser")]
         public Input<string>? ActiveDirectoryUser { get; set; }
 
+        /// <summary>
+        /// &lt;p&gt;The endpoint of the ComputeFarm that is accessed by the studio component resource.&lt;/p&gt;
+        /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 

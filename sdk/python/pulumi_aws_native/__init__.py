@@ -129,6 +129,8 @@ if typing.TYPE_CHECKING:
     dax = __dax
     import pulumi_aws_native.detective as __detective
     detective = __detective
+    import pulumi_aws_native.devicefarm as __devicefarm
+    devicefarm = __devicefarm
     import pulumi_aws_native.devopsguru as __devopsguru
     devopsguru = __devopsguru
     import pulumi_aws_native.directoryservice as __directoryservice
@@ -361,6 +363,8 @@ if typing.TYPE_CHECKING:
     wafregional = __wafregional
     import pulumi_aws_native.wafv2 as __wafv2
     wafv2 = __wafv2
+    import pulumi_aws_native.wisdom as __wisdom
+    wisdom = __wisdom
     import pulumi_aws_native.workspaces as __workspaces
     workspaces = __workspaces
     import pulumi_aws_native.xray as __xray
@@ -420,6 +424,7 @@ else:
     datasync = _utilities.lazy_import('pulumi_aws_native.datasync')
     dax = _utilities.lazy_import('pulumi_aws_native.dax')
     detective = _utilities.lazy_import('pulumi_aws_native.detective')
+    devicefarm = _utilities.lazy_import('pulumi_aws_native.devicefarm')
     devopsguru = _utilities.lazy_import('pulumi_aws_native.devopsguru')
     directoryservice = _utilities.lazy_import('pulumi_aws_native.directoryservice')
     dlm = _utilities.lazy_import('pulumi_aws_native.dlm')
@@ -536,6 +541,7 @@ else:
     waf = _utilities.lazy_import('pulumi_aws_native.waf')
     wafregional = _utilities.lazy_import('pulumi_aws_native.wafregional')
     wafv2 = _utilities.lazy_import('pulumi_aws_native.wafv2')
+    wisdom = _utilities.lazy_import('pulumi_aws_native.wisdom')
     workspaces = _utilities.lazy_import('pulumi_aws_native.workspaces')
     xray = _utilities.lazy_import('pulumi_aws_native.xray')
 
@@ -1114,6 +1120,19 @@ _utilities.register(
   "classes": {
    "aws-native:detective:Graph": "Graph",
    "aws-native:detective:MemberInvitation": "MemberInvitation"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "devicefarm",
+  "fqn": "pulumi_aws_native.devicefarm",
+  "classes": {
+   "aws-native:devicefarm:DevicePool": "DevicePool",
+   "aws-native:devicefarm:InstanceProfile": "InstanceProfile",
+   "aws-native:devicefarm:NetworkProfile": "NetworkProfile",
+   "aws-native:devicefarm:Project": "Project",
+   "aws-native:devicefarm:TestGridProject": "TestGridProject",
+   "aws-native:devicefarm:VPCEConfiguration": "VPCEConfiguration"
   }
  },
  {
@@ -2530,6 +2549,16 @@ _utilities.register(
    "aws-native:wafv2:RuleGroup": "RuleGroup",
    "aws-native:wafv2:WebACL": "WebACL",
    "aws-native:wafv2:WebACLAssociation": "WebACLAssociation"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "wisdom",
+  "fqn": "pulumi_aws_native.wisdom",
+  "classes": {
+   "aws-native:wisdom:Assistant": "Assistant",
+   "aws-native:wisdom:AssistantAssociation": "AssistantAssociation",
+   "aws-native:wisdom:KnowledgeBase": "KnowledgeBase"
   }
  },
  {

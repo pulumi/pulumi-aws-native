@@ -364,9 +364,9 @@
       "description" : "<p>A description of the current template version being created. This API operation creates the\n\t\t\tfirst version of the template. Every time <code>UpdateTemplate</code> is called, a new\n\t\t\tversion is created. Each version of the template maintains a description of the version\n\t\t\tin the <code>VersionDescription</code> field.</p>"
     }
   },
-  "required" : [ "AwsAccountId", "TemplateId" ],
+  "required" : [ "AwsAccountId", "TemplateId", "SourceEntity" ],
   "additionalProperties" : false,
-  "readOnlyProperties" : [ "/properties/CreatedTime", "/properties/Version", "/properties/LastUpdatedTime", "/properties/Arn" ],
+  "readOnlyProperties" : [ "/properties/TemplateError", "/properties/CreatedTime", "/properties/Version", "/properties/LastUpdatedTime", "/properties/Arn" ],
   "writeOnlyProperties" : [ "/properties/VersionDescription", "/properties/SourceEntity", "/properties/CreatedTime", "/properties/Version", "/properties/LastUpdatedTime" ],
   "createOnlyProperties" : [ "/properties/AwsAccountId", "/properties/TemplateId" ],
   "primaryIdentifier" : [ "/properties/AwsAccountId", "/properties/TemplateId" ],

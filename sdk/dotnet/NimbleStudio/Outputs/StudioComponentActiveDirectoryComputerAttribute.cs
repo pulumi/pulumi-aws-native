@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;An LDAP attribute of an Active Directory computer account, in the form of a name:value pair.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class StudioComponentActiveDirectoryComputerAttribute
     {
+        /// <summary>
+        /// &lt;p&gt;The name for the LDAP attribute.&lt;/p&gt;
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// &lt;p&gt;The value for the LDAP attribute.&lt;/p&gt;
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

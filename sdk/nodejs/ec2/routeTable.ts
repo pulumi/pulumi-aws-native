@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::EC2::RouteTable
+ *
+ * @deprecated RouteTable is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class RouteTable extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class RouteTable extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RouteTable {
+        pulumi.log.warn("RouteTable is deprecated: RouteTable is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new RouteTable(name, undefined as any, { ...opts, id: id });
     }
 
@@ -35,17 +38,7 @@ export class RouteTable extends pulumi.CustomResource {
         return obj['__pulumiType'] === RouteTable.__pulumiType;
     }
 
-    /**
-     * The route table ID.
-     */
-    public /*out*/ readonly routeTableId!: pulumi.Output<string>;
-    /**
-     * Any tags assigned to the route table.
-     */
     public readonly tags!: pulumi.Output<outputs.ec2.RouteTableTag[] | undefined>;
-    /**
-     * The ID of the VPC.
-     */
     public readonly vpcId!: pulumi.Output<string>;
 
     /**
@@ -55,7 +48,9 @@ export class RouteTable extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated RouteTable is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: RouteTableArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("RouteTable is deprecated: RouteTable is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -64,9 +59,7 @@ export class RouteTable extends pulumi.CustomResource {
             }
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["routeTableId"] = undefined /*out*/;
         } else {
-            inputs["routeTableId"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
@@ -81,12 +74,6 @@ export class RouteTable extends pulumi.CustomResource {
  * The set of arguments for constructing a RouteTable resource.
  */
 export interface RouteTableArgs {
-    /**
-     * Any tags assigned to the route table.
-     */
     tags?: pulumi.Input<pulumi.Input<inputs.ec2.RouteTableTagArgs>[]>;
-    /**
-     * The ID of the VPC.
-     */
     vpcId: pulumi.Input<string>;
 }
