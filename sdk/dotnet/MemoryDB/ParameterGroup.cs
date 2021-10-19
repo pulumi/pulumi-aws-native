@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.MemoryDB
         /// The name of the parameter group family that this parameter group is compatible with.
         /// </summary>
         [Output("family")]
-        public Output<string?> Family { get; private set; } = null!;
+        public Output<string> Family { get; private set; } = null!;
 
         /// <summary>
         /// The name of the parameter group.
@@ -106,8 +106,8 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// The name of the parameter group family that this parameter group is compatible with.
         /// </summary>
-        [Input("family")]
-        public Input<string>? Family { get; set; }
+        [Input("family", required: true)]
+        public Input<string> Family { get; set; } = null!;
 
         /// <summary>
         /// The name of the parameter group.

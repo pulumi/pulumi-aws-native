@@ -26,7 +26,7 @@ type Template struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// <p>A list of resource permissions to be set on the template. </p>
 	Permissions  TemplateResourcePermissionArrayOutput `pulumi:"permissions"`
-	SourceEntity TemplateSourceEntityPtrOutput         `pulumi:"sourceEntity"`
+	SourceEntity TemplateSourceEntityOutput            `pulumi:"sourceEntity"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
 	Tags       TemplateTagArrayOutput `pulumi:"tags"`
 	TemplateId pulumi.StringOutput    `pulumi:"templateId"`
@@ -47,6 +47,9 @@ func NewTemplate(ctx *pulumi.Context,
 
 	if args.AwsAccountId == nil {
 		return nil, errors.New("invalid value for required argument 'AwsAccountId'")
+	}
+	if args.SourceEntity == nil {
+		return nil, errors.New("invalid value for required argument 'SourceEntity'")
 	}
 	if args.TemplateId == nil {
 		return nil, errors.New("invalid value for required argument 'TemplateId'")
@@ -88,7 +91,7 @@ type templateArgs struct {
 	Name *string `pulumi:"name"`
 	// <p>A list of resource permissions to be set on the template. </p>
 	Permissions  []TemplateResourcePermission `pulumi:"permissions"`
-	SourceEntity *TemplateSourceEntity        `pulumi:"sourceEntity"`
+	SourceEntity TemplateSourceEntity         `pulumi:"sourceEntity"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
 	Tags       []TemplateTag `pulumi:"tags"`
 	TemplateId string        `pulumi:"templateId"`
@@ -106,7 +109,7 @@ type TemplateArgs struct {
 	Name pulumi.StringPtrInput
 	// <p>A list of resource permissions to be set on the template. </p>
 	Permissions  TemplateResourcePermissionArrayInput
-	SourceEntity TemplateSourceEntityPtrInput
+	SourceEntity TemplateSourceEntityInput
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
 	Tags       TemplateTagArrayInput
 	TemplateId pulumi.StringInput

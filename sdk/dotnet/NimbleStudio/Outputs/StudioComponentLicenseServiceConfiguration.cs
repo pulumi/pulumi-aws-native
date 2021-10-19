@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The configuration for a license service that is associated with a studio resource.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class StudioComponentLicenseServiceConfiguration
     {
+        /// <summary>
+        /// &lt;p&gt;The endpoint of the license service that is accessed by the studio component resource.&lt;/p&gt;
+        /// </summary>
         public readonly string? Endpoint;
 
         [OutputConstructor]

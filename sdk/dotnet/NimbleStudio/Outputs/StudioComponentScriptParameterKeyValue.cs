@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;A parameter for a studio component script, in the form of a key:value pair.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class StudioComponentScriptParameterKeyValue
     {
+        /// <summary>
+        /// &lt;p&gt;A script parameter key.&lt;/p&gt;
+        /// </summary>
         public readonly string? Key;
+        /// <summary>
+        /// &lt;p&gt;A script parameter value.&lt;/p&gt;
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

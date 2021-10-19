@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.MemoryDB
         [Input("subnetGroupName", required: true)]
         public Input<string> SubnetGroupName { get; set; } = null!;
 
-        [Input("subnetIds")]
+        [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
 
         /// <summary>

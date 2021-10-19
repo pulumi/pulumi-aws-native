@@ -15,28 +15,39 @@ __all__ = ['ParameterGroupArgs', 'ParameterGroup']
 @pulumi.input_type
 class ParameterGroupArgs:
     def __init__(__self__, *,
+                 family: pulumi.Input[str],
                  parameter_group_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 family: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[Any] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a ParameterGroup resource.
+        :param pulumi.Input[str] family: The name of the parameter group family that this parameter group is compatible with.
         :param pulumi.Input[str] parameter_group_name: The name of the parameter group.
         :param pulumi.Input[str] description: A description of the parameter group.
-        :param pulumi.Input[str] family: The name of the parameter group family that this parameter group is compatible with.
         :param Any parameters: An map of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional.
         :param pulumi.Input[Sequence[pulumi.Input['ParameterGroupTagArgs']]] tags: An array of key-value pairs to apply to this parameter group.
         """
+        pulumi.set(__self__, "family", family)
         pulumi.set(__self__, "parameter_group_name", parameter_group_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if family is not None:
-            pulumi.set(__self__, "family", family)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def family(self) -> pulumi.Input[str]:
+        """
+        The name of the parameter group family that this parameter group is compatible with.
+        """
+        return pulumi.get(self, "family")
+
+    @family.setter
+    def family(self, value: pulumi.Input[str]):
+        pulumi.set(self, "family", value)
 
     @property
     @pulumi.getter(name="parameterGroupName")
@@ -61,18 +72,6 @@ class ParameterGroupArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def family(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the parameter group family that this parameter group is compatible with.
-        """
-        return pulumi.get(self, "family")
-
-    @family.setter
-    def family(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "family", value)
 
     @property
     @pulumi.getter
@@ -169,6 +168,8 @@ class ParameterGroup(pulumi.CustomResource):
             __props__ = ParameterGroupArgs.__new__(ParameterGroupArgs)
 
             __props__.__dict__["description"] = description
+            if family is None and not opts.urn:
+                raise TypeError("Missing required property 'family'")
             __props__.__dict__["family"] = family
             if parameter_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'parameter_group_name'")
@@ -224,7 +225,7 @@ class ParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def family(self) -> pulumi.Output[Optional[str]]:
+    def family(self) -> pulumi.Output[str]:
         """
         The name of the parameter group family that this parameter group is compatible with.
         """

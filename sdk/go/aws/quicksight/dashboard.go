@@ -35,7 +35,7 @@ type Dashboard struct {
 	//
 	//         <p>To specify no permissions, omit the permissions list.</p>
 	Permissions  DashboardResourcePermissionArrayOutput `pulumi:"permissions"`
-	SourceEntity DashboardSourceEntityPtrOutput         `pulumi:"sourceEntity"`
+	SourceEntity DashboardSourceEntityOutput            `pulumi:"sourceEntity"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
 	//             dashboard.</p>
 	Tags DashboardTagArrayOutput `pulumi:"tags"`
@@ -61,6 +61,9 @@ func NewDashboard(ctx *pulumi.Context,
 	}
 	if args.DashboardId == nil {
 		return nil, errors.New("invalid value for required argument 'DashboardId'")
+	}
+	if args.SourceEntity == nil {
+		return nil, errors.New("invalid value for required argument 'SourceEntity'")
 	}
 	var resource Dashboard
 	err := ctx.RegisterResource("aws-native:quicksight:Dashboard", name, args, &resource, opts...)
@@ -106,7 +109,7 @@ type dashboardArgs struct {
 	//
 	//         <p>To specify no permissions, omit the permissions list.</p>
 	Permissions  []DashboardResourcePermission `pulumi:"permissions"`
-	SourceEntity *DashboardSourceEntity        `pulumi:"sourceEntity"`
+	SourceEntity DashboardSourceEntity         `pulumi:"sourceEntity"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
 	//             dashboard.</p>
 	Tags []DashboardTag `pulumi:"tags"`
@@ -133,7 +136,7 @@ type DashboardArgs struct {
 	//
 	//         <p>To specify no permissions, omit the permissions list.</p>
 	Permissions  DashboardResourcePermissionArrayInput
-	SourceEntity DashboardSourceEntityPtrInput
+	SourceEntity DashboardSourceEntityInput
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
 	//             dashboard.</p>
 	Tags DashboardTagArrayInput

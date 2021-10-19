@@ -18,11 +18,11 @@ class DashboardArgs:
     def __init__(__self__, *,
                  aws_account_id: pulumi.Input[str],
                  dashboard_id: pulumi.Input[str],
+                 source_entity: pulumi.Input['DashboardSourceEntityArgs'],
                  dashboard_publish_options: Optional[pulumi.Input['DashboardPublishOptionsArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input['DashboardParametersArgs']] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardResourcePermissionArgs']]]] = None,
-                 source_entity: Optional[pulumi.Input['DashboardSourceEntityArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTagArgs']]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None,
                  version_description: Optional[pulumi.Input[str]] = None):
@@ -44,6 +44,7 @@ class DashboardArgs:
         """
         pulumi.set(__self__, "aws_account_id", aws_account_id)
         pulumi.set(__self__, "dashboard_id", dashboard_id)
+        pulumi.set(__self__, "source_entity", source_entity)
         if dashboard_publish_options is not None:
             pulumi.set(__self__, "dashboard_publish_options", dashboard_publish_options)
         if name is not None:
@@ -52,8 +53,6 @@ class DashboardArgs:
             pulumi.set(__self__, "parameters", parameters)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
-        if source_entity is not None:
-            pulumi.set(__self__, "source_entity", source_entity)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if theme_arn is not None:
@@ -78,6 +77,15 @@ class DashboardArgs:
     @dashboard_id.setter
     def dashboard_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "dashboard_id", value)
+
+    @property
+    @pulumi.getter(name="sourceEntity")
+    def source_entity(self) -> pulumi.Input['DashboardSourceEntityArgs']:
+        return pulumi.get(self, "source_entity")
+
+    @source_entity.setter
+    def source_entity(self, value: pulumi.Input['DashboardSourceEntityArgs']):
+        pulumi.set(self, "source_entity", value)
 
     @property
     @pulumi.getter(name="dashboardPublishOptions")
@@ -124,15 +132,6 @@ class DashboardArgs:
     @permissions.setter
     def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardResourcePermissionArgs']]]]):
         pulumi.set(self, "permissions", value)
-
-    @property
-    @pulumi.getter(name="sourceEntity")
-    def source_entity(self) -> Optional[pulumi.Input['DashboardSourceEntityArgs']]:
-        return pulumi.get(self, "source_entity")
-
-    @source_entity.setter
-    def source_entity(self, value: Optional[pulumi.Input['DashboardSourceEntityArgs']]):
-        pulumi.set(self, "source_entity", value)
 
     @property
     @pulumi.getter
@@ -266,6 +265,8 @@ class Dashboard(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["permissions"] = permissions
+            if source_entity is None and not opts.urn:
+                raise TypeError("Missing required property 'source_entity'")
             __props__.__dict__["source_entity"] = source_entity
             __props__.__dict__["tags"] = tags
             __props__.__dict__["theme_arn"] = theme_arn
@@ -388,7 +389,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceEntity")
-    def source_entity(self) -> pulumi.Output[Optional['outputs.DashboardSourceEntity']]:
+    def source_entity(self) -> pulumi.Output['outputs.DashboardSourceEntity']:
         return pulumi.get(self, "source_entity")
 
     @property

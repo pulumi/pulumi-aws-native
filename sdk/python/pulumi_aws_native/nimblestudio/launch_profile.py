@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['LaunchProfileArgs', 'LaunchProfile']
@@ -22,9 +23,15 @@ class LaunchProfileArgs:
                  studio_component_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  studio_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None):
+                 tags: Optional[pulumi.Input['LaunchProfileTagsArgs']] = None):
         """
         The set of arguments for constructing a LaunchProfile resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ec2_subnet_ids: <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from. These subnets must support the specified instance types. </p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] launch_profile_protocol_versions: <p>The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".</p>
+        :param pulumi.Input[str] name: <p>The name for the launch profile.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] studio_component_ids: <p>Unique identifiers for a collection of studio components that can be used with this launch profile.</p>
+        :param pulumi.Input[str] studio_id: <p>The studioId. </p>
+        :param pulumi.Input[str] description: <p>The description.</p>
         """
         pulumi.set(__self__, "ec2_subnet_ids", ec2_subnet_ids)
         pulumi.set(__self__, "launch_profile_protocol_versions", launch_profile_protocol_versions)
@@ -40,6 +47,9 @@ class LaunchProfileArgs:
     @property
     @pulumi.getter(name="ec2SubnetIds")
     def ec2_subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from. These subnets must support the specified instance types. </p>
+        """
         return pulumi.get(self, "ec2_subnet_ids")
 
     @ec2_subnet_ids.setter
@@ -49,6 +59,9 @@ class LaunchProfileArgs:
     @property
     @pulumi.getter(name="launchProfileProtocolVersions")
     def launch_profile_protocol_versions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        <p>The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".</p>
+        """
         return pulumi.get(self, "launch_profile_protocol_versions")
 
     @launch_profile_protocol_versions.setter
@@ -58,6 +71,9 @@ class LaunchProfileArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        <p>The name for the launch profile.</p>
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -76,6 +92,9 @@ class LaunchProfileArgs:
     @property
     @pulumi.getter(name="studioComponentIds")
     def studio_component_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        <p>Unique identifiers for a collection of studio components that can be used with this launch profile.</p>
+        """
         return pulumi.get(self, "studio_component_ids")
 
     @studio_component_ids.setter
@@ -85,6 +104,9 @@ class LaunchProfileArgs:
     @property
     @pulumi.getter(name="studioId")
     def studio_id(self) -> pulumi.Input[str]:
+        """
+        <p>The studioId. </p>
+        """
         return pulumi.get(self, "studio_id")
 
     @studio_id.setter
@@ -94,6 +116,9 @@ class LaunchProfileArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The description.</p>
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -102,11 +127,11 @@ class LaunchProfileArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[pulumi.Input['LaunchProfileTagsArgs']]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[Any]):
+    def tags(self, value: Optional[pulumi.Input['LaunchProfileTagsArgs']]):
         pulumi.set(self, "tags", value)
 
 
@@ -122,13 +147,19 @@ class LaunchProfile(pulumi.CustomResource):
                  stream_configuration: Optional[pulumi.Input[pulumi.InputType['LaunchProfileStreamConfigurationArgs']]] = None,
                  studio_component_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  studio_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[pulumi.InputType['LaunchProfileTagsArgs']]] = None,
                  __props__=None):
         """
-        Resource schema for AWS::NimbleStudio::LaunchProfile
+        Represents a launch profile which delegates access to a collection of studio components to studio users
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: <p>The description.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ec2_subnet_ids: <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from. These subnets must support the specified instance types. </p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] launch_profile_protocol_versions: <p>The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".</p>
+        :param pulumi.Input[str] name: <p>The name for the launch profile.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] studio_component_ids: <p>Unique identifiers for a collection of studio components that can be used with this launch profile.</p>
+        :param pulumi.Input[str] studio_id: <p>The studioId. </p>
         """
         ...
     @overload
@@ -137,7 +168,7 @@ class LaunchProfile(pulumi.CustomResource):
                  args: LaunchProfileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource schema for AWS::NimbleStudio::LaunchProfile
+        Represents a launch profile which delegates access to a collection of studio components to studio users
 
         :param str resource_name: The name of the resource.
         :param LaunchProfileArgs args: The arguments to use to populate this resource's properties.
@@ -161,7 +192,7 @@ class LaunchProfile(pulumi.CustomResource):
                  stream_configuration: Optional[pulumi.Input[pulumi.InputType['LaunchProfileStreamConfigurationArgs']]] = None,
                  studio_component_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  studio_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[pulumi.InputType['LaunchProfileTagsArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -231,11 +262,17 @@ class LaunchProfile(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        <p>The description.</p>
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="ec2SubnetIds")
     def ec2_subnet_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from. These subnets must support the specified instance types. </p>
+        """
         return pulumi.get(self, "ec2_subnet_ids")
 
     @property
@@ -246,11 +283,17 @@ class LaunchProfile(pulumi.CustomResource):
     @property
     @pulumi.getter(name="launchProfileProtocolVersions")
     def launch_profile_protocol_versions(self) -> pulumi.Output[Sequence[str]]:
+        """
+        <p>The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".</p>
+        """
         return pulumi.get(self, "launch_profile_protocol_versions")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        <p>The name for the launch profile.</p>
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -261,15 +304,21 @@ class LaunchProfile(pulumi.CustomResource):
     @property
     @pulumi.getter(name="studioComponentIds")
     def studio_component_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        <p>Unique identifiers for a collection of studio components that can be used with this launch profile.</p>
+        """
         return pulumi.get(self, "studio_component_ids")
 
     @property
     @pulumi.getter(name="studioId")
     def studio_id(self) -> pulumi.Output[str]:
+        """
+        <p>The studioId. </p>
+        """
         return pulumi.get(self, "studio_id")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Any]]:
+    def tags(self) -> pulumi.Output[Optional['outputs.LaunchProfileTags']]:
         return pulumi.get(self, "tags")
 

@@ -10,17 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;Configuration of the encryption method that is used for the studio.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class StudioEncryptionConfiguration
     {
+        /// <summary>
+        /// &lt;p&gt;The ARN for a KMS key that is used to encrypt studio data.&lt;/p&gt;
+        /// </summary>
         public readonly string? KeyArn;
-        public readonly string KeyType;
+        public readonly Pulumi.AwsNative.NimbleStudio.StudioEncryptionConfigurationKeyType KeyType;
 
         [OutputConstructor]
         private StudioEncryptionConfiguration(
             string? keyArn,
 
-            string keyType)
+            Pulumi.AwsNative.NimbleStudio.StudioEncryptionConfigurationKeyType keyType)
         {
             KeyArn = keyArn;
             KeyType = keyType;

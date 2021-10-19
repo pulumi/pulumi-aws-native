@@ -25,6 +25,7 @@ type NotebookInstance struct {
 	KmsKeyId                   pulumi.StringPtrOutput         `pulumi:"kmsKeyId"`
 	LifecycleConfigName        pulumi.StringPtrOutput         `pulumi:"lifecycleConfigName"`
 	NotebookInstanceName       pulumi.StringPtrOutput         `pulumi:"notebookInstanceName"`
+	PlatformIdentifier         pulumi.StringPtrOutput         `pulumi:"platformIdentifier"`
 	RoleArn                    pulumi.StringOutput            `pulumi:"roleArn"`
 	RootAccess                 pulumi.StringPtrOutput         `pulumi:"rootAccess"`
 	SecurityGroupIds           pulumi.StringArrayOutput       `pulumi:"securityGroupIds"`
@@ -86,6 +87,7 @@ type notebookInstanceArgs struct {
 	KmsKeyId                   *string               `pulumi:"kmsKeyId"`
 	LifecycleConfigName        *string               `pulumi:"lifecycleConfigName"`
 	NotebookInstanceName       *string               `pulumi:"notebookInstanceName"`
+	PlatformIdentifier         *string               `pulumi:"platformIdentifier"`
 	RoleArn                    string                `pulumi:"roleArn"`
 	RootAccess                 *string               `pulumi:"rootAccess"`
 	SecurityGroupIds           []string              `pulumi:"securityGroupIds"`
@@ -104,6 +106,7 @@ type NotebookInstanceArgs struct {
 	KmsKeyId                   pulumi.StringPtrInput
 	LifecycleConfigName        pulumi.StringPtrInput
 	NotebookInstanceName       pulumi.StringPtrInput
+	PlatformIdentifier         pulumi.StringPtrInput
 	RoleArn                    pulumi.StringInput
 	RootAccess                 pulumi.StringPtrInput
 	SecurityGroupIds           pulumi.StringArrayInput

@@ -51,24 +51,23 @@
       }
     }
   },
-  "createOnlyProperties" : [ "/properties/Name", "/properties/Tags" ],
-  "writeOnlyProperties" : [ "/properties/Tags" ],
+  "createOnlyProperties" : [ "/properties/Name" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "additionalProperties" : false,
   "required" : [ "Name" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "glue:CreateRegistry", "glue:GetRegistry" ]
+      "permissions" : [ "glue:CreateRegistry", "glue:GetRegistry", "glue:GetTags" ]
     },
     "read" : {
-      "permissions" : [ "glue:GetRegistry" ]
+      "permissions" : [ "glue:GetRegistry", "glue:GetTags" ]
     },
     "delete" : {
       "permissions" : [ "glue:DeleteRegistry" ]
     },
     "update" : {
-      "permissions" : [ "glue:UpdateRegistry", "glue:GetRegistry" ]
+      "permissions" : [ "glue:UpdateRegistry", "glue:GetRegistry", "glue:TagResource", "glue:UntagResource", "glue:GetTags" ]
     },
     "list" : {
       "permissions" : [ "glue:ListRegistries" ]

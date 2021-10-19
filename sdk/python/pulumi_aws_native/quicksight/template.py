@@ -17,10 +17,10 @@ __all__ = ['TemplateArgs', 'Template']
 class TemplateArgs:
     def __init__(__self__, *,
                  aws_account_id: pulumi.Input[str],
+                 source_entity: pulumi.Input['TemplateSourceEntityArgs'],
                  template_id: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateResourcePermissionArgs']]]] = None,
-                 source_entity: Optional[pulumi.Input['TemplateSourceEntityArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateTagArgs']]]] = None,
                  version_description: Optional[pulumi.Input[str]] = None):
         """
@@ -34,13 +34,12 @@ class TemplateArgs:
                			in the <code>VersionDescription</code> field.</p>
         """
         pulumi.set(__self__, "aws_account_id", aws_account_id)
+        pulumi.set(__self__, "source_entity", source_entity)
         pulumi.set(__self__, "template_id", template_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
-        if source_entity is not None:
-            pulumi.set(__self__, "source_entity", source_entity)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if version_description is not None:
@@ -54,6 +53,15 @@ class TemplateArgs:
     @aws_account_id.setter
     def aws_account_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "aws_account_id", value)
+
+    @property
+    @pulumi.getter(name="sourceEntity")
+    def source_entity(self) -> pulumi.Input['TemplateSourceEntityArgs']:
+        return pulumi.get(self, "source_entity")
+
+    @source_entity.setter
+    def source_entity(self, value: pulumi.Input['TemplateSourceEntityArgs']):
+        pulumi.set(self, "source_entity", value)
 
     @property
     @pulumi.getter(name="templateId")
@@ -87,15 +95,6 @@ class TemplateArgs:
     @permissions.setter
     def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateResourcePermissionArgs']]]]):
         pulumi.set(self, "permissions", value)
-
-    @property
-    @pulumi.getter(name="sourceEntity")
-    def source_entity(self) -> Optional[pulumi.Input['TemplateSourceEntityArgs']]:
-        return pulumi.get(self, "source_entity")
-
-    @source_entity.setter
-    def source_entity(self, value: Optional[pulumi.Input['TemplateSourceEntityArgs']]):
-        pulumi.set(self, "source_entity", value)
 
     @property
     @pulumi.getter
@@ -199,6 +198,8 @@ class Template(pulumi.CustomResource):
             __props__.__dict__["aws_account_id"] = aws_account_id
             __props__.__dict__["name"] = name
             __props__.__dict__["permissions"] = permissions
+            if source_entity is None and not opts.urn:
+                raise TypeError("Missing required property 'source_entity'")
             __props__.__dict__["source_entity"] = source_entity
             __props__.__dict__["tags"] = tags
             if template_id is None and not opts.urn:
@@ -291,7 +292,7 @@ class Template(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceEntity")
-    def source_entity(self) -> pulumi.Output[Optional['outputs.TemplateSourceEntity']]:
+    def source_entity(self) -> pulumi.Output['outputs.TemplateSourceEntity']:
         return pulumi.get(self, "source_entity")
 
     @property

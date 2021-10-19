@@ -12,15 +12,13 @@ import (
 )
 
 // Resource Type definition for AWS::EC2::RouteTable
+//
+// Deprecated: RouteTable is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type RouteTable struct {
 	pulumi.CustomResourceState
 
-	// The route table ID.
-	RouteTableId pulumi.StringOutput `pulumi:"routeTableId"`
-	// Any tags assigned to the route table.
-	Tags RouteTableTagArrayOutput `pulumi:"tags"`
-	// The ID of the VPC.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	Tags  RouteTableTagArrayOutput `pulumi:"tags"`
+	VpcId pulumi.StringOutput      `pulumi:"vpcId"`
 }
 
 // NewRouteTable registers a new resource with the given unique name, arguments, and options.
@@ -65,17 +63,13 @@ func (RouteTableState) ElementType() reflect.Type {
 }
 
 type routeTableArgs struct {
-	// Any tags assigned to the route table.
-	Tags []RouteTableTag `pulumi:"tags"`
-	// The ID of the VPC.
-	VpcId string `pulumi:"vpcId"`
+	Tags  []RouteTableTag `pulumi:"tags"`
+	VpcId string          `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a RouteTable resource.
 type RouteTableArgs struct {
-	// Any tags assigned to the route table.
-	Tags RouteTableTagArrayInput
-	// The ID of the VPC.
+	Tags  RouteTableTagArrayInput
 	VpcId pulumi.StringInput
 }
 

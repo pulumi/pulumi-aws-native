@@ -10,40 +10,61 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio
 {
     /// <summary>
-    /// Resource schema for AWS::NimbleStudio::StreamingImage.
+    /// Represents a streaming session machine image that can be used to launch a streaming session
     /// </summary>
     [AwsNativeResourceType("aws-native:nimblestudio:StreamingImage")]
     public partial class StreamingImage : Pulumi.CustomResource
     {
+        /// <summary>
+        /// &lt;p&gt;A human-readable description of the streaming image.&lt;/p&gt;
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The ID of an EC2 machine image with which to create this streaming image.&lt;/p&gt;
+        /// </summary>
         [Output("ec2ImageId")]
         public Output<string> Ec2ImageId { get; private set; } = null!;
 
         [Output("encryptionConfiguration")]
         public Output<Outputs.StreamingImageEncryptionConfiguration> EncryptionConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The list of EULAs that must be accepted before a Streaming Session can be started using this streaming image.&lt;/p&gt;
+        /// </summary>
         [Output("eulaIds")]
         public Output<ImmutableArray<string>> EulaIds { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;A friendly name for a streaming image resource.&lt;/p&gt;
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The owner of the streaming image, either the studioId that contains the streaming image, or 'amazon' for images that are provided by Amazon Nimble Studio.&lt;/p&gt;
+        /// </summary>
         [Output("owner")]
         public Output<string> Owner { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The platform of the streaming image, either WINDOWS or LINUX.&lt;/p&gt;
+        /// </summary>
         [Output("platform")]
         public Output<string> Platform { get; private set; } = null!;
 
         [Output("streamingImageId")]
         public Output<string> StreamingImageId { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The studioId. &lt;/p&gt;
+        /// </summary>
         [Output("studioId")]
         public Output<string> StudioId { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<object?> Tags { get; private set; } = null!;
+        public Output<Outputs.StreamingImageTags?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -90,20 +111,32 @@ namespace Pulumi.AwsNative.NimbleStudio
 
     public sealed class StreamingImageArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// &lt;p&gt;A human-readable description of the streaming image.&lt;/p&gt;
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// &lt;p&gt;The ID of an EC2 machine image with which to create this streaming image.&lt;/p&gt;
+        /// </summary>
         [Input("ec2ImageId", required: true)]
         public Input<string> Ec2ImageId { get; set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;A friendly name for a streaming image resource.&lt;/p&gt;
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The studioId. &lt;/p&gt;
+        /// </summary>
         [Input("studioId", required: true)]
         public Input<string> StudioId { get; set; } = null!;
 
         [Input("tags")]
-        public Input<object>? Tags { get; set; }
+        public Input<Inputs.StreamingImageTagsArgs>? Tags { get; set; }
 
         public StreamingImageArgs()
         {

@@ -10,7 +10,6 @@ AWS::Amplify::Branch
 AWS::Amplify::Domain
 AWS::ApiGateway::Account
 AWS::ApiGateway::ApiKey
-AWS::ApiGateway::Authorizer
 AWS::ApiGateway::BasePathMapping
 AWS::ApiGateway::ClientCertificate
 AWS::ApiGateway::DocumentationVersion
@@ -33,6 +32,7 @@ AWS::Athena::PreparedStatement
 AWS::Athena::WorkGroup
 AWS::AuditManager::Assessment
 AWS::AutoScaling::LaunchConfiguration
+AWS::AutoScaling::LifecycleHook
 AWS::AutoScaling::WarmPool
 AWS::Backup::BackupPlan
 AWS::Backup::BackupSelection
@@ -96,6 +96,12 @@ AWS::Detective::Graph
 AWS::Detective::MemberInvitation
 AWS::DevOpsGuru::NotificationChannel
 AWS::DevOpsGuru::ResourceCollection
+AWS::DeviceFarm::DevicePool
+AWS::DeviceFarm::InstanceProfile
+AWS::DeviceFarm::NetworkProfile
+AWS::DeviceFarm::Project
+AWS::DeviceFarm::TestGridProject
+AWS::DeviceFarm::VPCEConfiguration
 AWS::DynamoDB::GlobalTable
 AWS::EC2::CarrierGateway
 AWS::EC2::DHCPOptions
@@ -111,8 +117,8 @@ AWS::EC2::NetworkAcl
 AWS::EC2::NetworkInsightsAnalysis
 AWS::EC2::NetworkInsightsPath
 AWS::EC2::PrefixList
-AWS::EC2::RouteTable
 AWS::EC2::SpotFleet
+AWS::EC2::Subnet
 AWS::EC2::SubnetNetworkAclAssociation
 AWS::EC2::SubnetRouteTableAssociation
 AWS::EC2::TransitGateway
@@ -377,6 +383,9 @@ AWS::WAFv2::RegexPatternSet
 AWS::WAFv2::RuleGroup
 AWS::WAFv2::WebACL
 AWS::WAFv2::WebACLAssociation
+AWS::Wisdom::Assistant
+AWS::Wisdom::AssistantAssociation
+AWS::Wisdom::KnowledgeBase
 AWS::WorkSpaces::ConnectionAlias
 AWS::XRay::Group
 AWS::XRay::SamplingRule

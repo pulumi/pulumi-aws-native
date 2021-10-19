@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['StudioComponentArgs', 'StudioComponent']
@@ -17,16 +18,22 @@ class StudioComponentArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  studio_id: pulumi.Input[str],
-                 type: pulumi.Input[str],
+                 type: pulumi.Input['StudioComponentType'],
                  configuration: Optional[pulumi.Input['StudioComponentConfigurationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ec2_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  initialization_scripts: Optional[pulumi.Input[Sequence[pulumi.Input['StudioComponentInitializationScriptArgs']]]] = None,
                  script_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['StudioComponentScriptParameterKeyValueArgs']]]] = None,
-                 subtype: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None):
+                 subtype: Optional[pulumi.Input['StudioComponentSubtype']] = None,
+                 tags: Optional[pulumi.Input['StudioComponentTagsArgs']] = None):
         """
         The set of arguments for constructing a StudioComponent resource.
+        :param pulumi.Input[str] name: <p>The name for the studio component.</p>
+        :param pulumi.Input[str] studio_id: <p>The studioId. </p>
+        :param pulumi.Input[str] description: <p>The description.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ec2_security_group_ids: <p>The EC2 security groups that control access to the studio component.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['StudioComponentInitializationScriptArgs']]] initialization_scripts: <p>Initialization scripts for studio components.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['StudioComponentScriptParameterKeyValueArgs']]] script_parameters: <p>Parameters for the studio component scripts.</p>
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "studio_id", studio_id)
@@ -49,6 +56,9 @@ class StudioComponentArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        <p>The name for the studio component.</p>
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -58,6 +68,9 @@ class StudioComponentArgs:
     @property
     @pulumi.getter(name="studioId")
     def studio_id(self) -> pulumi.Input[str]:
+        """
+        <p>The studioId. </p>
+        """
         return pulumi.get(self, "studio_id")
 
     @studio_id.setter
@@ -66,11 +79,11 @@ class StudioComponentArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['StudioComponentType']:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['StudioComponentType']):
         pulumi.set(self, "type", value)
 
     @property
@@ -85,6 +98,9 @@ class StudioComponentArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The description.</p>
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -94,6 +110,9 @@ class StudioComponentArgs:
     @property
     @pulumi.getter(name="ec2SecurityGroupIds")
     def ec2_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        <p>The EC2 security groups that control access to the studio component.</p>
+        """
         return pulumi.get(self, "ec2_security_group_ids")
 
     @ec2_security_group_ids.setter
@@ -103,6 +122,9 @@ class StudioComponentArgs:
     @property
     @pulumi.getter(name="initializationScripts")
     def initialization_scripts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StudioComponentInitializationScriptArgs']]]]:
+        """
+        <p>Initialization scripts for studio components.</p>
+        """
         return pulumi.get(self, "initialization_scripts")
 
     @initialization_scripts.setter
@@ -112,6 +134,9 @@ class StudioComponentArgs:
     @property
     @pulumi.getter(name="scriptParameters")
     def script_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StudioComponentScriptParameterKeyValueArgs']]]]:
+        """
+        <p>Parameters for the studio component scripts.</p>
+        """
         return pulumi.get(self, "script_parameters")
 
     @script_parameters.setter
@@ -120,20 +145,20 @@ class StudioComponentArgs:
 
     @property
     @pulumi.getter
-    def subtype(self) -> Optional[pulumi.Input[str]]:
+    def subtype(self) -> Optional[pulumi.Input['StudioComponentSubtype']]:
         return pulumi.get(self, "subtype")
 
     @subtype.setter
-    def subtype(self, value: Optional[pulumi.Input[str]]):
+    def subtype(self, value: Optional[pulumi.Input['StudioComponentSubtype']]):
         pulumi.set(self, "subtype", value)
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[pulumi.Input['StudioComponentTagsArgs']]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[Any]):
+    def tags(self, value: Optional[pulumi.Input['StudioComponentTagsArgs']]):
         pulumi.set(self, "tags", value)
 
 
@@ -149,15 +174,21 @@ class StudioComponent(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  script_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StudioComponentScriptParameterKeyValueArgs']]]]] = None,
                  studio_id: Optional[pulumi.Input[str]] = None,
-                 subtype: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 subtype: Optional[pulumi.Input['StudioComponentSubtype']] = None,
+                 tags: Optional[pulumi.Input[pulumi.InputType['StudioComponentTagsArgs']]] = None,
+                 type: Optional[pulumi.Input['StudioComponentType']] = None,
                  __props__=None):
         """
-        Resource schema for AWS::NimbleStudio::StudioComponent.
+        Represents a studio component which connects a non-Nimble Studio resource in your account to your studio
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: <p>The description.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ec2_security_group_ids: <p>The EC2 security groups that control access to the studio component.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StudioComponentInitializationScriptArgs']]]] initialization_scripts: <p>Initialization scripts for studio components.</p>
+        :param pulumi.Input[str] name: <p>The name for the studio component.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StudioComponentScriptParameterKeyValueArgs']]]] script_parameters: <p>Parameters for the studio component scripts.</p>
+        :param pulumi.Input[str] studio_id: <p>The studioId. </p>
         """
         ...
     @overload
@@ -166,7 +197,7 @@ class StudioComponent(pulumi.CustomResource):
                  args: StudioComponentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource schema for AWS::NimbleStudio::StudioComponent.
+        Represents a studio component which connects a non-Nimble Studio resource in your account to your studio
 
         :param str resource_name: The name of the resource.
         :param StudioComponentArgs args: The arguments to use to populate this resource's properties.
@@ -190,9 +221,9 @@ class StudioComponent(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  script_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StudioComponentScriptParameterKeyValueArgs']]]]] = None,
                  studio_id: Optional[pulumi.Input[str]] = None,
-                 subtype: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 subtype: Optional[pulumi.Input['StudioComponentSubtype']] = None,
+                 tags: Optional[pulumi.Input[pulumi.InputType['StudioComponentTagsArgs']]] = None,
+                 type: Optional[pulumi.Input['StudioComponentType']] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -265,26 +296,41 @@ class StudioComponent(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        <p>The description.</p>
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="ec2SecurityGroupIds")
     def ec2_security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        <p>The EC2 security groups that control access to the studio component.</p>
+        """
         return pulumi.get(self, "ec2_security_group_ids")
 
     @property
     @pulumi.getter(name="initializationScripts")
     def initialization_scripts(self) -> pulumi.Output[Optional[Sequence['outputs.StudioComponentInitializationScript']]]:
+        """
+        <p>Initialization scripts for studio components.</p>
+        """
         return pulumi.get(self, "initialization_scripts")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        <p>The name for the studio component.</p>
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="scriptParameters")
     def script_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.StudioComponentScriptParameterKeyValue']]]:
+        """
+        <p>Parameters for the studio component scripts.</p>
+        """
         return pulumi.get(self, "script_parameters")
 
     @property
@@ -295,20 +341,23 @@ class StudioComponent(pulumi.CustomResource):
     @property
     @pulumi.getter(name="studioId")
     def studio_id(self) -> pulumi.Output[str]:
+        """
+        <p>The studioId. </p>
+        """
         return pulumi.get(self, "studio_id")
 
     @property
     @pulumi.getter
-    def subtype(self) -> pulumi.Output[Optional[str]]:
+    def subtype(self) -> pulumi.Output[Optional['StudioComponentSubtype']]:
         return pulumi.get(self, "subtype")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Any]]:
+    def tags(self) -> pulumi.Output[Optional['outputs.StudioComponentTags']]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
+    def type(self) -> pulumi.Output['StudioComponentType']:
         return pulumi.get(self, "type")
 

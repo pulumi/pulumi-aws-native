@@ -49,7 +49,7 @@ export class ParameterGroup extends pulumi.CustomResource {
     /**
      * The name of the parameter group family that this parameter group is compatible with.
      */
-    public readonly family!: pulumi.Output<string | undefined>;
+    public readonly family!: pulumi.Output<string>;
     /**
      * The name of the parameter group.
      */
@@ -76,6 +76,9 @@ export class ParameterGroup extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.family === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'family'");
+            }
             if ((!args || args.parameterGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'parameterGroupName'");
             }
@@ -111,7 +114,7 @@ export interface ParameterGroupArgs {
     /**
      * The name of the parameter group family that this parameter group is compatible with.
      */
-    family?: pulumi.Input<string>;
+    family: pulumi.Input<string>;
     /**
      * The name of the parameter group.
      */

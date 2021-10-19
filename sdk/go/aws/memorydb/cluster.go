@@ -18,7 +18,7 @@ type Cluster struct {
 	pulumi.CustomResourceState
 
 	// The name of the Access Control List to associate with the cluster.
-	ACLName pulumi.StringPtrOutput `pulumi:"aCLName"`
+	ACLName pulumi.StringOutput `pulumi:"aCLName"`
 	// The Amazon Resource Name (ARN) of the cluster.
 	ARN pulumi.StringOutput `pulumi:"aRN"`
 	// A flag that enables automatic minor version upgrade when set to true.
@@ -40,7 +40,7 @@ type Cluster struct {
 	// Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period.
 	MaintenanceWindow pulumi.StringPtrOutput `pulumi:"maintenanceWindow"`
 	// The compute and memory capacity of the nodes in the cluster.
-	NodeType pulumi.StringPtrOutput `pulumi:"nodeType"`
+	NodeType pulumi.StringOutput `pulumi:"nodeType"`
 	// The number of replicas to apply to each shard. The limit is 5.
 	NumReplicasPerShard pulumi.IntPtrOutput `pulumi:"numReplicasPerShard"`
 	// The number of shards the cluster will contain.
@@ -84,8 +84,14 @@ func NewCluster(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.ACLName == nil {
+		return nil, errors.New("invalid value for required argument 'ACLName'")
+	}
 	if args.ClusterName == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterName'")
+	}
+	if args.NodeType == nil {
+		return nil, errors.New("invalid value for required argument 'NodeType'")
 	}
 	var resource Cluster
 	err := ctx.RegisterResource("aws-native:memorydb:Cluster", name, args, &resource, opts...)
@@ -120,7 +126,7 @@ func (ClusterState) ElementType() reflect.Type {
 
 type clusterArgs struct {
 	// The name of the Access Control List to associate with the cluster.
-	ACLName *string `pulumi:"aCLName"`
+	ACLName string `pulumi:"aCLName"`
 	// A flag that enables automatic minor version upgrade when set to true.
 	//
 	// You cannot modify the value of AutoMinorVersionUpgrade after the cluster is created. To enable AutoMinorVersionUpgrade on a cluster you must set AutoMinorVersionUpgrade to true when you create a cluster.
@@ -140,7 +146,7 @@ type clusterArgs struct {
 	// Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period.
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
 	// The compute and memory capacity of the nodes in the cluster.
-	NodeType *string `pulumi:"nodeType"`
+	NodeType string `pulumi:"nodeType"`
 	// The number of replicas to apply to each shard. The limit is 5.
 	NumReplicasPerShard *int `pulumi:"numReplicasPerShard"`
 	// The number of shards the cluster will contain.
@@ -176,7 +182,7 @@ type clusterArgs struct {
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
 	// The name of the Access Control List to associate with the cluster.
-	ACLName pulumi.StringPtrInput
+	ACLName pulumi.StringInput
 	// A flag that enables automatic minor version upgrade when set to true.
 	//
 	// You cannot modify the value of AutoMinorVersionUpgrade after the cluster is created. To enable AutoMinorVersionUpgrade on a cluster you must set AutoMinorVersionUpgrade to true when you create a cluster.
@@ -196,7 +202,7 @@ type ClusterArgs struct {
 	// Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period.
 	MaintenanceWindow pulumi.StringPtrInput
 	// The compute and memory capacity of the nodes in the cluster.
-	NodeType pulumi.StringPtrInput
+	NodeType pulumi.StringInput
 	// The number of replicas to apply to each shard. The limit is 5.
 	NumReplicasPerShard pulumi.IntPtrInput
 	// The number of shards the cluster will contain.

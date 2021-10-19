@@ -8,6 +8,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['StreamingImageArgs', 'StreamingImage']
 
@@ -18,9 +20,13 @@ class StreamingImageArgs:
                  name: pulumi.Input[str],
                  studio_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None):
+                 tags: Optional[pulumi.Input['StreamingImageTagsArgs']] = None):
         """
         The set of arguments for constructing a StreamingImage resource.
+        :param pulumi.Input[str] ec2_image_id: <p>The ID of an EC2 machine image with which to create this streaming image.</p>
+        :param pulumi.Input[str] name: <p>A friendly name for a streaming image resource.</p>
+        :param pulumi.Input[str] studio_id: <p>The studioId. </p>
+        :param pulumi.Input[str] description: <p>A human-readable description of the streaming image.</p>
         """
         pulumi.set(__self__, "ec2_image_id", ec2_image_id)
         pulumi.set(__self__, "name", name)
@@ -33,6 +39,9 @@ class StreamingImageArgs:
     @property
     @pulumi.getter(name="ec2ImageId")
     def ec2_image_id(self) -> pulumi.Input[str]:
+        """
+        <p>The ID of an EC2 machine image with which to create this streaming image.</p>
+        """
         return pulumi.get(self, "ec2_image_id")
 
     @ec2_image_id.setter
@@ -42,6 +51,9 @@ class StreamingImageArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        <p>A friendly name for a streaming image resource.</p>
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -51,6 +63,9 @@ class StreamingImageArgs:
     @property
     @pulumi.getter(name="studioId")
     def studio_id(self) -> pulumi.Input[str]:
+        """
+        <p>The studioId. </p>
+        """
         return pulumi.get(self, "studio_id")
 
     @studio_id.setter
@@ -60,6 +75,9 @@ class StreamingImageArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>A human-readable description of the streaming image.</p>
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -68,11 +86,11 @@ class StreamingImageArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[pulumi.Input['StreamingImageTagsArgs']]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[Any]):
+    def tags(self, value: Optional[pulumi.Input['StreamingImageTagsArgs']]):
         pulumi.set(self, "tags", value)
 
 
@@ -85,13 +103,17 @@ class StreamingImage(pulumi.CustomResource):
                  ec2_image_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  studio_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[pulumi.InputType['StreamingImageTagsArgs']]] = None,
                  __props__=None):
         """
-        Resource schema for AWS::NimbleStudio::StreamingImage.
+        Represents a streaming session machine image that can be used to launch a streaming session
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: <p>A human-readable description of the streaming image.</p>
+        :param pulumi.Input[str] ec2_image_id: <p>The ID of an EC2 machine image with which to create this streaming image.</p>
+        :param pulumi.Input[str] name: <p>A friendly name for a streaming image resource.</p>
+        :param pulumi.Input[str] studio_id: <p>The studioId. </p>
         """
         ...
     @overload
@@ -100,7 +122,7 @@ class StreamingImage(pulumi.CustomResource):
                  args: StreamingImageArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource schema for AWS::NimbleStudio::StreamingImage.
+        Represents a streaming session machine image that can be used to launch a streaming session
 
         :param str resource_name: The name of the resource.
         :param StreamingImageArgs args: The arguments to use to populate this resource's properties.
@@ -121,7 +143,7 @@ class StreamingImage(pulumi.CustomResource):
                  ec2_image_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  studio_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[pulumi.InputType['StreamingImageTagsArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -187,11 +209,17 @@ class StreamingImage(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        <p>A human-readable description of the streaming image.</p>
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="ec2ImageId")
     def ec2_image_id(self) -> pulumi.Output[str]:
+        """
+        <p>The ID of an EC2 machine image with which to create this streaming image.</p>
+        """
         return pulumi.get(self, "ec2_image_id")
 
     @property
@@ -202,21 +230,33 @@ class StreamingImage(pulumi.CustomResource):
     @property
     @pulumi.getter(name="eulaIds")
     def eula_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        <p>The list of EULAs that must be accepted before a Streaming Session can be started using this streaming image.</p>
+        """
         return pulumi.get(self, "eula_ids")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        <p>A friendly name for a streaming image resource.</p>
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def owner(self) -> pulumi.Output[str]:
+        """
+        <p>The owner of the streaming image, either the studioId that contains the streaming image, or 'amazon' for images that are provided by Amazon Nimble Studio.</p>
+        """
         return pulumi.get(self, "owner")
 
     @property
     @pulumi.getter
     def platform(self) -> pulumi.Output[str]:
+        """
+        <p>The platform of the streaming image, either WINDOWS or LINUX.</p>
+        """
         return pulumi.get(self, "platform")
 
     @property
@@ -227,10 +267,13 @@ class StreamingImage(pulumi.CustomResource):
     @property
     @pulumi.getter(name="studioId")
     def studio_id(self) -> pulumi.Output[str]:
+        """
+        <p>The studioId. </p>
+        """
         return pulumi.get(self, "studio_id")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Any]]:
+    def tags(self) -> pulumi.Output[Optional['outputs.StreamingImageTags']]:
         return pulumi.get(self, "tags")
 

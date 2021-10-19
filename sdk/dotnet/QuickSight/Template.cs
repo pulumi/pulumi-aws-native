@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<ImmutableArray<Outputs.TemplateResourcePermission>> Permissions { get; private set; } = null!;
 
         [Output("sourceEntity")]
-        public Output<Outputs.TemplateSourceEntity?> SourceEntity { get; private set; } = null!;
+        public Output<Outputs.TemplateSourceEntity> SourceEntity { get; private set; } = null!;
 
         /// <summary>
         /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.&lt;/p&gt;
@@ -138,8 +138,8 @@ namespace Pulumi.AwsNative.QuickSight
             set => _permissions = value;
         }
 
-        [Input("sourceEntity")]
-        public Input<Inputs.TemplateSourceEntityArgs>? SourceEntity { get; set; }
+        [Input("sourceEntity", required: true)]
+        public Input<Inputs.TemplateSourceEntityArgs> SourceEntity { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.TemplateTagArgs>? _tags;

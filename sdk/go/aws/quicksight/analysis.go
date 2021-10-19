@@ -38,9 +38,9 @@ type Analysis struct {
 	//         <p>To specify no permissions, omit <code>Permissions</code>.</p>
 	Permissions AnalysisResourcePermissionArrayOutput `pulumi:"permissions"`
 	// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-	Sheets       AnalysisSheetArrayOutput      `pulumi:"sheets"`
-	SourceEntity AnalysisSourceEntityPtrOutput `pulumi:"sourceEntity"`
-	Status       AnalysisResourceStatusOutput  `pulumi:"status"`
+	Sheets       AnalysisSheetArrayOutput     `pulumi:"sheets"`
+	SourceEntity AnalysisSourceEntityOutput   `pulumi:"sourceEntity"`
+	Status       AnalysisResourceStatusOutput `pulumi:"status"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
 	//             analysis.</p>
 	Tags AnalysisTagArrayOutput `pulumi:"tags"`
@@ -60,6 +60,9 @@ func NewAnalysis(ctx *pulumi.Context,
 	}
 	if args.AwsAccountId == nil {
 		return nil, errors.New("invalid value for required argument 'AwsAccountId'")
+	}
+	if args.SourceEntity == nil {
+		return nil, errors.New("invalid value for required argument 'SourceEntity'")
 	}
 	var resource Analysis
 	err := ctx.RegisterResource("aws-native:quicksight:Analysis", name, args, &resource, opts...)
@@ -107,7 +110,7 @@ type analysisArgs struct {
 	//
 	//         <p>To specify no permissions, omit <code>Permissions</code>.</p>
 	Permissions  []AnalysisResourcePermission `pulumi:"permissions"`
-	SourceEntity *AnalysisSourceEntity        `pulumi:"sourceEntity"`
+	SourceEntity AnalysisSourceEntity         `pulumi:"sourceEntity"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
 	//             analysis.</p>
 	Tags []AnalysisTag `pulumi:"tags"`
@@ -131,7 +134,7 @@ type AnalysisArgs struct {
 	//
 	//         <p>To specify no permissions, omit <code>Permissions</code>.</p>
 	Permissions  AnalysisResourcePermissionArrayInput
-	SourceEntity AnalysisSourceEntityPtrInput
+	SourceEntity AnalysisSourceEntityInput
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
 	//             analysis.</p>
 	Tags AnalysisTagArrayInput

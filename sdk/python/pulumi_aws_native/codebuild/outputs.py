@@ -179,7 +179,9 @@ class ProjectBuildBatchConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "combineArtifacts":
+        if key == "batchReportMode":
+            suggest = "batch_report_mode"
+        elif key == "combineArtifacts":
             suggest = "combine_artifacts"
         elif key == "serviceRole":
             suggest = "service_role"
@@ -198,10 +200,13 @@ class ProjectBuildBatchConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 batch_report_mode: Optional[str] = None,
                  combine_artifacts: Optional[bool] = None,
                  restrictions: Optional['outputs.ProjectBatchRestrictions'] = None,
                  service_role: Optional[str] = None,
                  timeout_in_mins: Optional[int] = None):
+        if batch_report_mode is not None:
+            pulumi.set(__self__, "batch_report_mode", batch_report_mode)
         if combine_artifacts is not None:
             pulumi.set(__self__, "combine_artifacts", combine_artifacts)
         if restrictions is not None:
@@ -210,6 +215,11 @@ class ProjectBuildBatchConfig(dict):
             pulumi.set(__self__, "service_role", service_role)
         if timeout_in_mins is not None:
             pulumi.set(__self__, "timeout_in_mins", timeout_in_mins)
+
+    @property
+    @pulumi.getter(name="batchReportMode")
+    def batch_report_mode(self) -> Optional[str]:
+        return pulumi.get(self, "batch_report_mode")
 
     @property
     @pulumi.getter(name="combineArtifacts")

@@ -116,21 +116,21 @@
   "additionalProperties" : false,
   "required" : [ "Name", "DataFormat", "SchemaDefinition", "Compatibility" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/InitialSchemaVersionId" ],
-  "createOnlyProperties" : [ "/properties/Registry", "/properties/Name", "/properties/DataFormat", "/properties/SchemaDefinition", "/properties/Tags" ],
-  "writeOnlyProperties" : [ "/properties/Tags", "/properties/SchemaDefinition" ],
+  "createOnlyProperties" : [ "/properties/Registry", "/properties/Name", "/properties/DataFormat", "/properties/SchemaDefinition" ],
+  "writeOnlyProperties" : [ "/properties/SchemaDefinition" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "glue:CreateSchema" ]
     },
     "read" : {
-      "permissions" : [ "glue:GetSchemaVersion", "glue:GetSchema" ]
+      "permissions" : [ "glue:GetSchemaVersion", "glue:GetSchema", "glue:GetTags" ]
     },
     "delete" : {
       "permissions" : [ "glue:DeleteSchema", "glue:GetSchema" ]
     },
     "update" : {
-      "permissions" : [ "glue:UpdateSchema", "glue:GetSchemaVersion", "glue:GetSchema" ]
+      "permissions" : [ "glue:UpdateSchema", "glue:GetSchemaVersion", "glue:GetSchema", "glue:GetTags", "glue:TagResource", "glue:UntagResource" ]
     },
     "list" : {
       "permissions" : [ "glue:ListSchemas" ]

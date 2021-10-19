@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The configuration of the studio component, based on component type.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class StudioComponentConfiguration
     {

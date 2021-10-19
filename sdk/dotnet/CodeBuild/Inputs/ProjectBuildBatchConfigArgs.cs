@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.CodeBuild.Inputs
 
     public sealed class ProjectBuildBatchConfigArgs : Pulumi.ResourceArgs
     {
+        [Input("batchReportMode")]
+        public Input<string>? BatchReportMode { get; set; }
+
         [Input("combineArtifacts")]
         public Input<bool>? CombineArtifacts { get; set; }
 

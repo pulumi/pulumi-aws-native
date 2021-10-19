@@ -18,11 +18,11 @@ class AnalysisArgs:
     def __init__(__self__, *,
                  analysis_id: pulumi.Input[str],
                  aws_account_id: pulumi.Input[str],
+                 source_entity: pulumi.Input['AnalysisSourceEntityArgs'],
                  errors: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisErrorArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input['AnalysisParametersArgs']] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisResourcePermissionArgs']]]] = None,
-                 source_entity: Optional[pulumi.Input['AnalysisSourceEntityArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTagArgs']]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None):
         """
@@ -41,6 +41,7 @@ class AnalysisArgs:
         """
         pulumi.set(__self__, "analysis_id", analysis_id)
         pulumi.set(__self__, "aws_account_id", aws_account_id)
+        pulumi.set(__self__, "source_entity", source_entity)
         if errors is not None:
             pulumi.set(__self__, "errors", errors)
         if name is not None:
@@ -49,8 +50,6 @@ class AnalysisArgs:
             pulumi.set(__self__, "parameters", parameters)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
-        if source_entity is not None:
-            pulumi.set(__self__, "source_entity", source_entity)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if theme_arn is not None:
@@ -73,6 +72,15 @@ class AnalysisArgs:
     @aws_account_id.setter
     def aws_account_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "aws_account_id", value)
+
+    @property
+    @pulumi.getter(name="sourceEntity")
+    def source_entity(self) -> pulumi.Input['AnalysisSourceEntityArgs']:
+        return pulumi.get(self, "source_entity")
+
+    @source_entity.setter
+    def source_entity(self, value: pulumi.Input['AnalysisSourceEntityArgs']):
+        pulumi.set(self, "source_entity", value)
 
     @property
     @pulumi.getter
@@ -123,15 +131,6 @@ class AnalysisArgs:
     @permissions.setter
     def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisResourcePermissionArgs']]]]):
         pulumi.set(self, "permissions", value)
-
-    @property
-    @pulumi.getter(name="sourceEntity")
-    def source_entity(self) -> Optional[pulumi.Input['AnalysisSourceEntityArgs']]:
-        return pulumi.get(self, "source_entity")
-
-    @source_entity.setter
-    def source_entity(self, value: Optional[pulumi.Input['AnalysisSourceEntityArgs']]):
-        pulumi.set(self, "source_entity", value)
 
     @property
     @pulumi.getter
@@ -246,6 +245,8 @@ class Analysis(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["permissions"] = permissions
+            if source_entity is None and not opts.urn:
+                raise TypeError("Missing required property 'source_entity'")
             __props__.__dict__["source_entity"] = source_entity
             __props__.__dict__["tags"] = tags
             __props__.__dict__["theme_arn"] = theme_arn
@@ -380,7 +381,7 @@ class Analysis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceEntity")
-    def source_entity(self) -> pulumi.Output[Optional['outputs.AnalysisSourceEntity']]:
+    def source_entity(self) -> pulumi.Output['outputs.AnalysisSourceEntity']:
         return pulumi.get(self, "source_entity")
 
     @property

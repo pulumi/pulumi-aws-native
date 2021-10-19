@@ -2,6 +2,7 @@
   "typeName" : "AWS::MemoryDB::Cluster",
   "description" : "The AWS::MemoryDB::Cluster resource creates an Amazon MemoryDB Cluster.",
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-memorydb",
+  "taggable" : true,
   "definitions" : {
     "Endpoint" : {
       "type" : "object",
@@ -170,7 +171,7 @@
   },
   "additionalProperties" : false,
   "readOnlyProperties" : [ "/properties/Status", "/properties/ClusterEndpoint/Address", "/properties/ClusterEndpoint/Port", "/properties/ARN", "/properties/ParameterGroupStatus" ],
-  "required" : [ "ClusterName" ],
+  "required" : [ "ClusterName", "NodeType", "ACLName" ],
   "createOnlyProperties" : [ "/properties/ClusterName", "/properties/TLSEnabled", "/properties/KmsKeyId", "/properties/Port", "/properties/SnapshotArns", "/properties/SnapshotName" ],
   "primaryIdentifier" : [ "/properties/ClusterName" ],
   "handlers" : {

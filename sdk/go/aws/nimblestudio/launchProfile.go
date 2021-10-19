@@ -11,19 +11,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::NimbleStudio::LaunchProfile
+// Represents a launch profile which delegates access to a collection of studio components to studio users
 type LaunchProfile struct {
 	pulumi.CustomResourceState
 
-	Description                   pulumi.StringPtrOutput                 `pulumi:"description"`
-	Ec2SubnetIds                  pulumi.StringArrayOutput               `pulumi:"ec2SubnetIds"`
-	LaunchProfileId               pulumi.StringOutput                    `pulumi:"launchProfileId"`
-	LaunchProfileProtocolVersions pulumi.StringArrayOutput               `pulumi:"launchProfileProtocolVersions"`
-	Name                          pulumi.StringOutput                    `pulumi:"name"`
-	StreamConfiguration           LaunchProfileStreamConfigurationOutput `pulumi:"streamConfiguration"`
-	StudioComponentIds            pulumi.StringArrayOutput               `pulumi:"studioComponentIds"`
-	StudioId                      pulumi.StringOutput                    `pulumi:"studioId"`
-	Tags                          pulumi.AnyOutput                       `pulumi:"tags"`
+	// <p>The description.</p>
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from. These subnets must support the specified instance types. </p>
+	Ec2SubnetIds    pulumi.StringArrayOutput `pulumi:"ec2SubnetIds"`
+	LaunchProfileId pulumi.StringOutput      `pulumi:"launchProfileId"`
+	// <p>The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".</p>
+	LaunchProfileProtocolVersions pulumi.StringArrayOutput `pulumi:"launchProfileProtocolVersions"`
+	// <p>The name for the launch profile.</p>
+	Name                pulumi.StringOutput                    `pulumi:"name"`
+	StreamConfiguration LaunchProfileStreamConfigurationOutput `pulumi:"streamConfiguration"`
+	// <p>Unique identifiers for a collection of studio components that can be used with this launch profile.</p>
+	StudioComponentIds pulumi.StringArrayOutput `pulumi:"studioComponentIds"`
+	// <p>The studioId. </p>
+	StudioId pulumi.StringOutput        `pulumi:"studioId"`
+	Tags     LaunchProfileTagsPtrOutput `pulumi:"tags"`
 }
 
 // NewLaunchProfile registers a new resource with the given unique name, arguments, and options.
@@ -83,26 +89,38 @@ func (LaunchProfileState) ElementType() reflect.Type {
 }
 
 type launchProfileArgs struct {
-	Description                   *string                          `pulumi:"description"`
-	Ec2SubnetIds                  []string                         `pulumi:"ec2SubnetIds"`
-	LaunchProfileProtocolVersions []string                         `pulumi:"launchProfileProtocolVersions"`
-	Name                          string                           `pulumi:"name"`
-	StreamConfiguration           LaunchProfileStreamConfiguration `pulumi:"streamConfiguration"`
-	StudioComponentIds            []string                         `pulumi:"studioComponentIds"`
-	StudioId                      string                           `pulumi:"studioId"`
-	Tags                          interface{}                      `pulumi:"tags"`
+	// <p>The description.</p>
+	Description *string `pulumi:"description"`
+	// <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from. These subnets must support the specified instance types. </p>
+	Ec2SubnetIds []string `pulumi:"ec2SubnetIds"`
+	// <p>The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".</p>
+	LaunchProfileProtocolVersions []string `pulumi:"launchProfileProtocolVersions"`
+	// <p>The name for the launch profile.</p>
+	Name                string                           `pulumi:"name"`
+	StreamConfiguration LaunchProfileStreamConfiguration `pulumi:"streamConfiguration"`
+	// <p>Unique identifiers for a collection of studio components that can be used with this launch profile.</p>
+	StudioComponentIds []string `pulumi:"studioComponentIds"`
+	// <p>The studioId. </p>
+	StudioId string             `pulumi:"studioId"`
+	Tags     *LaunchProfileTags `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LaunchProfile resource.
 type LaunchProfileArgs struct {
-	Description                   pulumi.StringPtrInput
-	Ec2SubnetIds                  pulumi.StringArrayInput
+	// <p>The description.</p>
+	Description pulumi.StringPtrInput
+	// <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from. These subnets must support the specified instance types. </p>
+	Ec2SubnetIds pulumi.StringArrayInput
+	// <p>The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".</p>
 	LaunchProfileProtocolVersions pulumi.StringArrayInput
-	Name                          pulumi.StringInput
-	StreamConfiguration           LaunchProfileStreamConfigurationInput
-	StudioComponentIds            pulumi.StringArrayInput
-	StudioId                      pulumi.StringInput
-	Tags                          pulumi.Input
+	// <p>The name for the launch profile.</p>
+	Name                pulumi.StringInput
+	StreamConfiguration LaunchProfileStreamConfigurationInput
+	// <p>Unique identifiers for a collection of studio components that can be used with this launch profile.</p>
+	StudioComponentIds pulumi.StringArrayInput
+	// <p>The studioId. </p>
+	StudioId pulumi.StringInput
+	Tags     LaunchProfileTagsPtrInput
 }
 
 func (LaunchProfileArgs) ElementType() reflect.Type {

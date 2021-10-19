@@ -11,31 +11,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents an authorization layer for methods. If enabled on a method, API Gateway will activate the authorizer when a client calls the method.
+// Resource Type definition for AWS::ApiGateway::Authorizer
+//
+// Deprecated: Authorizer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Authorizer struct {
 	pulumi.CustomResourceState
 
-	// Optional customer-defined field, used in OpenAPI imports and exports without functional impact.
-	AuthType pulumi.StringPtrOutput `pulumi:"authType"`
-	// Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer.
-	AuthorizerCredentials pulumi.StringPtrOutput `pulumi:"authorizerCredentials"`
-	AuthorizerId          pulumi.StringOutput    `pulumi:"authorizerId"`
-	// The TTL in seconds of cached authorizer results.
-	AuthorizerResultTtlInSeconds pulumi.IntPtrOutput `pulumi:"authorizerResultTtlInSeconds"`
-	// Specifies the authorizer's Uniform Resource Identifier (URI).
-	AuthorizerUri pulumi.StringPtrOutput `pulumi:"authorizerUri"`
-	// The identity source for which authorization is requested.
-	IdentitySource pulumi.StringPtrOutput `pulumi:"identitySource"`
-	// A validation expression for the incoming identity token.
-	IdentityValidationExpression pulumi.StringPtrOutput `pulumi:"identityValidationExpression"`
-	// The name of the authorizer.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.
-	ProviderARNs pulumi.StringArrayOutput `pulumi:"providerARNs"`
-	// The identifier of the API.
-	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
-	// The authorizer type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AuthType                     pulumi.StringPtrOutput   `pulumi:"authType"`
+	AuthorizerCredentials        pulumi.StringPtrOutput   `pulumi:"authorizerCredentials"`
+	AuthorizerResultTtlInSeconds pulumi.IntPtrOutput      `pulumi:"authorizerResultTtlInSeconds"`
+	AuthorizerUri                pulumi.StringPtrOutput   `pulumi:"authorizerUri"`
+	IdentitySource               pulumi.StringPtrOutput   `pulumi:"identitySource"`
+	IdentityValidationExpression pulumi.StringPtrOutput   `pulumi:"identityValidationExpression"`
+	Name                         pulumi.StringPtrOutput   `pulumi:"name"`
+	ProviderARNs                 pulumi.StringArrayOutput `pulumi:"providerARNs"`
+	RestApiId                    pulumi.StringOutput      `pulumi:"restApiId"`
+	Type                         pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewAuthorizer registers a new resource with the given unique name, arguments, and options.
@@ -45,9 +36,6 @@ func NewAuthorizer(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.RestApiId == nil {
 		return nil, errors.New("invalid value for required argument 'RestApiId'")
 	}
@@ -86,50 +74,30 @@ func (AuthorizerState) ElementType() reflect.Type {
 }
 
 type authorizerArgs struct {
-	// Optional customer-defined field, used in OpenAPI imports and exports without functional impact.
-	AuthType *string `pulumi:"authType"`
-	// Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer.
-	AuthorizerCredentials *string `pulumi:"authorizerCredentials"`
-	// The TTL in seconds of cached authorizer results.
-	AuthorizerResultTtlInSeconds *int `pulumi:"authorizerResultTtlInSeconds"`
-	// Specifies the authorizer's Uniform Resource Identifier (URI).
-	AuthorizerUri *string `pulumi:"authorizerUri"`
-	// The identity source for which authorization is requested.
-	IdentitySource *string `pulumi:"identitySource"`
-	// A validation expression for the incoming identity token.
-	IdentityValidationExpression *string `pulumi:"identityValidationExpression"`
-	// The name of the authorizer.
-	Name string `pulumi:"name"`
-	// A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.
-	ProviderARNs []string `pulumi:"providerARNs"`
-	// The identifier of the API.
-	RestApiId string `pulumi:"restApiId"`
-	// The authorizer type.
-	Type string `pulumi:"type"`
+	AuthType                     *string  `pulumi:"authType"`
+	AuthorizerCredentials        *string  `pulumi:"authorizerCredentials"`
+	AuthorizerResultTtlInSeconds *int     `pulumi:"authorizerResultTtlInSeconds"`
+	AuthorizerUri                *string  `pulumi:"authorizerUri"`
+	IdentitySource               *string  `pulumi:"identitySource"`
+	IdentityValidationExpression *string  `pulumi:"identityValidationExpression"`
+	Name                         *string  `pulumi:"name"`
+	ProviderARNs                 []string `pulumi:"providerARNs"`
+	RestApiId                    string   `pulumi:"restApiId"`
+	Type                         string   `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Authorizer resource.
 type AuthorizerArgs struct {
-	// Optional customer-defined field, used in OpenAPI imports and exports without functional impact.
-	AuthType pulumi.StringPtrInput
-	// Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer.
-	AuthorizerCredentials pulumi.StringPtrInput
-	// The TTL in seconds of cached authorizer results.
+	AuthType                     pulumi.StringPtrInput
+	AuthorizerCredentials        pulumi.StringPtrInput
 	AuthorizerResultTtlInSeconds pulumi.IntPtrInput
-	// Specifies the authorizer's Uniform Resource Identifier (URI).
-	AuthorizerUri pulumi.StringPtrInput
-	// The identity source for which authorization is requested.
-	IdentitySource pulumi.StringPtrInput
-	// A validation expression for the incoming identity token.
+	AuthorizerUri                pulumi.StringPtrInput
+	IdentitySource               pulumi.StringPtrInput
 	IdentityValidationExpression pulumi.StringPtrInput
-	// The name of the authorizer.
-	Name pulumi.StringInput
-	// A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.
-	ProviderARNs pulumi.StringArrayInput
-	// The identifier of the API.
-	RestApiId pulumi.StringInput
-	// The authorizer type.
-	Type pulumi.StringInput
+	Name                         pulumi.StringPtrInput
+	ProviderARNs                 pulumi.StringArrayInput
+	RestApiId                    pulumi.StringInput
+	Type                         pulumi.StringInput
 }
 
 func (AuthorizerArgs) ElementType() reflect.Type {

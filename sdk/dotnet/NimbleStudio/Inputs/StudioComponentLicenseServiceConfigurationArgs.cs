@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio.Inputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The configuration for a license service that is associated with a studio resource.&lt;/p&gt;
+    /// </summary>
     public sealed class StudioComponentLicenseServiceConfigurationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// &lt;p&gt;The endpoint of the license service that is accessed by the studio component resource.&lt;/p&gt;
+        /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 

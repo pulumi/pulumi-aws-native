@@ -10,13 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio.Inputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;Configuration of the encryption method that is used for the studio.&lt;/p&gt;
+    /// </summary>
     public sealed class StudioEncryptionConfigurationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// &lt;p&gt;The ARN for a KMS key that is used to encrypt studio data.&lt;/p&gt;
+        /// </summary>
         [Input("keyArn")]
         public Input<string>? KeyArn { get; set; }
 
         [Input("keyType", required: true)]
-        public Input<string> KeyType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.NimbleStudio.StudioEncryptionConfigurationKeyType> KeyType { get; set; } = null!;
 
         public StudioEncryptionConfigurationArgs()
         {

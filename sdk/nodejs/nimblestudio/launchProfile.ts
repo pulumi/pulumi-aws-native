@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::NimbleStudio::LaunchProfile
+ * Represents a launch profile which delegates access to a collection of studio components to studio users
  */
 export class LaunchProfile extends pulumi.CustomResource {
     /**
@@ -35,15 +35,33 @@ export class LaunchProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === LaunchProfile.__pulumiType;
     }
 
+    /**
+     * <p>The description.</p>
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from. These subnets must support the specified instance types. </p>
+     */
     public readonly ec2SubnetIds!: pulumi.Output<string[]>;
     public /*out*/ readonly launchProfileId!: pulumi.Output<string>;
+    /**
+     * <p>The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".</p>
+     */
     public readonly launchProfileProtocolVersions!: pulumi.Output<string[]>;
+    /**
+     * <p>The name for the launch profile.</p>
+     */
     public readonly name!: pulumi.Output<string>;
     public readonly streamConfiguration!: pulumi.Output<outputs.nimblestudio.LaunchProfileStreamConfiguration>;
+    /**
+     * <p>Unique identifiers for a collection of studio components that can be used with this launch profile.</p>
+     */
     public readonly studioComponentIds!: pulumi.Output<string[]>;
+    /**
+     * <p>The studioId. </p>
+     */
     public readonly studioId!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<any | undefined>;
+    public readonly tags!: pulumi.Output<outputs.nimblestudio.LaunchProfileTags | undefined>;
 
     /**
      * Create a LaunchProfile resource with the given unique name, arguments, and options.
@@ -105,12 +123,30 @@ export class LaunchProfile extends pulumi.CustomResource {
  * The set of arguments for constructing a LaunchProfile resource.
  */
 export interface LaunchProfileArgs {
+    /**
+     * <p>The description.</p>
+     */
     description?: pulumi.Input<string>;
+    /**
+     * <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from. These subnets must support the specified instance types. </p>
+     */
     ec2SubnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * <p>The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".</p>
+     */
     launchProfileProtocolVersions: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * <p>The name for the launch profile.</p>
+     */
     name: pulumi.Input<string>;
     streamConfiguration: pulumi.Input<inputs.nimblestudio.LaunchProfileStreamConfigurationArgs>;
+    /**
+     * <p>Unique identifiers for a collection of studio components that can be used with this launch profile.</p>
+     */
     studioComponentIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * <p>The studioId. </p>
+     */
     studioId: pulumi.Input<string>;
-    tags?: any;
+    tags?: pulumi.Input<inputs.nimblestudio.LaunchProfileTagsArgs>;
 }

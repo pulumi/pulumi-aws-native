@@ -4643,6 +4643,7 @@ export namespace codebuild {
     }
 
     export interface ProjectBuildBatchConfig {
+        batchReportMode?: string;
         combineArtifacts?: boolean;
         restrictions?: outputs.codebuild.ProjectBatchRestrictions;
         serviceRole?: string;
@@ -7212,6 +7213,72 @@ export namespace detective {
          * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. Valid characters are Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @ 
          */
         value?: string;
+    }
+
+}
+
+export namespace devicefarm {
+    /**
+     * Represents a condition for a device pool.
+     */
+    export interface DevicePoolRule {
+        /**
+         * The rule's stringified attribute.
+         */
+        attribute?: enums.devicefarm.DevicePoolRuleAttribute;
+        /**
+         * Specifies how Device Farm compares the rule's attribute to the value.
+         */
+        operator?: enums.devicefarm.DevicePoolRuleOperator;
+        /**
+         * The rule's value.
+         */
+        value?: string;
+    }
+
+    export interface DevicePoolTag {
+        key: string;
+        value: string;
+    }
+
+    export interface InstanceProfileTag {
+        key: string;
+        value: string;
+    }
+
+    export interface NetworkProfileTag {
+        key: string;
+        value: string;
+    }
+
+    export interface ProjectTag {
+        key: string;
+        value: string;
+    }
+
+    export interface TestGridProjectTag {
+        key: string;
+        value: string;
+    }
+
+    /**
+     * The VPC security groups and subnets that are attached to a TestGrid project.
+     */
+    export interface TestGridProjectVpcConfig {
+        /**
+         * A list of VPC security group IDs in your Amazon VPC.
+         */
+        securityGroupIds: string[];
+        /**
+         * A list of VPC subnet IDs in your Amazon VPC.
+         */
+        subnetIds: string[];
+        vpcId: string;
+    }
+
+    export interface VPCEConfigurationTag {
+        key: string;
+        value: string;
     }
 
 }
@@ -19210,34 +19277,91 @@ export namespace networkmanager {
 }
 
 export namespace nimblestudio {
+    /**
+     * <p>A configuration for a streaming session.</p>
+     */
     export interface LaunchProfileStreamConfiguration {
-        clipboardMode: string;
-        ec2InstanceTypes: string[];
+        clipboardMode: enums.nimblestudio.LaunchProfileStreamingClipboardMode;
+        /**
+         * <p>The EC2 instance types that users can select from when launching a streaming session with this launch profile.</p>
+         */
+        ec2InstanceTypes: enums.nimblestudio.LaunchProfileStreamingInstanceType[];
+        /**
+         * <p>The length of time, in minutes, that a streaming session can run. After this point, Nimble Studio automatically terminates the session.</p>
+         */
         maxSessionLengthInMinutes?: number;
+        /**
+         * <p>The streaming images that users can select from when launching a streaming session with this launch profile.</p>
+         */
         streamingImageIds: string[];
     }
 
-    export interface StreamingImageEncryptionConfiguration {
-        keyArn?: string;
-        keyType: string;
+    export interface LaunchProfileTags {
     }
 
+    /**
+     * <p>TODO</p>
+     */
+    export interface StreamingImageEncryptionConfiguration {
+        /**
+         * <p>The ARN for a KMS key that is used to encrypt studio data.</p>
+         */
+        keyArn?: string;
+        keyType: enums.nimblestudio.StreamingImageEncryptionConfigurationKeyType;
+    }
+
+    export interface StreamingImageTags {
+    }
+
+    /**
+     * <p>An LDAP attribute of an Active Directory computer account, in the form of a name:value pair.</p>
+     */
     export interface StudioComponentActiveDirectoryComputerAttribute {
+        /**
+         * <p>The name for the LDAP attribute.</p>
+         */
         name?: string;
+        /**
+         * <p>The value for the LDAP attribute.</p>
+         */
         value?: string;
     }
 
+    /**
+     * <p>The configuration for a Microsoft Active Directory (Microsoft AD) studio resource.</p>
+     */
     export interface StudioComponentActiveDirectoryConfiguration {
+        /**
+         * <p>A collection of custom attributes for an Active Directory computer.</p>
+         */
         computerAttributes?: outputs.nimblestudio.StudioComponentActiveDirectoryComputerAttribute[];
+        /**
+         * <p>The directory ID of the Directory Service for Microsoft Active Directory to access using this studio component.</p>
+         */
         directoryId?: string;
+        /**
+         * <p>The distinguished name (DN) and organizational unit (OU) of an Active Directory computer.</p>
+         */
         organizationalUnitDistinguishedName?: string;
     }
 
+    /**
+     * <p>The configuration for a render farm that is associated with a studio resource.</p>
+     */
     export interface StudioComponentComputeFarmConfiguration {
+        /**
+         * <p>The name of an Active Directory user that is used on ComputeFarm worker instances.</p>
+         */
         activeDirectoryUser?: string;
+        /**
+         * <p>The endpoint of the ComputeFarm that is accessed by the studio component resource.</p>
+         */
         endpoint?: string;
     }
 
+    /**
+     * <p>The configuration of the studio component, based on component type.</p>
+     */
     export interface StudioComponentConfiguration {
         activeDirectoryConfiguration?: outputs.nimblestudio.StudioComponentActiveDirectoryConfiguration;
         computeFarmConfiguration?: outputs.nimblestudio.StudioComponentComputeFarmConfiguration;
@@ -19245,33 +19369,87 @@ export namespace nimblestudio {
         sharedFileSystemConfiguration?: outputs.nimblestudio.StudioComponentSharedFileSystemConfiguration;
     }
 
+    /**
+     * <p>Initialization scripts for studio components.</p>
+     */
     export interface StudioComponentInitializationScript {
+        /**
+         * <p>The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".</p>
+         */
         launchProfileProtocolVersion?: string;
-        platform?: string;
-        runContext?: string;
+        platform?: enums.nimblestudio.StudioComponentLaunchProfilePlatform;
+        runContext?: enums.nimblestudio.StudioComponentInitializationScriptRunContext;
+        /**
+         * <p>The initialization script.</p>
+         */
         script?: string;
     }
 
+    /**
+     * <p>The configuration for a license service that is associated with a studio resource.</p>
+     */
     export interface StudioComponentLicenseServiceConfiguration {
+        /**
+         * <p>The endpoint of the license service that is accessed by the studio component resource.</p>
+         */
         endpoint?: string;
     }
 
+    /**
+     * <p>A parameter for a studio component script, in the form of a key:value pair.</p>
+     */
     export interface StudioComponentScriptParameterKeyValue {
+        /**
+         * <p>A script parameter key.</p>
+         */
         key?: string;
+        /**
+         * <p>A script parameter value.</p>
+         */
         value?: string;
     }
 
+    /**
+     * <p>The configuration for a shared file storage system that is associated with a studio resource.</p>
+     */
     export interface StudioComponentSharedFileSystemConfiguration {
+        /**
+         * <p>The endpoint of the shared file system that is accessed by the studio component resource.</p>
+         */
         endpoint?: string;
+        /**
+         * <p>The unique identifier for a file system.</p>
+         */
         fileSystemId?: string;
+        /**
+         * <p>The mount location for a shared file system on a Linux virtual workstation.</p>
+         */
         linuxMountPoint?: string;
+        /**
+         * <p>The name of the file share.</p>
+         */
         shareName?: string;
+        /**
+         * <p>The mount location for a shared file system on a Windows virtual workstation.</p>
+         */
         windowsMountDrive?: string;
     }
 
+    export interface StudioComponentTags {
+    }
+
+    /**
+     * <p>Configuration of the encryption method that is used for the studio.</p>
+     */
     export interface StudioEncryptionConfiguration {
+        /**
+         * <p>The ARN for a KMS key that is used to encrypt studio data.</p>
+         */
         keyArn?: string;
-        keyType: string;
+        keyType: enums.nimblestudio.StudioEncryptionConfigurationKeyType;
+    }
+
+    export interface StudioTags {
     }
 
 }
@@ -21167,6 +21345,9 @@ export namespace quicksight {
         border?: outputs.quicksight.ThemeBorderStyle;
     }
 
+    /**
+     * <p>The typeface for the theme.</p>
+     */
     export interface ThemeTypography {
         fontFamilies?: outputs.quicksight.ThemeFont[];
     }
@@ -26575,6 +26756,49 @@ export namespace wafv2 {
         fieldToMatch: outputs.wafv2.WebACLFieldToMatch;
         textTransformations: outputs.wafv2.WebACLTextTransformation[];
     }
+}
+
+export namespace wisdom {
+    export interface AssistantAssociationAssociationData {
+        knowledgeBaseId: string;
+    }
+
+    export interface AssistantAssociationTag {
+        key: string;
+        value: string;
+    }
+
+    export interface AssistantServerSideEncryptionConfiguration {
+        kmsKeyId?: string;
+    }
+
+    export interface AssistantTag {
+        key: string;
+        value: string;
+    }
+
+    export interface KnowledgeBaseAppIntegrationsConfiguration {
+        appIntegrationArn: string;
+        objectFields: string[];
+    }
+
+    export interface KnowledgeBaseRenderingConfiguration {
+        templateUri?: string;
+    }
+
+    export interface KnowledgeBaseServerSideEncryptionConfiguration {
+        kmsKeyId?: string;
+    }
+
+    export interface KnowledgeBaseSourceConfiguration {
+        appIntegrations?: outputs.wisdom.KnowledgeBaseAppIntegrationsConfiguration;
+    }
+
+    export interface KnowledgeBaseTag {
+        key: string;
+        value: string;
+    }
+
 }
 
 export namespace workspaces {

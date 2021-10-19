@@ -10,20 +10,32 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio
 {
     /// <summary>
-    /// Resource schema for AWS::NimbleStudio::Studio.
+    /// Represents a studio that contains other Nimble Studio resources
     /// </summary>
     [AwsNativeResourceType("aws-native:nimblestudio:Studio")]
     public partial class Studio : Pulumi.CustomResource
     {
+        /// <summary>
+        /// &lt;p&gt;The IAM role that Studio Admins will assume when logging in to the Nimble Studio portal.&lt;/p&gt;
+        /// </summary>
         [Output("adminRoleArn")]
         public Output<string> AdminRoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;A friendly name for the studio.&lt;/p&gt;
+        /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The Amazon Web Services Region where the studio resource is located.&lt;/p&gt;
+        /// </summary>
         [Output("homeRegion")]
         public Output<string> HomeRegion { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The Amazon Web Services SSO application client ID used to integrate with Amazon Web Services SSO to enable Amazon Web Services SSO users to log in to Nimble Studio portal.&lt;/p&gt;
+        /// </summary>
         [Output("ssoClientId")]
         public Output<string> SsoClientId { get; private set; } = null!;
 
@@ -33,15 +45,24 @@ namespace Pulumi.AwsNative.NimbleStudio
         [Output("studioId")]
         public Output<string> StudioId { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.&lt;/p&gt;
+        /// </summary>
         [Output("studioName")]
         public Output<string> StudioName { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The address of the web page for the studio.&lt;/p&gt;
+        /// </summary>
         [Output("studioUrl")]
         public Output<string> StudioUrl { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<object?> Tags { get; private set; } = null!;
+        public Output<Outputs.StudioTags?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.&lt;/p&gt;
+        /// </summary>
         [Output("userRoleArn")]
         public Output<string> UserRoleArn { get; private set; } = null!;
 
@@ -90,21 +111,33 @@ namespace Pulumi.AwsNative.NimbleStudio
 
     public sealed class StudioArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// &lt;p&gt;The IAM role that Studio Admins will assume when logging in to the Nimble Studio portal.&lt;/p&gt;
+        /// </summary>
         [Input("adminRoleArn", required: true)]
         public Input<string> AdminRoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;A friendly name for the studio.&lt;/p&gt;
+        /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
         [Input("studioEncryptionConfiguration")]
         public Input<Inputs.StudioEncryptionConfigurationArgs>? StudioEncryptionConfiguration { get; set; }
 
+        /// <summary>
+        /// &lt;p&gt;The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.&lt;/p&gt;
+        /// </summary>
         [Input("studioName", required: true)]
         public Input<string> StudioName { get; set; } = null!;
 
         [Input("tags")]
-        public Input<object>? Tags { get; set; }
+        public Input<Inputs.StudioTagsArgs>? Tags { get; set; }
 
+        /// <summary>
+        /// &lt;p&gt;The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.&lt;/p&gt;
+        /// </summary>
         [Input("userRoleArn", required: true)]
         public Input<string> UserRoleArn { get; set; } = null!;
 

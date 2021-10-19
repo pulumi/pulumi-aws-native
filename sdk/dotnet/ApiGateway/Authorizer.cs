@@ -10,71 +10,39 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway
 {
     /// <summary>
-    /// Represents an authorization layer for methods. If enabled on a method, API Gateway will activate the authorizer when a client calls the method.
+    /// Resource Type definition for AWS::ApiGateway::Authorizer
     /// </summary>
+    [Obsolete(@"Authorizer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:apigateway:Authorizer")]
     public partial class Authorizer : Pulumi.CustomResource
     {
-        /// <summary>
-        /// Optional customer-defined field, used in OpenAPI imports and exports without functional impact.
-        /// </summary>
         [Output("authType")]
         public Output<string?> AuthType { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer.
-        /// </summary>
         [Output("authorizerCredentials")]
         public Output<string?> AuthorizerCredentials { get; private set; } = null!;
 
-        [Output("authorizerId")]
-        public Output<string> AuthorizerId { get; private set; } = null!;
-
-        /// <summary>
-        /// The TTL in seconds of cached authorizer results.
-        /// </summary>
         [Output("authorizerResultTtlInSeconds")]
         public Output<int?> AuthorizerResultTtlInSeconds { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the authorizer's Uniform Resource Identifier (URI).
-        /// </summary>
         [Output("authorizerUri")]
         public Output<string?> AuthorizerUri { get; private set; } = null!;
 
-        /// <summary>
-        /// The identity source for which authorization is requested.
-        /// </summary>
         [Output("identitySource")]
         public Output<string?> IdentitySource { get; private set; } = null!;
 
-        /// <summary>
-        /// A validation expression for the incoming identity token.
-        /// </summary>
         [Output("identityValidationExpression")]
         public Output<string?> IdentityValidationExpression { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the authorizer.
-        /// </summary>
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.
-        /// </summary>
         [Output("providerARNs")]
         public Output<ImmutableArray<string>> ProviderARNs { get; private set; } = null!;
 
-        /// <summary>
-        /// The identifier of the API.
-        /// </summary>
         [Output("restApiId")]
         public Output<string> RestApiId { get; private set; } = null!;
 
-        /// <summary>
-        /// The authorizer type.
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -123,69 +91,38 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class AuthorizerArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Optional customer-defined field, used in OpenAPI imports and exports without functional impact.
-        /// </summary>
         [Input("authType")]
         public Input<string>? AuthType { get; set; }
 
-        /// <summary>
-        /// Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer.
-        /// </summary>
         [Input("authorizerCredentials")]
         public Input<string>? AuthorizerCredentials { get; set; }
 
-        /// <summary>
-        /// The TTL in seconds of cached authorizer results.
-        /// </summary>
         [Input("authorizerResultTtlInSeconds")]
         public Input<int>? AuthorizerResultTtlInSeconds { get; set; }
 
-        /// <summary>
-        /// Specifies the authorizer's Uniform Resource Identifier (URI).
-        /// </summary>
         [Input("authorizerUri")]
         public Input<string>? AuthorizerUri { get; set; }
 
-        /// <summary>
-        /// The identity source for which authorization is requested.
-        /// </summary>
         [Input("identitySource")]
         public Input<string>? IdentitySource { get; set; }
 
-        /// <summary>
-        /// A validation expression for the incoming identity token.
-        /// </summary>
         [Input("identityValidationExpression")]
         public Input<string>? IdentityValidationExpression { get; set; }
 
-        /// <summary>
-        /// The name of the authorizer.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("providerARNs")]
         private InputList<string>? _providerARNs;
-
-        /// <summary>
-        /// A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.
-        /// </summary>
         public InputList<string> ProviderARNs
         {
             get => _providerARNs ?? (_providerARNs = new InputList<string>());
             set => _providerARNs = value;
         }
 
-        /// <summary>
-        /// The identifier of the API.
-        /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;
 
-        /// <summary>
-        /// The authorizer type.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

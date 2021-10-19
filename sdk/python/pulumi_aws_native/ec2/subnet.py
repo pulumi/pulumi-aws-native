@@ -114,12 +114,7 @@ class SubnetArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Subnet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Subnet(pulumi.CustomResource):
-    warnings.warn("""Subnet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -172,7 +167,6 @@ class Subnet(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetTagArgs']]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Subnet is deprecated: Subnet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -198,6 +192,7 @@ class Subnet(pulumi.CustomResource):
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["ipv6_cidr_blocks"] = None
             __props__.__dict__["network_acl_association_id"] = None
+            __props__.__dict__["subnet_id"] = None
         super(Subnet, __self__).__init__(
             'aws-native:ec2:Subnet',
             resource_name,
@@ -228,6 +223,7 @@ class Subnet(pulumi.CustomResource):
         __props__.__dict__["map_public_ip_on_launch"] = None
         __props__.__dict__["network_acl_association_id"] = None
         __props__.__dict__["outpost_arn"] = None
+        __props__.__dict__["subnet_id"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["vpc_id"] = None
         return Subnet(resource_name, opts=opts, __props__=__props__)
@@ -271,6 +267,11 @@ class Subnet(pulumi.CustomResource):
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "outpost_arn")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter

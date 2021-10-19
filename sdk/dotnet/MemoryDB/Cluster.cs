@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.MemoryDB
         /// The name of the Access Control List to associate with the cluster.
         /// </summary>
         [Output("aCLName")]
-        public Output<string?> ACLName { get; private set; } = null!;
+        public Output<string> ACLName { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the cluster.
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.MemoryDB
         /// The compute and memory capacity of the nodes in the cluster.
         /// </summary>
         [Output("nodeType")]
-        public Output<string?> NodeType { get; private set; } = null!;
+        public Output<string> NodeType { get; private set; } = null!;
 
         /// <summary>
         /// The number of replicas to apply to each shard. The limit is 5.
@@ -230,8 +230,8 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// The name of the Access Control List to associate with the cluster.
         /// </summary>
-        [Input("aCLName")]
-        public Input<string>? ACLName { get; set; }
+        [Input("aCLName", required: true)]
+        public Input<string> ACLName { get; set; } = null!;
 
         /// <summary>
         /// A flag that enables automatic minor version upgrade when set to true.
@@ -286,8 +286,8 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// The compute and memory capacity of the nodes in the cluster.
         /// </summary>
-        [Input("nodeType")]
-        public Input<string>? NodeType { get; set; }
+        [Input("nodeType", required: true)]
+        public Input<string> NodeType { get; set; } = null!;
 
         /// <summary>
         /// The number of replicas to apply to each shard. The limit is 5.

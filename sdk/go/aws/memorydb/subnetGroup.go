@@ -39,6 +39,9 @@ func NewSubnetGroup(ctx *pulumi.Context,
 	if args.SubnetGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetGroupName'")
 	}
+	if args.SubnetIds == nil {
+		return nil, errors.New("invalid value for required argument 'SubnetIds'")
+	}
 	var resource SubnetGroup
 	err := ctx.RegisterResource("aws-native:memorydb:SubnetGroup", name, args, &resource, opts...)
 	if err != nil {

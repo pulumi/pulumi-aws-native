@@ -56,7 +56,7 @@ export class Template extends pulumi.CustomResource {
      * <p>A list of resource permissions to be set on the template. </p>
      */
     public readonly permissions!: pulumi.Output<outputs.quicksight.TemplateResourcePermission[] | undefined>;
-    public readonly sourceEntity!: pulumi.Output<outputs.quicksight.TemplateSourceEntity | undefined>;
+    public readonly sourceEntity!: pulumi.Output<outputs.quicksight.TemplateSourceEntity>;
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
      */
@@ -84,6 +84,9 @@ export class Template extends pulumi.CustomResource {
         if (!opts.id) {
             if ((!args || args.awsAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'awsAccountId'");
+            }
+            if ((!args || args.sourceEntity === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'sourceEntity'");
             }
             if ((!args || args.templateId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'templateId'");
@@ -132,7 +135,7 @@ export interface TemplateArgs {
      * <p>A list of resource permissions to be set on the template. </p>
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateResourcePermissionArgs>[]>;
-    sourceEntity?: pulumi.Input<inputs.quicksight.TemplateSourceEntityArgs>;
+    sourceEntity: pulumi.Input<inputs.quicksight.TemplateSourceEntityArgs>;
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
      */

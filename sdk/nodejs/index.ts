@@ -75,6 +75,7 @@ import * as datapipeline from "./datapipeline";
 import * as datasync from "./datasync";
 import * as dax from "./dax";
 import * as detective from "./detective";
+import * as devicefarm from "./devicefarm";
 import * as devopsguru from "./devopsguru";
 import * as directoryservice from "./directoryservice";
 import * as dlm from "./dlm";
@@ -192,6 +193,7 @@ import * as types from "./types";
 import * as waf from "./waf";
 import * as wafregional from "./wafregional";
 import * as wafv2 from "./wafv2";
+import * as wisdom from "./wisdom";
 import * as workspaces from "./workspaces";
 import * as xray from "./xray";
 
@@ -250,6 +252,7 @@ export {
     datasync,
     dax,
     detective,
+    devicefarm,
     devopsguru,
     directoryservice,
     dlm,
@@ -367,6 +370,7 @@ export {
     waf,
     wafregional,
     wafv2,
+    wisdom,
     workspaces,
     xray,
 };

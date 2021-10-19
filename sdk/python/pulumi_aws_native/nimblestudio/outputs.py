@@ -8,10 +8,13 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'LaunchProfileStreamConfiguration',
+    'LaunchProfileTags',
     'StreamingImageEncryptionConfiguration',
+    'StreamingImageTags',
     'StudioComponentActiveDirectoryComputerAttribute',
     'StudioComponentActiveDirectoryConfiguration',
     'StudioComponentComputeFarmConfiguration',
@@ -20,11 +23,16 @@ __all__ = [
     'StudioComponentLicenseServiceConfiguration',
     'StudioComponentScriptParameterKeyValue',
     'StudioComponentSharedFileSystemConfiguration',
+    'StudioComponentTags',
     'StudioEncryptionConfiguration',
+    'StudioTags',
 ]
 
 @pulumi.output_type
 class LaunchProfileStreamConfiguration(dict):
+    """
+    <p>A configuration for a streaming session.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -49,10 +57,16 @@ class LaunchProfileStreamConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 clipboard_mode: str,
-                 ec2_instance_types: Sequence[str],
+                 clipboard_mode: 'LaunchProfileStreamingClipboardMode',
+                 ec2_instance_types: Sequence['LaunchProfileStreamingInstanceType'],
                  streaming_image_ids: Sequence[str],
                  max_session_length_in_minutes: Optional[float] = None):
+        """
+        <p>A configuration for a streaming session.</p>
+        :param Sequence['LaunchProfileStreamingInstanceType'] ec2_instance_types: <p>The EC2 instance types that users can select from when launching a streaming session with this launch profile.</p>
+        :param Sequence[str] streaming_image_ids: <p>The streaming images that users can select from when launching a streaming session with this launch profile.</p>
+        :param float max_session_length_in_minutes: <p>The length of time, in minutes, that a streaming session can run. After this point, Nimble Studio automatically terminates the session.</p>
+        """
         pulumi.set(__self__, "clipboard_mode", clipboard_mode)
         pulumi.set(__self__, "ec2_instance_types", ec2_instance_types)
         pulumi.set(__self__, "streaming_image_ids", streaming_image_ids)
@@ -61,27 +75,45 @@ class LaunchProfileStreamConfiguration(dict):
 
     @property
     @pulumi.getter(name="clipboardMode")
-    def clipboard_mode(self) -> str:
+    def clipboard_mode(self) -> 'LaunchProfileStreamingClipboardMode':
         return pulumi.get(self, "clipboard_mode")
 
     @property
     @pulumi.getter(name="ec2InstanceTypes")
-    def ec2_instance_types(self) -> Sequence[str]:
+    def ec2_instance_types(self) -> Sequence['LaunchProfileStreamingInstanceType']:
+        """
+        <p>The EC2 instance types that users can select from when launching a streaming session with this launch profile.</p>
+        """
         return pulumi.get(self, "ec2_instance_types")
 
     @property
     @pulumi.getter(name="streamingImageIds")
     def streaming_image_ids(self) -> Sequence[str]:
+        """
+        <p>The streaming images that users can select from when launching a streaming session with this launch profile.</p>
+        """
         return pulumi.get(self, "streaming_image_ids")
 
     @property
     @pulumi.getter(name="maxSessionLengthInMinutes")
     def max_session_length_in_minutes(self) -> Optional[float]:
+        """
+        <p>The length of time, in minutes, that a streaming session can run. After this point, Nimble Studio automatically terminates the session.</p>
+        """
         return pulumi.get(self, "max_session_length_in_minutes")
 
 
 @pulumi.output_type
+class LaunchProfileTags(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
 class StreamingImageEncryptionConfiguration(dict):
+    """
+    <p>TODO</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -102,28 +134,49 @@ class StreamingImageEncryptionConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 key_type: str,
+                 key_type: 'StreamingImageEncryptionConfigurationKeyType',
                  key_arn: Optional[str] = None):
+        """
+        <p>TODO</p>
+        :param str key_arn: <p>The ARN for a KMS key that is used to encrypt studio data.</p>
+        """
         pulumi.set(__self__, "key_type", key_type)
         if key_arn is not None:
             pulumi.set(__self__, "key_arn", key_arn)
 
     @property
     @pulumi.getter(name="keyType")
-    def key_type(self) -> str:
+    def key_type(self) -> 'StreamingImageEncryptionConfigurationKeyType':
         return pulumi.get(self, "key_type")
 
     @property
     @pulumi.getter(name="keyArn")
     def key_arn(self) -> Optional[str]:
+        """
+        <p>The ARN for a KMS key that is used to encrypt studio data.</p>
+        """
         return pulumi.get(self, "key_arn")
 
 
 @pulumi.output_type
+class StreamingImageTags(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
 class StudioComponentActiveDirectoryComputerAttribute(dict):
+    """
+    <p>An LDAP attribute of an Active Directory computer account, in the form of a name:value pair.</p>
+    """
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  value: Optional[str] = None):
+        """
+        <p>An LDAP attribute of an Active Directory computer account, in the form of a name:value pair.</p>
+        :param str name: <p>The name for the LDAP attribute.</p>
+        :param str value: <p>The value for the LDAP attribute.</p>
+        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if value is not None:
@@ -132,16 +185,25 @@ class StudioComponentActiveDirectoryComputerAttribute(dict):
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        <p>The name for the LDAP attribute.</p>
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
+        """
+        <p>The value for the LDAP attribute.</p>
+        """
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class StudioComponentActiveDirectoryConfiguration(dict):
+    """
+    <p>The configuration for a Microsoft Active Directory (Microsoft AD) studio resource.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -167,6 +229,12 @@ class StudioComponentActiveDirectoryConfiguration(dict):
                  computer_attributes: Optional[Sequence['outputs.StudioComponentActiveDirectoryComputerAttribute']] = None,
                  directory_id: Optional[str] = None,
                  organizational_unit_distinguished_name: Optional[str] = None):
+        """
+        <p>The configuration for a Microsoft Active Directory (Microsoft AD) studio resource.</p>
+        :param Sequence['StudioComponentActiveDirectoryComputerAttribute'] computer_attributes: <p>A collection of custom attributes for an Active Directory computer.</p>
+        :param str directory_id: <p>The directory ID of the Directory Service for Microsoft Active Directory to access using this studio component.</p>
+        :param str organizational_unit_distinguished_name: <p>The distinguished name (DN) and organizational unit (OU) of an Active Directory computer.</p>
+        """
         if computer_attributes is not None:
             pulumi.set(__self__, "computer_attributes", computer_attributes)
         if directory_id is not None:
@@ -177,21 +245,33 @@ class StudioComponentActiveDirectoryConfiguration(dict):
     @property
     @pulumi.getter(name="computerAttributes")
     def computer_attributes(self) -> Optional[Sequence['outputs.StudioComponentActiveDirectoryComputerAttribute']]:
+        """
+        <p>A collection of custom attributes for an Active Directory computer.</p>
+        """
         return pulumi.get(self, "computer_attributes")
 
     @property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> Optional[str]:
+        """
+        <p>The directory ID of the Directory Service for Microsoft Active Directory to access using this studio component.</p>
+        """
         return pulumi.get(self, "directory_id")
 
     @property
     @pulumi.getter(name="organizationalUnitDistinguishedName")
     def organizational_unit_distinguished_name(self) -> Optional[str]:
+        """
+        <p>The distinguished name (DN) and organizational unit (OU) of an Active Directory computer.</p>
+        """
         return pulumi.get(self, "organizational_unit_distinguished_name")
 
 
 @pulumi.output_type
 class StudioComponentComputeFarmConfiguration(dict):
+    """
+    <p>The configuration for a render farm that is associated with a studio resource.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -212,6 +292,11 @@ class StudioComponentComputeFarmConfiguration(dict):
     def __init__(__self__, *,
                  active_directory_user: Optional[str] = None,
                  endpoint: Optional[str] = None):
+        """
+        <p>The configuration for a render farm that is associated with a studio resource.</p>
+        :param str active_directory_user: <p>The name of an Active Directory user that is used on ComputeFarm worker instances.</p>
+        :param str endpoint: <p>The endpoint of the ComputeFarm that is accessed by the studio component resource.</p>
+        """
         if active_directory_user is not None:
             pulumi.set(__self__, "active_directory_user", active_directory_user)
         if endpoint is not None:
@@ -220,16 +305,25 @@ class StudioComponentComputeFarmConfiguration(dict):
     @property
     @pulumi.getter(name="activeDirectoryUser")
     def active_directory_user(self) -> Optional[str]:
+        """
+        <p>The name of an Active Directory user that is used on ComputeFarm worker instances.</p>
+        """
         return pulumi.get(self, "active_directory_user")
 
     @property
     @pulumi.getter
     def endpoint(self) -> Optional[str]:
+        """
+        <p>The endpoint of the ComputeFarm that is accessed by the studio component resource.</p>
+        """
         return pulumi.get(self, "endpoint")
 
 
 @pulumi.output_type
 class StudioComponentConfiguration(dict):
+    """
+    <p>The configuration of the studio component, based on component type.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -258,6 +352,9 @@ class StudioComponentConfiguration(dict):
                  compute_farm_configuration: Optional['outputs.StudioComponentComputeFarmConfiguration'] = None,
                  license_service_configuration: Optional['outputs.StudioComponentLicenseServiceConfiguration'] = None,
                  shared_file_system_configuration: Optional['outputs.StudioComponentSharedFileSystemConfiguration'] = None):
+        """
+        <p>The configuration of the studio component, based on component type.</p>
+        """
         if active_directory_configuration is not None:
             pulumi.set(__self__, "active_directory_configuration", active_directory_configuration)
         if compute_farm_configuration is not None:
@@ -290,6 +387,9 @@ class StudioComponentConfiguration(dict):
 
 @pulumi.output_type
 class StudioComponentInitializationScript(dict):
+    """
+    <p>Initialization scripts for studio components.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -311,9 +411,14 @@ class StudioComponentInitializationScript(dict):
 
     def __init__(__self__, *,
                  launch_profile_protocol_version: Optional[str] = None,
-                 platform: Optional[str] = None,
-                 run_context: Optional[str] = None,
+                 platform: Optional['StudioComponentLaunchProfilePlatform'] = None,
+                 run_context: Optional['StudioComponentInitializationScriptRunContext'] = None,
                  script: Optional[str] = None):
+        """
+        <p>Initialization scripts for studio components.</p>
+        :param str launch_profile_protocol_version: <p>The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".</p>
+        :param str script: <p>The initialization script.</p>
+        """
         if launch_profile_protocol_version is not None:
             pulumi.set(__self__, "launch_profile_protocol_version", launch_profile_protocol_version)
         if platform is not None:
@@ -326,42 +431,66 @@ class StudioComponentInitializationScript(dict):
     @property
     @pulumi.getter(name="launchProfileProtocolVersion")
     def launch_profile_protocol_version(self) -> Optional[str]:
+        """
+        <p>The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".</p>
+        """
         return pulumi.get(self, "launch_profile_protocol_version")
 
     @property
     @pulumi.getter
-    def platform(self) -> Optional[str]:
+    def platform(self) -> Optional['StudioComponentLaunchProfilePlatform']:
         return pulumi.get(self, "platform")
 
     @property
     @pulumi.getter(name="runContext")
-    def run_context(self) -> Optional[str]:
+    def run_context(self) -> Optional['StudioComponentInitializationScriptRunContext']:
         return pulumi.get(self, "run_context")
 
     @property
     @pulumi.getter
     def script(self) -> Optional[str]:
+        """
+        <p>The initialization script.</p>
+        """
         return pulumi.get(self, "script")
 
 
 @pulumi.output_type
 class StudioComponentLicenseServiceConfiguration(dict):
+    """
+    <p>The configuration for a license service that is associated with a studio resource.</p>
+    """
     def __init__(__self__, *,
                  endpoint: Optional[str] = None):
+        """
+        <p>The configuration for a license service that is associated with a studio resource.</p>
+        :param str endpoint: <p>The endpoint of the license service that is accessed by the studio component resource.</p>
+        """
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
 
     @property
     @pulumi.getter
     def endpoint(self) -> Optional[str]:
+        """
+        <p>The endpoint of the license service that is accessed by the studio component resource.</p>
+        """
         return pulumi.get(self, "endpoint")
 
 
 @pulumi.output_type
 class StudioComponentScriptParameterKeyValue(dict):
+    """
+    <p>A parameter for a studio component script, in the form of a key:value pair.</p>
+    """
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
+        """
+        <p>A parameter for a studio component script, in the form of a key:value pair.</p>
+        :param str key: <p>A script parameter key.</p>
+        :param str value: <p>A script parameter value.</p>
+        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
@@ -370,16 +499,25 @@ class StudioComponentScriptParameterKeyValue(dict):
     @property
     @pulumi.getter
     def key(self) -> Optional[str]:
+        """
+        <p>A script parameter key.</p>
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
+        """
+        <p>A script parameter value.</p>
+        """
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class StudioComponentSharedFileSystemConfiguration(dict):
+    """
+    <p>The configuration for a shared file storage system that is associated with a studio resource.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -409,6 +547,14 @@ class StudioComponentSharedFileSystemConfiguration(dict):
                  linux_mount_point: Optional[str] = None,
                  share_name: Optional[str] = None,
                  windows_mount_drive: Optional[str] = None):
+        """
+        <p>The configuration for a shared file storage system that is associated with a studio resource.</p>
+        :param str endpoint: <p>The endpoint of the shared file system that is accessed by the studio component resource.</p>
+        :param str file_system_id: <p>The unique identifier for a file system.</p>
+        :param str linux_mount_point: <p>The mount location for a shared file system on a Linux virtual workstation.</p>
+        :param str share_name: <p>The name of the file share.</p>
+        :param str windows_mount_drive: <p>The mount location for a shared file system on a Windows virtual workstation.</p>
+        """
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
         if file_system_id is not None:
@@ -423,31 +569,55 @@ class StudioComponentSharedFileSystemConfiguration(dict):
     @property
     @pulumi.getter
     def endpoint(self) -> Optional[str]:
+        """
+        <p>The endpoint of the shared file system that is accessed by the studio component resource.</p>
+        """
         return pulumi.get(self, "endpoint")
 
     @property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> Optional[str]:
+        """
+        <p>The unique identifier for a file system.</p>
+        """
         return pulumi.get(self, "file_system_id")
 
     @property
     @pulumi.getter(name="linuxMountPoint")
     def linux_mount_point(self) -> Optional[str]:
+        """
+        <p>The mount location for a shared file system on a Linux virtual workstation.</p>
+        """
         return pulumi.get(self, "linux_mount_point")
 
     @property
     @pulumi.getter(name="shareName")
     def share_name(self) -> Optional[str]:
+        """
+        <p>The name of the file share.</p>
+        """
         return pulumi.get(self, "share_name")
 
     @property
     @pulumi.getter(name="windowsMountDrive")
     def windows_mount_drive(self) -> Optional[str]:
+        """
+        <p>The mount location for a shared file system on a Windows virtual workstation.</p>
+        """
         return pulumi.get(self, "windows_mount_drive")
 
 
 @pulumi.output_type
+class StudioComponentTags(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
 class StudioEncryptionConfiguration(dict):
+    """
+    <p>Configuration of the encryption method that is used for the studio.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -468,20 +638,33 @@ class StudioEncryptionConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 key_type: str,
+                 key_type: 'StudioEncryptionConfigurationKeyType',
                  key_arn: Optional[str] = None):
+        """
+        <p>Configuration of the encryption method that is used for the studio.</p>
+        :param str key_arn: <p>The ARN for a KMS key that is used to encrypt studio data.</p>
+        """
         pulumi.set(__self__, "key_type", key_type)
         if key_arn is not None:
             pulumi.set(__self__, "key_arn", key_arn)
 
     @property
     @pulumi.getter(name="keyType")
-    def key_type(self) -> str:
+    def key_type(self) -> 'StudioEncryptionConfigurationKeyType':
         return pulumi.get(self, "key_type")
 
     @property
     @pulumi.getter(name="keyArn")
     def key_arn(self) -> Optional[str]:
+        """
+        <p>The ARN for a KMS key that is used to encrypt studio data.</p>
+        """
         return pulumi.get(self, "key_arn")
+
+
+@pulumi.output_type
+class StudioTags(dict):
+    def __init__(__self__):
+        pass
 
 
