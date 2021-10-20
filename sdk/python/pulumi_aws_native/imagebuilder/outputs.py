@@ -31,6 +31,7 @@ __all__ = [
     'ImageRecipeInstanceBlockDeviceMapping',
     'ImageRecipeSystemsManagerAgent',
     'ImageTestsConfiguration',
+    'InfrastructureConfigurationInstanceMetadataOptions',
     'InfrastructureConfigurationLogging',
     'InfrastructureConfigurationS3Logs',
 ]
@@ -111,6 +112,7 @@ class ContainerRecipeEbsInstanceBlockDeviceSpecification(dict):
                  iops: Optional[int] = None,
                  kms_key_id: Optional[str] = None,
                  snapshot_id: Optional[str] = None,
+                 throughput: Optional[int] = None,
                  volume_size: Optional[int] = None,
                  volume_type: Optional['ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType'] = None):
         """
@@ -120,6 +122,7 @@ class ContainerRecipeEbsInstanceBlockDeviceSpecification(dict):
         :param int iops: Use to configure device IOPS.
         :param str kms_key_id: Use to configure the KMS key to use when encrypting the device.
         :param str snapshot_id: The snapshot that defines the device contents.
+        :param int throughput: For GP3 volumes only – The throughput in MiB/s that the volume supports.
         :param int volume_size: Use to override the device's volume size.
         :param 'ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType' volume_type: Use to override the device's volume type.
         """
@@ -133,6 +136,8 @@ class ContainerRecipeEbsInstanceBlockDeviceSpecification(dict):
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if snapshot_id is not None:
             pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
         if volume_size is not None:
             pulumi.set(__self__, "volume_size", volume_size)
         if volume_type is not None:
@@ -177,6 +182,14 @@ class ContainerRecipeEbsInstanceBlockDeviceSpecification(dict):
         The snapshot that defines the device contents.
         """
         return pulumi.get(self, "snapshot_id")
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[int]:
+        """
+        For GP3 volumes only – The throughput in MiB/s that the volume supports.
+        """
+        return pulumi.get(self, "throughput")
 
     @property
     @pulumi.getter(name="volumeSize")
@@ -1101,6 +1114,7 @@ class ImageRecipeEbsInstanceBlockDeviceSpecification(dict):
                  iops: Optional[int] = None,
                  kms_key_id: Optional[str] = None,
                  snapshot_id: Optional[str] = None,
+                 throughput: Optional[int] = None,
                  volume_size: Optional[int] = None,
                  volume_type: Optional['ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType'] = None):
         """
@@ -1110,6 +1124,7 @@ class ImageRecipeEbsInstanceBlockDeviceSpecification(dict):
         :param int iops: Use to configure device IOPS.
         :param str kms_key_id: Use to configure the KMS key to use when encrypting the device.
         :param str snapshot_id: The snapshot that defines the device contents.
+        :param int throughput: For GP3 volumes only – The throughput in MiB/s that the volume supports.
         :param int volume_size: Use to override the device's volume size.
         :param 'ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType' volume_type: Use to override the device's volume type.
         """
@@ -1123,6 +1138,8 @@ class ImageRecipeEbsInstanceBlockDeviceSpecification(dict):
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if snapshot_id is not None:
             pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
         if volume_size is not None:
             pulumi.set(__self__, "volume_size", volume_size)
         if volume_type is not None:
@@ -1167,6 +1184,14 @@ class ImageRecipeEbsInstanceBlockDeviceSpecification(dict):
         The snapshot that defines the device contents.
         """
         return pulumi.get(self, "snapshot_id")
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[int]:
+        """
+        For GP3 volumes only – The throughput in MiB/s that the volume supports.
+        """
+        return pulumi.get(self, "throughput")
 
     @property
     @pulumi.getter(name="volumeSize")
@@ -1357,6 +1382,60 @@ class ImageTestsConfiguration(dict):
         TimeoutMinutes
         """
         return pulumi.get(self, "timeout_minutes")
+
+
+@pulumi.output_type
+class InfrastructureConfigurationInstanceMetadataOptions(dict):
+    """
+    The instance metadata option settings for the infrastructure configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpPutResponseHopLimit":
+            suggest = "http_put_response_hop_limit"
+        elif key == "httpTokens":
+            suggest = "http_tokens"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InfrastructureConfigurationInstanceMetadataOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InfrastructureConfigurationInstanceMetadataOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InfrastructureConfigurationInstanceMetadataOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 http_put_response_hop_limit: Optional[int] = None,
+                 http_tokens: Optional['InfrastructureConfigurationInstanceMetadataOptionsHttpTokens'] = None):
+        """
+        The instance metadata option settings for the infrastructure configuration.
+        :param int http_put_response_hop_limit: Limit the number of hops that an instance metadata request can traverse to reach its destination.
+        :param 'InfrastructureConfigurationInstanceMetadataOptionsHttpTokens' http_tokens: Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows: 
+        """
+        if http_put_response_hop_limit is not None:
+            pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
+        if http_tokens is not None:
+            pulumi.set(__self__, "http_tokens", http_tokens)
+
+    @property
+    @pulumi.getter(name="httpPutResponseHopLimit")
+    def http_put_response_hop_limit(self) -> Optional[int]:
+        """
+        Limit the number of hops that an instance metadata request can traverse to reach its destination.
+        """
+        return pulumi.get(self, "http_put_response_hop_limit")
+
+    @property
+    @pulumi.getter(name="httpTokens")
+    def http_tokens(self) -> Optional['InfrastructureConfigurationInstanceMetadataOptionsHttpTokens']:
+        """
+        Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows: 
+        """
+        return pulumi.get(self, "http_tokens")
 
 
 @pulumi.output_type

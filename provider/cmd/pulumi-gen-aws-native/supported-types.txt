@@ -10,6 +10,7 @@ AWS::Amplify::Branch
 AWS::Amplify::Domain
 AWS::ApiGateway::Account
 AWS::ApiGateway::ApiKey
+AWS::ApiGateway::Authorizer
 AWS::ApiGateway::BasePathMapping
 AWS::ApiGateway::ClientCertificate
 AWS::ApiGateway::DocumentationVersion
@@ -111,6 +112,7 @@ AWS::EC2::EnclaveCertificateIamRoleAssociation
 AWS::EC2::FlowLog
 AWS::EC2::GatewayRouteTableAssociation
 AWS::EC2::Host
+AWS::EC2::InternetGateway
 AWS::EC2::LocalGatewayRoute
 AWS::EC2::LocalGatewayRouteTableVPCAssociation
 AWS::EC2::NetworkAcl

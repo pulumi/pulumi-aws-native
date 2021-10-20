@@ -15,6 +15,7 @@ __all__ = [
     'ImagePipelineSchedulePipelineExecutionStartCondition',
     'ImagePipelineStatus',
     'ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType',
+    'InfrastructureConfigurationInstanceMetadataOptionsHttpTokens',
 ]
 
 
@@ -103,3 +104,11 @@ class ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType(str, Enum):
     GP3 = "gp3"
     SC1 = "sc1"
     ST1 = "st1"
+
+
+class InfrastructureConfigurationInstanceMetadataOptionsHttpTokens(str, Enum):
+    """
+    Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows: 
+    """
+    REQUIRED = "required"
+    OPTIONAL = "optional"

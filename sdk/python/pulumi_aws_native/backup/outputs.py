@@ -15,8 +15,10 @@ __all__ = [
     'BackupPlanCopyActionResourceType',
     'BackupPlanLifecycleResourceType',
     'BackupPlanResourceType',
+    'BackupSelectionConditionParameter',
     'BackupSelectionConditionResourceType',
     'BackupSelectionResourceType',
+    'BackupSelectionResourceTypeConditionsProperties',
     'BackupVaultLockConfigurationType',
     'BackupVaultNotificationObjectType',
     'FrameworkControl',
@@ -298,6 +300,46 @@ class BackupPlanResourceType(dict):
 
 
 @pulumi.output_type
+class BackupSelectionConditionParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "conditionKey":
+            suggest = "condition_key"
+        elif key == "conditionValue":
+            suggest = "condition_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackupSelectionConditionParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackupSelectionConditionParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackupSelectionConditionParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 condition_key: Optional[str] = None,
+                 condition_value: Optional[str] = None):
+        if condition_key is not None:
+            pulumi.set(__self__, "condition_key", condition_key)
+        if condition_value is not None:
+            pulumi.set(__self__, "condition_value", condition_value)
+
+    @property
+    @pulumi.getter(name="conditionKey")
+    def condition_key(self) -> Optional[str]:
+        return pulumi.get(self, "condition_key")
+
+    @property
+    @pulumi.getter(name="conditionValue")
+    def condition_value(self) -> Optional[str]:
+        return pulumi.get(self, "condition_value")
+
+
+@pulumi.output_type
 class BackupSelectionConditionResourceType(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -355,6 +397,8 @@ class BackupSelectionResourceType(dict):
             suggest = "selection_name"
         elif key == "listOfTags":
             suggest = "list_of_tags"
+        elif key == "notResources":
+            suggest = "not_resources"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BackupSelectionResourceType. Access the value via the '{suggest}' property getter instead.")
@@ -370,12 +414,18 @@ class BackupSelectionResourceType(dict):
     def __init__(__self__, *,
                  iam_role_arn: str,
                  selection_name: str,
+                 conditions: Optional['outputs.BackupSelectionResourceTypeConditionsProperties'] = None,
                  list_of_tags: Optional[Sequence['outputs.BackupSelectionConditionResourceType']] = None,
+                 not_resources: Optional[Sequence[str]] = None,
                  resources: Optional[Sequence[str]] = None):
         pulumi.set(__self__, "iam_role_arn", iam_role_arn)
         pulumi.set(__self__, "selection_name", selection_name)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
         if list_of_tags is not None:
             pulumi.set(__self__, "list_of_tags", list_of_tags)
+        if not_resources is not None:
+            pulumi.set(__self__, "not_resources", not_resources)
         if resources is not None:
             pulumi.set(__self__, "resources", resources)
 
@@ -390,14 +440,84 @@ class BackupSelectionResourceType(dict):
         return pulumi.get(self, "selection_name")
 
     @property
+    @pulumi.getter
+    def conditions(self) -> Optional['outputs.BackupSelectionResourceTypeConditionsProperties']:
+        return pulumi.get(self, "conditions")
+
+    @property
     @pulumi.getter(name="listOfTags")
     def list_of_tags(self) -> Optional[Sequence['outputs.BackupSelectionConditionResourceType']]:
         return pulumi.get(self, "list_of_tags")
 
     @property
+    @pulumi.getter(name="notResources")
+    def not_resources(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "not_resources")
+
+    @property
     @pulumi.getter
     def resources(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "resources")
+
+
+@pulumi.output_type
+class BackupSelectionResourceTypeConditionsProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "stringEquals":
+            suggest = "string_equals"
+        elif key == "stringLike":
+            suggest = "string_like"
+        elif key == "stringNotEquals":
+            suggest = "string_not_equals"
+        elif key == "stringNotLike":
+            suggest = "string_not_like"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackupSelectionResourceTypeConditionsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackupSelectionResourceTypeConditionsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackupSelectionResourceTypeConditionsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 string_equals: Optional[Sequence['outputs.BackupSelectionConditionParameter']] = None,
+                 string_like: Optional[Sequence['outputs.BackupSelectionConditionParameter']] = None,
+                 string_not_equals: Optional[Sequence['outputs.BackupSelectionConditionParameter']] = None,
+                 string_not_like: Optional[Sequence['outputs.BackupSelectionConditionParameter']] = None):
+        if string_equals is not None:
+            pulumi.set(__self__, "string_equals", string_equals)
+        if string_like is not None:
+            pulumi.set(__self__, "string_like", string_like)
+        if string_not_equals is not None:
+            pulumi.set(__self__, "string_not_equals", string_not_equals)
+        if string_not_like is not None:
+            pulumi.set(__self__, "string_not_like", string_not_like)
+
+    @property
+    @pulumi.getter(name="stringEquals")
+    def string_equals(self) -> Optional[Sequence['outputs.BackupSelectionConditionParameter']]:
+        return pulumi.get(self, "string_equals")
+
+    @property
+    @pulumi.getter(name="stringLike")
+    def string_like(self) -> Optional[Sequence['outputs.BackupSelectionConditionParameter']]:
+        return pulumi.get(self, "string_like")
+
+    @property
+    @pulumi.getter(name="stringNotEquals")
+    def string_not_equals(self) -> Optional[Sequence['outputs.BackupSelectionConditionParameter']]:
+        return pulumi.get(self, "string_not_equals")
+
+    @property
+    @pulumi.getter(name="stringNotLike")
+    def string_not_like(self) -> Optional[Sequence['outputs.BackupSelectionConditionParameter']]:
+        return pulumi.get(self, "string_not_like")
 
 
 @pulumi.output_type
@@ -797,6 +917,8 @@ class ReportSettingProperties(dict):
         suggest = None
         if key == "reportTemplate":
             suggest = "report_template"
+        elif key == "frameworkArns":
+            suggest = "framework_arns"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ReportSettingProperties. Access the value via the '{suggest}' property getter instead.")
@@ -810,12 +932,16 @@ class ReportSettingProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 report_template: str):
+                 report_template: str,
+                 framework_arns: Optional[Sequence[str]] = None):
         """
         Identifies the report template for the report. Reports are built using a report template.
         :param str report_template: Identifies the report template for the report. Reports are built using a report template. The report templates are: `BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`
+        :param Sequence[str] framework_arns: The Amazon Resource Names (ARNs) of the frameworks a report covers.
         """
         pulumi.set(__self__, "report_template", report_template)
+        if framework_arns is not None:
+            pulumi.set(__self__, "framework_arns", framework_arns)
 
     @property
     @pulumi.getter(name="reportTemplate")
@@ -824,5 +950,13 @@ class ReportSettingProperties(dict):
         Identifies the report template for the report. Reports are built using a report template. The report templates are: `BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`
         """
         return pulumi.get(self, "report_template")
+
+    @property
+    @pulumi.getter(name="frameworkArns")
+    def framework_arns(self) -> Optional[Sequence[str]]:
+        """
+        The Amazon Resource Names (ARNs) of the frameworks a report covers.
+        """
+        return pulumi.get(self, "framework_arns")
 
 

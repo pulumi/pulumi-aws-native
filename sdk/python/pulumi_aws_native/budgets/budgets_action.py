@@ -22,8 +22,8 @@ class BudgetsActionArgs:
                  definition: pulumi.Input['BudgetsActionDefinitionArgs'],
                  execution_role_arn: pulumi.Input[str],
                  notification_type: pulumi.Input['BudgetsActionNotificationType'],
-                 approval_model: Optional[pulumi.Input['BudgetsActionApprovalModel']] = None,
-                 subscribers: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetsActionSubscriberArgs']]]] = None):
+                 subscribers: pulumi.Input[Sequence[pulumi.Input['BudgetsActionSubscriberArgs']]],
+                 approval_model: Optional[pulumi.Input['BudgetsActionApprovalModel']] = None):
         """
         The set of arguments for constructing a BudgetsAction resource.
         """
@@ -33,10 +33,9 @@ class BudgetsActionArgs:
         pulumi.set(__self__, "definition", definition)
         pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         pulumi.set(__self__, "notification_type", notification_type)
+        pulumi.set(__self__, "subscribers", subscribers)
         if approval_model is not None:
             pulumi.set(__self__, "approval_model", approval_model)
-        if subscribers is not None:
-            pulumi.set(__self__, "subscribers", subscribers)
 
     @property
     @pulumi.getter(name="actionThreshold")
@@ -93,6 +92,15 @@ class BudgetsActionArgs:
         pulumi.set(self, "notification_type", value)
 
     @property
+    @pulumi.getter
+    def subscribers(self) -> pulumi.Input[Sequence[pulumi.Input['BudgetsActionSubscriberArgs']]]:
+        return pulumi.get(self, "subscribers")
+
+    @subscribers.setter
+    def subscribers(self, value: pulumi.Input[Sequence[pulumi.Input['BudgetsActionSubscriberArgs']]]):
+        pulumi.set(self, "subscribers", value)
+
+    @property
     @pulumi.getter(name="approvalModel")
     def approval_model(self) -> Optional[pulumi.Input['BudgetsActionApprovalModel']]:
         return pulumi.get(self, "approval_model")
@@ -100,15 +108,6 @@ class BudgetsActionArgs:
     @approval_model.setter
     def approval_model(self, value: Optional[pulumi.Input['BudgetsActionApprovalModel']]):
         pulumi.set(self, "approval_model", value)
-
-    @property
-    @pulumi.getter
-    def subscribers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetsActionSubscriberArgs']]]]:
-        return pulumi.get(self, "subscribers")
-
-    @subscribers.setter
-    def subscribers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetsActionSubscriberArgs']]]]):
-        pulumi.set(self, "subscribers", value)
 
 
 class BudgetsAction(pulumi.CustomResource):
@@ -194,6 +193,8 @@ class BudgetsAction(pulumi.CustomResource):
             if notification_type is None and not opts.urn:
                 raise TypeError("Missing required property 'notification_type'")
             __props__.__dict__["notification_type"] = notification_type
+            if subscribers is None and not opts.urn:
+                raise TypeError("Missing required property 'subscribers'")
             __props__.__dict__["subscribers"] = subscribers
             __props__.__dict__["action_id"] = None
         super(BudgetsAction, __self__).__init__(
@@ -271,6 +272,6 @@ class BudgetsAction(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subscribers(self) -> pulumi.Output[Optional[Sequence['outputs.BudgetsActionSubscriber']]]:
+    def subscribers(self) -> pulumi.Output[Sequence['outputs.BudgetsActionSubscriber']]:
         return pulumi.get(self, "subscribers")
 

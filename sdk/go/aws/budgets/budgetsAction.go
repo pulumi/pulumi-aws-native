@@ -51,6 +51,9 @@ func NewBudgetsAction(ctx *pulumi.Context,
 	if args.NotificationType == nil {
 		return nil, errors.New("invalid value for required argument 'NotificationType'")
 	}
+	if args.Subscribers == nil {
+		return nil, errors.New("invalid value for required argument 'Subscribers'")
+	}
 	var resource BudgetsAction
 	err := ctx.RegisterResource("aws-native:budgets:BudgetsAction", name, args, &resource, opts...)
 	if err != nil {

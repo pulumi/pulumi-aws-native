@@ -43,7 +43,7 @@ export class BudgetsAction extends pulumi.CustomResource {
     public readonly definition!: pulumi.Output<outputs.budgets.BudgetsActionDefinition>;
     public readonly executionRoleArn!: pulumi.Output<string>;
     public readonly notificationType!: pulumi.Output<enums.budgets.BudgetsActionNotificationType>;
-    public readonly subscribers!: pulumi.Output<outputs.budgets.BudgetsActionSubscriber[] | undefined>;
+    public readonly subscribers!: pulumi.Output<outputs.budgets.BudgetsActionSubscriber[]>;
 
     /**
      * Create a BudgetsAction resource with the given unique name, arguments, and options.
@@ -73,6 +73,9 @@ export class BudgetsAction extends pulumi.CustomResource {
             }
             if ((!args || args.notificationType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'notificationType'");
+            }
+            if ((!args || args.subscribers === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'subscribers'");
             }
             inputs["actionThreshold"] = args ? args.actionThreshold : undefined;
             inputs["actionType"] = args ? args.actionType : undefined;
@@ -112,5 +115,5 @@ export interface BudgetsActionArgs {
     definition: pulumi.Input<inputs.budgets.BudgetsActionDefinitionArgs>;
     executionRoleArn: pulumi.Input<string>;
     notificationType: pulumi.Input<enums.budgets.BudgetsActionNotificationType>;
-    subscribers?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetsActionSubscriberArgs>[]>;
+    subscribers: pulumi.Input<pulumi.Input<inputs.budgets.BudgetsActionSubscriberArgs>[]>;
 }

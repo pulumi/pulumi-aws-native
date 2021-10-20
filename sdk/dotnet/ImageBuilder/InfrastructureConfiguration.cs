@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The instance metadata option settings for the infrastructure configuration.
+        /// </summary>
+        [Output("instanceMetadataOptions")]
+        public Output<Outputs.InfrastructureConfigurationInstanceMetadataOptions?> InstanceMetadataOptions { get; private set; } = null!;
+
+        /// <summary>
         /// The instance profile of the infrastructure configuration.
         /// </summary>
         [Output("instanceProfileName")]
@@ -143,6 +149,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The instance metadata option settings for the infrastructure configuration.
+        /// </summary>
+        [Input("instanceMetadataOptions")]
+        public Input<Inputs.InfrastructureConfigurationInstanceMetadataOptionsArgs>? InstanceMetadataOptions { get; set; }
 
         /// <summary>
         /// The instance profile of the infrastructure configuration.

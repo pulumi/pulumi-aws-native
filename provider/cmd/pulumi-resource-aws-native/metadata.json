@@ -763,6 +763,110 @@
                 "value"
             ]
         },
+        "aws-native:apigateway:Authorizer": {
+            "cf": "AWS::ApiGateway::Authorizer",
+            "inputs": {
+                "authType": {
+                    "type": "string",
+                    "description": "Optional customer-defined field, used in OpenAPI imports and exports without functional impact."
+                },
+                "authorizerCredentials": {
+                    "type": "string",
+                    "description": "Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer."
+                },
+                "authorizerResultTtlInSeconds": {
+                    "type": "integer",
+                    "description": "The TTL in seconds of cached authorizer results."
+                },
+                "authorizerUri": {
+                    "type": "string",
+                    "description": "Specifies the authorizer's Uniform Resource Identifier (URI)."
+                },
+                "identitySource": {
+                    "type": "string",
+                    "description": "The identity source for which authorization is requested."
+                },
+                "identityValidationExpression": {
+                    "type": "string",
+                    "description": "A validation expression for the incoming identity token."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the authorizer."
+                },
+                "providerARNs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer."
+                },
+                "restApiId": {
+                    "type": "string",
+                    "description": "The identifier of the API."
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The authorizer type."
+                }
+            },
+            "outputs": {
+                "authType": {
+                    "type": "string",
+                    "description": "Optional customer-defined field, used in OpenAPI imports and exports without functional impact."
+                },
+                "authorizerCredentials": {
+                    "type": "string",
+                    "description": "Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer."
+                },
+                "authorizerId": {
+                    "type": "string"
+                },
+                "authorizerResultTtlInSeconds": {
+                    "type": "integer",
+                    "description": "The TTL in seconds of cached authorizer results."
+                },
+                "authorizerUri": {
+                    "type": "string",
+                    "description": "Specifies the authorizer's Uniform Resource Identifier (URI)."
+                },
+                "identitySource": {
+                    "type": "string",
+                    "description": "The identity source for which authorization is requested."
+                },
+                "identityValidationExpression": {
+                    "type": "string",
+                    "description": "A validation expression for the incoming identity token."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the authorizer."
+                },
+                "providerARNs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer."
+                },
+                "restApiId": {
+                    "type": "string",
+                    "description": "The identifier of the API."
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The authorizer type."
+                }
+            },
+            "required": [
+                "name",
+                "restApiId",
+                "type"
+            ],
+            "createOnly": [
+                "restApiId"
+            ]
+        },
         "aws-native:apigateway:BasePathMapping": {
             "cf": "AWS::ApiGateway::BasePathMapping",
             "inputs": {
@@ -2758,6 +2862,9 @@
         "aws-native:backup:BackupSelection": {
             "cf": "AWS::Backup::BackupSelection",
             "inputs": {
+                "backupPlanId": {
+                    "type": "string"
+                },
                 "backupSelection": {
                     "$ref": "#/types/aws-native:backup:BackupSelectionResourceType",
                     "language": {
@@ -2784,6 +2891,7 @@
                 }
             },
             "required": [
+                "backupPlanId",
                 "backupSelection"
             ],
             "createOnly": [
@@ -3050,7 +3158,8 @@
                 "budgetName",
                 "definition",
                 "executionRoleArn",
-                "notificationType"
+                "notificationType",
+                "subscribers"
             ],
             "createOnly": [
                 "actionType",
@@ -7816,6 +7925,25 @@
                 "availabilityZone",
                 "instanceType"
             ]
+        },
+        "aws-native:ec2:InternetGateway": {
+            "cf": "AWS::EC2::InternetGateway",
+            "inputs": {
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:InternetGatewayTag"
+                    }
+                }
+            },
+            "outputs": {
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:InternetGatewayTag"
+                    }
+                }
+            }
         },
         "aws-native:ec2:LocalGatewayRoute": {
             "cf": "AWS::EC2::LocalGatewayRoute",
@@ -13816,6 +13944,10 @@
                     "type": "string",
                     "description": "The description of the infrastructure configuration."
                 },
+                "instanceMetadataOptions": {
+                    "$ref": "#/types/aws-native:imagebuilder:InfrastructureConfigurationInstanceMetadataOptions",
+                    "description": "The instance metadata option settings for the infrastructure configuration."
+                },
                 "instanceProfileName": {
                     "type": "string",
                     "description": "The instance profile of the infrastructure configuration."
@@ -13875,6 +14007,10 @@
                 "description": {
                     "type": "string",
                     "description": "The description of the infrastructure configuration."
+                },
+                "instanceMetadataOptions": {
+                    "$ref": "#/types/aws-native:imagebuilder:InfrastructureConfigurationInstanceMetadataOptions",
+                    "description": "The instance metadata option settings for the infrastructure configuration."
                 },
                 "instanceProfileName": {
                     "type": "string",
@@ -31322,6 +31458,17 @@
                 }
             }
         },
+        "aws-native:backup:BackupSelectionConditionParameter": {
+            "type": "object",
+            "properties": {
+                "conditionKey": {
+                    "type": "string"
+                },
+                "conditionValue": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:backup:BackupSelectionConditionResourceType": {
             "type": "object",
             "properties": {
@@ -31339,6 +31486,9 @@
         "aws-native:backup:BackupSelectionResourceType": {
             "type": "object",
             "properties": {
+                "conditions": {
+                    "$ref": "#/types/aws-native:backup:BackupSelectionResourceTypeConditionsProperties"
+                },
                 "iamRoleArn": {
                     "type": "string"
                 },
@@ -31346,6 +31496,12 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:backup:BackupSelectionConditionResourceType"
+                    }
+                },
+                "notResources": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
                     }
                 },
                 "resources": {
@@ -31356,6 +31512,35 @@
                 },
                 "selectionName": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:backup:BackupSelectionResourceTypeConditionsProperties": {
+            "type": "object",
+            "properties": {
+                "stringEquals": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:backup:BackupSelectionConditionParameter"
+                    }
+                },
+                "stringLike": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:backup:BackupSelectionConditionParameter"
+                    }
+                },
+                "stringNotEquals": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:backup:BackupSelectionConditionParameter"
+                    }
+                },
+                "stringNotLike": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:backup:BackupSelectionConditionParameter"
+                    }
                 }
             }
         },
@@ -31493,6 +31678,13 @@
         "aws-native:backup:ReportSettingProperties": {
             "type": "object",
             "properties": {
+                "frameworkArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The Amazon Resource Names (ARNs) of the frameworks a report covers."
+                },
                 "reportTemplate": {
                     "type": "string",
                     "description": "Identifies the report template for the report. Reports are built using a report template. The report templates are: `BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`"
@@ -35323,6 +35515,17 @@
         },
         "aws-native:ec2:HostRecovery": {
             "type": "string"
+        },
+        "aws-native:ec2:InternetGatewayTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
         },
         "aws-native:ec2:LocalGatewayRouteTableVPCAssociationTag": {
             "type": "object",
@@ -39878,6 +40081,10 @@
                     "type": "string",
                     "description": "The snapshot that defines the device contents."
                 },
+                "throughput": {
+                    "type": "integer",
+                    "description": "For GP3 volumes only – The throughput in MiB/s that the volume supports."
+                },
                 "volumeSize": {
                     "type": "integer",
                     "description": "Use to override the device's volume size."
@@ -40182,6 +40389,10 @@
                     "type": "string",
                     "description": "The snapshot that defines the device contents."
                 },
+                "throughput": {
+                    "type": "integer",
+                    "description": "For GP3 volumes only – The throughput in MiB/s that the volume supports."
+                },
                 "volumeSize": {
                     "type": "integer",
                     "description": "Use to override the device's volume size."
@@ -40237,6 +40448,22 @@
                     "description": "TimeoutMinutes"
                 }
             }
+        },
+        "aws-native:imagebuilder:InfrastructureConfigurationInstanceMetadataOptions": {
+            "type": "object",
+            "properties": {
+                "httpPutResponseHopLimit": {
+                    "type": "integer",
+                    "description": "Limit the number of hops that an instance metadata request can traverse to reach its destination."
+                },
+                "httpTokens": {
+                    "$ref": "#/types/aws-native:imagebuilder:InfrastructureConfigurationInstanceMetadataOptionsHttpTokens",
+                    "description": "Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows: "
+                }
+            }
+        },
+        "aws-native:imagebuilder:InfrastructureConfigurationInstanceMetadataOptionsHttpTokens": {
+            "type": "string"
         },
         "aws-native:imagebuilder:InfrastructureConfigurationLogging": {
             "type": "object",

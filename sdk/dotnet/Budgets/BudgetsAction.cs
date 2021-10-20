@@ -108,7 +108,7 @@ namespace Pulumi.AwsNative.Budgets
         [Input("notificationType", required: true)]
         public Input<Pulumi.AwsNative.Budgets.BudgetsActionNotificationType> NotificationType { get; set; } = null!;
 
-        [Input("subscribers")]
+        [Input("subscribers", required: true)]
         private InputList<Inputs.BudgetsActionSubscriberArgs>? _subscribers;
         public InputList<Inputs.BudgetsActionSubscriberArgs> Subscribers
         {

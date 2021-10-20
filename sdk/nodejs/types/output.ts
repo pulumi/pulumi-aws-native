@@ -3558,6 +3558,11 @@ export namespace backup {
         backupPlanRule: outputs.backup.BackupPlanBackupRuleResourceType[];
     }
 
+    export interface BackupSelectionConditionParameter {
+        conditionKey?: string;
+        conditionValue?: string;
+    }
+
     export interface BackupSelectionConditionResourceType {
         conditionKey: string;
         conditionType: string;
@@ -3565,10 +3570,19 @@ export namespace backup {
     }
 
     export interface BackupSelectionResourceType {
+        conditions?: outputs.backup.BackupSelectionResourceTypeConditionsProperties;
         iamRoleArn: string;
         listOfTags?: outputs.backup.BackupSelectionConditionResourceType[];
+        notResources?: string[];
         resources?: string[];
         selectionName: string;
+    }
+
+    export interface BackupSelectionResourceTypeConditionsProperties {
+        stringEquals?: outputs.backup.BackupSelectionConditionParameter[];
+        stringLike?: outputs.backup.BackupSelectionConditionParameter[];
+        stringNotEquals?: outputs.backup.BackupSelectionConditionParameter[];
+        stringNotLike?: outputs.backup.BackupSelectionConditionParameter[];
     }
 
     export interface BackupVaultLockConfigurationType {
@@ -3670,6 +3684,10 @@ export namespace backup {
      * Identifies the report template for the report. Reports are built using a report template.
      */
     export interface ReportSettingProperties {
+        /**
+         * The Amazon Resource Names (ARNs) of the frameworks a report covers.
+         */
+        frameworkArns?: string[];
         /**
          * Identifies the report template for the report. Reports are built using a report template. The report templates are: `BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`
          */
@@ -12359,6 +12377,10 @@ export namespace imagebuilder {
          */
         snapshotId?: string;
         /**
+         * For GP3 volumes only – The throughput in MiB/s that the volume supports.
+         */
+        throughput?: number;
+        /**
          * Use to override the device's volume size.
          */
         volumeSize?: number;
@@ -12633,6 +12655,10 @@ export namespace imagebuilder {
          */
         snapshotId?: string;
         /**
+         * For GP3 volumes only – The throughput in MiB/s that the volume supports.
+         */
+        throughput?: number;
+        /**
          * Use to override the device's volume size.
          */
         volumeSize?: number;
@@ -12686,6 +12712,20 @@ export namespace imagebuilder {
          * TimeoutMinutes
          */
         timeoutMinutes?: number;
+    }
+
+    /**
+     * The instance metadata option settings for the infrastructure configuration.
+     */
+    export interface InfrastructureConfigurationInstanceMetadataOptions {
+        /**
+         * Limit the number of hops that an instance metadata request can traverse to reach its destination.
+         */
+        httpPutResponseHopLimit?: number;
+        /**
+         * Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows: 
+         */
+        httpTokens?: enums.imagebuilder.InfrastructureConfigurationInstanceMetadataOptionsHttpTokens;
     }
 
     /**

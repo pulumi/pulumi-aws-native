@@ -323,4 +323,35 @@ namespace Pulumi.AwsNative.ImageBuilder
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows: 
+    /// </summary>
+    [EnumType]
+    public readonly struct InfrastructureConfigurationInstanceMetadataOptionsHttpTokens : IEquatable<InfrastructureConfigurationInstanceMetadataOptionsHttpTokens>
+    {
+        private readonly string _value;
+
+        private InfrastructureConfigurationInstanceMetadataOptionsHttpTokens(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InfrastructureConfigurationInstanceMetadataOptionsHttpTokens Required { get; } = new InfrastructureConfigurationInstanceMetadataOptionsHttpTokens("required");
+        public static InfrastructureConfigurationInstanceMetadataOptionsHttpTokens Optional { get; } = new InfrastructureConfigurationInstanceMetadataOptionsHttpTokens("optional");
+
+        public static bool operator ==(InfrastructureConfigurationInstanceMetadataOptionsHttpTokens left, InfrastructureConfigurationInstanceMetadataOptionsHttpTokens right) => left.Equals(right);
+        public static bool operator !=(InfrastructureConfigurationInstanceMetadataOptionsHttpTokens left, InfrastructureConfigurationInstanceMetadataOptionsHttpTokens right) => !left.Equals(right);
+
+        public static explicit operator string(InfrastructureConfigurationInstanceMetadataOptionsHttpTokens value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InfrastructureConfigurationInstanceMetadataOptionsHttpTokens other && Equals(other);
+        public bool Equals(InfrastructureConfigurationInstanceMetadataOptionsHttpTokens other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

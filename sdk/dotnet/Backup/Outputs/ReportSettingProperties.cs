@@ -17,13 +17,21 @@ namespace Pulumi.AwsNative.Backup.Outputs
     public sealed class ReportSettingProperties
     {
         /// <summary>
+        /// The Amazon Resource Names (ARNs) of the frameworks a report covers.
+        /// </summary>
+        public readonly ImmutableArray<string> FrameworkArns;
+        /// <summary>
         /// Identifies the report template for the report. Reports are built using a report template. The report templates are: `BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`
         /// </summary>
         public readonly string ReportTemplate;
 
         [OutputConstructor]
-        private ReportSettingProperties(string reportTemplate)
+        private ReportSettingProperties(
+            ImmutableArray<string> frameworkArns,
+
+            string reportTemplate)
         {
+            FrameworkArns = frameworkArns;
             ReportTemplate = reportTemplate;
         }
     }
