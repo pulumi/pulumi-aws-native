@@ -41,8 +41,8 @@ brews:
     commit_author:
       name: pulumi-bot
       email: bot@pulumi.com
-    homepage: "https://pulumi.io"
-    description: "A tool to convert CloudFoundation Templates to Pulumi programs"
+    homepage: "https://pulumi.com"
+    description: "A tool to convert CloudFormation Templates to Pulumi programs"
     folder: Formula
     license: Apache-2.0
     test: |
