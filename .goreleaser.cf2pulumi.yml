@@ -1,0 +1,49 @@
+before:
+  hooks:
+    - make init_submodules
+    - make codegen
+    - make generate_schema
+builds:
+  - env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - windows
+      - linux
+    goarch:
+      - amd64
+      - arm64
+    ldflags: -X github.com/pulumi/pulumi-aws-native/provider/version.Version={{.Tag}}
+    binary: cf2pulumi
+    dir: provider
+    main: ./cmd/cf2pulumi/
+archives:
+  - name_template: "{{ .Binary }}-{{ .Tag }}-{{ .Os }}-{{ .Arch }}"
+    format_overrides:
+      - goos: windows
+        format: zip
+    replacements:
+      amd64: x64
+      386: x86
+snapshot:
+  name_template: "{{ .Tag }}-SNAPSHOT"
+changelog:
+  skip: true
+release:
+  name_template:"{{.ProjectName}}-v{{.Version}}"
+project_name: cf2pulumi
+brews:
+  -
+    name: cf2pulumi
+    tap:
+      owner: pulumi
+      name: homebrew-tap
+    commit_author:
+      name: pulumi-bot
+      email: bot@pulumi.com
+    homepage: "https://pulumi.io"
+    description: "A tool to convert CloudFoundation Templates to Pulumi programs"
+    folder: Formula
+    license: Apache-2.0
+    test: |
+      system "#{bin}/cf2pulumi version"

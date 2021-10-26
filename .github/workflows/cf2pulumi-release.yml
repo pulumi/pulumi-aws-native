@@ -1,0 +1,35 @@
+name: CF2Pulumi Release
+"on":
+  push:
+    tags:
+      - v*.*.*
+      - '!v*.*.*-**'
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Unshallow clone
+        run: git fetch --prune --unshallow
+      - name: Install pulumictl
+        uses: jaxxstorm/action-install-gh-release@v1.1.0
+        with:
+          repo: pulumi/pulumictl
+      - name: Install Go 1.16.x
+        uses: actions/setup-go@v2
+        with:
+          go-version: '1.16.x'
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v2
+        with:
+          version: latest
+          args: -p 1 -f .goreleaser.cf2pulumi.yml release --rm-dist --timeout 60m0s
+        env:
+          GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
+      - name: Chocolatey Package Deployment
+        run: |
+          CURRENT_TAG=v$(pulumictl get version --language generic -o)
+          pulumictl create choco-deploy -a cf2pulumi ${CURRENT_TAG}
+        env:
+          GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
