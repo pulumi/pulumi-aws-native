@@ -154,6 +154,7 @@ import * as nimblestudio from "./nimblestudio";
 import * as opensearchservice from "./opensearchservice";
 import * as opsworks from "./opsworks";
 import * as opsworkscm from "./opsworkscm";
+import * as panorama from "./panorama";
 import * as pinpoint from "./pinpoint";
 import * as pinpointemail from "./pinpointemail";
 import * as qldb from "./qldb";
@@ -161,6 +162,7 @@ import * as quicksight from "./quicksight";
 import * as ram from "./ram";
 import * as rds from "./rds";
 import * as redshift from "./redshift";
+import * as rekognition from "./rekognition";
 import * as resourcegroups from "./resourcegroups";
 import * as robomaker from "./robomaker";
 import * as route53 from "./route53";
@@ -331,6 +333,7 @@ export {
     opensearchservice,
     opsworks,
     opsworkscm,
+    panorama,
     pinpoint,
     pinpointemail,
     qldb,
@@ -338,6 +341,7 @@ export {
     ram,
     rds,
     redshift,
+    rekognition,
     resourcegroups,
     robomaker,
     route53,

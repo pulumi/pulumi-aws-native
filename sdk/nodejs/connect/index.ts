@@ -5,20 +5,32 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./hoursOfOperation";
 export * from "./quickConnect";
+export * from "./user";
+export * from "./userHierarchyGroup";
 
 // Export enums:
 export * from "../types/enums/connect";
 
 // Import resources to register:
+import { HoursOfOperation } from "./hoursOfOperation";
 import { QuickConnect } from "./quickConnect";
+import { User } from "./user";
+import { UserHierarchyGroup } from "./userHierarchyGroup";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:connect:HoursOfOperation":
+                return new HoursOfOperation(name, <any>undefined, { urn })
             case "aws-native:connect:QuickConnect":
                 return new QuickConnect(name, <any>undefined, { urn })
+            case "aws-native:connect:User":
+                return new User(name, <any>undefined, { urn })
+            case "aws-native:connect:UserHierarchyGroup":
+                return new UserHierarchyGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

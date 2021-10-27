@@ -38,6 +38,7 @@ __all__ = [
     'UsagePlanQuotaSettings',
     'UsagePlanTag',
     'UsagePlanThrottleSettings',
+    'VpcLinkTag',
 ]
 
 @pulumi.output_type
@@ -1744,5 +1745,24 @@ class UsagePlanThrottleSettings(dict):
         The API request steady-state rate limit (average requests per second over an extended period of time).
         """
         return pulumi.get(self, "rate_limit")
+
+
+@pulumi.output_type
+class VpcLinkTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 

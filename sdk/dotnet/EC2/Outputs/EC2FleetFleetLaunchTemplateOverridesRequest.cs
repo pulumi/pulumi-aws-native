@@ -14,6 +14,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
     public sealed class EC2FleetFleetLaunchTemplateOverridesRequest
     {
         public readonly string? AvailabilityZone;
+        public readonly Outputs.EC2FleetInstanceRequirementsRequest? InstanceRequirements;
         public readonly string? InstanceType;
         public readonly string? MaxPrice;
         public readonly Outputs.EC2FleetPlacement? Placement;
@@ -24,6 +25,8 @@ namespace Pulumi.AwsNative.EC2.Outputs
         [OutputConstructor]
         private EC2FleetFleetLaunchTemplateOverridesRequest(
             string? availabilityZone,
+
+            Outputs.EC2FleetInstanceRequirementsRequest? instanceRequirements,
 
             string? instanceType,
 
@@ -38,6 +41,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
             double? weightedCapacity)
         {
             AvailabilityZone = availabilityZone;
+            InstanceRequirements = instanceRequirements;
             InstanceType = instanceType;
             MaxPrice = maxPrice;
             Placement = placement;

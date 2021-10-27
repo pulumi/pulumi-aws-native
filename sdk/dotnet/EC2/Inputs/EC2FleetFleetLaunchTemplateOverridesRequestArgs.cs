@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.EC2.Inputs
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
+        [Input("instanceRequirements")]
+        public Input<Inputs.EC2FleetInstanceRequirementsRequestArgs>? InstanceRequirements { get; set; }
+
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
 

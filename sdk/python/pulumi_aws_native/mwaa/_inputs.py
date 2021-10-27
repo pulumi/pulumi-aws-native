@@ -13,7 +13,6 @@ __all__ = [
     'EnvironmentLoggingConfigurationArgs',
     'EnvironmentModuleLoggingConfigurationArgs',
     'EnvironmentNetworkConfigurationArgs',
-    'EnvironmentTagMapArgs',
 ]
 
 @pulumi.input_type
@@ -166,14 +165,5 @@ class EnvironmentNetworkConfigurationArgs:
     @subnet_ids.setter
     def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "subnet_ids", value)
-
-
-@pulumi.input_type
-class EnvironmentTagMapArgs:
-    def __init__(__self__):
-        """
-        A map of tags for the environment.
-        """
-        pass
 
 

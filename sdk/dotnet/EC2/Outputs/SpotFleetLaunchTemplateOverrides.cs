@@ -14,6 +14,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
     public sealed class SpotFleetLaunchTemplateOverrides
     {
         public readonly string? AvailabilityZone;
+        public readonly Outputs.SpotFleetInstanceRequirementsRequest? InstanceRequirements;
         public readonly string? InstanceType;
         public readonly string? SpotPrice;
         public readonly string? SubnetId;
@@ -22,6 +23,8 @@ namespace Pulumi.AwsNative.EC2.Outputs
         [OutputConstructor]
         private SpotFleetLaunchTemplateOverrides(
             string? availabilityZone,
+
+            Outputs.SpotFleetInstanceRequirementsRequest? instanceRequirements,
 
             string? instanceType,
 
@@ -32,6 +35,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
             double? weightedCapacity)
         {
             AvailabilityZone = availabilityZone;
+            InstanceRequirements = instanceRequirements;
             InstanceType = instanceType;
             SpotPrice = spotPrice;
             SubnetId = subnetId;

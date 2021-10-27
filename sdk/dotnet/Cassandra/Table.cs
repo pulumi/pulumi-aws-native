@@ -24,6 +24,12 @@ namespace Pulumi.AwsNative.Cassandra
         [Output("clusteringKeyColumns")]
         public Output<ImmutableArray<Outputs.TableClusteringKeyColumn>> ClusteringKeyColumns { get; private set; } = null!;
 
+        /// <summary>
+        /// Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
+        /// </summary>
+        [Output("defaultTimeToLive")]
+        public Output<int?> DefaultTimeToLive { get; private set; } = null!;
+
         [Output("encryptionSpecification")]
         public Output<Outputs.TableEncryptionSpecification?> EncryptionSpecification { get; private set; } = null!;
 
@@ -122,6 +128,12 @@ namespace Pulumi.AwsNative.Cassandra
             get => _clusteringKeyColumns ?? (_clusteringKeyColumns = new InputList<Inputs.TableClusteringKeyColumnArgs>());
             set => _clusteringKeyColumns = value;
         }
+
+        /// <summary>
+        /// Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
+        /// </summary>
+        [Input("defaultTimeToLive")]
+        public Input<int>? DefaultTimeToLive { get; set; }
 
         [Input("encryptionSpecification")]
         public Input<Inputs.TableEncryptionSpecificationArgs>? EncryptionSpecification { get; set; }

@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
         public readonly Pulumi.AwsNative.EC2.EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType? DefaultTargetCapacityType;
         public readonly int? OnDemandTargetCapacity;
         public readonly int? SpotTargetCapacity;
+        public readonly Pulumi.AwsNative.EC2.EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType? TargetCapacityUnitType;
         public readonly int TotalTargetCapacity;
 
         [OutputConstructor]
@@ -26,11 +27,14 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
             int? spotTargetCapacity,
 
+            Pulumi.AwsNative.EC2.EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType? targetCapacityUnitType,
+
             int totalTargetCapacity)
         {
             DefaultTargetCapacityType = defaultTargetCapacityType;
             OnDemandTargetCapacity = onDemandTargetCapacity;
             SpotTargetCapacity = spotTargetCapacity;
+            TargetCapacityUnitType = targetCapacityUnitType;
             TotalTargetCapacity = totalTargetCapacity;
         }
     }

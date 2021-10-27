@@ -21,8 +21,14 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:connect:HoursOfOperation":
+		r = &HoursOfOperation{}
 	case "aws-native:connect:QuickConnect":
 		r = &QuickConnect{}
+	case "aws-native:connect:User":
+		r = &User{}
+	case "aws-native:connect:UserHierarchyGroup":
+		r = &UserHierarchyGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

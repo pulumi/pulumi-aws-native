@@ -1473,6 +1473,12 @@ export namespace apigateway {
          */
         rateLimit?: pulumi.Input<number>;
     }
+
+    export interface VpcLinkTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
 }
 
 export namespace apigatewayv2 {
@@ -6122,6 +6128,52 @@ export namespace configuration {
 
 export namespace connect {
     /**
+     * Contains information about the hours of operation.
+     */
+    export interface HoursOfOperationConfigArgs {
+        /**
+         * The day that the hours of operation applies to.
+         */
+        day: pulumi.Input<enums.connect.HoursOfOperationConfigDay>;
+        /**
+         * The end time that your contact center closes.
+         */
+        endTime: pulumi.Input<inputs.connect.HoursOfOperationTimeSliceArgs>;
+        /**
+         * The start time that your contact center opens.
+         */
+        startTime: pulumi.Input<inputs.connect.HoursOfOperationTimeSliceArgs>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface HoursOfOperationTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * The start time or end time for an hours of operation.
+     */
+    export interface HoursOfOperationTimeSliceArgs {
+        /**
+         * The hours.
+         */
+        hours: pulumi.Input<number>;
+        /**
+         * The minutes.
+         */
+        minutes: pulumi.Input<number>;
+    }
+
+    /**
      * Configuration settings for the quick connect.
      */
     export interface QuickConnectConfigArgs {
@@ -6166,6 +6218,39 @@ export namespace connect {
     export interface QuickConnectUserQuickConnectConfigArgs {
         contactFlowArn: pulumi.Input<string>;
         userArn: pulumi.Input<string>;
+    }
+
+    /**
+     * Contains information about the identity of a user.
+     */
+    export interface UserIdentityInfoArgs {
+        email?: pulumi.Input<string>;
+        firstName?: pulumi.Input<string>;
+        lastName?: pulumi.Input<string>;
+    }
+
+    /**
+     * Contains information about the phone configuration settings for a user.
+     */
+    export interface UserPhoneConfigArgs {
+        afterContactWorkTimeLimit?: pulumi.Input<number>;
+        autoAccept?: pulumi.Input<boolean>;
+        deskPhoneNumber?: pulumi.Input<string>;
+        phoneType: pulumi.Input<enums.connect.UserPhoneType>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface UserTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: pulumi.Input<string>;
     }
 }
 
@@ -7682,6 +7767,26 @@ export namespace dynamodb {
 }
 
 export namespace ec2 {
+    export interface CapacityReservationFleetInstanceTypeSpecificationArgs {
+        availabilityZone?: pulumi.Input<string>;
+        availabilityZoneId?: pulumi.Input<string>;
+        ebsOptimized?: pulumi.Input<boolean>;
+        instancePlatform?: pulumi.Input<string>;
+        instanceType?: pulumi.Input<string>;
+        priority?: pulumi.Input<number>;
+        weight?: pulumi.Input<number>;
+    }
+
+    export interface CapacityReservationFleetTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface CapacityReservationFleetTagSpecificationArgs {
+        resourceType?: pulumi.Input<string>;
+        tags?: pulumi.Input<pulumi.Input<inputs.ec2.CapacityReservationFleetTagArgs>[]>;
+    }
+
     export interface CapacityReservationTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
@@ -7748,6 +7853,21 @@ export namespace ec2 {
         value: pulumi.Input<string>;
     }
 
+    export interface EC2FleetAcceleratorCountRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface EC2FleetAcceleratorTotalMemoryMiBRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface EC2FleetBaselineEbsBandwidthMbpsRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
     export interface EC2FleetCapacityReservationOptionsRequestArgs {
         usageStrategy?: pulumi.Input<enums.ec2.EC2FleetCapacityReservationOptionsRequestUsageStrategy>;
     }
@@ -7759,6 +7879,7 @@ export namespace ec2 {
 
     export interface EC2FleetFleetLaunchTemplateOverridesRequestArgs {
         availabilityZone?: pulumi.Input<string>;
+        instanceRequirements?: pulumi.Input<inputs.ec2.EC2FleetInstanceRequirementsRequestArgs>;
         instanceType?: pulumi.Input<string>;
         maxPrice?: pulumi.Input<string>;
         placement?: pulumi.Input<inputs.ec2.EC2FleetPlacementArgs>;
@@ -7771,6 +7892,45 @@ export namespace ec2 {
         launchTemplateId?: pulumi.Input<string>;
         launchTemplateName?: pulumi.Input<string>;
         version?: pulumi.Input<string>;
+    }
+
+    export interface EC2FleetInstanceRequirementsRequestArgs {
+        acceleratorCount?: pulumi.Input<inputs.ec2.EC2FleetAcceleratorCountRequestArgs>;
+        acceleratorManufacturers?: pulumi.Input<pulumi.Input<enums.ec2.EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem>[]>;
+        acceleratorNames?: pulumi.Input<pulumi.Input<enums.ec2.EC2FleetInstanceRequirementsRequestAcceleratorNamesItem>[]>;
+        acceleratorTotalMemoryMiB?: pulumi.Input<inputs.ec2.EC2FleetAcceleratorTotalMemoryMiBRequestArgs>;
+        acceleratorTypes?: pulumi.Input<pulumi.Input<enums.ec2.EC2FleetInstanceRequirementsRequestAcceleratorTypesItem>[]>;
+        bareMetal?: pulumi.Input<enums.ec2.EC2FleetInstanceRequirementsRequestBareMetal>;
+        baselineEbsBandwidthMbps?: pulumi.Input<inputs.ec2.EC2FleetBaselineEbsBandwidthMbpsRequestArgs>;
+        burstablePerformance?: pulumi.Input<enums.ec2.EC2FleetInstanceRequirementsRequestBurstablePerformance>;
+        cpuManufacturers?: pulumi.Input<pulumi.Input<enums.ec2.EC2FleetInstanceRequirementsRequestCpuManufacturersItem>[]>;
+        excludedInstanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        instanceGenerations?: pulumi.Input<pulumi.Input<enums.ec2.EC2FleetInstanceRequirementsRequestInstanceGenerationsItem>[]>;
+        localStorage?: pulumi.Input<enums.ec2.EC2FleetInstanceRequirementsRequestLocalStorage>;
+        localStorageTypes?: pulumi.Input<pulumi.Input<enums.ec2.EC2FleetInstanceRequirementsRequestLocalStorageTypesItem>[]>;
+        memoryGiBPerVCpu?: pulumi.Input<inputs.ec2.EC2FleetMemoryGiBPerVCpuRequestArgs>;
+        memoryMiB?: pulumi.Input<inputs.ec2.EC2FleetMemoryMiBRequestArgs>;
+        networkInterfaceCount?: pulumi.Input<inputs.ec2.EC2FleetNetworkInterfaceCountRequestArgs>;
+        onDemandMaxPricePercentageOverLowestPrice?: pulumi.Input<number>;
+        requireHibernateSupport?: pulumi.Input<boolean>;
+        spotMaxPricePercentageOverLowestPrice?: pulumi.Input<number>;
+        totalLocalStorageGB?: pulumi.Input<inputs.ec2.EC2FleetTotalLocalStorageGBRequestArgs>;
+        vCpuCount?: pulumi.Input<inputs.ec2.EC2FleetVCpuCountRangeRequestArgs>;
+    }
+
+    export interface EC2FleetMemoryGiBPerVCpuRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface EC2FleetMemoryMiBRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface EC2FleetNetworkInterfaceCountRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
     }
 
     export interface EC2FleetOnDemandOptionsRequestArgs {
@@ -7817,7 +7977,18 @@ export namespace ec2 {
         defaultTargetCapacityType?: pulumi.Input<enums.ec2.EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType>;
         onDemandTargetCapacity?: pulumi.Input<number>;
         spotTargetCapacity?: pulumi.Input<number>;
+        targetCapacityUnitType?: pulumi.Input<enums.ec2.EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType>;
         totalTargetCapacity: pulumi.Input<number>;
+    }
+
+    export interface EC2FleetTotalLocalStorageGBRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface EC2FleetVCpuCountRangeRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
     }
 
     export interface EIPTagArgs {
@@ -8211,6 +8382,21 @@ export namespace ec2 {
         value: pulumi.Input<string>;
     }
 
+    export interface SpotFleetAcceleratorCountRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface SpotFleetAcceleratorTotalMemoryMiBRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface SpotFleetBaselineEbsBandwidthMbpsRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
     export interface SpotFleetBlockDeviceMappingArgs {
         deviceName: pulumi.Input<string>;
         ebs?: pulumi.Input<inputs.ec2.SpotFleetEbsBlockDeviceArgs>;
@@ -8267,12 +8453,37 @@ export namespace ec2 {
         subnetId?: pulumi.Input<string>;
     }
 
+    export interface SpotFleetInstanceRequirementsRequestArgs {
+        acceleratorCount?: pulumi.Input<inputs.ec2.SpotFleetAcceleratorCountRequestArgs>;
+        acceleratorManufacturers?: pulumi.Input<pulumi.Input<enums.ec2.SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem>[]>;
+        acceleratorNames?: pulumi.Input<pulumi.Input<enums.ec2.SpotFleetInstanceRequirementsRequestAcceleratorNamesItem>[]>;
+        acceleratorTotalMemoryMiB?: pulumi.Input<inputs.ec2.SpotFleetAcceleratorTotalMemoryMiBRequestArgs>;
+        acceleratorTypes?: pulumi.Input<pulumi.Input<enums.ec2.SpotFleetInstanceRequirementsRequestAcceleratorTypesItem>[]>;
+        bareMetal?: pulumi.Input<enums.ec2.SpotFleetInstanceRequirementsRequestBareMetal>;
+        baselineEbsBandwidthMbps?: pulumi.Input<inputs.ec2.SpotFleetBaselineEbsBandwidthMbpsRequestArgs>;
+        burstablePerformance?: pulumi.Input<enums.ec2.SpotFleetInstanceRequirementsRequestBurstablePerformance>;
+        cpuManufacturers?: pulumi.Input<pulumi.Input<enums.ec2.SpotFleetInstanceRequirementsRequestCpuManufacturersItem>[]>;
+        excludedInstanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        instanceGenerations?: pulumi.Input<pulumi.Input<enums.ec2.SpotFleetInstanceRequirementsRequestInstanceGenerationsItem>[]>;
+        localStorage?: pulumi.Input<enums.ec2.SpotFleetInstanceRequirementsRequestLocalStorage>;
+        localStorageTypes?: pulumi.Input<pulumi.Input<enums.ec2.SpotFleetInstanceRequirementsRequestLocalStorageTypesItem>[]>;
+        memoryGiBPerVCpu?: pulumi.Input<inputs.ec2.SpotFleetMemoryGiBPerVCpuRequestArgs>;
+        memoryMiB?: pulumi.Input<inputs.ec2.SpotFleetMemoryMiBRequestArgs>;
+        networkInterfaceCount?: pulumi.Input<inputs.ec2.SpotFleetNetworkInterfaceCountRequestArgs>;
+        onDemandMaxPricePercentageOverLowestPrice?: pulumi.Input<number>;
+        requireHibernateSupport?: pulumi.Input<boolean>;
+        spotMaxPricePercentageOverLowestPrice?: pulumi.Input<number>;
+        totalLocalStorageGB?: pulumi.Input<inputs.ec2.SpotFleetTotalLocalStorageGBRequestArgs>;
+        vCpuCount?: pulumi.Input<inputs.ec2.SpotFleetVCpuCountRangeRequestArgs>;
+    }
+
     export interface SpotFleetLaunchSpecificationArgs {
         blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetBlockDeviceMappingArgs>[]>;
         ebsOptimized?: pulumi.Input<boolean>;
         iamInstanceProfile?: pulumi.Input<inputs.ec2.SpotFleetIamInstanceProfileSpecificationArgs>;
         imageId: pulumi.Input<string>;
-        instanceType: pulumi.Input<string>;
+        instanceRequirements?: pulumi.Input<inputs.ec2.SpotFleetInstanceRequirementsRequestArgs>;
+        instanceType?: pulumi.Input<string>;
         kernelId?: pulumi.Input<string>;
         keyName?: pulumi.Input<string>;
         monitoring?: pulumi.Input<inputs.ec2.SpotFleetMonitoringArgs>;
@@ -8294,6 +8505,7 @@ export namespace ec2 {
 
     export interface SpotFleetLaunchTemplateOverridesArgs {
         availabilityZone?: pulumi.Input<string>;
+        instanceRequirements?: pulumi.Input<inputs.ec2.SpotFleetInstanceRequirementsRequestArgs>;
         instanceType?: pulumi.Input<string>;
         spotPrice?: pulumi.Input<string>;
         subnetId?: pulumi.Input<string>;
@@ -8305,8 +8517,23 @@ export namespace ec2 {
         targetGroupsConfig?: pulumi.Input<inputs.ec2.SpotFleetTargetGroupsConfigArgs>;
     }
 
+    export interface SpotFleetMemoryGiBPerVCpuRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface SpotFleetMemoryMiBRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
     export interface SpotFleetMonitoringArgs {
         enabled?: pulumi.Input<boolean>;
+    }
+
+    export interface SpotFleetNetworkInterfaceCountRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
     }
 
     export interface SpotFleetPrivateIpAddressSpecificationArgs {
@@ -8332,6 +8559,7 @@ export namespace ec2 {
         spotMaxTotalPrice?: pulumi.Input<string>;
         spotPrice?: pulumi.Input<string>;
         targetCapacity: pulumi.Input<number>;
+        targetCapacityUnitType?: pulumi.Input<enums.ec2.SpotFleetRequestConfigDataTargetCapacityUnitType>;
         terminateInstancesWithExpiration?: pulumi.Input<boolean>;
         type?: pulumi.Input<enums.ec2.SpotFleetRequestConfigDataType>;
         validFrom?: pulumi.Input<string>;
@@ -8368,6 +8596,16 @@ export namespace ec2 {
 
     export interface SpotFleetTargetGroupsConfigArgs {
         targetGroups: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetTargetGroupArgs>[]>;
+    }
+
+    export interface SpotFleetTotalLocalStorageGBRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface SpotFleetVCpuCountRangeRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
     }
 
     export interface SubnetTagArgs {
@@ -8484,7 +8722,6 @@ export namespace ec2 {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
-
 }
 
 export namespace ecr {
@@ -15967,6 +16204,58 @@ export namespace licensemanager {
 
 export namespace lightsail {
     /**
+     * Describes the parameters of the database.
+     */
+    export interface DatabaseRelationalDatabaseParameterArgs {
+        /**
+         * Specifies the valid range of values for the parameter.
+         */
+        allowedValues?: pulumi.Input<string>;
+        /**
+         * Indicates when parameter updates are applied. Can be immediate or pending-reboot.
+         */
+        applyMethod?: pulumi.Input<string>;
+        /**
+         * Specifies the engine-specific parameter type.
+         */
+        applyType?: pulumi.Input<string>;
+        /**
+         * Specifies the valid data type for the parameter.
+         */
+        dataType?: pulumi.Input<string>;
+        /**
+         * Provides a description of the parameter.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * A Boolean value indicating whether the parameter can be modified.
+         */
+        isModifiable?: pulumi.Input<boolean>;
+        /**
+         * Specifies the name of the parameter.
+         */
+        parameterName?: pulumi.Input<string>;
+        /**
+         * Specifies the value of the parameter.
+         */
+        parameterValue?: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface DatabaseTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    /**
      * A addon associate with a resource.
      */
     export interface DiskAddOnArgs {
@@ -18633,12 +18922,6 @@ export namespace mwaa {
          */
         subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     }
-
-    /**
-     * A map of tags for the environment.
-     */
-    export interface EnvironmentTagMapArgs {
-    }
 }
 
 export namespace neptune {
@@ -19311,6 +19594,32 @@ export namespace opsworkscm {
     }
 
     export interface ServerTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+}
+
+export namespace panorama {
+    export interface ApplicationInstanceManifestOverridesPayloadArgs {
+        payloadData?: pulumi.Input<string>;
+    }
+
+    export interface ApplicationInstanceManifestPayloadArgs {
+        payloadData?: pulumi.Input<string>;
+    }
+
+    export interface ApplicationInstanceTagArgs {
+        /**
+         * A string used to identify this tag
+         */
+        key: pulumi.Input<string>;
+        /**
+         * A string containing the value for the tag
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface PackageTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
@@ -24082,7 +24391,7 @@ export namespace sagemaker {
     export interface ServiceCatalogProvisioningDetailsPropertiesArgs {
         pathId?: pulumi.Input<string>;
         productId: pulumi.Input<string>;
-        provisioningArtifactId: pulumi.Input<string>;
+        provisioningArtifactId?: pulumi.Input<string>;
         /**
          * Parameters specified by the administrator that are required for provisioning the product.
          */

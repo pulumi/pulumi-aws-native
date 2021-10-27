@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.EC2.Inputs
         [Input("spotTargetCapacity")]
         public Input<int>? SpotTargetCapacity { get; set; }
 
+        [Input("targetCapacityUnitType")]
+        public Input<Pulumi.AwsNative.EC2.EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType>? TargetCapacityUnitType { get; set; }
+
         [Input("totalTargetCapacity", required: true)]
         public Input<int> TotalTargetCapacity { get; set; } = null!;
 

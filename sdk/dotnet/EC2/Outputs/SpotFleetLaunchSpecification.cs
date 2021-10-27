@@ -17,7 +17,8 @@ namespace Pulumi.AwsNative.EC2.Outputs
         public readonly bool? EbsOptimized;
         public readonly Outputs.SpotFleetIamInstanceProfileSpecification? IamInstanceProfile;
         public readonly string ImageId;
-        public readonly string InstanceType;
+        public readonly Outputs.SpotFleetInstanceRequirementsRequest? InstanceRequirements;
+        public readonly string? InstanceType;
         public readonly string? KernelId;
         public readonly string? KeyName;
         public readonly Outputs.SpotFleetMonitoring? Monitoring;
@@ -41,7 +42,9 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
             string imageId,
 
-            string instanceType,
+            Outputs.SpotFleetInstanceRequirementsRequest? instanceRequirements,
+
+            string? instanceType,
 
             string? kernelId,
 
@@ -71,6 +74,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
             EbsOptimized = ebsOptimized;
             IamInstanceProfile = iamInstanceProfile;
             ImageId = imageId;
+            InstanceRequirements = instanceRequirements;
             InstanceType = instanceType;
             KernelId = kernelId;
             KeyName = keyName;

@@ -4277,6 +4277,106 @@ func (o UsagePlanThrottleSettingsPtrOutput) RateLimit() pulumi.Float64PtrOutput 
 	}).(pulumi.Float64PtrOutput)
 }
 
+type VpcLinkTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// VpcLinkTagInput is an input type that accepts VpcLinkTagArgs and VpcLinkTagOutput values.
+// You can construct a concrete instance of `VpcLinkTagInput` via:
+//
+//          VpcLinkTagArgs{...}
+type VpcLinkTagInput interface {
+	pulumi.Input
+
+	ToVpcLinkTagOutput() VpcLinkTagOutput
+	ToVpcLinkTagOutputWithContext(context.Context) VpcLinkTagOutput
+}
+
+type VpcLinkTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (VpcLinkTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcLinkTag)(nil)).Elem()
+}
+
+func (i VpcLinkTagArgs) ToVpcLinkTagOutput() VpcLinkTagOutput {
+	return i.ToVpcLinkTagOutputWithContext(context.Background())
+}
+
+func (i VpcLinkTagArgs) ToVpcLinkTagOutputWithContext(ctx context.Context) VpcLinkTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcLinkTagOutput)
+}
+
+// VpcLinkTagArrayInput is an input type that accepts VpcLinkTagArray and VpcLinkTagArrayOutput values.
+// You can construct a concrete instance of `VpcLinkTagArrayInput` via:
+//
+//          VpcLinkTagArray{ VpcLinkTagArgs{...} }
+type VpcLinkTagArrayInput interface {
+	pulumi.Input
+
+	ToVpcLinkTagArrayOutput() VpcLinkTagArrayOutput
+	ToVpcLinkTagArrayOutputWithContext(context.Context) VpcLinkTagArrayOutput
+}
+
+type VpcLinkTagArray []VpcLinkTagInput
+
+func (VpcLinkTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcLinkTag)(nil)).Elem()
+}
+
+func (i VpcLinkTagArray) ToVpcLinkTagArrayOutput() VpcLinkTagArrayOutput {
+	return i.ToVpcLinkTagArrayOutputWithContext(context.Background())
+}
+
+func (i VpcLinkTagArray) ToVpcLinkTagArrayOutputWithContext(ctx context.Context) VpcLinkTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcLinkTagArrayOutput)
+}
+
+type VpcLinkTagOutput struct{ *pulumi.OutputState }
+
+func (VpcLinkTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcLinkTag)(nil)).Elem()
+}
+
+func (o VpcLinkTagOutput) ToVpcLinkTagOutput() VpcLinkTagOutput {
+	return o
+}
+
+func (o VpcLinkTagOutput) ToVpcLinkTagOutputWithContext(ctx context.Context) VpcLinkTagOutput {
+	return o
+}
+
+func (o VpcLinkTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v VpcLinkTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o VpcLinkTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v VpcLinkTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type VpcLinkTagArrayOutput struct{ *pulumi.OutputState }
+
+func (VpcLinkTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcLinkTag)(nil)).Elem()
+}
+
+func (o VpcLinkTagArrayOutput) ToVpcLinkTagArrayOutput() VpcLinkTagArrayOutput {
+	return o
+}
+
+func (o VpcLinkTagArrayOutput) ToVpcLinkTagArrayOutputWithContext(ctx context.Context) VpcLinkTagArrayOutput {
+	return o
+}
+
+func (o VpcLinkTagArrayOutput) Index(i pulumi.IntInput) VpcLinkTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcLinkTag {
+		return vs[0].([]VpcLinkTag)[vs[1].(int)]
+	}).(VpcLinkTagOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApiKeyStageKeyOutput{})
 	pulumi.RegisterOutputType(ApiKeyStageKeyArrayOutput{})
@@ -4332,4 +4432,6 @@ func init() {
 	pulumi.RegisterOutputType(UsagePlanTagArrayOutput{})
 	pulumi.RegisterOutputType(UsagePlanThrottleSettingsOutput{})
 	pulumi.RegisterOutputType(UsagePlanThrottleSettingsPtrOutput{})
+	pulumi.RegisterOutputType(VpcLinkTagOutput{})
+	pulumi.RegisterOutputType(VpcLinkTagArrayOutput{})
 }

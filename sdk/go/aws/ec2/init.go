@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:ec2:CapacityReservation":
 		r = &CapacityReservation{}
+	case "aws-native:ec2:CapacityReservationFleet":
+		r = &CapacityReservationFleet{}
 	case "aws-native:ec2:CarrierGateway":
 		r = &CarrierGateway{}
 	case "aws-native:ec2:ClientVpnAuthorizationRule":

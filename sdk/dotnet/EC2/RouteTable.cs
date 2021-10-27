@@ -12,13 +12,24 @@ namespace Pulumi.AwsNative.EC2
     /// <summary>
     /// Resource Type definition for AWS::EC2::RouteTable
     /// </summary>
-    [Obsolete(@"RouteTable is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:RouteTable")]
     public partial class RouteTable : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The route table ID.
+        /// </summary>
+        [Output("routeTableId")]
+        public Output<string> RouteTableId { get; private set; } = null!;
+
+        /// <summary>
+        /// Any tags assigned to the route table.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.RouteTableTag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the VPC.
+        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -69,12 +80,19 @@ namespace Pulumi.AwsNative.EC2
     {
         [Input("tags")]
         private InputList<Inputs.RouteTableTagArgs>? _tags;
+
+        /// <summary>
+        /// Any tags assigned to the route table.
+        /// </summary>
         public InputList<Inputs.RouteTableTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.RouteTableTagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The ID of the VPC.
+        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 

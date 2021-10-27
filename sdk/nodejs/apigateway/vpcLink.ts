@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -39,6 +40,7 @@ export class VpcLink extends pulumi.CustomResource {
 
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<outputs.apigateway.VpcLinkTag[] | undefined>;
     public readonly targetArns!: pulumi.Output<string[]>;
 
     /**
@@ -62,10 +64,12 @@ export class VpcLink extends pulumi.CustomResource {
             }
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["targetArns"] = args ? args.targetArns : undefined;
         } else {
             inputs["description"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["targetArns"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -81,5 +85,6 @@ export class VpcLink extends pulumi.CustomResource {
 export interface VpcLinkArgs {
     description?: pulumi.Input<string>;
     name: pulumi.Input<string>;
+    tags?: pulumi.Input<pulumi.Input<inputs.apigateway.VpcLinkTagArgs>[]>;
     targetArns: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -80,8 +80,11 @@ namespace Pulumi.AwsNative.MWAA
         [Output("sourceBucketArn")]
         public Output<string?> SourceBucketArn { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags for the environment.
+        /// </summary>
         [Output("tags")]
-        public Output<Outputs.EnvironmentTagMap?> Tags { get; private set; } = null!;
+        public Output<object?> Tags { get; private set; } = null!;
 
         [Output("webserverAccessMode")]
         public Output<Pulumi.AwsNative.MWAA.EnvironmentWebserverAccessMode?> WebserverAccessMode { get; private set; } = null!;
@@ -199,8 +202,11 @@ namespace Pulumi.AwsNative.MWAA
         [Input("sourceBucketArn")]
         public Input<string>? SourceBucketArn { get; set; }
 
+        /// <summary>
+        /// A map of tags for the environment.
+        /// </summary>
         [Input("tags")]
-        public Input<Inputs.EnvironmentTagMapArgs>? Tags { get; set; }
+        public Input<object>? Tags { get; set; }
 
         [Input("webserverAccessMode")]
         public Input<Pulumi.AwsNative.MWAA.EnvironmentWebserverAccessMode>? WebserverAccessMode { get; set; }

@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.Lightsail
         /// The name of your key pair.
         /// </summary>
         [Output("keyPairName")]
-        public Output<string> KeyPairName { get; private set; } = null!;
+        public Output<string?> KeyPairName { get; private set; } = null!;
 
         [Output("location")]
         public Output<Outputs.InstanceLocation?> Location { get; private set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.Lightsail
         /// A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
         /// </summary>
         [Output("userData")]
-        public Output<string> UserData { get; private set; } = null!;
+        public Output<string?> UserData { get; private set; } = null!;
 
         /// <summary>
         /// Username of the  Lightsail instance.
@@ -204,6 +204,12 @@ namespace Pulumi.AwsNative.Lightsail
         [Input("instanceName", required: true)]
         public Input<string> InstanceName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of your key pair.
+        /// </summary>
+        [Input("keyPairName")]
+        public Input<string>? KeyPairName { get; set; }
+
         [Input("location")]
         public Input<Inputs.InstanceLocationArgs>? Location { get; set; }
 
@@ -224,6 +230,12 @@ namespace Pulumi.AwsNative.Lightsail
             get => _tags ?? (_tags = new InputList<Inputs.InstanceTagArgs>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
+        /// </summary>
+        [Input("userData")]
+        public Input<string>? UserData { get; set; }
 
         public InstanceArgs()
         {

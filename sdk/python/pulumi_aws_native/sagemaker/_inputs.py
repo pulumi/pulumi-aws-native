@@ -5728,17 +5728,18 @@ class ProjectTagArgs:
 class ServiceCatalogProvisioningDetailsPropertiesArgs:
     def __init__(__self__, *,
                  product_id: pulumi.Input[str],
-                 provisioning_artifact_id: pulumi.Input[str],
                  path_id: Optional[pulumi.Input[str]] = None,
+                 provisioning_artifact_id: Optional[pulumi.Input[str]] = None,
                  provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProvisioningParameterArgs']]]] = None):
         """
         Input ServiceCatalog Provisioning Details
         :param pulumi.Input[Sequence[pulumi.Input['ProjectProvisioningParameterArgs']]] provisioning_parameters: Parameters specified by the administrator that are required for provisioning the product.
         """
         pulumi.set(__self__, "product_id", product_id)
-        pulumi.set(__self__, "provisioning_artifact_id", provisioning_artifact_id)
         if path_id is not None:
             pulumi.set(__self__, "path_id", path_id)
+        if provisioning_artifact_id is not None:
+            pulumi.set(__self__, "provisioning_artifact_id", provisioning_artifact_id)
         if provisioning_parameters is not None:
             pulumi.set(__self__, "provisioning_parameters", provisioning_parameters)
 
@@ -5752,15 +5753,6 @@ class ServiceCatalogProvisioningDetailsPropertiesArgs:
         pulumi.set(self, "product_id", value)
 
     @property
-    @pulumi.getter(name="provisioningArtifactId")
-    def provisioning_artifact_id(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "provisioning_artifact_id")
-
-    @provisioning_artifact_id.setter
-    def provisioning_artifact_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "provisioning_artifact_id", value)
-
-    @property
     @pulumi.getter(name="pathId")
     def path_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "path_id")
@@ -5768,6 +5760,15 @@ class ServiceCatalogProvisioningDetailsPropertiesArgs:
     @path_id.setter
     def path_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path_id", value)
+
+    @property
+    @pulumi.getter(name="provisioningArtifactId")
+    def provisioning_artifact_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "provisioning_artifact_id")
+
+    @provisioning_artifact_id.setter
+    def provisioning_artifact_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provisioning_artifact_id", value)
 
     @property
     @pulumi.getter(name="provisioningParameters")

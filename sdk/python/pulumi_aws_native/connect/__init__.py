@@ -6,6 +6,9 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .hours_of_operation import *
 from .quick_connect import *
+from .user import *
+from .user_hierarchy_group import *
 from ._inputs import *
 from . import outputs
