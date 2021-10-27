@@ -5,9 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGateway::Authorizer
- *
- * @deprecated Authorizer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * Represents an authorization layer for methods. If enabled on a method, API Gateway will activate the authorizer when a client calls the method.
  */
 export class Authorizer extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class Authorizer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Authorizer {
-        pulumi.log.warn("Authorizer is deprecated: Authorizer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Authorizer(name, undefined as any, { ...opts, id: id });
     }
 
@@ -37,15 +34,46 @@ export class Authorizer extends pulumi.CustomResource {
         return obj['__pulumiType'] === Authorizer.__pulumiType;
     }
 
+    /**
+     * Optional customer-defined field, used in OpenAPI imports and exports without functional impact.
+     */
     public readonly authType!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer.
+     */
     public readonly authorizerCredentials!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly authorizerId!: pulumi.Output<string>;
+    /**
+     * The TTL in seconds of cached authorizer results.
+     */
     public readonly authorizerResultTtlInSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * Specifies the authorizer's Uniform Resource Identifier (URI).
+     */
     public readonly authorizerUri!: pulumi.Output<string | undefined>;
+    /**
+     * The identity source for which authorization is requested.
+     */
     public readonly identitySource!: pulumi.Output<string | undefined>;
+    /**
+     * A validation expression for the incoming identity token.
+     */
     public readonly identityValidationExpression!: pulumi.Output<string | undefined>;
-    public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the authorizer.
+     */
+    public readonly name!: pulumi.Output<string>;
+    /**
+     * A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.
+     */
     public readonly providerARNs!: pulumi.Output<string[] | undefined>;
+    /**
+     * The identifier of the API.
+     */
     public readonly restApiId!: pulumi.Output<string>;
+    /**
+     * The authorizer type.
+     */
     public readonly type!: pulumi.Output<string>;
 
     /**
@@ -55,12 +83,13 @@ export class Authorizer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Authorizer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: AuthorizerArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Authorizer is deprecated: Authorizer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.name === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             if ((!args || args.restApiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
@@ -77,9 +106,11 @@ export class Authorizer extends pulumi.CustomResource {
             inputs["providerARNs"] = args ? args.providerARNs : undefined;
             inputs["restApiId"] = args ? args.restApiId : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["authorizerId"] = undefined /*out*/;
         } else {
             inputs["authType"] = undefined /*out*/;
             inputs["authorizerCredentials"] = undefined /*out*/;
+            inputs["authorizerId"] = undefined /*out*/;
             inputs["authorizerResultTtlInSeconds"] = undefined /*out*/;
             inputs["authorizerUri"] = undefined /*out*/;
             inputs["identitySource"] = undefined /*out*/;
@@ -100,14 +131,44 @@ export class Authorizer extends pulumi.CustomResource {
  * The set of arguments for constructing a Authorizer resource.
  */
 export interface AuthorizerArgs {
+    /**
+     * Optional customer-defined field, used in OpenAPI imports and exports without functional impact.
+     */
     authType?: pulumi.Input<string>;
+    /**
+     * Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer.
+     */
     authorizerCredentials?: pulumi.Input<string>;
+    /**
+     * The TTL in seconds of cached authorizer results.
+     */
     authorizerResultTtlInSeconds?: pulumi.Input<number>;
+    /**
+     * Specifies the authorizer's Uniform Resource Identifier (URI).
+     */
     authorizerUri?: pulumi.Input<string>;
+    /**
+     * The identity source for which authorization is requested.
+     */
     identitySource?: pulumi.Input<string>;
+    /**
+     * A validation expression for the incoming identity token.
+     */
     identityValidationExpression?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
+    /**
+     * The name of the authorizer.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.
+     */
     providerARNs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The identifier of the API.
+     */
     restApiId: pulumi.Input<string>;
+    /**
+     * The authorizer type.
+     */
     type: pulumi.Input<string>;
 }

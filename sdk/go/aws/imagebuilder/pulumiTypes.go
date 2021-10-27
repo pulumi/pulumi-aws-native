@@ -122,6 +122,8 @@ type ContainerRecipeEbsInstanceBlockDeviceSpecification struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The snapshot that defines the device contents.
 	SnapshotId *string `pulumi:"snapshotId"`
+	// For GP3 volumes only – The throughput in MiB/s that the volume supports.
+	Throughput *int `pulumi:"throughput"`
 	// Use to override the device's volume size.
 	VolumeSize *int `pulumi:"volumeSize"`
 	// Use to override the device's volume type.
@@ -151,6 +153,8 @@ type ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs struct {
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// The snapshot that defines the device contents.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+	// For GP3 volumes only – The throughput in MiB/s that the volume supports.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
 	// Use to override the device's volume size.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
 	// Use to override the device's volume type.
@@ -260,6 +264,11 @@ func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput) SnapshotId() p
 	return o.ApplyT(func(v ContainerRecipeEbsInstanceBlockDeviceSpecification) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
+// For GP3 volumes only – The throughput in MiB/s that the volume supports.
+func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeEbsInstanceBlockDeviceSpecification) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
 // Use to override the device's volume size.
 func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContainerRecipeEbsInstanceBlockDeviceSpecification) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
@@ -344,6 +353,16 @@ func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) SnapshotId(
 		}
 		return v.SnapshotId
 	}).(pulumi.StringPtrOutput)
+}
+
+// For GP3 volumes only – The throughput in MiB/s that the volume supports.
+func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipeEbsInstanceBlockDeviceSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Throughput
+	}).(pulumi.IntPtrOutput)
 }
 
 // Use to override the device's volume size.
@@ -2543,6 +2562,8 @@ type ImageRecipeEbsInstanceBlockDeviceSpecification struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The snapshot that defines the device contents.
 	SnapshotId *string `pulumi:"snapshotId"`
+	// For GP3 volumes only – The throughput in MiB/s that the volume supports.
+	Throughput *int `pulumi:"throughput"`
 	// Use to override the device's volume size.
 	VolumeSize *int `pulumi:"volumeSize"`
 	// Use to override the device's volume type.
@@ -2572,6 +2593,8 @@ type ImageRecipeEbsInstanceBlockDeviceSpecificationArgs struct {
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// The snapshot that defines the device contents.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+	// For GP3 volumes only – The throughput in MiB/s that the volume supports.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
 	// Use to override the device's volume size.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
 	// Use to override the device's volume type.
@@ -2681,6 +2704,11 @@ func (o ImageRecipeEbsInstanceBlockDeviceSpecificationOutput) SnapshotId() pulum
 	return o.ApplyT(func(v ImageRecipeEbsInstanceBlockDeviceSpecification) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
+// For GP3 volumes only – The throughput in MiB/s that the volume supports.
+func (o ImageRecipeEbsInstanceBlockDeviceSpecificationOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ImageRecipeEbsInstanceBlockDeviceSpecification) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
 // Use to override the device's volume size.
 func (o ImageRecipeEbsInstanceBlockDeviceSpecificationOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ImageRecipeEbsInstanceBlockDeviceSpecification) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
@@ -2765,6 +2793,16 @@ func (o ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) SnapshotId() pu
 		}
 		return v.SnapshotId
 	}).(pulumi.StringPtrOutput)
+}
+
+// For GP3 volumes only – The throughput in MiB/s that the volume supports.
+func (o ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ImageRecipeEbsInstanceBlockDeviceSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Throughput
+	}).(pulumi.IntPtrOutput)
 }
 
 // Use to override the device's volume size.
@@ -3215,6 +3253,167 @@ func (o ImageTestsConfigurationPtrOutput) TimeoutMinutes() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The instance metadata option settings for the infrastructure configuration.
+type InfrastructureConfigurationInstanceMetadataOptions struct {
+	// Limit the number of hops that an instance metadata request can traverse to reach its destination.
+	HttpPutResponseHopLimit *int `pulumi:"httpPutResponseHopLimit"`
+	// Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows:
+	HttpTokens *InfrastructureConfigurationInstanceMetadataOptionsHttpTokens `pulumi:"httpTokens"`
+}
+
+// InfrastructureConfigurationInstanceMetadataOptionsInput is an input type that accepts InfrastructureConfigurationInstanceMetadataOptionsArgs and InfrastructureConfigurationInstanceMetadataOptionsOutput values.
+// You can construct a concrete instance of `InfrastructureConfigurationInstanceMetadataOptionsInput` via:
+//
+//          InfrastructureConfigurationInstanceMetadataOptionsArgs{...}
+type InfrastructureConfigurationInstanceMetadataOptionsInput interface {
+	pulumi.Input
+
+	ToInfrastructureConfigurationInstanceMetadataOptionsOutput() InfrastructureConfigurationInstanceMetadataOptionsOutput
+	ToInfrastructureConfigurationInstanceMetadataOptionsOutputWithContext(context.Context) InfrastructureConfigurationInstanceMetadataOptionsOutput
+}
+
+// The instance metadata option settings for the infrastructure configuration.
+type InfrastructureConfigurationInstanceMetadataOptionsArgs struct {
+	// Limit the number of hops that an instance metadata request can traverse to reach its destination.
+	HttpPutResponseHopLimit pulumi.IntPtrInput `pulumi:"httpPutResponseHopLimit"`
+	// Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows:
+	HttpTokens InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrInput `pulumi:"httpTokens"`
+}
+
+func (InfrastructureConfigurationInstanceMetadataOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfrastructureConfigurationInstanceMetadataOptions)(nil)).Elem()
+}
+
+func (i InfrastructureConfigurationInstanceMetadataOptionsArgs) ToInfrastructureConfigurationInstanceMetadataOptionsOutput() InfrastructureConfigurationInstanceMetadataOptionsOutput {
+	return i.ToInfrastructureConfigurationInstanceMetadataOptionsOutputWithContext(context.Background())
+}
+
+func (i InfrastructureConfigurationInstanceMetadataOptionsArgs) ToInfrastructureConfigurationInstanceMetadataOptionsOutputWithContext(ctx context.Context) InfrastructureConfigurationInstanceMetadataOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationInstanceMetadataOptionsOutput)
+}
+
+func (i InfrastructureConfigurationInstanceMetadataOptionsArgs) ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutput() InfrastructureConfigurationInstanceMetadataOptionsPtrOutput {
+	return i.ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i InfrastructureConfigurationInstanceMetadataOptionsArgs) ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationInstanceMetadataOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationInstanceMetadataOptionsOutput).ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutputWithContext(ctx)
+}
+
+// InfrastructureConfigurationInstanceMetadataOptionsPtrInput is an input type that accepts InfrastructureConfigurationInstanceMetadataOptionsArgs, InfrastructureConfigurationInstanceMetadataOptionsPtr and InfrastructureConfigurationInstanceMetadataOptionsPtrOutput values.
+// You can construct a concrete instance of `InfrastructureConfigurationInstanceMetadataOptionsPtrInput` via:
+//
+//          InfrastructureConfigurationInstanceMetadataOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type InfrastructureConfigurationInstanceMetadataOptionsPtrInput interface {
+	pulumi.Input
+
+	ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutput() InfrastructureConfigurationInstanceMetadataOptionsPtrOutput
+	ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutputWithContext(context.Context) InfrastructureConfigurationInstanceMetadataOptionsPtrOutput
+}
+
+type infrastructureConfigurationInstanceMetadataOptionsPtrType InfrastructureConfigurationInstanceMetadataOptionsArgs
+
+func InfrastructureConfigurationInstanceMetadataOptionsPtr(v *InfrastructureConfigurationInstanceMetadataOptionsArgs) InfrastructureConfigurationInstanceMetadataOptionsPtrInput {
+	return (*infrastructureConfigurationInstanceMetadataOptionsPtrType)(v)
+}
+
+func (*infrastructureConfigurationInstanceMetadataOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfrastructureConfigurationInstanceMetadataOptions)(nil)).Elem()
+}
+
+func (i *infrastructureConfigurationInstanceMetadataOptionsPtrType) ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutput() InfrastructureConfigurationInstanceMetadataOptionsPtrOutput {
+	return i.ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *infrastructureConfigurationInstanceMetadataOptionsPtrType) ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationInstanceMetadataOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationInstanceMetadataOptionsPtrOutput)
+}
+
+// The instance metadata option settings for the infrastructure configuration.
+type InfrastructureConfigurationInstanceMetadataOptionsOutput struct{ *pulumi.OutputState }
+
+func (InfrastructureConfigurationInstanceMetadataOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfrastructureConfigurationInstanceMetadataOptions)(nil)).Elem()
+}
+
+func (o InfrastructureConfigurationInstanceMetadataOptionsOutput) ToInfrastructureConfigurationInstanceMetadataOptionsOutput() InfrastructureConfigurationInstanceMetadataOptionsOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationInstanceMetadataOptionsOutput) ToInfrastructureConfigurationInstanceMetadataOptionsOutputWithContext(ctx context.Context) InfrastructureConfigurationInstanceMetadataOptionsOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationInstanceMetadataOptionsOutput) ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutput() InfrastructureConfigurationInstanceMetadataOptionsPtrOutput {
+	return o.ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o InfrastructureConfigurationInstanceMetadataOptionsOutput) ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationInstanceMetadataOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfrastructureConfigurationInstanceMetadataOptions) *InfrastructureConfigurationInstanceMetadataOptions {
+		return &v
+	}).(InfrastructureConfigurationInstanceMetadataOptionsPtrOutput)
+}
+
+// Limit the number of hops that an instance metadata request can traverse to reach its destination.
+func (o InfrastructureConfigurationInstanceMetadataOptionsOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InfrastructureConfigurationInstanceMetadataOptions) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows:
+func (o InfrastructureConfigurationInstanceMetadataOptionsOutput) HttpTokens() InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput {
+	return o.ApplyT(func(v InfrastructureConfigurationInstanceMetadataOptions) *InfrastructureConfigurationInstanceMetadataOptionsHttpTokens {
+		return v.HttpTokens
+	}).(InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput)
+}
+
+type InfrastructureConfigurationInstanceMetadataOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (InfrastructureConfigurationInstanceMetadataOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfrastructureConfigurationInstanceMetadataOptions)(nil)).Elem()
+}
+
+func (o InfrastructureConfigurationInstanceMetadataOptionsPtrOutput) ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutput() InfrastructureConfigurationInstanceMetadataOptionsPtrOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationInstanceMetadataOptionsPtrOutput) ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationInstanceMetadataOptionsPtrOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationInstanceMetadataOptionsPtrOutput) Elem() InfrastructureConfigurationInstanceMetadataOptionsOutput {
+	return o.ApplyT(func(v *InfrastructureConfigurationInstanceMetadataOptions) InfrastructureConfigurationInstanceMetadataOptions {
+		if v != nil {
+			return *v
+		}
+		var ret InfrastructureConfigurationInstanceMetadataOptions
+		return ret
+	}).(InfrastructureConfigurationInstanceMetadataOptionsOutput)
+}
+
+// Limit the number of hops that an instance metadata request can traverse to reach its destination.
+func (o InfrastructureConfigurationInstanceMetadataOptionsPtrOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InfrastructureConfigurationInstanceMetadataOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HttpPutResponseHopLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows:
+func (o InfrastructureConfigurationInstanceMetadataOptionsPtrOutput) HttpTokens() InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput {
+	return o.ApplyT(func(v *InfrastructureConfigurationInstanceMetadataOptions) *InfrastructureConfigurationInstanceMetadataOptionsHttpTokens {
+		if v == nil {
+			return nil
+		}
+		return v.HttpTokens
+	}).(InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput)
+}
+
 // The logging configuration of the infrastructure configuration.
 type InfrastructureConfigurationLogging struct {
 	S3Logs *InfrastructureConfigurationS3Logs `pulumi:"s3Logs"`
@@ -3551,6 +3750,8 @@ func init() {
 	pulumi.RegisterOutputType(ImageRecipeSystemsManagerAgentPtrOutput{})
 	pulumi.RegisterOutputType(ImageTestsConfigurationOutput{})
 	pulumi.RegisterOutputType(ImageTestsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(InfrastructureConfigurationInstanceMetadataOptionsOutput{})
+	pulumi.RegisterOutputType(InfrastructureConfigurationInstanceMetadataOptionsPtrOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationLoggingOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationLoggingPtrOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationS3LogsOutput{})

@@ -35,7 +35,7 @@ export class BackupSelection extends pulumi.CustomResource {
         return obj['__pulumiType'] === BackupSelection.__pulumiType;
     }
 
-    public /*out*/ readonly backupPlanId!: pulumi.Output<string>;
+    public readonly backupPlanId!: pulumi.Output<string>;
     public readonly backupSelection!: pulumi.Output<outputs.backup.BackupSelectionResourceType>;
     public /*out*/ readonly selectionId!: pulumi.Output<string>;
 
@@ -50,11 +50,14 @@ export class BackupSelection extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.backupPlanId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'backupPlanId'");
+            }
             if ((!args || args.backupSelection === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'backupSelection'");
             }
+            inputs["backupPlanId"] = args ? args.backupPlanId : undefined;
             inputs["backupSelection"] = args ? args.backupSelection : undefined;
-            inputs["backupPlanId"] = undefined /*out*/;
             inputs["selectionId"] = undefined /*out*/;
         } else {
             inputs["backupPlanId"] = undefined /*out*/;
@@ -72,5 +75,6 @@ export class BackupSelection extends pulumi.CustomResource {
  * The set of arguments for constructing a BackupSelection resource.
  */
 export interface BackupSelectionArgs {
+    backupPlanId: pulumi.Input<string>;
     backupSelection: pulumi.Input<inputs.backup.BackupSelectionResourceTypeArgs>;
 }

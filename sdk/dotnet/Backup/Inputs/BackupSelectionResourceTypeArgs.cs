@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Backup.Inputs
 
     public sealed class BackupSelectionResourceTypeArgs : Pulumi.ResourceArgs
     {
+        [Input("conditions")]
+        public Input<Inputs.BackupSelectionResourceTypeConditionsPropertiesArgs>? Conditions { get; set; }
+
         [Input("iamRoleArn", required: true)]
         public Input<string> IamRoleArn { get; set; } = null!;
 
@@ -21,6 +24,14 @@ namespace Pulumi.AwsNative.Backup.Inputs
         {
             get => _listOfTags ?? (_listOfTags = new InputList<Inputs.BackupSelectionConditionResourceTypeArgs>());
             set => _listOfTags = value;
+        }
+
+        [Input("notResources")]
+        private InputList<string>? _notResources;
+        public InputList<string> NotResources
+        {
+            get => _notResources ?? (_notResources = new InputList<string>());
+            set => _notResources = value;
         }
 
         [Input("resources")]

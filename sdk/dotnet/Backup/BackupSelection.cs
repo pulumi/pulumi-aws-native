@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.Backup
 
     public sealed class BackupSelectionArgs : Pulumi.ResourceArgs
     {
+        [Input("backupPlanId", required: true)]
+        public Input<string> BackupPlanId { get; set; } = null!;
+
         [Input("backupSelection", required: true)]
         public Input<Inputs.BackupSelectionResourceTypeArgs> BackupSelectionValue { get; set; } = null!;
 

@@ -1667,6 +1667,171 @@ func (in *imageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtr) ToImageRe
 	return pulumi.ToOutputWithContext(ctx, in).(ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput)
 }
 
+// Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows:
+type InfrastructureConfigurationInstanceMetadataOptionsHttpTokens string
+
+const (
+	InfrastructureConfigurationInstanceMetadataOptionsHttpTokensRequired = InfrastructureConfigurationInstanceMetadataOptionsHttpTokens("required")
+	InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOptional = InfrastructureConfigurationInstanceMetadataOptionsHttpTokens("optional")
+)
+
+func (InfrastructureConfigurationInstanceMetadataOptionsHttpTokens) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfrastructureConfigurationInstanceMetadataOptionsHttpTokens)(nil)).Elem()
+}
+
+func (e InfrastructureConfigurationInstanceMetadataOptionsHttpTokens) ToInfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput() InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput {
+	return pulumi.ToOutput(e).(InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput)
+}
+
+func (e InfrastructureConfigurationInstanceMetadataOptionsHttpTokens) ToInfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutputWithContext(ctx context.Context) InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput)
+}
+
+func (e InfrastructureConfigurationInstanceMetadataOptionsHttpTokens) ToInfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput() InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput {
+	return e.ToInfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutputWithContext(context.Background())
+}
+
+func (e InfrastructureConfigurationInstanceMetadataOptionsHttpTokens) ToInfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput {
+	return InfrastructureConfigurationInstanceMetadataOptionsHttpTokens(e).ToInfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutputWithContext(ctx).ToInfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutputWithContext(ctx)
+}
+
+func (e InfrastructureConfigurationInstanceMetadataOptionsHttpTokens) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InfrastructureConfigurationInstanceMetadataOptionsHttpTokens) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InfrastructureConfigurationInstanceMetadataOptionsHttpTokens) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InfrastructureConfigurationInstanceMetadataOptionsHttpTokens) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput struct{ *pulumi.OutputState }
+
+func (InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfrastructureConfigurationInstanceMetadataOptionsHttpTokens)(nil)).Elem()
+}
+
+func (o InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput) ToInfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput() InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput) ToInfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutputWithContext(ctx context.Context) InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput) ToInfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput() InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput {
+	return o.ToInfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutputWithContext(context.Background())
+}
+
+func (o InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput) ToInfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfrastructureConfigurationInstanceMetadataOptionsHttpTokens) *InfrastructureConfigurationInstanceMetadataOptionsHttpTokens {
+		return &v
+	}).(InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput)
+}
+
+func (o InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfrastructureConfigurationInstanceMetadataOptionsHttpTokens) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfrastructureConfigurationInstanceMetadataOptionsHttpTokens) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput struct{ *pulumi.OutputState }
+
+func (InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfrastructureConfigurationInstanceMetadataOptionsHttpTokens)(nil)).Elem()
+}
+
+func (o InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput) ToInfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput() InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput) ToInfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput) Elem() InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput {
+	return o.ApplyT(func(v *InfrastructureConfigurationInstanceMetadataOptionsHttpTokens) InfrastructureConfigurationInstanceMetadataOptionsHttpTokens {
+		if v != nil {
+			return *v
+		}
+		var ret InfrastructureConfigurationInstanceMetadataOptionsHttpTokens
+		return ret
+	}).(InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput)
+}
+
+func (o InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InfrastructureConfigurationInstanceMetadataOptionsHttpTokens) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InfrastructureConfigurationInstanceMetadataOptionsHttpTokensInput is an input type that accepts InfrastructureConfigurationInstanceMetadataOptionsHttpTokensArgs and InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput values.
+// You can construct a concrete instance of `InfrastructureConfigurationInstanceMetadataOptionsHttpTokensInput` via:
+//
+//          InfrastructureConfigurationInstanceMetadataOptionsHttpTokensArgs{...}
+type InfrastructureConfigurationInstanceMetadataOptionsHttpTokensInput interface {
+	pulumi.Input
+
+	ToInfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput() InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput
+	ToInfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutputWithContext(context.Context) InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput
+}
+
+var infrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrType = reflect.TypeOf((**InfrastructureConfigurationInstanceMetadataOptionsHttpTokens)(nil)).Elem()
+
+type InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrInput interface {
+	pulumi.Input
+
+	ToInfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput() InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput
+	ToInfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutputWithContext(context.Context) InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput
+}
+
+type infrastructureConfigurationInstanceMetadataOptionsHttpTokensPtr string
+
+func InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtr(v string) InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrInput {
+	return (*infrastructureConfigurationInstanceMetadataOptionsHttpTokensPtr)(&v)
+}
+
+func (*infrastructureConfigurationInstanceMetadataOptionsHttpTokensPtr) ElementType() reflect.Type {
+	return infrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrType
+}
+
+func (in *infrastructureConfigurationInstanceMetadataOptionsHttpTokensPtr) ToInfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput() InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput {
+	return pulumi.ToOutput(in).(InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput)
+}
+
+func (in *infrastructureConfigurationInstanceMetadataOptionsHttpTokensPtr) ToInfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ComponentPlatformOutput{})
 	pulumi.RegisterOutputType(ComponentPlatformPtrOutput{})
@@ -1688,4 +1853,6 @@ func init() {
 	pulumi.RegisterOutputType(ImagePipelineStatusPtrOutput{})
 	pulumi.RegisterOutputType(ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeOutput{})
 	pulumi.RegisterOutputType(ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput{})
+	pulumi.RegisterOutputType(InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput{})
+	pulumi.RegisterOutputType(InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput{})
 }

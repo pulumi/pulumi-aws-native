@@ -37,6 +37,10 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
         /// </summary>
         public readonly string? SnapshotId;
         /// <summary>
+        /// For GP3 volumes only – The throughput in MiB/s that the volume supports.
+        /// </summary>
+        public readonly int? Throughput;
+        /// <summary>
         /// Use to override the device's volume size.
         /// </summary>
         public readonly int? VolumeSize;
@@ -57,6 +61,8 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
 
             string? snapshotId,
 
+            int? throughput,
+
             int? volumeSize,
 
             Pulumi.AwsNative.ImageBuilder.ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType? volumeType)
@@ -66,6 +72,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
             Iops = iops;
             KmsKeyId = kmsKeyId;
             SnapshotId = snapshotId;
+            Throughput = throughput;
             VolumeSize = volumeSize;
             VolumeType = volumeType;
         }

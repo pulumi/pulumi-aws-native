@@ -4193,6 +4193,11 @@ export namespace backup {
         backupPlanRule: pulumi.Input<pulumi.Input<inputs.backup.BackupPlanBackupRuleResourceTypeArgs>[]>;
     }
 
+    export interface BackupSelectionConditionParameterArgs {
+        conditionKey?: pulumi.Input<string>;
+        conditionValue?: pulumi.Input<string>;
+    }
+
     export interface BackupSelectionConditionResourceTypeArgs {
         conditionKey: pulumi.Input<string>;
         conditionType: pulumi.Input<string>;
@@ -4200,10 +4205,19 @@ export namespace backup {
     }
 
     export interface BackupSelectionResourceTypeArgs {
+        conditions?: pulumi.Input<inputs.backup.BackupSelectionResourceTypeConditionsPropertiesArgs>;
         iamRoleArn: pulumi.Input<string>;
         listOfTags?: pulumi.Input<pulumi.Input<inputs.backup.BackupSelectionConditionResourceTypeArgs>[]>;
+        notResources?: pulumi.Input<pulumi.Input<string>[]>;
         resources?: pulumi.Input<pulumi.Input<string>[]>;
         selectionName: pulumi.Input<string>;
+    }
+
+    export interface BackupSelectionResourceTypeConditionsPropertiesArgs {
+        stringEquals?: pulumi.Input<pulumi.Input<inputs.backup.BackupSelectionConditionParameterArgs>[]>;
+        stringLike?: pulumi.Input<pulumi.Input<inputs.backup.BackupSelectionConditionParameterArgs>[]>;
+        stringNotEquals?: pulumi.Input<pulumi.Input<inputs.backup.BackupSelectionConditionParameterArgs>[]>;
+        stringNotLike?: pulumi.Input<pulumi.Input<inputs.backup.BackupSelectionConditionParameterArgs>[]>;
     }
 
     export interface BackupVaultLockConfigurationTypeArgs {
@@ -4305,6 +4319,10 @@ export namespace backup {
      * Identifies the report template for the report. Reports are built using a report template.
      */
     export interface ReportSettingPropertiesArgs {
+        /**
+         * The Amazon Resource Names (ARNs) of the frameworks a report covers.
+         */
+        frameworkArns?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Identifies the report template for the report. Reports are built using a report template. The report templates are: `BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`
          */
@@ -12079,6 +12097,10 @@ export namespace imagebuilder {
          */
         snapshotId?: pulumi.Input<string>;
         /**
+         * For GP3 volumes only – The throughput in MiB/s that the volume supports.
+         */
+        throughput?: pulumi.Input<number>;
+        /**
          * Use to override the device's volume size.
          */
         volumeSize?: pulumi.Input<number>;
@@ -12353,6 +12375,10 @@ export namespace imagebuilder {
          */
         snapshotId?: pulumi.Input<string>;
         /**
+         * For GP3 volumes only – The throughput in MiB/s that the volume supports.
+         */
+        throughput?: pulumi.Input<number>;
+        /**
          * Use to override the device's volume size.
          */
         volumeSize?: pulumi.Input<number>;
@@ -12409,6 +12435,20 @@ export namespace imagebuilder {
     }
 
     /**
+     * The instance metadata option settings for the infrastructure configuration.
+     */
+    export interface InfrastructureConfigurationInstanceMetadataOptionsArgs {
+        /**
+         * Limit the number of hops that an instance metadata request can traverse to reach its destination.
+         */
+        httpPutResponseHopLimit?: pulumi.Input<number>;
+        /**
+         * Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows: 
+         */
+        httpTokens?: pulumi.Input<enums.imagebuilder.InfrastructureConfigurationInstanceMetadataOptionsHttpTokens>;
+    }
+
+    /**
      * The logging configuration of the infrastructure configuration.
      */
     export interface InfrastructureConfigurationLoggingArgs {
@@ -12428,7 +12468,6 @@ export namespace imagebuilder {
          */
         s3KeyPrefix?: pulumi.Input<string>;
     }
-
 }
 
 export namespace inspector {

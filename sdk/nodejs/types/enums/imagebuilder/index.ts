@@ -108,3 +108,13 @@ export const ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType = {
  * Use to override the device's volume type.
  */
 export type ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType = (typeof ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType)[keyof typeof ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType];
+
+export const InfrastructureConfigurationInstanceMetadataOptionsHttpTokens = {
+    Required: "required",
+    Optional: "optional",
+} as const;
+
+/**
+ * Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows: 
+ */
+export type InfrastructureConfigurationInstanceMetadataOptionsHttpTokens = (typeof InfrastructureConfigurationInstanceMetadataOptionsHttpTokens)[keyof typeof InfrastructureConfigurationInstanceMetadataOptionsHttpTokens];

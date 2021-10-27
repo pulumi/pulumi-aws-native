@@ -19,6 +19,8 @@ type InfrastructureConfiguration struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The description of the infrastructure configuration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The instance metadata option settings for the infrastructure configuration.
+	InstanceMetadataOptions InfrastructureConfigurationInstanceMetadataOptionsPtrOutput `pulumi:"instanceMetadataOptions"`
 	// The instance profile of the infrastructure configuration.
 	InstanceProfileName pulumi.StringOutput `pulumi:"instanceProfileName"`
 	// The instance types of the infrastructure configuration.
@@ -90,6 +92,8 @@ func (InfrastructureConfigurationState) ElementType() reflect.Type {
 type infrastructureConfigurationArgs struct {
 	// The description of the infrastructure configuration.
 	Description *string `pulumi:"description"`
+	// The instance metadata option settings for the infrastructure configuration.
+	InstanceMetadataOptions *InfrastructureConfigurationInstanceMetadataOptions `pulumi:"instanceMetadataOptions"`
 	// The instance profile of the infrastructure configuration.
 	InstanceProfileName string `pulumi:"instanceProfileName"`
 	// The instance types of the infrastructure configuration.
@@ -118,6 +122,8 @@ type infrastructureConfigurationArgs struct {
 type InfrastructureConfigurationArgs struct {
 	// The description of the infrastructure configuration.
 	Description pulumi.StringPtrInput
+	// The instance metadata option settings for the infrastructure configuration.
+	InstanceMetadataOptions InfrastructureConfigurationInstanceMetadataOptionsPtrInput
 	// The instance profile of the infrastructure configuration.
 	InstanceProfileName pulumi.StringInput
 	// The instance types of the infrastructure configuration.

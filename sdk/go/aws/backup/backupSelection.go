@@ -27,6 +27,9 @@ func NewBackupSelection(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.BackupPlanId == nil {
+		return nil, errors.New("invalid value for required argument 'BackupPlanId'")
+	}
 	if args.BackupSelection == nil {
 		return nil, errors.New("invalid value for required argument 'BackupSelection'")
 	}
@@ -62,11 +65,13 @@ func (BackupSelectionState) ElementType() reflect.Type {
 }
 
 type backupSelectionArgs struct {
+	BackupPlanId    string                      `pulumi:"backupPlanId"`
 	BackupSelection BackupSelectionResourceType `pulumi:"backupSelection"`
 }
 
 // The set of arguments for constructing a BackupSelection resource.
 type BackupSelectionArgs struct {
+	BackupPlanId    pulumi.StringInput
 	BackupSelection BackupSelectionResourceTypeInput
 }
 

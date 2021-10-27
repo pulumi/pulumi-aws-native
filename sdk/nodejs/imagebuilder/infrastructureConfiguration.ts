@@ -44,6 +44,10 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The instance metadata option settings for the infrastructure configuration.
+     */
+    public readonly instanceMetadataOptions!: pulumi.Output<outputs.imagebuilder.InfrastructureConfigurationInstanceMetadataOptions | undefined>;
+    /**
      * The instance profile of the infrastructure configuration.
      */
     public readonly instanceProfileName!: pulumi.Output<string>;
@@ -106,6 +110,7 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'name'");
             }
             inputs["description"] = args ? args.description : undefined;
+            inputs["instanceMetadataOptions"] = args ? args.instanceMetadataOptions : undefined;
             inputs["instanceProfileName"] = args ? args.instanceProfileName : undefined;
             inputs["instanceTypes"] = args ? args.instanceTypes : undefined;
             inputs["keyPair"] = args ? args.keyPair : undefined;
@@ -121,6 +126,7 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
         } else {
             inputs["arn"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
+            inputs["instanceMetadataOptions"] = undefined /*out*/;
             inputs["instanceProfileName"] = undefined /*out*/;
             inputs["instanceTypes"] = undefined /*out*/;
             inputs["keyPair"] = undefined /*out*/;
@@ -148,6 +154,10 @@ export interface InfrastructureConfigurationArgs {
      * The description of the infrastructure configuration.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The instance metadata option settings for the infrastructure configuration.
+     */
+    instanceMetadataOptions?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationInstanceMetadataOptionsArgs>;
     /**
      * The instance profile of the infrastructure configuration.
      */

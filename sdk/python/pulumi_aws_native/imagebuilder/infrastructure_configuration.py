@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['InfrastructureConfigurationArgs', 'InfrastructureConfiguration']
@@ -18,6 +19,7 @@ class InfrastructureConfigurationArgs:
                  instance_profile_name: pulumi.Input[str],
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 instance_metadata_options: Optional[pulumi.Input['InfrastructureConfigurationInstanceMetadataOptionsArgs']] = None,
                  instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key_pair: Optional[pulumi.Input[str]] = None,
                  logging: Optional[pulumi.Input['InfrastructureConfigurationLoggingArgs']] = None,
@@ -32,6 +34,7 @@ class InfrastructureConfigurationArgs:
         :param pulumi.Input[str] instance_profile_name: The instance profile of the infrastructure configuration.
         :param pulumi.Input[str] name: The name of the infrastructure configuration.
         :param pulumi.Input[str] description: The description of the infrastructure configuration.
+        :param pulumi.Input['InfrastructureConfigurationInstanceMetadataOptionsArgs'] instance_metadata_options: The instance metadata option settings for the infrastructure configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: The instance types of the infrastructure configuration.
         :param pulumi.Input[str] key_pair: The EC2 key pair of the infrastructure configuration..
         :param pulumi.Input['InfrastructureConfigurationLoggingArgs'] logging: The logging configuration of the infrastructure configuration.
@@ -46,6 +49,8 @@ class InfrastructureConfigurationArgs:
         pulumi.set(__self__, "name", name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if instance_metadata_options is not None:
+            pulumi.set(__self__, "instance_metadata_options", instance_metadata_options)
         if instance_types is not None:
             pulumi.set(__self__, "instance_types", instance_types)
         if key_pair is not None:
@@ -100,6 +105,18 @@ class InfrastructureConfigurationArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="instanceMetadataOptions")
+    def instance_metadata_options(self) -> Optional[pulumi.Input['InfrastructureConfigurationInstanceMetadataOptionsArgs']]:
+        """
+        The instance metadata option settings for the infrastructure configuration.
+        """
+        return pulumi.get(self, "instance_metadata_options")
+
+    @instance_metadata_options.setter
+    def instance_metadata_options(self, value: Optional[pulumi.Input['InfrastructureConfigurationInstanceMetadataOptionsArgs']]):
+        pulumi.set(self, "instance_metadata_options", value)
 
     @property
     @pulumi.getter(name="instanceTypes")
@@ -216,6 +233,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 instance_metadata_options: Optional[pulumi.Input[pulumi.InputType['InfrastructureConfigurationInstanceMetadataOptionsArgs']]] = None,
                  instance_profile_name: Optional[pulumi.Input[str]] = None,
                  instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key_pair: Optional[pulumi.Input[str]] = None,
@@ -234,6 +252,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the infrastructure configuration.
+        :param pulumi.Input[pulumi.InputType['InfrastructureConfigurationInstanceMetadataOptionsArgs']] instance_metadata_options: The instance metadata option settings for the infrastructure configuration.
         :param pulumi.Input[str] instance_profile_name: The instance profile of the infrastructure configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: The instance types of the infrastructure configuration.
         :param pulumi.Input[str] key_pair: The EC2 key pair of the infrastructure configuration..
@@ -271,6 +290,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 instance_metadata_options: Optional[pulumi.Input[pulumi.InputType['InfrastructureConfigurationInstanceMetadataOptionsArgs']]] = None,
                  instance_profile_name: Optional[pulumi.Input[str]] = None,
                  instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key_pair: Optional[pulumi.Input[str]] = None,
@@ -295,6 +315,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
             __props__ = InfrastructureConfigurationArgs.__new__(InfrastructureConfigurationArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["instance_metadata_options"] = instance_metadata_options
             if instance_profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_profile_name'")
             __props__.__dict__["instance_profile_name"] = instance_profile_name
@@ -335,6 +356,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["instance_metadata_options"] = None
         __props__.__dict__["instance_profile_name"] = None
         __props__.__dict__["instance_types"] = None
         __props__.__dict__["key_pair"] = None
@@ -363,6 +385,14 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         The description of the infrastructure configuration.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="instanceMetadataOptions")
+    def instance_metadata_options(self) -> pulumi.Output[Optional['outputs.InfrastructureConfigurationInstanceMetadataOptions']]:
+        """
+        The instance metadata option settings for the infrastructure configuration.
+        """
+        return pulumi.get(self, "instance_metadata_options")
 
     @property
     @pulumi.getter(name="instanceProfileName")

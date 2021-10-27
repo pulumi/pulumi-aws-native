@@ -159,7 +159,7 @@
     }
   },
   "additionalProperties" : false,
-  "required" : [ "BudgetName", "NotificationType", "ActionType", "ActionThreshold", "ExecutionRoleArn", "Definition" ],
+  "required" : [ "BudgetName", "NotificationType", "ActionType", "ActionThreshold", "ExecutionRoleArn", "Definition", "Subscribers" ],
   "readOnlyProperties" : [ "/properties/ActionId" ],
   "createOnlyProperties" : [ "/properties/ActionType", "/properties/BudgetName" ],
   "primaryIdentifier" : [ "/properties/ActionId", "/properties/BudgetName" ],

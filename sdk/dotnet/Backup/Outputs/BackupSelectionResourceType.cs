@@ -13,23 +13,31 @@ namespace Pulumi.AwsNative.Backup.Outputs
     [OutputType]
     public sealed class BackupSelectionResourceType
     {
+        public readonly Outputs.BackupSelectionResourceTypeConditionsProperties? Conditions;
         public readonly string IamRoleArn;
         public readonly ImmutableArray<Outputs.BackupSelectionConditionResourceType> ListOfTags;
+        public readonly ImmutableArray<string> NotResources;
         public readonly ImmutableArray<string> Resources;
         public readonly string SelectionName;
 
         [OutputConstructor]
         private BackupSelectionResourceType(
+            Outputs.BackupSelectionResourceTypeConditionsProperties? conditions,
+
             string iamRoleArn,
 
             ImmutableArray<Outputs.BackupSelectionConditionResourceType> listOfTags,
+
+            ImmutableArray<string> notResources,
 
             ImmutableArray<string> resources,
 
             string selectionName)
         {
+            Conditions = conditions;
             IamRoleArn = iamRoleArn;
             ListOfTags = listOfTags;
+            NotResources = notResources;
             Resources = resources;
             SelectionName = selectionName;
         }

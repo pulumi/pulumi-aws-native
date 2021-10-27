@@ -15,11 +15,22 @@ __all__ = ['BackupSelectionArgs', 'BackupSelection']
 @pulumi.input_type
 class BackupSelectionArgs:
     def __init__(__self__, *,
+                 backup_plan_id: pulumi.Input[str],
                  backup_selection: pulumi.Input['BackupSelectionResourceTypeArgs']):
         """
         The set of arguments for constructing a BackupSelection resource.
         """
+        pulumi.set(__self__, "backup_plan_id", backup_plan_id)
         pulumi.set(__self__, "backup_selection", backup_selection)
+
+    @property
+    @pulumi.getter(name="backupPlanId")
+    def backup_plan_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "backup_plan_id")
+
+    @backup_plan_id.setter
+    def backup_plan_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "backup_plan_id", value)
 
     @property
     @pulumi.getter(name="backupSelection")
@@ -36,6 +47,7 @@ class BackupSelection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 backup_plan_id: Optional[pulumi.Input[str]] = None,
                  backup_selection: Optional[pulumi.Input[pulumi.InputType['BackupSelectionResourceTypeArgs']]] = None,
                  __props__=None):
         """
@@ -68,6 +80,7 @@ class BackupSelection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 backup_plan_id: Optional[pulumi.Input[str]] = None,
                  backup_selection: Optional[pulumi.Input[pulumi.InputType['BackupSelectionResourceTypeArgs']]] = None,
                  __props__=None):
         if opts is None:
@@ -81,10 +94,12 @@ class BackupSelection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BackupSelectionArgs.__new__(BackupSelectionArgs)
 
+            if backup_plan_id is None and not opts.urn:
+                raise TypeError("Missing required property 'backup_plan_id'")
+            __props__.__dict__["backup_plan_id"] = backup_plan_id
             if backup_selection is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_selection'")
             __props__.__dict__["backup_selection"] = backup_selection
-            __props__.__dict__["backup_plan_id"] = None
             __props__.__dict__["selection_id"] = None
         super(BackupSelection, __self__).__init__(
             'aws-native:backup:BackupSelection',
