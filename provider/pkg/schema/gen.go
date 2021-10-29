@@ -27,6 +27,8 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 			"pulumi",
 			"aws",
 			"aws-native",
+			"category/cloud",
+			"kind/native",
 		},
 		Homepage:   "https://pulumi.com",
 		License:    "Apache-2.0",
