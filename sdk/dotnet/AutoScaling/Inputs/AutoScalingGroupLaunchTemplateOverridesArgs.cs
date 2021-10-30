@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
 
     public sealed class AutoScalingGroupLaunchTemplateOverridesArgs : Pulumi.ResourceArgs
     {
+        [Input("instanceRequirements")]
+        public Input<Inputs.AutoScalingGroupInstanceRequirementsArgs>? InstanceRequirements { get; set; }
+
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
 

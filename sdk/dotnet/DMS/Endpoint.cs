@@ -82,6 +82,9 @@ namespace Pulumi.AwsNative.DMS
         [Output("postgreSqlSettings")]
         public Output<Outputs.EndpointPostgreSqlSettings?> PostgreSqlSettings { get; private set; } = null!;
 
+        [Output("redisSettings")]
+        public Output<Outputs.EndpointRedisSettings?> RedisSettings { get; private set; } = null!;
+
         [Output("redshiftSettings")]
         public Output<Outputs.EndpointRedshiftSettings?> RedshiftSettings { get; private set; } = null!;
 
@@ -213,6 +216,9 @@ namespace Pulumi.AwsNative.DMS
 
         [Input("postgreSqlSettings")]
         public Input<Inputs.EndpointPostgreSqlSettingsArgs>? PostgreSqlSettings { get; set; }
+
+        [Input("redisSettings")]
+        public Input<Inputs.EndpointRedisSettingsArgs>? RedisSettings { get; set; }
 
         [Input("redshiftSettings")]
         public Input<Inputs.EndpointRedshiftSettingsArgs>? RedshiftSettings { get; set; }

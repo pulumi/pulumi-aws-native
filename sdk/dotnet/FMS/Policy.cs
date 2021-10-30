@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.FMS
         [Output("resourceTypeList")]
         public Output<ImmutableArray<string>> ResourceTypeList { get; private set; } = null!;
 
+        [Output("resourcesCleanUp")]
+        public Output<bool?> ResourcesCleanUp { get; private set; } = null!;
+
         [Output("securityServicePolicyData")]
         public Output<Outputs.SecurityServicePolicyDataProperties> SecurityServicePolicyData { get; private set; } = null!;
 
@@ -132,6 +135,9 @@ namespace Pulumi.AwsNative.FMS
             get => _resourceTypeList ?? (_resourceTypeList = new InputList<string>());
             set => _resourceTypeList = value;
         }
+
+        [Input("resourcesCleanUp")]
+        public Input<bool>? ResourcesCleanUp { get; set; }
 
         [Input("securityServicePolicyData", required: true)]
         public Input<Inputs.SecurityServicePolicyDataPropertiesArgs> SecurityServicePolicyData { get; set; } = null!;

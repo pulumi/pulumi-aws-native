@@ -7,15 +7,18 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.MWAA.Inputs
+namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    /// <summary>
-    /// A map of tags for the environment.
-    /// </summary>
-    public sealed class EnvironmentTagMapArgs : Pulumi.ResourceArgs
+    public sealed class EC2FleetMemoryGiBPerVCpuRequestArgs : Pulumi.ResourceArgs
     {
-        public EnvironmentTagMapArgs()
+        [Input("max")]
+        public Input<double>? Max { get; set; }
+
+        [Input("min")]
+        public Input<double>? Min { get; set; }
+
+        public EC2FleetMemoryGiBPerVCpuRequestArgs()
         {
         }
     }

@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.Pinpoint.Outputs
         public readonly int? Daily;
         public readonly int? MaximumDuration;
         public readonly int? MessagesPerSecond;
+        public readonly int? Session;
         public readonly int? Total;
 
         [OutputConstructor]
@@ -26,11 +27,14 @@ namespace Pulumi.AwsNative.Pinpoint.Outputs
 
             int? messagesPerSecond,
 
+            int? session,
+
             int? total)
         {
             Daily = daily;
             MaximumDuration = maximumDuration;
             MessagesPerSecond = messagesPerSecond;
+            Session = session;
             Total = total;
         }
     }

@@ -14,11 +14,16 @@ namespace Pulumi.AwsNative.EC2.Outputs
     public sealed class SpotFleetSpotCapacityRebalance
     {
         public readonly Pulumi.AwsNative.EC2.SpotFleetSpotCapacityRebalanceReplacementStrategy? ReplacementStrategy;
+        public readonly int? TerminationDelay;
 
         [OutputConstructor]
-        private SpotFleetSpotCapacityRebalance(Pulumi.AwsNative.EC2.SpotFleetSpotCapacityRebalanceReplacementStrategy? replacementStrategy)
+        private SpotFleetSpotCapacityRebalance(
+            Pulumi.AwsNative.EC2.SpotFleetSpotCapacityRebalanceReplacementStrategy? replacementStrategy,
+
+            int? terminationDelay)
         {
             ReplacementStrategy = replacementStrategy;
+            TerminationDelay = terminationDelay;
         }
     }
 }

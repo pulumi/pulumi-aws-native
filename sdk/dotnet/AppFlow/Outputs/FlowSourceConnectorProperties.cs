@@ -23,6 +23,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         public readonly Outputs.FlowInforNexusSourceProperties? InforNexus;
         public readonly Outputs.FlowMarketoSourceProperties? Marketo;
         public readonly Outputs.FlowS3SourceProperties? S3;
+        public readonly Outputs.FlowSAPODataSourceProperties? SAPOData;
         public readonly Outputs.FlowSalesforceSourceProperties? Salesforce;
         public readonly Outputs.FlowServiceNowSourceProperties? ServiceNow;
         public readonly Outputs.FlowSingularSourceProperties? Singular;
@@ -47,6 +48,8 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
             Outputs.FlowS3SourceProperties? s3,
 
+            Outputs.FlowSAPODataSourceProperties? sAPOData,
+
             Outputs.FlowSalesforceSourceProperties? salesforce,
 
             Outputs.FlowServiceNowSourceProperties? serviceNow,
@@ -68,6 +71,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
             InforNexus = inforNexus;
             Marketo = marketo;
             S3 = s3;
+            SAPOData = sAPOData;
             Salesforce = salesforce;
             ServiceNow = serviceNow;
             Singular = singular;

@@ -36,6 +36,9 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         [Input("s3")]
         public Input<Pulumi.AwsNative.AppFlow.FlowS3ConnectorOperator>? S3 { get; set; }
 
+        [Input("sAPOData")]
+        public Input<Pulumi.AwsNative.AppFlow.FlowSAPODataConnectorOperator>? SAPOData { get; set; }
+
         [Input("salesforce")]
         public Input<Pulumi.AwsNative.AppFlow.FlowSalesforceConnectorOperator>? Salesforce { get; set; }
 

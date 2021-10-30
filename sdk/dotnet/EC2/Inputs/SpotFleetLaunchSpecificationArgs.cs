@@ -29,8 +29,11 @@ namespace Pulumi.AwsNative.EC2.Inputs
         [Input("imageId", required: true)]
         public Input<string> ImageId { get; set; } = null!;
 
-        [Input("instanceType", required: true)]
-        public Input<string> InstanceType { get; set; } = null!;
+        [Input("instanceRequirements")]
+        public Input<Inputs.SpotFleetInstanceRequirementsRequestArgs>? InstanceRequirements { get; set; }
+
+        [Input("instanceType")]
+        public Input<string>? InstanceType { get; set; }
 
         [Input("kernelId")]
         public Input<string>? KernelId { get; set; }

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.EC2.Inputs
         [Input("replacementStrategy")]
         public Input<Pulumi.AwsNative.EC2.SpotFleetSpotCapacityRebalanceReplacementStrategy>? ReplacementStrategy { get; set; }
 
+        [Input("terminationDelay")]
+        public Input<int>? TerminationDelay { get; set; }
+
         public SpotFleetSpotCapacityRebalanceArgs()
         {
         }

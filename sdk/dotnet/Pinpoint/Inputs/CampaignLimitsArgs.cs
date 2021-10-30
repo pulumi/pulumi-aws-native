@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         [Input("messagesPerSecond")]
         public Input<int>? MessagesPerSecond { get; set; }
 
+        [Input("session")]
+        public Input<int>? Session { get; set; }
+
         [Input("total")]
         public Input<int>? Total { get; set; }
 

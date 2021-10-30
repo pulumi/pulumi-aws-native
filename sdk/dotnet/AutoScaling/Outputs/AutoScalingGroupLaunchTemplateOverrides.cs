@@ -13,18 +13,22 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
     [OutputType]
     public sealed class AutoScalingGroupLaunchTemplateOverrides
     {
+        public readonly Outputs.AutoScalingGroupInstanceRequirements? InstanceRequirements;
         public readonly string? InstanceType;
         public readonly Outputs.AutoScalingGroupLaunchTemplateSpecification? LaunchTemplateSpecification;
         public readonly string? WeightedCapacity;
 
         [OutputConstructor]
         private AutoScalingGroupLaunchTemplateOverrides(
+            Outputs.AutoScalingGroupInstanceRequirements? instanceRequirements,
+
             string? instanceType,
 
             Outputs.AutoScalingGroupLaunchTemplateSpecification? launchTemplateSpecification,
 
             string? weightedCapacity)
         {
+            InstanceRequirements = instanceRequirements;
             InstanceType = instanceType;
             LaunchTemplateSpecification = launchTemplateSpecification;
             WeightedCapacity = weightedCapacity;

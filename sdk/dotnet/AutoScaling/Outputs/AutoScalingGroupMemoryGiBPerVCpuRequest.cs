@@ -7,18 +7,23 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.MWAA.Outputs
+namespace Pulumi.AwsNative.AutoScaling.Outputs
 {
 
-    /// <summary>
-    /// A map of tags for the environment.
-    /// </summary>
     [OutputType]
-    public sealed class EnvironmentTagMap
+    public sealed class AutoScalingGroupMemoryGiBPerVCpuRequest
     {
+        public readonly int? Max;
+        public readonly int? Min;
+
         [OutputConstructor]
-        private EnvironmentTagMap()
+        private AutoScalingGroupMemoryGiBPerVCpuRequest(
+            int? max,
+
+            int? min)
         {
+            Max = max;
+            Min = min;
         }
     }
 }

@@ -23,6 +23,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         public readonly Pulumi.AwsNative.AppFlow.FlowInforNexusConnectorOperator? InforNexus;
         public readonly Pulumi.AwsNative.AppFlow.FlowMarketoConnectorOperator? Marketo;
         public readonly Pulumi.AwsNative.AppFlow.FlowS3ConnectorOperator? S3;
+        public readonly Pulumi.AwsNative.AppFlow.FlowSAPODataConnectorOperator? SAPOData;
         public readonly Pulumi.AwsNative.AppFlow.FlowSalesforceConnectorOperator? Salesforce;
         public readonly Pulumi.AwsNative.AppFlow.FlowServiceNowConnectorOperator? ServiceNow;
         public readonly Pulumi.AwsNative.AppFlow.FlowSingularConnectorOperator? Singular;
@@ -47,6 +48,8 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
             Pulumi.AwsNative.AppFlow.FlowS3ConnectorOperator? s3,
 
+            Pulumi.AwsNative.AppFlow.FlowSAPODataConnectorOperator? sAPOData,
+
             Pulumi.AwsNative.AppFlow.FlowSalesforceConnectorOperator? salesforce,
 
             Pulumi.AwsNative.AppFlow.FlowServiceNowConnectorOperator? serviceNow,
@@ -68,6 +71,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
             InforNexus = inforNexus;
             Marketo = marketo;
             S3 = s3;
+            SAPOData = sAPOData;
             Salesforce = salesforce;
             ServiceNow = serviceNow;
             Singular = singular;

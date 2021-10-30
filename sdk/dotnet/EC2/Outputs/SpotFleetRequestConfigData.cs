@@ -30,6 +30,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
         public readonly string? SpotMaxTotalPrice;
         public readonly string? SpotPrice;
         public readonly int TargetCapacity;
+        public readonly Pulumi.AwsNative.EC2.SpotFleetRequestConfigDataTargetCapacityUnitType? TargetCapacityUnitType;
         public readonly bool? TerminateInstancesWithExpiration;
         public readonly Pulumi.AwsNative.EC2.SpotFleetRequestConfigDataType? Type;
         public readonly string? ValidFrom;
@@ -71,6 +72,8 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
             int targetCapacity,
 
+            Pulumi.AwsNative.EC2.SpotFleetRequestConfigDataTargetCapacityUnitType? targetCapacityUnitType,
+
             bool? terminateInstancesWithExpiration,
 
             Pulumi.AwsNative.EC2.SpotFleetRequestConfigDataType? type,
@@ -96,6 +99,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
             SpotMaxTotalPrice = spotMaxTotalPrice;
             SpotPrice = spotPrice;
             TargetCapacity = targetCapacity;
+            TargetCapacityUnitType = targetCapacityUnitType;
             TerminateInstancesWithExpiration = terminateInstancesWithExpiration;
             Type = type;
             ValidFrom = validFrom;
