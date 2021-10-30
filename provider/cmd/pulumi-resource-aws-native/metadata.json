@@ -3209,6 +3209,10 @@
                     },
                     "description": "Clustering key columns of the table"
                 },
+                "defaultTimeToLive": {
+                    "type": "integer",
+                    "description": "Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column."
+                },
                 "encryptionSpecification": {
                     "$ref": "#/types/aws-native:cassandra:TableEncryptionSpecification"
                 },
@@ -3256,6 +3260,10 @@
                         "$ref": "#/types/aws-native:cassandra:TableClusteringKeyColumn"
                     },
                     "description": "Clustering key columns of the table"
+                },
+                "defaultTimeToLive": {
+                    "type": "integer",
+                    "description": "Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column."
                 },
                 "encryptionSpecification": {
                     "$ref": "#/types/aws-native:cassandra:TableEncryptionSpecification"
@@ -5372,6 +5380,83 @@
                 "queryName"
             ]
         },
+        "aws-native:connect:HoursOfOperation": {
+            "cf": "AWS::Connect::HoursOfOperation",
+            "inputs": {
+                "config": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:connect:HoursOfOperationConfig"
+                    },
+                    "description": "Configuration information for the hours of operation: day, start time, and end time."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the hours of operation."
+                },
+                "instanceArn": {
+                    "type": "string",
+                    "description": "The identifier of the Amazon Connect instance."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the hours of operation."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:connect:HoursOfOperationTag"
+                    },
+                    "description": "One or more tags."
+                },
+                "timeZone": {
+                    "type": "string",
+                    "description": "The time zone of the hours of operation."
+                }
+            },
+            "outputs": {
+                "config": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:connect:HoursOfOperationConfig"
+                    },
+                    "description": "Configuration information for the hours of operation: day, start time, and end time."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the hours of operation."
+                },
+                "hoursOfOperationArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) for the hours of operation."
+                },
+                "instanceArn": {
+                    "type": "string",
+                    "description": "The identifier of the Amazon Connect instance."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the hours of operation."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:connect:HoursOfOperationTag"
+                    },
+                    "description": "One or more tags."
+                },
+                "timeZone": {
+                    "type": "string",
+                    "description": "The time zone of the hours of operation."
+                }
+            },
+            "required": [
+                "config",
+                "instanceArn",
+                "name",
+                "timeZone"
+            ]
+        },
         "aws-native:connect:QuickConnect": {
             "cf": "AWS::Connect::QuickConnect",
             "inputs": {
@@ -5432,6 +5517,158 @@
                 "instanceArn",
                 "name",
                 "quickConnectConfig"
+            ]
+        },
+        "aws-native:connect:User": {
+            "cf": "AWS::Connect::User",
+            "inputs": {
+                "directoryUserId": {
+                    "type": "string",
+                    "description": "The identifier of the user account in the directory used for identity management."
+                },
+                "hierarchyGroupArn": {
+                    "type": "string",
+                    "description": "The identifier of the hierarchy group for the user."
+                },
+                "identityInfo": {
+                    "$ref": "#/types/aws-native:connect:UserIdentityInfo",
+                    "description": "The information about the identity of the user."
+                },
+                "instanceArn": {
+                    "type": "string",
+                    "description": "The identifier of the Amazon Connect instance."
+                },
+                "password": {
+                    "type": "string",
+                    "description": "The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password."
+                },
+                "phoneConfig": {
+                    "$ref": "#/types/aws-native:connect:UserPhoneConfig",
+                    "description": "The phone settings for the user."
+                },
+                "routingProfileArn": {
+                    "type": "string",
+                    "description": "The identifier of the routing profile for the user."
+                },
+                "securityProfileArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "One or more security profile arns for the user"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:connect:UserTag"
+                    },
+                    "description": "One or more tags."
+                },
+                "username": {
+                    "type": "string",
+                    "description": "The user name for the account."
+                }
+            },
+            "outputs": {
+                "directoryUserId": {
+                    "type": "string",
+                    "description": "The identifier of the user account in the directory used for identity management."
+                },
+                "hierarchyGroupArn": {
+                    "type": "string",
+                    "description": "The identifier of the hierarchy group for the user."
+                },
+                "identityInfo": {
+                    "$ref": "#/types/aws-native:connect:UserIdentityInfo",
+                    "description": "The information about the identity of the user."
+                },
+                "instanceArn": {
+                    "type": "string",
+                    "description": "The identifier of the Amazon Connect instance."
+                },
+                "password": {
+                    "type": "string",
+                    "description": "The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password."
+                },
+                "phoneConfig": {
+                    "$ref": "#/types/aws-native:connect:UserPhoneConfig",
+                    "description": "The phone settings for the user."
+                },
+                "routingProfileArn": {
+                    "type": "string",
+                    "description": "The identifier of the routing profile for the user."
+                },
+                "securityProfileArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "One or more security profile arns for the user"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:connect:UserTag"
+                    },
+                    "description": "One or more tags."
+                },
+                "userArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) for the user."
+                },
+                "username": {
+                    "type": "string",
+                    "description": "The user name for the account."
+                }
+            },
+            "required": [
+                "instanceArn",
+                "phoneConfig",
+                "routingProfileArn",
+                "securityProfileArns",
+                "username"
+            ]
+        },
+        "aws-native:connect:UserHierarchyGroup": {
+            "cf": "AWS::Connect::UserHierarchyGroup",
+            "inputs": {
+                "instanceArn": {
+                    "type": "string",
+                    "description": "The identifier of the Amazon Connect instance."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the user hierarchy group."
+                },
+                "parentGroupArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) for the parent user hierarchy group."
+                }
+            },
+            "outputs": {
+                "instanceArn": {
+                    "type": "string",
+                    "description": "The identifier of the Amazon Connect instance."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the user hierarchy group."
+                },
+                "parentGroupArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) for the parent user hierarchy group."
+                },
+                "userHierarchyGroupArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) for the user hierarchy group."
+                }
+            },
+            "required": [
+                "instanceArn",
+                "name"
+            ],
+            "createOnly": [
+                "parentGroupArn"
             ]
         },
         "aws-native:customerprofiles:Domain": {
@@ -7423,6 +7660,90 @@
                 "tableName"
             ]
         },
+        "aws-native:ec2:CapacityReservationFleet": {
+            "cf": "AWS::EC2::CapacityReservationFleet",
+            "inputs": {
+                "allocationStrategy": {
+                    "type": "string"
+                },
+                "endDate": {
+                    "type": "string"
+                },
+                "instanceMatchCriteria": {
+                    "$ref": "#/types/aws-native:ec2:CapacityReservationFleetInstanceMatchCriteria"
+                },
+                "instanceTypeSpecifications": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:CapacityReservationFleetInstanceTypeSpecification"
+                    }
+                },
+                "noRemoveEndDate": {
+                    "type": "boolean"
+                },
+                "removeEndDate": {
+                    "type": "boolean"
+                },
+                "tagSpecifications": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:CapacityReservationFleetTagSpecification"
+                    }
+                },
+                "tenancy": {
+                    "$ref": "#/types/aws-native:ec2:CapacityReservationFleetTenancy"
+                },
+                "totalTargetCapacity": {
+                    "type": "integer"
+                }
+            },
+            "outputs": {
+                "allocationStrategy": {
+                    "type": "string"
+                },
+                "capacityReservationFleetId": {
+                    "type": "string"
+                },
+                "endDate": {
+                    "type": "string"
+                },
+                "instanceMatchCriteria": {
+                    "$ref": "#/types/aws-native:ec2:CapacityReservationFleetInstanceMatchCriteria"
+                },
+                "instanceTypeSpecifications": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:CapacityReservationFleetInstanceTypeSpecification"
+                    }
+                },
+                "noRemoveEndDate": {
+                    "type": "boolean"
+                },
+                "removeEndDate": {
+                    "type": "boolean"
+                },
+                "tagSpecifications": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:CapacityReservationFleetTagSpecification"
+                    }
+                },
+                "tenancy": {
+                    "$ref": "#/types/aws-native:ec2:CapacityReservationFleetTenancy"
+                },
+                "totalTargetCapacity": {
+                    "type": "integer"
+                }
+            },
+            "createOnly": [
+                "allocationStrategy",
+                "endDate",
+                "instanceMatchCriteria",
+                "instanceTypeSpecifications",
+                "tagSpecifications",
+                "tenancy"
+            ]
+        },
         "aws-native:ec2:CarrierGateway": {
             "cf": "AWS::EC2::CarrierGateway",
             "inputs": {
@@ -7933,15 +8254,21 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:ec2:InternetGatewayTag"
-                    }
+                    },
+                    "description": "Any tags to assign to the internet gateway."
                 }
             },
             "outputs": {
+                "internetGatewayId": {
+                    "type": "string",
+                    "description": "ID of internet gateway."
+                },
                 "tags": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:ec2:InternetGatewayTag"
-                    }
+                    },
+                    "description": "Any tags to assign to the internet gateway."
                 }
             }
         },
@@ -8329,6 +8656,45 @@
                 "prefixListName"
             ]
         },
+        "aws-native:ec2:RouteTable": {
+            "cf": "AWS::EC2::RouteTable",
+            "inputs": {
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:RouteTableTag"
+                    },
+                    "description": "Any tags assigned to the route table."
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "The ID of the VPC."
+                }
+            },
+            "outputs": {
+                "routeTableId": {
+                    "type": "string",
+                    "description": "The route table ID."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:RouteTableTag"
+                    },
+                    "description": "Any tags assigned to the route table."
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "The ID of the VPC."
+                }
+            },
+            "required": [
+                "vpcId"
+            ],
+            "createOnly": [
+                "vpcId"
+            ]
+        },
         "aws-native:ec2:SpotFleet": {
             "cf": "AWS::EC2::SpotFleet",
             "inputs": {
@@ -8479,33 +8845,6 @@
             ],
             "createOnly": [
                 "networkAclId",
-                "subnetId"
-            ]
-        },
-        "aws-native:ec2:SubnetRouteTableAssociation": {
-            "cf": "AWS::EC2::SubnetRouteTableAssociation",
-            "inputs": {
-                "routeTableId": {
-                    "type": "string"
-                },
-                "subnetId": {
-                    "type": "string"
-                }
-            },
-            "outputs": {
-                "routeTableId": {
-                    "type": "string"
-                },
-                "subnetId": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "routeTableId",
-                "subnetId"
-            ],
-            "createOnly": [
-                "routeTableId",
                 "subnetId"
             ]
         },
@@ -11350,6 +11689,9 @@
                         "type": "string"
                     }
                 },
+                "resourcesCleanUp": {
+                    "type": "boolean"
+                },
                 "securityServicePolicyData": {
                     "$ref": "#/types/aws-native:fms:SecurityServicePolicyDataProperties"
                 },
@@ -11396,6 +11738,9 @@
                     "items": {
                         "type": "string"
                     }
+                },
+                "resourcesCleanUp": {
+                    "type": "boolean"
                 },
                 "securityServicePolicyData": {
                     "$ref": "#/types/aws-native:fms:SecurityServicePolicyDataProperties"
@@ -17647,6 +17992,163 @@
                 "validity"
             ]
         },
+        "aws-native:lightsail:Database": {
+            "cf": "AWS::Lightsail::Database",
+            "inputs": {
+                "availabilityZone": {
+                    "type": "string",
+                    "description": "The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format."
+                },
+                "backupRetention": {
+                    "type": "boolean",
+                    "description": "When true, enables automated backup retention for your database. Updates are applied during the next maintenance window because this can result in an outage."
+                },
+                "caCertificateIdentifier": {
+                    "type": "string",
+                    "description": "Indicates the certificate that needs to be associated with the database."
+                },
+                "masterDatabaseName": {
+                    "type": "string",
+                    "description": "The name of the database to create when the Lightsail database resource is created. For MySQL, if this parameter isn't specified, no database is created in the database resource. For PostgreSQL, if this parameter isn't specified, a database named postgres is created in the database resource."
+                },
+                "masterUserPassword": {
+                    "type": "string",
+                    "description": "The password for the master user. The password can include any printable ASCII character except \"/\", \"\"\", or \"@\". It cannot contain spaces."
+                },
+                "masterUsername": {
+                    "type": "string",
+                    "description": "The name for the master user."
+                },
+                "preferredBackupWindow": {
+                    "type": "string",
+                    "description": "The daily time range during which automated backups are created for your new database if automated backups are enabled."
+                },
+                "preferredMaintenanceWindow": {
+                    "type": "string",
+                    "description": "The weekly time range during which system maintenance can occur on your new database."
+                },
+                "publiclyAccessible": {
+                    "type": "boolean",
+                    "description": "Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database."
+                },
+                "relationalDatabaseBlueprintId": {
+                    "type": "string",
+                    "description": "The blueprint ID for your new database. A blueprint describes the major engine version of a database."
+                },
+                "relationalDatabaseBundleId": {
+                    "type": "string",
+                    "description": "The bundle ID for your new database. A bundle describes the performance specifications for your database."
+                },
+                "relationalDatabaseName": {
+                    "type": "string",
+                    "description": "The name to use for your new Lightsail database resource."
+                },
+                "relationalDatabaseParameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lightsail:DatabaseRelationalDatabaseParameter"
+                    },
+                    "description": "Update one or more parameters of the relational database."
+                },
+                "rotateMasterUserPassword": {
+                    "type": "boolean",
+                    "description": "When true, the master user password is changed to a new strong password generated by Lightsail. Use the get relational database master user password operation to get the new password."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lightsail:DatabaseTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                }
+            },
+            "outputs": {
+                "availabilityZone": {
+                    "type": "string",
+                    "description": "The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format."
+                },
+                "backupRetention": {
+                    "type": "boolean",
+                    "description": "When true, enables automated backup retention for your database. Updates are applied during the next maintenance window because this can result in an outage."
+                },
+                "caCertificateIdentifier": {
+                    "type": "string",
+                    "description": "Indicates the certificate that needs to be associated with the database."
+                },
+                "databaseArn": {
+                    "type": "string"
+                },
+                "masterDatabaseName": {
+                    "type": "string",
+                    "description": "The name of the database to create when the Lightsail database resource is created. For MySQL, if this parameter isn't specified, no database is created in the database resource. For PostgreSQL, if this parameter isn't specified, a database named postgres is created in the database resource."
+                },
+                "masterUserPassword": {
+                    "type": "string",
+                    "description": "The password for the master user. The password can include any printable ASCII character except \"/\", \"\"\", or \"@\". It cannot contain spaces."
+                },
+                "masterUsername": {
+                    "type": "string",
+                    "description": "The name for the master user."
+                },
+                "preferredBackupWindow": {
+                    "type": "string",
+                    "description": "The daily time range during which automated backups are created for your new database if automated backups are enabled."
+                },
+                "preferredMaintenanceWindow": {
+                    "type": "string",
+                    "description": "The weekly time range during which system maintenance can occur on your new database."
+                },
+                "publiclyAccessible": {
+                    "type": "boolean",
+                    "description": "Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database."
+                },
+                "relationalDatabaseBlueprintId": {
+                    "type": "string",
+                    "description": "The blueprint ID for your new database. A blueprint describes the major engine version of a database."
+                },
+                "relationalDatabaseBundleId": {
+                    "type": "string",
+                    "description": "The bundle ID for your new database. A bundle describes the performance specifications for your database."
+                },
+                "relationalDatabaseName": {
+                    "type": "string",
+                    "description": "The name to use for your new Lightsail database resource."
+                },
+                "relationalDatabaseParameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lightsail:DatabaseRelationalDatabaseParameter"
+                    },
+                    "description": "Update one or more parameters of the relational database."
+                },
+                "rotateMasterUserPassword": {
+                    "type": "boolean",
+                    "description": "When true, the master user password is changed to a new strong password generated by Lightsail. Use the get relational database master user password operation to get the new password."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lightsail:DatabaseTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                }
+            },
+            "required": [
+                "masterDatabaseName",
+                "masterUsername",
+                "relationalDatabaseBlueprintId",
+                "relationalDatabaseBundleId",
+                "relationalDatabaseName"
+            ],
+            "createOnly": [
+                "availabilityZone",
+                "masterDatabaseName",
+                "masterUsername",
+                "relationalDatabaseBlueprintId",
+                "relationalDatabaseBundleId",
+                "relationalDatabaseName"
+            ]
+        },
         "aws-native:lightsail:Disk": {
             "cf": "AWS::Lightsail::Disk",
             "inputs": {
@@ -17782,6 +18284,10 @@
                     "type": "string",
                     "description": "The names to use for your new Lightsail instance."
                 },
+                "keyPairName": {
+                    "type": "string",
+                    "description": "The name of your key pair."
+                },
                 "location": {
                     "$ref": "#/types/aws-native:lightsail:InstanceLocation"
                 },
@@ -17797,6 +18303,10 @@
                         "$ref": "#/types/aws-native:lightsail:InstanceTag"
                     },
                     "description": "An array of key-value pairs to apply to this resource."
+                },
+                "userData": {
+                    "type": "string",
+                    "description": "A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update."
                 }
             },
             "outputs": {
@@ -17892,6 +18402,46 @@
                 "blueprintId",
                 "bundleId",
                 "instanceName"
+            ]
+        },
+        "aws-native:lightsail:StaticIp": {
+            "cf": "AWS::Lightsail::StaticIp",
+            "inputs": {
+                "attachedTo": {
+                    "type": "string",
+                    "description": "The instance where the static IP is attached."
+                },
+                "staticIpName": {
+                    "type": "string",
+                    "description": "The name of the static IP address."
+                }
+            },
+            "outputs": {
+                "attachedTo": {
+                    "type": "string",
+                    "description": "The instance where the static IP is attached."
+                },
+                "ipAddress": {
+                    "type": "string",
+                    "description": "The static IP address."
+                },
+                "isAttached": {
+                    "type": "boolean",
+                    "description": "A Boolean value indicating whether the static IP is attached."
+                },
+                "staticIpArn": {
+                    "type": "string"
+                },
+                "staticIpName": {
+                    "type": "string",
+                    "description": "The name of the static IP address."
+                }
+            },
+            "required": [
+                "staticIpName"
+            ],
+            "createOnly": [
+                "staticIpName"
             ]
         },
         "aws-native:location:GeofenceCollection": {
@@ -19502,6 +20052,492 @@
                 "tags"
             ]
         },
+        "aws-native:memorydb:ACL": {
+            "cf": "AWS::MemoryDB::ACL",
+            "inputs": {
+                "aCLName": {
+                    "type": "string",
+                    "description": "The name of the acl."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:memorydb:ACLTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this cluster."
+                },
+                "userNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of users associated to this acl."
+                }
+            },
+            "outputs": {
+                "aCLName": {
+                    "type": "string",
+                    "description": "The name of the acl."
+                },
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the acl."
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Indicates acl status. Can be \"creating\", \"active\", \"modifying\", \"deleting\"."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:memorydb:ACLTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this cluster."
+                },
+                "userNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of users associated to this acl."
+                }
+            },
+            "required": [
+                "aCLName"
+            ],
+            "createOnly": [
+                "aCLName"
+            ]
+        },
+        "aws-native:memorydb:Cluster": {
+            "cf": "AWS::MemoryDB::Cluster",
+            "inputs": {
+                "aCLName": {
+                    "type": "string",
+                    "description": "The name of the Access Control List to associate with the cluster."
+                },
+                "autoMinorVersionUpgrade": {
+                    "type": "boolean",
+                    "description": "A flag that enables automatic minor version upgrade when set to true.\n\nYou cannot modify the value of AutoMinorVersionUpgrade after the cluster is created. To enable AutoMinorVersionUpgrade on a cluster you must set AutoMinorVersionUpgrade to true when you create a cluster."
+                },
+                "clusterEndpoint": {
+                    "$ref": "#/types/aws-native:memorydb:ClusterEndpoint",
+                    "description": "The cluster endpoint."
+                },
+                "clusterName": {
+                    "type": "string",
+                    "description": "The name of the cluster. This value must be unique as it also serves as the cluster identifier."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "An optional description of the cluster."
+                },
+                "engineVersion": {
+                    "type": "string",
+                    "description": "The Redis engine version used by the cluster."
+                },
+                "finalSnapshotName": {
+                    "type": "string",
+                    "description": "The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. MemoryDB creates the snapshot, and then deletes the cluster immediately afterward."
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "The ID of the KMS key used to encrypt the cluster."
+                },
+                "maintenanceWindow": {
+                    "type": "string",
+                    "description": "Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period."
+                },
+                "nodeType": {
+                    "type": "string",
+                    "description": "The compute and memory capacity of the nodes in the cluster."
+                },
+                "numReplicasPerShard": {
+                    "type": "integer",
+                    "description": "The number of replicas to apply to each shard. The limit is 5."
+                },
+                "numShards": {
+                    "type": "integer",
+                    "description": "The number of shards the cluster will contain."
+                },
+                "parameterGroupName": {
+                    "type": "string",
+                    "description": "The name of the parameter group associated with the cluster."
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "The port number on which each member of the cluster accepts connections."
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "One or more Amazon VPC security groups associated with this cluster."
+                },
+                "snapshotArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of Amazon Resource Names (ARN) that uniquely identify the RDB snapshot files stored in Amazon S3. The snapshot files are used to populate the new cluster. The Amazon S3 object name in the ARN cannot contain any commas."
+                },
+                "snapshotName": {
+                    "type": "string",
+                    "description": "The name of a snapshot from which to restore data into the new cluster. The snapshot status changes to restoring while the new cluster is being created."
+                },
+                "snapshotRetentionLimit": {
+                    "type": "integer",
+                    "description": "The number of days for which MemoryDB retains automatic snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, a snapshot that was taken today is retained for 5 days before being deleted."
+                },
+                "snapshotWindow": {
+                    "type": "string",
+                    "description": "The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your cluster."
+                },
+                "snsTopicArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent."
+                },
+                "snsTopicStatus": {
+                    "type": "string",
+                    "description": "The status of the Amazon SNS notification topic. Notifications are sent only if the status is enabled."
+                },
+                "subnetGroupName": {
+                    "type": "string",
+                    "description": "The name of the subnet group to be used for the cluster."
+                },
+                "tLSEnabled": {
+                    "type": "boolean",
+                    "description": "A flag that enables in-transit encryption when set to true.\n\nYou cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:memorydb:ClusterTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this cluster."
+                }
+            },
+            "outputs": {
+                "aCLName": {
+                    "type": "string",
+                    "description": "The name of the Access Control List to associate with the cluster."
+                },
+                "aRN": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the cluster."
+                },
+                "autoMinorVersionUpgrade": {
+                    "type": "boolean",
+                    "description": "A flag that enables automatic minor version upgrade when set to true.\n\nYou cannot modify the value of AutoMinorVersionUpgrade after the cluster is created. To enable AutoMinorVersionUpgrade on a cluster you must set AutoMinorVersionUpgrade to true when you create a cluster."
+                },
+                "clusterEndpoint": {
+                    "$ref": "#/types/aws-native:memorydb:ClusterEndpoint",
+                    "description": "The cluster endpoint."
+                },
+                "clusterName": {
+                    "type": "string",
+                    "description": "The name of the cluster. This value must be unique as it also serves as the cluster identifier."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "An optional description of the cluster."
+                },
+                "engineVersion": {
+                    "type": "string",
+                    "description": "The Redis engine version used by the cluster."
+                },
+                "finalSnapshotName": {
+                    "type": "string",
+                    "description": "The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. MemoryDB creates the snapshot, and then deletes the cluster immediately afterward."
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "The ID of the KMS key used to encrypt the cluster."
+                },
+                "maintenanceWindow": {
+                    "type": "string",
+                    "description": "Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period."
+                },
+                "nodeType": {
+                    "type": "string",
+                    "description": "The compute and memory capacity of the nodes in the cluster."
+                },
+                "numReplicasPerShard": {
+                    "type": "integer",
+                    "description": "The number of replicas to apply to each shard. The limit is 5."
+                },
+                "numShards": {
+                    "type": "integer",
+                    "description": "The number of shards the cluster will contain."
+                },
+                "parameterGroupName": {
+                    "type": "string",
+                    "description": "The name of the parameter group associated with the cluster."
+                },
+                "parameterGroupStatus": {
+                    "type": "string",
+                    "description": "The status of the parameter group used by the cluster."
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "The port number on which each member of the cluster accepts connections."
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "One or more Amazon VPC security groups associated with this cluster."
+                },
+                "snapshotArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of Amazon Resource Names (ARN) that uniquely identify the RDB snapshot files stored in Amazon S3. The snapshot files are used to populate the new cluster. The Amazon S3 object name in the ARN cannot contain any commas."
+                },
+                "snapshotName": {
+                    "type": "string",
+                    "description": "The name of a snapshot from which to restore data into the new cluster. The snapshot status changes to restoring while the new cluster is being created."
+                },
+                "snapshotRetentionLimit": {
+                    "type": "integer",
+                    "description": "The number of days for which MemoryDB retains automatic snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, a snapshot that was taken today is retained for 5 days before being deleted."
+                },
+                "snapshotWindow": {
+                    "type": "string",
+                    "description": "The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your cluster."
+                },
+                "snsTopicArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent."
+                },
+                "snsTopicStatus": {
+                    "type": "string",
+                    "description": "The status of the Amazon SNS notification topic. Notifications are sent only if the status is enabled."
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The status of the cluster. For example, Available, Updating, Creating."
+                },
+                "subnetGroupName": {
+                    "type": "string",
+                    "description": "The name of the subnet group to be used for the cluster."
+                },
+                "tLSEnabled": {
+                    "type": "boolean",
+                    "description": "A flag that enables in-transit encryption when set to true.\n\nYou cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:memorydb:ClusterTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this cluster."
+                }
+            },
+            "required": [
+                "aCLName",
+                "clusterName",
+                "nodeType"
+            ],
+            "createOnly": [
+                "clusterName",
+                "kmsKeyId",
+                "port",
+                "snapshotArns",
+                "snapshotName",
+                "tLSEnabled"
+            ]
+        },
+        "aws-native:memorydb:ParameterGroup": {
+            "cf": "AWS::MemoryDB::ParameterGroup",
+            "inputs": {
+                "description": {
+                    "type": "string",
+                    "description": "A description of the parameter group."
+                },
+                "family": {
+                    "type": "string",
+                    "description": "The name of the parameter group family that this parameter group is compatible with."
+                },
+                "parameterGroupName": {
+                    "type": "string",
+                    "description": "The name of the parameter group."
+                },
+                "parameters": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "An map of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:memorydb:ParameterGroupTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this parameter group."
+                }
+            },
+            "outputs": {
+                "aRN": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the parameter group."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description of the parameter group."
+                },
+                "family": {
+                    "type": "string",
+                    "description": "The name of the parameter group family that this parameter group is compatible with."
+                },
+                "parameterGroupName": {
+                    "type": "string",
+                    "description": "The name of the parameter group."
+                },
+                "parameters": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "An map of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:memorydb:ParameterGroupTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this parameter group."
+                }
+            },
+            "required": [
+                "family",
+                "parameterGroupName"
+            ],
+            "createOnly": [
+                "description",
+                "family",
+                "parameterGroupName"
+            ]
+        },
+        "aws-native:memorydb:SubnetGroup": {
+            "cf": "AWS::MemoryDB::SubnetGroup",
+            "inputs": {
+                "description": {
+                    "type": "string",
+                    "description": "An optional description of the subnet group."
+                },
+                "subnetGroupName": {
+                    "type": "string",
+                    "description": "The name of the subnet group. This value must be unique as it also serves as the subnet group identifier."
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of VPC subnet IDs for the subnet group."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:memorydb:SubnetGroupTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this subnet group."
+                }
+            },
+            "outputs": {
+                "aRN": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the subnet group."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "An optional description of the subnet group."
+                },
+                "subnetGroupName": {
+                    "type": "string",
+                    "description": "The name of the subnet group. This value must be unique as it also serves as the subnet group identifier."
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of VPC subnet IDs for the subnet group."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:memorydb:SubnetGroupTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this subnet group."
+                }
+            },
+            "required": [
+                "subnetGroupName",
+                "subnetIds"
+            ],
+            "createOnly": [
+                "subnetGroupName"
+            ]
+        },
+        "aws-native:memorydb:User": {
+            "cf": "AWS::MemoryDB::User",
+            "inputs": {
+                "accessString": {
+                    "type": "string",
+                    "description": "Access permissions string used for this user account."
+                },
+                "authenticationMode": {
+                    "$ref": "#/types/aws-native:memorydb:AuthenticationModeProperties"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:memorydb:UserTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this user."
+                },
+                "userName": {
+                    "type": "string",
+                    "description": "The name of the user."
+                }
+            },
+            "outputs": {
+                "accessString": {
+                    "type": "string",
+                    "description": "Access permissions string used for this user account."
+                },
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the user account."
+                },
+                "authenticationMode": {
+                    "$ref": "#/types/aws-native:memorydb:AuthenticationModeProperties"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Indicates the user status. Can be \"active\", \"modifying\" or \"deleting\"."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:memorydb:UserTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this user."
+                },
+                "userName": {
+                    "type": "string",
+                    "description": "The name of the user."
+                }
+            },
+            "required": [
+                "accessString",
+                "authenticationMode",
+                "userName"
+            ],
+            "createOnly": [
+                "userName"
+            ]
+        },
         "aws-native:mwaa:Environment": {
             "cf": "AWS::MWAA::Environment",
             "inputs": {
@@ -19558,7 +20594,8 @@
                     "type": "string"
                 },
                 "tags": {
-                    "$ref": "#/types/aws-native:mwaa:EnvironmentTagMap"
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A map of tags for the environment."
                 },
                 "webserverAccessMode": {
                     "$ref": "#/types/aws-native:mwaa:EnvironmentWebserverAccessMode"
@@ -19624,7 +20661,8 @@
                     "type": "string"
                 },
                 "tags": {
-                    "$ref": "#/types/aws-native:mwaa:EnvironmentTagMap"
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A map of tags for the environment."
                 },
                 "webserverAccessMode": {
                     "$ref": "#/types/aws-native:mwaa:EnvironmentWebserverAccessMode"
@@ -20987,6 +22025,241 @@
                 "serverName",
                 "serviceRoleArn",
                 "subnetIds"
+            ]
+        },
+        "aws-native:panorama:ApplicationInstance": {
+            "cf": "AWS::Panorama::ApplicationInstance",
+            "inputs": {
+                "applicationInstanceIdToReplace": {
+                    "type": "string"
+                },
+                "defaultRuntimeContextDevice": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "deviceId": {
+                    "type": "string"
+                },
+                "manifestOverridesPayload": {
+                    "$ref": "#/types/aws-native:panorama:ApplicationInstanceManifestOverridesPayload"
+                },
+                "manifestPayload": {
+                    "$ref": "#/types/aws-native:panorama:ApplicationInstanceManifestPayload"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "runtimeRoleArn": {
+                    "type": "string"
+                },
+                "statusFilter": {
+                    "$ref": "#/types/aws-native:panorama:ApplicationInstanceStatusFilter"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:panorama:ApplicationInstanceTag"
+                    }
+                }
+            },
+            "outputs": {
+                "applicationInstanceId": {
+                    "type": "string"
+                },
+                "applicationInstanceIdToReplace": {
+                    "type": "string"
+                },
+                "arn": {
+                    "type": "string"
+                },
+                "createdTime": {
+                    "type": "integer"
+                },
+                "defaultRuntimeContextDevice": {
+                    "type": "string"
+                },
+                "defaultRuntimeContextDeviceName": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "deviceId": {
+                    "type": "string"
+                },
+                "healthStatus": {
+                    "$ref": "#/types/aws-native:panorama:ApplicationInstanceHealthStatus"
+                },
+                "lastUpdatedTime": {
+                    "type": "integer"
+                },
+                "manifestOverridesPayload": {
+                    "$ref": "#/types/aws-native:panorama:ApplicationInstanceManifestOverridesPayload"
+                },
+                "manifestPayload": {
+                    "$ref": "#/types/aws-native:panorama:ApplicationInstanceManifestPayload"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "runtimeRoleArn": {
+                    "type": "string"
+                },
+                "status": {
+                    "$ref": "#/types/aws-native:panorama:ApplicationInstanceStatus"
+                },
+                "statusDescription": {
+                    "type": "string"
+                },
+                "statusFilter": {
+                    "$ref": "#/types/aws-native:panorama:ApplicationInstanceStatusFilter"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:panorama:ApplicationInstanceTag"
+                    }
+                }
+            },
+            "required": [
+                "defaultRuntimeContextDevice",
+                "manifestPayload"
+            ],
+            "createOnly": [
+                "applicationInstanceIdToReplace",
+                "defaultRuntimeContextDevice",
+                "description",
+                "manifestOverridesPayload",
+                "manifestPayload",
+                "name",
+                "runtimeRoleArn"
+            ]
+        },
+        "aws-native:panorama:Package": {
+            "cf": "AWS::Panorama::Package",
+            "inputs": {
+                "packageName": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:panorama:PackageTag"
+                    }
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "createdTime": {
+                    "type": "integer"
+                },
+                "packageId": {
+                    "type": "string"
+                },
+                "packageName": {
+                    "type": "string"
+                },
+                "storageLocation": {
+                    "$ref": "#/types/aws-native:panorama:PackageStorageLocation"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:panorama:PackageTag"
+                    }
+                }
+            },
+            "required": [
+                "packageName"
+            ],
+            "createOnly": [
+                "packageName"
+            ]
+        },
+        "aws-native:panorama:PackageVersion": {
+            "cf": "AWS::Panorama::PackageVersion",
+            "inputs": {
+                "markLatest": {
+                    "type": "boolean"
+                },
+                "ownerAccount": {
+                    "type": "string"
+                },
+                "packageId": {
+                    "type": "string"
+                },
+                "packageVersion": {
+                    "type": "string",
+                    "language": {
+                        "csharp": {
+                            "name": "PackageVersionValue"
+                        }
+                    }
+                },
+                "patchVersion": {
+                    "type": "string"
+                },
+                "updatedLatestPatchVersion": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "isLatestPatch": {
+                    "type": "boolean"
+                },
+                "markLatest": {
+                    "type": "boolean"
+                },
+                "ownerAccount": {
+                    "type": "string"
+                },
+                "packageArn": {
+                    "type": "string"
+                },
+                "packageId": {
+                    "type": "string"
+                },
+                "packageName": {
+                    "type": "string"
+                },
+                "packageVersion": {
+                    "type": "string",
+                    "language": {
+                        "csharp": {
+                            "name": "PackageVersionValue"
+                        }
+                    }
+                },
+                "patchVersion": {
+                    "type": "string"
+                },
+                "registeredTime": {
+                    "type": "integer"
+                },
+                "status": {
+                    "$ref": "#/types/aws-native:panorama:PackageVersionStatus"
+                },
+                "statusDescription": {
+                    "type": "string"
+                },
+                "updatedLatestPatchVersion": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "packageId",
+                "packageVersion",
+                "patchVersion"
+            ],
+            "createOnly": [
+                "ownerAccount",
+                "packageId",
+                "packageVersion",
+                "patchVersion"
             ]
         },
         "aws-native:qldb:Stream": {
@@ -22564,6 +23837,28 @@
                 "snapshotIdentifier"
             ]
         },
+        "aws-native:rekognition:Project": {
+            "cf": "AWS::Rekognition::Project",
+            "inputs": {
+                "projectName": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "projectName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "projectName"
+            ],
+            "createOnly": [
+                "projectName"
+            ]
+        },
         "aws-native:resourcegroups:Group": {
             "cf": "AWS::ResourceGroups::Group",
             "inputs": {
@@ -23763,6 +25058,45 @@
                 "vpcId"
             ]
         },
+        "aws-native:route53resolver:ResolverConfig": {
+            "cf": "AWS::Route53Resolver::ResolverConfig",
+            "inputs": {
+                "autodefinedReverseFlag": {
+                    "$ref": "#/types/aws-native:route53resolver:ResolverConfigAutodefinedReverseFlag",
+                    "description": "Represents the desired status of AutodefinedReverse. The only supported value on creation is DISABLE. Deletion of this resource will return AutodefinedReverse to its default value (ENABLED)."
+                },
+                "resourceId": {
+                    "type": "string",
+                    "description": "ResourceId"
+                }
+            },
+            "outputs": {
+                "autodefinedReverse": {
+                    "$ref": "#/types/aws-native:route53resolver:ResolverConfigAutodefinedReverse",
+                    "description": "ResolverAutodefinedReverseStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED."
+                },
+                "autodefinedReverseFlag": {
+                    "$ref": "#/types/aws-native:route53resolver:ResolverConfigAutodefinedReverseFlag",
+                    "description": "Represents the desired status of AutodefinedReverse. The only supported value on creation is DISABLE. Deletion of this resource will return AutodefinedReverse to its default value (ENABLED)."
+                },
+                "ownerId": {
+                    "type": "string",
+                    "description": "AccountId"
+                },
+                "resourceId": {
+                    "type": "string",
+                    "description": "ResourceId"
+                }
+            },
+            "required": [
+                "autodefinedReverseFlag",
+                "resourceId"
+            ],
+            "createOnly": [
+                "autodefinedReverseFlag",
+                "resourceId"
+            ]
+        },
         "aws-native:route53resolver:ResolverDNSSECConfig": {
             "cf": "AWS::Route53Resolver::ResolverDNSSECConfig",
             "inputs": {
@@ -23885,6 +25219,89 @@
             "createOnly": [
                 "resolverQueryLogConfigId",
                 "resourceId"
+            ]
+        },
+        "aws-native:route53resolver:ResolverRule": {
+            "cf": "AWS::Route53Resolver::ResolverRule",
+            "inputs": {
+                "domainName": {
+                    "type": "string",
+                    "description": "DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name for the Resolver rule"
+                },
+                "resolverEndpointId": {
+                    "type": "string",
+                    "description": "The ID of the endpoint that the rule is associated with."
+                },
+                "ruleType": {
+                    "$ref": "#/types/aws-native:route53resolver:ResolverRuleRuleType",
+                    "description": "When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:route53resolver:ResolverRuleTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                },
+                "targetIps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:route53resolver:ResolverRuleTargetAddress"
+                    },
+                    "description": "An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the resolver rule."
+                },
+                "domainName": {
+                    "type": "string",
+                    "description": "DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name for the Resolver rule"
+                },
+                "resolverEndpointId": {
+                    "type": "string",
+                    "description": "The ID of the endpoint that the rule is associated with."
+                },
+                "resolverRuleId": {
+                    "type": "string",
+                    "description": "The ID of the endpoint that the rule is associated with."
+                },
+                "ruleType": {
+                    "$ref": "#/types/aws-native:route53resolver:ResolverRuleRuleType",
+                    "description": "When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:route53resolver:ResolverRuleTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                },
+                "targetIps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:route53resolver:ResolverRuleTargetAddress"
+                    },
+                    "description": "An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported."
+                }
+            },
+            "required": [
+                "domainName",
+                "ruleType"
+            ],
+            "createOnly": [
+                "domainName",
+                "ruleType"
             ]
         },
         "aws-native:s3:AccessPoint": {
@@ -29370,6 +30787,9 @@
                 "redshift": {
                     "$ref": "#/types/aws-native:appflow:ConnectorProfileRedshiftConnectorProfileCredentials"
                 },
+                "sAPOData": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileSAPODataConnectorProfileCredentials"
+                },
                 "salesforce": {
                     "$ref": "#/types/aws-native:appflow:ConnectorProfileSalesforceConnectorProfileCredentials"
                 },
@@ -29521,6 +30941,23 @@
                 }
             }
         },
+        "aws-native:appflow:ConnectorProfileOAuthProperties": {
+            "type": "object",
+            "properties": {
+                "authCodeUrl": {
+                    "type": "string"
+                },
+                "oAuthScopes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tokenUrl": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:appflow:ConnectorProfileProperties": {
             "type": "object",
             "properties": {
@@ -29538,6 +30975,9 @@
                 },
                 "redshift": {
                     "$ref": "#/types/aws-native:appflow:ConnectorProfileRedshiftConnectorProfileProperties"
+                },
+                "sAPOData": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileSAPODataConnectorProfileProperties"
                 },
                 "salesforce": {
                     "$ref": "#/types/aws-native:appflow:ConnectorProfileSalesforceConnectorProfileProperties"
@@ -29590,6 +31030,76 @@
                 "roleArn": {
                     "type": "string",
                     "description": "The Amazon Resource Name (ARN) of the IAM role."
+                }
+            }
+        },
+        "aws-native:appflow:ConnectorProfileSAPODataConnectorProfileCredentials": {
+            "type": "object",
+            "properties": {
+                "basicAuthCredentials": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileSAPODataConnectorProfileCredentialsBasicAuthCredentialsProperties"
+                },
+                "oAuthCredentials": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties"
+                }
+            }
+        },
+        "aws-native:appflow:ConnectorProfileSAPODataConnectorProfileCredentialsBasicAuthCredentialsProperties": {
+            "type": "object",
+            "properties": {
+                "password": {
+                    "type": "string",
+                    "description": "The password that corresponds to the username."
+                },
+                "username": {
+                    "type": "string",
+                    "description": "The name of the user."
+                }
+            }
+        },
+        "aws-native:appflow:ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties": {
+            "type": "object",
+            "properties": {
+                "accessToken": {
+                    "type": "string"
+                },
+                "clientId": {
+                    "type": "string"
+                },
+                "clientSecret": {
+                    "type": "string"
+                },
+                "connectorOAuthRequest": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileConnectorOAuthRequest"
+                },
+                "refreshToken": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:appflow:ConnectorProfileSAPODataConnectorProfileProperties": {
+            "type": "object",
+            "properties": {
+                "applicationHostUrl": {
+                    "type": "string"
+                },
+                "applicationServicePath": {
+                    "type": "string"
+                },
+                "clientNumber": {
+                    "type": "string"
+                },
+                "logonLanguage": {
+                    "type": "string"
+                },
+                "oAuthProperties": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileOAuthProperties"
+                },
+                "portNumber": {
+                    "type": "integer"
+                },
+                "privateLinkServiceName": {
+                    "type": "string"
                 }
             }
         },
@@ -29840,6 +31350,9 @@
                 "s3": {
                     "$ref": "#/types/aws-native:appflow:FlowS3ConnectorOperator"
                 },
+                "sAPOData": {
+                    "$ref": "#/types/aws-native:appflow:FlowSAPODataConnectorOperator"
+                },
                 "salesforce": {
                     "$ref": "#/types/aws-native:appflow:FlowSalesforceConnectorOperator"
                 },
@@ -30065,6 +31578,17 @@
                 }
             }
         },
+        "aws-native:appflow:FlowS3InputFormatConfig": {
+            "type": "object",
+            "properties": {
+                "s3InputFileType": {
+                    "$ref": "#/types/aws-native:appflow:FlowS3InputFormatConfigS3InputFileType"
+                }
+            }
+        },
+        "aws-native:appflow:FlowS3InputFormatConfigS3InputFileType": {
+            "type": "string"
+        },
         "aws-native:appflow:FlowS3OutputFormatConfig": {
             "type": "object",
             "properties": {
@@ -30086,6 +31610,20 @@
                     "type": "string"
                 },
                 "bucketPrefix": {
+                    "type": "string"
+                },
+                "s3InputFormatConfig": {
+                    "$ref": "#/types/aws-native:appflow:FlowS3InputFormatConfig"
+                }
+            }
+        },
+        "aws-native:appflow:FlowSAPODataConnectorOperator": {
+            "type": "string"
+        },
+        "aws-native:appflow:FlowSAPODataSourceProperties": {
+            "type": "object",
+            "properties": {
+                "objectPath": {
                     "type": "string"
                 }
             }
@@ -30227,6 +31765,9 @@
                 },
                 "s3": {
                     "$ref": "#/types/aws-native:appflow:FlowS3SourceProperties"
+                },
+                "sAPOData": {
+                    "$ref": "#/types/aws-native:appflow:FlowSAPODataSourceProperties"
                 },
                 "salesforce": {
                     "$ref": "#/types/aws-native:appflow:FlowSalesforceSourceProperties"
@@ -33172,6 +34713,52 @@
                 }
             }
         },
+        "aws-native:connect:HoursOfOperationConfig": {
+            "type": "object",
+            "properties": {
+                "day": {
+                    "$ref": "#/types/aws-native:connect:HoursOfOperationConfigDay",
+                    "description": "The day that the hours of operation applies to."
+                },
+                "endTime": {
+                    "$ref": "#/types/aws-native:connect:HoursOfOperationTimeSlice",
+                    "description": "The end time that your contact center closes."
+                },
+                "startTime": {
+                    "$ref": "#/types/aws-native:connect:HoursOfOperationTimeSlice",
+                    "description": "The start time that your contact center opens."
+                }
+            }
+        },
+        "aws-native:connect:HoursOfOperationConfigDay": {
+            "type": "string"
+        },
+        "aws-native:connect:HoursOfOperationTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. "
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. "
+                }
+            }
+        },
+        "aws-native:connect:HoursOfOperationTimeSlice": {
+            "type": "object",
+            "properties": {
+                "hours": {
+                    "type": "integer",
+                    "description": "The hours."
+                },
+                "minutes": {
+                    "type": "integer",
+                    "description": "The minutes."
+                }
+            }
+        },
         "aws-native:connect:QuickConnectConfig": {
             "type": "object",
             "properties": {
@@ -33232,6 +34819,53 @@
                 },
                 "userArn": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:connect:UserIdentityInfo": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:connect:UserPhoneConfig": {
+            "type": "object",
+            "properties": {
+                "afterContactWorkTimeLimit": {
+                    "type": "integer"
+                },
+                "autoAccept": {
+                    "type": "boolean"
+                },
+                "deskPhoneNumber": {
+                    "type": "string"
+                },
+                "phoneType": {
+                    "$ref": "#/types/aws-native:connect:UserPhoneType"
+                }
+            }
+        },
+        "aws-native:connect:UserPhoneType": {
+            "type": "string"
+        },
+        "aws-native:connect:UserTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. "
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. "
                 }
             }
         },
@@ -35265,6 +36899,63 @@
                 }
             }
         },
+        "aws-native:ec2:CapacityReservationFleetInstanceMatchCriteria": {
+            "type": "string"
+        },
+        "aws-native:ec2:CapacityReservationFleetInstanceTypeSpecification": {
+            "type": "object",
+            "properties": {
+                "availabilityZone": {
+                    "type": "string"
+                },
+                "availabilityZoneId": {
+                    "type": "string"
+                },
+                "ebsOptimized": {
+                    "type": "boolean"
+                },
+                "instancePlatform": {
+                    "type": "string"
+                },
+                "instanceType": {
+                    "type": "string"
+                },
+                "priority": {
+                    "type": "integer"
+                },
+                "weight": {
+                    "type": "number"
+                }
+            }
+        },
+        "aws-native:ec2:CapacityReservationFleetTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:ec2:CapacityReservationFleetTagSpecification": {
+            "type": "object",
+            "properties": {
+                "resourceType": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:CapacityReservationFleetTag"
+                    }
+                }
+            }
+        },
+        "aws-native:ec2:CapacityReservationFleetTenancy": {
+            "type": "string"
+        },
         "aws-native:ec2:CarrierGatewayTag": {
             "type": "object",
             "properties": {
@@ -35286,6 +36977,53 @@
                     "type": "string"
                 }
             }
+        },
+        "aws-native:ec2:EC2FleetAcceleratorCountRequest": {
+            "type": "object",
+            "properties": {
+                "max": {
+                    "type": "integer"
+                },
+                "min": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:ec2:EC2FleetAcceleratorTotalMemoryMiBRequest": {
+            "type": "object",
+            "properties": {
+                "max": {
+                    "type": "integer"
+                },
+                "min": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:ec2:EC2FleetBaselineEbsBandwidthMbpsRequest": {
+            "type": "object",
+            "properties": {
+                "max": {
+                    "type": "integer"
+                },
+                "min": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:ec2:EC2FleetCapacityRebalance": {
+            "type": "object",
+            "properties": {
+                "replacementStrategy": {
+                    "$ref": "#/types/aws-native:ec2:EC2FleetCapacityRebalanceReplacementStrategy"
+                },
+                "terminationDelay": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:ec2:EC2FleetCapacityRebalanceReplacementStrategy": {
+            "type": "string"
         },
         "aws-native:ec2:EC2FleetCapacityReservationOptionsRequest": {
             "type": "object",
@@ -35321,6 +37059,9 @@
                 "availabilityZone": {
                     "type": "string"
                 },
+                "instanceRequirements": {
+                    "$ref": "#/types/aws-native:ec2:EC2FleetInstanceRequirementsRequest"
+                },
                 "instanceType": {
                     "type": "string"
                 },
@@ -35352,6 +37093,155 @@
                 },
                 "version": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:ec2:EC2FleetInstanceRequirementsRequest": {
+            "type": "object",
+            "properties": {
+                "acceleratorCount": {
+                    "$ref": "#/types/aws-native:ec2:EC2FleetAcceleratorCountRequest"
+                },
+                "acceleratorManufacturers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem"
+                    }
+                },
+                "acceleratorNames": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:EC2FleetInstanceRequirementsRequestAcceleratorNamesItem"
+                    }
+                },
+                "acceleratorTotalMemoryMiB": {
+                    "$ref": "#/types/aws-native:ec2:EC2FleetAcceleratorTotalMemoryMiBRequest"
+                },
+                "acceleratorTypes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:EC2FleetInstanceRequirementsRequestAcceleratorTypesItem"
+                    }
+                },
+                "bareMetal": {
+                    "$ref": "#/types/aws-native:ec2:EC2FleetInstanceRequirementsRequestBareMetal"
+                },
+                "baselineEbsBandwidthMbps": {
+                    "$ref": "#/types/aws-native:ec2:EC2FleetBaselineEbsBandwidthMbpsRequest"
+                },
+                "burstablePerformance": {
+                    "$ref": "#/types/aws-native:ec2:EC2FleetInstanceRequirementsRequestBurstablePerformance"
+                },
+                "cpuManufacturers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:EC2FleetInstanceRequirementsRequestCpuManufacturersItem"
+                    }
+                },
+                "excludedInstanceTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "instanceGenerations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:EC2FleetInstanceRequirementsRequestInstanceGenerationsItem"
+                    }
+                },
+                "localStorage": {
+                    "$ref": "#/types/aws-native:ec2:EC2FleetInstanceRequirementsRequestLocalStorage"
+                },
+                "localStorageTypes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:EC2FleetInstanceRequirementsRequestLocalStorageTypesItem"
+                    }
+                },
+                "memoryGiBPerVCpu": {
+                    "$ref": "#/types/aws-native:ec2:EC2FleetMemoryGiBPerVCpuRequest"
+                },
+                "memoryMiB": {
+                    "$ref": "#/types/aws-native:ec2:EC2FleetMemoryMiBRequest"
+                },
+                "networkInterfaceCount": {
+                    "$ref": "#/types/aws-native:ec2:EC2FleetNetworkInterfaceCountRequest"
+                },
+                "onDemandMaxPricePercentageOverLowestPrice": {
+                    "type": "integer"
+                },
+                "requireHibernateSupport": {
+                    "type": "boolean"
+                },
+                "spotMaxPricePercentageOverLowestPrice": {
+                    "type": "integer"
+                },
+                "totalLocalStorageGB": {
+                    "$ref": "#/types/aws-native:ec2:EC2FleetTotalLocalStorageGBRequest"
+                },
+                "vCpuCount": {
+                    "$ref": "#/types/aws-native:ec2:EC2FleetVCpuCountRangeRequest"
+                }
+            }
+        },
+        "aws-native:ec2:EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem": {
+            "type": "string"
+        },
+        "aws-native:ec2:EC2FleetInstanceRequirementsRequestAcceleratorNamesItem": {
+            "type": "string"
+        },
+        "aws-native:ec2:EC2FleetInstanceRequirementsRequestAcceleratorTypesItem": {
+            "type": "string"
+        },
+        "aws-native:ec2:EC2FleetInstanceRequirementsRequestBareMetal": {
+            "type": "string"
+        },
+        "aws-native:ec2:EC2FleetInstanceRequirementsRequestBurstablePerformance": {
+            "type": "string"
+        },
+        "aws-native:ec2:EC2FleetInstanceRequirementsRequestCpuManufacturersItem": {
+            "type": "string"
+        },
+        "aws-native:ec2:EC2FleetInstanceRequirementsRequestInstanceGenerationsItem": {
+            "type": "string"
+        },
+        "aws-native:ec2:EC2FleetInstanceRequirementsRequestLocalStorage": {
+            "type": "string"
+        },
+        "aws-native:ec2:EC2FleetInstanceRequirementsRequestLocalStorageTypesItem": {
+            "type": "string"
+        },
+        "aws-native:ec2:EC2FleetMemoryGiBPerVCpuRequest": {
+            "type": "object",
+            "properties": {
+                "max": {
+                    "type": "number"
+                },
+                "min": {
+                    "type": "number"
+                }
+            }
+        },
+        "aws-native:ec2:EC2FleetMemoryMiBRequest": {
+            "type": "object",
+            "properties": {
+                "max": {
+                    "type": "integer"
+                },
+                "min": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:ec2:EC2FleetNetworkInterfaceCountRequest": {
+            "type": "object",
+            "properties": {
+                "max": {
+                    "type": "integer"
+                },
+                "min": {
+                    "type": "integer"
                 }
             }
         },
@@ -35419,6 +37309,9 @@
                 "instancePoolsToUseCount": {
                     "type": "integer"
                 },
+                "maintenanceStrategies": {
+                    "$ref": "#/types/aws-native:ec2:EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties"
+                },
                 "maxTotalPrice": {
                     "type": "string"
                 },
@@ -35438,6 +37331,14 @@
         },
         "aws-native:ec2:EC2FleetSpotOptionsRequestInstanceInterruptionBehavior": {
             "type": "string"
+        },
+        "aws-native:ec2:EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties": {
+            "type": "object",
+            "properties": {
+                "capacityRebalance": {
+                    "$ref": "#/types/aws-native:ec2:EC2FleetCapacityRebalance"
+                }
+            }
         },
         "aws-native:ec2:EC2FleetTag": {
             "type": "object",
@@ -35479,6 +37380,9 @@
                 "spotTargetCapacity": {
                     "type": "integer"
                 },
+                "targetCapacityUnitType": {
+                    "$ref": "#/types/aws-native:ec2:EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType"
+                },
                 "totalTargetCapacity": {
                     "type": "integer"
                 }
@@ -35487,8 +37391,33 @@
         "aws-native:ec2:EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType": {
             "type": "string"
         },
+        "aws-native:ec2:EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType": {
+            "type": "string"
+        },
+        "aws-native:ec2:EC2FleetTotalLocalStorageGBRequest": {
+            "type": "object",
+            "properties": {
+                "max": {
+                    "type": "number"
+                },
+                "min": {
+                    "type": "number"
+                }
+            }
+        },
         "aws-native:ec2:EC2FleetType": {
             "type": "string"
+        },
+        "aws-native:ec2:EC2FleetVCpuCountRangeRequest": {
+            "type": "object",
+            "properties": {
+                "max": {
+                    "type": "integer"
+                },
+                "min": {
+                    "type": "integer"
+                }
+            }
         },
         "aws-native:ec2:FlowLogLogDestinationType": {
             "type": "string"
@@ -35992,6 +37921,50 @@
                 }
             }
         },
+        "aws-native:ec2:RouteTableTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:ec2:SpotFleetAcceleratorCountRequest": {
+            "type": "object",
+            "properties": {
+                "max": {
+                    "type": "integer"
+                },
+                "min": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:ec2:SpotFleetAcceleratorTotalMemoryMiBRequest": {
+            "type": "object",
+            "properties": {
+                "max": {
+                    "type": "integer"
+                },
+                "min": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:ec2:SpotFleetBaselineEbsBandwidthMbpsRequest": {
+            "type": "object",
+            "properties": {
+                "max": {
+                    "type": "integer"
+                },
+                "min": {
+                    "type": "integer"
+                }
+            }
+        },
         "aws-native:ec2:SpotFleetBlockDeviceMapping": {
             "type": "object",
             "properties": {
@@ -36139,6 +38112,122 @@
                 }
             }
         },
+        "aws-native:ec2:SpotFleetInstanceRequirementsRequest": {
+            "type": "object",
+            "properties": {
+                "acceleratorCount": {
+                    "$ref": "#/types/aws-native:ec2:SpotFleetAcceleratorCountRequest"
+                },
+                "acceleratorManufacturers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem"
+                    }
+                },
+                "acceleratorNames": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:SpotFleetInstanceRequirementsRequestAcceleratorNamesItem"
+                    }
+                },
+                "acceleratorTotalMemoryMiB": {
+                    "$ref": "#/types/aws-native:ec2:SpotFleetAcceleratorTotalMemoryMiBRequest"
+                },
+                "acceleratorTypes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:SpotFleetInstanceRequirementsRequestAcceleratorTypesItem"
+                    }
+                },
+                "bareMetal": {
+                    "$ref": "#/types/aws-native:ec2:SpotFleetInstanceRequirementsRequestBareMetal"
+                },
+                "baselineEbsBandwidthMbps": {
+                    "$ref": "#/types/aws-native:ec2:SpotFleetBaselineEbsBandwidthMbpsRequest"
+                },
+                "burstablePerformance": {
+                    "$ref": "#/types/aws-native:ec2:SpotFleetInstanceRequirementsRequestBurstablePerformance"
+                },
+                "cpuManufacturers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:SpotFleetInstanceRequirementsRequestCpuManufacturersItem"
+                    }
+                },
+                "excludedInstanceTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "instanceGenerations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:SpotFleetInstanceRequirementsRequestInstanceGenerationsItem"
+                    }
+                },
+                "localStorage": {
+                    "$ref": "#/types/aws-native:ec2:SpotFleetInstanceRequirementsRequestLocalStorage"
+                },
+                "localStorageTypes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:SpotFleetInstanceRequirementsRequestLocalStorageTypesItem"
+                    }
+                },
+                "memoryGiBPerVCpu": {
+                    "$ref": "#/types/aws-native:ec2:SpotFleetMemoryGiBPerVCpuRequest"
+                },
+                "memoryMiB": {
+                    "$ref": "#/types/aws-native:ec2:SpotFleetMemoryMiBRequest"
+                },
+                "networkInterfaceCount": {
+                    "$ref": "#/types/aws-native:ec2:SpotFleetNetworkInterfaceCountRequest"
+                },
+                "onDemandMaxPricePercentageOverLowestPrice": {
+                    "type": "integer"
+                },
+                "requireHibernateSupport": {
+                    "type": "boolean"
+                },
+                "spotMaxPricePercentageOverLowestPrice": {
+                    "type": "integer"
+                },
+                "totalLocalStorageGB": {
+                    "$ref": "#/types/aws-native:ec2:SpotFleetTotalLocalStorageGBRequest"
+                },
+                "vCpuCount": {
+                    "$ref": "#/types/aws-native:ec2:SpotFleetVCpuCountRangeRequest"
+                }
+            }
+        },
+        "aws-native:ec2:SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem": {
+            "type": "string"
+        },
+        "aws-native:ec2:SpotFleetInstanceRequirementsRequestAcceleratorNamesItem": {
+            "type": "string"
+        },
+        "aws-native:ec2:SpotFleetInstanceRequirementsRequestAcceleratorTypesItem": {
+            "type": "string"
+        },
+        "aws-native:ec2:SpotFleetInstanceRequirementsRequestBareMetal": {
+            "type": "string"
+        },
+        "aws-native:ec2:SpotFleetInstanceRequirementsRequestBurstablePerformance": {
+            "type": "string"
+        },
+        "aws-native:ec2:SpotFleetInstanceRequirementsRequestCpuManufacturersItem": {
+            "type": "string"
+        },
+        "aws-native:ec2:SpotFleetInstanceRequirementsRequestInstanceGenerationsItem": {
+            "type": "string"
+        },
+        "aws-native:ec2:SpotFleetInstanceRequirementsRequestLocalStorage": {
+            "type": "string"
+        },
+        "aws-native:ec2:SpotFleetInstanceRequirementsRequestLocalStorageTypesItem": {
+            "type": "string"
+        },
         "aws-native:ec2:SpotFleetLaunchSpecification": {
             "type": "object",
             "properties": {
@@ -36156,6 +38245,9 @@
                 },
                 "imageId": {
                     "type": "string"
+                },
+                "instanceRequirements": {
+                    "$ref": "#/types/aws-native:ec2:SpotFleetInstanceRequirementsRequest"
                 },
                 "instanceType": {
                     "type": "string"
@@ -36227,6 +38319,9 @@
                 "availabilityZone": {
                     "type": "string"
                 },
+                "instanceRequirements": {
+                    "$ref": "#/types/aws-native:ec2:SpotFleetInstanceRequirementsRequest"
+                },
                 "instanceType": {
                     "type": "string"
                 },
@@ -36252,11 +38347,44 @@
                 }
             }
         },
+        "aws-native:ec2:SpotFleetMemoryGiBPerVCpuRequest": {
+            "type": "object",
+            "properties": {
+                "max": {
+                    "type": "number"
+                },
+                "min": {
+                    "type": "number"
+                }
+            }
+        },
+        "aws-native:ec2:SpotFleetMemoryMiBRequest": {
+            "type": "object",
+            "properties": {
+                "max": {
+                    "type": "integer"
+                },
+                "min": {
+                    "type": "integer"
+                }
+            }
+        },
         "aws-native:ec2:SpotFleetMonitoring": {
             "type": "object",
             "properties": {
                 "enabled": {
                     "type": "boolean"
+                }
+            }
+        },
+        "aws-native:ec2:SpotFleetNetworkInterfaceCountRequest": {
+            "type": "object",
+            "properties": {
+                "max": {
+                    "type": "integer"
+                },
+                "min": {
+                    "type": "integer"
                 }
             }
         },
@@ -36331,6 +38459,9 @@
                 "targetCapacity": {
                     "type": "integer"
                 },
+                "targetCapacityUnitType": {
+                    "$ref": "#/types/aws-native:ec2:SpotFleetRequestConfigDataTargetCapacityUnitType"
+                },
                 "terminateInstancesWithExpiration": {
                     "type": "boolean"
                 },
@@ -36354,6 +38485,9 @@
         "aws-native:ec2:SpotFleetRequestConfigDataInstanceInterruptionBehavior": {
             "type": "string"
         },
+        "aws-native:ec2:SpotFleetRequestConfigDataTargetCapacityUnitType": {
+            "type": "string"
+        },
         "aws-native:ec2:SpotFleetRequestConfigDataType": {
             "type": "string"
         },
@@ -36362,6 +38496,9 @@
             "properties": {
                 "replacementStrategy": {
                     "$ref": "#/types/aws-native:ec2:SpotFleetSpotCapacityRebalanceReplacementStrategy"
+                },
+                "terminationDelay": {
+                    "type": "integer"
                 }
             }
         },
@@ -36437,6 +38574,28 @@
                     "items": {
                         "$ref": "#/types/aws-native:ec2:SpotFleetTargetGroup"
                     }
+                }
+            }
+        },
+        "aws-native:ec2:SpotFleetTotalLocalStorageGBRequest": {
+            "type": "object",
+            "properties": {
+                "max": {
+                    "type": "number"
+                },
+                "min": {
+                    "type": "number"
+                }
+            }
+        },
+        "aws-native:ec2:SpotFleetVCpuCountRangeRequest": {
+            "type": "object",
+            "properties": {
+                "max": {
+                    "type": "integer"
+                },
+                "min": {
+                    "type": "integer"
                 }
             }
         },
@@ -45356,6 +47515,56 @@
                 }
             }
         },
+        "aws-native:lightsail:DatabaseRelationalDatabaseParameter": {
+            "type": "object",
+            "properties": {
+                "allowedValues": {
+                    "type": "string",
+                    "description": "Specifies the valid range of values for the parameter."
+                },
+                "applyMethod": {
+                    "type": "string",
+                    "description": "Indicates when parameter updates are applied. Can be immediate or pending-reboot."
+                },
+                "applyType": {
+                    "type": "string",
+                    "description": "Specifies the engine-specific parameter type."
+                },
+                "dataType": {
+                    "type": "string",
+                    "description": "Specifies the valid data type for the parameter."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Provides a description of the parameter."
+                },
+                "isModifiable": {
+                    "type": "boolean",
+                    "description": "A Boolean value indicating whether the parameter can be modified."
+                },
+                "parameterName": {
+                    "type": "string",
+                    "description": "Specifies the name of the parameter."
+                },
+                "parameterValue": {
+                    "type": "string",
+                    "description": "Specifies the value of the parameter."
+                }
+            }
+        },
+        "aws-native:lightsail:DatabaseTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
         "aws-native:lightsail:DiskAddOn": {
             "type": "object",
             "properties": {
@@ -47013,6 +49222,103 @@
                 }
             }
         },
+        "aws-native:memorydb:ACLTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
+        "aws-native:memorydb:AuthenticationModeProperties": {
+            "type": "object",
+            "properties": {
+                "passwords": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Passwords used for this user account. You can create up to two passwords for each user."
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:memorydb:UserAuthenticationModePropertiesType",
+                    "description": "Type of authentication strategy for this user."
+                }
+            }
+        },
+        "aws-native:memorydb:ClusterEndpoint": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string",
+                    "description": "The DNS address of the primary read-write node."
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "The port number that the engine is listening on. "
+                }
+            }
+        },
+        "aws-native:memorydb:ClusterTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key for the tag. May not be null."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The tag's value. May be null."
+                }
+            }
+        },
+        "aws-native:memorydb:ParameterGroupTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key for the tag. May not be null."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The tag's value. May be null."
+                }
+            }
+        },
+        "aws-native:memorydb:SubnetGroupTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key for the tag. May not be null."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The tag's value. May be null."
+                }
+            }
+        },
+        "aws-native:memorydb:UserAuthenticationModePropertiesType": {
+            "type": "string"
+        },
+        "aws-native:memorydb:UserTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
         "aws-native:mwaa:EnvironmentLoggingConfiguration": {
             "type": "object",
             "properties": {
@@ -47068,9 +49374,6 @@
                     "description": "A list of subnets to use for the environment. These must be private subnets, in the same VPC, in two different availability zones."
                 }
             }
-        },
-        "aws-native:mwaa:EnvironmentTagMap": {
-            "type": "object"
         },
         "aws-native:mwaa:EnvironmentWebserverAccessMode": {
             "type": "string"
@@ -48071,6 +50374,78 @@
                     "type": "string"
                 }
             }
+        },
+        "aws-native:panorama:ApplicationInstanceHealthStatus": {
+            "type": "string"
+        },
+        "aws-native:panorama:ApplicationInstanceManifestOverridesPayload": {
+            "type": "object",
+            "properties": {
+                "payloadData": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:panorama:ApplicationInstanceManifestPayload": {
+            "type": "object",
+            "properties": {
+                "payloadData": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:panorama:ApplicationInstanceStatus": {
+            "type": "string"
+        },
+        "aws-native:panorama:ApplicationInstanceStatusFilter": {
+            "type": "string"
+        },
+        "aws-native:panorama:ApplicationInstanceTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "A string used to identify this tag"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "A string containing the value for the tag"
+                }
+            }
+        },
+        "aws-native:panorama:PackageStorageLocation": {
+            "type": "object",
+            "properties": {
+                "binaryPrefixLocation": {
+                    "type": "string"
+                },
+                "bucket": {
+                    "type": "string"
+                },
+                "generatedPrefixLocation": {
+                    "type": "string"
+                },
+                "manifestPrefixLocation": {
+                    "type": "string"
+                },
+                "repoPrefixLocation": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:panorama:PackageTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:panorama:PackageVersionStatus": {
+            "type": "string"
         },
         "aws-native:qldb:StreamKinesisConfiguration": {
             "type": "object",
@@ -50436,6 +52811,12 @@
                 }
             }
         },
+        "aws-native:route53resolver:ResolverConfigAutodefinedReverse": {
+            "type": "string"
+        },
+        "aws-native:route53resolver:ResolverConfigAutodefinedReverseFlag": {
+            "type": "string"
+        },
         "aws-native:route53resolver:ResolverDNSSECConfigValidationStatus": {
             "type": "string"
         },
@@ -50450,6 +52831,35 @@
         },
         "aws-native:route53resolver:ResolverQueryLoggingConfigStatus": {
             "type": "string"
+        },
+        "aws-native:route53resolver:ResolverRuleRuleType": {
+            "type": "string"
+        },
+        "aws-native:route53resolver:ResolverRuleTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
+        "aws-native:route53resolver:ResolverRuleTargetAddress": {
+            "type": "object",
+            "properties": {
+                "ip": {
+                    "type": "string",
+                    "description": "One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses. "
+                },
+                "port": {
+                    "type": "string",
+                    "description": "The port at Ip that you want to forward DNS queries to. "
+                }
+            }
         },
         "aws-native:s3:AccessPointNetworkOrigin": {
             "type": "string"

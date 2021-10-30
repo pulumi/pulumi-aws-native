@@ -76,7 +76,10 @@ AWS::Config::ConfigurationAggregator
 AWS::Config::ConformancePack
 AWS::Config::OrganizationConformancePack
 AWS::Config::StoredQuery
+AWS::Connect::HoursOfOperation
 AWS::Connect::QuickConnect
+AWS::Connect::User
+AWS::Connect::UserHierarchyGroup
 AWS::CustomerProfiles::Domain
 AWS::CustomerProfiles::Integration
 AWS::CustomerProfiles::ObjectType
@@ -104,6 +107,7 @@ AWS::DeviceFarm::Project
 AWS::DeviceFarm::TestGridProject
 AWS::DeviceFarm::VPCEConfiguration
 AWS::DynamoDB::GlobalTable
+AWS::EC2::CapacityReservationFleet
 AWS::EC2::CarrierGateway
 AWS::EC2::DHCPOptions
 AWS::EC2::EC2Fleet
@@ -119,10 +123,10 @@ AWS::EC2::NetworkAcl
 AWS::EC2::NetworkInsightsAnalysis
 AWS::EC2::NetworkInsightsPath
 AWS::EC2::PrefixList
+AWS::EC2::RouteTable
 AWS::EC2::SpotFleet
 AWS::EC2::Subnet
 AWS::EC2::SubnetNetworkAclAssociation
-AWS::EC2::SubnetRouteTableAssociation
 AWS::EC2::TransitGateway
 AWS::EC2::TransitGatewayConnect
 AWS::EC2::TransitGatewayMulticastDomain
@@ -244,8 +248,10 @@ AWS::Lambda::EventSourceMapping
 AWS::Lambda::Function
 AWS::LicenseManager::Grant
 AWS::LicenseManager::License
+AWS::Lightsail::Database
 AWS::Lightsail::Disk
 AWS::Lightsail::Instance
+AWS::Lightsail::StaticIp
 AWS::Location::GeofenceCollection
 AWS::Location::Map
 AWS::Location::PlaceIndex
@@ -272,6 +278,11 @@ AWS::MediaPackage::Channel
 AWS::MediaPackage::OriginEndpoint
 AWS::MediaPackage::PackagingConfiguration
 AWS::MediaPackage::PackagingGroup
+AWS::MemoryDB::ACL
+AWS::MemoryDB::Cluster
+AWS::MemoryDB::ParameterGroup
+AWS::MemoryDB::SubnetGroup
+AWS::MemoryDB::User
 AWS::NetworkFirewall::Firewall
 AWS::NetworkFirewall::FirewallPolicy
 AWS::NetworkFirewall::LoggingConfiguration
@@ -289,6 +300,9 @@ AWS::NimbleStudio::Studio
 AWS::NimbleStudio::StudioComponent
 AWS::OpenSearchService::Domain
 AWS::OpsWorksCM::Server
+AWS::Panorama::ApplicationInstance
+AWS::Panorama::Package
+AWS::Panorama::PackageVersion
 AWS::QLDB::Stream
 AWS::QuickSight::Analysis
 AWS::QuickSight::Dashboard
@@ -301,6 +315,7 @@ AWS::RDS::DBProxyEndpoint
 AWS::RDS::DBProxyTargetGroup
 AWS::RDS::GlobalCluster
 AWS::Redshift::Cluster
+AWS::Rekognition::Project
 AWS::ResourceGroups::Group
 AWS::RoboMaker::Fleet
 AWS::RoboMaker::Robot
@@ -322,9 +337,11 @@ AWS::Route53RecoveryReadiness::ResourceSet
 AWS::Route53Resolver::FirewallDomainList
 AWS::Route53Resolver::FirewallRuleGroup
 AWS::Route53Resolver::FirewallRuleGroupAssociation
+AWS::Route53Resolver::ResolverConfig
 AWS::Route53Resolver::ResolverDNSSECConfig
 AWS::Route53Resolver::ResolverQueryLoggingConfig
 AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation
+AWS::Route53Resolver::ResolverRule
 AWS::S3::AccessPoint
 AWS::S3::Bucket
 AWS::S3::MultiRegionAccessPoint
