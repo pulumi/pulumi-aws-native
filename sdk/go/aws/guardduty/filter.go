@@ -138,5 +138,6 @@ func (o FilterOutput) ToFilterOutputWithContext(ctx context.Context) FilterOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FilterInput)(nil)).Elem(), &Filter{})
 	pulumi.RegisterOutputType(FilterOutput{})
 }

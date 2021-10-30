@@ -135,5 +135,6 @@ func (o UsagePlanOutput) ToUsagePlanOutputWithContext(ctx context.Context) Usage
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanInput)(nil)).Elem(), &UsagePlan{})
 	pulumi.RegisterOutputType(UsagePlanOutput{})
 }

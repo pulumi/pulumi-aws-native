@@ -119,5 +119,6 @@ func (o SubnetNetworkAclAssociationOutput) ToSubnetNetworkAclAssociationOutputWi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetNetworkAclAssociationInput)(nil)).Elem(), &SubnetNetworkAclAssociation{})
 	pulumi.RegisterOutputType(SubnetNetworkAclAssociationOutput{})
 }

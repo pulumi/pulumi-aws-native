@@ -110,5 +110,6 @@ func (o TrafficMirrorFilterOutput) ToTrafficMirrorFilterOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterInput)(nil)).Elem(), &TrafficMirrorFilter{})
 	pulumi.RegisterOutputType(TrafficMirrorFilterOutput{})
 }

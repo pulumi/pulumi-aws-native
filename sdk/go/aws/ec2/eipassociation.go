@@ -116,5 +116,6 @@ func (o EIPAssociationOutput) ToEIPAssociationOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EIPAssociationInput)(nil)).Elem(), &EIPAssociation{})
 	pulumi.RegisterOutputType(EIPAssociationOutput{})
 }

@@ -158,5 +158,6 @@ func (o LocationFSxWindowsOutput) ToLocationFSxWindowsOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFSxWindowsInput)(nil)).Elem(), &LocationFSxWindows{})
 	pulumi.RegisterOutputType(LocationFSxWindowsOutput{})
 }

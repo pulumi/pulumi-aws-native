@@ -116,5 +116,6 @@ func (o TestGridProjectOutput) ToTestGridProjectOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TestGridProjectInput)(nil)).Elem(), &TestGridProject{})
 	pulumi.RegisterOutputType(TestGridProjectOutput{})
 }

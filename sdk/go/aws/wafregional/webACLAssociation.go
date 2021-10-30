@@ -114,5 +114,6 @@ func (o WebACLAssociationOutput) ToWebACLAssociationOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAssociationInput)(nil)).Elem(), &WebACLAssociation{})
 	pulumi.RegisterOutputType(WebACLAssociationOutput{})
 }

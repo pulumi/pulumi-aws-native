@@ -716,6 +716,16 @@ func (o FHIRDatastoreTagArrayOutput) Index(i pulumi.IntInput) FHIRDatastoreTagOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreCreatedAtInput)(nil)).Elem(), FHIRDatastoreCreatedAtArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreCreatedAtPtrInput)(nil)).Elem(), FHIRDatastoreCreatedAtArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreKmsEncryptionConfigInput)(nil)).Elem(), FHIRDatastoreKmsEncryptionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreKmsEncryptionConfigPtrInput)(nil)).Elem(), FHIRDatastoreKmsEncryptionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastorePreloadDataConfigInput)(nil)).Elem(), FHIRDatastorePreloadDataConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastorePreloadDataConfigPtrInput)(nil)).Elem(), FHIRDatastorePreloadDataConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreSseConfigurationInput)(nil)).Elem(), FHIRDatastoreSseConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreSseConfigurationPtrInput)(nil)).Elem(), FHIRDatastoreSseConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreTagInput)(nil)).Elem(), FHIRDatastoreTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreTagArrayInput)(nil)).Elem(), FHIRDatastoreTagArray{})
 	pulumi.RegisterOutputType(FHIRDatastoreCreatedAtOutput{})
 	pulumi.RegisterOutputType(FHIRDatastoreCreatedAtPtrOutput{})
 	pulumi.RegisterOutputType(FHIRDatastoreKmsEncryptionConfigOutput{})

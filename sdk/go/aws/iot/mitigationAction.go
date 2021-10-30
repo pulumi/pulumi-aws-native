@@ -126,5 +126,6 @@ func (o MitigationActionOutput) ToMitigationActionOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionInput)(nil)).Elem(), &MitigationAction{})
 	pulumi.RegisterOutputType(MitigationActionOutput{})
 }

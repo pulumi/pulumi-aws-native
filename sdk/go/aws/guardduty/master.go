@@ -112,5 +112,6 @@ func (o MasterOutput) ToMasterOutputWithContext(ctx context.Context) MasterOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MasterInput)(nil)).Elem(), &Master{})
 	pulumi.RegisterOutputType(MasterOutput{})
 }

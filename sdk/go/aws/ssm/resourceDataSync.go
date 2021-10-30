@@ -124,5 +124,6 @@ func (o ResourceDataSyncOutput) ToResourceDataSyncOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDataSyncInput)(nil)).Elem(), &ResourceDataSync{})
 	pulumi.RegisterOutputType(ResourceDataSyncOutput{})
 }

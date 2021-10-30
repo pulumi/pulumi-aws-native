@@ -123,5 +123,6 @@ func (o ADMChannelOutput) ToADMChannelOutputWithContext(ctx context.Context) ADM
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ADMChannelInput)(nil)).Elem(), &ADMChannel{})
 	pulumi.RegisterOutputType(ADMChannelOutput{})
 }

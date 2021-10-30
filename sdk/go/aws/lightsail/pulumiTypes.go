@@ -10,6 +10,278 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Describes the parameters of the database.
+type DatabaseRelationalDatabaseParameter struct {
+	// Specifies the valid range of values for the parameter.
+	AllowedValues *string `pulumi:"allowedValues"`
+	// Indicates when parameter updates are applied. Can be immediate or pending-reboot.
+	ApplyMethod *string `pulumi:"applyMethod"`
+	// Specifies the engine-specific parameter type.
+	ApplyType *string `pulumi:"applyType"`
+	// Specifies the valid data type for the parameter.
+	DataType *string `pulumi:"dataType"`
+	// Provides a description of the parameter.
+	Description *string `pulumi:"description"`
+	// A Boolean value indicating whether the parameter can be modified.
+	IsModifiable *bool `pulumi:"isModifiable"`
+	// Specifies the name of the parameter.
+	ParameterName *string `pulumi:"parameterName"`
+	// Specifies the value of the parameter.
+	ParameterValue *string `pulumi:"parameterValue"`
+}
+
+// DatabaseRelationalDatabaseParameterInput is an input type that accepts DatabaseRelationalDatabaseParameterArgs and DatabaseRelationalDatabaseParameterOutput values.
+// You can construct a concrete instance of `DatabaseRelationalDatabaseParameterInput` via:
+//
+//          DatabaseRelationalDatabaseParameterArgs{...}
+type DatabaseRelationalDatabaseParameterInput interface {
+	pulumi.Input
+
+	ToDatabaseRelationalDatabaseParameterOutput() DatabaseRelationalDatabaseParameterOutput
+	ToDatabaseRelationalDatabaseParameterOutputWithContext(context.Context) DatabaseRelationalDatabaseParameterOutput
+}
+
+// Describes the parameters of the database.
+type DatabaseRelationalDatabaseParameterArgs struct {
+	// Specifies the valid range of values for the parameter.
+	AllowedValues pulumi.StringPtrInput `pulumi:"allowedValues"`
+	// Indicates when parameter updates are applied. Can be immediate or pending-reboot.
+	ApplyMethod pulumi.StringPtrInput `pulumi:"applyMethod"`
+	// Specifies the engine-specific parameter type.
+	ApplyType pulumi.StringPtrInput `pulumi:"applyType"`
+	// Specifies the valid data type for the parameter.
+	DataType pulumi.StringPtrInput `pulumi:"dataType"`
+	// Provides a description of the parameter.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A Boolean value indicating whether the parameter can be modified.
+	IsModifiable pulumi.BoolPtrInput `pulumi:"isModifiable"`
+	// Specifies the name of the parameter.
+	ParameterName pulumi.StringPtrInput `pulumi:"parameterName"`
+	// Specifies the value of the parameter.
+	ParameterValue pulumi.StringPtrInput `pulumi:"parameterValue"`
+}
+
+func (DatabaseRelationalDatabaseParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseRelationalDatabaseParameter)(nil)).Elem()
+}
+
+func (i DatabaseRelationalDatabaseParameterArgs) ToDatabaseRelationalDatabaseParameterOutput() DatabaseRelationalDatabaseParameterOutput {
+	return i.ToDatabaseRelationalDatabaseParameterOutputWithContext(context.Background())
+}
+
+func (i DatabaseRelationalDatabaseParameterArgs) ToDatabaseRelationalDatabaseParameterOutputWithContext(ctx context.Context) DatabaseRelationalDatabaseParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseRelationalDatabaseParameterOutput)
+}
+
+// DatabaseRelationalDatabaseParameterArrayInput is an input type that accepts DatabaseRelationalDatabaseParameterArray and DatabaseRelationalDatabaseParameterArrayOutput values.
+// You can construct a concrete instance of `DatabaseRelationalDatabaseParameterArrayInput` via:
+//
+//          DatabaseRelationalDatabaseParameterArray{ DatabaseRelationalDatabaseParameterArgs{...} }
+type DatabaseRelationalDatabaseParameterArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseRelationalDatabaseParameterArrayOutput() DatabaseRelationalDatabaseParameterArrayOutput
+	ToDatabaseRelationalDatabaseParameterArrayOutputWithContext(context.Context) DatabaseRelationalDatabaseParameterArrayOutput
+}
+
+type DatabaseRelationalDatabaseParameterArray []DatabaseRelationalDatabaseParameterInput
+
+func (DatabaseRelationalDatabaseParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseRelationalDatabaseParameter)(nil)).Elem()
+}
+
+func (i DatabaseRelationalDatabaseParameterArray) ToDatabaseRelationalDatabaseParameterArrayOutput() DatabaseRelationalDatabaseParameterArrayOutput {
+	return i.ToDatabaseRelationalDatabaseParameterArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseRelationalDatabaseParameterArray) ToDatabaseRelationalDatabaseParameterArrayOutputWithContext(ctx context.Context) DatabaseRelationalDatabaseParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseRelationalDatabaseParameterArrayOutput)
+}
+
+// Describes the parameters of the database.
+type DatabaseRelationalDatabaseParameterOutput struct{ *pulumi.OutputState }
+
+func (DatabaseRelationalDatabaseParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseRelationalDatabaseParameter)(nil)).Elem()
+}
+
+func (o DatabaseRelationalDatabaseParameterOutput) ToDatabaseRelationalDatabaseParameterOutput() DatabaseRelationalDatabaseParameterOutput {
+	return o
+}
+
+func (o DatabaseRelationalDatabaseParameterOutput) ToDatabaseRelationalDatabaseParameterOutputWithContext(ctx context.Context) DatabaseRelationalDatabaseParameterOutput {
+	return o
+}
+
+// Specifies the valid range of values for the parameter.
+func (o DatabaseRelationalDatabaseParameterOutput) AllowedValues() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseRelationalDatabaseParameter) *string { return v.AllowedValues }).(pulumi.StringPtrOutput)
+}
+
+// Indicates when parameter updates are applied. Can be immediate or pending-reboot.
+func (o DatabaseRelationalDatabaseParameterOutput) ApplyMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseRelationalDatabaseParameter) *string { return v.ApplyMethod }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the engine-specific parameter type.
+func (o DatabaseRelationalDatabaseParameterOutput) ApplyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseRelationalDatabaseParameter) *string { return v.ApplyType }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the valid data type for the parameter.
+func (o DatabaseRelationalDatabaseParameterOutput) DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseRelationalDatabaseParameter) *string { return v.DataType }).(pulumi.StringPtrOutput)
+}
+
+// Provides a description of the parameter.
+func (o DatabaseRelationalDatabaseParameterOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseRelationalDatabaseParameter) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A Boolean value indicating whether the parameter can be modified.
+func (o DatabaseRelationalDatabaseParameterOutput) IsModifiable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatabaseRelationalDatabaseParameter) *bool { return v.IsModifiable }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the name of the parameter.
+func (o DatabaseRelationalDatabaseParameterOutput) ParameterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseRelationalDatabaseParameter) *string { return v.ParameterName }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the value of the parameter.
+func (o DatabaseRelationalDatabaseParameterOutput) ParameterValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseRelationalDatabaseParameter) *string { return v.ParameterValue }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseRelationalDatabaseParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseRelationalDatabaseParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseRelationalDatabaseParameter)(nil)).Elem()
+}
+
+func (o DatabaseRelationalDatabaseParameterArrayOutput) ToDatabaseRelationalDatabaseParameterArrayOutput() DatabaseRelationalDatabaseParameterArrayOutput {
+	return o
+}
+
+func (o DatabaseRelationalDatabaseParameterArrayOutput) ToDatabaseRelationalDatabaseParameterArrayOutputWithContext(ctx context.Context) DatabaseRelationalDatabaseParameterArrayOutput {
+	return o
+}
+
+func (o DatabaseRelationalDatabaseParameterArrayOutput) Index(i pulumi.IntInput) DatabaseRelationalDatabaseParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseRelationalDatabaseParameter {
+		return vs[0].([]DatabaseRelationalDatabaseParameter)[vs[1].(int)]
+	}).(DatabaseRelationalDatabaseParameterOutput)
+}
+
+// A key-value pair to associate with a resource.
+type DatabaseTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value *string `pulumi:"value"`
+}
+
+// DatabaseTagInput is an input type that accepts DatabaseTagArgs and DatabaseTagOutput values.
+// You can construct a concrete instance of `DatabaseTagInput` via:
+//
+//          DatabaseTagArgs{...}
+type DatabaseTagInput interface {
+	pulumi.Input
+
+	ToDatabaseTagOutput() DatabaseTagOutput
+	ToDatabaseTagOutputWithContext(context.Context) DatabaseTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type DatabaseTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DatabaseTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseTag)(nil)).Elem()
+}
+
+func (i DatabaseTagArgs) ToDatabaseTagOutput() DatabaseTagOutput {
+	return i.ToDatabaseTagOutputWithContext(context.Background())
+}
+
+func (i DatabaseTagArgs) ToDatabaseTagOutputWithContext(ctx context.Context) DatabaseTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseTagOutput)
+}
+
+// DatabaseTagArrayInput is an input type that accepts DatabaseTagArray and DatabaseTagArrayOutput values.
+// You can construct a concrete instance of `DatabaseTagArrayInput` via:
+//
+//          DatabaseTagArray{ DatabaseTagArgs{...} }
+type DatabaseTagArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseTagArrayOutput() DatabaseTagArrayOutput
+	ToDatabaseTagArrayOutputWithContext(context.Context) DatabaseTagArrayOutput
+}
+
+type DatabaseTagArray []DatabaseTagInput
+
+func (DatabaseTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseTag)(nil)).Elem()
+}
+
+func (i DatabaseTagArray) ToDatabaseTagArrayOutput() DatabaseTagArrayOutput {
+	return i.ToDatabaseTagArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseTagArray) ToDatabaseTagArrayOutputWithContext(ctx context.Context) DatabaseTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type DatabaseTagOutput struct{ *pulumi.OutputState }
+
+func (DatabaseTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseTag)(nil)).Elem()
+}
+
+func (o DatabaseTagOutput) ToDatabaseTagOutput() DatabaseTagOutput {
+	return o
+}
+
+func (o DatabaseTagOutput) ToDatabaseTagOutputWithContext(ctx context.Context) DatabaseTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o DatabaseTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o DatabaseTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseTag)(nil)).Elem()
+}
+
+func (o DatabaseTagArrayOutput) ToDatabaseTagArrayOutput() DatabaseTagArrayOutput {
+	return o
+}
+
+func (o DatabaseTagArrayOutput) ToDatabaseTagArrayOutputWithContext(ctx context.Context) DatabaseTagArrayOutput {
+	return o
+}
+
+func (o DatabaseTagArrayOutput) Index(i pulumi.IntInput) DatabaseTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseTag {
+		return vs[0].([]DatabaseTag)[vs[1].(int)]
+	}).(DatabaseTagOutput)
+}
+
 // A addon associate with a resource.
 type DiskAddOn struct {
 	// The add-on type
@@ -2015,6 +2287,42 @@ func (o InstanceTagArrayOutput) Index(i pulumi.IntInput) InstanceTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseRelationalDatabaseParameterInput)(nil)).Elem(), DatabaseRelationalDatabaseParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseRelationalDatabaseParameterArrayInput)(nil)).Elem(), DatabaseRelationalDatabaseParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseTagInput)(nil)).Elem(), DatabaseTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseTagArrayInput)(nil)).Elem(), DatabaseTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiskAddOnInput)(nil)).Elem(), DiskAddOnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiskAddOnArrayInput)(nil)).Elem(), DiskAddOnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiskAutoSnapshotAddOnInput)(nil)).Elem(), DiskAutoSnapshotAddOnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiskAutoSnapshotAddOnPtrInput)(nil)).Elem(), DiskAutoSnapshotAddOnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiskLocationInput)(nil)).Elem(), DiskLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiskLocationPtrInput)(nil)).Elem(), DiskLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiskTagInput)(nil)).Elem(), DiskTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiskTagArrayInput)(nil)).Elem(), DiskTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAddOnInput)(nil)).Elem(), InstanceAddOnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAddOnArrayInput)(nil)).Elem(), InstanceAddOnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAutoSnapshotAddOnInput)(nil)).Elem(), InstanceAutoSnapshotAddOnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAutoSnapshotAddOnPtrInput)(nil)).Elem(), InstanceAutoSnapshotAddOnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceDiskInput)(nil)).Elem(), InstanceDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceDiskArrayInput)(nil)).Elem(), InstanceDiskArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceHardwareInput)(nil)).Elem(), InstanceHardwareArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceHardwarePtrInput)(nil)).Elem(), InstanceHardwareArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLocationInput)(nil)).Elem(), InstanceLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLocationPtrInput)(nil)).Elem(), InstanceLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMonthlyTransferInput)(nil)).Elem(), InstanceMonthlyTransferArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMonthlyTransferPtrInput)(nil)).Elem(), InstanceMonthlyTransferArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceNetworkingInput)(nil)).Elem(), InstanceNetworkingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceNetworkingPtrInput)(nil)).Elem(), InstanceNetworkingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstancePortInput)(nil)).Elem(), InstancePortArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstancePortArrayInput)(nil)).Elem(), InstancePortArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStateTypeInput)(nil)).Elem(), InstanceStateTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStateTypePtrInput)(nil)).Elem(), InstanceStateTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceTagInput)(nil)).Elem(), InstanceTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceTagArrayInput)(nil)).Elem(), InstanceTagArray{})
+	pulumi.RegisterOutputType(DatabaseRelationalDatabaseParameterOutput{})
+	pulumi.RegisterOutputType(DatabaseRelationalDatabaseParameterArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseTagOutput{})
+	pulumi.RegisterOutputType(DatabaseTagArrayOutput{})
 	pulumi.RegisterOutputType(DiskAddOnOutput{})
 	pulumi.RegisterOutputType(DiskAddOnArrayOutput{})
 	pulumi.RegisterOutputType(DiskAutoSnapshotAddOnOutput{})

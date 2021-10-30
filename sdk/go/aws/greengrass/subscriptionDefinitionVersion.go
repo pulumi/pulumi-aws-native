@@ -114,5 +114,6 @@ func (o SubscriptionDefinitionVersionOutput) ToSubscriptionDefinitionVersionOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionDefinitionVersionInput)(nil)).Elem(), &SubscriptionDefinitionVersion{})
 	pulumi.RegisterOutputType(SubscriptionDefinitionVersionOutput{})
 }

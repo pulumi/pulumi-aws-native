@@ -1785,6 +1785,20 @@ func (o FlowSourceEncryptionPtrOutput) Url() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowEncryptionInput)(nil)).Elem(), FlowEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowEncryptionPtrInput)(nil)).Elem(), FlowEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowEntitlementEncryptionInput)(nil)).Elem(), FlowEntitlementEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowEntitlementEncryptionPtrInput)(nil)).Elem(), FlowEntitlementEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowFailoverConfigInput)(nil)).Elem(), FlowFailoverConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowFailoverConfigPtrInput)(nil)).Elem(), FlowFailoverConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputEncryptionInput)(nil)).Elem(), FlowOutputEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputEncryptionPtrInput)(nil)).Elem(), FlowOutputEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputVpcInterfaceAttachmentInput)(nil)).Elem(), FlowOutputVpcInterfaceAttachmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputVpcInterfaceAttachmentPtrInput)(nil)).Elem(), FlowOutputVpcInterfaceAttachmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceTypeInput)(nil)).Elem(), FlowSourceTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceTypePtrInput)(nil)).Elem(), FlowSourceTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceEncryptionInput)(nil)).Elem(), FlowSourceEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceEncryptionPtrInput)(nil)).Elem(), FlowSourceEncryptionArgs{})
 	pulumi.RegisterOutputType(FlowEncryptionOutput{})
 	pulumi.RegisterOutputType(FlowEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(FlowEntitlementEncryptionOutput{})

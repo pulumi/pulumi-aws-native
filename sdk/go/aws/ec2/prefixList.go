@@ -147,5 +147,6 @@ func (o PrefixListOutput) ToPrefixListOutputWithContext(ctx context.Context) Pre
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListInput)(nil)).Elem(), &PrefixList{})
 	pulumi.RegisterOutputType(PrefixListOutput{})
 }

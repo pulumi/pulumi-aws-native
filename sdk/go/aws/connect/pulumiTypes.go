@@ -10,6 +10,297 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Contains information about the hours of operation.
+type HoursOfOperationConfig struct {
+	// The day that the hours of operation applies to.
+	Day HoursOfOperationConfigDay `pulumi:"day"`
+	// The end time that your contact center closes.
+	EndTime HoursOfOperationTimeSlice `pulumi:"endTime"`
+	// The start time that your contact center opens.
+	StartTime HoursOfOperationTimeSlice `pulumi:"startTime"`
+}
+
+// HoursOfOperationConfigInput is an input type that accepts HoursOfOperationConfigArgs and HoursOfOperationConfigOutput values.
+// You can construct a concrete instance of `HoursOfOperationConfigInput` via:
+//
+//          HoursOfOperationConfigArgs{...}
+type HoursOfOperationConfigInput interface {
+	pulumi.Input
+
+	ToHoursOfOperationConfigOutput() HoursOfOperationConfigOutput
+	ToHoursOfOperationConfigOutputWithContext(context.Context) HoursOfOperationConfigOutput
+}
+
+// Contains information about the hours of operation.
+type HoursOfOperationConfigArgs struct {
+	// The day that the hours of operation applies to.
+	Day HoursOfOperationConfigDayInput `pulumi:"day"`
+	// The end time that your contact center closes.
+	EndTime HoursOfOperationTimeSliceInput `pulumi:"endTime"`
+	// The start time that your contact center opens.
+	StartTime HoursOfOperationTimeSliceInput `pulumi:"startTime"`
+}
+
+func (HoursOfOperationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HoursOfOperationConfig)(nil)).Elem()
+}
+
+func (i HoursOfOperationConfigArgs) ToHoursOfOperationConfigOutput() HoursOfOperationConfigOutput {
+	return i.ToHoursOfOperationConfigOutputWithContext(context.Background())
+}
+
+func (i HoursOfOperationConfigArgs) ToHoursOfOperationConfigOutputWithContext(ctx context.Context) HoursOfOperationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HoursOfOperationConfigOutput)
+}
+
+// HoursOfOperationConfigArrayInput is an input type that accepts HoursOfOperationConfigArray and HoursOfOperationConfigArrayOutput values.
+// You can construct a concrete instance of `HoursOfOperationConfigArrayInput` via:
+//
+//          HoursOfOperationConfigArray{ HoursOfOperationConfigArgs{...} }
+type HoursOfOperationConfigArrayInput interface {
+	pulumi.Input
+
+	ToHoursOfOperationConfigArrayOutput() HoursOfOperationConfigArrayOutput
+	ToHoursOfOperationConfigArrayOutputWithContext(context.Context) HoursOfOperationConfigArrayOutput
+}
+
+type HoursOfOperationConfigArray []HoursOfOperationConfigInput
+
+func (HoursOfOperationConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HoursOfOperationConfig)(nil)).Elem()
+}
+
+func (i HoursOfOperationConfigArray) ToHoursOfOperationConfigArrayOutput() HoursOfOperationConfigArrayOutput {
+	return i.ToHoursOfOperationConfigArrayOutputWithContext(context.Background())
+}
+
+func (i HoursOfOperationConfigArray) ToHoursOfOperationConfigArrayOutputWithContext(ctx context.Context) HoursOfOperationConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HoursOfOperationConfigArrayOutput)
+}
+
+// Contains information about the hours of operation.
+type HoursOfOperationConfigOutput struct{ *pulumi.OutputState }
+
+func (HoursOfOperationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HoursOfOperationConfig)(nil)).Elem()
+}
+
+func (o HoursOfOperationConfigOutput) ToHoursOfOperationConfigOutput() HoursOfOperationConfigOutput {
+	return o
+}
+
+func (o HoursOfOperationConfigOutput) ToHoursOfOperationConfigOutputWithContext(ctx context.Context) HoursOfOperationConfigOutput {
+	return o
+}
+
+// The day that the hours of operation applies to.
+func (o HoursOfOperationConfigOutput) Day() HoursOfOperationConfigDayOutput {
+	return o.ApplyT(func(v HoursOfOperationConfig) HoursOfOperationConfigDay { return v.Day }).(HoursOfOperationConfigDayOutput)
+}
+
+// The end time that your contact center closes.
+func (o HoursOfOperationConfigOutput) EndTime() HoursOfOperationTimeSliceOutput {
+	return o.ApplyT(func(v HoursOfOperationConfig) HoursOfOperationTimeSlice { return v.EndTime }).(HoursOfOperationTimeSliceOutput)
+}
+
+// The start time that your contact center opens.
+func (o HoursOfOperationConfigOutput) StartTime() HoursOfOperationTimeSliceOutput {
+	return o.ApplyT(func(v HoursOfOperationConfig) HoursOfOperationTimeSlice { return v.StartTime }).(HoursOfOperationTimeSliceOutput)
+}
+
+type HoursOfOperationConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (HoursOfOperationConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HoursOfOperationConfig)(nil)).Elem()
+}
+
+func (o HoursOfOperationConfigArrayOutput) ToHoursOfOperationConfigArrayOutput() HoursOfOperationConfigArrayOutput {
+	return o
+}
+
+func (o HoursOfOperationConfigArrayOutput) ToHoursOfOperationConfigArrayOutputWithContext(ctx context.Context) HoursOfOperationConfigArrayOutput {
+	return o
+}
+
+func (o HoursOfOperationConfigArrayOutput) Index(i pulumi.IntInput) HoursOfOperationConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HoursOfOperationConfig {
+		return vs[0].([]HoursOfOperationConfig)[vs[1].(int)]
+	}).(HoursOfOperationConfigOutput)
+}
+
+// A key-value pair to associate with a resource.
+type HoursOfOperationTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// HoursOfOperationTagInput is an input type that accepts HoursOfOperationTagArgs and HoursOfOperationTagOutput values.
+// You can construct a concrete instance of `HoursOfOperationTagInput` via:
+//
+//          HoursOfOperationTagArgs{...}
+type HoursOfOperationTagInput interface {
+	pulumi.Input
+
+	ToHoursOfOperationTagOutput() HoursOfOperationTagOutput
+	ToHoursOfOperationTagOutputWithContext(context.Context) HoursOfOperationTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type HoursOfOperationTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (HoursOfOperationTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HoursOfOperationTag)(nil)).Elem()
+}
+
+func (i HoursOfOperationTagArgs) ToHoursOfOperationTagOutput() HoursOfOperationTagOutput {
+	return i.ToHoursOfOperationTagOutputWithContext(context.Background())
+}
+
+func (i HoursOfOperationTagArgs) ToHoursOfOperationTagOutputWithContext(ctx context.Context) HoursOfOperationTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HoursOfOperationTagOutput)
+}
+
+// HoursOfOperationTagArrayInput is an input type that accepts HoursOfOperationTagArray and HoursOfOperationTagArrayOutput values.
+// You can construct a concrete instance of `HoursOfOperationTagArrayInput` via:
+//
+//          HoursOfOperationTagArray{ HoursOfOperationTagArgs{...} }
+type HoursOfOperationTagArrayInput interface {
+	pulumi.Input
+
+	ToHoursOfOperationTagArrayOutput() HoursOfOperationTagArrayOutput
+	ToHoursOfOperationTagArrayOutputWithContext(context.Context) HoursOfOperationTagArrayOutput
+}
+
+type HoursOfOperationTagArray []HoursOfOperationTagInput
+
+func (HoursOfOperationTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HoursOfOperationTag)(nil)).Elem()
+}
+
+func (i HoursOfOperationTagArray) ToHoursOfOperationTagArrayOutput() HoursOfOperationTagArrayOutput {
+	return i.ToHoursOfOperationTagArrayOutputWithContext(context.Background())
+}
+
+func (i HoursOfOperationTagArray) ToHoursOfOperationTagArrayOutputWithContext(ctx context.Context) HoursOfOperationTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HoursOfOperationTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type HoursOfOperationTagOutput struct{ *pulumi.OutputState }
+
+func (HoursOfOperationTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HoursOfOperationTag)(nil)).Elem()
+}
+
+func (o HoursOfOperationTagOutput) ToHoursOfOperationTagOutput() HoursOfOperationTagOutput {
+	return o
+}
+
+func (o HoursOfOperationTagOutput) ToHoursOfOperationTagOutputWithContext(ctx context.Context) HoursOfOperationTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o HoursOfOperationTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v HoursOfOperationTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o HoursOfOperationTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v HoursOfOperationTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type HoursOfOperationTagArrayOutput struct{ *pulumi.OutputState }
+
+func (HoursOfOperationTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HoursOfOperationTag)(nil)).Elem()
+}
+
+func (o HoursOfOperationTagArrayOutput) ToHoursOfOperationTagArrayOutput() HoursOfOperationTagArrayOutput {
+	return o
+}
+
+func (o HoursOfOperationTagArrayOutput) ToHoursOfOperationTagArrayOutputWithContext(ctx context.Context) HoursOfOperationTagArrayOutput {
+	return o
+}
+
+func (o HoursOfOperationTagArrayOutput) Index(i pulumi.IntInput) HoursOfOperationTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HoursOfOperationTag {
+		return vs[0].([]HoursOfOperationTag)[vs[1].(int)]
+	}).(HoursOfOperationTagOutput)
+}
+
+// The start time or end time for an hours of operation.
+type HoursOfOperationTimeSlice struct {
+	// The hours.
+	Hours int `pulumi:"hours"`
+	// The minutes.
+	Minutes int `pulumi:"minutes"`
+}
+
+// HoursOfOperationTimeSliceInput is an input type that accepts HoursOfOperationTimeSliceArgs and HoursOfOperationTimeSliceOutput values.
+// You can construct a concrete instance of `HoursOfOperationTimeSliceInput` via:
+//
+//          HoursOfOperationTimeSliceArgs{...}
+type HoursOfOperationTimeSliceInput interface {
+	pulumi.Input
+
+	ToHoursOfOperationTimeSliceOutput() HoursOfOperationTimeSliceOutput
+	ToHoursOfOperationTimeSliceOutputWithContext(context.Context) HoursOfOperationTimeSliceOutput
+}
+
+// The start time or end time for an hours of operation.
+type HoursOfOperationTimeSliceArgs struct {
+	// The hours.
+	Hours pulumi.IntInput `pulumi:"hours"`
+	// The minutes.
+	Minutes pulumi.IntInput `pulumi:"minutes"`
+}
+
+func (HoursOfOperationTimeSliceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HoursOfOperationTimeSlice)(nil)).Elem()
+}
+
+func (i HoursOfOperationTimeSliceArgs) ToHoursOfOperationTimeSliceOutput() HoursOfOperationTimeSliceOutput {
+	return i.ToHoursOfOperationTimeSliceOutputWithContext(context.Background())
+}
+
+func (i HoursOfOperationTimeSliceArgs) ToHoursOfOperationTimeSliceOutputWithContext(ctx context.Context) HoursOfOperationTimeSliceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HoursOfOperationTimeSliceOutput)
+}
+
+// The start time or end time for an hours of operation.
+type HoursOfOperationTimeSliceOutput struct{ *pulumi.OutputState }
+
+func (HoursOfOperationTimeSliceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HoursOfOperationTimeSlice)(nil)).Elem()
+}
+
+func (o HoursOfOperationTimeSliceOutput) ToHoursOfOperationTimeSliceOutput() HoursOfOperationTimeSliceOutput {
+	return o
+}
+
+func (o HoursOfOperationTimeSliceOutput) ToHoursOfOperationTimeSliceOutputWithContext(ctx context.Context) HoursOfOperationTimeSliceOutput {
+	return o
+}
+
+// The hours.
+func (o HoursOfOperationTimeSliceOutput) Hours() pulumi.IntOutput {
+	return o.ApplyT(func(v HoursOfOperationTimeSlice) int { return v.Hours }).(pulumi.IntOutput)
+}
+
+// The minutes.
+func (o HoursOfOperationTimeSliceOutput) Minutes() pulumi.IntOutput {
+	return o.ApplyT(func(v HoursOfOperationTimeSlice) int { return v.Minutes }).(pulumi.IntOutput)
+}
+
 // Configuration settings for the quick connect.
 type QuickConnectConfig struct {
 	PhoneConfig      *QuickConnectPhoneNumberQuickConnectConfig `pulumi:"phoneConfig"`
@@ -738,7 +1029,489 @@ func (o QuickConnectUserQuickConnectConfigPtrOutput) UserArn() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// Contains information about the identity of a user.
+type UserIdentityInfo struct {
+	Email     *string `pulumi:"email"`
+	FirstName *string `pulumi:"firstName"`
+	LastName  *string `pulumi:"lastName"`
+}
+
+// UserIdentityInfoInput is an input type that accepts UserIdentityInfoArgs and UserIdentityInfoOutput values.
+// You can construct a concrete instance of `UserIdentityInfoInput` via:
+//
+//          UserIdentityInfoArgs{...}
+type UserIdentityInfoInput interface {
+	pulumi.Input
+
+	ToUserIdentityInfoOutput() UserIdentityInfoOutput
+	ToUserIdentityInfoOutputWithContext(context.Context) UserIdentityInfoOutput
+}
+
+// Contains information about the identity of a user.
+type UserIdentityInfoArgs struct {
+	Email     pulumi.StringPtrInput `pulumi:"email"`
+	FirstName pulumi.StringPtrInput `pulumi:"firstName"`
+	LastName  pulumi.StringPtrInput `pulumi:"lastName"`
+}
+
+func (UserIdentityInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserIdentityInfo)(nil)).Elem()
+}
+
+func (i UserIdentityInfoArgs) ToUserIdentityInfoOutput() UserIdentityInfoOutput {
+	return i.ToUserIdentityInfoOutputWithContext(context.Background())
+}
+
+func (i UserIdentityInfoArgs) ToUserIdentityInfoOutputWithContext(ctx context.Context) UserIdentityInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityInfoOutput)
+}
+
+func (i UserIdentityInfoArgs) ToUserIdentityInfoPtrOutput() UserIdentityInfoPtrOutput {
+	return i.ToUserIdentityInfoPtrOutputWithContext(context.Background())
+}
+
+func (i UserIdentityInfoArgs) ToUserIdentityInfoPtrOutputWithContext(ctx context.Context) UserIdentityInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityInfoOutput).ToUserIdentityInfoPtrOutputWithContext(ctx)
+}
+
+// UserIdentityInfoPtrInput is an input type that accepts UserIdentityInfoArgs, UserIdentityInfoPtr and UserIdentityInfoPtrOutput values.
+// You can construct a concrete instance of `UserIdentityInfoPtrInput` via:
+//
+//          UserIdentityInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type UserIdentityInfoPtrInput interface {
+	pulumi.Input
+
+	ToUserIdentityInfoPtrOutput() UserIdentityInfoPtrOutput
+	ToUserIdentityInfoPtrOutputWithContext(context.Context) UserIdentityInfoPtrOutput
+}
+
+type userIdentityInfoPtrType UserIdentityInfoArgs
+
+func UserIdentityInfoPtr(v *UserIdentityInfoArgs) UserIdentityInfoPtrInput {
+	return (*userIdentityInfoPtrType)(v)
+}
+
+func (*userIdentityInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserIdentityInfo)(nil)).Elem()
+}
+
+func (i *userIdentityInfoPtrType) ToUserIdentityInfoPtrOutput() UserIdentityInfoPtrOutput {
+	return i.ToUserIdentityInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *userIdentityInfoPtrType) ToUserIdentityInfoPtrOutputWithContext(ctx context.Context) UserIdentityInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityInfoPtrOutput)
+}
+
+// Contains information about the identity of a user.
+type UserIdentityInfoOutput struct{ *pulumi.OutputState }
+
+func (UserIdentityInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserIdentityInfo)(nil)).Elem()
+}
+
+func (o UserIdentityInfoOutput) ToUserIdentityInfoOutput() UserIdentityInfoOutput {
+	return o
+}
+
+func (o UserIdentityInfoOutput) ToUserIdentityInfoOutputWithContext(ctx context.Context) UserIdentityInfoOutput {
+	return o
+}
+
+func (o UserIdentityInfoOutput) ToUserIdentityInfoPtrOutput() UserIdentityInfoPtrOutput {
+	return o.ToUserIdentityInfoPtrOutputWithContext(context.Background())
+}
+
+func (o UserIdentityInfoOutput) ToUserIdentityInfoPtrOutputWithContext(ctx context.Context) UserIdentityInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserIdentityInfo) *UserIdentityInfo {
+		return &v
+	}).(UserIdentityInfoPtrOutput)
+}
+
+func (o UserIdentityInfoOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserIdentityInfo) *string { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+func (o UserIdentityInfoOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserIdentityInfo) *string { return v.FirstName }).(pulumi.StringPtrOutput)
+}
+
+func (o UserIdentityInfoOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserIdentityInfo) *string { return v.LastName }).(pulumi.StringPtrOutput)
+}
+
+type UserIdentityInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (UserIdentityInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserIdentityInfo)(nil)).Elem()
+}
+
+func (o UserIdentityInfoPtrOutput) ToUserIdentityInfoPtrOutput() UserIdentityInfoPtrOutput {
+	return o
+}
+
+func (o UserIdentityInfoPtrOutput) ToUserIdentityInfoPtrOutputWithContext(ctx context.Context) UserIdentityInfoPtrOutput {
+	return o
+}
+
+func (o UserIdentityInfoPtrOutput) Elem() UserIdentityInfoOutput {
+	return o.ApplyT(func(v *UserIdentityInfo) UserIdentityInfo {
+		if v != nil {
+			return *v
+		}
+		var ret UserIdentityInfo
+		return ret
+	}).(UserIdentityInfoOutput)
+}
+
+func (o UserIdentityInfoPtrOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserIdentityInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Email
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserIdentityInfoPtrOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserIdentityInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FirstName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserIdentityInfoPtrOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserIdentityInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contains information about the phone configuration settings for a user.
+type UserPhoneConfig struct {
+	AfterContactWorkTimeLimit *int          `pulumi:"afterContactWorkTimeLimit"`
+	AutoAccept                *bool         `pulumi:"autoAccept"`
+	DeskPhoneNumber           *string       `pulumi:"deskPhoneNumber"`
+	PhoneType                 UserPhoneType `pulumi:"phoneType"`
+}
+
+// UserPhoneConfigInput is an input type that accepts UserPhoneConfigArgs and UserPhoneConfigOutput values.
+// You can construct a concrete instance of `UserPhoneConfigInput` via:
+//
+//          UserPhoneConfigArgs{...}
+type UserPhoneConfigInput interface {
+	pulumi.Input
+
+	ToUserPhoneConfigOutput() UserPhoneConfigOutput
+	ToUserPhoneConfigOutputWithContext(context.Context) UserPhoneConfigOutput
+}
+
+// Contains information about the phone configuration settings for a user.
+type UserPhoneConfigArgs struct {
+	AfterContactWorkTimeLimit pulumi.IntPtrInput    `pulumi:"afterContactWorkTimeLimit"`
+	AutoAccept                pulumi.BoolPtrInput   `pulumi:"autoAccept"`
+	DeskPhoneNumber           pulumi.StringPtrInput `pulumi:"deskPhoneNumber"`
+	PhoneType                 UserPhoneTypeInput    `pulumi:"phoneType"`
+}
+
+func (UserPhoneConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPhoneConfig)(nil)).Elem()
+}
+
+func (i UserPhoneConfigArgs) ToUserPhoneConfigOutput() UserPhoneConfigOutput {
+	return i.ToUserPhoneConfigOutputWithContext(context.Background())
+}
+
+func (i UserPhoneConfigArgs) ToUserPhoneConfigOutputWithContext(ctx context.Context) UserPhoneConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPhoneConfigOutput)
+}
+
+func (i UserPhoneConfigArgs) ToUserPhoneConfigPtrOutput() UserPhoneConfigPtrOutput {
+	return i.ToUserPhoneConfigPtrOutputWithContext(context.Background())
+}
+
+func (i UserPhoneConfigArgs) ToUserPhoneConfigPtrOutputWithContext(ctx context.Context) UserPhoneConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPhoneConfigOutput).ToUserPhoneConfigPtrOutputWithContext(ctx)
+}
+
+// UserPhoneConfigPtrInput is an input type that accepts UserPhoneConfigArgs, UserPhoneConfigPtr and UserPhoneConfigPtrOutput values.
+// You can construct a concrete instance of `UserPhoneConfigPtrInput` via:
+//
+//          UserPhoneConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type UserPhoneConfigPtrInput interface {
+	pulumi.Input
+
+	ToUserPhoneConfigPtrOutput() UserPhoneConfigPtrOutput
+	ToUserPhoneConfigPtrOutputWithContext(context.Context) UserPhoneConfigPtrOutput
+}
+
+type userPhoneConfigPtrType UserPhoneConfigArgs
+
+func UserPhoneConfigPtr(v *UserPhoneConfigArgs) UserPhoneConfigPtrInput {
+	return (*userPhoneConfigPtrType)(v)
+}
+
+func (*userPhoneConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPhoneConfig)(nil)).Elem()
+}
+
+func (i *userPhoneConfigPtrType) ToUserPhoneConfigPtrOutput() UserPhoneConfigPtrOutput {
+	return i.ToUserPhoneConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *userPhoneConfigPtrType) ToUserPhoneConfigPtrOutputWithContext(ctx context.Context) UserPhoneConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPhoneConfigPtrOutput)
+}
+
+// Contains information about the phone configuration settings for a user.
+type UserPhoneConfigOutput struct{ *pulumi.OutputState }
+
+func (UserPhoneConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPhoneConfig)(nil)).Elem()
+}
+
+func (o UserPhoneConfigOutput) ToUserPhoneConfigOutput() UserPhoneConfigOutput {
+	return o
+}
+
+func (o UserPhoneConfigOutput) ToUserPhoneConfigOutputWithContext(ctx context.Context) UserPhoneConfigOutput {
+	return o
+}
+
+func (o UserPhoneConfigOutput) ToUserPhoneConfigPtrOutput() UserPhoneConfigPtrOutput {
+	return o.ToUserPhoneConfigPtrOutputWithContext(context.Background())
+}
+
+func (o UserPhoneConfigOutput) ToUserPhoneConfigPtrOutputWithContext(ctx context.Context) UserPhoneConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPhoneConfig) *UserPhoneConfig {
+		return &v
+	}).(UserPhoneConfigPtrOutput)
+}
+
+func (o UserPhoneConfigOutput) AfterContactWorkTimeLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UserPhoneConfig) *int { return v.AfterContactWorkTimeLimit }).(pulumi.IntPtrOutput)
+}
+
+func (o UserPhoneConfigOutput) AutoAccept() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UserPhoneConfig) *bool { return v.AutoAccept }).(pulumi.BoolPtrOutput)
+}
+
+func (o UserPhoneConfigOutput) DeskPhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPhoneConfig) *string { return v.DeskPhoneNumber }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPhoneConfigOutput) PhoneType() UserPhoneTypeOutput {
+	return o.ApplyT(func(v UserPhoneConfig) UserPhoneType { return v.PhoneType }).(UserPhoneTypeOutput)
+}
+
+type UserPhoneConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPhoneConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPhoneConfig)(nil)).Elem()
+}
+
+func (o UserPhoneConfigPtrOutput) ToUserPhoneConfigPtrOutput() UserPhoneConfigPtrOutput {
+	return o
+}
+
+func (o UserPhoneConfigPtrOutput) ToUserPhoneConfigPtrOutputWithContext(ctx context.Context) UserPhoneConfigPtrOutput {
+	return o
+}
+
+func (o UserPhoneConfigPtrOutput) Elem() UserPhoneConfigOutput {
+	return o.ApplyT(func(v *UserPhoneConfig) UserPhoneConfig {
+		if v != nil {
+			return *v
+		}
+		var ret UserPhoneConfig
+		return ret
+	}).(UserPhoneConfigOutput)
+}
+
+func (o UserPhoneConfigPtrOutput) AfterContactWorkTimeLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserPhoneConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AfterContactWorkTimeLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o UserPhoneConfigPtrOutput) AutoAccept() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UserPhoneConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoAccept
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o UserPhoneConfigPtrOutput) DeskPhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPhoneConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeskPhoneNumber
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPhoneConfigPtrOutput) PhoneType() UserPhoneTypePtrOutput {
+	return o.ApplyT(func(v *UserPhoneConfig) *UserPhoneType {
+		if v == nil {
+			return nil
+		}
+		return &v.PhoneType
+	}).(UserPhoneTypePtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type UserTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// UserTagInput is an input type that accepts UserTagArgs and UserTagOutput values.
+// You can construct a concrete instance of `UserTagInput` via:
+//
+//          UserTagArgs{...}
+type UserTagInput interface {
+	pulumi.Input
+
+	ToUserTagOutput() UserTagOutput
+	ToUserTagOutputWithContext(context.Context) UserTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type UserTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (UserTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserTag)(nil)).Elem()
+}
+
+func (i UserTagArgs) ToUserTagOutput() UserTagOutput {
+	return i.ToUserTagOutputWithContext(context.Background())
+}
+
+func (i UserTagArgs) ToUserTagOutputWithContext(ctx context.Context) UserTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserTagOutput)
+}
+
+// UserTagArrayInput is an input type that accepts UserTagArray and UserTagArrayOutput values.
+// You can construct a concrete instance of `UserTagArrayInput` via:
+//
+//          UserTagArray{ UserTagArgs{...} }
+type UserTagArrayInput interface {
+	pulumi.Input
+
+	ToUserTagArrayOutput() UserTagArrayOutput
+	ToUserTagArrayOutputWithContext(context.Context) UserTagArrayOutput
+}
+
+type UserTagArray []UserTagInput
+
+func (UserTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserTag)(nil)).Elem()
+}
+
+func (i UserTagArray) ToUserTagArrayOutput() UserTagArrayOutput {
+	return i.ToUserTagArrayOutputWithContext(context.Background())
+}
+
+func (i UserTagArray) ToUserTagArrayOutputWithContext(ctx context.Context) UserTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type UserTagOutput struct{ *pulumi.OutputState }
+
+func (UserTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserTag)(nil)).Elem()
+}
+
+func (o UserTagOutput) ToUserTagOutput() UserTagOutput {
+	return o
+}
+
+func (o UserTagOutput) ToUserTagOutputWithContext(ctx context.Context) UserTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o UserTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v UserTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o UserTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v UserTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type UserTagArrayOutput struct{ *pulumi.OutputState }
+
+func (UserTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserTag)(nil)).Elem()
+}
+
+func (o UserTagArrayOutput) ToUserTagArrayOutput() UserTagArrayOutput {
+	return o
+}
+
+func (o UserTagArrayOutput) ToUserTagArrayOutputWithContext(ctx context.Context) UserTagArrayOutput {
+	return o
+}
+
+func (o UserTagArrayOutput) Index(i pulumi.IntInput) UserTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserTag {
+		return vs[0].([]UserTag)[vs[1].(int)]
+	}).(UserTagOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationConfigInput)(nil)).Elem(), HoursOfOperationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationConfigArrayInput)(nil)).Elem(), HoursOfOperationConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationTagInput)(nil)).Elem(), HoursOfOperationTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationTagArrayInput)(nil)).Elem(), HoursOfOperationTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationTimeSliceInput)(nil)).Elem(), HoursOfOperationTimeSliceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectConfigInput)(nil)).Elem(), QuickConnectConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectConfigPtrInput)(nil)).Elem(), QuickConnectConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectPhoneNumberQuickConnectConfigInput)(nil)).Elem(), QuickConnectPhoneNumberQuickConnectConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectPhoneNumberQuickConnectConfigPtrInput)(nil)).Elem(), QuickConnectPhoneNumberQuickConnectConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectQueueQuickConnectConfigInput)(nil)).Elem(), QuickConnectQueueQuickConnectConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectQueueQuickConnectConfigPtrInput)(nil)).Elem(), QuickConnectQueueQuickConnectConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectTagInput)(nil)).Elem(), QuickConnectTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectTagArrayInput)(nil)).Elem(), QuickConnectTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectUserQuickConnectConfigInput)(nil)).Elem(), QuickConnectUserQuickConnectConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectUserQuickConnectConfigPtrInput)(nil)).Elem(), QuickConnectUserQuickConnectConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserIdentityInfoInput)(nil)).Elem(), UserIdentityInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserIdentityInfoPtrInput)(nil)).Elem(), UserIdentityInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneConfigInput)(nil)).Elem(), UserPhoneConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneConfigPtrInput)(nil)).Elem(), UserPhoneConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserTagInput)(nil)).Elem(), UserTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserTagArrayInput)(nil)).Elem(), UserTagArray{})
+	pulumi.RegisterOutputType(HoursOfOperationConfigOutput{})
+	pulumi.RegisterOutputType(HoursOfOperationConfigArrayOutput{})
+	pulumi.RegisterOutputType(HoursOfOperationTagOutput{})
+	pulumi.RegisterOutputType(HoursOfOperationTagArrayOutput{})
+	pulumi.RegisterOutputType(HoursOfOperationTimeSliceOutput{})
 	pulumi.RegisterOutputType(QuickConnectConfigOutput{})
 	pulumi.RegisterOutputType(QuickConnectConfigPtrOutput{})
 	pulumi.RegisterOutputType(QuickConnectPhoneNumberQuickConnectConfigOutput{})
@@ -749,4 +1522,10 @@ func init() {
 	pulumi.RegisterOutputType(QuickConnectTagArrayOutput{})
 	pulumi.RegisterOutputType(QuickConnectUserQuickConnectConfigOutput{})
 	pulumi.RegisterOutputType(QuickConnectUserQuickConnectConfigPtrOutput{})
+	pulumi.RegisterOutputType(UserIdentityInfoOutput{})
+	pulumi.RegisterOutputType(UserIdentityInfoPtrOutput{})
+	pulumi.RegisterOutputType(UserPhoneConfigOutput{})
+	pulumi.RegisterOutputType(UserPhoneConfigPtrOutput{})
+	pulumi.RegisterOutputType(UserTagOutput{})
+	pulumi.RegisterOutputType(UserTagArrayOutput{})
 }

@@ -119,5 +119,6 @@ func (o LogGroupOutput) ToLogGroupOutputWithContext(ctx context.Context) LogGrou
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LogGroupInput)(nil)).Elem(), &LogGroup{})
 	pulumi.RegisterOutputType(LogGroupOutput{})
 }

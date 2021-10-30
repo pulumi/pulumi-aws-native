@@ -114,5 +114,6 @@ func (o LoggerDefinitionVersionOutput) ToLoggerDefinitionVersionOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LoggerDefinitionVersionInput)(nil)).Elem(), &LoggerDefinitionVersion{})
 	pulumi.RegisterOutputType(LoggerDefinitionVersionOutput{})
 }

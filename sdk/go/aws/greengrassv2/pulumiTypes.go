@@ -1264,6 +1264,22 @@ func (o ComponentVersionLambdaVolumeMountArrayOutput) Index(i pulumi.IntInput) C
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionComponentPlatformInput)(nil)).Elem(), ComponentVersionComponentPlatformArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionComponentPlatformArrayInput)(nil)).Elem(), ComponentVersionComponentPlatformArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaContainerParamsInput)(nil)).Elem(), ComponentVersionLambdaContainerParamsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaContainerParamsPtrInput)(nil)).Elem(), ComponentVersionLambdaContainerParamsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaDeviceMountInput)(nil)).Elem(), ComponentVersionLambdaDeviceMountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaDeviceMountArrayInput)(nil)).Elem(), ComponentVersionLambdaDeviceMountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaEventSourceInput)(nil)).Elem(), ComponentVersionLambdaEventSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaEventSourceArrayInput)(nil)).Elem(), ComponentVersionLambdaEventSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaExecutionParametersInput)(nil)).Elem(), ComponentVersionLambdaExecutionParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaExecutionParametersPtrInput)(nil)).Elem(), ComponentVersionLambdaExecutionParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaFunctionRecipeSourceInput)(nil)).Elem(), ComponentVersionLambdaFunctionRecipeSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaFunctionRecipeSourcePtrInput)(nil)).Elem(), ComponentVersionLambdaFunctionRecipeSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaLinuxProcessParamsInput)(nil)).Elem(), ComponentVersionLambdaLinuxProcessParamsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaLinuxProcessParamsPtrInput)(nil)).Elem(), ComponentVersionLambdaLinuxProcessParamsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaVolumeMountInput)(nil)).Elem(), ComponentVersionLambdaVolumeMountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaVolumeMountArrayInput)(nil)).Elem(), ComponentVersionLambdaVolumeMountArray{})
 	pulumi.RegisterOutputType(ComponentVersionComponentPlatformOutput{})
 	pulumi.RegisterOutputType(ComponentVersionComponentPlatformArrayOutput{})
 	pulumi.RegisterOutputType(ComponentVersionLambdaContainerParamsOutput{})

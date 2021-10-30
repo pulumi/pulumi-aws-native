@@ -108,5 +108,6 @@ func (o ResourceCollectionOutput) ToResourceCollectionOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceCollectionInput)(nil)).Elem(), &ResourceCollection{})
 	pulumi.RegisterOutputType(ResourceCollectionOutput{})
 }

@@ -144,5 +144,6 @@ func (o PatchBaselineOutput) ToPatchBaselineOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineInput)(nil)).Elem(), &PatchBaseline{})
 	pulumi.RegisterOutputType(PatchBaselineOutput{})
 }

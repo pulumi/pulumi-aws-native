@@ -130,5 +130,6 @@ func (o GrantOutput) ToGrantOutputWithContext(ctx context.Context) GrantOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GrantInput)(nil)).Elem(), &Grant{})
 	pulumi.RegisterOutputType(GrantOutput{})
 }

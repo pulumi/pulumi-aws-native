@@ -120,5 +120,6 @@ func (o PortfolioProductAssociationOutput) ToPortfolioProductAssociationOutputWi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PortfolioProductAssociationInput)(nil)).Elem(), &PortfolioProductAssociation{})
 	pulumi.RegisterOutputType(PortfolioProductAssociationOutput{})
 }

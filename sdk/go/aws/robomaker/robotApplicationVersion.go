@@ -114,5 +114,6 @@ func (o RobotApplicationVersionOutput) ToRobotApplicationVersionOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RobotApplicationVersionInput)(nil)).Elem(), &RobotApplicationVersion{})
 	pulumi.RegisterOutputType(RobotApplicationVersionOutput{})
 }

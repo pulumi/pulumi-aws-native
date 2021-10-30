@@ -938,6 +938,20 @@ func (o SiteTagArrayOutput) Index(i pulumi.IntInput) SiteTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DeviceLocationInput)(nil)).Elem(), DeviceLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeviceLocationPtrInput)(nil)).Elem(), DeviceLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeviceTagInput)(nil)).Elem(), DeviceTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeviceTagArrayInput)(nil)).Elem(), DeviceTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalNetworkTagInput)(nil)).Elem(), GlobalNetworkTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalNetworkTagArrayInput)(nil)).Elem(), GlobalNetworkTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkBandwidthInput)(nil)).Elem(), LinkBandwidthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkBandwidthPtrInput)(nil)).Elem(), LinkBandwidthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkTagInput)(nil)).Elem(), LinkTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkTagArrayInput)(nil)).Elem(), LinkTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteLocationInput)(nil)).Elem(), SiteLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteLocationPtrInput)(nil)).Elem(), SiteLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteTagInput)(nil)).Elem(), SiteTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SiteTagArrayInput)(nil)).Elem(), SiteTagArray{})
 	pulumi.RegisterOutputType(DeviceLocationOutput{})
 	pulumi.RegisterOutputType(DeviceLocationPtrOutput{})
 	pulumi.RegisterOutputType(DeviceTagOutput{})

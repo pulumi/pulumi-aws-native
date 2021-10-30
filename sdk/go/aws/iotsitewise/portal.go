@@ -165,5 +165,6 @@ func (o PortalOutput) ToPortalOutputWithContext(ctx context.Context) PortalOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PortalInput)(nil)).Elem(), &Portal{})
 	pulumi.RegisterOutputType(PortalOutput{})
 }

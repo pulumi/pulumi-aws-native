@@ -123,5 +123,6 @@ func (o EventBusPolicyOutput) ToEventBusPolicyOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventBusPolicyInput)(nil)).Elem(), &EventBusPolicy{})
 	pulumi.RegisterOutputType(EventBusPolicyOutput{})
 }

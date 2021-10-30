@@ -111,5 +111,6 @@ func (o GeoMatchSetOutput) ToGeoMatchSetOutputWithContext(ctx context.Context) G
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GeoMatchSetInput)(nil)).Elem(), &GeoMatchSet{})
 	pulumi.RegisterOutputType(GeoMatchSetOutput{})
 }

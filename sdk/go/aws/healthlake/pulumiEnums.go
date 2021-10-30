@@ -671,6 +671,14 @@ func (in *fhirdatastorePreloadDataConfigPreloadDataTypePtr) ToFHIRDatastorePrelo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreDatastoreStatusInput)(nil)).Elem(), FHIRDatastoreDatastoreStatus("CREATING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreDatastoreStatusPtrInput)(nil)).Elem(), FHIRDatastoreDatastoreStatus("CREATING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreDatastoreTypeVersionInput)(nil)).Elem(), FHIRDatastoreDatastoreTypeVersion("R4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreDatastoreTypeVersionPtrInput)(nil)).Elem(), FHIRDatastoreDatastoreTypeVersion("R4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreKmsEncryptionConfigCmkTypeInput)(nil)).Elem(), FHIRDatastoreKmsEncryptionConfigCmkType("CUSTOMER_MANAGED_KMS_KEY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreKmsEncryptionConfigCmkTypePtrInput)(nil)).Elem(), FHIRDatastoreKmsEncryptionConfigCmkType("CUSTOMER_MANAGED_KMS_KEY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastorePreloadDataConfigPreloadDataTypeInput)(nil)).Elem(), FHIRDatastorePreloadDataConfigPreloadDataType("SYNTHEA"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastorePreloadDataConfigPreloadDataTypePtrInput)(nil)).Elem(), FHIRDatastorePreloadDataConfigPreloadDataType("SYNTHEA"))
 	pulumi.RegisterOutputType(FHIRDatastoreDatastoreStatusOutput{})
 	pulumi.RegisterOutputType(FHIRDatastoreDatastoreStatusPtrOutput{})
 	pulumi.RegisterOutputType(FHIRDatastoreDatastoreTypeVersionOutput{})

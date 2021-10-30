@@ -135,5 +135,6 @@ func (o AnomalyMonitorOutput) ToAnomalyMonitorOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyMonitorInput)(nil)).Elem(), &AnomalyMonitor{})
 	pulumi.RegisterOutputType(AnomalyMonitorOutput{})
 }

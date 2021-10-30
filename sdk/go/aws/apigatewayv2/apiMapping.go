@@ -123,5 +123,6 @@ func (o ApiMappingOutput) ToApiMappingOutputWithContext(ctx context.Context) Api
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiMappingInput)(nil)).Elem(), &ApiMapping{})
 	pulumi.RegisterOutputType(ApiMappingOutput{})
 }

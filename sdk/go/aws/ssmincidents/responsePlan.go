@@ -144,5 +144,6 @@ func (o ResponsePlanOutput) ToResponsePlanOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanInput)(nil)).Elem(), &ResponsePlan{})
 	pulumi.RegisterOutputType(ResponsePlanOutput{})
 }

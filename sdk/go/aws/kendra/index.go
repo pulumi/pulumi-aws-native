@@ -155,5 +155,6 @@ func (o IndexOutput) ToIndexOutputWithContext(ctx context.Context) IndexOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexInput)(nil)).Elem(), &Index{})
 	pulumi.RegisterOutputType(IndexOutput{})
 }

@@ -134,5 +134,6 @@ func (o AcceleratorOutput) ToAcceleratorOutputWithContext(ctx context.Context) A
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AcceleratorInput)(nil)).Elem(), &Accelerator{})
 	pulumi.RegisterOutputType(AcceleratorOutput{})
 }

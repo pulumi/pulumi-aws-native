@@ -116,5 +116,6 @@ func (o HealthCheckOutput) ToHealthCheckOutputWithContext(ctx context.Context) H
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckInput)(nil)).Elem(), &HealthCheck{})
 	pulumi.RegisterOutputType(HealthCheckOutput{})
 }

@@ -541,6 +541,14 @@ func (o ContactTargetsArrayOutput) Index(i pulumi.IntInput) ContactTargetsOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactChannelTargetInfoInput)(nil)).Elem(), ContactChannelTargetInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactChannelTargetInfoPtrInput)(nil)).Elem(), ContactChannelTargetInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactStageInput)(nil)).Elem(), ContactStageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactStageArrayInput)(nil)).Elem(), ContactStageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactTargetInfoInput)(nil)).Elem(), ContactTargetInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactTargetInfoPtrInput)(nil)).Elem(), ContactTargetInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactTargetsInput)(nil)).Elem(), ContactTargetsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactTargetsArrayInput)(nil)).Elem(), ContactTargetsArray{})
 	pulumi.RegisterOutputType(ContactChannelTargetInfoOutput{})
 	pulumi.RegisterOutputType(ContactChannelTargetInfoPtrOutput{})
 	pulumi.RegisterOutputType(ContactStageOutput{})

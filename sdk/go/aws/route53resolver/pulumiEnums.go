@@ -1340,6 +1340,337 @@ func (in *firewallRuleGroupStatusPtr) ToFirewallRuleGroupStatusPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(FirewallRuleGroupStatusPtrOutput)
 }
 
+// ResolverAutodefinedReverseStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.
+type ResolverConfigAutodefinedReverse string
+
+const (
+	ResolverConfigAutodefinedReverseEnabling  = ResolverConfigAutodefinedReverse("ENABLING")
+	ResolverConfigAutodefinedReverseEnabled   = ResolverConfigAutodefinedReverse("ENABLED")
+	ResolverConfigAutodefinedReverseDisabling = ResolverConfigAutodefinedReverse("DISABLING")
+	ResolverConfigAutodefinedReverseDisabled  = ResolverConfigAutodefinedReverse("DISABLED")
+)
+
+func (ResolverConfigAutodefinedReverse) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverConfigAutodefinedReverse)(nil)).Elem()
+}
+
+func (e ResolverConfigAutodefinedReverse) ToResolverConfigAutodefinedReverseOutput() ResolverConfigAutodefinedReverseOutput {
+	return pulumi.ToOutput(e).(ResolverConfigAutodefinedReverseOutput)
+}
+
+func (e ResolverConfigAutodefinedReverse) ToResolverConfigAutodefinedReverseOutputWithContext(ctx context.Context) ResolverConfigAutodefinedReverseOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ResolverConfigAutodefinedReverseOutput)
+}
+
+func (e ResolverConfigAutodefinedReverse) ToResolverConfigAutodefinedReversePtrOutput() ResolverConfigAutodefinedReversePtrOutput {
+	return e.ToResolverConfigAutodefinedReversePtrOutputWithContext(context.Background())
+}
+
+func (e ResolverConfigAutodefinedReverse) ToResolverConfigAutodefinedReversePtrOutputWithContext(ctx context.Context) ResolverConfigAutodefinedReversePtrOutput {
+	return ResolverConfigAutodefinedReverse(e).ToResolverConfigAutodefinedReverseOutputWithContext(ctx).ToResolverConfigAutodefinedReversePtrOutputWithContext(ctx)
+}
+
+func (e ResolverConfigAutodefinedReverse) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResolverConfigAutodefinedReverse) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResolverConfigAutodefinedReverse) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ResolverConfigAutodefinedReverse) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ResolverConfigAutodefinedReverseOutput struct{ *pulumi.OutputState }
+
+func (ResolverConfigAutodefinedReverseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverConfigAutodefinedReverse)(nil)).Elem()
+}
+
+func (o ResolverConfigAutodefinedReverseOutput) ToResolverConfigAutodefinedReverseOutput() ResolverConfigAutodefinedReverseOutput {
+	return o
+}
+
+func (o ResolverConfigAutodefinedReverseOutput) ToResolverConfigAutodefinedReverseOutputWithContext(ctx context.Context) ResolverConfigAutodefinedReverseOutput {
+	return o
+}
+
+func (o ResolverConfigAutodefinedReverseOutput) ToResolverConfigAutodefinedReversePtrOutput() ResolverConfigAutodefinedReversePtrOutput {
+	return o.ToResolverConfigAutodefinedReversePtrOutputWithContext(context.Background())
+}
+
+func (o ResolverConfigAutodefinedReverseOutput) ToResolverConfigAutodefinedReversePtrOutputWithContext(ctx context.Context) ResolverConfigAutodefinedReversePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResolverConfigAutodefinedReverse) *ResolverConfigAutodefinedReverse {
+		return &v
+	}).(ResolverConfigAutodefinedReversePtrOutput)
+}
+
+func (o ResolverConfigAutodefinedReverseOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ResolverConfigAutodefinedReverseOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResolverConfigAutodefinedReverse) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ResolverConfigAutodefinedReverseOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResolverConfigAutodefinedReverseOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResolverConfigAutodefinedReverse) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResolverConfigAutodefinedReversePtrOutput struct{ *pulumi.OutputState }
+
+func (ResolverConfigAutodefinedReversePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResolverConfigAutodefinedReverse)(nil)).Elem()
+}
+
+func (o ResolverConfigAutodefinedReversePtrOutput) ToResolverConfigAutodefinedReversePtrOutput() ResolverConfigAutodefinedReversePtrOutput {
+	return o
+}
+
+func (o ResolverConfigAutodefinedReversePtrOutput) ToResolverConfigAutodefinedReversePtrOutputWithContext(ctx context.Context) ResolverConfigAutodefinedReversePtrOutput {
+	return o
+}
+
+func (o ResolverConfigAutodefinedReversePtrOutput) Elem() ResolverConfigAutodefinedReverseOutput {
+	return o.ApplyT(func(v *ResolverConfigAutodefinedReverse) ResolverConfigAutodefinedReverse {
+		if v != nil {
+			return *v
+		}
+		var ret ResolverConfigAutodefinedReverse
+		return ret
+	}).(ResolverConfigAutodefinedReverseOutput)
+}
+
+func (o ResolverConfigAutodefinedReversePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResolverConfigAutodefinedReversePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResolverConfigAutodefinedReverse) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ResolverConfigAutodefinedReverseInput is an input type that accepts ResolverConfigAutodefinedReverseArgs and ResolverConfigAutodefinedReverseOutput values.
+// You can construct a concrete instance of `ResolverConfigAutodefinedReverseInput` via:
+//
+//          ResolverConfigAutodefinedReverseArgs{...}
+type ResolverConfigAutodefinedReverseInput interface {
+	pulumi.Input
+
+	ToResolverConfigAutodefinedReverseOutput() ResolverConfigAutodefinedReverseOutput
+	ToResolverConfigAutodefinedReverseOutputWithContext(context.Context) ResolverConfigAutodefinedReverseOutput
+}
+
+var resolverConfigAutodefinedReversePtrType = reflect.TypeOf((**ResolverConfigAutodefinedReverse)(nil)).Elem()
+
+type ResolverConfigAutodefinedReversePtrInput interface {
+	pulumi.Input
+
+	ToResolverConfigAutodefinedReversePtrOutput() ResolverConfigAutodefinedReversePtrOutput
+	ToResolverConfigAutodefinedReversePtrOutputWithContext(context.Context) ResolverConfigAutodefinedReversePtrOutput
+}
+
+type resolverConfigAutodefinedReversePtr string
+
+func ResolverConfigAutodefinedReversePtr(v string) ResolverConfigAutodefinedReversePtrInput {
+	return (*resolverConfigAutodefinedReversePtr)(&v)
+}
+
+func (*resolverConfigAutodefinedReversePtr) ElementType() reflect.Type {
+	return resolverConfigAutodefinedReversePtrType
+}
+
+func (in *resolverConfigAutodefinedReversePtr) ToResolverConfigAutodefinedReversePtrOutput() ResolverConfigAutodefinedReversePtrOutput {
+	return pulumi.ToOutput(in).(ResolverConfigAutodefinedReversePtrOutput)
+}
+
+func (in *resolverConfigAutodefinedReversePtr) ToResolverConfigAutodefinedReversePtrOutputWithContext(ctx context.Context) ResolverConfigAutodefinedReversePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ResolverConfigAutodefinedReversePtrOutput)
+}
+
+// Represents the desired status of AutodefinedReverse. The only supported value on creation is DISABLE. Deletion of this resource will return AutodefinedReverse to its default value (ENABLED).
+type ResolverConfigAutodefinedReverseFlag string
+
+const (
+	ResolverConfigAutodefinedReverseFlagDisable = ResolverConfigAutodefinedReverseFlag("DISABLE")
+)
+
+func (ResolverConfigAutodefinedReverseFlag) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverConfigAutodefinedReverseFlag)(nil)).Elem()
+}
+
+func (e ResolverConfigAutodefinedReverseFlag) ToResolverConfigAutodefinedReverseFlagOutput() ResolverConfigAutodefinedReverseFlagOutput {
+	return pulumi.ToOutput(e).(ResolverConfigAutodefinedReverseFlagOutput)
+}
+
+func (e ResolverConfigAutodefinedReverseFlag) ToResolverConfigAutodefinedReverseFlagOutputWithContext(ctx context.Context) ResolverConfigAutodefinedReverseFlagOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ResolverConfigAutodefinedReverseFlagOutput)
+}
+
+func (e ResolverConfigAutodefinedReverseFlag) ToResolverConfigAutodefinedReverseFlagPtrOutput() ResolverConfigAutodefinedReverseFlagPtrOutput {
+	return e.ToResolverConfigAutodefinedReverseFlagPtrOutputWithContext(context.Background())
+}
+
+func (e ResolverConfigAutodefinedReverseFlag) ToResolverConfigAutodefinedReverseFlagPtrOutputWithContext(ctx context.Context) ResolverConfigAutodefinedReverseFlagPtrOutput {
+	return ResolverConfigAutodefinedReverseFlag(e).ToResolverConfigAutodefinedReverseFlagOutputWithContext(ctx).ToResolverConfigAutodefinedReverseFlagPtrOutputWithContext(ctx)
+}
+
+func (e ResolverConfigAutodefinedReverseFlag) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResolverConfigAutodefinedReverseFlag) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResolverConfigAutodefinedReverseFlag) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ResolverConfigAutodefinedReverseFlag) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ResolverConfigAutodefinedReverseFlagOutput struct{ *pulumi.OutputState }
+
+func (ResolverConfigAutodefinedReverseFlagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverConfigAutodefinedReverseFlag)(nil)).Elem()
+}
+
+func (o ResolverConfigAutodefinedReverseFlagOutput) ToResolverConfigAutodefinedReverseFlagOutput() ResolverConfigAutodefinedReverseFlagOutput {
+	return o
+}
+
+func (o ResolverConfigAutodefinedReverseFlagOutput) ToResolverConfigAutodefinedReverseFlagOutputWithContext(ctx context.Context) ResolverConfigAutodefinedReverseFlagOutput {
+	return o
+}
+
+func (o ResolverConfigAutodefinedReverseFlagOutput) ToResolverConfigAutodefinedReverseFlagPtrOutput() ResolverConfigAutodefinedReverseFlagPtrOutput {
+	return o.ToResolverConfigAutodefinedReverseFlagPtrOutputWithContext(context.Background())
+}
+
+func (o ResolverConfigAutodefinedReverseFlagOutput) ToResolverConfigAutodefinedReverseFlagPtrOutputWithContext(ctx context.Context) ResolverConfigAutodefinedReverseFlagPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResolverConfigAutodefinedReverseFlag) *ResolverConfigAutodefinedReverseFlag {
+		return &v
+	}).(ResolverConfigAutodefinedReverseFlagPtrOutput)
+}
+
+func (o ResolverConfigAutodefinedReverseFlagOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ResolverConfigAutodefinedReverseFlagOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResolverConfigAutodefinedReverseFlag) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ResolverConfigAutodefinedReverseFlagOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResolverConfigAutodefinedReverseFlagOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResolverConfigAutodefinedReverseFlag) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResolverConfigAutodefinedReverseFlagPtrOutput struct{ *pulumi.OutputState }
+
+func (ResolverConfigAutodefinedReverseFlagPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResolverConfigAutodefinedReverseFlag)(nil)).Elem()
+}
+
+func (o ResolverConfigAutodefinedReverseFlagPtrOutput) ToResolverConfigAutodefinedReverseFlagPtrOutput() ResolverConfigAutodefinedReverseFlagPtrOutput {
+	return o
+}
+
+func (o ResolverConfigAutodefinedReverseFlagPtrOutput) ToResolverConfigAutodefinedReverseFlagPtrOutputWithContext(ctx context.Context) ResolverConfigAutodefinedReverseFlagPtrOutput {
+	return o
+}
+
+func (o ResolverConfigAutodefinedReverseFlagPtrOutput) Elem() ResolverConfigAutodefinedReverseFlagOutput {
+	return o.ApplyT(func(v *ResolverConfigAutodefinedReverseFlag) ResolverConfigAutodefinedReverseFlag {
+		if v != nil {
+			return *v
+		}
+		var ret ResolverConfigAutodefinedReverseFlag
+		return ret
+	}).(ResolverConfigAutodefinedReverseFlagOutput)
+}
+
+func (o ResolverConfigAutodefinedReverseFlagPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResolverConfigAutodefinedReverseFlagPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResolverConfigAutodefinedReverseFlag) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ResolverConfigAutodefinedReverseFlagInput is an input type that accepts ResolverConfigAutodefinedReverseFlagArgs and ResolverConfigAutodefinedReverseFlagOutput values.
+// You can construct a concrete instance of `ResolverConfigAutodefinedReverseFlagInput` via:
+//
+//          ResolverConfigAutodefinedReverseFlagArgs{...}
+type ResolverConfigAutodefinedReverseFlagInput interface {
+	pulumi.Input
+
+	ToResolverConfigAutodefinedReverseFlagOutput() ResolverConfigAutodefinedReverseFlagOutput
+	ToResolverConfigAutodefinedReverseFlagOutputWithContext(context.Context) ResolverConfigAutodefinedReverseFlagOutput
+}
+
+var resolverConfigAutodefinedReverseFlagPtrType = reflect.TypeOf((**ResolverConfigAutodefinedReverseFlag)(nil)).Elem()
+
+type ResolverConfigAutodefinedReverseFlagPtrInput interface {
+	pulumi.Input
+
+	ToResolverConfigAutodefinedReverseFlagPtrOutput() ResolverConfigAutodefinedReverseFlagPtrOutput
+	ToResolverConfigAutodefinedReverseFlagPtrOutputWithContext(context.Context) ResolverConfigAutodefinedReverseFlagPtrOutput
+}
+
+type resolverConfigAutodefinedReverseFlagPtr string
+
+func ResolverConfigAutodefinedReverseFlagPtr(v string) ResolverConfigAutodefinedReverseFlagPtrInput {
+	return (*resolverConfigAutodefinedReverseFlagPtr)(&v)
+}
+
+func (*resolverConfigAutodefinedReverseFlagPtr) ElementType() reflect.Type {
+	return resolverConfigAutodefinedReverseFlagPtrType
+}
+
+func (in *resolverConfigAutodefinedReverseFlagPtr) ToResolverConfigAutodefinedReverseFlagPtrOutput() ResolverConfigAutodefinedReverseFlagPtrOutput {
+	return pulumi.ToOutput(in).(ResolverConfigAutodefinedReverseFlagPtrOutput)
+}
+
+func (in *resolverConfigAutodefinedReverseFlagPtr) ToResolverConfigAutodefinedReverseFlagPtrOutputWithContext(ctx context.Context) ResolverConfigAutodefinedReverseFlagPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ResolverConfigAutodefinedReverseFlagPtrOutput)
+}
+
 // ResolverDNSSECValidationStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.
 type ResolverDNSSECConfigValidationStatus string
 
@@ -2175,7 +2506,205 @@ func (in *resolverQueryLoggingConfigStatusPtr) ToResolverQueryLoggingConfigStatu
 	return pulumi.ToOutputWithContext(ctx, in).(ResolverQueryLoggingConfigStatusPtrOutput)
 }
 
+// When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.
+type ResolverRuleRuleType string
+
+const (
+	ResolverRuleRuleTypeForward   = ResolverRuleRuleType("FORWARD")
+	ResolverRuleRuleTypeSystem    = ResolverRuleRuleType("SYSTEM")
+	ResolverRuleRuleTypeRecursive = ResolverRuleRuleType("RECURSIVE")
+)
+
+func (ResolverRuleRuleType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverRuleRuleType)(nil)).Elem()
+}
+
+func (e ResolverRuleRuleType) ToResolverRuleRuleTypeOutput() ResolverRuleRuleTypeOutput {
+	return pulumi.ToOutput(e).(ResolverRuleRuleTypeOutput)
+}
+
+func (e ResolverRuleRuleType) ToResolverRuleRuleTypeOutputWithContext(ctx context.Context) ResolverRuleRuleTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ResolverRuleRuleTypeOutput)
+}
+
+func (e ResolverRuleRuleType) ToResolverRuleRuleTypePtrOutput() ResolverRuleRuleTypePtrOutput {
+	return e.ToResolverRuleRuleTypePtrOutputWithContext(context.Background())
+}
+
+func (e ResolverRuleRuleType) ToResolverRuleRuleTypePtrOutputWithContext(ctx context.Context) ResolverRuleRuleTypePtrOutput {
+	return ResolverRuleRuleType(e).ToResolverRuleRuleTypeOutputWithContext(ctx).ToResolverRuleRuleTypePtrOutputWithContext(ctx)
+}
+
+func (e ResolverRuleRuleType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResolverRuleRuleType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResolverRuleRuleType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ResolverRuleRuleType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ResolverRuleRuleTypeOutput struct{ *pulumi.OutputState }
+
+func (ResolverRuleRuleTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverRuleRuleType)(nil)).Elem()
+}
+
+func (o ResolverRuleRuleTypeOutput) ToResolverRuleRuleTypeOutput() ResolverRuleRuleTypeOutput {
+	return o
+}
+
+func (o ResolverRuleRuleTypeOutput) ToResolverRuleRuleTypeOutputWithContext(ctx context.Context) ResolverRuleRuleTypeOutput {
+	return o
+}
+
+func (o ResolverRuleRuleTypeOutput) ToResolverRuleRuleTypePtrOutput() ResolverRuleRuleTypePtrOutput {
+	return o.ToResolverRuleRuleTypePtrOutputWithContext(context.Background())
+}
+
+func (o ResolverRuleRuleTypeOutput) ToResolverRuleRuleTypePtrOutputWithContext(ctx context.Context) ResolverRuleRuleTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResolverRuleRuleType) *ResolverRuleRuleType {
+		return &v
+	}).(ResolverRuleRuleTypePtrOutput)
+}
+
+func (o ResolverRuleRuleTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ResolverRuleRuleTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResolverRuleRuleType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ResolverRuleRuleTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResolverRuleRuleTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResolverRuleRuleType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResolverRuleRuleTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ResolverRuleRuleTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResolverRuleRuleType)(nil)).Elem()
+}
+
+func (o ResolverRuleRuleTypePtrOutput) ToResolverRuleRuleTypePtrOutput() ResolverRuleRuleTypePtrOutput {
+	return o
+}
+
+func (o ResolverRuleRuleTypePtrOutput) ToResolverRuleRuleTypePtrOutputWithContext(ctx context.Context) ResolverRuleRuleTypePtrOutput {
+	return o
+}
+
+func (o ResolverRuleRuleTypePtrOutput) Elem() ResolverRuleRuleTypeOutput {
+	return o.ApplyT(func(v *ResolverRuleRuleType) ResolverRuleRuleType {
+		if v != nil {
+			return *v
+		}
+		var ret ResolverRuleRuleType
+		return ret
+	}).(ResolverRuleRuleTypeOutput)
+}
+
+func (o ResolverRuleRuleTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResolverRuleRuleTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResolverRuleRuleType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ResolverRuleRuleTypeInput is an input type that accepts ResolverRuleRuleTypeArgs and ResolverRuleRuleTypeOutput values.
+// You can construct a concrete instance of `ResolverRuleRuleTypeInput` via:
+//
+//          ResolverRuleRuleTypeArgs{...}
+type ResolverRuleRuleTypeInput interface {
+	pulumi.Input
+
+	ToResolverRuleRuleTypeOutput() ResolverRuleRuleTypeOutput
+	ToResolverRuleRuleTypeOutputWithContext(context.Context) ResolverRuleRuleTypeOutput
+}
+
+var resolverRuleRuleTypePtrType = reflect.TypeOf((**ResolverRuleRuleType)(nil)).Elem()
+
+type ResolverRuleRuleTypePtrInput interface {
+	pulumi.Input
+
+	ToResolverRuleRuleTypePtrOutput() ResolverRuleRuleTypePtrOutput
+	ToResolverRuleRuleTypePtrOutputWithContext(context.Context) ResolverRuleRuleTypePtrOutput
+}
+
+type resolverRuleRuleTypePtr string
+
+func ResolverRuleRuleTypePtr(v string) ResolverRuleRuleTypePtrInput {
+	return (*resolverRuleRuleTypePtr)(&v)
+}
+
+func (*resolverRuleRuleTypePtr) ElementType() reflect.Type {
+	return resolverRuleRuleTypePtrType
+}
+
+func (in *resolverRuleRuleTypePtr) ToResolverRuleRuleTypePtrOutput() ResolverRuleRuleTypePtrOutput {
+	return pulumi.ToOutput(in).(ResolverRuleRuleTypePtrOutput)
+}
+
+func (in *resolverRuleRuleTypePtr) ToResolverRuleRuleTypePtrOutputWithContext(ctx context.Context) ResolverRuleRuleTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ResolverRuleRuleTypePtrOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallDomainListStatusInput)(nil)).Elem(), FirewallDomainListStatus("COMPLETE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallDomainListStatusPtrInput)(nil)).Elem(), FirewallDomainListStatus("COMPLETE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupAssociationMutationProtectionInput)(nil)).Elem(), FirewallRuleGroupAssociationMutationProtection("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupAssociationMutationProtectionPtrInput)(nil)).Elem(), FirewallRuleGroupAssociationMutationProtection("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupAssociationStatusInput)(nil)).Elem(), FirewallRuleGroupAssociationStatus("COMPLETE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupAssociationStatusPtrInput)(nil)).Elem(), FirewallRuleGroupAssociationStatus("COMPLETE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleActionInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleAction("ALLOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleActionPtrInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleAction("ALLOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleBlockOverrideDnsTypeInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleBlockOverrideDnsType("CNAME"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleBlockOverrideDnsTypePtrInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleBlockOverrideDnsType("CNAME"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleBlockResponseInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleBlockResponse("NODATA"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleBlockResponsePtrInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleBlockResponse("NODATA"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupShareStatusInput)(nil)).Elem(), FirewallRuleGroupShareStatus("NOT_SHARED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupShareStatusPtrInput)(nil)).Elem(), FirewallRuleGroupShareStatus("NOT_SHARED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupStatusInput)(nil)).Elem(), FirewallRuleGroupStatus("COMPLETE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupStatusPtrInput)(nil)).Elem(), FirewallRuleGroupStatus("COMPLETE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverConfigAutodefinedReverseInput)(nil)).Elem(), ResolverConfigAutodefinedReverse("ENABLING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverConfigAutodefinedReversePtrInput)(nil)).Elem(), ResolverConfigAutodefinedReverse("ENABLING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverConfigAutodefinedReverseFlagInput)(nil)).Elem(), ResolverConfigAutodefinedReverseFlag("DISABLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverConfigAutodefinedReverseFlagPtrInput)(nil)).Elem(), ResolverConfigAutodefinedReverseFlag("DISABLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverDNSSECConfigValidationStatusInput)(nil)).Elem(), ResolverDNSSECConfigValidationStatus("ENABLING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverDNSSECConfigValidationStatusPtrInput)(nil)).Elem(), ResolverDNSSECConfigValidationStatus("ENABLING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverQueryLoggingConfigAssociationErrorInput)(nil)).Elem(), ResolverQueryLoggingConfigAssociationError("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverQueryLoggingConfigAssociationErrorPtrInput)(nil)).Elem(), ResolverQueryLoggingConfigAssociationError("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverQueryLoggingConfigAssociationStatusInput)(nil)).Elem(), ResolverQueryLoggingConfigAssociationStatus("CREATING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverQueryLoggingConfigAssociationStatusPtrInput)(nil)).Elem(), ResolverQueryLoggingConfigAssociationStatus("CREATING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverQueryLoggingConfigShareStatusInput)(nil)).Elem(), ResolverQueryLoggingConfigShareStatus("NOT_SHARED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverQueryLoggingConfigShareStatusPtrInput)(nil)).Elem(), ResolverQueryLoggingConfigShareStatus("NOT_SHARED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverQueryLoggingConfigStatusInput)(nil)).Elem(), ResolverQueryLoggingConfigStatus("CREATING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverQueryLoggingConfigStatusPtrInput)(nil)).Elem(), ResolverQueryLoggingConfigStatus("CREATING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleRuleTypeInput)(nil)).Elem(), ResolverRuleRuleType("FORWARD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleRuleTypePtrInput)(nil)).Elem(), ResolverRuleRuleType("FORWARD"))
 	pulumi.RegisterOutputType(FirewallDomainListStatusOutput{})
 	pulumi.RegisterOutputType(FirewallDomainListStatusPtrOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupAssociationMutationProtectionOutput{})
@@ -2192,6 +2721,10 @@ func init() {
 	pulumi.RegisterOutputType(FirewallRuleGroupShareStatusPtrOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupStatusOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupStatusPtrOutput{})
+	pulumi.RegisterOutputType(ResolverConfigAutodefinedReverseOutput{})
+	pulumi.RegisterOutputType(ResolverConfigAutodefinedReversePtrOutput{})
+	pulumi.RegisterOutputType(ResolverConfigAutodefinedReverseFlagOutput{})
+	pulumi.RegisterOutputType(ResolverConfigAutodefinedReverseFlagPtrOutput{})
 	pulumi.RegisterOutputType(ResolverDNSSECConfigValidationStatusOutput{})
 	pulumi.RegisterOutputType(ResolverDNSSECConfigValidationStatusPtrOutput{})
 	pulumi.RegisterOutputType(ResolverQueryLoggingConfigAssociationErrorOutput{})
@@ -2202,4 +2735,6 @@ func init() {
 	pulumi.RegisterOutputType(ResolverQueryLoggingConfigShareStatusPtrOutput{})
 	pulumi.RegisterOutputType(ResolverQueryLoggingConfigStatusOutput{})
 	pulumi.RegisterOutputType(ResolverQueryLoggingConfigStatusPtrOutput{})
+	pulumi.RegisterOutputType(ResolverRuleRuleTypeOutput{})
+	pulumi.RegisterOutputType(ResolverRuleRuleTypePtrOutput{})
 }

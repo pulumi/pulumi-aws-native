@@ -501,6 +501,12 @@ func (in *knowledgeBaseTypePtr) ToKnowledgeBaseTypePtrOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AssistantAssociationAssociationTypeInput)(nil)).Elem(), AssistantAssociationAssociationType("KNOWLEDGE_BASE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssistantAssociationAssociationTypePtrInput)(nil)).Elem(), AssistantAssociationAssociationType("KNOWLEDGE_BASE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssistantTypeInput)(nil)).Elem(), AssistantType("AGENT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssistantTypePtrInput)(nil)).Elem(), AssistantType("AGENT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseTypeInput)(nil)).Elem(), KnowledgeBaseType("EXTERNAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseTypePtrInput)(nil)).Elem(), KnowledgeBaseType("EXTERNAL"))
 	pulumi.RegisterOutputType(AssistantAssociationAssociationTypeOutput{})
 	pulumi.RegisterOutputType(AssistantAssociationAssociationTypePtrOutput{})
 	pulumi.RegisterOutputType(AssistantTypeOutput{})

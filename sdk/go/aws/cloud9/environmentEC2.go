@@ -136,5 +136,6 @@ func (o EnvironmentEC2Output) ToEnvironmentEC2OutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEC2Input)(nil)).Elem(), &EnvironmentEC2{})
 	pulumi.RegisterOutputType(EnvironmentEC2Output{})
 }

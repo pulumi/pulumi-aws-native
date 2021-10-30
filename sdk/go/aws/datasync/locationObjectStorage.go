@@ -167,5 +167,6 @@ func (o LocationObjectStorageOutput) ToLocationObjectStorageOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationObjectStorageInput)(nil)).Elem(), &LocationObjectStorage{})
 	pulumi.RegisterOutputType(LocationObjectStorageOutput{})
 }

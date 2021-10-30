@@ -133,5 +133,6 @@ func (o CustomerGatewayAssociationOutput) ToCustomerGatewayAssociationOutputWith
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomerGatewayAssociationInput)(nil)).Elem(), &CustomerGatewayAssociation{})
 	pulumi.RegisterOutputType(CustomerGatewayAssociationOutput{})
 }

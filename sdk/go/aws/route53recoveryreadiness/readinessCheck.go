@@ -123,5 +123,6 @@ func (o ReadinessCheckOutput) ToReadinessCheckOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReadinessCheckInput)(nil)).Elem(), &ReadinessCheck{})
 	pulumi.RegisterOutputType(ReadinessCheckOutput{})
 }

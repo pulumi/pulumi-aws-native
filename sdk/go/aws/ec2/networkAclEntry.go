@@ -168,5 +168,6 @@ func (o NetworkAclEntryOutput) ToNetworkAclEntryOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclEntryInput)(nil)).Elem(), &NetworkAclEntry{})
 	pulumi.RegisterOutputType(NetworkAclEntryOutput{})
 }

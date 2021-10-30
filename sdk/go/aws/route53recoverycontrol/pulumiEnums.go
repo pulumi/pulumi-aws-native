@@ -841,6 +841,16 @@ func (in *safetyRuleStatusPtr) ToSafetyRuleStatusPtrOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStatusInput)(nil)).Elem(), ClusterStatus("PENDING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStatusPtrInput)(nil)).Elem(), ClusterStatus("PENDING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ControlPanelStatusInput)(nil)).Elem(), ControlPanelStatus("PENDING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ControlPanelStatusPtrInput)(nil)).Elem(), ControlPanelStatus("PENDING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingControlStatusInput)(nil)).Elem(), RoutingControlStatus("PENDING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingControlStatusPtrInput)(nil)).Elem(), RoutingControlStatus("PENDING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SafetyRuleRuleTypeInput)(nil)).Elem(), SafetyRuleRuleType("AND"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SafetyRuleRuleTypePtrInput)(nil)).Elem(), SafetyRuleRuleType("AND"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SafetyRuleStatusInput)(nil)).Elem(), SafetyRuleStatus("PENDING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SafetyRuleStatusPtrInput)(nil)).Elem(), SafetyRuleStatus("PENDING"))
 	pulumi.RegisterOutputType(ClusterStatusOutput{})
 	pulumi.RegisterOutputType(ClusterStatusPtrOutput{})
 	pulumi.RegisterOutputType(ControlPanelStatusOutput{})

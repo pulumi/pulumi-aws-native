@@ -868,6 +868,20 @@ func (o UserTagArrayOutput) Index(i pulumi.IntInput) UserTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ACLTagInput)(nil)).Elem(), ACLTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ACLTagArrayInput)(nil)).Elem(), ACLTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationModePropertiesInput)(nil)).Elem(), AuthenticationModePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationModePropertiesPtrInput)(nil)).Elem(), AuthenticationModePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEndpointInput)(nil)).Elem(), ClusterEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEndpointPtrInput)(nil)).Elem(), ClusterEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTagInput)(nil)).Elem(), ClusterTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTagArrayInput)(nil)).Elem(), ClusterTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupTagInput)(nil)).Elem(), ParameterGroupTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupTagArrayInput)(nil)).Elem(), ParameterGroupTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetGroupTagInput)(nil)).Elem(), SubnetGroupTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetGroupTagArrayInput)(nil)).Elem(), SubnetGroupTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserTagInput)(nil)).Elem(), UserTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserTagArrayInput)(nil)).Elem(), UserTagArray{})
 	pulumi.RegisterOutputType(ACLTagOutput{})
 	pulumi.RegisterOutputType(ACLTagArrayOutput{})
 	pulumi.RegisterOutputType(AuthenticationModePropertiesOutput{})

@@ -150,5 +150,6 @@ func (o TransitGatewayPeeringAttachmentOutput) ToTransitGatewayPeeringAttachment
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayPeeringAttachmentInput)(nil)).Elem(), &TransitGatewayPeeringAttachment{})
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentOutput{})
 }

@@ -350,6 +350,12 @@ func (o CertificateTagArrayOutput) Index(i pulumi.IntInput) CertificateTagOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountExpiryEventsConfigurationInput)(nil)).Elem(), AccountExpiryEventsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountExpiryEventsConfigurationPtrInput)(nil)).Elem(), AccountExpiryEventsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateDomainValidationOptionInput)(nil)).Elem(), CertificateDomainValidationOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateDomainValidationOptionArrayInput)(nil)).Elem(), CertificateDomainValidationOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateTagInput)(nil)).Elem(), CertificateTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateTagArrayInput)(nil)).Elem(), CertificateTagArray{})
 	pulumi.RegisterOutputType(AccountExpiryEventsConfigurationOutput{})
 	pulumi.RegisterOutputType(AccountExpiryEventsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CertificateDomainValidationOptionOutput{})

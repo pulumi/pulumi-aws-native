@@ -339,6 +339,10 @@ func (in *signingProfileSignatureValidityPeriodTypePtr) ToSigningProfileSignatur
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SigningProfilePlatformIdInput)(nil)).Elem(), SigningProfilePlatformId("AWSLambda-SHA384-ECDSA"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SigningProfilePlatformIdPtrInput)(nil)).Elem(), SigningProfilePlatformId("AWSLambda-SHA384-ECDSA"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SigningProfileSignatureValidityPeriodTypeInput)(nil)).Elem(), SigningProfileSignatureValidityPeriodType("DAYS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SigningProfileSignatureValidityPeriodTypePtrInput)(nil)).Elem(), SigningProfileSignatureValidityPeriodType("DAYS"))
 	pulumi.RegisterOutputType(SigningProfilePlatformIdOutput{})
 	pulumi.RegisterOutputType(SigningProfilePlatformIdPtrOutput{})
 	pulumi.RegisterOutputType(SigningProfileSignatureValidityPeriodTypeOutput{})

@@ -127,5 +127,6 @@ func (o PrimaryTaskSetOutput) ToPrimaryTaskSetOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PrimaryTaskSetInput)(nil)).Elem(), &PrimaryTaskSet{})
 	pulumi.RegisterOutputType(PrimaryTaskSetOutput{})
 }

@@ -120,5 +120,6 @@ func (o SecretTargetAttachmentOutput) ToSecretTargetAttachmentOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SecretTargetAttachmentInput)(nil)).Elem(), &SecretTargetAttachment{})
 	pulumi.RegisterOutputType(SecretTargetAttachmentOutput{})
 }

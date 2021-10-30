@@ -153,5 +153,6 @@ func (o DBProxyEndpointOutput) ToDBProxyEndpointOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyEndpointInput)(nil)).Elem(), &DBProxyEndpoint{})
 	pulumi.RegisterOutputType(DBProxyEndpointOutput{})
 }

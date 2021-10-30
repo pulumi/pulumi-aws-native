@@ -111,5 +111,6 @@ func (o ComponentVersionOutput) ToComponentVersionOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionInput)(nil)).Elem(), &ComponentVersion{})
 	pulumi.RegisterOutputType(ComponentVersionOutput{})
 }

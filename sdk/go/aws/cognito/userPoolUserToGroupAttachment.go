@@ -120,5 +120,6 @@ func (o UserPoolUserToGroupAttachmentOutput) ToUserPoolUserToGroupAttachmentOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolUserToGroupAttachmentInput)(nil)).Elem(), &UserPoolUserToGroupAttachment{})
 	pulumi.RegisterOutputType(UserPoolUserToGroupAttachmentOutput{})
 }

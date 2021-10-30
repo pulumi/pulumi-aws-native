@@ -117,5 +117,6 @@ func (o ArchiveOutput) ToArchiveOutputWithContext(ctx context.Context) ArchiveOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ArchiveInput)(nil)).Elem(), &Archive{})
 	pulumi.RegisterOutputType(ArchiveOutput{})
 }

@@ -140,5 +140,6 @@ func (o FindingsFilterOutput) ToFindingsFilterOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterInput)(nil)).Elem(), &FindingsFilter{})
 	pulumi.RegisterOutputType(FindingsFilterOutput{})
 }

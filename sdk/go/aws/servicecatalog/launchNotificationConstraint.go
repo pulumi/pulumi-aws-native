@@ -126,5 +126,6 @@ func (o LaunchNotificationConstraintOutput) ToLaunchNotificationConstraintOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchNotificationConstraintInput)(nil)).Elem(), &LaunchNotificationConstraint{})
 	pulumi.RegisterOutputType(LaunchNotificationConstraintOutput{})
 }

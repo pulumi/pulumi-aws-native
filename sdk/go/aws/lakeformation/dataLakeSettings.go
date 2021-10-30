@@ -107,5 +107,6 @@ func (o DataLakeSettingsOutput) ToDataLakeSettingsOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeSettingsInput)(nil)).Elem(), &DataLakeSettings{})
 	pulumi.RegisterOutputType(DataLakeSettingsOutput{})
 }

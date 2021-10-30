@@ -126,5 +126,6 @@ func (o ListenerRuleOutput) ToListenerRuleOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleInput)(nil)).Elem(), &ListenerRule{})
 	pulumi.RegisterOutputType(ListenerRuleOutput{})
 }

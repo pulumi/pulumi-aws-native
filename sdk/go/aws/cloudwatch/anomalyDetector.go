@@ -126,5 +126,6 @@ func (o AnomalyDetectorOutput) ToAnomalyDetectorOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorInput)(nil)).Elem(), &AnomalyDetector{})
 	pulumi.RegisterOutputType(AnomalyDetectorOutput{})
 }

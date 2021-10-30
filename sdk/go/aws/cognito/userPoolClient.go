@@ -167,5 +167,6 @@ func (o UserPoolClientOutput) ToUserPoolClientOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientInput)(nil)).Elem(), &UserPoolClient{})
 	pulumi.RegisterOutputType(UserPoolClientOutput{})
 }

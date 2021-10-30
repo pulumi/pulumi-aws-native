@@ -132,5 +132,6 @@ func (o RuleGroupsNamespaceOutput) ToRuleGroupsNamespaceOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupsNamespaceInput)(nil)).Elem(), &RuleGroupsNamespace{})
 	pulumi.RegisterOutputType(RuleGroupsNamespaceOutput{})
 }

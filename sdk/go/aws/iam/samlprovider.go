@@ -114,5 +114,6 @@ func (o SAMLProviderOutput) ToSAMLProviderOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SAMLProviderInput)(nil)).Elem(), &SAMLProvider{})
 	pulumi.RegisterOutputType(SAMLProviderOutput{})
 }

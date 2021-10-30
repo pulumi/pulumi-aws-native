@@ -154,5 +154,6 @@ func (o LifecycleHookOutput) ToLifecycleHookOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecycleHookInput)(nil)).Elem(), &LifecycleHook{})
 	pulumi.RegisterOutputType(LifecycleHookOutput{})
 }

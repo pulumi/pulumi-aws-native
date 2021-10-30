@@ -147,5 +147,6 @@ func (o MissionProfileOutput) ToMissionProfileOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MissionProfileInput)(nil)).Elem(), &MissionProfile{})
 	pulumi.RegisterOutputType(MissionProfileOutput{})
 }

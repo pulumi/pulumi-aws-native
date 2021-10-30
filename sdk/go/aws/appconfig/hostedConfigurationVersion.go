@@ -132,5 +132,6 @@ func (o HostedConfigurationVersionOutput) ToHostedConfigurationVersionOutputWith
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedConfigurationVersionInput)(nil)).Elem(), &HostedConfigurationVersion{})
 	pulumi.RegisterOutputType(HostedConfigurationVersionOutput{})
 }

@@ -985,6 +985,20 @@ func (o LicenseValidityDateFormatPtrOutput) End() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseBorrowConfigurationInput)(nil)).Elem(), LicenseBorrowConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseBorrowConfigurationPtrInput)(nil)).Elem(), LicenseBorrowConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseConsumptionConfigurationInput)(nil)).Elem(), LicenseConsumptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseConsumptionConfigurationPtrInput)(nil)).Elem(), LicenseConsumptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseEntitlementInput)(nil)).Elem(), LicenseEntitlementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseEntitlementArrayInput)(nil)).Elem(), LicenseEntitlementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseIssuerDataInput)(nil)).Elem(), LicenseIssuerDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseIssuerDataPtrInput)(nil)).Elem(), LicenseIssuerDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseMetadataInput)(nil)).Elem(), LicenseMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseMetadataArrayInput)(nil)).Elem(), LicenseMetadataArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseProvisionalConfigurationInput)(nil)).Elem(), LicenseProvisionalConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseProvisionalConfigurationPtrInput)(nil)).Elem(), LicenseProvisionalConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseValidityDateFormatInput)(nil)).Elem(), LicenseValidityDateFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseValidityDateFormatPtrInput)(nil)).Elem(), LicenseValidityDateFormatArgs{})
 	pulumi.RegisterOutputType(LicenseBorrowConfigurationOutput{})
 	pulumi.RegisterOutputType(LicenseBorrowConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LicenseConsumptionConfigurationOutput{})

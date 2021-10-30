@@ -114,5 +114,6 @@ func (o MeshOutput) ToMeshOutputWithContext(ctx context.Context) MeshOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MeshInput)(nil)).Elem(), &Mesh{})
 	pulumi.RegisterOutputType(MeshOutput{})
 }

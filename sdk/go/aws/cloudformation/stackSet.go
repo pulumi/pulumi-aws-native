@@ -189,5 +189,6 @@ func (o StackSetOutput) ToStackSetOutputWithContext(ctx context.Context) StackSe
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetInput)(nil)).Elem(), &StackSet{})
 	pulumi.RegisterOutputType(StackSetOutput{})
 }

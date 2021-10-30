@@ -107,5 +107,6 @@ func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectInput)(nil)).Elem(), &Project{})
 	pulumi.RegisterOutputType(ProjectOutput{})
 }

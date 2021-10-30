@@ -261,6 +261,10 @@ func (o SigningProfileTagArrayOutput) Index(i pulumi.IntInput) SigningProfileTag
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SigningProfileSignatureValidityPeriodInput)(nil)).Elem(), SigningProfileSignatureValidityPeriodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SigningProfileSignatureValidityPeriodPtrInput)(nil)).Elem(), SigningProfileSignatureValidityPeriodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SigningProfileTagInput)(nil)).Elem(), SigningProfileTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SigningProfileTagArrayInput)(nil)).Elem(), SigningProfileTagArray{})
 	pulumi.RegisterOutputType(SigningProfileSignatureValidityPeriodOutput{})
 	pulumi.RegisterOutputType(SigningProfileSignatureValidityPeriodPtrOutput{})
 	pulumi.RegisterOutputType(SigningProfileTagOutput{})

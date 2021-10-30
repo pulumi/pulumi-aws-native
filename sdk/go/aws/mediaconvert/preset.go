@@ -121,5 +121,6 @@ func (o PresetOutput) ToPresetOutputWithContext(ctx context.Context) PresetOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PresetInput)(nil)).Elem(), &Preset{})
 	pulumi.RegisterOutputType(PresetOutput{})
 }

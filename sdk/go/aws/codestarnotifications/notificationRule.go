@@ -146,5 +146,6 @@ func (o NotificationRuleOutput) ToNotificationRuleOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationRuleInput)(nil)).Elem(), &NotificationRule{})
 	pulumi.RegisterOutputType(NotificationRuleOutput{})
 }

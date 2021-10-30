@@ -518,6 +518,14 @@ func (o SecurityServicePolicyDataPropertiesPtrOutput) Type() PolicySecurityServi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyIEMapInput)(nil)).Elem(), PolicyIEMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyIEMapPtrInput)(nil)).Elem(), PolicyIEMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyResourceTagInput)(nil)).Elem(), PolicyResourceTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyResourceTagArrayInput)(nil)).Elem(), PolicyResourceTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTagInput)(nil)).Elem(), PolicyTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTagArrayInput)(nil)).Elem(), PolicyTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityServicePolicyDataPropertiesInput)(nil)).Elem(), SecurityServicePolicyDataPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityServicePolicyDataPropertiesPtrInput)(nil)).Elem(), SecurityServicePolicyDataPropertiesArgs{})
 	pulumi.RegisterOutputType(PolicyIEMapOutput{})
 	pulumi.RegisterOutputType(PolicyIEMapPtrOutput{})
 	pulumi.RegisterOutputType(PolicyResourceTagOutput{})

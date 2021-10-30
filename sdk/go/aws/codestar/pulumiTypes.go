@@ -307,6 +307,10 @@ func (o GitHubRepositoryS3PtrOutput) ObjectVersion() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GitHubRepositoryCodeInput)(nil)).Elem(), GitHubRepositoryCodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GitHubRepositoryCodePtrInput)(nil)).Elem(), GitHubRepositoryCodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GitHubRepositoryS3Input)(nil)).Elem(), GitHubRepositoryS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GitHubRepositoryS3PtrInput)(nil)).Elem(), GitHubRepositoryS3Args{})
 	pulumi.RegisterOutputType(GitHubRepositoryCodeOutput{})
 	pulumi.RegisterOutputType(GitHubRepositoryCodePtrOutput{})
 	pulumi.RegisterOutputType(GitHubRepositoryS3Output{})

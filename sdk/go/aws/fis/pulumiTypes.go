@@ -353,6 +353,12 @@ func (o ExperimentTemplateTargetMapPtrOutput) Elem() ExperimentTemplateTargetMap
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateActionMapInput)(nil)).Elem(), ExperimentTemplateActionMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateActionMapPtrInput)(nil)).Elem(), ExperimentTemplateActionMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateStopConditionInput)(nil)).Elem(), ExperimentTemplateStopConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateStopConditionArrayInput)(nil)).Elem(), ExperimentTemplateStopConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateTargetMapInput)(nil)).Elem(), ExperimentTemplateTargetMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateTargetMapPtrInput)(nil)).Elem(), ExperimentTemplateTargetMapArgs{})
 	pulumi.RegisterOutputType(ExperimentTemplateActionMapOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateActionMapPtrOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateStopConditionOutput{})

@@ -117,5 +117,6 @@ func (o TagOptionOutput) ToTagOptionOutputWithContext(ctx context.Context) TagOp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TagOptionInput)(nil)).Elem(), &TagOption{})
 	pulumi.RegisterOutputType(TagOptionOutput{})
 }

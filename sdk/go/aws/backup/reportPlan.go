@@ -138,5 +138,6 @@ func (o ReportPlanOutput) ToReportPlanOutputWithContext(ctx context.Context) Rep
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportPlanInput)(nil)).Elem(), &ReportPlan{})
 	pulumi.RegisterOutputType(ReportPlanOutput{})
 }

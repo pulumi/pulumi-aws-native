@@ -143,5 +143,6 @@ func (o EC2FleetOutput) ToEC2FleetOutputWithContext(ctx context.Context) EC2Flee
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetInput)(nil)).Elem(), &EC2Fleet{})
 	pulumi.RegisterOutputType(EC2FleetOutput{})
 }

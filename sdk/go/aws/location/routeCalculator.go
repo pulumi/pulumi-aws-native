@@ -125,5 +125,6 @@ func (o RouteCalculatorOutput) ToRouteCalculatorOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteCalculatorInput)(nil)).Elem(), &RouteCalculator{})
 	pulumi.RegisterOutputType(RouteCalculatorOutput{})
 }

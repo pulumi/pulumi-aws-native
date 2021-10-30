@@ -132,5 +132,6 @@ func (o TransitGatewayConnectOutput) ToTransitGatewayConnectOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayConnectInput)(nil)).Elem(), &TransitGatewayConnect{})
 	pulumi.RegisterOutputType(TransitGatewayConnectOutput{})
 }

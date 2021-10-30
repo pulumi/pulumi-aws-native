@@ -120,5 +120,6 @@ func (o VPCEndpointConnectionNotificationOutput) ToVPCEndpointConnectionNotifica
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VPCEndpointConnectionNotificationInput)(nil)).Elem(), &VPCEndpointConnectionNotification{})
 	pulumi.RegisterOutputType(VPCEndpointConnectionNotificationOutput{})
 }

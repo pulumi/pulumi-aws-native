@@ -850,6 +850,16 @@ func (in *documentTypePtr) ToDocumentTypePtrOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationComplianceSeverityInput)(nil)).Elem(), AssociationComplianceSeverity("CRITICAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationComplianceSeverityPtrInput)(nil)).Elem(), AssociationComplianceSeverity("CRITICAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationSyncComplianceInput)(nil)).Elem(), AssociationSyncCompliance("AUTO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationSyncCompliancePtrInput)(nil)).Elem(), AssociationSyncCompliance("AUTO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentAttachmentsSourceKeyInput)(nil)).Elem(), DocumentAttachmentsSourceKey("SourceUrl"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentAttachmentsSourceKeyPtrInput)(nil)).Elem(), DocumentAttachmentsSourceKey("SourceUrl"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentFormatInput)(nil)).Elem(), DocumentFormat("YAML"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentFormatPtrInput)(nil)).Elem(), DocumentFormat("YAML"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentTypeInput)(nil)).Elem(), DocumentType("ApplicationConfiguration"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentTypePtrInput)(nil)).Elem(), DocumentType("ApplicationConfiguration"))
 	pulumi.RegisterOutputType(AssociationComplianceSeverityOutput{})
 	pulumi.RegisterOutputType(AssociationComplianceSeverityPtrOutput{})
 	pulumi.RegisterOutputType(AssociationSyncComplianceOutput{})

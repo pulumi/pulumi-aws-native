@@ -131,5 +131,6 @@ func (o LocationEFSOutput) ToLocationEFSOutputWithContext(ctx context.Context) L
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationEFSInput)(nil)).Elem(), &LocationEFS{})
 	pulumi.RegisterOutputType(LocationEFSOutput{})
 }

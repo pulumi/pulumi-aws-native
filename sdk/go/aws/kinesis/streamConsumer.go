@@ -117,5 +117,6 @@ func (o StreamConsumerOutput) ToStreamConsumerOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamConsumerInput)(nil)).Elem(), &StreamConsumer{})
 	pulumi.RegisterOutputType(StreamConsumerOutput{})
 }

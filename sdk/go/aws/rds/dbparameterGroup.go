@@ -120,5 +120,6 @@ func (o DBParameterGroupOutput) ToDBParameterGroupOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DBParameterGroupInput)(nil)).Elem(), &DBParameterGroup{})
 	pulumi.RegisterOutputType(DBParameterGroupOutput{})
 }

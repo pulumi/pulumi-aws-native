@@ -118,5 +118,6 @@ func (o PublicDnsNamespaceOutput) ToPublicDnsNamespaceOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PublicDnsNamespaceInput)(nil)).Elem(), &PublicDnsNamespace{})
 	pulumi.RegisterOutputType(PublicDnsNamespaceOutput{})
 }

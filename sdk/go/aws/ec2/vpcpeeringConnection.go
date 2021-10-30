@@ -126,5 +126,6 @@ func (o VPCPeeringConnectionOutput) ToVPCPeeringConnectionOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VPCPeeringConnectionInput)(nil)).Elem(), &VPCPeeringConnection{})
 	pulumi.RegisterOutputType(VPCPeeringConnectionOutput{})
 }

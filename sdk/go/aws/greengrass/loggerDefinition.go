@@ -116,5 +116,6 @@ func (o LoggerDefinitionOutput) ToLoggerDefinitionOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LoggerDefinitionInput)(nil)).Elem(), &LoggerDefinition{})
 	pulumi.RegisterOutputType(LoggerDefinitionOutput{})
 }

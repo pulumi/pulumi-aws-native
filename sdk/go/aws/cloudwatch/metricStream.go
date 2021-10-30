@@ -159,5 +159,6 @@ func (o MetricStreamOutput) ToMetricStreamOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamInput)(nil)).Elem(), &MetricStream{})
 	pulumi.RegisterOutputType(MetricStreamOutput{})
 }

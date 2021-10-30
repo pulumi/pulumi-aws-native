@@ -112,5 +112,6 @@ func (o BackupPlanOutput) ToBackupPlanOutputWithContext(ctx context.Context) Bac
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanInput)(nil)).Elem(), &BackupPlan{})
 	pulumi.RegisterOutputType(BackupPlanOutput{})
 }

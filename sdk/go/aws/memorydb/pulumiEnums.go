@@ -175,6 +175,8 @@ func (in *userAuthenticationModePropertiesTypePtr) ToUserAuthenticationModePrope
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UserAuthenticationModePropertiesTypeInput)(nil)).Elem(), UserAuthenticationModePropertiesType("password"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserAuthenticationModePropertiesTypePtrInput)(nil)).Elem(), UserAuthenticationModePropertiesType("password"))
 	pulumi.RegisterOutputType(UserAuthenticationModePropertiesTypeOutput{})
 	pulumi.RegisterOutputType(UserAuthenticationModePropertiesTypePtrOutput{})
 }

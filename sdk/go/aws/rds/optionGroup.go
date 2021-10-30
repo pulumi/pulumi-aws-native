@@ -129,5 +129,6 @@ func (o OptionGroupOutput) ToOptionGroupOutputWithContext(ctx context.Context) O
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupInput)(nil)).Elem(), &OptionGroup{})
 	pulumi.RegisterOutputType(OptionGroupOutput{})
 }

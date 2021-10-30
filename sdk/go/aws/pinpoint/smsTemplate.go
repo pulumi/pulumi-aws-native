@@ -124,5 +124,6 @@ func (o SmsTemplateOutput) ToSmsTemplateOutputWithContext(ctx context.Context) S
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SmsTemplateInput)(nil)).Elem(), &SmsTemplate{})
 	pulumi.RegisterOutputType(SmsTemplateOutput{})
 }

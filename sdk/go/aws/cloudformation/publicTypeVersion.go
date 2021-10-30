@@ -141,5 +141,6 @@ func (o PublicTypeVersionOutput) ToPublicTypeVersionOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PublicTypeVersionInput)(nil)).Elem(), &PublicTypeVersion{})
 	pulumi.RegisterOutputType(PublicTypeVersionOutput{})
 }

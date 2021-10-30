@@ -155,5 +155,6 @@ func (o ModelBiasJobDefinitionOutput) ToModelBiasJobDefinitionOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionInput)(nil)).Elem(), &ModelBiasJobDefinition{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionOutput{})
 }

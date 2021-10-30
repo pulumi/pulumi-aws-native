@@ -168,5 +168,6 @@ func (o FleetMetricOutput) ToFleetMetricOutputWithContext(ctx context.Context) F
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetMetricInput)(nil)).Elem(), &FleetMetric{})
 	pulumi.RegisterOutputType(FleetMetricOutput{})
 }

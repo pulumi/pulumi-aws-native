@@ -111,5 +111,6 @@ func (o VoiceChannelOutput) ToVoiceChannelOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VoiceChannelInput)(nil)).Elem(), &VoiceChannel{})
 	pulumi.RegisterOutputType(VoiceChannelOutput{})
 }

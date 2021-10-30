@@ -120,6 +120,8 @@ func (o ApplicationTagArrayOutput) Index(i pulumi.IntInput) ApplicationTagOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagInput)(nil)).Elem(), ApplicationTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagArrayInput)(nil)).Elem(), ApplicationTagArray{})
 	pulumi.RegisterOutputType(ApplicationTagOutput{})
 	pulumi.RegisterOutputType(ApplicationTagArrayOutput{})
 }

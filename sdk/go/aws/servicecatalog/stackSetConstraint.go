@@ -153,5 +153,6 @@ func (o StackSetConstraintOutput) ToStackSetConstraintOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetConstraintInput)(nil)).Elem(), &StackSetConstraint{})
 	pulumi.RegisterOutputType(StackSetConstraintOutput{})
 }

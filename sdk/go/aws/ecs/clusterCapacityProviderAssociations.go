@@ -118,5 +118,6 @@ func (o ClusterCapacityProviderAssociationsOutput) ToClusterCapacityProviderAsso
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacityProviderAssociationsInput)(nil)).Elem(), &ClusterCapacityProviderAssociations{})
 	pulumi.RegisterOutputType(ClusterCapacityProviderAssociationsOutput{})
 }

@@ -132,5 +132,6 @@ func (o DistributionConfigurationOutput) ToDistributionConfigurationOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationInput)(nil)).Elem(), &DistributionConfiguration{})
 	pulumi.RegisterOutputType(DistributionConfigurationOutput{})
 }

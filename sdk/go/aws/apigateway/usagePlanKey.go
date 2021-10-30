@@ -127,5 +127,6 @@ func (o UsagePlanKeyOutput) ToUsagePlanKeyOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanKeyInput)(nil)).Elem(), &UsagePlanKey{})
 	pulumi.RegisterOutputType(UsagePlanKeyOutput{})
 }

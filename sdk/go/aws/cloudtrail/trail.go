@@ -192,5 +192,6 @@ func (o TrailOutput) ToTrailOutputWithContext(ctx context.Context) TrailOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailInput)(nil)).Elem(), &Trail{})
 	pulumi.RegisterOutputType(TrailOutput{})
 }

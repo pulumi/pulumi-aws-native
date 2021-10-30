@@ -120,5 +120,6 @@ func (o PermissionsOutput) ToPermissionsOutputWithContext(ctx context.Context) P
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsInput)(nil)).Elem(), &Permissions{})
 	pulumi.RegisterOutputType(PermissionsOutput{})
 }

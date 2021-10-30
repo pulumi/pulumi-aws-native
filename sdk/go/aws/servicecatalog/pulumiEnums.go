@@ -669,6 +669,14 @@ func (in *serviceActionDefinitionTypePtr) ToServiceActionDefinitionTypePtrOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProvisionedProductAcceptLanguageInput)(nil)).Elem(), CloudFormationProvisionedProductAcceptLanguage("en"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProvisionedProductAcceptLanguagePtrInput)(nil)).Elem(), CloudFormationProvisionedProductAcceptLanguage("en"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeInput)(nil)).Elem(), CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType("CREATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypePtrInput)(nil)).Elem(), CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType("CREATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceActionAcceptLanguageInput)(nil)).Elem(), ServiceActionAcceptLanguage("en"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceActionAcceptLanguagePtrInput)(nil)).Elem(), ServiceActionAcceptLanguage("en"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceActionDefinitionTypeInput)(nil)).Elem(), ServiceActionDefinitionType("SSM_AUTOMATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceActionDefinitionTypePtrInput)(nil)).Elem(), ServiceActionDefinitionType("SSM_AUTOMATION"))
 	pulumi.RegisterOutputType(CloudFormationProvisionedProductAcceptLanguageOutput{})
 	pulumi.RegisterOutputType(CloudFormationProvisionedProductAcceptLanguagePtrOutput{})
 	pulumi.RegisterOutputType(CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeOutput{})

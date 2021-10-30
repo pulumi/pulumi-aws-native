@@ -141,5 +141,6 @@ func (o ResourceSetOutput) ToResourceSetOutputWithContext(ctx context.Context) R
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetInput)(nil)).Elem(), &ResourceSet{})
 	pulumi.RegisterOutputType(ResourceSetOutput{})
 }

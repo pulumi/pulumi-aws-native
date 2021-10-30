@@ -145,5 +145,6 @@ func (o MonitoringScheduleOutput) ToMonitoringScheduleOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleInput)(nil)).Elem(), &MonitoringSchedule{})
 	pulumi.RegisterOutputType(MonitoringScheduleOutput{})
 }

@@ -518,6 +518,14 @@ func (o WorkspaceTagArrayOutput) Index(i pulumi.IntInput) WorkspaceTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAliasAssociationInput)(nil)).Elem(), ConnectionAliasAssociationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAliasAssociationArrayInput)(nil)).Elem(), ConnectionAliasAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAliasTagInput)(nil)).Elem(), ConnectionAliasTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAliasTagArrayInput)(nil)).Elem(), ConnectionAliasTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacePropertiesInput)(nil)).Elem(), WorkspacePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacePropertiesPtrInput)(nil)).Elem(), WorkspacePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceTagInput)(nil)).Elem(), WorkspaceTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceTagArrayInput)(nil)).Elem(), WorkspaceTagArray{})
 	pulumi.RegisterOutputType(ConnectionAliasAssociationOutput{})
 	pulumi.RegisterOutputType(ConnectionAliasAssociationArrayOutput{})
 	pulumi.RegisterOutputType(ConnectionAliasTagOutput{})

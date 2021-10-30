@@ -125,5 +125,6 @@ func (o AttributeGroupOutput) ToAttributeGroupOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AttributeGroupInput)(nil)).Elem(), &AttributeGroup{})
 	pulumi.RegisterOutputType(AttributeGroupOutput{})
 }

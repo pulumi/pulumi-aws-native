@@ -114,5 +114,6 @@ func (o VPNGatewayOutput) ToVPNGatewayOutputWithContext(ctx context.Context) VPN
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VPNGatewayInput)(nil)).Elem(), &VPNGateway{})
 	pulumi.RegisterOutputType(VPNGatewayOutput{})
 }

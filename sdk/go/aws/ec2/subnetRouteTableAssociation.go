@@ -12,6 +12,8 @@ import (
 )
 
 // Resource Type definition for AWS::EC2::SubnetRouteTableAssociation
+//
+// Deprecated: SubnetRouteTableAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type SubnetRouteTableAssociation struct {
 	pulumi.CustomResourceState
 
@@ -112,5 +114,6 @@ func (o SubnetRouteTableAssociationOutput) ToSubnetRouteTableAssociationOutputWi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetRouteTableAssociationInput)(nil)).Elem(), &SubnetRouteTableAssociation{})
 	pulumi.RegisterOutputType(SubnetRouteTableAssociationOutput{})
 }

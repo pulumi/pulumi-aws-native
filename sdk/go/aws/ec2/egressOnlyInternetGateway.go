@@ -109,5 +109,6 @@ func (o EgressOnlyInternetGatewayOutput) ToEgressOnlyInternetGatewayOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EgressOnlyInternetGatewayInput)(nil)).Elem(), &EgressOnlyInternetGateway{})
 	pulumi.RegisterOutputType(EgressOnlyInternetGatewayOutput{})
 }

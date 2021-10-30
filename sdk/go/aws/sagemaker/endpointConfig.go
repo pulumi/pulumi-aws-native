@@ -123,5 +123,6 @@ func (o EndpointConfigOutput) ToEndpointConfigOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigInput)(nil)).Elem(), &EndpointConfig{})
 	pulumi.RegisterOutputType(EndpointConfigOutput{})
 }

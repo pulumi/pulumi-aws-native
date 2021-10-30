@@ -167,5 +167,6 @@ func (o ImagePipelineOutput) ToImagePipelineOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineInput)(nil)).Elem(), &ImagePipeline{})
 	pulumi.RegisterOutputType(ImagePipelineOutput{})
 }

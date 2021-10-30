@@ -114,5 +114,6 @@ func (o ListenerCertificateOutput) ToListenerCertificateOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerCertificateInput)(nil)).Elem(), &ListenerCertificate{})
 	pulumi.RegisterOutputType(ListenerCertificateOutput{})
 }

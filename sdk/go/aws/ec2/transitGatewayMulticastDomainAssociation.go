@@ -133,5 +133,6 @@ func (o TransitGatewayMulticastDomainAssociationOutput) ToTransitGatewayMulticas
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayMulticastDomainAssociationInput)(nil)).Elem(), &TransitGatewayMulticastDomainAssociation{})
 	pulumi.RegisterOutputType(TransitGatewayMulticastDomainAssociationOutput{})
 }

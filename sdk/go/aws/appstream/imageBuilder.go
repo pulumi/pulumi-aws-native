@@ -148,5 +148,6 @@ func (o ImageBuilderOutput) ToImageBuilderOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderInput)(nil)).Elem(), &ImageBuilder{})
 	pulumi.RegisterOutputType(ImageBuilderOutput{})
 }

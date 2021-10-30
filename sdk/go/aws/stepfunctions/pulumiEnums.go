@@ -341,6 +341,10 @@ func (in *stateMachineTypePtr) ToStateMachineTypePtrOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineLoggingConfigurationLevelInput)(nil)).Elem(), StateMachineLoggingConfigurationLevel("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineLoggingConfigurationLevelPtrInput)(nil)).Elem(), StateMachineLoggingConfigurationLevel("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineTypeInput)(nil)).Elem(), StateMachineType("STANDARD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineTypePtrInput)(nil)).Elem(), StateMachineType("STANDARD"))
 	pulumi.RegisterOutputType(StateMachineLoggingConfigurationLevelOutput{})
 	pulumi.RegisterOutputType(StateMachineLoggingConfigurationLevelPtrOutput{})
 	pulumi.RegisterOutputType(StateMachineTypeOutput{})

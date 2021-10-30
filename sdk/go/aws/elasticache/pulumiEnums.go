@@ -504,6 +504,12 @@ func (in *userGroupEnginePtr) ToUserGroupEnginePtrOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalReplicationGroupMemberRoleInput)(nil)).Elem(), GlobalReplicationGroupMemberRole("PRIMARY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalReplicationGroupMemberRolePtrInput)(nil)).Elem(), GlobalReplicationGroupMemberRole("PRIMARY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserEngineInput)(nil)).Elem(), UserEngine("redis"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserEnginePtrInput)(nil)).Elem(), UserEngine("redis"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserGroupEngineInput)(nil)).Elem(), UserGroupEngine("redis"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserGroupEnginePtrInput)(nil)).Elem(), UserGroupEngine("redis"))
 	pulumi.RegisterOutputType(GlobalReplicationGroupMemberRoleOutput{})
 	pulumi.RegisterOutputType(GlobalReplicationGroupMemberRolePtrOutput{})
 	pulumi.RegisterOutputType(UserEngineOutput{})

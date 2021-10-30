@@ -368,6 +368,12 @@ func (o FindingsFilterListItemArrayOutput) Index(i pulumi.IntInput) FindingsFilt
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterCriterionInput)(nil)).Elem(), FindingsFilterCriterionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterCriterionPtrInput)(nil)).Elem(), FindingsFilterCriterionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterFindingCriteriaInput)(nil)).Elem(), FindingsFilterFindingCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterFindingCriteriaPtrInput)(nil)).Elem(), FindingsFilterFindingCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterListItemInput)(nil)).Elem(), FindingsFilterListItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterListItemArrayInput)(nil)).Elem(), FindingsFilterListItemArray{})
 	pulumi.RegisterOutputType(FindingsFilterCriterionOutput{})
 	pulumi.RegisterOutputType(FindingsFilterCriterionPtrOutput{})
 	pulumi.RegisterOutputType(FindingsFilterFindingCriteriaOutput{})

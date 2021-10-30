@@ -175,6 +175,8 @@ func (in *resourceAssociationResourceTypePtr) ToResourceAssociationResourceTypeP
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceAssociationResourceTypeInput)(nil)).Elem(), ResourceAssociationResourceType("CFN_STACK"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceAssociationResourceTypePtrInput)(nil)).Elem(), ResourceAssociationResourceType("CFN_STACK"))
 	pulumi.RegisterOutputType(ResourceAssociationResourceTypeOutput{})
 	pulumi.RegisterOutputType(ResourceAssociationResourceTypePtrOutput{})
 }

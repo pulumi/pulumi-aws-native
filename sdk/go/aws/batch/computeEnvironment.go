@@ -126,5 +126,6 @@ func (o ComputeEnvironmentOutput) ToComputeEnvironmentOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentInput)(nil)).Elem(), &ComputeEnvironment{})
 	pulumi.RegisterOutputType(ComputeEnvironmentOutput{})
 }

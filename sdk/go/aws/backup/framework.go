@@ -143,5 +143,6 @@ func (o FrameworkOutput) ToFrameworkOutputWithContext(ctx context.Context) Frame
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FrameworkInput)(nil)).Elem(), &Framework{})
 	pulumi.RegisterOutputType(FrameworkOutput{})
 }

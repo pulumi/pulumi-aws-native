@@ -127,5 +127,6 @@ func (o ProfilePermissionOutput) ToProfilePermissionOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfilePermissionInput)(nil)).Elem(), &ProfilePermission{})
 	pulumi.RegisterOutputType(ProfilePermissionOutput{})
 }

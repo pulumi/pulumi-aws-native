@@ -533,134 +533,17 @@ func (o EnvironmentNetworkConfigurationPtrOutput) SubnetIds() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// A map of tags for the environment.
-type EnvironmentTagMap struct {
-}
-
-// EnvironmentTagMapInput is an input type that accepts EnvironmentTagMap and EnvironmentTagMapOutput values.
-// You can construct a concrete instance of `EnvironmentTagMapInput` via:
-//
-//          EnvironmentTagMap{ "key": EnvironmentTagArgs{...} }
-type EnvironmentTagMapInput interface {
-	pulumi.Input
-
-	ToEnvironmentTagMapOutput() EnvironmentTagMapOutput
-	ToEnvironmentTagMapOutputWithContext(context.Context) EnvironmentTagMapOutput
-}
-
-// A map of tags for the environment.
-type EnvironmentTagMapArgs struct {
-}
-
-func (EnvironmentTagMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentTagMap)(nil)).Elem()
-}
-
-func (i EnvironmentTagMapArgs) ToEnvironmentTagMapOutput() EnvironmentTagMapOutput {
-	return i.ToEnvironmentTagMapOutputWithContext(context.Background())
-}
-
-func (i EnvironmentTagMapArgs) ToEnvironmentTagMapOutputWithContext(ctx context.Context) EnvironmentTagMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTagMapOutput)
-}
-
-func (i EnvironmentTagMapArgs) ToEnvironmentTagMapPtrOutput() EnvironmentTagMapPtrOutput {
-	return i.ToEnvironmentTagMapPtrOutputWithContext(context.Background())
-}
-
-func (i EnvironmentTagMapArgs) ToEnvironmentTagMapPtrOutputWithContext(ctx context.Context) EnvironmentTagMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTagMapOutput).ToEnvironmentTagMapPtrOutputWithContext(ctx)
-}
-
-// EnvironmentTagMapPtrInput is an input type that accepts EnvironmentTagMapArgs, EnvironmentTagMapPtr and EnvironmentTagMapPtrOutput values.
-// You can construct a concrete instance of `EnvironmentTagMapPtrInput` via:
-//
-//          EnvironmentTagMapArgs{...}
-//
-//  or:
-//
-//          nil
-type EnvironmentTagMapPtrInput interface {
-	pulumi.Input
-
-	ToEnvironmentTagMapPtrOutput() EnvironmentTagMapPtrOutput
-	ToEnvironmentTagMapPtrOutputWithContext(context.Context) EnvironmentTagMapPtrOutput
-}
-
-type environmentTagMapPtrType EnvironmentTagMapArgs
-
-func EnvironmentTagMapPtr(v *EnvironmentTagMapArgs) EnvironmentTagMapPtrInput {
-	return (*environmentTagMapPtrType)(v)
-}
-
-func (*environmentTagMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnvironmentTagMap)(nil)).Elem()
-}
-
-func (i *environmentTagMapPtrType) ToEnvironmentTagMapPtrOutput() EnvironmentTagMapPtrOutput {
-	return i.ToEnvironmentTagMapPtrOutputWithContext(context.Background())
-}
-
-func (i *environmentTagMapPtrType) ToEnvironmentTagMapPtrOutputWithContext(ctx context.Context) EnvironmentTagMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTagMapPtrOutput)
-}
-
-// A map of tags for the environment.
-type EnvironmentTagMapOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentTagMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentTagMap)(nil)).Elem()
-}
-
-func (o EnvironmentTagMapOutput) ToEnvironmentTagMapOutput() EnvironmentTagMapOutput {
-	return o
-}
-
-func (o EnvironmentTagMapOutput) ToEnvironmentTagMapOutputWithContext(ctx context.Context) EnvironmentTagMapOutput {
-	return o
-}
-
-func (o EnvironmentTagMapOutput) ToEnvironmentTagMapPtrOutput() EnvironmentTagMapPtrOutput {
-	return o.ToEnvironmentTagMapPtrOutputWithContext(context.Background())
-}
-
-func (o EnvironmentTagMapOutput) ToEnvironmentTagMapPtrOutputWithContext(ctx context.Context) EnvironmentTagMapPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentTagMap) *EnvironmentTagMap {
-		return &v
-	}).(EnvironmentTagMapPtrOutput)
-}
-
-type EnvironmentTagMapPtrOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentTagMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnvironmentTagMap)(nil)).Elem()
-}
-
-func (o EnvironmentTagMapPtrOutput) ToEnvironmentTagMapPtrOutput() EnvironmentTagMapPtrOutput {
-	return o
-}
-
-func (o EnvironmentTagMapPtrOutput) ToEnvironmentTagMapPtrOutputWithContext(ctx context.Context) EnvironmentTagMapPtrOutput {
-	return o
-}
-
-func (o EnvironmentTagMapPtrOutput) Elem() EnvironmentTagMapOutput {
-	return o.ApplyT(func(v *EnvironmentTagMap) EnvironmentTagMap {
-		if v != nil {
-			return *v
-		}
-		var ret EnvironmentTagMap
-		return ret
-	}).(EnvironmentTagMapOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentLoggingConfigurationInput)(nil)).Elem(), EnvironmentLoggingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentLoggingConfigurationPtrInput)(nil)).Elem(), EnvironmentLoggingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentModuleLoggingConfigurationInput)(nil)).Elem(), EnvironmentModuleLoggingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentModuleLoggingConfigurationPtrInput)(nil)).Elem(), EnvironmentModuleLoggingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentNetworkConfigurationInput)(nil)).Elem(), EnvironmentNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentNetworkConfigurationPtrInput)(nil)).Elem(), EnvironmentNetworkConfigurationArgs{})
 	pulumi.RegisterOutputType(EnvironmentLoggingConfigurationOutput{})
 	pulumi.RegisterOutputType(EnvironmentLoggingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentModuleLoggingConfigurationOutput{})
 	pulumi.RegisterOutputType(EnvironmentModuleLoggingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(EnvironmentNetworkConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(EnvironmentTagMapOutput{})
-	pulumi.RegisterOutputType(EnvironmentTagMapPtrOutput{})
 }

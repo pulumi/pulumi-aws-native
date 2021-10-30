@@ -120,5 +120,6 @@ func (o SkillOutput) ToSkillOutputWithContext(ctx context.Context) SkillOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SkillInput)(nil)).Elem(), &Skill{})
 	pulumi.RegisterOutputType(SkillOutput{})
 }

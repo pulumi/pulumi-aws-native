@@ -152,5 +152,6 @@ func (o SimulationApplicationOutput) ToSimulationApplicationOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SimulationApplicationInput)(nil)).Elem(), &SimulationApplication{})
 	pulumi.RegisterOutputType(SimulationApplicationOutput{})
 }

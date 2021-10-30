@@ -12,8 +12,6 @@ import (
 )
 
 // The AWS::MemoryDB::Cluster resource creates an Amazon MemoryDB Cluster.
-//
-// Deprecated: Cluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Cluster struct {
 	pulumi.CustomResourceState
 
@@ -273,5 +271,6 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInput)(nil)).Elem(), &Cluster{})
 	pulumi.RegisterOutputType(ClusterOutput{})
 }

@@ -351,6 +351,10 @@ func (in *instanceAddOnStatusPtr) ToInstanceAddOnStatusPtrOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DiskAddOnStatusInput)(nil)).Elem(), DiskAddOnStatus("Enabling"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DiskAddOnStatusPtrInput)(nil)).Elem(), DiskAddOnStatus("Enabling"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAddOnStatusInput)(nil)).Elem(), InstanceAddOnStatus("Enabling"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAddOnStatusPtrInput)(nil)).Elem(), InstanceAddOnStatus("Enabling"))
 	pulumi.RegisterOutputType(DiskAddOnStatusOutput{})
 	pulumi.RegisterOutputType(DiskAddOnStatusPtrOutput{})
 	pulumi.RegisterOutputType(InstanceAddOnStatusOutput{})

@@ -125,5 +125,6 @@ func (o CodeSigningConfigOutput) ToCodeSigningConfigOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigInput)(nil)).Elem(), &CodeSigningConfig{})
 	pulumi.RegisterOutputType(CodeSigningConfigOutput{})
 }

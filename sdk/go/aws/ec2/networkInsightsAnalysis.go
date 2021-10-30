@@ -122,5 +122,6 @@ func (o NetworkInsightsAnalysisOutput) ToNetworkInsightsAnalysisOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAnalysisInput)(nil)).Elem(), &NetworkInsightsAnalysis{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisOutput{})
 }

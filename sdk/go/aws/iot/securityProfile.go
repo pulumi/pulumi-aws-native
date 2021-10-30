@@ -143,5 +143,6 @@ func (o SecurityProfileOutput) ToSecurityProfileOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileInput)(nil)).Elem(), &SecurityProfile{})
 	pulumi.RegisterOutputType(SecurityProfileOutput{})
 }

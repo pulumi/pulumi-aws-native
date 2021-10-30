@@ -903,6 +903,22 @@ func (o VPCEConfigurationTagArrayOutput) Index(i pulumi.IntInput) VPCEConfigurat
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DevicePoolRuleInput)(nil)).Elem(), DevicePoolRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DevicePoolRuleArrayInput)(nil)).Elem(), DevicePoolRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DevicePoolTagInput)(nil)).Elem(), DevicePoolTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DevicePoolTagArrayInput)(nil)).Elem(), DevicePoolTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceProfileTagInput)(nil)).Elem(), InstanceProfileTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceProfileTagArrayInput)(nil)).Elem(), InstanceProfileTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkProfileTagInput)(nil)).Elem(), NetworkProfileTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkProfileTagArrayInput)(nil)).Elem(), NetworkProfileTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTagInput)(nil)).Elem(), ProjectTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTagArrayInput)(nil)).Elem(), ProjectTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TestGridProjectTagInput)(nil)).Elem(), TestGridProjectTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TestGridProjectTagArrayInput)(nil)).Elem(), TestGridProjectTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TestGridProjectVpcConfigInput)(nil)).Elem(), TestGridProjectVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TestGridProjectVpcConfigPtrInput)(nil)).Elem(), TestGridProjectVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VPCEConfigurationTagInput)(nil)).Elem(), VPCEConfigurationTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VPCEConfigurationTagArrayInput)(nil)).Elem(), VPCEConfigurationTagArray{})
 	pulumi.RegisterOutputType(DevicePoolRuleOutput{})
 	pulumi.RegisterOutputType(DevicePoolRuleArrayOutput{})
 	pulumi.RegisterOutputType(DevicePoolTagOutput{})

@@ -152,5 +152,6 @@ func (o ReplicationInstanceOutput) ToReplicationInstanceOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationInstanceInput)(nil)).Elem(), &ReplicationInstance{})
 	pulumi.RegisterOutputType(ReplicationInstanceOutput{})
 }

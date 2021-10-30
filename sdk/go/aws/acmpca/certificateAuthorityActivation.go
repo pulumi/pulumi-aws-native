@@ -132,5 +132,6 @@ func (o CertificateAuthorityActivationOutput) ToCertificateAuthorityActivationOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityActivationInput)(nil)).Elem(), &CertificateAuthorityActivation{})
 	pulumi.RegisterOutputType(CertificateAuthorityActivationOutput{})
 }

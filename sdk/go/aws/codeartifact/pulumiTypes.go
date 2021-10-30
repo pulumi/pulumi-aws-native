@@ -229,6 +229,10 @@ func (o RepositoryTagArrayOutput) Index(i pulumi.IntInput) RepositoryTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainTagInput)(nil)).Elem(), DomainTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainTagArrayInput)(nil)).Elem(), DomainTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryTagInput)(nil)).Elem(), RepositoryTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryTagArrayInput)(nil)).Elem(), RepositoryTagArray{})
 	pulumi.RegisterOutputType(DomainTagOutput{})
 	pulumi.RegisterOutputType(DomainTagArrayOutput{})
 	pulumi.RegisterOutputType(RepositoryTagOutput{})

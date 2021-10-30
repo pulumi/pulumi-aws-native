@@ -208,5 +208,6 @@ func (o StudioOutput) ToStudioOutputWithContext(ctx context.Context) StudioOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioInput)(nil)).Elem(), &Studio{})
 	pulumi.RegisterOutputType(StudioOutput{})
 }

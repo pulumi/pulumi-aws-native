@@ -201,5 +201,6 @@ func (o ReportDefinitionOutput) ToReportDefinitionOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportDefinitionInput)(nil)).Elem(), &ReportDefinition{})
 	pulumi.RegisterOutputType(ReportDefinitionOutput{})
 }

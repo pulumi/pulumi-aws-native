@@ -118,5 +118,6 @@ func (o TransitGatewayRegistrationOutput) ToTransitGatewayRegistrationOutputWith
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayRegistrationInput)(nil)).Elem(), &TransitGatewayRegistration{})
 	pulumi.RegisterOutputType(TransitGatewayRegistrationOutput{})
 }

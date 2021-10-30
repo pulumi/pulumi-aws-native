@@ -340,6 +340,10 @@ func (in *assignmentTargetTypePtr) ToAssignmentTargetTypePtrOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AssignmentPrincipalTypeInput)(nil)).Elem(), AssignmentPrincipalType("USER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssignmentPrincipalTypePtrInput)(nil)).Elem(), AssignmentPrincipalType("USER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssignmentTargetTypeInput)(nil)).Elem(), AssignmentTargetType("AWS_ACCOUNT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssignmentTargetTypePtrInput)(nil)).Elem(), AssignmentTargetType("AWS_ACCOUNT"))
 	pulumi.RegisterOutputType(AssignmentPrincipalTypeOutput{})
 	pulumi.RegisterOutputType(AssignmentPrincipalTypePtrOutput{})
 	pulumi.RegisterOutputType(AssignmentTargetTypeOutput{})

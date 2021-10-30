@@ -144,5 +144,6 @@ func (o UserProfileOutput) ToUserProfileOutputWithContext(ctx context.Context) U
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileInput)(nil)).Elem(), &UserProfile{})
 	pulumi.RegisterOutputType(UserProfileOutput{})
 }

@@ -167,5 +167,6 @@ func (o TypeActivationOutput) ToTypeActivationOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TypeActivationInput)(nil)).Elem(), &TypeActivation{})
 	pulumi.RegisterOutputType(TypeActivationOutput{})
 }

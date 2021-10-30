@@ -117,5 +117,6 @@ func (o UserPoolUICustomizationAttachmentOutput) ToUserPoolUICustomizationAttach
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolUICustomizationAttachmentInput)(nil)).Elem(), &UserPoolUICustomizationAttachment{})
 	pulumi.RegisterOutputType(UserPoolUICustomizationAttachmentOutput{})
 }

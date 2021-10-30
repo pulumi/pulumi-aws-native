@@ -358,6 +358,10 @@ func (in *devicePoolRuleOperatorPtr) ToDevicePoolRuleOperatorPtrOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DevicePoolRuleAttributeInput)(nil)).Elem(), DevicePoolRuleAttribute("ARN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DevicePoolRuleAttributePtrInput)(nil)).Elem(), DevicePoolRuleAttribute("ARN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DevicePoolRuleOperatorInput)(nil)).Elem(), DevicePoolRuleOperator("EQUALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DevicePoolRuleOperatorPtrInput)(nil)).Elem(), DevicePoolRuleOperator("EQUALS"))
 	pulumi.RegisterOutputType(DevicePoolRuleAttributeOutput{})
 	pulumi.RegisterOutputType(DevicePoolRuleAttributePtrOutput{})
 	pulumi.RegisterOutputType(DevicePoolRuleOperatorOutput{})

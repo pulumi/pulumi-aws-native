@@ -164,5 +164,6 @@ func (o JobTemplateOutput) ToJobTemplateOutputWithContext(ctx context.Context) J
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateInput)(nil)).Elem(), &JobTemplate{})
 	pulumi.RegisterOutputType(JobTemplateOutput{})
 }

@@ -864,6 +864,20 @@ func (o TableTagArrayOutput) Index(i pulumi.IntInput) TableTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceTagInput)(nil)).Elem(), KeyspaceTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceTagArrayInput)(nil)).Elem(), KeyspaceTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableBillingModeInput)(nil)).Elem(), TableBillingModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableBillingModePtrInput)(nil)).Elem(), TableBillingModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableClusteringKeyColumnInput)(nil)).Elem(), TableClusteringKeyColumnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableClusteringKeyColumnArrayInput)(nil)).Elem(), TableClusteringKeyColumnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableColumnInput)(nil)).Elem(), TableColumnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableColumnArrayInput)(nil)).Elem(), TableColumnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableEncryptionSpecificationInput)(nil)).Elem(), TableEncryptionSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableEncryptionSpecificationPtrInput)(nil)).Elem(), TableEncryptionSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableProvisionedThroughputInput)(nil)).Elem(), TableProvisionedThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableProvisionedThroughputPtrInput)(nil)).Elem(), TableProvisionedThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableTagInput)(nil)).Elem(), TableTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableTagArrayInput)(nil)).Elem(), TableTagArray{})
 	pulumi.RegisterOutputType(KeyspaceTagOutput{})
 	pulumi.RegisterOutputType(KeyspaceTagArrayOutput{})
 	pulumi.RegisterOutputType(TableBillingModeOutput{})

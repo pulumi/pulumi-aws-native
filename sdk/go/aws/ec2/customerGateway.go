@@ -123,5 +123,6 @@ func (o CustomerGatewayOutput) ToCustomerGatewayOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomerGatewayInput)(nil)).Elem(), &CustomerGateway{})
 	pulumi.RegisterOutputType(CustomerGatewayOutput{})
 }

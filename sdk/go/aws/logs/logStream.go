@@ -111,5 +111,6 @@ func (o LogStreamOutput) ToLogStreamOutputWithContext(ctx context.Context) LogSt
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LogStreamInput)(nil)).Elem(), &LogStream{})
 	pulumi.RegisterOutputType(LogStreamOutput{})
 }

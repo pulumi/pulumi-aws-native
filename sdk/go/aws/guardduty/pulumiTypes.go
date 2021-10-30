@@ -618,6 +618,14 @@ func (o FilterFindingCriteriaPtrOutput) ItemType() FilterConditionPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCFNDataSourceConfigurationsInput)(nil)).Elem(), DetectorCFNDataSourceConfigurationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCFNDataSourceConfigurationsPtrInput)(nil)).Elem(), DetectorCFNDataSourceConfigurationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCFNS3LogsConfigurationInput)(nil)).Elem(), DetectorCFNS3LogsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCFNS3LogsConfigurationPtrInput)(nil)).Elem(), DetectorCFNS3LogsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilterConditionInput)(nil)).Elem(), FilterConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilterConditionPtrInput)(nil)).Elem(), FilterConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilterFindingCriteriaInput)(nil)).Elem(), FilterFindingCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilterFindingCriteriaPtrInput)(nil)).Elem(), FilterFindingCriteriaArgs{})
 	pulumi.RegisterOutputType(DetectorCFNDataSourceConfigurationsOutput{})
 	pulumi.RegisterOutputType(DetectorCFNDataSourceConfigurationsPtrOutput{})
 	pulumi.RegisterOutputType(DetectorCFNS3LogsConfigurationOutput{})

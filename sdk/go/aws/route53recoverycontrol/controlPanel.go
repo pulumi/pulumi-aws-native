@@ -129,5 +129,6 @@ func (o ControlPanelOutput) ToControlPanelOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ControlPanelInput)(nil)).Elem(), &ControlPanel{})
 	pulumi.RegisterOutputType(ControlPanelOutput{})
 }

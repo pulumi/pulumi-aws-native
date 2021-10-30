@@ -139,5 +139,6 @@ func (o IdentityPoolOutput) ToIdentityPoolOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolInput)(nil)).Elem(), &IdentityPool{})
 	pulumi.RegisterOutputType(IdentityPoolOutput{})
 }

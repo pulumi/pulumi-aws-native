@@ -129,5 +129,6 @@ func (o RateBasedRuleOutput) ToRateBasedRuleOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RateBasedRuleInput)(nil)).Elem(), &RateBasedRule{})
 	pulumi.RegisterOutputType(RateBasedRuleOutput{})
 }

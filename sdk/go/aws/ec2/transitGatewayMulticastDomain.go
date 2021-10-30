@@ -129,5 +129,6 @@ func (o TransitGatewayMulticastDomainOutput) ToTransitGatewayMulticastDomainOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayMulticastDomainInput)(nil)).Elem(), &TransitGatewayMulticastDomain{})
 	pulumi.RegisterOutputType(TransitGatewayMulticastDomainOutput{})
 }

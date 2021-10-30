@@ -158,5 +158,6 @@ func (o StudioComponentOutput) ToStudioComponentOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentInput)(nil)).Elem(), &StudioComponent{})
 	pulumi.RegisterOutputType(StudioComponentOutput{})
 }

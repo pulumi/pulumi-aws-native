@@ -137,5 +137,6 @@ func (o FileSystemOutput) ToFileSystemOutputWithContext(ctx context.Context) Fil
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemInput)(nil)).Elem(), &FileSystem{})
 	pulumi.RegisterOutputType(FileSystemOutput{})
 }

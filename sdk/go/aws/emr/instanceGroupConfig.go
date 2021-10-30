@@ -144,5 +144,6 @@ func (o InstanceGroupConfigOutput) ToInstanceGroupConfigOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceGroupConfigInput)(nil)).Elem(), &InstanceGroupConfig{})
 	pulumi.RegisterOutputType(InstanceGroupConfigOutput{})
 }

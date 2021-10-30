@@ -119,5 +119,6 @@ func (o StreamKeyOutput) ToStreamKeyOutputWithContext(ctx context.Context) Strea
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamKeyInput)(nil)).Elem(), &StreamKey{})
 	pulumi.RegisterOutputType(StreamKeyOutput{})
 }

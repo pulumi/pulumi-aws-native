@@ -133,5 +133,6 @@ func (o PushTemplateOutput) ToPushTemplateOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PushTemplateInput)(nil)).Elem(), &PushTemplate{})
 	pulumi.RegisterOutputType(PushTemplateOutput{})
 }

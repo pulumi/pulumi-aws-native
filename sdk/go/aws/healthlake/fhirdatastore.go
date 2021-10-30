@@ -123,5 +123,6 @@ func (o FHIRDatastoreOutput) ToFHIRDatastoreOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreInput)(nil)).Elem(), &FHIRDatastore{})
 	pulumi.RegisterOutputType(FHIRDatastoreOutput{})
 }

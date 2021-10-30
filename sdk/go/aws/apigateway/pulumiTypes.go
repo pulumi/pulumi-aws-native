@@ -4277,7 +4277,163 @@ func (o UsagePlanThrottleSettingsPtrOutput) RateLimit() pulumi.Float64PtrOutput 
 	}).(pulumi.Float64PtrOutput)
 }
 
+type VpcLinkTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// VpcLinkTagInput is an input type that accepts VpcLinkTagArgs and VpcLinkTagOutput values.
+// You can construct a concrete instance of `VpcLinkTagInput` via:
+//
+//          VpcLinkTagArgs{...}
+type VpcLinkTagInput interface {
+	pulumi.Input
+
+	ToVpcLinkTagOutput() VpcLinkTagOutput
+	ToVpcLinkTagOutputWithContext(context.Context) VpcLinkTagOutput
+}
+
+type VpcLinkTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (VpcLinkTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcLinkTag)(nil)).Elem()
+}
+
+func (i VpcLinkTagArgs) ToVpcLinkTagOutput() VpcLinkTagOutput {
+	return i.ToVpcLinkTagOutputWithContext(context.Background())
+}
+
+func (i VpcLinkTagArgs) ToVpcLinkTagOutputWithContext(ctx context.Context) VpcLinkTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcLinkTagOutput)
+}
+
+// VpcLinkTagArrayInput is an input type that accepts VpcLinkTagArray and VpcLinkTagArrayOutput values.
+// You can construct a concrete instance of `VpcLinkTagArrayInput` via:
+//
+//          VpcLinkTagArray{ VpcLinkTagArgs{...} }
+type VpcLinkTagArrayInput interface {
+	pulumi.Input
+
+	ToVpcLinkTagArrayOutput() VpcLinkTagArrayOutput
+	ToVpcLinkTagArrayOutputWithContext(context.Context) VpcLinkTagArrayOutput
+}
+
+type VpcLinkTagArray []VpcLinkTagInput
+
+func (VpcLinkTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcLinkTag)(nil)).Elem()
+}
+
+func (i VpcLinkTagArray) ToVpcLinkTagArrayOutput() VpcLinkTagArrayOutput {
+	return i.ToVpcLinkTagArrayOutputWithContext(context.Background())
+}
+
+func (i VpcLinkTagArray) ToVpcLinkTagArrayOutputWithContext(ctx context.Context) VpcLinkTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcLinkTagArrayOutput)
+}
+
+type VpcLinkTagOutput struct{ *pulumi.OutputState }
+
+func (VpcLinkTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcLinkTag)(nil)).Elem()
+}
+
+func (o VpcLinkTagOutput) ToVpcLinkTagOutput() VpcLinkTagOutput {
+	return o
+}
+
+func (o VpcLinkTagOutput) ToVpcLinkTagOutputWithContext(ctx context.Context) VpcLinkTagOutput {
+	return o
+}
+
+func (o VpcLinkTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v VpcLinkTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o VpcLinkTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v VpcLinkTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type VpcLinkTagArrayOutput struct{ *pulumi.OutputState }
+
+func (VpcLinkTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcLinkTag)(nil)).Elem()
+}
+
+func (o VpcLinkTagArrayOutput) ToVpcLinkTagArrayOutput() VpcLinkTagArrayOutput {
+	return o
+}
+
+func (o VpcLinkTagArrayOutput) ToVpcLinkTagArrayOutputWithContext(ctx context.Context) VpcLinkTagArrayOutput {
+	return o
+}
+
+func (o VpcLinkTagArrayOutput) Index(i pulumi.IntInput) VpcLinkTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcLinkTag {
+		return vs[0].([]VpcLinkTag)[vs[1].(int)]
+	}).(VpcLinkTagOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyStageKeyInput)(nil)).Elem(), ApiKeyStageKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyStageKeyArrayInput)(nil)).Elem(), ApiKeyStageKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyTagInput)(nil)).Elem(), ApiKeyTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyTagArrayInput)(nil)).Elem(), ApiKeyTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientCertificateTagInput)(nil)).Elem(), ClientCertificateTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientCertificateTagArrayInput)(nil)).Elem(), ClientCertificateTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentAccessLogSettingInput)(nil)).Elem(), DeploymentAccessLogSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentAccessLogSettingPtrInput)(nil)).Elem(), DeploymentAccessLogSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentCanarySettingInput)(nil)).Elem(), DeploymentCanarySettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentCanarySettingPtrInput)(nil)).Elem(), DeploymentCanarySettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentCanarySettingsInput)(nil)).Elem(), DeploymentCanarySettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentCanarySettingsPtrInput)(nil)).Elem(), DeploymentCanarySettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentMethodSettingInput)(nil)).Elem(), DeploymentMethodSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentMethodSettingArrayInput)(nil)).Elem(), DeploymentMethodSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentStageDescriptionInput)(nil)).Elem(), DeploymentStageDescriptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentStageDescriptionPtrInput)(nil)).Elem(), DeploymentStageDescriptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentTagInput)(nil)).Elem(), DeploymentTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentTagArrayInput)(nil)).Elem(), DeploymentTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationPartLocationInput)(nil)).Elem(), DocumentationPartLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationPartLocationPtrInput)(nil)).Elem(), DocumentationPartLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameEndpointConfigurationInput)(nil)).Elem(), DomainNameEndpointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameEndpointConfigurationPtrInput)(nil)).Elem(), DomainNameEndpointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameMutualTlsAuthenticationInput)(nil)).Elem(), DomainNameMutualTlsAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameMutualTlsAuthenticationPtrInput)(nil)).Elem(), DomainNameMutualTlsAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameTagInput)(nil)).Elem(), DomainNameTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameTagArrayInput)(nil)).Elem(), DomainNameTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationInput)(nil)).Elem(), MethodIntegrationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationPtrInput)(nil)).Elem(), MethodIntegrationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationResponseInput)(nil)).Elem(), MethodIntegrationResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationResponseArrayInput)(nil)).Elem(), MethodIntegrationResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MethodResponseInput)(nil)).Elem(), MethodResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MethodResponseArrayInput)(nil)).Elem(), MethodResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestApiEndpointConfigurationInput)(nil)).Elem(), RestApiEndpointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestApiEndpointConfigurationPtrInput)(nil)).Elem(), RestApiEndpointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestApiS3LocationInput)(nil)).Elem(), RestApiS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestApiS3LocationPtrInput)(nil)).Elem(), RestApiS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestApiTagInput)(nil)).Elem(), RestApiTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestApiTagArrayInput)(nil)).Elem(), RestApiTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageAccessLogSettingInput)(nil)).Elem(), StageAccessLogSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageAccessLogSettingPtrInput)(nil)).Elem(), StageAccessLogSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageCanarySettingInput)(nil)).Elem(), StageCanarySettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageCanarySettingPtrInput)(nil)).Elem(), StageCanarySettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageMethodSettingInput)(nil)).Elem(), StageMethodSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageMethodSettingArrayInput)(nil)).Elem(), StageMethodSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageTagInput)(nil)).Elem(), StageTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageTagArrayInput)(nil)).Elem(), StageTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanApiStageInput)(nil)).Elem(), UsagePlanApiStageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanApiStageArrayInput)(nil)).Elem(), UsagePlanApiStageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanQuotaSettingsInput)(nil)).Elem(), UsagePlanQuotaSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanQuotaSettingsPtrInput)(nil)).Elem(), UsagePlanQuotaSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanTagInput)(nil)).Elem(), UsagePlanTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanTagArrayInput)(nil)).Elem(), UsagePlanTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanThrottleSettingsInput)(nil)).Elem(), UsagePlanThrottleSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanThrottleSettingsPtrInput)(nil)).Elem(), UsagePlanThrottleSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcLinkTagInput)(nil)).Elem(), VpcLinkTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcLinkTagArrayInput)(nil)).Elem(), VpcLinkTagArray{})
 	pulumi.RegisterOutputType(ApiKeyStageKeyOutput{})
 	pulumi.RegisterOutputType(ApiKeyStageKeyArrayOutput{})
 	pulumi.RegisterOutputType(ApiKeyTagOutput{})
@@ -4332,4 +4488,6 @@ func init() {
 	pulumi.RegisterOutputType(UsagePlanTagArrayOutput{})
 	pulumi.RegisterOutputType(UsagePlanThrottleSettingsOutput{})
 	pulumi.RegisterOutputType(UsagePlanThrottleSettingsPtrOutput{})
+	pulumi.RegisterOutputType(VpcLinkTagOutput{})
+	pulumi.RegisterOutputType(VpcLinkTagArrayOutput{})
 }

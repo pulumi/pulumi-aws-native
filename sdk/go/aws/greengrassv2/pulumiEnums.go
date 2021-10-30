@@ -667,6 +667,14 @@ func (in *componentVersionLambdaLinuxProcessParamsIsolationModePtr) ToComponentV
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaEventSourceTypeInput)(nil)).Elem(), ComponentVersionLambdaEventSourceType("PUB_SUB"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaEventSourceTypePtrInput)(nil)).Elem(), ComponentVersionLambdaEventSourceType("PUB_SUB"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypeInput)(nil)).Elem(), ComponentVersionLambdaExecutionParametersInputPayloadEncodingType("json"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypePtrInput)(nil)).Elem(), ComponentVersionLambdaExecutionParametersInputPayloadEncodingType("json"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaFilesystemPermissionInput)(nil)).Elem(), ComponentVersionLambdaFilesystemPermission("ro"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaFilesystemPermissionPtrInput)(nil)).Elem(), ComponentVersionLambdaFilesystemPermission("ro"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaLinuxProcessParamsIsolationModeInput)(nil)).Elem(), ComponentVersionLambdaLinuxProcessParamsIsolationMode("GreengrassContainer"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaLinuxProcessParamsIsolationModePtrInput)(nil)).Elem(), ComponentVersionLambdaLinuxProcessParamsIsolationMode("GreengrassContainer"))
 	pulumi.RegisterOutputType(ComponentVersionLambdaEventSourceTypeOutput{})
 	pulumi.RegisterOutputType(ComponentVersionLambdaEventSourceTypePtrOutput{})
 	pulumi.RegisterOutputType(ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypeOutput{})

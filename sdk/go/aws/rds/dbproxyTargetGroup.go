@@ -129,5 +129,6 @@ func (o DBProxyTargetGroupOutput) ToDBProxyTargetGroupOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyTargetGroupInput)(nil)).Elem(), &DBProxyTargetGroup{})
 	pulumi.RegisterOutputType(DBProxyTargetGroupOutput{})
 }

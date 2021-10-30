@@ -121,5 +121,6 @@ func (o TopicRuleDestinationOutput) ToTopicRuleDestinationOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDestinationInput)(nil)).Elem(), &TopicRuleDestination{})
 	pulumi.RegisterOutputType(TopicRuleDestinationOutput{})
 }

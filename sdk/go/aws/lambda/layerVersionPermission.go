@@ -123,5 +123,6 @@ func (o LayerVersionPermissionOutput) ToLayerVersionPermissionOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LayerVersionPermissionInput)(nil)).Elem(), &LayerVersionPermission{})
 	pulumi.RegisterOutputType(LayerVersionPermissionOutput{})
 }

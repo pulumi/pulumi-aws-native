@@ -127,5 +127,6 @@ func (o DomainNameOutput) ToDomainNameOutputWithContext(ctx context.Context) Dom
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameInput)(nil)).Elem(), &DomainName{})
 	pulumi.RegisterOutputType(DomainNameOutput{})
 }

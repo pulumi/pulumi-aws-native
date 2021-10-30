@@ -246,6 +246,8 @@ func (o EnvironmentFederationParametersPtrOutput) SamlMetadataURL() pulumi.Strin
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentFederationParametersInput)(nil)).Elem(), EnvironmentFederationParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentFederationParametersPtrInput)(nil)).Elem(), EnvironmentFederationParametersArgs{})
 	pulumi.RegisterOutputType(EnvironmentFederationParametersOutput{})
 	pulumi.RegisterOutputType(EnvironmentFederationParametersPtrOutput{})
 }

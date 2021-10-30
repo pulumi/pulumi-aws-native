@@ -114,5 +114,6 @@ func (o ApplicationOutputResourceOutput) ToApplicationOutputResourceOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationOutputResourceInput)(nil)).Elem(), &ApplicationOutputResource{})
 	pulumi.RegisterOutputType(ApplicationOutputResourceOutput{})
 }

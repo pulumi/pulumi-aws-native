@@ -118,5 +118,6 @@ func (o SuiteDefinitionOutput) ToSuiteDefinitionOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SuiteDefinitionInput)(nil)).Elem(), &SuiteDefinition{})
 	pulumi.RegisterOutputType(SuiteDefinitionOutput{})
 }

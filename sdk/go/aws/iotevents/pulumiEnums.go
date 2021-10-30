@@ -176,6 +176,8 @@ func (in *detectorModelEvaluationMethodPtr) ToDetectorModelEvaluationMethodPtrOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelEvaluationMethodInput)(nil)).Elem(), DetectorModelEvaluationMethod("BATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorModelEvaluationMethodPtrInput)(nil)).Elem(), DetectorModelEvaluationMethod("BATCH"))
 	pulumi.RegisterOutputType(DetectorModelEvaluationMethodOutput{})
 	pulumi.RegisterOutputType(DetectorModelEvaluationMethodPtrOutput{})
 }

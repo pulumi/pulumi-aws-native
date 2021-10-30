@@ -125,5 +125,6 @@ func (o VPCEConfigurationOutput) ToVPCEConfigurationOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VPCEConfigurationInput)(nil)).Elem(), &VPCEConfiguration{})
 	pulumi.RegisterOutputType(VPCEConfigurationOutput{})
 }

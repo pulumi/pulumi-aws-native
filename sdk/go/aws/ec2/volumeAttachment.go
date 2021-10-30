@@ -120,5 +120,6 @@ func (o VolumeAttachmentOutput) ToVolumeAttachmentOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeAttachmentInput)(nil)).Elem(), &VolumeAttachment{})
 	pulumi.RegisterOutputType(VolumeAttachmentOutput{})
 }

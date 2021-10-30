@@ -247,6 +247,10 @@ func (o AttributeGroupTagsPtrOutput) Elem() AttributeGroupTagsOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagsInput)(nil)).Elem(), ApplicationTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagsPtrInput)(nil)).Elem(), ApplicationTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AttributeGroupTagsInput)(nil)).Elem(), AttributeGroupTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AttributeGroupTagsPtrInput)(nil)).Elem(), AttributeGroupTagsArgs{})
 	pulumi.RegisterOutputType(ApplicationTagsOutput{})
 	pulumi.RegisterOutputType(ApplicationTagsPtrOutput{})
 	pulumi.RegisterOutputType(AttributeGroupTagsOutput{})

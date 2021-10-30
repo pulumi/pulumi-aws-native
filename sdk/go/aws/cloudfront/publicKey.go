@@ -107,5 +107,6 @@ func (o PublicKeyOutput) ToPublicKeyOutputWithContext(ctx context.Context) Publi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PublicKeyInput)(nil)).Elem(), &PublicKey{})
 	pulumi.RegisterOutputType(PublicKeyOutput{})
 }

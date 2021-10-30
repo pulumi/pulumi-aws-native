@@ -926,6 +926,20 @@ func (o SafetyRuleTagArrayOutput) Index(i pulumi.IntInput) SafetyRuleTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEndpointInput)(nil)).Elem(), ClusterEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEndpointArrayInput)(nil)).Elem(), ClusterEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTagInput)(nil)).Elem(), ClusterTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTagArrayInput)(nil)).Elem(), ClusterTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ControlPanelTagInput)(nil)).Elem(), ControlPanelTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ControlPanelTagArrayInput)(nil)).Elem(), ControlPanelTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SafetyRuleAssertionRuleInput)(nil)).Elem(), SafetyRuleAssertionRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SafetyRuleAssertionRulePtrInput)(nil)).Elem(), SafetyRuleAssertionRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SafetyRuleGatingRuleInput)(nil)).Elem(), SafetyRuleGatingRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SafetyRuleGatingRulePtrInput)(nil)).Elem(), SafetyRuleGatingRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SafetyRuleRuleConfigInput)(nil)).Elem(), SafetyRuleRuleConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SafetyRuleRuleConfigPtrInput)(nil)).Elem(), SafetyRuleRuleConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SafetyRuleTagInput)(nil)).Elem(), SafetyRuleTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SafetyRuleTagArrayInput)(nil)).Elem(), SafetyRuleTagArray{})
 	pulumi.RegisterOutputType(ClusterEndpointOutput{})
 	pulumi.RegisterOutputType(ClusterEndpointArrayOutput{})
 	pulumi.RegisterOutputType(ClusterTagOutput{})

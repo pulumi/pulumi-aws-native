@@ -28,6 +28,7 @@ type Campaign struct {
 	Limits               CampaignLimitsPtrOutput                   `pulumi:"limits"`
 	MessageConfiguration CampaignMessageConfigurationOutput        `pulumi:"messageConfiguration"`
 	Name                 pulumi.StringOutput                       `pulumi:"name"`
+	Priority             pulumi.IntPtrOutput                       `pulumi:"priority"`
 	Schedule             CampaignScheduleOutput                    `pulumi:"schedule"`
 	SegmentId            pulumi.StringOutput                       `pulumi:"segmentId"`
 	SegmentVersion       pulumi.IntPtrOutput                       `pulumi:"segmentVersion"`
@@ -99,6 +100,7 @@ type campaignArgs struct {
 	Limits               *CampaignLimits                  `pulumi:"limits"`
 	MessageConfiguration CampaignMessageConfiguration     `pulumi:"messageConfiguration"`
 	Name                 string                           `pulumi:"name"`
+	Priority             *int                             `pulumi:"priority"`
 	Schedule             CampaignSchedule                 `pulumi:"schedule"`
 	SegmentId            string                           `pulumi:"segmentId"`
 	SegmentVersion       *int                             `pulumi:"segmentVersion"`
@@ -118,6 +120,7 @@ type CampaignArgs struct {
 	Limits               CampaignLimitsPtrInput
 	MessageConfiguration CampaignMessageConfigurationInput
 	Name                 pulumi.StringInput
+	Priority             pulumi.IntPtrInput
 	Schedule             CampaignScheduleInput
 	SegmentId            pulumi.StringInput
 	SegmentVersion       pulumi.IntPtrInput
@@ -164,5 +167,6 @@ func (o CampaignOutput) ToCampaignOutputWithContext(ctx context.Context) Campaig
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignInput)(nil)).Elem(), &Campaign{})
 	pulumi.RegisterOutputType(CampaignOutput{})
 }

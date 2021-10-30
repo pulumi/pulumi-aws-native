@@ -138,5 +138,6 @@ func (o ApiDestinationOutput) ToApiDestinationOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiDestinationInput)(nil)).Elem(), &ApiDestination{})
 	pulumi.RegisterOutputType(ApiDestinationOutput{})
 }

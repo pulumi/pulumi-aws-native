@@ -505,6 +505,12 @@ func (in *repositoryImageTagMutabilityPtr) ToRepositoryImageTagMutabilityPtrOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationFilterTypeInput)(nil)).Elem(), ReplicationConfigurationFilterType("PREFIX_MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationFilterTypePtrInput)(nil)).Elem(), ReplicationConfigurationFilterType("PREFIX_MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEncryptionTypeInput)(nil)).Elem(), RepositoryEncryptionType("AES256"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEncryptionTypePtrInput)(nil)).Elem(), RepositoryEncryptionType("AES256"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryImageTagMutabilityInput)(nil)).Elem(), RepositoryImageTagMutability("MUTABLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryImageTagMutabilityPtrInput)(nil)).Elem(), RepositoryImageTagMutability("MUTABLE"))
 	pulumi.RegisterOutputType(ReplicationConfigurationFilterTypeOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationFilterTypePtrOutput{})
 	pulumi.RegisterOutputType(RepositoryEncryptionTypeOutput{})

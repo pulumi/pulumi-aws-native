@@ -117,5 +117,6 @@ func (o ApplicationVersionOutput) ToApplicationVersionOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationVersionInput)(nil)).Elem(), &ApplicationVersion{})
 	pulumi.RegisterOutputType(ApplicationVersionOutput{})
 }

@@ -145,5 +145,6 @@ func (o GlobalTableOutput) ToGlobalTableOutputWithContext(ctx context.Context) G
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableInput)(nil)).Elem(), &GlobalTable{})
 	pulumi.RegisterOutputType(GlobalTableOutput{})
 }

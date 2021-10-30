@@ -211,6 +211,10 @@ func (o ServerTagArrayOutput) Index(i pulumi.IntInput) ServerTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerEngineAttributeInput)(nil)).Elem(), ServerEngineAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerEngineAttributeArrayInput)(nil)).Elem(), ServerEngineAttributeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerTagInput)(nil)).Elem(), ServerTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerTagArrayInput)(nil)).Elem(), ServerTagArray{})
 	pulumi.RegisterOutputType(ServerEngineAttributeOutput{})
 	pulumi.RegisterOutputType(ServerEngineAttributeArrayOutput{})
 	pulumi.RegisterOutputType(ServerTagOutput{})

@@ -143,5 +143,6 @@ func (o EventIntegrationOutput) ToEventIntegrationOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationInput)(nil)).Elem(), &EventIntegration{})
 	pulumi.RegisterOutputType(EventIntegrationOutput{})
 }

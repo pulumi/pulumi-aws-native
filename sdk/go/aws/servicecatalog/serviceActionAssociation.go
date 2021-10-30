@@ -118,5 +118,6 @@ func (o ServiceActionAssociationOutput) ToServiceActionAssociationOutputWithCont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceActionAssociationInput)(nil)).Elem(), &ServiceActionAssociation{})
 	pulumi.RegisterOutputType(ServiceActionAssociationOutput{})
 }

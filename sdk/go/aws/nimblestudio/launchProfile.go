@@ -161,5 +161,6 @@ func (o LaunchProfileOutput) ToLaunchProfileOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileInput)(nil)).Elem(), &LaunchProfile{})
 	pulumi.RegisterOutputType(LaunchProfileOutput{})
 }

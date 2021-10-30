@@ -123,5 +123,6 @@ func (o LayerVersionOutput) ToLayerVersionOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LayerVersionInput)(nil)).Elem(), &LayerVersion{})
 	pulumi.RegisterOutputType(LayerVersionOutput{})
 }

@@ -107,5 +107,6 @@ func (o KeyGroupOutput) ToKeyGroupOutputWithContext(ctx context.Context) KeyGrou
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyGroupInput)(nil)).Elem(), &KeyGroup{})
 	pulumi.RegisterOutputType(KeyGroupOutput{})
 }

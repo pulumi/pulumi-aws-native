@@ -19,6 +19,7 @@ type VpcLink struct {
 
 	Description pulumi.StringPtrOutput   `pulumi:"description"`
 	Name        pulumi.StringOutput      `pulumi:"name"`
+	Tags        VpcLinkTagArrayOutput    `pulumi:"tags"`
 	TargetArns  pulumi.StringArrayOutput `pulumi:"targetArns"`
 }
 
@@ -67,15 +68,17 @@ func (VpcLinkState) ElementType() reflect.Type {
 }
 
 type vpcLinkArgs struct {
-	Description *string  `pulumi:"description"`
-	Name        string   `pulumi:"name"`
-	TargetArns  []string `pulumi:"targetArns"`
+	Description *string      `pulumi:"description"`
+	Name        string       `pulumi:"name"`
+	Tags        []VpcLinkTag `pulumi:"tags"`
+	TargetArns  []string     `pulumi:"targetArns"`
 }
 
 // The set of arguments for constructing a VpcLink resource.
 type VpcLinkArgs struct {
 	Description pulumi.StringPtrInput
 	Name        pulumi.StringInput
+	Tags        VpcLinkTagArrayInput
 	TargetArns  pulumi.StringArrayInput
 }
 
@@ -117,5 +120,6 @@ func (o VpcLinkOutput) ToVpcLinkOutputWithContext(ctx context.Context) VpcLinkOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcLinkInput)(nil)).Elem(), &VpcLink{})
 	pulumi.RegisterOutputType(VpcLinkOutput{})
 }

@@ -23,6 +23,7 @@ type AutoScalingGroup struct {
 	Context                          pulumi.StringPtrOutput                                `pulumi:"context"`
 	Cooldown                         pulumi.StringPtrOutput                                `pulumi:"cooldown"`
 	DesiredCapacity                  pulumi.StringPtrOutput                                `pulumi:"desiredCapacity"`
+	DesiredCapacityType              pulumi.StringPtrOutput                                `pulumi:"desiredCapacityType"`
 	HealthCheckGracePeriod           pulumi.IntPtrOutput                                   `pulumi:"healthCheckGracePeriod"`
 	HealthCheckType                  pulumi.StringPtrOutput                                `pulumi:"healthCheckType"`
 	InstanceId                       pulumi.StringPtrOutput                                `pulumi:"instanceId"`
@@ -97,6 +98,7 @@ type autoScalingGroupArgs struct {
 	Context                          *string                                      `pulumi:"context"`
 	Cooldown                         *string                                      `pulumi:"cooldown"`
 	DesiredCapacity                  *string                                      `pulumi:"desiredCapacity"`
+	DesiredCapacityType              *string                                      `pulumi:"desiredCapacityType"`
 	HealthCheckGracePeriod           *int                                         `pulumi:"healthCheckGracePeriod"`
 	HealthCheckType                  *string                                      `pulumi:"healthCheckType"`
 	InstanceId                       *string                                      `pulumi:"instanceId"`
@@ -127,6 +129,7 @@ type AutoScalingGroupArgs struct {
 	Context                          pulumi.StringPtrInput
 	Cooldown                         pulumi.StringPtrInput
 	DesiredCapacity                  pulumi.StringPtrInput
+	DesiredCapacityType              pulumi.StringPtrInput
 	HealthCheckGracePeriod           pulumi.IntPtrInput
 	HealthCheckType                  pulumi.StringPtrInput
 	InstanceId                       pulumi.StringPtrInput
@@ -187,5 +190,6 @@ func (o AutoScalingGroupOutput) ToAutoScalingGroupOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupInput)(nil)).Elem(), &AutoScalingGroup{})
 	pulumi.RegisterOutputType(AutoScalingGroupOutput{})
 }

@@ -177,6 +177,8 @@ func (in *trailEventSelectorReadWriteTypePtr) ToTrailEventSelectorReadWriteTypeP
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailEventSelectorReadWriteTypeInput)(nil)).Elem(), TrailEventSelectorReadWriteType("All"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailEventSelectorReadWriteTypePtrInput)(nil)).Elem(), TrailEventSelectorReadWriteType("All"))
 	pulumi.RegisterOutputType(TrailEventSelectorReadWriteTypeOutput{})
 	pulumi.RegisterOutputType(TrailEventSelectorReadWriteTypePtrOutput{})
 }

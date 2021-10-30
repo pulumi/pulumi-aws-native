@@ -123,5 +123,6 @@ func (o ContactListOutput) ToContactListOutputWithContext(ctx context.Context) C
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactListInput)(nil)).Elem(), &ContactList{})
 	pulumi.RegisterOutputType(ContactListOutput{})
 }

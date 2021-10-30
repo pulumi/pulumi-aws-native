@@ -12,8 +12,6 @@ import (
 )
 
 // The AWS::MemoryDB::SubnetGroup resource creates an Amazon MemoryDB Subnet Group.
-//
-// Deprecated: SubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type SubnetGroup struct {
 	pulumi.CustomResourceState
 
@@ -134,5 +132,6 @@ func (o SubnetGroupOutput) ToSubnetGroupOutputWithContext(ctx context.Context) S
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetGroupInput)(nil)).Elem(), &SubnetGroup{})
 	pulumi.RegisterOutputType(SubnetGroupOutput{})
 }

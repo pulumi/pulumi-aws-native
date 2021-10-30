@@ -144,5 +144,6 @@ func (o CustomDataIdentifierOutput) ToCustomDataIdentifierOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomDataIdentifierInput)(nil)).Elem(), &CustomDataIdentifier{})
 	pulumi.RegisterOutputType(CustomDataIdentifierOutput{})
 }

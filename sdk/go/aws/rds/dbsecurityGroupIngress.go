@@ -120,5 +120,6 @@ func (o DBSecurityGroupIngressOutput) ToDBSecurityGroupIngressOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DBSecurityGroupIngressInput)(nil)).Elem(), &DBSecurityGroupIngress{})
 	pulumi.RegisterOutputType(DBSecurityGroupIngressOutput{})
 }

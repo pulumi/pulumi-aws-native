@@ -114,5 +114,6 @@ func (o SecurityConfigurationOutput) ToSecurityConfigurationOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationInput)(nil)).Elem(), &SecurityConfiguration{})
 	pulumi.RegisterOutputType(SecurityConfigurationOutput{})
 }

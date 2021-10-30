@@ -672,6 +672,14 @@ func (in *assetPropertyNotificationStatePtr) ToAssetPropertyNotificationStatePtr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelDataTypeInput)(nil)).Elem(), AssetModelDataType("STRING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelDataTypePtrInput)(nil)).Elem(), AssetModelDataType("STRING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelDataTypeSpecInput)(nil)).Elem(), AssetModelDataTypeSpec("AWS/ALARM_STATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelDataTypeSpecPtrInput)(nil)).Elem(), AssetModelDataTypeSpec("AWS/ALARM_STATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelTypeNameInput)(nil)).Elem(), AssetModelTypeName("Measurement"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelTypeNamePtrInput)(nil)).Elem(), AssetModelTypeName("Measurement"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetPropertyNotificationStateInput)(nil)).Elem(), AssetPropertyNotificationState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetPropertyNotificationStatePtrInput)(nil)).Elem(), AssetPropertyNotificationState("ENABLED"))
 	pulumi.RegisterOutputType(AssetModelDataTypeOutput{})
 	pulumi.RegisterOutputType(AssetModelDataTypePtrOutput{})
 	pulumi.RegisterOutputType(AssetModelDataTypeSpecOutput{})

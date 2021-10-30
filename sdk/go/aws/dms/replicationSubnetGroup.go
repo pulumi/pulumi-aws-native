@@ -120,5 +120,6 @@ func (o ReplicationSubnetGroupOutput) ToReplicationSubnetGroupOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationSubnetGroupInput)(nil)).Elem(), &ReplicationSubnetGroup{})
 	pulumi.RegisterOutputType(ReplicationSubnetGroupOutput{})
 }

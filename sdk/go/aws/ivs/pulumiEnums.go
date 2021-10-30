@@ -507,6 +507,12 @@ func (in *recordingConfigurationStateEnumPtr) ToRecordingConfigurationStateEnumP
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLatencyModeInput)(nil)).Elem(), ChannelLatencyMode("NORMAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLatencyModePtrInput)(nil)).Elem(), ChannelLatencyMode("NORMAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTypeInput)(nil)).Elem(), ChannelType("STANDARD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTypePtrInput)(nil)).Elem(), ChannelType("STANDARD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationStateEnumInput)(nil)).Elem(), RecordingConfigurationStateEnum("CREATING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationStateEnumPtrInput)(nil)).Elem(), RecordingConfigurationStateEnum("CREATING"))
 	pulumi.RegisterOutputType(ChannelLatencyModeOutput{})
 	pulumi.RegisterOutputType(ChannelLatencyModePtrOutput{})
 	pulumi.RegisterOutputType(ChannelTypeOutput{})

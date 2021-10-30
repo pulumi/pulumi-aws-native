@@ -1332,6 +1332,22 @@ func (in *gameServerGroupGameServerProtectionPolicyPtr) ToGameServerGroupGameSer
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AliasRoutingStrategyTypeInput)(nil)).Elem(), AliasRoutingStrategyType("SIMPLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AliasRoutingStrategyTypePtrInput)(nil)).Elem(), AliasRoutingStrategyType("SIMPLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetCertificateConfigurationCertificateTypeInput)(nil)).Elem(), FleetCertificateConfigurationCertificateType("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetCertificateConfigurationCertificateTypePtrInput)(nil)).Elem(), FleetCertificateConfigurationCertificateType("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetIpPermissionProtocolInput)(nil)).Elem(), FleetIpPermissionProtocol("TCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetIpPermissionProtocolPtrInput)(nil)).Elem(), FleetIpPermissionProtocol("TCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetNewGameSessionProtectionPolicyInput)(nil)).Elem(), FleetNewGameSessionProtectionPolicy("FullProtection"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetNewGameSessionProtectionPolicyPtrInput)(nil)).Elem(), FleetNewGameSessionProtectionPolicy("FullProtection"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetTypeInput)(nil)).Elem(), FleetType("ON_DEMAND"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetTypePtrInput)(nil)).Elem(), FleetType("ON_DEMAND"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupBalancingStrategyInput)(nil)).Elem(), GameServerGroupBalancingStrategy("SPOT_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupBalancingStrategyPtrInput)(nil)).Elem(), GameServerGroupBalancingStrategy("SPOT_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupDeleteOptionInput)(nil)).Elem(), GameServerGroupDeleteOption("SAFE_DELETE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupDeleteOptionPtrInput)(nil)).Elem(), GameServerGroupDeleteOption("SAFE_DELETE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupGameServerProtectionPolicyInput)(nil)).Elem(), GameServerGroupGameServerProtectionPolicy("NO_PROTECTION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupGameServerProtectionPolicyPtrInput)(nil)).Elem(), GameServerGroupGameServerProtectionPolicy("NO_PROTECTION"))
 	pulumi.RegisterOutputType(AliasRoutingStrategyTypeOutput{})
 	pulumi.RegisterOutputType(AliasRoutingStrategyTypePtrOutput{})
 	pulumi.RegisterOutputType(FleetCertificateConfigurationCertificateTypeOutput{})

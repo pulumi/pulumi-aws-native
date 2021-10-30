@@ -505,6 +505,12 @@ func (in *tableModePtr) ToTableModePtrOutputWithContext(ctx context.Context) Tab
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TableClusteringKeyColumnOrderByInput)(nil)).Elem(), TableClusteringKeyColumnOrderBy("ASC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableClusteringKeyColumnOrderByPtrInput)(nil)).Elem(), TableClusteringKeyColumnOrderBy("ASC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableEncryptionTypeInput)(nil)).Elem(), TableEncryptionType("AWS_OWNED_KMS_KEY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableEncryptionTypePtrInput)(nil)).Elem(), TableEncryptionType("AWS_OWNED_KMS_KEY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableModeInput)(nil)).Elem(), TableMode("PROVISIONED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableModePtrInput)(nil)).Elem(), TableMode("PROVISIONED"))
 	pulumi.RegisterOutputType(TableClusteringKeyColumnOrderByOutput{})
 	pulumi.RegisterOutputType(TableClusteringKeyColumnOrderByPtrOutput{})
 	pulumi.RegisterOutputType(TableEncryptionTypeOutput{})

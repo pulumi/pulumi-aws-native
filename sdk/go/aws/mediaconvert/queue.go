@@ -117,5 +117,6 @@ func (o QueueOutput) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueInput)(nil)).Elem(), &Queue{})
 	pulumi.RegisterOutputType(QueueOutput{})
 }

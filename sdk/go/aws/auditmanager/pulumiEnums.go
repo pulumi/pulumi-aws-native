@@ -671,6 +671,14 @@ func (in *assessmentStatusPtr) ToAssessmentStatusPtrOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentDelegationStatusInput)(nil)).Elem(), AssessmentDelegationStatus("IN_PROGRESS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentDelegationStatusPtrInput)(nil)).Elem(), AssessmentDelegationStatus("IN_PROGRESS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentReportDestinationTypeInput)(nil)).Elem(), AssessmentReportDestinationType("S3"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentReportDestinationTypePtrInput)(nil)).Elem(), AssessmentReportDestinationType("S3"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentRoleTypeInput)(nil)).Elem(), AssessmentRoleType("PROCESS_OWNER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentRoleTypePtrInput)(nil)).Elem(), AssessmentRoleType("PROCESS_OWNER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentStatusInput)(nil)).Elem(), AssessmentStatus("ACTIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentStatusPtrInput)(nil)).Elem(), AssessmentStatus("ACTIVE"))
 	pulumi.RegisterOutputType(AssessmentDelegationStatusOutput{})
 	pulumi.RegisterOutputType(AssessmentDelegationStatusPtrOutput{})
 	pulumi.RegisterOutputType(AssessmentReportDestinationTypeOutput{})

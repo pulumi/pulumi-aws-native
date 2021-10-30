@@ -129,5 +129,6 @@ func (o RouteResponseOutput) ToRouteResponseOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteResponseInput)(nil)).Elem(), &RouteResponse{})
 	pulumi.RegisterOutputType(RouteResponseOutput{})
 }

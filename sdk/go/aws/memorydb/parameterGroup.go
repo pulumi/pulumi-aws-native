@@ -12,8 +12,6 @@ import (
 )
 
 // The AWS::MemoryDB::ParameterGroup resource creates an Amazon MemoryDB ParameterGroup.
-//
-// Deprecated: ParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type ParameterGroup struct {
 	pulumi.CustomResourceState
 
@@ -140,5 +138,6 @@ func (o ParameterGroupOutput) ToParameterGroupOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupInput)(nil)).Elem(), &ParameterGroup{})
 	pulumi.RegisterOutputType(ParameterGroupOutput{})
 }

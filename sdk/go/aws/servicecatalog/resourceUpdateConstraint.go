@@ -126,5 +126,6 @@ func (o ResourceUpdateConstraintOutput) ToResourceUpdateConstraintOutputWithCont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceUpdateConstraintInput)(nil)).Elem(), &ResourceUpdateConstraint{})
 	pulumi.RegisterOutputType(ResourceUpdateConstraintOutput{})
 }

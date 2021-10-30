@@ -123,5 +123,6 @@ func (o BaiduChannelOutput) ToBaiduChannelOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BaiduChannelInput)(nil)).Elem(), &BaiduChannel{})
 	pulumi.RegisterOutputType(BaiduChannelOutput{})
 }
