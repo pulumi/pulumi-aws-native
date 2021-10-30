@@ -10,15 +10,24 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AutoScalingGroupAcceleratorCountRequest',
+    'AutoScalingGroupAcceleratorTotalMemoryMiBRequest',
+    'AutoScalingGroupBaselineEbsBandwidthMbpsRequest',
+    'AutoScalingGroupInstanceRequirements',
     'AutoScalingGroupInstancesDistribution',
     'AutoScalingGroupLaunchTemplate',
     'AutoScalingGroupLaunchTemplateOverrides',
     'AutoScalingGroupLaunchTemplateSpecification',
     'AutoScalingGroupLifecycleHookSpecification',
+    'AutoScalingGroupMemoryGiBPerVCpuRequest',
+    'AutoScalingGroupMemoryMiBRequest',
     'AutoScalingGroupMetricsCollection',
     'AutoScalingGroupMixedInstancesPolicy',
+    'AutoScalingGroupNetworkInterfaceCountRequest',
     'AutoScalingGroupNotificationConfiguration',
     'AutoScalingGroupTagProperty',
+    'AutoScalingGroupTotalLocalStorageGBRequest',
+    'AutoScalingGroupVCpuCountRequest',
     'LaunchConfigurationBlockDevice',
     'LaunchConfigurationBlockDeviceMapping',
     'LaunchConfigurationMetadataOptions',
@@ -33,6 +42,299 @@ __all__ = [
     'ScalingPolicyStepAdjustment',
     'ScalingPolicyTargetTrackingConfiguration',
 ]
+
+@pulumi.output_type
+class AutoScalingGroupAcceleratorCountRequest(dict):
+    def __init__(__self__, *,
+                 max: Optional[int] = None,
+                 min: Optional[int] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[int]:
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[int]:
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class AutoScalingGroupAcceleratorTotalMemoryMiBRequest(dict):
+    def __init__(__self__, *,
+                 max: Optional[int] = None,
+                 min: Optional[int] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[int]:
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[int]:
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class AutoScalingGroupBaselineEbsBandwidthMbpsRequest(dict):
+    def __init__(__self__, *,
+                 max: Optional[int] = None,
+                 min: Optional[int] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[int]:
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[int]:
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class AutoScalingGroupInstanceRequirements(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "acceleratorCount":
+            suggest = "accelerator_count"
+        elif key == "acceleratorManufacturers":
+            suggest = "accelerator_manufacturers"
+        elif key == "acceleratorNames":
+            suggest = "accelerator_names"
+        elif key == "acceleratorTotalMemoryMiB":
+            suggest = "accelerator_total_memory_mi_b"
+        elif key == "acceleratorTypes":
+            suggest = "accelerator_types"
+        elif key == "bareMetal":
+            suggest = "bare_metal"
+        elif key == "baselineEbsBandwidthMbps":
+            suggest = "baseline_ebs_bandwidth_mbps"
+        elif key == "burstablePerformance":
+            suggest = "burstable_performance"
+        elif key == "cpuManufacturers":
+            suggest = "cpu_manufacturers"
+        elif key == "excludedInstanceTypes":
+            suggest = "excluded_instance_types"
+        elif key == "instanceGenerations":
+            suggest = "instance_generations"
+        elif key == "localStorage":
+            suggest = "local_storage"
+        elif key == "localStorageTypes":
+            suggest = "local_storage_types"
+        elif key == "memoryGiBPerVCpu":
+            suggest = "memory_gi_b_per_v_cpu"
+        elif key == "memoryMiB":
+            suggest = "memory_mi_b"
+        elif key == "networkInterfaceCount":
+            suggest = "network_interface_count"
+        elif key == "onDemandMaxPricePercentageOverLowestPrice":
+            suggest = "on_demand_max_price_percentage_over_lowest_price"
+        elif key == "requireHibernateSupport":
+            suggest = "require_hibernate_support"
+        elif key == "spotMaxPricePercentageOverLowestPrice":
+            suggest = "spot_max_price_percentage_over_lowest_price"
+        elif key == "totalLocalStorageGB":
+            suggest = "total_local_storage_gb"
+        elif key == "vCpuCount":
+            suggest = "v_cpu_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutoScalingGroupInstanceRequirements. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutoScalingGroupInstanceRequirements.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutoScalingGroupInstanceRequirements.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 accelerator_count: Optional['outputs.AutoScalingGroupAcceleratorCountRequest'] = None,
+                 accelerator_manufacturers: Optional[Sequence[str]] = None,
+                 accelerator_names: Optional[Sequence[str]] = None,
+                 accelerator_total_memory_mi_b: Optional['outputs.AutoScalingGroupAcceleratorTotalMemoryMiBRequest'] = None,
+                 accelerator_types: Optional[Sequence[str]] = None,
+                 bare_metal: Optional[str] = None,
+                 baseline_ebs_bandwidth_mbps: Optional['outputs.AutoScalingGroupBaselineEbsBandwidthMbpsRequest'] = None,
+                 burstable_performance: Optional[str] = None,
+                 cpu_manufacturers: Optional[Sequence[str]] = None,
+                 excluded_instance_types: Optional[Sequence[str]] = None,
+                 instance_generations: Optional[Sequence[str]] = None,
+                 local_storage: Optional[str] = None,
+                 local_storage_types: Optional[Sequence[str]] = None,
+                 memory_gi_b_per_v_cpu: Optional['outputs.AutoScalingGroupMemoryGiBPerVCpuRequest'] = None,
+                 memory_mi_b: Optional['outputs.AutoScalingGroupMemoryMiBRequest'] = None,
+                 network_interface_count: Optional['outputs.AutoScalingGroupNetworkInterfaceCountRequest'] = None,
+                 on_demand_max_price_percentage_over_lowest_price: Optional[int] = None,
+                 require_hibernate_support: Optional[bool] = None,
+                 spot_max_price_percentage_over_lowest_price: Optional[int] = None,
+                 total_local_storage_gb: Optional['outputs.AutoScalingGroupTotalLocalStorageGBRequest'] = None,
+                 v_cpu_count: Optional['outputs.AutoScalingGroupVCpuCountRequest'] = None):
+        if accelerator_count is not None:
+            pulumi.set(__self__, "accelerator_count", accelerator_count)
+        if accelerator_manufacturers is not None:
+            pulumi.set(__self__, "accelerator_manufacturers", accelerator_manufacturers)
+        if accelerator_names is not None:
+            pulumi.set(__self__, "accelerator_names", accelerator_names)
+        if accelerator_total_memory_mi_b is not None:
+            pulumi.set(__self__, "accelerator_total_memory_mi_b", accelerator_total_memory_mi_b)
+        if accelerator_types is not None:
+            pulumi.set(__self__, "accelerator_types", accelerator_types)
+        if bare_metal is not None:
+            pulumi.set(__self__, "bare_metal", bare_metal)
+        if baseline_ebs_bandwidth_mbps is not None:
+            pulumi.set(__self__, "baseline_ebs_bandwidth_mbps", baseline_ebs_bandwidth_mbps)
+        if burstable_performance is not None:
+            pulumi.set(__self__, "burstable_performance", burstable_performance)
+        if cpu_manufacturers is not None:
+            pulumi.set(__self__, "cpu_manufacturers", cpu_manufacturers)
+        if excluded_instance_types is not None:
+            pulumi.set(__self__, "excluded_instance_types", excluded_instance_types)
+        if instance_generations is not None:
+            pulumi.set(__self__, "instance_generations", instance_generations)
+        if local_storage is not None:
+            pulumi.set(__self__, "local_storage", local_storage)
+        if local_storage_types is not None:
+            pulumi.set(__self__, "local_storage_types", local_storage_types)
+        if memory_gi_b_per_v_cpu is not None:
+            pulumi.set(__self__, "memory_gi_b_per_v_cpu", memory_gi_b_per_v_cpu)
+        if memory_mi_b is not None:
+            pulumi.set(__self__, "memory_mi_b", memory_mi_b)
+        if network_interface_count is not None:
+            pulumi.set(__self__, "network_interface_count", network_interface_count)
+        if on_demand_max_price_percentage_over_lowest_price is not None:
+            pulumi.set(__self__, "on_demand_max_price_percentage_over_lowest_price", on_demand_max_price_percentage_over_lowest_price)
+        if require_hibernate_support is not None:
+            pulumi.set(__self__, "require_hibernate_support", require_hibernate_support)
+        if spot_max_price_percentage_over_lowest_price is not None:
+            pulumi.set(__self__, "spot_max_price_percentage_over_lowest_price", spot_max_price_percentage_over_lowest_price)
+        if total_local_storage_gb is not None:
+            pulumi.set(__self__, "total_local_storage_gb", total_local_storage_gb)
+        if v_cpu_count is not None:
+            pulumi.set(__self__, "v_cpu_count", v_cpu_count)
+
+    @property
+    @pulumi.getter(name="acceleratorCount")
+    def accelerator_count(self) -> Optional['outputs.AutoScalingGroupAcceleratorCountRequest']:
+        return pulumi.get(self, "accelerator_count")
+
+    @property
+    @pulumi.getter(name="acceleratorManufacturers")
+    def accelerator_manufacturers(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "accelerator_manufacturers")
+
+    @property
+    @pulumi.getter(name="acceleratorNames")
+    def accelerator_names(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "accelerator_names")
+
+    @property
+    @pulumi.getter(name="acceleratorTotalMemoryMiB")
+    def accelerator_total_memory_mi_b(self) -> Optional['outputs.AutoScalingGroupAcceleratorTotalMemoryMiBRequest']:
+        return pulumi.get(self, "accelerator_total_memory_mi_b")
+
+    @property
+    @pulumi.getter(name="acceleratorTypes")
+    def accelerator_types(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "accelerator_types")
+
+    @property
+    @pulumi.getter(name="bareMetal")
+    def bare_metal(self) -> Optional[str]:
+        return pulumi.get(self, "bare_metal")
+
+    @property
+    @pulumi.getter(name="baselineEbsBandwidthMbps")
+    def baseline_ebs_bandwidth_mbps(self) -> Optional['outputs.AutoScalingGroupBaselineEbsBandwidthMbpsRequest']:
+        return pulumi.get(self, "baseline_ebs_bandwidth_mbps")
+
+    @property
+    @pulumi.getter(name="burstablePerformance")
+    def burstable_performance(self) -> Optional[str]:
+        return pulumi.get(self, "burstable_performance")
+
+    @property
+    @pulumi.getter(name="cpuManufacturers")
+    def cpu_manufacturers(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "cpu_manufacturers")
+
+    @property
+    @pulumi.getter(name="excludedInstanceTypes")
+    def excluded_instance_types(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "excluded_instance_types")
+
+    @property
+    @pulumi.getter(name="instanceGenerations")
+    def instance_generations(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "instance_generations")
+
+    @property
+    @pulumi.getter(name="localStorage")
+    def local_storage(self) -> Optional[str]:
+        return pulumi.get(self, "local_storage")
+
+    @property
+    @pulumi.getter(name="localStorageTypes")
+    def local_storage_types(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "local_storage_types")
+
+    @property
+    @pulumi.getter(name="memoryGiBPerVCpu")
+    def memory_gi_b_per_v_cpu(self) -> Optional['outputs.AutoScalingGroupMemoryGiBPerVCpuRequest']:
+        return pulumi.get(self, "memory_gi_b_per_v_cpu")
+
+    @property
+    @pulumi.getter(name="memoryMiB")
+    def memory_mi_b(self) -> Optional['outputs.AutoScalingGroupMemoryMiBRequest']:
+        return pulumi.get(self, "memory_mi_b")
+
+    @property
+    @pulumi.getter(name="networkInterfaceCount")
+    def network_interface_count(self) -> Optional['outputs.AutoScalingGroupNetworkInterfaceCountRequest']:
+        return pulumi.get(self, "network_interface_count")
+
+    @property
+    @pulumi.getter(name="onDemandMaxPricePercentageOverLowestPrice")
+    def on_demand_max_price_percentage_over_lowest_price(self) -> Optional[int]:
+        return pulumi.get(self, "on_demand_max_price_percentage_over_lowest_price")
+
+    @property
+    @pulumi.getter(name="requireHibernateSupport")
+    def require_hibernate_support(self) -> Optional[bool]:
+        return pulumi.get(self, "require_hibernate_support")
+
+    @property
+    @pulumi.getter(name="spotMaxPricePercentageOverLowestPrice")
+    def spot_max_price_percentage_over_lowest_price(self) -> Optional[int]:
+        return pulumi.get(self, "spot_max_price_percentage_over_lowest_price")
+
+    @property
+    @pulumi.getter(name="totalLocalStorageGB")
+    def total_local_storage_gb(self) -> Optional['outputs.AutoScalingGroupTotalLocalStorageGBRequest']:
+        return pulumi.get(self, "total_local_storage_gb")
+
+    @property
+    @pulumi.getter(name="vCpuCount")
+    def v_cpu_count(self) -> Optional['outputs.AutoScalingGroupVCpuCountRequest']:
+        return pulumi.get(self, "v_cpu_count")
+
 
 @pulumi.output_type
 class AutoScalingGroupInstancesDistribution(dict):
@@ -156,7 +458,9 @@ class AutoScalingGroupLaunchTemplateOverrides(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "instanceType":
+        if key == "instanceRequirements":
+            suggest = "instance_requirements"
+        elif key == "instanceType":
             suggest = "instance_type"
         elif key == "launchTemplateSpecification":
             suggest = "launch_template_specification"
@@ -175,15 +479,23 @@ class AutoScalingGroupLaunchTemplateOverrides(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 instance_requirements: Optional['outputs.AutoScalingGroupInstanceRequirements'] = None,
                  instance_type: Optional[str] = None,
                  launch_template_specification: Optional['outputs.AutoScalingGroupLaunchTemplateSpecification'] = None,
                  weighted_capacity: Optional[str] = None):
+        if instance_requirements is not None:
+            pulumi.set(__self__, "instance_requirements", instance_requirements)
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
         if launch_template_specification is not None:
             pulumi.set(__self__, "launch_template_specification", launch_template_specification)
         if weighted_capacity is not None:
             pulumi.set(__self__, "weighted_capacity", weighted_capacity)
+
+    @property
+    @pulumi.getter(name="instanceRequirements")
+    def instance_requirements(self) -> Optional['outputs.AutoScalingGroupInstanceRequirements']:
+        return pulumi.get(self, "instance_requirements")
 
     @property
     @pulumi.getter(name="instanceType")
@@ -337,6 +649,48 @@ class AutoScalingGroupLifecycleHookSpecification(dict):
 
 
 @pulumi.output_type
+class AutoScalingGroupMemoryGiBPerVCpuRequest(dict):
+    def __init__(__self__, *,
+                 max: Optional[int] = None,
+                 min: Optional[int] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[int]:
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[int]:
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class AutoScalingGroupMemoryMiBRequest(dict):
+    def __init__(__self__, *,
+                 max: Optional[int] = None,
+                 min: Optional[int] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[int]:
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[int]:
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
 class AutoScalingGroupMetricsCollection(dict):
     def __init__(__self__, *,
                  granularity: str,
@@ -393,6 +747,27 @@ class AutoScalingGroupMixedInstancesPolicy(dict):
     @pulumi.getter(name="instancesDistribution")
     def instances_distribution(self) -> Optional['outputs.AutoScalingGroupInstancesDistribution']:
         return pulumi.get(self, "instances_distribution")
+
+
+@pulumi.output_type
+class AutoScalingGroupNetworkInterfaceCountRequest(dict):
+    def __init__(__self__, *,
+                 max: Optional[int] = None,
+                 min: Optional[int] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[int]:
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[int]:
+        return pulumi.get(self, "min")
 
 
 @pulumi.output_type
@@ -475,6 +850,48 @@ class AutoScalingGroupTagProperty(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutoScalingGroupTotalLocalStorageGBRequest(dict):
+    def __init__(__self__, *,
+                 max: Optional[int] = None,
+                 min: Optional[int] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[int]:
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[int]:
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class AutoScalingGroupVCpuCountRequest(dict):
+    def __init__(__self__, *,
+                 max: Optional[int] = None,
+                 min: Optional[int] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[int]:
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[int]:
+        return pulumi.get(self, "min")
 
 
 @pulumi.output_type

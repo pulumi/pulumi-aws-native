@@ -23,6 +23,7 @@ class AutoScalingGroupArgs:
                  context: Optional[pulumi.Input[str]] = None,
                  cooldown: Optional[pulumi.Input[str]] = None,
                  desired_capacity: Optional[pulumi.Input[str]] = None,
+                 desired_capacity_type: Optional[pulumi.Input[str]] = None,
                  health_check_grace_period: Optional[pulumi.Input[int]] = None,
                  health_check_type: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
@@ -58,6 +59,8 @@ class AutoScalingGroupArgs:
             pulumi.set(__self__, "cooldown", cooldown)
         if desired_capacity is not None:
             pulumi.set(__self__, "desired_capacity", desired_capacity)
+        if desired_capacity_type is not None:
+            pulumi.set(__self__, "desired_capacity_type", desired_capacity_type)
         if health_check_grace_period is not None:
             pulumi.set(__self__, "health_check_grace_period", health_check_grace_period)
         if health_check_type is not None:
@@ -166,6 +169,15 @@ class AutoScalingGroupArgs:
     @desired_capacity.setter
     def desired_capacity(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "desired_capacity", value)
+
+    @property
+    @pulumi.getter(name="desiredCapacityType")
+    def desired_capacity_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "desired_capacity_type")
+
+    @desired_capacity_type.setter
+    def desired_capacity_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "desired_capacity_type", value)
 
     @property
     @pulumi.getter(name="healthCheckGracePeriod")
@@ -346,6 +358,7 @@ class AutoScalingGroup(pulumi.CustomResource):
                  context: Optional[pulumi.Input[str]] = None,
                  cooldown: Optional[pulumi.Input[str]] = None,
                  desired_capacity: Optional[pulumi.Input[str]] = None,
+                 desired_capacity_type: Optional[pulumi.Input[str]] = None,
                  health_check_grace_period: Optional[pulumi.Input[int]] = None,
                  health_check_type: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
@@ -403,6 +416,7 @@ class AutoScalingGroup(pulumi.CustomResource):
                  context: Optional[pulumi.Input[str]] = None,
                  cooldown: Optional[pulumi.Input[str]] = None,
                  desired_capacity: Optional[pulumi.Input[str]] = None,
+                 desired_capacity_type: Optional[pulumi.Input[str]] = None,
                  health_check_grace_period: Optional[pulumi.Input[int]] = None,
                  health_check_type: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
@@ -442,6 +456,7 @@ class AutoScalingGroup(pulumi.CustomResource):
             __props__.__dict__["context"] = context
             __props__.__dict__["cooldown"] = cooldown
             __props__.__dict__["desired_capacity"] = desired_capacity
+            __props__.__dict__["desired_capacity_type"] = desired_capacity_type
             __props__.__dict__["health_check_grace_period"] = health_check_grace_period
             __props__.__dict__["health_check_type"] = health_check_type
             __props__.__dict__["instance_id"] = instance_id
@@ -495,6 +510,7 @@ class AutoScalingGroup(pulumi.CustomResource):
         __props__.__dict__["context"] = None
         __props__.__dict__["cooldown"] = None
         __props__.__dict__["desired_capacity"] = None
+        __props__.__dict__["desired_capacity_type"] = None
         __props__.__dict__["health_check_grace_period"] = None
         __props__.__dict__["health_check_type"] = None
         __props__.__dict__["instance_id"] = None
@@ -547,6 +563,11 @@ class AutoScalingGroup(pulumi.CustomResource):
     @pulumi.getter(name="desiredCapacity")
     def desired_capacity(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "desired_capacity")
+
+    @property
+    @pulumi.getter(name="desiredCapacityType")
+    def desired_capacity_type(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "desired_capacity_type")
 
     @property
     @pulumi.getter(name="healthCheckGracePeriod")

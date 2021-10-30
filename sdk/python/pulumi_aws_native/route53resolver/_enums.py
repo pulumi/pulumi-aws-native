@@ -13,11 +13,14 @@ __all__ = [
     'FirewallRuleGroupFirewallRuleBlockResponse',
     'FirewallRuleGroupShareStatus',
     'FirewallRuleGroupStatus',
+    'ResolverConfigAutodefinedReverse',
+    'ResolverConfigAutodefinedReverseFlag',
     'ResolverDNSSECConfigValidationStatus',
     'ResolverQueryLoggingConfigAssociationError',
     'ResolverQueryLoggingConfigAssociationStatus',
     'ResolverQueryLoggingConfigShareStatus',
     'ResolverQueryLoggingConfigStatus',
+    'ResolverRuleRuleType',
 ]
 
 
@@ -95,6 +98,23 @@ class FirewallRuleGroupStatus(str, Enum):
     INACTIVE_OWNER_ACCOUNT_CLOSED = "INACTIVE_OWNER_ACCOUNT_CLOSED"
 
 
+class ResolverConfigAutodefinedReverse(str, Enum):
+    """
+    ResolverAutodefinedReverseStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.
+    """
+    ENABLING = "ENABLING"
+    ENABLED = "ENABLED"
+    DISABLING = "DISABLING"
+    DISABLED = "DISABLED"
+
+
+class ResolverConfigAutodefinedReverseFlag(str, Enum):
+    """
+    Represents the desired status of AutodefinedReverse. The only supported value on creation is DISABLE. Deletion of this resource will return AutodefinedReverse to its default value (ENABLED).
+    """
+    DISABLE = "DISABLE"
+
+
 class ResolverDNSSECConfigValidationStatus(str, Enum):
     """
     ResolverDNSSECValidationStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.
@@ -143,3 +163,12 @@ class ResolverQueryLoggingConfigStatus(str, Enum):
     CREATED = "CREATED"
     DELETING = "DELETING"
     FAILED = "FAILED"
+
+
+class ResolverRuleRuleType(str, Enum):
+    """
+    When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.
+    """
+    FORWARD = "FORWARD"
+    SYSTEM = "SYSTEM"
+    RECURSIVE = "RECURSIVE"

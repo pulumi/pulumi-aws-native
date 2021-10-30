@@ -5,12 +5,25 @@
 from enum import Enum
 
 __all__ = [
+    'CapacityReservationFleetInstanceMatchCriteria',
+    'CapacityReservationFleetTenancy',
+    'EC2FleetCapacityRebalanceReplacementStrategy',
     'EC2FleetCapacityReservationOptionsRequestUsageStrategy',
     'EC2FleetExcessCapacityTerminationPolicy',
+    'EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem',
+    'EC2FleetInstanceRequirementsRequestAcceleratorNamesItem',
+    'EC2FleetInstanceRequirementsRequestAcceleratorTypesItem',
+    'EC2FleetInstanceRequirementsRequestBareMetal',
+    'EC2FleetInstanceRequirementsRequestBurstablePerformance',
+    'EC2FleetInstanceRequirementsRequestCpuManufacturersItem',
+    'EC2FleetInstanceRequirementsRequestInstanceGenerationsItem',
+    'EC2FleetInstanceRequirementsRequestLocalStorage',
+    'EC2FleetInstanceRequirementsRequestLocalStorageTypesItem',
     'EC2FleetSpotOptionsRequestAllocationStrategy',
     'EC2FleetSpotOptionsRequestInstanceInterruptionBehavior',
     'EC2FleetTagSpecificationResourceType',
     'EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType',
+    'EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType',
     'EC2FleetType',
     'FlowLogLogDestinationType',
     'FlowLogResourceType',
@@ -21,14 +34,37 @@ __all__ = [
     'NetworkInsightsPathProtocol',
     'PrefixListAddressFamily',
     'SpotFleetEbsBlockDeviceVolumeType',
+    'SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem',
+    'SpotFleetInstanceRequirementsRequestAcceleratorNamesItem',
+    'SpotFleetInstanceRequirementsRequestAcceleratorTypesItem',
+    'SpotFleetInstanceRequirementsRequestBareMetal',
+    'SpotFleetInstanceRequirementsRequestBurstablePerformance',
+    'SpotFleetInstanceRequirementsRequestCpuManufacturersItem',
+    'SpotFleetInstanceRequirementsRequestInstanceGenerationsItem',
+    'SpotFleetInstanceRequirementsRequestLocalStorage',
+    'SpotFleetInstanceRequirementsRequestLocalStorageTypesItem',
     'SpotFleetRequestConfigDataAllocationStrategy',
     'SpotFleetRequestConfigDataExcessCapacityTerminationPolicy',
     'SpotFleetRequestConfigDataInstanceInterruptionBehavior',
+    'SpotFleetRequestConfigDataTargetCapacityUnitType',
     'SpotFleetRequestConfigDataType',
     'SpotFleetSpotCapacityRebalanceReplacementStrategy',
     'SpotFleetSpotPlacementTenancy',
     'SpotFleetTagSpecificationResourceType',
 ]
+
+
+class CapacityReservationFleetInstanceMatchCriteria(str, Enum):
+    OPEN = "open"
+
+
+class CapacityReservationFleetTenancy(str, Enum):
+    DEFAULT = "default"
+
+
+class EC2FleetCapacityRebalanceReplacementStrategy(str, Enum):
+    LAUNCH = "launch"
+    LAUNCH_BEFORE_TERMINATE = "launch-before-terminate"
 
 
 class EC2FleetCapacityReservationOptionsRequestUsageStrategy(str, Enum):
@@ -38,6 +74,65 @@ class EC2FleetCapacityReservationOptionsRequestUsageStrategy(str, Enum):
 class EC2FleetExcessCapacityTerminationPolicy(str, Enum):
     TERMINATION = "termination"
     NO_TERMINATION = "no-termination"
+
+
+class EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem(str, Enum):
+    NVIDIA = "nvidia"
+    AMD = "amd"
+    AMAZON_WEB_SERVICES = "amazon-web-services"
+    XILINX = "xilinx"
+
+
+class EC2FleetInstanceRequirementsRequestAcceleratorNamesItem(str, Enum):
+    A100 = "a100"
+    V100 = "v100"
+    K80 = "k80"
+    T4 = "t4"
+    M60 = "m60"
+    RADEON_PRO_V520 = "radeon-pro-v520"
+    VU9P = "vu9p"
+    INFERENTIA = "inferentia"
+    K520 = "k520"
+
+
+class EC2FleetInstanceRequirementsRequestAcceleratorTypesItem(str, Enum):
+    GPU = "gpu"
+    FPGA = "fpga"
+    INFERENCE = "inference"
+
+
+class EC2FleetInstanceRequirementsRequestBareMetal(str, Enum):
+    INCLUDED = "included"
+    REQUIRED = "required"
+    EXCLUDED = "excluded"
+
+
+class EC2FleetInstanceRequirementsRequestBurstablePerformance(str, Enum):
+    INCLUDED = "included"
+    REQUIRED = "required"
+    EXCLUDED = "excluded"
+
+
+class EC2FleetInstanceRequirementsRequestCpuManufacturersItem(str, Enum):
+    INTEL = "intel"
+    AMD = "amd"
+    AMAZON_WEB_SERVICES = "amazon-web-services"
+
+
+class EC2FleetInstanceRequirementsRequestInstanceGenerationsItem(str, Enum):
+    CURRENT = "current"
+    PREVIOUS = "previous"
+
+
+class EC2FleetInstanceRequirementsRequestLocalStorage(str, Enum):
+    INCLUDED = "included"
+    REQUIRED = "required"
+    EXCLUDED = "excluded"
+
+
+class EC2FleetInstanceRequirementsRequestLocalStorageTypesItem(str, Enum):
+    HDD = "hdd"
+    SSD = "ssd"
 
 
 class EC2FleetSpotOptionsRequestAllocationStrategy(str, Enum):
@@ -106,6 +201,12 @@ class EC2FleetTagSpecificationResourceType(str, Enum):
 class EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType(str, Enum):
     ON_DEMAND = "on-demand"
     SPOT = "spot"
+
+
+class EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType(str, Enum):
+    VCPU = "vcpu"
+    MEMORY_MIB = "memory-mib"
+    UNITS = "units"
 
 
 class EC2FleetType(str, Enum):
@@ -185,6 +286,65 @@ class SpotFleetEbsBlockDeviceVolumeType(str, Enum):
     STANDARD = "standard"
 
 
+class SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem(str, Enum):
+    NVIDIA = "nvidia"
+    AMD = "amd"
+    AMAZON_WEB_SERVICES = "amazon-web-services"
+    XILINX = "xilinx"
+
+
+class SpotFleetInstanceRequirementsRequestAcceleratorNamesItem(str, Enum):
+    A100 = "a100"
+    V100 = "v100"
+    K80 = "k80"
+    T4 = "t4"
+    M60 = "m60"
+    RADEON_PRO_V520 = "radeon-pro-v520"
+    VU9P = "vu9p"
+    INFERENTIA = "inferentia"
+    K520 = "k520"
+
+
+class SpotFleetInstanceRequirementsRequestAcceleratorTypesItem(str, Enum):
+    GPU = "gpu"
+    FPGA = "fpga"
+    INFERENCE = "inference"
+
+
+class SpotFleetInstanceRequirementsRequestBareMetal(str, Enum):
+    INCLUDED = "included"
+    REQUIRED = "required"
+    EXCLUDED = "excluded"
+
+
+class SpotFleetInstanceRequirementsRequestBurstablePerformance(str, Enum):
+    INCLUDED = "included"
+    REQUIRED = "required"
+    EXCLUDED = "excluded"
+
+
+class SpotFleetInstanceRequirementsRequestCpuManufacturersItem(str, Enum):
+    INTEL = "intel"
+    AMD = "amd"
+    AMAZON_WEB_SERVICES = "amazon-web-services"
+
+
+class SpotFleetInstanceRequirementsRequestInstanceGenerationsItem(str, Enum):
+    CURRENT = "current"
+    PREVIOUS = "previous"
+
+
+class SpotFleetInstanceRequirementsRequestLocalStorage(str, Enum):
+    INCLUDED = "included"
+    REQUIRED = "required"
+    EXCLUDED = "excluded"
+
+
+class SpotFleetInstanceRequirementsRequestLocalStorageTypesItem(str, Enum):
+    HDD = "hdd"
+    SSD = "ssd"
+
+
 class SpotFleetRequestConfigDataAllocationStrategy(str, Enum):
     CAPACITY_OPTIMIZED = "capacityOptimized"
     CAPACITY_OPTIMIZED_PRIORITIZED = "capacityOptimizedPrioritized"
@@ -203,6 +363,12 @@ class SpotFleetRequestConfigDataInstanceInterruptionBehavior(str, Enum):
     TERMINATE = "terminate"
 
 
+class SpotFleetRequestConfigDataTargetCapacityUnitType(str, Enum):
+    VCPU = "vcpu"
+    MEMORY_MIB = "memory-mib"
+    UNITS = "units"
+
+
 class SpotFleetRequestConfigDataType(str, Enum):
     MAINTAIN = "maintain"
     REQUEST = "request"
@@ -210,6 +376,7 @@ class SpotFleetRequestConfigDataType(str, Enum):
 
 class SpotFleetSpotCapacityRebalanceReplacementStrategy(str, Enum):
     LAUNCH = "launch"
+    LAUNCH_BEFORE_TERMINATE = "launch-before-terminate"
 
 
 class SpotFleetSpotPlacementTenancy(str, Enum):

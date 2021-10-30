@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['VpcLinkArgs', 'VpcLink']
 
@@ -15,7 +17,8 @@ class VpcLinkArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  target_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 description: Optional[pulumi.Input[str]] = None):
+                 description: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpcLinkTagArgs']]]] = None):
         """
         The set of arguments for constructing a VpcLink resource.
         """
@@ -23,6 +26,8 @@ class VpcLinkArgs:
         pulumi.set(__self__, "target_arns", target_arns)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -51,6 +56,15 @@ class VpcLinkArgs:
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpcLinkTagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpcLinkTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 warnings.warn("""VpcLink is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
@@ -64,6 +78,7 @@ class VpcLink(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcLinkTagArgs']]]]] = None,
                  target_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -98,6 +113,7 @@ class VpcLink(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcLinkTagArgs']]]]] = None,
                  target_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         pulumi.log.warn("""VpcLink is deprecated: VpcLink is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -116,6 +132,7 @@ class VpcLink(pulumi.CustomResource):
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
             if target_arns is None and not opts.urn:
                 raise TypeError("Missing required property 'target_arns'")
             __props__.__dict__["target_arns"] = target_arns
@@ -143,6 +160,7 @@ class VpcLink(pulumi.CustomResource):
 
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["target_arns"] = None
         return VpcLink(resource_name, opts=opts, __props__=__props__)
 
@@ -155,6 +173,11 @@ class VpcLink(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.VpcLinkTag']]]:
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="targetArns")

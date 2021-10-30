@@ -36,6 +36,7 @@ class EndpointArgs:
                  password: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  postgre_sql_settings: Optional[pulumi.Input['EndpointPostgreSqlSettingsArgs']] = None,
+                 redis_settings: Optional[pulumi.Input['EndpointRedisSettingsArgs']] = None,
                  redshift_settings: Optional[pulumi.Input['EndpointRedshiftSettingsArgs']] = None,
                  resource_identifier: Optional[pulumi.Input[str]] = None,
                  s3_settings: Optional[pulumi.Input['EndpointS3SettingsArgs']] = None,
@@ -87,6 +88,8 @@ class EndpointArgs:
             pulumi.set(__self__, "port", port)
         if postgre_sql_settings is not None:
             pulumi.set(__self__, "postgre_sql_settings", postgre_sql_settings)
+        if redis_settings is not None:
+            pulumi.set(__self__, "redis_settings", redis_settings)
         if redshift_settings is not None:
             pulumi.set(__self__, "redshift_settings", redshift_settings)
         if resource_identifier is not None:
@@ -294,6 +297,15 @@ class EndpointArgs:
         pulumi.set(self, "postgre_sql_settings", value)
 
     @property
+    @pulumi.getter(name="redisSettings")
+    def redis_settings(self) -> Optional[pulumi.Input['EndpointRedisSettingsArgs']]:
+        return pulumi.get(self, "redis_settings")
+
+    @redis_settings.setter
+    def redis_settings(self, value: Optional[pulumi.Input['EndpointRedisSettingsArgs']]):
+        pulumi.set(self, "redis_settings", value)
+
+    @property
     @pulumi.getter(name="redshiftSettings")
     def redshift_settings(self) -> Optional[pulumi.Input['EndpointRedshiftSettingsArgs']]:
         return pulumi.get(self, "redshift_settings")
@@ -397,6 +409,7 @@ class Endpoint(pulumi.CustomResource):
                  password: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  postgre_sql_settings: Optional[pulumi.Input[pulumi.InputType['EndpointPostgreSqlSettingsArgs']]] = None,
+                 redis_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedisSettingsArgs']]] = None,
                  redshift_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedshiftSettingsArgs']]] = None,
                  resource_identifier: Optional[pulumi.Input[str]] = None,
                  s3_settings: Optional[pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']]] = None,
@@ -457,6 +470,7 @@ class Endpoint(pulumi.CustomResource):
                  password: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  postgre_sql_settings: Optional[pulumi.Input[pulumi.InputType['EndpointPostgreSqlSettingsArgs']]] = None,
+                 redis_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedisSettingsArgs']]] = None,
                  redshift_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedshiftSettingsArgs']]] = None,
                  resource_identifier: Optional[pulumi.Input[str]] = None,
                  s3_settings: Optional[pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']]] = None,
@@ -503,6 +517,7 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["password"] = password
             __props__.__dict__["port"] = port
             __props__.__dict__["postgre_sql_settings"] = postgre_sql_settings
+            __props__.__dict__["redis_settings"] = redis_settings
             __props__.__dict__["redshift_settings"] = redshift_settings
             __props__.__dict__["resource_identifier"] = resource_identifier
             __props__.__dict__["s3_settings"] = s3_settings
@@ -556,6 +571,7 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["password"] = None
         __props__.__dict__["port"] = None
         __props__.__dict__["postgre_sql_settings"] = None
+        __props__.__dict__["redis_settings"] = None
         __props__.__dict__["redshift_settings"] = None
         __props__.__dict__["resource_identifier"] = None
         __props__.__dict__["s3_settings"] = None
@@ -675,6 +691,11 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="postgreSqlSettings")
     def postgre_sql_settings(self) -> pulumi.Output[Optional['outputs.EndpointPostgreSqlSettings']]:
         return pulumi.get(self, "postgre_sql_settings")
+
+    @property
+    @pulumi.getter(name="redisSettings")
+    def redis_settings(self) -> pulumi.Output[Optional['outputs.EndpointRedisSettings']]:
+        return pulumi.get(self, "redis_settings")
 
     @property
     @pulumi.getter(name="redshiftSettings")

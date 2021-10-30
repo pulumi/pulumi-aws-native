@@ -11,12 +11,147 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'HoursOfOperationConfig',
+    'HoursOfOperationTag',
+    'HoursOfOperationTimeSlice',
     'QuickConnectConfig',
     'QuickConnectPhoneNumberQuickConnectConfig',
     'QuickConnectQueueQuickConnectConfig',
     'QuickConnectTag',
     'QuickConnectUserQuickConnectConfig',
+    'UserIdentityInfo',
+    'UserPhoneConfig',
+    'UserTag',
 ]
+
+@pulumi.output_type
+class HoursOfOperationConfig(dict):
+    """
+    Contains information about the hours of operation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endTime":
+            suggest = "end_time"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HoursOfOperationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HoursOfOperationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HoursOfOperationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 day: 'HoursOfOperationConfigDay',
+                 end_time: 'outputs.HoursOfOperationTimeSlice',
+                 start_time: 'outputs.HoursOfOperationTimeSlice'):
+        """
+        Contains information about the hours of operation.
+        :param 'HoursOfOperationConfigDay' day: The day that the hours of operation applies to.
+        :param 'HoursOfOperationTimeSlice' end_time: The end time that your contact center closes.
+        :param 'HoursOfOperationTimeSlice' start_time: The start time that your contact center opens.
+        """
+        pulumi.set(__self__, "day", day)
+        pulumi.set(__self__, "end_time", end_time)
+        pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter
+    def day(self) -> 'HoursOfOperationConfigDay':
+        """
+        The day that the hours of operation applies to.
+        """
+        return pulumi.get(self, "day")
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> 'outputs.HoursOfOperationTimeSlice':
+        """
+        The end time that your contact center closes.
+        """
+        return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> 'outputs.HoursOfOperationTimeSlice':
+        """
+        The start time that your contact center opens.
+        """
+        return pulumi.get(self, "start_time")
+
+
+@pulumi.output_type
+class HoursOfOperationTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param str value: The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class HoursOfOperationTimeSlice(dict):
+    """
+    The start time or end time for an hours of operation.
+    """
+    def __init__(__self__, *,
+                 hours: int,
+                 minutes: int):
+        """
+        The start time or end time for an hours of operation.
+        :param int hours: The hours.
+        :param int minutes: The minutes.
+        """
+        pulumi.set(__self__, "hours", hours)
+        pulumi.set(__self__, "minutes", minutes)
+
+    @property
+    @pulumi.getter
+    def hours(self) -> int:
+        """
+        The hours.
+        """
+        return pulumi.get(self, "hours")
+
+    @property
+    @pulumi.getter
+    def minutes(self) -> int:
+        """
+        The minutes.
+        """
+        return pulumi.get(self, "minutes")
+
 
 @pulumi.output_type
 class QuickConnectConfig(dict):
@@ -237,5 +372,157 @@ class QuickConnectUserQuickConnectConfig(dict):
     @pulumi.getter(name="userArn")
     def user_arn(self) -> str:
         return pulumi.get(self, "user_arn")
+
+
+@pulumi.output_type
+class UserIdentityInfo(dict):
+    """
+    Contains information about the identity of a user.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "firstName":
+            suggest = "first_name"
+        elif key == "lastName":
+            suggest = "last_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserIdentityInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserIdentityInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserIdentityInfo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 email: Optional[str] = None,
+                 first_name: Optional[str] = None,
+                 last_name: Optional[str] = None):
+        """
+        Contains information about the identity of a user.
+        """
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if first_name is not None:
+            pulumi.set(__self__, "first_name", first_name)
+        if last_name is not None:
+            pulumi.set(__self__, "last_name", last_name)
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[str]:
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter(name="firstName")
+    def first_name(self) -> Optional[str]:
+        return pulumi.get(self, "first_name")
+
+    @property
+    @pulumi.getter(name="lastName")
+    def last_name(self) -> Optional[str]:
+        return pulumi.get(self, "last_name")
+
+
+@pulumi.output_type
+class UserPhoneConfig(dict):
+    """
+    Contains information about the phone configuration settings for a user.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "phoneType":
+            suggest = "phone_type"
+        elif key == "afterContactWorkTimeLimit":
+            suggest = "after_contact_work_time_limit"
+        elif key == "autoAccept":
+            suggest = "auto_accept"
+        elif key == "deskPhoneNumber":
+            suggest = "desk_phone_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPhoneConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPhoneConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPhoneConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 phone_type: 'UserPhoneType',
+                 after_contact_work_time_limit: Optional[int] = None,
+                 auto_accept: Optional[bool] = None,
+                 desk_phone_number: Optional[str] = None):
+        """
+        Contains information about the phone configuration settings for a user.
+        """
+        pulumi.set(__self__, "phone_type", phone_type)
+        if after_contact_work_time_limit is not None:
+            pulumi.set(__self__, "after_contact_work_time_limit", after_contact_work_time_limit)
+        if auto_accept is not None:
+            pulumi.set(__self__, "auto_accept", auto_accept)
+        if desk_phone_number is not None:
+            pulumi.set(__self__, "desk_phone_number", desk_phone_number)
+
+    @property
+    @pulumi.getter(name="phoneType")
+    def phone_type(self) -> 'UserPhoneType':
+        return pulumi.get(self, "phone_type")
+
+    @property
+    @pulumi.getter(name="afterContactWorkTimeLimit")
+    def after_contact_work_time_limit(self) -> Optional[int]:
+        return pulumi.get(self, "after_contact_work_time_limit")
+
+    @property
+    @pulumi.getter(name="autoAccept")
+    def auto_accept(self) -> Optional[bool]:
+        return pulumi.get(self, "auto_accept")
+
+    @property
+    @pulumi.getter(name="deskPhoneNumber")
+    def desk_phone_number(self) -> Optional[str]:
+        return pulumi.get(self, "desk_phone_number")
+
+
+@pulumi.output_type
+class UserTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param str value: The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
 
 

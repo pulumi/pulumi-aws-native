@@ -11,6 +11,8 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'DatabaseRelationalDatabaseParameter',
+    'DatabaseTag',
     'DiskAddOn',
     'DiskAutoSnapshotAddOn',
     'DiskLocation',
@@ -26,6 +28,176 @@ __all__ = [
     'InstanceState',
     'InstanceTag',
 ]
+
+@pulumi.output_type
+class DatabaseRelationalDatabaseParameter(dict):
+    """
+    Describes the parameters of the database.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedValues":
+            suggest = "allowed_values"
+        elif key == "applyMethod":
+            suggest = "apply_method"
+        elif key == "applyType":
+            suggest = "apply_type"
+        elif key == "dataType":
+            suggest = "data_type"
+        elif key == "isModifiable":
+            suggest = "is_modifiable"
+        elif key == "parameterName":
+            suggest = "parameter_name"
+        elif key == "parameterValue":
+            suggest = "parameter_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseRelationalDatabaseParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseRelationalDatabaseParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseRelationalDatabaseParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_values: Optional[str] = None,
+                 apply_method: Optional[str] = None,
+                 apply_type: Optional[str] = None,
+                 data_type: Optional[str] = None,
+                 description: Optional[str] = None,
+                 is_modifiable: Optional[bool] = None,
+                 parameter_name: Optional[str] = None,
+                 parameter_value: Optional[str] = None):
+        """
+        Describes the parameters of the database.
+        :param str allowed_values: Specifies the valid range of values for the parameter.
+        :param str apply_method: Indicates when parameter updates are applied. Can be immediate or pending-reboot.
+        :param str apply_type: Specifies the engine-specific parameter type.
+        :param str data_type: Specifies the valid data type for the parameter.
+        :param str description: Provides a description of the parameter.
+        :param bool is_modifiable: A Boolean value indicating whether the parameter can be modified.
+        :param str parameter_name: Specifies the name of the parameter.
+        :param str parameter_value: Specifies the value of the parameter.
+        """
+        if allowed_values is not None:
+            pulumi.set(__self__, "allowed_values", allowed_values)
+        if apply_method is not None:
+            pulumi.set(__self__, "apply_method", apply_method)
+        if apply_type is not None:
+            pulumi.set(__self__, "apply_type", apply_type)
+        if data_type is not None:
+            pulumi.set(__self__, "data_type", data_type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if is_modifiable is not None:
+            pulumi.set(__self__, "is_modifiable", is_modifiable)
+        if parameter_name is not None:
+            pulumi.set(__self__, "parameter_name", parameter_name)
+        if parameter_value is not None:
+            pulumi.set(__self__, "parameter_value", parameter_value)
+
+    @property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> Optional[str]:
+        """
+        Specifies the valid range of values for the parameter.
+        """
+        return pulumi.get(self, "allowed_values")
+
+    @property
+    @pulumi.getter(name="applyMethod")
+    def apply_method(self) -> Optional[str]:
+        """
+        Indicates when parameter updates are applied. Can be immediate or pending-reboot.
+        """
+        return pulumi.get(self, "apply_method")
+
+    @property
+    @pulumi.getter(name="applyType")
+    def apply_type(self) -> Optional[str]:
+        """
+        Specifies the engine-specific parameter type.
+        """
+        return pulumi.get(self, "apply_type")
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> Optional[str]:
+        """
+        Specifies the valid data type for the parameter.
+        """
+        return pulumi.get(self, "data_type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Provides a description of the parameter.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="isModifiable")
+    def is_modifiable(self) -> Optional[bool]:
+        """
+        A Boolean value indicating whether the parameter can be modified.
+        """
+        return pulumi.get(self, "is_modifiable")
+
+    @property
+    @pulumi.getter(name="parameterName")
+    def parameter_name(self) -> Optional[str]:
+        """
+        Specifies the name of the parameter.
+        """
+        return pulumi.get(self, "parameter_name")
+
+    @property
+    @pulumi.getter(name="parameterValue")
+    def parameter_value(self) -> Optional[str]:
+        """
+        Specifies the value of the parameter.
+        """
+        return pulumi.get(self, "parameter_value")
+
+
+@pulumi.output_type
+class DatabaseTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: Optional[str] = None):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
 
 @pulumi.output_type
 class DiskAddOn(dict):

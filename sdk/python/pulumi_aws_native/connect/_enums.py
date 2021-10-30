@@ -5,8 +5,23 @@
 from enum import Enum
 
 __all__ = [
+    'HoursOfOperationConfigDay',
     'QuickConnectType',
+    'UserPhoneType',
 ]
+
+
+class HoursOfOperationConfigDay(str, Enum):
+    """
+    The day that the hours of operation applies to.
+    """
+    SUNDAY = "SUNDAY"
+    MONDAY = "MONDAY"
+    TUESDAY = "TUESDAY"
+    WEDNESDAY = "WEDNESDAY"
+    THURSDAY = "THURSDAY"
+    FRIDAY = "FRIDAY"
+    SATURDAY = "SATURDAY"
 
 
 class QuickConnectType(str, Enum):
@@ -16,3 +31,11 @@ class QuickConnectType(str, Enum):
     PHONE_NUMBER = "PHONE_NUMBER"
     QUEUE = "QUEUE"
     USER = "USER"
+
+
+class UserPhoneType(str, Enum):
+    """
+    The phone type.
+    """
+    SOFT_PHONE = "SOFT_PHONE"
+    DESK_PHONE = "DESK_PHONE"

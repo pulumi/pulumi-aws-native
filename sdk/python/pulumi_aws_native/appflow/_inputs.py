@@ -23,9 +23,14 @@ __all__ = [
     'ConnectorProfileInforNexusConnectorProfilePropertiesArgs',
     'ConnectorProfileMarketoConnectorProfileCredentialsArgs',
     'ConnectorProfileMarketoConnectorProfilePropertiesArgs',
+    'ConnectorProfileOAuthPropertiesArgs',
     'ConnectorProfilePropertiesArgs',
     'ConnectorProfileRedshiftConnectorProfileCredentialsArgs',
     'ConnectorProfileRedshiftConnectorProfilePropertiesArgs',
+    'ConnectorProfileSAPODataConnectorProfileCredentialsBasicAuthCredentialsPropertiesArgs',
+    'ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs',
+    'ConnectorProfileSAPODataConnectorProfileCredentialsArgs',
+    'ConnectorProfileSAPODataConnectorProfilePropertiesArgs',
     'ConnectorProfileSalesforceConnectorProfileCredentialsArgs',
     'ConnectorProfileSalesforceConnectorProfilePropertiesArgs',
     'ConnectorProfileServiceNowConnectorProfileCredentialsArgs',
@@ -57,8 +62,10 @@ __all__ = [
     'FlowPrefixConfigArgs',
     'FlowRedshiftDestinationPropertiesArgs',
     'FlowS3DestinationPropertiesArgs',
+    'FlowS3InputFormatConfigArgs',
     'FlowS3OutputFormatConfigArgs',
     'FlowS3SourcePropertiesArgs',
+    'FlowSAPODataSourcePropertiesArgs',
     'FlowSalesforceDestinationPropertiesArgs',
     'FlowSalesforceSourcePropertiesArgs',
     'FlowScheduledTriggerPropertiesArgs',
@@ -195,6 +202,7 @@ class ConnectorProfileCredentialsArgs:
                  infor_nexus: Optional[pulumi.Input['ConnectorProfileInforNexusConnectorProfileCredentialsArgs']] = None,
                  marketo: Optional[pulumi.Input['ConnectorProfileMarketoConnectorProfileCredentialsArgs']] = None,
                  redshift: Optional[pulumi.Input['ConnectorProfileRedshiftConnectorProfileCredentialsArgs']] = None,
+                 s_apo_data: Optional[pulumi.Input['ConnectorProfileSAPODataConnectorProfileCredentialsArgs']] = None,
                  salesforce: Optional[pulumi.Input['ConnectorProfileSalesforceConnectorProfileCredentialsArgs']] = None,
                  service_now: Optional[pulumi.Input['ConnectorProfileServiceNowConnectorProfileCredentialsArgs']] = None,
                  singular: Optional[pulumi.Input['ConnectorProfileSingularConnectorProfileCredentialsArgs']] = None,
@@ -220,6 +228,8 @@ class ConnectorProfileCredentialsArgs:
             pulumi.set(__self__, "marketo", marketo)
         if redshift is not None:
             pulumi.set(__self__, "redshift", redshift)
+        if s_apo_data is not None:
+            pulumi.set(__self__, "s_apo_data", s_apo_data)
         if salesforce is not None:
             pulumi.set(__self__, "salesforce", salesforce)
         if service_now is not None:
@@ -299,6 +309,15 @@ class ConnectorProfileCredentialsArgs:
     @redshift.setter
     def redshift(self, value: Optional[pulumi.Input['ConnectorProfileRedshiftConnectorProfileCredentialsArgs']]):
         pulumi.set(self, "redshift", value)
+
+    @property
+    @pulumi.getter(name="sAPOData")
+    def s_apo_data(self) -> Optional[pulumi.Input['ConnectorProfileSAPODataConnectorProfileCredentialsArgs']]:
+        return pulumi.get(self, "s_apo_data")
+
+    @s_apo_data.setter
+    def s_apo_data(self, value: Optional[pulumi.Input['ConnectorProfileSAPODataConnectorProfileCredentialsArgs']]):
+        pulumi.set(self, "s_apo_data", value)
 
     @property
     @pulumi.getter
@@ -742,6 +761,47 @@ class ConnectorProfileMarketoConnectorProfilePropertiesArgs:
 
 
 @pulumi.input_type
+class ConnectorProfileOAuthPropertiesArgs:
+    def __init__(__self__, *,
+                 auth_code_url: Optional[pulumi.Input[str]] = None,
+                 o_auth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 token_url: Optional[pulumi.Input[str]] = None):
+        if auth_code_url is not None:
+            pulumi.set(__self__, "auth_code_url", auth_code_url)
+        if o_auth_scopes is not None:
+            pulumi.set(__self__, "o_auth_scopes", o_auth_scopes)
+        if token_url is not None:
+            pulumi.set(__self__, "token_url", token_url)
+
+    @property
+    @pulumi.getter(name="authCodeUrl")
+    def auth_code_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "auth_code_url")
+
+    @auth_code_url.setter
+    def auth_code_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auth_code_url", value)
+
+    @property
+    @pulumi.getter(name="oAuthScopes")
+    def o_auth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "o_auth_scopes")
+
+    @o_auth_scopes.setter
+    def o_auth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "o_auth_scopes", value)
+
+    @property
+    @pulumi.getter(name="tokenUrl")
+    def token_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "token_url")
+
+    @token_url.setter
+    def token_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_url", value)
+
+
+@pulumi.input_type
 class ConnectorProfilePropertiesArgs:
     def __init__(__self__, *,
                  datadog: Optional[pulumi.Input['ConnectorProfileDatadogConnectorProfilePropertiesArgs']] = None,
@@ -749,6 +809,7 @@ class ConnectorProfilePropertiesArgs:
                  infor_nexus: Optional[pulumi.Input['ConnectorProfileInforNexusConnectorProfilePropertiesArgs']] = None,
                  marketo: Optional[pulumi.Input['ConnectorProfileMarketoConnectorProfilePropertiesArgs']] = None,
                  redshift: Optional[pulumi.Input['ConnectorProfileRedshiftConnectorProfilePropertiesArgs']] = None,
+                 s_apo_data: Optional[pulumi.Input['ConnectorProfileSAPODataConnectorProfilePropertiesArgs']] = None,
                  salesforce: Optional[pulumi.Input['ConnectorProfileSalesforceConnectorProfilePropertiesArgs']] = None,
                  service_now: Optional[pulumi.Input['ConnectorProfileServiceNowConnectorProfilePropertiesArgs']] = None,
                  slack: Optional[pulumi.Input['ConnectorProfileSlackConnectorProfilePropertiesArgs']] = None,
@@ -768,6 +829,8 @@ class ConnectorProfilePropertiesArgs:
             pulumi.set(__self__, "marketo", marketo)
         if redshift is not None:
             pulumi.set(__self__, "redshift", redshift)
+        if s_apo_data is not None:
+            pulumi.set(__self__, "s_apo_data", s_apo_data)
         if salesforce is not None:
             pulumi.set(__self__, "salesforce", salesforce)
         if service_now is not None:
@@ -825,6 +888,15 @@ class ConnectorProfilePropertiesArgs:
     @redshift.setter
     def redshift(self, value: Optional[pulumi.Input['ConnectorProfileRedshiftConnectorProfilePropertiesArgs']]):
         pulumi.set(self, "redshift", value)
+
+    @property
+    @pulumi.getter(name="sAPOData")
+    def s_apo_data(self) -> Optional[pulumi.Input['ConnectorProfileSAPODataConnectorProfilePropertiesArgs']]:
+        return pulumi.get(self, "s_apo_data")
+
+    @s_apo_data.setter
+    def s_apo_data(self, value: Optional[pulumi.Input['ConnectorProfileSAPODataConnectorProfilePropertiesArgs']]):
+        pulumi.set(self, "s_apo_data", value)
 
     @property
     @pulumi.getter
@@ -984,6 +1056,228 @@ class ConnectorProfileRedshiftConnectorProfilePropertiesArgs:
     @bucket_prefix.setter
     def bucket_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "bucket_prefix", value)
+
+
+@pulumi.input_type
+class ConnectorProfileSAPODataConnectorProfileCredentialsBasicAuthCredentialsPropertiesArgs:
+    def __init__(__self__, *,
+                 password: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] password: The password that corresponds to the username.
+        :param pulumi.Input[str] username: The name of the user.
+        """
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password that corresponds to the username.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the user.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs:
+    def __init__(__self__, *,
+                 access_token: Optional[pulumi.Input[str]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 connector_o_auth_request: Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']] = None,
+                 refresh_token: Optional[pulumi.Input[str]] = None):
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if connector_o_auth_request is not None:
+            pulumi.set(__self__, "connector_o_auth_request", connector_o_auth_request)
+        if refresh_token is not None:
+            pulumi.set(__self__, "refresh_token", refresh_token)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="connectorOAuthRequest")
+    def connector_o_auth_request(self) -> Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']]:
+        return pulumi.get(self, "connector_o_auth_request")
+
+    @connector_o_auth_request.setter
+    def connector_o_auth_request(self, value: Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']]):
+        pulumi.set(self, "connector_o_auth_request", value)
+
+    @property
+    @pulumi.getter(name="refreshToken")
+    def refresh_token(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "refresh_token")
+
+    @refresh_token.setter
+    def refresh_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "refresh_token", value)
+
+
+@pulumi.input_type
+class ConnectorProfileSAPODataConnectorProfileCredentialsArgs:
+    def __init__(__self__, *,
+                 basic_auth_credentials: Optional[pulumi.Input['ConnectorProfileSAPODataConnectorProfileCredentialsBasicAuthCredentialsPropertiesArgs']] = None,
+                 o_auth_credentials: Optional[pulumi.Input['ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs']] = None):
+        if basic_auth_credentials is not None:
+            pulumi.set(__self__, "basic_auth_credentials", basic_auth_credentials)
+        if o_auth_credentials is not None:
+            pulumi.set(__self__, "o_auth_credentials", o_auth_credentials)
+
+    @property
+    @pulumi.getter(name="basicAuthCredentials")
+    def basic_auth_credentials(self) -> Optional[pulumi.Input['ConnectorProfileSAPODataConnectorProfileCredentialsBasicAuthCredentialsPropertiesArgs']]:
+        return pulumi.get(self, "basic_auth_credentials")
+
+    @basic_auth_credentials.setter
+    def basic_auth_credentials(self, value: Optional[pulumi.Input['ConnectorProfileSAPODataConnectorProfileCredentialsBasicAuthCredentialsPropertiesArgs']]):
+        pulumi.set(self, "basic_auth_credentials", value)
+
+    @property
+    @pulumi.getter(name="oAuthCredentials")
+    def o_auth_credentials(self) -> Optional[pulumi.Input['ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs']]:
+        return pulumi.get(self, "o_auth_credentials")
+
+    @o_auth_credentials.setter
+    def o_auth_credentials(self, value: Optional[pulumi.Input['ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs']]):
+        pulumi.set(self, "o_auth_credentials", value)
+
+
+@pulumi.input_type
+class ConnectorProfileSAPODataConnectorProfilePropertiesArgs:
+    def __init__(__self__, *,
+                 application_host_url: Optional[pulumi.Input[str]] = None,
+                 application_service_path: Optional[pulumi.Input[str]] = None,
+                 client_number: Optional[pulumi.Input[str]] = None,
+                 logon_language: Optional[pulumi.Input[str]] = None,
+                 o_auth_properties: Optional[pulumi.Input['ConnectorProfileOAuthPropertiesArgs']] = None,
+                 port_number: Optional[pulumi.Input[int]] = None,
+                 private_link_service_name: Optional[pulumi.Input[str]] = None):
+        if application_host_url is not None:
+            pulumi.set(__self__, "application_host_url", application_host_url)
+        if application_service_path is not None:
+            pulumi.set(__self__, "application_service_path", application_service_path)
+        if client_number is not None:
+            pulumi.set(__self__, "client_number", client_number)
+        if logon_language is not None:
+            pulumi.set(__self__, "logon_language", logon_language)
+        if o_auth_properties is not None:
+            pulumi.set(__self__, "o_auth_properties", o_auth_properties)
+        if port_number is not None:
+            pulumi.set(__self__, "port_number", port_number)
+        if private_link_service_name is not None:
+            pulumi.set(__self__, "private_link_service_name", private_link_service_name)
+
+    @property
+    @pulumi.getter(name="applicationHostUrl")
+    def application_host_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "application_host_url")
+
+    @application_host_url.setter
+    def application_host_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_host_url", value)
+
+    @property
+    @pulumi.getter(name="applicationServicePath")
+    def application_service_path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "application_service_path")
+
+    @application_service_path.setter
+    def application_service_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_service_path", value)
+
+    @property
+    @pulumi.getter(name="clientNumber")
+    def client_number(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "client_number")
+
+    @client_number.setter
+    def client_number(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_number", value)
+
+    @property
+    @pulumi.getter(name="logonLanguage")
+    def logon_language(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "logon_language")
+
+    @logon_language.setter
+    def logon_language(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logon_language", value)
+
+    @property
+    @pulumi.getter(name="oAuthProperties")
+    def o_auth_properties(self) -> Optional[pulumi.Input['ConnectorProfileOAuthPropertiesArgs']]:
+        return pulumi.get(self, "o_auth_properties")
+
+    @o_auth_properties.setter
+    def o_auth_properties(self, value: Optional[pulumi.Input['ConnectorProfileOAuthPropertiesArgs']]):
+        pulumi.set(self, "o_auth_properties", value)
+
+    @property
+    @pulumi.getter(name="portNumber")
+    def port_number(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "port_number")
+
+    @port_number.setter
+    def port_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port_number", value)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceName")
+    def private_link_service_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "private_link_service_name")
+
+    @private_link_service_name.setter
+    def private_link_service_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_link_service_name", value)
 
 
 @pulumi.input_type
@@ -1634,6 +1928,7 @@ class FlowConnectorOperatorArgs:
                  infor_nexus: Optional[pulumi.Input['FlowInforNexusConnectorOperator']] = None,
                  marketo: Optional[pulumi.Input['FlowMarketoConnectorOperator']] = None,
                  s3: Optional[pulumi.Input['FlowS3ConnectorOperator']] = None,
+                 s_apo_data: Optional[pulumi.Input['FlowSAPODataConnectorOperator']] = None,
                  salesforce: Optional[pulumi.Input['FlowSalesforceConnectorOperator']] = None,
                  service_now: Optional[pulumi.Input['FlowServiceNowConnectorOperator']] = None,
                  singular: Optional[pulumi.Input['FlowSingularConnectorOperator']] = None,
@@ -1658,6 +1953,8 @@ class FlowConnectorOperatorArgs:
             pulumi.set(__self__, "marketo", marketo)
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
+        if s_apo_data is not None:
+            pulumi.set(__self__, "s_apo_data", s_apo_data)
         if salesforce is not None:
             pulumi.set(__self__, "salesforce", salesforce)
         if service_now is not None:
@@ -1735,6 +2032,15 @@ class FlowConnectorOperatorArgs:
     @s3.setter
     def s3(self, value: Optional[pulumi.Input['FlowS3ConnectorOperator']]):
         pulumi.set(self, "s3", value)
+
+    @property
+    @pulumi.getter(name="sAPOData")
+    def s_apo_data(self) -> Optional[pulumi.Input['FlowSAPODataConnectorOperator']]:
+        return pulumi.get(self, "s_apo_data")
+
+    @s_apo_data.setter
+    def s_apo_data(self, value: Optional[pulumi.Input['FlowSAPODataConnectorOperator']]):
+        pulumi.set(self, "s_apo_data", value)
 
     @property
     @pulumi.getter
@@ -2265,6 +2571,23 @@ class FlowS3DestinationPropertiesArgs:
 
 
 @pulumi.input_type
+class FlowS3InputFormatConfigArgs:
+    def __init__(__self__, *,
+                 s3_input_file_type: Optional[pulumi.Input['FlowS3InputFormatConfigS3InputFileType']] = None):
+        if s3_input_file_type is not None:
+            pulumi.set(__self__, "s3_input_file_type", s3_input_file_type)
+
+    @property
+    @pulumi.getter(name="s3InputFileType")
+    def s3_input_file_type(self) -> Optional[pulumi.Input['FlowS3InputFormatConfigS3InputFileType']]:
+        return pulumi.get(self, "s3_input_file_type")
+
+    @s3_input_file_type.setter
+    def s3_input_file_type(self, value: Optional[pulumi.Input['FlowS3InputFormatConfigS3InputFileType']]):
+        pulumi.set(self, "s3_input_file_type", value)
+
+
+@pulumi.input_type
 class FlowS3OutputFormatConfigArgs:
     def __init__(__self__, *,
                  aggregation_config: Optional[pulumi.Input['FlowAggregationConfigArgs']] = None,
@@ -2309,9 +2632,12 @@ class FlowS3OutputFormatConfigArgs:
 class FlowS3SourcePropertiesArgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[str],
-                 bucket_prefix: pulumi.Input[str]):
+                 bucket_prefix: pulumi.Input[str],
+                 s3_input_format_config: Optional[pulumi.Input['FlowS3InputFormatConfigArgs']] = None):
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+        if s3_input_format_config is not None:
+            pulumi.set(__self__, "s3_input_format_config", s3_input_format_config)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -2330,6 +2656,31 @@ class FlowS3SourcePropertiesArgs:
     @bucket_prefix.setter
     def bucket_prefix(self, value: pulumi.Input[str]):
         pulumi.set(self, "bucket_prefix", value)
+
+    @property
+    @pulumi.getter(name="s3InputFormatConfig")
+    def s3_input_format_config(self) -> Optional[pulumi.Input['FlowS3InputFormatConfigArgs']]:
+        return pulumi.get(self, "s3_input_format_config")
+
+    @s3_input_format_config.setter
+    def s3_input_format_config(self, value: Optional[pulumi.Input['FlowS3InputFormatConfigArgs']]):
+        pulumi.set(self, "s3_input_format_config", value)
+
+
+@pulumi.input_type
+class FlowSAPODataSourcePropertiesArgs:
+    def __init__(__self__, *,
+                 object_path: pulumi.Input[str]):
+        pulumi.set(__self__, "object_path", object_path)
+
+    @property
+    @pulumi.getter(name="objectPath")
+    def object_path(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "object_path")
+
+    @object_path.setter
+    def object_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "object_path", value)
 
 
 @pulumi.input_type
@@ -2618,6 +2969,7 @@ class FlowSourceConnectorPropertiesArgs:
                  infor_nexus: Optional[pulumi.Input['FlowInforNexusSourcePropertiesArgs']] = None,
                  marketo: Optional[pulumi.Input['FlowMarketoSourcePropertiesArgs']] = None,
                  s3: Optional[pulumi.Input['FlowS3SourcePropertiesArgs']] = None,
+                 s_apo_data: Optional[pulumi.Input['FlowSAPODataSourcePropertiesArgs']] = None,
                  salesforce: Optional[pulumi.Input['FlowSalesforceSourcePropertiesArgs']] = None,
                  service_now: Optional[pulumi.Input['FlowServiceNowSourcePropertiesArgs']] = None,
                  singular: Optional[pulumi.Input['FlowSingularSourcePropertiesArgs']] = None,
@@ -2642,6 +2994,8 @@ class FlowSourceConnectorPropertiesArgs:
             pulumi.set(__self__, "marketo", marketo)
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
+        if s_apo_data is not None:
+            pulumi.set(__self__, "s_apo_data", s_apo_data)
         if salesforce is not None:
             pulumi.set(__self__, "salesforce", salesforce)
         if service_now is not None:
@@ -2719,6 +3073,15 @@ class FlowSourceConnectorPropertiesArgs:
     @s3.setter
     def s3(self, value: Optional[pulumi.Input['FlowS3SourcePropertiesArgs']]):
         pulumi.set(self, "s3", value)
+
+    @property
+    @pulumi.getter(name="sAPOData")
+    def s_apo_data(self) -> Optional[pulumi.Input['FlowSAPODataSourcePropertiesArgs']]:
+        return pulumi.get(self, "s_apo_data")
+
+    @s_apo_data.setter
+    def s_apo_data(self, value: Optional[pulumi.Input['FlowSAPODataSourcePropertiesArgs']]):
+        pulumi.set(self, "s_apo_data", value)
 
     @property
     @pulumi.getter

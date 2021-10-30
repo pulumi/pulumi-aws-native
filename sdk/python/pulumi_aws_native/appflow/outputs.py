@@ -24,9 +24,14 @@ __all__ = [
     'ConnectorProfileInforNexusConnectorProfileProperties',
     'ConnectorProfileMarketoConnectorProfileCredentials',
     'ConnectorProfileMarketoConnectorProfileProperties',
+    'ConnectorProfileOAuthProperties',
     'ConnectorProfileProperties',
     'ConnectorProfileRedshiftConnectorProfileCredentials',
     'ConnectorProfileRedshiftConnectorProfileProperties',
+    'ConnectorProfileSAPODataConnectorProfileCredentials',
+    'ConnectorProfileSAPODataConnectorProfileCredentialsBasicAuthCredentialsProperties',
+    'ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties',
+    'ConnectorProfileSAPODataConnectorProfileProperties',
     'ConnectorProfileSalesforceConnectorProfileCredentials',
     'ConnectorProfileSalesforceConnectorProfileProperties',
     'ConnectorProfileServiceNowConnectorProfileCredentials',
@@ -58,8 +63,10 @@ __all__ = [
     'FlowPrefixConfig',
     'FlowRedshiftDestinationProperties',
     'FlowS3DestinationProperties',
+    'FlowS3InputFormatConfig',
     'FlowS3OutputFormatConfig',
     'FlowS3SourceProperties',
+    'FlowSAPODataSourceProperties',
     'FlowSalesforceDestinationProperties',
     'FlowSalesforceSourceProperties',
     'FlowScheduledTriggerProperties',
@@ -234,6 +241,8 @@ class ConnectorProfileCredentials(dict):
             suggest = "google_analytics"
         elif key == "inforNexus":
             suggest = "infor_nexus"
+        elif key == "sAPOData":
+            suggest = "s_apo_data"
         elif key == "serviceNow":
             suggest = "service_now"
 
@@ -256,6 +265,7 @@ class ConnectorProfileCredentials(dict):
                  infor_nexus: Optional['outputs.ConnectorProfileInforNexusConnectorProfileCredentials'] = None,
                  marketo: Optional['outputs.ConnectorProfileMarketoConnectorProfileCredentials'] = None,
                  redshift: Optional['outputs.ConnectorProfileRedshiftConnectorProfileCredentials'] = None,
+                 s_apo_data: Optional['outputs.ConnectorProfileSAPODataConnectorProfileCredentials'] = None,
                  salesforce: Optional['outputs.ConnectorProfileSalesforceConnectorProfileCredentials'] = None,
                  service_now: Optional['outputs.ConnectorProfileServiceNowConnectorProfileCredentials'] = None,
                  singular: Optional['outputs.ConnectorProfileSingularConnectorProfileCredentials'] = None,
@@ -281,6 +291,8 @@ class ConnectorProfileCredentials(dict):
             pulumi.set(__self__, "marketo", marketo)
         if redshift is not None:
             pulumi.set(__self__, "redshift", redshift)
+        if s_apo_data is not None:
+            pulumi.set(__self__, "s_apo_data", s_apo_data)
         if salesforce is not None:
             pulumi.set(__self__, "salesforce", salesforce)
         if service_now is not None:
@@ -332,6 +344,11 @@ class ConnectorProfileCredentials(dict):
     @pulumi.getter
     def redshift(self) -> Optional['outputs.ConnectorProfileRedshiftConnectorProfileCredentials']:
         return pulumi.get(self, "redshift")
+
+    @property
+    @pulumi.getter(name="sAPOData")
+    def s_apo_data(self) -> Optional['outputs.ConnectorProfileSAPODataConnectorProfileCredentials']:
+        return pulumi.get(self, "s_apo_data")
 
     @property
     @pulumi.getter
@@ -836,6 +853,56 @@ class ConnectorProfileMarketoConnectorProfileProperties(dict):
 
 
 @pulumi.output_type
+class ConnectorProfileOAuthProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authCodeUrl":
+            suggest = "auth_code_url"
+        elif key == "oAuthScopes":
+            suggest = "o_auth_scopes"
+        elif key == "tokenUrl":
+            suggest = "token_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileOAuthProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileOAuthProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileOAuthProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_code_url: Optional[str] = None,
+                 o_auth_scopes: Optional[Sequence[str]] = None,
+                 token_url: Optional[str] = None):
+        if auth_code_url is not None:
+            pulumi.set(__self__, "auth_code_url", auth_code_url)
+        if o_auth_scopes is not None:
+            pulumi.set(__self__, "o_auth_scopes", o_auth_scopes)
+        if token_url is not None:
+            pulumi.set(__self__, "token_url", token_url)
+
+    @property
+    @pulumi.getter(name="authCodeUrl")
+    def auth_code_url(self) -> Optional[str]:
+        return pulumi.get(self, "auth_code_url")
+
+    @property
+    @pulumi.getter(name="oAuthScopes")
+    def o_auth_scopes(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "o_auth_scopes")
+
+    @property
+    @pulumi.getter(name="tokenUrl")
+    def token_url(self) -> Optional[str]:
+        return pulumi.get(self, "token_url")
+
+
+@pulumi.output_type
 class ConnectorProfileProperties(dict):
     """
     Connector specific properties needed to create connector profile - currently not needed for Amplitude, Trendmicro, Googleanalytics and Singular
@@ -845,6 +912,8 @@ class ConnectorProfileProperties(dict):
         suggest = None
         if key == "inforNexus":
             suggest = "infor_nexus"
+        elif key == "sAPOData":
+            suggest = "s_apo_data"
         elif key == "serviceNow":
             suggest = "service_now"
 
@@ -865,6 +934,7 @@ class ConnectorProfileProperties(dict):
                  infor_nexus: Optional['outputs.ConnectorProfileInforNexusConnectorProfileProperties'] = None,
                  marketo: Optional['outputs.ConnectorProfileMarketoConnectorProfileProperties'] = None,
                  redshift: Optional['outputs.ConnectorProfileRedshiftConnectorProfileProperties'] = None,
+                 s_apo_data: Optional['outputs.ConnectorProfileSAPODataConnectorProfileProperties'] = None,
                  salesforce: Optional['outputs.ConnectorProfileSalesforceConnectorProfileProperties'] = None,
                  service_now: Optional['outputs.ConnectorProfileServiceNowConnectorProfileProperties'] = None,
                  slack: Optional['outputs.ConnectorProfileSlackConnectorProfileProperties'] = None,
@@ -884,6 +954,8 @@ class ConnectorProfileProperties(dict):
             pulumi.set(__self__, "marketo", marketo)
         if redshift is not None:
             pulumi.set(__self__, "redshift", redshift)
+        if s_apo_data is not None:
+            pulumi.set(__self__, "s_apo_data", s_apo_data)
         if salesforce is not None:
             pulumi.set(__self__, "salesforce", salesforce)
         if service_now is not None:
@@ -921,6 +993,11 @@ class ConnectorProfileProperties(dict):
     @pulumi.getter
     def redshift(self) -> Optional['outputs.ConnectorProfileRedshiftConnectorProfileProperties']:
         return pulumi.get(self, "redshift")
+
+    @property
+    @pulumi.getter(name="sAPOData")
+    def s_apo_data(self) -> Optional['outputs.ConnectorProfileSAPODataConnectorProfileProperties']:
+        return pulumi.get(self, "s_apo_data")
 
     @property
     @pulumi.getter
@@ -1055,6 +1132,237 @@ class ConnectorProfileRedshiftConnectorProfileProperties(dict):
         The object key for the destination bucket in which Amazon AppFlow will place the ﬁles.
         """
         return pulumi.get(self, "bucket_prefix")
+
+
+@pulumi.output_type
+class ConnectorProfileSAPODataConnectorProfileCredentials(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "basicAuthCredentials":
+            suggest = "basic_auth_credentials"
+        elif key == "oAuthCredentials":
+            suggest = "o_auth_credentials"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileSAPODataConnectorProfileCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileSAPODataConnectorProfileCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileSAPODataConnectorProfileCredentials.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 basic_auth_credentials: Optional['outputs.ConnectorProfileSAPODataConnectorProfileCredentialsBasicAuthCredentialsProperties'] = None,
+                 o_auth_credentials: Optional['outputs.ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties'] = None):
+        if basic_auth_credentials is not None:
+            pulumi.set(__self__, "basic_auth_credentials", basic_auth_credentials)
+        if o_auth_credentials is not None:
+            pulumi.set(__self__, "o_auth_credentials", o_auth_credentials)
+
+    @property
+    @pulumi.getter(name="basicAuthCredentials")
+    def basic_auth_credentials(self) -> Optional['outputs.ConnectorProfileSAPODataConnectorProfileCredentialsBasicAuthCredentialsProperties']:
+        return pulumi.get(self, "basic_auth_credentials")
+
+    @property
+    @pulumi.getter(name="oAuthCredentials")
+    def o_auth_credentials(self) -> Optional['outputs.ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties']:
+        return pulumi.get(self, "o_auth_credentials")
+
+
+@pulumi.output_type
+class ConnectorProfileSAPODataConnectorProfileCredentialsBasicAuthCredentialsProperties(dict):
+    def __init__(__self__, *,
+                 password: Optional[str] = None,
+                 username: Optional[str] = None):
+        """
+        :param str password: The password that corresponds to the username.
+        :param str username: The name of the user.
+        """
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        The password that corresponds to the username.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        The name of the user.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessToken":
+            suggest = "access_token"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "connectorOAuthRequest":
+            suggest = "connector_o_auth_request"
+        elif key == "refreshToken":
+            suggest = "refresh_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_token: Optional[str] = None,
+                 client_id: Optional[str] = None,
+                 client_secret: Optional[str] = None,
+                 connector_o_auth_request: Optional['outputs.ConnectorProfileConnectorOAuthRequest'] = None,
+                 refresh_token: Optional[str] = None):
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if connector_o_auth_request is not None:
+            pulumi.set(__self__, "connector_o_auth_request", connector_o_auth_request)
+        if refresh_token is not None:
+            pulumi.set(__self__, "refresh_token", refresh_token)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        return pulumi.get(self, "access_token")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[str]:
+        return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter(name="connectorOAuthRequest")
+    def connector_o_auth_request(self) -> Optional['outputs.ConnectorProfileConnectorOAuthRequest']:
+        return pulumi.get(self, "connector_o_auth_request")
+
+    @property
+    @pulumi.getter(name="refreshToken")
+    def refresh_token(self) -> Optional[str]:
+        return pulumi.get(self, "refresh_token")
+
+
+@pulumi.output_type
+class ConnectorProfileSAPODataConnectorProfileProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationHostUrl":
+            suggest = "application_host_url"
+        elif key == "applicationServicePath":
+            suggest = "application_service_path"
+        elif key == "clientNumber":
+            suggest = "client_number"
+        elif key == "logonLanguage":
+            suggest = "logon_language"
+        elif key == "oAuthProperties":
+            suggest = "o_auth_properties"
+        elif key == "portNumber":
+            suggest = "port_number"
+        elif key == "privateLinkServiceName":
+            suggest = "private_link_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProfileSAPODataConnectorProfileProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProfileSAPODataConnectorProfileProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProfileSAPODataConnectorProfileProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_host_url: Optional[str] = None,
+                 application_service_path: Optional[str] = None,
+                 client_number: Optional[str] = None,
+                 logon_language: Optional[str] = None,
+                 o_auth_properties: Optional['outputs.ConnectorProfileOAuthProperties'] = None,
+                 port_number: Optional[int] = None,
+                 private_link_service_name: Optional[str] = None):
+        if application_host_url is not None:
+            pulumi.set(__self__, "application_host_url", application_host_url)
+        if application_service_path is not None:
+            pulumi.set(__self__, "application_service_path", application_service_path)
+        if client_number is not None:
+            pulumi.set(__self__, "client_number", client_number)
+        if logon_language is not None:
+            pulumi.set(__self__, "logon_language", logon_language)
+        if o_auth_properties is not None:
+            pulumi.set(__self__, "o_auth_properties", o_auth_properties)
+        if port_number is not None:
+            pulumi.set(__self__, "port_number", port_number)
+        if private_link_service_name is not None:
+            pulumi.set(__self__, "private_link_service_name", private_link_service_name)
+
+    @property
+    @pulumi.getter(name="applicationHostUrl")
+    def application_host_url(self) -> Optional[str]:
+        return pulumi.get(self, "application_host_url")
+
+    @property
+    @pulumi.getter(name="applicationServicePath")
+    def application_service_path(self) -> Optional[str]:
+        return pulumi.get(self, "application_service_path")
+
+    @property
+    @pulumi.getter(name="clientNumber")
+    def client_number(self) -> Optional[str]:
+        return pulumi.get(self, "client_number")
+
+    @property
+    @pulumi.getter(name="logonLanguage")
+    def logon_language(self) -> Optional[str]:
+        return pulumi.get(self, "logon_language")
+
+    @property
+    @pulumi.getter(name="oAuthProperties")
+    def o_auth_properties(self) -> Optional['outputs.ConnectorProfileOAuthProperties']:
+        return pulumi.get(self, "o_auth_properties")
+
+    @property
+    @pulumi.getter(name="portNumber")
+    def port_number(self) -> Optional[int]:
+        return pulumi.get(self, "port_number")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceName")
+    def private_link_service_name(self) -> Optional[str]:
+        return pulumi.get(self, "private_link_service_name")
 
 
 @pulumi.output_type
@@ -1797,6 +2105,8 @@ class FlowConnectorOperator(dict):
             suggest = "google_analytics"
         elif key == "inforNexus":
             suggest = "infor_nexus"
+        elif key == "sAPOData":
+            suggest = "s_apo_data"
         elif key == "serviceNow":
             suggest = "service_now"
 
@@ -1819,6 +2129,7 @@ class FlowConnectorOperator(dict):
                  infor_nexus: Optional['FlowInforNexusConnectorOperator'] = None,
                  marketo: Optional['FlowMarketoConnectorOperator'] = None,
                  s3: Optional['FlowS3ConnectorOperator'] = None,
+                 s_apo_data: Optional['FlowSAPODataConnectorOperator'] = None,
                  salesforce: Optional['FlowSalesforceConnectorOperator'] = None,
                  service_now: Optional['FlowServiceNowConnectorOperator'] = None,
                  singular: Optional['FlowSingularConnectorOperator'] = None,
@@ -1843,6 +2154,8 @@ class FlowConnectorOperator(dict):
             pulumi.set(__self__, "marketo", marketo)
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
+        if s_apo_data is not None:
+            pulumi.set(__self__, "s_apo_data", s_apo_data)
         if salesforce is not None:
             pulumi.set(__self__, "salesforce", salesforce)
         if service_now is not None:
@@ -1892,6 +2205,11 @@ class FlowConnectorOperator(dict):
     @pulumi.getter
     def s3(self) -> Optional['FlowS3ConnectorOperator']:
         return pulumi.get(self, "s3")
+
+    @property
+    @pulumi.getter(name="sAPOData")
+    def s_apo_data(self) -> Optional['FlowSAPODataConnectorOperator']:
+        return pulumi.get(self, "s_apo_data")
 
     @property
     @pulumi.getter
@@ -2431,6 +2749,36 @@ class FlowS3DestinationProperties(dict):
 
 
 @pulumi.output_type
+class FlowS3InputFormatConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3InputFileType":
+            suggest = "s3_input_file_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowS3InputFormatConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowS3InputFormatConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowS3InputFormatConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_input_file_type: Optional['FlowS3InputFormatConfigS3InputFileType'] = None):
+        if s3_input_file_type is not None:
+            pulumi.set(__self__, "s3_input_file_type", s3_input_file_type)
+
+    @property
+    @pulumi.getter(name="s3InputFileType")
+    def s3_input_file_type(self) -> Optional['FlowS3InputFormatConfigS3InputFileType']:
+        return pulumi.get(self, "s3_input_file_type")
+
+
+@pulumi.output_type
 class FlowS3OutputFormatConfig(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2489,6 +2837,8 @@ class FlowS3SourceProperties(dict):
             suggest = "bucket_name"
         elif key == "bucketPrefix":
             suggest = "bucket_prefix"
+        elif key == "s3InputFormatConfig":
+            suggest = "s3_input_format_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FlowS3SourceProperties. Access the value via the '{suggest}' property getter instead.")
@@ -2503,9 +2853,12 @@ class FlowS3SourceProperties(dict):
 
     def __init__(__self__, *,
                  bucket_name: str,
-                 bucket_prefix: str):
+                 bucket_prefix: str,
+                 s3_input_format_config: Optional['outputs.FlowS3InputFormatConfig'] = None):
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+        if s3_input_format_config is not None:
+            pulumi.set(__self__, "s3_input_format_config", s3_input_format_config)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -2516,6 +2869,40 @@ class FlowS3SourceProperties(dict):
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> str:
         return pulumi.get(self, "bucket_prefix")
+
+    @property
+    @pulumi.getter(name="s3InputFormatConfig")
+    def s3_input_format_config(self) -> Optional['outputs.FlowS3InputFormatConfig']:
+        return pulumi.get(self, "s3_input_format_config")
+
+
+@pulumi.output_type
+class FlowSAPODataSourceProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectPath":
+            suggest = "object_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowSAPODataSourceProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowSAPODataSourceProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowSAPODataSourceProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_path: str):
+        pulumi.set(__self__, "object_path", object_path)
+
+    @property
+    @pulumi.getter(name="objectPath")
+    def object_path(self) -> str:
+        return pulumi.get(self, "object_path")
 
 
 @pulumi.output_type
@@ -2817,6 +3204,8 @@ class FlowSourceConnectorProperties(dict):
             suggest = "google_analytics"
         elif key == "inforNexus":
             suggest = "infor_nexus"
+        elif key == "sAPOData":
+            suggest = "s_apo_data"
         elif key == "serviceNow":
             suggest = "service_now"
 
@@ -2839,6 +3228,7 @@ class FlowSourceConnectorProperties(dict):
                  infor_nexus: Optional['outputs.FlowInforNexusSourceProperties'] = None,
                  marketo: Optional['outputs.FlowMarketoSourceProperties'] = None,
                  s3: Optional['outputs.FlowS3SourceProperties'] = None,
+                 s_apo_data: Optional['outputs.FlowSAPODataSourceProperties'] = None,
                  salesforce: Optional['outputs.FlowSalesforceSourceProperties'] = None,
                  service_now: Optional['outputs.FlowServiceNowSourceProperties'] = None,
                  singular: Optional['outputs.FlowSingularSourceProperties'] = None,
@@ -2863,6 +3253,8 @@ class FlowSourceConnectorProperties(dict):
             pulumi.set(__self__, "marketo", marketo)
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
+        if s_apo_data is not None:
+            pulumi.set(__self__, "s_apo_data", s_apo_data)
         if salesforce is not None:
             pulumi.set(__self__, "salesforce", salesforce)
         if service_now is not None:
@@ -2912,6 +3304,11 @@ class FlowSourceConnectorProperties(dict):
     @pulumi.getter
     def s3(self) -> Optional['outputs.FlowS3SourceProperties']:
         return pulumi.get(self, "s3")
+
+    @property
+    @pulumi.getter(name="sAPOData")
+    def s_apo_data(self) -> Optional['outputs.FlowSAPODataSourceProperties']:
+        return pulumi.get(self, "s_apo_data")
 
     @property
     @pulumi.getter
