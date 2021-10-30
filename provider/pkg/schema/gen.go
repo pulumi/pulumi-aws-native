@@ -22,6 +22,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 	genAll bool) (*pschema.PackageSpec, *CloudAPIMetadata, error) {
 	p := pschema.PackageSpec{
 		Name:        packageName,
+		DisplayName: "AWS Native",
 		Description: "A native Pulumi package for creating and managing Amazon Web Services (AWS) resources.",
 		Keywords: []string{
 			"pulumi",
@@ -32,6 +33,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 		},
 		Homepage:   "https://pulumi.com",
 		License:    "Apache-2.0",
+		Publisher:  "Pulumi",
 		Repository: "https://github.com/pulumi/pulumi-aws-native",
 		Config: pschema.ConfigSpec{
 			Variables: map[string]pschema.PropertySpec{
@@ -348,7 +350,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 				"region",
 			},
 		},
-		Types:     map[string]pschema.ComplexTypeSpec{},
+		Types: map[string]pschema.ComplexTypeSpec{},
 		Resources: map[string]pschema.ResourceSpec{
 			ExtensionResourceToken: {
 				ObjectTypeSpec: pschema.ObjectTypeSpec{
@@ -429,7 +431,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 				CreateOnly: []string{"type", "properties"},
 			},
 		},
-		Types:     map[string]CloudAPIType{},
+		Types: map[string]CloudAPIType{},
 	}
 
 	supportedResources := codegen.NewStringSet(supportedResourceTypes...)
