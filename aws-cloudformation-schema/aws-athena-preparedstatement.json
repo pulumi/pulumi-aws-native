@@ -48,5 +48,6 @@
   },
   "primaryIdentifier" : [ "/properties/StatementName", "/properties/WorkGroup" ],
   "createOnlyProperties" : [ "/properties/StatementName", "/properties/WorkGroup" ],
-  "additionalProperties" : false
+  "additionalProperties" : false,
+  "taggable" : false
 }

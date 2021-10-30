@@ -89,6 +89,10 @@
         },
         "Context" : {
           "type" : "string"
+        },
+        "TargetCapacityUnitType" : {
+          "type" : "string",
+          "enum" : [ "vcpu", "memory-mib", "units" ]
         }
       },
       "required" : [ "IamFleetRole", "TargetCapacity" ]
@@ -164,9 +168,12 @@
         },
         "WeightedCapacity" : {
           "type" : "number"
+        },
+        "InstanceRequirements" : {
+          "$ref" : "#/definitions/InstanceRequirementsRequest"
         }
       },
-      "required" : [ "ImageId", "InstanceType" ]
+      "required" : [ "ImageId" ]
     },
     "LoadBalancersConfig" : {
       "type" : "object",
@@ -195,7 +202,10 @@
       "properties" : {
         "ReplacementStrategy" : {
           "type" : "string",
-          "enum" : [ "launch" ]
+          "enum" : [ "launch", "launch-before-terminate" ]
+        },
+        "TerminationDelay" : {
+          "type" : "integer"
         }
       }
     },
@@ -302,6 +312,9 @@
         },
         "WeightedCapacity" : {
           "type" : "number"
+        },
+        "InstanceRequirements" : {
+          "$ref" : "#/definitions/InstanceRequirementsRequest"
         }
       }
     },
@@ -495,6 +508,211 @@
         }
       },
       "required" : [ "Ipv6Address" ]
+    },
+    "InstanceRequirementsRequest" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "VCpuCount" : {
+          "$ref" : "#/definitions/VCpuCountRangeRequest"
+        },
+        "MemoryMiB" : {
+          "$ref" : "#/definitions/MemoryMiBRequest"
+        },
+        "CpuManufacturers" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string",
+            "enum" : [ "intel", "amd", "amazon-web-services" ]
+          }
+        },
+        "MemoryGiBPerVCpu" : {
+          "$ref" : "#/definitions/MemoryGiBPerVCpuRequest"
+        },
+        "ExcludedInstanceTypes" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string",
+            "minLength" : 1,
+            "maxLength" : 30,
+            "pattern" : "[a-zA-Z0-9\\.\\*]+"
+          }
+        },
+        "InstanceGenerations" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string",
+            "enum" : [ "current", "previous" ]
+          }
+        },
+        "SpotMaxPricePercentageOverLowestPrice" : {
+          "type" : "integer"
+        },
+        "OnDemandMaxPricePercentageOverLowestPrice" : {
+          "type" : "integer"
+        },
+        "BareMetal" : {
+          "type" : "string",
+          "enum" : [ "included", "required", "excluded" ]
+        },
+        "BurstablePerformance" : {
+          "type" : "string",
+          "enum" : [ "included", "required", "excluded" ]
+        },
+        "RequireHibernateSupport" : {
+          "type" : "boolean"
+        },
+        "NetworkInterfaceCount" : {
+          "$ref" : "#/definitions/NetworkInterfaceCountRequest"
+        },
+        "LocalStorage" : {
+          "type" : "string",
+          "enum" : [ "included", "required", "excluded" ]
+        },
+        "LocalStorageTypes" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string",
+            "enum" : [ "hdd", "ssd" ]
+          }
+        },
+        "TotalLocalStorageGB" : {
+          "$ref" : "#/definitions/TotalLocalStorageGBRequest"
+        },
+        "BaselineEbsBandwidthMbps" : {
+          "$ref" : "#/definitions/BaselineEbsBandwidthMbpsRequest"
+        },
+        "AcceleratorTypes" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string",
+            "enum" : [ "gpu", "fpga", "inference" ]
+          }
+        },
+        "AcceleratorCount" : {
+          "$ref" : "#/definitions/AcceleratorCountRequest"
+        },
+        "AcceleratorManufacturers" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string",
+            "enum" : [ "nvidia", "amd", "amazon-web-services", "xilinx" ]
+          }
+        },
+        "AcceleratorNames" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string",
+            "enum" : [ "a100", "v100", "k80", "t4", "m60", "radeon-pro-v520", "vu9p", "inferentia", "k520" ]
+          }
+        },
+        "AcceleratorTotalMemoryMiB" : {
+          "$ref" : "#/definitions/AcceleratorTotalMemoryMiBRequest"
+        }
+      }
+    },
+    "VCpuCountRangeRequest" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Min" : {
+          "type" : "integer"
+        },
+        "Max" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "MemoryMiBRequest" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Min" : {
+          "type" : "integer"
+        },
+        "Max" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "MemoryGiBPerVCpuRequest" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Min" : {
+          "type" : "number"
+        },
+        "Max" : {
+          "type" : "number"
+        }
+      }
+    },
+    "NetworkInterfaceCountRequest" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Min" : {
+          "type" : "integer"
+        },
+        "Max" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "TotalLocalStorageGBRequest" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Min" : {
+          "type" : "number"
+        },
+        "Max" : {
+          "type" : "number"
+        }
+      }
+    },
+    "BaselineEbsBandwidthMbpsRequest" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Min" : {
+          "type" : "integer"
+        },
+        "Max" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "AcceleratorCountRequest" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Min" : {
+          "type" : "integer"
+        },
+        "Max" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "AcceleratorTotalMemoryMiBRequest" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Min" : {
+          "type" : "integer"
+        },
+        "Max" : {
+          "type" : "integer"
+        }
+      }
     }
   },
   "required" : [ "SpotFleetRequestConfigData" ],
