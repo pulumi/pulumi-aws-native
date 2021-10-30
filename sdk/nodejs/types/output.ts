@@ -775,6 +775,11 @@ export namespace apigateway {
         rateLimit?: number;
     }
 
+    export interface VpcLinkTag {
+        key: string;
+        value: string;
+    }
+
 }
 
 export namespace apigatewayv2 {
@@ -946,6 +951,7 @@ export namespace appflow {
         inforNexus?: outputs.appflow.ConnectorProfileInforNexusConnectorProfileCredentials;
         marketo?: outputs.appflow.ConnectorProfileMarketoConnectorProfileCredentials;
         redshift?: outputs.appflow.ConnectorProfileRedshiftConnectorProfileCredentials;
+        sAPOData?: outputs.appflow.ConnectorProfileSAPODataConnectorProfileCredentials;
         salesforce?: outputs.appflow.ConnectorProfileSalesforceConnectorProfileCredentials;
         serviceNow?: outputs.appflow.ConnectorProfileServiceNowConnectorProfileCredentials;
         singular?: outputs.appflow.ConnectorProfileSingularConnectorProfileCredentials;
@@ -1063,6 +1069,12 @@ export namespace appflow {
         instanceUrl: string;
     }
 
+    export interface ConnectorProfileOAuthProperties {
+        authCodeUrl?: string;
+        oAuthScopes?: string[];
+        tokenUrl?: string;
+    }
+
     /**
      * Connector specific properties needed to create connector profile - currently not needed for Amplitude, Trendmicro, Googleanalytics and Singular
      */
@@ -1072,6 +1084,7 @@ export namespace appflow {
         inforNexus?: outputs.appflow.ConnectorProfileInforNexusConnectorProfileProperties;
         marketo?: outputs.appflow.ConnectorProfileMarketoConnectorProfileProperties;
         redshift?: outputs.appflow.ConnectorProfileRedshiftConnectorProfileProperties;
+        sAPOData?: outputs.appflow.ConnectorProfileSAPODataConnectorProfileProperties;
         salesforce?: outputs.appflow.ConnectorProfileSalesforceConnectorProfileProperties;
         serviceNow?: outputs.appflow.ConnectorProfileServiceNowConnectorProfileProperties;
         slack?: outputs.appflow.ConnectorProfileSlackConnectorProfileProperties;
@@ -1108,6 +1121,40 @@ export namespace appflow {
          * The Amazon Resource Name (ARN) of the IAM role.
          */
         roleArn: string;
+    }
+
+    export interface ConnectorProfileSAPODataConnectorProfileCredentials {
+        basicAuthCredentials?: outputs.appflow.ConnectorProfileSAPODataConnectorProfileCredentialsBasicAuthCredentialsProperties;
+        oAuthCredentials?: outputs.appflow.ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties;
+    }
+
+    export interface ConnectorProfileSAPODataConnectorProfileCredentialsBasicAuthCredentialsProperties {
+        /**
+         * The password that corresponds to the username.
+         */
+        password?: string;
+        /**
+         * The name of the user.
+         */
+        username?: string;
+    }
+
+    export interface ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties {
+        accessToken?: string;
+        clientId?: string;
+        clientSecret?: string;
+        connectorOAuthRequest?: outputs.appflow.ConnectorProfileConnectorOAuthRequest;
+        refreshToken?: string;
+    }
+
+    export interface ConnectorProfileSAPODataConnectorProfileProperties {
+        applicationHostUrl?: string;
+        applicationServicePath?: string;
+        clientNumber?: string;
+        logonLanguage?: string;
+        oAuthProperties?: outputs.appflow.ConnectorProfileOAuthProperties;
+        portNumber?: number;
+        privateLinkServiceName?: string;
     }
 
     export interface ConnectorProfileSalesforceConnectorProfileCredentials {
@@ -1301,6 +1348,7 @@ export namespace appflow {
         inforNexus?: enums.appflow.FlowInforNexusConnectorOperator;
         marketo?: enums.appflow.FlowMarketoConnectorOperator;
         s3?: enums.appflow.FlowS3ConnectorOperator;
+        sAPOData?: enums.appflow.FlowSAPODataConnectorOperator;
         salesforce?: enums.appflow.FlowSalesforceConnectorOperator;
         serviceNow?: enums.appflow.FlowServiceNowConnectorOperator;
         singular?: enums.appflow.FlowSingularConnectorOperator;
@@ -1402,6 +1450,10 @@ export namespace appflow {
         s3OutputFormatConfig?: outputs.appflow.FlowS3OutputFormatConfig;
     }
 
+    export interface FlowS3InputFormatConfig {
+        s3InputFileType?: enums.appflow.FlowS3InputFormatConfigS3InputFileType;
+    }
+
     export interface FlowS3OutputFormatConfig {
         aggregationConfig?: outputs.appflow.FlowAggregationConfig;
         fileType?: enums.appflow.FlowFileType;
@@ -1411,6 +1463,11 @@ export namespace appflow {
     export interface FlowS3SourceProperties {
         bucketName: string;
         bucketPrefix: string;
+        s3InputFormatConfig?: outputs.appflow.FlowS3InputFormatConfig;
+    }
+
+    export interface FlowSAPODataSourceProperties {
+        objectPath: string;
     }
 
     export interface FlowSalesforceDestinationProperties {
@@ -1471,6 +1528,7 @@ export namespace appflow {
         inforNexus?: outputs.appflow.FlowInforNexusSourceProperties;
         marketo?: outputs.appflow.FlowMarketoSourceProperties;
         s3?: outputs.appflow.FlowS3SourceProperties;
+        sAPOData?: outputs.appflow.FlowSAPODataSourceProperties;
         salesforce?: outputs.appflow.FlowSalesforceSourceProperties;
         serviceNow?: outputs.appflow.FlowServiceNowSourceProperties;
         singular?: outputs.appflow.FlowSingularSourceProperties;
@@ -3259,6 +3317,45 @@ export namespace auditmanager {
 }
 
 export namespace autoscaling {
+    export interface AutoScalingGroupAcceleratorCountRequest {
+        max?: number;
+        min?: number;
+    }
+
+    export interface AutoScalingGroupAcceleratorTotalMemoryMiBRequest {
+        max?: number;
+        min?: number;
+    }
+
+    export interface AutoScalingGroupBaselineEbsBandwidthMbpsRequest {
+        max?: number;
+        min?: number;
+    }
+
+    export interface AutoScalingGroupInstanceRequirements {
+        acceleratorCount?: outputs.autoscaling.AutoScalingGroupAcceleratorCountRequest;
+        acceleratorManufacturers?: string[];
+        acceleratorNames?: string[];
+        acceleratorTotalMemoryMiB?: outputs.autoscaling.AutoScalingGroupAcceleratorTotalMemoryMiBRequest;
+        acceleratorTypes?: string[];
+        bareMetal?: string;
+        baselineEbsBandwidthMbps?: outputs.autoscaling.AutoScalingGroupBaselineEbsBandwidthMbpsRequest;
+        burstablePerformance?: string;
+        cpuManufacturers?: string[];
+        excludedInstanceTypes?: string[];
+        instanceGenerations?: string[];
+        localStorage?: string;
+        localStorageTypes?: string[];
+        memoryGiBPerVCpu?: outputs.autoscaling.AutoScalingGroupMemoryGiBPerVCpuRequest;
+        memoryMiB?: outputs.autoscaling.AutoScalingGroupMemoryMiBRequest;
+        networkInterfaceCount?: outputs.autoscaling.AutoScalingGroupNetworkInterfaceCountRequest;
+        onDemandMaxPricePercentageOverLowestPrice?: number;
+        requireHibernateSupport?: boolean;
+        spotMaxPricePercentageOverLowestPrice?: number;
+        totalLocalStorageGB?: outputs.autoscaling.AutoScalingGroupTotalLocalStorageGBRequest;
+        vCpuCount?: outputs.autoscaling.AutoScalingGroupVCpuCountRequest;
+    }
+
     export interface AutoScalingGroupInstancesDistribution {
         onDemandAllocationStrategy?: string;
         onDemandBaseCapacity?: number;
@@ -3274,6 +3371,7 @@ export namespace autoscaling {
     }
 
     export interface AutoScalingGroupLaunchTemplateOverrides {
+        instanceRequirements?: outputs.autoscaling.AutoScalingGroupInstanceRequirements;
         instanceType?: string;
         launchTemplateSpecification?: outputs.autoscaling.AutoScalingGroupLaunchTemplateSpecification;
         weightedCapacity?: string;
@@ -3295,6 +3393,16 @@ export namespace autoscaling {
         roleARN?: string;
     }
 
+    export interface AutoScalingGroupMemoryGiBPerVCpuRequest {
+        max?: number;
+        min?: number;
+    }
+
+    export interface AutoScalingGroupMemoryMiBRequest {
+        max?: number;
+        min?: number;
+    }
+
     export interface AutoScalingGroupMetricsCollection {
         granularity: string;
         metrics?: string[];
@@ -3303,6 +3411,11 @@ export namespace autoscaling {
     export interface AutoScalingGroupMixedInstancesPolicy {
         instancesDistribution?: outputs.autoscaling.AutoScalingGroupInstancesDistribution;
         launchTemplate: outputs.autoscaling.AutoScalingGroupLaunchTemplate;
+    }
+
+    export interface AutoScalingGroupNetworkInterfaceCountRequest {
+        max?: number;
+        min?: number;
     }
 
     export interface AutoScalingGroupNotificationConfiguration {
@@ -3314,6 +3427,16 @@ export namespace autoscaling {
         key: string;
         propagateAtLaunch: boolean;
         value: string;
+    }
+
+    export interface AutoScalingGroupTotalLocalStorageGBRequest {
+        max?: number;
+        min?: number;
+    }
+
+    export interface AutoScalingGroupVCpuCountRequest {
+        max?: number;
+        min?: number;
     }
 
     /**
@@ -6212,6 +6335,52 @@ export namespace configuration {
 
 export namespace connect {
     /**
+     * Contains information about the hours of operation.
+     */
+    export interface HoursOfOperationConfig {
+        /**
+         * The day that the hours of operation applies to.
+         */
+        day: enums.connect.HoursOfOperationConfigDay;
+        /**
+         * The end time that your contact center closes.
+         */
+        endTime: outputs.connect.HoursOfOperationTimeSlice;
+        /**
+         * The start time that your contact center opens.
+         */
+        startTime: outputs.connect.HoursOfOperationTimeSlice;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface HoursOfOperationTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: string;
+    }
+
+    /**
+     * The start time or end time for an hours of operation.
+     */
+    export interface HoursOfOperationTimeSlice {
+        /**
+         * The hours.
+         */
+        hours: number;
+        /**
+         * The minutes.
+         */
+        minutes: number;
+    }
+
+    /**
      * Configuration settings for the quick connect.
      */
     export interface QuickConnectConfig {
@@ -6256,6 +6425,39 @@ export namespace connect {
     export interface QuickConnectUserQuickConnectConfig {
         contactFlowArn: string;
         userArn: string;
+    }
+
+    /**
+     * Contains information about the identity of a user.
+     */
+    export interface UserIdentityInfo {
+        email?: string;
+        firstName?: string;
+        lastName?: string;
+    }
+
+    /**
+     * Contains information about the phone configuration settings for a user.
+     */
+    export interface UserPhoneConfig {
+        afterContactWorkTimeLimit?: number;
+        autoAccept?: boolean;
+        deskPhoneNumber?: string;
+        phoneType: enums.connect.UserPhoneType;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface UserTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: string;
     }
 
 }
@@ -7489,11 +7691,30 @@ export namespace dms {
 
     export interface EndpointKafkaSettings {
         broker?: string;
+        includeControlDetails?: boolean;
+        includeNullAndEmpty?: boolean;
+        includeTableAlterOperations?: boolean;
+        includeTransactionDetails?: boolean;
+        noHexPrefix?: boolean;
+        partitionIncludeSchemaTable?: boolean;
+        saslPassword?: string;
+        saslUserName?: string;
+        securityProtocol?: string;
+        sslCaCertificateArn?: string;
+        sslClientCertificateArn?: string;
+        sslClientKeyArn?: string;
+        sslClientKeyPassword?: string;
         topic?: string;
     }
 
     export interface EndpointKinesisSettings {
+        includeControlDetails?: boolean;
+        includeNullAndEmpty?: boolean;
+        includeTableAlterOperations?: boolean;
+        includeTransactionDetails?: boolean;
         messageFormat?: string;
+        noHexPrefix?: boolean;
+        partitionIncludeSchemaTable?: boolean;
         serviceAccessRoleArn?: string;
         streamArn?: string;
     }
@@ -7544,6 +7765,16 @@ export namespace dms {
     export interface EndpointPostgreSqlSettings {
         secretsManagerAccessRoleArn?: string;
         secretsManagerSecretId?: string;
+    }
+
+    export interface EndpointRedisSettings {
+        authPassword?: string;
+        authType?: string;
+        authUserName?: string;
+        port?: number;
+        serverName?: string;
+        sslCaCertificateArn?: string;
+        sslSecurityProtocol?: string;
     }
 
     export interface EndpointRedshiftSettings {
@@ -7784,6 +8015,26 @@ export namespace dynamodb {
 }
 
 export namespace ec2 {
+    export interface CapacityReservationFleetInstanceTypeSpecification {
+        availabilityZone?: string;
+        availabilityZoneId?: string;
+        ebsOptimized?: boolean;
+        instancePlatform?: string;
+        instanceType?: string;
+        priority?: number;
+        weight?: number;
+    }
+
+    export interface CapacityReservationFleetTag {
+        key: string;
+        value: string;
+    }
+
+    export interface CapacityReservationFleetTagSpecification {
+        resourceType?: string;
+        tags?: outputs.ec2.CapacityReservationFleetTag[];
+    }
+
     export interface CapacityReservationTag {
         key: string;
         value: string;
@@ -7850,6 +8101,26 @@ export namespace ec2 {
         value: string;
     }
 
+    export interface EC2FleetAcceleratorCountRequest {
+        max?: number;
+        min?: number;
+    }
+
+    export interface EC2FleetAcceleratorTotalMemoryMiBRequest {
+        max?: number;
+        min?: number;
+    }
+
+    export interface EC2FleetBaselineEbsBandwidthMbpsRequest {
+        max?: number;
+        min?: number;
+    }
+
+    export interface EC2FleetCapacityRebalance {
+        replacementStrategy?: enums.ec2.EC2FleetCapacityRebalanceReplacementStrategy;
+        terminationDelay?: number;
+    }
+
     export interface EC2FleetCapacityReservationOptionsRequest {
         usageStrategy?: enums.ec2.EC2FleetCapacityReservationOptionsRequestUsageStrategy;
     }
@@ -7861,6 +8132,7 @@ export namespace ec2 {
 
     export interface EC2FleetFleetLaunchTemplateOverridesRequest {
         availabilityZone?: string;
+        instanceRequirements?: outputs.ec2.EC2FleetInstanceRequirementsRequest;
         instanceType?: string;
         maxPrice?: string;
         placement?: outputs.ec2.EC2FleetPlacement;
@@ -7873,6 +8145,45 @@ export namespace ec2 {
         launchTemplateId?: string;
         launchTemplateName?: string;
         version?: string;
+    }
+
+    export interface EC2FleetInstanceRequirementsRequest {
+        acceleratorCount?: outputs.ec2.EC2FleetAcceleratorCountRequest;
+        acceleratorManufacturers?: enums.ec2.EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem[];
+        acceleratorNames?: enums.ec2.EC2FleetInstanceRequirementsRequestAcceleratorNamesItem[];
+        acceleratorTotalMemoryMiB?: outputs.ec2.EC2FleetAcceleratorTotalMemoryMiBRequest;
+        acceleratorTypes?: enums.ec2.EC2FleetInstanceRequirementsRequestAcceleratorTypesItem[];
+        bareMetal?: enums.ec2.EC2FleetInstanceRequirementsRequestBareMetal;
+        baselineEbsBandwidthMbps?: outputs.ec2.EC2FleetBaselineEbsBandwidthMbpsRequest;
+        burstablePerformance?: enums.ec2.EC2FleetInstanceRequirementsRequestBurstablePerformance;
+        cpuManufacturers?: enums.ec2.EC2FleetInstanceRequirementsRequestCpuManufacturersItem[];
+        excludedInstanceTypes?: string[];
+        instanceGenerations?: enums.ec2.EC2FleetInstanceRequirementsRequestInstanceGenerationsItem[];
+        localStorage?: enums.ec2.EC2FleetInstanceRequirementsRequestLocalStorage;
+        localStorageTypes?: enums.ec2.EC2FleetInstanceRequirementsRequestLocalStorageTypesItem[];
+        memoryGiBPerVCpu?: outputs.ec2.EC2FleetMemoryGiBPerVCpuRequest;
+        memoryMiB?: outputs.ec2.EC2FleetMemoryMiBRequest;
+        networkInterfaceCount?: outputs.ec2.EC2FleetNetworkInterfaceCountRequest;
+        onDemandMaxPricePercentageOverLowestPrice?: number;
+        requireHibernateSupport?: boolean;
+        spotMaxPricePercentageOverLowestPrice?: number;
+        totalLocalStorageGB?: outputs.ec2.EC2FleetTotalLocalStorageGBRequest;
+        vCpuCount?: outputs.ec2.EC2FleetVCpuCountRangeRequest;
+    }
+
+    export interface EC2FleetMemoryGiBPerVCpuRequest {
+        max?: number;
+        min?: number;
+    }
+
+    export interface EC2FleetMemoryMiBRequest {
+        max?: number;
+        min?: number;
+    }
+
+    export interface EC2FleetNetworkInterfaceCountRequest {
+        max?: number;
+        min?: number;
     }
 
     export interface EC2FleetOnDemandOptionsRequest {
@@ -7899,10 +8210,15 @@ export namespace ec2 {
         allocationStrategy?: enums.ec2.EC2FleetSpotOptionsRequestAllocationStrategy;
         instanceInterruptionBehavior?: enums.ec2.EC2FleetSpotOptionsRequestInstanceInterruptionBehavior;
         instancePoolsToUseCount?: number;
+        maintenanceStrategies?: outputs.ec2.EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties;
         maxTotalPrice?: string;
         minTargetCapacity?: number;
         singleAvailabilityZone?: boolean;
         singleInstanceType?: boolean;
+    }
+
+    export interface EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties {
+        capacityRebalance?: outputs.ec2.EC2FleetCapacityRebalance;
     }
 
     export interface EC2FleetTag {
@@ -7919,7 +8235,18 @@ export namespace ec2 {
         defaultTargetCapacityType?: enums.ec2.EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType;
         onDemandTargetCapacity?: number;
         spotTargetCapacity?: number;
+        targetCapacityUnitType?: enums.ec2.EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType;
         totalTargetCapacity: number;
+    }
+
+    export interface EC2FleetTotalLocalStorageGBRequest {
+        max?: number;
+        min?: number;
+    }
+
+    export interface EC2FleetVCpuCountRangeRequest {
+        max?: number;
+        min?: number;
     }
 
     export interface EIPTag {
@@ -8441,6 +8768,21 @@ export namespace ec2 {
         value: string;
     }
 
+    export interface SpotFleetAcceleratorCountRequest {
+        max?: number;
+        min?: number;
+    }
+
+    export interface SpotFleetAcceleratorTotalMemoryMiBRequest {
+        max?: number;
+        min?: number;
+    }
+
+    export interface SpotFleetBaselineEbsBandwidthMbpsRequest {
+        max?: number;
+        min?: number;
+    }
+
     export interface SpotFleetBlockDeviceMapping {
         deviceName: string;
         ebs?: outputs.ec2.SpotFleetEbsBlockDevice;
@@ -8497,12 +8839,37 @@ export namespace ec2 {
         subnetId?: string;
     }
 
+    export interface SpotFleetInstanceRequirementsRequest {
+        acceleratorCount?: outputs.ec2.SpotFleetAcceleratorCountRequest;
+        acceleratorManufacturers?: enums.ec2.SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem[];
+        acceleratorNames?: enums.ec2.SpotFleetInstanceRequirementsRequestAcceleratorNamesItem[];
+        acceleratorTotalMemoryMiB?: outputs.ec2.SpotFleetAcceleratorTotalMemoryMiBRequest;
+        acceleratorTypes?: enums.ec2.SpotFleetInstanceRequirementsRequestAcceleratorTypesItem[];
+        bareMetal?: enums.ec2.SpotFleetInstanceRequirementsRequestBareMetal;
+        baselineEbsBandwidthMbps?: outputs.ec2.SpotFleetBaselineEbsBandwidthMbpsRequest;
+        burstablePerformance?: enums.ec2.SpotFleetInstanceRequirementsRequestBurstablePerformance;
+        cpuManufacturers?: enums.ec2.SpotFleetInstanceRequirementsRequestCpuManufacturersItem[];
+        excludedInstanceTypes?: string[];
+        instanceGenerations?: enums.ec2.SpotFleetInstanceRequirementsRequestInstanceGenerationsItem[];
+        localStorage?: enums.ec2.SpotFleetInstanceRequirementsRequestLocalStorage;
+        localStorageTypes?: enums.ec2.SpotFleetInstanceRequirementsRequestLocalStorageTypesItem[];
+        memoryGiBPerVCpu?: outputs.ec2.SpotFleetMemoryGiBPerVCpuRequest;
+        memoryMiB?: outputs.ec2.SpotFleetMemoryMiBRequest;
+        networkInterfaceCount?: outputs.ec2.SpotFleetNetworkInterfaceCountRequest;
+        onDemandMaxPricePercentageOverLowestPrice?: number;
+        requireHibernateSupport?: boolean;
+        spotMaxPricePercentageOverLowestPrice?: number;
+        totalLocalStorageGB?: outputs.ec2.SpotFleetTotalLocalStorageGBRequest;
+        vCpuCount?: outputs.ec2.SpotFleetVCpuCountRangeRequest;
+    }
+
     export interface SpotFleetLaunchSpecification {
         blockDeviceMappings?: outputs.ec2.SpotFleetBlockDeviceMapping[];
         ebsOptimized?: boolean;
         iamInstanceProfile?: outputs.ec2.SpotFleetIamInstanceProfileSpecification;
         imageId: string;
-        instanceType: string;
+        instanceRequirements?: outputs.ec2.SpotFleetInstanceRequirementsRequest;
+        instanceType?: string;
         kernelId?: string;
         keyName?: string;
         monitoring?: outputs.ec2.SpotFleetMonitoring;
@@ -8524,6 +8891,7 @@ export namespace ec2 {
 
     export interface SpotFleetLaunchTemplateOverrides {
         availabilityZone?: string;
+        instanceRequirements?: outputs.ec2.SpotFleetInstanceRequirementsRequest;
         instanceType?: string;
         spotPrice?: string;
         subnetId?: string;
@@ -8535,8 +8903,23 @@ export namespace ec2 {
         targetGroupsConfig?: outputs.ec2.SpotFleetTargetGroupsConfig;
     }
 
+    export interface SpotFleetMemoryGiBPerVCpuRequest {
+        max?: number;
+        min?: number;
+    }
+
+    export interface SpotFleetMemoryMiBRequest {
+        max?: number;
+        min?: number;
+    }
+
     export interface SpotFleetMonitoring {
         enabled?: boolean;
+    }
+
+    export interface SpotFleetNetworkInterfaceCountRequest {
+        max?: number;
+        min?: number;
     }
 
     export interface SpotFleetPrivateIpAddressSpecification {
@@ -8562,6 +8945,7 @@ export namespace ec2 {
         spotMaxTotalPrice?: string;
         spotPrice?: string;
         targetCapacity: number;
+        targetCapacityUnitType?: enums.ec2.SpotFleetRequestConfigDataTargetCapacityUnitType;
         terminateInstancesWithExpiration?: boolean;
         type?: enums.ec2.SpotFleetRequestConfigDataType;
         validFrom?: string;
@@ -8570,6 +8954,7 @@ export namespace ec2 {
 
     export interface SpotFleetSpotCapacityRebalance {
         replacementStrategy?: enums.ec2.SpotFleetSpotCapacityRebalanceReplacementStrategy;
+        terminationDelay?: number;
     }
 
     export interface SpotFleetSpotMaintenanceStrategies {
@@ -8598,6 +8983,16 @@ export namespace ec2 {
 
     export interface SpotFleetTargetGroupsConfig {
         targetGroups: outputs.ec2.SpotFleetTargetGroup[];
+    }
+
+    export interface SpotFleetTotalLocalStorageGBRequest {
+        max?: number;
+        min?: number;
+    }
+
+    export interface SpotFleetVCpuCountRangeRequest {
+        max?: number;
+        min?: number;
     }
 
     export interface SubnetTag {
@@ -8725,7 +9120,6 @@ export namespace ec2 {
         key: string;
         value: string;
     }
-
 }
 
 export namespace ecr {
@@ -16275,6 +16669,58 @@ export namespace licensemanager {
 
 export namespace lightsail {
     /**
+     * Describes the parameters of the database.
+     */
+    export interface DatabaseRelationalDatabaseParameter {
+        /**
+         * Specifies the valid range of values for the parameter.
+         */
+        allowedValues?: string;
+        /**
+         * Indicates when parameter updates are applied. Can be immediate or pending-reboot.
+         */
+        applyMethod?: string;
+        /**
+         * Specifies the engine-specific parameter type.
+         */
+        applyType?: string;
+        /**
+         * Specifies the valid data type for the parameter.
+         */
+        dataType?: string;
+        /**
+         * Provides a description of the parameter.
+         */
+        description?: string;
+        /**
+         * A Boolean value indicating whether the parameter can be modified.
+         */
+        isModifiable?: boolean;
+        /**
+         * Specifies the name of the parameter.
+         */
+        parameterName?: string;
+        /**
+         * Specifies the value of the parameter.
+         */
+        parameterValue?: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface DatabaseTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value?: string;
+    }
+
+    /**
      * A addon associate with a resource.
      */
     export interface DiskAddOn {
@@ -19020,12 +19466,6 @@ export namespace mwaa {
         subnetIds?: string[];
     }
 
-    /**
-     * A map of tags for the environment.
-     */
-    export interface EnvironmentTagMap {
-    }
-
 }
 
 export namespace neptune {
@@ -19732,6 +20172,41 @@ export namespace opsworkscm {
 
 }
 
+export namespace panorama {
+    export interface ApplicationInstanceManifestOverridesPayload {
+        payloadData?: string;
+    }
+
+    export interface ApplicationInstanceManifestPayload {
+        payloadData?: string;
+    }
+
+    export interface ApplicationInstanceTag {
+        /**
+         * A string used to identify this tag
+         */
+        key: string;
+        /**
+         * A string containing the value for the tag
+         */
+        value: string;
+    }
+
+    export interface PackageStorageLocation {
+        binaryPrefixLocation?: string;
+        bucket?: string;
+        generatedPrefixLocation?: string;
+        manifestPrefixLocation?: string;
+        repoPrefixLocation?: string;
+    }
+
+    export interface PackageTag {
+        key: string;
+        value: string;
+    }
+
+}
+
 export namespace pinpoint {
     export interface ApplicationSettingsCampaignHook {
         lambdaFunctionName?: string;
@@ -19749,6 +20224,15 @@ export namespace pinpoint {
     export interface ApplicationSettingsQuietTime {
         end: string;
         start: string;
+    }
+
+    export interface CampaignDefaultButtonConfiguration {
+        backgroundColor?: string;
+        borderRadius?: number;
+        buttonAction?: string;
+        link?: string;
+        text?: string;
+        textColor?: string;
     }
 
     export interface CampaignEmailMessage {
@@ -19775,10 +20259,45 @@ export namespace pinpoint {
         webUrl?: string;
     }
 
+    export interface CampaignInAppMessage {
+        content?: outputs.pinpoint.CampaignInAppMessageContent[];
+        customConfig?: any;
+        layout?: string;
+    }
+
+    export interface CampaignInAppMessageBodyConfig {
+        alignment?: string;
+        body?: string;
+        textColor?: string;
+    }
+
+    export interface CampaignInAppMessageButton {
+        android?: outputs.pinpoint.CampaignOverrideButtonConfiguration;
+        defaultConfig?: outputs.pinpoint.CampaignDefaultButtonConfiguration;
+        iOS?: outputs.pinpoint.CampaignOverrideButtonConfiguration;
+        web?: outputs.pinpoint.CampaignOverrideButtonConfiguration;
+    }
+
+    export interface CampaignInAppMessageContent {
+        backgroundColor?: string;
+        bodyConfig?: outputs.pinpoint.CampaignInAppMessageBodyConfig;
+        headerConfig?: outputs.pinpoint.CampaignInAppMessageHeaderConfig;
+        imageUrl?: string;
+        primaryBtn?: outputs.pinpoint.CampaignInAppMessageButton;
+        secondaryBtn?: outputs.pinpoint.CampaignInAppMessageButton;
+    }
+
+    export interface CampaignInAppMessageHeaderConfig {
+        alignment?: string;
+        header?: string;
+        textColor?: string;
+    }
+
     export interface CampaignLimits {
         daily?: number;
         maximumDuration?: number;
         messagesPerSecond?: number;
+        session?: number;
         total?: number;
     }
 
@@ -19804,7 +20323,13 @@ export namespace pinpoint {
         defaultMessage?: outputs.pinpoint.CampaignMessage;
         emailMessage?: outputs.pinpoint.CampaignEmailMessage;
         gCMMessage?: outputs.pinpoint.CampaignMessage;
+        inAppMessage?: outputs.pinpoint.CampaignInAppMessage;
         sMSMessage?: outputs.pinpoint.CampaignSmsMessage;
+    }
+
+    export interface CampaignOverrideButtonConfiguration {
+        buttonAction?: string;
+        link?: string;
     }
 
     export interface CampaignQuietTime {
@@ -22231,12 +22756,24 @@ export namespace route53resolver {
     }
 
     export interface ResolverRuleTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         value: string;
     }
 
     export interface ResolverRuleTargetAddress {
+        /**
+         * One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses. 
+         */
         ip: string;
+        /**
+         * The port at Ip that you want to forward DNS queries to. 
+         */
         port?: string;
     }
 
@@ -24855,7 +25392,7 @@ export namespace sagemaker {
     export interface ServiceCatalogProvisioningDetailsProperties {
         pathId?: string;
         productId: string;
-        provisioningArtifactId: string;
+        provisioningArtifactId?: string;
         /**
          * Parameters specified by the administrator that are required for provisioning the product.
          */

@@ -40,6 +40,10 @@ export class Table extends pulumi.CustomResource {
      * Clustering key columns of the table
      */
     public readonly clusteringKeyColumns!: pulumi.Output<outputs.cassandra.TableClusteringKeyColumn[] | undefined>;
+    /**
+     * Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
+     */
+    public readonly defaultTimeToLive!: pulumi.Output<number | undefined>;
     public readonly encryptionSpecification!: pulumi.Output<outputs.cassandra.TableEncryptionSpecification | undefined>;
     /**
      * Name for Cassandra keyspace
@@ -85,6 +89,7 @@ export class Table extends pulumi.CustomResource {
             }
             inputs["billingMode"] = args ? args.billingMode : undefined;
             inputs["clusteringKeyColumns"] = args ? args.clusteringKeyColumns : undefined;
+            inputs["defaultTimeToLive"] = args ? args.defaultTimeToLive : undefined;
             inputs["encryptionSpecification"] = args ? args.encryptionSpecification : undefined;
             inputs["keyspaceName"] = args ? args.keyspaceName : undefined;
             inputs["partitionKeyColumns"] = args ? args.partitionKeyColumns : undefined;
@@ -95,6 +100,7 @@ export class Table extends pulumi.CustomResource {
         } else {
             inputs["billingMode"] = undefined /*out*/;
             inputs["clusteringKeyColumns"] = undefined /*out*/;
+            inputs["defaultTimeToLive"] = undefined /*out*/;
             inputs["encryptionSpecification"] = undefined /*out*/;
             inputs["keyspaceName"] = undefined /*out*/;
             inputs["partitionKeyColumns"] = undefined /*out*/;
@@ -119,6 +125,10 @@ export interface TableArgs {
      * Clustering key columns of the table
      */
     clusteringKeyColumns?: pulumi.Input<pulumi.Input<inputs.cassandra.TableClusteringKeyColumnArgs>[]>;
+    /**
+     * Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
+     */
+    defaultTimeToLive?: pulumi.Input<number>;
     encryptionSpecification?: pulumi.Input<inputs.cassandra.TableEncryptionSpecificationArgs>;
     /**
      * Name for Cassandra keyspace

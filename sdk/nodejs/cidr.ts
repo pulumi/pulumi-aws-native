@@ -28,3 +28,13 @@ export interface CidrArgs {
 export interface CidrResult {
     readonly subnets: string[];
 }
+
+export function cidrOutput(args: CidrOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<CidrResult> {
+    return pulumi.output(args).apply(a => cidr(a, opts))
+}
+
+export interface CidrOutputArgs {
+    cidrBits: pulumi.Input<number>;
+    count: pulumi.Input<number>;
+    ipBlock: pulumi.Input<string>;
+}

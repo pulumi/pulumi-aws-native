@@ -1473,6 +1473,12 @@ export namespace apigateway {
          */
         rateLimit?: pulumi.Input<number>;
     }
+
+    export interface VpcLinkTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
 }
 
 export namespace apigatewayv2 {
@@ -1642,6 +1648,7 @@ export namespace appflow {
         inforNexus?: pulumi.Input<inputs.appflow.ConnectorProfileInforNexusConnectorProfileCredentialsArgs>;
         marketo?: pulumi.Input<inputs.appflow.ConnectorProfileMarketoConnectorProfileCredentialsArgs>;
         redshift?: pulumi.Input<inputs.appflow.ConnectorProfileRedshiftConnectorProfileCredentialsArgs>;
+        sAPOData?: pulumi.Input<inputs.appflow.ConnectorProfileSAPODataConnectorProfileCredentialsArgs>;
         salesforce?: pulumi.Input<inputs.appflow.ConnectorProfileSalesforceConnectorProfileCredentialsArgs>;
         serviceNow?: pulumi.Input<inputs.appflow.ConnectorProfileServiceNowConnectorProfileCredentialsArgs>;
         singular?: pulumi.Input<inputs.appflow.ConnectorProfileSingularConnectorProfileCredentialsArgs>;
@@ -1759,6 +1766,12 @@ export namespace appflow {
         instanceUrl: pulumi.Input<string>;
     }
 
+    export interface ConnectorProfileOAuthPropertiesArgs {
+        authCodeUrl?: pulumi.Input<string>;
+        oAuthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+        tokenUrl?: pulumi.Input<string>;
+    }
+
     /**
      * Connector specific properties needed to create connector profile - currently not needed for Amplitude, Trendmicro, Googleanalytics and Singular
      */
@@ -1768,6 +1781,7 @@ export namespace appflow {
         inforNexus?: pulumi.Input<inputs.appflow.ConnectorProfileInforNexusConnectorProfilePropertiesArgs>;
         marketo?: pulumi.Input<inputs.appflow.ConnectorProfileMarketoConnectorProfilePropertiesArgs>;
         redshift?: pulumi.Input<inputs.appflow.ConnectorProfileRedshiftConnectorProfilePropertiesArgs>;
+        sAPOData?: pulumi.Input<inputs.appflow.ConnectorProfileSAPODataConnectorProfilePropertiesArgs>;
         salesforce?: pulumi.Input<inputs.appflow.ConnectorProfileSalesforceConnectorProfilePropertiesArgs>;
         serviceNow?: pulumi.Input<inputs.appflow.ConnectorProfileServiceNowConnectorProfilePropertiesArgs>;
         slack?: pulumi.Input<inputs.appflow.ConnectorProfileSlackConnectorProfilePropertiesArgs>;
@@ -1804,6 +1818,40 @@ export namespace appflow {
          * The Amazon Resource Name (ARN) of the IAM role.
          */
         roleArn: pulumi.Input<string>;
+    }
+
+    export interface ConnectorProfileSAPODataConnectorProfileCredentialsArgs {
+        basicAuthCredentials?: pulumi.Input<inputs.appflow.ConnectorProfileSAPODataConnectorProfileCredentialsBasicAuthCredentialsPropertiesArgs>;
+        oAuthCredentials?: pulumi.Input<inputs.appflow.ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs>;
+    }
+
+    export interface ConnectorProfileSAPODataConnectorProfileCredentialsBasicAuthCredentialsPropertiesArgs {
+        /**
+         * The password that corresponds to the username.
+         */
+        password?: pulumi.Input<string>;
+        /**
+         * The name of the user.
+         */
+        username?: pulumi.Input<string>;
+    }
+
+    export interface ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs {
+        accessToken?: pulumi.Input<string>;
+        clientId?: pulumi.Input<string>;
+        clientSecret?: pulumi.Input<string>;
+        connectorOAuthRequest?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorOAuthRequestArgs>;
+        refreshToken?: pulumi.Input<string>;
+    }
+
+    export interface ConnectorProfileSAPODataConnectorProfilePropertiesArgs {
+        applicationHostUrl?: pulumi.Input<string>;
+        applicationServicePath?: pulumi.Input<string>;
+        clientNumber?: pulumi.Input<string>;
+        logonLanguage?: pulumi.Input<string>;
+        oAuthProperties?: pulumi.Input<inputs.appflow.ConnectorProfileOAuthPropertiesArgs>;
+        portNumber?: pulumi.Input<number>;
+        privateLinkServiceName?: pulumi.Input<string>;
     }
 
     export interface ConnectorProfileSalesforceConnectorProfileCredentialsArgs {
@@ -1997,6 +2045,7 @@ export namespace appflow {
         inforNexus?: pulumi.Input<enums.appflow.FlowInforNexusConnectorOperator>;
         marketo?: pulumi.Input<enums.appflow.FlowMarketoConnectorOperator>;
         s3?: pulumi.Input<enums.appflow.FlowS3ConnectorOperator>;
+        sAPOData?: pulumi.Input<enums.appflow.FlowSAPODataConnectorOperator>;
         salesforce?: pulumi.Input<enums.appflow.FlowSalesforceConnectorOperator>;
         serviceNow?: pulumi.Input<enums.appflow.FlowServiceNowConnectorOperator>;
         singular?: pulumi.Input<enums.appflow.FlowSingularConnectorOperator>;
@@ -2098,6 +2147,10 @@ export namespace appflow {
         s3OutputFormatConfig?: pulumi.Input<inputs.appflow.FlowS3OutputFormatConfigArgs>;
     }
 
+    export interface FlowS3InputFormatConfigArgs {
+        s3InputFileType?: pulumi.Input<enums.appflow.FlowS3InputFormatConfigS3InputFileType>;
+    }
+
     export interface FlowS3OutputFormatConfigArgs {
         aggregationConfig?: pulumi.Input<inputs.appflow.FlowAggregationConfigArgs>;
         fileType?: pulumi.Input<enums.appflow.FlowFileType>;
@@ -2107,6 +2160,11 @@ export namespace appflow {
     export interface FlowS3SourcePropertiesArgs {
         bucketName: pulumi.Input<string>;
         bucketPrefix: pulumi.Input<string>;
+        s3InputFormatConfig?: pulumi.Input<inputs.appflow.FlowS3InputFormatConfigArgs>;
+    }
+
+    export interface FlowSAPODataSourcePropertiesArgs {
+        objectPath: pulumi.Input<string>;
     }
 
     export interface FlowSalesforceDestinationPropertiesArgs {
@@ -2167,6 +2225,7 @@ export namespace appflow {
         inforNexus?: pulumi.Input<inputs.appflow.FlowInforNexusSourcePropertiesArgs>;
         marketo?: pulumi.Input<inputs.appflow.FlowMarketoSourcePropertiesArgs>;
         s3?: pulumi.Input<inputs.appflow.FlowS3SourcePropertiesArgs>;
+        sAPOData?: pulumi.Input<inputs.appflow.FlowSAPODataSourcePropertiesArgs>;
         salesforce?: pulumi.Input<inputs.appflow.FlowSalesforceSourcePropertiesArgs>;
         serviceNow?: pulumi.Input<inputs.appflow.FlowServiceNowSourcePropertiesArgs>;
         singular?: pulumi.Input<inputs.appflow.FlowSingularSourcePropertiesArgs>;
@@ -3895,6 +3954,45 @@ export namespace auditmanager {
 }
 
 export namespace autoscaling {
+    export interface AutoScalingGroupAcceleratorCountRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface AutoScalingGroupInstanceRequirementsArgs {
+        acceleratorCount?: pulumi.Input<inputs.autoscaling.AutoScalingGroupAcceleratorCountRequestArgs>;
+        acceleratorManufacturers?: pulumi.Input<pulumi.Input<string>[]>;
+        acceleratorNames?: pulumi.Input<pulumi.Input<string>[]>;
+        acceleratorTotalMemoryMiB?: pulumi.Input<inputs.autoscaling.AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs>;
+        acceleratorTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        bareMetal?: pulumi.Input<string>;
+        baselineEbsBandwidthMbps?: pulumi.Input<inputs.autoscaling.AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs>;
+        burstablePerformance?: pulumi.Input<string>;
+        cpuManufacturers?: pulumi.Input<pulumi.Input<string>[]>;
+        excludedInstanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        instanceGenerations?: pulumi.Input<pulumi.Input<string>[]>;
+        localStorage?: pulumi.Input<string>;
+        localStorageTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        memoryGiBPerVCpu?: pulumi.Input<inputs.autoscaling.AutoScalingGroupMemoryGiBPerVCpuRequestArgs>;
+        memoryMiB?: pulumi.Input<inputs.autoscaling.AutoScalingGroupMemoryMiBRequestArgs>;
+        networkInterfaceCount?: pulumi.Input<inputs.autoscaling.AutoScalingGroupNetworkInterfaceCountRequestArgs>;
+        onDemandMaxPricePercentageOverLowestPrice?: pulumi.Input<number>;
+        requireHibernateSupport?: pulumi.Input<boolean>;
+        spotMaxPricePercentageOverLowestPrice?: pulumi.Input<number>;
+        totalLocalStorageGB?: pulumi.Input<inputs.autoscaling.AutoScalingGroupTotalLocalStorageGBRequestArgs>;
+        vCpuCount?: pulumi.Input<inputs.autoscaling.AutoScalingGroupVCpuCountRequestArgs>;
+    }
+
     export interface AutoScalingGroupInstancesDistributionArgs {
         onDemandAllocationStrategy?: pulumi.Input<string>;
         onDemandBaseCapacity?: pulumi.Input<number>;
@@ -3910,6 +4008,7 @@ export namespace autoscaling {
     }
 
     export interface AutoScalingGroupLaunchTemplateOverridesArgs {
+        instanceRequirements?: pulumi.Input<inputs.autoscaling.AutoScalingGroupInstanceRequirementsArgs>;
         instanceType?: pulumi.Input<string>;
         launchTemplateSpecification?: pulumi.Input<inputs.autoscaling.AutoScalingGroupLaunchTemplateSpecificationArgs>;
         weightedCapacity?: pulumi.Input<string>;
@@ -3931,6 +4030,16 @@ export namespace autoscaling {
         roleARN?: pulumi.Input<string>;
     }
 
+    export interface AutoScalingGroupMemoryGiBPerVCpuRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface AutoScalingGroupMemoryMiBRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
     export interface AutoScalingGroupMetricsCollectionArgs {
         granularity: pulumi.Input<string>;
         metrics?: pulumi.Input<pulumi.Input<string>[]>;
@@ -3939,6 +4048,11 @@ export namespace autoscaling {
     export interface AutoScalingGroupMixedInstancesPolicyArgs {
         instancesDistribution?: pulumi.Input<inputs.autoscaling.AutoScalingGroupInstancesDistributionArgs>;
         launchTemplate: pulumi.Input<inputs.autoscaling.AutoScalingGroupLaunchTemplateArgs>;
+    }
+
+    export interface AutoScalingGroupNetworkInterfaceCountRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
     }
 
     export interface AutoScalingGroupNotificationConfigurationArgs {
@@ -3950,6 +4064,16 @@ export namespace autoscaling {
         key: pulumi.Input<string>;
         propagateAtLaunch: pulumi.Input<boolean>;
         value: pulumi.Input<string>;
+    }
+
+    export interface AutoScalingGroupTotalLocalStorageGBRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface AutoScalingGroupVCpuCountRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
     }
 
     /**
@@ -4086,7 +4210,6 @@ export namespace autoscaling {
         predefinedMetricSpecification?: pulumi.Input<inputs.autoscaling.ScalingPolicyPredefinedMetricSpecificationArgs>;
         targetValue: pulumi.Input<number>;
     }
-
 }
 
 export namespace autoscalingplans {
@@ -6122,6 +6245,52 @@ export namespace configuration {
 
 export namespace connect {
     /**
+     * Contains information about the hours of operation.
+     */
+    export interface HoursOfOperationConfigArgs {
+        /**
+         * The day that the hours of operation applies to.
+         */
+        day: pulumi.Input<enums.connect.HoursOfOperationConfigDay>;
+        /**
+         * The end time that your contact center closes.
+         */
+        endTime: pulumi.Input<inputs.connect.HoursOfOperationTimeSliceArgs>;
+        /**
+         * The start time that your contact center opens.
+         */
+        startTime: pulumi.Input<inputs.connect.HoursOfOperationTimeSliceArgs>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface HoursOfOperationTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * The start time or end time for an hours of operation.
+     */
+    export interface HoursOfOperationTimeSliceArgs {
+        /**
+         * The hours.
+         */
+        hours: pulumi.Input<number>;
+        /**
+         * The minutes.
+         */
+        minutes: pulumi.Input<number>;
+    }
+
+    /**
      * Configuration settings for the quick connect.
      */
     export interface QuickConnectConfigArgs {
@@ -6166,6 +6335,39 @@ export namespace connect {
     export interface QuickConnectUserQuickConnectConfigArgs {
         contactFlowArn: pulumi.Input<string>;
         userArn: pulumi.Input<string>;
+    }
+
+    /**
+     * Contains information about the identity of a user.
+     */
+    export interface UserIdentityInfoArgs {
+        email?: pulumi.Input<string>;
+        firstName?: pulumi.Input<string>;
+        lastName?: pulumi.Input<string>;
+    }
+
+    /**
+     * Contains information about the phone configuration settings for a user.
+     */
+    export interface UserPhoneConfigArgs {
+        afterContactWorkTimeLimit?: pulumi.Input<number>;
+        autoAccept?: pulumi.Input<boolean>;
+        deskPhoneNumber?: pulumi.Input<string>;
+        phoneType: pulumi.Input<enums.connect.UserPhoneType>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface UserTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: pulumi.Input<string>;
     }
 }
 
@@ -7390,11 +7592,30 @@ export namespace dms {
 
     export interface EndpointKafkaSettingsArgs {
         broker?: pulumi.Input<string>;
+        includeControlDetails?: pulumi.Input<boolean>;
+        includeNullAndEmpty?: pulumi.Input<boolean>;
+        includeTableAlterOperations?: pulumi.Input<boolean>;
+        includeTransactionDetails?: pulumi.Input<boolean>;
+        noHexPrefix?: pulumi.Input<boolean>;
+        partitionIncludeSchemaTable?: pulumi.Input<boolean>;
+        saslPassword?: pulumi.Input<string>;
+        saslUserName?: pulumi.Input<string>;
+        securityProtocol?: pulumi.Input<string>;
+        sslCaCertificateArn?: pulumi.Input<string>;
+        sslClientCertificateArn?: pulumi.Input<string>;
+        sslClientKeyArn?: pulumi.Input<string>;
+        sslClientKeyPassword?: pulumi.Input<string>;
         topic?: pulumi.Input<string>;
     }
 
     export interface EndpointKinesisSettingsArgs {
+        includeControlDetails?: pulumi.Input<boolean>;
+        includeNullAndEmpty?: pulumi.Input<boolean>;
+        includeTableAlterOperations?: pulumi.Input<boolean>;
+        includeTransactionDetails?: pulumi.Input<boolean>;
         messageFormat?: pulumi.Input<string>;
+        noHexPrefix?: pulumi.Input<boolean>;
+        partitionIncludeSchemaTable?: pulumi.Input<boolean>;
         serviceAccessRoleArn?: pulumi.Input<string>;
         streamArn?: pulumi.Input<string>;
     }
@@ -7447,6 +7668,16 @@ export namespace dms {
         secretsManagerSecretId?: pulumi.Input<string>;
     }
 
+    export interface EndpointRedisSettingsArgs {
+        authPassword?: pulumi.Input<string>;
+        authType?: pulumi.Input<string>;
+        authUserName?: pulumi.Input<string>;
+        port?: pulumi.Input<number>;
+        serverName?: pulumi.Input<string>;
+        sslCaCertificateArn?: pulumi.Input<string>;
+        sslSecurityProtocol?: pulumi.Input<string>;
+    }
+
     export interface EndpointRedshiftSettingsArgs {
         secretsManagerAccessRoleArn?: pulumi.Input<string>;
         secretsManagerSecretId?: pulumi.Input<string>;
@@ -7491,6 +7722,7 @@ export namespace dms {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
+
 }
 
 export namespace docdb {
@@ -7682,6 +7914,26 @@ export namespace dynamodb {
 }
 
 export namespace ec2 {
+    export interface CapacityReservationFleetInstanceTypeSpecificationArgs {
+        availabilityZone?: pulumi.Input<string>;
+        availabilityZoneId?: pulumi.Input<string>;
+        ebsOptimized?: pulumi.Input<boolean>;
+        instancePlatform?: pulumi.Input<string>;
+        instanceType?: pulumi.Input<string>;
+        priority?: pulumi.Input<number>;
+        weight?: pulumi.Input<number>;
+    }
+
+    export interface CapacityReservationFleetTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface CapacityReservationFleetTagSpecificationArgs {
+        resourceType?: pulumi.Input<string>;
+        tags?: pulumi.Input<pulumi.Input<inputs.ec2.CapacityReservationFleetTagArgs>[]>;
+    }
+
     export interface CapacityReservationTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
@@ -7748,6 +8000,26 @@ export namespace ec2 {
         value: pulumi.Input<string>;
     }
 
+    export interface EC2FleetAcceleratorCountRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface EC2FleetAcceleratorTotalMemoryMiBRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface EC2FleetBaselineEbsBandwidthMbpsRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface EC2FleetCapacityRebalanceArgs {
+        replacementStrategy?: pulumi.Input<enums.ec2.EC2FleetCapacityRebalanceReplacementStrategy>;
+        terminationDelay?: pulumi.Input<number>;
+    }
+
     export interface EC2FleetCapacityReservationOptionsRequestArgs {
         usageStrategy?: pulumi.Input<enums.ec2.EC2FleetCapacityReservationOptionsRequestUsageStrategy>;
     }
@@ -7759,6 +8031,7 @@ export namespace ec2 {
 
     export interface EC2FleetFleetLaunchTemplateOverridesRequestArgs {
         availabilityZone?: pulumi.Input<string>;
+        instanceRequirements?: pulumi.Input<inputs.ec2.EC2FleetInstanceRequirementsRequestArgs>;
         instanceType?: pulumi.Input<string>;
         maxPrice?: pulumi.Input<string>;
         placement?: pulumi.Input<inputs.ec2.EC2FleetPlacementArgs>;
@@ -7771,6 +8044,45 @@ export namespace ec2 {
         launchTemplateId?: pulumi.Input<string>;
         launchTemplateName?: pulumi.Input<string>;
         version?: pulumi.Input<string>;
+    }
+
+    export interface EC2FleetInstanceRequirementsRequestArgs {
+        acceleratorCount?: pulumi.Input<inputs.ec2.EC2FleetAcceleratorCountRequestArgs>;
+        acceleratorManufacturers?: pulumi.Input<pulumi.Input<enums.ec2.EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem>[]>;
+        acceleratorNames?: pulumi.Input<pulumi.Input<enums.ec2.EC2FleetInstanceRequirementsRequestAcceleratorNamesItem>[]>;
+        acceleratorTotalMemoryMiB?: pulumi.Input<inputs.ec2.EC2FleetAcceleratorTotalMemoryMiBRequestArgs>;
+        acceleratorTypes?: pulumi.Input<pulumi.Input<enums.ec2.EC2FleetInstanceRequirementsRequestAcceleratorTypesItem>[]>;
+        bareMetal?: pulumi.Input<enums.ec2.EC2FleetInstanceRequirementsRequestBareMetal>;
+        baselineEbsBandwidthMbps?: pulumi.Input<inputs.ec2.EC2FleetBaselineEbsBandwidthMbpsRequestArgs>;
+        burstablePerformance?: pulumi.Input<enums.ec2.EC2FleetInstanceRequirementsRequestBurstablePerformance>;
+        cpuManufacturers?: pulumi.Input<pulumi.Input<enums.ec2.EC2FleetInstanceRequirementsRequestCpuManufacturersItem>[]>;
+        excludedInstanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        instanceGenerations?: pulumi.Input<pulumi.Input<enums.ec2.EC2FleetInstanceRequirementsRequestInstanceGenerationsItem>[]>;
+        localStorage?: pulumi.Input<enums.ec2.EC2FleetInstanceRequirementsRequestLocalStorage>;
+        localStorageTypes?: pulumi.Input<pulumi.Input<enums.ec2.EC2FleetInstanceRequirementsRequestLocalStorageTypesItem>[]>;
+        memoryGiBPerVCpu?: pulumi.Input<inputs.ec2.EC2FleetMemoryGiBPerVCpuRequestArgs>;
+        memoryMiB?: pulumi.Input<inputs.ec2.EC2FleetMemoryMiBRequestArgs>;
+        networkInterfaceCount?: pulumi.Input<inputs.ec2.EC2FleetNetworkInterfaceCountRequestArgs>;
+        onDemandMaxPricePercentageOverLowestPrice?: pulumi.Input<number>;
+        requireHibernateSupport?: pulumi.Input<boolean>;
+        spotMaxPricePercentageOverLowestPrice?: pulumi.Input<number>;
+        totalLocalStorageGB?: pulumi.Input<inputs.ec2.EC2FleetTotalLocalStorageGBRequestArgs>;
+        vCpuCount?: pulumi.Input<inputs.ec2.EC2FleetVCpuCountRangeRequestArgs>;
+    }
+
+    export interface EC2FleetMemoryGiBPerVCpuRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface EC2FleetMemoryMiBRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface EC2FleetNetworkInterfaceCountRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
     }
 
     export interface EC2FleetOnDemandOptionsRequestArgs {
@@ -7797,10 +8109,15 @@ export namespace ec2 {
         allocationStrategy?: pulumi.Input<enums.ec2.EC2FleetSpotOptionsRequestAllocationStrategy>;
         instanceInterruptionBehavior?: pulumi.Input<enums.ec2.EC2FleetSpotOptionsRequestInstanceInterruptionBehavior>;
         instancePoolsToUseCount?: pulumi.Input<number>;
+        maintenanceStrategies?: pulumi.Input<inputs.ec2.EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesArgs>;
         maxTotalPrice?: pulumi.Input<string>;
         minTargetCapacity?: pulumi.Input<number>;
         singleAvailabilityZone?: pulumi.Input<boolean>;
         singleInstanceType?: pulumi.Input<boolean>;
+    }
+
+    export interface EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesArgs {
+        capacityRebalance?: pulumi.Input<inputs.ec2.EC2FleetCapacityRebalanceArgs>;
     }
 
     export interface EC2FleetTagArgs {
@@ -7817,7 +8134,18 @@ export namespace ec2 {
         defaultTargetCapacityType?: pulumi.Input<enums.ec2.EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType>;
         onDemandTargetCapacity?: pulumi.Input<number>;
         spotTargetCapacity?: pulumi.Input<number>;
+        targetCapacityUnitType?: pulumi.Input<enums.ec2.EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType>;
         totalTargetCapacity: pulumi.Input<number>;
+    }
+
+    export interface EC2FleetTotalLocalStorageGBRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface EC2FleetVCpuCountRangeRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
     }
 
     export interface EIPTagArgs {
@@ -8211,6 +8539,21 @@ export namespace ec2 {
         value: pulumi.Input<string>;
     }
 
+    export interface SpotFleetAcceleratorCountRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface SpotFleetAcceleratorTotalMemoryMiBRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface SpotFleetBaselineEbsBandwidthMbpsRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
     export interface SpotFleetBlockDeviceMappingArgs {
         deviceName: pulumi.Input<string>;
         ebs?: pulumi.Input<inputs.ec2.SpotFleetEbsBlockDeviceArgs>;
@@ -8267,12 +8610,37 @@ export namespace ec2 {
         subnetId?: pulumi.Input<string>;
     }
 
+    export interface SpotFleetInstanceRequirementsRequestArgs {
+        acceleratorCount?: pulumi.Input<inputs.ec2.SpotFleetAcceleratorCountRequestArgs>;
+        acceleratorManufacturers?: pulumi.Input<pulumi.Input<enums.ec2.SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem>[]>;
+        acceleratorNames?: pulumi.Input<pulumi.Input<enums.ec2.SpotFleetInstanceRequirementsRequestAcceleratorNamesItem>[]>;
+        acceleratorTotalMemoryMiB?: pulumi.Input<inputs.ec2.SpotFleetAcceleratorTotalMemoryMiBRequestArgs>;
+        acceleratorTypes?: pulumi.Input<pulumi.Input<enums.ec2.SpotFleetInstanceRequirementsRequestAcceleratorTypesItem>[]>;
+        bareMetal?: pulumi.Input<enums.ec2.SpotFleetInstanceRequirementsRequestBareMetal>;
+        baselineEbsBandwidthMbps?: pulumi.Input<inputs.ec2.SpotFleetBaselineEbsBandwidthMbpsRequestArgs>;
+        burstablePerformance?: pulumi.Input<enums.ec2.SpotFleetInstanceRequirementsRequestBurstablePerformance>;
+        cpuManufacturers?: pulumi.Input<pulumi.Input<enums.ec2.SpotFleetInstanceRequirementsRequestCpuManufacturersItem>[]>;
+        excludedInstanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        instanceGenerations?: pulumi.Input<pulumi.Input<enums.ec2.SpotFleetInstanceRequirementsRequestInstanceGenerationsItem>[]>;
+        localStorage?: pulumi.Input<enums.ec2.SpotFleetInstanceRequirementsRequestLocalStorage>;
+        localStorageTypes?: pulumi.Input<pulumi.Input<enums.ec2.SpotFleetInstanceRequirementsRequestLocalStorageTypesItem>[]>;
+        memoryGiBPerVCpu?: pulumi.Input<inputs.ec2.SpotFleetMemoryGiBPerVCpuRequestArgs>;
+        memoryMiB?: pulumi.Input<inputs.ec2.SpotFleetMemoryMiBRequestArgs>;
+        networkInterfaceCount?: pulumi.Input<inputs.ec2.SpotFleetNetworkInterfaceCountRequestArgs>;
+        onDemandMaxPricePercentageOverLowestPrice?: pulumi.Input<number>;
+        requireHibernateSupport?: pulumi.Input<boolean>;
+        spotMaxPricePercentageOverLowestPrice?: pulumi.Input<number>;
+        totalLocalStorageGB?: pulumi.Input<inputs.ec2.SpotFleetTotalLocalStorageGBRequestArgs>;
+        vCpuCount?: pulumi.Input<inputs.ec2.SpotFleetVCpuCountRangeRequestArgs>;
+    }
+
     export interface SpotFleetLaunchSpecificationArgs {
         blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetBlockDeviceMappingArgs>[]>;
         ebsOptimized?: pulumi.Input<boolean>;
         iamInstanceProfile?: pulumi.Input<inputs.ec2.SpotFleetIamInstanceProfileSpecificationArgs>;
         imageId: pulumi.Input<string>;
-        instanceType: pulumi.Input<string>;
+        instanceRequirements?: pulumi.Input<inputs.ec2.SpotFleetInstanceRequirementsRequestArgs>;
+        instanceType?: pulumi.Input<string>;
         kernelId?: pulumi.Input<string>;
         keyName?: pulumi.Input<string>;
         monitoring?: pulumi.Input<inputs.ec2.SpotFleetMonitoringArgs>;
@@ -8294,6 +8662,7 @@ export namespace ec2 {
 
     export interface SpotFleetLaunchTemplateOverridesArgs {
         availabilityZone?: pulumi.Input<string>;
+        instanceRequirements?: pulumi.Input<inputs.ec2.SpotFleetInstanceRequirementsRequestArgs>;
         instanceType?: pulumi.Input<string>;
         spotPrice?: pulumi.Input<string>;
         subnetId?: pulumi.Input<string>;
@@ -8305,8 +8674,23 @@ export namespace ec2 {
         targetGroupsConfig?: pulumi.Input<inputs.ec2.SpotFleetTargetGroupsConfigArgs>;
     }
 
+    export interface SpotFleetMemoryGiBPerVCpuRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface SpotFleetMemoryMiBRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
     export interface SpotFleetMonitoringArgs {
         enabled?: pulumi.Input<boolean>;
+    }
+
+    export interface SpotFleetNetworkInterfaceCountRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
     }
 
     export interface SpotFleetPrivateIpAddressSpecificationArgs {
@@ -8332,6 +8716,7 @@ export namespace ec2 {
         spotMaxTotalPrice?: pulumi.Input<string>;
         spotPrice?: pulumi.Input<string>;
         targetCapacity: pulumi.Input<number>;
+        targetCapacityUnitType?: pulumi.Input<enums.ec2.SpotFleetRequestConfigDataTargetCapacityUnitType>;
         terminateInstancesWithExpiration?: pulumi.Input<boolean>;
         type?: pulumi.Input<enums.ec2.SpotFleetRequestConfigDataType>;
         validFrom?: pulumi.Input<string>;
@@ -8340,6 +8725,7 @@ export namespace ec2 {
 
     export interface SpotFleetSpotCapacityRebalanceArgs {
         replacementStrategy?: pulumi.Input<enums.ec2.SpotFleetSpotCapacityRebalanceReplacementStrategy>;
+        terminationDelay?: pulumi.Input<number>;
     }
 
     export interface SpotFleetSpotMaintenanceStrategiesArgs {
@@ -8368,6 +8754,16 @@ export namespace ec2 {
 
     export interface SpotFleetTargetGroupsConfigArgs {
         targetGroups: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetTargetGroupArgs>[]>;
+    }
+
+    export interface SpotFleetTotalLocalStorageGBRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface SpotFleetVCpuCountRangeRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
     }
 
     export interface SubnetTagArgs {
@@ -8484,7 +8880,6 @@ export namespace ec2 {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
-
 }
 
 export namespace ecr {
@@ -15967,6 +16362,58 @@ export namespace licensemanager {
 
 export namespace lightsail {
     /**
+     * Describes the parameters of the database.
+     */
+    export interface DatabaseRelationalDatabaseParameterArgs {
+        /**
+         * Specifies the valid range of values for the parameter.
+         */
+        allowedValues?: pulumi.Input<string>;
+        /**
+         * Indicates when parameter updates are applied. Can be immediate or pending-reboot.
+         */
+        applyMethod?: pulumi.Input<string>;
+        /**
+         * Specifies the engine-specific parameter type.
+         */
+        applyType?: pulumi.Input<string>;
+        /**
+         * Specifies the valid data type for the parameter.
+         */
+        dataType?: pulumi.Input<string>;
+        /**
+         * Provides a description of the parameter.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * A Boolean value indicating whether the parameter can be modified.
+         */
+        isModifiable?: pulumi.Input<boolean>;
+        /**
+         * Specifies the name of the parameter.
+         */
+        parameterName?: pulumi.Input<string>;
+        /**
+         * Specifies the value of the parameter.
+         */
+        parameterValue?: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface DatabaseTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    /**
      * A addon associate with a resource.
      */
     export interface DiskAddOnArgs {
@@ -18633,12 +19080,6 @@ export namespace mwaa {
          */
         subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     }
-
-    /**
-     * A map of tags for the environment.
-     */
-    export interface EnvironmentTagMapArgs {
-    }
 }
 
 export namespace neptune {
@@ -19316,6 +19757,32 @@ export namespace opsworkscm {
     }
 }
 
+export namespace panorama {
+    export interface ApplicationInstanceManifestOverridesPayloadArgs {
+        payloadData?: pulumi.Input<string>;
+    }
+
+    export interface ApplicationInstanceManifestPayloadArgs {
+        payloadData?: pulumi.Input<string>;
+    }
+
+    export interface ApplicationInstanceTagArgs {
+        /**
+         * A string used to identify this tag
+         */
+        key: pulumi.Input<string>;
+        /**
+         * A string containing the value for the tag
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface PackageTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+}
+
 export namespace pinpoint {
     export interface ApplicationSettingsCampaignHookArgs {
         lambdaFunctionName?: pulumi.Input<string>;
@@ -19333,6 +19800,15 @@ export namespace pinpoint {
     export interface ApplicationSettingsQuietTimeArgs {
         end: pulumi.Input<string>;
         start: pulumi.Input<string>;
+    }
+
+    export interface CampaignDefaultButtonConfigurationArgs {
+        backgroundColor?: pulumi.Input<string>;
+        borderRadius?: pulumi.Input<number>;
+        buttonAction?: pulumi.Input<string>;
+        link?: pulumi.Input<string>;
+        text?: pulumi.Input<string>;
+        textColor?: pulumi.Input<string>;
     }
 
     export interface CampaignEmailMessageArgs {
@@ -19359,10 +19835,45 @@ export namespace pinpoint {
         webUrl?: pulumi.Input<string>;
     }
 
+    export interface CampaignInAppMessageArgs {
+        content?: pulumi.Input<pulumi.Input<inputs.pinpoint.CampaignInAppMessageContentArgs>[]>;
+        customConfig?: any;
+        layout?: pulumi.Input<string>;
+    }
+
+    export interface CampaignInAppMessageBodyConfigArgs {
+        alignment?: pulumi.Input<string>;
+        body?: pulumi.Input<string>;
+        textColor?: pulumi.Input<string>;
+    }
+
+    export interface CampaignInAppMessageButtonArgs {
+        android?: pulumi.Input<inputs.pinpoint.CampaignOverrideButtonConfigurationArgs>;
+        defaultConfig?: pulumi.Input<inputs.pinpoint.CampaignDefaultButtonConfigurationArgs>;
+        iOS?: pulumi.Input<inputs.pinpoint.CampaignOverrideButtonConfigurationArgs>;
+        web?: pulumi.Input<inputs.pinpoint.CampaignOverrideButtonConfigurationArgs>;
+    }
+
+    export interface CampaignInAppMessageContentArgs {
+        backgroundColor?: pulumi.Input<string>;
+        bodyConfig?: pulumi.Input<inputs.pinpoint.CampaignInAppMessageBodyConfigArgs>;
+        headerConfig?: pulumi.Input<inputs.pinpoint.CampaignInAppMessageHeaderConfigArgs>;
+        imageUrl?: pulumi.Input<string>;
+        primaryBtn?: pulumi.Input<inputs.pinpoint.CampaignInAppMessageButtonArgs>;
+        secondaryBtn?: pulumi.Input<inputs.pinpoint.CampaignInAppMessageButtonArgs>;
+    }
+
+    export interface CampaignInAppMessageHeaderConfigArgs {
+        alignment?: pulumi.Input<string>;
+        header?: pulumi.Input<string>;
+        textColor?: pulumi.Input<string>;
+    }
+
     export interface CampaignLimitsArgs {
         daily?: pulumi.Input<number>;
         maximumDuration?: pulumi.Input<number>;
         messagesPerSecond?: pulumi.Input<number>;
+        session?: pulumi.Input<number>;
         total?: pulumi.Input<number>;
     }
 
@@ -19388,7 +19899,13 @@ export namespace pinpoint {
         defaultMessage?: pulumi.Input<inputs.pinpoint.CampaignMessageArgs>;
         emailMessage?: pulumi.Input<inputs.pinpoint.CampaignEmailMessageArgs>;
         gCMMessage?: pulumi.Input<inputs.pinpoint.CampaignMessageArgs>;
+        inAppMessage?: pulumi.Input<inputs.pinpoint.CampaignInAppMessageArgs>;
         sMSMessage?: pulumi.Input<inputs.pinpoint.CampaignSmsMessageArgs>;
+    }
+
+    export interface CampaignOverrideButtonConfigurationArgs {
+        buttonAction?: pulumi.Input<string>;
+        link?: pulumi.Input<string>;
     }
 
     export interface CampaignQuietTimeArgs {
@@ -21508,12 +22025,24 @@ export namespace route53resolver {
     }
 
     export interface ResolverRuleTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         value: pulumi.Input<string>;
     }
 
     export interface ResolverRuleTargetAddressArgs {
+        /**
+         * One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses. 
+         */
         ip: pulumi.Input<string>;
+        /**
+         * The port at Ip that you want to forward DNS queries to. 
+         */
         port?: pulumi.Input<string>;
     }
 }
@@ -24082,7 +24611,7 @@ export namespace sagemaker {
     export interface ServiceCatalogProvisioningDetailsPropertiesArgs {
         pathId?: pulumi.Input<string>;
         productId: pulumi.Input<string>;
-        provisioningArtifactId: pulumi.Input<string>;
+        provisioningArtifactId?: pulumi.Input<string>;
         /**
          * Parameters specified by the administrator that are required for provisioning the product.
          */

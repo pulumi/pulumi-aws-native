@@ -92,6 +92,27 @@ export const FirewallRuleGroupStatus = {
  */
 export type FirewallRuleGroupStatus = (typeof FirewallRuleGroupStatus)[keyof typeof FirewallRuleGroupStatus];
 
+export const ResolverConfigAutodefinedReverse = {
+    Enabling: "ENABLING",
+    Enabled: "ENABLED",
+    Disabling: "DISABLING",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * ResolverAutodefinedReverseStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.
+ */
+export type ResolverConfigAutodefinedReverse = (typeof ResolverConfigAutodefinedReverse)[keyof typeof ResolverConfigAutodefinedReverse];
+
+export const ResolverConfigAutodefinedReverseFlag = {
+    Disable: "DISABLE",
+} as const;
+
+/**
+ * Represents the desired status of AutodefinedReverse. The only supported value on creation is DISABLE. Deletion of this resource will return AutodefinedReverse to its default value (ENABLED).
+ */
+export type ResolverConfigAutodefinedReverseFlag = (typeof ResolverConfigAutodefinedReverseFlag)[keyof typeof ResolverConfigAutodefinedReverseFlag];
+
 export const ResolverDNSSECConfigValidationStatus = {
     Enabling: "ENABLING",
     Enabled: "ENABLED",
@@ -151,3 +172,14 @@ export const ResolverQueryLoggingConfigStatus = {
  * ResolverQueryLogConfigStatus, possible values are CREATING, CREATED, DELETED AND FAILED.
  */
 export type ResolverQueryLoggingConfigStatus = (typeof ResolverQueryLoggingConfigStatus)[keyof typeof ResolverQueryLoggingConfigStatus];
+
+export const ResolverRuleRuleType = {
+    Forward: "FORWARD",
+    System: "SYSTEM",
+    Recursive: "RECURSIVE",
+} as const;
+
+/**
+ * When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.
+ */
+export type ResolverRuleRuleType = (typeof ResolverRuleRuleType)[keyof typeof ResolverRuleRuleType];

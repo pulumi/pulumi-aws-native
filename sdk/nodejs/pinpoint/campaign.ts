@@ -49,6 +49,7 @@ export class Campaign extends pulumi.CustomResource {
     public readonly limits!: pulumi.Output<outputs.pinpoint.CampaignLimits | undefined>;
     public readonly messageConfiguration!: pulumi.Output<outputs.pinpoint.CampaignMessageConfiguration>;
     public readonly name!: pulumi.Output<string>;
+    public readonly priority!: pulumi.Output<number | undefined>;
     public readonly schedule!: pulumi.Output<outputs.pinpoint.CampaignSchedule>;
     public readonly segmentId!: pulumi.Output<string>;
     public readonly segmentVersion!: pulumi.Output<number | undefined>;
@@ -93,6 +94,7 @@ export class Campaign extends pulumi.CustomResource {
             inputs["limits"] = args ? args.limits : undefined;
             inputs["messageConfiguration"] = args ? args.messageConfiguration : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["priority"] = args ? args.priority : undefined;
             inputs["schedule"] = args ? args.schedule : undefined;
             inputs["segmentId"] = args ? args.segmentId : undefined;
             inputs["segmentVersion"] = args ? args.segmentVersion : undefined;
@@ -113,6 +115,7 @@ export class Campaign extends pulumi.CustomResource {
             inputs["limits"] = undefined /*out*/;
             inputs["messageConfiguration"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["priority"] = undefined /*out*/;
             inputs["schedule"] = undefined /*out*/;
             inputs["segmentId"] = undefined /*out*/;
             inputs["segmentVersion"] = undefined /*out*/;
@@ -140,6 +143,7 @@ export interface CampaignArgs {
     limits?: pulumi.Input<inputs.pinpoint.CampaignLimitsArgs>;
     messageConfiguration: pulumi.Input<inputs.pinpoint.CampaignMessageConfigurationArgs>;
     name: pulumi.Input<string>;
+    priority?: pulumi.Input<number>;
     schedule: pulumi.Input<inputs.pinpoint.CampaignScheduleArgs>;
     segmentId: pulumi.Input<string>;
     segmentVersion?: pulumi.Input<number>;

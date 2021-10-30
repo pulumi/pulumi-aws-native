@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./capacityReservation";
+export * from "./capacityReservationFleet";
 export * from "./carrierGateway";
 export * from "./clientVpnAuthorizationRule";
 export * from "./clientVpnEndpoint";
@@ -84,6 +85,7 @@ export * from "../types/enums/ec2";
 
 // Import resources to register:
 import { CapacityReservation } from "./capacityReservation";
+import { CapacityReservationFleet } from "./capacityReservationFleet";
 import { CarrierGateway } from "./carrierGateway";
 import { ClientVpnAuthorizationRule } from "./clientVpnAuthorizationRule";
 import { ClientVpnEndpoint } from "./clientVpnEndpoint";
@@ -163,6 +165,8 @@ const _module = {
         switch (type) {
             case "aws-native:ec2:CapacityReservation":
                 return new CapacityReservation(name, <any>undefined, { urn })
+            case "aws-native:ec2:CapacityReservationFleet":
+                return new CapacityReservationFleet(name, <any>undefined, { urn })
             case "aws-native:ec2:CarrierGateway":
                 return new CarrierGateway(name, <any>undefined, { urn })
             case "aws-native:ec2:ClientVpnAuthorizationRule":

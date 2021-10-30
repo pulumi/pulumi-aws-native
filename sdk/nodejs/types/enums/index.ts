@@ -62,6 +62,7 @@ import * as memorydb from "./memorydb";
 import * as mwaa from "./mwaa";
 import * as networkfirewall from "./networkfirewall";
 import * as nimblestudio from "./nimblestudio";
+import * as panorama from "./panorama";
 import * as quicksight from "./quicksight";
 import * as rds from "./rds";
 import * as resourcegroups from "./resourcegroups";
@@ -145,6 +146,7 @@ export {
     mwaa,
     networkfirewall,
     nimblestudio,
+    panorama,
     quicksight,
     rds,
     resourcegroups,

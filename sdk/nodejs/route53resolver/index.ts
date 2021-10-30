@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 export * from "./firewallDomainList";
 export * from "./firewallRuleGroup";
 export * from "./firewallRuleGroupAssociation";
+export * from "./resolverConfig";
 export * from "./resolverDNSSECConfig";
 export * from "./resolverEndpoint";
 export * from "./resolverQueryLoggingConfig";
@@ -22,6 +23,7 @@ export * from "../types/enums/route53resolver";
 import { FirewallDomainList } from "./firewallDomainList";
 import { FirewallRuleGroup } from "./firewallRuleGroup";
 import { FirewallRuleGroupAssociation } from "./firewallRuleGroupAssociation";
+import { ResolverConfig } from "./resolverConfig";
 import { ResolverDNSSECConfig } from "./resolverDNSSECConfig";
 import { ResolverEndpoint } from "./resolverEndpoint";
 import { ResolverQueryLoggingConfig } from "./resolverQueryLoggingConfig";
@@ -39,6 +41,8 @@ const _module = {
                 return new FirewallRuleGroup(name, <any>undefined, { urn })
             case "aws-native:route53resolver:FirewallRuleGroupAssociation":
                 return new FirewallRuleGroupAssociation(name, <any>undefined, { urn })
+            case "aws-native:route53resolver:ResolverConfig":
+                return new ResolverConfig(name, <any>undefined, { urn })
             case "aws-native:route53resolver:ResolverDNSSECConfig":
                 return new ResolverDNSSECConfig(name, <any>undefined, { urn })
             case "aws-native:route53resolver:ResolverEndpoint":
