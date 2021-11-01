@@ -4,12 +4,13 @@ package schema
 
 import (
 	"fmt"
+	"math"
+	"strings"
+
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
-	"math"
-	"strings"
 )
 
 type ValidationFailure struct {
@@ -66,7 +67,8 @@ func validateProperty(types map[string]CloudAPIType, required codegen.StringSet,
 	}
 
 	if spec.Ref != "" {
-		if spec.Ref == "pulumi.json#/Any" {
+		switch spec.Ref {
+		case "pulumi.json#/Any", "pulumi.json#/Asset", "pulumi.json#/Archive":
 			return nil, nil
 		}
 

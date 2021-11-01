@@ -16218,7 +16218,7 @@ export namespace lambda {
         /**
          * The source code of your Lambda function. If you include your function source inline with this parameter, AWS CloudFormation places it in a file named index and zips it to create a deployment package..
          */
-        zipFile?: pulumi.Input<string>;
+        zipFile?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive>;
     }
 
     /**

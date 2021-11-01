@@ -346,7 +346,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 				"region",
 			},
 		},
-		Types:     map[string]pschema.ComplexTypeSpec{},
+		Types: map[string]pschema.ComplexTypeSpec{},
 		Resources: map[string]pschema.ResourceSpec{
 			ExtensionResourceToken: {
 				ObjectTypeSpec: pschema.ObjectTypeSpec{
@@ -427,7 +427,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 				CreateOnly: []string{"type", "properties"},
 			},
 		},
-		Types:     map[string]CloudAPIType{},
+		Types: map[string]CloudAPIType{},
 	}
 
 	supportedResources := codegen.NewStringSet(supportedResourceTypes...)
@@ -827,6 +827,9 @@ func (ctx *context) genProperties(parentName string, typeSchema *jsschema.Schema
 		propertySpec := pschema.PropertySpec{
 			Description: value.Description,
 			TypeSpec:    *typeSpec,
+		}
+		if parentName == "FunctionCode" && name == "ZipFile" {
+			propertySpec.TypeSpec = pschema.TypeSpec{Ref: "pulumi.json#/Asset"}
 		}
 		// TODO: temporary workaround to get the 0.1.0 out, let's find a better solution later.
 		if name == "ClusterLogging" {

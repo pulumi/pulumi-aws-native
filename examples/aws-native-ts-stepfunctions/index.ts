@@ -45,11 +45,7 @@ const worldFunction = new awsnative.lambda.Function('worldFunction',
     runtime: "nodejs14.x",
     handler: "index.handler",
     code: {
-      zipFile: `exports.handler = function(event, context, callback){
-                                          var response = event.response;
-                                          const updated = { "response": response + "World!" };
-                                          callback(null, updated);
-                                        };`,
+      zipFile: new pulumi.asset.FileAsset("world_function.js"),
     },
   }, {dependsOn: lambdaRolePolicy});
 

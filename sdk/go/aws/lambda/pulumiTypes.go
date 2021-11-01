@@ -1753,7 +1753,7 @@ type FunctionCode struct {
 	// For versioned objects, the version of the deployment package object to use.
 	S3ObjectVersion *string `pulumi:"s3ObjectVersion"`
 	// The source code of your Lambda function. If you include your function source inline with this parameter, AWS CloudFormation places it in a file named index and zips it to create a deployment package..
-	ZipFile *string `pulumi:"zipFile"`
+	ZipFile pulumi.AssetOrArchive `pulumi:"zipFile"`
 }
 
 // FunctionCodeInput is an input type that accepts FunctionCodeArgs and FunctionCodeOutput values.
@@ -1777,7 +1777,7 @@ type FunctionCodeArgs struct {
 	// For versioned objects, the version of the deployment package object to use.
 	S3ObjectVersion pulumi.StringPtrInput `pulumi:"s3ObjectVersion"`
 	// The source code of your Lambda function. If you include your function source inline with this parameter, AWS CloudFormation places it in a file named index and zips it to create a deployment package..
-	ZipFile pulumi.StringPtrInput `pulumi:"zipFile"`
+	ZipFile pulumi.AssetOrArchiveInput `pulumi:"zipFile"`
 }
 
 func (FunctionCodeArgs) ElementType() reflect.Type {
@@ -1878,8 +1878,8 @@ func (o FunctionCodeOutput) S3ObjectVersion() pulumi.StringPtrOutput {
 }
 
 // The source code of your Lambda function. If you include your function source inline with this parameter, AWS CloudFormation places it in a file named index and zips it to create a deployment package..
-func (o FunctionCodeOutput) ZipFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FunctionCode) *string { return v.ZipFile }).(pulumi.StringPtrOutput)
+func (o FunctionCodeOutput) ZipFile() pulumi.AssetOrArchiveOutput {
+	return o.ApplyT(func(v FunctionCode) pulumi.AssetOrArchive { return v.ZipFile }).(pulumi.AssetOrArchiveOutput)
 }
 
 type FunctionCodePtrOutput struct{ *pulumi.OutputState }
@@ -1947,13 +1947,13 @@ func (o FunctionCodePtrOutput) S3ObjectVersion() pulumi.StringPtrOutput {
 }
 
 // The source code of your Lambda function. If you include your function source inline with this parameter, AWS CloudFormation places it in a file named index and zips it to create a deployment package..
-func (o FunctionCodePtrOutput) ZipFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FunctionCode) *string {
+func (o FunctionCodePtrOutput) ZipFile() pulumi.AssetOrArchiveOutput {
+	return o.ApplyT(func(v *FunctionCode) pulumi.AssetOrArchive {
 		if v == nil {
 			return nil
 		}
 		return v.ZipFile
-	}).(pulumi.StringPtrOutput)
+	}).(pulumi.AssetOrArchiveOutput)
 }
 
 // The dead-letter queue for failed asynchronous invocations.

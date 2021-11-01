@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         /// The source code of your Lambda function. If you include your function source inline with this parameter, AWS CloudFormation places it in a file named index and zips it to create a deployment package..
         /// </summary>
         [Input("zipFile")]
-        public Input<string>? ZipFile { get; set; }
+        public Input<AssetOrArchive>? ZipFile { get; set; }
 
         public FunctionCodeArgs()
         {
