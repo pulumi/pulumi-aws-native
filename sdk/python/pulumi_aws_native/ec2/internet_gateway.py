@@ -18,6 +18,7 @@ class InternetGatewayArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['InternetGatewayTagArgs']]]] = None):
         """
         The set of arguments for constructing a InternetGateway resource.
+        :param pulumi.Input[Sequence[pulumi.Input['InternetGatewayTagArgs']]] tags: Any tags to assign to the internet gateway.
         """
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
@@ -25,6 +26,9 @@ class InternetGatewayArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InternetGatewayTagArgs']]]]:
+        """
+        Any tags to assign to the internet gateway.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -44,6 +48,7 @@ class InternetGateway(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InternetGatewayTagArgs']]]] tags: Any tags to assign to the internet gateway.
         """
         ...
     @overload
@@ -83,6 +88,7 @@ class InternetGateway(pulumi.CustomResource):
             __props__ = InternetGatewayArgs.__new__(InternetGatewayArgs)
 
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["internet_gateway_id"] = None
         super(InternetGateway, __self__).__init__(
             'aws-native:ec2:InternetGateway',
             resource_name,
@@ -105,11 +111,23 @@ class InternetGateway(pulumi.CustomResource):
 
         __props__ = InternetGatewayArgs.__new__(InternetGatewayArgs)
 
+        __props__.__dict__["internet_gateway_id"] = None
         __props__.__dict__["tags"] = None
         return InternetGateway(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="internetGatewayId")
+    def internet_gateway_id(self) -> pulumi.Output[str]:
+        """
+        ID of internet gateway.
+        """
+        return pulumi.get(self, "internet_gateway_id")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.InternetGatewayTag']]]:
+        """
+        Any tags to assign to the internet gateway.
+        """
         return pulumi.get(self, "tags")
 

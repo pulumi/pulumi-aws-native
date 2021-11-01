@@ -21,8 +21,8 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("productId", required: true)]
         public Input<string> ProductId { get; set; } = null!;
 
-        [Input("provisioningArtifactId", required: true)]
-        public Input<string> ProvisioningArtifactId { get; set; } = null!;
+        [Input("provisioningArtifactId")]
+        public Input<string>? ProvisioningArtifactId { get; set; }
 
         [Input("provisioningParameters")]
         private InputList<Inputs.ProjectProvisioningParameterArgs>? _provisioningParameters;

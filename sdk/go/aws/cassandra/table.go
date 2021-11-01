@@ -17,7 +17,9 @@ type Table struct {
 
 	BillingMode TableBillingModePtrOutput `pulumi:"billingMode"`
 	// Clustering key columns of the table
-	ClusteringKeyColumns    TableClusteringKeyColumnArrayOutput   `pulumi:"clusteringKeyColumns"`
+	ClusteringKeyColumns TableClusteringKeyColumnArrayOutput `pulumi:"clusteringKeyColumns"`
+	// Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
+	DefaultTimeToLive       pulumi.IntPtrOutput                   `pulumi:"defaultTimeToLive"`
 	EncryptionSpecification TableEncryptionSpecificationPtrOutput `pulumi:"encryptionSpecification"`
 	// Name for Cassandra keyspace
 	KeyspaceName pulumi.StringOutput `pulumi:"keyspaceName"`
@@ -80,7 +82,9 @@ func (TableState) ElementType() reflect.Type {
 type tableArgs struct {
 	BillingMode *TableBillingMode `pulumi:"billingMode"`
 	// Clustering key columns of the table
-	ClusteringKeyColumns    []TableClusteringKeyColumn    `pulumi:"clusteringKeyColumns"`
+	ClusteringKeyColumns []TableClusteringKeyColumn `pulumi:"clusteringKeyColumns"`
+	// Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
+	DefaultTimeToLive       *int                          `pulumi:"defaultTimeToLive"`
 	EncryptionSpecification *TableEncryptionSpecification `pulumi:"encryptionSpecification"`
 	// Name for Cassandra keyspace
 	KeyspaceName string `pulumi:"keyspaceName"`
@@ -100,7 +104,9 @@ type tableArgs struct {
 type TableArgs struct {
 	BillingMode TableBillingModePtrInput
 	// Clustering key columns of the table
-	ClusteringKeyColumns    TableClusteringKeyColumnArrayInput
+	ClusteringKeyColumns TableClusteringKeyColumnArrayInput
+	// Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
+	DefaultTimeToLive       pulumi.IntPtrInput
 	EncryptionSpecification TableEncryptionSpecificationPtrInput
 	// Name for Cassandra keyspace
 	KeyspaceName pulumi.StringInput

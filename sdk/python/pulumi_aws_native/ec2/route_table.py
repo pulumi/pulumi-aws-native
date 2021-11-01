@@ -19,6 +19,8 @@ class RouteTableArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableTagArgs']]]] = None):
         """
         The set of arguments for constructing a RouteTable resource.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC.
+        :param pulumi.Input[Sequence[pulumi.Input['RouteTableTagArgs']]] tags: Any tags assigned to the route table.
         """
         pulumi.set(__self__, "vpc_id", vpc_id)
         if tags is not None:
@@ -27,6 +29,9 @@ class RouteTableArgs:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the VPC.
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -36,6 +41,9 @@ class RouteTableArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableTagArgs']]]]:
+        """
+        Any tags assigned to the route table.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -43,12 +51,7 @@ class RouteTableArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""RouteTable is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class RouteTable(pulumi.CustomResource):
-    warnings.warn("""RouteTable is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -61,6 +64,8 @@ class RouteTable(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteTableTagArgs']]]] tags: Any tags assigned to the route table.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC.
         """
         ...
     @overload
@@ -89,7 +94,6 @@ class RouteTable(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteTableTagArgs']]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""RouteTable is deprecated: RouteTable is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -105,6 +109,7 @@ class RouteTable(pulumi.CustomResource):
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
+            __props__.__dict__["route_table_id"] = None
         super(RouteTable, __self__).__init__(
             'aws-native:ec2:RouteTable',
             resource_name,
@@ -127,17 +132,32 @@ class RouteTable(pulumi.CustomResource):
 
         __props__ = RouteTableArgs.__new__(RouteTableArgs)
 
+        __props__.__dict__["route_table_id"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["vpc_id"] = None
         return RouteTable(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="routeTableId")
+    def route_table_id(self) -> pulumi.Output[str]:
+        """
+        The route table ID.
+        """
+        return pulumi.get(self, "route_table_id")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.RouteTableTag']]]:
+        """
+        Any tags assigned to the route table.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the VPC.
+        """
         return pulumi.get(self, "vpc_id")
 

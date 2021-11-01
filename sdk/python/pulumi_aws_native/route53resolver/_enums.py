@@ -13,6 +13,8 @@ __all__ = [
     'FirewallRuleGroupFirewallRuleBlockResponse',
     'FirewallRuleGroupShareStatus',
     'FirewallRuleGroupStatus',
+    'ResolverConfigAutodefinedReverse',
+    'ResolverConfigAutodefinedReverseFlag',
     'ResolverDNSSECConfigValidationStatus',
     'ResolverQueryLoggingConfigAssociationError',
     'ResolverQueryLoggingConfigAssociationStatus',
@@ -93,6 +95,23 @@ class FirewallRuleGroupStatus(str, Enum):
     DELETING = "DELETING"
     UPDATING = "UPDATING"
     INACTIVE_OWNER_ACCOUNT_CLOSED = "INACTIVE_OWNER_ACCOUNT_CLOSED"
+
+
+class ResolverConfigAutodefinedReverse(str, Enum):
+    """
+    ResolverAutodefinedReverseStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.
+    """
+    ENABLING = "ENABLING"
+    ENABLED = "ENABLED"
+    DISABLING = "DISABLING"
+    DISABLED = "DISABLED"
+
+
+class ResolverConfigAutodefinedReverseFlag(str, Enum):
+    """
+    Represents the desired status of AutodefinedReverse. The only supported value on creation is DISABLE. Deletion of this resource will return AutodefinedReverse to its default value (ENABLED).
+    """
+    DISABLE = "DISABLE"
 
 
 class ResolverDNSSECConfigValidationStatus(str, Enum):

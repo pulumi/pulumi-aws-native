@@ -71,6 +71,7 @@
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/Arn" ],
   "required" : [ "Regions" ],
+  "taggable" : false,
   "readOnlyProperties" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {

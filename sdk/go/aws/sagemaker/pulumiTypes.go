@@ -20019,7 +20019,7 @@ func (o ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput) ProvisionedP
 type ServiceCatalogProvisioningDetailsProperties struct {
 	PathId                 *string `pulumi:"pathId"`
 	ProductId              string  `pulumi:"productId"`
-	ProvisioningArtifactId string  `pulumi:"provisioningArtifactId"`
+	ProvisioningArtifactId *string `pulumi:"provisioningArtifactId"`
 	// Parameters specified by the administrator that are required for provisioning the product.
 	ProvisioningParameters []ProjectProvisioningParameter `pulumi:"provisioningParameters"`
 }
@@ -20039,7 +20039,7 @@ type ServiceCatalogProvisioningDetailsPropertiesInput interface {
 type ServiceCatalogProvisioningDetailsPropertiesArgs struct {
 	PathId                 pulumi.StringPtrInput `pulumi:"pathId"`
 	ProductId              pulumi.StringInput    `pulumi:"productId"`
-	ProvisioningArtifactId pulumi.StringInput    `pulumi:"provisioningArtifactId"`
+	ProvisioningArtifactId pulumi.StringPtrInput `pulumi:"provisioningArtifactId"`
 	// Parameters specified by the administrator that are required for provisioning the product.
 	ProvisioningParameters ProjectProvisioningParameterArrayInput `pulumi:"provisioningParameters"`
 }
@@ -20130,8 +20130,8 @@ func (o ServiceCatalogProvisioningDetailsPropertiesOutput) ProductId() pulumi.St
 	return o.ApplyT(func(v ServiceCatalogProvisioningDetailsProperties) string { return v.ProductId }).(pulumi.StringOutput)
 }
 
-func (o ServiceCatalogProvisioningDetailsPropertiesOutput) ProvisioningArtifactId() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceCatalogProvisioningDetailsProperties) string { return v.ProvisioningArtifactId }).(pulumi.StringOutput)
+func (o ServiceCatalogProvisioningDetailsPropertiesOutput) ProvisioningArtifactId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceCatalogProvisioningDetailsProperties) *string { return v.ProvisioningArtifactId }).(pulumi.StringPtrOutput)
 }
 
 // Parameters specified by the administrator that are required for provisioning the product.
@@ -20188,7 +20188,7 @@ func (o ServiceCatalogProvisioningDetailsPropertiesPtrOutput) ProvisioningArtifa
 		if v == nil {
 			return nil
 		}
-		return &v.ProvisioningArtifactId
+		return v.ProvisioningArtifactId
 	}).(pulumi.StringPtrOutput)
 }
 

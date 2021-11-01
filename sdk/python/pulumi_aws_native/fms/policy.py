@@ -26,6 +26,7 @@ class PolicyArgs:
                  include_map: Optional[pulumi.Input['PolicyIEMapArgs']] = None,
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyResourceTagArgs']]]] = None,
                  resource_type_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 resources_clean_up: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Policy resource.
@@ -45,6 +46,8 @@ class PolicyArgs:
             pulumi.set(__self__, "resource_tags", resource_tags)
         if resource_type_list is not None:
             pulumi.set(__self__, "resource_type_list", resource_type_list)
+        if resources_clean_up is not None:
+            pulumi.set(__self__, "resources_clean_up", resources_clean_up)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -139,6 +142,15 @@ class PolicyArgs:
         pulumi.set(self, "resource_type_list", value)
 
     @property
+    @pulumi.getter(name="resourcesCleanUp")
+    def resources_clean_up(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "resources_clean_up")
+
+    @resources_clean_up.setter
+    def resources_clean_up(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "resources_clean_up", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyTagArgs']]]]:
         return pulumi.get(self, "tags")
@@ -162,6 +174,7 @@ class Policy(pulumi.CustomResource):
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyResourceTagArgs']]]]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  resource_type_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 resources_clean_up: Optional[pulumi.Input[bool]] = None,
                  security_service_policy_data: Optional[pulumi.Input[pulumi.InputType['SecurityServicePolicyDataPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyTagArgs']]]]] = None,
                  __props__=None):
@@ -204,6 +217,7 @@ class Policy(pulumi.CustomResource):
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyResourceTagArgs']]]]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  resource_type_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 resources_clean_up: Optional[pulumi.Input[bool]] = None,
                  security_service_policy_data: Optional[pulumi.Input[pulumi.InputType['SecurityServicePolicyDataPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyTagArgs']]]]] = None,
                  __props__=None):
@@ -235,6 +249,7 @@ class Policy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_type'")
             __props__.__dict__["resource_type"] = resource_type
             __props__.__dict__["resource_type_list"] = resource_type_list
+            __props__.__dict__["resources_clean_up"] = resources_clean_up
             if security_service_policy_data is None and not opts.urn:
                 raise TypeError("Missing required property 'security_service_policy_data'")
             __props__.__dict__["security_service_policy_data"] = security_service_policy_data
@@ -272,6 +287,7 @@ class Policy(pulumi.CustomResource):
         __props__.__dict__["resource_tags"] = None
         __props__.__dict__["resource_type"] = None
         __props__.__dict__["resource_type_list"] = None
+        __props__.__dict__["resources_clean_up"] = None
         __props__.__dict__["security_service_policy_data"] = None
         __props__.__dict__["tags"] = None
         return Policy(resource_name, opts=opts, __props__=__props__)
@@ -325,6 +341,11 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter(name="resourceTypeList")
     def resource_type_list(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "resource_type_list")
+
+    @property
+    @pulumi.getter(name="resourcesCleanUp")
+    def resources_clean_up(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "resources_clean_up")
 
     @property
     @pulumi.getter(name="securityServicePolicyData")

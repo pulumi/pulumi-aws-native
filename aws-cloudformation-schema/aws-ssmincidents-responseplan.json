@@ -145,7 +145,8 @@
           "maxItems" : 10,
           "items" : {
             "$ref" : "#/definitions/NotificationTargetItem"
-          }
+          },
+          "insertionOrder" : false
         },
         "Summary" : {
           "description" : "The summary string.",
@@ -246,6 +247,7 @@
   "createOnlyProperties" : [ "/properties/Name" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
   "required" : [ "Name", "IncidentTemplate" ],
+  "taggable" : true,
   "handlers" : {
     "create" : {
       "permissions" : [ "ssm-incidents:CreateResponsePlan", "iam:PassRole" ]

@@ -25,6 +25,7 @@ type Policy struct {
 	ResourceTags              PolicyResourceTagArrayOutput              `pulumi:"resourceTags"`
 	ResourceType              pulumi.StringOutput                       `pulumi:"resourceType"`
 	ResourceTypeList          pulumi.StringArrayOutput                  `pulumi:"resourceTypeList"`
+	ResourcesCleanUp          pulumi.BoolPtrOutput                      `pulumi:"resourcesCleanUp"`
 	SecurityServicePolicyData SecurityServicePolicyDataPropertiesOutput `pulumi:"securityServicePolicyData"`
 	Tags                      PolicyTagArrayOutput                      `pulumi:"tags"`
 }
@@ -92,6 +93,7 @@ type policyArgs struct {
 	ResourceTags              []PolicyResourceTag                 `pulumi:"resourceTags"`
 	ResourceType              string                              `pulumi:"resourceType"`
 	ResourceTypeList          []string                            `pulumi:"resourceTypeList"`
+	ResourcesCleanUp          *bool                               `pulumi:"resourcesCleanUp"`
 	SecurityServicePolicyData SecurityServicePolicyDataProperties `pulumi:"securityServicePolicyData"`
 	Tags                      []PolicyTag                         `pulumi:"tags"`
 }
@@ -107,6 +109,7 @@ type PolicyArgs struct {
 	ResourceTags              PolicyResourceTagArrayInput
 	ResourceType              pulumi.StringInput
 	ResourceTypeList          pulumi.StringArrayInput
+	ResourcesCleanUp          pulumi.BoolPtrInput
 	SecurityServicePolicyData SecurityServicePolicyDataPropertiesInput
 	Tags                      PolicyTagArrayInput
 }

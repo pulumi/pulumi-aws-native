@@ -30,7 +30,7 @@ type Instance struct {
 	// Is the IP Address of the Instance is the static IP
 	IsStaticIp pulumi.BoolOutput `pulumi:"isStaticIp"`
 	// The name of your key pair.
-	KeyPairName pulumi.StringOutput         `pulumi:"keyPairName"`
+	KeyPairName pulumi.StringPtrOutput      `pulumi:"keyPairName"`
 	Location    InstanceLocationPtrOutput   `pulumi:"location"`
 	Networking  InstanceNetworkingPtrOutput `pulumi:"networking"`
 	// Private IP Address of the Instance
@@ -47,7 +47,7 @@ type Instance struct {
 	// An array of key-value pairs to apply to this resource.
 	Tags InstanceTagArrayOutput `pulumi:"tags"`
 	// A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
-	UserData pulumi.StringOutput `pulumi:"userData"`
+	UserData pulumi.StringPtrOutput `pulumi:"userData"`
 	// Username of the  Lightsail instance.
 	UserName pulumi.StringOutput `pulumi:"userName"`
 }
@@ -110,12 +110,16 @@ type instanceArgs struct {
 	BundleId string            `pulumi:"bundleId"`
 	Hardware *InstanceHardware `pulumi:"hardware"`
 	// The names to use for your new Lightsail instance.
-	InstanceName string              `pulumi:"instanceName"`
-	Location     *InstanceLocation   `pulumi:"location"`
-	Networking   *InstanceNetworking `pulumi:"networking"`
-	State        *InstanceStateType  `pulumi:"state"`
+	InstanceName string `pulumi:"instanceName"`
+	// The name of your key pair.
+	KeyPairName *string             `pulumi:"keyPairName"`
+	Location    *InstanceLocation   `pulumi:"location"`
+	Networking  *InstanceNetworking `pulumi:"networking"`
+	State       *InstanceStateType  `pulumi:"state"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []InstanceTag `pulumi:"tags"`
+	// A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
+	UserData *string `pulumi:"userData"`
 }
 
 // The set of arguments for constructing a Instance resource.
@@ -131,11 +135,15 @@ type InstanceArgs struct {
 	Hardware InstanceHardwarePtrInput
 	// The names to use for your new Lightsail instance.
 	InstanceName pulumi.StringInput
-	Location     InstanceLocationPtrInput
-	Networking   InstanceNetworkingPtrInput
-	State        InstanceStateTypePtrInput
+	// The name of your key pair.
+	KeyPairName pulumi.StringPtrInput
+	Location    InstanceLocationPtrInput
+	Networking  InstanceNetworkingPtrInput
+	State       InstanceStateTypePtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags InstanceTagArrayInput
+	// A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
+	UserData pulumi.StringPtrInput
 }
 
 func (InstanceArgs) ElementType() reflect.Type {

@@ -8,6 +8,60 @@ using Pulumi;
 namespace Pulumi.AwsNative.EC2
 {
     [EnumType]
+    public readonly struct CapacityReservationFleetInstanceMatchCriteria : IEquatable<CapacityReservationFleetInstanceMatchCriteria>
+    {
+        private readonly string _value;
+
+        private CapacityReservationFleetInstanceMatchCriteria(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityReservationFleetInstanceMatchCriteria Open { get; } = new CapacityReservationFleetInstanceMatchCriteria("open");
+
+        public static bool operator ==(CapacityReservationFleetInstanceMatchCriteria left, CapacityReservationFleetInstanceMatchCriteria right) => left.Equals(right);
+        public static bool operator !=(CapacityReservationFleetInstanceMatchCriteria left, CapacityReservationFleetInstanceMatchCriteria right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityReservationFleetInstanceMatchCriteria value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityReservationFleetInstanceMatchCriteria other && Equals(other);
+        public bool Equals(CapacityReservationFleetInstanceMatchCriteria other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct CapacityReservationFleetTenancy : IEquatable<CapacityReservationFleetTenancy>
+    {
+        private readonly string _value;
+
+        private CapacityReservationFleetTenancy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityReservationFleetTenancy Default { get; } = new CapacityReservationFleetTenancy("default");
+
+        public static bool operator ==(CapacityReservationFleetTenancy left, CapacityReservationFleetTenancy right) => left.Equals(right);
+        public static bool operator !=(CapacityReservationFleetTenancy left, CapacityReservationFleetTenancy right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityReservationFleetTenancy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityReservationFleetTenancy other && Equals(other);
+        public bool Equals(CapacityReservationFleetTenancy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct EC2FleetCapacityReservationOptionsRequestUsageStrategy : IEquatable<EC2FleetCapacityReservationOptionsRequestUsageStrategy>
     {
         private readonly string _value;
@@ -55,6 +109,272 @@ namespace Pulumi.AwsNative.EC2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EC2FleetExcessCapacityTerminationPolicy other && Equals(other);
         public bool Equals(EC2FleetExcessCapacityTerminationPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem : IEquatable<EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem>
+    {
+        private readonly string _value;
+
+        private EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem Nvidia { get; } = new EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem("nvidia");
+        public static EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem Amd { get; } = new EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem("amd");
+        public static EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem AmazonWebServices { get; } = new EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem("amazon-web-services");
+        public static EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem Xilinx { get; } = new EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem("xilinx");
+
+        public static bool operator ==(EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem left, EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem right) => left.Equals(right);
+        public static bool operator !=(EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem left, EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem right) => !left.Equals(right);
+
+        public static explicit operator string(EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem other && Equals(other);
+        public bool Equals(EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct EC2FleetInstanceRequirementsRequestAcceleratorNamesItem : IEquatable<EC2FleetInstanceRequirementsRequestAcceleratorNamesItem>
+    {
+        private readonly string _value;
+
+        private EC2FleetInstanceRequirementsRequestAcceleratorNamesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EC2FleetInstanceRequirementsRequestAcceleratorNamesItem A100 { get; } = new EC2FleetInstanceRequirementsRequestAcceleratorNamesItem("a100");
+        public static EC2FleetInstanceRequirementsRequestAcceleratorNamesItem V100 { get; } = new EC2FleetInstanceRequirementsRequestAcceleratorNamesItem("v100");
+        public static EC2FleetInstanceRequirementsRequestAcceleratorNamesItem K80 { get; } = new EC2FleetInstanceRequirementsRequestAcceleratorNamesItem("k80");
+        public static EC2FleetInstanceRequirementsRequestAcceleratorNamesItem T4 { get; } = new EC2FleetInstanceRequirementsRequestAcceleratorNamesItem("t4");
+        public static EC2FleetInstanceRequirementsRequestAcceleratorNamesItem M60 { get; } = new EC2FleetInstanceRequirementsRequestAcceleratorNamesItem("m60");
+        public static EC2FleetInstanceRequirementsRequestAcceleratorNamesItem RadeonProV520 { get; } = new EC2FleetInstanceRequirementsRequestAcceleratorNamesItem("radeon-pro-v520");
+        public static EC2FleetInstanceRequirementsRequestAcceleratorNamesItem Vu9p { get; } = new EC2FleetInstanceRequirementsRequestAcceleratorNamesItem("vu9p");
+        public static EC2FleetInstanceRequirementsRequestAcceleratorNamesItem Inferentia { get; } = new EC2FleetInstanceRequirementsRequestAcceleratorNamesItem("inferentia");
+        public static EC2FleetInstanceRequirementsRequestAcceleratorNamesItem K520 { get; } = new EC2FleetInstanceRequirementsRequestAcceleratorNamesItem("k520");
+
+        public static bool operator ==(EC2FleetInstanceRequirementsRequestAcceleratorNamesItem left, EC2FleetInstanceRequirementsRequestAcceleratorNamesItem right) => left.Equals(right);
+        public static bool operator !=(EC2FleetInstanceRequirementsRequestAcceleratorNamesItem left, EC2FleetInstanceRequirementsRequestAcceleratorNamesItem right) => !left.Equals(right);
+
+        public static explicit operator string(EC2FleetInstanceRequirementsRequestAcceleratorNamesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EC2FleetInstanceRequirementsRequestAcceleratorNamesItem other && Equals(other);
+        public bool Equals(EC2FleetInstanceRequirementsRequestAcceleratorNamesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct EC2FleetInstanceRequirementsRequestAcceleratorTypesItem : IEquatable<EC2FleetInstanceRequirementsRequestAcceleratorTypesItem>
+    {
+        private readonly string _value;
+
+        private EC2FleetInstanceRequirementsRequestAcceleratorTypesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EC2FleetInstanceRequirementsRequestAcceleratorTypesItem Gpu { get; } = new EC2FleetInstanceRequirementsRequestAcceleratorTypesItem("gpu");
+        public static EC2FleetInstanceRequirementsRequestAcceleratorTypesItem Fpga { get; } = new EC2FleetInstanceRequirementsRequestAcceleratorTypesItem("fpga");
+        public static EC2FleetInstanceRequirementsRequestAcceleratorTypesItem Inference { get; } = new EC2FleetInstanceRequirementsRequestAcceleratorTypesItem("inference");
+
+        public static bool operator ==(EC2FleetInstanceRequirementsRequestAcceleratorTypesItem left, EC2FleetInstanceRequirementsRequestAcceleratorTypesItem right) => left.Equals(right);
+        public static bool operator !=(EC2FleetInstanceRequirementsRequestAcceleratorTypesItem left, EC2FleetInstanceRequirementsRequestAcceleratorTypesItem right) => !left.Equals(right);
+
+        public static explicit operator string(EC2FleetInstanceRequirementsRequestAcceleratorTypesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EC2FleetInstanceRequirementsRequestAcceleratorTypesItem other && Equals(other);
+        public bool Equals(EC2FleetInstanceRequirementsRequestAcceleratorTypesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct EC2FleetInstanceRequirementsRequestBareMetal : IEquatable<EC2FleetInstanceRequirementsRequestBareMetal>
+    {
+        private readonly string _value;
+
+        private EC2FleetInstanceRequirementsRequestBareMetal(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EC2FleetInstanceRequirementsRequestBareMetal Included { get; } = new EC2FleetInstanceRequirementsRequestBareMetal("included");
+        public static EC2FleetInstanceRequirementsRequestBareMetal Required { get; } = new EC2FleetInstanceRequirementsRequestBareMetal("required");
+        public static EC2FleetInstanceRequirementsRequestBareMetal Excluded { get; } = new EC2FleetInstanceRequirementsRequestBareMetal("excluded");
+
+        public static bool operator ==(EC2FleetInstanceRequirementsRequestBareMetal left, EC2FleetInstanceRequirementsRequestBareMetal right) => left.Equals(right);
+        public static bool operator !=(EC2FleetInstanceRequirementsRequestBareMetal left, EC2FleetInstanceRequirementsRequestBareMetal right) => !left.Equals(right);
+
+        public static explicit operator string(EC2FleetInstanceRequirementsRequestBareMetal value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EC2FleetInstanceRequirementsRequestBareMetal other && Equals(other);
+        public bool Equals(EC2FleetInstanceRequirementsRequestBareMetal other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct EC2FleetInstanceRequirementsRequestBurstablePerformance : IEquatable<EC2FleetInstanceRequirementsRequestBurstablePerformance>
+    {
+        private readonly string _value;
+
+        private EC2FleetInstanceRequirementsRequestBurstablePerformance(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EC2FleetInstanceRequirementsRequestBurstablePerformance Included { get; } = new EC2FleetInstanceRequirementsRequestBurstablePerformance("included");
+        public static EC2FleetInstanceRequirementsRequestBurstablePerformance Required { get; } = new EC2FleetInstanceRequirementsRequestBurstablePerformance("required");
+        public static EC2FleetInstanceRequirementsRequestBurstablePerformance Excluded { get; } = new EC2FleetInstanceRequirementsRequestBurstablePerformance("excluded");
+
+        public static bool operator ==(EC2FleetInstanceRequirementsRequestBurstablePerformance left, EC2FleetInstanceRequirementsRequestBurstablePerformance right) => left.Equals(right);
+        public static bool operator !=(EC2FleetInstanceRequirementsRequestBurstablePerformance left, EC2FleetInstanceRequirementsRequestBurstablePerformance right) => !left.Equals(right);
+
+        public static explicit operator string(EC2FleetInstanceRequirementsRequestBurstablePerformance value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EC2FleetInstanceRequirementsRequestBurstablePerformance other && Equals(other);
+        public bool Equals(EC2FleetInstanceRequirementsRequestBurstablePerformance other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct EC2FleetInstanceRequirementsRequestCpuManufacturersItem : IEquatable<EC2FleetInstanceRequirementsRequestCpuManufacturersItem>
+    {
+        private readonly string _value;
+
+        private EC2FleetInstanceRequirementsRequestCpuManufacturersItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EC2FleetInstanceRequirementsRequestCpuManufacturersItem Intel { get; } = new EC2FleetInstanceRequirementsRequestCpuManufacturersItem("intel");
+        public static EC2FleetInstanceRequirementsRequestCpuManufacturersItem Amd { get; } = new EC2FleetInstanceRequirementsRequestCpuManufacturersItem("amd");
+        public static EC2FleetInstanceRequirementsRequestCpuManufacturersItem AmazonWebServices { get; } = new EC2FleetInstanceRequirementsRequestCpuManufacturersItem("amazon-web-services");
+
+        public static bool operator ==(EC2FleetInstanceRequirementsRequestCpuManufacturersItem left, EC2FleetInstanceRequirementsRequestCpuManufacturersItem right) => left.Equals(right);
+        public static bool operator !=(EC2FleetInstanceRequirementsRequestCpuManufacturersItem left, EC2FleetInstanceRequirementsRequestCpuManufacturersItem right) => !left.Equals(right);
+
+        public static explicit operator string(EC2FleetInstanceRequirementsRequestCpuManufacturersItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EC2FleetInstanceRequirementsRequestCpuManufacturersItem other && Equals(other);
+        public bool Equals(EC2FleetInstanceRequirementsRequestCpuManufacturersItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct EC2FleetInstanceRequirementsRequestInstanceGenerationsItem : IEquatable<EC2FleetInstanceRequirementsRequestInstanceGenerationsItem>
+    {
+        private readonly string _value;
+
+        private EC2FleetInstanceRequirementsRequestInstanceGenerationsItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EC2FleetInstanceRequirementsRequestInstanceGenerationsItem Current { get; } = new EC2FleetInstanceRequirementsRequestInstanceGenerationsItem("current");
+        public static EC2FleetInstanceRequirementsRequestInstanceGenerationsItem Previous { get; } = new EC2FleetInstanceRequirementsRequestInstanceGenerationsItem("previous");
+
+        public static bool operator ==(EC2FleetInstanceRequirementsRequestInstanceGenerationsItem left, EC2FleetInstanceRequirementsRequestInstanceGenerationsItem right) => left.Equals(right);
+        public static bool operator !=(EC2FleetInstanceRequirementsRequestInstanceGenerationsItem left, EC2FleetInstanceRequirementsRequestInstanceGenerationsItem right) => !left.Equals(right);
+
+        public static explicit operator string(EC2FleetInstanceRequirementsRequestInstanceGenerationsItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EC2FleetInstanceRequirementsRequestInstanceGenerationsItem other && Equals(other);
+        public bool Equals(EC2FleetInstanceRequirementsRequestInstanceGenerationsItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct EC2FleetInstanceRequirementsRequestLocalStorage : IEquatable<EC2FleetInstanceRequirementsRequestLocalStorage>
+    {
+        private readonly string _value;
+
+        private EC2FleetInstanceRequirementsRequestLocalStorage(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EC2FleetInstanceRequirementsRequestLocalStorage Included { get; } = new EC2FleetInstanceRequirementsRequestLocalStorage("included");
+        public static EC2FleetInstanceRequirementsRequestLocalStorage Required { get; } = new EC2FleetInstanceRequirementsRequestLocalStorage("required");
+        public static EC2FleetInstanceRequirementsRequestLocalStorage Excluded { get; } = new EC2FleetInstanceRequirementsRequestLocalStorage("excluded");
+
+        public static bool operator ==(EC2FleetInstanceRequirementsRequestLocalStorage left, EC2FleetInstanceRequirementsRequestLocalStorage right) => left.Equals(right);
+        public static bool operator !=(EC2FleetInstanceRequirementsRequestLocalStorage left, EC2FleetInstanceRequirementsRequestLocalStorage right) => !left.Equals(right);
+
+        public static explicit operator string(EC2FleetInstanceRequirementsRequestLocalStorage value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EC2FleetInstanceRequirementsRequestLocalStorage other && Equals(other);
+        public bool Equals(EC2FleetInstanceRequirementsRequestLocalStorage other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct EC2FleetInstanceRequirementsRequestLocalStorageTypesItem : IEquatable<EC2FleetInstanceRequirementsRequestLocalStorageTypesItem>
+    {
+        private readonly string _value;
+
+        private EC2FleetInstanceRequirementsRequestLocalStorageTypesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EC2FleetInstanceRequirementsRequestLocalStorageTypesItem Hdd { get; } = new EC2FleetInstanceRequirementsRequestLocalStorageTypesItem("hdd");
+        public static EC2FleetInstanceRequirementsRequestLocalStorageTypesItem Ssd { get; } = new EC2FleetInstanceRequirementsRequestLocalStorageTypesItem("ssd");
+
+        public static bool operator ==(EC2FleetInstanceRequirementsRequestLocalStorageTypesItem left, EC2FleetInstanceRequirementsRequestLocalStorageTypesItem right) => left.Equals(right);
+        public static bool operator !=(EC2FleetInstanceRequirementsRequestLocalStorageTypesItem left, EC2FleetInstanceRequirementsRequestLocalStorageTypesItem right) => !left.Equals(right);
+
+        public static explicit operator string(EC2FleetInstanceRequirementsRequestLocalStorageTypesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EC2FleetInstanceRequirementsRequestLocalStorageTypesItem other && Equals(other);
+        public bool Equals(EC2FleetInstanceRequirementsRequestLocalStorageTypesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -215,6 +535,35 @@ namespace Pulumi.AwsNative.EC2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType other && Equals(other);
         public bool Equals(EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType : IEquatable<EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType>
+    {
+        private readonly string _value;
+
+        private EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType Vcpu { get; } = new EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType("vcpu");
+        public static EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType MemoryMib { get; } = new EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType("memory-mib");
+        public static EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType Units { get; } = new EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType("units");
+
+        public static bool operator ==(EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType left, EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType right) => left.Equals(right);
+        public static bool operator !=(EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType left, EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType right) => !left.Equals(right);
+
+        public static explicit operator string(EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType other && Equals(other);
+        public bool Equals(EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -530,6 +879,272 @@ namespace Pulumi.AwsNative.EC2
     }
 
     [EnumType]
+    public readonly struct SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem : IEquatable<SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem>
+    {
+        private readonly string _value;
+
+        private SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem Nvidia { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem("nvidia");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem Amd { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem("amd");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem AmazonWebServices { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem("amazon-web-services");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem Xilinx { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem("xilinx");
+
+        public static bool operator ==(SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem left, SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem right) => left.Equals(right);
+        public static bool operator !=(SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem left, SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem right) => !left.Equals(right);
+
+        public static explicit operator string(SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem other && Equals(other);
+        public bool Equals(SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SpotFleetInstanceRequirementsRequestAcceleratorNamesItem : IEquatable<SpotFleetInstanceRequirementsRequestAcceleratorNamesItem>
+    {
+        private readonly string _value;
+
+        private SpotFleetInstanceRequirementsRequestAcceleratorNamesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem A100 { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("a100");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem V100 { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("v100");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem K80 { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("k80");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem T4 { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("t4");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem M60 { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("m60");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem RadeonProV520 { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("radeon-pro-v520");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem Vu9p { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("vu9p");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem Inferentia { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("inferentia");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem K520 { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("k520");
+
+        public static bool operator ==(SpotFleetInstanceRequirementsRequestAcceleratorNamesItem left, SpotFleetInstanceRequirementsRequestAcceleratorNamesItem right) => left.Equals(right);
+        public static bool operator !=(SpotFleetInstanceRequirementsRequestAcceleratorNamesItem left, SpotFleetInstanceRequirementsRequestAcceleratorNamesItem right) => !left.Equals(right);
+
+        public static explicit operator string(SpotFleetInstanceRequirementsRequestAcceleratorNamesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SpotFleetInstanceRequirementsRequestAcceleratorNamesItem other && Equals(other);
+        public bool Equals(SpotFleetInstanceRequirementsRequestAcceleratorNamesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SpotFleetInstanceRequirementsRequestAcceleratorTypesItem : IEquatable<SpotFleetInstanceRequirementsRequestAcceleratorTypesItem>
+    {
+        private readonly string _value;
+
+        private SpotFleetInstanceRequirementsRequestAcceleratorTypesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SpotFleetInstanceRequirementsRequestAcceleratorTypesItem Gpu { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorTypesItem("gpu");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorTypesItem Fpga { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorTypesItem("fpga");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorTypesItem Inference { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorTypesItem("inference");
+
+        public static bool operator ==(SpotFleetInstanceRequirementsRequestAcceleratorTypesItem left, SpotFleetInstanceRequirementsRequestAcceleratorTypesItem right) => left.Equals(right);
+        public static bool operator !=(SpotFleetInstanceRequirementsRequestAcceleratorTypesItem left, SpotFleetInstanceRequirementsRequestAcceleratorTypesItem right) => !left.Equals(right);
+
+        public static explicit operator string(SpotFleetInstanceRequirementsRequestAcceleratorTypesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SpotFleetInstanceRequirementsRequestAcceleratorTypesItem other && Equals(other);
+        public bool Equals(SpotFleetInstanceRequirementsRequestAcceleratorTypesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SpotFleetInstanceRequirementsRequestBareMetal : IEquatable<SpotFleetInstanceRequirementsRequestBareMetal>
+    {
+        private readonly string _value;
+
+        private SpotFleetInstanceRequirementsRequestBareMetal(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SpotFleetInstanceRequirementsRequestBareMetal Included { get; } = new SpotFleetInstanceRequirementsRequestBareMetal("included");
+        public static SpotFleetInstanceRequirementsRequestBareMetal Required { get; } = new SpotFleetInstanceRequirementsRequestBareMetal("required");
+        public static SpotFleetInstanceRequirementsRequestBareMetal Excluded { get; } = new SpotFleetInstanceRequirementsRequestBareMetal("excluded");
+
+        public static bool operator ==(SpotFleetInstanceRequirementsRequestBareMetal left, SpotFleetInstanceRequirementsRequestBareMetal right) => left.Equals(right);
+        public static bool operator !=(SpotFleetInstanceRequirementsRequestBareMetal left, SpotFleetInstanceRequirementsRequestBareMetal right) => !left.Equals(right);
+
+        public static explicit operator string(SpotFleetInstanceRequirementsRequestBareMetal value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SpotFleetInstanceRequirementsRequestBareMetal other && Equals(other);
+        public bool Equals(SpotFleetInstanceRequirementsRequestBareMetal other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SpotFleetInstanceRequirementsRequestBurstablePerformance : IEquatable<SpotFleetInstanceRequirementsRequestBurstablePerformance>
+    {
+        private readonly string _value;
+
+        private SpotFleetInstanceRequirementsRequestBurstablePerformance(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SpotFleetInstanceRequirementsRequestBurstablePerformance Included { get; } = new SpotFleetInstanceRequirementsRequestBurstablePerformance("included");
+        public static SpotFleetInstanceRequirementsRequestBurstablePerformance Required { get; } = new SpotFleetInstanceRequirementsRequestBurstablePerformance("required");
+        public static SpotFleetInstanceRequirementsRequestBurstablePerformance Excluded { get; } = new SpotFleetInstanceRequirementsRequestBurstablePerformance("excluded");
+
+        public static bool operator ==(SpotFleetInstanceRequirementsRequestBurstablePerformance left, SpotFleetInstanceRequirementsRequestBurstablePerformance right) => left.Equals(right);
+        public static bool operator !=(SpotFleetInstanceRequirementsRequestBurstablePerformance left, SpotFleetInstanceRequirementsRequestBurstablePerformance right) => !left.Equals(right);
+
+        public static explicit operator string(SpotFleetInstanceRequirementsRequestBurstablePerformance value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SpotFleetInstanceRequirementsRequestBurstablePerformance other && Equals(other);
+        public bool Equals(SpotFleetInstanceRequirementsRequestBurstablePerformance other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SpotFleetInstanceRequirementsRequestCpuManufacturersItem : IEquatable<SpotFleetInstanceRequirementsRequestCpuManufacturersItem>
+    {
+        private readonly string _value;
+
+        private SpotFleetInstanceRequirementsRequestCpuManufacturersItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SpotFleetInstanceRequirementsRequestCpuManufacturersItem Intel { get; } = new SpotFleetInstanceRequirementsRequestCpuManufacturersItem("intel");
+        public static SpotFleetInstanceRequirementsRequestCpuManufacturersItem Amd { get; } = new SpotFleetInstanceRequirementsRequestCpuManufacturersItem("amd");
+        public static SpotFleetInstanceRequirementsRequestCpuManufacturersItem AmazonWebServices { get; } = new SpotFleetInstanceRequirementsRequestCpuManufacturersItem("amazon-web-services");
+
+        public static bool operator ==(SpotFleetInstanceRequirementsRequestCpuManufacturersItem left, SpotFleetInstanceRequirementsRequestCpuManufacturersItem right) => left.Equals(right);
+        public static bool operator !=(SpotFleetInstanceRequirementsRequestCpuManufacturersItem left, SpotFleetInstanceRequirementsRequestCpuManufacturersItem right) => !left.Equals(right);
+
+        public static explicit operator string(SpotFleetInstanceRequirementsRequestCpuManufacturersItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SpotFleetInstanceRequirementsRequestCpuManufacturersItem other && Equals(other);
+        public bool Equals(SpotFleetInstanceRequirementsRequestCpuManufacturersItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SpotFleetInstanceRequirementsRequestInstanceGenerationsItem : IEquatable<SpotFleetInstanceRequirementsRequestInstanceGenerationsItem>
+    {
+        private readonly string _value;
+
+        private SpotFleetInstanceRequirementsRequestInstanceGenerationsItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SpotFleetInstanceRequirementsRequestInstanceGenerationsItem Current { get; } = new SpotFleetInstanceRequirementsRequestInstanceGenerationsItem("current");
+        public static SpotFleetInstanceRequirementsRequestInstanceGenerationsItem Previous { get; } = new SpotFleetInstanceRequirementsRequestInstanceGenerationsItem("previous");
+
+        public static bool operator ==(SpotFleetInstanceRequirementsRequestInstanceGenerationsItem left, SpotFleetInstanceRequirementsRequestInstanceGenerationsItem right) => left.Equals(right);
+        public static bool operator !=(SpotFleetInstanceRequirementsRequestInstanceGenerationsItem left, SpotFleetInstanceRequirementsRequestInstanceGenerationsItem right) => !left.Equals(right);
+
+        public static explicit operator string(SpotFleetInstanceRequirementsRequestInstanceGenerationsItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SpotFleetInstanceRequirementsRequestInstanceGenerationsItem other && Equals(other);
+        public bool Equals(SpotFleetInstanceRequirementsRequestInstanceGenerationsItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SpotFleetInstanceRequirementsRequestLocalStorage : IEquatable<SpotFleetInstanceRequirementsRequestLocalStorage>
+    {
+        private readonly string _value;
+
+        private SpotFleetInstanceRequirementsRequestLocalStorage(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SpotFleetInstanceRequirementsRequestLocalStorage Included { get; } = new SpotFleetInstanceRequirementsRequestLocalStorage("included");
+        public static SpotFleetInstanceRequirementsRequestLocalStorage Required { get; } = new SpotFleetInstanceRequirementsRequestLocalStorage("required");
+        public static SpotFleetInstanceRequirementsRequestLocalStorage Excluded { get; } = new SpotFleetInstanceRequirementsRequestLocalStorage("excluded");
+
+        public static bool operator ==(SpotFleetInstanceRequirementsRequestLocalStorage left, SpotFleetInstanceRequirementsRequestLocalStorage right) => left.Equals(right);
+        public static bool operator !=(SpotFleetInstanceRequirementsRequestLocalStorage left, SpotFleetInstanceRequirementsRequestLocalStorage right) => !left.Equals(right);
+
+        public static explicit operator string(SpotFleetInstanceRequirementsRequestLocalStorage value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SpotFleetInstanceRequirementsRequestLocalStorage other && Equals(other);
+        public bool Equals(SpotFleetInstanceRequirementsRequestLocalStorage other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SpotFleetInstanceRequirementsRequestLocalStorageTypesItem : IEquatable<SpotFleetInstanceRequirementsRequestLocalStorageTypesItem>
+    {
+        private readonly string _value;
+
+        private SpotFleetInstanceRequirementsRequestLocalStorageTypesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SpotFleetInstanceRequirementsRequestLocalStorageTypesItem Hdd { get; } = new SpotFleetInstanceRequirementsRequestLocalStorageTypesItem("hdd");
+        public static SpotFleetInstanceRequirementsRequestLocalStorageTypesItem Ssd { get; } = new SpotFleetInstanceRequirementsRequestLocalStorageTypesItem("ssd");
+
+        public static bool operator ==(SpotFleetInstanceRequirementsRequestLocalStorageTypesItem left, SpotFleetInstanceRequirementsRequestLocalStorageTypesItem right) => left.Equals(right);
+        public static bool operator !=(SpotFleetInstanceRequirementsRequestLocalStorageTypesItem left, SpotFleetInstanceRequirementsRequestLocalStorageTypesItem right) => !left.Equals(right);
+
+        public static explicit operator string(SpotFleetInstanceRequirementsRequestLocalStorageTypesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SpotFleetInstanceRequirementsRequestLocalStorageTypesItem other && Equals(other);
+        public bool Equals(SpotFleetInstanceRequirementsRequestLocalStorageTypesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct SpotFleetRequestConfigDataAllocationStrategy : IEquatable<SpotFleetRequestConfigDataAllocationStrategy>
     {
         private readonly string _value;
@@ -609,6 +1224,35 @@ namespace Pulumi.AwsNative.EC2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SpotFleetRequestConfigDataInstanceInterruptionBehavior other && Equals(other);
         public bool Equals(SpotFleetRequestConfigDataInstanceInterruptionBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SpotFleetRequestConfigDataTargetCapacityUnitType : IEquatable<SpotFleetRequestConfigDataTargetCapacityUnitType>
+    {
+        private readonly string _value;
+
+        private SpotFleetRequestConfigDataTargetCapacityUnitType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SpotFleetRequestConfigDataTargetCapacityUnitType Vcpu { get; } = new SpotFleetRequestConfigDataTargetCapacityUnitType("vcpu");
+        public static SpotFleetRequestConfigDataTargetCapacityUnitType MemoryMib { get; } = new SpotFleetRequestConfigDataTargetCapacityUnitType("memory-mib");
+        public static SpotFleetRequestConfigDataTargetCapacityUnitType Units { get; } = new SpotFleetRequestConfigDataTargetCapacityUnitType("units");
+
+        public static bool operator ==(SpotFleetRequestConfigDataTargetCapacityUnitType left, SpotFleetRequestConfigDataTargetCapacityUnitType right) => left.Equals(right);
+        public static bool operator !=(SpotFleetRequestConfigDataTargetCapacityUnitType left, SpotFleetRequestConfigDataTargetCapacityUnitType right) => !left.Equals(right);
+
+        public static explicit operator string(SpotFleetRequestConfigDataTargetCapacityUnitType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SpotFleetRequestConfigDataTargetCapacityUnitType other && Equals(other);
+        public bool Equals(SpotFleetRequestConfigDataTargetCapacityUnitType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

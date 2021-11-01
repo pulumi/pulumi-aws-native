@@ -14,6 +14,9 @@ import (
 type InternetGateway struct {
 	pulumi.CustomResourceState
 
+	// ID of internet gateway.
+	InternetGatewayId pulumi.StringOutput `pulumi:"internetGatewayId"`
+	// Any tags to assign to the internet gateway.
 	Tags InternetGatewayTagArrayOutput `pulumi:"tags"`
 }
 
@@ -56,11 +59,13 @@ func (InternetGatewayState) ElementType() reflect.Type {
 }
 
 type internetGatewayArgs struct {
+	// Any tags to assign to the internet gateway.
 	Tags []InternetGatewayTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a InternetGateway resource.
 type InternetGatewayArgs struct {
+	// Any tags to assign to the internet gateway.
 	Tags InternetGatewayTagArrayInput
 }
 

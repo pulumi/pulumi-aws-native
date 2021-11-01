@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .capacity_reservation import *
+from .capacity_reservation_fleet import *
 from .carrier_gateway import *
 from .client_vpn_authorization_rule import *
 from .client_vpn_endpoint import *

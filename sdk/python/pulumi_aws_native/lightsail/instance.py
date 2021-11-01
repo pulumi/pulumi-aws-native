@@ -22,10 +22,12 @@ class InstanceArgs:
                  add_ons: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAddOnArgs']]]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  hardware: Optional[pulumi.Input['InstanceHardwareArgs']] = None,
+                 key_pair_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input['InstanceLocationArgs']] = None,
                  networking: Optional[pulumi.Input['InstanceNetworkingArgs']] = None,
                  state: Optional[pulumi.Input['InstanceStateArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceTagArgs']]]] = None,
+                 user_data: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Instance resource.
         :param pulumi.Input[str] blueprint_id: The ID for a virtual private server image (e.g., app_wordpress_4_4 or app_lamp_7_0 ). Use the get blueprints operation to return a list of available images (or blueprints ).
@@ -33,7 +35,9 @@ class InstanceArgs:
         :param pulumi.Input[str] instance_name: The names to use for your new Lightsail instance.
         :param pulumi.Input[Sequence[pulumi.Input['InstanceAddOnArgs']]] add_ons: An array of objects representing the add-ons to enable for the new instance.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
+        :param pulumi.Input[str] key_pair_name: The name of your key pair.
         :param pulumi.Input[Sequence[pulumi.Input['InstanceTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[str] user_data: A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
         """
         pulumi.set(__self__, "blueprint_id", blueprint_id)
         pulumi.set(__self__, "bundle_id", bundle_id)
@@ -44,6 +48,8 @@ class InstanceArgs:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if hardware is not None:
             pulumi.set(__self__, "hardware", hardware)
+        if key_pair_name is not None:
+            pulumi.set(__self__, "key_pair_name", key_pair_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if networking is not None:
@@ -52,6 +58,8 @@ class InstanceArgs:
             pulumi.set(__self__, "state", state)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if user_data is not None:
+            pulumi.set(__self__, "user_data", user_data)
 
     @property
     @pulumi.getter(name="blueprintId")
@@ -123,6 +131,18 @@ class InstanceArgs:
         pulumi.set(self, "hardware", value)
 
     @property
+    @pulumi.getter(name="keyPairName")
+    def key_pair_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of your key pair.
+        """
+        return pulumi.get(self, "key_pair_name")
+
+    @key_pair_name.setter
+    def key_pair_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_pair_name", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input['InstanceLocationArgs']]:
         return pulumi.get(self, "location")
@@ -161,6 +181,18 @@ class InstanceArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="userData")
+    def user_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
+        """
+        return pulumi.get(self, "user_data")
+
+    @user_data.setter
+    def user_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_data", value)
+
 
 class Instance(pulumi.CustomResource):
     @overload
@@ -173,10 +205,12 @@ class Instance(pulumi.CustomResource):
                  bundle_id: Optional[pulumi.Input[str]] = None,
                  hardware: Optional[pulumi.Input[pulumi.InputType['InstanceHardwareArgs']]] = None,
                  instance_name: Optional[pulumi.Input[str]] = None,
+                 key_pair_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[pulumi.InputType['InstanceLocationArgs']]] = None,
                  networking: Optional[pulumi.Input[pulumi.InputType['InstanceNetworkingArgs']]] = None,
                  state: Optional[pulumi.Input[pulumi.InputType['InstanceStateArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceTagArgs']]]]] = None,
+                 user_data: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Lightsail::Instance
@@ -188,7 +222,9 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] blueprint_id: The ID for a virtual private server image (e.g., app_wordpress_4_4 or app_lamp_7_0 ). Use the get blueprints operation to return a list of available images (or blueprints ).
         :param pulumi.Input[str] bundle_id: The bundle of specification information for your virtual private server (or instance ), including the pricing plan (e.g., micro_1_0 ).
         :param pulumi.Input[str] instance_name: The names to use for your new Lightsail instance.
+        :param pulumi.Input[str] key_pair_name: The name of your key pair.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[str] user_data: A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
         """
         ...
     @overload
@@ -220,10 +256,12 @@ class Instance(pulumi.CustomResource):
                  bundle_id: Optional[pulumi.Input[str]] = None,
                  hardware: Optional[pulumi.Input[pulumi.InputType['InstanceHardwareArgs']]] = None,
                  instance_name: Optional[pulumi.Input[str]] = None,
+                 key_pair_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[pulumi.InputType['InstanceLocationArgs']]] = None,
                  networking: Optional[pulumi.Input[pulumi.InputType['InstanceNetworkingArgs']]] = None,
                  state: Optional[pulumi.Input[pulumi.InputType['InstanceStateArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceTagArgs']]]]] = None,
+                 user_data: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -248,19 +286,19 @@ class Instance(pulumi.CustomResource):
             if instance_name is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_name'")
             __props__.__dict__["instance_name"] = instance_name
+            __props__.__dict__["key_pair_name"] = key_pair_name
             __props__.__dict__["location"] = location
             __props__.__dict__["networking"] = networking
             __props__.__dict__["state"] = state
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["user_data"] = user_data
             __props__.__dict__["instance_arn"] = None
             __props__.__dict__["is_static_ip"] = None
-            __props__.__dict__["key_pair_name"] = None
             __props__.__dict__["private_ip_address"] = None
             __props__.__dict__["public_ip_address"] = None
             __props__.__dict__["resource_type"] = None
             __props__.__dict__["ssh_key_name"] = None
             __props__.__dict__["support_code"] = None
-            __props__.__dict__["user_data"] = None
             __props__.__dict__["user_name"] = None
         super(Instance, __self__).__init__(
             'aws-native:lightsail:Instance',
@@ -366,7 +404,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyPairName")
-    def key_pair_name(self) -> pulumi.Output[str]:
+    def key_pair_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of your key pair.
         """
@@ -437,7 +475,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userData")
-    def user_data(self) -> pulumi.Output[str]:
+    def user_data(self) -> pulumi.Output[Optional[str]]:
         """
         A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
         """

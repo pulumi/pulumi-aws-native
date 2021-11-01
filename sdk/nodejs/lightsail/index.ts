@@ -5,24 +5,32 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./database";
 export * from "./disk";
 export * from "./instance";
+export * from "./staticIp";
 
 // Export enums:
 export * from "../types/enums/lightsail";
 
 // Import resources to register:
+import { Database } from "./database";
 import { Disk } from "./disk";
 import { Instance } from "./instance";
+import { StaticIp } from "./staticIp";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:lightsail:Database":
+                return new Database(name, <any>undefined, { urn })
             case "aws-native:lightsail:Disk":
                 return new Disk(name, <any>undefined, { urn })
             case "aws-native:lightsail:Instance":
                 return new Instance(name, <any>undefined, { urn })
+            case "aws-native:lightsail:StaticIp":
+                return new StaticIp(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

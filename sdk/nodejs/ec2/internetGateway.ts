@@ -35,6 +35,13 @@ export class InternetGateway extends pulumi.CustomResource {
         return obj['__pulumiType'] === InternetGateway.__pulumiType;
     }
 
+    /**
+     * ID of internet gateway.
+     */
+    public /*out*/ readonly internetGatewayId!: pulumi.Output<string>;
+    /**
+     * Any tags to assign to the internet gateway.
+     */
     public readonly tags!: pulumi.Output<outputs.ec2.InternetGatewayTag[] | undefined>;
 
     /**
@@ -49,7 +56,9 @@ export class InternetGateway extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["internetGatewayId"] = undefined /*out*/;
         } else {
+            inputs["internetGatewayId"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -63,5 +72,8 @@ export class InternetGateway extends pulumi.CustomResource {
  * The set of arguments for constructing a InternetGateway resource.
  */
 export interface InternetGatewayArgs {
+    /**
+     * Any tags to assign to the internet gateway.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.ec2.InternetGatewayTagArgs>[]>;
 }

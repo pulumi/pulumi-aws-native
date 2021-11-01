@@ -287,6 +287,8 @@ if typing.TYPE_CHECKING:
     opsworks = __opsworks
     import pulumi_aws_native.opsworkscm as __opsworkscm
     opsworkscm = __opsworkscm
+    import pulumi_aws_native.panorama as __panorama
+    panorama = __panorama
     import pulumi_aws_native.pinpoint as __pinpoint
     pinpoint = __pinpoint
     import pulumi_aws_native.pinpointemail as __pinpointemail
@@ -301,6 +303,8 @@ if typing.TYPE_CHECKING:
     rds = __rds
     import pulumi_aws_native.redshift as __redshift
     redshift = __redshift
+    import pulumi_aws_native.rekognition as __rekognition
+    rekognition = __rekognition
     import pulumi_aws_native.resourcegroups as __resourcegroups
     resourcegroups = __resourcegroups
     import pulumi_aws_native.robomaker as __robomaker
@@ -503,6 +507,7 @@ else:
     opensearchservice = _utilities.lazy_import('pulumi_aws_native.opensearchservice')
     opsworks = _utilities.lazy_import('pulumi_aws_native.opsworks')
     opsworkscm = _utilities.lazy_import('pulumi_aws_native.opsworkscm')
+    panorama = _utilities.lazy_import('pulumi_aws_native.panorama')
     pinpoint = _utilities.lazy_import('pulumi_aws_native.pinpoint')
     pinpointemail = _utilities.lazy_import('pulumi_aws_native.pinpointemail')
     qldb = _utilities.lazy_import('pulumi_aws_native.qldb')
@@ -510,6 +515,7 @@ else:
     ram = _utilities.lazy_import('pulumi_aws_native.ram')
     rds = _utilities.lazy_import('pulumi_aws_native.rds')
     redshift = _utilities.lazy_import('pulumi_aws_native.redshift')
+    rekognition = _utilities.lazy_import('pulumi_aws_native.rekognition')
     resourcegroups = _utilities.lazy_import('pulumi_aws_native.resourcegroups')
     robomaker = _utilities.lazy_import('pulumi_aws_native.robomaker')
     route53 = _utilities.lazy_import('pulumi_aws_native.route53')
@@ -1047,7 +1053,10 @@ _utilities.register(
   "mod": "connect",
   "fqn": "pulumi_aws_native.connect",
   "classes": {
-   "aws-native:connect:QuickConnect": "QuickConnect"
+   "aws-native:connect:HoursOfOperation": "HoursOfOperation",
+   "aws-native:connect:QuickConnect": "QuickConnect",
+   "aws-native:connect:User": "User",
+   "aws-native:connect:UserHierarchyGroup": "UserHierarchyGroup"
   }
  },
  {
@@ -1200,6 +1209,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.ec2",
   "classes": {
    "aws-native:ec2:CapacityReservation": "CapacityReservation",
+   "aws-native:ec2:CapacityReservationFleet": "CapacityReservationFleet",
    "aws-native:ec2:CarrierGateway": "CarrierGateway",
    "aws-native:ec2:ClientVpnAuthorizationRule": "ClientVpnAuthorizationRule",
    "aws-native:ec2:ClientVpnEndpoint": "ClientVpnEndpoint",
@@ -1846,8 +1856,10 @@ _utilities.register(
   "mod": "lightsail",
   "fqn": "pulumi_aws_native.lightsail",
   "classes": {
+   "aws-native:lightsail:Database": "Database",
    "aws-native:lightsail:Disk": "Disk",
-   "aws-native:lightsail:Instance": "Instance"
+   "aws-native:lightsail:Instance": "Instance",
+   "aws-native:lightsail:StaticIp": "StaticIp"
   }
  },
  {
@@ -2081,6 +2093,16 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "panorama",
+  "fqn": "pulumi_aws_native.panorama",
+  "classes": {
+   "aws-native:panorama:ApplicationInstance": "ApplicationInstance",
+   "aws-native:panorama:Package": "Package",
+   "aws-native:panorama:PackageVersion": "PackageVersion"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "pinpoint",
   "fqn": "pulumi_aws_native.pinpoint",
   "classes": {
@@ -2179,6 +2201,14 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "rekognition",
+  "fqn": "pulumi_aws_native.rekognition",
+  "classes": {
+   "aws-native:rekognition:Project": "Project"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "resourcegroups",
   "fqn": "pulumi_aws_native.resourcegroups",
   "classes": {
@@ -2241,6 +2271,7 @@ _utilities.register(
    "aws-native:route53resolver:FirewallDomainList": "FirewallDomainList",
    "aws-native:route53resolver:FirewallRuleGroup": "FirewallRuleGroup",
    "aws-native:route53resolver:FirewallRuleGroupAssociation": "FirewallRuleGroupAssociation",
+   "aws-native:route53resolver:ResolverConfig": "ResolverConfig",
    "aws-native:route53resolver:ResolverDNSSECConfig": "ResolverDNSSECConfig",
    "aws-native:route53resolver:ResolverEndpoint": "ResolverEndpoint",
    "aws-native:route53resolver:ResolverQueryLoggingConfig": "ResolverQueryLoggingConfig",

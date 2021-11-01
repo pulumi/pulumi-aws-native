@@ -73,6 +73,9 @@ namespace Pulumi.AwsNative.EC2.Inputs
         [Input("targetCapacity", required: true)]
         public Input<int> TargetCapacity { get; set; } = null!;
 
+        [Input("targetCapacityUnitType")]
+        public Input<Pulumi.AwsNative.EC2.SpotFleetRequestConfigDataTargetCapacityUnitType>? TargetCapacityUnitType { get; set; }
+
         [Input("terminateInstancesWithExpiration")]
         public Input<bool>? TerminateInstancesWithExpiration { get; set; }
 
