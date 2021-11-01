@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
         public readonly Pulumi.AwsNative.EC2.EC2FleetSpotOptionsRequestAllocationStrategy? AllocationStrategy;
         public readonly Pulumi.AwsNative.EC2.EC2FleetSpotOptionsRequestInstanceInterruptionBehavior? InstanceInterruptionBehavior;
         public readonly int? InstancePoolsToUseCount;
+        public readonly Outputs.EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties? MaintenanceStrategies;
         public readonly string? MaxTotalPrice;
         public readonly int? MinTargetCapacity;
         public readonly bool? SingleAvailabilityZone;
@@ -29,6 +30,8 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
             int? instancePoolsToUseCount,
 
+            Outputs.EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties? maintenanceStrategies,
+
             string? maxTotalPrice,
 
             int? minTargetCapacity,
@@ -40,6 +43,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
             AllocationStrategy = allocationStrategy;
             InstanceInterruptionBehavior = instanceInterruptionBehavior;
             InstancePoolsToUseCount = instancePoolsToUseCount;
+            MaintenanceStrategies = maintenanceStrategies;
             MaxTotalPrice = maxTotalPrice;
             MinTargetCapacity = minTargetCapacity;
             SingleAvailabilityZone = singleAvailabilityZone;

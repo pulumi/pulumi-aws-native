@@ -9,6 +9,9 @@
     "SegmentId" : {
       "type" : "string"
     },
+    "Priority" : {
+      "type" : "integer"
+    },
     "IsPaused" : {
       "type" : "boolean"
     },
@@ -60,51 +63,6 @@
     }
   },
   "definitions" : {
-    "MessageConfiguration" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "APNSMessage" : {
-          "$ref" : "#/definitions/Message"
-        },
-        "BaiduMessage" : {
-          "$ref" : "#/definitions/Message"
-        },
-        "DefaultMessage" : {
-          "$ref" : "#/definitions/Message"
-        },
-        "EmailMessage" : {
-          "$ref" : "#/definitions/CampaignEmailMessage"
-        },
-        "GCMMessage" : {
-          "$ref" : "#/definitions/Message"
-        },
-        "SMSMessage" : {
-          "$ref" : "#/definitions/CampaignSmsMessage"
-        },
-        "ADMMessage" : {
-          "$ref" : "#/definitions/Message"
-        }
-      }
-    },
-    "Limits" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "MessagesPerSecond" : {
-          "type" : "integer"
-        },
-        "Daily" : {
-          "type" : "integer"
-        },
-        "MaximumDuration" : {
-          "type" : "integer"
-        },
-        "Total" : {
-          "type" : "integer"
-        }
-      }
-    },
     "QuietTime" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -130,27 +88,6 @@
           }
         },
         "DimensionType" : {
-          "type" : "string"
-        }
-      }
-    },
-    "WriteTreatmentResource" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "TreatmentDescription" : {
-          "type" : "string"
-        },
-        "MessageConfiguration" : {
-          "$ref" : "#/definitions/MessageConfiguration"
-        },
-        "SizePercent" : {
-          "type" : "integer"
-        },
-        "Schedule" : {
-          "$ref" : "#/definitions/Schedule"
-        },
-        "TreatmentName" : {
           "type" : "string"
         }
       }
@@ -194,6 +131,163 @@
         },
         "RawContent" : {
           "type" : "string"
+        }
+      }
+    },
+    "InAppMessageContent" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "BodyConfig" : {
+          "$ref" : "#/definitions/InAppMessageBodyConfig"
+        },
+        "SecondaryBtn" : {
+          "$ref" : "#/definitions/InAppMessageButton"
+        },
+        "ImageUrl" : {
+          "type" : "string"
+        },
+        "PrimaryBtn" : {
+          "$ref" : "#/definitions/InAppMessageButton"
+        },
+        "HeaderConfig" : {
+          "$ref" : "#/definitions/InAppMessageHeaderConfig"
+        },
+        "BackgroundColor" : {
+          "type" : "string"
+        }
+      }
+    },
+    "InAppMessageBodyConfig" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Alignment" : {
+          "type" : "string"
+        },
+        "TextColor" : {
+          "type" : "string"
+        },
+        "Body" : {
+          "type" : "string"
+        }
+      }
+    },
+    "CampaignEventFilter" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Dimensions" : {
+          "$ref" : "#/definitions/EventDimensions"
+        },
+        "FilterType" : {
+          "type" : "string"
+        }
+      }
+    },
+    "EventDimensions" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Attributes" : {
+          "type" : "object"
+        },
+        "Metrics" : {
+          "type" : "object"
+        },
+        "EventType" : {
+          "$ref" : "#/definitions/SetDimension"
+        }
+      }
+    },
+    "MessageConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "APNSMessage" : {
+          "$ref" : "#/definitions/Message"
+        },
+        "BaiduMessage" : {
+          "$ref" : "#/definitions/Message"
+        },
+        "DefaultMessage" : {
+          "$ref" : "#/definitions/Message"
+        },
+        "InAppMessage" : {
+          "$ref" : "#/definitions/CampaignInAppMessage"
+        },
+        "EmailMessage" : {
+          "$ref" : "#/definitions/CampaignEmailMessage"
+        },
+        "GCMMessage" : {
+          "$ref" : "#/definitions/Message"
+        },
+        "SMSMessage" : {
+          "$ref" : "#/definitions/CampaignSmsMessage"
+        },
+        "ADMMessage" : {
+          "$ref" : "#/definitions/Message"
+        }
+      }
+    },
+    "Limits" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "MessagesPerSecond" : {
+          "type" : "integer"
+        },
+        "Daily" : {
+          "type" : "integer"
+        },
+        "MaximumDuration" : {
+          "type" : "integer"
+        },
+        "Total" : {
+          "type" : "integer"
+        },
+        "Session" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "WriteTreatmentResource" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "TreatmentDescription" : {
+          "type" : "string"
+        },
+        "MessageConfiguration" : {
+          "$ref" : "#/definitions/MessageConfiguration"
+        },
+        "SizePercent" : {
+          "type" : "integer"
+        },
+        "Schedule" : {
+          "$ref" : "#/definitions/Schedule"
+        },
+        "TreatmentName" : {
+          "type" : "string"
+        }
+      }
+    },
+    "CampaignInAppMessage" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "CustomConfig" : {
+          "type" : "object"
+        },
+        "Layout" : {
+          "type" : "string"
+        },
+        "Content" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/InAppMessageContent"
+          }
         }
       }
     },
@@ -266,14 +360,26 @@
         }
       }
     },
-    "CampaignEventFilter" : {
+    "DefaultButtonConfiguration" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "Dimensions" : {
-          "$ref" : "#/definitions/EventDimensions"
+        "ButtonAction" : {
+          "type" : "string"
         },
-        "FilterType" : {
+        "BorderRadius" : {
+          "type" : "integer"
+        },
+        "Text" : {
+          "type" : "string"
+        },
+        "TextColor" : {
+          "type" : "string"
+        },
+        "Link" : {
+          "type" : "string"
+        },
+        "BackgroundColor" : {
           "type" : "string"
         }
       }
@@ -293,18 +399,48 @@
         }
       }
     },
-    "EventDimensions" : {
+    "InAppMessageButton" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "Attributes" : {
-          "type" : "object"
+        "IOS" : {
+          "$ref" : "#/definitions/OverrideButtonConfiguration"
         },
-        "Metrics" : {
-          "type" : "object"
+        "Web" : {
+          "$ref" : "#/definitions/OverrideButtonConfiguration"
         },
-        "EventType" : {
-          "$ref" : "#/definitions/SetDimension"
+        "DefaultConfig" : {
+          "$ref" : "#/definitions/DefaultButtonConfiguration"
+        },
+        "Android" : {
+          "$ref" : "#/definitions/OverrideButtonConfiguration"
+        }
+      }
+    },
+    "InAppMessageHeaderConfig" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Alignment" : {
+          "type" : "string"
+        },
+        "TextColor" : {
+          "type" : "string"
+        },
+        "Header" : {
+          "type" : "string"
+        }
+      }
+    },
+    "OverrideButtonConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ButtonAction" : {
+          "type" : "string"
+        },
+        "Link" : {
+          "type" : "string"
         }
       }
     }

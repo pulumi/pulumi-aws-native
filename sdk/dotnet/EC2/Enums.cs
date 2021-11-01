@@ -62,6 +62,34 @@ namespace Pulumi.AwsNative.EC2
     }
 
     [EnumType]
+    public readonly struct EC2FleetCapacityRebalanceReplacementStrategy : IEquatable<EC2FleetCapacityRebalanceReplacementStrategy>
+    {
+        private readonly string _value;
+
+        private EC2FleetCapacityRebalanceReplacementStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EC2FleetCapacityRebalanceReplacementStrategy Launch { get; } = new EC2FleetCapacityRebalanceReplacementStrategy("launch");
+        public static EC2FleetCapacityRebalanceReplacementStrategy LaunchBeforeTerminate { get; } = new EC2FleetCapacityRebalanceReplacementStrategy("launch-before-terminate");
+
+        public static bool operator ==(EC2FleetCapacityRebalanceReplacementStrategy left, EC2FleetCapacityRebalanceReplacementStrategy right) => left.Equals(right);
+        public static bool operator !=(EC2FleetCapacityRebalanceReplacementStrategy left, EC2FleetCapacityRebalanceReplacementStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(EC2FleetCapacityRebalanceReplacementStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EC2FleetCapacityRebalanceReplacementStrategy other && Equals(other);
+        public bool Equals(EC2FleetCapacityRebalanceReplacementStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct EC2FleetCapacityReservationOptionsRequestUsageStrategy : IEquatable<EC2FleetCapacityReservationOptionsRequestUsageStrategy>
     {
         private readonly string _value;
@@ -1299,6 +1327,7 @@ namespace Pulumi.AwsNative.EC2
         }
 
         public static SpotFleetSpotCapacityRebalanceReplacementStrategy Launch { get; } = new SpotFleetSpotCapacityRebalanceReplacementStrategy("launch");
+        public static SpotFleetSpotCapacityRebalanceReplacementStrategy LaunchBeforeTerminate { get; } = new SpotFleetSpotCapacityRebalanceReplacementStrategy("launch-before-terminate");
 
         public static bool operator ==(SpotFleetSpotCapacityRebalanceReplacementStrategy left, SpotFleetSpotCapacityRebalanceReplacementStrategy right) => left.Equals(right);
         public static bool operator !=(SpotFleetSpotCapacityRebalanceReplacementStrategy left, SpotFleetSpotCapacityRebalanceReplacementStrategy right) => !left.Equals(right);

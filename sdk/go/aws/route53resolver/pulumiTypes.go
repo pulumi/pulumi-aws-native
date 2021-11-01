@@ -696,7 +696,9 @@ func (o ResolverEndpointTagArrayOutput) Index(i pulumi.IntInput) ResolverEndpoin
 }
 
 type ResolverRuleTag struct {
-	Key   string `pulumi:"key"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
 }
 
@@ -712,7 +714,9 @@ type ResolverRuleTagInput interface {
 }
 
 type ResolverRuleTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -767,10 +771,12 @@ func (o ResolverRuleTagOutput) ToResolverRuleTagOutputWithContext(ctx context.Co
 	return o
 }
 
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 func (o ResolverRuleTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ResolverRuleTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 func (o ResolverRuleTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ResolverRuleTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -796,7 +802,9 @@ func (o ResolverRuleTagArrayOutput) Index(i pulumi.IntInput) ResolverRuleTagOutp
 }
 
 type ResolverRuleTargetAddress struct {
-	Ip   string  `pulumi:"ip"`
+	// One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
+	Ip string `pulumi:"ip"`
+	// The port at Ip that you want to forward DNS queries to.
 	Port *string `pulumi:"port"`
 }
 
@@ -812,7 +820,9 @@ type ResolverRuleTargetAddressInput interface {
 }
 
 type ResolverRuleTargetAddressArgs struct {
-	Ip   pulumi.StringInput    `pulumi:"ip"`
+	// One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
+	Ip pulumi.StringInput `pulumi:"ip"`
+	// The port at Ip that you want to forward DNS queries to.
 	Port pulumi.StringPtrInput `pulumi:"port"`
 }
 
@@ -867,10 +877,12 @@ func (o ResolverRuleTargetAddressOutput) ToResolverRuleTargetAddressOutputWithCo
 	return o
 }
 
+// One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
 func (o ResolverRuleTargetAddressOutput) Ip() pulumi.StringOutput {
 	return o.ApplyT(func(v ResolverRuleTargetAddress) string { return v.Ip }).(pulumi.StringOutput)
 }
 
+// The port at Ip that you want to forward DNS queries to.
 func (o ResolverRuleTargetAddressOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResolverRuleTargetAddress) *string { return v.Port }).(pulumi.StringPtrOutput)
 }

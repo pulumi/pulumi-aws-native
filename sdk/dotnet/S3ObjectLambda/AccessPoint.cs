@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.S3ObjectLambda
         /// The name you want to assign to this Object lambda Access Point.
         /// </summary>
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
         /// The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.S3ObjectLambda
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public AccessPoint(string name, AccessPointArgs args, CustomResourceOptions? options = null)
+        public AccessPoint(string name, AccessPointArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:s3objectlambda:AccessPoint", name, args ?? new AccessPointArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -93,8 +93,8 @@ namespace Pulumi.AwsNative.S3ObjectLambda
         /// <summary>
         /// The name you want to assign to this Object lambda Access Point.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions

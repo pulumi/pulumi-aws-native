@@ -12,31 +12,54 @@ namespace Pulumi.AwsNative.Route53Resolver
     /// <summary>
     /// Resource Type definition for AWS::Route53Resolver::ResolverRule
     /// </summary>
-    [Obsolete(@"ResolverRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:route53resolver:ResolverRule")]
     public partial class ResolverRule : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the resolver rule.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
+        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
+        /// <summary>
+        /// The name for the Resolver rule
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the endpoint that the rule is associated with.
+        /// </summary>
         [Output("resolverEndpointId")]
         public Output<string?> ResolverEndpointId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the endpoint that the rule is associated with.
+        /// </summary>
         [Output("resolverRuleId")]
         public Output<string> ResolverRuleId { get; private set; } = null!;
 
+        /// <summary>
+        /// When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.
+        /// </summary>
         [Output("ruleType")]
-        public Output<string> RuleType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Route53Resolver.ResolverRuleRuleType> RuleType { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.ResolverRuleTag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.
+        /// </summary>
         [Output("targetIps")]
         public Output<ImmutableArray<Outputs.ResolverRuleTargetAddress>> TargetIps { get; private set; } = null!;
 
@@ -85,20 +108,36 @@ namespace Pulumi.AwsNative.Route53Resolver
 
     public sealed class ResolverRuleArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
+        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
+        /// <summary>
+        /// The name for the Resolver rule
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The ID of the endpoint that the rule is associated with.
+        /// </summary>
         [Input("resolverEndpointId")]
         public Input<string>? ResolverEndpointId { get; set; }
 
+        /// <summary>
+        /// When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.
+        /// </summary>
         [Input("ruleType", required: true)]
-        public Input<string> RuleType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Route53Resolver.ResolverRuleRuleType> RuleType { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.ResolverRuleTagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         public InputList<Inputs.ResolverRuleTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.ResolverRuleTagArgs>());
@@ -107,6 +146,10 @@ namespace Pulumi.AwsNative.Route53Resolver
 
         [Input("targetIps")]
         private InputList<Inputs.ResolverRuleTargetAddressArgs>? _targetIps;
+
+        /// <summary>
+        /// An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.
+        /// </summary>
         public InputList<Inputs.ResolverRuleTargetAddressArgs> TargetIps
         {
             get => _targetIps ?? (_targetIps = new InputList<Inputs.ResolverRuleTargetAddressArgs>());

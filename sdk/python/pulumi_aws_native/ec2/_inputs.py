@@ -29,6 +29,7 @@ __all__ = [
     'EC2FleetAcceleratorCountRequestArgs',
     'EC2FleetAcceleratorTotalMemoryMiBRequestArgs',
     'EC2FleetBaselineEbsBandwidthMbpsRequestArgs',
+    'EC2FleetCapacityRebalanceArgs',
     'EC2FleetCapacityReservationOptionsRequestArgs',
     'EC2FleetFleetLaunchTemplateConfigRequestArgs',
     'EC2FleetFleetLaunchTemplateOverridesRequestArgs',
@@ -39,6 +40,7 @@ __all__ = [
     'EC2FleetNetworkInterfaceCountRequestArgs',
     'EC2FleetOnDemandOptionsRequestArgs',
     'EC2FleetPlacementArgs',
+    'EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesArgs',
     'EC2FleetSpotOptionsRequestArgs',
     'EC2FleetTagSpecificationArgs',
     'EC2FleetTagArgs',
@@ -765,6 +767,35 @@ class EC2FleetBaselineEbsBandwidthMbpsRequestArgs:
 
 
 @pulumi.input_type
+class EC2FleetCapacityRebalanceArgs:
+    def __init__(__self__, *,
+                 replacement_strategy: Optional[pulumi.Input['EC2FleetCapacityRebalanceReplacementStrategy']] = None,
+                 termination_delay: Optional[pulumi.Input[int]] = None):
+        if replacement_strategy is not None:
+            pulumi.set(__self__, "replacement_strategy", replacement_strategy)
+        if termination_delay is not None:
+            pulumi.set(__self__, "termination_delay", termination_delay)
+
+    @property
+    @pulumi.getter(name="replacementStrategy")
+    def replacement_strategy(self) -> Optional[pulumi.Input['EC2FleetCapacityRebalanceReplacementStrategy']]:
+        return pulumi.get(self, "replacement_strategy")
+
+    @replacement_strategy.setter
+    def replacement_strategy(self, value: Optional[pulumi.Input['EC2FleetCapacityRebalanceReplacementStrategy']]):
+        pulumi.set(self, "replacement_strategy", value)
+
+    @property
+    @pulumi.getter(name="terminationDelay")
+    def termination_delay(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "termination_delay")
+
+    @termination_delay.setter
+    def termination_delay(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "termination_delay", value)
+
+
+@pulumi.input_type
 class EC2FleetCapacityReservationOptionsRequestArgs:
     def __init__(__self__, *,
                  usage_strategy: Optional[pulumi.Input['EC2FleetCapacityReservationOptionsRequestUsageStrategy']] = None):
@@ -1475,11 +1506,29 @@ class EC2FleetPlacementArgs:
 
 
 @pulumi.input_type
+class EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesArgs:
+    def __init__(__self__, *,
+                 capacity_rebalance: Optional[pulumi.Input['EC2FleetCapacityRebalanceArgs']] = None):
+        if capacity_rebalance is not None:
+            pulumi.set(__self__, "capacity_rebalance", capacity_rebalance)
+
+    @property
+    @pulumi.getter(name="capacityRebalance")
+    def capacity_rebalance(self) -> Optional[pulumi.Input['EC2FleetCapacityRebalanceArgs']]:
+        return pulumi.get(self, "capacity_rebalance")
+
+    @capacity_rebalance.setter
+    def capacity_rebalance(self, value: Optional[pulumi.Input['EC2FleetCapacityRebalanceArgs']]):
+        pulumi.set(self, "capacity_rebalance", value)
+
+
+@pulumi.input_type
 class EC2FleetSpotOptionsRequestArgs:
     def __init__(__self__, *,
                  allocation_strategy: Optional[pulumi.Input['EC2FleetSpotOptionsRequestAllocationStrategy']] = None,
                  instance_interruption_behavior: Optional[pulumi.Input['EC2FleetSpotOptionsRequestInstanceInterruptionBehavior']] = None,
                  instance_pools_to_use_count: Optional[pulumi.Input[int]] = None,
+                 maintenance_strategies: Optional[pulumi.Input['EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesArgs']] = None,
                  max_total_price: Optional[pulumi.Input[str]] = None,
                  min_target_capacity: Optional[pulumi.Input[int]] = None,
                  single_availability_zone: Optional[pulumi.Input[bool]] = None,
@@ -1490,6 +1539,8 @@ class EC2FleetSpotOptionsRequestArgs:
             pulumi.set(__self__, "instance_interruption_behavior", instance_interruption_behavior)
         if instance_pools_to_use_count is not None:
             pulumi.set(__self__, "instance_pools_to_use_count", instance_pools_to_use_count)
+        if maintenance_strategies is not None:
+            pulumi.set(__self__, "maintenance_strategies", maintenance_strategies)
         if max_total_price is not None:
             pulumi.set(__self__, "max_total_price", max_total_price)
         if min_target_capacity is not None:
@@ -1525,6 +1576,15 @@ class EC2FleetSpotOptionsRequestArgs:
     @instance_pools_to_use_count.setter
     def instance_pools_to_use_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "instance_pools_to_use_count", value)
+
+    @property
+    @pulumi.getter(name="maintenanceStrategies")
+    def maintenance_strategies(self) -> Optional[pulumi.Input['EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesArgs']]:
+        return pulumi.get(self, "maintenance_strategies")
+
+    @maintenance_strategies.setter
+    def maintenance_strategies(self, value: Optional[pulumi.Input['EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesArgs']]):
+        pulumi.set(self, "maintenance_strategies", value)
 
     @property
     @pulumi.getter(name="maxTotalPrice")
@@ -5859,9 +5919,12 @@ class SpotFleetRequestConfigDataArgs:
 @pulumi.input_type
 class SpotFleetSpotCapacityRebalanceArgs:
     def __init__(__self__, *,
-                 replacement_strategy: Optional[pulumi.Input['SpotFleetSpotCapacityRebalanceReplacementStrategy']] = None):
+                 replacement_strategy: Optional[pulumi.Input['SpotFleetSpotCapacityRebalanceReplacementStrategy']] = None,
+                 termination_delay: Optional[pulumi.Input[int]] = None):
         if replacement_strategy is not None:
             pulumi.set(__self__, "replacement_strategy", replacement_strategy)
+        if termination_delay is not None:
+            pulumi.set(__self__, "termination_delay", termination_delay)
 
     @property
     @pulumi.getter(name="replacementStrategy")
@@ -5871,6 +5934,15 @@ class SpotFleetSpotCapacityRebalanceArgs:
     @replacement_strategy.setter
     def replacement_strategy(self, value: Optional[pulumi.Input['SpotFleetSpotCapacityRebalanceReplacementStrategy']]):
         pulumi.set(self, "replacement_strategy", value)
+
+    @property
+    @pulumi.getter(name="terminationDelay")
+    def termination_delay(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "termination_delay")
+
+    @termination_delay.setter
+    def termination_delay(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "termination_delay", value)
 
 
 @pulumi.input_type

@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.MemoryDB
     /// <summary>
     /// The AWS::MemoryDB::Cluster resource creates an Amazon MemoryDB Cluster.
     /// </summary>
-    [Obsolete(@"Cluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:memorydb:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {

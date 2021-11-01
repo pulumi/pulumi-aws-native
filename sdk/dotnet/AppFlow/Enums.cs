@@ -56,6 +56,7 @@ namespace Pulumi.AwsNative.AppFlow
         public static ConnectorProfileConnectorType Googleanalytics { get; } = new ConnectorProfileConnectorType("Googleanalytics");
         public static ConnectorProfileConnectorType Zendesk { get; } = new ConnectorProfileConnectorType("Zendesk");
         public static ConnectorProfileConnectorType Servicenow { get; } = new ConnectorProfileConnectorType("Servicenow");
+        public static ConnectorProfileConnectorType SAPOData { get; } = new ConnectorProfileConnectorType("SAPOData");
         public static ConnectorProfileConnectorType Datadog { get; } = new ConnectorProfileConnectorType("Datadog");
         public static ConnectorProfileConnectorType Trendmicro { get; } = new ConnectorProfileConnectorType("Trendmicro");
         public static ConnectorProfileConnectorType Snowflake { get; } = new ConnectorProfileConnectorType("Snowflake");
@@ -144,6 +145,7 @@ namespace Pulumi.AwsNative.AppFlow
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static FlowConnectorType SAPOData { get; } = new FlowConnectorType("SAPOData");
         public static FlowConnectorType Salesforce { get; } = new FlowConnectorType("Salesforce");
         public static FlowConnectorType Singular { get; } = new FlowConnectorType("Singular");
         public static FlowConnectorType Slack { get; } = new FlowConnectorType("Slack");
@@ -541,6 +543,81 @@ namespace Pulumi.AwsNative.AppFlow
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FlowS3ConnectorOperator other && Equals(other);
         public bool Equals(FlowS3ConnectorOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct FlowS3InputFormatConfigS3InputFileType : IEquatable<FlowS3InputFormatConfigS3InputFileType>
+    {
+        private readonly string _value;
+
+        private FlowS3InputFormatConfigS3InputFileType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowS3InputFormatConfigS3InputFileType Csv { get; } = new FlowS3InputFormatConfigS3InputFileType("CSV");
+        public static FlowS3InputFormatConfigS3InputFileType Json { get; } = new FlowS3InputFormatConfigS3InputFileType("JSON");
+
+        public static bool operator ==(FlowS3InputFormatConfigS3InputFileType left, FlowS3InputFormatConfigS3InputFileType right) => left.Equals(right);
+        public static bool operator !=(FlowS3InputFormatConfigS3InputFileType left, FlowS3InputFormatConfigS3InputFileType right) => !left.Equals(right);
+
+        public static explicit operator string(FlowS3InputFormatConfigS3InputFileType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowS3InputFormatConfigS3InputFileType other && Equals(other);
+        public bool Equals(FlowS3InputFormatConfigS3InputFileType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct FlowSAPODataConnectorOperator : IEquatable<FlowSAPODataConnectorOperator>
+    {
+        private readonly string _value;
+
+        private FlowSAPODataConnectorOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowSAPODataConnectorOperator Projection { get; } = new FlowSAPODataConnectorOperator("PROJECTION");
+        public static FlowSAPODataConnectorOperator LessThan { get; } = new FlowSAPODataConnectorOperator("LESS_THAN");
+        public static FlowSAPODataConnectorOperator Contains { get; } = new FlowSAPODataConnectorOperator("CONTAINS");
+        public static FlowSAPODataConnectorOperator GreaterThan { get; } = new FlowSAPODataConnectorOperator("GREATER_THAN");
+        public static FlowSAPODataConnectorOperator Between { get; } = new FlowSAPODataConnectorOperator("BETWEEN");
+        public static FlowSAPODataConnectorOperator LessThanOrEqualTo { get; } = new FlowSAPODataConnectorOperator("LESS_THAN_OR_EQUAL_TO");
+        public static FlowSAPODataConnectorOperator GreaterThanOrEqualTo { get; } = new FlowSAPODataConnectorOperator("GREATER_THAN_OR_EQUAL_TO");
+        public static FlowSAPODataConnectorOperator EqualTo { get; } = new FlowSAPODataConnectorOperator("EQUAL_TO");
+        public static FlowSAPODataConnectorOperator NotEqualTo { get; } = new FlowSAPODataConnectorOperator("NOT_EQUAL_TO");
+        public static FlowSAPODataConnectorOperator Addition { get; } = new FlowSAPODataConnectorOperator("ADDITION");
+        public static FlowSAPODataConnectorOperator Multiplication { get; } = new FlowSAPODataConnectorOperator("MULTIPLICATION");
+        public static FlowSAPODataConnectorOperator Division { get; } = new FlowSAPODataConnectorOperator("DIVISION");
+        public static FlowSAPODataConnectorOperator Subtraction { get; } = new FlowSAPODataConnectorOperator("SUBTRACTION");
+        public static FlowSAPODataConnectorOperator MaskAll { get; } = new FlowSAPODataConnectorOperator("MASK_ALL");
+        public static FlowSAPODataConnectorOperator MaskFirstN { get; } = new FlowSAPODataConnectorOperator("MASK_FIRST_N");
+        public static FlowSAPODataConnectorOperator MaskLastN { get; } = new FlowSAPODataConnectorOperator("MASK_LAST_N");
+        public static FlowSAPODataConnectorOperator ValidateNonNull { get; } = new FlowSAPODataConnectorOperator("VALIDATE_NON_NULL");
+        public static FlowSAPODataConnectorOperator ValidateNonZero { get; } = new FlowSAPODataConnectorOperator("VALIDATE_NON_ZERO");
+        public static FlowSAPODataConnectorOperator ValidateNonNegative { get; } = new FlowSAPODataConnectorOperator("VALIDATE_NON_NEGATIVE");
+        public static FlowSAPODataConnectorOperator ValidateNumeric { get; } = new FlowSAPODataConnectorOperator("VALIDATE_NUMERIC");
+        public static FlowSAPODataConnectorOperator NoOp { get; } = new FlowSAPODataConnectorOperator("NO_OP");
+
+        public static bool operator ==(FlowSAPODataConnectorOperator left, FlowSAPODataConnectorOperator right) => left.Equals(right);
+        public static bool operator !=(FlowSAPODataConnectorOperator left, FlowSAPODataConnectorOperator right) => !left.Equals(right);
+
+        public static explicit operator string(FlowSAPODataConnectorOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowSAPODataConnectorOperator other && Equals(other);
+        public bool Equals(FlowSAPODataConnectorOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

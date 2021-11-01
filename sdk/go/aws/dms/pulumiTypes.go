@@ -618,8 +618,21 @@ func (o EndpointIbmDb2SettingsPtrOutput) SecretsManagerSecretId() pulumi.StringP
 }
 
 type EndpointKafkaSettings struct {
-	Broker *string `pulumi:"broker"`
-	Topic  *string `pulumi:"topic"`
+	Broker                      *string `pulumi:"broker"`
+	IncludeControlDetails       *bool   `pulumi:"includeControlDetails"`
+	IncludeNullAndEmpty         *bool   `pulumi:"includeNullAndEmpty"`
+	IncludeTableAlterOperations *bool   `pulumi:"includeTableAlterOperations"`
+	IncludeTransactionDetails   *bool   `pulumi:"includeTransactionDetails"`
+	NoHexPrefix                 *bool   `pulumi:"noHexPrefix"`
+	PartitionIncludeSchemaTable *bool   `pulumi:"partitionIncludeSchemaTable"`
+	SaslPassword                *string `pulumi:"saslPassword"`
+	SaslUserName                *string `pulumi:"saslUserName"`
+	SecurityProtocol            *string `pulumi:"securityProtocol"`
+	SslCaCertificateArn         *string `pulumi:"sslCaCertificateArn"`
+	SslClientCertificateArn     *string `pulumi:"sslClientCertificateArn"`
+	SslClientKeyArn             *string `pulumi:"sslClientKeyArn"`
+	SslClientKeyPassword        *string `pulumi:"sslClientKeyPassword"`
+	Topic                       *string `pulumi:"topic"`
 }
 
 // EndpointKafkaSettingsInput is an input type that accepts EndpointKafkaSettingsArgs and EndpointKafkaSettingsOutput values.
@@ -634,8 +647,21 @@ type EndpointKafkaSettingsInput interface {
 }
 
 type EndpointKafkaSettingsArgs struct {
-	Broker pulumi.StringPtrInput `pulumi:"broker"`
-	Topic  pulumi.StringPtrInput `pulumi:"topic"`
+	Broker                      pulumi.StringPtrInput `pulumi:"broker"`
+	IncludeControlDetails       pulumi.BoolPtrInput   `pulumi:"includeControlDetails"`
+	IncludeNullAndEmpty         pulumi.BoolPtrInput   `pulumi:"includeNullAndEmpty"`
+	IncludeTableAlterOperations pulumi.BoolPtrInput   `pulumi:"includeTableAlterOperations"`
+	IncludeTransactionDetails   pulumi.BoolPtrInput   `pulumi:"includeTransactionDetails"`
+	NoHexPrefix                 pulumi.BoolPtrInput   `pulumi:"noHexPrefix"`
+	PartitionIncludeSchemaTable pulumi.BoolPtrInput   `pulumi:"partitionIncludeSchemaTable"`
+	SaslPassword                pulumi.StringPtrInput `pulumi:"saslPassword"`
+	SaslUserName                pulumi.StringPtrInput `pulumi:"saslUserName"`
+	SecurityProtocol            pulumi.StringPtrInput `pulumi:"securityProtocol"`
+	SslCaCertificateArn         pulumi.StringPtrInput `pulumi:"sslCaCertificateArn"`
+	SslClientCertificateArn     pulumi.StringPtrInput `pulumi:"sslClientCertificateArn"`
+	SslClientKeyArn             pulumi.StringPtrInput `pulumi:"sslClientKeyArn"`
+	SslClientKeyPassword        pulumi.StringPtrInput `pulumi:"sslClientKeyPassword"`
+	Topic                       pulumi.StringPtrInput `pulumi:"topic"`
 }
 
 func (EndpointKafkaSettingsArgs) ElementType() reflect.Type {
@@ -719,6 +745,58 @@ func (o EndpointKafkaSettingsOutput) Broker() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.Broker }).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointKafkaSettingsOutput) IncludeControlDetails() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.IncludeControlDetails }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointKafkaSettingsOutput) IncludeNullAndEmpty() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.IncludeNullAndEmpty }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointKafkaSettingsOutput) IncludeTableAlterOperations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.IncludeTableAlterOperations }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointKafkaSettingsOutput) IncludeTransactionDetails() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.IncludeTransactionDetails }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointKafkaSettingsOutput) NoHexPrefix() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.NoHexPrefix }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointKafkaSettingsOutput) PartitionIncludeSchemaTable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.PartitionIncludeSchemaTable }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointKafkaSettingsOutput) SaslPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.SaslPassword }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointKafkaSettingsOutput) SaslUserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.SaslUserName }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointKafkaSettingsOutput) SecurityProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.SecurityProtocol }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointKafkaSettingsOutput) SslCaCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.SslCaCertificateArn }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointKafkaSettingsOutput) SslClientCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.SslClientCertificateArn }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointKafkaSettingsOutput) SslClientKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.SslClientKeyArn }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointKafkaSettingsOutput) SslClientKeyPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.SslClientKeyPassword }).(pulumi.StringPtrOutput)
+}
+
 func (o EndpointKafkaSettingsOutput) Topic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.Topic }).(pulumi.StringPtrOutput)
 }
@@ -756,6 +834,123 @@ func (o EndpointKafkaSettingsPtrOutput) Broker() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointKafkaSettingsPtrOutput) IncludeControlDetails() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeControlDetails
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointKafkaSettingsPtrOutput) IncludeNullAndEmpty() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeNullAndEmpty
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointKafkaSettingsPtrOutput) IncludeTableAlterOperations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeTableAlterOperations
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointKafkaSettingsPtrOutput) IncludeTransactionDetails() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeTransactionDetails
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointKafkaSettingsPtrOutput) NoHexPrefix() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NoHexPrefix
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointKafkaSettingsPtrOutput) PartitionIncludeSchemaTable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PartitionIncludeSchemaTable
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointKafkaSettingsPtrOutput) SaslPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SaslPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointKafkaSettingsPtrOutput) SaslUserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SaslUserName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointKafkaSettingsPtrOutput) SecurityProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityProtocol
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointKafkaSettingsPtrOutput) SslCaCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SslCaCertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointKafkaSettingsPtrOutput) SslClientCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SslClientCertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointKafkaSettingsPtrOutput) SslClientKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SslClientKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointKafkaSettingsPtrOutput) SslClientKeyPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SslClientKeyPassword
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o EndpointKafkaSettingsPtrOutput) Topic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
 		if v == nil {
@@ -766,9 +961,15 @@ func (o EndpointKafkaSettingsPtrOutput) Topic() pulumi.StringPtrOutput {
 }
 
 type EndpointKinesisSettings struct {
-	MessageFormat        *string `pulumi:"messageFormat"`
-	ServiceAccessRoleArn *string `pulumi:"serviceAccessRoleArn"`
-	StreamArn            *string `pulumi:"streamArn"`
+	IncludeControlDetails       *bool   `pulumi:"includeControlDetails"`
+	IncludeNullAndEmpty         *bool   `pulumi:"includeNullAndEmpty"`
+	IncludeTableAlterOperations *bool   `pulumi:"includeTableAlterOperations"`
+	IncludeTransactionDetails   *bool   `pulumi:"includeTransactionDetails"`
+	MessageFormat               *string `pulumi:"messageFormat"`
+	NoHexPrefix                 *bool   `pulumi:"noHexPrefix"`
+	PartitionIncludeSchemaTable *bool   `pulumi:"partitionIncludeSchemaTable"`
+	ServiceAccessRoleArn        *string `pulumi:"serviceAccessRoleArn"`
+	StreamArn                   *string `pulumi:"streamArn"`
 }
 
 // EndpointKinesisSettingsInput is an input type that accepts EndpointKinesisSettingsArgs and EndpointKinesisSettingsOutput values.
@@ -783,9 +984,15 @@ type EndpointKinesisSettingsInput interface {
 }
 
 type EndpointKinesisSettingsArgs struct {
-	MessageFormat        pulumi.StringPtrInput `pulumi:"messageFormat"`
-	ServiceAccessRoleArn pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
-	StreamArn            pulumi.StringPtrInput `pulumi:"streamArn"`
+	IncludeControlDetails       pulumi.BoolPtrInput   `pulumi:"includeControlDetails"`
+	IncludeNullAndEmpty         pulumi.BoolPtrInput   `pulumi:"includeNullAndEmpty"`
+	IncludeTableAlterOperations pulumi.BoolPtrInput   `pulumi:"includeTableAlterOperations"`
+	IncludeTransactionDetails   pulumi.BoolPtrInput   `pulumi:"includeTransactionDetails"`
+	MessageFormat               pulumi.StringPtrInput `pulumi:"messageFormat"`
+	NoHexPrefix                 pulumi.BoolPtrInput   `pulumi:"noHexPrefix"`
+	PartitionIncludeSchemaTable pulumi.BoolPtrInput   `pulumi:"partitionIncludeSchemaTable"`
+	ServiceAccessRoleArn        pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
+	StreamArn                   pulumi.StringPtrInput `pulumi:"streamArn"`
 }
 
 func (EndpointKinesisSettingsArgs) ElementType() reflect.Type {
@@ -865,8 +1072,32 @@ func (o EndpointKinesisSettingsOutput) ToEndpointKinesisSettingsPtrOutputWithCon
 	}).(EndpointKinesisSettingsPtrOutput)
 }
 
+func (o EndpointKinesisSettingsOutput) IncludeControlDetails() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointKinesisSettings) *bool { return v.IncludeControlDetails }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointKinesisSettingsOutput) IncludeNullAndEmpty() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointKinesisSettings) *bool { return v.IncludeNullAndEmpty }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointKinesisSettingsOutput) IncludeTableAlterOperations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointKinesisSettings) *bool { return v.IncludeTableAlterOperations }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointKinesisSettingsOutput) IncludeTransactionDetails() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointKinesisSettings) *bool { return v.IncludeTransactionDetails }).(pulumi.BoolPtrOutput)
+}
+
 func (o EndpointKinesisSettingsOutput) MessageFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKinesisSettings) *string { return v.MessageFormat }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointKinesisSettingsOutput) NoHexPrefix() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointKinesisSettings) *bool { return v.NoHexPrefix }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointKinesisSettingsOutput) PartitionIncludeSchemaTable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointKinesisSettings) *bool { return v.PartitionIncludeSchemaTable }).(pulumi.BoolPtrOutput)
 }
 
 func (o EndpointKinesisSettingsOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
@@ -901,6 +1132,42 @@ func (o EndpointKinesisSettingsPtrOutput) Elem() EndpointKinesisSettingsOutput {
 	}).(EndpointKinesisSettingsOutput)
 }
 
+func (o EndpointKinesisSettingsPtrOutput) IncludeControlDetails() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointKinesisSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeControlDetails
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointKinesisSettingsPtrOutput) IncludeNullAndEmpty() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointKinesisSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeNullAndEmpty
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointKinesisSettingsPtrOutput) IncludeTableAlterOperations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointKinesisSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeTableAlterOperations
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointKinesisSettingsPtrOutput) IncludeTransactionDetails() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointKinesisSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeTransactionDetails
+	}).(pulumi.BoolPtrOutput)
+}
+
 func (o EndpointKinesisSettingsPtrOutput) MessageFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointKinesisSettings) *string {
 		if v == nil {
@@ -908,6 +1175,24 @@ func (o EndpointKinesisSettingsPtrOutput) MessageFormat() pulumi.StringPtrOutput
 		}
 		return v.MessageFormat
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointKinesisSettingsPtrOutput) NoHexPrefix() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointKinesisSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NoHexPrefix
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointKinesisSettingsPtrOutput) PartitionIncludeSchemaTable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointKinesisSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PartitionIncludeSchemaTable
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o EndpointKinesisSettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
@@ -2086,6 +2371,229 @@ func (o EndpointPostgreSqlSettingsPtrOutput) SecretsManagerSecretId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+type EndpointRedisSettings struct {
+	AuthPassword        *string  `pulumi:"authPassword"`
+	AuthType            *string  `pulumi:"authType"`
+	AuthUserName        *string  `pulumi:"authUserName"`
+	Port                *float64 `pulumi:"port"`
+	ServerName          *string  `pulumi:"serverName"`
+	SslCaCertificateArn *string  `pulumi:"sslCaCertificateArn"`
+	SslSecurityProtocol *string  `pulumi:"sslSecurityProtocol"`
+}
+
+// EndpointRedisSettingsInput is an input type that accepts EndpointRedisSettingsArgs and EndpointRedisSettingsOutput values.
+// You can construct a concrete instance of `EndpointRedisSettingsInput` via:
+//
+//          EndpointRedisSettingsArgs{...}
+type EndpointRedisSettingsInput interface {
+	pulumi.Input
+
+	ToEndpointRedisSettingsOutput() EndpointRedisSettingsOutput
+	ToEndpointRedisSettingsOutputWithContext(context.Context) EndpointRedisSettingsOutput
+}
+
+type EndpointRedisSettingsArgs struct {
+	AuthPassword        pulumi.StringPtrInput  `pulumi:"authPassword"`
+	AuthType            pulumi.StringPtrInput  `pulumi:"authType"`
+	AuthUserName        pulumi.StringPtrInput  `pulumi:"authUserName"`
+	Port                pulumi.Float64PtrInput `pulumi:"port"`
+	ServerName          pulumi.StringPtrInput  `pulumi:"serverName"`
+	SslCaCertificateArn pulumi.StringPtrInput  `pulumi:"sslCaCertificateArn"`
+	SslSecurityProtocol pulumi.StringPtrInput  `pulumi:"sslSecurityProtocol"`
+}
+
+func (EndpointRedisSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointRedisSettings)(nil)).Elem()
+}
+
+func (i EndpointRedisSettingsArgs) ToEndpointRedisSettingsOutput() EndpointRedisSettingsOutput {
+	return i.ToEndpointRedisSettingsOutputWithContext(context.Background())
+}
+
+func (i EndpointRedisSettingsArgs) ToEndpointRedisSettingsOutputWithContext(ctx context.Context) EndpointRedisSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointRedisSettingsOutput)
+}
+
+func (i EndpointRedisSettingsArgs) ToEndpointRedisSettingsPtrOutput() EndpointRedisSettingsPtrOutput {
+	return i.ToEndpointRedisSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointRedisSettingsArgs) ToEndpointRedisSettingsPtrOutputWithContext(ctx context.Context) EndpointRedisSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointRedisSettingsOutput).ToEndpointRedisSettingsPtrOutputWithContext(ctx)
+}
+
+// EndpointRedisSettingsPtrInput is an input type that accepts EndpointRedisSettingsArgs, EndpointRedisSettingsPtr and EndpointRedisSettingsPtrOutput values.
+// You can construct a concrete instance of `EndpointRedisSettingsPtrInput` via:
+//
+//          EndpointRedisSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type EndpointRedisSettingsPtrInput interface {
+	pulumi.Input
+
+	ToEndpointRedisSettingsPtrOutput() EndpointRedisSettingsPtrOutput
+	ToEndpointRedisSettingsPtrOutputWithContext(context.Context) EndpointRedisSettingsPtrOutput
+}
+
+type endpointRedisSettingsPtrType EndpointRedisSettingsArgs
+
+func EndpointRedisSettingsPtr(v *EndpointRedisSettingsArgs) EndpointRedisSettingsPtrInput {
+	return (*endpointRedisSettingsPtrType)(v)
+}
+
+func (*endpointRedisSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointRedisSettings)(nil)).Elem()
+}
+
+func (i *endpointRedisSettingsPtrType) ToEndpointRedisSettingsPtrOutput() EndpointRedisSettingsPtrOutput {
+	return i.ToEndpointRedisSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointRedisSettingsPtrType) ToEndpointRedisSettingsPtrOutputWithContext(ctx context.Context) EndpointRedisSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointRedisSettingsPtrOutput)
+}
+
+type EndpointRedisSettingsOutput struct{ *pulumi.OutputState }
+
+func (EndpointRedisSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointRedisSettings)(nil)).Elem()
+}
+
+func (o EndpointRedisSettingsOutput) ToEndpointRedisSettingsOutput() EndpointRedisSettingsOutput {
+	return o
+}
+
+func (o EndpointRedisSettingsOutput) ToEndpointRedisSettingsOutputWithContext(ctx context.Context) EndpointRedisSettingsOutput {
+	return o
+}
+
+func (o EndpointRedisSettingsOutput) ToEndpointRedisSettingsPtrOutput() EndpointRedisSettingsPtrOutput {
+	return o.ToEndpointRedisSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointRedisSettingsOutput) ToEndpointRedisSettingsPtrOutputWithContext(ctx context.Context) EndpointRedisSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointRedisSettings) *EndpointRedisSettings {
+		return &v
+	}).(EndpointRedisSettingsPtrOutput)
+}
+
+func (o EndpointRedisSettingsOutput) AuthPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointRedisSettings) *string { return v.AuthPassword }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointRedisSettingsOutput) AuthType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointRedisSettings) *string { return v.AuthType }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointRedisSettingsOutput) AuthUserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointRedisSettings) *string { return v.AuthUserName }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointRedisSettingsOutput) Port() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EndpointRedisSettings) *float64 { return v.Port }).(pulumi.Float64PtrOutput)
+}
+
+func (o EndpointRedisSettingsOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointRedisSettings) *string { return v.ServerName }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointRedisSettingsOutput) SslCaCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointRedisSettings) *string { return v.SslCaCertificateArn }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointRedisSettingsOutput) SslSecurityProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointRedisSettings) *string { return v.SslSecurityProtocol }).(pulumi.StringPtrOutput)
+}
+
+type EndpointRedisSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointRedisSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointRedisSettings)(nil)).Elem()
+}
+
+func (o EndpointRedisSettingsPtrOutput) ToEndpointRedisSettingsPtrOutput() EndpointRedisSettingsPtrOutput {
+	return o
+}
+
+func (o EndpointRedisSettingsPtrOutput) ToEndpointRedisSettingsPtrOutputWithContext(ctx context.Context) EndpointRedisSettingsPtrOutput {
+	return o
+}
+
+func (o EndpointRedisSettingsPtrOutput) Elem() EndpointRedisSettingsOutput {
+	return o.ApplyT(func(v *EndpointRedisSettings) EndpointRedisSettings {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointRedisSettings
+		return ret
+	}).(EndpointRedisSettingsOutput)
+}
+
+func (o EndpointRedisSettingsPtrOutput) AuthPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointRedisSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointRedisSettingsPtrOutput) AuthType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointRedisSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointRedisSettingsPtrOutput) AuthUserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointRedisSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthUserName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointRedisSettingsPtrOutput) Port() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EndpointRedisSettings) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o EndpointRedisSettingsPtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointRedisSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointRedisSettingsPtrOutput) SslCaCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointRedisSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SslCaCertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointRedisSettingsPtrOutput) SslSecurityProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointRedisSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SslSecurityProtocol
+	}).(pulumi.StringPtrOutput)
+}
+
 type EndpointRedshiftSettings struct {
 	SecretsManagerAccessRoleArn *string `pulumi:"secretsManagerAccessRoleArn"`
 	SecretsManagerSecretId      *string `pulumi:"secretsManagerSecretId"`
@@ -3130,6 +3638,8 @@ func init() {
 	pulumi.RegisterOutputType(EndpointOracleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointPostgreSqlSettingsOutput{})
 	pulumi.RegisterOutputType(EndpointPostgreSqlSettingsPtrOutput{})
+	pulumi.RegisterOutputType(EndpointRedisSettingsOutput{})
+	pulumi.RegisterOutputType(EndpointRedisSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointRedshiftSettingsOutput{})
 	pulumi.RegisterOutputType(EndpointRedshiftSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointS3SettingsOutput{})

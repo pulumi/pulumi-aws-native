@@ -2506,6 +2506,172 @@ func (in *resolverQueryLoggingConfigStatusPtr) ToResolverQueryLoggingConfigStatu
 	return pulumi.ToOutputWithContext(ctx, in).(ResolverQueryLoggingConfigStatusPtrOutput)
 }
 
+// When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.
+type ResolverRuleRuleType string
+
+const (
+	ResolverRuleRuleTypeForward   = ResolverRuleRuleType("FORWARD")
+	ResolverRuleRuleTypeSystem    = ResolverRuleRuleType("SYSTEM")
+	ResolverRuleRuleTypeRecursive = ResolverRuleRuleType("RECURSIVE")
+)
+
+func (ResolverRuleRuleType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverRuleRuleType)(nil)).Elem()
+}
+
+func (e ResolverRuleRuleType) ToResolverRuleRuleTypeOutput() ResolverRuleRuleTypeOutput {
+	return pulumi.ToOutput(e).(ResolverRuleRuleTypeOutput)
+}
+
+func (e ResolverRuleRuleType) ToResolverRuleRuleTypeOutputWithContext(ctx context.Context) ResolverRuleRuleTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ResolverRuleRuleTypeOutput)
+}
+
+func (e ResolverRuleRuleType) ToResolverRuleRuleTypePtrOutput() ResolverRuleRuleTypePtrOutput {
+	return e.ToResolverRuleRuleTypePtrOutputWithContext(context.Background())
+}
+
+func (e ResolverRuleRuleType) ToResolverRuleRuleTypePtrOutputWithContext(ctx context.Context) ResolverRuleRuleTypePtrOutput {
+	return ResolverRuleRuleType(e).ToResolverRuleRuleTypeOutputWithContext(ctx).ToResolverRuleRuleTypePtrOutputWithContext(ctx)
+}
+
+func (e ResolverRuleRuleType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResolverRuleRuleType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResolverRuleRuleType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ResolverRuleRuleType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ResolverRuleRuleTypeOutput struct{ *pulumi.OutputState }
+
+func (ResolverRuleRuleTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverRuleRuleType)(nil)).Elem()
+}
+
+func (o ResolverRuleRuleTypeOutput) ToResolverRuleRuleTypeOutput() ResolverRuleRuleTypeOutput {
+	return o
+}
+
+func (o ResolverRuleRuleTypeOutput) ToResolverRuleRuleTypeOutputWithContext(ctx context.Context) ResolverRuleRuleTypeOutput {
+	return o
+}
+
+func (o ResolverRuleRuleTypeOutput) ToResolverRuleRuleTypePtrOutput() ResolverRuleRuleTypePtrOutput {
+	return o.ToResolverRuleRuleTypePtrOutputWithContext(context.Background())
+}
+
+func (o ResolverRuleRuleTypeOutput) ToResolverRuleRuleTypePtrOutputWithContext(ctx context.Context) ResolverRuleRuleTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResolverRuleRuleType) *ResolverRuleRuleType {
+		return &v
+	}).(ResolverRuleRuleTypePtrOutput)
+}
+
+func (o ResolverRuleRuleTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ResolverRuleRuleTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResolverRuleRuleType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ResolverRuleRuleTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResolverRuleRuleTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResolverRuleRuleType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResolverRuleRuleTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ResolverRuleRuleTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResolverRuleRuleType)(nil)).Elem()
+}
+
+func (o ResolverRuleRuleTypePtrOutput) ToResolverRuleRuleTypePtrOutput() ResolverRuleRuleTypePtrOutput {
+	return o
+}
+
+func (o ResolverRuleRuleTypePtrOutput) ToResolverRuleRuleTypePtrOutputWithContext(ctx context.Context) ResolverRuleRuleTypePtrOutput {
+	return o
+}
+
+func (o ResolverRuleRuleTypePtrOutput) Elem() ResolverRuleRuleTypeOutput {
+	return o.ApplyT(func(v *ResolverRuleRuleType) ResolverRuleRuleType {
+		if v != nil {
+			return *v
+		}
+		var ret ResolverRuleRuleType
+		return ret
+	}).(ResolverRuleRuleTypeOutput)
+}
+
+func (o ResolverRuleRuleTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResolverRuleRuleTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResolverRuleRuleType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ResolverRuleRuleTypeInput is an input type that accepts ResolverRuleRuleTypeArgs and ResolverRuleRuleTypeOutput values.
+// You can construct a concrete instance of `ResolverRuleRuleTypeInput` via:
+//
+//          ResolverRuleRuleTypeArgs{...}
+type ResolverRuleRuleTypeInput interface {
+	pulumi.Input
+
+	ToResolverRuleRuleTypeOutput() ResolverRuleRuleTypeOutput
+	ToResolverRuleRuleTypeOutputWithContext(context.Context) ResolverRuleRuleTypeOutput
+}
+
+var resolverRuleRuleTypePtrType = reflect.TypeOf((**ResolverRuleRuleType)(nil)).Elem()
+
+type ResolverRuleRuleTypePtrInput interface {
+	pulumi.Input
+
+	ToResolverRuleRuleTypePtrOutput() ResolverRuleRuleTypePtrOutput
+	ToResolverRuleRuleTypePtrOutputWithContext(context.Context) ResolverRuleRuleTypePtrOutput
+}
+
+type resolverRuleRuleTypePtr string
+
+func ResolverRuleRuleTypePtr(v string) ResolverRuleRuleTypePtrInput {
+	return (*resolverRuleRuleTypePtr)(&v)
+}
+
+func (*resolverRuleRuleTypePtr) ElementType() reflect.Type {
+	return resolverRuleRuleTypePtrType
+}
+
+func (in *resolverRuleRuleTypePtr) ToResolverRuleRuleTypePtrOutput() ResolverRuleRuleTypePtrOutput {
+	return pulumi.ToOutput(in).(ResolverRuleRuleTypePtrOutput)
+}
+
+func (in *resolverRuleRuleTypePtr) ToResolverRuleRuleTypePtrOutputWithContext(ctx context.Context) ResolverRuleRuleTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ResolverRuleRuleTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FirewallDomainListStatusOutput{})
 	pulumi.RegisterOutputType(FirewallDomainListStatusPtrOutput{})
@@ -2537,4 +2703,6 @@ func init() {
 	pulumi.RegisterOutputType(ResolverQueryLoggingConfigShareStatusPtrOutput{})
 	pulumi.RegisterOutputType(ResolverQueryLoggingConfigStatusOutput{})
 	pulumi.RegisterOutputType(ResolverQueryLoggingConfigStatusPtrOutput{})
+	pulumi.RegisterOutputType(ResolverRuleRuleTypeOutput{})
+	pulumi.RegisterOutputType(ResolverRuleRuleTypePtrOutput{})
 }

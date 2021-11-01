@@ -114,6 +114,9 @@
     "Id" : {
       "type" : "string"
     },
+    "DesiredCapacityType" : {
+      "type" : "string"
+    },
     "PlacementGroup" : {
       "type" : "string"
     },
@@ -181,6 +184,18 @@
         }
       }
     },
+    "AcceleratorCountRequest" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Max" : {
+          "type" : "integer"
+        },
+        "Min" : {
+          "type" : "integer"
+        }
+      }
+    },
     "LifecycleHookSpecification" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -209,6 +224,112 @@
       },
       "required" : [ "LifecycleHookName", "LifecycleTransition" ]
     },
+    "MemoryGiBPerVCpuRequest" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Max" : {
+          "type" : "integer"
+        },
+        "Min" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "NotificationConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "TopicARN" : {
+          "type" : "string"
+        },
+        "NotificationTypes" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        }
+      },
+      "required" : [ "TopicARN" ]
+    },
+    "MetricsCollection" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Granularity" : {
+          "type" : "string"
+        },
+        "Metrics" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        }
+      },
+      "required" : [ "Granularity" ]
+    },
+    "TotalLocalStorageGBRequest" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Max" : {
+          "type" : "integer"
+        },
+        "Min" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "MemoryMiBRequest" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Max" : {
+          "type" : "integer"
+        },
+        "Min" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "BaselineEbsBandwidthMbpsRequest" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Max" : {
+          "type" : "integer"
+        },
+        "Min" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "NetworkInterfaceCountRequest" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Max" : {
+          "type" : "integer"
+        },
+        "Min" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "VCpuCountRequest" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Max" : {
+          "type" : "integer"
+        },
+        "Min" : {
+          "type" : "integer"
+        }
+      }
+    },
     "LaunchTemplate" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -236,27 +357,25 @@
         "WeightedCapacity" : {
           "type" : "string"
         },
+        "InstanceRequirements" : {
+          "$ref" : "#/definitions/InstanceRequirements"
+        },
         "InstanceType" : {
           "type" : "string"
         }
       }
     },
-    "NotificationConfiguration" : {
+    "AcceleratorTotalMemoryMiBRequest" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "TopicARN" : {
-          "type" : "string"
+        "Max" : {
+          "type" : "integer"
         },
-        "NotificationTypes" : {
-          "type" : "array",
-          "uniqueItems" : false,
-          "items" : {
-            "type" : "string"
-          }
+        "Min" : {
+          "type" : "integer"
         }
-      },
-      "required" : [ "TopicARN" ]
+      }
     },
     "MixedInstancesPolicy" : {
       "type" : "object",
@@ -271,22 +390,102 @@
       },
       "required" : [ "LaunchTemplate" ]
     },
-    "MetricsCollection" : {
+    "InstanceRequirements" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "Granularity" : {
-          "type" : "string"
-        },
-        "Metrics" : {
+        "LocalStorageTypes" : {
           "type" : "array",
-          "uniqueItems" : false,
+          "uniqueItems" : true,
           "items" : {
             "type" : "string"
           }
+        },
+        "InstanceGenerations" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "NetworkInterfaceCount" : {
+          "$ref" : "#/definitions/NetworkInterfaceCountRequest"
+        },
+        "AcceleratorTypes" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "MemoryGiBPerVCpu" : {
+          "$ref" : "#/definitions/MemoryGiBPerVCpuRequest"
+        },
+        "AcceleratorManufacturers" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "ExcludedInstanceTypes" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "VCpuCount" : {
+          "$ref" : "#/definitions/VCpuCountRequest"
+        },
+        "LocalStorage" : {
+          "type" : "string"
+        },
+        "CpuManufacturers" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "AcceleratorCount" : {
+          "$ref" : "#/definitions/AcceleratorCountRequest"
+        },
+        "BareMetal" : {
+          "type" : "string"
+        },
+        "RequireHibernateSupport" : {
+          "type" : "boolean"
+        },
+        "BaselineEbsBandwidthMbps" : {
+          "$ref" : "#/definitions/BaselineEbsBandwidthMbpsRequest"
+        },
+        "SpotMaxPricePercentageOverLowestPrice" : {
+          "type" : "integer"
+        },
+        "AcceleratorNames" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "AcceleratorTotalMemoryMiB" : {
+          "$ref" : "#/definitions/AcceleratorTotalMemoryMiBRequest"
+        },
+        "OnDemandMaxPricePercentageOverLowestPrice" : {
+          "type" : "integer"
+        },
+        "BurstablePerformance" : {
+          "type" : "string"
+        },
+        "MemoryMiB" : {
+          "$ref" : "#/definitions/MemoryMiBRequest"
+        },
+        "TotalLocalStorageGB" : {
+          "$ref" : "#/definitions/TotalLocalStorageGBRequest"
         }
-      },
-      "required" : [ "Granularity" ]
+      }
     }
   },
   "required" : [ "MinSize", "MaxSize" ],

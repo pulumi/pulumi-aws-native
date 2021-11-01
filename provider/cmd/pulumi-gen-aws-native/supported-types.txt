@@ -150,6 +150,7 @@ AWS::EFS::AccessPoint
 AWS::EFS::FileSystem
 AWS::EFS::MountTarget
 AWS::EKS::Addon
+AWS::EKS::Cluster
 AWS::EKS::FargateProfile
 AWS::EMR::Studio
 AWS::EMR::StudioSessionMapping
@@ -278,6 +279,11 @@ AWS::MediaPackage::Channel
 AWS::MediaPackage::OriginEndpoint
 AWS::MediaPackage::PackagingConfiguration
 AWS::MediaPackage::PackagingGroup
+AWS::MemoryDB::ACL
+AWS::MemoryDB::Cluster
+AWS::MemoryDB::ParameterGroup
+AWS::MemoryDB::SubnetGroup
+AWS::MemoryDB::User
 AWS::NetworkFirewall::Firewall
 AWS::NetworkFirewall::FirewallPolicy
 AWS::NetworkFirewall::LoggingConfiguration
@@ -336,6 +342,7 @@ AWS::Route53Resolver::ResolverConfig
 AWS::Route53Resolver::ResolverDNSSECConfig
 AWS::Route53Resolver::ResolverQueryLoggingConfig
 AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation
+AWS::Route53Resolver::ResolverRule
 AWS::S3::AccessPoint
 AWS::S3::Bucket
 AWS::S3::MultiRegionAccessPoint

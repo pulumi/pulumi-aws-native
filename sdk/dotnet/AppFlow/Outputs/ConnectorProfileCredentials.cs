@@ -23,6 +23,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         public readonly Outputs.ConnectorProfileInforNexusConnectorProfileCredentials? InforNexus;
         public readonly Outputs.ConnectorProfileMarketoConnectorProfileCredentials? Marketo;
         public readonly Outputs.ConnectorProfileRedshiftConnectorProfileCredentials? Redshift;
+        public readonly Outputs.ConnectorProfileSAPODataConnectorProfileCredentials? SAPOData;
         public readonly Outputs.ConnectorProfileSalesforceConnectorProfileCredentials? Salesforce;
         public readonly Outputs.ConnectorProfileServiceNowConnectorProfileCredentials? ServiceNow;
         public readonly Outputs.ConnectorProfileSingularConnectorProfileCredentials? Singular;
@@ -48,6 +49,8 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
             Outputs.ConnectorProfileRedshiftConnectorProfileCredentials? redshift,
 
+            Outputs.ConnectorProfileSAPODataConnectorProfileCredentials? sAPOData,
+
             Outputs.ConnectorProfileSalesforceConnectorProfileCredentials? salesforce,
 
             Outputs.ConnectorProfileServiceNowConnectorProfileCredentials? serviceNow,
@@ -71,6 +74,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
             InforNexus = inforNexus;
             Marketo = marketo;
             Redshift = redshift;
+            SAPOData = sAPOData;
             Salesforce = salesforce;
             ServiceNow = serviceNow;
             Singular = singular;

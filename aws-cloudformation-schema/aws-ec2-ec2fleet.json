@@ -83,6 +83,15 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "MaintenanceStrategies" : {
+          "type" : "object",
+          "additionalProperties" : false,
+          "properties" : {
+            "CapacityRebalance" : {
+              "$ref" : "#/definitions/CapacityRebalance"
+            }
+          }
+        },
         "SingleAvailabilityZone" : {
           "type" : "boolean"
         },
@@ -467,6 +476,19 @@
           "type" : "integer"
         },
         "Max" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "CapacityRebalance" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ReplacementStrategy" : {
+          "type" : "string",
+          "enum" : [ "launch", "launch-before-terminate" ]
+        },
+        "TerminationDelay" : {
           "type" : "integer"
         }
       }

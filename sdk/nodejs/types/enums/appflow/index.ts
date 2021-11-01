@@ -21,6 +21,7 @@ export const ConnectorProfileConnectorType = {
     Googleanalytics: "Googleanalytics",
     Zendesk: "Zendesk",
     Servicenow: "Servicenow",
+    SAPOData: "SAPOData",
     Datadog: "Datadog",
     Trendmicro: "Trendmicro",
     Snowflake: "Snowflake",
@@ -46,6 +47,7 @@ export const FlowAmplitudeConnectorOperator = {
 export type FlowAmplitudeConnectorOperator = (typeof FlowAmplitudeConnectorOperator)[keyof typeof FlowAmplitudeConnectorOperator];
 
 export const FlowConnectorType = {
+    SAPOData: "SAPOData",
     Salesforce: "Salesforce",
     Singular: "Singular",
     Slack: "Slack",
@@ -227,6 +229,39 @@ export const FlowS3ConnectorOperator = {
 } as const;
 
 export type FlowS3ConnectorOperator = (typeof FlowS3ConnectorOperator)[keyof typeof FlowS3ConnectorOperator];
+
+export const FlowS3InputFormatConfigS3InputFileType = {
+    Csv: "CSV",
+    Json: "JSON",
+} as const;
+
+export type FlowS3InputFormatConfigS3InputFileType = (typeof FlowS3InputFormatConfigS3InputFileType)[keyof typeof FlowS3InputFormatConfigS3InputFileType];
+
+export const FlowSAPODataConnectorOperator = {
+    Projection: "PROJECTION",
+    LessThan: "LESS_THAN",
+    Contains: "CONTAINS",
+    GreaterThan: "GREATER_THAN",
+    Between: "BETWEEN",
+    LessThanOrEqualTo: "LESS_THAN_OR_EQUAL_TO",
+    GreaterThanOrEqualTo: "GREATER_THAN_OR_EQUAL_TO",
+    EqualTo: "EQUAL_TO",
+    NotEqualTo: "NOT_EQUAL_TO",
+    Addition: "ADDITION",
+    Multiplication: "MULTIPLICATION",
+    Division: "DIVISION",
+    Subtraction: "SUBTRACTION",
+    MaskAll: "MASK_ALL",
+    MaskFirstN: "MASK_FIRST_N",
+    MaskLastN: "MASK_LAST_N",
+    ValidateNonNull: "VALIDATE_NON_NULL",
+    ValidateNonZero: "VALIDATE_NON_ZERO",
+    ValidateNonNegative: "VALIDATE_NON_NEGATIVE",
+    ValidateNumeric: "VALIDATE_NUMERIC",
+    NoOp: "NO_OP",
+} as const;
+
+export type FlowSAPODataConnectorOperator = (typeof FlowSAPODataConnectorOperator)[keyof typeof FlowSAPODataConnectorOperator];
 
 export const FlowSalesforceConnectorOperator = {
     Projection: "PROJECTION",

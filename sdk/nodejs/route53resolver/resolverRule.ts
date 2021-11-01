@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::Route53Resolver::ResolverRule
- *
- * @deprecated ResolverRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class ResolverRule extends pulumi.CustomResource {
     /**
@@ -20,7 +18,6 @@ export class ResolverRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ResolverRule {
-        pulumi.log.warn("ResolverRule is deprecated: ResolverRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new ResolverRule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -38,13 +35,37 @@ export class ResolverRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResolverRule.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the resolver rule.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
+     */
     public readonly domainName!: pulumi.Output<string>;
+    /**
+     * The name for the Resolver rule
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the endpoint that the rule is associated with.
+     */
     public readonly resolverEndpointId!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the endpoint that the rule is associated with.
+     */
     public /*out*/ readonly resolverRuleId!: pulumi.Output<string>;
-    public readonly ruleType!: pulumi.Output<string>;
+    /**
+     * When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.
+     */
+    public readonly ruleType!: pulumi.Output<enums.route53resolver.ResolverRuleRuleType>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     public readonly tags!: pulumi.Output<outputs.route53resolver.ResolverRuleTag[] | undefined>;
+    /**
+     * An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.
+     */
     public readonly targetIps!: pulumi.Output<outputs.route53resolver.ResolverRuleTargetAddress[] | undefined>;
 
     /**
@@ -54,9 +75,7 @@ export class ResolverRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated ResolverRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ResolverRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ResolverRule is deprecated: ResolverRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -95,10 +114,28 @@ export class ResolverRule extends pulumi.CustomResource {
  * The set of arguments for constructing a ResolverRule resource.
  */
 export interface ResolverRuleArgs {
+    /**
+     * DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
+     */
     domainName: pulumi.Input<string>;
+    /**
+     * The name for the Resolver rule
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The ID of the endpoint that the rule is associated with.
+     */
     resolverEndpointId?: pulumi.Input<string>;
-    ruleType: pulumi.Input<string>;
+    /**
+     * When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.
+     */
+    ruleType: pulumi.Input<enums.route53resolver.ResolverRuleRuleType>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.route53resolver.ResolverRuleTagArgs>[]>;
+    /**
+     * An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.
+     */
     targetIps?: pulumi.Input<pulumi.Input<inputs.route53resolver.ResolverRuleTargetAddressArgs>[]>;
 }

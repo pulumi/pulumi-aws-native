@@ -13,13 +13,20 @@ __all__ = [
     'ApplicationSettingsCampaignHook',
     'ApplicationSettingsLimits',
     'ApplicationSettingsQuietTime',
+    'CampaignDefaultButtonConfiguration',
     'CampaignEmailMessage',
     'CampaignEventDimensions',
     'CampaignEventFilter',
     'CampaignHook',
+    'CampaignInAppMessage',
+    'CampaignInAppMessageBodyConfig',
+    'CampaignInAppMessageButton',
+    'CampaignInAppMessageContent',
+    'CampaignInAppMessageHeaderConfig',
     'CampaignLimits',
     'CampaignMessage',
     'CampaignMessageConfiguration',
+    'CampaignOverrideButtonConfiguration',
     'CampaignQuietTime',
     'CampaignSchedule',
     'CampaignSetDimension',
@@ -160,6 +167,82 @@ class ApplicationSettingsQuietTime(dict):
     @pulumi.getter
     def start(self) -> str:
         return pulumi.get(self, "start")
+
+
+@pulumi.output_type
+class CampaignDefaultButtonConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backgroundColor":
+            suggest = "background_color"
+        elif key == "borderRadius":
+            suggest = "border_radius"
+        elif key == "buttonAction":
+            suggest = "button_action"
+        elif key == "textColor":
+            suggest = "text_color"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CampaignDefaultButtonConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CampaignDefaultButtonConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CampaignDefaultButtonConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 background_color: Optional[str] = None,
+                 border_radius: Optional[int] = None,
+                 button_action: Optional[str] = None,
+                 link: Optional[str] = None,
+                 text: Optional[str] = None,
+                 text_color: Optional[str] = None):
+        if background_color is not None:
+            pulumi.set(__self__, "background_color", background_color)
+        if border_radius is not None:
+            pulumi.set(__self__, "border_radius", border_radius)
+        if button_action is not None:
+            pulumi.set(__self__, "button_action", button_action)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+        if text_color is not None:
+            pulumi.set(__self__, "text_color", text_color)
+
+    @property
+    @pulumi.getter(name="backgroundColor")
+    def background_color(self) -> Optional[str]:
+        return pulumi.get(self, "background_color")
+
+    @property
+    @pulumi.getter(name="borderRadius")
+    def border_radius(self) -> Optional[int]:
+        return pulumi.get(self, "border_radius")
+
+    @property
+    @pulumi.getter(name="buttonAction")
+    def button_action(self) -> Optional[str]:
+        return pulumi.get(self, "button_action")
+
+    @property
+    @pulumi.getter
+    def link(self) -> Optional[str]:
+        return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional[str]:
+        return pulumi.get(self, "text")
+
+    @property
+    @pulumi.getter(name="textColor")
+    def text_color(self) -> Optional[str]:
+        return pulumi.get(self, "text_color")
 
 
 @pulumi.output_type
@@ -351,6 +434,280 @@ class CampaignHook(dict):
 
 
 @pulumi.output_type
+class CampaignInAppMessage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customConfig":
+            suggest = "custom_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CampaignInAppMessage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CampaignInAppMessage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CampaignInAppMessage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content: Optional[Sequence['outputs.CampaignInAppMessageContent']] = None,
+                 custom_config: Optional[Any] = None,
+                 layout: Optional[str] = None):
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if custom_config is not None:
+            pulumi.set(__self__, "custom_config", custom_config)
+        if layout is not None:
+            pulumi.set(__self__, "layout", layout)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[Sequence['outputs.CampaignInAppMessageContent']]:
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="customConfig")
+    def custom_config(self) -> Optional[Any]:
+        return pulumi.get(self, "custom_config")
+
+    @property
+    @pulumi.getter
+    def layout(self) -> Optional[str]:
+        return pulumi.get(self, "layout")
+
+
+@pulumi.output_type
+class CampaignInAppMessageBodyConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "textColor":
+            suggest = "text_color"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CampaignInAppMessageBodyConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CampaignInAppMessageBodyConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CampaignInAppMessageBodyConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alignment: Optional[str] = None,
+                 body: Optional[str] = None,
+                 text_color: Optional[str] = None):
+        if alignment is not None:
+            pulumi.set(__self__, "alignment", alignment)
+        if body is not None:
+            pulumi.set(__self__, "body", body)
+        if text_color is not None:
+            pulumi.set(__self__, "text_color", text_color)
+
+    @property
+    @pulumi.getter
+    def alignment(self) -> Optional[str]:
+        return pulumi.get(self, "alignment")
+
+    @property
+    @pulumi.getter
+    def body(self) -> Optional[str]:
+        return pulumi.get(self, "body")
+
+    @property
+    @pulumi.getter(name="textColor")
+    def text_color(self) -> Optional[str]:
+        return pulumi.get(self, "text_color")
+
+
+@pulumi.output_type
+class CampaignInAppMessageButton(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultConfig":
+            suggest = "default_config"
+        elif key == "iOS":
+            suggest = "i_os"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CampaignInAppMessageButton. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CampaignInAppMessageButton.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CampaignInAppMessageButton.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 android: Optional['outputs.CampaignOverrideButtonConfiguration'] = None,
+                 default_config: Optional['outputs.CampaignDefaultButtonConfiguration'] = None,
+                 i_os: Optional['outputs.CampaignOverrideButtonConfiguration'] = None,
+                 web: Optional['outputs.CampaignOverrideButtonConfiguration'] = None):
+        if android is not None:
+            pulumi.set(__self__, "android", android)
+        if default_config is not None:
+            pulumi.set(__self__, "default_config", default_config)
+        if i_os is not None:
+            pulumi.set(__self__, "i_os", i_os)
+        if web is not None:
+            pulumi.set(__self__, "web", web)
+
+    @property
+    @pulumi.getter
+    def android(self) -> Optional['outputs.CampaignOverrideButtonConfiguration']:
+        return pulumi.get(self, "android")
+
+    @property
+    @pulumi.getter(name="defaultConfig")
+    def default_config(self) -> Optional['outputs.CampaignDefaultButtonConfiguration']:
+        return pulumi.get(self, "default_config")
+
+    @property
+    @pulumi.getter(name="iOS")
+    def i_os(self) -> Optional['outputs.CampaignOverrideButtonConfiguration']:
+        return pulumi.get(self, "i_os")
+
+    @property
+    @pulumi.getter
+    def web(self) -> Optional['outputs.CampaignOverrideButtonConfiguration']:
+        return pulumi.get(self, "web")
+
+
+@pulumi.output_type
+class CampaignInAppMessageContent(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backgroundColor":
+            suggest = "background_color"
+        elif key == "bodyConfig":
+            suggest = "body_config"
+        elif key == "headerConfig":
+            suggest = "header_config"
+        elif key == "imageUrl":
+            suggest = "image_url"
+        elif key == "primaryBtn":
+            suggest = "primary_btn"
+        elif key == "secondaryBtn":
+            suggest = "secondary_btn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CampaignInAppMessageContent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CampaignInAppMessageContent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CampaignInAppMessageContent.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 background_color: Optional[str] = None,
+                 body_config: Optional['outputs.CampaignInAppMessageBodyConfig'] = None,
+                 header_config: Optional['outputs.CampaignInAppMessageHeaderConfig'] = None,
+                 image_url: Optional[str] = None,
+                 primary_btn: Optional['outputs.CampaignInAppMessageButton'] = None,
+                 secondary_btn: Optional['outputs.CampaignInAppMessageButton'] = None):
+        if background_color is not None:
+            pulumi.set(__self__, "background_color", background_color)
+        if body_config is not None:
+            pulumi.set(__self__, "body_config", body_config)
+        if header_config is not None:
+            pulumi.set(__self__, "header_config", header_config)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if primary_btn is not None:
+            pulumi.set(__self__, "primary_btn", primary_btn)
+        if secondary_btn is not None:
+            pulumi.set(__self__, "secondary_btn", secondary_btn)
+
+    @property
+    @pulumi.getter(name="backgroundColor")
+    def background_color(self) -> Optional[str]:
+        return pulumi.get(self, "background_color")
+
+    @property
+    @pulumi.getter(name="bodyConfig")
+    def body_config(self) -> Optional['outputs.CampaignInAppMessageBodyConfig']:
+        return pulumi.get(self, "body_config")
+
+    @property
+    @pulumi.getter(name="headerConfig")
+    def header_config(self) -> Optional['outputs.CampaignInAppMessageHeaderConfig']:
+        return pulumi.get(self, "header_config")
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[str]:
+        return pulumi.get(self, "image_url")
+
+    @property
+    @pulumi.getter(name="primaryBtn")
+    def primary_btn(self) -> Optional['outputs.CampaignInAppMessageButton']:
+        return pulumi.get(self, "primary_btn")
+
+    @property
+    @pulumi.getter(name="secondaryBtn")
+    def secondary_btn(self) -> Optional['outputs.CampaignInAppMessageButton']:
+        return pulumi.get(self, "secondary_btn")
+
+
+@pulumi.output_type
+class CampaignInAppMessageHeaderConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "textColor":
+            suggest = "text_color"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CampaignInAppMessageHeaderConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CampaignInAppMessageHeaderConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CampaignInAppMessageHeaderConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alignment: Optional[str] = None,
+                 header: Optional[str] = None,
+                 text_color: Optional[str] = None):
+        if alignment is not None:
+            pulumi.set(__self__, "alignment", alignment)
+        if header is not None:
+            pulumi.set(__self__, "header", header)
+        if text_color is not None:
+            pulumi.set(__self__, "text_color", text_color)
+
+    @property
+    @pulumi.getter
+    def alignment(self) -> Optional[str]:
+        return pulumi.get(self, "alignment")
+
+    @property
+    @pulumi.getter
+    def header(self) -> Optional[str]:
+        return pulumi.get(self, "header")
+
+    @property
+    @pulumi.getter(name="textColor")
+    def text_color(self) -> Optional[str]:
+        return pulumi.get(self, "text_color")
+
+
+@pulumi.output_type
 class CampaignLimits(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -375,6 +732,7 @@ class CampaignLimits(dict):
                  daily: Optional[int] = None,
                  maximum_duration: Optional[int] = None,
                  messages_per_second: Optional[int] = None,
+                 session: Optional[int] = None,
                  total: Optional[int] = None):
         if daily is not None:
             pulumi.set(__self__, "daily", daily)
@@ -382,6 +740,8 @@ class CampaignLimits(dict):
             pulumi.set(__self__, "maximum_duration", maximum_duration)
         if messages_per_second is not None:
             pulumi.set(__self__, "messages_per_second", messages_per_second)
+        if session is not None:
+            pulumi.set(__self__, "session", session)
         if total is not None:
             pulumi.set(__self__, "total", total)
 
@@ -399,6 +759,11 @@ class CampaignLimits(dict):
     @pulumi.getter(name="messagesPerSecond")
     def messages_per_second(self) -> Optional[int]:
         return pulumi.get(self, "messages_per_second")
+
+    @property
+    @pulumi.getter
+    def session(self) -> Optional[int]:
+        return pulumi.get(self, "session")
 
     @property
     @pulumi.getter
@@ -555,6 +920,8 @@ class CampaignMessageConfiguration(dict):
             suggest = "email_message"
         elif key == "gCMMessage":
             suggest = "g_cm_message"
+        elif key == "inAppMessage":
+            suggest = "in_app_message"
         elif key == "sMSMessage":
             suggest = "s_ms_message"
 
@@ -576,6 +943,7 @@ class CampaignMessageConfiguration(dict):
                  default_message: Optional['outputs.CampaignMessage'] = None,
                  email_message: Optional['outputs.CampaignEmailMessage'] = None,
                  g_cm_message: Optional['outputs.CampaignMessage'] = None,
+                 in_app_message: Optional['outputs.CampaignInAppMessage'] = None,
                  s_ms_message: Optional['outputs.CampaignSmsMessage'] = None):
         if a_dm_message is not None:
             pulumi.set(__self__, "a_dm_message", a_dm_message)
@@ -589,6 +957,8 @@ class CampaignMessageConfiguration(dict):
             pulumi.set(__self__, "email_message", email_message)
         if g_cm_message is not None:
             pulumi.set(__self__, "g_cm_message", g_cm_message)
+        if in_app_message is not None:
+            pulumi.set(__self__, "in_app_message", in_app_message)
         if s_ms_message is not None:
             pulumi.set(__self__, "s_ms_message", s_ms_message)
 
@@ -623,9 +993,52 @@ class CampaignMessageConfiguration(dict):
         return pulumi.get(self, "g_cm_message")
 
     @property
+    @pulumi.getter(name="inAppMessage")
+    def in_app_message(self) -> Optional['outputs.CampaignInAppMessage']:
+        return pulumi.get(self, "in_app_message")
+
+    @property
     @pulumi.getter(name="sMSMessage")
     def s_ms_message(self) -> Optional['outputs.CampaignSmsMessage']:
         return pulumi.get(self, "s_ms_message")
+
+
+@pulumi.output_type
+class CampaignOverrideButtonConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "buttonAction":
+            suggest = "button_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CampaignOverrideButtonConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CampaignOverrideButtonConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CampaignOverrideButtonConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 button_action: Optional[str] = None,
+                 link: Optional[str] = None):
+        if button_action is not None:
+            pulumi.set(__self__, "button_action", button_action)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter(name="buttonAction")
+    def button_action(self) -> Optional[str]:
+        return pulumi.get(self, "button_action")
+
+    @property
+    @pulumi.getter
+    def link(self) -> Optional[str]:
+        return pulumi.get(self, "link")
 
 
 @pulumi.output_type

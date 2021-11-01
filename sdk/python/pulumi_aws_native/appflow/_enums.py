@@ -20,6 +20,8 @@ __all__ = [
     'FlowPrefixFormat',
     'FlowPrefixType',
     'FlowS3ConnectorOperator',
+    'FlowS3InputFormatConfigS3InputFileType',
+    'FlowSAPODataConnectorOperator',
     'FlowSalesforceConnectorOperator',
     'FlowScheduledTriggerPropertiesDataPullMode',
     'FlowServiceNowConnectorOperator',
@@ -51,6 +53,7 @@ class ConnectorProfileConnectorType(str, Enum):
     GOOGLEANALYTICS = "Googleanalytics"
     ZENDESK = "Zendesk"
     SERVICENOW = "Servicenow"
+    SAPO_DATA = "SAPOData"
     DATADOG = "Datadog"
     TRENDMICRO = "Trendmicro"
     SNOWFLAKE = "Snowflake"
@@ -70,6 +73,7 @@ class FlowAmplitudeConnectorOperator(str, Enum):
 
 
 class FlowConnectorType(str, Enum):
+    SAPO_DATA = "SAPOData"
     SALESFORCE = "Salesforce"
     SINGULAR = "Singular"
     SLACK = "Slack"
@@ -210,6 +214,35 @@ class FlowPrefixType(str, Enum):
 class FlowS3ConnectorOperator(str, Enum):
     PROJECTION = "PROJECTION"
     LESS_THAN = "LESS_THAN"
+    GREATER_THAN = "GREATER_THAN"
+    BETWEEN = "BETWEEN"
+    LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO"
+    GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO"
+    EQUAL_TO = "EQUAL_TO"
+    NOT_EQUAL_TO = "NOT_EQUAL_TO"
+    ADDITION = "ADDITION"
+    MULTIPLICATION = "MULTIPLICATION"
+    DIVISION = "DIVISION"
+    SUBTRACTION = "SUBTRACTION"
+    MASK_ALL = "MASK_ALL"
+    MASK_FIRST_N = "MASK_FIRST_N"
+    MASK_LAST_N = "MASK_LAST_N"
+    VALIDATE_NON_NULL = "VALIDATE_NON_NULL"
+    VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO"
+    VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE"
+    VALIDATE_NUMERIC = "VALIDATE_NUMERIC"
+    NO_OP = "NO_OP"
+
+
+class FlowS3InputFormatConfigS3InputFileType(str, Enum):
+    CSV = "CSV"
+    JSON = "JSON"
+
+
+class FlowSAPODataConnectorOperator(str, Enum):
+    PROJECTION = "PROJECTION"
+    LESS_THAN = "LESS_THAN"
+    CONTAINS = "CONTAINS"
     GREATER_THAN = "GREATER_THAN"
     BETWEEN = "BETWEEN"
     LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO"

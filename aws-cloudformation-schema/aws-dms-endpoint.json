@@ -6,6 +6,9 @@
     "SybaseSettings" : {
       "$ref" : "#/definitions/SybaseSettings"
     },
+    "RedisSettings" : {
+      "$ref" : "#/definitions/RedisSettings"
+    },
     "OracleSettings" : {
       "$ref" : "#/definitions/OracleSettings"
     },
@@ -102,6 +105,33 @@
     }
   },
   "definitions" : {
+    "RedisSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "SslSecurityProtocol" : {
+          "type" : "string"
+        },
+        "AuthUserName" : {
+          "type" : "string"
+        },
+        "ServerName" : {
+          "type" : "string"
+        },
+        "Port" : {
+          "type" : "number"
+        },
+        "SslCaCertificateArn" : {
+          "type" : "string"
+        },
+        "AuthPassword" : {
+          "type" : "string"
+        },
+        "AuthType" : {
+          "type" : "string"
+        }
+      }
+    },
     "SybaseSettings" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -148,11 +178,50 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "Broker" : {
+          "type" : "string"
+        },
+        "SaslPassword" : {
+          "type" : "string"
+        },
+        "SslClientCertificateArn" : {
+          "type" : "string"
+        },
+        "IncludeTransactionDetails" : {
+          "type" : "boolean"
+        },
+        "SecurityProtocol" : {
+          "type" : "string"
+        },
+        "IncludeTableAlterOperations" : {
+          "type" : "boolean"
+        },
+        "SslCaCertificateArn" : {
+          "type" : "string"
+        },
+        "IncludeControlDetails" : {
+          "type" : "boolean"
+        },
+        "NoHexPrefix" : {
+          "type" : "boolean"
+        },
+        "SslClientKeyArn" : {
+          "type" : "string"
+        },
+        "SslClientKeyPassword" : {
+          "type" : "string"
+        },
+        "SaslUserName" : {
+          "type" : "string"
+        },
         "Topic" : {
           "type" : "string"
         },
-        "Broker" : {
-          "type" : "string"
+        "PartitionIncludeSchemaTable" : {
+          "type" : "boolean"
+        },
+        "IncludeNullAndEmpty" : {
+          "type" : "boolean"
         }
       }
     },
@@ -268,11 +337,29 @@
         "MessageFormat" : {
           "type" : "string"
         },
+        "IncludeTransactionDetails" : {
+          "type" : "boolean"
+        },
+        "IncludeTableAlterOperations" : {
+          "type" : "boolean"
+        },
+        "IncludeControlDetails" : {
+          "type" : "boolean"
+        },
         "StreamArn" : {
           "type" : "string"
         },
         "ServiceAccessRoleArn" : {
           "type" : "string"
+        },
+        "NoHexPrefix" : {
+          "type" : "boolean"
+        },
+        "PartitionIncludeSchemaTable" : {
+          "type" : "boolean"
+        },
+        "IncludeNullAndEmpty" : {
+          "type" : "boolean"
         }
       }
     },

@@ -202,7 +202,10 @@
       "properties" : {
         "ReplacementStrategy" : {
           "type" : "string",
-          "enum" : [ "launch" ]
+          "enum" : [ "launch", "launch-before-terminate" ]
+        },
+        "TerminationDelay" : {
+          "type" : "integer"
         }
       }
     },

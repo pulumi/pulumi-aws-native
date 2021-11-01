@@ -140,7 +140,6 @@
     }
   },
   "additionalProperties" : false,
-  "required" : [ "Name" ],
   "createOnlyProperties" : [ "/properties/Name" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreationDate", "/properties/PolicyStatus", "/properties/PublicAccessBlockConfiguration" ],
   "primaryIdentifier" : [ "/properties/Name" ],

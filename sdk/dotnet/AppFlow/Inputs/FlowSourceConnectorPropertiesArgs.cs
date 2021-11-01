@@ -36,6 +36,9 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         [Input("s3")]
         public Input<Inputs.FlowS3SourcePropertiesArgs>? S3 { get; set; }
 
+        [Input("sAPOData")]
+        public Input<Inputs.FlowSAPODataSourcePropertiesArgs>? SAPOData { get; set; }
+
         [Input("salesforce")]
         public Input<Inputs.FlowSalesforceSourcePropertiesArgs>? Salesforce { get; set; }
 

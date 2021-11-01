@@ -1467,6 +1467,10 @@
                     "value": "Servicenow"
                 },
                 {
+                    "name": "SAPOData",
+                    "value": "SAPOData"
+                },
+                {
                     "name": "Datadog",
                     "value": "Datadog"
                 },
@@ -1519,6 +1523,9 @@
                 },
                 "redshift": {
                     "$ref": "#/types/aws-native:appflow:ConnectorProfileRedshiftConnectorProfileCredentials"
+                },
+                "sAPOData": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileSAPODataConnectorProfileCredentials"
                 },
                 "salesforce": {
                     "$ref": "#/types/aws-native:appflow:ConnectorProfileSalesforceConnectorProfileCredentials"
@@ -1705,6 +1712,23 @@
                 "instanceUrl"
             ]
         },
+        "aws-native:appflow:ConnectorProfileOAuthProperties": {
+            "properties": {
+                "authCodeUrl": {
+                    "type": "string"
+                },
+                "oAuthScopes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tokenUrl": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
         "aws-native:appflow:ConnectorProfileProperties": {
             "description": "Connector specific properties needed to create connector profile - currently not needed for Amplitude, Trendmicro, Googleanalytics and Singular",
             "properties": {
@@ -1722,6 +1746,9 @@
                 },
                 "redshift": {
                     "$ref": "#/types/aws-native:appflow:ConnectorProfileRedshiftConnectorProfileProperties"
+                },
+                "sAPOData": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileSAPODataConnectorProfileProperties"
                 },
                 "salesforce": {
                     "$ref": "#/types/aws-native:appflow:ConnectorProfileSalesforceConnectorProfileProperties"
@@ -1786,6 +1813,76 @@
                 "databaseUrl",
                 "roleArn"
             ]
+        },
+        "aws-native:appflow:ConnectorProfileSAPODataConnectorProfileCredentials": {
+            "properties": {
+                "basicAuthCredentials": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileSAPODataConnectorProfileCredentialsBasicAuthCredentialsProperties"
+                },
+                "oAuthCredentials": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:appflow:ConnectorProfileSAPODataConnectorProfileCredentialsBasicAuthCredentialsProperties": {
+            "properties": {
+                "password": {
+                    "type": "string",
+                    "description": "The password that corresponds to the username."
+                },
+                "username": {
+                    "type": "string",
+                    "description": "The name of the user."
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:appflow:ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties": {
+            "properties": {
+                "accessToken": {
+                    "type": "string"
+                },
+                "clientId": {
+                    "type": "string"
+                },
+                "clientSecret": {
+                    "type": "string"
+                },
+                "connectorOAuthRequest": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileConnectorOAuthRequest"
+                },
+                "refreshToken": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:appflow:ConnectorProfileSAPODataConnectorProfileProperties": {
+            "properties": {
+                "applicationHostUrl": {
+                    "type": "string"
+                },
+                "applicationServicePath": {
+                    "type": "string"
+                },
+                "clientNumber": {
+                    "type": "string"
+                },
+                "logonLanguage": {
+                    "type": "string"
+                },
+                "oAuthProperties": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileOAuthProperties"
+                },
+                "portNumber": {
+                    "type": "integer"
+                },
+                "privateLinkServiceName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
         },
         "aws-native:appflow:ConnectorProfileSalesforceConnectorProfileCredentials": {
             "properties": {
@@ -2096,6 +2193,9 @@
                 "s3": {
                     "$ref": "#/types/aws-native:appflow:FlowS3ConnectorOperator"
                 },
+                "sAPOData": {
+                    "$ref": "#/types/aws-native:appflow:FlowSAPODataConnectorOperator"
+                },
                 "salesforce": {
                     "$ref": "#/types/aws-native:appflow:FlowSalesforceConnectorOperator"
                 },
@@ -2123,6 +2223,10 @@
         "aws-native:appflow:FlowConnectorType": {
             "type": "string",
             "enum": [
+                {
+                    "name": "SAPOData",
+                    "value": "SAPOData"
+                },
                 {
                     "name": "Salesforce",
                     "value": "Salesforce"
@@ -2888,6 +2992,27 @@
                 "bucketName"
             ]
         },
+        "aws-native:appflow:FlowS3InputFormatConfig": {
+            "properties": {
+                "s3InputFileType": {
+                    "$ref": "#/types/aws-native:appflow:FlowS3InputFormatConfigS3InputFileType"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:appflow:FlowS3InputFormatConfigS3InputFileType": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Csv",
+                    "value": "CSV"
+                },
+                {
+                    "name": "Json",
+                    "value": "JSON"
+                }
+            ]
+        },
         "aws-native:appflow:FlowS3OutputFormatConfig": {
             "properties": {
                 "aggregationConfig": {
@@ -2909,12 +3034,115 @@
                 },
                 "bucketPrefix": {
                     "type": "string"
+                },
+                "s3InputFormatConfig": {
+                    "$ref": "#/types/aws-native:appflow:FlowS3InputFormatConfig"
                 }
             },
             "type": "object",
             "required": [
                 "bucketName",
                 "bucketPrefix"
+            ]
+        },
+        "aws-native:appflow:FlowSAPODataConnectorOperator": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Projection",
+                    "value": "PROJECTION"
+                },
+                {
+                    "name": "LessThan",
+                    "value": "LESS_THAN"
+                },
+                {
+                    "name": "Contains",
+                    "value": "CONTAINS"
+                },
+                {
+                    "name": "GreaterThan",
+                    "value": "GREATER_THAN"
+                },
+                {
+                    "name": "Between",
+                    "value": "BETWEEN"
+                },
+                {
+                    "name": "LessThanOrEqualTo",
+                    "value": "LESS_THAN_OR_EQUAL_TO"
+                },
+                {
+                    "name": "GreaterThanOrEqualTo",
+                    "value": "GREATER_THAN_OR_EQUAL_TO"
+                },
+                {
+                    "name": "EqualTo",
+                    "value": "EQUAL_TO"
+                },
+                {
+                    "name": "NotEqualTo",
+                    "value": "NOT_EQUAL_TO"
+                },
+                {
+                    "name": "Addition",
+                    "value": "ADDITION"
+                },
+                {
+                    "name": "Multiplication",
+                    "value": "MULTIPLICATION"
+                },
+                {
+                    "name": "Division",
+                    "value": "DIVISION"
+                },
+                {
+                    "name": "Subtraction",
+                    "value": "SUBTRACTION"
+                },
+                {
+                    "name": "MaskAll",
+                    "value": "MASK_ALL"
+                },
+                {
+                    "name": "MaskFirstN",
+                    "value": "MASK_FIRST_N"
+                },
+                {
+                    "name": "MaskLastN",
+                    "value": "MASK_LAST_N"
+                },
+                {
+                    "name": "ValidateNonNull",
+                    "value": "VALIDATE_NON_NULL"
+                },
+                {
+                    "name": "ValidateNonZero",
+                    "value": "VALIDATE_NON_ZERO"
+                },
+                {
+                    "name": "ValidateNonNegative",
+                    "value": "VALIDATE_NON_NEGATIVE"
+                },
+                {
+                    "name": "ValidateNumeric",
+                    "value": "VALIDATE_NUMERIC"
+                },
+                {
+                    "name": "NoOp",
+                    "value": "NO_OP"
+                }
+            ]
+        },
+        "aws-native:appflow:FlowSAPODataSourceProperties": {
+            "properties": {
+                "objectPath": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "objectPath"
             ]
         },
         "aws-native:appflow:FlowSalesforceConnectorOperator": {
@@ -3379,6 +3607,9 @@
                 },
                 "s3": {
                     "$ref": "#/types/aws-native:appflow:FlowS3SourceProperties"
+                },
+                "sAPOData": {
+                    "$ref": "#/types/aws-native:appflow:FlowSAPODataSourceProperties"
                 },
                 "salesforce": {
                     "$ref": "#/types/aws-native:appflow:FlowSalesforceSourceProperties"
@@ -13073,6 +13304,30 @@
             },
             "type": "object"
         },
+        "aws-native:ec2:EC2FleetCapacityRebalance": {
+            "properties": {
+                "replacementStrategy": {
+                    "$ref": "#/types/aws-native:ec2:EC2FleetCapacityRebalanceReplacementStrategy"
+                },
+                "terminationDelay": {
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:ec2:EC2FleetCapacityRebalanceReplacementStrategy": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Launch",
+                    "value": "launch"
+                },
+                {
+                    "name": "LaunchBeforeTerminate",
+                    "value": "launch-before-terminate"
+                }
+            ]
+        },
         "aws-native:ec2:EC2FleetCapacityReservationOptionsRequest": {
             "properties": {
                 "usageStrategy": {
@@ -13518,6 +13773,9 @@
                 "instancePoolsToUseCount": {
                     "type": "integer"
                 },
+                "maintenanceStrategies": {
+                    "$ref": "#/types/aws-native:ec2:EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties"
+                },
                 "maxTotalPrice": {
                     "type": "string"
                 },
@@ -13570,6 +13828,14 @@
                     "value": "terminate"
                 }
             ]
+        },
+        "aws-native:ec2:EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties": {
+            "properties": {
+                "capacityRebalance": {
+                    "$ref": "#/types/aws-native:ec2:EC2FleetCapacityRebalance"
+                }
+            },
+            "type": "object"
         },
         "aws-native:ec2:EC2FleetTag": {
             "properties": {
@@ -15358,6 +15624,9 @@
             "properties": {
                 "replacementStrategy": {
                     "$ref": "#/types/aws-native:ec2:SpotFleetSpotCapacityRebalanceReplacementStrategy"
+                },
+                "terminationDelay": {
+                    "type": "integer"
                 }
             },
             "type": "object"
@@ -15368,6 +15637,10 @@
                 {
                     "name": "Launch",
                     "value": "launch"
+                },
+                {
+                    "name": "LaunchBeforeTerminate",
+                    "value": "launch-before-terminate"
                 }
             ]
         },
@@ -17338,6 +17611,56 @@
             "required": [
                 "key",
                 "value"
+            ]
+        },
+        "aws-native:eks:ClusterEncryptionConfig": {
+            "properties": {
+                "provider": {
+                    "$ref": "#/types/aws-native:eks:ClusterProvider"
+                },
+                "resources": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:eks:ClusterKubernetesNetworkConfig": {
+            "properties": {
+                "serviceIpv4Cidr": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:eks:ClusterProvider": {
+            "properties": {
+                "keyArn": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:eks:ClusterResourcesVpcConfig": {
+            "properties": {
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "subnetIds"
             ]
         },
         "aws-native:eks:FargateProfileLabel": {
@@ -32969,6 +33292,135 @@
                 "value"
             ]
         },
+        "aws-native:memorydb:ACLTag": {
+            "description": "A key-value pair to associate with a resource.",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ]
+        },
+        "aws-native:memorydb:AuthenticationModeProperties": {
+            "properties": {
+                "passwords": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Passwords used for this user account. You can create up to two passwords for each user."
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:memorydb:UserAuthenticationModePropertiesType",
+                    "description": "Type of authentication strategy for this user."
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:memorydb:ClusterEndpoint": {
+            "properties": {
+                "address": {
+                    "type": "string",
+                    "description": "The DNS address of the primary read-write node."
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "The port number that the engine is listening on. "
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:memorydb:ClusterTag": {
+            "description": "A key-value pair to associate with a resource.",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key for the tag. May not be null."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The tag's value. May be null."
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ]
+        },
+        "aws-native:memorydb:ParameterGroupTag": {
+            "description": "A key-value pair to associate with a resource.",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key for the tag. May not be null."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The tag's value. May be null."
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ]
+        },
+        "aws-native:memorydb:SubnetGroupTag": {
+            "description": "A key-value pair to associate with a resource.",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key for the tag. May not be null."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The tag's value. May be null."
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ]
+        },
+        "aws-native:memorydb:UserAuthenticationModePropertiesType": {
+            "description": "Type of authentication strategy for this user.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Password",
+                    "value": "password"
+                }
+            ]
+        },
+        "aws-native:memorydb:UserTag": {
+            "description": "A key-value pair to associate with a resource.",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws: or memorydb:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ]
+        },
         "aws-native:mwaa:EnvironmentLoggingConfiguration": {
             "description": "Logging configuration for the environment.",
             "properties": {
@@ -38528,6 +38980,57 @@
                     "name": "Failed",
                     "value": "FAILED"
                 }
+            ]
+        },
+        "aws-native:route53resolver:ResolverRuleRuleType": {
+            "description": "When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Forward",
+                    "value": "FORWARD"
+                },
+                {
+                    "name": "System",
+                    "value": "SYSTEM"
+                },
+                {
+                    "name": "Recursive",
+                    "value": "RECURSIVE"
+                }
+            ]
+        },
+        "aws-native:route53resolver:ResolverRuleTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ]
+        },
+        "aws-native:route53resolver:ResolverRuleTargetAddress": {
+            "properties": {
+                "ip": {
+                    "type": "string",
+                    "description": "One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses. "
+                },
+                "port": {
+                    "type": "string",
+                    "description": "The port at Ip that you want to forward DNS queries to. "
+                }
+            },
+            "type": "object",
+            "required": [
+                "ip"
             ]
         },
         "aws-native:s3:AccessPointNetworkOrigin": {
@@ -58512,6 +59015,88 @@
                 "clusterName"
             ]
         },
+        "aws-native:eks:Cluster": {
+            "description": "Resource Type definition for AWS::EKS::Cluster\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var myCluster = new AwsNative.EKS.Cluster(\"myCluster\", new AwsNative.EKS.ClusterArgs\n        {\n            Name = \"prod\",\n            Version = \"1.14\",\n            RoleArn = \"arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-EXAMPLEBQ4PI\",\n            ResourcesVpcConfig = new AwsNative.EKS.Inputs.ClusterResourcesVpcConfigArgs\n            {\n                SecurityGroupIds = \n                {\n                    \"sg-6979fe18\",\n                },\n                SubnetIds = \n                {\n                    \"subnet-6782e71e\",\n                    \"subnet-e7e761ac\",\n                },\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/eks\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := eks.NewCluster(ctx, \"myCluster\", \u0026eks.ClusterArgs{\n\t\t\tName:    pulumi.String(\"prod\"),\n\t\t\tVersion: pulumi.String(\"1.14\"),\n\t\t\tRoleArn: pulumi.String(\"arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-EXAMPLEBQ4PI\"),\n\t\t\tResourcesVpcConfig: \u0026eks.ClusterResourcesVpcConfigArgs{\n\t\t\t\tSecurityGroupIds: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"sg-6979fe18\"),\n\t\t\t\t},\n\t\t\t\tSubnetIds: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"subnet-6782e71e\"),\n\t\t\t\t\tpulumi.String(\"subnet-e7e761ac\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst myCluster = new aws_native.eks.Cluster(\"myCluster\", {\n    name: \"prod\",\n    version: \"1.14\",\n    roleArn: \"arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-EXAMPLEBQ4PI\",\n    resourcesVpcConfig: {\n        securityGroupIds: [\"sg-6979fe18\"],\n        subnetIds: [\n            \"subnet-6782e71e\",\n            \"subnet-e7e761ac\",\n        ],\n    },\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nmy_cluster = aws_native.eks.Cluster(\"myCluster\",\n    name=\"prod\",\n    version=\"1.14\",\n    role_arn=\"arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-EXAMPLEBQ4PI\",\n    resources_vpc_config=aws_native.eks.ClusterResourcesVpcConfigArgs(\n        security_group_ids=[\"sg-6979fe18\"],\n        subnet_ids=[\n            \"subnet-6782e71e\",\n            \"subnet-e7e761ac\",\n        ],\n    ))\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var myCluster = new AwsNative.EKS.Cluster(\"myCluster\", new AwsNative.EKS.ClusterArgs\n        {\n            Name = \"prod\",\n            Version = \"1.14\",\n            RoleArn = \"arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-EXAMPLEBQ4PI\",\n            ResourcesVpcConfig = new AwsNative.EKS.Inputs.ClusterResourcesVpcConfigArgs\n            {\n                SecurityGroupIds = \n                {\n                    \"sg-6979fe18\",\n                },\n                SubnetIds = \n                {\n                    \"subnet-6782e71e\",\n                    \"subnet-e7e761ac\",\n                },\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/eks\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := eks.NewCluster(ctx, \"myCluster\", \u0026eks.ClusterArgs{\n\t\t\tName:    pulumi.String(\"prod\"),\n\t\t\tVersion: pulumi.String(\"1.14\"),\n\t\t\tRoleArn: pulumi.String(\"arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-EXAMPLEBQ4PI\"),\n\t\t\tResourcesVpcConfig: \u0026eks.ClusterResourcesVpcConfigArgs{\n\t\t\t\tSecurityGroupIds: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"sg-6979fe18\"),\n\t\t\t\t},\n\t\t\t\tSubnetIds: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"subnet-6782e71e\"),\n\t\t\t\t\tpulumi.String(\"subnet-e7e761ac\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst myCluster = new aws_native.eks.Cluster(\"myCluster\", {\n    name: \"prod\",\n    version: \"1.14\",\n    roleArn: \"arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-EXAMPLEBQ4PI\",\n    resourcesVpcConfig: {\n        securityGroupIds: [\"sg-6979fe18\"],\n        subnetIds: [\n            \"subnet-6782e71e\",\n            \"subnet-e7e761ac\",\n        ],\n    },\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nmy_cluster = aws_native.eks.Cluster(\"myCluster\",\n    name=\"prod\",\n    version=\"1.14\",\n    role_arn=\"arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-EXAMPLEBQ4PI\",\n    resources_vpc_config=aws_native.eks.ClusterResourcesVpcConfigArgs(\n        security_group_ids=[\"sg-6979fe18\"],\n        subnet_ids=[\n            \"subnet-6782e71e\",\n            \"subnet-e7e761ac\",\n        ],\n    ))\n\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "properties": {
+                "arn": {
+                    "type": "string"
+                },
+                "certificateAuthorityData": {
+                    "type": "string"
+                },
+                "clusterSecurityGroupId": {
+                    "type": "string"
+                },
+                "encryptionConfig": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:eks:ClusterEncryptionConfig"
+                    }
+                },
+                "encryptionConfigKeyArn": {
+                    "type": "string"
+                },
+                "endpoint": {
+                    "type": "string"
+                },
+                "kubernetesNetworkConfig": {
+                    "$ref": "#/types/aws-native:eks:ClusterKubernetesNetworkConfig"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "openIdConnectIssuerUrl": {
+                    "type": "string"
+                },
+                "resourcesVpcConfig": {
+                    "$ref": "#/types/aws-native:eks:ClusterResourcesVpcConfig"
+                },
+                "roleArn": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "arn",
+                "certificateAuthorityData",
+                "clusterSecurityGroupId",
+                "encryptionConfigKeyArn",
+                "endpoint",
+                "openIdConnectIssuerUrl",
+                "resourcesVpcConfig",
+                "roleArn"
+            ],
+            "inputProperties": {
+                "encryptionConfig": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:eks:ClusterEncryptionConfig"
+                    }
+                },
+                "kubernetesNetworkConfig": {
+                    "$ref": "#/types/aws-native:eks:ClusterKubernetesNetworkConfig"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "resourcesVpcConfig": {
+                    "$ref": "#/types/aws-native:eks:ClusterResourcesVpcConfig"
+                },
+                "roleArn": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "resourcesVpcConfig",
+                "roleArn"
+            ]
+        },
         "aws-native:eks:FargateProfile": {
             "description": "Resource Schema for AWS::EKS::FargateProfile\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var eksFargateProfile = new AwsNative.EKS.FargateProfile(\"eksFargateProfile\", new AwsNative.EKS.FargateProfileArgs\n        {\n            FargateProfileName = \"my-fargate-profile\",\n            ClusterName = \"my-cluster\",\n            PodExecutionRoleArn = \"arn:aws:iam::012345678910:role/AmazonEKSFargatePodExecutionRole\",\n            Subnets = \n            {\n                \"subnet-6782e71e\",\n                \"subnet-e7e761ac\",\n            },\n            Selectors = \n            {\n                new AwsNative.EKS.Inputs.FargateProfileSelectorArgs\n                {\n                    Namespace = \"my-namespace\",\n                    Labels = \n                    {\n                        new AwsNative.EKS.Inputs.FargateProfileLabelArgs\n                        {\n                            Key = \"my-key\",\n                            Value = \"my-value\",\n                        },\n                    },\n                },\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/eks\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := eks.NewFargateProfile(ctx, \"eksFargateProfile\", \u0026eks.FargateProfileArgs{\n\t\t\tFargateProfileName:  pulumi.String(\"my-fargate-profile\"),\n\t\t\tClusterName:         pulumi.String(\"my-cluster\"),\n\t\t\tPodExecutionRoleArn: pulumi.String(\"arn:aws:iam::012345678910:role/AmazonEKSFargatePodExecutionRole\"),\n\t\t\tSubnets: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"subnet-6782e71e\"),\n\t\t\t\tpulumi.String(\"subnet-e7e761ac\"),\n\t\t\t},\n\t\t\tSelectors: eks.FargateProfileSelectorArray{\n\t\t\t\t\u0026eks.FargateProfileSelectorArgs{\n\t\t\t\t\tNamespace: pulumi.String(\"my-namespace\"),\n\t\t\t\t\tLabels: eks.FargateProfileLabelArray{\n\t\t\t\t\t\t\u0026eks.FargateProfileLabelArgs{\n\t\t\t\t\t\t\tKey:   pulumi.String(\"my-key\"),\n\t\t\t\t\t\t\tValue: pulumi.String(\"my-value\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst eksFargateProfile = new aws_native.eks.FargateProfile(\"eksFargateProfile\", {\n    fargateProfileName: \"my-fargate-profile\",\n    clusterName: \"my-cluster\",\n    podExecutionRoleArn: \"arn:aws:iam::012345678910:role/AmazonEKSFargatePodExecutionRole\",\n    subnets: [\n        \"subnet-6782e71e\",\n        \"subnet-e7e761ac\",\n    ],\n    selectors: [{\n        namespace: \"my-namespace\",\n        labels: [{\n            key: \"my-key\",\n            value: \"my-value\",\n        }],\n    }],\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\neks_fargate_profile = aws_native.eks.FargateProfile(\"eksFargateProfile\",\n    fargate_profile_name=\"my-fargate-profile\",\n    cluster_name=\"my-cluster\",\n    pod_execution_role_arn=\"arn:aws:iam::012345678910:role/AmazonEKSFargatePodExecutionRole\",\n    subnets=[\n        \"subnet-6782e71e\",\n        \"subnet-e7e761ac\",\n    ],\n    selectors=[aws_native.eks.FargateProfileSelectorArgs(\n        namespace=\"my-namespace\",\n        labels=[aws_native.eks.FargateProfileLabelArgs(\n            key=\"my-key\",\n            value=\"my-value\",\n        )],\n    )])\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var eksFargateProfile = new AwsNative.EKS.FargateProfile(\"eksFargateProfile\", new AwsNative.EKS.FargateProfileArgs\n        {\n            FargateProfileName = \"my-fargate-profile\",\n            ClusterName = \"my-cluster\",\n            PodExecutionRoleArn = \"arn:aws:iam::012345678910:role/AmazonEKSFargatePodExecutionRole\",\n            Subnets = \n            {\n                \"subnet-6782e71e\",\n                \"subnet-e7e761ac\",\n            },\n            Selectors = \n            {\n                new AwsNative.EKS.Inputs.FargateProfileSelectorArgs\n                {\n                    Namespace = \"my-namespace\",\n                    Labels = \n                    {\n                        new AwsNative.EKS.Inputs.FargateProfileLabelArgs\n                        {\n                            Key = \"my-key\",\n                            Value = \"my-value\",\n                        },\n                    },\n                },\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/eks\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := eks.NewFargateProfile(ctx, \"eksFargateProfile\", \u0026eks.FargateProfileArgs{\n\t\t\tFargateProfileName:  pulumi.String(\"my-fargate-profile\"),\n\t\t\tClusterName:         pulumi.String(\"my-cluster\"),\n\t\t\tPodExecutionRoleArn: pulumi.String(\"arn:aws:iam::012345678910:role/AmazonEKSFargatePodExecutionRole\"),\n\t\t\tSubnets: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"subnet-6782e71e\"),\n\t\t\t\tpulumi.String(\"subnet-e7e761ac\"),\n\t\t\t},\n\t\t\tSelectors: eks.FargateProfileSelectorArray{\n\t\t\t\t\u0026eks.FargateProfileSelectorArgs{\n\t\t\t\t\tNamespace: pulumi.String(\"my-namespace\"),\n\t\t\t\t\tLabels: eks.FargateProfileLabelArray{\n\t\t\t\t\t\t\u0026eks.FargateProfileLabelArgs{\n\t\t\t\t\t\t\tKey:   pulumi.String(\"my-key\"),\n\t\t\t\t\t\t\tValue: pulumi.String(\"my-value\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst eksFargateProfile = new aws_native.eks.FargateProfile(\"eksFargateProfile\", {\n    fargateProfileName: \"my-fargate-profile\",\n    clusterName: \"my-cluster\",\n    podExecutionRoleArn: \"arn:aws:iam::012345678910:role/AmazonEKSFargatePodExecutionRole\",\n    subnets: [\n        \"subnet-6782e71e\",\n        \"subnet-e7e761ac\",\n    ],\n    selectors: [{\n        namespace: \"my-namespace\",\n        labels: [{\n            key: \"my-key\",\n            value: \"my-value\",\n        }],\n    }],\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\neks_fargate_profile = aws_native.eks.FargateProfile(\"eksFargateProfile\",\n    fargate_profile_name=\"my-fargate-profile\",\n    cluster_name=\"my-cluster\",\n    pod_execution_role_arn=\"arn:aws:iam::012345678910:role/AmazonEKSFargatePodExecutionRole\",\n    subnets=[\n        \"subnet-6782e71e\",\n        \"subnet-e7e761ac\",\n    ],\n    selectors=[aws_native.eks.FargateProfileSelectorArgs(\n        namespace=\"my-namespace\",\n        labels=[aws_native.eks.FargateProfileLabelArgs(\n            key=\"my-key\",\n            value=\"my-value\",\n        )],\n    )])\n\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
             "properties": {
@@ -68373,6 +68958,505 @@
                 }
             }
         },
+        "aws-native:memorydb:ACL": {
+            "description": "Resource Type definition for AWS::MemoryDB::ACL",
+            "properties": {
+                "aCLName": {
+                    "type": "string",
+                    "description": "The name of the acl."
+                },
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the acl."
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Indicates acl status. Can be \"creating\", \"active\", \"modifying\", \"deleting\"."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:memorydb:ACLTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this cluster."
+                },
+                "userNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of users associated to this acl."
+                }
+            },
+            "type": "object",
+            "required": [
+                "aCLName",
+                "arn",
+                "status"
+            ],
+            "inputProperties": {
+                "aCLName": {
+                    "type": "string",
+                    "description": "The name of the acl."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:memorydb:ACLTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this cluster."
+                },
+                "userNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of users associated to this acl."
+                }
+            },
+            "requiredInputs": [
+                "aCLName"
+            ]
+        },
+        "aws-native:memorydb:Cluster": {
+            "description": "The AWS::MemoryDB::Cluster resource creates an Amazon MemoryDB Cluster.",
+            "properties": {
+                "aCLName": {
+                    "type": "string",
+                    "description": "The name of the Access Control List to associate with the cluster."
+                },
+                "aRN": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the cluster."
+                },
+                "autoMinorVersionUpgrade": {
+                    "type": "boolean",
+                    "description": "A flag that enables automatic minor version upgrade when set to true.\n\nYou cannot modify the value of AutoMinorVersionUpgrade after the cluster is created. To enable AutoMinorVersionUpgrade on a cluster you must set AutoMinorVersionUpgrade to true when you create a cluster."
+                },
+                "clusterEndpoint": {
+                    "$ref": "#/types/aws-native:memorydb:ClusterEndpoint",
+                    "description": "The cluster endpoint."
+                },
+                "clusterName": {
+                    "type": "string",
+                    "description": "The name of the cluster. This value must be unique as it also serves as the cluster identifier."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "An optional description of the cluster."
+                },
+                "engineVersion": {
+                    "type": "string",
+                    "description": "The Redis engine version used by the cluster."
+                },
+                "finalSnapshotName": {
+                    "type": "string",
+                    "description": "The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. MemoryDB creates the snapshot, and then deletes the cluster immediately afterward."
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "The ID of the KMS key used to encrypt the cluster."
+                },
+                "maintenanceWindow": {
+                    "type": "string",
+                    "description": "Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period."
+                },
+                "nodeType": {
+                    "type": "string",
+                    "description": "The compute and memory capacity of the nodes in the cluster."
+                },
+                "numReplicasPerShard": {
+                    "type": "integer",
+                    "description": "The number of replicas to apply to each shard. The limit is 5."
+                },
+                "numShards": {
+                    "type": "integer",
+                    "description": "The number of shards the cluster will contain."
+                },
+                "parameterGroupName": {
+                    "type": "string",
+                    "description": "The name of the parameter group associated with the cluster."
+                },
+                "parameterGroupStatus": {
+                    "type": "string",
+                    "description": "The status of the parameter group used by the cluster."
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "The port number on which each member of the cluster accepts connections."
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "One or more Amazon VPC security groups associated with this cluster."
+                },
+                "snapshotArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of Amazon Resource Names (ARN) that uniquely identify the RDB snapshot files stored in Amazon S3. The snapshot files are used to populate the new cluster. The Amazon S3 object name in the ARN cannot contain any commas."
+                },
+                "snapshotName": {
+                    "type": "string",
+                    "description": "The name of a snapshot from which to restore data into the new cluster. The snapshot status changes to restoring while the new cluster is being created."
+                },
+                "snapshotRetentionLimit": {
+                    "type": "integer",
+                    "description": "The number of days for which MemoryDB retains automatic snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, a snapshot that was taken today is retained for 5 days before being deleted."
+                },
+                "snapshotWindow": {
+                    "type": "string",
+                    "description": "The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your cluster."
+                },
+                "snsTopicArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent."
+                },
+                "snsTopicStatus": {
+                    "type": "string",
+                    "description": "The status of the Amazon SNS notification topic. Notifications are sent only if the status is enabled."
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The status of the cluster. For example, Available, Updating, Creating."
+                },
+                "subnetGroupName": {
+                    "type": "string",
+                    "description": "The name of the subnet group to be used for the cluster."
+                },
+                "tLSEnabled": {
+                    "type": "boolean",
+                    "description": "A flag that enables in-transit encryption when set to true.\n\nYou cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:memorydb:ClusterTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this cluster."
+                }
+            },
+            "type": "object",
+            "required": [
+                "aCLName",
+                "aRN",
+                "clusterName",
+                "nodeType",
+                "parameterGroupStatus",
+                "status"
+            ],
+            "inputProperties": {
+                "aCLName": {
+                    "type": "string",
+                    "description": "The name of the Access Control List to associate with the cluster."
+                },
+                "autoMinorVersionUpgrade": {
+                    "type": "boolean",
+                    "description": "A flag that enables automatic minor version upgrade when set to true.\n\nYou cannot modify the value of AutoMinorVersionUpgrade after the cluster is created. To enable AutoMinorVersionUpgrade on a cluster you must set AutoMinorVersionUpgrade to true when you create a cluster."
+                },
+                "clusterEndpoint": {
+                    "$ref": "#/types/aws-native:memorydb:ClusterEndpoint",
+                    "description": "The cluster endpoint."
+                },
+                "clusterName": {
+                    "type": "string",
+                    "description": "The name of the cluster. This value must be unique as it also serves as the cluster identifier."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "An optional description of the cluster."
+                },
+                "engineVersion": {
+                    "type": "string",
+                    "description": "The Redis engine version used by the cluster."
+                },
+                "finalSnapshotName": {
+                    "type": "string",
+                    "description": "The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. MemoryDB creates the snapshot, and then deletes the cluster immediately afterward."
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "The ID of the KMS key used to encrypt the cluster."
+                },
+                "maintenanceWindow": {
+                    "type": "string",
+                    "description": "Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period."
+                },
+                "nodeType": {
+                    "type": "string",
+                    "description": "The compute and memory capacity of the nodes in the cluster."
+                },
+                "numReplicasPerShard": {
+                    "type": "integer",
+                    "description": "The number of replicas to apply to each shard. The limit is 5."
+                },
+                "numShards": {
+                    "type": "integer",
+                    "description": "The number of shards the cluster will contain."
+                },
+                "parameterGroupName": {
+                    "type": "string",
+                    "description": "The name of the parameter group associated with the cluster."
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "The port number on which each member of the cluster accepts connections."
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "One or more Amazon VPC security groups associated with this cluster."
+                },
+                "snapshotArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of Amazon Resource Names (ARN) that uniquely identify the RDB snapshot files stored in Amazon S3. The snapshot files are used to populate the new cluster. The Amazon S3 object name in the ARN cannot contain any commas."
+                },
+                "snapshotName": {
+                    "type": "string",
+                    "description": "The name of a snapshot from which to restore data into the new cluster. The snapshot status changes to restoring while the new cluster is being created."
+                },
+                "snapshotRetentionLimit": {
+                    "type": "integer",
+                    "description": "The number of days for which MemoryDB retains automatic snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, a snapshot that was taken today is retained for 5 days before being deleted."
+                },
+                "snapshotWindow": {
+                    "type": "string",
+                    "description": "The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your cluster."
+                },
+                "snsTopicArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent."
+                },
+                "snsTopicStatus": {
+                    "type": "string",
+                    "description": "The status of the Amazon SNS notification topic. Notifications are sent only if the status is enabled."
+                },
+                "subnetGroupName": {
+                    "type": "string",
+                    "description": "The name of the subnet group to be used for the cluster."
+                },
+                "tLSEnabled": {
+                    "type": "boolean",
+                    "description": "A flag that enables in-transit encryption when set to true.\n\nYou cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:memorydb:ClusterTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this cluster."
+                }
+            },
+            "requiredInputs": [
+                "aCLName",
+                "clusterName",
+                "nodeType"
+            ]
+        },
+        "aws-native:memorydb:ParameterGroup": {
+            "description": "The AWS::MemoryDB::ParameterGroup resource creates an Amazon MemoryDB ParameterGroup.",
+            "properties": {
+                "aRN": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the parameter group."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description of the parameter group."
+                },
+                "family": {
+                    "type": "string",
+                    "description": "The name of the parameter group family that this parameter group is compatible with."
+                },
+                "parameterGroupName": {
+                    "type": "string",
+                    "description": "The name of the parameter group."
+                },
+                "parameters": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "An map of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:memorydb:ParameterGroupTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this parameter group."
+                }
+            },
+            "type": "object",
+            "required": [
+                "aRN",
+                "family",
+                "parameterGroupName"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "A description of the parameter group."
+                },
+                "family": {
+                    "type": "string",
+                    "description": "The name of the parameter group family that this parameter group is compatible with."
+                },
+                "parameterGroupName": {
+                    "type": "string",
+                    "description": "The name of the parameter group."
+                },
+                "parameters": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "An map of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:memorydb:ParameterGroupTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this parameter group."
+                }
+            },
+            "requiredInputs": [
+                "family",
+                "parameterGroupName"
+            ]
+        },
+        "aws-native:memorydb:SubnetGroup": {
+            "description": "The AWS::MemoryDB::SubnetGroup resource creates an Amazon MemoryDB Subnet Group.",
+            "properties": {
+                "aRN": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the subnet group."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "An optional description of the subnet group."
+                },
+                "subnetGroupName": {
+                    "type": "string",
+                    "description": "The name of the subnet group. This value must be unique as it also serves as the subnet group identifier."
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of VPC subnet IDs for the subnet group."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:memorydb:SubnetGroupTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this subnet group."
+                }
+            },
+            "type": "object",
+            "required": [
+                "aRN",
+                "subnetGroupName",
+                "subnetIds"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "An optional description of the subnet group."
+                },
+                "subnetGroupName": {
+                    "type": "string",
+                    "description": "The name of the subnet group. This value must be unique as it also serves as the subnet group identifier."
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of VPC subnet IDs for the subnet group."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:memorydb:SubnetGroupTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this subnet group."
+                }
+            },
+            "requiredInputs": [
+                "subnetGroupName",
+                "subnetIds"
+            ]
+        },
+        "aws-native:memorydb:User": {
+            "description": "Resource Type definition for AWS::MemoryDB::User",
+            "properties": {
+                "accessString": {
+                    "type": "string",
+                    "description": "Access permissions string used for this user account."
+                },
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the user account."
+                },
+                "authenticationMode": {
+                    "$ref": "#/types/aws-native:memorydb:AuthenticationModeProperties"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Indicates the user status. Can be \"active\", \"modifying\" or \"deleting\"."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:memorydb:UserTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this user."
+                },
+                "userName": {
+                    "type": "string",
+                    "description": "The name of the user."
+                }
+            },
+            "type": "object",
+            "required": [
+                "accessString",
+                "arn",
+                "authenticationMode",
+                "status",
+                "userName"
+            ],
+            "inputProperties": {
+                "accessString": {
+                    "type": "string",
+                    "description": "Access permissions string used for this user account."
+                },
+                "authenticationMode": {
+                    "$ref": "#/types/aws-native:memorydb:AuthenticationModeProperties"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:memorydb:UserTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this user."
+                },
+                "userName": {
+                    "type": "string",
+                    "description": "The name of the user."
+                }
+            },
+            "requiredInputs": [
+                "accessString",
+                "authenticationMode",
+                "userName"
+            ]
+        },
         "aws-native:mwaa:Environment": {
             "description": "Resource schema for AWS::MWAA::Environment",
             "properties": {
@@ -73232,6 +74316,92 @@
                 }
             }
         },
+        "aws-native:route53resolver:ResolverRule": {
+            "description": "Resource Type definition for AWS::Route53Resolver::ResolverRule",
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the resolver rule."
+                },
+                "domainName": {
+                    "type": "string",
+                    "description": "DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name for the Resolver rule"
+                },
+                "resolverEndpointId": {
+                    "type": "string",
+                    "description": "The ID of the endpoint that the rule is associated with."
+                },
+                "resolverRuleId": {
+                    "type": "string",
+                    "description": "The ID of the endpoint that the rule is associated with."
+                },
+                "ruleType": {
+                    "$ref": "#/types/aws-native:route53resolver:ResolverRuleRuleType",
+                    "description": "When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:route53resolver:ResolverRuleTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                },
+                "targetIps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:route53resolver:ResolverRuleTargetAddress"
+                    },
+                    "description": "An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported."
+                }
+            },
+            "type": "object",
+            "required": [
+                "arn",
+                "domainName",
+                "resolverRuleId",
+                "ruleType"
+            ],
+            "inputProperties": {
+                "domainName": {
+                    "type": "string",
+                    "description": "DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name for the Resolver rule"
+                },
+                "resolverEndpointId": {
+                    "type": "string",
+                    "description": "The ID of the endpoint that the rule is associated with."
+                },
+                "ruleType": {
+                    "$ref": "#/types/aws-native:route53resolver:ResolverRuleRuleType",
+                    "description": "When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:route53resolver:ResolverRuleTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                },
+                "targetIps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:route53resolver:ResolverRuleTargetAddress"
+                    },
+                    "description": "An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported."
+                }
+            },
+            "requiredInputs": [
+                "domainName",
+                "ruleType"
+            ]
+        },
         "aws-native:s3:AccessPoint": {
             "description": "The AWS::S3::AccessPoint resource is an Amazon S3 resource type that you can use to access buckets.",
             "properties": {
@@ -73676,7 +74846,6 @@
             "required": [
                 "arn",
                 "creationDate",
-                "name",
                 "policyStatus",
                 "publicAccessBlockConfiguration"
             ],
@@ -73689,10 +74858,7 @@
                     "$ref": "#/types/aws-native:s3objectlambda:AccessPointObjectLambdaConfiguration",
                     "description": "The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions"
                 }
-            },
-            "requiredInputs": [
-                "name"
-            ]
+            }
         },
         "aws-native:s3objectlambda:AccessPointPolicy": {
             "description": "AWS::S3ObjectLambda::AccessPointPolicy resource is an Amazon S3ObjectLambda policy type that you can use to control permissions for your S3ObjectLambda",
@@ -78048,6 +79214,7 @@
                 "macie": "Macie",
                 "mediaconnect": "MediaConnect",
                 "mediapackage": "MediaPackage",
+                "memorydb": "MemoryDB",
                 "mwaa": "MWAA",
                 "networkfirewall": "NetworkFirewall",
                 "networkmanager": "NetworkManager",

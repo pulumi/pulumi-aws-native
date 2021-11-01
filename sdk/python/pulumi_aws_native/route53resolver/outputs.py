@@ -297,17 +297,27 @@ class ResolverRuleTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
         return pulumi.get(self, "value")
 
 
@@ -316,6 +326,10 @@ class ResolverRuleTargetAddress(dict):
     def __init__(__self__, *,
                  ip: str,
                  port: Optional[str] = None):
+        """
+        :param str ip: One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses. 
+        :param str port: The port at Ip that you want to forward DNS queries to. 
+        """
         pulumi.set(__self__, "ip", ip)
         if port is not None:
             pulumi.set(__self__, "port", port)
@@ -323,11 +337,17 @@ class ResolverRuleTargetAddress(dict):
     @property
     @pulumi.getter
     def ip(self) -> str:
+        """
+        One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses. 
+        """
         return pulumi.get(self, "ip")
 
     @property
     @pulumi.getter
     def port(self) -> Optional[str]:
+        """
+        The port at Ip that you want to forward DNS queries to. 
+        """
         return pulumi.get(self, "port")
 
 

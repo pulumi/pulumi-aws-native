@@ -12,19 +12,25 @@ import (
 )
 
 // Resource Type definition for AWS::Route53Resolver::ResolverRule
-//
-// Deprecated: ResolverRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type ResolverRule struct {
 	pulumi.CustomResourceState
 
-	Arn                pulumi.StringOutput                  `pulumi:"arn"`
-	DomainName         pulumi.StringOutput                  `pulumi:"domainName"`
-	Name               pulumi.StringPtrOutput               `pulumi:"name"`
-	ResolverEndpointId pulumi.StringPtrOutput               `pulumi:"resolverEndpointId"`
-	ResolverRuleId     pulumi.StringOutput                  `pulumi:"resolverRuleId"`
-	RuleType           pulumi.StringOutput                  `pulumi:"ruleType"`
-	Tags               ResolverRuleTagArrayOutput           `pulumi:"tags"`
-	TargetIps          ResolverRuleTargetAddressArrayOutput `pulumi:"targetIps"`
+	// The Amazon Resource Name (ARN) of the resolver rule.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
+	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	// The name for the Resolver rule
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The ID of the endpoint that the rule is associated with.
+	ResolverEndpointId pulumi.StringPtrOutput `pulumi:"resolverEndpointId"`
+	// The ID of the endpoint that the rule is associated with.
+	ResolverRuleId pulumi.StringOutput `pulumi:"resolverRuleId"`
+	// When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.
+	RuleType ResolverRuleRuleTypeOutput `pulumi:"ruleType"`
+	// An array of key-value pairs to apply to this resource.
+	Tags ResolverRuleTagArrayOutput `pulumi:"tags"`
+	// An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.
+	TargetIps ResolverRuleTargetAddressArrayOutput `pulumi:"targetIps"`
 }
 
 // NewResolverRule registers a new resource with the given unique name, arguments, and options.
@@ -72,22 +78,34 @@ func (ResolverRuleState) ElementType() reflect.Type {
 }
 
 type resolverRuleArgs struct {
-	DomainName         string                      `pulumi:"domainName"`
-	Name               *string                     `pulumi:"name"`
-	ResolverEndpointId *string                     `pulumi:"resolverEndpointId"`
-	RuleType           string                      `pulumi:"ruleType"`
-	Tags               []ResolverRuleTag           `pulumi:"tags"`
-	TargetIps          []ResolverRuleTargetAddress `pulumi:"targetIps"`
+	// DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
+	DomainName string `pulumi:"domainName"`
+	// The name for the Resolver rule
+	Name *string `pulumi:"name"`
+	// The ID of the endpoint that the rule is associated with.
+	ResolverEndpointId *string `pulumi:"resolverEndpointId"`
+	// When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.
+	RuleType ResolverRuleRuleType `pulumi:"ruleType"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []ResolverRuleTag `pulumi:"tags"`
+	// An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.
+	TargetIps []ResolverRuleTargetAddress `pulumi:"targetIps"`
 }
 
 // The set of arguments for constructing a ResolverRule resource.
 type ResolverRuleArgs struct {
-	DomainName         pulumi.StringInput
-	Name               pulumi.StringPtrInput
+	// DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
+	DomainName pulumi.StringInput
+	// The name for the Resolver rule
+	Name pulumi.StringPtrInput
+	// The ID of the endpoint that the rule is associated with.
 	ResolverEndpointId pulumi.StringPtrInput
-	RuleType           pulumi.StringInput
-	Tags               ResolverRuleTagArrayInput
-	TargetIps          ResolverRuleTargetAddressArrayInput
+	// When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.
+	RuleType ResolverRuleRuleTypeInput
+	// An array of key-value pairs to apply to this resource.
+	Tags ResolverRuleTagArrayInput
+	// An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.
+	TargetIps ResolverRuleTargetAddressArrayInput
 }
 
 func (ResolverRuleArgs) ElementType() reflect.Type {

@@ -39,6 +39,7 @@ type Endpoint struct {
 	Password                   pulumi.StringPtrOutput                      `pulumi:"password"`
 	Port                       pulumi.IntPtrOutput                         `pulumi:"port"`
 	PostgreSqlSettings         EndpointPostgreSqlSettingsPtrOutput         `pulumi:"postgreSqlSettings"`
+	RedisSettings              EndpointRedisSettingsPtrOutput              `pulumi:"redisSettings"`
 	RedshiftSettings           EndpointRedshiftSettingsPtrOutput           `pulumi:"redshiftSettings"`
 	ResourceIdentifier         pulumi.StringPtrOutput                      `pulumi:"resourceIdentifier"`
 	S3Settings                 EndpointS3SettingsPtrOutput                 `pulumi:"s3Settings"`
@@ -115,6 +116,7 @@ type endpointArgs struct {
 	Password                   *string                             `pulumi:"password"`
 	Port                       *int                                `pulumi:"port"`
 	PostgreSqlSettings         *EndpointPostgreSqlSettings         `pulumi:"postgreSqlSettings"`
+	RedisSettings              *EndpointRedisSettings              `pulumi:"redisSettings"`
 	RedshiftSettings           *EndpointRedshiftSettings           `pulumi:"redshiftSettings"`
 	ResourceIdentifier         *string                             `pulumi:"resourceIdentifier"`
 	S3Settings                 *EndpointS3Settings                 `pulumi:"s3Settings"`
@@ -148,6 +150,7 @@ type EndpointArgs struct {
 	Password                   pulumi.StringPtrInput
 	Port                       pulumi.IntPtrInput
 	PostgreSqlSettings         EndpointPostgreSqlSettingsPtrInput
+	RedisSettings              EndpointRedisSettingsPtrInput
 	RedshiftSettings           EndpointRedshiftSettingsPtrInput
 	ResourceIdentifier         pulumi.StringPtrInput
 	S3Settings                 EndpointS3SettingsPtrInput

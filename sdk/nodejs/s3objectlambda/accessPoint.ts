@@ -43,7 +43,7 @@ export class AccessPoint extends pulumi.CustomResource {
     /**
      * The name you want to assign to this Object lambda Access Point.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
      */
@@ -61,13 +61,10 @@ export class AccessPoint extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AccessPointArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: AccessPointArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["name"] = args ? args.name : undefined;
             inputs["objectLambdaConfiguration"] = args ? args.objectLambdaConfiguration : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -96,7 +93,7 @@ export interface AccessPointArgs {
     /**
      * The name you want to assign to this Object lambda Access Point.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
      */

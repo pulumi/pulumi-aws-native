@@ -20,6 +20,7 @@ __all__ = [
     'ResolverQueryLoggingConfigAssociationStatus',
     'ResolverQueryLoggingConfigShareStatus',
     'ResolverQueryLoggingConfigStatus',
+    'ResolverRuleRuleType',
 ]
 
 
@@ -162,3 +163,12 @@ class ResolverQueryLoggingConfigStatus(str, Enum):
     CREATED = "CREATED"
     DELETING = "DELETING"
     FAILED = "FAILED"
+
+
+class ResolverRuleRuleType(str, Enum):
+    """
+    When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.
+    """
+    FORWARD = "FORWARD"
+    SYSTEM = "SYSTEM"
+    RECURSIVE = "RECURSIVE"

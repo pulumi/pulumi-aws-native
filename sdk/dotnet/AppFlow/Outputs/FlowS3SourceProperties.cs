@@ -15,15 +15,19 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     {
         public readonly string BucketName;
         public readonly string BucketPrefix;
+        public readonly Outputs.FlowS3InputFormatConfig? S3InputFormatConfig;
 
         [OutputConstructor]
         private FlowS3SourceProperties(
             string bucketName,
 
-            string bucketPrefix)
+            string bucketPrefix,
+
+            Outputs.FlowS3InputFormatConfig? s3InputFormatConfig)
         {
             BucketName = bucketName;
             BucketPrefix = bucketPrefix;
+            S3InputFormatConfig = s3InputFormatConfig;
         }
     }
 }

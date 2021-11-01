@@ -60,6 +60,7 @@ export class Endpoint extends pulumi.CustomResource {
     public readonly password!: pulumi.Output<string | undefined>;
     public readonly port!: pulumi.Output<number | undefined>;
     public readonly postgreSqlSettings!: pulumi.Output<outputs.dms.EndpointPostgreSqlSettings | undefined>;
+    public readonly redisSettings!: pulumi.Output<outputs.dms.EndpointRedisSettings | undefined>;
     public readonly redshiftSettings!: pulumi.Output<outputs.dms.EndpointRedshiftSettings | undefined>;
     public readonly resourceIdentifier!: pulumi.Output<string | undefined>;
     public readonly s3Settings!: pulumi.Output<outputs.dms.EndpointS3Settings | undefined>;
@@ -109,6 +110,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["password"] = args ? args.password : undefined;
             inputs["port"] = args ? args.port : undefined;
             inputs["postgreSqlSettings"] = args ? args.postgreSqlSettings : undefined;
+            inputs["redisSettings"] = args ? args.redisSettings : undefined;
             inputs["redshiftSettings"] = args ? args.redshiftSettings : undefined;
             inputs["resourceIdentifier"] = args ? args.resourceIdentifier : undefined;
             inputs["s3Settings"] = args ? args.s3Settings : undefined;
@@ -141,6 +143,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["password"] = undefined /*out*/;
             inputs["port"] = undefined /*out*/;
             inputs["postgreSqlSettings"] = undefined /*out*/;
+            inputs["redisSettings"] = undefined /*out*/;
             inputs["redshiftSettings"] = undefined /*out*/;
             inputs["resourceIdentifier"] = undefined /*out*/;
             inputs["s3Settings"] = undefined /*out*/;
@@ -182,6 +185,7 @@ export interface EndpointArgs {
     password?: pulumi.Input<string>;
     port?: pulumi.Input<number>;
     postgreSqlSettings?: pulumi.Input<inputs.dms.EndpointPostgreSqlSettingsArgs>;
+    redisSettings?: pulumi.Input<inputs.dms.EndpointRedisSettingsArgs>;
     redshiftSettings?: pulumi.Input<inputs.dms.EndpointRedshiftSettingsArgs>;
     resourceIdentifier?: pulumi.Input<string>;
     s3Settings?: pulumi.Input<inputs.dms.EndpointS3SettingsArgs>;
