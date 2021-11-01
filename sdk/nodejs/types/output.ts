@@ -775,6 +775,11 @@ export namespace apigateway {
         rateLimit?: number;
     }
 
+    export interface VpcLinkTag {
+        key: string;
+        value: string;
+    }
+
 }
 
 export namespace apigatewayv2 {
@@ -6212,6 +6217,52 @@ export namespace configuration {
 
 export namespace connect {
     /**
+     * Contains information about the hours of operation.
+     */
+    export interface HoursOfOperationConfig {
+        /**
+         * The day that the hours of operation applies to.
+         */
+        day: enums.connect.HoursOfOperationConfigDay;
+        /**
+         * The end time that your contact center closes.
+         */
+        endTime: outputs.connect.HoursOfOperationTimeSlice;
+        /**
+         * The start time that your contact center opens.
+         */
+        startTime: outputs.connect.HoursOfOperationTimeSlice;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface HoursOfOperationTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: string;
+    }
+
+    /**
+     * The start time or end time for an hours of operation.
+     */
+    export interface HoursOfOperationTimeSlice {
+        /**
+         * The hours.
+         */
+        hours: number;
+        /**
+         * The minutes.
+         */
+        minutes: number;
+    }
+
+    /**
      * Configuration settings for the quick connect.
      */
     export interface QuickConnectConfig {
@@ -6256,6 +6307,39 @@ export namespace connect {
     export interface QuickConnectUserQuickConnectConfig {
         contactFlowArn: string;
         userArn: string;
+    }
+
+    /**
+     * Contains information about the identity of a user.
+     */
+    export interface UserIdentityInfo {
+        email?: string;
+        firstName?: string;
+        lastName?: string;
+    }
+
+    /**
+     * Contains information about the phone configuration settings for a user.
+     */
+    export interface UserPhoneConfig {
+        afterContactWorkTimeLimit?: number;
+        autoAccept?: boolean;
+        deskPhoneNumber?: string;
+        phoneType: enums.connect.UserPhoneType;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface UserTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: string;
     }
 
 }
@@ -7784,6 +7868,26 @@ export namespace dynamodb {
 }
 
 export namespace ec2 {
+    export interface CapacityReservationFleetInstanceTypeSpecification {
+        availabilityZone?: string;
+        availabilityZoneId?: string;
+        ebsOptimized?: boolean;
+        instancePlatform?: string;
+        instanceType?: string;
+        priority?: number;
+        weight?: number;
+    }
+
+    export interface CapacityReservationFleetTag {
+        key: string;
+        value: string;
+    }
+
+    export interface CapacityReservationFleetTagSpecification {
+        resourceType?: string;
+        tags?: outputs.ec2.CapacityReservationFleetTag[];
+    }
+
     export interface CapacityReservationTag {
         key: string;
         value: string;
@@ -7850,6 +7954,21 @@ export namespace ec2 {
         value: string;
     }
 
+    export interface EC2FleetAcceleratorCountRequest {
+        max?: number;
+        min?: number;
+    }
+
+    export interface EC2FleetAcceleratorTotalMemoryMiBRequest {
+        max?: number;
+        min?: number;
+    }
+
+    export interface EC2FleetBaselineEbsBandwidthMbpsRequest {
+        max?: number;
+        min?: number;
+    }
+
     export interface EC2FleetCapacityReservationOptionsRequest {
         usageStrategy?: enums.ec2.EC2FleetCapacityReservationOptionsRequestUsageStrategy;
     }
@@ -7861,6 +7980,7 @@ export namespace ec2 {
 
     export interface EC2FleetFleetLaunchTemplateOverridesRequest {
         availabilityZone?: string;
+        instanceRequirements?: outputs.ec2.EC2FleetInstanceRequirementsRequest;
         instanceType?: string;
         maxPrice?: string;
         placement?: outputs.ec2.EC2FleetPlacement;
@@ -7873,6 +7993,45 @@ export namespace ec2 {
         launchTemplateId?: string;
         launchTemplateName?: string;
         version?: string;
+    }
+
+    export interface EC2FleetInstanceRequirementsRequest {
+        acceleratorCount?: outputs.ec2.EC2FleetAcceleratorCountRequest;
+        acceleratorManufacturers?: enums.ec2.EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem[];
+        acceleratorNames?: enums.ec2.EC2FleetInstanceRequirementsRequestAcceleratorNamesItem[];
+        acceleratorTotalMemoryMiB?: outputs.ec2.EC2FleetAcceleratorTotalMemoryMiBRequest;
+        acceleratorTypes?: enums.ec2.EC2FleetInstanceRequirementsRequestAcceleratorTypesItem[];
+        bareMetal?: enums.ec2.EC2FleetInstanceRequirementsRequestBareMetal;
+        baselineEbsBandwidthMbps?: outputs.ec2.EC2FleetBaselineEbsBandwidthMbpsRequest;
+        burstablePerformance?: enums.ec2.EC2FleetInstanceRequirementsRequestBurstablePerformance;
+        cpuManufacturers?: enums.ec2.EC2FleetInstanceRequirementsRequestCpuManufacturersItem[];
+        excludedInstanceTypes?: string[];
+        instanceGenerations?: enums.ec2.EC2FleetInstanceRequirementsRequestInstanceGenerationsItem[];
+        localStorage?: enums.ec2.EC2FleetInstanceRequirementsRequestLocalStorage;
+        localStorageTypes?: enums.ec2.EC2FleetInstanceRequirementsRequestLocalStorageTypesItem[];
+        memoryGiBPerVCpu?: outputs.ec2.EC2FleetMemoryGiBPerVCpuRequest;
+        memoryMiB?: outputs.ec2.EC2FleetMemoryMiBRequest;
+        networkInterfaceCount?: outputs.ec2.EC2FleetNetworkInterfaceCountRequest;
+        onDemandMaxPricePercentageOverLowestPrice?: number;
+        requireHibernateSupport?: boolean;
+        spotMaxPricePercentageOverLowestPrice?: number;
+        totalLocalStorageGB?: outputs.ec2.EC2FleetTotalLocalStorageGBRequest;
+        vCpuCount?: outputs.ec2.EC2FleetVCpuCountRangeRequest;
+    }
+
+    export interface EC2FleetMemoryGiBPerVCpuRequest {
+        max?: number;
+        min?: number;
+    }
+
+    export interface EC2FleetMemoryMiBRequest {
+        max?: number;
+        min?: number;
+    }
+
+    export interface EC2FleetNetworkInterfaceCountRequest {
+        max?: number;
+        min?: number;
     }
 
     export interface EC2FleetOnDemandOptionsRequest {
@@ -7919,7 +8078,18 @@ export namespace ec2 {
         defaultTargetCapacityType?: enums.ec2.EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType;
         onDemandTargetCapacity?: number;
         spotTargetCapacity?: number;
+        targetCapacityUnitType?: enums.ec2.EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType;
         totalTargetCapacity: number;
+    }
+
+    export interface EC2FleetTotalLocalStorageGBRequest {
+        max?: number;
+        min?: number;
+    }
+
+    export interface EC2FleetVCpuCountRangeRequest {
+        max?: number;
+        min?: number;
     }
 
     export interface EIPTag {
@@ -8441,6 +8611,21 @@ export namespace ec2 {
         value: string;
     }
 
+    export interface SpotFleetAcceleratorCountRequest {
+        max?: number;
+        min?: number;
+    }
+
+    export interface SpotFleetAcceleratorTotalMemoryMiBRequest {
+        max?: number;
+        min?: number;
+    }
+
+    export interface SpotFleetBaselineEbsBandwidthMbpsRequest {
+        max?: number;
+        min?: number;
+    }
+
     export interface SpotFleetBlockDeviceMapping {
         deviceName: string;
         ebs?: outputs.ec2.SpotFleetEbsBlockDevice;
@@ -8497,12 +8682,37 @@ export namespace ec2 {
         subnetId?: string;
     }
 
+    export interface SpotFleetInstanceRequirementsRequest {
+        acceleratorCount?: outputs.ec2.SpotFleetAcceleratorCountRequest;
+        acceleratorManufacturers?: enums.ec2.SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem[];
+        acceleratorNames?: enums.ec2.SpotFleetInstanceRequirementsRequestAcceleratorNamesItem[];
+        acceleratorTotalMemoryMiB?: outputs.ec2.SpotFleetAcceleratorTotalMemoryMiBRequest;
+        acceleratorTypes?: enums.ec2.SpotFleetInstanceRequirementsRequestAcceleratorTypesItem[];
+        bareMetal?: enums.ec2.SpotFleetInstanceRequirementsRequestBareMetal;
+        baselineEbsBandwidthMbps?: outputs.ec2.SpotFleetBaselineEbsBandwidthMbpsRequest;
+        burstablePerformance?: enums.ec2.SpotFleetInstanceRequirementsRequestBurstablePerformance;
+        cpuManufacturers?: enums.ec2.SpotFleetInstanceRequirementsRequestCpuManufacturersItem[];
+        excludedInstanceTypes?: string[];
+        instanceGenerations?: enums.ec2.SpotFleetInstanceRequirementsRequestInstanceGenerationsItem[];
+        localStorage?: enums.ec2.SpotFleetInstanceRequirementsRequestLocalStorage;
+        localStorageTypes?: enums.ec2.SpotFleetInstanceRequirementsRequestLocalStorageTypesItem[];
+        memoryGiBPerVCpu?: outputs.ec2.SpotFleetMemoryGiBPerVCpuRequest;
+        memoryMiB?: outputs.ec2.SpotFleetMemoryMiBRequest;
+        networkInterfaceCount?: outputs.ec2.SpotFleetNetworkInterfaceCountRequest;
+        onDemandMaxPricePercentageOverLowestPrice?: number;
+        requireHibernateSupport?: boolean;
+        spotMaxPricePercentageOverLowestPrice?: number;
+        totalLocalStorageGB?: outputs.ec2.SpotFleetTotalLocalStorageGBRequest;
+        vCpuCount?: outputs.ec2.SpotFleetVCpuCountRangeRequest;
+    }
+
     export interface SpotFleetLaunchSpecification {
         blockDeviceMappings?: outputs.ec2.SpotFleetBlockDeviceMapping[];
         ebsOptimized?: boolean;
         iamInstanceProfile?: outputs.ec2.SpotFleetIamInstanceProfileSpecification;
         imageId: string;
-        instanceType: string;
+        instanceRequirements?: outputs.ec2.SpotFleetInstanceRequirementsRequest;
+        instanceType?: string;
         kernelId?: string;
         keyName?: string;
         monitoring?: outputs.ec2.SpotFleetMonitoring;
@@ -8524,6 +8734,7 @@ export namespace ec2 {
 
     export interface SpotFleetLaunchTemplateOverrides {
         availabilityZone?: string;
+        instanceRequirements?: outputs.ec2.SpotFleetInstanceRequirementsRequest;
         instanceType?: string;
         spotPrice?: string;
         subnetId?: string;
@@ -8535,8 +8746,23 @@ export namespace ec2 {
         targetGroupsConfig?: outputs.ec2.SpotFleetTargetGroupsConfig;
     }
 
+    export interface SpotFleetMemoryGiBPerVCpuRequest {
+        max?: number;
+        min?: number;
+    }
+
+    export interface SpotFleetMemoryMiBRequest {
+        max?: number;
+        min?: number;
+    }
+
     export interface SpotFleetMonitoring {
         enabled?: boolean;
+    }
+
+    export interface SpotFleetNetworkInterfaceCountRequest {
+        max?: number;
+        min?: number;
     }
 
     export interface SpotFleetPrivateIpAddressSpecification {
@@ -8562,6 +8788,7 @@ export namespace ec2 {
         spotMaxTotalPrice?: string;
         spotPrice?: string;
         targetCapacity: number;
+        targetCapacityUnitType?: enums.ec2.SpotFleetRequestConfigDataTargetCapacityUnitType;
         terminateInstancesWithExpiration?: boolean;
         type?: enums.ec2.SpotFleetRequestConfigDataType;
         validFrom?: string;
@@ -8598,6 +8825,16 @@ export namespace ec2 {
 
     export interface SpotFleetTargetGroupsConfig {
         targetGroups: outputs.ec2.SpotFleetTargetGroup[];
+    }
+
+    export interface SpotFleetTotalLocalStorageGBRequest {
+        max?: number;
+        min?: number;
+    }
+
+    export interface SpotFleetVCpuCountRangeRequest {
+        max?: number;
+        min?: number;
     }
 
     export interface SubnetTag {
@@ -16275,6 +16512,58 @@ export namespace licensemanager {
 
 export namespace lightsail {
     /**
+     * Describes the parameters of the database.
+     */
+    export interface DatabaseRelationalDatabaseParameter {
+        /**
+         * Specifies the valid range of values for the parameter.
+         */
+        allowedValues?: string;
+        /**
+         * Indicates when parameter updates are applied. Can be immediate or pending-reboot.
+         */
+        applyMethod?: string;
+        /**
+         * Specifies the engine-specific parameter type.
+         */
+        applyType?: string;
+        /**
+         * Specifies the valid data type for the parameter.
+         */
+        dataType?: string;
+        /**
+         * Provides a description of the parameter.
+         */
+        description?: string;
+        /**
+         * A Boolean value indicating whether the parameter can be modified.
+         */
+        isModifiable?: boolean;
+        /**
+         * Specifies the name of the parameter.
+         */
+        parameterName?: string;
+        /**
+         * Specifies the value of the parameter.
+         */
+        parameterValue?: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface DatabaseTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value?: string;
+    }
+
+    /**
      * A addon associate with a resource.
      */
     export interface DiskAddOn {
@@ -19020,12 +19309,6 @@ export namespace mwaa {
         subnetIds?: string[];
     }
 
-    /**
-     * A map of tags for the environment.
-     */
-    export interface EnvironmentTagMap {
-    }
-
 }
 
 export namespace neptune {
@@ -19726,6 +20009,41 @@ export namespace opsworkscm {
     }
 
     export interface ServerTag {
+        key: string;
+        value: string;
+    }
+
+}
+
+export namespace panorama {
+    export interface ApplicationInstanceManifestOverridesPayload {
+        payloadData?: string;
+    }
+
+    export interface ApplicationInstanceManifestPayload {
+        payloadData?: string;
+    }
+
+    export interface ApplicationInstanceTag {
+        /**
+         * A string used to identify this tag
+         */
+        key: string;
+        /**
+         * A string containing the value for the tag
+         */
+        value: string;
+    }
+
+    export interface PackageStorageLocation {
+        binaryPrefixLocation?: string;
+        bucket?: string;
+        generatedPrefixLocation?: string;
+        manifestPrefixLocation?: string;
+        repoPrefixLocation?: string;
+    }
+
+    export interface PackageTag {
         key: string;
         value: string;
     }
@@ -24855,7 +25173,7 @@ export namespace sagemaker {
     export interface ServiceCatalogProvisioningDetailsProperties {
         pathId?: string;
         productId: string;
-        provisioningArtifactId: string;
+        provisioningArtifactId?: string;
         /**
          * Parameters specified by the administrator that are required for provisioning the product.
          */

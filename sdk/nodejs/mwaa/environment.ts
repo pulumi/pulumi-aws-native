@@ -64,7 +64,10 @@ export class Environment extends pulumi.CustomResource {
     public readonly requirementsS3Path!: pulumi.Output<string | undefined>;
     public readonly schedulers!: pulumi.Output<number | undefined>;
     public readonly sourceBucketArn!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.mwaa.EnvironmentTagMap | undefined>;
+    /**
+     * A map of tags for the environment.
+     */
+    public readonly tags!: pulumi.Output<any | undefined>;
     public readonly webserverAccessMode!: pulumi.Output<enums.mwaa.EnvironmentWebserverAccessMode | undefined>;
     public /*out*/ readonly webserverUrl!: pulumi.Output<string>;
     public readonly weeklyMaintenanceWindowStart!: pulumi.Output<string | undefined>;
@@ -168,7 +171,10 @@ export interface EnvironmentArgs {
     requirementsS3Path?: pulumi.Input<string>;
     schedulers?: pulumi.Input<number>;
     sourceBucketArn?: pulumi.Input<string>;
-    tags?: pulumi.Input<inputs.mwaa.EnvironmentTagMapArgs>;
+    /**
+     * A map of tags for the environment.
+     */
+    tags?: any;
     webserverAccessMode?: pulumi.Input<enums.mwaa.EnvironmentWebserverAccessMode>;
     weeklyMaintenanceWindowStart?: pulumi.Input<string>;
 }

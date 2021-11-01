@@ -33,7 +33,7 @@ class EnvironmentArgs:
                  requirements_s3_path: Optional[pulumi.Input[str]] = None,
                  schedulers: Optional[pulumi.Input[int]] = None,
                  source_bucket_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input['EnvironmentTagMapArgs']] = None,
+                 tags: Optional[Any] = None,
                  webserver_access_mode: Optional[pulumi.Input['EnvironmentWebserverAccessMode']] = None,
                  weekly_maintenance_window_start: Optional[pulumi.Input[str]] = None):
         """
@@ -47,6 +47,7 @@ class EnvironmentArgs:
                    Would be represented as
                
                    "core.dags_folder": "{AIRFLOW_HOME}/dags"
+        :param Any tags: A map of tags for the environment.
         """
         pulumi.set(__self__, "name", name)
         if airflow_configuration_options is not None:
@@ -254,11 +255,14 @@ class EnvironmentArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['EnvironmentTagMapArgs']]:
+    def tags(self) -> Optional[Any]:
+        """
+        A map of tags for the environment.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['EnvironmentTagMapArgs']]):
+    def tags(self, value: Optional[Any]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -302,7 +306,7 @@ class Environment(pulumi.CustomResource):
                  requirements_s3_path: Optional[pulumi.Input[str]] = None,
                  schedulers: Optional[pulumi.Input[int]] = None,
                  source_bucket_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['EnvironmentTagMapArgs']]] = None,
+                 tags: Optional[Any] = None,
                  webserver_access_mode: Optional[pulumi.Input['EnvironmentWebserverAccessMode']] = None,
                  weekly_maintenance_window_start: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -320,6 +324,7 @@ class Environment(pulumi.CustomResource):
                    Would be represented as
                
                    "core.dags_folder": "{AIRFLOW_HOME}/dags"
+        :param Any tags: A map of tags for the environment.
         """
         ...
     @overload
@@ -362,7 +367,7 @@ class Environment(pulumi.CustomResource):
                  requirements_s3_path: Optional[pulumi.Input[str]] = None,
                  schedulers: Optional[pulumi.Input[int]] = None,
                  source_bucket_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['EnvironmentTagMapArgs']]] = None,
+                 tags: Optional[Any] = None,
                  webserver_access_mode: Optional[pulumi.Input['EnvironmentWebserverAccessMode']] = None,
                  weekly_maintenance_window_start: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -550,7 +555,10 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['outputs.EnvironmentTagMap']]:
+    def tags(self) -> pulumi.Output[Optional[Any]]:
+        """
+        A map of tags for the environment.
+        """
         return pulumi.get(self, "tags")
 
     @property

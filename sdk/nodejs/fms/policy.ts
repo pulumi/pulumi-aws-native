@@ -45,6 +45,7 @@ export class Policy extends pulumi.CustomResource {
     public readonly resourceTags!: pulumi.Output<outputs.fms.PolicyResourceTag[] | undefined>;
     public readonly resourceType!: pulumi.Output<string>;
     public readonly resourceTypeList!: pulumi.Output<string[] | undefined>;
+    public readonly resourcesCleanUp!: pulumi.Output<boolean | undefined>;
     public readonly securityServicePolicyData!: pulumi.Output<outputs.fms.SecurityServicePolicyDataProperties>;
     public readonly tags!: pulumi.Output<outputs.fms.PolicyTag[] | undefined>;
 
@@ -83,6 +84,7 @@ export class Policy extends pulumi.CustomResource {
             inputs["resourceTags"] = args ? args.resourceTags : undefined;
             inputs["resourceType"] = args ? args.resourceType : undefined;
             inputs["resourceTypeList"] = args ? args.resourceTypeList : undefined;
+            inputs["resourcesCleanUp"] = args ? args.resourcesCleanUp : undefined;
             inputs["securityServicePolicyData"] = args ? args.securityServicePolicyData : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -97,6 +99,7 @@ export class Policy extends pulumi.CustomResource {
             inputs["resourceTags"] = undefined /*out*/;
             inputs["resourceType"] = undefined /*out*/;
             inputs["resourceTypeList"] = undefined /*out*/;
+            inputs["resourcesCleanUp"] = undefined /*out*/;
             inputs["securityServicePolicyData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
@@ -120,6 +123,7 @@ export interface PolicyArgs {
     resourceTags?: pulumi.Input<pulumi.Input<inputs.fms.PolicyResourceTagArgs>[]>;
     resourceType: pulumi.Input<string>;
     resourceTypeList?: pulumi.Input<pulumi.Input<string>[]>;
+    resourcesCleanUp?: pulumi.Input<boolean>;
     securityServicePolicyData: pulumi.Input<inputs.fms.SecurityServicePolicyDataPropertiesArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.fms.PolicyTagArgs>[]>;
 }

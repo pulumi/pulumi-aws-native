@@ -6906,10 +6906,10 @@ class ServiceCatalogProvisioningDetailsProperties(dict):
         suggest = None
         if key == "productId":
             suggest = "product_id"
-        elif key == "provisioningArtifactId":
-            suggest = "provisioning_artifact_id"
         elif key == "pathId":
             suggest = "path_id"
+        elif key == "provisioningArtifactId":
+            suggest = "provisioning_artifact_id"
         elif key == "provisioningParameters":
             suggest = "provisioning_parameters"
 
@@ -6926,17 +6926,18 @@ class ServiceCatalogProvisioningDetailsProperties(dict):
 
     def __init__(__self__, *,
                  product_id: str,
-                 provisioning_artifact_id: str,
                  path_id: Optional[str] = None,
+                 provisioning_artifact_id: Optional[str] = None,
                  provisioning_parameters: Optional[Sequence['outputs.ProjectProvisioningParameter']] = None):
         """
         Input ServiceCatalog Provisioning Details
         :param Sequence['ProjectProvisioningParameter'] provisioning_parameters: Parameters specified by the administrator that are required for provisioning the product.
         """
         pulumi.set(__self__, "product_id", product_id)
-        pulumi.set(__self__, "provisioning_artifact_id", provisioning_artifact_id)
         if path_id is not None:
             pulumi.set(__self__, "path_id", path_id)
+        if provisioning_artifact_id is not None:
+            pulumi.set(__self__, "provisioning_artifact_id", provisioning_artifact_id)
         if provisioning_parameters is not None:
             pulumi.set(__self__, "provisioning_parameters", provisioning_parameters)
 
@@ -6946,14 +6947,14 @@ class ServiceCatalogProvisioningDetailsProperties(dict):
         return pulumi.get(self, "product_id")
 
     @property
-    @pulumi.getter(name="provisioningArtifactId")
-    def provisioning_artifact_id(self) -> str:
-        return pulumi.get(self, "provisioning_artifact_id")
-
-    @property
     @pulumi.getter(name="pathId")
     def path_id(self) -> Optional[str]:
         return pulumi.get(self, "path_id")
+
+    @property
+    @pulumi.getter(name="provisioningArtifactId")
+    def provisioning_artifact_id(self) -> Optional[str]:
+        return pulumi.get(self, "provisioning_artifact_id")
 
     @property
     @pulumi.getter(name="provisioningParameters")

@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.ApiGateway
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.VpcLinkTag>> Tags { get; private set; } = null!;
+
         [Output("targetArns")]
         public Output<ImmutableArray<string>> TargetArns { get; private set; } = null!;
 
@@ -75,6 +78,14 @@ namespace Pulumi.AwsNative.ApiGateway
 
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("tags")]
+        private InputList<Inputs.VpcLinkTagArgs>? _tags;
+        public InputList<Inputs.VpcLinkTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.VpcLinkTagArgs>());
+            set => _tags = value;
+        }
 
         [Input("targetArns", required: true)]
         private InputList<string>? _targetArns;

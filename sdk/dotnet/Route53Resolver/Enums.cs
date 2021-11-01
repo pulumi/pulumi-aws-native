@@ -266,6 +266,69 @@ namespace Pulumi.AwsNative.Route53Resolver
     }
 
     /// <summary>
+    /// ResolverAutodefinedReverseStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResolverConfigAutodefinedReverse : IEquatable<ResolverConfigAutodefinedReverse>
+    {
+        private readonly string _value;
+
+        private ResolverConfigAutodefinedReverse(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResolverConfigAutodefinedReverse Enabling { get; } = new ResolverConfigAutodefinedReverse("ENABLING");
+        public static ResolverConfigAutodefinedReverse Enabled { get; } = new ResolverConfigAutodefinedReverse("ENABLED");
+        public static ResolverConfigAutodefinedReverse Disabling { get; } = new ResolverConfigAutodefinedReverse("DISABLING");
+        public static ResolverConfigAutodefinedReverse Disabled { get; } = new ResolverConfigAutodefinedReverse("DISABLED");
+
+        public static bool operator ==(ResolverConfigAutodefinedReverse left, ResolverConfigAutodefinedReverse right) => left.Equals(right);
+        public static bool operator !=(ResolverConfigAutodefinedReverse left, ResolverConfigAutodefinedReverse right) => !left.Equals(right);
+
+        public static explicit operator string(ResolverConfigAutodefinedReverse value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResolverConfigAutodefinedReverse other && Equals(other);
+        public bool Equals(ResolverConfigAutodefinedReverse other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Represents the desired status of AutodefinedReverse. The only supported value on creation is DISABLE. Deletion of this resource will return AutodefinedReverse to its default value (ENABLED).
+    /// </summary>
+    [EnumType]
+    public readonly struct ResolverConfigAutodefinedReverseFlag : IEquatable<ResolverConfigAutodefinedReverseFlag>
+    {
+        private readonly string _value;
+
+        private ResolverConfigAutodefinedReverseFlag(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResolverConfigAutodefinedReverseFlag Disable { get; } = new ResolverConfigAutodefinedReverseFlag("DISABLE");
+
+        public static bool operator ==(ResolverConfigAutodefinedReverseFlag left, ResolverConfigAutodefinedReverseFlag right) => left.Equals(right);
+        public static bool operator !=(ResolverConfigAutodefinedReverseFlag left, ResolverConfigAutodefinedReverseFlag right) => !left.Equals(right);
+
+        public static explicit operator string(ResolverConfigAutodefinedReverseFlag value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResolverConfigAutodefinedReverseFlag other && Equals(other);
+        public bool Equals(ResolverConfigAutodefinedReverseFlag other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// ResolverDNSSECValidationStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.
     /// </summary>
     [EnumType]

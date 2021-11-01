@@ -2,6 +2,18 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const CapacityReservationFleetInstanceMatchCriteria = {
+    Open: "open",
+} as const;
+
+export type CapacityReservationFleetInstanceMatchCriteria = (typeof CapacityReservationFleetInstanceMatchCriteria)[keyof typeof CapacityReservationFleetInstanceMatchCriteria];
+
+export const CapacityReservationFleetTenancy = {
+    Default: "default",
+} as const;
+
+export type CapacityReservationFleetTenancy = (typeof CapacityReservationFleetTenancy)[keyof typeof CapacityReservationFleetTenancy];
+
 export const EC2FleetCapacityReservationOptionsRequestUsageStrategy = {
     UseCapacityReservationsFirst: "use-capacity-reservations-first",
 } as const;
@@ -14,6 +26,83 @@ export const EC2FleetExcessCapacityTerminationPolicy = {
 } as const;
 
 export type EC2FleetExcessCapacityTerminationPolicy = (typeof EC2FleetExcessCapacityTerminationPolicy)[keyof typeof EC2FleetExcessCapacityTerminationPolicy];
+
+export const EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem = {
+    Nvidia: "nvidia",
+    Amd: "amd",
+    AmazonWebServices: "amazon-web-services",
+    Xilinx: "xilinx",
+} as const;
+
+export type EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem = (typeof EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem)[keyof typeof EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem];
+
+export const EC2FleetInstanceRequirementsRequestAcceleratorNamesItem = {
+    A100: "a100",
+    V100: "v100",
+    K80: "k80",
+    T4: "t4",
+    M60: "m60",
+    RadeonProV520: "radeon-pro-v520",
+    Vu9p: "vu9p",
+    Inferentia: "inferentia",
+    K520: "k520",
+} as const;
+
+export type EC2FleetInstanceRequirementsRequestAcceleratorNamesItem = (typeof EC2FleetInstanceRequirementsRequestAcceleratorNamesItem)[keyof typeof EC2FleetInstanceRequirementsRequestAcceleratorNamesItem];
+
+export const EC2FleetInstanceRequirementsRequestAcceleratorTypesItem = {
+    Gpu: "gpu",
+    Fpga: "fpga",
+    Inference: "inference",
+} as const;
+
+export type EC2FleetInstanceRequirementsRequestAcceleratorTypesItem = (typeof EC2FleetInstanceRequirementsRequestAcceleratorTypesItem)[keyof typeof EC2FleetInstanceRequirementsRequestAcceleratorTypesItem];
+
+export const EC2FleetInstanceRequirementsRequestBareMetal = {
+    Included: "included",
+    Required: "required",
+    Excluded: "excluded",
+} as const;
+
+export type EC2FleetInstanceRequirementsRequestBareMetal = (typeof EC2FleetInstanceRequirementsRequestBareMetal)[keyof typeof EC2FleetInstanceRequirementsRequestBareMetal];
+
+export const EC2FleetInstanceRequirementsRequestBurstablePerformance = {
+    Included: "included",
+    Required: "required",
+    Excluded: "excluded",
+} as const;
+
+export type EC2FleetInstanceRequirementsRequestBurstablePerformance = (typeof EC2FleetInstanceRequirementsRequestBurstablePerformance)[keyof typeof EC2FleetInstanceRequirementsRequestBurstablePerformance];
+
+export const EC2FleetInstanceRequirementsRequestCpuManufacturersItem = {
+    Intel: "intel",
+    Amd: "amd",
+    AmazonWebServices: "amazon-web-services",
+} as const;
+
+export type EC2FleetInstanceRequirementsRequestCpuManufacturersItem = (typeof EC2FleetInstanceRequirementsRequestCpuManufacturersItem)[keyof typeof EC2FleetInstanceRequirementsRequestCpuManufacturersItem];
+
+export const EC2FleetInstanceRequirementsRequestInstanceGenerationsItem = {
+    Current: "current",
+    Previous: "previous",
+} as const;
+
+export type EC2FleetInstanceRequirementsRequestInstanceGenerationsItem = (typeof EC2FleetInstanceRequirementsRequestInstanceGenerationsItem)[keyof typeof EC2FleetInstanceRequirementsRequestInstanceGenerationsItem];
+
+export const EC2FleetInstanceRequirementsRequestLocalStorage = {
+    Included: "included",
+    Required: "required",
+    Excluded: "excluded",
+} as const;
+
+export type EC2FleetInstanceRequirementsRequestLocalStorage = (typeof EC2FleetInstanceRequirementsRequestLocalStorage)[keyof typeof EC2FleetInstanceRequirementsRequestLocalStorage];
+
+export const EC2FleetInstanceRequirementsRequestLocalStorageTypesItem = {
+    Hdd: "hdd",
+    Ssd: "ssd",
+} as const;
+
+export type EC2FleetInstanceRequirementsRequestLocalStorageTypesItem = (typeof EC2FleetInstanceRequirementsRequestLocalStorageTypesItem)[keyof typeof EC2FleetInstanceRequirementsRequestLocalStorageTypesItem];
 
 export const EC2FleetSpotOptionsRequestAllocationStrategy = {
     LowestPrice: "lowestPrice",
@@ -90,6 +179,14 @@ export const EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType
 } as const;
 
 export type EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType = (typeof EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType)[keyof typeof EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType];
+
+export const EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType = {
+    Vcpu: "vcpu",
+    MemoryMib: "memory-mib",
+    Units: "units",
+} as const;
+
+export type EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType = (typeof EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType)[keyof typeof EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType];
 
 export const EC2FleetType = {
     Maintain: "maintain",
@@ -188,6 +285,83 @@ export const SpotFleetEbsBlockDeviceVolumeType = {
 
 export type SpotFleetEbsBlockDeviceVolumeType = (typeof SpotFleetEbsBlockDeviceVolumeType)[keyof typeof SpotFleetEbsBlockDeviceVolumeType];
 
+export const SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem = {
+    Nvidia: "nvidia",
+    Amd: "amd",
+    AmazonWebServices: "amazon-web-services",
+    Xilinx: "xilinx",
+} as const;
+
+export type SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem = (typeof SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem)[keyof typeof SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem];
+
+export const SpotFleetInstanceRequirementsRequestAcceleratorNamesItem = {
+    A100: "a100",
+    V100: "v100",
+    K80: "k80",
+    T4: "t4",
+    M60: "m60",
+    RadeonProV520: "radeon-pro-v520",
+    Vu9p: "vu9p",
+    Inferentia: "inferentia",
+    K520: "k520",
+} as const;
+
+export type SpotFleetInstanceRequirementsRequestAcceleratorNamesItem = (typeof SpotFleetInstanceRequirementsRequestAcceleratorNamesItem)[keyof typeof SpotFleetInstanceRequirementsRequestAcceleratorNamesItem];
+
+export const SpotFleetInstanceRequirementsRequestAcceleratorTypesItem = {
+    Gpu: "gpu",
+    Fpga: "fpga",
+    Inference: "inference",
+} as const;
+
+export type SpotFleetInstanceRequirementsRequestAcceleratorTypesItem = (typeof SpotFleetInstanceRequirementsRequestAcceleratorTypesItem)[keyof typeof SpotFleetInstanceRequirementsRequestAcceleratorTypesItem];
+
+export const SpotFleetInstanceRequirementsRequestBareMetal = {
+    Included: "included",
+    Required: "required",
+    Excluded: "excluded",
+} as const;
+
+export type SpotFleetInstanceRequirementsRequestBareMetal = (typeof SpotFleetInstanceRequirementsRequestBareMetal)[keyof typeof SpotFleetInstanceRequirementsRequestBareMetal];
+
+export const SpotFleetInstanceRequirementsRequestBurstablePerformance = {
+    Included: "included",
+    Required: "required",
+    Excluded: "excluded",
+} as const;
+
+export type SpotFleetInstanceRequirementsRequestBurstablePerformance = (typeof SpotFleetInstanceRequirementsRequestBurstablePerformance)[keyof typeof SpotFleetInstanceRequirementsRequestBurstablePerformance];
+
+export const SpotFleetInstanceRequirementsRequestCpuManufacturersItem = {
+    Intel: "intel",
+    Amd: "amd",
+    AmazonWebServices: "amazon-web-services",
+} as const;
+
+export type SpotFleetInstanceRequirementsRequestCpuManufacturersItem = (typeof SpotFleetInstanceRequirementsRequestCpuManufacturersItem)[keyof typeof SpotFleetInstanceRequirementsRequestCpuManufacturersItem];
+
+export const SpotFleetInstanceRequirementsRequestInstanceGenerationsItem = {
+    Current: "current",
+    Previous: "previous",
+} as const;
+
+export type SpotFleetInstanceRequirementsRequestInstanceGenerationsItem = (typeof SpotFleetInstanceRequirementsRequestInstanceGenerationsItem)[keyof typeof SpotFleetInstanceRequirementsRequestInstanceGenerationsItem];
+
+export const SpotFleetInstanceRequirementsRequestLocalStorage = {
+    Included: "included",
+    Required: "required",
+    Excluded: "excluded",
+} as const;
+
+export type SpotFleetInstanceRequirementsRequestLocalStorage = (typeof SpotFleetInstanceRequirementsRequestLocalStorage)[keyof typeof SpotFleetInstanceRequirementsRequestLocalStorage];
+
+export const SpotFleetInstanceRequirementsRequestLocalStorageTypesItem = {
+    Hdd: "hdd",
+    Ssd: "ssd",
+} as const;
+
+export type SpotFleetInstanceRequirementsRequestLocalStorageTypesItem = (typeof SpotFleetInstanceRequirementsRequestLocalStorageTypesItem)[keyof typeof SpotFleetInstanceRequirementsRequestLocalStorageTypesItem];
+
 export const SpotFleetRequestConfigDataAllocationStrategy = {
     CapacityOptimized: "capacityOptimized",
     CapacityOptimizedPrioritized: "capacityOptimizedPrioritized",
@@ -211,6 +385,14 @@ export const SpotFleetRequestConfigDataInstanceInterruptionBehavior = {
 } as const;
 
 export type SpotFleetRequestConfigDataInstanceInterruptionBehavior = (typeof SpotFleetRequestConfigDataInstanceInterruptionBehavior)[keyof typeof SpotFleetRequestConfigDataInstanceInterruptionBehavior];
+
+export const SpotFleetRequestConfigDataTargetCapacityUnitType = {
+    Vcpu: "vcpu",
+    MemoryMib: "memory-mib",
+    Units: "units",
+} as const;
+
+export type SpotFleetRequestConfigDataTargetCapacityUnitType = (typeof SpotFleetRequestConfigDataTargetCapacityUnitType)[keyof typeof SpotFleetRequestConfigDataTargetCapacityUnitType];
 
 export const SpotFleetRequestConfigDataType = {
     Maintain: "maintain",

@@ -10,6 +10,332 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type CapacityReservationFleetInstanceMatchCriteria string
+
+const (
+	CapacityReservationFleetInstanceMatchCriteriaOpen = CapacityReservationFleetInstanceMatchCriteria("open")
+)
+
+func (CapacityReservationFleetInstanceMatchCriteria) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationFleetInstanceMatchCriteria)(nil)).Elem()
+}
+
+func (e CapacityReservationFleetInstanceMatchCriteria) ToCapacityReservationFleetInstanceMatchCriteriaOutput() CapacityReservationFleetInstanceMatchCriteriaOutput {
+	return pulumi.ToOutput(e).(CapacityReservationFleetInstanceMatchCriteriaOutput)
+}
+
+func (e CapacityReservationFleetInstanceMatchCriteria) ToCapacityReservationFleetInstanceMatchCriteriaOutputWithContext(ctx context.Context) CapacityReservationFleetInstanceMatchCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CapacityReservationFleetInstanceMatchCriteriaOutput)
+}
+
+func (e CapacityReservationFleetInstanceMatchCriteria) ToCapacityReservationFleetInstanceMatchCriteriaPtrOutput() CapacityReservationFleetInstanceMatchCriteriaPtrOutput {
+	return e.ToCapacityReservationFleetInstanceMatchCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (e CapacityReservationFleetInstanceMatchCriteria) ToCapacityReservationFleetInstanceMatchCriteriaPtrOutputWithContext(ctx context.Context) CapacityReservationFleetInstanceMatchCriteriaPtrOutput {
+	return CapacityReservationFleetInstanceMatchCriteria(e).ToCapacityReservationFleetInstanceMatchCriteriaOutputWithContext(ctx).ToCapacityReservationFleetInstanceMatchCriteriaPtrOutputWithContext(ctx)
+}
+
+func (e CapacityReservationFleetInstanceMatchCriteria) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityReservationFleetInstanceMatchCriteria) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityReservationFleetInstanceMatchCriteria) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CapacityReservationFleetInstanceMatchCriteria) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CapacityReservationFleetInstanceMatchCriteriaOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationFleetInstanceMatchCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationFleetInstanceMatchCriteria)(nil)).Elem()
+}
+
+func (o CapacityReservationFleetInstanceMatchCriteriaOutput) ToCapacityReservationFleetInstanceMatchCriteriaOutput() CapacityReservationFleetInstanceMatchCriteriaOutput {
+	return o
+}
+
+func (o CapacityReservationFleetInstanceMatchCriteriaOutput) ToCapacityReservationFleetInstanceMatchCriteriaOutputWithContext(ctx context.Context) CapacityReservationFleetInstanceMatchCriteriaOutput {
+	return o
+}
+
+func (o CapacityReservationFleetInstanceMatchCriteriaOutput) ToCapacityReservationFleetInstanceMatchCriteriaPtrOutput() CapacityReservationFleetInstanceMatchCriteriaPtrOutput {
+	return o.ToCapacityReservationFleetInstanceMatchCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityReservationFleetInstanceMatchCriteriaOutput) ToCapacityReservationFleetInstanceMatchCriteriaPtrOutputWithContext(ctx context.Context) CapacityReservationFleetInstanceMatchCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityReservationFleetInstanceMatchCriteria) *CapacityReservationFleetInstanceMatchCriteria {
+		return &v
+	}).(CapacityReservationFleetInstanceMatchCriteriaPtrOutput)
+}
+
+func (o CapacityReservationFleetInstanceMatchCriteriaOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CapacityReservationFleetInstanceMatchCriteriaOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityReservationFleetInstanceMatchCriteria) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CapacityReservationFleetInstanceMatchCriteriaOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityReservationFleetInstanceMatchCriteriaOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityReservationFleetInstanceMatchCriteria) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapacityReservationFleetInstanceMatchCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationFleetInstanceMatchCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityReservationFleetInstanceMatchCriteria)(nil)).Elem()
+}
+
+func (o CapacityReservationFleetInstanceMatchCriteriaPtrOutput) ToCapacityReservationFleetInstanceMatchCriteriaPtrOutput() CapacityReservationFleetInstanceMatchCriteriaPtrOutput {
+	return o
+}
+
+func (o CapacityReservationFleetInstanceMatchCriteriaPtrOutput) ToCapacityReservationFleetInstanceMatchCriteriaPtrOutputWithContext(ctx context.Context) CapacityReservationFleetInstanceMatchCriteriaPtrOutput {
+	return o
+}
+
+func (o CapacityReservationFleetInstanceMatchCriteriaPtrOutput) Elem() CapacityReservationFleetInstanceMatchCriteriaOutput {
+	return o.ApplyT(func(v *CapacityReservationFleetInstanceMatchCriteria) CapacityReservationFleetInstanceMatchCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityReservationFleetInstanceMatchCriteria
+		return ret
+	}).(CapacityReservationFleetInstanceMatchCriteriaOutput)
+}
+
+func (o CapacityReservationFleetInstanceMatchCriteriaPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityReservationFleetInstanceMatchCriteriaPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CapacityReservationFleetInstanceMatchCriteria) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CapacityReservationFleetInstanceMatchCriteriaInput is an input type that accepts CapacityReservationFleetInstanceMatchCriteriaArgs and CapacityReservationFleetInstanceMatchCriteriaOutput values.
+// You can construct a concrete instance of `CapacityReservationFleetInstanceMatchCriteriaInput` via:
+//
+//          CapacityReservationFleetInstanceMatchCriteriaArgs{...}
+type CapacityReservationFleetInstanceMatchCriteriaInput interface {
+	pulumi.Input
+
+	ToCapacityReservationFleetInstanceMatchCriteriaOutput() CapacityReservationFleetInstanceMatchCriteriaOutput
+	ToCapacityReservationFleetInstanceMatchCriteriaOutputWithContext(context.Context) CapacityReservationFleetInstanceMatchCriteriaOutput
+}
+
+var capacityReservationFleetInstanceMatchCriteriaPtrType = reflect.TypeOf((**CapacityReservationFleetInstanceMatchCriteria)(nil)).Elem()
+
+type CapacityReservationFleetInstanceMatchCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToCapacityReservationFleetInstanceMatchCriteriaPtrOutput() CapacityReservationFleetInstanceMatchCriteriaPtrOutput
+	ToCapacityReservationFleetInstanceMatchCriteriaPtrOutputWithContext(context.Context) CapacityReservationFleetInstanceMatchCriteriaPtrOutput
+}
+
+type capacityReservationFleetInstanceMatchCriteriaPtr string
+
+func CapacityReservationFleetInstanceMatchCriteriaPtr(v string) CapacityReservationFleetInstanceMatchCriteriaPtrInput {
+	return (*capacityReservationFleetInstanceMatchCriteriaPtr)(&v)
+}
+
+func (*capacityReservationFleetInstanceMatchCriteriaPtr) ElementType() reflect.Type {
+	return capacityReservationFleetInstanceMatchCriteriaPtrType
+}
+
+func (in *capacityReservationFleetInstanceMatchCriteriaPtr) ToCapacityReservationFleetInstanceMatchCriteriaPtrOutput() CapacityReservationFleetInstanceMatchCriteriaPtrOutput {
+	return pulumi.ToOutput(in).(CapacityReservationFleetInstanceMatchCriteriaPtrOutput)
+}
+
+func (in *capacityReservationFleetInstanceMatchCriteriaPtr) ToCapacityReservationFleetInstanceMatchCriteriaPtrOutputWithContext(ctx context.Context) CapacityReservationFleetInstanceMatchCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CapacityReservationFleetInstanceMatchCriteriaPtrOutput)
+}
+
+type CapacityReservationFleetTenancy string
+
+const (
+	CapacityReservationFleetTenancyDefault = CapacityReservationFleetTenancy("default")
+)
+
+func (CapacityReservationFleetTenancy) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationFleetTenancy)(nil)).Elem()
+}
+
+func (e CapacityReservationFleetTenancy) ToCapacityReservationFleetTenancyOutput() CapacityReservationFleetTenancyOutput {
+	return pulumi.ToOutput(e).(CapacityReservationFleetTenancyOutput)
+}
+
+func (e CapacityReservationFleetTenancy) ToCapacityReservationFleetTenancyOutputWithContext(ctx context.Context) CapacityReservationFleetTenancyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CapacityReservationFleetTenancyOutput)
+}
+
+func (e CapacityReservationFleetTenancy) ToCapacityReservationFleetTenancyPtrOutput() CapacityReservationFleetTenancyPtrOutput {
+	return e.ToCapacityReservationFleetTenancyPtrOutputWithContext(context.Background())
+}
+
+func (e CapacityReservationFleetTenancy) ToCapacityReservationFleetTenancyPtrOutputWithContext(ctx context.Context) CapacityReservationFleetTenancyPtrOutput {
+	return CapacityReservationFleetTenancy(e).ToCapacityReservationFleetTenancyOutputWithContext(ctx).ToCapacityReservationFleetTenancyPtrOutputWithContext(ctx)
+}
+
+func (e CapacityReservationFleetTenancy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityReservationFleetTenancy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityReservationFleetTenancy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CapacityReservationFleetTenancy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CapacityReservationFleetTenancyOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationFleetTenancyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationFleetTenancy)(nil)).Elem()
+}
+
+func (o CapacityReservationFleetTenancyOutput) ToCapacityReservationFleetTenancyOutput() CapacityReservationFleetTenancyOutput {
+	return o
+}
+
+func (o CapacityReservationFleetTenancyOutput) ToCapacityReservationFleetTenancyOutputWithContext(ctx context.Context) CapacityReservationFleetTenancyOutput {
+	return o
+}
+
+func (o CapacityReservationFleetTenancyOutput) ToCapacityReservationFleetTenancyPtrOutput() CapacityReservationFleetTenancyPtrOutput {
+	return o.ToCapacityReservationFleetTenancyPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityReservationFleetTenancyOutput) ToCapacityReservationFleetTenancyPtrOutputWithContext(ctx context.Context) CapacityReservationFleetTenancyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityReservationFleetTenancy) *CapacityReservationFleetTenancy {
+		return &v
+	}).(CapacityReservationFleetTenancyPtrOutput)
+}
+
+func (o CapacityReservationFleetTenancyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CapacityReservationFleetTenancyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityReservationFleetTenancy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CapacityReservationFleetTenancyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityReservationFleetTenancyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityReservationFleetTenancy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapacityReservationFleetTenancyPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationFleetTenancyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityReservationFleetTenancy)(nil)).Elem()
+}
+
+func (o CapacityReservationFleetTenancyPtrOutput) ToCapacityReservationFleetTenancyPtrOutput() CapacityReservationFleetTenancyPtrOutput {
+	return o
+}
+
+func (o CapacityReservationFleetTenancyPtrOutput) ToCapacityReservationFleetTenancyPtrOutputWithContext(ctx context.Context) CapacityReservationFleetTenancyPtrOutput {
+	return o
+}
+
+func (o CapacityReservationFleetTenancyPtrOutput) Elem() CapacityReservationFleetTenancyOutput {
+	return o.ApplyT(func(v *CapacityReservationFleetTenancy) CapacityReservationFleetTenancy {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityReservationFleetTenancy
+		return ret
+	}).(CapacityReservationFleetTenancyOutput)
+}
+
+func (o CapacityReservationFleetTenancyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityReservationFleetTenancyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CapacityReservationFleetTenancy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CapacityReservationFleetTenancyInput is an input type that accepts CapacityReservationFleetTenancyArgs and CapacityReservationFleetTenancyOutput values.
+// You can construct a concrete instance of `CapacityReservationFleetTenancyInput` via:
+//
+//          CapacityReservationFleetTenancyArgs{...}
+type CapacityReservationFleetTenancyInput interface {
+	pulumi.Input
+
+	ToCapacityReservationFleetTenancyOutput() CapacityReservationFleetTenancyOutput
+	ToCapacityReservationFleetTenancyOutputWithContext(context.Context) CapacityReservationFleetTenancyOutput
+}
+
+var capacityReservationFleetTenancyPtrType = reflect.TypeOf((**CapacityReservationFleetTenancy)(nil)).Elem()
+
+type CapacityReservationFleetTenancyPtrInput interface {
+	pulumi.Input
+
+	ToCapacityReservationFleetTenancyPtrOutput() CapacityReservationFleetTenancyPtrOutput
+	ToCapacityReservationFleetTenancyPtrOutputWithContext(context.Context) CapacityReservationFleetTenancyPtrOutput
+}
+
+type capacityReservationFleetTenancyPtr string
+
+func CapacityReservationFleetTenancyPtr(v string) CapacityReservationFleetTenancyPtrInput {
+	return (*capacityReservationFleetTenancyPtr)(&v)
+}
+
+func (*capacityReservationFleetTenancyPtr) ElementType() reflect.Type {
+	return capacityReservationFleetTenancyPtrType
+}
+
+func (in *capacityReservationFleetTenancyPtr) ToCapacityReservationFleetTenancyPtrOutput() CapacityReservationFleetTenancyPtrOutput {
+	return pulumi.ToOutput(in).(CapacityReservationFleetTenancyPtrOutput)
+}
+
+func (in *capacityReservationFleetTenancyPtr) ToCapacityReservationFleetTenancyPtrOutputWithContext(ctx context.Context) CapacityReservationFleetTenancyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CapacityReservationFleetTenancyPtrOutput)
+}
+
 type EC2FleetCapacityReservationOptionsRequestUsageStrategy string
 
 const (
@@ -335,6 +661,1766 @@ func (in *ec2fleetExcessCapacityTerminationPolicyPtr) ToEC2FleetExcessCapacityTe
 
 func (in *ec2fleetExcessCapacityTerminationPolicyPtr) ToEC2FleetExcessCapacityTerminationPolicyPtrOutputWithContext(ctx context.Context) EC2FleetExcessCapacityTerminationPolicyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetExcessCapacityTerminationPolicyPtrOutput)
+}
+
+type EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem string
+
+const (
+	EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemNvidia            = EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem("nvidia")
+	EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemAmd               = EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem("amd")
+	EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemAmazonWebServices = EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem("amazon-web-services")
+	EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemXilinx            = EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem("xilinx")
+)
+
+func (EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem)(nil)).Elem()
+}
+
+func (e EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem) ToEC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput() EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput {
+	return pulumi.ToOutput(e).(EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem) ToEC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem) ToEC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput() EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput {
+	return e.ToEC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutputWithContext(context.Background())
+}
+
+func (e EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem) ToEC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput {
+	return EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem(e).ToEC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutputWithContext(ctx).ToEC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutputWithContext(ctx)
+}
+
+func (e EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem)(nil)).Elem()
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput) ToEC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput() EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput) ToEC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput) ToEC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput() EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput {
+	return o.ToEC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput) ToEC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem) *EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem {
+		return &v
+	}).(EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput)
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem)(nil)).Elem()
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput) ToEC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput() EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput) ToEC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput) Elem() EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput {
+	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem) EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem {
+		if v != nil {
+			return *v
+		}
+		var ret EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem
+		return ret
+	}).(EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput)
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemInput is an input type that accepts EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArgs and EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput values.
+// You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemInput` via:
+//
+//          EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArgs{...}
+type EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemInput interface {
+	pulumi.Input
+
+	ToEC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput() EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput
+	ToEC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutputWithContext(context.Context) EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput
+}
+
+var ec2fleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrType = reflect.TypeOf((**EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem)(nil)).Elem()
+
+type EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrInput interface {
+	pulumi.Input
+
+	ToEC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput() EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput
+	ToEC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutputWithContext(context.Context) EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput
+}
+
+type ec2fleetInstanceRequirementsRequestAcceleratorManufacturersItemPtr string
+
+func EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtr(v string) EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrInput {
+	return (*ec2fleetInstanceRequirementsRequestAcceleratorManufacturersItemPtr)(&v)
+}
+
+func (*ec2fleetInstanceRequirementsRequestAcceleratorManufacturersItemPtr) ElementType() reflect.Type {
+	return ec2fleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrType
+}
+
+func (in *ec2fleetInstanceRequirementsRequestAcceleratorManufacturersItemPtr) ToEC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput() EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput {
+	return pulumi.ToOutput(in).(EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput)
+}
+
+func (in *ec2fleetInstanceRequirementsRequestAcceleratorManufacturersItemPtr) ToEC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput)
+}
+
+// EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput is an input type that accepts EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArray and EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput values.
+// You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput` via:
+//
+//          EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArray{ EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArgs{...} }
+type EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput interface {
+	pulumi.Input
+
+	ToEC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput() EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput
+	ToEC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutputWithContext(context.Context) EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput
+}
+
+type EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArray []EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem
+
+func (EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem)(nil)).Elem()
+}
+
+func (i EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArray) ToEC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput() EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput {
+	return i.ToEC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutputWithContext(context.Background())
+}
+
+func (i EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArray) ToEC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput)
+}
+
+type EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem)(nil)).Elem()
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput) ToEC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput() EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput) ToEC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput) Index(i pulumi.IntInput) EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem {
+		return vs[0].([]EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem)[vs[1].(int)]
+	}).(EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput)
+}
+
+type EC2FleetInstanceRequirementsRequestAcceleratorNamesItem string
+
+const (
+	EC2FleetInstanceRequirementsRequestAcceleratorNamesItemA100          = EC2FleetInstanceRequirementsRequestAcceleratorNamesItem("a100")
+	EC2FleetInstanceRequirementsRequestAcceleratorNamesItemV100          = EC2FleetInstanceRequirementsRequestAcceleratorNamesItem("v100")
+	EC2FleetInstanceRequirementsRequestAcceleratorNamesItemK80           = EC2FleetInstanceRequirementsRequestAcceleratorNamesItem("k80")
+	EC2FleetInstanceRequirementsRequestAcceleratorNamesItemT4            = EC2FleetInstanceRequirementsRequestAcceleratorNamesItem("t4")
+	EC2FleetInstanceRequirementsRequestAcceleratorNamesItemM60           = EC2FleetInstanceRequirementsRequestAcceleratorNamesItem("m60")
+	EC2FleetInstanceRequirementsRequestAcceleratorNamesItemRadeonProV520 = EC2FleetInstanceRequirementsRequestAcceleratorNamesItem("radeon-pro-v520")
+	EC2FleetInstanceRequirementsRequestAcceleratorNamesItemVu9p          = EC2FleetInstanceRequirementsRequestAcceleratorNamesItem("vu9p")
+	EC2FleetInstanceRequirementsRequestAcceleratorNamesItemInferentia    = EC2FleetInstanceRequirementsRequestAcceleratorNamesItem("inferentia")
+	EC2FleetInstanceRequirementsRequestAcceleratorNamesItemK520          = EC2FleetInstanceRequirementsRequestAcceleratorNamesItem("k520")
+)
+
+func (EC2FleetInstanceRequirementsRequestAcceleratorNamesItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*EC2FleetInstanceRequirementsRequestAcceleratorNamesItem)(nil)).Elem()
+}
+
+func (e EC2FleetInstanceRequirementsRequestAcceleratorNamesItem) ToEC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput() EC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput {
+	return pulumi.ToOutput(e).(EC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestAcceleratorNamesItem) ToEC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestAcceleratorNamesItem) ToEC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput() EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput {
+	return e.ToEC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutputWithContext(context.Background())
+}
+
+func (e EC2FleetInstanceRequirementsRequestAcceleratorNamesItem) ToEC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput {
+	return EC2FleetInstanceRequirementsRequestAcceleratorNamesItem(e).ToEC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutputWithContext(ctx).ToEC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutputWithContext(ctx)
+}
+
+func (e EC2FleetInstanceRequirementsRequestAcceleratorNamesItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestAcceleratorNamesItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestAcceleratorNamesItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EC2FleetInstanceRequirementsRequestAcceleratorNamesItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EC2FleetInstanceRequirementsRequestAcceleratorNamesItem)(nil)).Elem()
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput) ToEC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput() EC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput) ToEC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput) ToEC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput() EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput {
+	return o.ToEC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput) ToEC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetInstanceRequirementsRequestAcceleratorNamesItem) *EC2FleetInstanceRequirementsRequestAcceleratorNamesItem {
+		return &v
+	}).(EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput)
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EC2FleetInstanceRequirementsRequestAcceleratorNamesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EC2FleetInstanceRequirementsRequestAcceleratorNamesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EC2FleetInstanceRequirementsRequestAcceleratorNamesItem)(nil)).Elem()
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) ToEC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput() EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) ToEC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) Elem() EC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput {
+	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequestAcceleratorNamesItem) EC2FleetInstanceRequirementsRequestAcceleratorNamesItem {
+		if v != nil {
+			return *v
+		}
+		var ret EC2FleetInstanceRequirementsRequestAcceleratorNamesItem
+		return ret
+	}).(EC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput)
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EC2FleetInstanceRequirementsRequestAcceleratorNamesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EC2FleetInstanceRequirementsRequestAcceleratorNamesItemInput is an input type that accepts EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArgs and EC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput values.
+// You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestAcceleratorNamesItemInput` via:
+//
+//          EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArgs{...}
+type EC2FleetInstanceRequirementsRequestAcceleratorNamesItemInput interface {
+	pulumi.Input
+
+	ToEC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput() EC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput
+	ToEC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutputWithContext(context.Context) EC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput
+}
+
+var ec2fleetInstanceRequirementsRequestAcceleratorNamesItemPtrType = reflect.TypeOf((**EC2FleetInstanceRequirementsRequestAcceleratorNamesItem)(nil)).Elem()
+
+type EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrInput interface {
+	pulumi.Input
+
+	ToEC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput() EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput
+	ToEC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutputWithContext(context.Context) EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput
+}
+
+type ec2fleetInstanceRequirementsRequestAcceleratorNamesItemPtr string
+
+func EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtr(v string) EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrInput {
+	return (*ec2fleetInstanceRequirementsRequestAcceleratorNamesItemPtr)(&v)
+}
+
+func (*ec2fleetInstanceRequirementsRequestAcceleratorNamesItemPtr) ElementType() reflect.Type {
+	return ec2fleetInstanceRequirementsRequestAcceleratorNamesItemPtrType
+}
+
+func (in *ec2fleetInstanceRequirementsRequestAcceleratorNamesItemPtr) ToEC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput() EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput {
+	return pulumi.ToOutput(in).(EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput)
+}
+
+func (in *ec2fleetInstanceRequirementsRequestAcceleratorNamesItemPtr) ToEC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput)
+}
+
+// EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayInput is an input type that accepts EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArray and EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput values.
+// You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayInput` via:
+//
+//          EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArray{ EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArgs{...} }
+type EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayInput interface {
+	pulumi.Input
+
+	ToEC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput() EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput
+	ToEC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutputWithContext(context.Context) EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput
+}
+
+type EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArray []EC2FleetInstanceRequirementsRequestAcceleratorNamesItem
+
+func (EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EC2FleetInstanceRequirementsRequestAcceleratorNamesItem)(nil)).Elem()
+}
+
+func (i EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArray) ToEC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput() EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput {
+	return i.ToEC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutputWithContext(context.Background())
+}
+
+func (i EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArray) ToEC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput)
+}
+
+type EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EC2FleetInstanceRequirementsRequestAcceleratorNamesItem)(nil)).Elem()
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput) ToEC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput() EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput) ToEC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput) Index(i pulumi.IntInput) EC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EC2FleetInstanceRequirementsRequestAcceleratorNamesItem {
+		return vs[0].([]EC2FleetInstanceRequirementsRequestAcceleratorNamesItem)[vs[1].(int)]
+	}).(EC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput)
+}
+
+type EC2FleetInstanceRequirementsRequestAcceleratorTypesItem string
+
+const (
+	EC2FleetInstanceRequirementsRequestAcceleratorTypesItemGpu       = EC2FleetInstanceRequirementsRequestAcceleratorTypesItem("gpu")
+	EC2FleetInstanceRequirementsRequestAcceleratorTypesItemFpga      = EC2FleetInstanceRequirementsRequestAcceleratorTypesItem("fpga")
+	EC2FleetInstanceRequirementsRequestAcceleratorTypesItemInference = EC2FleetInstanceRequirementsRequestAcceleratorTypesItem("inference")
+)
+
+func (EC2FleetInstanceRequirementsRequestAcceleratorTypesItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*EC2FleetInstanceRequirementsRequestAcceleratorTypesItem)(nil)).Elem()
+}
+
+func (e EC2FleetInstanceRequirementsRequestAcceleratorTypesItem) ToEC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput() EC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput {
+	return pulumi.ToOutput(e).(EC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestAcceleratorTypesItem) ToEC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestAcceleratorTypesItem) ToEC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput() EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput {
+	return e.ToEC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (e EC2FleetInstanceRequirementsRequestAcceleratorTypesItem) ToEC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput {
+	return EC2FleetInstanceRequirementsRequestAcceleratorTypesItem(e).ToEC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutputWithContext(ctx).ToEC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutputWithContext(ctx)
+}
+
+func (e EC2FleetInstanceRequirementsRequestAcceleratorTypesItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestAcceleratorTypesItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestAcceleratorTypesItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EC2FleetInstanceRequirementsRequestAcceleratorTypesItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EC2FleetInstanceRequirementsRequestAcceleratorTypesItem)(nil)).Elem()
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput) ToEC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput() EC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput) ToEC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput) ToEC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput() EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput {
+	return o.ToEC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput) ToEC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetInstanceRequirementsRequestAcceleratorTypesItem) *EC2FleetInstanceRequirementsRequestAcceleratorTypesItem {
+		return &v
+	}).(EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput)
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EC2FleetInstanceRequirementsRequestAcceleratorTypesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EC2FleetInstanceRequirementsRequestAcceleratorTypesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EC2FleetInstanceRequirementsRequestAcceleratorTypesItem)(nil)).Elem()
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) ToEC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput() EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) ToEC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) Elem() EC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput {
+	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequestAcceleratorTypesItem) EC2FleetInstanceRequirementsRequestAcceleratorTypesItem {
+		if v != nil {
+			return *v
+		}
+		var ret EC2FleetInstanceRequirementsRequestAcceleratorTypesItem
+		return ret
+	}).(EC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput)
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EC2FleetInstanceRequirementsRequestAcceleratorTypesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EC2FleetInstanceRequirementsRequestAcceleratorTypesItemInput is an input type that accepts EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArgs and EC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput values.
+// You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestAcceleratorTypesItemInput` via:
+//
+//          EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArgs{...}
+type EC2FleetInstanceRequirementsRequestAcceleratorTypesItemInput interface {
+	pulumi.Input
+
+	ToEC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput() EC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput
+	ToEC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutputWithContext(context.Context) EC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput
+}
+
+var ec2fleetInstanceRequirementsRequestAcceleratorTypesItemPtrType = reflect.TypeOf((**EC2FleetInstanceRequirementsRequestAcceleratorTypesItem)(nil)).Elem()
+
+type EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrInput interface {
+	pulumi.Input
+
+	ToEC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput() EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput
+	ToEC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutputWithContext(context.Context) EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput
+}
+
+type ec2fleetInstanceRequirementsRequestAcceleratorTypesItemPtr string
+
+func EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtr(v string) EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrInput {
+	return (*ec2fleetInstanceRequirementsRequestAcceleratorTypesItemPtr)(&v)
+}
+
+func (*ec2fleetInstanceRequirementsRequestAcceleratorTypesItemPtr) ElementType() reflect.Type {
+	return ec2fleetInstanceRequirementsRequestAcceleratorTypesItemPtrType
+}
+
+func (in *ec2fleetInstanceRequirementsRequestAcceleratorTypesItemPtr) ToEC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput() EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput {
+	return pulumi.ToOutput(in).(EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput)
+}
+
+func (in *ec2fleetInstanceRequirementsRequestAcceleratorTypesItemPtr) ToEC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput)
+}
+
+// EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput is an input type that accepts EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArray and EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput values.
+// You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput` via:
+//
+//          EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArray{ EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArgs{...} }
+type EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput interface {
+	pulumi.Input
+
+	ToEC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput() EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput
+	ToEC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutputWithContext(context.Context) EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput
+}
+
+type EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArray []EC2FleetInstanceRequirementsRequestAcceleratorTypesItem
+
+func (EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EC2FleetInstanceRequirementsRequestAcceleratorTypesItem)(nil)).Elem()
+}
+
+func (i EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArray) ToEC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput() EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
+	return i.ToEC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutputWithContext(context.Background())
+}
+
+func (i EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArray) ToEC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput)
+}
+
+type EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EC2FleetInstanceRequirementsRequestAcceleratorTypesItem)(nil)).Elem()
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput) ToEC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput() EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput) ToEC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput) Index(i pulumi.IntInput) EC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EC2FleetInstanceRequirementsRequestAcceleratorTypesItem {
+		return vs[0].([]EC2FleetInstanceRequirementsRequestAcceleratorTypesItem)[vs[1].(int)]
+	}).(EC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput)
+}
+
+type EC2FleetInstanceRequirementsRequestBareMetal string
+
+const (
+	EC2FleetInstanceRequirementsRequestBareMetalIncluded = EC2FleetInstanceRequirementsRequestBareMetal("included")
+	EC2FleetInstanceRequirementsRequestBareMetalRequired = EC2FleetInstanceRequirementsRequestBareMetal("required")
+	EC2FleetInstanceRequirementsRequestBareMetalExcluded = EC2FleetInstanceRequirementsRequestBareMetal("excluded")
+)
+
+func (EC2FleetInstanceRequirementsRequestBareMetal) ElementType() reflect.Type {
+	return reflect.TypeOf((*EC2FleetInstanceRequirementsRequestBareMetal)(nil)).Elem()
+}
+
+func (e EC2FleetInstanceRequirementsRequestBareMetal) ToEC2FleetInstanceRequirementsRequestBareMetalOutput() EC2FleetInstanceRequirementsRequestBareMetalOutput {
+	return pulumi.ToOutput(e).(EC2FleetInstanceRequirementsRequestBareMetalOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestBareMetal) ToEC2FleetInstanceRequirementsRequestBareMetalOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestBareMetalOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EC2FleetInstanceRequirementsRequestBareMetalOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestBareMetal) ToEC2FleetInstanceRequirementsRequestBareMetalPtrOutput() EC2FleetInstanceRequirementsRequestBareMetalPtrOutput {
+	return e.ToEC2FleetInstanceRequirementsRequestBareMetalPtrOutputWithContext(context.Background())
+}
+
+func (e EC2FleetInstanceRequirementsRequestBareMetal) ToEC2FleetInstanceRequirementsRequestBareMetalPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestBareMetalPtrOutput {
+	return EC2FleetInstanceRequirementsRequestBareMetal(e).ToEC2FleetInstanceRequirementsRequestBareMetalOutputWithContext(ctx).ToEC2FleetInstanceRequirementsRequestBareMetalPtrOutputWithContext(ctx)
+}
+
+func (e EC2FleetInstanceRequirementsRequestBareMetal) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestBareMetal) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestBareMetal) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EC2FleetInstanceRequirementsRequestBareMetal) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EC2FleetInstanceRequirementsRequestBareMetalOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetInstanceRequirementsRequestBareMetalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EC2FleetInstanceRequirementsRequestBareMetal)(nil)).Elem()
+}
+
+func (o EC2FleetInstanceRequirementsRequestBareMetalOutput) ToEC2FleetInstanceRequirementsRequestBareMetalOutput() EC2FleetInstanceRequirementsRequestBareMetalOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestBareMetalOutput) ToEC2FleetInstanceRequirementsRequestBareMetalOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestBareMetalOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestBareMetalOutput) ToEC2FleetInstanceRequirementsRequestBareMetalPtrOutput() EC2FleetInstanceRequirementsRequestBareMetalPtrOutput {
+	return o.ToEC2FleetInstanceRequirementsRequestBareMetalPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestBareMetalOutput) ToEC2FleetInstanceRequirementsRequestBareMetalPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestBareMetalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetInstanceRequirementsRequestBareMetal) *EC2FleetInstanceRequirementsRequestBareMetal {
+		return &v
+	}).(EC2FleetInstanceRequirementsRequestBareMetalPtrOutput)
+}
+
+func (o EC2FleetInstanceRequirementsRequestBareMetalOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestBareMetalOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EC2FleetInstanceRequirementsRequestBareMetal) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EC2FleetInstanceRequirementsRequestBareMetalOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestBareMetalOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EC2FleetInstanceRequirementsRequestBareMetal) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EC2FleetInstanceRequirementsRequestBareMetalPtrOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetInstanceRequirementsRequestBareMetalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EC2FleetInstanceRequirementsRequestBareMetal)(nil)).Elem()
+}
+
+func (o EC2FleetInstanceRequirementsRequestBareMetalPtrOutput) ToEC2FleetInstanceRequirementsRequestBareMetalPtrOutput() EC2FleetInstanceRequirementsRequestBareMetalPtrOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestBareMetalPtrOutput) ToEC2FleetInstanceRequirementsRequestBareMetalPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestBareMetalPtrOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestBareMetalPtrOutput) Elem() EC2FleetInstanceRequirementsRequestBareMetalOutput {
+	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequestBareMetal) EC2FleetInstanceRequirementsRequestBareMetal {
+		if v != nil {
+			return *v
+		}
+		var ret EC2FleetInstanceRequirementsRequestBareMetal
+		return ret
+	}).(EC2FleetInstanceRequirementsRequestBareMetalOutput)
+}
+
+func (o EC2FleetInstanceRequirementsRequestBareMetalPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestBareMetalPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EC2FleetInstanceRequirementsRequestBareMetal) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EC2FleetInstanceRequirementsRequestBareMetalInput is an input type that accepts EC2FleetInstanceRequirementsRequestBareMetalArgs and EC2FleetInstanceRequirementsRequestBareMetalOutput values.
+// You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestBareMetalInput` via:
+//
+//          EC2FleetInstanceRequirementsRequestBareMetalArgs{...}
+type EC2FleetInstanceRequirementsRequestBareMetalInput interface {
+	pulumi.Input
+
+	ToEC2FleetInstanceRequirementsRequestBareMetalOutput() EC2FleetInstanceRequirementsRequestBareMetalOutput
+	ToEC2FleetInstanceRequirementsRequestBareMetalOutputWithContext(context.Context) EC2FleetInstanceRequirementsRequestBareMetalOutput
+}
+
+var ec2fleetInstanceRequirementsRequestBareMetalPtrType = reflect.TypeOf((**EC2FleetInstanceRequirementsRequestBareMetal)(nil)).Elem()
+
+type EC2FleetInstanceRequirementsRequestBareMetalPtrInput interface {
+	pulumi.Input
+
+	ToEC2FleetInstanceRequirementsRequestBareMetalPtrOutput() EC2FleetInstanceRequirementsRequestBareMetalPtrOutput
+	ToEC2FleetInstanceRequirementsRequestBareMetalPtrOutputWithContext(context.Context) EC2FleetInstanceRequirementsRequestBareMetalPtrOutput
+}
+
+type ec2fleetInstanceRequirementsRequestBareMetalPtr string
+
+func EC2FleetInstanceRequirementsRequestBareMetalPtr(v string) EC2FleetInstanceRequirementsRequestBareMetalPtrInput {
+	return (*ec2fleetInstanceRequirementsRequestBareMetalPtr)(&v)
+}
+
+func (*ec2fleetInstanceRequirementsRequestBareMetalPtr) ElementType() reflect.Type {
+	return ec2fleetInstanceRequirementsRequestBareMetalPtrType
+}
+
+func (in *ec2fleetInstanceRequirementsRequestBareMetalPtr) ToEC2FleetInstanceRequirementsRequestBareMetalPtrOutput() EC2FleetInstanceRequirementsRequestBareMetalPtrOutput {
+	return pulumi.ToOutput(in).(EC2FleetInstanceRequirementsRequestBareMetalPtrOutput)
+}
+
+func (in *ec2fleetInstanceRequirementsRequestBareMetalPtr) ToEC2FleetInstanceRequirementsRequestBareMetalPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestBareMetalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetInstanceRequirementsRequestBareMetalPtrOutput)
+}
+
+type EC2FleetInstanceRequirementsRequestBurstablePerformance string
+
+const (
+	EC2FleetInstanceRequirementsRequestBurstablePerformanceIncluded = EC2FleetInstanceRequirementsRequestBurstablePerformance("included")
+	EC2FleetInstanceRequirementsRequestBurstablePerformanceRequired = EC2FleetInstanceRequirementsRequestBurstablePerformance("required")
+	EC2FleetInstanceRequirementsRequestBurstablePerformanceExcluded = EC2FleetInstanceRequirementsRequestBurstablePerformance("excluded")
+)
+
+func (EC2FleetInstanceRequirementsRequestBurstablePerformance) ElementType() reflect.Type {
+	return reflect.TypeOf((*EC2FleetInstanceRequirementsRequestBurstablePerformance)(nil)).Elem()
+}
+
+func (e EC2FleetInstanceRequirementsRequestBurstablePerformance) ToEC2FleetInstanceRequirementsRequestBurstablePerformanceOutput() EC2FleetInstanceRequirementsRequestBurstablePerformanceOutput {
+	return pulumi.ToOutput(e).(EC2FleetInstanceRequirementsRequestBurstablePerformanceOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestBurstablePerformance) ToEC2FleetInstanceRequirementsRequestBurstablePerformanceOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestBurstablePerformanceOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EC2FleetInstanceRequirementsRequestBurstablePerformanceOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestBurstablePerformance) ToEC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput() EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput {
+	return e.ToEC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutputWithContext(context.Background())
+}
+
+func (e EC2FleetInstanceRequirementsRequestBurstablePerformance) ToEC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput {
+	return EC2FleetInstanceRequirementsRequestBurstablePerformance(e).ToEC2FleetInstanceRequirementsRequestBurstablePerformanceOutputWithContext(ctx).ToEC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutputWithContext(ctx)
+}
+
+func (e EC2FleetInstanceRequirementsRequestBurstablePerformance) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestBurstablePerformance) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestBurstablePerformance) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EC2FleetInstanceRequirementsRequestBurstablePerformance) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EC2FleetInstanceRequirementsRequestBurstablePerformanceOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetInstanceRequirementsRequestBurstablePerformanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EC2FleetInstanceRequirementsRequestBurstablePerformance)(nil)).Elem()
+}
+
+func (o EC2FleetInstanceRequirementsRequestBurstablePerformanceOutput) ToEC2FleetInstanceRequirementsRequestBurstablePerformanceOutput() EC2FleetInstanceRequirementsRequestBurstablePerformanceOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestBurstablePerformanceOutput) ToEC2FleetInstanceRequirementsRequestBurstablePerformanceOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestBurstablePerformanceOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestBurstablePerformanceOutput) ToEC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput() EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput {
+	return o.ToEC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestBurstablePerformanceOutput) ToEC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetInstanceRequirementsRequestBurstablePerformance) *EC2FleetInstanceRequirementsRequestBurstablePerformance {
+		return &v
+	}).(EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput)
+}
+
+func (o EC2FleetInstanceRequirementsRequestBurstablePerformanceOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestBurstablePerformanceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EC2FleetInstanceRequirementsRequestBurstablePerformance) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EC2FleetInstanceRequirementsRequestBurstablePerformanceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestBurstablePerformanceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EC2FleetInstanceRequirementsRequestBurstablePerformance) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EC2FleetInstanceRequirementsRequestBurstablePerformance)(nil)).Elem()
+}
+
+func (o EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput) ToEC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput() EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput) ToEC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput) Elem() EC2FleetInstanceRequirementsRequestBurstablePerformanceOutput {
+	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequestBurstablePerformance) EC2FleetInstanceRequirementsRequestBurstablePerformance {
+		if v != nil {
+			return *v
+		}
+		var ret EC2FleetInstanceRequirementsRequestBurstablePerformance
+		return ret
+	}).(EC2FleetInstanceRequirementsRequestBurstablePerformanceOutput)
+}
+
+func (o EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EC2FleetInstanceRequirementsRequestBurstablePerformance) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EC2FleetInstanceRequirementsRequestBurstablePerformanceInput is an input type that accepts EC2FleetInstanceRequirementsRequestBurstablePerformanceArgs and EC2FleetInstanceRequirementsRequestBurstablePerformanceOutput values.
+// You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestBurstablePerformanceInput` via:
+//
+//          EC2FleetInstanceRequirementsRequestBurstablePerformanceArgs{...}
+type EC2FleetInstanceRequirementsRequestBurstablePerformanceInput interface {
+	pulumi.Input
+
+	ToEC2FleetInstanceRequirementsRequestBurstablePerformanceOutput() EC2FleetInstanceRequirementsRequestBurstablePerformanceOutput
+	ToEC2FleetInstanceRequirementsRequestBurstablePerformanceOutputWithContext(context.Context) EC2FleetInstanceRequirementsRequestBurstablePerformanceOutput
+}
+
+var ec2fleetInstanceRequirementsRequestBurstablePerformancePtrType = reflect.TypeOf((**EC2FleetInstanceRequirementsRequestBurstablePerformance)(nil)).Elem()
+
+type EC2FleetInstanceRequirementsRequestBurstablePerformancePtrInput interface {
+	pulumi.Input
+
+	ToEC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput() EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput
+	ToEC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutputWithContext(context.Context) EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput
+}
+
+type ec2fleetInstanceRequirementsRequestBurstablePerformancePtr string
+
+func EC2FleetInstanceRequirementsRequestBurstablePerformancePtr(v string) EC2FleetInstanceRequirementsRequestBurstablePerformancePtrInput {
+	return (*ec2fleetInstanceRequirementsRequestBurstablePerformancePtr)(&v)
+}
+
+func (*ec2fleetInstanceRequirementsRequestBurstablePerformancePtr) ElementType() reflect.Type {
+	return ec2fleetInstanceRequirementsRequestBurstablePerformancePtrType
+}
+
+func (in *ec2fleetInstanceRequirementsRequestBurstablePerformancePtr) ToEC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput() EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput {
+	return pulumi.ToOutput(in).(EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput)
+}
+
+func (in *ec2fleetInstanceRequirementsRequestBurstablePerformancePtr) ToEC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput)
+}
+
+type EC2FleetInstanceRequirementsRequestCpuManufacturersItem string
+
+const (
+	EC2FleetInstanceRequirementsRequestCpuManufacturersItemIntel             = EC2FleetInstanceRequirementsRequestCpuManufacturersItem("intel")
+	EC2FleetInstanceRequirementsRequestCpuManufacturersItemAmd               = EC2FleetInstanceRequirementsRequestCpuManufacturersItem("amd")
+	EC2FleetInstanceRequirementsRequestCpuManufacturersItemAmazonWebServices = EC2FleetInstanceRequirementsRequestCpuManufacturersItem("amazon-web-services")
+)
+
+func (EC2FleetInstanceRequirementsRequestCpuManufacturersItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*EC2FleetInstanceRequirementsRequestCpuManufacturersItem)(nil)).Elem()
+}
+
+func (e EC2FleetInstanceRequirementsRequestCpuManufacturersItem) ToEC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput() EC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput {
+	return pulumi.ToOutput(e).(EC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestCpuManufacturersItem) ToEC2FleetInstanceRequirementsRequestCpuManufacturersItemOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestCpuManufacturersItem) ToEC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput() EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput {
+	return e.ToEC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutputWithContext(context.Background())
+}
+
+func (e EC2FleetInstanceRequirementsRequestCpuManufacturersItem) ToEC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput {
+	return EC2FleetInstanceRequirementsRequestCpuManufacturersItem(e).ToEC2FleetInstanceRequirementsRequestCpuManufacturersItemOutputWithContext(ctx).ToEC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutputWithContext(ctx)
+}
+
+func (e EC2FleetInstanceRequirementsRequestCpuManufacturersItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestCpuManufacturersItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestCpuManufacturersItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EC2FleetInstanceRequirementsRequestCpuManufacturersItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EC2FleetInstanceRequirementsRequestCpuManufacturersItem)(nil)).Elem()
+}
+
+func (o EC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput) ToEC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput() EC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput) ToEC2FleetInstanceRequirementsRequestCpuManufacturersItemOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput) ToEC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput() EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput {
+	return o.ToEC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput) ToEC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetInstanceRequirementsRequestCpuManufacturersItem) *EC2FleetInstanceRequirementsRequestCpuManufacturersItem {
+		return &v
+	}).(EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput)
+}
+
+func (o EC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EC2FleetInstanceRequirementsRequestCpuManufacturersItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EC2FleetInstanceRequirementsRequestCpuManufacturersItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EC2FleetInstanceRequirementsRequestCpuManufacturersItem)(nil)).Elem()
+}
+
+func (o EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) ToEC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput() EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) ToEC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) Elem() EC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput {
+	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequestCpuManufacturersItem) EC2FleetInstanceRequirementsRequestCpuManufacturersItem {
+		if v != nil {
+			return *v
+		}
+		var ret EC2FleetInstanceRequirementsRequestCpuManufacturersItem
+		return ret
+	}).(EC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput)
+}
+
+func (o EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EC2FleetInstanceRequirementsRequestCpuManufacturersItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EC2FleetInstanceRequirementsRequestCpuManufacturersItemInput is an input type that accepts EC2FleetInstanceRequirementsRequestCpuManufacturersItemArgs and EC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput values.
+// You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestCpuManufacturersItemInput` via:
+//
+//          EC2FleetInstanceRequirementsRequestCpuManufacturersItemArgs{...}
+type EC2FleetInstanceRequirementsRequestCpuManufacturersItemInput interface {
+	pulumi.Input
+
+	ToEC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput() EC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput
+	ToEC2FleetInstanceRequirementsRequestCpuManufacturersItemOutputWithContext(context.Context) EC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput
+}
+
+var ec2fleetInstanceRequirementsRequestCpuManufacturersItemPtrType = reflect.TypeOf((**EC2FleetInstanceRequirementsRequestCpuManufacturersItem)(nil)).Elem()
+
+type EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrInput interface {
+	pulumi.Input
+
+	ToEC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput() EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput
+	ToEC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutputWithContext(context.Context) EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput
+}
+
+type ec2fleetInstanceRequirementsRequestCpuManufacturersItemPtr string
+
+func EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtr(v string) EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrInput {
+	return (*ec2fleetInstanceRequirementsRequestCpuManufacturersItemPtr)(&v)
+}
+
+func (*ec2fleetInstanceRequirementsRequestCpuManufacturersItemPtr) ElementType() reflect.Type {
+	return ec2fleetInstanceRequirementsRequestCpuManufacturersItemPtrType
+}
+
+func (in *ec2fleetInstanceRequirementsRequestCpuManufacturersItemPtr) ToEC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput() EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput {
+	return pulumi.ToOutput(in).(EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput)
+}
+
+func (in *ec2fleetInstanceRequirementsRequestCpuManufacturersItemPtr) ToEC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput)
+}
+
+// EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayInput is an input type that accepts EC2FleetInstanceRequirementsRequestCpuManufacturersItemArray and EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput values.
+// You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayInput` via:
+//
+//          EC2FleetInstanceRequirementsRequestCpuManufacturersItemArray{ EC2FleetInstanceRequirementsRequestCpuManufacturersItemArgs{...} }
+type EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayInput interface {
+	pulumi.Input
+
+	ToEC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput() EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput
+	ToEC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutputWithContext(context.Context) EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput
+}
+
+type EC2FleetInstanceRequirementsRequestCpuManufacturersItemArray []EC2FleetInstanceRequirementsRequestCpuManufacturersItem
+
+func (EC2FleetInstanceRequirementsRequestCpuManufacturersItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EC2FleetInstanceRequirementsRequestCpuManufacturersItem)(nil)).Elem()
+}
+
+func (i EC2FleetInstanceRequirementsRequestCpuManufacturersItemArray) ToEC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput() EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput {
+	return i.ToEC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutputWithContext(context.Background())
+}
+
+func (i EC2FleetInstanceRequirementsRequestCpuManufacturersItemArray) ToEC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput)
+}
+
+type EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EC2FleetInstanceRequirementsRequestCpuManufacturersItem)(nil)).Elem()
+}
+
+func (o EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput) ToEC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput() EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput) ToEC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput) Index(i pulumi.IntInput) EC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EC2FleetInstanceRequirementsRequestCpuManufacturersItem {
+		return vs[0].([]EC2FleetInstanceRequirementsRequestCpuManufacturersItem)[vs[1].(int)]
+	}).(EC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput)
+}
+
+type EC2FleetInstanceRequirementsRequestInstanceGenerationsItem string
+
+const (
+	EC2FleetInstanceRequirementsRequestInstanceGenerationsItemCurrent  = EC2FleetInstanceRequirementsRequestInstanceGenerationsItem("current")
+	EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPrevious = EC2FleetInstanceRequirementsRequestInstanceGenerationsItem("previous")
+)
+
+func (EC2FleetInstanceRequirementsRequestInstanceGenerationsItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*EC2FleetInstanceRequirementsRequestInstanceGenerationsItem)(nil)).Elem()
+}
+
+func (e EC2FleetInstanceRequirementsRequestInstanceGenerationsItem) ToEC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput() EC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput {
+	return pulumi.ToOutput(e).(EC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestInstanceGenerationsItem) ToEC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestInstanceGenerationsItem) ToEC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput() EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput {
+	return e.ToEC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutputWithContext(context.Background())
+}
+
+func (e EC2FleetInstanceRequirementsRequestInstanceGenerationsItem) ToEC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput {
+	return EC2FleetInstanceRequirementsRequestInstanceGenerationsItem(e).ToEC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutputWithContext(ctx).ToEC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutputWithContext(ctx)
+}
+
+func (e EC2FleetInstanceRequirementsRequestInstanceGenerationsItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestInstanceGenerationsItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestInstanceGenerationsItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EC2FleetInstanceRequirementsRequestInstanceGenerationsItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EC2FleetInstanceRequirementsRequestInstanceGenerationsItem)(nil)).Elem()
+}
+
+func (o EC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput) ToEC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput() EC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput) ToEC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput) ToEC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput() EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput {
+	return o.ToEC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput) ToEC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetInstanceRequirementsRequestInstanceGenerationsItem) *EC2FleetInstanceRequirementsRequestInstanceGenerationsItem {
+		return &v
+	}).(EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput)
+}
+
+func (o EC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EC2FleetInstanceRequirementsRequestInstanceGenerationsItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EC2FleetInstanceRequirementsRequestInstanceGenerationsItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EC2FleetInstanceRequirementsRequestInstanceGenerationsItem)(nil)).Elem()
+}
+
+func (o EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput) ToEC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput() EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput) ToEC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput) Elem() EC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput {
+	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequestInstanceGenerationsItem) EC2FleetInstanceRequirementsRequestInstanceGenerationsItem {
+		if v != nil {
+			return *v
+		}
+		var ret EC2FleetInstanceRequirementsRequestInstanceGenerationsItem
+		return ret
+	}).(EC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput)
+}
+
+func (o EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EC2FleetInstanceRequirementsRequestInstanceGenerationsItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EC2FleetInstanceRequirementsRequestInstanceGenerationsItemInput is an input type that accepts EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArgs and EC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput values.
+// You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestInstanceGenerationsItemInput` via:
+//
+//          EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArgs{...}
+type EC2FleetInstanceRequirementsRequestInstanceGenerationsItemInput interface {
+	pulumi.Input
+
+	ToEC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput() EC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput
+	ToEC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutputWithContext(context.Context) EC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput
+}
+
+var ec2fleetInstanceRequirementsRequestInstanceGenerationsItemPtrType = reflect.TypeOf((**EC2FleetInstanceRequirementsRequestInstanceGenerationsItem)(nil)).Elem()
+
+type EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrInput interface {
+	pulumi.Input
+
+	ToEC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput() EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput
+	ToEC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutputWithContext(context.Context) EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput
+}
+
+type ec2fleetInstanceRequirementsRequestInstanceGenerationsItemPtr string
+
+func EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtr(v string) EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrInput {
+	return (*ec2fleetInstanceRequirementsRequestInstanceGenerationsItemPtr)(&v)
+}
+
+func (*ec2fleetInstanceRequirementsRequestInstanceGenerationsItemPtr) ElementType() reflect.Type {
+	return ec2fleetInstanceRequirementsRequestInstanceGenerationsItemPtrType
+}
+
+func (in *ec2fleetInstanceRequirementsRequestInstanceGenerationsItemPtr) ToEC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput() EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput {
+	return pulumi.ToOutput(in).(EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput)
+}
+
+func (in *ec2fleetInstanceRequirementsRequestInstanceGenerationsItemPtr) ToEC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput)
+}
+
+// EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayInput is an input type that accepts EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArray and EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput values.
+// You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayInput` via:
+//
+//          EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArray{ EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArgs{...} }
+type EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayInput interface {
+	pulumi.Input
+
+	ToEC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput() EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput
+	ToEC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutputWithContext(context.Context) EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput
+}
+
+type EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArray []EC2FleetInstanceRequirementsRequestInstanceGenerationsItem
+
+func (EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EC2FleetInstanceRequirementsRequestInstanceGenerationsItem)(nil)).Elem()
+}
+
+func (i EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArray) ToEC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput() EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput {
+	return i.ToEC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutputWithContext(context.Background())
+}
+
+func (i EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArray) ToEC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput)
+}
+
+type EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EC2FleetInstanceRequirementsRequestInstanceGenerationsItem)(nil)).Elem()
+}
+
+func (o EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput) ToEC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput() EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput) ToEC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput) Index(i pulumi.IntInput) EC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EC2FleetInstanceRequirementsRequestInstanceGenerationsItem {
+		return vs[0].([]EC2FleetInstanceRequirementsRequestInstanceGenerationsItem)[vs[1].(int)]
+	}).(EC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput)
+}
+
+type EC2FleetInstanceRequirementsRequestLocalStorage string
+
+const (
+	EC2FleetInstanceRequirementsRequestLocalStorageIncluded = EC2FleetInstanceRequirementsRequestLocalStorage("included")
+	EC2FleetInstanceRequirementsRequestLocalStorageRequired = EC2FleetInstanceRequirementsRequestLocalStorage("required")
+	EC2FleetInstanceRequirementsRequestLocalStorageExcluded = EC2FleetInstanceRequirementsRequestLocalStorage("excluded")
+)
+
+func (EC2FleetInstanceRequirementsRequestLocalStorage) ElementType() reflect.Type {
+	return reflect.TypeOf((*EC2FleetInstanceRequirementsRequestLocalStorage)(nil)).Elem()
+}
+
+func (e EC2FleetInstanceRequirementsRequestLocalStorage) ToEC2FleetInstanceRequirementsRequestLocalStorageOutput() EC2FleetInstanceRequirementsRequestLocalStorageOutput {
+	return pulumi.ToOutput(e).(EC2FleetInstanceRequirementsRequestLocalStorageOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestLocalStorage) ToEC2FleetInstanceRequirementsRequestLocalStorageOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestLocalStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EC2FleetInstanceRequirementsRequestLocalStorageOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestLocalStorage) ToEC2FleetInstanceRequirementsRequestLocalStoragePtrOutput() EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput {
+	return e.ToEC2FleetInstanceRequirementsRequestLocalStoragePtrOutputWithContext(context.Background())
+}
+
+func (e EC2FleetInstanceRequirementsRequestLocalStorage) ToEC2FleetInstanceRequirementsRequestLocalStoragePtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput {
+	return EC2FleetInstanceRequirementsRequestLocalStorage(e).ToEC2FleetInstanceRequirementsRequestLocalStorageOutputWithContext(ctx).ToEC2FleetInstanceRequirementsRequestLocalStoragePtrOutputWithContext(ctx)
+}
+
+func (e EC2FleetInstanceRequirementsRequestLocalStorage) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestLocalStorage) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestLocalStorage) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EC2FleetInstanceRequirementsRequestLocalStorage) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EC2FleetInstanceRequirementsRequestLocalStorageOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetInstanceRequirementsRequestLocalStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EC2FleetInstanceRequirementsRequestLocalStorage)(nil)).Elem()
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStorageOutput) ToEC2FleetInstanceRequirementsRequestLocalStorageOutput() EC2FleetInstanceRequirementsRequestLocalStorageOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStorageOutput) ToEC2FleetInstanceRequirementsRequestLocalStorageOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestLocalStorageOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStorageOutput) ToEC2FleetInstanceRequirementsRequestLocalStoragePtrOutput() EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput {
+	return o.ToEC2FleetInstanceRequirementsRequestLocalStoragePtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStorageOutput) ToEC2FleetInstanceRequirementsRequestLocalStoragePtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetInstanceRequirementsRequestLocalStorage) *EC2FleetInstanceRequirementsRequestLocalStorage {
+		return &v
+	}).(EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput)
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStorageOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStorageOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EC2FleetInstanceRequirementsRequestLocalStorage) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStorageOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStorageOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EC2FleetInstanceRequirementsRequestLocalStorage) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EC2FleetInstanceRequirementsRequestLocalStorage)(nil)).Elem()
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput) ToEC2FleetInstanceRequirementsRequestLocalStoragePtrOutput() EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput) ToEC2FleetInstanceRequirementsRequestLocalStoragePtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput) Elem() EC2FleetInstanceRequirementsRequestLocalStorageOutput {
+	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequestLocalStorage) EC2FleetInstanceRequirementsRequestLocalStorage {
+		if v != nil {
+			return *v
+		}
+		var ret EC2FleetInstanceRequirementsRequestLocalStorage
+		return ret
+	}).(EC2FleetInstanceRequirementsRequestLocalStorageOutput)
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EC2FleetInstanceRequirementsRequestLocalStorage) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EC2FleetInstanceRequirementsRequestLocalStorageInput is an input type that accepts EC2FleetInstanceRequirementsRequestLocalStorageArgs and EC2FleetInstanceRequirementsRequestLocalStorageOutput values.
+// You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestLocalStorageInput` via:
+//
+//          EC2FleetInstanceRequirementsRequestLocalStorageArgs{...}
+type EC2FleetInstanceRequirementsRequestLocalStorageInput interface {
+	pulumi.Input
+
+	ToEC2FleetInstanceRequirementsRequestLocalStorageOutput() EC2FleetInstanceRequirementsRequestLocalStorageOutput
+	ToEC2FleetInstanceRequirementsRequestLocalStorageOutputWithContext(context.Context) EC2FleetInstanceRequirementsRequestLocalStorageOutput
+}
+
+var ec2fleetInstanceRequirementsRequestLocalStoragePtrType = reflect.TypeOf((**EC2FleetInstanceRequirementsRequestLocalStorage)(nil)).Elem()
+
+type EC2FleetInstanceRequirementsRequestLocalStoragePtrInput interface {
+	pulumi.Input
+
+	ToEC2FleetInstanceRequirementsRequestLocalStoragePtrOutput() EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput
+	ToEC2FleetInstanceRequirementsRequestLocalStoragePtrOutputWithContext(context.Context) EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput
+}
+
+type ec2fleetInstanceRequirementsRequestLocalStoragePtr string
+
+func EC2FleetInstanceRequirementsRequestLocalStoragePtr(v string) EC2FleetInstanceRequirementsRequestLocalStoragePtrInput {
+	return (*ec2fleetInstanceRequirementsRequestLocalStoragePtr)(&v)
+}
+
+func (*ec2fleetInstanceRequirementsRequestLocalStoragePtr) ElementType() reflect.Type {
+	return ec2fleetInstanceRequirementsRequestLocalStoragePtrType
+}
+
+func (in *ec2fleetInstanceRequirementsRequestLocalStoragePtr) ToEC2FleetInstanceRequirementsRequestLocalStoragePtrOutput() EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput {
+	return pulumi.ToOutput(in).(EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput)
+}
+
+func (in *ec2fleetInstanceRequirementsRequestLocalStoragePtr) ToEC2FleetInstanceRequirementsRequestLocalStoragePtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput)
+}
+
+type EC2FleetInstanceRequirementsRequestLocalStorageTypesItem string
+
+const (
+	EC2FleetInstanceRequirementsRequestLocalStorageTypesItemHdd = EC2FleetInstanceRequirementsRequestLocalStorageTypesItem("hdd")
+	EC2FleetInstanceRequirementsRequestLocalStorageTypesItemSsd = EC2FleetInstanceRequirementsRequestLocalStorageTypesItem("ssd")
+)
+
+func (EC2FleetInstanceRequirementsRequestLocalStorageTypesItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*EC2FleetInstanceRequirementsRequestLocalStorageTypesItem)(nil)).Elem()
+}
+
+func (e EC2FleetInstanceRequirementsRequestLocalStorageTypesItem) ToEC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput() EC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput {
+	return pulumi.ToOutput(e).(EC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestLocalStorageTypesItem) ToEC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestLocalStorageTypesItem) ToEC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput() EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput {
+	return e.ToEC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (e EC2FleetInstanceRequirementsRequestLocalStorageTypesItem) ToEC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput {
+	return EC2FleetInstanceRequirementsRequestLocalStorageTypesItem(e).ToEC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutputWithContext(ctx).ToEC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutputWithContext(ctx)
+}
+
+func (e EC2FleetInstanceRequirementsRequestLocalStorageTypesItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestLocalStorageTypesItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EC2FleetInstanceRequirementsRequestLocalStorageTypesItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EC2FleetInstanceRequirementsRequestLocalStorageTypesItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EC2FleetInstanceRequirementsRequestLocalStorageTypesItem)(nil)).Elem()
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput) ToEC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput() EC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput) ToEC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput) ToEC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput() EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput {
+	return o.ToEC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput) ToEC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetInstanceRequirementsRequestLocalStorageTypesItem) *EC2FleetInstanceRequirementsRequestLocalStorageTypesItem {
+		return &v
+	}).(EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput)
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EC2FleetInstanceRequirementsRequestLocalStorageTypesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EC2FleetInstanceRequirementsRequestLocalStorageTypesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EC2FleetInstanceRequirementsRequestLocalStorageTypesItem)(nil)).Elem()
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput) ToEC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput() EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput) ToEC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput) Elem() EC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput {
+	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequestLocalStorageTypesItem) EC2FleetInstanceRequirementsRequestLocalStorageTypesItem {
+		if v != nil {
+			return *v
+		}
+		var ret EC2FleetInstanceRequirementsRequestLocalStorageTypesItem
+		return ret
+	}).(EC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput)
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EC2FleetInstanceRequirementsRequestLocalStorageTypesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EC2FleetInstanceRequirementsRequestLocalStorageTypesItemInput is an input type that accepts EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArgs and EC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput values.
+// You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestLocalStorageTypesItemInput` via:
+//
+//          EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArgs{...}
+type EC2FleetInstanceRequirementsRequestLocalStorageTypesItemInput interface {
+	pulumi.Input
+
+	ToEC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput() EC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput
+	ToEC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutputWithContext(context.Context) EC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput
+}
+
+var ec2fleetInstanceRequirementsRequestLocalStorageTypesItemPtrType = reflect.TypeOf((**EC2FleetInstanceRequirementsRequestLocalStorageTypesItem)(nil)).Elem()
+
+type EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrInput interface {
+	pulumi.Input
+
+	ToEC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput() EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput
+	ToEC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutputWithContext(context.Context) EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput
+}
+
+type ec2fleetInstanceRequirementsRequestLocalStorageTypesItemPtr string
+
+func EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtr(v string) EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrInput {
+	return (*ec2fleetInstanceRequirementsRequestLocalStorageTypesItemPtr)(&v)
+}
+
+func (*ec2fleetInstanceRequirementsRequestLocalStorageTypesItemPtr) ElementType() reflect.Type {
+	return ec2fleetInstanceRequirementsRequestLocalStorageTypesItemPtrType
+}
+
+func (in *ec2fleetInstanceRequirementsRequestLocalStorageTypesItemPtr) ToEC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput() EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput {
+	return pulumi.ToOutput(in).(EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput)
+}
+
+func (in *ec2fleetInstanceRequirementsRequestLocalStorageTypesItemPtr) ToEC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput)
+}
+
+// EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayInput is an input type that accepts EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArray and EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput values.
+// You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayInput` via:
+//
+//          EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArray{ EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArgs{...} }
+type EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayInput interface {
+	pulumi.Input
+
+	ToEC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput() EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput
+	ToEC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutputWithContext(context.Context) EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput
+}
+
+type EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArray []EC2FleetInstanceRequirementsRequestLocalStorageTypesItem
+
+func (EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EC2FleetInstanceRequirementsRequestLocalStorageTypesItem)(nil)).Elem()
+}
+
+func (i EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArray) ToEC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput() EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput {
+	return i.ToEC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutputWithContext(context.Background())
+}
+
+func (i EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArray) ToEC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput)
+}
+
+type EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EC2FleetInstanceRequirementsRequestLocalStorageTypesItem)(nil)).Elem()
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) ToEC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput() EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) ToEC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput {
+	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) Index(i pulumi.IntInput) EC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EC2FleetInstanceRequirementsRequestLocalStorageTypesItem {
+		return vs[0].([]EC2FleetInstanceRequirementsRequestLocalStorageTypesItem)[vs[1].(int)]
+	}).(EC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput)
 }
 
 type EC2FleetSpotOptionsRequestAllocationStrategy string
@@ -1039,6 +3125,171 @@ func (in *ec2fleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtr
 
 func (in *ec2fleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtr) ToEC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutputWithContext(ctx context.Context) EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput)
+}
+
+type EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType string
+
+const (
+	EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeVcpu      = EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType("vcpu")
+	EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeMemoryMib = EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType("memory-mib")
+	EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeUnits     = EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType("units")
+)
+
+func (EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType) ElementType() reflect.Type {
+	return reflect.TypeOf((*EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType)(nil)).Elem()
+}
+
+func (e EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType) ToEC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput() EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput {
+	return pulumi.ToOutput(e).(EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput)
+}
+
+func (e EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType) ToEC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutputWithContext(ctx context.Context) EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput)
+}
+
+func (e EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType) ToEC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput() EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput {
+	return e.ToEC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutputWithContext(context.Background())
+}
+
+func (e EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType) ToEC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutputWithContext(ctx context.Context) EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput {
+	return EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType(e).ToEC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutputWithContext(ctx).ToEC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutputWithContext(ctx)
+}
+
+func (e EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType)(nil)).Elem()
+}
+
+func (o EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput) ToEC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput() EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput {
+	return o
+}
+
+func (o EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput) ToEC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutputWithContext(ctx context.Context) EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput {
+	return o
+}
+
+func (o EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput) ToEC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput() EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput {
+	return o.ToEC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput) ToEC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutputWithContext(ctx context.Context) EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType) *EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType {
+		return &v
+	}).(EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput)
+}
+
+func (o EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType)(nil)).Elem()
+}
+
+func (o EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput) ToEC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput() EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput {
+	return o
+}
+
+func (o EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput) ToEC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutputWithContext(ctx context.Context) EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput {
+	return o
+}
+
+func (o EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput) Elem() EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput {
+	return o.ApplyT(func(v *EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType) EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType {
+		if v != nil {
+			return *v
+		}
+		var ret EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType
+		return ret
+	}).(EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput)
+}
+
+func (o EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeInput is an input type that accepts EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeArgs and EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput values.
+// You can construct a concrete instance of `EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeInput` via:
+//
+//          EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeArgs{...}
+type EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeInput interface {
+	pulumi.Input
+
+	ToEC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput() EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput
+	ToEC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutputWithContext(context.Context) EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput
+}
+
+var ec2fleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrType = reflect.TypeOf((**EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType)(nil)).Elem()
+
+type EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrInput interface {
+	pulumi.Input
+
+	ToEC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput() EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput
+	ToEC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutputWithContext(context.Context) EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput
+}
+
+type ec2fleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtr string
+
+func EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtr(v string) EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrInput {
+	return (*ec2fleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtr)(&v)
+}
+
+func (*ec2fleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtr) ElementType() reflect.Type {
+	return ec2fleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrType
+}
+
+func (in *ec2fleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtr) ToEC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput() EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput {
+	return pulumi.ToOutput(in).(EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput)
+}
+
+func (in *ec2fleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtr) ToEC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutputWithContext(ctx context.Context) EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput)
 }
 
 type EC2FleetType string
@@ -2696,6 +4947,1766 @@ func (in *spotFleetEbsBlockDeviceVolumeTypePtr) ToSpotFleetEbsBlockDeviceVolumeT
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetEbsBlockDeviceVolumeTypePtrOutput)
 }
 
+type SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem string
+
+const (
+	SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemNvidia            = SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem("nvidia")
+	SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemAmd               = SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem("amd")
+	SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemAmazonWebServices = SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem("amazon-web-services")
+	SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemXilinx            = SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem("xilinx")
+)
+
+func (SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem)(nil)).Elem()
+}
+
+func (e SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem) ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput() SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput {
+	return pulumi.ToOutput(e).(SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem) ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem) ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput() SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput {
+	return e.ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutputWithContext(context.Background())
+}
+
+func (e SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem) ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput {
+	return SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem(e).ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutputWithContext(ctx).ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutputWithContext(ctx)
+}
+
+func (e SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem)(nil)).Elem()
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput() SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput() SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput {
+	return o.ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem) *SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem {
+		return &v
+	}).(SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem)(nil)).Elem()
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput() SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput) Elem() SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput {
+	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem) SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem
+		return ret
+	}).(SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemInput is an input type that accepts SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArgs and SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput values.
+// You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemInput` via:
+//
+//          SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArgs{...}
+type SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemInput interface {
+	pulumi.Input
+
+	ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput() SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput
+	ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutputWithContext(context.Context) SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput
+}
+
+var spotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrType = reflect.TypeOf((**SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem)(nil)).Elem()
+
+type SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput() SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput
+	ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutputWithContext(context.Context) SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput
+}
+
+type spotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtr string
+
+func SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtr(v string) SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrInput {
+	return (*spotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtr)(&v)
+}
+
+func (*spotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtr) ElementType() reflect.Type {
+	return spotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrType
+}
+
+func (in *spotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtr) ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput() SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput {
+	return pulumi.ToOutput(in).(SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput)
+}
+
+func (in *spotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtr) ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput)
+}
+
+// SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput is an input type that accepts SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArray and SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput values.
+// You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput` via:
+//
+//          SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArray{ SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArgs{...} }
+type SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput interface {
+	pulumi.Input
+
+	ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput() SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput
+	ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutputWithContext(context.Context) SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput
+}
+
+type SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArray []SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem
+
+func (SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem)(nil)).Elem()
+}
+
+func (i SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArray) ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput() SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput {
+	return i.ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutputWithContext(context.Background())
+}
+
+func (i SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArray) ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput)
+}
+
+type SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem)(nil)).Elem()
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput() SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput) Index(i pulumi.IntInput) SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem {
+		return vs[0].([]SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem)[vs[1].(int)]
+	}).(SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput)
+}
+
+type SpotFleetInstanceRequirementsRequestAcceleratorNamesItem string
+
+const (
+	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemA100          = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("a100")
+	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemV100          = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("v100")
+	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemK80           = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("k80")
+	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemT4            = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("t4")
+	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemM60           = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("m60")
+	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemRadeonProV520 = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("radeon-pro-v520")
+	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemVu9p          = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("vu9p")
+	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemInferentia    = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("inferentia")
+	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemK520          = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("k520")
+)
+
+func (SpotFleetInstanceRequirementsRequestAcceleratorNamesItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetInstanceRequirementsRequestAcceleratorNamesItem)(nil)).Elem()
+}
+
+func (e SpotFleetInstanceRequirementsRequestAcceleratorNamesItem) ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput() SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput {
+	return pulumi.ToOutput(e).(SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestAcceleratorNamesItem) ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestAcceleratorNamesItem) ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput() SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput {
+	return e.ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutputWithContext(context.Background())
+}
+
+func (e SpotFleetInstanceRequirementsRequestAcceleratorNamesItem) ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput {
+	return SpotFleetInstanceRequirementsRequestAcceleratorNamesItem(e).ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutputWithContext(ctx).ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutputWithContext(ctx)
+}
+
+func (e SpotFleetInstanceRequirementsRequestAcceleratorNamesItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestAcceleratorNamesItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestAcceleratorNamesItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SpotFleetInstanceRequirementsRequestAcceleratorNamesItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetInstanceRequirementsRequestAcceleratorNamesItem)(nil)).Elem()
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput() SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput() SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput {
+	return o.ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetInstanceRequirementsRequestAcceleratorNamesItem) *SpotFleetInstanceRequirementsRequestAcceleratorNamesItem {
+		return &v
+	}).(SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetInstanceRequirementsRequestAcceleratorNamesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetInstanceRequirementsRequestAcceleratorNamesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetInstanceRequirementsRequestAcceleratorNamesItem)(nil)).Elem()
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput() SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) Elem() SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput {
+	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequestAcceleratorNamesItem) SpotFleetInstanceRequirementsRequestAcceleratorNamesItem {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetInstanceRequirementsRequestAcceleratorNamesItem
+		return ret
+	}).(SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SpotFleetInstanceRequirementsRequestAcceleratorNamesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SpotFleetInstanceRequirementsRequestAcceleratorNamesItemInput is an input type that accepts SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArgs and SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput values.
+// You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestAcceleratorNamesItemInput` via:
+//
+//          SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArgs{...}
+type SpotFleetInstanceRequirementsRequestAcceleratorNamesItemInput interface {
+	pulumi.Input
+
+	ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput() SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput
+	ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutputWithContext(context.Context) SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput
+}
+
+var spotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrType = reflect.TypeOf((**SpotFleetInstanceRequirementsRequestAcceleratorNamesItem)(nil)).Elem()
+
+type SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput() SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput
+	ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutputWithContext(context.Context) SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput
+}
+
+type spotFleetInstanceRequirementsRequestAcceleratorNamesItemPtr string
+
+func SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtr(v string) SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrInput {
+	return (*spotFleetInstanceRequirementsRequestAcceleratorNamesItemPtr)(&v)
+}
+
+func (*spotFleetInstanceRequirementsRequestAcceleratorNamesItemPtr) ElementType() reflect.Type {
+	return spotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrType
+}
+
+func (in *spotFleetInstanceRequirementsRequestAcceleratorNamesItemPtr) ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput() SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput {
+	return pulumi.ToOutput(in).(SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput)
+}
+
+func (in *spotFleetInstanceRequirementsRequestAcceleratorNamesItemPtr) ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput)
+}
+
+// SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayInput is an input type that accepts SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArray and SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput values.
+// You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayInput` via:
+//
+//          SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArray{ SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArgs{...} }
+type SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayInput interface {
+	pulumi.Input
+
+	ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput() SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput
+	ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutputWithContext(context.Context) SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput
+}
+
+type SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArray []SpotFleetInstanceRequirementsRequestAcceleratorNamesItem
+
+func (SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpotFleetInstanceRequirementsRequestAcceleratorNamesItem)(nil)).Elem()
+}
+
+func (i SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArray) ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput() SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput {
+	return i.ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutputWithContext(context.Background())
+}
+
+func (i SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArray) ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput)
+}
+
+type SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpotFleetInstanceRequirementsRequestAcceleratorNamesItem)(nil)).Elem()
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput() SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput) Index(i pulumi.IntInput) SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpotFleetInstanceRequirementsRequestAcceleratorNamesItem {
+		return vs[0].([]SpotFleetInstanceRequirementsRequestAcceleratorNamesItem)[vs[1].(int)]
+	}).(SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput)
+}
+
+type SpotFleetInstanceRequirementsRequestAcceleratorTypesItem string
+
+const (
+	SpotFleetInstanceRequirementsRequestAcceleratorTypesItemGpu       = SpotFleetInstanceRequirementsRequestAcceleratorTypesItem("gpu")
+	SpotFleetInstanceRequirementsRequestAcceleratorTypesItemFpga      = SpotFleetInstanceRequirementsRequestAcceleratorTypesItem("fpga")
+	SpotFleetInstanceRequirementsRequestAcceleratorTypesItemInference = SpotFleetInstanceRequirementsRequestAcceleratorTypesItem("inference")
+)
+
+func (SpotFleetInstanceRequirementsRequestAcceleratorTypesItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetInstanceRequirementsRequestAcceleratorTypesItem)(nil)).Elem()
+}
+
+func (e SpotFleetInstanceRequirementsRequestAcceleratorTypesItem) ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput() SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput {
+	return pulumi.ToOutput(e).(SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestAcceleratorTypesItem) ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestAcceleratorTypesItem) ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput() SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput {
+	return e.ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (e SpotFleetInstanceRequirementsRequestAcceleratorTypesItem) ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput {
+	return SpotFleetInstanceRequirementsRequestAcceleratorTypesItem(e).ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutputWithContext(ctx).ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutputWithContext(ctx)
+}
+
+func (e SpotFleetInstanceRequirementsRequestAcceleratorTypesItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestAcceleratorTypesItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestAcceleratorTypesItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SpotFleetInstanceRequirementsRequestAcceleratorTypesItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetInstanceRequirementsRequestAcceleratorTypesItem)(nil)).Elem()
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput() SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput() SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput {
+	return o.ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetInstanceRequirementsRequestAcceleratorTypesItem) *SpotFleetInstanceRequirementsRequestAcceleratorTypesItem {
+		return &v
+	}).(SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetInstanceRequirementsRequestAcceleratorTypesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetInstanceRequirementsRequestAcceleratorTypesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetInstanceRequirementsRequestAcceleratorTypesItem)(nil)).Elem()
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput() SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) Elem() SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput {
+	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequestAcceleratorTypesItem) SpotFleetInstanceRequirementsRequestAcceleratorTypesItem {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetInstanceRequirementsRequestAcceleratorTypesItem
+		return ret
+	}).(SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SpotFleetInstanceRequirementsRequestAcceleratorTypesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SpotFleetInstanceRequirementsRequestAcceleratorTypesItemInput is an input type that accepts SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArgs and SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput values.
+// You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestAcceleratorTypesItemInput` via:
+//
+//          SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArgs{...}
+type SpotFleetInstanceRequirementsRequestAcceleratorTypesItemInput interface {
+	pulumi.Input
+
+	ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput() SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput
+	ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutputWithContext(context.Context) SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput
+}
+
+var spotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrType = reflect.TypeOf((**SpotFleetInstanceRequirementsRequestAcceleratorTypesItem)(nil)).Elem()
+
+type SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput() SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput
+	ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutputWithContext(context.Context) SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput
+}
+
+type spotFleetInstanceRequirementsRequestAcceleratorTypesItemPtr string
+
+func SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtr(v string) SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrInput {
+	return (*spotFleetInstanceRequirementsRequestAcceleratorTypesItemPtr)(&v)
+}
+
+func (*spotFleetInstanceRequirementsRequestAcceleratorTypesItemPtr) ElementType() reflect.Type {
+	return spotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrType
+}
+
+func (in *spotFleetInstanceRequirementsRequestAcceleratorTypesItemPtr) ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput() SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput {
+	return pulumi.ToOutput(in).(SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput)
+}
+
+func (in *spotFleetInstanceRequirementsRequestAcceleratorTypesItemPtr) ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput)
+}
+
+// SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput is an input type that accepts SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArray and SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput values.
+// You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput` via:
+//
+//          SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArray{ SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArgs{...} }
+type SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput interface {
+	pulumi.Input
+
+	ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput() SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput
+	ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutputWithContext(context.Context) SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput
+}
+
+type SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArray []SpotFleetInstanceRequirementsRequestAcceleratorTypesItem
+
+func (SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpotFleetInstanceRequirementsRequestAcceleratorTypesItem)(nil)).Elem()
+}
+
+func (i SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArray) ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput() SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
+	return i.ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutputWithContext(context.Background())
+}
+
+func (i SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArray) ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput)
+}
+
+type SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpotFleetInstanceRequirementsRequestAcceleratorTypesItem)(nil)).Elem()
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput() SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput) Index(i pulumi.IntInput) SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpotFleetInstanceRequirementsRequestAcceleratorTypesItem {
+		return vs[0].([]SpotFleetInstanceRequirementsRequestAcceleratorTypesItem)[vs[1].(int)]
+	}).(SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput)
+}
+
+type SpotFleetInstanceRequirementsRequestBareMetal string
+
+const (
+	SpotFleetInstanceRequirementsRequestBareMetalIncluded = SpotFleetInstanceRequirementsRequestBareMetal("included")
+	SpotFleetInstanceRequirementsRequestBareMetalRequired = SpotFleetInstanceRequirementsRequestBareMetal("required")
+	SpotFleetInstanceRequirementsRequestBareMetalExcluded = SpotFleetInstanceRequirementsRequestBareMetal("excluded")
+)
+
+func (SpotFleetInstanceRequirementsRequestBareMetal) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetInstanceRequirementsRequestBareMetal)(nil)).Elem()
+}
+
+func (e SpotFleetInstanceRequirementsRequestBareMetal) ToSpotFleetInstanceRequirementsRequestBareMetalOutput() SpotFleetInstanceRequirementsRequestBareMetalOutput {
+	return pulumi.ToOutput(e).(SpotFleetInstanceRequirementsRequestBareMetalOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestBareMetal) ToSpotFleetInstanceRequirementsRequestBareMetalOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestBareMetalOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SpotFleetInstanceRequirementsRequestBareMetalOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestBareMetal) ToSpotFleetInstanceRequirementsRequestBareMetalPtrOutput() SpotFleetInstanceRequirementsRequestBareMetalPtrOutput {
+	return e.ToSpotFleetInstanceRequirementsRequestBareMetalPtrOutputWithContext(context.Background())
+}
+
+func (e SpotFleetInstanceRequirementsRequestBareMetal) ToSpotFleetInstanceRequirementsRequestBareMetalPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestBareMetalPtrOutput {
+	return SpotFleetInstanceRequirementsRequestBareMetal(e).ToSpotFleetInstanceRequirementsRequestBareMetalOutputWithContext(ctx).ToSpotFleetInstanceRequirementsRequestBareMetalPtrOutputWithContext(ctx)
+}
+
+func (e SpotFleetInstanceRequirementsRequestBareMetal) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestBareMetal) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestBareMetal) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SpotFleetInstanceRequirementsRequestBareMetal) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SpotFleetInstanceRequirementsRequestBareMetalOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetInstanceRequirementsRequestBareMetalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetInstanceRequirementsRequestBareMetal)(nil)).Elem()
+}
+
+func (o SpotFleetInstanceRequirementsRequestBareMetalOutput) ToSpotFleetInstanceRequirementsRequestBareMetalOutput() SpotFleetInstanceRequirementsRequestBareMetalOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestBareMetalOutput) ToSpotFleetInstanceRequirementsRequestBareMetalOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestBareMetalOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestBareMetalOutput) ToSpotFleetInstanceRequirementsRequestBareMetalPtrOutput() SpotFleetInstanceRequirementsRequestBareMetalPtrOutput {
+	return o.ToSpotFleetInstanceRequirementsRequestBareMetalPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestBareMetalOutput) ToSpotFleetInstanceRequirementsRequestBareMetalPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestBareMetalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetInstanceRequirementsRequestBareMetal) *SpotFleetInstanceRequirementsRequestBareMetal {
+		return &v
+	}).(SpotFleetInstanceRequirementsRequestBareMetalPtrOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestBareMetalOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestBareMetalOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetInstanceRequirementsRequestBareMetal) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestBareMetalOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestBareMetalOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetInstanceRequirementsRequestBareMetal) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpotFleetInstanceRequirementsRequestBareMetalPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetInstanceRequirementsRequestBareMetalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetInstanceRequirementsRequestBareMetal)(nil)).Elem()
+}
+
+func (o SpotFleetInstanceRequirementsRequestBareMetalPtrOutput) ToSpotFleetInstanceRequirementsRequestBareMetalPtrOutput() SpotFleetInstanceRequirementsRequestBareMetalPtrOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestBareMetalPtrOutput) ToSpotFleetInstanceRequirementsRequestBareMetalPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestBareMetalPtrOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestBareMetalPtrOutput) Elem() SpotFleetInstanceRequirementsRequestBareMetalOutput {
+	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequestBareMetal) SpotFleetInstanceRequirementsRequestBareMetal {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetInstanceRequirementsRequestBareMetal
+		return ret
+	}).(SpotFleetInstanceRequirementsRequestBareMetalOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestBareMetalPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestBareMetalPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SpotFleetInstanceRequirementsRequestBareMetal) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SpotFleetInstanceRequirementsRequestBareMetalInput is an input type that accepts SpotFleetInstanceRequirementsRequestBareMetalArgs and SpotFleetInstanceRequirementsRequestBareMetalOutput values.
+// You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestBareMetalInput` via:
+//
+//          SpotFleetInstanceRequirementsRequestBareMetalArgs{...}
+type SpotFleetInstanceRequirementsRequestBareMetalInput interface {
+	pulumi.Input
+
+	ToSpotFleetInstanceRequirementsRequestBareMetalOutput() SpotFleetInstanceRequirementsRequestBareMetalOutput
+	ToSpotFleetInstanceRequirementsRequestBareMetalOutputWithContext(context.Context) SpotFleetInstanceRequirementsRequestBareMetalOutput
+}
+
+var spotFleetInstanceRequirementsRequestBareMetalPtrType = reflect.TypeOf((**SpotFleetInstanceRequirementsRequestBareMetal)(nil)).Elem()
+
+type SpotFleetInstanceRequirementsRequestBareMetalPtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetInstanceRequirementsRequestBareMetalPtrOutput() SpotFleetInstanceRequirementsRequestBareMetalPtrOutput
+	ToSpotFleetInstanceRequirementsRequestBareMetalPtrOutputWithContext(context.Context) SpotFleetInstanceRequirementsRequestBareMetalPtrOutput
+}
+
+type spotFleetInstanceRequirementsRequestBareMetalPtr string
+
+func SpotFleetInstanceRequirementsRequestBareMetalPtr(v string) SpotFleetInstanceRequirementsRequestBareMetalPtrInput {
+	return (*spotFleetInstanceRequirementsRequestBareMetalPtr)(&v)
+}
+
+func (*spotFleetInstanceRequirementsRequestBareMetalPtr) ElementType() reflect.Type {
+	return spotFleetInstanceRequirementsRequestBareMetalPtrType
+}
+
+func (in *spotFleetInstanceRequirementsRequestBareMetalPtr) ToSpotFleetInstanceRequirementsRequestBareMetalPtrOutput() SpotFleetInstanceRequirementsRequestBareMetalPtrOutput {
+	return pulumi.ToOutput(in).(SpotFleetInstanceRequirementsRequestBareMetalPtrOutput)
+}
+
+func (in *spotFleetInstanceRequirementsRequestBareMetalPtr) ToSpotFleetInstanceRequirementsRequestBareMetalPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestBareMetalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetInstanceRequirementsRequestBareMetalPtrOutput)
+}
+
+type SpotFleetInstanceRequirementsRequestBurstablePerformance string
+
+const (
+	SpotFleetInstanceRequirementsRequestBurstablePerformanceIncluded = SpotFleetInstanceRequirementsRequestBurstablePerformance("included")
+	SpotFleetInstanceRequirementsRequestBurstablePerformanceRequired = SpotFleetInstanceRequirementsRequestBurstablePerformance("required")
+	SpotFleetInstanceRequirementsRequestBurstablePerformanceExcluded = SpotFleetInstanceRequirementsRequestBurstablePerformance("excluded")
+)
+
+func (SpotFleetInstanceRequirementsRequestBurstablePerformance) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetInstanceRequirementsRequestBurstablePerformance)(nil)).Elem()
+}
+
+func (e SpotFleetInstanceRequirementsRequestBurstablePerformance) ToSpotFleetInstanceRequirementsRequestBurstablePerformanceOutput() SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput {
+	return pulumi.ToOutput(e).(SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestBurstablePerformance) ToSpotFleetInstanceRequirementsRequestBurstablePerformanceOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestBurstablePerformance) ToSpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput() SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput {
+	return e.ToSpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutputWithContext(context.Background())
+}
+
+func (e SpotFleetInstanceRequirementsRequestBurstablePerformance) ToSpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput {
+	return SpotFleetInstanceRequirementsRequestBurstablePerformance(e).ToSpotFleetInstanceRequirementsRequestBurstablePerformanceOutputWithContext(ctx).ToSpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutputWithContext(ctx)
+}
+
+func (e SpotFleetInstanceRequirementsRequestBurstablePerformance) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestBurstablePerformance) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestBurstablePerformance) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SpotFleetInstanceRequirementsRequestBurstablePerformance) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetInstanceRequirementsRequestBurstablePerformance)(nil)).Elem()
+}
+
+func (o SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput) ToSpotFleetInstanceRequirementsRequestBurstablePerformanceOutput() SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput) ToSpotFleetInstanceRequirementsRequestBurstablePerformanceOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput) ToSpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput() SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput {
+	return o.ToSpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput) ToSpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetInstanceRequirementsRequestBurstablePerformance) *SpotFleetInstanceRequirementsRequestBurstablePerformance {
+		return &v
+	}).(SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetInstanceRequirementsRequestBurstablePerformance) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetInstanceRequirementsRequestBurstablePerformance) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetInstanceRequirementsRequestBurstablePerformance)(nil)).Elem()
+}
+
+func (o SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput) ToSpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput() SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput) ToSpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput) Elem() SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput {
+	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequestBurstablePerformance) SpotFleetInstanceRequirementsRequestBurstablePerformance {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetInstanceRequirementsRequestBurstablePerformance
+		return ret
+	}).(SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SpotFleetInstanceRequirementsRequestBurstablePerformance) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SpotFleetInstanceRequirementsRequestBurstablePerformanceInput is an input type that accepts SpotFleetInstanceRequirementsRequestBurstablePerformanceArgs and SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput values.
+// You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestBurstablePerformanceInput` via:
+//
+//          SpotFleetInstanceRequirementsRequestBurstablePerformanceArgs{...}
+type SpotFleetInstanceRequirementsRequestBurstablePerformanceInput interface {
+	pulumi.Input
+
+	ToSpotFleetInstanceRequirementsRequestBurstablePerformanceOutput() SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput
+	ToSpotFleetInstanceRequirementsRequestBurstablePerformanceOutputWithContext(context.Context) SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput
+}
+
+var spotFleetInstanceRequirementsRequestBurstablePerformancePtrType = reflect.TypeOf((**SpotFleetInstanceRequirementsRequestBurstablePerformance)(nil)).Elem()
+
+type SpotFleetInstanceRequirementsRequestBurstablePerformancePtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput() SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput
+	ToSpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutputWithContext(context.Context) SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput
+}
+
+type spotFleetInstanceRequirementsRequestBurstablePerformancePtr string
+
+func SpotFleetInstanceRequirementsRequestBurstablePerformancePtr(v string) SpotFleetInstanceRequirementsRequestBurstablePerformancePtrInput {
+	return (*spotFleetInstanceRequirementsRequestBurstablePerformancePtr)(&v)
+}
+
+func (*spotFleetInstanceRequirementsRequestBurstablePerformancePtr) ElementType() reflect.Type {
+	return spotFleetInstanceRequirementsRequestBurstablePerformancePtrType
+}
+
+func (in *spotFleetInstanceRequirementsRequestBurstablePerformancePtr) ToSpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput() SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput {
+	return pulumi.ToOutput(in).(SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput)
+}
+
+func (in *spotFleetInstanceRequirementsRequestBurstablePerformancePtr) ToSpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput)
+}
+
+type SpotFleetInstanceRequirementsRequestCpuManufacturersItem string
+
+const (
+	SpotFleetInstanceRequirementsRequestCpuManufacturersItemIntel             = SpotFleetInstanceRequirementsRequestCpuManufacturersItem("intel")
+	SpotFleetInstanceRequirementsRequestCpuManufacturersItemAmd               = SpotFleetInstanceRequirementsRequestCpuManufacturersItem("amd")
+	SpotFleetInstanceRequirementsRequestCpuManufacturersItemAmazonWebServices = SpotFleetInstanceRequirementsRequestCpuManufacturersItem("amazon-web-services")
+)
+
+func (SpotFleetInstanceRequirementsRequestCpuManufacturersItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetInstanceRequirementsRequestCpuManufacturersItem)(nil)).Elem()
+}
+
+func (e SpotFleetInstanceRequirementsRequestCpuManufacturersItem) ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput() SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput {
+	return pulumi.ToOutput(e).(SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestCpuManufacturersItem) ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestCpuManufacturersItem) ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput() SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput {
+	return e.ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutputWithContext(context.Background())
+}
+
+func (e SpotFleetInstanceRequirementsRequestCpuManufacturersItem) ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput {
+	return SpotFleetInstanceRequirementsRequestCpuManufacturersItem(e).ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemOutputWithContext(ctx).ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutputWithContext(ctx)
+}
+
+func (e SpotFleetInstanceRequirementsRequestCpuManufacturersItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestCpuManufacturersItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestCpuManufacturersItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SpotFleetInstanceRequirementsRequestCpuManufacturersItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetInstanceRequirementsRequestCpuManufacturersItem)(nil)).Elem()
+}
+
+func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput) ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput() SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput) ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput) ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput() SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput {
+	return o.ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput) ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetInstanceRequirementsRequestCpuManufacturersItem) *SpotFleetInstanceRequirementsRequestCpuManufacturersItem {
+		return &v
+	}).(SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetInstanceRequirementsRequestCpuManufacturersItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetInstanceRequirementsRequestCpuManufacturersItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetInstanceRequirementsRequestCpuManufacturersItem)(nil)).Elem()
+}
+
+func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput() SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) Elem() SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput {
+	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequestCpuManufacturersItem) SpotFleetInstanceRequirementsRequestCpuManufacturersItem {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetInstanceRequirementsRequestCpuManufacturersItem
+		return ret
+	}).(SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SpotFleetInstanceRequirementsRequestCpuManufacturersItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SpotFleetInstanceRequirementsRequestCpuManufacturersItemInput is an input type that accepts SpotFleetInstanceRequirementsRequestCpuManufacturersItemArgs and SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput values.
+// You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestCpuManufacturersItemInput` via:
+//
+//          SpotFleetInstanceRequirementsRequestCpuManufacturersItemArgs{...}
+type SpotFleetInstanceRequirementsRequestCpuManufacturersItemInput interface {
+	pulumi.Input
+
+	ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput() SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput
+	ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemOutputWithContext(context.Context) SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput
+}
+
+var spotFleetInstanceRequirementsRequestCpuManufacturersItemPtrType = reflect.TypeOf((**SpotFleetInstanceRequirementsRequestCpuManufacturersItem)(nil)).Elem()
+
+type SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput() SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput
+	ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutputWithContext(context.Context) SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput
+}
+
+type spotFleetInstanceRequirementsRequestCpuManufacturersItemPtr string
+
+func SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtr(v string) SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrInput {
+	return (*spotFleetInstanceRequirementsRequestCpuManufacturersItemPtr)(&v)
+}
+
+func (*spotFleetInstanceRequirementsRequestCpuManufacturersItemPtr) ElementType() reflect.Type {
+	return spotFleetInstanceRequirementsRequestCpuManufacturersItemPtrType
+}
+
+func (in *spotFleetInstanceRequirementsRequestCpuManufacturersItemPtr) ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput() SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput {
+	return pulumi.ToOutput(in).(SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput)
+}
+
+func (in *spotFleetInstanceRequirementsRequestCpuManufacturersItemPtr) ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput)
+}
+
+// SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayInput is an input type that accepts SpotFleetInstanceRequirementsRequestCpuManufacturersItemArray and SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput values.
+// You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayInput` via:
+//
+//          SpotFleetInstanceRequirementsRequestCpuManufacturersItemArray{ SpotFleetInstanceRequirementsRequestCpuManufacturersItemArgs{...} }
+type SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayInput interface {
+	pulumi.Input
+
+	ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput() SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput
+	ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutputWithContext(context.Context) SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput
+}
+
+type SpotFleetInstanceRequirementsRequestCpuManufacturersItemArray []SpotFleetInstanceRequirementsRequestCpuManufacturersItem
+
+func (SpotFleetInstanceRequirementsRequestCpuManufacturersItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpotFleetInstanceRequirementsRequestCpuManufacturersItem)(nil)).Elem()
+}
+
+func (i SpotFleetInstanceRequirementsRequestCpuManufacturersItemArray) ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput() SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput {
+	return i.ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutputWithContext(context.Background())
+}
+
+func (i SpotFleetInstanceRequirementsRequestCpuManufacturersItemArray) ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput)
+}
+
+type SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpotFleetInstanceRequirementsRequestCpuManufacturersItem)(nil)).Elem()
+}
+
+func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput) ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput() SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput) ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput) Index(i pulumi.IntInput) SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpotFleetInstanceRequirementsRequestCpuManufacturersItem {
+		return vs[0].([]SpotFleetInstanceRequirementsRequestCpuManufacturersItem)[vs[1].(int)]
+	}).(SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput)
+}
+
+type SpotFleetInstanceRequirementsRequestInstanceGenerationsItem string
+
+const (
+	SpotFleetInstanceRequirementsRequestInstanceGenerationsItemCurrent  = SpotFleetInstanceRequirementsRequestInstanceGenerationsItem("current")
+	SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPrevious = SpotFleetInstanceRequirementsRequestInstanceGenerationsItem("previous")
+)
+
+func (SpotFleetInstanceRequirementsRequestInstanceGenerationsItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetInstanceRequirementsRequestInstanceGenerationsItem)(nil)).Elem()
+}
+
+func (e SpotFleetInstanceRequirementsRequestInstanceGenerationsItem) ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput() SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput {
+	return pulumi.ToOutput(e).(SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestInstanceGenerationsItem) ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestInstanceGenerationsItem) ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput() SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput {
+	return e.ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutputWithContext(context.Background())
+}
+
+func (e SpotFleetInstanceRequirementsRequestInstanceGenerationsItem) ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput {
+	return SpotFleetInstanceRequirementsRequestInstanceGenerationsItem(e).ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutputWithContext(ctx).ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutputWithContext(ctx)
+}
+
+func (e SpotFleetInstanceRequirementsRequestInstanceGenerationsItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestInstanceGenerationsItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestInstanceGenerationsItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SpotFleetInstanceRequirementsRequestInstanceGenerationsItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetInstanceRequirementsRequestInstanceGenerationsItem)(nil)).Elem()
+}
+
+func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput) ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput() SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput) ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput) ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput() SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput {
+	return o.ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput) ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetInstanceRequirementsRequestInstanceGenerationsItem) *SpotFleetInstanceRequirementsRequestInstanceGenerationsItem {
+		return &v
+	}).(SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetInstanceRequirementsRequestInstanceGenerationsItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetInstanceRequirementsRequestInstanceGenerationsItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetInstanceRequirementsRequestInstanceGenerationsItem)(nil)).Elem()
+}
+
+func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput) ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput() SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput) ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput) Elem() SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput {
+	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequestInstanceGenerationsItem) SpotFleetInstanceRequirementsRequestInstanceGenerationsItem {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetInstanceRequirementsRequestInstanceGenerationsItem
+		return ret
+	}).(SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SpotFleetInstanceRequirementsRequestInstanceGenerationsItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SpotFleetInstanceRequirementsRequestInstanceGenerationsItemInput is an input type that accepts SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArgs and SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput values.
+// You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestInstanceGenerationsItemInput` via:
+//
+//          SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArgs{...}
+type SpotFleetInstanceRequirementsRequestInstanceGenerationsItemInput interface {
+	pulumi.Input
+
+	ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput() SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput
+	ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutputWithContext(context.Context) SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput
+}
+
+var spotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrType = reflect.TypeOf((**SpotFleetInstanceRequirementsRequestInstanceGenerationsItem)(nil)).Elem()
+
+type SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput() SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput
+	ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutputWithContext(context.Context) SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput
+}
+
+type spotFleetInstanceRequirementsRequestInstanceGenerationsItemPtr string
+
+func SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtr(v string) SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrInput {
+	return (*spotFleetInstanceRequirementsRequestInstanceGenerationsItemPtr)(&v)
+}
+
+func (*spotFleetInstanceRequirementsRequestInstanceGenerationsItemPtr) ElementType() reflect.Type {
+	return spotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrType
+}
+
+func (in *spotFleetInstanceRequirementsRequestInstanceGenerationsItemPtr) ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput() SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput {
+	return pulumi.ToOutput(in).(SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput)
+}
+
+func (in *spotFleetInstanceRequirementsRequestInstanceGenerationsItemPtr) ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput)
+}
+
+// SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayInput is an input type that accepts SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArray and SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput values.
+// You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayInput` via:
+//
+//          SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArray{ SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArgs{...} }
+type SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayInput interface {
+	pulumi.Input
+
+	ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput() SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput
+	ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutputWithContext(context.Context) SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput
+}
+
+type SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArray []SpotFleetInstanceRequirementsRequestInstanceGenerationsItem
+
+func (SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpotFleetInstanceRequirementsRequestInstanceGenerationsItem)(nil)).Elem()
+}
+
+func (i SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArray) ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput() SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput {
+	return i.ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutputWithContext(context.Background())
+}
+
+func (i SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArray) ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput)
+}
+
+type SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpotFleetInstanceRequirementsRequestInstanceGenerationsItem)(nil)).Elem()
+}
+
+func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput) ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput() SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput) ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput) Index(i pulumi.IntInput) SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpotFleetInstanceRequirementsRequestInstanceGenerationsItem {
+		return vs[0].([]SpotFleetInstanceRequirementsRequestInstanceGenerationsItem)[vs[1].(int)]
+	}).(SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput)
+}
+
+type SpotFleetInstanceRequirementsRequestLocalStorage string
+
+const (
+	SpotFleetInstanceRequirementsRequestLocalStorageIncluded = SpotFleetInstanceRequirementsRequestLocalStorage("included")
+	SpotFleetInstanceRequirementsRequestLocalStorageRequired = SpotFleetInstanceRequirementsRequestLocalStorage("required")
+	SpotFleetInstanceRequirementsRequestLocalStorageExcluded = SpotFleetInstanceRequirementsRequestLocalStorage("excluded")
+)
+
+func (SpotFleetInstanceRequirementsRequestLocalStorage) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetInstanceRequirementsRequestLocalStorage)(nil)).Elem()
+}
+
+func (e SpotFleetInstanceRequirementsRequestLocalStorage) ToSpotFleetInstanceRequirementsRequestLocalStorageOutput() SpotFleetInstanceRequirementsRequestLocalStorageOutput {
+	return pulumi.ToOutput(e).(SpotFleetInstanceRequirementsRequestLocalStorageOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestLocalStorage) ToSpotFleetInstanceRequirementsRequestLocalStorageOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestLocalStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SpotFleetInstanceRequirementsRequestLocalStorageOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestLocalStorage) ToSpotFleetInstanceRequirementsRequestLocalStoragePtrOutput() SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput {
+	return e.ToSpotFleetInstanceRequirementsRequestLocalStoragePtrOutputWithContext(context.Background())
+}
+
+func (e SpotFleetInstanceRequirementsRequestLocalStorage) ToSpotFleetInstanceRequirementsRequestLocalStoragePtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput {
+	return SpotFleetInstanceRequirementsRequestLocalStorage(e).ToSpotFleetInstanceRequirementsRequestLocalStorageOutputWithContext(ctx).ToSpotFleetInstanceRequirementsRequestLocalStoragePtrOutputWithContext(ctx)
+}
+
+func (e SpotFleetInstanceRequirementsRequestLocalStorage) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestLocalStorage) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestLocalStorage) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SpotFleetInstanceRequirementsRequestLocalStorage) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SpotFleetInstanceRequirementsRequestLocalStorageOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetInstanceRequirementsRequestLocalStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetInstanceRequirementsRequestLocalStorage)(nil)).Elem()
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStorageOutput) ToSpotFleetInstanceRequirementsRequestLocalStorageOutput() SpotFleetInstanceRequirementsRequestLocalStorageOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStorageOutput) ToSpotFleetInstanceRequirementsRequestLocalStorageOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestLocalStorageOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStorageOutput) ToSpotFleetInstanceRequirementsRequestLocalStoragePtrOutput() SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput {
+	return o.ToSpotFleetInstanceRequirementsRequestLocalStoragePtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStorageOutput) ToSpotFleetInstanceRequirementsRequestLocalStoragePtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetInstanceRequirementsRequestLocalStorage) *SpotFleetInstanceRequirementsRequestLocalStorage {
+		return &v
+	}).(SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStorageOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStorageOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetInstanceRequirementsRequestLocalStorage) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStorageOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStorageOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetInstanceRequirementsRequestLocalStorage) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetInstanceRequirementsRequestLocalStorage)(nil)).Elem()
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput) ToSpotFleetInstanceRequirementsRequestLocalStoragePtrOutput() SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput) ToSpotFleetInstanceRequirementsRequestLocalStoragePtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput) Elem() SpotFleetInstanceRequirementsRequestLocalStorageOutput {
+	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequestLocalStorage) SpotFleetInstanceRequirementsRequestLocalStorage {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetInstanceRequirementsRequestLocalStorage
+		return ret
+	}).(SpotFleetInstanceRequirementsRequestLocalStorageOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SpotFleetInstanceRequirementsRequestLocalStorage) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SpotFleetInstanceRequirementsRequestLocalStorageInput is an input type that accepts SpotFleetInstanceRequirementsRequestLocalStorageArgs and SpotFleetInstanceRequirementsRequestLocalStorageOutput values.
+// You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestLocalStorageInput` via:
+//
+//          SpotFleetInstanceRequirementsRequestLocalStorageArgs{...}
+type SpotFleetInstanceRequirementsRequestLocalStorageInput interface {
+	pulumi.Input
+
+	ToSpotFleetInstanceRequirementsRequestLocalStorageOutput() SpotFleetInstanceRequirementsRequestLocalStorageOutput
+	ToSpotFleetInstanceRequirementsRequestLocalStorageOutputWithContext(context.Context) SpotFleetInstanceRequirementsRequestLocalStorageOutput
+}
+
+var spotFleetInstanceRequirementsRequestLocalStoragePtrType = reflect.TypeOf((**SpotFleetInstanceRequirementsRequestLocalStorage)(nil)).Elem()
+
+type SpotFleetInstanceRequirementsRequestLocalStoragePtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetInstanceRequirementsRequestLocalStoragePtrOutput() SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput
+	ToSpotFleetInstanceRequirementsRequestLocalStoragePtrOutputWithContext(context.Context) SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput
+}
+
+type spotFleetInstanceRequirementsRequestLocalStoragePtr string
+
+func SpotFleetInstanceRequirementsRequestLocalStoragePtr(v string) SpotFleetInstanceRequirementsRequestLocalStoragePtrInput {
+	return (*spotFleetInstanceRequirementsRequestLocalStoragePtr)(&v)
+}
+
+func (*spotFleetInstanceRequirementsRequestLocalStoragePtr) ElementType() reflect.Type {
+	return spotFleetInstanceRequirementsRequestLocalStoragePtrType
+}
+
+func (in *spotFleetInstanceRequirementsRequestLocalStoragePtr) ToSpotFleetInstanceRequirementsRequestLocalStoragePtrOutput() SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput {
+	return pulumi.ToOutput(in).(SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput)
+}
+
+func (in *spotFleetInstanceRequirementsRequestLocalStoragePtr) ToSpotFleetInstanceRequirementsRequestLocalStoragePtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput)
+}
+
+type SpotFleetInstanceRequirementsRequestLocalStorageTypesItem string
+
+const (
+	SpotFleetInstanceRequirementsRequestLocalStorageTypesItemHdd = SpotFleetInstanceRequirementsRequestLocalStorageTypesItem("hdd")
+	SpotFleetInstanceRequirementsRequestLocalStorageTypesItemSsd = SpotFleetInstanceRequirementsRequestLocalStorageTypesItem("ssd")
+)
+
+func (SpotFleetInstanceRequirementsRequestLocalStorageTypesItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetInstanceRequirementsRequestLocalStorageTypesItem)(nil)).Elem()
+}
+
+func (e SpotFleetInstanceRequirementsRequestLocalStorageTypesItem) ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput() SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput {
+	return pulumi.ToOutput(e).(SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestLocalStorageTypesItem) ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestLocalStorageTypesItem) ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput() SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput {
+	return e.ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (e SpotFleetInstanceRequirementsRequestLocalStorageTypesItem) ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput {
+	return SpotFleetInstanceRequirementsRequestLocalStorageTypesItem(e).ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutputWithContext(ctx).ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutputWithContext(ctx)
+}
+
+func (e SpotFleetInstanceRequirementsRequestLocalStorageTypesItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestLocalStorageTypesItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpotFleetInstanceRequirementsRequestLocalStorageTypesItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SpotFleetInstanceRequirementsRequestLocalStorageTypesItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetInstanceRequirementsRequestLocalStorageTypesItem)(nil)).Elem()
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput) ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput() SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput) ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput) ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput() SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput {
+	return o.ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput) ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetInstanceRequirementsRequestLocalStorageTypesItem) *SpotFleetInstanceRequirementsRequestLocalStorageTypesItem {
+		return &v
+	}).(SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetInstanceRequirementsRequestLocalStorageTypesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetInstanceRequirementsRequestLocalStorageTypesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetInstanceRequirementsRequestLocalStorageTypesItem)(nil)).Elem()
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput) ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput() SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput) ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput) Elem() SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput {
+	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequestLocalStorageTypesItem) SpotFleetInstanceRequirementsRequestLocalStorageTypesItem {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetInstanceRequirementsRequestLocalStorageTypesItem
+		return ret
+	}).(SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SpotFleetInstanceRequirementsRequestLocalStorageTypesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SpotFleetInstanceRequirementsRequestLocalStorageTypesItemInput is an input type that accepts SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArgs and SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput values.
+// You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestLocalStorageTypesItemInput` via:
+//
+//          SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArgs{...}
+type SpotFleetInstanceRequirementsRequestLocalStorageTypesItemInput interface {
+	pulumi.Input
+
+	ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput() SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput
+	ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutputWithContext(context.Context) SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput
+}
+
+var spotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrType = reflect.TypeOf((**SpotFleetInstanceRequirementsRequestLocalStorageTypesItem)(nil)).Elem()
+
+type SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput() SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput
+	ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutputWithContext(context.Context) SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput
+}
+
+type spotFleetInstanceRequirementsRequestLocalStorageTypesItemPtr string
+
+func SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtr(v string) SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrInput {
+	return (*spotFleetInstanceRequirementsRequestLocalStorageTypesItemPtr)(&v)
+}
+
+func (*spotFleetInstanceRequirementsRequestLocalStorageTypesItemPtr) ElementType() reflect.Type {
+	return spotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrType
+}
+
+func (in *spotFleetInstanceRequirementsRequestLocalStorageTypesItemPtr) ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput() SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput {
+	return pulumi.ToOutput(in).(SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput)
+}
+
+func (in *spotFleetInstanceRequirementsRequestLocalStorageTypesItemPtr) ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput)
+}
+
+// SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayInput is an input type that accepts SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArray and SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput values.
+// You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayInput` via:
+//
+//          SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArray{ SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArgs{...} }
+type SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayInput interface {
+	pulumi.Input
+
+	ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput() SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput
+	ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutputWithContext(context.Context) SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput
+}
+
+type SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArray []SpotFleetInstanceRequirementsRequestLocalStorageTypesItem
+
+func (SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpotFleetInstanceRequirementsRequestLocalStorageTypesItem)(nil)).Elem()
+}
+
+func (i SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArray) ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput() SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput {
+	return i.ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutputWithContext(context.Background())
+}
+
+func (i SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArray) ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput)
+}
+
+type SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpotFleetInstanceRequirementsRequestLocalStorageTypesItem)(nil)).Elem()
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput() SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput {
+	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) Index(i pulumi.IntInput) SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpotFleetInstanceRequirementsRequestLocalStorageTypesItem {
+		return vs[0].([]SpotFleetInstanceRequirementsRequestLocalStorageTypesItem)[vs[1].(int)]
+	}).(SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput)
+}
+
 type SpotFleetRequestConfigDataAllocationStrategy string
 
 const (
@@ -3189,6 +7200,171 @@ func (in *spotFleetRequestConfigDataInstanceInterruptionBehaviorPtr) ToSpotFleet
 
 func (in *spotFleetRequestConfigDataInstanceInterruptionBehaviorPtr) ToSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput)
+}
+
+type SpotFleetRequestConfigDataTargetCapacityUnitType string
+
+const (
+	SpotFleetRequestConfigDataTargetCapacityUnitTypeVcpu      = SpotFleetRequestConfigDataTargetCapacityUnitType("vcpu")
+	SpotFleetRequestConfigDataTargetCapacityUnitTypeMemoryMib = SpotFleetRequestConfigDataTargetCapacityUnitType("memory-mib")
+	SpotFleetRequestConfigDataTargetCapacityUnitTypeUnits     = SpotFleetRequestConfigDataTargetCapacityUnitType("units")
+)
+
+func (SpotFleetRequestConfigDataTargetCapacityUnitType) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestConfigDataTargetCapacityUnitType)(nil)).Elem()
+}
+
+func (e SpotFleetRequestConfigDataTargetCapacityUnitType) ToSpotFleetRequestConfigDataTargetCapacityUnitTypeOutput() SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput {
+	return pulumi.ToOutput(e).(SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput)
+}
+
+func (e SpotFleetRequestConfigDataTargetCapacityUnitType) ToSpotFleetRequestConfigDataTargetCapacityUnitTypeOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput)
+}
+
+func (e SpotFleetRequestConfigDataTargetCapacityUnitType) ToSpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput() SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput {
+	return e.ToSpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutputWithContext(context.Background())
+}
+
+func (e SpotFleetRequestConfigDataTargetCapacityUnitType) ToSpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput {
+	return SpotFleetRequestConfigDataTargetCapacityUnitType(e).ToSpotFleetRequestConfigDataTargetCapacityUnitTypeOutputWithContext(ctx).ToSpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutputWithContext(ctx)
+}
+
+func (e SpotFleetRequestConfigDataTargetCapacityUnitType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpotFleetRequestConfigDataTargetCapacityUnitType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpotFleetRequestConfigDataTargetCapacityUnitType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SpotFleetRequestConfigDataTargetCapacityUnitType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestConfigDataTargetCapacityUnitType)(nil)).Elem()
+}
+
+func (o SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput) ToSpotFleetRequestConfigDataTargetCapacityUnitTypeOutput() SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput {
+	return o
+}
+
+func (o SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput) ToSpotFleetRequestConfigDataTargetCapacityUnitTypeOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput {
+	return o
+}
+
+func (o SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput) ToSpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput() SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput {
+	return o.ToSpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput) ToSpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetRequestConfigDataTargetCapacityUnitType) *SpotFleetRequestConfigDataTargetCapacityUnitType {
+		return &v
+	}).(SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetRequestConfigDataTargetCapacityUnitType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetRequestConfigDataTargetCapacityUnitType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetRequestConfigDataTargetCapacityUnitType)(nil)).Elem()
+}
+
+func (o SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput) ToSpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput() SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput) ToSpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput) Elem() SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigDataTargetCapacityUnitType) SpotFleetRequestConfigDataTargetCapacityUnitType {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetRequestConfigDataTargetCapacityUnitType
+		return ret
+	}).(SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput)
+}
+
+func (o SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SpotFleetRequestConfigDataTargetCapacityUnitType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SpotFleetRequestConfigDataTargetCapacityUnitTypeInput is an input type that accepts SpotFleetRequestConfigDataTargetCapacityUnitTypeArgs and SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput values.
+// You can construct a concrete instance of `SpotFleetRequestConfigDataTargetCapacityUnitTypeInput` via:
+//
+//          SpotFleetRequestConfigDataTargetCapacityUnitTypeArgs{...}
+type SpotFleetRequestConfigDataTargetCapacityUnitTypeInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestConfigDataTargetCapacityUnitTypeOutput() SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput
+	ToSpotFleetRequestConfigDataTargetCapacityUnitTypeOutputWithContext(context.Context) SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput
+}
+
+var spotFleetRequestConfigDataTargetCapacityUnitTypePtrType = reflect.TypeOf((**SpotFleetRequestConfigDataTargetCapacityUnitType)(nil)).Elem()
+
+type SpotFleetRequestConfigDataTargetCapacityUnitTypePtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput() SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput
+	ToSpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutputWithContext(context.Context) SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput
+}
+
+type spotFleetRequestConfigDataTargetCapacityUnitTypePtr string
+
+func SpotFleetRequestConfigDataTargetCapacityUnitTypePtr(v string) SpotFleetRequestConfigDataTargetCapacityUnitTypePtrInput {
+	return (*spotFleetRequestConfigDataTargetCapacityUnitTypePtr)(&v)
+}
+
+func (*spotFleetRequestConfigDataTargetCapacityUnitTypePtr) ElementType() reflect.Type {
+	return spotFleetRequestConfigDataTargetCapacityUnitTypePtrType
+}
+
+func (in *spotFleetRequestConfigDataTargetCapacityUnitTypePtr) ToSpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput() SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput {
+	return pulumi.ToOutput(in).(SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput)
+}
+
+func (in *spotFleetRequestConfigDataTargetCapacityUnitTypePtr) ToSpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput)
 }
 
 type SpotFleetRequestConfigDataType string
@@ -3893,10 +8069,38 @@ func (in *spotFleetTagSpecificationResourceTypePtr) ToSpotFleetTagSpecificationR
 }
 
 func init() {
+	pulumi.RegisterOutputType(CapacityReservationFleetInstanceMatchCriteriaOutput{})
+	pulumi.RegisterOutputType(CapacityReservationFleetInstanceMatchCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(CapacityReservationFleetTenancyOutput{})
+	pulumi.RegisterOutputType(CapacityReservationFleetTenancyPtrOutput{})
 	pulumi.RegisterOutputType(EC2FleetCapacityReservationOptionsRequestUsageStrategyOutput{})
 	pulumi.RegisterOutputType(EC2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput{})
 	pulumi.RegisterOutputType(EC2FleetExcessCapacityTerminationPolicyOutput{})
 	pulumi.RegisterOutputType(EC2FleetExcessCapacityTerminationPolicyPtrOutput{})
+	pulumi.RegisterOutputType(EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput{})
+	pulumi.RegisterOutputType(EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput{})
+	pulumi.RegisterOutputType(EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput{})
+	pulumi.RegisterOutputType(EC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput{})
+	pulumi.RegisterOutputType(EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput{})
+	pulumi.RegisterOutputType(EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput{})
+	pulumi.RegisterOutputType(EC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput{})
+	pulumi.RegisterOutputType(EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput{})
+	pulumi.RegisterOutputType(EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput{})
+	pulumi.RegisterOutputType(EC2FleetInstanceRequirementsRequestBareMetalOutput{})
+	pulumi.RegisterOutputType(EC2FleetInstanceRequirementsRequestBareMetalPtrOutput{})
+	pulumi.RegisterOutputType(EC2FleetInstanceRequirementsRequestBurstablePerformanceOutput{})
+	pulumi.RegisterOutputType(EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput{})
+	pulumi.RegisterOutputType(EC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput{})
+	pulumi.RegisterOutputType(EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput{})
+	pulumi.RegisterOutputType(EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput{})
+	pulumi.RegisterOutputType(EC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput{})
+	pulumi.RegisterOutputType(EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput{})
+	pulumi.RegisterOutputType(EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput{})
+	pulumi.RegisterOutputType(EC2FleetInstanceRequirementsRequestLocalStorageOutput{})
+	pulumi.RegisterOutputType(EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput{})
+	pulumi.RegisterOutputType(EC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput{})
+	pulumi.RegisterOutputType(EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput{})
+	pulumi.RegisterOutputType(EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput{})
 	pulumi.RegisterOutputType(EC2FleetSpotOptionsRequestAllocationStrategyOutput{})
 	pulumi.RegisterOutputType(EC2FleetSpotOptionsRequestAllocationStrategyPtrOutput{})
 	pulumi.RegisterOutputType(EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorOutput{})
@@ -3905,6 +8109,8 @@ func init() {
 	pulumi.RegisterOutputType(EC2FleetTagSpecificationResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeOutput{})
 	pulumi.RegisterOutputType(EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput{})
+	pulumi.RegisterOutputType(EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput{})
+	pulumi.RegisterOutputType(EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput{})
 	pulumi.RegisterOutputType(EC2FleetTypeOutput{})
 	pulumi.RegisterOutputType(EC2FleetTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowLogLogDestinationTypeOutput{})
@@ -3925,12 +8131,38 @@ func init() {
 	pulumi.RegisterOutputType(PrefixListAddressFamilyPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetEbsBlockDeviceVolumeTypeOutput{})
 	pulumi.RegisterOutputType(SpotFleetEbsBlockDeviceVolumeTypePtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput{})
+	pulumi.RegisterOutputType(SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput{})
+	pulumi.RegisterOutputType(SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput{})
+	pulumi.RegisterOutputType(SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput{})
+	pulumi.RegisterOutputType(SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput{})
+	pulumi.RegisterOutputType(SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput{})
+	pulumi.RegisterOutputType(SpotFleetInstanceRequirementsRequestBareMetalOutput{})
+	pulumi.RegisterOutputType(SpotFleetInstanceRequirementsRequestBareMetalPtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput{})
+	pulumi.RegisterOutputType(SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput{})
+	pulumi.RegisterOutputType(SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput{})
+	pulumi.RegisterOutputType(SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput{})
+	pulumi.RegisterOutputType(SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput{})
+	pulumi.RegisterOutputType(SpotFleetInstanceRequirementsRequestLocalStorageOutput{})
+	pulumi.RegisterOutputType(SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput{})
+	pulumi.RegisterOutputType(SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput{})
 	pulumi.RegisterOutputType(SpotFleetRequestConfigDataAllocationStrategyOutput{})
 	pulumi.RegisterOutputType(SpotFleetRequestConfigDataAllocationStrategyPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput{})
 	pulumi.RegisterOutputType(SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput{})
 	pulumi.RegisterOutputType(SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetRequestConfigDataTypeOutput{})
 	pulumi.RegisterOutputType(SpotFleetRequestConfigDataTypePtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetSpotCapacityRebalanceReplacementStrategyOutput{})

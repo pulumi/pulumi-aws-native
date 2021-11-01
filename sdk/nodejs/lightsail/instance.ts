@@ -64,7 +64,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * The name of your key pair.
      */
-    public /*out*/ readonly keyPairName!: pulumi.Output<string>;
+    public readonly keyPairName!: pulumi.Output<string | undefined>;
     public readonly location!: pulumi.Output<outputs.lightsail.InstanceLocation | undefined>;
     public readonly networking!: pulumi.Output<outputs.lightsail.InstanceNetworking | undefined>;
     /**
@@ -95,7 +95,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
      */
-    public /*out*/ readonly userData!: pulumi.Output<string>;
+    public readonly userData!: pulumi.Output<string | undefined>;
     /**
      * Username of the  Lightsail instance.
      */
@@ -127,19 +127,19 @@ export class Instance extends pulumi.CustomResource {
             inputs["bundleId"] = args ? args.bundleId : undefined;
             inputs["hardware"] = args ? args.hardware : undefined;
             inputs["instanceName"] = args ? args.instanceName : undefined;
+            inputs["keyPairName"] = args ? args.keyPairName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["networking"] = args ? args.networking : undefined;
             inputs["state"] = args ? args.state : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["userData"] = args ? args.userData : undefined;
             inputs["instanceArn"] = undefined /*out*/;
             inputs["isStaticIp"] = undefined /*out*/;
-            inputs["keyPairName"] = undefined /*out*/;
             inputs["privateIpAddress"] = undefined /*out*/;
             inputs["publicIpAddress"] = undefined /*out*/;
             inputs["resourceType"] = undefined /*out*/;
             inputs["sshKeyName"] = undefined /*out*/;
             inputs["supportCode"] = undefined /*out*/;
-            inputs["userData"] = undefined /*out*/;
             inputs["userName"] = undefined /*out*/;
         } else {
             inputs["addOns"] = undefined /*out*/;
@@ -195,6 +195,10 @@ export interface InstanceArgs {
      * The names to use for your new Lightsail instance.
      */
     instanceName: pulumi.Input<string>;
+    /**
+     * The name of your key pair.
+     */
+    keyPairName?: pulumi.Input<string>;
     location?: pulumi.Input<inputs.lightsail.InstanceLocationArgs>;
     networking?: pulumi.Input<inputs.lightsail.InstanceNetworkingArgs>;
     state?: pulumi.Input<inputs.lightsail.InstanceStateArgs>;
@@ -202,4 +206,8 @@ export interface InstanceArgs {
      * An array of key-value pairs to apply to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.lightsail.InstanceTagArgs>[]>;
+    /**
+     * A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
+     */
+    userData?: pulumi.Input<string>;
 }

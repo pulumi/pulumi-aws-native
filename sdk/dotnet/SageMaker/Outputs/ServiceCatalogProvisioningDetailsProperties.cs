@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     {
         public readonly string? PathId;
         public readonly string ProductId;
-        public readonly string ProvisioningArtifactId;
+        public readonly string? ProvisioningArtifactId;
         /// <summary>
         /// Parameters specified by the administrator that are required for provisioning the product.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             string productId,
 
-            string provisioningArtifactId,
+            string? provisioningArtifactId,
 
             ImmutableArray<Outputs.ProjectProvisioningParameter> provisioningParameters)
         {

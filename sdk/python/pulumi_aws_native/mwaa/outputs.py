@@ -14,7 +14,6 @@ __all__ = [
     'EnvironmentLoggingConfiguration',
     'EnvironmentModuleLoggingConfiguration',
     'EnvironmentNetworkConfiguration',
-    'EnvironmentTagMap',
 ]
 
 @pulumi.output_type
@@ -199,17 +198,5 @@ class EnvironmentNetworkConfiguration(dict):
         A list of subnets to use for the environment. These must be private subnets, in the same VPC, in two different availability zones.
         """
         return pulumi.get(self, "subnet_ids")
-
-
-@pulumi.output_type
-class EnvironmentTagMap(dict):
-    """
-    A map of tags for the environment.
-    """
-    def __init__(__self__):
-        """
-        A map of tags for the environment.
-        """
-        pass
 
 
