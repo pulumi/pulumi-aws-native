@@ -16,6 +16,7 @@ package schema
 
 import (
 	"encoding/json"
+	"fmt"
 	"reflect"
 	"strings"
 
@@ -79,6 +80,8 @@ func (c *sdkToCfnConverter) sdkTypedValueToCfn(spec *pschema.TypeSpec, v interfa
 					return nil, err
 				}
 				return string(b), nil
+			case *resource.Archive:
+				return nil, fmt.Errorf("pulumi.Archive support not yet implemented")
 			}
 		}
 
