@@ -12,13 +12,20 @@ __all__ = [
     'ApplicationSettingsCampaignHookArgs',
     'ApplicationSettingsLimitsArgs',
     'ApplicationSettingsQuietTimeArgs',
+    'CampaignDefaultButtonConfigurationArgs',
     'CampaignEmailMessageArgs',
     'CampaignEventDimensionsArgs',
     'CampaignEventFilterArgs',
     'CampaignHookArgs',
+    'CampaignInAppMessageBodyConfigArgs',
+    'CampaignInAppMessageButtonArgs',
+    'CampaignInAppMessageContentArgs',
+    'CampaignInAppMessageHeaderConfigArgs',
+    'CampaignInAppMessageArgs',
     'CampaignLimitsArgs',
     'CampaignMessageConfigurationArgs',
     'CampaignMessageArgs',
+    'CampaignOverrideButtonConfigurationArgs',
     'CampaignQuietTimeArgs',
     'CampaignScheduleArgs',
     'CampaignSetDimensionArgs',
@@ -157,6 +164,83 @@ class ApplicationSettingsQuietTimeArgs:
     @start.setter
     def start(self, value: pulumi.Input[str]):
         pulumi.set(self, "start", value)
+
+
+@pulumi.input_type
+class CampaignDefaultButtonConfigurationArgs:
+    def __init__(__self__, *,
+                 background_color: Optional[pulumi.Input[str]] = None,
+                 border_radius: Optional[pulumi.Input[int]] = None,
+                 button_action: Optional[pulumi.Input[str]] = None,
+                 link: Optional[pulumi.Input[str]] = None,
+                 text: Optional[pulumi.Input[str]] = None,
+                 text_color: Optional[pulumi.Input[str]] = None):
+        if background_color is not None:
+            pulumi.set(__self__, "background_color", background_color)
+        if border_radius is not None:
+            pulumi.set(__self__, "border_radius", border_radius)
+        if button_action is not None:
+            pulumi.set(__self__, "button_action", button_action)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+        if text_color is not None:
+            pulumi.set(__self__, "text_color", text_color)
+
+    @property
+    @pulumi.getter(name="backgroundColor")
+    def background_color(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "background_color")
+
+    @background_color.setter
+    def background_color(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "background_color", value)
+
+    @property
+    @pulumi.getter(name="borderRadius")
+    def border_radius(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "border_radius")
+
+    @border_radius.setter
+    def border_radius(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "border_radius", value)
+
+    @property
+    @pulumi.getter(name="buttonAction")
+    def button_action(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "button_action")
+
+    @button_action.setter
+    def button_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "button_action", value)
+
+    @property
+    @pulumi.getter
+    def link(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "link", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "text", value)
+
+    @property
+    @pulumi.getter(name="textColor")
+    def text_color(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "text_color")
+
+    @text_color.setter
+    def text_color(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "text_color", value)
 
 
 @pulumi.input_type
@@ -324,11 +408,265 @@ class CampaignHookArgs:
 
 
 @pulumi.input_type
+class CampaignInAppMessageBodyConfigArgs:
+    def __init__(__self__, *,
+                 alignment: Optional[pulumi.Input[str]] = None,
+                 body: Optional[pulumi.Input[str]] = None,
+                 text_color: Optional[pulumi.Input[str]] = None):
+        if alignment is not None:
+            pulumi.set(__self__, "alignment", alignment)
+        if body is not None:
+            pulumi.set(__self__, "body", body)
+        if text_color is not None:
+            pulumi.set(__self__, "text_color", text_color)
+
+    @property
+    @pulumi.getter
+    def alignment(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "alignment")
+
+    @alignment.setter
+    def alignment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alignment", value)
+
+    @property
+    @pulumi.getter
+    def body(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "body")
+
+    @body.setter
+    def body(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "body", value)
+
+    @property
+    @pulumi.getter(name="textColor")
+    def text_color(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "text_color")
+
+    @text_color.setter
+    def text_color(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "text_color", value)
+
+
+@pulumi.input_type
+class CampaignInAppMessageButtonArgs:
+    def __init__(__self__, *,
+                 android: Optional[pulumi.Input['CampaignOverrideButtonConfigurationArgs']] = None,
+                 default_config: Optional[pulumi.Input['CampaignDefaultButtonConfigurationArgs']] = None,
+                 i_os: Optional[pulumi.Input['CampaignOverrideButtonConfigurationArgs']] = None,
+                 web: Optional[pulumi.Input['CampaignOverrideButtonConfigurationArgs']] = None):
+        if android is not None:
+            pulumi.set(__self__, "android", android)
+        if default_config is not None:
+            pulumi.set(__self__, "default_config", default_config)
+        if i_os is not None:
+            pulumi.set(__self__, "i_os", i_os)
+        if web is not None:
+            pulumi.set(__self__, "web", web)
+
+    @property
+    @pulumi.getter
+    def android(self) -> Optional[pulumi.Input['CampaignOverrideButtonConfigurationArgs']]:
+        return pulumi.get(self, "android")
+
+    @android.setter
+    def android(self, value: Optional[pulumi.Input['CampaignOverrideButtonConfigurationArgs']]):
+        pulumi.set(self, "android", value)
+
+    @property
+    @pulumi.getter(name="defaultConfig")
+    def default_config(self) -> Optional[pulumi.Input['CampaignDefaultButtonConfigurationArgs']]:
+        return pulumi.get(self, "default_config")
+
+    @default_config.setter
+    def default_config(self, value: Optional[pulumi.Input['CampaignDefaultButtonConfigurationArgs']]):
+        pulumi.set(self, "default_config", value)
+
+    @property
+    @pulumi.getter(name="iOS")
+    def i_os(self) -> Optional[pulumi.Input['CampaignOverrideButtonConfigurationArgs']]:
+        return pulumi.get(self, "i_os")
+
+    @i_os.setter
+    def i_os(self, value: Optional[pulumi.Input['CampaignOverrideButtonConfigurationArgs']]):
+        pulumi.set(self, "i_os", value)
+
+    @property
+    @pulumi.getter
+    def web(self) -> Optional[pulumi.Input['CampaignOverrideButtonConfigurationArgs']]:
+        return pulumi.get(self, "web")
+
+    @web.setter
+    def web(self, value: Optional[pulumi.Input['CampaignOverrideButtonConfigurationArgs']]):
+        pulumi.set(self, "web", value)
+
+
+@pulumi.input_type
+class CampaignInAppMessageContentArgs:
+    def __init__(__self__, *,
+                 background_color: Optional[pulumi.Input[str]] = None,
+                 body_config: Optional[pulumi.Input['CampaignInAppMessageBodyConfigArgs']] = None,
+                 header_config: Optional[pulumi.Input['CampaignInAppMessageHeaderConfigArgs']] = None,
+                 image_url: Optional[pulumi.Input[str]] = None,
+                 primary_btn: Optional[pulumi.Input['CampaignInAppMessageButtonArgs']] = None,
+                 secondary_btn: Optional[pulumi.Input['CampaignInAppMessageButtonArgs']] = None):
+        if background_color is not None:
+            pulumi.set(__self__, "background_color", background_color)
+        if body_config is not None:
+            pulumi.set(__self__, "body_config", body_config)
+        if header_config is not None:
+            pulumi.set(__self__, "header_config", header_config)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if primary_btn is not None:
+            pulumi.set(__self__, "primary_btn", primary_btn)
+        if secondary_btn is not None:
+            pulumi.set(__self__, "secondary_btn", secondary_btn)
+
+    @property
+    @pulumi.getter(name="backgroundColor")
+    def background_color(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "background_color")
+
+    @background_color.setter
+    def background_color(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "background_color", value)
+
+    @property
+    @pulumi.getter(name="bodyConfig")
+    def body_config(self) -> Optional[pulumi.Input['CampaignInAppMessageBodyConfigArgs']]:
+        return pulumi.get(self, "body_config")
+
+    @body_config.setter
+    def body_config(self, value: Optional[pulumi.Input['CampaignInAppMessageBodyConfigArgs']]):
+        pulumi.set(self, "body_config", value)
+
+    @property
+    @pulumi.getter(name="headerConfig")
+    def header_config(self) -> Optional[pulumi.Input['CampaignInAppMessageHeaderConfigArgs']]:
+        return pulumi.get(self, "header_config")
+
+    @header_config.setter
+    def header_config(self, value: Optional[pulumi.Input['CampaignInAppMessageHeaderConfigArgs']]):
+        pulumi.set(self, "header_config", value)
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "image_url")
+
+    @image_url.setter
+    def image_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_url", value)
+
+    @property
+    @pulumi.getter(name="primaryBtn")
+    def primary_btn(self) -> Optional[pulumi.Input['CampaignInAppMessageButtonArgs']]:
+        return pulumi.get(self, "primary_btn")
+
+    @primary_btn.setter
+    def primary_btn(self, value: Optional[pulumi.Input['CampaignInAppMessageButtonArgs']]):
+        pulumi.set(self, "primary_btn", value)
+
+    @property
+    @pulumi.getter(name="secondaryBtn")
+    def secondary_btn(self) -> Optional[pulumi.Input['CampaignInAppMessageButtonArgs']]:
+        return pulumi.get(self, "secondary_btn")
+
+    @secondary_btn.setter
+    def secondary_btn(self, value: Optional[pulumi.Input['CampaignInAppMessageButtonArgs']]):
+        pulumi.set(self, "secondary_btn", value)
+
+
+@pulumi.input_type
+class CampaignInAppMessageHeaderConfigArgs:
+    def __init__(__self__, *,
+                 alignment: Optional[pulumi.Input[str]] = None,
+                 header: Optional[pulumi.Input[str]] = None,
+                 text_color: Optional[pulumi.Input[str]] = None):
+        if alignment is not None:
+            pulumi.set(__self__, "alignment", alignment)
+        if header is not None:
+            pulumi.set(__self__, "header", header)
+        if text_color is not None:
+            pulumi.set(__self__, "text_color", text_color)
+
+    @property
+    @pulumi.getter
+    def alignment(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "alignment")
+
+    @alignment.setter
+    def alignment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alignment", value)
+
+    @property
+    @pulumi.getter
+    def header(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "header")
+
+    @header.setter
+    def header(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "header", value)
+
+    @property
+    @pulumi.getter(name="textColor")
+    def text_color(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "text_color")
+
+    @text_color.setter
+    def text_color(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "text_color", value)
+
+
+@pulumi.input_type
+class CampaignInAppMessageArgs:
+    def __init__(__self__, *,
+                 content: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignInAppMessageContentArgs']]]] = None,
+                 custom_config: Optional[Any] = None,
+                 layout: Optional[pulumi.Input[str]] = None):
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if custom_config is not None:
+            pulumi.set(__self__, "custom_config", custom_config)
+        if layout is not None:
+            pulumi.set(__self__, "layout", layout)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CampaignInAppMessageContentArgs']]]]:
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignInAppMessageContentArgs']]]]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter(name="customConfig")
+    def custom_config(self) -> Optional[Any]:
+        return pulumi.get(self, "custom_config")
+
+    @custom_config.setter
+    def custom_config(self, value: Optional[Any]):
+        pulumi.set(self, "custom_config", value)
+
+    @property
+    @pulumi.getter
+    def layout(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "layout")
+
+    @layout.setter
+    def layout(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "layout", value)
+
+
+@pulumi.input_type
 class CampaignLimitsArgs:
     def __init__(__self__, *,
                  daily: Optional[pulumi.Input[int]] = None,
                  maximum_duration: Optional[pulumi.Input[int]] = None,
                  messages_per_second: Optional[pulumi.Input[int]] = None,
+                 session: Optional[pulumi.Input[int]] = None,
                  total: Optional[pulumi.Input[int]] = None):
         if daily is not None:
             pulumi.set(__self__, "daily", daily)
@@ -336,6 +674,8 @@ class CampaignLimitsArgs:
             pulumi.set(__self__, "maximum_duration", maximum_duration)
         if messages_per_second is not None:
             pulumi.set(__self__, "messages_per_second", messages_per_second)
+        if session is not None:
+            pulumi.set(__self__, "session", session)
         if total is not None:
             pulumi.set(__self__, "total", total)
 
@@ -368,6 +708,15 @@ class CampaignLimitsArgs:
 
     @property
     @pulumi.getter
+    def session(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "session")
+
+    @session.setter
+    def session(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "session", value)
+
+    @property
+    @pulumi.getter
     def total(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "total")
 
@@ -385,6 +734,7 @@ class CampaignMessageConfigurationArgs:
                  default_message: Optional[pulumi.Input['CampaignMessageArgs']] = None,
                  email_message: Optional[pulumi.Input['CampaignEmailMessageArgs']] = None,
                  g_cm_message: Optional[pulumi.Input['CampaignMessageArgs']] = None,
+                 in_app_message: Optional[pulumi.Input['CampaignInAppMessageArgs']] = None,
                  s_ms_message: Optional[pulumi.Input['CampaignSmsMessageArgs']] = None):
         if a_dm_message is not None:
             pulumi.set(__self__, "a_dm_message", a_dm_message)
@@ -398,6 +748,8 @@ class CampaignMessageConfigurationArgs:
             pulumi.set(__self__, "email_message", email_message)
         if g_cm_message is not None:
             pulumi.set(__self__, "g_cm_message", g_cm_message)
+        if in_app_message is not None:
+            pulumi.set(__self__, "in_app_message", in_app_message)
         if s_ms_message is not None:
             pulumi.set(__self__, "s_ms_message", s_ms_message)
 
@@ -454,6 +806,15 @@ class CampaignMessageConfigurationArgs:
     @g_cm_message.setter
     def g_cm_message(self, value: Optional[pulumi.Input['CampaignMessageArgs']]):
         pulumi.set(self, "g_cm_message", value)
+
+    @property
+    @pulumi.getter(name="inAppMessage")
+    def in_app_message(self) -> Optional[pulumi.Input['CampaignInAppMessageArgs']]:
+        return pulumi.get(self, "in_app_message")
+
+    @in_app_message.setter
+    def in_app_message(self, value: Optional[pulumi.Input['CampaignInAppMessageArgs']]):
+        pulumi.set(self, "in_app_message", value)
 
     @property
     @pulumi.getter(name="sMSMessage")
@@ -612,6 +973,35 @@ class CampaignMessageArgs:
     @url.setter
     def url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "url", value)
+
+
+@pulumi.input_type
+class CampaignOverrideButtonConfigurationArgs:
+    def __init__(__self__, *,
+                 button_action: Optional[pulumi.Input[str]] = None,
+                 link: Optional[pulumi.Input[str]] = None):
+        if button_action is not None:
+            pulumi.set(__self__, "button_action", button_action)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter(name="buttonAction")
+    def button_action(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "button_action")
+
+    @button_action.setter
+    def button_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "button_action", value)
+
+    @property
+    @pulumi.getter
+    def link(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "link", value)
 
 
 @pulumi.input_type

@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.MemoryDB
     /// <summary>
     /// The AWS::MemoryDB::SubnetGroup resource creates an Amazon MemoryDB Subnet Group.
     /// </summary>
-    [Obsolete(@"SubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:memorydb:SubnetGroup")]
     public partial class SubnetGroup : Pulumi.CustomResource
     {

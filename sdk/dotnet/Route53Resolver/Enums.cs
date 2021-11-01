@@ -492,4 +492,36 @@ namespace Pulumi.AwsNative.Route53Resolver
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResolverRuleRuleType : IEquatable<ResolverRuleRuleType>
+    {
+        private readonly string _value;
+
+        private ResolverRuleRuleType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResolverRuleRuleType Forward { get; } = new ResolverRuleRuleType("FORWARD");
+        public static ResolverRuleRuleType System { get; } = new ResolverRuleRuleType("SYSTEM");
+        public static ResolverRuleRuleType Recursive { get; } = new ResolverRuleRuleType("RECURSIVE");
+
+        public static bool operator ==(ResolverRuleRuleType left, ResolverRuleRuleType right) => left.Equals(right);
+        public static bool operator !=(ResolverRuleRuleType left, ResolverRuleRuleType right) => !left.Equals(right);
+
+        public static explicit operator string(ResolverRuleRuleType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResolverRuleRuleType other && Equals(other);
+        public bool Equals(ResolverRuleRuleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

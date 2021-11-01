@@ -336,6 +336,170 @@ func (in *capacityReservationFleetTenancyPtr) ToCapacityReservationFleetTenancyP
 	return pulumi.ToOutputWithContext(ctx, in).(CapacityReservationFleetTenancyPtrOutput)
 }
 
+type EC2FleetCapacityRebalanceReplacementStrategy string
+
+const (
+	EC2FleetCapacityRebalanceReplacementStrategyLaunch                = EC2FleetCapacityRebalanceReplacementStrategy("launch")
+	EC2FleetCapacityRebalanceReplacementStrategyLaunchBeforeTerminate = EC2FleetCapacityRebalanceReplacementStrategy("launch-before-terminate")
+)
+
+func (EC2FleetCapacityRebalanceReplacementStrategy) ElementType() reflect.Type {
+	return reflect.TypeOf((*EC2FleetCapacityRebalanceReplacementStrategy)(nil)).Elem()
+}
+
+func (e EC2FleetCapacityRebalanceReplacementStrategy) ToEC2FleetCapacityRebalanceReplacementStrategyOutput() EC2FleetCapacityRebalanceReplacementStrategyOutput {
+	return pulumi.ToOutput(e).(EC2FleetCapacityRebalanceReplacementStrategyOutput)
+}
+
+func (e EC2FleetCapacityRebalanceReplacementStrategy) ToEC2FleetCapacityRebalanceReplacementStrategyOutputWithContext(ctx context.Context) EC2FleetCapacityRebalanceReplacementStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EC2FleetCapacityRebalanceReplacementStrategyOutput)
+}
+
+func (e EC2FleetCapacityRebalanceReplacementStrategy) ToEC2FleetCapacityRebalanceReplacementStrategyPtrOutput() EC2FleetCapacityRebalanceReplacementStrategyPtrOutput {
+	return e.ToEC2FleetCapacityRebalanceReplacementStrategyPtrOutputWithContext(context.Background())
+}
+
+func (e EC2FleetCapacityRebalanceReplacementStrategy) ToEC2FleetCapacityRebalanceReplacementStrategyPtrOutputWithContext(ctx context.Context) EC2FleetCapacityRebalanceReplacementStrategyPtrOutput {
+	return EC2FleetCapacityRebalanceReplacementStrategy(e).ToEC2FleetCapacityRebalanceReplacementStrategyOutputWithContext(ctx).ToEC2FleetCapacityRebalanceReplacementStrategyPtrOutputWithContext(ctx)
+}
+
+func (e EC2FleetCapacityRebalanceReplacementStrategy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EC2FleetCapacityRebalanceReplacementStrategy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EC2FleetCapacityRebalanceReplacementStrategy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EC2FleetCapacityRebalanceReplacementStrategy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EC2FleetCapacityRebalanceReplacementStrategyOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetCapacityRebalanceReplacementStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EC2FleetCapacityRebalanceReplacementStrategy)(nil)).Elem()
+}
+
+func (o EC2FleetCapacityRebalanceReplacementStrategyOutput) ToEC2FleetCapacityRebalanceReplacementStrategyOutput() EC2FleetCapacityRebalanceReplacementStrategyOutput {
+	return o
+}
+
+func (o EC2FleetCapacityRebalanceReplacementStrategyOutput) ToEC2FleetCapacityRebalanceReplacementStrategyOutputWithContext(ctx context.Context) EC2FleetCapacityRebalanceReplacementStrategyOutput {
+	return o
+}
+
+func (o EC2FleetCapacityRebalanceReplacementStrategyOutput) ToEC2FleetCapacityRebalanceReplacementStrategyPtrOutput() EC2FleetCapacityRebalanceReplacementStrategyPtrOutput {
+	return o.ToEC2FleetCapacityRebalanceReplacementStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetCapacityRebalanceReplacementStrategyOutput) ToEC2FleetCapacityRebalanceReplacementStrategyPtrOutputWithContext(ctx context.Context) EC2FleetCapacityRebalanceReplacementStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetCapacityRebalanceReplacementStrategy) *EC2FleetCapacityRebalanceReplacementStrategy {
+		return &v
+	}).(EC2FleetCapacityRebalanceReplacementStrategyPtrOutput)
+}
+
+func (o EC2FleetCapacityRebalanceReplacementStrategyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EC2FleetCapacityRebalanceReplacementStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EC2FleetCapacityRebalanceReplacementStrategy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EC2FleetCapacityRebalanceReplacementStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetCapacityRebalanceReplacementStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EC2FleetCapacityRebalanceReplacementStrategy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EC2FleetCapacityRebalanceReplacementStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetCapacityRebalanceReplacementStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EC2FleetCapacityRebalanceReplacementStrategy)(nil)).Elem()
+}
+
+func (o EC2FleetCapacityRebalanceReplacementStrategyPtrOutput) ToEC2FleetCapacityRebalanceReplacementStrategyPtrOutput() EC2FleetCapacityRebalanceReplacementStrategyPtrOutput {
+	return o
+}
+
+func (o EC2FleetCapacityRebalanceReplacementStrategyPtrOutput) ToEC2FleetCapacityRebalanceReplacementStrategyPtrOutputWithContext(ctx context.Context) EC2FleetCapacityRebalanceReplacementStrategyPtrOutput {
+	return o
+}
+
+func (o EC2FleetCapacityRebalanceReplacementStrategyPtrOutput) Elem() EC2FleetCapacityRebalanceReplacementStrategyOutput {
+	return o.ApplyT(func(v *EC2FleetCapacityRebalanceReplacementStrategy) EC2FleetCapacityRebalanceReplacementStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret EC2FleetCapacityRebalanceReplacementStrategy
+		return ret
+	}).(EC2FleetCapacityRebalanceReplacementStrategyOutput)
+}
+
+func (o EC2FleetCapacityRebalanceReplacementStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetCapacityRebalanceReplacementStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EC2FleetCapacityRebalanceReplacementStrategy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EC2FleetCapacityRebalanceReplacementStrategyInput is an input type that accepts EC2FleetCapacityRebalanceReplacementStrategyArgs and EC2FleetCapacityRebalanceReplacementStrategyOutput values.
+// You can construct a concrete instance of `EC2FleetCapacityRebalanceReplacementStrategyInput` via:
+//
+//          EC2FleetCapacityRebalanceReplacementStrategyArgs{...}
+type EC2FleetCapacityRebalanceReplacementStrategyInput interface {
+	pulumi.Input
+
+	ToEC2FleetCapacityRebalanceReplacementStrategyOutput() EC2FleetCapacityRebalanceReplacementStrategyOutput
+	ToEC2FleetCapacityRebalanceReplacementStrategyOutputWithContext(context.Context) EC2FleetCapacityRebalanceReplacementStrategyOutput
+}
+
+var ec2fleetCapacityRebalanceReplacementStrategyPtrType = reflect.TypeOf((**EC2FleetCapacityRebalanceReplacementStrategy)(nil)).Elem()
+
+type EC2FleetCapacityRebalanceReplacementStrategyPtrInput interface {
+	pulumi.Input
+
+	ToEC2FleetCapacityRebalanceReplacementStrategyPtrOutput() EC2FleetCapacityRebalanceReplacementStrategyPtrOutput
+	ToEC2FleetCapacityRebalanceReplacementStrategyPtrOutputWithContext(context.Context) EC2FleetCapacityRebalanceReplacementStrategyPtrOutput
+}
+
+type ec2fleetCapacityRebalanceReplacementStrategyPtr string
+
+func EC2FleetCapacityRebalanceReplacementStrategyPtr(v string) EC2FleetCapacityRebalanceReplacementStrategyPtrInput {
+	return (*ec2fleetCapacityRebalanceReplacementStrategyPtr)(&v)
+}
+
+func (*ec2fleetCapacityRebalanceReplacementStrategyPtr) ElementType() reflect.Type {
+	return ec2fleetCapacityRebalanceReplacementStrategyPtrType
+}
+
+func (in *ec2fleetCapacityRebalanceReplacementStrategyPtr) ToEC2FleetCapacityRebalanceReplacementStrategyPtrOutput() EC2FleetCapacityRebalanceReplacementStrategyPtrOutput {
+	return pulumi.ToOutput(in).(EC2FleetCapacityRebalanceReplacementStrategyPtrOutput)
+}
+
+func (in *ec2fleetCapacityRebalanceReplacementStrategyPtr) ToEC2FleetCapacityRebalanceReplacementStrategyPtrOutputWithContext(ctx context.Context) EC2FleetCapacityRebalanceReplacementStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetCapacityRebalanceReplacementStrategyPtrOutput)
+}
+
 type EC2FleetCapacityReservationOptionsRequestUsageStrategy string
 
 const (
@@ -7534,7 +7698,8 @@ func (in *spotFleetRequestConfigDataTypePtr) ToSpotFleetRequestConfigDataTypePtr
 type SpotFleetSpotCapacityRebalanceReplacementStrategy string
 
 const (
-	SpotFleetSpotCapacityRebalanceReplacementStrategyLaunch = SpotFleetSpotCapacityRebalanceReplacementStrategy("launch")
+	SpotFleetSpotCapacityRebalanceReplacementStrategyLaunch                = SpotFleetSpotCapacityRebalanceReplacementStrategy("launch")
+	SpotFleetSpotCapacityRebalanceReplacementStrategyLaunchBeforeTerminate = SpotFleetSpotCapacityRebalanceReplacementStrategy("launch-before-terminate")
 )
 
 func (SpotFleetSpotCapacityRebalanceReplacementStrategy) ElementType() reflect.Type {
@@ -8073,6 +8238,8 @@ func init() {
 	pulumi.RegisterOutputType(CapacityReservationFleetInstanceMatchCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(CapacityReservationFleetTenancyOutput{})
 	pulumi.RegisterOutputType(CapacityReservationFleetTenancyPtrOutput{})
+	pulumi.RegisterOutputType(EC2FleetCapacityRebalanceReplacementStrategyOutput{})
+	pulumi.RegisterOutputType(EC2FleetCapacityRebalanceReplacementStrategyPtrOutput{})
 	pulumi.RegisterOutputType(EC2FleetCapacityReservationOptionsRequestUsageStrategyOutput{})
 	pulumi.RegisterOutputType(EC2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput{})
 	pulumi.RegisterOutputType(EC2FleetExcessCapacityTerminationPolicyOutput{})

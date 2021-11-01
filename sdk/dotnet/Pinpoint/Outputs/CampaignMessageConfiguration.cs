@@ -19,6 +19,7 @@ namespace Pulumi.AwsNative.Pinpoint.Outputs
         public readonly Outputs.CampaignMessage? DefaultMessage;
         public readonly Outputs.CampaignEmailMessage? EmailMessage;
         public readonly Outputs.CampaignMessage? GCMMessage;
+        public readonly Outputs.CampaignInAppMessage? InAppMessage;
         public readonly Outputs.CampaignSmsMessage? SMSMessage;
 
         [OutputConstructor]
@@ -35,6 +36,8 @@ namespace Pulumi.AwsNative.Pinpoint.Outputs
 
             Outputs.CampaignMessage? gCMMessage,
 
+            Outputs.CampaignInAppMessage? inAppMessage,
+
             Outputs.CampaignSmsMessage? sMSMessage)
         {
             ADMMessage = aDMMessage;
@@ -43,6 +46,7 @@ namespace Pulumi.AwsNative.Pinpoint.Outputs
             DefaultMessage = defaultMessage;
             EmailMessage = emailMessage;
             GCMMessage = gCMMessage;
+            InAppMessage = inAppMessage;
             SMSMessage = sMSMessage;
         }
     }

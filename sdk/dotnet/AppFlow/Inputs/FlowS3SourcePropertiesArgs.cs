@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         [Input("bucketPrefix", required: true)]
         public Input<string> BucketPrefix { get; set; } = null!;
 
+        [Input("s3InputFormatConfig")]
+        public Input<Inputs.FlowS3InputFormatConfigArgs>? S3InputFormatConfig { get; set; }
+
         public FlowS3SourcePropertiesArgs()
         {
         }

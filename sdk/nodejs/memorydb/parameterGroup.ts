@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * The AWS::MemoryDB::ParameterGroup resource creates an Amazon MemoryDB ParameterGroup.
- *
- * @deprecated ParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class ParameterGroup extends pulumi.CustomResource {
     /**
@@ -20,7 +18,6 @@ export class ParameterGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ParameterGroup {
-        pulumi.log.warn("ParameterGroup is deprecated: ParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new ParameterGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -70,9 +67,7 @@ export class ParameterGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated ParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ParameterGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ParameterGroup is deprecated: ParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

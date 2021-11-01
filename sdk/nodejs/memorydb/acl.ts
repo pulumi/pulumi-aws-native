@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::MemoryDB::ACL
- *
- * @deprecated ACL is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class ACL extends pulumi.CustomResource {
     /**
@@ -20,7 +18,6 @@ export class ACL extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ACL {
-        pulumi.log.warn("ACL is deprecated: ACL is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new ACL(name, undefined as any, { ...opts, id: id });
     }
 
@@ -66,9 +63,7 @@ export class ACL extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated ACL is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ACLArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ACL is deprecated: ACL is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

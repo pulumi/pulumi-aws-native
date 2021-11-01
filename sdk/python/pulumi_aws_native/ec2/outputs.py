@@ -30,6 +30,7 @@ __all__ = [
     'EC2FleetAcceleratorCountRequest',
     'EC2FleetAcceleratorTotalMemoryMiBRequest',
     'EC2FleetBaselineEbsBandwidthMbpsRequest',
+    'EC2FleetCapacityRebalance',
     'EC2FleetCapacityReservationOptionsRequest',
     'EC2FleetFleetLaunchTemplateConfigRequest',
     'EC2FleetFleetLaunchTemplateOverridesRequest',
@@ -41,6 +42,7 @@ __all__ = [
     'EC2FleetOnDemandOptionsRequest',
     'EC2FleetPlacement',
     'EC2FleetSpotOptionsRequest',
+    'EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties',
     'EC2FleetTag',
     'EC2FleetTagSpecification',
     'EC2FleetTargetCapacitySpecificationRequest',
@@ -788,6 +790,46 @@ class EC2FleetBaselineEbsBandwidthMbpsRequest(dict):
 
 
 @pulumi.output_type
+class EC2FleetCapacityRebalance(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "replacementStrategy":
+            suggest = "replacement_strategy"
+        elif key == "terminationDelay":
+            suggest = "termination_delay"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EC2FleetCapacityRebalance. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EC2FleetCapacityRebalance.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EC2FleetCapacityRebalance.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 replacement_strategy: Optional['EC2FleetCapacityRebalanceReplacementStrategy'] = None,
+                 termination_delay: Optional[int] = None):
+        if replacement_strategy is not None:
+            pulumi.set(__self__, "replacement_strategy", replacement_strategy)
+        if termination_delay is not None:
+            pulumi.set(__self__, "termination_delay", termination_delay)
+
+    @property
+    @pulumi.getter(name="replacementStrategy")
+    def replacement_strategy(self) -> Optional['EC2FleetCapacityRebalanceReplacementStrategy']:
+        return pulumi.get(self, "replacement_strategy")
+
+    @property
+    @pulumi.getter(name="terminationDelay")
+    def termination_delay(self) -> Optional[int]:
+        return pulumi.get(self, "termination_delay")
+
+
+@pulumi.output_type
 class EC2FleetCapacityReservationOptionsRequest(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1479,6 +1521,8 @@ class EC2FleetSpotOptionsRequest(dict):
             suggest = "instance_interruption_behavior"
         elif key == "instancePoolsToUseCount":
             suggest = "instance_pools_to_use_count"
+        elif key == "maintenanceStrategies":
+            suggest = "maintenance_strategies"
         elif key == "maxTotalPrice":
             suggest = "max_total_price"
         elif key == "minTargetCapacity":
@@ -1503,6 +1547,7 @@ class EC2FleetSpotOptionsRequest(dict):
                  allocation_strategy: Optional['EC2FleetSpotOptionsRequestAllocationStrategy'] = None,
                  instance_interruption_behavior: Optional['EC2FleetSpotOptionsRequestInstanceInterruptionBehavior'] = None,
                  instance_pools_to_use_count: Optional[int] = None,
+                 maintenance_strategies: Optional['outputs.EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties'] = None,
                  max_total_price: Optional[str] = None,
                  min_target_capacity: Optional[int] = None,
                  single_availability_zone: Optional[bool] = None,
@@ -1513,6 +1558,8 @@ class EC2FleetSpotOptionsRequest(dict):
             pulumi.set(__self__, "instance_interruption_behavior", instance_interruption_behavior)
         if instance_pools_to_use_count is not None:
             pulumi.set(__self__, "instance_pools_to_use_count", instance_pools_to_use_count)
+        if maintenance_strategies is not None:
+            pulumi.set(__self__, "maintenance_strategies", maintenance_strategies)
         if max_total_price is not None:
             pulumi.set(__self__, "max_total_price", max_total_price)
         if min_target_capacity is not None:
@@ -1538,6 +1585,11 @@ class EC2FleetSpotOptionsRequest(dict):
         return pulumi.get(self, "instance_pools_to_use_count")
 
     @property
+    @pulumi.getter(name="maintenanceStrategies")
+    def maintenance_strategies(self) -> Optional['outputs.EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties']:
+        return pulumi.get(self, "maintenance_strategies")
+
+    @property
     @pulumi.getter(name="maxTotalPrice")
     def max_total_price(self) -> Optional[str]:
         return pulumi.get(self, "max_total_price")
@@ -1556,6 +1608,36 @@ class EC2FleetSpotOptionsRequest(dict):
     @pulumi.getter(name="singleInstanceType")
     def single_instance_type(self) -> Optional[bool]:
         return pulumi.get(self, "single_instance_type")
+
+
+@pulumi.output_type
+class EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityRebalance":
+            suggest = "capacity_rebalance"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_rebalance: Optional['outputs.EC2FleetCapacityRebalance'] = None):
+        if capacity_rebalance is not None:
+            pulumi.set(__self__, "capacity_rebalance", capacity_rebalance)
+
+    @property
+    @pulumi.getter(name="capacityRebalance")
+    def capacity_rebalance(self) -> Optional['outputs.EC2FleetCapacityRebalance']:
+        return pulumi.get(self, "capacity_rebalance")
 
 
 @pulumi.output_type
@@ -6837,6 +6919,8 @@ class SpotFleetSpotCapacityRebalance(dict):
         suggest = None
         if key == "replacementStrategy":
             suggest = "replacement_strategy"
+        elif key == "terminationDelay":
+            suggest = "termination_delay"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SpotFleetSpotCapacityRebalance. Access the value via the '{suggest}' property getter instead.")
@@ -6850,14 +6934,22 @@ class SpotFleetSpotCapacityRebalance(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 replacement_strategy: Optional['SpotFleetSpotCapacityRebalanceReplacementStrategy'] = None):
+                 replacement_strategy: Optional['SpotFleetSpotCapacityRebalanceReplacementStrategy'] = None,
+                 termination_delay: Optional[int] = None):
         if replacement_strategy is not None:
             pulumi.set(__self__, "replacement_strategy", replacement_strategy)
+        if termination_delay is not None:
+            pulumi.set(__self__, "termination_delay", termination_delay)
 
     @property
     @pulumi.getter(name="replacementStrategy")
     def replacement_strategy(self) -> Optional['SpotFleetSpotCapacityRebalanceReplacementStrategy']:
         return pulumi.get(self, "replacement_strategy")
+
+    @property
+    @pulumi.getter(name="terminationDelay")
+    def termination_delay(self) -> Optional[int]:
+        return pulumi.get(self, "termination_delay")
 
 
 @pulumi.output_type

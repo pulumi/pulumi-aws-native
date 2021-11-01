@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.MemoryDB
     /// <summary>
     /// Resource Type definition for AWS::MemoryDB::User
     /// </summary>
-    [Obsolete(@"User is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:memorydb:User")]
     public partial class User : Pulumi.CustomResource
     {

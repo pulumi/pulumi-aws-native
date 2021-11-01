@@ -21,6 +21,7 @@ __all__ = [
     'EndpointNeptuneSettings',
     'EndpointOracleSettings',
     'EndpointPostgreSqlSettings',
+    'EndpointRedisSettings',
     'EndpointRedshiftSettings',
     'EndpointS3Settings',
     'EndpointSybaseSettings',
@@ -203,11 +204,91 @@ class EndpointIbmDb2Settings(dict):
 
 @pulumi.output_type
 class EndpointKafkaSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeControlDetails":
+            suggest = "include_control_details"
+        elif key == "includeNullAndEmpty":
+            suggest = "include_null_and_empty"
+        elif key == "includeTableAlterOperations":
+            suggest = "include_table_alter_operations"
+        elif key == "includeTransactionDetails":
+            suggest = "include_transaction_details"
+        elif key == "noHexPrefix":
+            suggest = "no_hex_prefix"
+        elif key == "partitionIncludeSchemaTable":
+            suggest = "partition_include_schema_table"
+        elif key == "saslPassword":
+            suggest = "sasl_password"
+        elif key == "saslUserName":
+            suggest = "sasl_user_name"
+        elif key == "securityProtocol":
+            suggest = "security_protocol"
+        elif key == "sslCaCertificateArn":
+            suggest = "ssl_ca_certificate_arn"
+        elif key == "sslClientCertificateArn":
+            suggest = "ssl_client_certificate_arn"
+        elif key == "sslClientKeyArn":
+            suggest = "ssl_client_key_arn"
+        elif key == "sslClientKeyPassword":
+            suggest = "ssl_client_key_password"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointKafkaSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointKafkaSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointKafkaSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  broker: Optional[str] = None,
+                 include_control_details: Optional[bool] = None,
+                 include_null_and_empty: Optional[bool] = None,
+                 include_table_alter_operations: Optional[bool] = None,
+                 include_transaction_details: Optional[bool] = None,
+                 no_hex_prefix: Optional[bool] = None,
+                 partition_include_schema_table: Optional[bool] = None,
+                 sasl_password: Optional[str] = None,
+                 sasl_user_name: Optional[str] = None,
+                 security_protocol: Optional[str] = None,
+                 ssl_ca_certificate_arn: Optional[str] = None,
+                 ssl_client_certificate_arn: Optional[str] = None,
+                 ssl_client_key_arn: Optional[str] = None,
+                 ssl_client_key_password: Optional[str] = None,
                  topic: Optional[str] = None):
         if broker is not None:
             pulumi.set(__self__, "broker", broker)
+        if include_control_details is not None:
+            pulumi.set(__self__, "include_control_details", include_control_details)
+        if include_null_and_empty is not None:
+            pulumi.set(__self__, "include_null_and_empty", include_null_and_empty)
+        if include_table_alter_operations is not None:
+            pulumi.set(__self__, "include_table_alter_operations", include_table_alter_operations)
+        if include_transaction_details is not None:
+            pulumi.set(__self__, "include_transaction_details", include_transaction_details)
+        if no_hex_prefix is not None:
+            pulumi.set(__self__, "no_hex_prefix", no_hex_prefix)
+        if partition_include_schema_table is not None:
+            pulumi.set(__self__, "partition_include_schema_table", partition_include_schema_table)
+        if sasl_password is not None:
+            pulumi.set(__self__, "sasl_password", sasl_password)
+        if sasl_user_name is not None:
+            pulumi.set(__self__, "sasl_user_name", sasl_user_name)
+        if security_protocol is not None:
+            pulumi.set(__self__, "security_protocol", security_protocol)
+        if ssl_ca_certificate_arn is not None:
+            pulumi.set(__self__, "ssl_ca_certificate_arn", ssl_ca_certificate_arn)
+        if ssl_client_certificate_arn is not None:
+            pulumi.set(__self__, "ssl_client_certificate_arn", ssl_client_certificate_arn)
+        if ssl_client_key_arn is not None:
+            pulumi.set(__self__, "ssl_client_key_arn", ssl_client_key_arn)
+        if ssl_client_key_password is not None:
+            pulumi.set(__self__, "ssl_client_key_password", ssl_client_key_password)
         if topic is not None:
             pulumi.set(__self__, "topic", topic)
 
@@ -215,6 +296,71 @@ class EndpointKafkaSettings(dict):
     @pulumi.getter
     def broker(self) -> Optional[str]:
         return pulumi.get(self, "broker")
+
+    @property
+    @pulumi.getter(name="includeControlDetails")
+    def include_control_details(self) -> Optional[bool]:
+        return pulumi.get(self, "include_control_details")
+
+    @property
+    @pulumi.getter(name="includeNullAndEmpty")
+    def include_null_and_empty(self) -> Optional[bool]:
+        return pulumi.get(self, "include_null_and_empty")
+
+    @property
+    @pulumi.getter(name="includeTableAlterOperations")
+    def include_table_alter_operations(self) -> Optional[bool]:
+        return pulumi.get(self, "include_table_alter_operations")
+
+    @property
+    @pulumi.getter(name="includeTransactionDetails")
+    def include_transaction_details(self) -> Optional[bool]:
+        return pulumi.get(self, "include_transaction_details")
+
+    @property
+    @pulumi.getter(name="noHexPrefix")
+    def no_hex_prefix(self) -> Optional[bool]:
+        return pulumi.get(self, "no_hex_prefix")
+
+    @property
+    @pulumi.getter(name="partitionIncludeSchemaTable")
+    def partition_include_schema_table(self) -> Optional[bool]:
+        return pulumi.get(self, "partition_include_schema_table")
+
+    @property
+    @pulumi.getter(name="saslPassword")
+    def sasl_password(self) -> Optional[str]:
+        return pulumi.get(self, "sasl_password")
+
+    @property
+    @pulumi.getter(name="saslUserName")
+    def sasl_user_name(self) -> Optional[str]:
+        return pulumi.get(self, "sasl_user_name")
+
+    @property
+    @pulumi.getter(name="securityProtocol")
+    def security_protocol(self) -> Optional[str]:
+        return pulumi.get(self, "security_protocol")
+
+    @property
+    @pulumi.getter(name="sslCaCertificateArn")
+    def ssl_ca_certificate_arn(self) -> Optional[str]:
+        return pulumi.get(self, "ssl_ca_certificate_arn")
+
+    @property
+    @pulumi.getter(name="sslClientCertificateArn")
+    def ssl_client_certificate_arn(self) -> Optional[str]:
+        return pulumi.get(self, "ssl_client_certificate_arn")
+
+    @property
+    @pulumi.getter(name="sslClientKeyArn")
+    def ssl_client_key_arn(self) -> Optional[str]:
+        return pulumi.get(self, "ssl_client_key_arn")
+
+    @property
+    @pulumi.getter(name="sslClientKeyPassword")
+    def ssl_client_key_password(self) -> Optional[str]:
+        return pulumi.get(self, "ssl_client_key_password")
 
     @property
     @pulumi.getter
@@ -227,8 +373,20 @@ class EndpointKinesisSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "messageFormat":
+        if key == "includeControlDetails":
+            suggest = "include_control_details"
+        elif key == "includeNullAndEmpty":
+            suggest = "include_null_and_empty"
+        elif key == "includeTableAlterOperations":
+            suggest = "include_table_alter_operations"
+        elif key == "includeTransactionDetails":
+            suggest = "include_transaction_details"
+        elif key == "messageFormat":
             suggest = "message_format"
+        elif key == "noHexPrefix":
+            suggest = "no_hex_prefix"
+        elif key == "partitionIncludeSchemaTable":
+            suggest = "partition_include_schema_table"
         elif key == "serviceAccessRoleArn":
             suggest = "service_access_role_arn"
         elif key == "streamArn":
@@ -246,20 +404,68 @@ class EndpointKinesisSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 include_control_details: Optional[bool] = None,
+                 include_null_and_empty: Optional[bool] = None,
+                 include_table_alter_operations: Optional[bool] = None,
+                 include_transaction_details: Optional[bool] = None,
                  message_format: Optional[str] = None,
+                 no_hex_prefix: Optional[bool] = None,
+                 partition_include_schema_table: Optional[bool] = None,
                  service_access_role_arn: Optional[str] = None,
                  stream_arn: Optional[str] = None):
+        if include_control_details is not None:
+            pulumi.set(__self__, "include_control_details", include_control_details)
+        if include_null_and_empty is not None:
+            pulumi.set(__self__, "include_null_and_empty", include_null_and_empty)
+        if include_table_alter_operations is not None:
+            pulumi.set(__self__, "include_table_alter_operations", include_table_alter_operations)
+        if include_transaction_details is not None:
+            pulumi.set(__self__, "include_transaction_details", include_transaction_details)
         if message_format is not None:
             pulumi.set(__self__, "message_format", message_format)
+        if no_hex_prefix is not None:
+            pulumi.set(__self__, "no_hex_prefix", no_hex_prefix)
+        if partition_include_schema_table is not None:
+            pulumi.set(__self__, "partition_include_schema_table", partition_include_schema_table)
         if service_access_role_arn is not None:
             pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
         if stream_arn is not None:
             pulumi.set(__self__, "stream_arn", stream_arn)
 
     @property
+    @pulumi.getter(name="includeControlDetails")
+    def include_control_details(self) -> Optional[bool]:
+        return pulumi.get(self, "include_control_details")
+
+    @property
+    @pulumi.getter(name="includeNullAndEmpty")
+    def include_null_and_empty(self) -> Optional[bool]:
+        return pulumi.get(self, "include_null_and_empty")
+
+    @property
+    @pulumi.getter(name="includeTableAlterOperations")
+    def include_table_alter_operations(self) -> Optional[bool]:
+        return pulumi.get(self, "include_table_alter_operations")
+
+    @property
+    @pulumi.getter(name="includeTransactionDetails")
+    def include_transaction_details(self) -> Optional[bool]:
+        return pulumi.get(self, "include_transaction_details")
+
+    @property
     @pulumi.getter(name="messageFormat")
     def message_format(self) -> Optional[str]:
         return pulumi.get(self, "message_format")
+
+    @property
+    @pulumi.getter(name="noHexPrefix")
+    def no_hex_prefix(self) -> Optional[bool]:
+        return pulumi.get(self, "no_hex_prefix")
+
+    @property
+    @pulumi.getter(name="partitionIncludeSchemaTable")
+    def partition_include_schema_table(self) -> Optional[bool]:
+        return pulumi.get(self, "partition_include_schema_table")
 
     @property
     @pulumi.getter(name="serviceAccessRoleArn")
@@ -684,6 +890,94 @@ class EndpointPostgreSqlSettings(dict):
     @pulumi.getter(name="secretsManagerSecretId")
     def secrets_manager_secret_id(self) -> Optional[str]:
         return pulumi.get(self, "secrets_manager_secret_id")
+
+
+@pulumi.output_type
+class EndpointRedisSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authPassword":
+            suggest = "auth_password"
+        elif key == "authType":
+            suggest = "auth_type"
+        elif key == "authUserName":
+            suggest = "auth_user_name"
+        elif key == "serverName":
+            suggest = "server_name"
+        elif key == "sslCaCertificateArn":
+            suggest = "ssl_ca_certificate_arn"
+        elif key == "sslSecurityProtocol":
+            suggest = "ssl_security_protocol"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointRedisSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointRedisSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointRedisSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_password: Optional[str] = None,
+                 auth_type: Optional[str] = None,
+                 auth_user_name: Optional[str] = None,
+                 port: Optional[float] = None,
+                 server_name: Optional[str] = None,
+                 ssl_ca_certificate_arn: Optional[str] = None,
+                 ssl_security_protocol: Optional[str] = None):
+        if auth_password is not None:
+            pulumi.set(__self__, "auth_password", auth_password)
+        if auth_type is not None:
+            pulumi.set(__self__, "auth_type", auth_type)
+        if auth_user_name is not None:
+            pulumi.set(__self__, "auth_user_name", auth_user_name)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if ssl_ca_certificate_arn is not None:
+            pulumi.set(__self__, "ssl_ca_certificate_arn", ssl_ca_certificate_arn)
+        if ssl_security_protocol is not None:
+            pulumi.set(__self__, "ssl_security_protocol", ssl_security_protocol)
+
+    @property
+    @pulumi.getter(name="authPassword")
+    def auth_password(self) -> Optional[str]:
+        return pulumi.get(self, "auth_password")
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> Optional[str]:
+        return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="authUserName")
+    def auth_user_name(self) -> Optional[str]:
+        return pulumi.get(self, "auth_user_name")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[float]:
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> Optional[str]:
+        return pulumi.get(self, "server_name")
+
+    @property
+    @pulumi.getter(name="sslCaCertificateArn")
+    def ssl_ca_certificate_arn(self) -> Optional[str]:
+        return pulumi.get(self, "ssl_ca_certificate_arn")
+
+    @property
+    @pulumi.getter(name="sslSecurityProtocol")
+    def ssl_security_protocol(self) -> Optional[str]:
+        return pulumi.get(self, "ssl_security_protocol")
 
 
 @pulumi.output_type

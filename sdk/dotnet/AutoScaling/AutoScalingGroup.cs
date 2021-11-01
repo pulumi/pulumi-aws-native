@@ -34,6 +34,9 @@ namespace Pulumi.AwsNative.AutoScaling
         [Output("desiredCapacity")]
         public Output<string?> DesiredCapacity { get; private set; } = null!;
 
+        [Output("desiredCapacityType")]
+        public Output<string?> DesiredCapacityType { get; private set; } = null!;
+
         [Output("healthCheckGracePeriod")]
         public Output<int?> HealthCheckGracePeriod { get; private set; } = null!;
 
@@ -164,6 +167,9 @@ namespace Pulumi.AwsNative.AutoScaling
 
         [Input("desiredCapacity")]
         public Input<string>? DesiredCapacity { get; set; }
+
+        [Input("desiredCapacityType")]
+        public Input<string>? DesiredCapacityType { get; set; }
 
         [Input("healthCheckGracePeriod")]
         public Input<int>? HealthCheckGracePeriod { get; set; }

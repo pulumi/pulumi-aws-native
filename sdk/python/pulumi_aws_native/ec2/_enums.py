@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'CapacityReservationFleetInstanceMatchCriteria',
     'CapacityReservationFleetTenancy',
+    'EC2FleetCapacityRebalanceReplacementStrategy',
     'EC2FleetCapacityReservationOptionsRequestUsageStrategy',
     'EC2FleetExcessCapacityTerminationPolicy',
     'EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem',
@@ -59,6 +60,11 @@ class CapacityReservationFleetInstanceMatchCriteria(str, Enum):
 
 class CapacityReservationFleetTenancy(str, Enum):
     DEFAULT = "default"
+
+
+class EC2FleetCapacityRebalanceReplacementStrategy(str, Enum):
+    LAUNCH = "launch"
+    LAUNCH_BEFORE_TERMINATE = "launch-before-terminate"
 
 
 class EC2FleetCapacityReservationOptionsRequestUsageStrategy(str, Enum):
@@ -370,6 +376,7 @@ class SpotFleetRequestConfigDataType(str, Enum):
 
 class SpotFleetSpotCapacityRebalanceReplacementStrategy(str, Enum):
     LAUNCH = "launch"
+    LAUNCH_BEFORE_TERMINATE = "launch-before-terminate"
 
 
 class SpotFleetSpotPlacementTenancy(str, Enum):

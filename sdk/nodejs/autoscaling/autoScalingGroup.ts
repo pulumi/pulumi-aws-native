@@ -44,6 +44,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
     public readonly context!: pulumi.Output<string | undefined>;
     public readonly cooldown!: pulumi.Output<string | undefined>;
     public readonly desiredCapacity!: pulumi.Output<string | undefined>;
+    public readonly desiredCapacityType!: pulumi.Output<string | undefined>;
     public readonly healthCheckGracePeriod!: pulumi.Output<number | undefined>;
     public readonly healthCheckType!: pulumi.Output<string | undefined>;
     public readonly instanceId!: pulumi.Output<string | undefined>;
@@ -91,6 +92,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
             inputs["context"] = args ? args.context : undefined;
             inputs["cooldown"] = args ? args.cooldown : undefined;
             inputs["desiredCapacity"] = args ? args.desiredCapacity : undefined;
+            inputs["desiredCapacityType"] = args ? args.desiredCapacityType : undefined;
             inputs["healthCheckGracePeriod"] = args ? args.healthCheckGracePeriod : undefined;
             inputs["healthCheckType"] = args ? args.healthCheckType : undefined;
             inputs["instanceId"] = args ? args.instanceId : undefined;
@@ -119,6 +121,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
             inputs["context"] = undefined /*out*/;
             inputs["cooldown"] = undefined /*out*/;
             inputs["desiredCapacity"] = undefined /*out*/;
+            inputs["desiredCapacityType"] = undefined /*out*/;
             inputs["healthCheckGracePeriod"] = undefined /*out*/;
             inputs["healthCheckType"] = undefined /*out*/;
             inputs["instanceId"] = undefined /*out*/;
@@ -158,6 +161,7 @@ export interface AutoScalingGroupArgs {
     context?: pulumi.Input<string>;
     cooldown?: pulumi.Input<string>;
     desiredCapacity?: pulumi.Input<string>;
+    desiredCapacityType?: pulumi.Input<string>;
     healthCheckGracePeriod?: pulumi.Input<number>;
     healthCheckType?: pulumi.Input<string>;
     instanceId?: pulumi.Input<string>;

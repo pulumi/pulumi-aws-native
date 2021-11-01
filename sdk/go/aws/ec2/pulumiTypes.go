@@ -2329,6 +2329,156 @@ func (o EC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput) Min() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
+type EC2FleetCapacityRebalance struct {
+	ReplacementStrategy *EC2FleetCapacityRebalanceReplacementStrategy `pulumi:"replacementStrategy"`
+	TerminationDelay    *int                                          `pulumi:"terminationDelay"`
+}
+
+// EC2FleetCapacityRebalanceInput is an input type that accepts EC2FleetCapacityRebalanceArgs and EC2FleetCapacityRebalanceOutput values.
+// You can construct a concrete instance of `EC2FleetCapacityRebalanceInput` via:
+//
+//          EC2FleetCapacityRebalanceArgs{...}
+type EC2FleetCapacityRebalanceInput interface {
+	pulumi.Input
+
+	ToEC2FleetCapacityRebalanceOutput() EC2FleetCapacityRebalanceOutput
+	ToEC2FleetCapacityRebalanceOutputWithContext(context.Context) EC2FleetCapacityRebalanceOutput
+}
+
+type EC2FleetCapacityRebalanceArgs struct {
+	ReplacementStrategy EC2FleetCapacityRebalanceReplacementStrategyPtrInput `pulumi:"replacementStrategy"`
+	TerminationDelay    pulumi.IntPtrInput                                   `pulumi:"terminationDelay"`
+}
+
+func (EC2FleetCapacityRebalanceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EC2FleetCapacityRebalance)(nil)).Elem()
+}
+
+func (i EC2FleetCapacityRebalanceArgs) ToEC2FleetCapacityRebalanceOutput() EC2FleetCapacityRebalanceOutput {
+	return i.ToEC2FleetCapacityRebalanceOutputWithContext(context.Background())
+}
+
+func (i EC2FleetCapacityRebalanceArgs) ToEC2FleetCapacityRebalanceOutputWithContext(ctx context.Context) EC2FleetCapacityRebalanceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetCapacityRebalanceOutput)
+}
+
+func (i EC2FleetCapacityRebalanceArgs) ToEC2FleetCapacityRebalancePtrOutput() EC2FleetCapacityRebalancePtrOutput {
+	return i.ToEC2FleetCapacityRebalancePtrOutputWithContext(context.Background())
+}
+
+func (i EC2FleetCapacityRebalanceArgs) ToEC2FleetCapacityRebalancePtrOutputWithContext(ctx context.Context) EC2FleetCapacityRebalancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetCapacityRebalanceOutput).ToEC2FleetCapacityRebalancePtrOutputWithContext(ctx)
+}
+
+// EC2FleetCapacityRebalancePtrInput is an input type that accepts EC2FleetCapacityRebalanceArgs, EC2FleetCapacityRebalancePtr and EC2FleetCapacityRebalancePtrOutput values.
+// You can construct a concrete instance of `EC2FleetCapacityRebalancePtrInput` via:
+//
+//          EC2FleetCapacityRebalanceArgs{...}
+//
+//  or:
+//
+//          nil
+type EC2FleetCapacityRebalancePtrInput interface {
+	pulumi.Input
+
+	ToEC2FleetCapacityRebalancePtrOutput() EC2FleetCapacityRebalancePtrOutput
+	ToEC2FleetCapacityRebalancePtrOutputWithContext(context.Context) EC2FleetCapacityRebalancePtrOutput
+}
+
+type ec2fleetCapacityRebalancePtrType EC2FleetCapacityRebalanceArgs
+
+func EC2FleetCapacityRebalancePtr(v *EC2FleetCapacityRebalanceArgs) EC2FleetCapacityRebalancePtrInput {
+	return (*ec2fleetCapacityRebalancePtrType)(v)
+}
+
+func (*ec2fleetCapacityRebalancePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EC2FleetCapacityRebalance)(nil)).Elem()
+}
+
+func (i *ec2fleetCapacityRebalancePtrType) ToEC2FleetCapacityRebalancePtrOutput() EC2FleetCapacityRebalancePtrOutput {
+	return i.ToEC2FleetCapacityRebalancePtrOutputWithContext(context.Background())
+}
+
+func (i *ec2fleetCapacityRebalancePtrType) ToEC2FleetCapacityRebalancePtrOutputWithContext(ctx context.Context) EC2FleetCapacityRebalancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetCapacityRebalancePtrOutput)
+}
+
+type EC2FleetCapacityRebalanceOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetCapacityRebalanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EC2FleetCapacityRebalance)(nil)).Elem()
+}
+
+func (o EC2FleetCapacityRebalanceOutput) ToEC2FleetCapacityRebalanceOutput() EC2FleetCapacityRebalanceOutput {
+	return o
+}
+
+func (o EC2FleetCapacityRebalanceOutput) ToEC2FleetCapacityRebalanceOutputWithContext(ctx context.Context) EC2FleetCapacityRebalanceOutput {
+	return o
+}
+
+func (o EC2FleetCapacityRebalanceOutput) ToEC2FleetCapacityRebalancePtrOutput() EC2FleetCapacityRebalancePtrOutput {
+	return o.ToEC2FleetCapacityRebalancePtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetCapacityRebalanceOutput) ToEC2FleetCapacityRebalancePtrOutputWithContext(ctx context.Context) EC2FleetCapacityRebalancePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetCapacityRebalance) *EC2FleetCapacityRebalance {
+		return &v
+	}).(EC2FleetCapacityRebalancePtrOutput)
+}
+
+func (o EC2FleetCapacityRebalanceOutput) ReplacementStrategy() EC2FleetCapacityRebalanceReplacementStrategyPtrOutput {
+	return o.ApplyT(func(v EC2FleetCapacityRebalance) *EC2FleetCapacityRebalanceReplacementStrategy {
+		return v.ReplacementStrategy
+	}).(EC2FleetCapacityRebalanceReplacementStrategyPtrOutput)
+}
+
+func (o EC2FleetCapacityRebalanceOutput) TerminationDelay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EC2FleetCapacityRebalance) *int { return v.TerminationDelay }).(pulumi.IntPtrOutput)
+}
+
+type EC2FleetCapacityRebalancePtrOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetCapacityRebalancePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EC2FleetCapacityRebalance)(nil)).Elem()
+}
+
+func (o EC2FleetCapacityRebalancePtrOutput) ToEC2FleetCapacityRebalancePtrOutput() EC2FleetCapacityRebalancePtrOutput {
+	return o
+}
+
+func (o EC2FleetCapacityRebalancePtrOutput) ToEC2FleetCapacityRebalancePtrOutputWithContext(ctx context.Context) EC2FleetCapacityRebalancePtrOutput {
+	return o
+}
+
+func (o EC2FleetCapacityRebalancePtrOutput) Elem() EC2FleetCapacityRebalanceOutput {
+	return o.ApplyT(func(v *EC2FleetCapacityRebalance) EC2FleetCapacityRebalance {
+		if v != nil {
+			return *v
+		}
+		var ret EC2FleetCapacityRebalance
+		return ret
+	}).(EC2FleetCapacityRebalanceOutput)
+}
+
+func (o EC2FleetCapacityRebalancePtrOutput) ReplacementStrategy() EC2FleetCapacityRebalanceReplacementStrategyPtrOutput {
+	return o.ApplyT(func(v *EC2FleetCapacityRebalance) *EC2FleetCapacityRebalanceReplacementStrategy {
+		if v == nil {
+			return nil
+		}
+		return v.ReplacementStrategy
+	}).(EC2FleetCapacityRebalanceReplacementStrategyPtrOutput)
+}
+
+func (o EC2FleetCapacityRebalancePtrOutput) TerminationDelay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EC2FleetCapacityRebalance) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TerminationDelay
+	}).(pulumi.IntPtrOutput)
+}
+
 type EC2FleetCapacityReservationOptionsRequest struct {
 	UsageStrategy *EC2FleetCapacityReservationOptionsRequestUsageStrategy `pulumi:"usageStrategy"`
 }
@@ -4225,13 +4375,14 @@ func (o EC2FleetPlacementPtrOutput) Tenancy() pulumi.StringPtrOutput {
 }
 
 type EC2FleetSpotOptionsRequest struct {
-	AllocationStrategy           *EC2FleetSpotOptionsRequestAllocationStrategy           `pulumi:"allocationStrategy"`
-	InstanceInterruptionBehavior *EC2FleetSpotOptionsRequestInstanceInterruptionBehavior `pulumi:"instanceInterruptionBehavior"`
-	InstancePoolsToUseCount      *int                                                    `pulumi:"instancePoolsToUseCount"`
-	MaxTotalPrice                *string                                                 `pulumi:"maxTotalPrice"`
-	MinTargetCapacity            *int                                                    `pulumi:"minTargetCapacity"`
-	SingleAvailabilityZone       *bool                                                   `pulumi:"singleAvailabilityZone"`
-	SingleInstanceType           *bool                                                   `pulumi:"singleInstanceType"`
+	AllocationStrategy           *EC2FleetSpotOptionsRequestAllocationStrategy              `pulumi:"allocationStrategy"`
+	InstanceInterruptionBehavior *EC2FleetSpotOptionsRequestInstanceInterruptionBehavior    `pulumi:"instanceInterruptionBehavior"`
+	InstancePoolsToUseCount      *int                                                       `pulumi:"instancePoolsToUseCount"`
+	MaintenanceStrategies        *EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties `pulumi:"maintenanceStrategies"`
+	MaxTotalPrice                *string                                                    `pulumi:"maxTotalPrice"`
+	MinTargetCapacity            *int                                                       `pulumi:"minTargetCapacity"`
+	SingleAvailabilityZone       *bool                                                      `pulumi:"singleAvailabilityZone"`
+	SingleInstanceType           *bool                                                      `pulumi:"singleInstanceType"`
 }
 
 // EC2FleetSpotOptionsRequestInput is an input type that accepts EC2FleetSpotOptionsRequestArgs and EC2FleetSpotOptionsRequestOutput values.
@@ -4246,13 +4397,14 @@ type EC2FleetSpotOptionsRequestInput interface {
 }
 
 type EC2FleetSpotOptionsRequestArgs struct {
-	AllocationStrategy           EC2FleetSpotOptionsRequestAllocationStrategyPtrInput           `pulumi:"allocationStrategy"`
-	InstanceInterruptionBehavior EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrInput `pulumi:"instanceInterruptionBehavior"`
-	InstancePoolsToUseCount      pulumi.IntPtrInput                                             `pulumi:"instancePoolsToUseCount"`
-	MaxTotalPrice                pulumi.StringPtrInput                                          `pulumi:"maxTotalPrice"`
-	MinTargetCapacity            pulumi.IntPtrInput                                             `pulumi:"minTargetCapacity"`
-	SingleAvailabilityZone       pulumi.BoolPtrInput                                            `pulumi:"singleAvailabilityZone"`
-	SingleInstanceType           pulumi.BoolPtrInput                                            `pulumi:"singleInstanceType"`
+	AllocationStrategy           EC2FleetSpotOptionsRequestAllocationStrategyPtrInput              `pulumi:"allocationStrategy"`
+	InstanceInterruptionBehavior EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrInput    `pulumi:"instanceInterruptionBehavior"`
+	InstancePoolsToUseCount      pulumi.IntPtrInput                                                `pulumi:"instancePoolsToUseCount"`
+	MaintenanceStrategies        EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrInput `pulumi:"maintenanceStrategies"`
+	MaxTotalPrice                pulumi.StringPtrInput                                             `pulumi:"maxTotalPrice"`
+	MinTargetCapacity            pulumi.IntPtrInput                                                `pulumi:"minTargetCapacity"`
+	SingleAvailabilityZone       pulumi.BoolPtrInput                                               `pulumi:"singleAvailabilityZone"`
+	SingleInstanceType           pulumi.BoolPtrInput                                               `pulumi:"singleInstanceType"`
 }
 
 func (EC2FleetSpotOptionsRequestArgs) ElementType() reflect.Type {
@@ -4348,6 +4500,12 @@ func (o EC2FleetSpotOptionsRequestOutput) InstancePoolsToUseCount() pulumi.IntPt
 	return o.ApplyT(func(v EC2FleetSpotOptionsRequest) *int { return v.InstancePoolsToUseCount }).(pulumi.IntPtrOutput)
 }
 
+func (o EC2FleetSpotOptionsRequestOutput) MaintenanceStrategies() EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutput {
+	return o.ApplyT(func(v EC2FleetSpotOptionsRequest) *EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties {
+		return v.MaintenanceStrategies
+	}).(EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutput)
+}
+
 func (o EC2FleetSpotOptionsRequestOutput) MaxTotalPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EC2FleetSpotOptionsRequest) *string { return v.MaxTotalPrice }).(pulumi.StringPtrOutput)
 }
@@ -4415,6 +4573,15 @@ func (o EC2FleetSpotOptionsRequestPtrOutput) InstancePoolsToUseCount() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
+func (o EC2FleetSpotOptionsRequestPtrOutput) MaintenanceStrategies() EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutput {
+	return o.ApplyT(func(v *EC2FleetSpotOptionsRequest) *EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties {
+		if v == nil {
+			return nil
+		}
+		return v.MaintenanceStrategies
+	}).(EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutput)
+}
+
 func (o EC2FleetSpotOptionsRequestPtrOutput) MaxTotalPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EC2FleetSpotOptionsRequest) *string {
 		if v == nil {
@@ -4449,6 +4616,141 @@ func (o EC2FleetSpotOptionsRequestPtrOutput) SingleInstanceType() pulumi.BoolPtr
 		}
 		return v.SingleInstanceType
 	}).(pulumi.BoolPtrOutput)
+}
+
+type EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties struct {
+	CapacityRebalance *EC2FleetCapacityRebalance `pulumi:"capacityRebalance"`
+}
+
+// EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesInput is an input type that accepts EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesArgs and EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesOutput values.
+// You can construct a concrete instance of `EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesInput` via:
+//
+//          EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesArgs{...}
+type EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesInput interface {
+	pulumi.Input
+
+	ToEC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesOutput() EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesOutput
+	ToEC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesOutputWithContext(context.Context) EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesOutput
+}
+
+type EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesArgs struct {
+	CapacityRebalance EC2FleetCapacityRebalancePtrInput `pulumi:"capacityRebalance"`
+}
+
+func (EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties)(nil)).Elem()
+}
+
+func (i EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesArgs) ToEC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesOutput() EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesOutput {
+	return i.ToEC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesOutputWithContext(context.Background())
+}
+
+func (i EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesArgs) ToEC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesOutputWithContext(ctx context.Context) EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesOutput)
+}
+
+func (i EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesArgs) ToEC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutput() EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutput {
+	return i.ToEC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesArgs) ToEC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutputWithContext(ctx context.Context) EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesOutput).ToEC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutputWithContext(ctx)
+}
+
+// EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrInput is an input type that accepts EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesArgs, EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtr and EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutput values.
+// You can construct a concrete instance of `EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrInput` via:
+//
+//          EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToEC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutput() EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutput
+	ToEC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutputWithContext(context.Context) EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutput
+}
+
+type ec2fleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrType EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesArgs
+
+func EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtr(v *EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesArgs) EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrInput {
+	return (*ec2fleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrType)(v)
+}
+
+func (*ec2fleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties)(nil)).Elem()
+}
+
+func (i *ec2fleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrType) ToEC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutput() EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutput {
+	return i.ToEC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *ec2fleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrType) ToEC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutputWithContext(ctx context.Context) EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutput)
+}
+
+type EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties)(nil)).Elem()
+}
+
+func (o EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesOutput) ToEC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesOutput() EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesOutput {
+	return o
+}
+
+func (o EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesOutput) ToEC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesOutputWithContext(ctx context.Context) EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesOutput {
+	return o
+}
+
+func (o EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesOutput) ToEC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutput() EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutput {
+	return o.ToEC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesOutput) ToEC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutputWithContext(ctx context.Context) EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties) *EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties {
+		return &v
+	}).(EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutput)
+}
+
+func (o EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesOutput) CapacityRebalance() EC2FleetCapacityRebalancePtrOutput {
+	return o.ApplyT(func(v EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties) *EC2FleetCapacityRebalance {
+		return v.CapacityRebalance
+	}).(EC2FleetCapacityRebalancePtrOutput)
+}
+
+type EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties)(nil)).Elem()
+}
+
+func (o EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutput) ToEC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutput() EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutput {
+	return o
+}
+
+func (o EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutput) ToEC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutputWithContext(ctx context.Context) EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutput {
+	return o
+}
+
+func (o EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutput) Elem() EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesOutput {
+	return o.ApplyT(func(v *EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties) EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties {
+		if v != nil {
+			return *v
+		}
+		var ret EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties
+		return ret
+	}).(EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesOutput)
+}
+
+func (o EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutput) CapacityRebalance() EC2FleetCapacityRebalancePtrOutput {
+	return o.ApplyT(func(v *EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties) *EC2FleetCapacityRebalance {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityRebalance
+	}).(EC2FleetCapacityRebalancePtrOutput)
 }
 
 type EC2FleetTag struct {
@@ -19313,6 +19615,7 @@ func (o SpotFleetRequestConfigDataPtrOutput) ValidUntil() pulumi.StringPtrOutput
 
 type SpotFleetSpotCapacityRebalance struct {
 	ReplacementStrategy *SpotFleetSpotCapacityRebalanceReplacementStrategy `pulumi:"replacementStrategy"`
+	TerminationDelay    *int                                               `pulumi:"terminationDelay"`
 }
 
 // SpotFleetSpotCapacityRebalanceInput is an input type that accepts SpotFleetSpotCapacityRebalanceArgs and SpotFleetSpotCapacityRebalanceOutput values.
@@ -19328,6 +19631,7 @@ type SpotFleetSpotCapacityRebalanceInput interface {
 
 type SpotFleetSpotCapacityRebalanceArgs struct {
 	ReplacementStrategy SpotFleetSpotCapacityRebalanceReplacementStrategyPtrInput `pulumi:"replacementStrategy"`
+	TerminationDelay    pulumi.IntPtrInput                                        `pulumi:"terminationDelay"`
 }
 
 func (SpotFleetSpotCapacityRebalanceArgs) ElementType() reflect.Type {
@@ -19413,6 +19717,10 @@ func (o SpotFleetSpotCapacityRebalanceOutput) ReplacementStrategy() SpotFleetSpo
 	}).(SpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutput)
 }
 
+func (o SpotFleetSpotCapacityRebalanceOutput) TerminationDelay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpotFleetSpotCapacityRebalance) *int { return v.TerminationDelay }).(pulumi.IntPtrOutput)
+}
+
 type SpotFleetSpotCapacityRebalancePtrOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetSpotCapacityRebalancePtrOutput) ElementType() reflect.Type {
@@ -19444,6 +19752,15 @@ func (o SpotFleetSpotCapacityRebalancePtrOutput) ReplacementStrategy() SpotFleet
 		}
 		return v.ReplacementStrategy
 	}).(SpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutput)
+}
+
+func (o SpotFleetSpotCapacityRebalancePtrOutput) TerminationDelay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpotFleetSpotCapacityRebalance) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TerminationDelay
+	}).(pulumi.IntPtrOutput)
 }
 
 type SpotFleetSpotMaintenanceStrategies struct {
@@ -22663,6 +22980,8 @@ func init() {
 	pulumi.RegisterOutputType(EC2FleetAcceleratorTotalMemoryMiBRequestPtrOutput{})
 	pulumi.RegisterOutputType(EC2FleetBaselineEbsBandwidthMbpsRequestOutput{})
 	pulumi.RegisterOutputType(EC2FleetBaselineEbsBandwidthMbpsRequestPtrOutput{})
+	pulumi.RegisterOutputType(EC2FleetCapacityRebalanceOutput{})
+	pulumi.RegisterOutputType(EC2FleetCapacityRebalancePtrOutput{})
 	pulumi.RegisterOutputType(EC2FleetCapacityReservationOptionsRequestOutput{})
 	pulumi.RegisterOutputType(EC2FleetCapacityReservationOptionsRequestPtrOutput{})
 	pulumi.RegisterOutputType(EC2FleetFleetLaunchTemplateConfigRequestOutput{})
@@ -22685,6 +23004,8 @@ func init() {
 	pulumi.RegisterOutputType(EC2FleetPlacementPtrOutput{})
 	pulumi.RegisterOutputType(EC2FleetSpotOptionsRequestOutput{})
 	pulumi.RegisterOutputType(EC2FleetSpotOptionsRequestPtrOutput{})
+	pulumi.RegisterOutputType(EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesOutput{})
+	pulumi.RegisterOutputType(EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(EC2FleetTagOutput{})
 	pulumi.RegisterOutputType(EC2FleetTagArrayOutput{})
 	pulumi.RegisterOutputType(EC2FleetTagSpecificationOutput{})

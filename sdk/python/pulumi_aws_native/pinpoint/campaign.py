@@ -26,6 +26,7 @@ class CampaignArgs:
                  holdout_percent: Optional[pulumi.Input[int]] = None,
                  is_paused: Optional[pulumi.Input[bool]] = None,
                  limits: Optional[pulumi.Input['CampaignLimitsArgs']] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  segment_version: Optional[pulumi.Input[int]] = None,
                  tags: Optional[Any] = None,
                  treatment_description: Optional[pulumi.Input[str]] = None,
@@ -50,6 +51,8 @@ class CampaignArgs:
             pulumi.set(__self__, "is_paused", is_paused)
         if limits is not None:
             pulumi.set(__self__, "limits", limits)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
         if segment_version is not None:
             pulumi.set(__self__, "segment_version", segment_version)
         if tags is not None:
@@ -159,6 +162,15 @@ class CampaignArgs:
         pulumi.set(self, "limits", value)
 
     @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
     @pulumi.getter(name="segmentVersion")
     def segment_version(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "segment_version")
@@ -214,6 +226,7 @@ class Campaign(pulumi.CustomResource):
                  limits: Optional[pulumi.Input[pulumi.InputType['CampaignLimitsArgs']]] = None,
                  message_configuration: Optional[pulumi.Input[pulumi.InputType['CampaignMessageConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['CampaignScheduleArgs']]] = None,
                  segment_id: Optional[pulumi.Input[str]] = None,
                  segment_version: Optional[pulumi.Input[int]] = None,
@@ -260,6 +273,7 @@ class Campaign(pulumi.CustomResource):
                  limits: Optional[pulumi.Input[pulumi.InputType['CampaignLimitsArgs']]] = None,
                  message_configuration: Optional[pulumi.Input[pulumi.InputType['CampaignMessageConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['CampaignScheduleArgs']]] = None,
                  segment_id: Optional[pulumi.Input[str]] = None,
                  segment_version: Optional[pulumi.Input[int]] = None,
@@ -294,6 +308,7 @@ class Campaign(pulumi.CustomResource):
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
+            __props__.__dict__["priority"] = priority
             if schedule is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule'")
             __props__.__dict__["schedule"] = schedule
@@ -339,6 +354,7 @@ class Campaign(pulumi.CustomResource):
         __props__.__dict__["limits"] = None
         __props__.__dict__["message_configuration"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["priority"] = None
         __props__.__dict__["schedule"] = None
         __props__.__dict__["segment_id"] = None
         __props__.__dict__["segment_version"] = None
@@ -401,6 +417,11 @@ class Campaign(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Output[Optional[int]]:
+        return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter

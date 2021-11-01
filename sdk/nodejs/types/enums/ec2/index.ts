@@ -14,6 +14,13 @@ export const CapacityReservationFleetTenancy = {
 
 export type CapacityReservationFleetTenancy = (typeof CapacityReservationFleetTenancy)[keyof typeof CapacityReservationFleetTenancy];
 
+export const EC2FleetCapacityRebalanceReplacementStrategy = {
+    Launch: "launch",
+    LaunchBeforeTerminate: "launch-before-terminate",
+} as const;
+
+export type EC2FleetCapacityRebalanceReplacementStrategy = (typeof EC2FleetCapacityRebalanceReplacementStrategy)[keyof typeof EC2FleetCapacityRebalanceReplacementStrategy];
+
 export const EC2FleetCapacityReservationOptionsRequestUsageStrategy = {
     UseCapacityReservationsFirst: "use-capacity-reservations-first",
 } as const;
@@ -403,6 +410,7 @@ export type SpotFleetRequestConfigDataType = (typeof SpotFleetRequestConfigDataT
 
 export const SpotFleetSpotCapacityRebalanceReplacementStrategy = {
     Launch: "launch",
+    LaunchBeforeTerminate: "launch-before-terminate",
 } as const;
 
 export type SpotFleetSpotCapacityRebalanceReplacementStrategy = (typeof SpotFleetSpotCapacityRebalanceReplacementStrategy)[keyof typeof SpotFleetSpotCapacityRebalanceReplacementStrategy];

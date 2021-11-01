@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +18,7 @@ type AccessPoint struct {
 	// The date and time when the Object lambda Access Point was created.
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// The name you want to assign to this Object lambda Access Point.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
 	ObjectLambdaConfiguration AccessPointObjectLambdaConfigurationPtrOutput `pulumi:"objectLambdaConfiguration"`
 	PolicyStatus              PolicyStatusPropertiesOutput                  `pulumi:"policyStatus"`
@@ -31,12 +30,9 @@ type AccessPoint struct {
 func NewAccessPoint(ctx *pulumi.Context,
 	name string, args *AccessPointArgs, opts ...pulumi.ResourceOption) (*AccessPoint, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &AccessPointArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource AccessPoint
 	err := ctx.RegisterResource("aws-native:s3objectlambda:AccessPoint", name, args, &resource, opts...)
 	if err != nil {
@@ -70,7 +66,7 @@ func (AccessPointState) ElementType() reflect.Type {
 
 type accessPointArgs struct {
 	// The name you want to assign to this Object lambda Access Point.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
 	ObjectLambdaConfiguration *AccessPointObjectLambdaConfiguration `pulumi:"objectLambdaConfiguration"`
 }
@@ -78,7 +74,7 @@ type accessPointArgs struct {
 // The set of arguments for constructing a AccessPoint resource.
 type AccessPointArgs struct {
 	// The name you want to assign to this Object lambda Access Point.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
 	ObjectLambdaConfiguration AccessPointObjectLambdaConfigurationPtrInput
 }

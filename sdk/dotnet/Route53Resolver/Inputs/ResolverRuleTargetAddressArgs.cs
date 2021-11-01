@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Route53Resolver.Inputs
 
     public sealed class ResolverRuleTargetAddressArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses. 
+        /// </summary>
         [Input("ip", required: true)]
         public Input<string> Ip { get; set; } = null!;
 
+        /// <summary>
+        /// The port at Ip that you want to forward DNS queries to. 
+        /// </summary>
         [Input("port")]
         public Input<string>? Port { get; set; }
 

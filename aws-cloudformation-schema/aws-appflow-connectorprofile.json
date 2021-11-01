@@ -45,7 +45,7 @@
   "definitions" : {
     "ConnectorType" : {
       "type" : "string",
-      "enum" : [ "Salesforce", "Singular", "Slack", "Redshift", "Marketo", "Googleanalytics", "Zendesk", "Servicenow", "Datadog", "Trendmicro", "Snowflake", "Dynatrace", "Infornexus", "Amplitude", "Veeva" ]
+      "enum" : [ "Salesforce", "Singular", "Slack", "Redshift", "Marketo", "Googleanalytics", "Zendesk", "Servicenow", "SAPOData", "Datadog", "Trendmicro", "Snowflake", "Dynatrace", "Infornexus", "Amplitude", "Veeva" ]
     },
     "ConnectorProfileConfig" : {
       "description" : "Connector specific configurations needed to create connector profile",
@@ -78,6 +78,9 @@
         },
         "Redshift" : {
           "$ref" : "#/definitions/RedshiftConnectorProfileProperties"
+        },
+        "SAPOData" : {
+          "$ref" : "#/definitions/SAPODataConnectorProfileProperties"
         },
         "Salesforce" : {
           "$ref" : "#/definitions/SalesforceConnectorProfileProperties"
@@ -123,6 +126,9 @@
         },
         "Redshift" : {
           "$ref" : "#/definitions/RedshiftConnectorProfileCredentials"
+        },
+        "SAPOData" : {
+          "$ref" : "#/definitions/SAPODataConnectorProfileCredentials"
         },
         "Salesforce" : {
           "$ref" : "#/definitions/SalesforceConnectorProfileCredentials"
@@ -330,6 +336,70 @@
         "RoleArn" : {
           "description" : "The Amazon Resource Name (ARN) of the IAM role.",
           "$ref" : "#/definitions/RoleArn"
+        }
+      }
+    },
+    "SAPODataConnectorProfileCredentials" : {
+      "type" : "object",
+      "properties" : {
+        "BasicAuthCredentials" : {
+          "type" : "object",
+          "properties" : {
+            "Username" : {
+              "description" : "The name of the user.",
+              "$ref" : "#/definitions/Username"
+            },
+            "Password" : {
+              "description" : "The password that corresponds to the username.",
+              "$ref" : "#/definitions/Password"
+            }
+          }
+        },
+        "OAuthCredentials" : {
+          "type" : "object",
+          "properties" : {
+            "AccessToken" : {
+              "$ref" : "#/definitions/AccessToken"
+            },
+            "RefreshToken" : {
+              "$ref" : "#/definitions/RefreshToken"
+            },
+            "ConnectorOAuthRequest" : {
+              "$ref" : "#/definitions/ConnectorOAuthRequest"
+            },
+            "ClientId" : {
+              "$ref" : "#/definitions/ClientId"
+            },
+            "ClientSecret" : {
+              "$ref" : "#/definitions/ClientSecret"
+            }
+          }
+        }
+      }
+    },
+    "SAPODataConnectorProfileProperties" : {
+      "type" : "object",
+      "properties" : {
+        "ApplicationHostUrl" : {
+          "$ref" : "#/definitions/ApplicationHostUrl"
+        },
+        "ApplicationServicePath" : {
+          "$ref" : "#/definitions/ApplicationServicePath"
+        },
+        "PortNumber" : {
+          "$ref" : "#/definitions/PortNumber"
+        },
+        "ClientNumber" : {
+          "$ref" : "#/definitions/ClientNumber"
+        },
+        "LogonLanguage" : {
+          "$ref" : "#/definitions/LogonLanguage"
+        },
+        "PrivateLinkServiceName" : {
+          "$ref" : "#/definitions/PrivateLinkServiceName"
+        },
+        "OAuthProperties" : {
+          "$ref" : "#/definitions/OAuthProperties"
         }
       }
     },
@@ -683,6 +753,56 @@
       "type" : "string",
       "pattern" : "arn:aws:secretsmanager:.*:[0-9]+:.*",
       "maxLength" : 2048
+    },
+    "ApplicationHostUrl" : {
+      "type" : "string",
+      "maxLength" : 256,
+      "pattern" : "^(https?)://[-a-zA-Z0-9+&amp;@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&amp;@#/%=~_|]"
+    },
+    "ApplicationServicePath" : {
+      "type" : "string",
+      "pattern" : "\\S+",
+      "maxLength" : 512
+    },
+    "ClientNumber" : {
+      "type" : "string",
+      "pattern" : "^\\d{3}$",
+      "minLength" : 3,
+      "maxLength" : 3
+    },
+    "LogonLanguage" : {
+      "type" : "string",
+      "pattern" : "^[a-zA-Z0-9_]*$",
+      "maxLength" : 2
+    },
+    "PortNumber" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 65535
+    },
+    "OAuthProperties" : {
+      "type" : "object",
+      "properties" : {
+        "AuthCodeUrl" : {
+          "type" : "string",
+          "maxLength" : 256,
+          "pattern" : "^(https?)://[-a-zA-Z0-9+&amp;@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&amp;@#/%=~_|]"
+        },
+        "TokenUrl" : {
+          "type" : "string",
+          "maxLength" : 256,
+          "pattern" : "^(https?)://[-a-zA-Z0-9+&amp;@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&amp;@#/%=~_|]"
+        },
+        "OAuthScopes" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "type" : "string",
+            "maxLength" : 128,
+            "pattern" : "[/\\w]*"
+          }
+        }
+      }
     }
   },
   "required" : [ "ConnectorProfileName", "ConnectionMode", "ConnectorType" ],

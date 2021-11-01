@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.MemoryDB
     /// <summary>
     /// The AWS::MemoryDB::ParameterGroup resource creates an Amazon MemoryDB ParameterGroup.
     /// </summary>
-    [Obsolete(@"ParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:memorydb:ParameterGroup")]
     public partial class ParameterGroup : Pulumi.CustomResource
     {

@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.EKS
     /// <summary>
     /// Resource Type definition for AWS::EKS::Cluster
     /// </summary>
-    [Obsolete(@"Cluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:eks:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {

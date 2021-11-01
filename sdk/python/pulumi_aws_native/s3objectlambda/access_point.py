@@ -15,27 +15,28 @@ __all__ = ['AccessPointArgs', 'AccessPoint']
 @pulumi.input_type
 class AccessPointArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
                  object_lambda_configuration: Optional[pulumi.Input['AccessPointObjectLambdaConfigurationArgs']] = None):
         """
         The set of arguments for constructing a AccessPoint resource.
         :param pulumi.Input[str] name: The name you want to assign to this Object lambda Access Point.
         :param pulumi.Input['AccessPointObjectLambdaConfigurationArgs'] object_lambda_configuration: The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
         """
-        pulumi.set(__self__, "name", name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if object_lambda_configuration is not None:
             pulumi.set(__self__, "object_lambda_configuration", object_lambda_configuration)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name you want to assign to this Object lambda Access Point.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
     @property
@@ -71,7 +72,7 @@ class AccessPoint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AccessPointArgs,
+                 args: Optional[AccessPointArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::S3ObjectLambda::AccessPoint resource is an Amazon S3ObjectLambda resource type that you can use to add computation to S3 actions
@@ -105,8 +106,6 @@ class AccessPoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccessPointArgs.__new__(AccessPointArgs)
 
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["object_lambda_configuration"] = object_lambda_configuration
             __props__.__dict__["arn"] = None
@@ -158,7 +157,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The name you want to assign to this Object lambda Access Point.
         """

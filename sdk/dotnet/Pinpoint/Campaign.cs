@@ -49,6 +49,9 @@ namespace Pulumi.AwsNative.Pinpoint
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("priority")]
+        public Output<int?> Priority { get; private set; } = null!;
+
         [Output("schedule")]
         public Output<Outputs.CampaignSchedule> Schedule { get; private set; } = null!;
 
@@ -143,6 +146,9 @@ namespace Pulumi.AwsNative.Pinpoint
 
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("priority")]
+        public Input<int>? Priority { get; set; }
 
         [Input("schedule", required: true)]
         public Input<Inputs.CampaignScheduleArgs> Schedule { get; set; } = null!;

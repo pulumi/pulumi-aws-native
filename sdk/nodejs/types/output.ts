@@ -951,6 +951,7 @@ export namespace appflow {
         inforNexus?: outputs.appflow.ConnectorProfileInforNexusConnectorProfileCredentials;
         marketo?: outputs.appflow.ConnectorProfileMarketoConnectorProfileCredentials;
         redshift?: outputs.appflow.ConnectorProfileRedshiftConnectorProfileCredentials;
+        sAPOData?: outputs.appflow.ConnectorProfileSAPODataConnectorProfileCredentials;
         salesforce?: outputs.appflow.ConnectorProfileSalesforceConnectorProfileCredentials;
         serviceNow?: outputs.appflow.ConnectorProfileServiceNowConnectorProfileCredentials;
         singular?: outputs.appflow.ConnectorProfileSingularConnectorProfileCredentials;
@@ -1068,6 +1069,12 @@ export namespace appflow {
         instanceUrl: string;
     }
 
+    export interface ConnectorProfileOAuthProperties {
+        authCodeUrl?: string;
+        oAuthScopes?: string[];
+        tokenUrl?: string;
+    }
+
     /**
      * Connector specific properties needed to create connector profile - currently not needed for Amplitude, Trendmicro, Googleanalytics and Singular
      */
@@ -1077,6 +1084,7 @@ export namespace appflow {
         inforNexus?: outputs.appflow.ConnectorProfileInforNexusConnectorProfileProperties;
         marketo?: outputs.appflow.ConnectorProfileMarketoConnectorProfileProperties;
         redshift?: outputs.appflow.ConnectorProfileRedshiftConnectorProfileProperties;
+        sAPOData?: outputs.appflow.ConnectorProfileSAPODataConnectorProfileProperties;
         salesforce?: outputs.appflow.ConnectorProfileSalesforceConnectorProfileProperties;
         serviceNow?: outputs.appflow.ConnectorProfileServiceNowConnectorProfileProperties;
         slack?: outputs.appflow.ConnectorProfileSlackConnectorProfileProperties;
@@ -1113,6 +1121,40 @@ export namespace appflow {
          * The Amazon Resource Name (ARN) of the IAM role.
          */
         roleArn: string;
+    }
+
+    export interface ConnectorProfileSAPODataConnectorProfileCredentials {
+        basicAuthCredentials?: outputs.appflow.ConnectorProfileSAPODataConnectorProfileCredentialsBasicAuthCredentialsProperties;
+        oAuthCredentials?: outputs.appflow.ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties;
+    }
+
+    export interface ConnectorProfileSAPODataConnectorProfileCredentialsBasicAuthCredentialsProperties {
+        /**
+         * The password that corresponds to the username.
+         */
+        password?: string;
+        /**
+         * The name of the user.
+         */
+        username?: string;
+    }
+
+    export interface ConnectorProfileSAPODataConnectorProfileCredentialsOAuthCredentialsProperties {
+        accessToken?: string;
+        clientId?: string;
+        clientSecret?: string;
+        connectorOAuthRequest?: outputs.appflow.ConnectorProfileConnectorOAuthRequest;
+        refreshToken?: string;
+    }
+
+    export interface ConnectorProfileSAPODataConnectorProfileProperties {
+        applicationHostUrl?: string;
+        applicationServicePath?: string;
+        clientNumber?: string;
+        logonLanguage?: string;
+        oAuthProperties?: outputs.appflow.ConnectorProfileOAuthProperties;
+        portNumber?: number;
+        privateLinkServiceName?: string;
     }
 
     export interface ConnectorProfileSalesforceConnectorProfileCredentials {
@@ -1306,6 +1348,7 @@ export namespace appflow {
         inforNexus?: enums.appflow.FlowInforNexusConnectorOperator;
         marketo?: enums.appflow.FlowMarketoConnectorOperator;
         s3?: enums.appflow.FlowS3ConnectorOperator;
+        sAPOData?: enums.appflow.FlowSAPODataConnectorOperator;
         salesforce?: enums.appflow.FlowSalesforceConnectorOperator;
         serviceNow?: enums.appflow.FlowServiceNowConnectorOperator;
         singular?: enums.appflow.FlowSingularConnectorOperator;
@@ -1407,6 +1450,10 @@ export namespace appflow {
         s3OutputFormatConfig?: outputs.appflow.FlowS3OutputFormatConfig;
     }
 
+    export interface FlowS3InputFormatConfig {
+        s3InputFileType?: enums.appflow.FlowS3InputFormatConfigS3InputFileType;
+    }
+
     export interface FlowS3OutputFormatConfig {
         aggregationConfig?: outputs.appflow.FlowAggregationConfig;
         fileType?: enums.appflow.FlowFileType;
@@ -1416,6 +1463,11 @@ export namespace appflow {
     export interface FlowS3SourceProperties {
         bucketName: string;
         bucketPrefix: string;
+        s3InputFormatConfig?: outputs.appflow.FlowS3InputFormatConfig;
+    }
+
+    export interface FlowSAPODataSourceProperties {
+        objectPath: string;
     }
 
     export interface FlowSalesforceDestinationProperties {
@@ -1476,6 +1528,7 @@ export namespace appflow {
         inforNexus?: outputs.appflow.FlowInforNexusSourceProperties;
         marketo?: outputs.appflow.FlowMarketoSourceProperties;
         s3?: outputs.appflow.FlowS3SourceProperties;
+        sAPOData?: outputs.appflow.FlowSAPODataSourceProperties;
         salesforce?: outputs.appflow.FlowSalesforceSourceProperties;
         serviceNow?: outputs.appflow.FlowServiceNowSourceProperties;
         singular?: outputs.appflow.FlowSingularSourceProperties;
@@ -3264,6 +3317,45 @@ export namespace auditmanager {
 }
 
 export namespace autoscaling {
+    export interface AutoScalingGroupAcceleratorCountRequest {
+        max?: number;
+        min?: number;
+    }
+
+    export interface AutoScalingGroupAcceleratorTotalMemoryMiBRequest {
+        max?: number;
+        min?: number;
+    }
+
+    export interface AutoScalingGroupBaselineEbsBandwidthMbpsRequest {
+        max?: number;
+        min?: number;
+    }
+
+    export interface AutoScalingGroupInstanceRequirements {
+        acceleratorCount?: outputs.autoscaling.AutoScalingGroupAcceleratorCountRequest;
+        acceleratorManufacturers?: string[];
+        acceleratorNames?: string[];
+        acceleratorTotalMemoryMiB?: outputs.autoscaling.AutoScalingGroupAcceleratorTotalMemoryMiBRequest;
+        acceleratorTypes?: string[];
+        bareMetal?: string;
+        baselineEbsBandwidthMbps?: outputs.autoscaling.AutoScalingGroupBaselineEbsBandwidthMbpsRequest;
+        burstablePerformance?: string;
+        cpuManufacturers?: string[];
+        excludedInstanceTypes?: string[];
+        instanceGenerations?: string[];
+        localStorage?: string;
+        localStorageTypes?: string[];
+        memoryGiBPerVCpu?: outputs.autoscaling.AutoScalingGroupMemoryGiBPerVCpuRequest;
+        memoryMiB?: outputs.autoscaling.AutoScalingGroupMemoryMiBRequest;
+        networkInterfaceCount?: outputs.autoscaling.AutoScalingGroupNetworkInterfaceCountRequest;
+        onDemandMaxPricePercentageOverLowestPrice?: number;
+        requireHibernateSupport?: boolean;
+        spotMaxPricePercentageOverLowestPrice?: number;
+        totalLocalStorageGB?: outputs.autoscaling.AutoScalingGroupTotalLocalStorageGBRequest;
+        vCpuCount?: outputs.autoscaling.AutoScalingGroupVCpuCountRequest;
+    }
+
     export interface AutoScalingGroupInstancesDistribution {
         onDemandAllocationStrategy?: string;
         onDemandBaseCapacity?: number;
@@ -3279,6 +3371,7 @@ export namespace autoscaling {
     }
 
     export interface AutoScalingGroupLaunchTemplateOverrides {
+        instanceRequirements?: outputs.autoscaling.AutoScalingGroupInstanceRequirements;
         instanceType?: string;
         launchTemplateSpecification?: outputs.autoscaling.AutoScalingGroupLaunchTemplateSpecification;
         weightedCapacity?: string;
@@ -3300,6 +3393,16 @@ export namespace autoscaling {
         roleARN?: string;
     }
 
+    export interface AutoScalingGroupMemoryGiBPerVCpuRequest {
+        max?: number;
+        min?: number;
+    }
+
+    export interface AutoScalingGroupMemoryMiBRequest {
+        max?: number;
+        min?: number;
+    }
+
     export interface AutoScalingGroupMetricsCollection {
         granularity: string;
         metrics?: string[];
@@ -3308,6 +3411,11 @@ export namespace autoscaling {
     export interface AutoScalingGroupMixedInstancesPolicy {
         instancesDistribution?: outputs.autoscaling.AutoScalingGroupInstancesDistribution;
         launchTemplate: outputs.autoscaling.AutoScalingGroupLaunchTemplate;
+    }
+
+    export interface AutoScalingGroupNetworkInterfaceCountRequest {
+        max?: number;
+        min?: number;
     }
 
     export interface AutoScalingGroupNotificationConfiguration {
@@ -3319,6 +3427,16 @@ export namespace autoscaling {
         key: string;
         propagateAtLaunch: boolean;
         value: string;
+    }
+
+    export interface AutoScalingGroupTotalLocalStorageGBRequest {
+        max?: number;
+        min?: number;
+    }
+
+    export interface AutoScalingGroupVCpuCountRequest {
+        max?: number;
+        min?: number;
     }
 
     /**
@@ -7573,11 +7691,30 @@ export namespace dms {
 
     export interface EndpointKafkaSettings {
         broker?: string;
+        includeControlDetails?: boolean;
+        includeNullAndEmpty?: boolean;
+        includeTableAlterOperations?: boolean;
+        includeTransactionDetails?: boolean;
+        noHexPrefix?: boolean;
+        partitionIncludeSchemaTable?: boolean;
+        saslPassword?: string;
+        saslUserName?: string;
+        securityProtocol?: string;
+        sslCaCertificateArn?: string;
+        sslClientCertificateArn?: string;
+        sslClientKeyArn?: string;
+        sslClientKeyPassword?: string;
         topic?: string;
     }
 
     export interface EndpointKinesisSettings {
+        includeControlDetails?: boolean;
+        includeNullAndEmpty?: boolean;
+        includeTableAlterOperations?: boolean;
+        includeTransactionDetails?: boolean;
         messageFormat?: string;
+        noHexPrefix?: boolean;
+        partitionIncludeSchemaTable?: boolean;
         serviceAccessRoleArn?: string;
         streamArn?: string;
     }
@@ -7628,6 +7765,16 @@ export namespace dms {
     export interface EndpointPostgreSqlSettings {
         secretsManagerAccessRoleArn?: string;
         secretsManagerSecretId?: string;
+    }
+
+    export interface EndpointRedisSettings {
+        authPassword?: string;
+        authType?: string;
+        authUserName?: string;
+        port?: number;
+        serverName?: string;
+        sslCaCertificateArn?: string;
+        sslSecurityProtocol?: string;
     }
 
     export interface EndpointRedshiftSettings {
@@ -7969,6 +8116,11 @@ export namespace ec2 {
         min?: number;
     }
 
+    export interface EC2FleetCapacityRebalance {
+        replacementStrategy?: enums.ec2.EC2FleetCapacityRebalanceReplacementStrategy;
+        terminationDelay?: number;
+    }
+
     export interface EC2FleetCapacityReservationOptionsRequest {
         usageStrategy?: enums.ec2.EC2FleetCapacityReservationOptionsRequestUsageStrategy;
     }
@@ -8058,10 +8210,15 @@ export namespace ec2 {
         allocationStrategy?: enums.ec2.EC2FleetSpotOptionsRequestAllocationStrategy;
         instanceInterruptionBehavior?: enums.ec2.EC2FleetSpotOptionsRequestInstanceInterruptionBehavior;
         instancePoolsToUseCount?: number;
+        maintenanceStrategies?: outputs.ec2.EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties;
         maxTotalPrice?: string;
         minTargetCapacity?: number;
         singleAvailabilityZone?: boolean;
         singleInstanceType?: boolean;
+    }
+
+    export interface EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties {
+        capacityRebalance?: outputs.ec2.EC2FleetCapacityRebalance;
     }
 
     export interface EC2FleetTag {
@@ -8797,6 +8954,7 @@ export namespace ec2 {
 
     export interface SpotFleetSpotCapacityRebalance {
         replacementStrategy?: enums.ec2.SpotFleetSpotCapacityRebalanceReplacementStrategy;
+        terminationDelay?: number;
     }
 
     export interface SpotFleetSpotMaintenanceStrategies {
@@ -8962,7 +9120,6 @@ export namespace ec2 {
         key: string;
         value: string;
     }
-
 }
 
 export namespace ecr {
@@ -20069,6 +20226,15 @@ export namespace pinpoint {
         start: string;
     }
 
+    export interface CampaignDefaultButtonConfiguration {
+        backgroundColor?: string;
+        borderRadius?: number;
+        buttonAction?: string;
+        link?: string;
+        text?: string;
+        textColor?: string;
+    }
+
     export interface CampaignEmailMessage {
         body?: string;
         fromAddress?: string;
@@ -20093,10 +20259,45 @@ export namespace pinpoint {
         webUrl?: string;
     }
 
+    export interface CampaignInAppMessage {
+        content?: outputs.pinpoint.CampaignInAppMessageContent[];
+        customConfig?: any;
+        layout?: string;
+    }
+
+    export interface CampaignInAppMessageBodyConfig {
+        alignment?: string;
+        body?: string;
+        textColor?: string;
+    }
+
+    export interface CampaignInAppMessageButton {
+        android?: outputs.pinpoint.CampaignOverrideButtonConfiguration;
+        defaultConfig?: outputs.pinpoint.CampaignDefaultButtonConfiguration;
+        iOS?: outputs.pinpoint.CampaignOverrideButtonConfiguration;
+        web?: outputs.pinpoint.CampaignOverrideButtonConfiguration;
+    }
+
+    export interface CampaignInAppMessageContent {
+        backgroundColor?: string;
+        bodyConfig?: outputs.pinpoint.CampaignInAppMessageBodyConfig;
+        headerConfig?: outputs.pinpoint.CampaignInAppMessageHeaderConfig;
+        imageUrl?: string;
+        primaryBtn?: outputs.pinpoint.CampaignInAppMessageButton;
+        secondaryBtn?: outputs.pinpoint.CampaignInAppMessageButton;
+    }
+
+    export interface CampaignInAppMessageHeaderConfig {
+        alignment?: string;
+        header?: string;
+        textColor?: string;
+    }
+
     export interface CampaignLimits {
         daily?: number;
         maximumDuration?: number;
         messagesPerSecond?: number;
+        session?: number;
         total?: number;
     }
 
@@ -20122,7 +20323,13 @@ export namespace pinpoint {
         defaultMessage?: outputs.pinpoint.CampaignMessage;
         emailMessage?: outputs.pinpoint.CampaignEmailMessage;
         gCMMessage?: outputs.pinpoint.CampaignMessage;
+        inAppMessage?: outputs.pinpoint.CampaignInAppMessage;
         sMSMessage?: outputs.pinpoint.CampaignSmsMessage;
+    }
+
+    export interface CampaignOverrideButtonConfiguration {
+        buttonAction?: string;
+        link?: string;
     }
 
     export interface CampaignQuietTime {
@@ -22549,12 +22756,24 @@ export namespace route53resolver {
     }
 
     export interface ResolverRuleTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         value: string;
     }
 
     export interface ResolverRuleTargetAddress {
+        /**
+         * One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses. 
+         */
         ip: string;
+        /**
+         * The port at Ip that you want to forward DNS queries to. 
+         */
         port?: string;
     }
 
