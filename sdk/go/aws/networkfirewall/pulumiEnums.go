@@ -10,6 +10,170 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type FirewallPolicyRuleOrder string
+
+const (
+	FirewallPolicyRuleOrderDefaultActionOrder = FirewallPolicyRuleOrder("DEFAULT_ACTION_ORDER")
+	FirewallPolicyRuleOrderStrictOrder        = FirewallPolicyRuleOrder("STRICT_ORDER")
+)
+
+func (FirewallPolicyRuleOrder) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRuleOrder)(nil)).Elem()
+}
+
+func (e FirewallPolicyRuleOrder) ToFirewallPolicyRuleOrderOutput() FirewallPolicyRuleOrderOutput {
+	return pulumi.ToOutput(e).(FirewallPolicyRuleOrderOutput)
+}
+
+func (e FirewallPolicyRuleOrder) ToFirewallPolicyRuleOrderOutputWithContext(ctx context.Context) FirewallPolicyRuleOrderOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FirewallPolicyRuleOrderOutput)
+}
+
+func (e FirewallPolicyRuleOrder) ToFirewallPolicyRuleOrderPtrOutput() FirewallPolicyRuleOrderPtrOutput {
+	return e.ToFirewallPolicyRuleOrderPtrOutputWithContext(context.Background())
+}
+
+func (e FirewallPolicyRuleOrder) ToFirewallPolicyRuleOrderPtrOutputWithContext(ctx context.Context) FirewallPolicyRuleOrderPtrOutput {
+	return FirewallPolicyRuleOrder(e).ToFirewallPolicyRuleOrderOutputWithContext(ctx).ToFirewallPolicyRuleOrderPtrOutputWithContext(ctx)
+}
+
+func (e FirewallPolicyRuleOrder) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FirewallPolicyRuleOrder) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FirewallPolicyRuleOrder) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FirewallPolicyRuleOrder) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FirewallPolicyRuleOrderOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyRuleOrderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRuleOrder)(nil)).Elem()
+}
+
+func (o FirewallPolicyRuleOrderOutput) ToFirewallPolicyRuleOrderOutput() FirewallPolicyRuleOrderOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleOrderOutput) ToFirewallPolicyRuleOrderOutputWithContext(ctx context.Context) FirewallPolicyRuleOrderOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleOrderOutput) ToFirewallPolicyRuleOrderPtrOutput() FirewallPolicyRuleOrderPtrOutput {
+	return o.ToFirewallPolicyRuleOrderPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyRuleOrderOutput) ToFirewallPolicyRuleOrderPtrOutputWithContext(ctx context.Context) FirewallPolicyRuleOrderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyRuleOrder) *FirewallPolicyRuleOrder {
+		return &v
+	}).(FirewallPolicyRuleOrderPtrOutput)
+}
+
+func (o FirewallPolicyRuleOrderOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyRuleOrderOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FirewallPolicyRuleOrder) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FirewallPolicyRuleOrderOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyRuleOrderOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FirewallPolicyRuleOrder) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirewallPolicyRuleOrderPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyRuleOrderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyRuleOrder)(nil)).Elem()
+}
+
+func (o FirewallPolicyRuleOrderPtrOutput) ToFirewallPolicyRuleOrderPtrOutput() FirewallPolicyRuleOrderPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleOrderPtrOutput) ToFirewallPolicyRuleOrderPtrOutputWithContext(ctx context.Context) FirewallPolicyRuleOrderPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleOrderPtrOutput) Elem() FirewallPolicyRuleOrderOutput {
+	return o.ApplyT(func(v *FirewallPolicyRuleOrder) FirewallPolicyRuleOrder {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallPolicyRuleOrder
+		return ret
+	}).(FirewallPolicyRuleOrderOutput)
+}
+
+func (o FirewallPolicyRuleOrderPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyRuleOrderPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FirewallPolicyRuleOrder) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FirewallPolicyRuleOrderInput is an input type that accepts FirewallPolicyRuleOrderArgs and FirewallPolicyRuleOrderOutput values.
+// You can construct a concrete instance of `FirewallPolicyRuleOrderInput` via:
+//
+//          FirewallPolicyRuleOrderArgs{...}
+type FirewallPolicyRuleOrderInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRuleOrderOutput() FirewallPolicyRuleOrderOutput
+	ToFirewallPolicyRuleOrderOutputWithContext(context.Context) FirewallPolicyRuleOrderOutput
+}
+
+var firewallPolicyRuleOrderPtrType = reflect.TypeOf((**FirewallPolicyRuleOrder)(nil)).Elem()
+
+type FirewallPolicyRuleOrderPtrInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRuleOrderPtrOutput() FirewallPolicyRuleOrderPtrOutput
+	ToFirewallPolicyRuleOrderPtrOutputWithContext(context.Context) FirewallPolicyRuleOrderPtrOutput
+}
+
+type firewallPolicyRuleOrderPtr string
+
+func FirewallPolicyRuleOrderPtr(v string) FirewallPolicyRuleOrderPtrInput {
+	return (*firewallPolicyRuleOrderPtr)(&v)
+}
+
+func (*firewallPolicyRuleOrderPtr) ElementType() reflect.Type {
+	return firewallPolicyRuleOrderPtrType
+}
+
+func (in *firewallPolicyRuleOrderPtr) ToFirewallPolicyRuleOrderPtrOutput() FirewallPolicyRuleOrderPtrOutput {
+	return pulumi.ToOutput(in).(FirewallPolicyRuleOrderPtrOutput)
+}
+
+func (in *firewallPolicyRuleOrderPtr) ToFirewallPolicyRuleOrderPtrOutputWithContext(ctx context.Context) FirewallPolicyRuleOrderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FirewallPolicyRuleOrderPtrOutput)
+}
+
 type LoggingConfigurationLogDestinationConfigLogDestinationType string
 
 const (
@@ -848,6 +1012,170 @@ func (in *ruleGroupHeaderProtocolPtr) ToRuleGroupHeaderProtocolPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupHeaderProtocolPtrOutput)
 }
 
+type RuleGroupRuleOrder string
+
+const (
+	RuleGroupRuleOrderDefaultActionOrder = RuleGroupRuleOrder("DEFAULT_ACTION_ORDER")
+	RuleGroupRuleOrderStrictOrder        = RuleGroupRuleOrder("STRICT_ORDER")
+)
+
+func (RuleGroupRuleOrder) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRuleOrder)(nil)).Elem()
+}
+
+func (e RuleGroupRuleOrder) ToRuleGroupRuleOrderOutput() RuleGroupRuleOrderOutput {
+	return pulumi.ToOutput(e).(RuleGroupRuleOrderOutput)
+}
+
+func (e RuleGroupRuleOrder) ToRuleGroupRuleOrderOutputWithContext(ctx context.Context) RuleGroupRuleOrderOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuleGroupRuleOrderOutput)
+}
+
+func (e RuleGroupRuleOrder) ToRuleGroupRuleOrderPtrOutput() RuleGroupRuleOrderPtrOutput {
+	return e.ToRuleGroupRuleOrderPtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupRuleOrder) ToRuleGroupRuleOrderPtrOutputWithContext(ctx context.Context) RuleGroupRuleOrderPtrOutput {
+	return RuleGroupRuleOrder(e).ToRuleGroupRuleOrderOutputWithContext(ctx).ToRuleGroupRuleOrderPtrOutputWithContext(ctx)
+}
+
+func (e RuleGroupRuleOrder) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupRuleOrder) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupRuleOrder) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupRuleOrder) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RuleGroupRuleOrderOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRuleOrderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRuleOrder)(nil)).Elem()
+}
+
+func (o RuleGroupRuleOrderOutput) ToRuleGroupRuleOrderOutput() RuleGroupRuleOrderOutput {
+	return o
+}
+
+func (o RuleGroupRuleOrderOutput) ToRuleGroupRuleOrderOutputWithContext(ctx context.Context) RuleGroupRuleOrderOutput {
+	return o
+}
+
+func (o RuleGroupRuleOrderOutput) ToRuleGroupRuleOrderPtrOutput() RuleGroupRuleOrderPtrOutput {
+	return o.ToRuleGroupRuleOrderPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupRuleOrderOutput) ToRuleGroupRuleOrderPtrOutputWithContext(ctx context.Context) RuleGroupRuleOrderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRuleOrder) *RuleGroupRuleOrder {
+		return &v
+	}).(RuleGroupRuleOrderPtrOutput)
+}
+
+func (o RuleGroupRuleOrderOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuleGroupRuleOrderOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupRuleOrder) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuleGroupRuleOrderOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupRuleOrderOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupRuleOrder) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleGroupRuleOrderPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRuleOrderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRuleOrder)(nil)).Elem()
+}
+
+func (o RuleGroupRuleOrderPtrOutput) ToRuleGroupRuleOrderPtrOutput() RuleGroupRuleOrderPtrOutput {
+	return o
+}
+
+func (o RuleGroupRuleOrderPtrOutput) ToRuleGroupRuleOrderPtrOutputWithContext(ctx context.Context) RuleGroupRuleOrderPtrOutput {
+	return o
+}
+
+func (o RuleGroupRuleOrderPtrOutput) Elem() RuleGroupRuleOrderOutput {
+	return o.ApplyT(func(v *RuleGroupRuleOrder) RuleGroupRuleOrder {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupRuleOrder
+		return ret
+	}).(RuleGroupRuleOrderOutput)
+}
+
+func (o RuleGroupRuleOrderPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupRuleOrderPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleGroupRuleOrder) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RuleGroupRuleOrderInput is an input type that accepts RuleGroupRuleOrderArgs and RuleGroupRuleOrderOutput values.
+// You can construct a concrete instance of `RuleGroupRuleOrderInput` via:
+//
+//          RuleGroupRuleOrderArgs{...}
+type RuleGroupRuleOrderInput interface {
+	pulumi.Input
+
+	ToRuleGroupRuleOrderOutput() RuleGroupRuleOrderOutput
+	ToRuleGroupRuleOrderOutputWithContext(context.Context) RuleGroupRuleOrderOutput
+}
+
+var ruleGroupRuleOrderPtrType = reflect.TypeOf((**RuleGroupRuleOrder)(nil)).Elem()
+
+type RuleGroupRuleOrderPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupRuleOrderPtrOutput() RuleGroupRuleOrderPtrOutput
+	ToRuleGroupRuleOrderPtrOutputWithContext(context.Context) RuleGroupRuleOrderPtrOutput
+}
+
+type ruleGroupRuleOrderPtr string
+
+func RuleGroupRuleOrderPtr(v string) RuleGroupRuleOrderPtrInput {
+	return (*ruleGroupRuleOrderPtr)(&v)
+}
+
+func (*ruleGroupRuleOrderPtr) ElementType() reflect.Type {
+	return ruleGroupRuleOrderPtrType
+}
+
+func (in *ruleGroupRuleOrderPtr) ToRuleGroupRuleOrderPtrOutput() RuleGroupRuleOrderPtrOutput {
+	return pulumi.ToOutput(in).(RuleGroupRuleOrderPtrOutput)
+}
+
+func (in *ruleGroupRuleOrderPtr) ToRuleGroupRuleOrderPtrOutputWithContext(ctx context.Context) RuleGroupRuleOrderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupRuleOrderPtrOutput)
+}
+
 type RuleGroupStatefulRuleAction string
 
 const (
@@ -1602,6 +1930,8 @@ func (in *ruleGroupTypeEnumPtr) ToRuleGroupTypeEnumPtrOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterOutputType(FirewallPolicyRuleOrderOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyRuleOrderPtrOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationLogDestinationConfigLogDestinationTypeOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationLogDestinationConfigLogDestinationTypePtrOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationLogDestinationConfigLogTypeOutput{})
@@ -1612,6 +1942,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupHeaderDirectionPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupHeaderProtocolOutput{})
 	pulumi.RegisterOutputType(RuleGroupHeaderProtocolPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupRuleOrderOutput{})
+	pulumi.RegisterOutputType(RuleGroupRuleOrderPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupStatefulRuleActionOutput{})
 	pulumi.RegisterOutputType(RuleGroupStatefulRuleActionPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupTCPFlagOutput{})

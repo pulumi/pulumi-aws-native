@@ -93,6 +93,9 @@
     },
     "update" : {
       "permissions" : [ "qldb:DescribeJournalKinesisStream", "qldb:UntagResource", "qldb:TagResource" ]
+    },
+    "list" : {
+      "permissions" : [ "qldb:listJournalKinesisStreamsForLedger" ]
     }
   }
 }

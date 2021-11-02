@@ -14716,6 +14716,47 @@
                 "key"
             ]
         },
+        "aws-native:ec2:NetworkInterfaceInstanceIpv6Address": {
+            "properties": {
+                "ipv6Address": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "ipv6Address"
+            ]
+        },
+        "aws-native:ec2:NetworkInterfacePrivateIpAddressSpecification": {
+            "properties": {
+                "primary": {
+                    "type": "boolean"
+                },
+                "privateIpAddress": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "primary",
+                "privateIpAddress"
+            ]
+        },
+        "aws-native:ec2:NetworkInterfaceTag": {
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ]
+        },
         "aws-native:ec2:OptionsProperties": {
             "description": "The options for the transit gateway vpc attachment.",
             "properties": {
@@ -15998,6 +16039,15 @@
                 "value": {
                     "type": "string",
                     "description": "The value of the tag. Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters."
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:ec2:TransitGatewayPeeringAttachmentOptions": {
+            "properties": {
+                "dynamicRouting": {
+                    "type": "string",
+                    "description": "Whether to enable dynamic routing. (enable/disable)"
                 }
             },
             "type": "object"
@@ -17614,53 +17664,111 @@
             ]
         },
         "aws-native:eks:ClusterEncryptionConfig": {
+            "description": "The encryption configuration for the cluster",
             "properties": {
                 "provider": {
-                    "$ref": "#/types/aws-native:eks:ClusterProvider"
+                    "$ref": "#/types/aws-native:eks:ClusterEncryptionConfigProviderProperties",
+                    "description": "The encryption provider for the cluster."
                 },
                 "resources": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Specifies the resources to be encrypted. The only supported value is \"secrets\"."
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:eks:ClusterEncryptionConfigProviderProperties": {
+            "description": "The encryption provider for the cluster.",
+            "properties": {
+                "keyArn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key."
                 }
             },
             "type": "object"
         },
         "aws-native:eks:ClusterKubernetesNetworkConfig": {
+            "description": "The Kubernetes network configuration for the cluster.",
             "properties": {
                 "serviceIpv4Cidr": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. "
                 }
             },
             "type": "object"
         },
-        "aws-native:eks:ClusterProvider": {
+        "aws-native:eks:ClusterLogging": {
+            "description": "Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.",
             "properties": {
-                "keyArn": {
-                    "type": "string"
+                "clusterLogging": {
+                    "$ref": "#/types/aws-native:eks:ClusterLogging",
+                    "description": "The cluster control plane logging configuration for your cluster. ",
+                    "language": {
+                        "csharp": {
+                            "name": "ClusterLoggingValue"
+                        }
+                    }
                 }
             },
             "type": "object"
         },
         "aws-native:eks:ClusterResourcesVpcConfig": {
+            "description": "An object representing the VPC configuration to use for an Amazon EKS cluster.",
             "properties": {
+                "endpointPrivateAccess": {
+                    "type": "boolean",
+                    "description": "Set this value to true to enable private access for your cluster's Kubernetes API server endpoint. If you enable private access, Kubernetes API requests from within your cluster's VPC use the private VPC endpoint. The default value for this parameter is false, which disables private access for your Kubernetes API server. If you disable private access and you have nodes or AWS Fargate pods in the cluster, then ensure that publicAccessCidrs includes the necessary CIDR blocks for communication with the nodes or Fargate pods."
+                },
+                "endpointPublicAccess": {
+                    "type": "boolean",
+                    "description": "Set this value to false to disable public access to your cluster's Kubernetes API server endpoint. If you disable public access, your cluster's Kubernetes API server can only receive requests from within the cluster VPC. The default value for this parameter is true, which enables public access for your Kubernetes API server."
+                },
+                "publicAccessCidrs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The CIDR blocks that are allowed access to your cluster's public Kubernetes API server endpoint. Communication to the endpoint from addresses outside of the CIDR blocks that you specify is denied. The default value is 0.0.0.0/0. If you've disabled private endpoint access and you have nodes or AWS Fargate pods in the cluster, then ensure that you specify the necessary CIDR blocks."
+                },
                 "securityGroupIds": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Specify one or more security groups for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane. If you don't specify a security group, the default security group for your VPC is used."
                 },
                 "subnetIds": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Specify subnets for your Amazon EKS nodes. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your nodes and the Kubernetes control plane."
                 }
             },
             "type": "object",
             "required": [
                 "subnetIds"
+            ]
+        },
+        "aws-native:eks:ClusterTag": {
+            "description": "A key-value pair to associate with a resource.",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
             ]
         },
         "aws-native:eks:FargateProfileLabel": {
@@ -24274,6 +24382,42 @@
             "required": [
                 "key",
                 "value"
+            ]
+        },
+        "aws-native:iot:ResourceSpecificLoggingLogLevel": {
+            "description": "The log level for a specific target. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Error",
+                    "value": "ERROR"
+                },
+                {
+                    "name": "Warn",
+                    "value": "WARN"
+                },
+                {
+                    "name": "Info",
+                    "value": "INFO"
+                },
+                {
+                    "name": "Debug",
+                    "value": "DEBUG"
+                },
+                {
+                    "name": "Disabled",
+                    "value": "DISABLED"
+                }
+            ]
+        },
+        "aws-native:iot:ResourceSpecificLoggingTargetType": {
+            "description": "The target type. Value must be THING_GROUP.",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "ThingGroup",
+                    "value": "THING_GROUP"
+                }
             ]
         },
         "aws-native:iot:ScheduledAuditDayOfWeek": {
@@ -33518,6 +33662,15 @@
         },
         "aws-native:networkfirewall:FirewallPolicy": {
             "properties": {
+                "statefulDefaultActions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "statefulEngineOptions": {
+                    "$ref": "#/types/aws-native:networkfirewall:FirewallPolicyStatefulEngineOptions"
+                },
                 "statefulRuleGroupReferences": {
                     "type": "array",
                     "items": {
@@ -33603,8 +33756,32 @@
                 "dimensions"
             ]
         },
+        "aws-native:networkfirewall:FirewallPolicyRuleOrder": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "DefaultActionOrder",
+                    "value": "DEFAULT_ACTION_ORDER"
+                },
+                {
+                    "name": "StrictOrder",
+                    "value": "STRICT_ORDER"
+                }
+            ]
+        },
+        "aws-native:networkfirewall:FirewallPolicyStatefulEngineOptions": {
+            "properties": {
+                "ruleOrder": {
+                    "$ref": "#/types/aws-native:networkfirewall:FirewallPolicyRuleOrder"
+                }
+            },
+            "type": "object"
+        },
         "aws-native:networkfirewall:FirewallPolicyStatefulRuleGroupReference": {
             "properties": {
+                "priority": {
+                    "type": "integer"
+                },
                 "resourceArn": {
                     "type": "string"
                 }
@@ -33742,6 +33919,9 @@
                 },
                 "rulesSource": {
                     "$ref": "#/types/aws-native:networkfirewall:RuleGroupRulesSource"
+                },
+                "statefulRuleOptions": {
+                    "$ref": "#/types/aws-native:networkfirewall:RuleGroupStatefulRuleOptions"
                 }
             },
             "type": "object",
@@ -34037,6 +34217,19 @@
                 "keyword"
             ]
         },
+        "aws-native:networkfirewall:RuleGroupRuleOrder": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "DefaultActionOrder",
+                    "value": "DEFAULT_ACTION_ORDER"
+                },
+                {
+                    "name": "StrictOrder",
+                    "value": "STRICT_ORDER"
+                }
+            ]
+        },
         "aws-native:networkfirewall:RuleGroupRuleVariables": {
             "properties": {
                 "iPSets": {
@@ -34131,6 +34324,14 @@
                     "value": "ALERT"
                 }
             ]
+        },
+        "aws-native:networkfirewall:RuleGroupStatefulRuleOptions": {
+            "properties": {
+                "ruleOrder": {
+                    "$ref": "#/types/aws-native:networkfirewall:RuleGroupRuleOrder"
+                }
+            },
+            "type": "object"
         },
         "aws-native:networkfirewall:RuleGroupStatelessRule": {
             "properties": {
@@ -56972,6 +57173,145 @@
                 "source"
             ]
         },
+        "aws-native:ec2:NetworkInterface": {
+            "description": "The AWS::EC2::NetworkInterface resource creates network interface",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "A description for the network interface."
+                },
+                "groupSet": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of security group IDs associated with this network interface."
+                },
+                "interfaceType": {
+                    "type": "string",
+                    "description": "Indicates the type of network interface."
+                },
+                "ipv6AddressCount": {
+                    "type": "integer",
+                    "description": "The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. To specify specific IPv6 addresses, use the Ipv6Addresses property and don't specify this property."
+                },
+                "ipv6Addresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInterfaceInstanceIpv6Address"
+                    },
+                    "description": "One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet to associate with the network interface. If you're specifying a number of IPv6 addresses, use the Ipv6AddressCount property and don't specify this property."
+                },
+                "primaryPrivateIpAddress": {
+                    "type": "string",
+                    "description": "Returns the primary private IP address of the network interface."
+                },
+                "privateIpAddress": {
+                    "type": "string",
+                    "description": "Assigns a single private IP address to the network interface, which is used as the primary private IP address. If you want to specify multiple private IP address, use the PrivateIpAddresses property. "
+                },
+                "privateIpAddresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInterfacePrivateIpAddressSpecification"
+                    },
+                    "description": "Assigns a list of private IP addresses to the network interface. You can specify a primary private IP address by setting the value of the Primary property to true in the PrivateIpAddressSpecification property. If you want EC2 to automatically assign private IP addresses, use the SecondaryPrivateIpAddressCount property and do not specify this property."
+                },
+                "secondaryPrivateIpAddressCount": {
+                    "type": "integer",
+                    "description": "The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses"
+                },
+                "secondaryPrivateIpAddresses": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Returns the secondary private IP addresses of the network interface."
+                },
+                "sourceDestCheck": {
+                    "type": "boolean",
+                    "description": "Indicates whether traffic to or from the instance is validated."
+                },
+                "subnetId": {
+                    "type": "string",
+                    "description": "The ID of the subnet to associate with the network interface."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInterfaceTag"
+                    },
+                    "description": "An arbitrary set of tags (key-value pairs) for this network interface."
+                }
+            },
+            "type": "object",
+            "required": [
+                "primaryPrivateIpAddress",
+                "secondaryPrivateIpAddresses",
+                "subnetId"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "A description for the network interface."
+                },
+                "groupSet": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of security group IDs associated with this network interface."
+                },
+                "interfaceType": {
+                    "type": "string",
+                    "description": "Indicates the type of network interface."
+                },
+                "ipv6AddressCount": {
+                    "type": "integer",
+                    "description": "The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. To specify specific IPv6 addresses, use the Ipv6Addresses property and don't specify this property."
+                },
+                "ipv6Addresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInterfaceInstanceIpv6Address"
+                    },
+                    "description": "One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet to associate with the network interface. If you're specifying a number of IPv6 addresses, use the Ipv6AddressCount property and don't specify this property."
+                },
+                "privateIpAddress": {
+                    "type": "string",
+                    "description": "Assigns a single private IP address to the network interface, which is used as the primary private IP address. If you want to specify multiple private IP address, use the PrivateIpAddresses property. "
+                },
+                "privateIpAddresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInterfacePrivateIpAddressSpecification"
+                    },
+                    "description": "Assigns a list of private IP addresses to the network interface. You can specify a primary private IP address by setting the value of the Primary property to true in the PrivateIpAddressSpecification property. If you want EC2 to automatically assign private IP addresses, use the SecondaryPrivateIpAddressCount property and do not specify this property."
+                },
+                "secondaryPrivateIpAddressCount": {
+                    "type": "integer",
+                    "description": "The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses"
+                },
+                "sourceDestCheck": {
+                    "type": "boolean",
+                    "description": "Indicates whether traffic to or from the instance is validated."
+                },
+                "subnetId": {
+                    "type": "string",
+                    "description": "The ID of the subnet to associate with the network interface."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInterfaceTag"
+                    },
+                    "description": "An arbitrary set of tags (key-value pairs) for this network interface."
+                }
+            },
+            "requiredInputs": [
+                "subnetId"
+            ]
+        },
         "aws-native:ec2:PrefixList": {
             "description": "Resource schema of AWS::EC2::PrefixList Type\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var newPrefixList = new AwsNative.EC2.PrefixList(\"newPrefixList\", new AwsNative.EC2.PrefixListArgs\n        {\n            PrefixListName = \"vpc-1-servers\",\n            AddressFamily = \"IPv4\",\n            MaxEntries = 10,\n            Entries = \n            {\n                new AwsNative.EC2.Inputs.PrefixListEntryArgs\n                {\n                    Cidr = \"10.0.0.5/32\",\n                    Description = \"Server 1\",\n                },\n                new AwsNative.EC2.Inputs.PrefixListEntryArgs\n                {\n                    Cidr = \"10.0.0.10/32\",\n                    Description = \"Server 2\",\n                },\n            },\n            Tags = \n            {\n                new AwsNative.EC2.Inputs.PrefixListTagArgs\n                {\n                    Key = \"Name\",\n                    Value = \"VPC-1-Servers\",\n                },\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/ec2\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ec2.NewPrefixList(ctx, \"newPrefixList\", \u0026ec2.PrefixListArgs{\n\t\t\tPrefixListName: pulumi.String(\"vpc-1-servers\"),\n\t\t\tAddressFamily:  \"IPv4\",\n\t\t\tMaxEntries:     pulumi.Int(10),\n\t\t\tEntries: []ec2.PrefixListEntryArgs{\n\t\t\t\t\u0026ec2.PrefixListEntryArgs{\n\t\t\t\t\tCidr:        pulumi.String(\"10.0.0.5/32\"),\n\t\t\t\t\tDescription: pulumi.String(\"Server 1\"),\n\t\t\t\t},\n\t\t\t\t\u0026ec2.PrefixListEntryArgs{\n\t\t\t\t\tCidr:        pulumi.String(\"10.0.0.10/32\"),\n\t\t\t\t\tDescription: pulumi.String(\"Server 2\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tTags: []ec2.PrefixListTagArgs{\n\t\t\t\t\u0026ec2.PrefixListTagArgs{\n\t\t\t\t\tKey:   pulumi.String(\"Name\"),\n\t\t\t\t\tValue: pulumi.String(\"VPC-1-Servers\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst newPrefixList = new aws_native.ec2.PrefixList(\"newPrefixList\", {\n    prefixListName: \"vpc-1-servers\",\n    addressFamily: \"IPv4\",\n    maxEntries: 10,\n    entries: [\n        {\n            cidr: \"10.0.0.5/32\",\n            description: \"Server 1\",\n        },\n        {\n            cidr: \"10.0.0.10/32\",\n            description: \"Server 2\",\n        },\n    ],\n    tags: [{\n        key: \"Name\",\n        value: \"VPC-1-Servers\",\n    }],\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nnew_prefix_list = aws_native.ec2.PrefixList(\"newPrefixList\",\n    prefix_list_name=\"vpc-1-servers\",\n    address_family=\"IPv4\",\n    max_entries=10,\n    entries=[\n        aws_native.ec2.PrefixListEntryArgs(\n            cidr=\"10.0.0.5/32\",\n            description=\"Server 1\",\n        ),\n        aws_native.ec2.PrefixListEntryArgs(\n            cidr=\"10.0.0.10/32\",\n            description=\"Server 2\",\n        ),\n    ],\n    tags=[aws_native.ec2.PrefixListTagArgs(\n        key=\"Name\",\n        value=\"VPC-1-Servers\",\n    )])\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var newPrefixList = new AwsNative.EC2.PrefixList(\"newPrefixList\", new AwsNative.EC2.PrefixListArgs\n        {\n            PrefixListName = \"vpc-1-servers\",\n            AddressFamily = \"IPv4\",\n            MaxEntries = 10,\n            Entries = \n            {\n                new AwsNative.EC2.Inputs.PrefixListEntryArgs\n                {\n                    Cidr = \"10.0.0.5/32\",\n                    Description = \"Server 1\",\n                },\n                new AwsNative.EC2.Inputs.PrefixListEntryArgs\n                {\n                    Cidr = \"10.0.0.10/32\",\n                    Description = \"Server 2\",\n                },\n            },\n            Tags = \n            {\n                new AwsNative.EC2.Inputs.PrefixListTagArgs\n                {\n                    Key = \"Name\",\n                    Value = \"VPC-1-Servers\",\n                },\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/ec2\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ec2.NewPrefixList(ctx, \"newPrefixList\", \u0026ec2.PrefixListArgs{\n\t\t\tPrefixListName: pulumi.String(\"vpc-1-servers\"),\n\t\t\tAddressFamily:  \"IPv4\",\n\t\t\tMaxEntries:     pulumi.Int(10),\n\t\t\tEntries: []ec2.PrefixListEntryArgs{\n\t\t\t\t\u0026ec2.PrefixListEntryArgs{\n\t\t\t\t\tCidr:        pulumi.String(\"10.0.0.5/32\"),\n\t\t\t\t\tDescription: pulumi.String(\"Server 1\"),\n\t\t\t\t},\n\t\t\t\t\u0026ec2.PrefixListEntryArgs{\n\t\t\t\t\tCidr:        pulumi.String(\"10.0.0.10/32\"),\n\t\t\t\t\tDescription: pulumi.String(\"Server 2\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tTags: []ec2.PrefixListTagArgs{\n\t\t\t\t\u0026ec2.PrefixListTagArgs{\n\t\t\t\t\tKey:   pulumi.String(\"Name\"),\n\t\t\t\t\tValue: pulumi.String(\"VPC-1-Servers\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst newPrefixList = new aws_native.ec2.PrefixList(\"newPrefixList\", {\n    prefixListName: \"vpc-1-servers\",\n    addressFamily: \"IPv4\",\n    maxEntries: 10,\n    entries: [\n        {\n            cidr: \"10.0.0.5/32\",\n            description: \"Server 1\",\n        },\n        {\n            cidr: \"10.0.0.10/32\",\n            description: \"Server 2\",\n        },\n    ],\n    tags: [{\n        key: \"Name\",\n        value: \"VPC-1-Servers\",\n    }],\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nnew_prefix_list = aws_native.ec2.PrefixList(\"newPrefixList\",\n    prefix_list_name=\"vpc-1-servers\",\n    address_family=\"IPv4\",\n    max_entries=10,\n    entries=[\n        aws_native.ec2.PrefixListEntryArgs(\n            cidr=\"10.0.0.5/32\",\n            description=\"Server 1\",\n        ),\n        aws_native.ec2.PrefixListEntryArgs(\n            cidr=\"10.0.0.10/32\",\n            description=\"Server 2\",\n        ),\n    ],\n    tags=[aws_native.ec2.PrefixListTagArgs(\n        key=\"Name\",\n        value=\"VPC-1-Servers\",\n    )])\n\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
             "properties": {
@@ -57241,6 +57581,34 @@
             },
             "requiredInputs": [
                 "networkAclId",
+                "subnetId"
+            ]
+        },
+        "aws-native:ec2:SubnetRouteTableAssociation": {
+            "description": "Resource Type definition for AWS::EC2::SubnetRouteTableAssociation",
+            "properties": {
+                "routeTableId": {
+                    "type": "string"
+                },
+                "subnetId": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "routeTableId",
+                "subnetId"
+            ],
+            "inputProperties": {
+                "routeTableId": {
+                    "type": "string"
+                },
+                "subnetId": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "routeTableId",
                 "subnetId"
             ]
         },
@@ -57694,6 +58062,10 @@
                     "type": "string",
                     "description": "The time the transit gateway peering attachment was created."
                 },
+                "options": {
+                    "$ref": "#/types/aws-native:ec2:TransitGatewayPeeringAttachmentOptions",
+                    "description": "Options for transit gateway peering attachment"
+                },
                 "peerAccountId": {
                     "type": "string",
                     "description": "The ID of the peer account"
@@ -57742,6 +58114,10 @@
                 "transitGatewayId"
             ],
             "inputProperties": {
+                "options": {
+                    "$ref": "#/types/aws-native:ec2:TransitGatewayPeeringAttachmentOptions",
+                    "description": "Options for transit gateway peering attachment"
+                },
                 "peerAccountId": {
                     "type": "string",
                     "description": "The ID of the peer account"
@@ -59016,16 +59392,19 @@
             ]
         },
         "aws-native:eks:Cluster": {
-            "description": "Resource Type definition for AWS::EKS::Cluster\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var myCluster = new AwsNative.EKS.Cluster(\"myCluster\", new AwsNative.EKS.ClusterArgs\n        {\n            Name = \"prod\",\n            Version = \"1.14\",\n            RoleArn = \"arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-EXAMPLEBQ4PI\",\n            ResourcesVpcConfig = new AwsNative.EKS.Inputs.ClusterResourcesVpcConfigArgs\n            {\n                SecurityGroupIds = \n                {\n                    \"sg-6979fe18\",\n                },\n                SubnetIds = \n                {\n                    \"subnet-6782e71e\",\n                    \"subnet-e7e761ac\",\n                },\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/eks\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := eks.NewCluster(ctx, \"myCluster\", \u0026eks.ClusterArgs{\n\t\t\tName:    pulumi.String(\"prod\"),\n\t\t\tVersion: pulumi.String(\"1.14\"),\n\t\t\tRoleArn: pulumi.String(\"arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-EXAMPLEBQ4PI\"),\n\t\t\tResourcesVpcConfig: \u0026eks.ClusterResourcesVpcConfigArgs{\n\t\t\t\tSecurityGroupIds: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"sg-6979fe18\"),\n\t\t\t\t},\n\t\t\t\tSubnetIds: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"subnet-6782e71e\"),\n\t\t\t\t\tpulumi.String(\"subnet-e7e761ac\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst myCluster = new aws_native.eks.Cluster(\"myCluster\", {\n    name: \"prod\",\n    version: \"1.14\",\n    roleArn: \"arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-EXAMPLEBQ4PI\",\n    resourcesVpcConfig: {\n        securityGroupIds: [\"sg-6979fe18\"],\n        subnetIds: [\n            \"subnet-6782e71e\",\n            \"subnet-e7e761ac\",\n        ],\n    },\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nmy_cluster = aws_native.eks.Cluster(\"myCluster\",\n    name=\"prod\",\n    version=\"1.14\",\n    role_arn=\"arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-EXAMPLEBQ4PI\",\n    resources_vpc_config=aws_native.eks.ClusterResourcesVpcConfigArgs(\n        security_group_ids=[\"sg-6979fe18\"],\n        subnet_ids=[\n            \"subnet-6782e71e\",\n            \"subnet-e7e761ac\",\n        ],\n    ))\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var myCluster = new AwsNative.EKS.Cluster(\"myCluster\", new AwsNative.EKS.ClusterArgs\n        {\n            Name = \"prod\",\n            Version = \"1.14\",\n            RoleArn = \"arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-EXAMPLEBQ4PI\",\n            ResourcesVpcConfig = new AwsNative.EKS.Inputs.ClusterResourcesVpcConfigArgs\n            {\n                SecurityGroupIds = \n                {\n                    \"sg-6979fe18\",\n                },\n                SubnetIds = \n                {\n                    \"subnet-6782e71e\",\n                    \"subnet-e7e761ac\",\n                },\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/eks\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := eks.NewCluster(ctx, \"myCluster\", \u0026eks.ClusterArgs{\n\t\t\tName:    pulumi.String(\"prod\"),\n\t\t\tVersion: pulumi.String(\"1.14\"),\n\t\t\tRoleArn: pulumi.String(\"arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-EXAMPLEBQ4PI\"),\n\t\t\tResourcesVpcConfig: \u0026eks.ClusterResourcesVpcConfigArgs{\n\t\t\t\tSecurityGroupIds: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"sg-6979fe18\"),\n\t\t\t\t},\n\t\t\t\tSubnetIds: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"subnet-6782e71e\"),\n\t\t\t\t\tpulumi.String(\"subnet-e7e761ac\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst myCluster = new aws_native.eks.Cluster(\"myCluster\", {\n    name: \"prod\",\n    version: \"1.14\",\n    roleArn: \"arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-EXAMPLEBQ4PI\",\n    resourcesVpcConfig: {\n        securityGroupIds: [\"sg-6979fe18\"],\n        subnetIds: [\n            \"subnet-6782e71e\",\n            \"subnet-e7e761ac\",\n        ],\n    },\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nmy_cluster = aws_native.eks.Cluster(\"myCluster\",\n    name=\"prod\",\n    version=\"1.14\",\n    role_arn=\"arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-EXAMPLEBQ4PI\",\n    resources_vpc_config=aws_native.eks.ClusterResourcesVpcConfigArgs(\n        security_group_ids=[\"sg-6979fe18\"],\n        subnet_ids=[\n            \"subnet-6782e71e\",\n            \"subnet-e7e761ac\",\n        ],\n    ))\n\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "description": "An object representing an Amazon EKS cluster.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var myCluster = new AwsNative.EKS.Cluster(\"myCluster\", new AwsNative.EKS.ClusterArgs\n        {\n            Name = \"prod\",\n            Version = \"1.14\",\n            RoleArn = \"arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-EXAMPLEBQ4PI\",\n            ResourcesVpcConfig = new AwsNative.EKS.Inputs.ClusterResourcesVpcConfigArgs\n            {\n                SecurityGroupIds = \n                {\n                    \"sg-6979fe18\",\n                },\n                SubnetIds = \n                {\n                    \"subnet-6782e71e\",\n                    \"subnet-e7e761ac\",\n                },\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/eks\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := eks.NewCluster(ctx, \"myCluster\", \u0026eks.ClusterArgs{\n\t\t\tName:    pulumi.String(\"prod\"),\n\t\t\tVersion: pulumi.String(\"1.14\"),\n\t\t\tRoleArn: pulumi.String(\"arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-EXAMPLEBQ4PI\"),\n\t\t\tResourcesVpcConfig: \u0026eks.ClusterResourcesVpcConfigArgs{\n\t\t\t\tSecurityGroupIds: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"sg-6979fe18\"),\n\t\t\t\t},\n\t\t\t\tSubnetIds: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"subnet-6782e71e\"),\n\t\t\t\t\tpulumi.String(\"subnet-e7e761ac\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst myCluster = new aws_native.eks.Cluster(\"myCluster\", {\n    name: \"prod\",\n    version: \"1.14\",\n    roleArn: \"arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-EXAMPLEBQ4PI\",\n    resourcesVpcConfig: {\n        securityGroupIds: [\"sg-6979fe18\"],\n        subnetIds: [\n            \"subnet-6782e71e\",\n            \"subnet-e7e761ac\",\n        ],\n    },\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nmy_cluster = aws_native.eks.Cluster(\"myCluster\",\n    name=\"prod\",\n    version=\"1.14\",\n    role_arn=\"arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-EXAMPLEBQ4PI\",\n    resources_vpc_config=aws_native.eks.ClusterResourcesVpcConfigArgs(\n        security_group_ids=[\"sg-6979fe18\"],\n        subnet_ids=[\n            \"subnet-6782e71e\",\n            \"subnet-e7e761ac\",\n        ],\n    ))\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var myCluster = new AwsNative.EKS.Cluster(\"myCluster\", new AwsNative.EKS.ClusterArgs\n        {\n            Name = \"prod\",\n            Version = \"1.14\",\n            RoleArn = \"arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-EXAMPLEBQ4PI\",\n            ResourcesVpcConfig = new AwsNative.EKS.Inputs.ClusterResourcesVpcConfigArgs\n            {\n                SecurityGroupIds = \n                {\n                    \"sg-6979fe18\",\n                },\n                SubnetIds = \n                {\n                    \"subnet-6782e71e\",\n                    \"subnet-e7e761ac\",\n                },\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/eks\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := eks.NewCluster(ctx, \"myCluster\", \u0026eks.ClusterArgs{\n\t\t\tName:    pulumi.String(\"prod\"),\n\t\t\tVersion: pulumi.String(\"1.14\"),\n\t\t\tRoleArn: pulumi.String(\"arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-EXAMPLEBQ4PI\"),\n\t\t\tResourcesVpcConfig: \u0026eks.ClusterResourcesVpcConfigArgs{\n\t\t\t\tSecurityGroupIds: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"sg-6979fe18\"),\n\t\t\t\t},\n\t\t\t\tSubnetIds: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"subnet-6782e71e\"),\n\t\t\t\t\tpulumi.String(\"subnet-e7e761ac\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst myCluster = new aws_native.eks.Cluster(\"myCluster\", {\n    name: \"prod\",\n    version: \"1.14\",\n    roleArn: \"arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-EXAMPLEBQ4PI\",\n    resourcesVpcConfig: {\n        securityGroupIds: [\"sg-6979fe18\"],\n        subnetIds: [\n            \"subnet-6782e71e\",\n            \"subnet-e7e761ac\",\n        ],\n    },\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nmy_cluster = aws_native.eks.Cluster(\"myCluster\",\n    name=\"prod\",\n    version=\"1.14\",\n    role_arn=\"arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-EXAMPLEBQ4PI\",\n    resources_vpc_config=aws_native.eks.ClusterResourcesVpcConfigArgs(\n        security_group_ids=[\"sg-6979fe18\"],\n        subnet_ids=[\n            \"subnet-6782e71e\",\n            \"subnet-e7e761ac\",\n        ],\n    ))\n\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
             "properties": {
                 "arn": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod."
                 },
                 "certificateAuthorityData": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The certificate-authority-data for your cluster."
                 },
                 "clusterSecurityGroupId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control plane to data plane communication."
                 },
                 "encryptionConfig": {
                     "type": "array",
@@ -59034,28 +59413,44 @@
                     }
                 },
                 "encryptionConfigKeyArn": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) or alias of the customer master key (CMK)."
                 },
                 "endpoint": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The endpoint for your Kubernetes API server, such as https://5E1D0CEXAMPLEA591B746AFC5AB30262.yl4.us-west-2.eks.amazonaws.com."
                 },
                 "kubernetesNetworkConfig": {
                     "$ref": "#/types/aws-native:eks:ClusterKubernetesNetworkConfig"
                 },
+                "logging": {
+                    "$ref": "#/types/aws-native:eks:ClusterLogging"
+                },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The unique name to give to your cluster."
                 },
                 "openIdConnectIssuerUrl": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The issuer URL for the cluster's OIDC identity provider, such as https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E. If you need to remove https:// from this output value, you can include the following code in your template."
                 },
                 "resourcesVpcConfig": {
                     "$ref": "#/types/aws-native:eks:ClusterResourcesVpcConfig"
                 },
                 "roleArn": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:eks:ClusterTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
                 },
                 "version": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used."
                 }
             },
             "type": "object",
@@ -59079,17 +59474,30 @@
                 "kubernetesNetworkConfig": {
                     "$ref": "#/types/aws-native:eks:ClusterKubernetesNetworkConfig"
                 },
+                "logging": {
+                    "$ref": "#/types/aws-native:eks:ClusterLogging"
+                },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The unique name to give to your cluster."
                 },
                 "resourcesVpcConfig": {
                     "$ref": "#/types/aws-native:eks:ClusterResourcesVpcConfig"
                 },
                 "roleArn": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:eks:ClusterTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
                 },
                 "version": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used."
                 }
             },
             "requiredInputs": [
@@ -63801,6 +64209,53 @@
             "requiredInputs": [
                 "provisioningRoleArn",
                 "templateBody"
+            ]
+        },
+        "aws-native:iot:ResourceSpecificLogging": {
+            "description": "Resource-specific logging allows you to specify a logging level for a specific thing group.",
+            "properties": {
+                "logLevel": {
+                    "$ref": "#/types/aws-native:iot:ResourceSpecificLoggingLogLevel",
+                    "description": "The log level for a specific target. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED."
+                },
+                "targetId": {
+                    "type": "string",
+                    "description": "Unique Id for a Target (TargetType:TargetName), this will be internally built to serve as primary identifier for a log target."
+                },
+                "targetName": {
+                    "type": "string",
+                    "description": "The target name."
+                },
+                "targetType": {
+                    "$ref": "#/types/aws-native:iot:ResourceSpecificLoggingTargetType",
+                    "description": "The target type. Value must be THING_GROUP."
+                }
+            },
+            "type": "object",
+            "required": [
+                "logLevel",
+                "targetId",
+                "targetName",
+                "targetType"
+            ],
+            "inputProperties": {
+                "logLevel": {
+                    "$ref": "#/types/aws-native:iot:ResourceSpecificLoggingLogLevel",
+                    "description": "The log level for a specific target. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED."
+                },
+                "targetName": {
+                    "type": "string",
+                    "description": "The target name."
+                },
+                "targetType": {
+                    "$ref": "#/types/aws-native:iot:ResourceSpecificLoggingTargetType",
+                    "description": "The target type. Value must be THING_GROUP."
+                }
+            },
+            "requiredInputs": [
+                "logLevel",
+                "targetName",
+                "targetType"
             ]
         },
         "aws-native:iot:ScheduledAudit": {

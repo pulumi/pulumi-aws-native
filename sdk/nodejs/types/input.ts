@@ -8825,6 +8825,13 @@ export namespace ec2 {
         value?: pulumi.Input<string>;
     }
 
+    export interface TransitGatewayPeeringAttachmentOptionsArgs {
+        /**
+         * Whether to enable dynamic routing. (enable/disable)
+         */
+        dynamicRouting?: pulumi.Input<string>;
+    }
+
     export interface TransitGatewayPeeringAttachmentTagArgs {
         /**
          * The key of the tag. Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with aws:.
@@ -8880,6 +8887,7 @@ export namespace ec2 {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
+
 }
 
 export namespace ecr {
@@ -9538,22 +9546,88 @@ export namespace eks {
         value: pulumi.Input<string>;
     }
 
+    /**
+     * The encryption configuration for the cluster
+     */
     export interface ClusterEncryptionConfigArgs {
-        provider?: pulumi.Input<inputs.eks.ClusterProviderArgs>;
+        /**
+         * The encryption provider for the cluster.
+         */
+        provider?: pulumi.Input<inputs.eks.ClusterEncryptionConfigProviderPropertiesArgs>;
+        /**
+         * Specifies the resources to be encrypted. The only supported value is "secrets".
+         */
         resources?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface ClusterKubernetesNetworkConfigArgs {
-        serviceIpv4Cidr?: pulumi.Input<string>;
-    }
-
-    export interface ClusterProviderArgs {
+    /**
+     * The encryption provider for the cluster.
+     */
+    export interface ClusterEncryptionConfigProviderPropertiesArgs {
+        /**
+         * Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key.
+         */
         keyArn?: pulumi.Input<string>;
     }
 
+    /**
+     * The Kubernetes network configuration for the cluster.
+     */
+    export interface ClusterKubernetesNetworkConfigArgs {
+        /**
+         * The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. 
+         */
+        serviceIpv4Cidr?: pulumi.Input<string>;
+    }
+
+    /**
+     * Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
+     */
+    export interface ClusterLoggingArgs {
+        /**
+         * The cluster control plane logging configuration for your cluster. 
+         */
+        clusterLogging?: pulumi.Input<inputs.eks.ClusterLoggingArgs>;
+    }
+
+    /**
+     * An object representing the VPC configuration to use for an Amazon EKS cluster.
+     */
     export interface ClusterResourcesVpcConfigArgs {
+        /**
+         * Set this value to true to enable private access for your cluster's Kubernetes API server endpoint. If you enable private access, Kubernetes API requests from within your cluster's VPC use the private VPC endpoint. The default value for this parameter is false, which disables private access for your Kubernetes API server. If you disable private access and you have nodes or AWS Fargate pods in the cluster, then ensure that publicAccessCidrs includes the necessary CIDR blocks for communication with the nodes or Fargate pods.
+         */
+        endpointPrivateAccess?: pulumi.Input<boolean>;
+        /**
+         * Set this value to false to disable public access to your cluster's Kubernetes API server endpoint. If you disable public access, your cluster's Kubernetes API server can only receive requests from within the cluster VPC. The default value for this parameter is true, which enables public access for your Kubernetes API server.
+         */
+        endpointPublicAccess?: pulumi.Input<boolean>;
+        /**
+         * The CIDR blocks that are allowed access to your cluster's public Kubernetes API server endpoint. Communication to the endpoint from addresses outside of the CIDR blocks that you specify is denied. The default value is 0.0.0.0/0. If you've disabled private endpoint access and you have nodes or AWS Fargate pods in the cluster, then ensure that you specify the necessary CIDR blocks.
+         */
+        publicAccessCidrs?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specify one or more security groups for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane. If you don't specify a security group, the default security group for your VPC is used.
+         */
         securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specify subnets for your Amazon EKS nodes. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your nodes and the Kubernetes control plane.
+         */
         subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ClusterTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
     }
 
     /**
@@ -19116,6 +19190,8 @@ export namespace neptune {
 
 export namespace networkfirewall {
     export interface FirewallPolicyArgs {
+        statefulDefaultActions?: pulumi.Input<pulumi.Input<string>[]>;
+        statefulEngineOptions?: pulumi.Input<inputs.networkfirewall.FirewallPolicyStatefulEngineOptionsArgs>;
         statefulRuleGroupReferences?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallPolicyStatefulRuleGroupReferenceArgs>[]>;
         statelessCustomActions?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallPolicyCustomActionArgs>[]>;
         statelessDefaultActions: pulumi.Input<pulumi.Input<string>[]>;
@@ -19140,7 +19216,12 @@ export namespace networkfirewall {
         dimensions: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallPolicyDimensionArgs>[]>;
     }
 
+    export interface FirewallPolicyStatefulEngineOptionsArgs {
+        ruleOrder?: pulumi.Input<enums.networkfirewall.FirewallPolicyRuleOrder>;
+    }
+
     export interface FirewallPolicyStatefulRuleGroupReferenceArgs {
+        priority?: pulumi.Input<number>;
         resourceArn: pulumi.Input<string>;
     }
 
@@ -19182,6 +19263,7 @@ export namespace networkfirewall {
     export interface RuleGroupArgs {
         ruleVariables?: pulumi.Input<inputs.networkfirewall.RuleGroupRuleVariablesArgs>;
         rulesSource: pulumi.Input<inputs.networkfirewall.RuleGroupRulesSourceArgs>;
+        statefulRuleOptions?: pulumi.Input<inputs.networkfirewall.RuleGroupStatefulRuleOptionsArgs>;
     }
 
     export interface RuleGroupActionDefinitionArgs {
@@ -19260,6 +19342,10 @@ export namespace networkfirewall {
         action: pulumi.Input<enums.networkfirewall.RuleGroupStatefulRuleAction>;
         header: pulumi.Input<inputs.networkfirewall.RuleGroupHeaderArgs>;
         ruleOptions: pulumi.Input<pulumi.Input<inputs.networkfirewall.RuleGroupRuleOptionArgs>[]>;
+    }
+
+    export interface RuleGroupStatefulRuleOptionsArgs {
+        ruleOrder?: pulumi.Input<enums.networkfirewall.RuleGroupRuleOrder>;
     }
 
     export interface RuleGroupStatelessRuleArgs {

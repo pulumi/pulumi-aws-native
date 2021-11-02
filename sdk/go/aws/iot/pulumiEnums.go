@@ -2479,6 +2479,338 @@ func (in *mitigationActionUpdateDeviceCertificateParamsActionPtr) ToMitigationAc
 	return pulumi.ToOutputWithContext(ctx, in).(MitigationActionUpdateDeviceCertificateParamsActionPtrOutput)
 }
 
+// The log level for a specific target. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
+type ResourceSpecificLoggingLogLevel string
+
+const (
+	ResourceSpecificLoggingLogLevelError    = ResourceSpecificLoggingLogLevel("ERROR")
+	ResourceSpecificLoggingLogLevelWarn     = ResourceSpecificLoggingLogLevel("WARN")
+	ResourceSpecificLoggingLogLevelInfo     = ResourceSpecificLoggingLogLevel("INFO")
+	ResourceSpecificLoggingLogLevelDebug    = ResourceSpecificLoggingLogLevel("DEBUG")
+	ResourceSpecificLoggingLogLevelDisabled = ResourceSpecificLoggingLogLevel("DISABLED")
+)
+
+func (ResourceSpecificLoggingLogLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSpecificLoggingLogLevel)(nil)).Elem()
+}
+
+func (e ResourceSpecificLoggingLogLevel) ToResourceSpecificLoggingLogLevelOutput() ResourceSpecificLoggingLogLevelOutput {
+	return pulumi.ToOutput(e).(ResourceSpecificLoggingLogLevelOutput)
+}
+
+func (e ResourceSpecificLoggingLogLevel) ToResourceSpecificLoggingLogLevelOutputWithContext(ctx context.Context) ResourceSpecificLoggingLogLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ResourceSpecificLoggingLogLevelOutput)
+}
+
+func (e ResourceSpecificLoggingLogLevel) ToResourceSpecificLoggingLogLevelPtrOutput() ResourceSpecificLoggingLogLevelPtrOutput {
+	return e.ToResourceSpecificLoggingLogLevelPtrOutputWithContext(context.Background())
+}
+
+func (e ResourceSpecificLoggingLogLevel) ToResourceSpecificLoggingLogLevelPtrOutputWithContext(ctx context.Context) ResourceSpecificLoggingLogLevelPtrOutput {
+	return ResourceSpecificLoggingLogLevel(e).ToResourceSpecificLoggingLogLevelOutputWithContext(ctx).ToResourceSpecificLoggingLogLevelPtrOutputWithContext(ctx)
+}
+
+func (e ResourceSpecificLoggingLogLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceSpecificLoggingLogLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceSpecificLoggingLogLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ResourceSpecificLoggingLogLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ResourceSpecificLoggingLogLevelOutput struct{ *pulumi.OutputState }
+
+func (ResourceSpecificLoggingLogLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSpecificLoggingLogLevel)(nil)).Elem()
+}
+
+func (o ResourceSpecificLoggingLogLevelOutput) ToResourceSpecificLoggingLogLevelOutput() ResourceSpecificLoggingLogLevelOutput {
+	return o
+}
+
+func (o ResourceSpecificLoggingLogLevelOutput) ToResourceSpecificLoggingLogLevelOutputWithContext(ctx context.Context) ResourceSpecificLoggingLogLevelOutput {
+	return o
+}
+
+func (o ResourceSpecificLoggingLogLevelOutput) ToResourceSpecificLoggingLogLevelPtrOutput() ResourceSpecificLoggingLogLevelPtrOutput {
+	return o.ToResourceSpecificLoggingLogLevelPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceSpecificLoggingLogLevelOutput) ToResourceSpecificLoggingLogLevelPtrOutputWithContext(ctx context.Context) ResourceSpecificLoggingLogLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSpecificLoggingLogLevel) *ResourceSpecificLoggingLogLevel {
+		return &v
+	}).(ResourceSpecificLoggingLogLevelPtrOutput)
+}
+
+func (o ResourceSpecificLoggingLogLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ResourceSpecificLoggingLogLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceSpecificLoggingLogLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ResourceSpecificLoggingLogLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceSpecificLoggingLogLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceSpecificLoggingLogLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceSpecificLoggingLogLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceSpecificLoggingLogLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceSpecificLoggingLogLevel)(nil)).Elem()
+}
+
+func (o ResourceSpecificLoggingLogLevelPtrOutput) ToResourceSpecificLoggingLogLevelPtrOutput() ResourceSpecificLoggingLogLevelPtrOutput {
+	return o
+}
+
+func (o ResourceSpecificLoggingLogLevelPtrOutput) ToResourceSpecificLoggingLogLevelPtrOutputWithContext(ctx context.Context) ResourceSpecificLoggingLogLevelPtrOutput {
+	return o
+}
+
+func (o ResourceSpecificLoggingLogLevelPtrOutput) Elem() ResourceSpecificLoggingLogLevelOutput {
+	return o.ApplyT(func(v *ResourceSpecificLoggingLogLevel) ResourceSpecificLoggingLogLevel {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSpecificLoggingLogLevel
+		return ret
+	}).(ResourceSpecificLoggingLogLevelOutput)
+}
+
+func (o ResourceSpecificLoggingLogLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceSpecificLoggingLogLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResourceSpecificLoggingLogLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ResourceSpecificLoggingLogLevelInput is an input type that accepts ResourceSpecificLoggingLogLevelArgs and ResourceSpecificLoggingLogLevelOutput values.
+// You can construct a concrete instance of `ResourceSpecificLoggingLogLevelInput` via:
+//
+//          ResourceSpecificLoggingLogLevelArgs{...}
+type ResourceSpecificLoggingLogLevelInput interface {
+	pulumi.Input
+
+	ToResourceSpecificLoggingLogLevelOutput() ResourceSpecificLoggingLogLevelOutput
+	ToResourceSpecificLoggingLogLevelOutputWithContext(context.Context) ResourceSpecificLoggingLogLevelOutput
+}
+
+var resourceSpecificLoggingLogLevelPtrType = reflect.TypeOf((**ResourceSpecificLoggingLogLevel)(nil)).Elem()
+
+type ResourceSpecificLoggingLogLevelPtrInput interface {
+	pulumi.Input
+
+	ToResourceSpecificLoggingLogLevelPtrOutput() ResourceSpecificLoggingLogLevelPtrOutput
+	ToResourceSpecificLoggingLogLevelPtrOutputWithContext(context.Context) ResourceSpecificLoggingLogLevelPtrOutput
+}
+
+type resourceSpecificLoggingLogLevelPtr string
+
+func ResourceSpecificLoggingLogLevelPtr(v string) ResourceSpecificLoggingLogLevelPtrInput {
+	return (*resourceSpecificLoggingLogLevelPtr)(&v)
+}
+
+func (*resourceSpecificLoggingLogLevelPtr) ElementType() reflect.Type {
+	return resourceSpecificLoggingLogLevelPtrType
+}
+
+func (in *resourceSpecificLoggingLogLevelPtr) ToResourceSpecificLoggingLogLevelPtrOutput() ResourceSpecificLoggingLogLevelPtrOutput {
+	return pulumi.ToOutput(in).(ResourceSpecificLoggingLogLevelPtrOutput)
+}
+
+func (in *resourceSpecificLoggingLogLevelPtr) ToResourceSpecificLoggingLogLevelPtrOutputWithContext(ctx context.Context) ResourceSpecificLoggingLogLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ResourceSpecificLoggingLogLevelPtrOutput)
+}
+
+// The target type. Value must be THING_GROUP.
+type ResourceSpecificLoggingTargetType string
+
+const (
+	ResourceSpecificLoggingTargetTypeThingGroup = ResourceSpecificLoggingTargetType("THING_GROUP")
+)
+
+func (ResourceSpecificLoggingTargetType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSpecificLoggingTargetType)(nil)).Elem()
+}
+
+func (e ResourceSpecificLoggingTargetType) ToResourceSpecificLoggingTargetTypeOutput() ResourceSpecificLoggingTargetTypeOutput {
+	return pulumi.ToOutput(e).(ResourceSpecificLoggingTargetTypeOutput)
+}
+
+func (e ResourceSpecificLoggingTargetType) ToResourceSpecificLoggingTargetTypeOutputWithContext(ctx context.Context) ResourceSpecificLoggingTargetTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ResourceSpecificLoggingTargetTypeOutput)
+}
+
+func (e ResourceSpecificLoggingTargetType) ToResourceSpecificLoggingTargetTypePtrOutput() ResourceSpecificLoggingTargetTypePtrOutput {
+	return e.ToResourceSpecificLoggingTargetTypePtrOutputWithContext(context.Background())
+}
+
+func (e ResourceSpecificLoggingTargetType) ToResourceSpecificLoggingTargetTypePtrOutputWithContext(ctx context.Context) ResourceSpecificLoggingTargetTypePtrOutput {
+	return ResourceSpecificLoggingTargetType(e).ToResourceSpecificLoggingTargetTypeOutputWithContext(ctx).ToResourceSpecificLoggingTargetTypePtrOutputWithContext(ctx)
+}
+
+func (e ResourceSpecificLoggingTargetType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceSpecificLoggingTargetType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceSpecificLoggingTargetType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ResourceSpecificLoggingTargetType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ResourceSpecificLoggingTargetTypeOutput struct{ *pulumi.OutputState }
+
+func (ResourceSpecificLoggingTargetTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSpecificLoggingTargetType)(nil)).Elem()
+}
+
+func (o ResourceSpecificLoggingTargetTypeOutput) ToResourceSpecificLoggingTargetTypeOutput() ResourceSpecificLoggingTargetTypeOutput {
+	return o
+}
+
+func (o ResourceSpecificLoggingTargetTypeOutput) ToResourceSpecificLoggingTargetTypeOutputWithContext(ctx context.Context) ResourceSpecificLoggingTargetTypeOutput {
+	return o
+}
+
+func (o ResourceSpecificLoggingTargetTypeOutput) ToResourceSpecificLoggingTargetTypePtrOutput() ResourceSpecificLoggingTargetTypePtrOutput {
+	return o.ToResourceSpecificLoggingTargetTypePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceSpecificLoggingTargetTypeOutput) ToResourceSpecificLoggingTargetTypePtrOutputWithContext(ctx context.Context) ResourceSpecificLoggingTargetTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSpecificLoggingTargetType) *ResourceSpecificLoggingTargetType {
+		return &v
+	}).(ResourceSpecificLoggingTargetTypePtrOutput)
+}
+
+func (o ResourceSpecificLoggingTargetTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ResourceSpecificLoggingTargetTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceSpecificLoggingTargetType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ResourceSpecificLoggingTargetTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceSpecificLoggingTargetTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceSpecificLoggingTargetType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceSpecificLoggingTargetTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceSpecificLoggingTargetTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceSpecificLoggingTargetType)(nil)).Elem()
+}
+
+func (o ResourceSpecificLoggingTargetTypePtrOutput) ToResourceSpecificLoggingTargetTypePtrOutput() ResourceSpecificLoggingTargetTypePtrOutput {
+	return o
+}
+
+func (o ResourceSpecificLoggingTargetTypePtrOutput) ToResourceSpecificLoggingTargetTypePtrOutputWithContext(ctx context.Context) ResourceSpecificLoggingTargetTypePtrOutput {
+	return o
+}
+
+func (o ResourceSpecificLoggingTargetTypePtrOutput) Elem() ResourceSpecificLoggingTargetTypeOutput {
+	return o.ApplyT(func(v *ResourceSpecificLoggingTargetType) ResourceSpecificLoggingTargetType {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSpecificLoggingTargetType
+		return ret
+	}).(ResourceSpecificLoggingTargetTypeOutput)
+}
+
+func (o ResourceSpecificLoggingTargetTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceSpecificLoggingTargetTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResourceSpecificLoggingTargetType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ResourceSpecificLoggingTargetTypeInput is an input type that accepts ResourceSpecificLoggingTargetTypeArgs and ResourceSpecificLoggingTargetTypeOutput values.
+// You can construct a concrete instance of `ResourceSpecificLoggingTargetTypeInput` via:
+//
+//          ResourceSpecificLoggingTargetTypeArgs{...}
+type ResourceSpecificLoggingTargetTypeInput interface {
+	pulumi.Input
+
+	ToResourceSpecificLoggingTargetTypeOutput() ResourceSpecificLoggingTargetTypeOutput
+	ToResourceSpecificLoggingTargetTypeOutputWithContext(context.Context) ResourceSpecificLoggingTargetTypeOutput
+}
+
+var resourceSpecificLoggingTargetTypePtrType = reflect.TypeOf((**ResourceSpecificLoggingTargetType)(nil)).Elem()
+
+type ResourceSpecificLoggingTargetTypePtrInput interface {
+	pulumi.Input
+
+	ToResourceSpecificLoggingTargetTypePtrOutput() ResourceSpecificLoggingTargetTypePtrOutput
+	ToResourceSpecificLoggingTargetTypePtrOutputWithContext(context.Context) ResourceSpecificLoggingTargetTypePtrOutput
+}
+
+type resourceSpecificLoggingTargetTypePtr string
+
+func ResourceSpecificLoggingTargetTypePtr(v string) ResourceSpecificLoggingTargetTypePtrInput {
+	return (*resourceSpecificLoggingTargetTypePtr)(&v)
+}
+
+func (*resourceSpecificLoggingTargetTypePtr) ElementType() reflect.Type {
+	return resourceSpecificLoggingTargetTypePtrType
+}
+
+func (in *resourceSpecificLoggingTargetTypePtr) ToResourceSpecificLoggingTargetTypePtrOutput() ResourceSpecificLoggingTargetTypePtrOutput {
+	return pulumi.ToOutput(in).(ResourceSpecificLoggingTargetTypePtrOutput)
+}
+
+func (in *resourceSpecificLoggingTargetTypePtr) ToResourceSpecificLoggingTargetTypePtrOutputWithContext(ctx context.Context) ResourceSpecificLoggingTargetTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ResourceSpecificLoggingTargetTypePtrOutput)
+}
+
 // The day of the week on which the scheduled audit takes place. Can be one of SUN, MON, TUE,WED, THU, FRI, or SAT. This field is required if the frequency parameter is set to WEEKLY or BIWEEKLY.
 type ScheduledAuditDayOfWeek string
 
@@ -3861,6 +4193,10 @@ func init() {
 	pulumi.RegisterOutputType(MitigationActionUpdateCACertificateParamsActionPtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionUpdateDeviceCertificateParamsActionOutput{})
 	pulumi.RegisterOutputType(MitigationActionUpdateDeviceCertificateParamsActionPtrOutput{})
+	pulumi.RegisterOutputType(ResourceSpecificLoggingLogLevelOutput{})
+	pulumi.RegisterOutputType(ResourceSpecificLoggingLogLevelPtrOutput{})
+	pulumi.RegisterOutputType(ResourceSpecificLoggingTargetTypeOutput{})
+	pulumi.RegisterOutputType(ResourceSpecificLoggingTargetTypePtrOutput{})
 	pulumi.RegisterOutputType(ScheduledAuditDayOfWeekOutput{})
 	pulumi.RegisterOutputType(ScheduledAuditDayOfWeekPtrOutput{})
 	pulumi.RegisterOutputType(ScheduledAuditFrequencyOutput{})

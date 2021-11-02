@@ -15,15 +15,19 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     {
         public readonly Outputs.RuleGroupRuleVariables? RuleVariables;
         public readonly Outputs.RuleGroupRulesSource RulesSource;
+        public readonly Outputs.RuleGroupStatefulRuleOptions? StatefulRuleOptions;
 
         [OutputConstructor]
         private RuleGroup(
             Outputs.RuleGroupRuleVariables? ruleVariables,
 
-            Outputs.RuleGroupRulesSource rulesSource)
+            Outputs.RuleGroupRulesSource rulesSource,
+
+            Outputs.RuleGroupStatefulRuleOptions? statefulRuleOptions)
         {
             RuleVariables = ruleVariables;
             RulesSource = rulesSource;
+            StatefulRuleOptions = statefulRuleOptions;
         }
     }
 }

@@ -21779,6 +21779,143 @@ func (o TransitGatewayMulticastDomainTagArrayOutput) Index(i pulumi.IntInput) Tr
 	}).(TransitGatewayMulticastDomainTagOutput)
 }
 
+type TransitGatewayPeeringAttachmentOptions struct {
+	// Whether to enable dynamic routing. (enable/disable)
+	DynamicRouting *string `pulumi:"dynamicRouting"`
+}
+
+// TransitGatewayPeeringAttachmentOptionsInput is an input type that accepts TransitGatewayPeeringAttachmentOptionsArgs and TransitGatewayPeeringAttachmentOptionsOutput values.
+// You can construct a concrete instance of `TransitGatewayPeeringAttachmentOptionsInput` via:
+//
+//          TransitGatewayPeeringAttachmentOptionsArgs{...}
+type TransitGatewayPeeringAttachmentOptionsInput interface {
+	pulumi.Input
+
+	ToTransitGatewayPeeringAttachmentOptionsOutput() TransitGatewayPeeringAttachmentOptionsOutput
+	ToTransitGatewayPeeringAttachmentOptionsOutputWithContext(context.Context) TransitGatewayPeeringAttachmentOptionsOutput
+}
+
+type TransitGatewayPeeringAttachmentOptionsArgs struct {
+	// Whether to enable dynamic routing. (enable/disable)
+	DynamicRouting pulumi.StringPtrInput `pulumi:"dynamicRouting"`
+}
+
+func (TransitGatewayPeeringAttachmentOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayPeeringAttachmentOptions)(nil)).Elem()
+}
+
+func (i TransitGatewayPeeringAttachmentOptionsArgs) ToTransitGatewayPeeringAttachmentOptionsOutput() TransitGatewayPeeringAttachmentOptionsOutput {
+	return i.ToTransitGatewayPeeringAttachmentOptionsOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayPeeringAttachmentOptionsArgs) ToTransitGatewayPeeringAttachmentOptionsOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayPeeringAttachmentOptionsOutput)
+}
+
+func (i TransitGatewayPeeringAttachmentOptionsArgs) ToTransitGatewayPeeringAttachmentOptionsPtrOutput() TransitGatewayPeeringAttachmentOptionsPtrOutput {
+	return i.ToTransitGatewayPeeringAttachmentOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayPeeringAttachmentOptionsArgs) ToTransitGatewayPeeringAttachmentOptionsPtrOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayPeeringAttachmentOptionsOutput).ToTransitGatewayPeeringAttachmentOptionsPtrOutputWithContext(ctx)
+}
+
+// TransitGatewayPeeringAttachmentOptionsPtrInput is an input type that accepts TransitGatewayPeeringAttachmentOptionsArgs, TransitGatewayPeeringAttachmentOptionsPtr and TransitGatewayPeeringAttachmentOptionsPtrOutput values.
+// You can construct a concrete instance of `TransitGatewayPeeringAttachmentOptionsPtrInput` via:
+//
+//          TransitGatewayPeeringAttachmentOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type TransitGatewayPeeringAttachmentOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTransitGatewayPeeringAttachmentOptionsPtrOutput() TransitGatewayPeeringAttachmentOptionsPtrOutput
+	ToTransitGatewayPeeringAttachmentOptionsPtrOutputWithContext(context.Context) TransitGatewayPeeringAttachmentOptionsPtrOutput
+}
+
+type transitGatewayPeeringAttachmentOptionsPtrType TransitGatewayPeeringAttachmentOptionsArgs
+
+func TransitGatewayPeeringAttachmentOptionsPtr(v *TransitGatewayPeeringAttachmentOptionsArgs) TransitGatewayPeeringAttachmentOptionsPtrInput {
+	return (*transitGatewayPeeringAttachmentOptionsPtrType)(v)
+}
+
+func (*transitGatewayPeeringAttachmentOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransitGatewayPeeringAttachmentOptions)(nil)).Elem()
+}
+
+func (i *transitGatewayPeeringAttachmentOptionsPtrType) ToTransitGatewayPeeringAttachmentOptionsPtrOutput() TransitGatewayPeeringAttachmentOptionsPtrOutput {
+	return i.ToTransitGatewayPeeringAttachmentOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *transitGatewayPeeringAttachmentOptionsPtrType) ToTransitGatewayPeeringAttachmentOptionsPtrOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayPeeringAttachmentOptionsPtrOutput)
+}
+
+type TransitGatewayPeeringAttachmentOptionsOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayPeeringAttachmentOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayPeeringAttachmentOptions)(nil)).Elem()
+}
+
+func (o TransitGatewayPeeringAttachmentOptionsOutput) ToTransitGatewayPeeringAttachmentOptionsOutput() TransitGatewayPeeringAttachmentOptionsOutput {
+	return o
+}
+
+func (o TransitGatewayPeeringAttachmentOptionsOutput) ToTransitGatewayPeeringAttachmentOptionsOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentOptionsOutput {
+	return o
+}
+
+func (o TransitGatewayPeeringAttachmentOptionsOutput) ToTransitGatewayPeeringAttachmentOptionsPtrOutput() TransitGatewayPeeringAttachmentOptionsPtrOutput {
+	return o.ToTransitGatewayPeeringAttachmentOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayPeeringAttachmentOptionsOutput) ToTransitGatewayPeeringAttachmentOptionsPtrOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransitGatewayPeeringAttachmentOptions) *TransitGatewayPeeringAttachmentOptions {
+		return &v
+	}).(TransitGatewayPeeringAttachmentOptionsPtrOutput)
+}
+
+// Whether to enable dynamic routing. (enable/disable)
+func (o TransitGatewayPeeringAttachmentOptionsOutput) DynamicRouting() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransitGatewayPeeringAttachmentOptions) *string { return v.DynamicRouting }).(pulumi.StringPtrOutput)
+}
+
+type TransitGatewayPeeringAttachmentOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayPeeringAttachmentOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransitGatewayPeeringAttachmentOptions)(nil)).Elem()
+}
+
+func (o TransitGatewayPeeringAttachmentOptionsPtrOutput) ToTransitGatewayPeeringAttachmentOptionsPtrOutput() TransitGatewayPeeringAttachmentOptionsPtrOutput {
+	return o
+}
+
+func (o TransitGatewayPeeringAttachmentOptionsPtrOutput) ToTransitGatewayPeeringAttachmentOptionsPtrOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentOptionsPtrOutput {
+	return o
+}
+
+func (o TransitGatewayPeeringAttachmentOptionsPtrOutput) Elem() TransitGatewayPeeringAttachmentOptionsOutput {
+	return o.ApplyT(func(v *TransitGatewayPeeringAttachmentOptions) TransitGatewayPeeringAttachmentOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TransitGatewayPeeringAttachmentOptions
+		return ret
+	}).(TransitGatewayPeeringAttachmentOptionsOutput)
+}
+
+// Whether to enable dynamic routing. (enable/disable)
+func (o TransitGatewayPeeringAttachmentOptionsPtrOutput) DynamicRouting() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayPeeringAttachmentOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicRouting
+	}).(pulumi.StringPtrOutput)
+}
+
 type TransitGatewayPeeringAttachmentPeeringAttachmentStatus struct {
 	// The status code.
 	Code *string `pulumi:"code"`
@@ -23244,6 +23381,8 @@ func init() {
 	pulumi.RegisterOutputType(TransitGatewayConnectTagArrayOutput{})
 	pulumi.RegisterOutputType(TransitGatewayMulticastDomainTagOutput{})
 	pulumi.RegisterOutputType(TransitGatewayMulticastDomainTagArrayOutput{})
+	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentOptionsOutput{})
+	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput{})
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput{})
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentTagOutput{})

@@ -13,11 +13,16 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     [OutputType]
     public sealed class FirewallPolicyStatefulRuleGroupReference
     {
+        public readonly int? Priority;
         public readonly string ResourceArn;
 
         [OutputConstructor]
-        private FirewallPolicyStatefulRuleGroupReference(string resourceArn)
+        private FirewallPolicyStatefulRuleGroupReference(
+            int? priority,
+
+            string resourceArn)
         {
+            Priority = priority;
             ResourceArn = resourceArn;
         }
     }

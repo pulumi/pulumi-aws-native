@@ -8576,6 +8576,144 @@
                 "sourceIp"
             ]
         },
+        "aws-native:ec2:NetworkInterface": {
+            "cf": "AWS::EC2::NetworkInterface",
+            "inputs": {
+                "description": {
+                    "type": "string",
+                    "description": "A description for the network interface."
+                },
+                "groupSet": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of security group IDs associated with this network interface."
+                },
+                "interfaceType": {
+                    "type": "string",
+                    "description": "Indicates the type of network interface."
+                },
+                "ipv6AddressCount": {
+                    "type": "integer",
+                    "description": "The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. To specify specific IPv6 addresses, use the Ipv6Addresses property and don't specify this property."
+                },
+                "ipv6Addresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInterfaceInstanceIpv6Address"
+                    },
+                    "description": "One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet to associate with the network interface. If you're specifying a number of IPv6 addresses, use the Ipv6AddressCount property and don't specify this property."
+                },
+                "privateIpAddress": {
+                    "type": "string",
+                    "description": "Assigns a single private IP address to the network interface, which is used as the primary private IP address. If you want to specify multiple private IP address, use the PrivateIpAddresses property. "
+                },
+                "privateIpAddresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInterfacePrivateIpAddressSpecification"
+                    },
+                    "description": "Assigns a list of private IP addresses to the network interface. You can specify a primary private IP address by setting the value of the Primary property to true in the PrivateIpAddressSpecification property. If you want EC2 to automatically assign private IP addresses, use the SecondaryPrivateIpAddressCount property and do not specify this property."
+                },
+                "secondaryPrivateIpAddressCount": {
+                    "type": "integer",
+                    "description": "The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses"
+                },
+                "sourceDestCheck": {
+                    "type": "boolean",
+                    "description": "Indicates whether traffic to or from the instance is validated."
+                },
+                "subnetId": {
+                    "type": "string",
+                    "description": "The ID of the subnet to associate with the network interface."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInterfaceTag"
+                    },
+                    "description": "An arbitrary set of tags (key-value pairs) for this network interface."
+                }
+            },
+            "outputs": {
+                "description": {
+                    "type": "string",
+                    "description": "A description for the network interface."
+                },
+                "groupSet": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of security group IDs associated with this network interface."
+                },
+                "interfaceType": {
+                    "type": "string",
+                    "description": "Indicates the type of network interface."
+                },
+                "ipv6AddressCount": {
+                    "type": "integer",
+                    "description": "The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. To specify specific IPv6 addresses, use the Ipv6Addresses property and don't specify this property."
+                },
+                "ipv6Addresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInterfaceInstanceIpv6Address"
+                    },
+                    "description": "One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet to associate with the network interface. If you're specifying a number of IPv6 addresses, use the Ipv6AddressCount property and don't specify this property."
+                },
+                "primaryPrivateIpAddress": {
+                    "type": "string",
+                    "description": "Returns the primary private IP address of the network interface."
+                },
+                "privateIpAddress": {
+                    "type": "string",
+                    "description": "Assigns a single private IP address to the network interface, which is used as the primary private IP address. If you want to specify multiple private IP address, use the PrivateIpAddresses property. "
+                },
+                "privateIpAddresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInterfacePrivateIpAddressSpecification"
+                    },
+                    "description": "Assigns a list of private IP addresses to the network interface. You can specify a primary private IP address by setting the value of the Primary property to true in the PrivateIpAddressSpecification property. If you want EC2 to automatically assign private IP addresses, use the SecondaryPrivateIpAddressCount property and do not specify this property."
+                },
+                "secondaryPrivateIpAddressCount": {
+                    "type": "integer",
+                    "description": "The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses"
+                },
+                "secondaryPrivateIpAddresses": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Returns the secondary private IP addresses of the network interface."
+                },
+                "sourceDestCheck": {
+                    "type": "boolean",
+                    "description": "Indicates whether traffic to or from the instance is validated."
+                },
+                "subnetId": {
+                    "type": "string",
+                    "description": "The ID of the subnet to associate with the network interface."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkInterfaceTag"
+                    },
+                    "description": "An arbitrary set of tags (key-value pairs) for this network interface."
+                }
+            },
+            "required": [
+                "subnetId"
+            ],
+            "createOnly": [
+                "interfaceType",
+                "privateIpAddress",
+                "subnetId"
+            ]
+        },
         "aws-native:ec2:PrefixList": {
             "cf": "AWS::EC2::PrefixList",
             "inputs": {
@@ -8845,6 +8983,33 @@
             ],
             "createOnly": [
                 "networkAclId",
+                "subnetId"
+            ]
+        },
+        "aws-native:ec2:SubnetRouteTableAssociation": {
+            "cf": "AWS::EC2::SubnetRouteTableAssociation",
+            "inputs": {
+                "routeTableId": {
+                    "type": "string"
+                },
+                "subnetId": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "routeTableId": {
+                    "type": "string"
+                },
+                "subnetId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "routeTableId",
+                "subnetId"
+            ],
+            "createOnly": [
+                "routeTableId",
                 "subnetId"
             ]
         },
@@ -9265,6 +9430,10 @@
         "aws-native:ec2:TransitGatewayPeeringAttachment": {
             "cf": "AWS::EC2::TransitGatewayPeeringAttachment",
             "inputs": {
+                "options": {
+                    "$ref": "#/types/aws-native:ec2:TransitGatewayPeeringAttachmentOptions",
+                    "description": "Options for transit gateway peering attachment"
+                },
                 "peerAccountId": {
                     "type": "string",
                     "description": "The ID of the peer account"
@@ -9293,6 +9462,10 @@
                 "creationTime": {
                     "type": "string",
                     "description": "The time the transit gateway peering attachment was created."
+                },
+                "options": {
+                    "$ref": "#/types/aws-native:ec2:TransitGatewayPeeringAttachmentOptions",
+                    "description": "Options for transit gateway peering attachment"
                 },
                 "peerAccountId": {
                     "type": "string",
@@ -10616,28 +10789,44 @@
                 "kubernetesNetworkConfig": {
                     "$ref": "#/types/aws-native:eks:ClusterKubernetesNetworkConfig"
                 },
+                "logging": {
+                    "$ref": "#/types/aws-native:eks:ClusterLogging"
+                },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The unique name to give to your cluster."
                 },
                 "resourcesVpcConfig": {
                     "$ref": "#/types/aws-native:eks:ClusterResourcesVpcConfig"
                 },
                 "roleArn": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:eks:ClusterTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
                 },
                 "version": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used."
                 }
             },
             "outputs": {
                 "arn": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod."
                 },
                 "certificateAuthorityData": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The certificate-authority-data for your cluster."
                 },
                 "clusterSecurityGroupId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control plane to data plane communication."
                 },
                 "encryptionConfig": {
                     "type": "array",
@@ -10646,28 +10835,44 @@
                     }
                 },
                 "encryptionConfigKeyArn": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) or alias of the customer master key (CMK)."
                 },
                 "endpoint": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The endpoint for your Kubernetes API server, such as https://5E1D0CEXAMPLEA591B746AFC5AB30262.yl4.us-west-2.eks.amazonaws.com."
                 },
                 "kubernetesNetworkConfig": {
                     "$ref": "#/types/aws-native:eks:ClusterKubernetesNetworkConfig"
                 },
+                "logging": {
+                    "$ref": "#/types/aws-native:eks:ClusterLogging"
+                },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The unique name to give to your cluster."
                 },
                 "openIdConnectIssuerUrl": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The issuer URL for the cluster's OIDC identity provider, such as https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E. If you need to remove https:// from this output value, you can include the following code in your template."
                 },
                 "resourcesVpcConfig": {
                     "$ref": "#/types/aws-native:eks:ClusterResourcesVpcConfig"
                 },
                 "roleArn": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:eks:ClusterTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
                 },
                 "version": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used."
                 }
             },
             "required": [
@@ -10678,7 +10883,8 @@
                 "encryptionConfig",
                 "kubernetesNetworkConfig",
                 "name",
-                "resourcesVpcConfig",
+                "resourcesVpcConfig/SecurityGroupIds",
+                "resourcesVpcConfig/SubnetIds",
                 "roleArn"
             ]
         },
@@ -15225,6 +15431,50 @@
             ],
             "createOnly": [
                 "templateName"
+            ]
+        },
+        "aws-native:iot:ResourceSpecificLogging": {
+            "cf": "AWS::IoT::ResourceSpecificLogging",
+            "inputs": {
+                "logLevel": {
+                    "$ref": "#/types/aws-native:iot:ResourceSpecificLoggingLogLevel",
+                    "description": "The log level for a specific target. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED."
+                },
+                "targetName": {
+                    "type": "string",
+                    "description": "The target name."
+                },
+                "targetType": {
+                    "$ref": "#/types/aws-native:iot:ResourceSpecificLoggingTargetType",
+                    "description": "The target type. Value must be THING_GROUP."
+                }
+            },
+            "outputs": {
+                "logLevel": {
+                    "$ref": "#/types/aws-native:iot:ResourceSpecificLoggingLogLevel",
+                    "description": "The log level for a specific target. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED."
+                },
+                "targetId": {
+                    "type": "string",
+                    "description": "Unique Id for a Target (TargetType:TargetName), this will be internally built to serve as primary identifier for a log target."
+                },
+                "targetName": {
+                    "type": "string",
+                    "description": "The target name."
+                },
+                "targetType": {
+                    "$ref": "#/types/aws-native:iot:ResourceSpecificLoggingTargetType",
+                    "description": "The target type. Value must be THING_GROUP."
+                }
+            },
+            "required": [
+                "logLevel",
+                "targetName",
+                "targetType"
+            ],
+            "createOnly": [
+                "targetName",
+                "targetType"
             ]
         },
         "aws-native:iot:ScheduledAudit": {
@@ -37954,6 +38204,36 @@
                 }
             }
         },
+        "aws-native:ec2:NetworkInterfaceInstanceIpv6Address": {
+            "type": "object",
+            "properties": {
+                "ipv6Address": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:ec2:NetworkInterfacePrivateIpAddressSpecification": {
+            "type": "object",
+            "properties": {
+                "primary": {
+                    "type": "boolean"
+                },
+                "privateIpAddress": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:ec2:NetworkInterfaceTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:ec2:OptionsProperties": {
             "type": "object",
             "properties": {
@@ -38717,6 +38997,15 @@
                 "value": {
                     "type": "string",
                     "description": "The value of the tag. Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters."
+                }
+            }
+        },
+        "aws-native:ec2:TransitGatewayPeeringAttachmentOptions": {
+            "type": "object",
+            "properties": {
+                "dynamicRouting": {
+                    "type": "string",
+                    "description": "Whether to enable dynamic routing. (enable/disable)"
                 }
             }
         },
@@ -40013,13 +40302,24 @@
             "type": "object",
             "properties": {
                 "provider": {
-                    "$ref": "#/types/aws-native:eks:ClusterProvider"
+                    "$ref": "#/types/aws-native:eks:ClusterEncryptionConfigProviderProperties",
+                    "description": "The encryption provider for the cluster."
                 },
                 "resources": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Specifies the resources to be encrypted. The only supported value is \"secrets\"."
+                }
+            }
+        },
+        "aws-native:eks:ClusterEncryptionConfigProviderProperties": {
+            "type": "object",
+            "properties": {
+                "keyArn": {
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key."
                 }
             }
         },
@@ -40027,32 +40327,69 @@
             "type": "object",
             "properties": {
                 "serviceIpv4Cidr": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. "
                 }
             }
         },
-        "aws-native:eks:ClusterProvider": {
+        "aws-native:eks:ClusterLogging": {
             "type": "object",
             "properties": {
-                "keyArn": {
-                    "type": "string"
+                "clusterLogging": {
+                    "$ref": "#/types/aws-native:eks:ClusterLogging",
+                    "description": "The cluster control plane logging configuration for your cluster. ",
+                    "language": {
+                        "csharp": {
+                            "name": "ClusterLoggingValue"
+                        }
+                    }
                 }
             }
         },
         "aws-native:eks:ClusterResourcesVpcConfig": {
             "type": "object",
             "properties": {
+                "endpointPrivateAccess": {
+                    "type": "boolean",
+                    "description": "Set this value to true to enable private access for your cluster's Kubernetes API server endpoint. If you enable private access, Kubernetes API requests from within your cluster's VPC use the private VPC endpoint. The default value for this parameter is false, which disables private access for your Kubernetes API server. If you disable private access and you have nodes or AWS Fargate pods in the cluster, then ensure that publicAccessCidrs includes the necessary CIDR blocks for communication with the nodes or Fargate pods."
+                },
+                "endpointPublicAccess": {
+                    "type": "boolean",
+                    "description": "Set this value to false to disable public access to your cluster's Kubernetes API server endpoint. If you disable public access, your cluster's Kubernetes API server can only receive requests from within the cluster VPC. The default value for this parameter is true, which enables public access for your Kubernetes API server."
+                },
+                "publicAccessCidrs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The CIDR blocks that are allowed access to your cluster's public Kubernetes API server endpoint. Communication to the endpoint from addresses outside of the CIDR blocks that you specify is denied. The default value is 0.0.0.0/0. If you've disabled private endpoint access and you have nodes or AWS Fargate pods in the cluster, then ensure that you specify the necessary CIDR blocks."
+                },
                 "securityGroupIds": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Specify one or more security groups for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane. If you don't specify a security group, the default security group for your VPC is used."
                 },
                 "subnetIds": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Specify subnets for your Amazon EKS nodes. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your nodes and the Kubernetes control plane."
+                }
+            }
+        },
+        "aws-native:eks:ClusterTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
                 }
             }
         },
@@ -43211,6 +43548,12 @@
                     "type": "string"
                 }
             }
+        },
+        "aws-native:iot:ResourceSpecificLoggingLogLevel": {
+            "type": "string"
+        },
+        "aws-native:iot:ResourceSpecificLoggingTargetType": {
+            "type": "string"
         },
         "aws-native:iot:ScheduledAuditDayOfWeek": {
             "type": "string"
@@ -49503,6 +49846,15 @@
         "aws-native:networkfirewall:FirewallPolicy": {
             "type": "object",
             "properties": {
+                "statefulDefaultActions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "statefulEngineOptions": {
+                    "$ref": "#/types/aws-native:networkfirewall:FirewallPolicyStatefulEngineOptions"
+                },
                 "statefulRuleGroupReferences": {
                     "type": "array",
                     "items": {
@@ -49573,9 +49925,23 @@
                 }
             }
         },
+        "aws-native:networkfirewall:FirewallPolicyRuleOrder": {
+            "type": "string"
+        },
+        "aws-native:networkfirewall:FirewallPolicyStatefulEngineOptions": {
+            "type": "object",
+            "properties": {
+                "ruleOrder": {
+                    "$ref": "#/types/aws-native:networkfirewall:FirewallPolicyRuleOrder"
+                }
+            }
+        },
         "aws-native:networkfirewall:FirewallPolicyStatefulRuleGroupReference": {
             "type": "object",
             "properties": {
+                "priority": {
+                    "type": "integer"
+                },
                 "resourceArn": {
                     "type": "string"
                 }
@@ -49663,6 +50029,9 @@
                 },
                 "rulesSource": {
                     "$ref": "#/types/aws-native:networkfirewall:RuleGroupRulesSource"
+                },
+                "statefulRuleOptions": {
+                    "$ref": "#/types/aws-native:networkfirewall:RuleGroupStatefulRuleOptions"
                 }
             }
         },
@@ -49824,6 +50193,9 @@
                 }
             }
         },
+        "aws-native:networkfirewall:RuleGroupRuleOrder": {
+            "type": "string"
+        },
         "aws-native:networkfirewall:RuleGroupRuleVariables": {
             "type": "object",
             "properties": {
@@ -49894,6 +50266,14 @@
         },
         "aws-native:networkfirewall:RuleGroupStatefulRuleAction": {
             "type": "string"
+        },
+        "aws-native:networkfirewall:RuleGroupStatefulRuleOptions": {
+            "type": "object",
+            "properties": {
+                "ruleOrder": {
+                    "$ref": "#/types/aws-native:networkfirewall:RuleGroupRuleOrder"
+                }
+            }
         },
         "aws-native:networkfirewall:RuleGroupStatelessRule": {
             "type": "object",

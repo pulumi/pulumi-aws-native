@@ -8,6 +8,34 @@ using Pulumi;
 namespace Pulumi.AwsNative.NetworkFirewall
 {
     [EnumType]
+    public readonly struct FirewallPolicyRuleOrder : IEquatable<FirewallPolicyRuleOrder>
+    {
+        private readonly string _value;
+
+        private FirewallPolicyRuleOrder(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FirewallPolicyRuleOrder DefaultActionOrder { get; } = new FirewallPolicyRuleOrder("DEFAULT_ACTION_ORDER");
+        public static FirewallPolicyRuleOrder StrictOrder { get; } = new FirewallPolicyRuleOrder("STRICT_ORDER");
+
+        public static bool operator ==(FirewallPolicyRuleOrder left, FirewallPolicyRuleOrder right) => left.Equals(right);
+        public static bool operator !=(FirewallPolicyRuleOrder left, FirewallPolicyRuleOrder right) => !left.Equals(right);
+
+        public static explicit operator string(FirewallPolicyRuleOrder value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FirewallPolicyRuleOrder other && Equals(other);
+        public bool Equals(FirewallPolicyRuleOrder other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct LoggingConfigurationLogDestinationConfigLogDestinationType : IEquatable<LoggingConfigurationLogDestinationConfigLogDestinationType>
     {
         private readonly string _value;
@@ -158,6 +186,34 @@ namespace Pulumi.AwsNative.NetworkFirewall
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RuleGroupHeaderProtocol other && Equals(other);
         public bool Equals(RuleGroupHeaderProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RuleGroupRuleOrder : IEquatable<RuleGroupRuleOrder>
+    {
+        private readonly string _value;
+
+        private RuleGroupRuleOrder(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleGroupRuleOrder DefaultActionOrder { get; } = new RuleGroupRuleOrder("DEFAULT_ACTION_ORDER");
+        public static RuleGroupRuleOrder StrictOrder { get; } = new RuleGroupRuleOrder("STRICT_ORDER");
+
+        public static bool operator ==(RuleGroupRuleOrder left, RuleGroupRuleOrder right) => left.Equals(right);
+        public static bool operator !=(RuleGroupRuleOrder left, RuleGroupRuleOrder right) => !left.Equals(right);
+
+        public static explicit operator string(RuleGroupRuleOrder value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleGroupRuleOrder other && Equals(other);
+        public bool Equals(RuleGroupRuleOrder other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

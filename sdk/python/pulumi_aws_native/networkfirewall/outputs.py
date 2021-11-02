@@ -16,6 +16,7 @@ __all__ = [
     'FirewallPolicyCustomAction',
     'FirewallPolicyDimension',
     'FirewallPolicyPublishMetricAction',
+    'FirewallPolicyStatefulEngineOptions',
     'FirewallPolicyStatefulRuleGroupReference',
     'FirewallPolicyStatelessRuleGroupReference',
     'FirewallPolicyTag',
@@ -38,6 +39,7 @@ __all__ = [
     'RuleGroupRulesSource',
     'RuleGroupRulesSourceList',
     'RuleGroupStatefulRule',
+    'RuleGroupStatefulRuleOptions',
     'RuleGroupStatelessRule',
     'RuleGroupStatelessRulesAndCustomActions',
     'RuleGroupTCPFlagField',
@@ -53,6 +55,10 @@ class FirewallPolicy(dict):
             suggest = "stateless_default_actions"
         elif key == "statelessFragmentDefaultActions":
             suggest = "stateless_fragment_default_actions"
+        elif key == "statefulDefaultActions":
+            suggest = "stateful_default_actions"
+        elif key == "statefulEngineOptions":
+            suggest = "stateful_engine_options"
         elif key == "statefulRuleGroupReferences":
             suggest = "stateful_rule_group_references"
         elif key == "statelessCustomActions":
@@ -74,11 +80,17 @@ class FirewallPolicy(dict):
     def __init__(__self__, *,
                  stateless_default_actions: Sequence[str],
                  stateless_fragment_default_actions: Sequence[str],
+                 stateful_default_actions: Optional[Sequence[str]] = None,
+                 stateful_engine_options: Optional['outputs.FirewallPolicyStatefulEngineOptions'] = None,
                  stateful_rule_group_references: Optional[Sequence['outputs.FirewallPolicyStatefulRuleGroupReference']] = None,
                  stateless_custom_actions: Optional[Sequence['outputs.FirewallPolicyCustomAction']] = None,
                  stateless_rule_group_references: Optional[Sequence['outputs.FirewallPolicyStatelessRuleGroupReference']] = None):
         pulumi.set(__self__, "stateless_default_actions", stateless_default_actions)
         pulumi.set(__self__, "stateless_fragment_default_actions", stateless_fragment_default_actions)
+        if stateful_default_actions is not None:
+            pulumi.set(__self__, "stateful_default_actions", stateful_default_actions)
+        if stateful_engine_options is not None:
+            pulumi.set(__self__, "stateful_engine_options", stateful_engine_options)
         if stateful_rule_group_references is not None:
             pulumi.set(__self__, "stateful_rule_group_references", stateful_rule_group_references)
         if stateless_custom_actions is not None:
@@ -95,6 +107,16 @@ class FirewallPolicy(dict):
     @pulumi.getter(name="statelessFragmentDefaultActions")
     def stateless_fragment_default_actions(self) -> Sequence[str]:
         return pulumi.get(self, "stateless_fragment_default_actions")
+
+    @property
+    @pulumi.getter(name="statefulDefaultActions")
+    def stateful_default_actions(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "stateful_default_actions")
+
+    @property
+    @pulumi.getter(name="statefulEngineOptions")
+    def stateful_engine_options(self) -> Optional['outputs.FirewallPolicyStatefulEngineOptions']:
+        return pulumi.get(self, "stateful_engine_options")
 
     @property
     @pulumi.getter(name="statefulRuleGroupReferences")
@@ -205,6 +227,36 @@ class FirewallPolicyPublishMetricAction(dict):
 
 
 @pulumi.output_type
+class FirewallPolicyStatefulEngineOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleOrder":
+            suggest = "rule_order"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyStatefulEngineOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyStatefulEngineOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyStatefulEngineOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rule_order: Optional['FirewallPolicyRuleOrder'] = None):
+        if rule_order is not None:
+            pulumi.set(__self__, "rule_order", rule_order)
+
+    @property
+    @pulumi.getter(name="ruleOrder")
+    def rule_order(self) -> Optional['FirewallPolicyRuleOrder']:
+        return pulumi.get(self, "rule_order")
+
+
+@pulumi.output_type
 class FirewallPolicyStatefulRuleGroupReference(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -224,13 +276,21 @@ class FirewallPolicyStatefulRuleGroupReference(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 resource_arn: str):
+                 resource_arn: str,
+                 priority: Optional[int] = None):
         pulumi.set(__self__, "resource_arn", resource_arn)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
 
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> str:
         return pulumi.get(self, "resource_arn")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[int]:
+        return pulumi.get(self, "priority")
 
 
 @pulumi.output_type
@@ -433,6 +493,8 @@ class RuleGroup(dict):
             suggest = "rules_source"
         elif key == "ruleVariables":
             suggest = "rule_variables"
+        elif key == "statefulRuleOptions":
+            suggest = "stateful_rule_options"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RuleGroup. Access the value via the '{suggest}' property getter instead.")
@@ -447,10 +509,13 @@ class RuleGroup(dict):
 
     def __init__(__self__, *,
                  rules_source: 'outputs.RuleGroupRulesSource',
-                 rule_variables: Optional['outputs.RuleGroupRuleVariables'] = None):
+                 rule_variables: Optional['outputs.RuleGroupRuleVariables'] = None,
+                 stateful_rule_options: Optional['outputs.RuleGroupStatefulRuleOptions'] = None):
         pulumi.set(__self__, "rules_source", rules_source)
         if rule_variables is not None:
             pulumi.set(__self__, "rule_variables", rule_variables)
+        if stateful_rule_options is not None:
+            pulumi.set(__self__, "stateful_rule_options", stateful_rule_options)
 
     @property
     @pulumi.getter(name="rulesSource")
@@ -461,6 +526,11 @@ class RuleGroup(dict):
     @pulumi.getter(name="ruleVariables")
     def rule_variables(self) -> Optional['outputs.RuleGroupRuleVariables']:
         return pulumi.get(self, "rule_variables")
+
+    @property
+    @pulumi.getter(name="statefulRuleOptions")
+    def stateful_rule_options(self) -> Optional['outputs.RuleGroupStatefulRuleOptions']:
+        return pulumi.get(self, "stateful_rule_options")
 
 
 @pulumi.output_type
@@ -1004,6 +1074,36 @@ class RuleGroupStatefulRule(dict):
     @pulumi.getter(name="ruleOptions")
     def rule_options(self) -> Sequence['outputs.RuleGroupRuleOption']:
         return pulumi.get(self, "rule_options")
+
+
+@pulumi.output_type
+class RuleGroupStatefulRuleOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleOrder":
+            suggest = "rule_order"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupStatefulRuleOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupStatefulRuleOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupStatefulRuleOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rule_order: Optional['RuleGroupRuleOrder'] = None):
+        if rule_order is not None:
+            pulumi.set(__self__, "rule_order", rule_order)
+
+    @property
+    @pulumi.getter(name="ruleOrder")
+    def rule_order(self) -> Optional['RuleGroupRuleOrder']:
+        return pulumi.get(self, "rule_order")
 
 
 @pulumi.output_type

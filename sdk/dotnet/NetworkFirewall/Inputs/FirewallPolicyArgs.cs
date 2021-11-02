@@ -12,6 +12,17 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
     public sealed class FirewallPolicyArgs : Pulumi.ResourceArgs
     {
+        [Input("statefulDefaultActions")]
+        private InputList<string>? _statefulDefaultActions;
+        public InputList<string> StatefulDefaultActions
+        {
+            get => _statefulDefaultActions ?? (_statefulDefaultActions = new InputList<string>());
+            set => _statefulDefaultActions = value;
+        }
+
+        [Input("statefulEngineOptions")]
+        public Input<Inputs.FirewallPolicyStatefulEngineOptionsArgs>? StatefulEngineOptions { get; set; }
+
         [Input("statefulRuleGroupReferences")]
         private InputList<Inputs.FirewallPolicyStatefulRuleGroupReferenceArgs>? _statefulRuleGroupReferences;
         public InputList<Inputs.FirewallPolicyStatefulRuleGroupReferenceArgs> StatefulRuleGroupReferences

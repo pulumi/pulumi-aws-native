@@ -2,6 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const FirewallPolicyRuleOrder = {
+    DefaultActionOrder: "DEFAULT_ACTION_ORDER",
+    StrictOrder: "STRICT_ORDER",
+} as const;
+
+export type FirewallPolicyRuleOrder = (typeof FirewallPolicyRuleOrder)[keyof typeof FirewallPolicyRuleOrder];
+
 export const LoggingConfigurationLogDestinationConfigLogDestinationType = {
     S3: "S3",
     CloudWatchLogs: "CloudWatchLogs",
@@ -54,6 +61,13 @@ export const RuleGroupHeaderProtocol = {
 } as const;
 
 export type RuleGroupHeaderProtocol = (typeof RuleGroupHeaderProtocol)[keyof typeof RuleGroupHeaderProtocol];
+
+export const RuleGroupRuleOrder = {
+    DefaultActionOrder: "DEFAULT_ACTION_ORDER",
+    StrictOrder: "STRICT_ORDER",
+} as const;
+
+export type RuleGroupRuleOrder = (typeof RuleGroupRuleOrder)[keyof typeof RuleGroupRuleOrder];
 
 export const RuleGroupStatefulRuleAction = {
     Pass: "PASS",

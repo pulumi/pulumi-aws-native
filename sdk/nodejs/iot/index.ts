@@ -17,6 +17,7 @@ export * from "./mitigationAction";
 export * from "./policy";
 export * from "./policyPrincipalAttachment";
 export * from "./provisioningTemplate";
+export * from "./resourceSpecificLogging";
 export * from "./scheduledAudit";
 export * from "./securityProfile";
 export * from "./thing";
@@ -40,6 +41,7 @@ import { MitigationAction } from "./mitigationAction";
 import { Policy } from "./policy";
 import { PolicyPrincipalAttachment } from "./policyPrincipalAttachment";
 import { ProvisioningTemplate } from "./provisioningTemplate";
+import { ResourceSpecificLogging } from "./resourceSpecificLogging";
 import { ScheduledAudit } from "./scheduledAudit";
 import { SecurityProfile } from "./securityProfile";
 import { Thing } from "./thing";
@@ -75,6 +77,8 @@ const _module = {
                 return new PolicyPrincipalAttachment(name, <any>undefined, { urn })
             case "aws-native:iot:ProvisioningTemplate":
                 return new ProvisioningTemplate(name, <any>undefined, { urn })
+            case "aws-native:iot:ResourceSpecificLogging":
+                return new ResourceSpecificLogging(name, <any>undefined, { urn })
             case "aws-native:iot:ScheduledAudit":
                 return new ScheduledAudit(name, <any>undefined, { urn })
             case "aws-native:iot:SecurityProfile":

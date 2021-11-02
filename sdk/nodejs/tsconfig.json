@@ -577,6 +577,7 @@
         "iot/policy.ts",
         "iot/policyPrincipalAttachment.ts",
         "iot/provisioningTemplate.ts",
+        "iot/resourceSpecificLogging.ts",
         "iot/scheduledAudit.ts",
         "iot/securityProfile.ts",
         "iot/thing.ts",

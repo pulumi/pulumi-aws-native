@@ -149,6 +149,7 @@ __all__ = [
     'TransitGatewayConnectOptionsArgs',
     'TransitGatewayConnectTagArgs',
     'TransitGatewayMulticastDomainTagArgs',
+    'TransitGatewayPeeringAttachmentOptionsArgs',
     'TransitGatewayPeeringAttachmentTagArgs',
     'TransitGatewayRouteTableTagArgs',
     'TransitGatewayTagArgs',
@@ -6410,6 +6411,29 @@ class TransitGatewayMulticastDomainTagArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class TransitGatewayPeeringAttachmentOptionsArgs:
+    def __init__(__self__, *,
+                 dynamic_routing: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] dynamic_routing: Whether to enable dynamic routing. (enable/disable)
+        """
+        if dynamic_routing is not None:
+            pulumi.set(__self__, "dynamic_routing", dynamic_routing)
+
+    @property
+    @pulumi.getter(name="dynamicRouting")
+    def dynamic_routing(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether to enable dynamic routing. (enable/disable)
+        """
+        return pulumi.get(self, "dynamic_routing")
+
+    @dynamic_routing.setter
+    def dynamic_routing(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dynamic_routing", value)
 
 
 @pulumi.input_type

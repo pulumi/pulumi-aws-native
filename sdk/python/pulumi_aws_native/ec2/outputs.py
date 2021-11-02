@@ -161,6 +161,7 @@ __all__ = [
     'TransitGatewayConnectOptions',
     'TransitGatewayConnectTag',
     'TransitGatewayMulticastDomainTag',
+    'TransitGatewayPeeringAttachmentOptions',
     'TransitGatewayPeeringAttachmentPeeringAttachmentStatus',
     'TransitGatewayPeeringAttachmentTag',
     'TransitGatewayRouteTableTag',
@@ -7382,6 +7383,42 @@ class TransitGatewayMulticastDomainTag(dict):
         The value of the tag. Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TransitGatewayPeeringAttachmentOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dynamicRouting":
+            suggest = "dynamic_routing"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransitGatewayPeeringAttachmentOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransitGatewayPeeringAttachmentOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransitGatewayPeeringAttachmentOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dynamic_routing: Optional[str] = None):
+        """
+        :param str dynamic_routing: Whether to enable dynamic routing. (enable/disable)
+        """
+        if dynamic_routing is not None:
+            pulumi.set(__self__, "dynamic_routing", dynamic_routing)
+
+    @property
+    @pulumi.getter(name="dynamicRouting")
+    def dynamic_routing(self) -> Optional[str]:
+        """
+        Whether to enable dynamic routing. (enable/disable)
+        """
+        return pulumi.get(self, "dynamic_routing")
 
 
 @pulumi.output_type

@@ -122,6 +122,28 @@ export const MitigationActionUpdateDeviceCertificateParamsAction = {
 
 export type MitigationActionUpdateDeviceCertificateParamsAction = (typeof MitigationActionUpdateDeviceCertificateParamsAction)[keyof typeof MitigationActionUpdateDeviceCertificateParamsAction];
 
+export const ResourceSpecificLoggingLogLevel = {
+    Error: "ERROR",
+    Warn: "WARN",
+    Info: "INFO",
+    Debug: "DEBUG",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * The log level for a specific target. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
+ */
+export type ResourceSpecificLoggingLogLevel = (typeof ResourceSpecificLoggingLogLevel)[keyof typeof ResourceSpecificLoggingLogLevel];
+
+export const ResourceSpecificLoggingTargetType = {
+    ThingGroup: "THING_GROUP",
+} as const;
+
+/**
+ * The target type. Value must be THING_GROUP.
+ */
+export type ResourceSpecificLoggingTargetType = (typeof ResourceSpecificLoggingTargetType)[keyof typeof ResourceSpecificLoggingTargetType];
+
 export const ScheduledAuditDayOfWeek = {
     Sun: "SUN",
     Mon: "MON",
