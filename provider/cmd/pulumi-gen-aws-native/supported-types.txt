@@ -122,11 +122,13 @@ AWS::EC2::LocalGatewayRouteTableVPCAssociation
 AWS::EC2::NetworkAcl
 AWS::EC2::NetworkInsightsAnalysis
 AWS::EC2::NetworkInsightsPath
+AWS::EC2::NetworkInterface
 AWS::EC2::PrefixList
 AWS::EC2::RouteTable
 AWS::EC2::SpotFleet
 AWS::EC2::Subnet
 AWS::EC2::SubnetNetworkAclAssociation
+AWS::EC2::SubnetRouteTableAssociation
 AWS::EC2::TransitGateway
 AWS::EC2::TransitGatewayConnect
 AWS::EC2::TransitGatewayMulticastDomain
@@ -215,6 +217,7 @@ AWS::IoT::FleetMetric
 AWS::IoT::JobTemplate
 AWS::IoT::MitigationAction
 AWS::IoT::ProvisioningTemplate
+AWS::IoT::ResourceSpecificLogging
 AWS::IoT::ScheduledAudit
 AWS::IoT::SecurityProfile
 AWS::IoT::TopicRule

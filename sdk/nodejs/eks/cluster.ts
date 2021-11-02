@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::EKS::Cluster
+ * An object representing an Amazon EKS cluster.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -35,17 +35,49 @@ export class Cluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === Cluster.__pulumiType;
     }
 
+    /**
+     * The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The certificate-authority-data for your cluster.
+     */
     public /*out*/ readonly certificateAuthorityData!: pulumi.Output<string>;
+    /**
+     * The cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control plane to data plane communication.
+     */
     public /*out*/ readonly clusterSecurityGroupId!: pulumi.Output<string>;
     public readonly encryptionConfig!: pulumi.Output<outputs.eks.ClusterEncryptionConfig[] | undefined>;
+    /**
+     * Amazon Resource Name (ARN) or alias of the customer master key (CMK).
+     */
     public /*out*/ readonly encryptionConfigKeyArn!: pulumi.Output<string>;
+    /**
+     * The endpoint for your Kubernetes API server, such as https://5E1D0CEXAMPLEA591B746AFC5AB30262.yl4.us-west-2.eks.amazonaws.com.
+     */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     public readonly kubernetesNetworkConfig!: pulumi.Output<outputs.eks.ClusterKubernetesNetworkConfig | undefined>;
+    public readonly logging!: pulumi.Output<outputs.eks.ClusterLogging | undefined>;
+    /**
+     * The unique name to give to your cluster.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * The issuer URL for the cluster's OIDC identity provider, such as https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E. If you need to remove https:// from this output value, you can include the following code in your template.
+     */
     public /*out*/ readonly openIdConnectIssuerUrl!: pulumi.Output<string>;
     public readonly resourcesVpcConfig!: pulumi.Output<outputs.eks.ClusterResourcesVpcConfig>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+     */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.eks.ClusterTag[] | undefined>;
+    /**
+     * The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
+     */
     public readonly version!: pulumi.Output<string | undefined>;
 
     /**
@@ -67,9 +99,11 @@ export class Cluster extends pulumi.CustomResource {
             }
             inputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
             inputs["kubernetesNetworkConfig"] = args ? args.kubernetesNetworkConfig : undefined;
+            inputs["logging"] = args ? args.logging : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourcesVpcConfig"] = args ? args.resourcesVpcConfig : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["version"] = args ? args.version : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["certificateAuthorityData"] = undefined /*out*/;
@@ -85,10 +119,12 @@ export class Cluster extends pulumi.CustomResource {
             inputs["encryptionConfigKeyArn"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
             inputs["kubernetesNetworkConfig"] = undefined /*out*/;
+            inputs["logging"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["openIdConnectIssuerUrl"] = undefined /*out*/;
             inputs["resourcesVpcConfig"] = undefined /*out*/;
             inputs["roleArn"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -104,8 +140,22 @@ export class Cluster extends pulumi.CustomResource {
 export interface ClusterArgs {
     encryptionConfig?: pulumi.Input<pulumi.Input<inputs.eks.ClusterEncryptionConfigArgs>[]>;
     kubernetesNetworkConfig?: pulumi.Input<inputs.eks.ClusterKubernetesNetworkConfigArgs>;
+    logging?: pulumi.Input<inputs.eks.ClusterLoggingArgs>;
+    /**
+     * The unique name to give to your cluster.
+     */
     name?: pulumi.Input<string>;
     resourcesVpcConfig: pulumi.Input<inputs.eks.ClusterResourcesVpcConfigArgs>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+     */
     roleArn: pulumi.Input<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.eks.ClusterTagArgs>[]>;
+    /**
+     * The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
+     */
     version?: pulumi.Input<string>;
 }

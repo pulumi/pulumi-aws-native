@@ -18,6 +18,7 @@ from .mitigation_action import *
 from .policy import *
 from .policy_principal_attachment import *
 from .provisioning_template import *
+from .resource_specific_logging import *
 from .scheduled_audit import *
 from .security_profile import *
 from .thing import *

@@ -119,9 +119,12 @@ func (o AddonTagArrayOutput) Index(i pulumi.IntInput) AddonTagOutput {
 	}).(AddonTagOutput)
 }
 
+// The encryption configuration for the cluster
 type ClusterEncryptionConfig struct {
-	Provider  *ClusterProvider `pulumi:"provider"`
-	Resources []string         `pulumi:"resources"`
+	// The encryption provider for the cluster.
+	Provider *ClusterEncryptionConfigProviderProperties `pulumi:"provider"`
+	// Specifies the resources to be encrypted. The only supported value is "secrets".
+	Resources []string `pulumi:"resources"`
 }
 
 // ClusterEncryptionConfigInput is an input type that accepts ClusterEncryptionConfigArgs and ClusterEncryptionConfigOutput values.
@@ -135,8 +138,11 @@ type ClusterEncryptionConfigInput interface {
 	ToClusterEncryptionConfigOutputWithContext(context.Context) ClusterEncryptionConfigOutput
 }
 
+// The encryption configuration for the cluster
 type ClusterEncryptionConfigArgs struct {
-	Provider  ClusterProviderPtrInput `pulumi:"provider"`
+	// The encryption provider for the cluster.
+	Provider ClusterEncryptionConfigProviderPropertiesPtrInput `pulumi:"provider"`
+	// Specifies the resources to be encrypted. The only supported value is "secrets".
 	Resources pulumi.StringArrayInput `pulumi:"resources"`
 }
 
@@ -177,6 +183,7 @@ func (i ClusterEncryptionConfigArray) ToClusterEncryptionConfigArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterEncryptionConfigArrayOutput)
 }
 
+// The encryption configuration for the cluster
 type ClusterEncryptionConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterEncryptionConfigOutput) ElementType() reflect.Type {
@@ -191,10 +198,12 @@ func (o ClusterEncryptionConfigOutput) ToClusterEncryptionConfigOutputWithContex
 	return o
 }
 
-func (o ClusterEncryptionConfigOutput) Provider() ClusterProviderPtrOutput {
-	return o.ApplyT(func(v ClusterEncryptionConfig) *ClusterProvider { return v.Provider }).(ClusterProviderPtrOutput)
+// The encryption provider for the cluster.
+func (o ClusterEncryptionConfigOutput) Provider() ClusterEncryptionConfigProviderPropertiesPtrOutput {
+	return o.ApplyT(func(v ClusterEncryptionConfig) *ClusterEncryptionConfigProviderProperties { return v.Provider }).(ClusterEncryptionConfigProviderPropertiesPtrOutput)
 }
 
+// Specifies the resources to be encrypted. The only supported value is "secrets".
 func (o ClusterEncryptionConfigOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterEncryptionConfig) []string { return v.Resources }).(pulumi.StringArrayOutput)
 }
@@ -219,7 +228,149 @@ func (o ClusterEncryptionConfigArrayOutput) Index(i pulumi.IntInput) ClusterEncr
 	}).(ClusterEncryptionConfigOutput)
 }
 
+// The encryption provider for the cluster.
+type ClusterEncryptionConfigProviderProperties struct {
+	// Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key.
+	KeyArn *string `pulumi:"keyArn"`
+}
+
+// ClusterEncryptionConfigProviderPropertiesInput is an input type that accepts ClusterEncryptionConfigProviderPropertiesArgs and ClusterEncryptionConfigProviderPropertiesOutput values.
+// You can construct a concrete instance of `ClusterEncryptionConfigProviderPropertiesInput` via:
+//
+//          ClusterEncryptionConfigProviderPropertiesArgs{...}
+type ClusterEncryptionConfigProviderPropertiesInput interface {
+	pulumi.Input
+
+	ToClusterEncryptionConfigProviderPropertiesOutput() ClusterEncryptionConfigProviderPropertiesOutput
+	ToClusterEncryptionConfigProviderPropertiesOutputWithContext(context.Context) ClusterEncryptionConfigProviderPropertiesOutput
+}
+
+// The encryption provider for the cluster.
+type ClusterEncryptionConfigProviderPropertiesArgs struct {
+	// Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key.
+	KeyArn pulumi.StringPtrInput `pulumi:"keyArn"`
+}
+
+func (ClusterEncryptionConfigProviderPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterEncryptionConfigProviderProperties)(nil)).Elem()
+}
+
+func (i ClusterEncryptionConfigProviderPropertiesArgs) ToClusterEncryptionConfigProviderPropertiesOutput() ClusterEncryptionConfigProviderPropertiesOutput {
+	return i.ToClusterEncryptionConfigProviderPropertiesOutputWithContext(context.Background())
+}
+
+func (i ClusterEncryptionConfigProviderPropertiesArgs) ToClusterEncryptionConfigProviderPropertiesOutputWithContext(ctx context.Context) ClusterEncryptionConfigProviderPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEncryptionConfigProviderPropertiesOutput)
+}
+
+func (i ClusterEncryptionConfigProviderPropertiesArgs) ToClusterEncryptionConfigProviderPropertiesPtrOutput() ClusterEncryptionConfigProviderPropertiesPtrOutput {
+	return i.ToClusterEncryptionConfigProviderPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterEncryptionConfigProviderPropertiesArgs) ToClusterEncryptionConfigProviderPropertiesPtrOutputWithContext(ctx context.Context) ClusterEncryptionConfigProviderPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEncryptionConfigProviderPropertiesOutput).ToClusterEncryptionConfigProviderPropertiesPtrOutputWithContext(ctx)
+}
+
+// ClusterEncryptionConfigProviderPropertiesPtrInput is an input type that accepts ClusterEncryptionConfigProviderPropertiesArgs, ClusterEncryptionConfigProviderPropertiesPtr and ClusterEncryptionConfigProviderPropertiesPtrOutput values.
+// You can construct a concrete instance of `ClusterEncryptionConfigProviderPropertiesPtrInput` via:
+//
+//          ClusterEncryptionConfigProviderPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterEncryptionConfigProviderPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToClusterEncryptionConfigProviderPropertiesPtrOutput() ClusterEncryptionConfigProviderPropertiesPtrOutput
+	ToClusterEncryptionConfigProviderPropertiesPtrOutputWithContext(context.Context) ClusterEncryptionConfigProviderPropertiesPtrOutput
+}
+
+type clusterEncryptionConfigProviderPropertiesPtrType ClusterEncryptionConfigProviderPropertiesArgs
+
+func ClusterEncryptionConfigProviderPropertiesPtr(v *ClusterEncryptionConfigProviderPropertiesArgs) ClusterEncryptionConfigProviderPropertiesPtrInput {
+	return (*clusterEncryptionConfigProviderPropertiesPtrType)(v)
+}
+
+func (*clusterEncryptionConfigProviderPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterEncryptionConfigProviderProperties)(nil)).Elem()
+}
+
+func (i *clusterEncryptionConfigProviderPropertiesPtrType) ToClusterEncryptionConfigProviderPropertiesPtrOutput() ClusterEncryptionConfigProviderPropertiesPtrOutput {
+	return i.ToClusterEncryptionConfigProviderPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterEncryptionConfigProviderPropertiesPtrType) ToClusterEncryptionConfigProviderPropertiesPtrOutputWithContext(ctx context.Context) ClusterEncryptionConfigProviderPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEncryptionConfigProviderPropertiesPtrOutput)
+}
+
+// The encryption provider for the cluster.
+type ClusterEncryptionConfigProviderPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ClusterEncryptionConfigProviderPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterEncryptionConfigProviderProperties)(nil)).Elem()
+}
+
+func (o ClusterEncryptionConfigProviderPropertiesOutput) ToClusterEncryptionConfigProviderPropertiesOutput() ClusterEncryptionConfigProviderPropertiesOutput {
+	return o
+}
+
+func (o ClusterEncryptionConfigProviderPropertiesOutput) ToClusterEncryptionConfigProviderPropertiesOutputWithContext(ctx context.Context) ClusterEncryptionConfigProviderPropertiesOutput {
+	return o
+}
+
+func (o ClusterEncryptionConfigProviderPropertiesOutput) ToClusterEncryptionConfigProviderPropertiesPtrOutput() ClusterEncryptionConfigProviderPropertiesPtrOutput {
+	return o.ToClusterEncryptionConfigProviderPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterEncryptionConfigProviderPropertiesOutput) ToClusterEncryptionConfigProviderPropertiesPtrOutputWithContext(ctx context.Context) ClusterEncryptionConfigProviderPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterEncryptionConfigProviderProperties) *ClusterEncryptionConfigProviderProperties {
+		return &v
+	}).(ClusterEncryptionConfigProviderPropertiesPtrOutput)
+}
+
+// Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key.
+func (o ClusterEncryptionConfigProviderPropertiesOutput) KeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterEncryptionConfigProviderProperties) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
+}
+
+type ClusterEncryptionConfigProviderPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterEncryptionConfigProviderPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterEncryptionConfigProviderProperties)(nil)).Elem()
+}
+
+func (o ClusterEncryptionConfigProviderPropertiesPtrOutput) ToClusterEncryptionConfigProviderPropertiesPtrOutput() ClusterEncryptionConfigProviderPropertiesPtrOutput {
+	return o
+}
+
+func (o ClusterEncryptionConfigProviderPropertiesPtrOutput) ToClusterEncryptionConfigProviderPropertiesPtrOutputWithContext(ctx context.Context) ClusterEncryptionConfigProviderPropertiesPtrOutput {
+	return o
+}
+
+func (o ClusterEncryptionConfigProviderPropertiesPtrOutput) Elem() ClusterEncryptionConfigProviderPropertiesOutput {
+	return o.ApplyT(func(v *ClusterEncryptionConfigProviderProperties) ClusterEncryptionConfigProviderProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterEncryptionConfigProviderProperties
+		return ret
+	}).(ClusterEncryptionConfigProviderPropertiesOutput)
+}
+
+// Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key.
+func (o ClusterEncryptionConfigProviderPropertiesPtrOutput) KeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterEncryptionConfigProviderProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Kubernetes network configuration for the cluster.
 type ClusterKubernetesNetworkConfig struct {
+	// The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC.
 	ServiceIpv4Cidr *string `pulumi:"serviceIpv4Cidr"`
 }
 
@@ -234,7 +385,9 @@ type ClusterKubernetesNetworkConfigInput interface {
 	ToClusterKubernetesNetworkConfigOutputWithContext(context.Context) ClusterKubernetesNetworkConfigOutput
 }
 
+// The Kubernetes network configuration for the cluster.
 type ClusterKubernetesNetworkConfigArgs struct {
+	// The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC.
 	ServiceIpv4Cidr pulumi.StringPtrInput `pulumi:"serviceIpv4Cidr"`
 }
 
@@ -291,6 +444,7 @@ func (i *clusterKubernetesNetworkConfigPtrType) ToClusterKubernetesNetworkConfig
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubernetesNetworkConfigPtrOutput)
 }
 
+// The Kubernetes network configuration for the cluster.
 type ClusterKubernetesNetworkConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterKubernetesNetworkConfigOutput) ElementType() reflect.Type {
@@ -315,6 +469,7 @@ func (o ClusterKubernetesNetworkConfigOutput) ToClusterKubernetesNetworkConfigPt
 	}).(ClusterKubernetesNetworkConfigPtrOutput)
 }
 
+// The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC.
 func (o ClusterKubernetesNetworkConfigOutput) ServiceIpv4Cidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterKubernetesNetworkConfig) *string { return v.ServiceIpv4Cidr }).(pulumi.StringPtrOutput)
 }
@@ -343,6 +498,7 @@ func (o ClusterKubernetesNetworkConfigPtrOutput) Elem() ClusterKubernetesNetwork
 	}).(ClusterKubernetesNetworkConfigOutput)
 }
 
+// The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC.
 func (o ClusterKubernetesNetworkConfigPtrOutput) ServiceIpv4Cidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterKubernetesNetworkConfig) *string {
 		if v == nil {
@@ -352,142 +508,158 @@ func (o ClusterKubernetesNetworkConfigPtrOutput) ServiceIpv4Cidr() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-type ClusterProvider struct {
-	KeyArn *string `pulumi:"keyArn"`
+// Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
+type ClusterLogging struct {
+	// The cluster control plane logging configuration for your cluster.
+	ClusterLogging *ClusterLogging `pulumi:"clusterLogging"`
 }
 
-// ClusterProviderInput is an input type that accepts ClusterProviderArgs and ClusterProviderOutput values.
-// You can construct a concrete instance of `ClusterProviderInput` via:
+// ClusterLoggingInput is an input type that accepts ClusterLoggingArgs and ClusterLoggingOutput values.
+// You can construct a concrete instance of `ClusterLoggingInput` via:
 //
-//          ClusterProviderArgs{...}
-type ClusterProviderInput interface {
+//          ClusterLoggingArgs{...}
+type ClusterLoggingInput interface {
 	pulumi.Input
 
-	ToClusterProviderOutput() ClusterProviderOutput
-	ToClusterProviderOutputWithContext(context.Context) ClusterProviderOutput
+	ToClusterLoggingOutput() ClusterLoggingOutput
+	ToClusterLoggingOutputWithContext(context.Context) ClusterLoggingOutput
 }
 
-type ClusterProviderArgs struct {
-	KeyArn pulumi.StringPtrInput `pulumi:"keyArn"`
+// Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
+type ClusterLoggingArgs struct {
+	// The cluster control plane logging configuration for your cluster.
+	ClusterLogging ClusterLoggingPtrInput `pulumi:"clusterLogging"`
 }
 
-func (ClusterProviderArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterProvider)(nil)).Elem()
+func (ClusterLoggingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLogging)(nil)).Elem()
 }
 
-func (i ClusterProviderArgs) ToClusterProviderOutput() ClusterProviderOutput {
-	return i.ToClusterProviderOutputWithContext(context.Background())
+func (i ClusterLoggingArgs) ToClusterLoggingOutput() ClusterLoggingOutput {
+	return i.ToClusterLoggingOutputWithContext(context.Background())
 }
 
-func (i ClusterProviderArgs) ToClusterProviderOutputWithContext(ctx context.Context) ClusterProviderOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterProviderOutput)
+func (i ClusterLoggingArgs) ToClusterLoggingOutputWithContext(ctx context.Context) ClusterLoggingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingOutput)
 }
 
-func (i ClusterProviderArgs) ToClusterProviderPtrOutput() ClusterProviderPtrOutput {
-	return i.ToClusterProviderPtrOutputWithContext(context.Background())
+func (i ClusterLoggingArgs) ToClusterLoggingPtrOutput() ClusterLoggingPtrOutput {
+	return i.ToClusterLoggingPtrOutputWithContext(context.Background())
 }
 
-func (i ClusterProviderArgs) ToClusterProviderPtrOutputWithContext(ctx context.Context) ClusterProviderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterProviderOutput).ToClusterProviderPtrOutputWithContext(ctx)
+func (i ClusterLoggingArgs) ToClusterLoggingPtrOutputWithContext(ctx context.Context) ClusterLoggingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingOutput).ToClusterLoggingPtrOutputWithContext(ctx)
 }
 
-// ClusterProviderPtrInput is an input type that accepts ClusterProviderArgs, ClusterProviderPtr and ClusterProviderPtrOutput values.
-// You can construct a concrete instance of `ClusterProviderPtrInput` via:
+// ClusterLoggingPtrInput is an input type that accepts ClusterLoggingArgs, ClusterLoggingPtr and ClusterLoggingPtrOutput values.
+// You can construct a concrete instance of `ClusterLoggingPtrInput` via:
 //
-//          ClusterProviderArgs{...}
+//          ClusterLoggingArgs{...}
 //
 //  or:
 //
 //          nil
-type ClusterProviderPtrInput interface {
+type ClusterLoggingPtrInput interface {
 	pulumi.Input
 
-	ToClusterProviderPtrOutput() ClusterProviderPtrOutput
-	ToClusterProviderPtrOutputWithContext(context.Context) ClusterProviderPtrOutput
+	ToClusterLoggingPtrOutput() ClusterLoggingPtrOutput
+	ToClusterLoggingPtrOutputWithContext(context.Context) ClusterLoggingPtrOutput
 }
 
-type clusterProviderPtrType ClusterProviderArgs
+type clusterLoggingPtrType ClusterLoggingArgs
 
-func ClusterProviderPtr(v *ClusterProviderArgs) ClusterProviderPtrInput {
-	return (*clusterProviderPtrType)(v)
+func ClusterLoggingPtr(v *ClusterLoggingArgs) ClusterLoggingPtrInput {
+	return (*clusterLoggingPtrType)(v)
 }
 
-func (*clusterProviderPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterProvider)(nil)).Elem()
+func (*clusterLoggingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterLogging)(nil)).Elem()
 }
 
-func (i *clusterProviderPtrType) ToClusterProviderPtrOutput() ClusterProviderPtrOutput {
-	return i.ToClusterProviderPtrOutputWithContext(context.Background())
+func (i *clusterLoggingPtrType) ToClusterLoggingPtrOutput() ClusterLoggingPtrOutput {
+	return i.ToClusterLoggingPtrOutputWithContext(context.Background())
 }
 
-func (i *clusterProviderPtrType) ToClusterProviderPtrOutputWithContext(ctx context.Context) ClusterProviderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterProviderPtrOutput)
+func (i *clusterLoggingPtrType) ToClusterLoggingPtrOutputWithContext(ctx context.Context) ClusterLoggingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingPtrOutput)
 }
 
-type ClusterProviderOutput struct{ *pulumi.OutputState }
+// Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
+type ClusterLoggingOutput struct{ *pulumi.OutputState }
 
-func (ClusterProviderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterProvider)(nil)).Elem()
+func (ClusterLoggingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLogging)(nil)).Elem()
 }
 
-func (o ClusterProviderOutput) ToClusterProviderOutput() ClusterProviderOutput {
+func (o ClusterLoggingOutput) ToClusterLoggingOutput() ClusterLoggingOutput {
 	return o
 }
 
-func (o ClusterProviderOutput) ToClusterProviderOutputWithContext(ctx context.Context) ClusterProviderOutput {
+func (o ClusterLoggingOutput) ToClusterLoggingOutputWithContext(ctx context.Context) ClusterLoggingOutput {
 	return o
 }
 
-func (o ClusterProviderOutput) ToClusterProviderPtrOutput() ClusterProviderPtrOutput {
-	return o.ToClusterProviderPtrOutputWithContext(context.Background())
+func (o ClusterLoggingOutput) ToClusterLoggingPtrOutput() ClusterLoggingPtrOutput {
+	return o.ToClusterLoggingPtrOutputWithContext(context.Background())
 }
 
-func (o ClusterProviderOutput) ToClusterProviderPtrOutputWithContext(ctx context.Context) ClusterProviderPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterProvider) *ClusterProvider {
+func (o ClusterLoggingOutput) ToClusterLoggingPtrOutputWithContext(ctx context.Context) ClusterLoggingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterLogging) *ClusterLogging {
 		return &v
-	}).(ClusterProviderPtrOutput)
+	}).(ClusterLoggingPtrOutput)
 }
 
-func (o ClusterProviderOutput) KeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterProvider) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
+// The cluster control plane logging configuration for your cluster.
+func (o ClusterLoggingOutput) ClusterLogging() ClusterLoggingPtrOutput {
+	return o.ApplyT(func(v ClusterLogging) *ClusterLogging { return v.ClusterLogging }).(ClusterLoggingPtrOutput)
 }
 
-type ClusterProviderPtrOutput struct{ *pulumi.OutputState }
+type ClusterLoggingPtrOutput struct{ *pulumi.OutputState }
 
-func (ClusterProviderPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterProvider)(nil)).Elem()
+func (ClusterLoggingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterLogging)(nil)).Elem()
 }
 
-func (o ClusterProviderPtrOutput) ToClusterProviderPtrOutput() ClusterProviderPtrOutput {
+func (o ClusterLoggingPtrOutput) ToClusterLoggingPtrOutput() ClusterLoggingPtrOutput {
 	return o
 }
 
-func (o ClusterProviderPtrOutput) ToClusterProviderPtrOutputWithContext(ctx context.Context) ClusterProviderPtrOutput {
+func (o ClusterLoggingPtrOutput) ToClusterLoggingPtrOutputWithContext(ctx context.Context) ClusterLoggingPtrOutput {
 	return o
 }
 
-func (o ClusterProviderPtrOutput) Elem() ClusterProviderOutput {
-	return o.ApplyT(func(v *ClusterProvider) ClusterProvider {
+func (o ClusterLoggingPtrOutput) Elem() ClusterLoggingOutput {
+	return o.ApplyT(func(v *ClusterLogging) ClusterLogging {
 		if v != nil {
 			return *v
 		}
-		var ret ClusterProvider
+		var ret ClusterLogging
 		return ret
-	}).(ClusterProviderOutput)
+	}).(ClusterLoggingOutput)
 }
 
-func (o ClusterProviderPtrOutput) KeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterProvider) *string {
+// The cluster control plane logging configuration for your cluster.
+func (o ClusterLoggingPtrOutput) ClusterLogging() ClusterLoggingPtrOutput {
+	return o.ApplyT(func(v *ClusterLogging) *ClusterLogging {
 		if v == nil {
 			return nil
 		}
-		return v.KeyArn
-	}).(pulumi.StringPtrOutput)
+		return v.ClusterLogging
+	}).(ClusterLoggingPtrOutput)
 }
 
+// An object representing the VPC configuration to use for an Amazon EKS cluster.
 type ClusterResourcesVpcConfig struct {
+	// Set this value to true to enable private access for your cluster's Kubernetes API server endpoint. If you enable private access, Kubernetes API requests from within your cluster's VPC use the private VPC endpoint. The default value for this parameter is false, which disables private access for your Kubernetes API server. If you disable private access and you have nodes or AWS Fargate pods in the cluster, then ensure that publicAccessCidrs includes the necessary CIDR blocks for communication with the nodes or Fargate pods.
+	EndpointPrivateAccess *bool `pulumi:"endpointPrivateAccess"`
+	// Set this value to false to disable public access to your cluster's Kubernetes API server endpoint. If you disable public access, your cluster's Kubernetes API server can only receive requests from within the cluster VPC. The default value for this parameter is true, which enables public access for your Kubernetes API server.
+	EndpointPublicAccess *bool `pulumi:"endpointPublicAccess"`
+	// The CIDR blocks that are allowed access to your cluster's public Kubernetes API server endpoint. Communication to the endpoint from addresses outside of the CIDR blocks that you specify is denied. The default value is 0.0.0.0/0. If you've disabled private endpoint access and you have nodes or AWS Fargate pods in the cluster, then ensure that you specify the necessary CIDR blocks.
+	PublicAccessCidrs []string `pulumi:"publicAccessCidrs"`
+	// Specify one or more security groups for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane. If you don't specify a security group, the default security group for your VPC is used.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	SubnetIds        []string `pulumi:"subnetIds"`
+	// Specify subnets for your Amazon EKS nodes. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your nodes and the Kubernetes control plane.
+	SubnetIds []string `pulumi:"subnetIds"`
 }
 
 // ClusterResourcesVpcConfigInput is an input type that accepts ClusterResourcesVpcConfigArgs and ClusterResourcesVpcConfigOutput values.
@@ -501,9 +673,18 @@ type ClusterResourcesVpcConfigInput interface {
 	ToClusterResourcesVpcConfigOutputWithContext(context.Context) ClusterResourcesVpcConfigOutput
 }
 
+// An object representing the VPC configuration to use for an Amazon EKS cluster.
 type ClusterResourcesVpcConfigArgs struct {
+	// Set this value to true to enable private access for your cluster's Kubernetes API server endpoint. If you enable private access, Kubernetes API requests from within your cluster's VPC use the private VPC endpoint. The default value for this parameter is false, which disables private access for your Kubernetes API server. If you disable private access and you have nodes or AWS Fargate pods in the cluster, then ensure that publicAccessCidrs includes the necessary CIDR blocks for communication with the nodes or Fargate pods.
+	EndpointPrivateAccess pulumi.BoolPtrInput `pulumi:"endpointPrivateAccess"`
+	// Set this value to false to disable public access to your cluster's Kubernetes API server endpoint. If you disable public access, your cluster's Kubernetes API server can only receive requests from within the cluster VPC. The default value for this parameter is true, which enables public access for your Kubernetes API server.
+	EndpointPublicAccess pulumi.BoolPtrInput `pulumi:"endpointPublicAccess"`
+	// The CIDR blocks that are allowed access to your cluster's public Kubernetes API server endpoint. Communication to the endpoint from addresses outside of the CIDR blocks that you specify is denied. The default value is 0.0.0.0/0. If you've disabled private endpoint access and you have nodes or AWS Fargate pods in the cluster, then ensure that you specify the necessary CIDR blocks.
+	PublicAccessCidrs pulumi.StringArrayInput `pulumi:"publicAccessCidrs"`
+	// Specify one or more security groups for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane. If you don't specify a security group, the default security group for your VPC is used.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// Specify subnets for your Amazon EKS nodes. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your nodes and the Kubernetes control plane.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 }
 
 func (ClusterResourcesVpcConfigArgs) ElementType() reflect.Type {
@@ -559,6 +740,7 @@ func (i *clusterResourcesVpcConfigPtrType) ToClusterResourcesVpcConfigPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterResourcesVpcConfigPtrOutput)
 }
 
+// An object representing the VPC configuration to use for an Amazon EKS cluster.
 type ClusterResourcesVpcConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterResourcesVpcConfigOutput) ElementType() reflect.Type {
@@ -583,10 +765,27 @@ func (o ClusterResourcesVpcConfigOutput) ToClusterResourcesVpcConfigPtrOutputWit
 	}).(ClusterResourcesVpcConfigPtrOutput)
 }
 
+// Set this value to true to enable private access for your cluster's Kubernetes API server endpoint. If you enable private access, Kubernetes API requests from within your cluster's VPC use the private VPC endpoint. The default value for this parameter is false, which disables private access for your Kubernetes API server. If you disable private access and you have nodes or AWS Fargate pods in the cluster, then ensure that publicAccessCidrs includes the necessary CIDR blocks for communication with the nodes or Fargate pods.
+func (o ClusterResourcesVpcConfigOutput) EndpointPrivateAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterResourcesVpcConfig) *bool { return v.EndpointPrivateAccess }).(pulumi.BoolPtrOutput)
+}
+
+// Set this value to false to disable public access to your cluster's Kubernetes API server endpoint. If you disable public access, your cluster's Kubernetes API server can only receive requests from within the cluster VPC. The default value for this parameter is true, which enables public access for your Kubernetes API server.
+func (o ClusterResourcesVpcConfigOutput) EndpointPublicAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterResourcesVpcConfig) *bool { return v.EndpointPublicAccess }).(pulumi.BoolPtrOutput)
+}
+
+// The CIDR blocks that are allowed access to your cluster's public Kubernetes API server endpoint. Communication to the endpoint from addresses outside of the CIDR blocks that you specify is denied. The default value is 0.0.0.0/0. If you've disabled private endpoint access and you have nodes or AWS Fargate pods in the cluster, then ensure that you specify the necessary CIDR blocks.
+func (o ClusterResourcesVpcConfigOutput) PublicAccessCidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterResourcesVpcConfig) []string { return v.PublicAccessCidrs }).(pulumi.StringArrayOutput)
+}
+
+// Specify one or more security groups for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane. If you don't specify a security group, the default security group for your VPC is used.
 func (o ClusterResourcesVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterResourcesVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// Specify subnets for your Amazon EKS nodes. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your nodes and the Kubernetes control plane.
 func (o ClusterResourcesVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterResourcesVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -615,6 +814,37 @@ func (o ClusterResourcesVpcConfigPtrOutput) Elem() ClusterResourcesVpcConfigOutp
 	}).(ClusterResourcesVpcConfigOutput)
 }
 
+// Set this value to true to enable private access for your cluster's Kubernetes API server endpoint. If you enable private access, Kubernetes API requests from within your cluster's VPC use the private VPC endpoint. The default value for this parameter is false, which disables private access for your Kubernetes API server. If you disable private access and you have nodes or AWS Fargate pods in the cluster, then ensure that publicAccessCidrs includes the necessary CIDR blocks for communication with the nodes or Fargate pods.
+func (o ClusterResourcesVpcConfigPtrOutput) EndpointPrivateAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterResourcesVpcConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointPrivateAccess
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Set this value to false to disable public access to your cluster's Kubernetes API server endpoint. If you disable public access, your cluster's Kubernetes API server can only receive requests from within the cluster VPC. The default value for this parameter is true, which enables public access for your Kubernetes API server.
+func (o ClusterResourcesVpcConfigPtrOutput) EndpointPublicAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterResourcesVpcConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointPublicAccess
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The CIDR blocks that are allowed access to your cluster's public Kubernetes API server endpoint. Communication to the endpoint from addresses outside of the CIDR blocks that you specify is denied. The default value is 0.0.0.0/0. If you've disabled private endpoint access and you have nodes or AWS Fargate pods in the cluster, then ensure that you specify the necessary CIDR blocks.
+func (o ClusterResourcesVpcConfigPtrOutput) PublicAccessCidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterResourcesVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicAccessCidrs
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specify one or more security groups for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane. If you don't specify a security group, the default security group for your VPC is used.
 func (o ClusterResourcesVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterResourcesVpcConfig) []string {
 		if v == nil {
@@ -624,6 +854,7 @@ func (o ClusterResourcesVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
+// Specify subnets for your Amazon EKS nodes. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your nodes and the Kubernetes control plane.
 func (o ClusterResourcesVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterResourcesVpcConfig) []string {
 		if v == nil {
@@ -631,6 +862,115 @@ func (o ClusterResourcesVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput
 		}
 		return v.SubnetIds
 	}).(pulumi.StringArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ClusterTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// ClusterTagInput is an input type that accepts ClusterTagArgs and ClusterTagOutput values.
+// You can construct a concrete instance of `ClusterTagInput` via:
+//
+//          ClusterTagArgs{...}
+type ClusterTagInput interface {
+	pulumi.Input
+
+	ToClusterTagOutput() ClusterTagOutput
+	ToClusterTagOutputWithContext(context.Context) ClusterTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type ClusterTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ClusterTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterTag)(nil)).Elem()
+}
+
+func (i ClusterTagArgs) ToClusterTagOutput() ClusterTagOutput {
+	return i.ToClusterTagOutputWithContext(context.Background())
+}
+
+func (i ClusterTagArgs) ToClusterTagOutputWithContext(ctx context.Context) ClusterTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterTagOutput)
+}
+
+// ClusterTagArrayInput is an input type that accepts ClusterTagArray and ClusterTagArrayOutput values.
+// You can construct a concrete instance of `ClusterTagArrayInput` via:
+//
+//          ClusterTagArray{ ClusterTagArgs{...} }
+type ClusterTagArrayInput interface {
+	pulumi.Input
+
+	ToClusterTagArrayOutput() ClusterTagArrayOutput
+	ToClusterTagArrayOutputWithContext(context.Context) ClusterTagArrayOutput
+}
+
+type ClusterTagArray []ClusterTagInput
+
+func (ClusterTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterTag)(nil)).Elem()
+}
+
+func (i ClusterTagArray) ToClusterTagArrayOutput() ClusterTagArrayOutput {
+	return i.ToClusterTagArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterTagArray) ToClusterTagArrayOutputWithContext(ctx context.Context) ClusterTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ClusterTagOutput struct{ *pulumi.OutputState }
+
+func (ClusterTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterTag)(nil)).Elem()
+}
+
+func (o ClusterTagOutput) ToClusterTagOutput() ClusterTagOutput {
+	return o
+}
+
+func (o ClusterTagOutput) ToClusterTagOutputWithContext(ctx context.Context) ClusterTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ClusterTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ClusterTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ClusterTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterTag)(nil)).Elem()
+}
+
+func (o ClusterTagArrayOutput) ToClusterTagArrayOutput() ClusterTagArrayOutput {
+	return o
+}
+
+func (o ClusterTagArrayOutput) ToClusterTagArrayOutputWithContext(ctx context.Context) ClusterTagArrayOutput {
+	return o
+}
+
+func (o ClusterTagArrayOutput) Index(i pulumi.IntInput) ClusterTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterTag {
+		return vs[0].([]ClusterTag)[vs[1].(int)]
+	}).(ClusterTagOutput)
 }
 
 // A key-value pair to associate with a pod.
@@ -1684,12 +2024,16 @@ func init() {
 	pulumi.RegisterOutputType(AddonTagArrayOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionConfigOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionConfigArrayOutput{})
+	pulumi.RegisterOutputType(ClusterEncryptionConfigProviderPropertiesOutput{})
+	pulumi.RegisterOutputType(ClusterEncryptionConfigProviderPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigOutput{})
 	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigPtrOutput{})
-	pulumi.RegisterOutputType(ClusterProviderOutput{})
-	pulumi.RegisterOutputType(ClusterProviderPtrOutput{})
+	pulumi.RegisterOutputType(ClusterLoggingOutput{})
+	pulumi.RegisterOutputType(ClusterLoggingPtrOutput{})
 	pulumi.RegisterOutputType(ClusterResourcesVpcConfigOutput{})
 	pulumi.RegisterOutputType(ClusterResourcesVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterTagOutput{})
+	pulumi.RegisterOutputType(ClusterTagArrayOutput{})
 	pulumi.RegisterOutputType(FargateProfileLabelOutput{})
 	pulumi.RegisterOutputType(FargateProfileLabelArrayOutput{})
 	pulumi.RegisterOutputType(FargateProfileSelectorOutput{})

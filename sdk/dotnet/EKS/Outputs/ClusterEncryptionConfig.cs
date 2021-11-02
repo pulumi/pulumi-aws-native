@@ -10,15 +10,24 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EKS.Outputs
 {
 
+    /// <summary>
+    /// The encryption configuration for the cluster
+    /// </summary>
     [OutputType]
     public sealed class ClusterEncryptionConfig
     {
-        public readonly Outputs.ClusterProvider? Provider;
+        /// <summary>
+        /// The encryption provider for the cluster.
+        /// </summary>
+        public readonly Outputs.ClusterEncryptionConfigProviderProperties? Provider;
+        /// <summary>
+        /// Specifies the resources to be encrypted. The only supported value is "secrets".
+        /// </summary>
         public readonly ImmutableArray<string> Resources;
 
         [OutputConstructor]
         private ClusterEncryptionConfig(
-            Outputs.ClusterProvider? provider,
+            Outputs.ClusterEncryptionConfigProviderProperties? provider,
 
             ImmutableArray<string> resources)
         {

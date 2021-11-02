@@ -11,6 +11,8 @@ import (
 )
 
 type FirewallPolicyType struct {
+	StatefulDefaultActions          []string                                    `pulumi:"statefulDefaultActions"`
+	StatefulEngineOptions           *FirewallPolicyStatefulEngineOptions        `pulumi:"statefulEngineOptions"`
 	StatefulRuleGroupReferences     []FirewallPolicyStatefulRuleGroupReference  `pulumi:"statefulRuleGroupReferences"`
 	StatelessCustomActions          []FirewallPolicyCustomAction                `pulumi:"statelessCustomActions"`
 	StatelessDefaultActions         []string                                    `pulumi:"statelessDefaultActions"`
@@ -30,6 +32,8 @@ type FirewallPolicyTypeInput interface {
 }
 
 type FirewallPolicyTypeArgs struct {
+	StatefulDefaultActions          pulumi.StringArrayInput                             `pulumi:"statefulDefaultActions"`
+	StatefulEngineOptions           FirewallPolicyStatefulEngineOptionsPtrInput         `pulumi:"statefulEngineOptions"`
 	StatefulRuleGroupReferences     FirewallPolicyStatefulRuleGroupReferenceArrayInput  `pulumi:"statefulRuleGroupReferences"`
 	StatelessCustomActions          FirewallPolicyCustomActionArrayInput                `pulumi:"statelessCustomActions"`
 	StatelessDefaultActions         pulumi.StringArrayInput                             `pulumi:"statelessDefaultActions"`
@@ -114,6 +118,14 @@ func (o FirewallPolicyTypeOutput) ToFirewallPolicyTypePtrOutputWithContext(ctx c
 	}).(FirewallPolicyTypePtrOutput)
 }
 
+func (o FirewallPolicyTypeOutput) StatefulDefaultActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyType) []string { return v.StatefulDefaultActions }).(pulumi.StringArrayOutput)
+}
+
+func (o FirewallPolicyTypeOutput) StatefulEngineOptions() FirewallPolicyStatefulEngineOptionsPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyType) *FirewallPolicyStatefulEngineOptions { return v.StatefulEngineOptions }).(FirewallPolicyStatefulEngineOptionsPtrOutput)
+}
+
 func (o FirewallPolicyTypeOutput) StatefulRuleGroupReferences() FirewallPolicyStatefulRuleGroupReferenceArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyType) []FirewallPolicyStatefulRuleGroupReference {
 		return v.StatefulRuleGroupReferences
@@ -160,6 +172,24 @@ func (o FirewallPolicyTypePtrOutput) Elem() FirewallPolicyTypeOutput {
 		var ret FirewallPolicyType
 		return ret
 	}).(FirewallPolicyTypeOutput)
+}
+
+func (o FirewallPolicyTypePtrOutput) StatefulDefaultActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.StatefulDefaultActions
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o FirewallPolicyTypePtrOutput) StatefulEngineOptions() FirewallPolicyStatefulEngineOptionsPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyType) *FirewallPolicyStatefulEngineOptions {
+		if v == nil {
+			return nil
+		}
+		return v.StatefulEngineOptions
+	}).(FirewallPolicyStatefulEngineOptionsPtrOutput)
 }
 
 func (o FirewallPolicyTypePtrOutput) StatefulRuleGroupReferences() FirewallPolicyStatefulRuleGroupReferenceArrayOutput {
@@ -585,7 +615,141 @@ func (o FirewallPolicyPublishMetricActionPtrOutput) Dimensions() FirewallPolicyD
 	}).(FirewallPolicyDimensionArrayOutput)
 }
 
+type FirewallPolicyStatefulEngineOptions struct {
+	RuleOrder *FirewallPolicyRuleOrder `pulumi:"ruleOrder"`
+}
+
+// FirewallPolicyStatefulEngineOptionsInput is an input type that accepts FirewallPolicyStatefulEngineOptionsArgs and FirewallPolicyStatefulEngineOptionsOutput values.
+// You can construct a concrete instance of `FirewallPolicyStatefulEngineOptionsInput` via:
+//
+//          FirewallPolicyStatefulEngineOptionsArgs{...}
+type FirewallPolicyStatefulEngineOptionsInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyStatefulEngineOptionsOutput() FirewallPolicyStatefulEngineOptionsOutput
+	ToFirewallPolicyStatefulEngineOptionsOutputWithContext(context.Context) FirewallPolicyStatefulEngineOptionsOutput
+}
+
+type FirewallPolicyStatefulEngineOptionsArgs struct {
+	RuleOrder FirewallPolicyRuleOrderPtrInput `pulumi:"ruleOrder"`
+}
+
+func (FirewallPolicyStatefulEngineOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyStatefulEngineOptions)(nil)).Elem()
+}
+
+func (i FirewallPolicyStatefulEngineOptionsArgs) ToFirewallPolicyStatefulEngineOptionsOutput() FirewallPolicyStatefulEngineOptionsOutput {
+	return i.ToFirewallPolicyStatefulEngineOptionsOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyStatefulEngineOptionsArgs) ToFirewallPolicyStatefulEngineOptionsOutputWithContext(ctx context.Context) FirewallPolicyStatefulEngineOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyStatefulEngineOptionsOutput)
+}
+
+func (i FirewallPolicyStatefulEngineOptionsArgs) ToFirewallPolicyStatefulEngineOptionsPtrOutput() FirewallPolicyStatefulEngineOptionsPtrOutput {
+	return i.ToFirewallPolicyStatefulEngineOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyStatefulEngineOptionsArgs) ToFirewallPolicyStatefulEngineOptionsPtrOutputWithContext(ctx context.Context) FirewallPolicyStatefulEngineOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyStatefulEngineOptionsOutput).ToFirewallPolicyStatefulEngineOptionsPtrOutputWithContext(ctx)
+}
+
+// FirewallPolicyStatefulEngineOptionsPtrInput is an input type that accepts FirewallPolicyStatefulEngineOptionsArgs, FirewallPolicyStatefulEngineOptionsPtr and FirewallPolicyStatefulEngineOptionsPtrOutput values.
+// You can construct a concrete instance of `FirewallPolicyStatefulEngineOptionsPtrInput` via:
+//
+//          FirewallPolicyStatefulEngineOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type FirewallPolicyStatefulEngineOptionsPtrInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyStatefulEngineOptionsPtrOutput() FirewallPolicyStatefulEngineOptionsPtrOutput
+	ToFirewallPolicyStatefulEngineOptionsPtrOutputWithContext(context.Context) FirewallPolicyStatefulEngineOptionsPtrOutput
+}
+
+type firewallPolicyStatefulEngineOptionsPtrType FirewallPolicyStatefulEngineOptionsArgs
+
+func FirewallPolicyStatefulEngineOptionsPtr(v *FirewallPolicyStatefulEngineOptionsArgs) FirewallPolicyStatefulEngineOptionsPtrInput {
+	return (*firewallPolicyStatefulEngineOptionsPtrType)(v)
+}
+
+func (*firewallPolicyStatefulEngineOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyStatefulEngineOptions)(nil)).Elem()
+}
+
+func (i *firewallPolicyStatefulEngineOptionsPtrType) ToFirewallPolicyStatefulEngineOptionsPtrOutput() FirewallPolicyStatefulEngineOptionsPtrOutput {
+	return i.ToFirewallPolicyStatefulEngineOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *firewallPolicyStatefulEngineOptionsPtrType) ToFirewallPolicyStatefulEngineOptionsPtrOutputWithContext(ctx context.Context) FirewallPolicyStatefulEngineOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyStatefulEngineOptionsPtrOutput)
+}
+
+type FirewallPolicyStatefulEngineOptionsOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyStatefulEngineOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyStatefulEngineOptions)(nil)).Elem()
+}
+
+func (o FirewallPolicyStatefulEngineOptionsOutput) ToFirewallPolicyStatefulEngineOptionsOutput() FirewallPolicyStatefulEngineOptionsOutput {
+	return o
+}
+
+func (o FirewallPolicyStatefulEngineOptionsOutput) ToFirewallPolicyStatefulEngineOptionsOutputWithContext(ctx context.Context) FirewallPolicyStatefulEngineOptionsOutput {
+	return o
+}
+
+func (o FirewallPolicyStatefulEngineOptionsOutput) ToFirewallPolicyStatefulEngineOptionsPtrOutput() FirewallPolicyStatefulEngineOptionsPtrOutput {
+	return o.ToFirewallPolicyStatefulEngineOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyStatefulEngineOptionsOutput) ToFirewallPolicyStatefulEngineOptionsPtrOutputWithContext(ctx context.Context) FirewallPolicyStatefulEngineOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyStatefulEngineOptions) *FirewallPolicyStatefulEngineOptions {
+		return &v
+	}).(FirewallPolicyStatefulEngineOptionsPtrOutput)
+}
+
+func (o FirewallPolicyStatefulEngineOptionsOutput) RuleOrder() FirewallPolicyRuleOrderPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyStatefulEngineOptions) *FirewallPolicyRuleOrder { return v.RuleOrder }).(FirewallPolicyRuleOrderPtrOutput)
+}
+
+type FirewallPolicyStatefulEngineOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyStatefulEngineOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyStatefulEngineOptions)(nil)).Elem()
+}
+
+func (o FirewallPolicyStatefulEngineOptionsPtrOutput) ToFirewallPolicyStatefulEngineOptionsPtrOutput() FirewallPolicyStatefulEngineOptionsPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyStatefulEngineOptionsPtrOutput) ToFirewallPolicyStatefulEngineOptionsPtrOutputWithContext(ctx context.Context) FirewallPolicyStatefulEngineOptionsPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyStatefulEngineOptionsPtrOutput) Elem() FirewallPolicyStatefulEngineOptionsOutput {
+	return o.ApplyT(func(v *FirewallPolicyStatefulEngineOptions) FirewallPolicyStatefulEngineOptions {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallPolicyStatefulEngineOptions
+		return ret
+	}).(FirewallPolicyStatefulEngineOptionsOutput)
+}
+
+func (o FirewallPolicyStatefulEngineOptionsPtrOutput) RuleOrder() FirewallPolicyRuleOrderPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyStatefulEngineOptions) *FirewallPolicyRuleOrder {
+		if v == nil {
+			return nil
+		}
+		return v.RuleOrder
+	}).(FirewallPolicyRuleOrderPtrOutput)
+}
+
 type FirewallPolicyStatefulRuleGroupReference struct {
+	Priority    *int   `pulumi:"priority"`
 	ResourceArn string `pulumi:"resourceArn"`
 }
 
@@ -601,6 +765,7 @@ type FirewallPolicyStatefulRuleGroupReferenceInput interface {
 }
 
 type FirewallPolicyStatefulRuleGroupReferenceArgs struct {
+	Priority    pulumi.IntPtrInput `pulumi:"priority"`
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 }
 
@@ -653,6 +818,10 @@ func (o FirewallPolicyStatefulRuleGroupReferenceOutput) ToFirewallPolicyStateful
 
 func (o FirewallPolicyStatefulRuleGroupReferenceOutput) ToFirewallPolicyStatefulRuleGroupReferenceOutputWithContext(ctx context.Context) FirewallPolicyStatefulRuleGroupReferenceOutput {
 	return o
+}
+
+func (o FirewallPolicyStatefulRuleGroupReferenceOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyStatefulRuleGroupReference) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
 func (o FirewallPolicyStatefulRuleGroupReferenceOutput) ResourceArn() pulumi.StringOutput {
@@ -1325,8 +1494,9 @@ func (o LoggingConfigurationLogDestinationConfigArrayOutput) Index(i pulumi.IntI
 }
 
 type RuleGroupType struct {
-	RuleVariables *RuleGroupRuleVariables `pulumi:"ruleVariables"`
-	RulesSource   RuleGroupRulesSource    `pulumi:"rulesSource"`
+	RuleVariables       *RuleGroupRuleVariables       `pulumi:"ruleVariables"`
+	RulesSource         RuleGroupRulesSource          `pulumi:"rulesSource"`
+	StatefulRuleOptions *RuleGroupStatefulRuleOptions `pulumi:"statefulRuleOptions"`
 }
 
 // RuleGroupTypeInput is an input type that accepts RuleGroupTypeArgs and RuleGroupTypeOutput values.
@@ -1341,8 +1511,9 @@ type RuleGroupTypeInput interface {
 }
 
 type RuleGroupTypeArgs struct {
-	RuleVariables RuleGroupRuleVariablesPtrInput `pulumi:"ruleVariables"`
-	RulesSource   RuleGroupRulesSourceInput      `pulumi:"rulesSource"`
+	RuleVariables       RuleGroupRuleVariablesPtrInput       `pulumi:"ruleVariables"`
+	RulesSource         RuleGroupRulesSourceInput            `pulumi:"rulesSource"`
+	StatefulRuleOptions RuleGroupStatefulRuleOptionsPtrInput `pulumi:"statefulRuleOptions"`
 }
 
 func (RuleGroupTypeArgs) ElementType() reflect.Type {
@@ -1430,6 +1601,10 @@ func (o RuleGroupTypeOutput) RulesSource() RuleGroupRulesSourceOutput {
 	return o.ApplyT(func(v RuleGroupType) RuleGroupRulesSource { return v.RulesSource }).(RuleGroupRulesSourceOutput)
 }
 
+func (o RuleGroupTypeOutput) StatefulRuleOptions() RuleGroupStatefulRuleOptionsPtrOutput {
+	return o.ApplyT(func(v RuleGroupType) *RuleGroupStatefulRuleOptions { return v.StatefulRuleOptions }).(RuleGroupStatefulRuleOptionsPtrOutput)
+}
+
 type RuleGroupTypePtrOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupTypePtrOutput) ElementType() reflect.Type {
@@ -1470,6 +1645,15 @@ func (o RuleGroupTypePtrOutput) RulesSource() RuleGroupRulesSourcePtrOutput {
 		}
 		return &v.RulesSource
 	}).(RuleGroupRulesSourcePtrOutput)
+}
+
+func (o RuleGroupTypePtrOutput) StatefulRuleOptions() RuleGroupStatefulRuleOptionsPtrOutput {
+	return o.ApplyT(func(v *RuleGroupType) *RuleGroupStatefulRuleOptions {
+		if v == nil {
+			return nil
+		}
+		return v.StatefulRuleOptions
+	}).(RuleGroupStatefulRuleOptionsPtrOutput)
 }
 
 type RuleGroupActionDefinition struct {
@@ -2952,6 +3136,139 @@ func (o RuleGroupStatefulRuleArrayOutput) Index(i pulumi.IntInput) RuleGroupStat
 	}).(RuleGroupStatefulRuleOutput)
 }
 
+type RuleGroupStatefulRuleOptions struct {
+	RuleOrder *RuleGroupRuleOrder `pulumi:"ruleOrder"`
+}
+
+// RuleGroupStatefulRuleOptionsInput is an input type that accepts RuleGroupStatefulRuleOptionsArgs and RuleGroupStatefulRuleOptionsOutput values.
+// You can construct a concrete instance of `RuleGroupStatefulRuleOptionsInput` via:
+//
+//          RuleGroupStatefulRuleOptionsArgs{...}
+type RuleGroupStatefulRuleOptionsInput interface {
+	pulumi.Input
+
+	ToRuleGroupStatefulRuleOptionsOutput() RuleGroupStatefulRuleOptionsOutput
+	ToRuleGroupStatefulRuleOptionsOutputWithContext(context.Context) RuleGroupStatefulRuleOptionsOutput
+}
+
+type RuleGroupStatefulRuleOptionsArgs struct {
+	RuleOrder RuleGroupRuleOrderPtrInput `pulumi:"ruleOrder"`
+}
+
+func (RuleGroupStatefulRuleOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupStatefulRuleOptions)(nil)).Elem()
+}
+
+func (i RuleGroupStatefulRuleOptionsArgs) ToRuleGroupStatefulRuleOptionsOutput() RuleGroupStatefulRuleOptionsOutput {
+	return i.ToRuleGroupStatefulRuleOptionsOutputWithContext(context.Background())
+}
+
+func (i RuleGroupStatefulRuleOptionsArgs) ToRuleGroupStatefulRuleOptionsOutputWithContext(ctx context.Context) RuleGroupStatefulRuleOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupStatefulRuleOptionsOutput)
+}
+
+func (i RuleGroupStatefulRuleOptionsArgs) ToRuleGroupStatefulRuleOptionsPtrOutput() RuleGroupStatefulRuleOptionsPtrOutput {
+	return i.ToRuleGroupStatefulRuleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupStatefulRuleOptionsArgs) ToRuleGroupStatefulRuleOptionsPtrOutputWithContext(ctx context.Context) RuleGroupStatefulRuleOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupStatefulRuleOptionsOutput).ToRuleGroupStatefulRuleOptionsPtrOutputWithContext(ctx)
+}
+
+// RuleGroupStatefulRuleOptionsPtrInput is an input type that accepts RuleGroupStatefulRuleOptionsArgs, RuleGroupStatefulRuleOptionsPtr and RuleGroupStatefulRuleOptionsPtrOutput values.
+// You can construct a concrete instance of `RuleGroupStatefulRuleOptionsPtrInput` via:
+//
+//          RuleGroupStatefulRuleOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type RuleGroupStatefulRuleOptionsPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupStatefulRuleOptionsPtrOutput() RuleGroupStatefulRuleOptionsPtrOutput
+	ToRuleGroupStatefulRuleOptionsPtrOutputWithContext(context.Context) RuleGroupStatefulRuleOptionsPtrOutput
+}
+
+type ruleGroupStatefulRuleOptionsPtrType RuleGroupStatefulRuleOptionsArgs
+
+func RuleGroupStatefulRuleOptionsPtr(v *RuleGroupStatefulRuleOptionsArgs) RuleGroupStatefulRuleOptionsPtrInput {
+	return (*ruleGroupStatefulRuleOptionsPtrType)(v)
+}
+
+func (*ruleGroupStatefulRuleOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupStatefulRuleOptions)(nil)).Elem()
+}
+
+func (i *ruleGroupStatefulRuleOptionsPtrType) ToRuleGroupStatefulRuleOptionsPtrOutput() RuleGroupStatefulRuleOptionsPtrOutput {
+	return i.ToRuleGroupStatefulRuleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupStatefulRuleOptionsPtrType) ToRuleGroupStatefulRuleOptionsPtrOutputWithContext(ctx context.Context) RuleGroupStatefulRuleOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupStatefulRuleOptionsPtrOutput)
+}
+
+type RuleGroupStatefulRuleOptionsOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupStatefulRuleOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupStatefulRuleOptions)(nil)).Elem()
+}
+
+func (o RuleGroupStatefulRuleOptionsOutput) ToRuleGroupStatefulRuleOptionsOutput() RuleGroupStatefulRuleOptionsOutput {
+	return o
+}
+
+func (o RuleGroupStatefulRuleOptionsOutput) ToRuleGroupStatefulRuleOptionsOutputWithContext(ctx context.Context) RuleGroupStatefulRuleOptionsOutput {
+	return o
+}
+
+func (o RuleGroupStatefulRuleOptionsOutput) ToRuleGroupStatefulRuleOptionsPtrOutput() RuleGroupStatefulRuleOptionsPtrOutput {
+	return o.ToRuleGroupStatefulRuleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupStatefulRuleOptionsOutput) ToRuleGroupStatefulRuleOptionsPtrOutputWithContext(ctx context.Context) RuleGroupStatefulRuleOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupStatefulRuleOptions) *RuleGroupStatefulRuleOptions {
+		return &v
+	}).(RuleGroupStatefulRuleOptionsPtrOutput)
+}
+
+func (o RuleGroupStatefulRuleOptionsOutput) RuleOrder() RuleGroupRuleOrderPtrOutput {
+	return o.ApplyT(func(v RuleGroupStatefulRuleOptions) *RuleGroupRuleOrder { return v.RuleOrder }).(RuleGroupRuleOrderPtrOutput)
+}
+
+type RuleGroupStatefulRuleOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupStatefulRuleOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupStatefulRuleOptions)(nil)).Elem()
+}
+
+func (o RuleGroupStatefulRuleOptionsPtrOutput) ToRuleGroupStatefulRuleOptionsPtrOutput() RuleGroupStatefulRuleOptionsPtrOutput {
+	return o
+}
+
+func (o RuleGroupStatefulRuleOptionsPtrOutput) ToRuleGroupStatefulRuleOptionsPtrOutputWithContext(ctx context.Context) RuleGroupStatefulRuleOptionsPtrOutput {
+	return o
+}
+
+func (o RuleGroupStatefulRuleOptionsPtrOutput) Elem() RuleGroupStatefulRuleOptionsOutput {
+	return o.ApplyT(func(v *RuleGroupStatefulRuleOptions) RuleGroupStatefulRuleOptions {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupStatefulRuleOptions
+		return ret
+	}).(RuleGroupStatefulRuleOptionsOutput)
+}
+
+func (o RuleGroupStatefulRuleOptionsPtrOutput) RuleOrder() RuleGroupRuleOrderPtrOutput {
+	return o.ApplyT(func(v *RuleGroupStatefulRuleOptions) *RuleGroupRuleOrder {
+		if v == nil {
+			return nil
+		}
+		return v.RuleOrder
+	}).(RuleGroupRuleOrderPtrOutput)
+}
+
 type RuleGroupStatelessRule struct {
 	Priority       int                     `pulumi:"priority"`
 	RuleDefinition RuleGroupRuleDefinition `pulumi:"ruleDefinition"`
@@ -3410,6 +3727,8 @@ func init() {
 	pulumi.RegisterOutputType(FirewallPolicyDimensionArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyPublishMetricActionOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyPublishMetricActionPtrOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyStatefulEngineOptionsOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyStatefulEngineOptionsPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyStatefulRuleGroupReferenceOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyStatefulRuleGroupReferenceArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyStatelessRuleGroupReferenceOutput{})
@@ -3450,6 +3769,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupRulesSourceListPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupStatefulRuleOutput{})
 	pulumi.RegisterOutputType(RuleGroupStatefulRuleArrayOutput{})
+	pulumi.RegisterOutputType(RuleGroupStatefulRuleOptionsOutput{})
+	pulumi.RegisterOutputType(RuleGroupStatefulRuleOptionsPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupStatelessRuleOutput{})
 	pulumi.RegisterOutputType(RuleGroupStatelessRuleArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupStatelessRulesAndCustomActionsOutput{})

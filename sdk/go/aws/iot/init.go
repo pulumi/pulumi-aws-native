@@ -45,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PolicyPrincipalAttachment{}
 	case "aws-native:iot:ProvisioningTemplate":
 		r = &ProvisioningTemplate{}
+	case "aws-native:iot:ResourceSpecificLogging":
+		r = &ResourceSpecificLogging{}
 	case "aws-native:iot:ScheduledAudit":
 		r = &ScheduledAudit{}
 	case "aws-native:iot:SecurityProfile":

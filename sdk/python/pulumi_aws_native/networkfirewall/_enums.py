@@ -5,16 +5,23 @@
 from enum import Enum
 
 __all__ = [
+    'FirewallPolicyRuleOrder',
     'LoggingConfigurationLogDestinationConfigLogDestinationType',
     'LoggingConfigurationLogDestinationConfigLogType',
     'RuleGroupGeneratedRulesType',
     'RuleGroupHeaderDirection',
     'RuleGroupHeaderProtocol',
+    'RuleGroupRuleOrder',
     'RuleGroupStatefulRuleAction',
     'RuleGroupTCPFlag',
     'RuleGroupTargetType',
     'RuleGroupTypeEnum',
 ]
+
+
+class FirewallPolicyRuleOrder(str, Enum):
+    DEFAULT_ACTION_ORDER = "DEFAULT_ACTION_ORDER"
+    STRICT_ORDER = "STRICT_ORDER"
 
 
 class LoggingConfigurationLogDestinationConfigLogDestinationType(str, Enum):
@@ -58,6 +65,11 @@ class RuleGroupHeaderProtocol(str, Enum):
     TFTP = "TFTP"
     NTP = "NTP"
     DHCP = "DHCP"
+
+
+class RuleGroupRuleOrder(str, Enum):
+    DEFAULT_ACTION_ORDER = "DEFAULT_ACTION_ORDER"
+    STRICT_ORDER = "STRICT_ORDER"
 
 
 class RuleGroupStatefulRuleAction(str, Enum):

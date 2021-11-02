@@ -43,6 +43,9 @@
         },
         "RulesSource" : {
           "$ref" : "#/definitions/RulesSource"
+        },
+        "StatefulRuleOptions" : {
+          "$ref" : "#/definitions/StatefulRuleOptions"
         }
       },
       "required" : [ "RulesSource" ],
@@ -475,6 +478,19 @@
       },
       "required" : [ "Value" ],
       "additionalProperties" : false
+    },
+    "StatefulRuleOptions" : {
+      "type" : "object",
+      "properties" : {
+        "RuleOrder" : {
+          "$ref" : "#/definitions/RuleOrder"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "RuleOrder" : {
+      "type" : "string",
+      "enum" : [ "DEFAULT_ACTION_ORDER", "STRICT_ORDER" ]
     }
   },
   "properties" : {

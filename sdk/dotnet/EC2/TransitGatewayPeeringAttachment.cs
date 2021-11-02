@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.EC2
         public Output<string> CreationTime { get; private set; } = null!;
 
         /// <summary>
+        /// Options for transit gateway peering attachment
+        /// </summary>
+        [Output("options")]
+        public Output<Outputs.TransitGatewayPeeringAttachmentOptions?> Options { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the peer account
         /// </summary>
         [Output("peerAccountId")]
@@ -114,6 +120,12 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class TransitGatewayPeeringAttachmentArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Options for transit gateway peering attachment
+        /// </summary>
+        [Input("options")]
+        public Input<Inputs.TransitGatewayPeeringAttachmentOptionsArgs>? Options { get; set; }
+
         /// <summary>
         /// The ID of the peer account
         /// </summary>

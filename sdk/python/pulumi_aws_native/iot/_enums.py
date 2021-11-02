@@ -20,6 +20,8 @@ __all__ = [
     'MitigationActionReplaceDefaultPolicyVersionParamsTemplateName',
     'MitigationActionUpdateCACertificateParamsAction',
     'MitigationActionUpdateDeviceCertificateParamsAction',
+    'ResourceSpecificLoggingLogLevel',
+    'ResourceSpecificLoggingTargetType',
     'ScheduledAuditDayOfWeek',
     'ScheduledAuditFrequency',
     'SecurityProfileBehaviorCriteriaComparisonOperator',
@@ -119,6 +121,24 @@ class MitigationActionUpdateCACertificateParamsAction(str, Enum):
 
 class MitigationActionUpdateDeviceCertificateParamsAction(str, Enum):
     DEACTIVATE = "DEACTIVATE"
+
+
+class ResourceSpecificLoggingLogLevel(str, Enum):
+    """
+    The log level for a specific target. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
+    """
+    ERROR = "ERROR"
+    WARN = "WARN"
+    INFO = "INFO"
+    DEBUG = "DEBUG"
+    DISABLED = "DISABLED"
+
+
+class ResourceSpecificLoggingTargetType(str, Enum):
+    """
+    The target type. Value must be THING_GROUP.
+    """
+    THING_GROUP = "THING_GROUP"
 
 
 class ScheduledAuditDayOfWeek(str, Enum):

@@ -9054,6 +9054,13 @@ export namespace ec2 {
         value?: string;
     }
 
+    export interface TransitGatewayPeeringAttachmentOptions {
+        /**
+         * Whether to enable dynamic routing. (enable/disable)
+         */
+        dynamicRouting?: string;
+    }
+
     export interface TransitGatewayPeeringAttachmentPeeringAttachmentStatus {
         /**
          * The status code.
@@ -9120,6 +9127,7 @@ export namespace ec2 {
         key: string;
         value: string;
     }
+
 }
 
 export namespace ecr {
@@ -9780,22 +9788,88 @@ export namespace eks {
         value: string;
     }
 
+    /**
+     * The encryption configuration for the cluster
+     */
     export interface ClusterEncryptionConfig {
-        provider?: outputs.eks.ClusterProvider;
+        /**
+         * The encryption provider for the cluster.
+         */
+        provider?: outputs.eks.ClusterEncryptionConfigProviderProperties;
+        /**
+         * Specifies the resources to be encrypted. The only supported value is "secrets".
+         */
         resources?: string[];
     }
 
-    export interface ClusterKubernetesNetworkConfig {
-        serviceIpv4Cidr?: string;
-    }
-
-    export interface ClusterProvider {
+    /**
+     * The encryption provider for the cluster.
+     */
+    export interface ClusterEncryptionConfigProviderProperties {
+        /**
+         * Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key.
+         */
         keyArn?: string;
     }
 
+    /**
+     * The Kubernetes network configuration for the cluster.
+     */
+    export interface ClusterKubernetesNetworkConfig {
+        /**
+         * The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. 
+         */
+        serviceIpv4Cidr?: string;
+    }
+
+    /**
+     * Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
+     */
+    export interface ClusterLogging {
+        /**
+         * The cluster control plane logging configuration for your cluster. 
+         */
+        clusterLogging?: outputs.eks.ClusterLogging;
+    }
+
+    /**
+     * An object representing the VPC configuration to use for an Amazon EKS cluster.
+     */
     export interface ClusterResourcesVpcConfig {
+        /**
+         * Set this value to true to enable private access for your cluster's Kubernetes API server endpoint. If you enable private access, Kubernetes API requests from within your cluster's VPC use the private VPC endpoint. The default value for this parameter is false, which disables private access for your Kubernetes API server. If you disable private access and you have nodes or AWS Fargate pods in the cluster, then ensure that publicAccessCidrs includes the necessary CIDR blocks for communication with the nodes or Fargate pods.
+         */
+        endpointPrivateAccess?: boolean;
+        /**
+         * Set this value to false to disable public access to your cluster's Kubernetes API server endpoint. If you disable public access, your cluster's Kubernetes API server can only receive requests from within the cluster VPC. The default value for this parameter is true, which enables public access for your Kubernetes API server.
+         */
+        endpointPublicAccess?: boolean;
+        /**
+         * The CIDR blocks that are allowed access to your cluster's public Kubernetes API server endpoint. Communication to the endpoint from addresses outside of the CIDR blocks that you specify is denied. The default value is 0.0.0.0/0. If you've disabled private endpoint access and you have nodes or AWS Fargate pods in the cluster, then ensure that you specify the necessary CIDR blocks.
+         */
+        publicAccessCidrs?: string[];
+        /**
+         * Specify one or more security groups for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane. If you don't specify a security group, the default security group for your VPC is used.
+         */
         securityGroupIds?: string[];
+        /**
+         * Specify subnets for your Amazon EKS nodes. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your nodes and the Kubernetes control plane.
+         */
         subnetIds: string[];
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ClusterTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
     }
 
     /**
@@ -19503,6 +19577,8 @@ export namespace neptune {
 
 export namespace networkfirewall {
     export interface FirewallPolicy {
+        statefulDefaultActions?: string[];
+        statefulEngineOptions?: outputs.networkfirewall.FirewallPolicyStatefulEngineOptions;
         statefulRuleGroupReferences?: outputs.networkfirewall.FirewallPolicyStatefulRuleGroupReference[];
         statelessCustomActions?: outputs.networkfirewall.FirewallPolicyCustomAction[];
         statelessDefaultActions: string[];
@@ -19527,7 +19603,12 @@ export namespace networkfirewall {
         dimensions: outputs.networkfirewall.FirewallPolicyDimension[];
     }
 
+    export interface FirewallPolicyStatefulEngineOptions {
+        ruleOrder?: enums.networkfirewall.FirewallPolicyRuleOrder;
+    }
+
     export interface FirewallPolicyStatefulRuleGroupReference {
+        priority?: number;
         resourceArn: string;
     }
 
@@ -19569,6 +19650,7 @@ export namespace networkfirewall {
     export interface RuleGroup {
         ruleVariables?: outputs.networkfirewall.RuleGroupRuleVariables;
         rulesSource: outputs.networkfirewall.RuleGroupRulesSource;
+        statefulRuleOptions?: outputs.networkfirewall.RuleGroupStatefulRuleOptions;
     }
 
     export interface RuleGroupActionDefinition {
@@ -19647,6 +19729,10 @@ export namespace networkfirewall {
         action: enums.networkfirewall.RuleGroupStatefulRuleAction;
         header: outputs.networkfirewall.RuleGroupHeader;
         ruleOptions: outputs.networkfirewall.RuleGroupRuleOption[];
+    }
+
+    export interface RuleGroupStatefulRuleOptions {
+        ruleOrder?: enums.networkfirewall.RuleGroupRuleOrder;
     }
 
     export interface RuleGroupStatelessRule {

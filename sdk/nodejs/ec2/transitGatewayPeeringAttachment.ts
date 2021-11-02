@@ -40,6 +40,10 @@ export class TransitGatewayPeeringAttachment extends pulumi.CustomResource {
      */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
     /**
+     * Options for transit gateway peering attachment
+     */
+    public readonly options!: pulumi.Output<outputs.ec2.TransitGatewayPeeringAttachmentOptions | undefined>;
+    /**
      * The ID of the peer account
      */
     public readonly peerAccountId!: pulumi.Output<string>;
@@ -95,6 +99,7 @@ export class TransitGatewayPeeringAttachment extends pulumi.CustomResource {
             if ((!args || args.transitGatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayId'");
             }
+            inputs["options"] = args ? args.options : undefined;
             inputs["peerAccountId"] = args ? args.peerAccountId : undefined;
             inputs["peerRegion"] = args ? args.peerRegion : undefined;
             inputs["peerTransitGatewayId"] = args ? args.peerTransitGatewayId : undefined;
@@ -106,6 +111,7 @@ export class TransitGatewayPeeringAttachment extends pulumi.CustomResource {
             inputs["transitGatewayAttachmentId"] = undefined /*out*/;
         } else {
             inputs["creationTime"] = undefined /*out*/;
+            inputs["options"] = undefined /*out*/;
             inputs["peerAccountId"] = undefined /*out*/;
             inputs["peerRegion"] = undefined /*out*/;
             inputs["peerTransitGatewayId"] = undefined /*out*/;
@@ -126,6 +132,10 @@ export class TransitGatewayPeeringAttachment extends pulumi.CustomResource {
  * The set of arguments for constructing a TransitGatewayPeeringAttachment resource.
  */
 export interface TransitGatewayPeeringAttachmentArgs {
+    /**
+     * Options for transit gateway peering attachment
+     */
+    options?: pulumi.Input<inputs.ec2.TransitGatewayPeeringAttachmentOptionsArgs>;
     /**
      * The ID of the peer account
      */

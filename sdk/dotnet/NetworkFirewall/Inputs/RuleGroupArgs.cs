@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         [Input("rulesSource", required: true)]
         public Input<Inputs.RuleGroupRulesSourceArgs> RulesSource { get; set; } = null!;
 
+        [Input("statefulRuleOptions")]
+        public Input<Inputs.RuleGroupStatefulRuleOptionsArgs>? StatefulRuleOptions { get; set; }
+
         public RuleGroupArgs()
         {
         }

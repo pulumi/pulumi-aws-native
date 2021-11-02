@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
     public sealed class FirewallPolicyStatefulRuleGroupReferenceArgs : Pulumi.ResourceArgs
     {
+        [Input("priority")]
+        public Input<int>? Priority { get; set; }
+
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 

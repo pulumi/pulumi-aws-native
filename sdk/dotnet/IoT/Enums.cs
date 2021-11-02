@@ -443,6 +443,70 @@ namespace Pulumi.AwsNative.IoT
     }
 
     /// <summary>
+    /// The log level for a specific target. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResourceSpecificLoggingLogLevel : IEquatable<ResourceSpecificLoggingLogLevel>
+    {
+        private readonly string _value;
+
+        private ResourceSpecificLoggingLogLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourceSpecificLoggingLogLevel Error { get; } = new ResourceSpecificLoggingLogLevel("ERROR");
+        public static ResourceSpecificLoggingLogLevel Warn { get; } = new ResourceSpecificLoggingLogLevel("WARN");
+        public static ResourceSpecificLoggingLogLevel Info { get; } = new ResourceSpecificLoggingLogLevel("INFO");
+        public static ResourceSpecificLoggingLogLevel Debug { get; } = new ResourceSpecificLoggingLogLevel("DEBUG");
+        public static ResourceSpecificLoggingLogLevel Disabled { get; } = new ResourceSpecificLoggingLogLevel("DISABLED");
+
+        public static bool operator ==(ResourceSpecificLoggingLogLevel left, ResourceSpecificLoggingLogLevel right) => left.Equals(right);
+        public static bool operator !=(ResourceSpecificLoggingLogLevel left, ResourceSpecificLoggingLogLevel right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceSpecificLoggingLogLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceSpecificLoggingLogLevel other && Equals(other);
+        public bool Equals(ResourceSpecificLoggingLogLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The target type. Value must be THING_GROUP.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResourceSpecificLoggingTargetType : IEquatable<ResourceSpecificLoggingTargetType>
+    {
+        private readonly string _value;
+
+        private ResourceSpecificLoggingTargetType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourceSpecificLoggingTargetType ThingGroup { get; } = new ResourceSpecificLoggingTargetType("THING_GROUP");
+
+        public static bool operator ==(ResourceSpecificLoggingTargetType left, ResourceSpecificLoggingTargetType right) => left.Equals(right);
+        public static bool operator !=(ResourceSpecificLoggingTargetType left, ResourceSpecificLoggingTargetType right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceSpecificLoggingTargetType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceSpecificLoggingTargetType other && Equals(other);
+        public bool Equals(ResourceSpecificLoggingTargetType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The day of the week on which the scheduled audit takes place. Can be one of SUN, MON, TUE,WED, THU, FRI, or SAT. This field is required if the frequency parameter is set to WEEKLY or BIWEEKLY.
     /// </summary>
     [EnumType]

@@ -1657,6 +1657,7 @@ _utilities.register(
    "aws-native:iot:Policy": "Policy",
    "aws-native:iot:PolicyPrincipalAttachment": "PolicyPrincipalAttachment",
    "aws-native:iot:ProvisioningTemplate": "ProvisioningTemplate",
+   "aws-native:iot:ResourceSpecificLogging": "ResourceSpecificLogging",
    "aws-native:iot:ScheduledAudit": "ScheduledAudit",
    "aws-native:iot:SecurityProfile": "SecurityProfile",
    "aws-native:iot:Thing": "Thing",
