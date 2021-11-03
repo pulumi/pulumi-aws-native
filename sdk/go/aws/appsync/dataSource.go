@@ -41,9 +41,6 @@ func NewDataSource(ctx *pulumi.Context,
 	if args.ApiId == nil {
 		return nil, errors.New("invalid value for required argument 'ApiId'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
@@ -85,7 +82,7 @@ type dataSourceArgs struct {
 	ElasticsearchConfig      *DataSourceElasticsearchConfig      `pulumi:"elasticsearchConfig"`
 	HttpConfig               *DataSourceHttpConfig               `pulumi:"httpConfig"`
 	LambdaConfig             *DataSourceLambdaConfig             `pulumi:"lambdaConfig"`
-	Name                     string                              `pulumi:"name"`
+	Name                     *string                             `pulumi:"name"`
 	OpenSearchServiceConfig  *DataSourceOpenSearchServiceConfig  `pulumi:"openSearchServiceConfig"`
 	RelationalDatabaseConfig *DataSourceRelationalDatabaseConfig `pulumi:"relationalDatabaseConfig"`
 	ServiceRoleArn           *string                             `pulumi:"serviceRoleArn"`
@@ -100,7 +97,7 @@ type DataSourceArgs struct {
 	ElasticsearchConfig      DataSourceElasticsearchConfigPtrInput
 	HttpConfig               DataSourceHttpConfigPtrInput
 	LambdaConfig             DataSourceLambdaConfigPtrInput
-	Name                     pulumi.StringInput
+	Name                     pulumi.StringPtrInput
 	OpenSearchServiceConfig  DataSourceOpenSearchServiceConfigPtrInput
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrInput
 	ServiceRoleArn           pulumi.StringPtrInput

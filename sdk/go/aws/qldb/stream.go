@@ -45,9 +45,6 @@ func NewStream(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
-	if args.StreamName == nil {
-		return nil, errors.New("invalid value for required argument 'StreamName'")
-	}
 	var resource Stream
 	err := ctx.RegisterResource("aws-native:qldb:Stream", name, args, &resource, opts...)
 	if err != nil {
@@ -85,7 +82,7 @@ type streamArgs struct {
 	KinesisConfiguration StreamKinesisConfiguration `pulumi:"kinesisConfiguration"`
 	LedgerName           string                     `pulumi:"ledgerName"`
 	RoleArn              string                     `pulumi:"roleArn"`
-	StreamName           string                     `pulumi:"streamName"`
+	StreamName           *string                    `pulumi:"streamName"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []StreamTag `pulumi:"tags"`
 }
@@ -97,7 +94,7 @@ type StreamArgs struct {
 	KinesisConfiguration StreamKinesisConfigurationInput
 	LedgerName           pulumi.StringInput
 	RoleArn              pulumi.StringInput
-	StreamName           pulumi.StringInput
+	StreamName           pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags StreamTagArrayInput
 }

@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,12 +28,9 @@ type AppImageConfig struct {
 func NewAppImageConfig(ctx *pulumi.Context,
 	name string, args *AppImageConfigArgs, opts ...pulumi.ResourceOption) (*AppImageConfig, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &AppImageConfigArgs{}
 	}
 
-	if args.AppImageConfigName == nil {
-		return nil, errors.New("invalid value for required argument 'AppImageConfigName'")
-	}
 	var resource AppImageConfig
 	err := ctx.RegisterResource("aws-native:sagemaker:AppImageConfig", name, args, &resource, opts...)
 	if err != nil {
@@ -68,7 +64,7 @@ func (AppImageConfigState) ElementType() reflect.Type {
 
 type appImageConfigArgs struct {
 	// The Name of the AppImageConfig.
-	AppImageConfigName string `pulumi:"appImageConfigName"`
+	AppImageConfigName *string `pulumi:"appImageConfigName"`
 	// The KernelGatewayImageConfig.
 	KernelGatewayImageConfig *AppImageConfigKernelGatewayImageConfig `pulumi:"kernelGatewayImageConfig"`
 	// A list of tags to apply to the AppImageConfig.
@@ -78,7 +74,7 @@ type appImageConfigArgs struct {
 // The set of arguments for constructing a AppImageConfig resource.
 type AppImageConfigArgs struct {
 	// The Name of the AppImageConfig.
-	AppImageConfigName pulumi.StringInput
+	AppImageConfigName pulumi.StringPtrInput
 	// The KernelGatewayImageConfig.
 	KernelGatewayImageConfig AppImageConfigKernelGatewayImageConfigPtrInput
 	// A list of tags to apply to the AppImageConfig.

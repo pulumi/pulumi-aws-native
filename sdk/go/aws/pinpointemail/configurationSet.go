@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,12 +28,9 @@ type ConfigurationSet struct {
 func NewConfigurationSet(ctx *pulumi.Context,
 	name string, args *ConfigurationSetArgs, opts ...pulumi.ResourceOption) (*ConfigurationSet, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ConfigurationSetArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource ConfigurationSet
 	err := ctx.RegisterResource("aws-native:pinpointemail:ConfigurationSet", name, args, &resource, opts...)
 	if err != nil {
@@ -68,7 +64,7 @@ func (ConfigurationSetState) ElementType() reflect.Type {
 
 type configurationSetArgs struct {
 	DeliveryOptions   *ConfigurationSetDeliveryOptions   `pulumi:"deliveryOptions"`
-	Name              string                             `pulumi:"name"`
+	Name              *string                            `pulumi:"name"`
 	ReputationOptions *ConfigurationSetReputationOptions `pulumi:"reputationOptions"`
 	SendingOptions    *ConfigurationSetSendingOptions    `pulumi:"sendingOptions"`
 	Tags              []ConfigurationSetTags             `pulumi:"tags"`
@@ -78,7 +74,7 @@ type configurationSetArgs struct {
 // The set of arguments for constructing a ConfigurationSet resource.
 type ConfigurationSetArgs struct {
 	DeliveryOptions   ConfigurationSetDeliveryOptionsPtrInput
-	Name              pulumi.StringInput
+	Name              pulumi.StringPtrInput
 	ReputationOptions ConfigurationSetReputationOptionsPtrInput
 	SendingOptions    ConfigurationSetSendingOptionsPtrInput
 	Tags              ConfigurationSetTagsArrayInput

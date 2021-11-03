@@ -38,9 +38,6 @@ func NewRepositoryAssociation(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
@@ -81,7 +78,7 @@ type repositoryAssociationArgs struct {
 	// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
 	ConnectionArn *string `pulumi:"connectionArn"`
 	// Name of the repository to be associated.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The owner of the repository. For a Bitbucket repository, this is the username for the account that owns the repository.
 	Owner *string `pulumi:"owner"`
 	// The tags associated with a repository association.
@@ -97,7 +94,7 @@ type RepositoryAssociationArgs struct {
 	// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
 	ConnectionArn pulumi.StringPtrInput
 	// Name of the repository to be associated.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The owner of the repository. For a Bitbucket repository, this is the username for the account that owns the repository.
 	Owner pulumi.StringPtrInput
 	// The tags associated with a repository association.

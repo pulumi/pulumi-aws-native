@@ -39,9 +39,6 @@ func NewProject(ctx *pulumi.Context,
 	if args.PortalId == nil {
 		return nil, errors.New("invalid value for required argument 'PortalId'")
 	}
-	if args.ProjectName == nil {
-		return nil, errors.New("invalid value for required argument 'ProjectName'")
-	}
 	var resource Project
 	err := ctx.RegisterResource("aws-native:iotsitewise:Project", name, args, &resource, opts...)
 	if err != nil {
@@ -79,7 +76,7 @@ type projectArgs struct {
 	// A description for the project.
 	ProjectDescription *string `pulumi:"projectDescription"`
 	// A friendly name for the project.
-	ProjectName string `pulumi:"projectName"`
+	ProjectName *string `pulumi:"projectName"`
 	// A list of key-value pairs that contain metadata for the project.
 	Tags []ProjectTag `pulumi:"tags"`
 }
@@ -91,7 +88,7 @@ type ProjectArgs struct {
 	// A description for the project.
 	ProjectDescription pulumi.StringPtrInput
 	// A friendly name for the project.
-	ProjectName pulumi.StringInput
+	ProjectName pulumi.StringPtrInput
 	// A list of key-value pairs that contain metadata for the project.
 	Tags ProjectTagArrayInput
 }

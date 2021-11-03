@@ -48,9 +48,6 @@ func NewPrefixList(ctx *pulumi.Context,
 	if args.MaxEntries == nil {
 		return nil, errors.New("invalid value for required argument 'MaxEntries'")
 	}
-	if args.PrefixListName == nil {
-		return nil, errors.New("invalid value for required argument 'PrefixListName'")
-	}
 	var resource PrefixList
 	err := ctx.RegisterResource("aws-native:ec2:PrefixList", name, args, &resource, opts...)
 	if err != nil {
@@ -90,7 +87,7 @@ type prefixListArgs struct {
 	// Max Entries of Prefix List.
 	MaxEntries int `pulumi:"maxEntries"`
 	// Name of Prefix List.
-	PrefixListName string `pulumi:"prefixListName"`
+	PrefixListName *string `pulumi:"prefixListName"`
 	// Tags for Prefix List
 	Tags []PrefixListTag `pulumi:"tags"`
 }
@@ -104,7 +101,7 @@ type PrefixListArgs struct {
 	// Max Entries of Prefix List.
 	MaxEntries pulumi.IntInput
 	// Name of Prefix List.
-	PrefixListName pulumi.StringInput
+	PrefixListName pulumi.StringPtrInput
 	// Tags for Prefix List
 	Tags PrefixListTagArrayInput
 }

@@ -38,9 +38,6 @@ func NewKeySigningKey(ctx *pulumi.Context,
 	if args.KeyManagementServiceArn == nil {
 		return nil, errors.New("invalid value for required argument 'KeyManagementServiceArn'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.Status == nil {
 		return nil, errors.New("invalid value for required argument 'Status'")
 	}
@@ -81,7 +78,7 @@ type keySigningKeyArgs struct {
 	// The Amazon resource name (ARN) for a customer managed key (CMK) in AWS Key Management Service (KMS). The KeyManagementServiceArn must be unique for each key signing key (KSK) in a single hosted zone.
 	KeyManagementServiceArn string `pulumi:"keyManagementServiceArn"`
 	// An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
 	Status KeySigningKeyStatus `pulumi:"status"`
 }
@@ -93,7 +90,7 @@ type KeySigningKeyArgs struct {
 	// The Amazon resource name (ARN) for a customer managed key (CMK) in AWS Key Management Service (KMS). The KeyManagementServiceArn must be unique for each key signing key (KSK) in a single hosted zone.
 	KeyManagementServiceArn pulumi.StringInput
 	// An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
 	Status KeySigningKeyStatusInput
 }

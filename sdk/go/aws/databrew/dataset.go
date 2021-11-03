@@ -38,9 +38,6 @@ func NewDataset(ctx *pulumi.Context,
 	if args.Input == nil {
 		return nil, errors.New("invalid value for required argument 'Input'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource Dataset
 	err := ctx.RegisterResource("aws-native:databrew:Dataset", name, args, &resource, opts...)
 	if err != nil {
@@ -80,7 +77,7 @@ type datasetArgs struct {
 	// Input
 	Input DatasetInputType `pulumi:"input"`
 	// Dataset name
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// PathOptions
 	PathOptions *DatasetPathOptions `pulumi:"pathOptions"`
 	Tags        []DatasetTag        `pulumi:"tags"`
@@ -95,7 +92,7 @@ type DatasetArgs struct {
 	// Input
 	Input DatasetInputTypeInput
 	// Dataset name
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// PathOptions
 	PathOptions DatasetPathOptionsPtrInput
 	Tags        DatasetTagArrayInput

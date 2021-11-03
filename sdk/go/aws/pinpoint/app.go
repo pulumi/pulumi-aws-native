@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,12 +25,9 @@ type App struct {
 func NewApp(ctx *pulumi.Context,
 	name string, args *AppArgs, opts ...pulumi.ResourceOption) (*App, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &AppArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource App
 	err := ctx.RegisterResource("aws-native:pinpoint:App", name, args, &resource, opts...)
 	if err != nil {
@@ -64,13 +60,13 @@ func (AppState) ElementType() reflect.Type {
 }
 
 type appArgs struct {
-	Name string      `pulumi:"name"`
+	Name *string     `pulumi:"name"`
 	Tags interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a App resource.
 type AppArgs struct {
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	Tags pulumi.Input
 }
 

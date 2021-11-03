@@ -39,9 +39,6 @@ func NewQuickConnect(ctx *pulumi.Context,
 	if args.InstanceArn == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceArn'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.QuickConnectConfig == nil {
 		return nil, errors.New("invalid value for required argument 'QuickConnectConfig'")
 	}
@@ -82,7 +79,7 @@ type quickConnectArgs struct {
 	// The identifier of the Amazon Connect instance.
 	InstanceArn string `pulumi:"instanceArn"`
 	// The name of the quick connect.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Configuration settings for the quick connect.
 	QuickConnectConfig QuickConnectConfig `pulumi:"quickConnectConfig"`
 	// One or more tags.
@@ -96,7 +93,7 @@ type QuickConnectArgs struct {
 	// The identifier of the Amazon Connect instance.
 	InstanceArn pulumi.StringInput
 	// The name of the quick connect.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Configuration settings for the quick connect.
 	QuickConnectConfig QuickConnectConfigInput
 	// One or more tags.

@@ -54,9 +54,6 @@ func NewLayer(ctx *pulumi.Context,
 	if args.EnableAutoHealing == nil {
 		return nil, errors.New("invalid value for required argument 'EnableAutoHealing'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.Shortname == nil {
 		return nil, errors.New("invalid value for required argument 'Shortname'")
 	}
@@ -109,7 +106,7 @@ type layerArgs struct {
 	InstallUpdatesOnBoot        *bool                             `pulumi:"installUpdatesOnBoot"`
 	LifecycleEventConfiguration *LayerLifecycleEventConfiguration `pulumi:"lifecycleEventConfiguration"`
 	LoadBasedAutoScaling        *LayerLoadBasedAutoScaling        `pulumi:"loadBasedAutoScaling"`
-	Name                        string                            `pulumi:"name"`
+	Name                        *string                           `pulumi:"name"`
 	Packages                    []string                          `pulumi:"packages"`
 	Shortname                   string                            `pulumi:"shortname"`
 	StackId                     string                            `pulumi:"stackId"`
@@ -132,7 +129,7 @@ type LayerArgs struct {
 	InstallUpdatesOnBoot        pulumi.BoolPtrInput
 	LifecycleEventConfiguration LayerLifecycleEventConfigurationPtrInput
 	LoadBasedAutoScaling        LayerLoadBasedAutoScalingPtrInput
-	Name                        pulumi.StringInput
+	Name                        pulumi.StringPtrInput
 	Packages                    pulumi.StringArrayInput
 	Shortname                   pulumi.StringInput
 	StackId                     pulumi.StringInput

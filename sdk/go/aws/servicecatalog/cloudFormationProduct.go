@@ -40,9 +40,6 @@ func NewCloudFormationProduct(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.Owner == nil {
 		return nil, errors.New("invalid value for required argument 'Owner'")
 	}
@@ -84,7 +81,7 @@ type cloudFormationProductArgs struct {
 	AcceptLanguage                 *string                                               `pulumi:"acceptLanguage"`
 	Description                    *string                                               `pulumi:"description"`
 	Distributor                    *string                                               `pulumi:"distributor"`
-	Name                           string                                                `pulumi:"name"`
+	Name                           *string                                               `pulumi:"name"`
 	Owner                          string                                                `pulumi:"owner"`
 	ProvisioningArtifactParameters []CloudFormationProductProvisioningArtifactProperties `pulumi:"provisioningArtifactParameters"`
 	ReplaceProvisioningArtifacts   *bool                                                 `pulumi:"replaceProvisioningArtifacts"`
@@ -99,7 +96,7 @@ type CloudFormationProductArgs struct {
 	AcceptLanguage                 pulumi.StringPtrInput
 	Description                    pulumi.StringPtrInput
 	Distributor                    pulumi.StringPtrInput
-	Name                           pulumi.StringInput
+	Name                           pulumi.StringPtrInput
 	Owner                          pulumi.StringInput
 	ProvisioningArtifactParameters CloudFormationProductProvisioningArtifactPropertiesArrayInput
 	ReplaceProvisioningArtifacts   pulumi.BoolPtrInput

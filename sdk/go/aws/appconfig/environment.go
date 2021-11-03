@@ -34,9 +34,6 @@ func NewEnvironment(ctx *pulumi.Context,
 	if args.ApplicationId == nil {
 		return nil, errors.New("invalid value for required argument 'ApplicationId'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource Environment
 	err := ctx.RegisterResource("aws-native:appconfig:Environment", name, args, &resource, opts...)
 	if err != nil {
@@ -72,7 +69,7 @@ type environmentArgs struct {
 	ApplicationId string                `pulumi:"applicationId"`
 	Description   *string               `pulumi:"description"`
 	Monitors      []EnvironmentMonitors `pulumi:"monitors"`
-	Name          string                `pulumi:"name"`
+	Name          *string               `pulumi:"name"`
 	Tags          []EnvironmentTags     `pulumi:"tags"`
 }
 
@@ -81,7 +78,7 @@ type EnvironmentArgs struct {
 	ApplicationId pulumi.StringInput
 	Description   pulumi.StringPtrInput
 	Monitors      EnvironmentMonitorsArrayInput
-	Name          pulumi.StringInput
+	Name          pulumi.StringPtrInput
 	Tags          EnvironmentTagsArrayInput
 }
 

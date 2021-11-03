@@ -39,9 +39,6 @@ func NewConfigurationProfile(ctx *pulumi.Context,
 	if args.LocationUri == nil {
 		return nil, errors.New("invalid value for required argument 'LocationUri'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource ConfigurationProfile
 	err := ctx.RegisterResource("aws-native:appconfig:ConfigurationProfile", name, args, &resource, opts...)
 	if err != nil {
@@ -77,7 +74,7 @@ type configurationProfileArgs struct {
 	ApplicationId    string                           `pulumi:"applicationId"`
 	Description      *string                          `pulumi:"description"`
 	LocationUri      string                           `pulumi:"locationUri"`
-	Name             string                           `pulumi:"name"`
+	Name             *string                          `pulumi:"name"`
 	RetrievalRoleArn *string                          `pulumi:"retrievalRoleArn"`
 	Tags             []ConfigurationProfileTags       `pulumi:"tags"`
 	Validators       []ConfigurationProfileValidators `pulumi:"validators"`
@@ -88,7 +85,7 @@ type ConfigurationProfileArgs struct {
 	ApplicationId    pulumi.StringInput
 	Description      pulumi.StringPtrInput
 	LocationUri      pulumi.StringInput
-	Name             pulumi.StringInput
+	Name             pulumi.StringPtrInput
 	RetrievalRoleArn pulumi.StringPtrInput
 	Tags             ConfigurationProfileTagsArrayInput
 	Validators       ConfigurationProfileValidatorsArrayInput

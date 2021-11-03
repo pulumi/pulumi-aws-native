@@ -43,9 +43,6 @@ func NewIndex(ctx *pulumi.Context,
 	if args.Edition == nil {
 		return nil, errors.New("invalid value for required argument 'Edition'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
@@ -88,7 +85,7 @@ type indexArgs struct {
 	// Document metadata configurations
 	DocumentMetadataConfigurations []IndexDocumentMetadataConfiguration `pulumi:"documentMetadataConfigurations"`
 	Edition                        IndexEdition                         `pulumi:"edition"`
-	Name                           string                               `pulumi:"name"`
+	Name                           *string                              `pulumi:"name"`
 	RoleArn                        string                               `pulumi:"roleArn"`
 	// Server side encryption configuration
 	ServerSideEncryptionConfiguration *IndexServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
@@ -107,7 +104,7 @@ type IndexArgs struct {
 	// Document metadata configurations
 	DocumentMetadataConfigurations IndexDocumentMetadataConfigurationArrayInput
 	Edition                        IndexEditionInput
-	Name                           pulumi.StringInput
+	Name                           pulumi.StringPtrInput
 	RoleArn                        pulumi.StringInput
 	// Server side encryption configuration
 	ServerSideEncryptionConfiguration IndexServerSideEncryptionConfigurationPtrInput

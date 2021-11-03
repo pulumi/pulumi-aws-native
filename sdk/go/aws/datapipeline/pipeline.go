@@ -33,9 +33,6 @@ func NewPipeline(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ParameterObjects == nil {
 		return nil, errors.New("invalid value for required argument 'ParameterObjects'")
 	}
@@ -73,7 +70,7 @@ func (PipelineState) ElementType() reflect.Type {
 type pipelineArgs struct {
 	Activate         *bool                     `pulumi:"activate"`
 	Description      *string                   `pulumi:"description"`
-	Name             string                    `pulumi:"name"`
+	Name             *string                   `pulumi:"name"`
 	ParameterObjects []PipelineParameterObject `pulumi:"parameterObjects"`
 	ParameterValues  []PipelineParameterValue  `pulumi:"parameterValues"`
 	PipelineObjects  []PipelineObject          `pulumi:"pipelineObjects"`
@@ -84,7 +81,7 @@ type pipelineArgs struct {
 type PipelineArgs struct {
 	Activate         pulumi.BoolPtrInput
 	Description      pulumi.StringPtrInput
-	Name             pulumi.StringInput
+	Name             pulumi.StringPtrInput
 	ParameterObjects PipelineParameterObjectArrayInput
 	ParameterValues  PipelineParameterValueArrayInput
 	PipelineObjects  PipelineObjectArrayInput

@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,12 +40,9 @@ type Repository struct {
 func NewRepository(ctx *pulumi.Context,
 	name string, args *RepositoryArgs, opts ...pulumi.ResourceOption) (*Repository, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &RepositoryArgs{}
 	}
 
-	if args.RepositoryName == nil {
-		return nil, errors.New("invalid value for required argument 'RepositoryName'")
-	}
 	var resource Repository
 	err := ctx.RegisterResource("aws-native:codeartifact:Repository", name, args, &resource, opts...)
 	if err != nil {
@@ -86,7 +82,7 @@ type repositoryArgs struct {
 	// The access control resource policy on the provided repository.
 	PermissionsPolicyDocument interface{} `pulumi:"permissionsPolicyDocument"`
 	// The name of the repository.
-	RepositoryName string `pulumi:"repositoryName"`
+	RepositoryName *string `pulumi:"repositoryName"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []RepositoryTag `pulumi:"tags"`
 	// A list of upstream repositories associated with the repository.
@@ -102,7 +98,7 @@ type RepositoryArgs struct {
 	// The access control resource policy on the provided repository.
 	PermissionsPolicyDocument pulumi.Input
 	// The name of the repository.
-	RepositoryName pulumi.StringInput
+	RepositoryName pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags RepositoryTagArrayInput
 	// A list of upstream repositories associated with the repository.

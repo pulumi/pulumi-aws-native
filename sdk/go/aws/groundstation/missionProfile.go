@@ -43,9 +43,6 @@ func NewMissionProfile(ctx *pulumi.Context,
 	if args.MinimumViableContactDurationSeconds == nil {
 		return nil, errors.New("invalid value for required argument 'MinimumViableContactDurationSeconds'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.TrackingConfigArn == nil {
 		return nil, errors.New("invalid value for required argument 'TrackingConfigArn'")
 	}
@@ -89,7 +86,7 @@ type missionProfileArgs struct {
 	// Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
 	MinimumViableContactDurationSeconds int `pulumi:"minimumViableContactDurationSeconds"`
 	// A name used to identify a mission profile.
-	Name              string              `pulumi:"name"`
+	Name              *string             `pulumi:"name"`
 	Tags              []MissionProfileTag `pulumi:"tags"`
 	TrackingConfigArn string              `pulumi:"trackingConfigArn"`
 }
@@ -104,7 +101,7 @@ type MissionProfileArgs struct {
 	// Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
 	MinimumViableContactDurationSeconds pulumi.IntInput
 	// A name used to identify a mission profile.
-	Name              pulumi.StringInput
+	Name              pulumi.StringPtrInput
 	Tags              MissionProfileTagArrayInput
 	TrackingConfigArn pulumi.StringInput
 }

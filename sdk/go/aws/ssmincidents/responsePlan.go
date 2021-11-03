@@ -41,9 +41,6 @@ func NewResponsePlan(ctx *pulumi.Context,
 	if args.IncidentTemplate == nil {
 		return nil, errors.New("invalid value for required argument 'IncidentTemplate'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource ResponsePlan
 	err := ctx.RegisterResource("aws-native:ssmincidents:ResponsePlan", name, args, &resource, opts...)
 	if err != nil {
@@ -85,7 +82,7 @@ type responsePlanArgs struct {
 	Engagements      []string                     `pulumi:"engagements"`
 	IncidentTemplate ResponsePlanIncidentTemplate `pulumi:"incidentTemplate"`
 	// The name of the response plan.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The tags to apply to the response plan.
 	Tags []ResponsePlanTag `pulumi:"tags"`
 }
@@ -101,7 +98,7 @@ type ResponsePlanArgs struct {
 	Engagements      pulumi.StringArrayInput
 	IncidentTemplate ResponsePlanIncidentTemplateInput
 	// The name of the response plan.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The tags to apply to the response plan.
 	Tags ResponsePlanTagArrayInput
 }

@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,12 +34,9 @@ type OrganizationConformancePack struct {
 func NewOrganizationConformancePack(ctx *pulumi.Context,
 	name string, args *OrganizationConformancePackArgs, opts ...pulumi.ResourceOption) (*OrganizationConformancePack, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &OrganizationConformancePackArgs{}
 	}
 
-	if args.OrganizationConformancePackName == nil {
-		return nil, errors.New("invalid value for required argument 'OrganizationConformancePackName'")
-	}
 	var resource OrganizationConformancePack
 	err := ctx.RegisterResource("aws-native:configuration:OrganizationConformancePack", name, args, &resource, opts...)
 	if err != nil {
@@ -82,7 +78,7 @@ type organizationConformancePackArgs struct {
 	// A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.
 	ExcludedAccounts []string `pulumi:"excludedAccounts"`
 	// The name of the organization conformance pack.
-	OrganizationConformancePackName string `pulumi:"organizationConformancePackName"`
+	OrganizationConformancePackName *string `pulumi:"organizationConformancePackName"`
 	// A string containing full conformance pack template body.
 	TemplateBody *string `pulumi:"templateBody"`
 	// Location of file containing the template body.
@@ -100,7 +96,7 @@ type OrganizationConformancePackArgs struct {
 	// A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.
 	ExcludedAccounts pulumi.StringArrayInput
 	// The name of the organization conformance pack.
-	OrganizationConformancePackName pulumi.StringInput
+	OrganizationConformancePackName pulumi.StringPtrInput
 	// A string containing full conformance pack template body.
 	TemplateBody pulumi.StringPtrInput
 	// Location of file containing the template body.

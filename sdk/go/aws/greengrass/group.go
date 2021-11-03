@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,12 +29,9 @@ type Group struct {
 func NewGroup(ctx *pulumi.Context,
 	name string, args *GroupArgs, opts ...pulumi.ResourceOption) (*Group, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &GroupArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource Group
 	err := ctx.RegisterResource("aws-native:greengrass:Group", name, args, &resource, opts...)
 	if err != nil {
@@ -69,7 +65,7 @@ func (GroupState) ElementType() reflect.Type {
 
 type groupArgs struct {
 	InitialVersion *GroupVersionType `pulumi:"initialVersion"`
-	Name           string            `pulumi:"name"`
+	Name           *string           `pulumi:"name"`
 	RoleArn        *string           `pulumi:"roleArn"`
 	Tags           interface{}       `pulumi:"tags"`
 }
@@ -77,7 +73,7 @@ type groupArgs struct {
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
 	InitialVersion GroupVersionTypePtrInput
-	Name           pulumi.StringInput
+	Name           pulumi.StringPtrInput
 	RoleArn        pulumi.StringPtrInput
 	Tags           pulumi.Input
 }

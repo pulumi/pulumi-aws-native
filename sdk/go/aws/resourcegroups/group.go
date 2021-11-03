@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,12 +30,9 @@ type Group struct {
 func NewGroup(ctx *pulumi.Context,
 	name string, args *GroupArgs, opts ...pulumi.ResourceOption) (*Group, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &GroupArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource Group
 	err := ctx.RegisterResource("aws-native:resourcegroups:Group", name, args, &resource, opts...)
 	if err != nil {
@@ -73,7 +69,7 @@ type groupArgs struct {
 	// The description of the resource group
 	Description *string `pulumi:"description"`
 	// The name of the resource group
-	Name          string              `pulumi:"name"`
+	Name          *string             `pulumi:"name"`
 	ResourceQuery *GroupResourceQuery `pulumi:"resourceQuery"`
 	Resources     []string            `pulumi:"resources"`
 	Tags          []GroupTag          `pulumi:"tags"`
@@ -85,7 +81,7 @@ type GroupArgs struct {
 	// The description of the resource group
 	Description pulumi.StringPtrInput
 	// The name of the resource group
-	Name          pulumi.StringInput
+	Name          pulumi.StringPtrInput
 	ResourceQuery GroupResourceQueryPtrInput
 	Resources     pulumi.StringArrayInput
 	Tags          GroupTagArrayInput

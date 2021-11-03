@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,12 +24,9 @@ type SizeConstraintSet struct {
 func NewSizeConstraintSet(ctx *pulumi.Context,
 	name string, args *SizeConstraintSetArgs, opts ...pulumi.ResourceOption) (*SizeConstraintSet, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &SizeConstraintSetArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource SizeConstraintSet
 	err := ctx.RegisterResource("aws-native:wafregional:SizeConstraintSet", name, args, &resource, opts...)
 	if err != nil {
@@ -63,13 +59,13 @@ func (SizeConstraintSetState) ElementType() reflect.Type {
 }
 
 type sizeConstraintSetArgs struct {
-	Name            string                            `pulumi:"name"`
+	Name            *string                           `pulumi:"name"`
 	SizeConstraints []SizeConstraintSetSizeConstraint `pulumi:"sizeConstraints"`
 }
 
 // The set of arguments for constructing a SizeConstraintSet resource.
 type SizeConstraintSetArgs struct {
-	Name            pulumi.StringInput
+	Name            pulumi.StringPtrInput
 	SizeConstraints SizeConstraintSetSizeConstraintArrayInput
 }
 

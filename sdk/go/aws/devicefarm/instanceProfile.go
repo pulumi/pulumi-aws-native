@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,12 +27,9 @@ type InstanceProfile struct {
 func NewInstanceProfile(ctx *pulumi.Context,
 	name string, args *InstanceProfileArgs, opts ...pulumi.ResourceOption) (*InstanceProfile, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &InstanceProfileArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource InstanceProfile
 	err := ctx.RegisterResource("aws-native:devicefarm:InstanceProfile", name, args, &resource, opts...)
 	if err != nil {
@@ -68,7 +64,7 @@ func (InstanceProfileState) ElementType() reflect.Type {
 type instanceProfileArgs struct {
 	Description                   *string              `pulumi:"description"`
 	ExcludeAppPackagesFromCleanup []string             `pulumi:"excludeAppPackagesFromCleanup"`
-	Name                          string               `pulumi:"name"`
+	Name                          *string              `pulumi:"name"`
 	PackageCleanup                *bool                `pulumi:"packageCleanup"`
 	RebootAfterUse                *bool                `pulumi:"rebootAfterUse"`
 	Tags                          []InstanceProfileTag `pulumi:"tags"`
@@ -78,7 +74,7 @@ type instanceProfileArgs struct {
 type InstanceProfileArgs struct {
 	Description                   pulumi.StringPtrInput
 	ExcludeAppPackagesFromCleanup pulumi.StringArrayInput
-	Name                          pulumi.StringInput
+	Name                          pulumi.StringPtrInput
 	PackageCleanup                pulumi.BoolPtrInput
 	RebootAfterUse                pulumi.BoolPtrInput
 	Tags                          InstanceProfileTagArrayInput

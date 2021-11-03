@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,12 +24,9 @@ type IPSet struct {
 func NewIPSet(ctx *pulumi.Context,
 	name string, args *IPSetArgs, opts ...pulumi.ResourceOption) (*IPSet, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &IPSetArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource IPSet
 	err := ctx.RegisterResource("aws-native:wafregional:IPSet", name, args, &resource, opts...)
 	if err != nil {
@@ -64,13 +60,13 @@ func (IPSetState) ElementType() reflect.Type {
 
 type ipsetArgs struct {
 	IPSetDescriptors []IPSetDescriptor `pulumi:"iPSetDescriptors"`
-	Name             string            `pulumi:"name"`
+	Name             *string           `pulumi:"name"`
 }
 
 // The set of arguments for constructing a IPSet resource.
 type IPSetArgs struct {
 	IPSetDescriptors IPSetDescriptorArrayInput
-	Name             pulumi.StringInput
+	Name             pulumi.StringPtrInput
 }
 
 func (IPSetArgs) ElementType() reflect.Type {

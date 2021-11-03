@@ -43,9 +43,6 @@ func NewUser(ctx *pulumi.Context,
 	if args.ServerId == nil {
 		return nil, errors.New("invalid value for required argument 'ServerId'")
 	}
-	if args.UserName == nil {
-		return nil, errors.New("invalid value for required argument 'UserName'")
-	}
 	var resource User
 	err := ctx.RegisterResource("aws-native:transfer:User", name, args, &resource, opts...)
 	if err != nil {
@@ -87,7 +84,7 @@ type userArgs struct {
 	ServerId              string                      `pulumi:"serverId"`
 	SshPublicKeys         []UserSshPublicKey          `pulumi:"sshPublicKeys"`
 	Tags                  []UserTag                   `pulumi:"tags"`
-	UserName              string                      `pulumi:"userName"`
+	UserName              *string                     `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a User resource.
@@ -101,7 +98,7 @@ type UserArgs struct {
 	ServerId              pulumi.StringInput
 	SshPublicKeys         UserSshPublicKeyArrayInput
 	Tags                  UserTagArrayInput
-	UserName              pulumi.StringInput
+	UserName              pulumi.StringPtrInput
 }
 
 func (UserArgs) ElementType() reflect.Type {

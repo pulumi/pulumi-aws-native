@@ -35,9 +35,6 @@ func NewCostCategory(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.RuleVersion == nil {
 		return nil, errors.New("invalid value for required argument 'RuleVersion'")
 	}
@@ -78,7 +75,7 @@ func (CostCategoryState) ElementType() reflect.Type {
 type costCategoryArgs struct {
 	// The default value for the cost category
 	DefaultValue *string                 `pulumi:"defaultValue"`
-	Name         string                  `pulumi:"name"`
+	Name         *string                 `pulumi:"name"`
 	RuleVersion  CostCategoryRuleVersion `pulumi:"ruleVersion"`
 	// JSON array format of Expression in Billing and Cost Management API
 	Rules string `pulumi:"rules"`
@@ -90,7 +87,7 @@ type costCategoryArgs struct {
 type CostCategoryArgs struct {
 	// The default value for the cost category
 	DefaultValue pulumi.StringPtrInput
-	Name         pulumi.StringInput
+	Name         pulumi.StringPtrInput
 	RuleVersion  CostCategoryRuleVersionInput
 	// JSON array format of Expression in Billing and Cost Management API
 	Rules pulumi.StringInput

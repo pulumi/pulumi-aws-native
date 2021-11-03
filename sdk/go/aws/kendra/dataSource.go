@@ -37,9 +37,6 @@ func NewDataSource(ctx *pulumi.Context,
 	if args.IndexId == nil {
 		return nil, errors.New("invalid value for required argument 'IndexId'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
@@ -78,7 +75,7 @@ type dataSourceArgs struct {
 	DataSourceConfiguration *DataSourceConfiguration `pulumi:"dataSourceConfiguration"`
 	Description             *string                  `pulumi:"description"`
 	IndexId                 string                   `pulumi:"indexId"`
-	Name                    string                   `pulumi:"name"`
+	Name                    *string                  `pulumi:"name"`
 	RoleArn                 *string                  `pulumi:"roleArn"`
 	Schedule                *string                  `pulumi:"schedule"`
 	// Tags for labeling the data source
@@ -91,7 +88,7 @@ type DataSourceArgs struct {
 	DataSourceConfiguration DataSourceConfigurationPtrInput
 	Description             pulumi.StringPtrInput
 	IndexId                 pulumi.StringInput
-	Name                    pulumi.StringInput
+	Name                    pulumi.StringPtrInput
 	RoleArn                 pulumi.StringPtrInput
 	Schedule                pulumi.StringPtrInput
 	// Tags for labeling the data source

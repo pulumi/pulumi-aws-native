@@ -45,9 +45,6 @@ func NewLaunchProfile(ctx *pulumi.Context,
 	if args.LaunchProfileProtocolVersions == nil {
 		return nil, errors.New("invalid value for required argument 'LaunchProfileProtocolVersions'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.StreamConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'StreamConfiguration'")
 	}
@@ -96,7 +93,7 @@ type launchProfileArgs struct {
 	// <p>The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".</p>
 	LaunchProfileProtocolVersions []string `pulumi:"launchProfileProtocolVersions"`
 	// <p>The name for the launch profile.</p>
-	Name                string                           `pulumi:"name"`
+	Name                *string                          `pulumi:"name"`
 	StreamConfiguration LaunchProfileStreamConfiguration `pulumi:"streamConfiguration"`
 	// <p>Unique identifiers for a collection of studio components that can be used with this launch profile.</p>
 	StudioComponentIds []string `pulumi:"studioComponentIds"`
@@ -114,7 +111,7 @@ type LaunchProfileArgs struct {
 	// <p>The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".</p>
 	LaunchProfileProtocolVersions pulumi.StringArrayInput
 	// <p>The name for the launch profile.</p>
-	Name                pulumi.StringInput
+	Name                pulumi.StringPtrInput
 	StreamConfiguration LaunchProfileStreamConfigurationInput
 	// <p>Unique identifiers for a collection of studio components that can be used with this launch profile.</p>
 	StudioComponentIds pulumi.StringArrayInput

@@ -40,9 +40,6 @@ func NewVirtualService(ctx *pulumi.Context,
 	if args.Spec == nil {
 		return nil, errors.New("invalid value for required argument 'Spec'")
 	}
-	if args.VirtualServiceName == nil {
-		return nil, errors.New("invalid value for required argument 'VirtualServiceName'")
-	}
 	var resource VirtualService
 	err := ctx.RegisterResource("aws-native:appmesh:VirtualService", name, args, &resource, opts...)
 	if err != nil {
@@ -79,7 +76,7 @@ type virtualServiceArgs struct {
 	MeshOwner          *string             `pulumi:"meshOwner"`
 	Spec               VirtualServiceSpec  `pulumi:"spec"`
 	Tags               []VirtualServiceTag `pulumi:"tags"`
-	VirtualServiceName string              `pulumi:"virtualServiceName"`
+	VirtualServiceName *string             `pulumi:"virtualServiceName"`
 }
 
 // The set of arguments for constructing a VirtualService resource.
@@ -88,7 +85,7 @@ type VirtualServiceArgs struct {
 	MeshOwner          pulumi.StringPtrInput
 	Spec               VirtualServiceSpecInput
 	Tags               VirtualServiceTagArrayInput
-	VirtualServiceName pulumi.StringInput
+	VirtualServiceName pulumi.StringPtrInput
 }
 
 func (VirtualServiceArgs) ElementType() reflect.Type {

@@ -31,9 +31,6 @@ func NewDestination(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DestinationName == nil {
-		return nil, errors.New("invalid value for required argument 'DestinationName'")
-	}
 	if args.DestinationPolicy == nil {
 		return nil, errors.New("invalid value for required argument 'DestinationPolicy'")
 	}
@@ -75,15 +72,15 @@ func (DestinationState) ElementType() reflect.Type {
 }
 
 type destinationArgs struct {
-	DestinationName   string `pulumi:"destinationName"`
-	DestinationPolicy string `pulumi:"destinationPolicy"`
-	RoleArn           string `pulumi:"roleArn"`
-	TargetArn         string `pulumi:"targetArn"`
+	DestinationName   *string `pulumi:"destinationName"`
+	DestinationPolicy string  `pulumi:"destinationPolicy"`
+	RoleArn           string  `pulumi:"roleArn"`
+	TargetArn         string  `pulumi:"targetArn"`
 }
 
 // The set of arguments for constructing a Destination resource.
 type DestinationArgs struct {
-	DestinationName   pulumi.StringInput
+	DestinationName   pulumi.StringPtrInput
 	DestinationPolicy pulumi.StringInput
 	RoleArn           pulumi.StringInput
 	TargetArn         pulumi.StringInput

@@ -32,9 +32,6 @@ func NewPrivateDnsNamespace(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.Vpc == nil {
 		return nil, errors.New("invalid value for required argument 'Vpc'")
 	}
@@ -71,7 +68,7 @@ func (PrivateDnsNamespaceState) ElementType() reflect.Type {
 
 type privateDnsNamespaceArgs struct {
 	Description *string                        `pulumi:"description"`
-	Name        string                         `pulumi:"name"`
+	Name        *string                        `pulumi:"name"`
 	Properties  *PrivateDnsNamespaceProperties `pulumi:"properties"`
 	Tags        []PrivateDnsNamespaceTag       `pulumi:"tags"`
 	Vpc         string                         `pulumi:"vpc"`
@@ -80,7 +77,7 @@ type privateDnsNamespaceArgs struct {
 // The set of arguments for constructing a PrivateDnsNamespace resource.
 type PrivateDnsNamespaceArgs struct {
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringInput
+	Name        pulumi.StringPtrInput
 	Properties  PrivateDnsNamespacePropertiesPtrInput
 	Tags        PrivateDnsNamespaceTagArrayInput
 	Vpc         pulumi.StringInput

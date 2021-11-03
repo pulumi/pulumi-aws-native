@@ -31,9 +31,6 @@ func NewImage(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ImageName == nil {
-		return nil, errors.New("invalid value for required argument 'ImageName'")
-	}
 	if args.ImageRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'ImageRoleArn'")
 	}
@@ -71,7 +68,7 @@ func (ImageState) ElementType() reflect.Type {
 type imageArgs struct {
 	ImageDescription *string `pulumi:"imageDescription"`
 	ImageDisplayName *string `pulumi:"imageDisplayName"`
-	ImageName        string  `pulumi:"imageName"`
+	ImageName        *string `pulumi:"imageName"`
 	ImageRoleArn     string  `pulumi:"imageRoleArn"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []ImageTag `pulumi:"tags"`
@@ -81,7 +78,7 @@ type imageArgs struct {
 type ImageArgs struct {
 	ImageDescription pulumi.StringPtrInput
 	ImageDisplayName pulumi.StringPtrInput
-	ImageName        pulumi.StringInput
+	ImageName        pulumi.StringPtrInput
 	ImageRoleArn     pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
 	Tags ImageTagArrayInput

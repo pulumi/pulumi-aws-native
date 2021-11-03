@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,12 +23,9 @@ type Activity struct {
 func NewActivity(ctx *pulumi.Context,
 	name string, args *ActivityArgs, opts ...pulumi.ResourceOption) (*Activity, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ActivityArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource Activity
 	err := ctx.RegisterResource("aws-native:stepfunctions:Activity", name, args, &resource, opts...)
 	if err != nil {
@@ -62,13 +58,13 @@ func (ActivityState) ElementType() reflect.Type {
 }
 
 type activityArgs struct {
-	Name string              `pulumi:"name"`
+	Name *string             `pulumi:"name"`
 	Tags []ActivityTagsEntry `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Activity resource.
 type ActivityArgs struct {
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	Tags ActivityTagsEntryArrayInput
 }
 

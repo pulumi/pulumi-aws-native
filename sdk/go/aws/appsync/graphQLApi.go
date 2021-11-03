@@ -41,9 +41,6 @@ func NewGraphQLApi(ctx *pulumi.Context,
 	if args.AuthenticationType == nil {
 		return nil, errors.New("invalid value for required argument 'AuthenticationType'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource GraphQLApi
 	err := ctx.RegisterResource("aws-native:appsync:GraphQLApi", name, args, &resource, opts...)
 	if err != nil {
@@ -80,7 +77,7 @@ type graphQLApiArgs struct {
 	AuthenticationType                string                                       `pulumi:"authenticationType"`
 	LambdaAuthorizerConfig            *GraphQLApiLambdaAuthorizerConfig            `pulumi:"lambdaAuthorizerConfig"`
 	LogConfig                         *GraphQLApiLogConfig                         `pulumi:"logConfig"`
-	Name                              string                                       `pulumi:"name"`
+	Name                              *string                                      `pulumi:"name"`
 	OpenIDConnectConfig               *GraphQLApiOpenIDConnectConfig               `pulumi:"openIDConnectConfig"`
 	Tags                              *GraphQLApiTags                              `pulumi:"tags"`
 	UserPoolConfig                    *GraphQLApiUserPoolConfig                    `pulumi:"userPoolConfig"`
@@ -93,7 +90,7 @@ type GraphQLApiArgs struct {
 	AuthenticationType                pulumi.StringInput
 	LambdaAuthorizerConfig            GraphQLApiLambdaAuthorizerConfigPtrInput
 	LogConfig                         GraphQLApiLogConfigPtrInput
-	Name                              pulumi.StringInput
+	Name                              pulumi.StringPtrInput
 	OpenIDConnectConfig               GraphQLApiOpenIDConnectConfigPtrInput
 	Tags                              GraphQLApiTagsPtrInput
 	UserPoolConfig                    GraphQLApiUserPoolConfigPtrInput

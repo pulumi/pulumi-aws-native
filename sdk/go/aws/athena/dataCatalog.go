@@ -34,9 +34,6 @@ func NewDataCatalog(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
@@ -75,7 +72,7 @@ type dataCatalogArgs struct {
 	// A description of the data catalog to be created.
 	Description *string `pulumi:"description"`
 	// The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type.
 	Parameters interface{} `pulumi:"parameters"`
 	// A list of comma separated tags to add to the data catalog that is created.
@@ -89,7 +86,7 @@ type DataCatalogArgs struct {
 	// A description of the data catalog to be created.
 	Description pulumi.StringPtrInput
 	// The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type.
 	Parameters pulumi.Input
 	// A list of comma separated tags to add to the data catalog that is created.

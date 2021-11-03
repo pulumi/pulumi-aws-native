@@ -62,9 +62,6 @@ func NewCanary(ctx *pulumi.Context,
 	if args.ExecutionRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'ExecutionRoleArn'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.RuntimeVersion == nil {
 		return nil, errors.New("invalid value for required argument 'RuntimeVersion'")
 	}
@@ -117,7 +114,7 @@ type canaryArgs struct {
 	// Retention period of failed canary runs represented in number of days
 	FailureRetentionPeriod *int `pulumi:"failureRetentionPeriod"`
 	// Name of the canary.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Provide canary run configuration
 	RunConfig *CanaryRunConfig `pulumi:"runConfig"`
 	// Runtime version of Synthetics Library
@@ -148,7 +145,7 @@ type CanaryArgs struct {
 	// Retention period of failed canary runs represented in number of days
 	FailureRetentionPeriod pulumi.IntPtrInput
 	// Name of the canary.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Provide canary run configuration
 	RunConfig CanaryRunConfigPtrInput
 	// Runtime version of Synthetics Library

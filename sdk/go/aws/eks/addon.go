@@ -38,9 +38,6 @@ func NewAddon(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AddonName == nil {
-		return nil, errors.New("invalid value for required argument 'AddonName'")
-	}
 	if args.ClusterName == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterName'")
 	}
@@ -77,7 +74,7 @@ func (AddonState) ElementType() reflect.Type {
 
 type addonArgs struct {
 	// Name of Addon
-	AddonName string `pulumi:"addonName"`
+	AddonName *string `pulumi:"addonName"`
 	// Version of Addon
 	AddonVersion *string `pulumi:"addonVersion"`
 	// Name of Cluster
@@ -93,7 +90,7 @@ type addonArgs struct {
 // The set of arguments for constructing a Addon resource.
 type AddonArgs struct {
 	// Name of Addon
-	AddonName pulumi.StringInput
+	AddonName pulumi.StringPtrInput
 	// Version of Addon
 	AddonVersion pulumi.StringPtrInput
 	// Name of Cluster

@@ -33,9 +33,6 @@ func NewSchedule(ctx *pulumi.Context,
 	if args.CronExpression == nil {
 		return nil, errors.New("invalid value for required argument 'CronExpression'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource Schedule
 	err := ctx.RegisterResource("aws-native:databrew:Schedule", name, args, &resource, opts...)
 	if err != nil {
@@ -72,7 +69,7 @@ type scheduleArgs struct {
 	CronExpression string   `pulumi:"cronExpression"`
 	JobNames       []string `pulumi:"jobNames"`
 	// Schedule Name
-	Name string        `pulumi:"name"`
+	Name *string       `pulumi:"name"`
 	Tags []ScheduleTag `pulumi:"tags"`
 }
 
@@ -82,7 +79,7 @@ type ScheduleArgs struct {
 	CronExpression pulumi.StringInput
 	JobNames       pulumi.StringArrayInput
 	// Schedule Name
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	Tags ScheduleTagArrayInput
 }
 

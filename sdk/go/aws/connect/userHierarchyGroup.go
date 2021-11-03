@@ -35,9 +35,6 @@ func NewUserHierarchyGroup(ctx *pulumi.Context,
 	if args.InstanceArn == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceArn'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource UserHierarchyGroup
 	err := ctx.RegisterResource("aws-native:connect:UserHierarchyGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -73,7 +70,7 @@ type userHierarchyGroupArgs struct {
 	// The identifier of the Amazon Connect instance.
 	InstanceArn string `pulumi:"instanceArn"`
 	// The name of the user hierarchy group.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The Amazon Resource Name (ARN) for the parent user hierarchy group.
 	ParentGroupArn *string `pulumi:"parentGroupArn"`
 }
@@ -83,7 +80,7 @@ type UserHierarchyGroupArgs struct {
 	// The identifier of the Amazon Connect instance.
 	InstanceArn pulumi.StringInput
 	// The name of the user hierarchy group.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) for the parent user hierarchy group.
 	ParentGroupArn pulumi.StringPtrInput
 }

@@ -34,9 +34,6 @@ func NewVirtualCluster(ctx *pulumi.Context,
 	if args.ContainerProvider == nil {
 		return nil, errors.New("invalid value for required argument 'ContainerProvider'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource VirtualCluster
 	err := ctx.RegisterResource("aws-native:emrcontainers:VirtualCluster", name, args, &resource, opts...)
 	if err != nil {
@@ -72,7 +69,7 @@ type virtualClusterArgs struct {
 	// Container provider of the virtual cluster.
 	ContainerProvider VirtualClusterContainerProvider `pulumi:"containerProvider"`
 	// Name of the virtual cluster.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// An array of key-value pairs to apply to this virtual cluster.
 	Tags []VirtualClusterTag `pulumi:"tags"`
 }
@@ -82,7 +79,7 @@ type VirtualClusterArgs struct {
 	// Container provider of the virtual cluster.
 	ContainerProvider VirtualClusterContainerProviderInput
 	// Name of the virtual cluster.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this virtual cluster.
 	Tags VirtualClusterTagArrayInput
 }

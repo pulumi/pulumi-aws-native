@@ -47,9 +47,6 @@ func NewStudio(ctx *pulumi.Context,
 	if args.DisplayName == nil {
 		return nil, errors.New("invalid value for required argument 'DisplayName'")
 	}
-	if args.StudioName == nil {
-		return nil, errors.New("invalid value for required argument 'StudioName'")
-	}
 	if args.UserRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'UserRoleArn'")
 	}
@@ -91,7 +88,7 @@ type studioArgs struct {
 	DisplayName                   string                         `pulumi:"displayName"`
 	StudioEncryptionConfiguration *StudioEncryptionConfiguration `pulumi:"studioEncryptionConfiguration"`
 	// <p>The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.</p>
-	StudioName string      `pulumi:"studioName"`
+	StudioName *string     `pulumi:"studioName"`
 	Tags       *StudioTags `pulumi:"tags"`
 	// <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p>
 	UserRoleArn string `pulumi:"userRoleArn"`
@@ -105,7 +102,7 @@ type StudioArgs struct {
 	DisplayName                   pulumi.StringInput
 	StudioEncryptionConfiguration StudioEncryptionConfigurationPtrInput
 	// <p>The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.</p>
-	StudioName pulumi.StringInput
+	StudioName pulumi.StringPtrInput
 	Tags       StudioTagsPtrInput
 	// <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p>
 	UserRoleArn pulumi.StringInput

@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,12 +34,9 @@ type Domain struct {
 func NewDomain(ctx *pulumi.Context,
 	name string, args *DomainArgs, opts ...pulumi.ResourceOption) (*Domain, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &DomainArgs{}
 	}
 
-	if args.DomainName == nil {
-		return nil, errors.New("invalid value for required argument 'DomainName'")
-	}
 	var resource Domain
 	err := ctx.RegisterResource("aws-native:customerprofiles:Domain", name, args, &resource, opts...)
 	if err != nil {
@@ -80,7 +76,7 @@ type domainArgs struct {
 	// The default number of days until the data within the domain expires.
 	DefaultExpirationDays *int `pulumi:"defaultExpirationDays"`
 	// The unique name of the domain.
-	DomainName string `pulumi:"domainName"`
+	DomainName *string `pulumi:"domainName"`
 	// The tags (keys and values) associated with the domain
 	Tags []DomainTag `pulumi:"tags"`
 }
@@ -94,7 +90,7 @@ type DomainArgs struct {
 	// The default number of days until the data within the domain expires.
 	DefaultExpirationDays pulumi.IntPtrInput
 	// The unique name of the domain.
-	DomainName pulumi.StringInput
+	DomainName pulumi.StringPtrInput
 	// The tags (keys and values) associated with the domain
 	Tags DomainTagArrayInput
 }

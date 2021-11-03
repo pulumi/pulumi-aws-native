@@ -35,9 +35,6 @@ func NewRealtimeLogConfig(ctx *pulumi.Context,
 	if args.Fields == nil {
 		return nil, errors.New("invalid value for required argument 'Fields'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.SamplingRate == nil {
 		return nil, errors.New("invalid value for required argument 'SamplingRate'")
 	}
@@ -75,7 +72,7 @@ func (RealtimeLogConfigState) ElementType() reflect.Type {
 type realtimeLogConfigArgs struct {
 	EndPoints    []RealtimeLogConfigEndPoint `pulumi:"endPoints"`
 	Fields       []string                    `pulumi:"fields"`
-	Name         string                      `pulumi:"name"`
+	Name         *string                     `pulumi:"name"`
 	SamplingRate float64                     `pulumi:"samplingRate"`
 }
 
@@ -83,7 +80,7 @@ type realtimeLogConfigArgs struct {
 type RealtimeLogConfigArgs struct {
 	EndPoints    RealtimeLogConfigEndPointArrayInput
 	Fields       pulumi.StringArrayInput
-	Name         pulumi.StringInput
+	Name         pulumi.StringPtrInput
 	SamplingRate pulumi.Float64Input
 }
 

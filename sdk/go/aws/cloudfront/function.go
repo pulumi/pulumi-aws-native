@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,12 +27,9 @@ type Function struct {
 func NewFunction(ctx *pulumi.Context,
 	name string, args *FunctionArgs, opts ...pulumi.ResourceOption) (*Function, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &FunctionArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource Function
 	err := ctx.RegisterResource("aws-native:cloudfront:Function", name, args, &resource, opts...)
 	if err != nil {
@@ -70,7 +66,7 @@ type functionArgs struct {
 	FunctionCode     *string           `pulumi:"functionCode"`
 	FunctionConfig   *FunctionConfig   `pulumi:"functionConfig"`
 	FunctionMetadata *FunctionMetadata `pulumi:"functionMetadata"`
-	Name             string            `pulumi:"name"`
+	Name             *string           `pulumi:"name"`
 }
 
 // The set of arguments for constructing a Function resource.
@@ -79,7 +75,7 @@ type FunctionArgs struct {
 	FunctionCode     pulumi.StringPtrInput
 	FunctionConfig   FunctionConfigPtrInput
 	FunctionMetadata FunctionMetadataPtrInput
-	Name             pulumi.StringInput
+	Name             pulumi.StringPtrInput
 }
 
 func (FunctionArgs) ElementType() reflect.Type {

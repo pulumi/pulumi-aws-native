@@ -52,9 +52,6 @@ func NewDisk(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DiskName == nil {
-		return nil, errors.New("invalid value for required argument 'DiskName'")
-	}
 	if args.SizeInGb == nil {
 		return nil, errors.New("invalid value for required argument 'SizeInGb'")
 	}
@@ -95,7 +92,7 @@ type diskArgs struct {
 	// The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// The names to use for your new Lightsail disk.
-	DiskName string `pulumi:"diskName"`
+	DiskName *string `pulumi:"diskName"`
 	// Size of the Lightsail disk
 	SizeInGb int `pulumi:"sizeInGb"`
 	// An array of key-value pairs to apply to this resource.
@@ -109,7 +106,7 @@ type DiskArgs struct {
 	// The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
 	AvailabilityZone pulumi.StringPtrInput
 	// The names to use for your new Lightsail disk.
-	DiskName pulumi.StringInput
+	DiskName pulumi.StringPtrInput
 	// Size of the Lightsail disk
 	SizeInGb pulumi.IntInput
 	// An array of key-value pairs to apply to this resource.

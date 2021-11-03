@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,12 +30,9 @@ type ModelPackageGroup struct {
 func NewModelPackageGroup(ctx *pulumi.Context,
 	name string, args *ModelPackageGroupArgs, opts ...pulumi.ResourceOption) (*ModelPackageGroup, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ModelPackageGroupArgs{}
 	}
 
-	if args.ModelPackageGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ModelPackageGroupName'")
-	}
 	var resource ModelPackageGroup
 	err := ctx.RegisterResource("aws-native:sagemaker:ModelPackageGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -70,7 +66,7 @@ func (ModelPackageGroupState) ElementType() reflect.Type {
 
 type modelPackageGroupArgs struct {
 	ModelPackageGroupDescription *string     `pulumi:"modelPackageGroupDescription"`
-	ModelPackageGroupName        string      `pulumi:"modelPackageGroupName"`
+	ModelPackageGroupName        *string     `pulumi:"modelPackageGroupName"`
 	ModelPackageGroupPolicy      interface{} `pulumi:"modelPackageGroupPolicy"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []ModelPackageGroupTag `pulumi:"tags"`
@@ -79,7 +75,7 @@ type modelPackageGroupArgs struct {
 // The set of arguments for constructing a ModelPackageGroup resource.
 type ModelPackageGroupArgs struct {
 	ModelPackageGroupDescription pulumi.StringPtrInput
-	ModelPackageGroupName        pulumi.StringInput
+	ModelPackageGroupName        pulumi.StringPtrInput
 	ModelPackageGroupPolicy      pulumi.Input
 	// An array of key-value pairs to apply to this resource.
 	Tags ModelPackageGroupTagArrayInput

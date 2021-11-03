@@ -50,9 +50,6 @@ func NewCampaign(ctx *pulumi.Context,
 	if args.MessageConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'MessageConfiguration'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.Schedule == nil {
 		return nil, errors.New("invalid value for required argument 'Schedule'")
 	}
@@ -99,7 +96,7 @@ type campaignArgs struct {
 	IsPaused             *bool                            `pulumi:"isPaused"`
 	Limits               *CampaignLimits                  `pulumi:"limits"`
 	MessageConfiguration CampaignMessageConfiguration     `pulumi:"messageConfiguration"`
-	Name                 string                           `pulumi:"name"`
+	Name                 *string                          `pulumi:"name"`
 	Priority             *int                             `pulumi:"priority"`
 	Schedule             CampaignSchedule                 `pulumi:"schedule"`
 	SegmentId            string                           `pulumi:"segmentId"`
@@ -119,7 +116,7 @@ type CampaignArgs struct {
 	IsPaused             pulumi.BoolPtrInput
 	Limits               CampaignLimitsPtrInput
 	MessageConfiguration CampaignMessageConfigurationInput
-	Name                 pulumi.StringInput
+	Name                 pulumi.StringPtrInput
 	Priority             pulumi.IntPtrInput
 	Schedule             CampaignScheduleInput
 	SegmentId            pulumi.StringInput

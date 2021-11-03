@@ -36,9 +36,6 @@ func NewFlow(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.Source == nil {
 		return nil, errors.New("invalid value for required argument 'Source'")
 	}
@@ -77,7 +74,7 @@ type flowArgs struct {
 	// The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// The name of the flow.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The source of the flow.
 	Source FlowSourceType `pulumi:"source"`
 	// The source failover config of the flow.
@@ -89,7 +86,7 @@ type FlowArgs struct {
 	// The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
 	AvailabilityZone pulumi.StringPtrInput
 	// The name of the flow.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The source of the flow.
 	Source FlowSourceTypeInput
 	// The source failover config of the flow.

@@ -31,9 +31,6 @@ func NewAssistant(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
@@ -70,7 +67,7 @@ func (AssistantState) ElementType() reflect.Type {
 
 type assistantArgs struct {
 	Description                       *string                                     `pulumi:"description"`
-	Name                              string                                      `pulumi:"name"`
+	Name                              *string                                     `pulumi:"name"`
 	ServerSideEncryptionConfiguration *AssistantServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 	Tags                              []AssistantTag                              `pulumi:"tags"`
 	Type                              AssistantType                               `pulumi:"type"`
@@ -79,7 +76,7 @@ type assistantArgs struct {
 // The set of arguments for constructing a Assistant resource.
 type AssistantArgs struct {
 	Description                       pulumi.StringPtrInput
-	Name                              pulumi.StringInput
+	Name                              pulumi.StringPtrInput
 	ServerSideEncryptionConfiguration AssistantServerSideEncryptionConfigurationPtrInput
 	Tags                              AssistantTagArrayInput
 	Type                              AssistantTypeInput

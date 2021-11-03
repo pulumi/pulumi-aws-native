@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,12 +27,9 @@ type ConnectorDefinition struct {
 func NewConnectorDefinition(ctx *pulumi.Context,
 	name string, args *ConnectorDefinitionArgs, opts ...pulumi.ResourceOption) (*ConnectorDefinition, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ConnectorDefinitionArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource ConnectorDefinition
 	err := ctx.RegisterResource("aws-native:greengrass:ConnectorDefinition", name, args, &resource, opts...)
 	if err != nil {
@@ -67,14 +63,14 @@ func (ConnectorDefinitionState) ElementType() reflect.Type {
 
 type connectorDefinitionArgs struct {
 	InitialVersion *ConnectorDefinitionVersionType `pulumi:"initialVersion"`
-	Name           string                          `pulumi:"name"`
+	Name           *string                         `pulumi:"name"`
 	Tags           interface{}                     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ConnectorDefinition resource.
 type ConnectorDefinitionArgs struct {
 	InitialVersion ConnectorDefinitionVersionTypePtrInput
-	Name           pulumi.StringInput
+	Name           pulumi.StringPtrInput
 	Tags           pulumi.Input
 }
 

@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,12 +34,9 @@ type ControlPanel struct {
 func NewControlPanel(ctx *pulumi.Context,
 	name string, args *ControlPanelArgs, opts ...pulumi.ResourceOption) (*ControlPanel, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ControlPanelArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource ControlPanel
 	err := ctx.RegisterResource("aws-native:route53recoverycontrol:ControlPanel", name, args, &resource, opts...)
 	if err != nil {
@@ -76,7 +72,7 @@ type controlPanelArgs struct {
 	// Cluster to associate with the Control Panel
 	ClusterArn *string `pulumi:"clusterArn"`
 	// The name of the control panel. You can use any non-white space character in the name.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// A collection of tags associated with a resource
 	Tags []ControlPanelTag `pulumi:"tags"`
 }
@@ -86,7 +82,7 @@ type ControlPanelArgs struct {
 	// Cluster to associate with the Control Panel
 	ClusterArn pulumi.StringPtrInput
 	// The name of the control panel. You can use any non-white space character in the name.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// A collection of tags associated with a resource
 	Tags ControlPanelTagArrayInput
 }

@@ -51,9 +51,6 @@ func NewPortal(ctx *pulumi.Context,
 	if args.PortalContactEmail == nil {
 		return nil, errors.New("invalid value for required argument 'PortalContactEmail'")
 	}
-	if args.PortalName == nil {
-		return nil, errors.New("invalid value for required argument 'PortalName'")
-	}
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
@@ -100,7 +97,7 @@ type portalArgs struct {
 	// A description for the portal.
 	PortalDescription *string `pulumi:"portalDescription"`
 	// A friendly name for the portal.
-	PortalName string `pulumi:"portalName"`
+	PortalName *string `pulumi:"portalName"`
 	// The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
 	RoleArn string `pulumi:"roleArn"`
 	// A list of key-value pairs that contain metadata for the portal.
@@ -120,7 +117,7 @@ type PortalArgs struct {
 	// A description for the portal.
 	PortalDescription pulumi.StringPtrInput
 	// A friendly name for the portal.
-	PortalName pulumi.StringInput
+	PortalName pulumi.StringPtrInput
 	// The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
 	RoleArn pulumi.StringInput
 	// A list of key-value pairs that contain metadata for the portal.

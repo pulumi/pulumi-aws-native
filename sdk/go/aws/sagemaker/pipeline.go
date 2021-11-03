@@ -37,9 +37,6 @@ func NewPipeline(ctx *pulumi.Context,
 	if args.PipelineDefinition == nil {
 		return nil, errors.New("invalid value for required argument 'PipelineDefinition'")
 	}
-	if args.PipelineName == nil {
-		return nil, errors.New("invalid value for required argument 'PipelineName'")
-	}
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
@@ -81,7 +78,7 @@ type pipelineArgs struct {
 	// The display name of the Pipeline.
 	PipelineDisplayName *string `pulumi:"pipelineDisplayName"`
 	// The name of the Pipeline.
-	PipelineName string `pulumi:"pipelineName"`
+	PipelineName *string `pulumi:"pipelineName"`
 	// Role Arn
 	RoleArn string        `pulumi:"roleArn"`
 	Tags    []PipelineTag `pulumi:"tags"`
@@ -95,7 +92,7 @@ type PipelineArgs struct {
 	// The display name of the Pipeline.
 	PipelineDisplayName pulumi.StringPtrInput
 	// The name of the Pipeline.
-	PipelineName pulumi.StringInput
+	PipelineName pulumi.StringPtrInput
 	// Role Arn
 	RoleArn pulumi.StringInput
 	Tags    PipelineTagArrayInput

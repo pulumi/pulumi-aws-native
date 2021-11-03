@@ -36,9 +36,6 @@ func NewFirewall(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.FirewallName == nil {
-		return nil, errors.New("invalid value for required argument 'FirewallName'")
-	}
 	if args.FirewallPolicyArn == nil {
 		return nil, errors.New("invalid value for required argument 'FirewallPolicyArn'")
 	}
@@ -82,7 +79,7 @@ func (FirewallState) ElementType() reflect.Type {
 type firewallArgs struct {
 	DeleteProtection               *bool                   `pulumi:"deleteProtection"`
 	Description                    *string                 `pulumi:"description"`
-	FirewallName                   string                  `pulumi:"firewallName"`
+	FirewallName                   *string                 `pulumi:"firewallName"`
 	FirewallPolicyArn              string                  `pulumi:"firewallPolicyArn"`
 	FirewallPolicyChangeProtection *bool                   `pulumi:"firewallPolicyChangeProtection"`
 	SubnetChangeProtection         *bool                   `pulumi:"subnetChangeProtection"`
@@ -95,7 +92,7 @@ type firewallArgs struct {
 type FirewallArgs struct {
 	DeleteProtection               pulumi.BoolPtrInput
 	Description                    pulumi.StringPtrInput
-	FirewallName                   pulumi.StringInput
+	FirewallName                   pulumi.StringPtrInput
 	FirewallPolicyArn              pulumi.StringInput
 	FirewallPolicyChangeProtection pulumi.BoolPtrInput
 	SubnetChangeProtection         pulumi.BoolPtrInput

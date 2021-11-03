@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,12 +34,9 @@ type Connection struct {
 func NewConnection(ctx *pulumi.Context,
 	name string, args *ConnectionArgs, opts ...pulumi.ResourceOption) (*Connection, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ConnectionArgs{}
 	}
 
-	if args.ConnectionName == nil {
-		return nil, errors.New("invalid value for required argument 'ConnectionName'")
-	}
 	var resource Connection
 	err := ctx.RegisterResource("aws-native:codestarconnections:Connection", name, args, &resource, opts...)
 	if err != nil {
@@ -74,7 +70,7 @@ func (ConnectionState) ElementType() reflect.Type {
 
 type connectionArgs struct {
 	// The name of the connection. Connection names must be unique in an AWS user account.
-	ConnectionName string `pulumi:"connectionName"`
+	ConnectionName *string `pulumi:"connectionName"`
 	// The host arn configured to represent the infrastructure where your third-party provider is installed. You must specify either a ProviderType or a HostArn.
 	HostArn *string `pulumi:"hostArn"`
 	// The name of the external provider where your third-party code repository is configured. You must specify either a ProviderType or a HostArn.
@@ -86,7 +82,7 @@ type connectionArgs struct {
 // The set of arguments for constructing a Connection resource.
 type ConnectionArgs struct {
 	// The name of the connection. Connection names must be unique in an AWS user account.
-	ConnectionName pulumi.StringInput
+	ConnectionName pulumi.StringPtrInput
 	// The host arn configured to represent the infrastructure where your third-party provider is installed. You must specify either a ProviderType or a HostArn.
 	HostArn pulumi.StringPtrInput
 	// The name of the external provider where your third-party code repository is configured. You must specify either a ProviderType or a HostArn.

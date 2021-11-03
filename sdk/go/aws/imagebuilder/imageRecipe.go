@@ -47,9 +47,6 @@ func NewImageRecipe(ctx *pulumi.Context,
 	if args.Components == nil {
 		return nil, errors.New("invalid value for required argument 'Components'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ParentImage == nil {
 		return nil, errors.New("invalid value for required argument 'ParentImage'")
 	}
@@ -97,7 +94,7 @@ type imageRecipeArgs struct {
 	// The description of the image recipe.
 	Description *string `pulumi:"description"`
 	// The name of the image recipe.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The parent image of the image recipe.
 	ParentImage string `pulumi:"parentImage"`
 	// The tags of the image recipe.
@@ -119,7 +116,7 @@ type ImageRecipeArgs struct {
 	// The description of the image recipe.
 	Description pulumi.StringPtrInput
 	// The name of the image recipe.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The parent image of the image recipe.
 	ParentImage pulumi.StringInput
 	// The tags of the image recipe.

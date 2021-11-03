@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,12 +27,9 @@ type LoggerDefinition struct {
 func NewLoggerDefinition(ctx *pulumi.Context,
 	name string, args *LoggerDefinitionArgs, opts ...pulumi.ResourceOption) (*LoggerDefinition, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &LoggerDefinitionArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource LoggerDefinition
 	err := ctx.RegisterResource("aws-native:greengrass:LoggerDefinition", name, args, &resource, opts...)
 	if err != nil {
@@ -67,14 +63,14 @@ func (LoggerDefinitionState) ElementType() reflect.Type {
 
 type loggerDefinitionArgs struct {
 	InitialVersion *LoggerDefinitionVersionType `pulumi:"initialVersion"`
-	Name           string                       `pulumi:"name"`
+	Name           *string                      `pulumi:"name"`
 	Tags           interface{}                  `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LoggerDefinition resource.
 type LoggerDefinitionArgs struct {
 	InitialVersion LoggerDefinitionVersionTypePtrInput
-	Name           pulumi.StringInput
+	Name           pulumi.StringPtrInput
 	Tags           pulumi.Input
 }
 

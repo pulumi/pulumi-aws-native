@@ -44,9 +44,6 @@ func NewDestination(ctx *pulumi.Context,
 	if args.ExpressionType == nil {
 		return nil, errors.New("invalid value for required argument 'ExpressionType'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
@@ -89,7 +86,7 @@ type destinationArgs struct {
 	// Must be RuleName
 	ExpressionType DestinationExpressionType `pulumi:"expressionType"`
 	// Unique name of destination
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// AWS role ARN that grants access
 	RoleArn string `pulumi:"roleArn"`
 	// A list of key-value pairs that contain metadata for the destination.
@@ -105,7 +102,7 @@ type DestinationArgs struct {
 	// Must be RuleName
 	ExpressionType DestinationExpressionTypeInput
 	// Unique name of destination
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// AWS role ARN that grants access
 	RoleArn pulumi.StringInput
 	// A list of key-value pairs that contain metadata for the destination.

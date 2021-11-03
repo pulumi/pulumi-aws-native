@@ -50,9 +50,6 @@ func NewComponent(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.Platform == nil {
 		return nil, errors.New("invalid value for required argument 'Platform'")
 	}
@@ -100,7 +97,7 @@ type componentArgs struct {
 	// The KMS key identifier used to encrypt the component.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The name of the component.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The platform of the component.
 	Platform ComponentPlatform `pulumi:"platform"`
 	// The operating system (OS) version supported by the component.
@@ -124,7 +121,7 @@ type ComponentArgs struct {
 	// The KMS key identifier used to encrypt the component.
 	KmsKeyId pulumi.StringPtrInput
 	// The name of the component.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The platform of the component.
 	Platform ComponentPlatformInput
 	// The operating system (OS) version supported by the component.

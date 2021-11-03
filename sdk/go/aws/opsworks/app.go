@@ -38,9 +38,6 @@ func NewApp(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.StackId == nil {
 		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
@@ -86,7 +83,7 @@ type appArgs struct {
 	Domains          []string                 `pulumi:"domains"`
 	EnableSsl        *bool                    `pulumi:"enableSsl"`
 	Environment      []AppEnvironmentVariable `pulumi:"environment"`
-	Name             string                   `pulumi:"name"`
+	Name             *string                  `pulumi:"name"`
 	Shortname        *string                  `pulumi:"shortname"`
 	SslConfiguration *AppSslConfiguration     `pulumi:"sslConfiguration"`
 	StackId          string                   `pulumi:"stackId"`
@@ -102,7 +99,7 @@ type AppArgs struct {
 	Domains          pulumi.StringArrayInput
 	EnableSsl        pulumi.BoolPtrInput
 	Environment      AppEnvironmentVariableArrayInput
-	Name             pulumi.StringInput
+	Name             pulumi.StringPtrInput
 	Shortname        pulumi.StringPtrInput
 	SslConfiguration AppSslConfigurationPtrInput
 	StackId          pulumi.StringInput

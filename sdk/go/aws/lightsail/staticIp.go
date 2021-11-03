@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,12 +29,9 @@ type StaticIp struct {
 func NewStaticIp(ctx *pulumi.Context,
 	name string, args *StaticIpArgs, opts ...pulumi.ResourceOption) (*StaticIp, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &StaticIpArgs{}
 	}
 
-	if args.StaticIpName == nil {
-		return nil, errors.New("invalid value for required argument 'StaticIpName'")
-	}
 	var resource StaticIp
 	err := ctx.RegisterResource("aws-native:lightsail:StaticIp", name, args, &resource, opts...)
 	if err != nil {
@@ -71,7 +67,7 @@ type staticIpArgs struct {
 	// The instance where the static IP is attached.
 	AttachedTo *string `pulumi:"attachedTo"`
 	// The name of the static IP address.
-	StaticIpName string `pulumi:"staticIpName"`
+	StaticIpName *string `pulumi:"staticIpName"`
 }
 
 // The set of arguments for constructing a StaticIp resource.
@@ -79,7 +75,7 @@ type StaticIpArgs struct {
 	// The instance where the static IP is attached.
 	AttachedTo pulumi.StringPtrInput
 	// The name of the static IP address.
-	StaticIpName pulumi.StringInput
+	StaticIpName pulumi.StringPtrInput
 }
 
 func (StaticIpArgs) ElementType() reflect.Type {

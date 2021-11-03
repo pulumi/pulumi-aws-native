@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,12 +22,9 @@ type Project struct {
 func NewProject(ctx *pulumi.Context,
 	name string, args *ProjectArgs, opts ...pulumi.ResourceOption) (*Project, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ProjectArgs{}
 	}
 
-	if args.ProjectName == nil {
-		return nil, errors.New("invalid value for required argument 'ProjectName'")
-	}
 	var resource Project
 	err := ctx.RegisterResource("aws-native:lookoutvision:Project", name, args, &resource, opts...)
 	if err != nil {
@@ -61,12 +57,12 @@ func (ProjectState) ElementType() reflect.Type {
 }
 
 type projectArgs struct {
-	ProjectName string `pulumi:"projectName"`
+	ProjectName *string `pulumi:"projectName"`
 }
 
 // The set of arguments for constructing a Project resource.
 type ProjectArgs struct {
-	ProjectName pulumi.StringInput
+	ProjectName pulumi.StringPtrInput
 }
 
 func (ProjectArgs) ElementType() reflect.Type {

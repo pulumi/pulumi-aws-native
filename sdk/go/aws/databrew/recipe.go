@@ -30,9 +30,6 @@ func NewRecipe(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.Steps == nil {
 		return nil, errors.New("invalid value for required argument 'Steps'")
 	}
@@ -71,7 +68,7 @@ type recipeArgs struct {
 	// Description of the recipe
 	Description *string `pulumi:"description"`
 	// Recipe name
-	Name  string       `pulumi:"name"`
+	Name  *string      `pulumi:"name"`
 	Steps []RecipeStep `pulumi:"steps"`
 	Tags  []RecipeTag  `pulumi:"tags"`
 }
@@ -81,7 +78,7 @@ type RecipeArgs struct {
 	// Description of the recipe
 	Description pulumi.StringPtrInput
 	// Recipe name
-	Name  pulumi.StringInput
+	Name  pulumi.StringPtrInput
 	Steps RecipeStepArrayInput
 	Tags  RecipeTagArrayInput
 }

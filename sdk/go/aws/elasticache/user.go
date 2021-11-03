@@ -46,9 +46,6 @@ func NewUser(ctx *pulumi.Context,
 	if args.UserId == nil {
 		return nil, errors.New("invalid value for required argument 'UserId'")
 	}
-	if args.UserName == nil {
-		return nil, errors.New("invalid value for required argument 'UserName'")
-	}
 	var resource User
 	err := ctx.RegisterResource("aws-native:elasticache:User", name, args, &resource, opts...)
 	if err != nil {
@@ -92,7 +89,7 @@ type userArgs struct {
 	// The ID of the user.
 	UserId string `pulumi:"userId"`
 	// The username of the user.
-	UserName string `pulumi:"userName"`
+	UserName *string `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a User resource.
@@ -108,7 +105,7 @@ type UserArgs struct {
 	// The ID of the user.
 	UserId pulumi.StringInput
 	// The username of the user.
-	UserName pulumi.StringInput
+	UserName pulumi.StringPtrInput
 }
 
 func (UserArgs) ElementType() reflect.Type {

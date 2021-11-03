@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,12 +30,9 @@ type RoutingControl struct {
 func NewRoutingControl(ctx *pulumi.Context,
 	name string, args *RoutingControlArgs, opts ...pulumi.ResourceOption) (*RoutingControl, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &RoutingControlArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource RoutingControl
 	err := ctx.RegisterResource("aws-native:route53recoverycontrol:RoutingControl", name, args, &resource, opts...)
 	if err != nil {
@@ -74,7 +70,7 @@ type routingControlArgs struct {
 	// The Amazon Resource Name (ARN) of the control panel.
 	ControlPanelArn *string `pulumi:"controlPanelArn"`
 	// The name of the routing control. You can use any non-white space character in the name.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a RoutingControl resource.
@@ -84,7 +80,7 @@ type RoutingControlArgs struct {
 	// The Amazon Resource Name (ARN) of the control panel.
 	ControlPanelArn pulumi.StringPtrInput
 	// The name of the routing control. You can use any non-white space character in the name.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 }
 
 func (RoutingControlArgs) ElementType() reflect.Type {

@@ -43,9 +43,6 @@ func NewAuthorizer(ctx *pulumi.Context,
 	if args.AuthorizerType == nil {
 		return nil, errors.New("invalid value for required argument 'AuthorizerType'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource Authorizer
 	err := ctx.RegisterResource("aws-native:apigatewayv2:Authorizer", name, args, &resource, opts...)
 	if err != nil {
@@ -88,7 +85,7 @@ type authorizerArgs struct {
 	IdentitySource                 []string                    `pulumi:"identitySource"`
 	IdentityValidationExpression   *string                     `pulumi:"identityValidationExpression"`
 	JwtConfiguration               *AuthorizerJWTConfiguration `pulumi:"jwtConfiguration"`
-	Name                           string                      `pulumi:"name"`
+	Name                           *string                     `pulumi:"name"`
 }
 
 // The set of arguments for constructing a Authorizer resource.
@@ -103,7 +100,7 @@ type AuthorizerArgs struct {
 	IdentitySource                 pulumi.StringArrayInput
 	IdentityValidationExpression   pulumi.StringPtrInput
 	JwtConfiguration               AuthorizerJWTConfigurationPtrInput
-	Name                           pulumi.StringInput
+	Name                           pulumi.StringPtrInput
 }
 
 func (AuthorizerArgs) ElementType() reflect.Type {

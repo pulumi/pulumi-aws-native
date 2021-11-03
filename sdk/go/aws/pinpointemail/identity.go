@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,12 +33,9 @@ type Identity struct {
 func NewIdentity(ctx *pulumi.Context,
 	name string, args *IdentityArgs, opts ...pulumi.ResourceOption) (*Identity, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &IdentityArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource Identity
 	err := ctx.RegisterResource("aws-native:pinpointemail:Identity", name, args, &resource, opts...)
 	if err != nil {
@@ -75,7 +71,7 @@ type identityArgs struct {
 	DkimSigningEnabled        *bool                       `pulumi:"dkimSigningEnabled"`
 	FeedbackForwardingEnabled *bool                       `pulumi:"feedbackForwardingEnabled"`
 	MailFromAttributes        *IdentityMailFromAttributes `pulumi:"mailFromAttributes"`
-	Name                      string                      `pulumi:"name"`
+	Name                      *string                     `pulumi:"name"`
 	Tags                      []IdentityTags              `pulumi:"tags"`
 }
 
@@ -84,7 +80,7 @@ type IdentityArgs struct {
 	DkimSigningEnabled        pulumi.BoolPtrInput
 	FeedbackForwardingEnabled pulumi.BoolPtrInput
 	MailFromAttributes        IdentityMailFromAttributesPtrInput
-	Name                      pulumi.StringInput
+	Name                      pulumi.StringPtrInput
 	Tags                      IdentityTagsArrayInput
 }
 

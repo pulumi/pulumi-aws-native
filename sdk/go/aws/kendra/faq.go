@@ -42,9 +42,6 @@ func NewFaq(ctx *pulumi.Context,
 	if args.IndexId == nil {
 		return nil, errors.New("invalid value for required argument 'IndexId'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
@@ -90,7 +87,7 @@ type faqArgs struct {
 	// Index ID
 	IndexId string `pulumi:"indexId"`
 	// FAQ name
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// FAQ role ARN
 	RoleArn string `pulumi:"roleArn"`
 	// FAQ S3 path
@@ -108,7 +105,7 @@ type FaqArgs struct {
 	// Index ID
 	IndexId pulumi.StringInput
 	// FAQ name
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// FAQ role ARN
 	RoleArn pulumi.StringInput
 	// FAQ S3 path

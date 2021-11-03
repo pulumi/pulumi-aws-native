@@ -54,9 +54,6 @@ func NewStack(ctx *pulumi.Context,
 	if args.DefaultInstanceProfileArn == nil {
 		return nil, errors.New("invalid value for required argument 'DefaultInstanceProfileArn'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ServiceRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceRoleArn'")
 	}
@@ -109,7 +106,7 @@ type stackArgs struct {
 	EcsClusterArn             *string                    `pulumi:"ecsClusterArn"`
 	ElasticIps                []StackElasticIp           `pulumi:"elasticIps"`
 	HostnameTheme             *string                    `pulumi:"hostnameTheme"`
-	Name                      string                     `pulumi:"name"`
+	Name                      *string                    `pulumi:"name"`
 	RdsDbInstances            []StackRdsDbInstance       `pulumi:"rdsDbInstances"`
 	ServiceRoleArn            string                     `pulumi:"serviceRoleArn"`
 	SourceStackId             *string                    `pulumi:"sourceStackId"`
@@ -138,7 +135,7 @@ type StackArgs struct {
 	EcsClusterArn             pulumi.StringPtrInput
 	ElasticIps                StackElasticIpArrayInput
 	HostnameTheme             pulumi.StringPtrInput
-	Name                      pulumi.StringInput
+	Name                      pulumi.StringPtrInput
 	RdsDbInstances            StackRdsDbInstanceArrayInput
 	ServiceRoleArn            pulumi.StringInput
 	SourceStackId             pulumi.StringPtrInput

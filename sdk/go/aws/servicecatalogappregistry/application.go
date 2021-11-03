@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,12 +26,9 @@ type Application struct {
 func NewApplication(ctx *pulumi.Context,
 	name string, args *ApplicationArgs, opts ...pulumi.ResourceOption) (*Application, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ApplicationArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource Application
 	err := ctx.RegisterResource("aws-native:servicecatalogappregistry:Application", name, args, &resource, opts...)
 	if err != nil {
@@ -68,7 +64,7 @@ type applicationArgs struct {
 	// The description of the application.
 	Description *string `pulumi:"description"`
 	// The name of the application.
-	Name string           `pulumi:"name"`
+	Name *string          `pulumi:"name"`
 	Tags *ApplicationTags `pulumi:"tags"`
 }
 
@@ -77,7 +73,7 @@ type ApplicationArgs struct {
 	// The description of the application.
 	Description pulumi.StringPtrInput
 	// The name of the application.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	Tags ApplicationTagsPtrInput
 }
 

@@ -41,9 +41,6 @@ func NewUser(ctx *pulumi.Context,
 	if args.AuthenticationMode == nil {
 		return nil, errors.New("invalid value for required argument 'AuthenticationMode'")
 	}
-	if args.UserName == nil {
-		return nil, errors.New("invalid value for required argument 'UserName'")
-	}
 	var resource User
 	err := ctx.RegisterResource("aws-native:memorydb:User", name, args, &resource, opts...)
 	if err != nil {
@@ -82,7 +79,7 @@ type userArgs struct {
 	// An array of key-value pairs to apply to this user.
 	Tags []UserTag `pulumi:"tags"`
 	// The name of the user.
-	UserName string `pulumi:"userName"`
+	UserName *string `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a User resource.
@@ -93,7 +90,7 @@ type UserArgs struct {
 	// An array of key-value pairs to apply to this user.
 	Tags UserTagArrayInput
 	// The name of the user.
-	UserName pulumi.StringInput
+	UserName pulumi.StringPtrInput
 }
 
 func (UserArgs) ElementType() reflect.Type {

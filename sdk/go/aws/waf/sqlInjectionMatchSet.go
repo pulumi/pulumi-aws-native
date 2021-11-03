@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,12 +24,9 @@ type SqlInjectionMatchSet struct {
 func NewSqlInjectionMatchSet(ctx *pulumi.Context,
 	name string, args *SqlInjectionMatchSetArgs, opts ...pulumi.ResourceOption) (*SqlInjectionMatchSet, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &SqlInjectionMatchSetArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource SqlInjectionMatchSet
 	err := ctx.RegisterResource("aws-native:waf:SqlInjectionMatchSet", name, args, &resource, opts...)
 	if err != nil {
@@ -63,13 +59,13 @@ func (SqlInjectionMatchSetState) ElementType() reflect.Type {
 }
 
 type sqlInjectionMatchSetArgs struct {
-	Name                    string                                       `pulumi:"name"`
+	Name                    *string                                      `pulumi:"name"`
 	SqlInjectionMatchTuples []SqlInjectionMatchSetSqlInjectionMatchTuple `pulumi:"sqlInjectionMatchTuples"`
 }
 
 // The set of arguments for constructing a SqlInjectionMatchSet resource.
 type SqlInjectionMatchSetArgs struct {
-	Name                    pulumi.StringInput
+	Name                    pulumi.StringPtrInput
 	SqlInjectionMatchTuples SqlInjectionMatchSetSqlInjectionMatchTupleArrayInput
 }
 

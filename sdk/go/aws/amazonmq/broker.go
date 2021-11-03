@@ -56,9 +56,6 @@ func NewBroker(ctx *pulumi.Context,
 	if args.AutoMinorVersionUpgrade == nil {
 		return nil, errors.New("invalid value for required argument 'AutoMinorVersionUpgrade'")
 	}
-	if args.BrokerName == nil {
-		return nil, errors.New("invalid value for required argument 'BrokerName'")
-	}
 	if args.DeploymentMode == nil {
 		return nil, errors.New("invalid value for required argument 'DeploymentMode'")
 	}
@@ -111,7 +108,7 @@ func (BrokerState) ElementType() reflect.Type {
 type brokerArgs struct {
 	AuthenticationStrategy     *string                   `pulumi:"authenticationStrategy"`
 	AutoMinorVersionUpgrade    bool                      `pulumi:"autoMinorVersionUpgrade"`
-	BrokerName                 string                    `pulumi:"brokerName"`
+	BrokerName                 *string                   `pulumi:"brokerName"`
 	Configuration              *BrokerConfigurationId    `pulumi:"configuration"`
 	DeploymentMode             string                    `pulumi:"deploymentMode"`
 	EncryptionOptions          *BrokerEncryptionOptions  `pulumi:"encryptionOptions"`
@@ -133,7 +130,7 @@ type brokerArgs struct {
 type BrokerArgs struct {
 	AuthenticationStrategy     pulumi.StringPtrInput
 	AutoMinorVersionUpgrade    pulumi.BoolInput
-	BrokerName                 pulumi.StringInput
+	BrokerName                 pulumi.StringPtrInput
 	Configuration              BrokerConfigurationIdPtrInput
 	DeploymentMode             pulumi.StringInput
 	EncryptionOptions          BrokerEncryptionOptionsPtrInput

@@ -55,9 +55,6 @@ func NewInfrastructureConfiguration(ctx *pulumi.Context,
 	if args.InstanceProfileName == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceProfileName'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource InfrastructureConfiguration
 	err := ctx.RegisterResource("aws-native:imagebuilder:InfrastructureConfiguration", name, args, &resource, opts...)
 	if err != nil {
@@ -103,7 +100,7 @@ type infrastructureConfigurationArgs struct {
 	// The logging configuration of the infrastructure configuration.
 	Logging *InfrastructureConfigurationLogging `pulumi:"logging"`
 	// The name of the infrastructure configuration.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The tags attached to the resource created by Image Builder.
 	ResourceTags interface{} `pulumi:"resourceTags"`
 	// The security group IDs of the infrastructure configuration.
@@ -133,7 +130,7 @@ type InfrastructureConfigurationArgs struct {
 	// The logging configuration of the infrastructure configuration.
 	Logging InfrastructureConfigurationLoggingPtrInput
 	// The name of the infrastructure configuration.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The tags attached to the resource created by Image Builder.
 	ResourceTags pulumi.Input
 	// The security group IDs of the infrastructure configuration.

@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,12 +32,9 @@ type ConformancePack struct {
 func NewConformancePack(ctx *pulumi.Context,
 	name string, args *ConformancePackArgs, opts ...pulumi.ResourceOption) (*ConformancePack, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ConformancePackArgs{}
 	}
 
-	if args.ConformancePackName == nil {
-		return nil, errors.New("invalid value for required argument 'ConformancePackName'")
-	}
 	var resource ConformancePack
 	err := ctx.RegisterResource("aws-native:configuration:ConformancePack", name, args, &resource, opts...)
 	if err != nil {
@@ -74,7 +70,7 @@ type conformancePackArgs struct {
 	// A list of ConformancePackInputParameter objects.
 	ConformancePackInputParameters []ConformancePackInputParameter `pulumi:"conformancePackInputParameters"`
 	// Name of the conformance pack which will be assigned as the unique identifier.
-	ConformancePackName string `pulumi:"conformancePackName"`
+	ConformancePackName *string `pulumi:"conformancePackName"`
 	// AWS Config stores intermediate files while processing conformance pack template.
 	DeliveryS3Bucket *string `pulumi:"deliveryS3Bucket"`
 	// The prefix for delivery S3 bucket.
@@ -90,7 +86,7 @@ type ConformancePackArgs struct {
 	// A list of ConformancePackInputParameter objects.
 	ConformancePackInputParameters ConformancePackInputParameterArrayInput
 	// Name of the conformance pack which will be assigned as the unique identifier.
-	ConformancePackName pulumi.StringInput
+	ConformancePackName pulumi.StringPtrInput
 	// AWS Config stores intermediate files while processing conformance pack template.
 	DeliveryS3Bucket pulumi.StringPtrInput
 	// The prefix for delivery S3 bucket.

@@ -48,9 +48,6 @@ func NewSchema(ctx *pulumi.Context,
 	if args.DataFormat == nil {
 		return nil, errors.New("invalid value for required argument 'DataFormat'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.SchemaDefinition == nil {
 		return nil, errors.New("invalid value for required argument 'SchemaDefinition'")
 	}
@@ -94,7 +91,7 @@ type schemaArgs struct {
 	// A description of the schema. If description is not provided, there will not be any default value for this.
 	Description *string `pulumi:"description"`
 	// Name of the schema.
-	Name     string          `pulumi:"name"`
+	Name     *string         `pulumi:"name"`
 	Registry *SchemaRegistry `pulumi:"registry"`
 	// Definition for the initial schema version in plain-text.
 	SchemaDefinition string `pulumi:"schemaDefinition"`
@@ -112,7 +109,7 @@ type SchemaArgs struct {
 	// A description of the schema. If description is not provided, there will not be any default value for this.
 	Description pulumi.StringPtrInput
 	// Name of the schema.
-	Name     pulumi.StringInput
+	Name     pulumi.StringPtrInput
 	Registry SchemaRegistryPtrInput
 	// Definition for the initial schema version in plain-text.
 	SchemaDefinition pulumi.StringInput

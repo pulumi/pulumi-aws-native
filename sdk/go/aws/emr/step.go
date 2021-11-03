@@ -39,9 +39,6 @@ func NewStep(ctx *pulumi.Context,
 	if args.JobFlowId == nil {
 		return nil, errors.New("invalid value for required argument 'JobFlowId'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource Step
 	err := ctx.RegisterResource("aws-native:emr:Step", name, args, &resource, opts...)
 	if err != nil {
@@ -77,7 +74,7 @@ type stepArgs struct {
 	ActionOnFailure string                  `pulumi:"actionOnFailure"`
 	HadoopJarStep   StepHadoopJarStepConfig `pulumi:"hadoopJarStep"`
 	JobFlowId       string                  `pulumi:"jobFlowId"`
-	Name            string                  `pulumi:"name"`
+	Name            *string                 `pulumi:"name"`
 }
 
 // The set of arguments for constructing a Step resource.
@@ -85,7 +82,7 @@ type StepArgs struct {
 	ActionOnFailure pulumi.StringInput
 	HadoopJarStep   StepHadoopJarStepConfigInput
 	JobFlowId       pulumi.StringInput
-	Name            pulumi.StringInput
+	Name            pulumi.StringPtrInput
 }
 
 func (StepArgs) ElementType() reflect.Type {

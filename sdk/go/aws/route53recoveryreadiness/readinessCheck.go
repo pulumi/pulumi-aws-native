@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,12 +28,9 @@ type ReadinessCheck struct {
 func NewReadinessCheck(ctx *pulumi.Context,
 	name string, args *ReadinessCheckArgs, opts ...pulumi.ResourceOption) (*ReadinessCheck, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ReadinessCheckArgs{}
 	}
 
-	if args.ReadinessCheckName == nil {
-		return nil, errors.New("invalid value for required argument 'ReadinessCheckName'")
-	}
 	var resource ReadinessCheck
 	err := ctx.RegisterResource("aws-native:route53recoveryreadiness:ReadinessCheck", name, args, &resource, opts...)
 	if err != nil {
@@ -68,7 +64,7 @@ func (ReadinessCheckState) ElementType() reflect.Type {
 
 type readinessCheckArgs struct {
 	// Name of the ReadinessCheck to create.
-	ReadinessCheckName string `pulumi:"readinessCheckName"`
+	ReadinessCheckName *string `pulumi:"readinessCheckName"`
 	// The name of the resource set to check.
 	ResourceSetName *string `pulumi:"resourceSetName"`
 	// A collection of tags associated with a resource.
@@ -78,7 +74,7 @@ type readinessCheckArgs struct {
 // The set of arguments for constructing a ReadinessCheck resource.
 type ReadinessCheckArgs struct {
 	// Name of the ReadinessCheck to create.
-	ReadinessCheckName pulumi.StringInput
+	ReadinessCheckName pulumi.StringPtrInput
 	// The name of the resource set to check.
 	ResourceSetName pulumi.StringPtrInput
 	// A collection of tags associated with a resource.

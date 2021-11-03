@@ -28,9 +28,6 @@ func NewXssMatchSet(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.XssMatchTuples == nil {
 		return nil, errors.New("invalid value for required argument 'XssMatchTuples'")
 	}
@@ -66,13 +63,13 @@ func (XssMatchSetState) ElementType() reflect.Type {
 }
 
 type xssMatchSetArgs struct {
-	Name           string                     `pulumi:"name"`
+	Name           *string                    `pulumi:"name"`
 	XssMatchTuples []XssMatchSetXssMatchTuple `pulumi:"xssMatchTuples"`
 }
 
 // The set of arguments for constructing a XssMatchSet resource.
 type XssMatchSetArgs struct {
-	Name           pulumi.StringInput
+	Name           pulumi.StringPtrInput
 	XssMatchTuples XssMatchSetXssMatchTupleArrayInput
 }
 

@@ -44,9 +44,6 @@ func NewFilter(ctx *pulumi.Context,
 	if args.FindingCriteria == nil {
 		return nil, errors.New("invalid value for required argument 'FindingCriteria'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.Rank == nil {
 		return nil, errors.New("invalid value for required argument 'Rank'")
 	}
@@ -86,7 +83,7 @@ type filterArgs struct {
 	Description     string                `pulumi:"description"`
 	DetectorId      string                `pulumi:"detectorId"`
 	FindingCriteria FilterFindingCriteria `pulumi:"findingCriteria"`
-	Name            string                `pulumi:"name"`
+	Name            *string               `pulumi:"name"`
 	Rank            int                   `pulumi:"rank"`
 }
 
@@ -96,7 +93,7 @@ type FilterArgs struct {
 	Description     pulumi.StringInput
 	DetectorId      pulumi.StringInput
 	FindingCriteria FilterFindingCriteriaInput
-	Name            pulumi.StringInput
+	Name            pulumi.StringPtrInput
 	Rank            pulumi.IntInput
 }
 

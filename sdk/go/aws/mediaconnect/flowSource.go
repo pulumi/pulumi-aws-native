@@ -57,9 +57,6 @@ func NewFlowSource(ctx *pulumi.Context,
 	if args.Description == nil {
 		return nil, errors.New("invalid value for required argument 'Description'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource FlowSource
 	err := ctx.RegisterResource("aws-native:mediaconnect:FlowSource", name, args, &resource, opts...)
 	if err != nil {
@@ -107,7 +104,7 @@ type flowSourceArgs struct {
 	// The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
 	MaxLatency *int `pulumi:"maxLatency"`
 	// The name of the source.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The protocol that is used by the source.
 	Protocol *FlowSourceProtocol `pulumi:"protocol"`
 	// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
@@ -135,7 +132,7 @@ type FlowSourceArgs struct {
 	// The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
 	MaxLatency pulumi.IntPtrInput
 	// The name of the source.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The protocol that is used by the source.
 	Protocol FlowSourceProtocolPtrInput
 	// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.

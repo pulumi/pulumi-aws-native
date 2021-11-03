@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -53,12 +52,9 @@ type Environment struct {
 func NewEnvironment(ctx *pulumi.Context,
 	name string, args *EnvironmentArgs, opts ...pulumi.ResourceOption) (*Environment, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &EnvironmentArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource Environment
 	err := ctx.RegisterResource("aws-native:mwaa:Environment", name, args, &resource, opts...)
 	if err != nil {
@@ -109,7 +105,7 @@ type environmentArgs struct {
 	LoggingConfiguration        *EnvironmentLoggingConfiguration `pulumi:"loggingConfiguration"`
 	MaxWorkers                  *int                             `pulumi:"maxWorkers"`
 	MinWorkers                  *int                             `pulumi:"minWorkers"`
-	Name                        string                           `pulumi:"name"`
+	Name                        *string                          `pulumi:"name"`
 	NetworkConfiguration        *EnvironmentNetworkConfiguration `pulumi:"networkConfiguration"`
 	PluginsS3ObjectVersion      *string                          `pulumi:"pluginsS3ObjectVersion"`
 	PluginsS3Path               *string                          `pulumi:"pluginsS3Path"`
@@ -143,7 +139,7 @@ type EnvironmentArgs struct {
 	LoggingConfiguration        EnvironmentLoggingConfigurationPtrInput
 	MaxWorkers                  pulumi.IntPtrInput
 	MinWorkers                  pulumi.IntPtrInput
-	Name                        pulumi.StringInput
+	Name                        pulumi.StringPtrInput
 	NetworkConfiguration        EnvironmentNetworkConfigurationPtrInput
 	PluginsS3ObjectVersion      pulumi.StringPtrInput
 	PluginsS3Path               pulumi.StringPtrInput

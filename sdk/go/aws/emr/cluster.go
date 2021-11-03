@@ -55,9 +55,6 @@ func NewCluster(ctx *pulumi.Context,
 	if args.JobFlowRole == nil {
 		return nil, errors.New("invalid value for required argument 'JobFlowRole'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ServiceRole == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceRole'")
 	}
@@ -106,7 +103,7 @@ type clusterArgs struct {
 	LogEncryptionKmsKeyId *string                        `pulumi:"logEncryptionKmsKeyId"`
 	LogUri                *string                        `pulumi:"logUri"`
 	ManagedScalingPolicy  *ClusterManagedScalingPolicy   `pulumi:"managedScalingPolicy"`
-	Name                  string                         `pulumi:"name"`
+	Name                  *string                        `pulumi:"name"`
 	ReleaseLabel          *string                        `pulumi:"releaseLabel"`
 	ScaleDownBehavior     *string                        `pulumi:"scaleDownBehavior"`
 	SecurityConfiguration *string                        `pulumi:"securityConfiguration"`
@@ -132,7 +129,7 @@ type ClusterArgs struct {
 	LogEncryptionKmsKeyId pulumi.StringPtrInput
 	LogUri                pulumi.StringPtrInput
 	ManagedScalingPolicy  ClusterManagedScalingPolicyPtrInput
-	Name                  pulumi.StringInput
+	Name                  pulumi.StringPtrInput
 	ReleaseLabel          pulumi.StringPtrInput
 	ScaleDownBehavior     pulumi.StringPtrInput
 	SecurityConfiguration pulumi.StringPtrInput

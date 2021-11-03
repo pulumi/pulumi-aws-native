@@ -38,9 +38,6 @@ func NewCustomDataIdentifier(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.Regex == nil {
 		return nil, errors.New("invalid value for required argument 'Regex'")
 	}
@@ -85,7 +82,7 @@ type customDataIdentifierArgs struct {
 	// Maximum match distance.
 	MaximumMatchDistance *int `pulumi:"maximumMatchDistance"`
 	// Name of custom data identifier.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Regular expression for custom data identifier.
 	Regex string `pulumi:"regex"`
 }
@@ -101,7 +98,7 @@ type CustomDataIdentifierArgs struct {
 	// Maximum match distance.
 	MaximumMatchDistance pulumi.IntPtrInput
 	// Name of custom data identifier.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Regular expression for custom data identifier.
 	Regex pulumi.StringInput
 }

@@ -34,9 +34,6 @@ func NewUser(ctx *pulumi.Context,
 	if args.AuthenticationType == nil {
 		return nil, errors.New("invalid value for required argument 'AuthenticationType'")
 	}
-	if args.UserName == nil {
-		return nil, errors.New("invalid value for required argument 'UserName'")
-	}
 	var resource User
 	err := ctx.RegisterResource("aws-native:appstream:User", name, args, &resource, opts...)
 	if err != nil {
@@ -73,7 +70,7 @@ type userArgs struct {
 	FirstName          *string `pulumi:"firstName"`
 	LastName           *string `pulumi:"lastName"`
 	MessageAction      *string `pulumi:"messageAction"`
-	UserName           string  `pulumi:"userName"`
+	UserName           *string `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a User resource.
@@ -82,7 +79,7 @@ type UserArgs struct {
 	FirstName          pulumi.StringPtrInput
 	LastName           pulumi.StringPtrInput
 	MessageAction      pulumi.StringPtrInput
-	UserName           pulumi.StringInput
+	UserName           pulumi.StringPtrInput
 }
 
 func (UserArgs) ElementType() reflect.Type {

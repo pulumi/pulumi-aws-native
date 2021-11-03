@@ -44,9 +44,6 @@ func NewMonitoringSchedule(ctx *pulumi.Context,
 	if args.MonitoringScheduleConfig == nil {
 		return nil, errors.New("invalid value for required argument 'MonitoringScheduleConfig'")
 	}
-	if args.MonitoringScheduleName == nil {
-		return nil, errors.New("invalid value for required argument 'MonitoringScheduleName'")
-	}
 	var resource MonitoringSchedule
 	err := ctx.RegisterResource("aws-native:sagemaker:MonitoringSchedule", name, args, &resource, opts...)
 	if err != nil {
@@ -85,7 +82,7 @@ type monitoringScheduleArgs struct {
 	// Describes metadata on the last execution to run, if there was one.
 	LastMonitoringExecutionSummary *MonitoringScheduleMonitoringExecutionSummary `pulumi:"lastMonitoringExecutionSummary"`
 	MonitoringScheduleConfig       MonitoringScheduleConfig                      `pulumi:"monitoringScheduleConfig"`
-	MonitoringScheduleName         string                                        `pulumi:"monitoringScheduleName"`
+	MonitoringScheduleName         *string                                       `pulumi:"monitoringScheduleName"`
 	// The status of a schedule job.
 	MonitoringScheduleStatus *MonitoringScheduleStatus `pulumi:"monitoringScheduleStatus"`
 	// An array of key-value pairs to apply to this resource.
@@ -100,7 +97,7 @@ type MonitoringScheduleArgs struct {
 	// Describes metadata on the last execution to run, if there was one.
 	LastMonitoringExecutionSummary MonitoringScheduleMonitoringExecutionSummaryPtrInput
 	MonitoringScheduleConfig       MonitoringScheduleConfigInput
-	MonitoringScheduleName         pulumi.StringInput
+	MonitoringScheduleName         pulumi.StringPtrInput
 	// The status of a schedule job.
 	MonitoringScheduleStatus MonitoringScheduleStatusPtrInput
 	// An array of key-value pairs to apply to this resource.

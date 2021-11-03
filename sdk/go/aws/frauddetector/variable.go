@@ -53,9 +53,6 @@ func NewVariable(ctx *pulumi.Context,
 	if args.DefaultValue == nil {
 		return nil, errors.New("invalid value for required argument 'DefaultValue'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource Variable
 	err := ctx.RegisterResource("aws-native:frauddetector:Variable", name, args, &resource, opts...)
 	if err != nil {
@@ -97,7 +94,7 @@ type variableArgs struct {
 	// The description.
 	Description *string `pulumi:"description"`
 	// The name of the variable.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Tags associated with this variable.
 	Tags []VariableTag `pulumi:"tags"`
 	// The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
@@ -115,7 +112,7 @@ type VariableArgs struct {
 	// The description.
 	Description pulumi.StringPtrInput
 	// The name of the variable.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Tags associated with this variable.
 	Tags VariableTagArrayInput
 	// The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types

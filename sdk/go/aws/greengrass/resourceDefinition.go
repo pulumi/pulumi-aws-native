@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,12 +27,9 @@ type ResourceDefinition struct {
 func NewResourceDefinition(ctx *pulumi.Context,
 	name string, args *ResourceDefinitionArgs, opts ...pulumi.ResourceOption) (*ResourceDefinition, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ResourceDefinitionArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource ResourceDefinition
 	err := ctx.RegisterResource("aws-native:greengrass:ResourceDefinition", name, args, &resource, opts...)
 	if err != nil {
@@ -67,14 +63,14 @@ func (ResourceDefinitionState) ElementType() reflect.Type {
 
 type resourceDefinitionArgs struct {
 	InitialVersion *ResourceDefinitionVersionType `pulumi:"initialVersion"`
-	Name           string                         `pulumi:"name"`
+	Name           *string                        `pulumi:"name"`
 	Tags           interface{}                    `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResourceDefinition resource.
 type ResourceDefinitionArgs struct {
 	InitialVersion ResourceDefinitionVersionTypePtrInput
-	Name           pulumi.StringInput
+	Name           pulumi.StringPtrInput
 	Tags           pulumi.Input
 }
 

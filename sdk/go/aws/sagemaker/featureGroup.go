@@ -46,9 +46,6 @@ func NewFeatureGroup(ctx *pulumi.Context,
 	if args.FeatureDefinitions == nil {
 		return nil, errors.New("invalid value for required argument 'FeatureDefinitions'")
 	}
-	if args.FeatureGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'FeatureGroupName'")
-	}
 	if args.RecordIdentifierFeatureName == nil {
 		return nil, errors.New("invalid value for required argument 'RecordIdentifierFeatureName'")
 	}
@@ -91,7 +88,7 @@ type featureGroupArgs struct {
 	// An Array of Feature Definition
 	FeatureDefinitions []FeatureGroupFeatureDefinition `pulumi:"featureDefinitions"`
 	// The Name of the FeatureGroup.
-	FeatureGroupName   string                        `pulumi:"featureGroupName"`
+	FeatureGroupName   *string                       `pulumi:"featureGroupName"`
 	OfflineStoreConfig *OfflineStoreConfigProperties `pulumi:"offlineStoreConfig"`
 	OnlineStoreConfig  *OnlineStoreConfigProperties  `pulumi:"onlineStoreConfig"`
 	// The Record Identifier Feature Name.
@@ -111,7 +108,7 @@ type FeatureGroupArgs struct {
 	// An Array of Feature Definition
 	FeatureDefinitions FeatureGroupFeatureDefinitionArrayInput
 	// The Name of the FeatureGroup.
-	FeatureGroupName   pulumi.StringInput
+	FeatureGroupName   pulumi.StringPtrInput
 	OfflineStoreConfig OfflineStoreConfigPropertiesPtrInput
 	OnlineStoreConfig  OnlineStoreConfigPropertiesPtrInput
 	// The Record Identifier Feature Name.

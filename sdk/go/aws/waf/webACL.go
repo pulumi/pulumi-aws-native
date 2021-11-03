@@ -36,9 +36,6 @@ func NewWebACL(ctx *pulumi.Context,
 	if args.MetricName == nil {
 		return nil, errors.New("invalid value for required argument 'MetricName'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource WebACL
 	err := ctx.RegisterResource("aws-native:waf:WebACL", name, args, &resource, opts...)
 	if err != nil {
@@ -73,7 +70,7 @@ func (WebACLState) ElementType() reflect.Type {
 type webACLArgs struct {
 	DefaultAction WebACLWafAction       `pulumi:"defaultAction"`
 	MetricName    string                `pulumi:"metricName"`
-	Name          string                `pulumi:"name"`
+	Name          *string               `pulumi:"name"`
 	Rules         []WebACLActivatedRule `pulumi:"rules"`
 }
 
@@ -81,7 +78,7 @@ type webACLArgs struct {
 type WebACLArgs struct {
 	DefaultAction WebACLWafActionInput
 	MetricName    pulumi.StringInput
-	Name          pulumi.StringInput
+	Name          pulumi.StringPtrInput
 	Rules         WebACLActivatedRuleArrayInput
 }
 

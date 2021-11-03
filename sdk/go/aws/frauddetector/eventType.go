@@ -48,9 +48,6 @@ func NewEventType(ctx *pulumi.Context,
 	if args.Labels == nil {
 		return nil, errors.New("invalid value for required argument 'Labels'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource EventType
 	err := ctx.RegisterResource("aws-native:frauddetector:EventType", name, args, &resource, opts...)
 	if err != nil {
@@ -89,7 +86,7 @@ type eventTypeArgs struct {
 	EventVariables []EventTypeEventVariable `pulumi:"eventVariables"`
 	Labels         []EventTypeLabel         `pulumi:"labels"`
 	// The name for the event type
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Tags associated with this event type.
 	Tags []EventTypeTag `pulumi:"tags"`
 }
@@ -102,7 +99,7 @@ type EventTypeArgs struct {
 	EventVariables EventTypeEventVariableArrayInput
 	Labels         EventTypeLabelArrayInput
 	// The name for the event type
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Tags associated with this event type.
 	Tags EventTypeTagArrayInput
 }

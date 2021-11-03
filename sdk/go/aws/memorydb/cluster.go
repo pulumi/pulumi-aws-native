@@ -85,9 +85,6 @@ func NewCluster(ctx *pulumi.Context,
 	if args.ACLName == nil {
 		return nil, errors.New("invalid value for required argument 'ACLName'")
 	}
-	if args.ClusterName == nil {
-		return nil, errors.New("invalid value for required argument 'ClusterName'")
-	}
 	if args.NodeType == nil {
 		return nil, errors.New("invalid value for required argument 'NodeType'")
 	}
@@ -132,7 +129,7 @@ type clusterArgs struct {
 	// The cluster endpoint.
 	ClusterEndpoint *ClusterEndpoint `pulumi:"clusterEndpoint"`
 	// The name of the cluster. This value must be unique as it also serves as the cluster identifier.
-	ClusterName string `pulumi:"clusterName"`
+	ClusterName *string `pulumi:"clusterName"`
 	// An optional description of the cluster.
 	Description *string `pulumi:"description"`
 	// The Redis engine version used by the cluster.
@@ -188,7 +185,7 @@ type ClusterArgs struct {
 	// The cluster endpoint.
 	ClusterEndpoint ClusterEndpointPtrInput
 	// The name of the cluster. This value must be unique as it also serves as the cluster identifier.
-	ClusterName pulumi.StringInput
+	ClusterName pulumi.StringPtrInput
 	// An optional description of the cluster.
 	Description pulumi.StringPtrInput
 	// The Redis engine version used by the cluster.

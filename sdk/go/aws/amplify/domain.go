@@ -37,9 +37,6 @@ func NewDomain(ctx *pulumi.Context,
 	if args.AppId == nil {
 		return nil, errors.New("invalid value for required argument 'AppId'")
 	}
-	if args.DomainName == nil {
-		return nil, errors.New("invalid value for required argument 'DomainName'")
-	}
 	if args.SubDomainSettings == nil {
 		return nil, errors.New("invalid value for required argument 'SubDomainSettings'")
 	}
@@ -78,7 +75,7 @@ type domainArgs struct {
 	AppId                         string                   `pulumi:"appId"`
 	AutoSubDomainCreationPatterns []string                 `pulumi:"autoSubDomainCreationPatterns"`
 	AutoSubDomainIAMRole          *string                  `pulumi:"autoSubDomainIAMRole"`
-	DomainName                    string                   `pulumi:"domainName"`
+	DomainName                    *string                  `pulumi:"domainName"`
 	EnableAutoSubDomain           *bool                    `pulumi:"enableAutoSubDomain"`
 	SubDomainSettings             []DomainSubDomainSetting `pulumi:"subDomainSettings"`
 }
@@ -88,7 +85,7 @@ type DomainArgs struct {
 	AppId                         pulumi.StringInput
 	AutoSubDomainCreationPatterns pulumi.StringArrayInput
 	AutoSubDomainIAMRole          pulumi.StringPtrInput
-	DomainName                    pulumi.StringInput
+	DomainName                    pulumi.StringPtrInput
 	EnableAutoSubDomain           pulumi.BoolPtrInput
 	SubDomainSettings             DomainSubDomainSettingArrayInput
 }

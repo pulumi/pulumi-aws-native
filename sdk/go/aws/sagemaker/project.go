@@ -38,9 +38,6 @@ func NewProject(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ProjectName == nil {
-		return nil, errors.New("invalid value for required argument 'ProjectName'")
-	}
 	if args.ServiceCatalogProvisioningDetails == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceCatalogProvisioningDetails'")
 	}
@@ -77,7 +74,7 @@ func (ProjectState) ElementType() reflect.Type {
 
 type projectArgs struct {
 	ProjectDescription *string `pulumi:"projectDescription"`
-	ProjectName        string  `pulumi:"projectName"`
+	ProjectName        *string `pulumi:"projectName"`
 	// Input ServiceCatalog Provisioning Details
 	ServiceCatalogProvisioningDetails ServiceCatalogProvisioningDetailsProperties `pulumi:"serviceCatalogProvisioningDetails"`
 	// An array of key-value pairs to apply to this resource.
@@ -87,7 +84,7 @@ type projectArgs struct {
 // The set of arguments for constructing a Project resource.
 type ProjectArgs struct {
 	ProjectDescription pulumi.StringPtrInput
-	ProjectName        pulumi.StringInput
+	ProjectName        pulumi.StringPtrInput
 	// Input ServiceCatalog Provisioning Details
 	ServiceCatalogProvisioningDetails ServiceCatalogProvisioningDetailsPropertiesInput
 	// An array of key-value pairs to apply to this resource.

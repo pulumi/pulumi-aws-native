@@ -47,9 +47,6 @@ func NewFunctionConfiguration(ctx *pulumi.Context,
 	if args.FunctionVersion == nil {
 		return nil, errors.New("invalid value for required argument 'FunctionVersion'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource FunctionConfiguration
 	err := ctx.RegisterResource("aws-native:appsync:FunctionConfiguration", name, args, &resource, opts...)
 	if err != nil {
@@ -86,7 +83,7 @@ type functionConfigurationArgs struct {
 	DataSourceName                    string                           `pulumi:"dataSourceName"`
 	Description                       *string                          `pulumi:"description"`
 	FunctionVersion                   string                           `pulumi:"functionVersion"`
-	Name                              string                           `pulumi:"name"`
+	Name                              *string                          `pulumi:"name"`
 	RequestMappingTemplate            *string                          `pulumi:"requestMappingTemplate"`
 	RequestMappingTemplateS3Location  *string                          `pulumi:"requestMappingTemplateS3Location"`
 	ResponseMappingTemplate           *string                          `pulumi:"responseMappingTemplate"`
@@ -100,7 +97,7 @@ type FunctionConfigurationArgs struct {
 	DataSourceName                    pulumi.StringInput
 	Description                       pulumi.StringPtrInput
 	FunctionVersion                   pulumi.StringInput
-	Name                              pulumi.StringInput
+	Name                              pulumi.StringPtrInput
 	RequestMappingTemplate            pulumi.StringPtrInput
 	RequestMappingTemplateS3Location  pulumi.StringPtrInput
 	ResponseMappingTemplate           pulumi.StringPtrInput

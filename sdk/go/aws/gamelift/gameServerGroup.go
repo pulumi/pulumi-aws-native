@@ -52,9 +52,6 @@ func NewGameServerGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.GameServerGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'GameServerGroupName'")
-	}
 	if args.InstanceDefinitions == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceDefinitions'")
 	}
@@ -103,7 +100,7 @@ type gameServerGroupArgs struct {
 	// The type of delete to perform.
 	DeleteOption *GameServerGroupDeleteOption `pulumi:"deleteOption"`
 	// An identifier for the new game server group.
-	GameServerGroupName string `pulumi:"gameServerGroupName"`
+	GameServerGroupName *string `pulumi:"gameServerGroupName"`
 	// A flag that indicates whether instances in the game server group are protected from early termination.
 	GameServerProtectionPolicy *GameServerGroupGameServerProtectionPolicy `pulumi:"gameServerProtectionPolicy"`
 	// A set of EC2 instance types to use when creating instances in the group.
@@ -131,7 +128,7 @@ type GameServerGroupArgs struct {
 	// The type of delete to perform.
 	DeleteOption GameServerGroupDeleteOptionPtrInput
 	// An identifier for the new game server group.
-	GameServerGroupName pulumi.StringInput
+	GameServerGroupName pulumi.StringPtrInput
 	// A flag that indicates whether instances in the game server group are protected from early termination.
 	GameServerProtectionPolicy GameServerGroupGameServerProtectionPolicyPtrInput
 	// A set of EC2 instance types to use when creating instances in the group.

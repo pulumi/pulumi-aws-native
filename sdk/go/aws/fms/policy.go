@@ -40,9 +40,6 @@ func NewPolicy(ctx *pulumi.Context,
 	if args.ExcludeResourceTags == nil {
 		return nil, errors.New("invalid value for required argument 'ExcludeResourceTags'")
 	}
-	if args.PolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'PolicyName'")
-	}
 	if args.RemediationEnabled == nil {
 		return nil, errors.New("invalid value for required argument 'RemediationEnabled'")
 	}
@@ -88,7 +85,7 @@ type policyArgs struct {
 	ExcludeMap                *PolicyIEMap                        `pulumi:"excludeMap"`
 	ExcludeResourceTags       bool                                `pulumi:"excludeResourceTags"`
 	IncludeMap                *PolicyIEMap                        `pulumi:"includeMap"`
-	PolicyName                string                              `pulumi:"policyName"`
+	PolicyName                *string                             `pulumi:"policyName"`
 	RemediationEnabled        bool                                `pulumi:"remediationEnabled"`
 	ResourceTags              []PolicyResourceTag                 `pulumi:"resourceTags"`
 	ResourceType              string                              `pulumi:"resourceType"`
@@ -104,7 +101,7 @@ type PolicyArgs struct {
 	ExcludeMap                PolicyIEMapPtrInput
 	ExcludeResourceTags       pulumi.BoolInput
 	IncludeMap                PolicyIEMapPtrInput
-	PolicyName                pulumi.StringInput
+	PolicyName                pulumi.StringPtrInput
 	RemediationEnabled        pulumi.BoolInput
 	ResourceTags              PolicyResourceTagArrayInput
 	ResourceType              pulumi.StringInput

@@ -46,9 +46,6 @@ func NewMaintenanceWindow(ctx *pulumi.Context,
 	if args.Duration == nil {
 		return nil, errors.New("invalid value for required argument 'Duration'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.Schedule == nil {
 		return nil, errors.New("invalid value for required argument 'Schedule'")
 	}
@@ -89,7 +86,7 @@ type maintenanceWindowArgs struct {
 	Description              *string                `pulumi:"description"`
 	Duration                 int                    `pulumi:"duration"`
 	EndDate                  *string                `pulumi:"endDate"`
-	Name                     string                 `pulumi:"name"`
+	Name                     *string                `pulumi:"name"`
 	Schedule                 string                 `pulumi:"schedule"`
 	ScheduleOffset           *int                   `pulumi:"scheduleOffset"`
 	ScheduleTimezone         *string                `pulumi:"scheduleTimezone"`
@@ -104,7 +101,7 @@ type MaintenanceWindowArgs struct {
 	Description              pulumi.StringPtrInput
 	Duration                 pulumi.IntInput
 	EndDate                  pulumi.StringPtrInput
-	Name                     pulumi.StringInput
+	Name                     pulumi.StringPtrInput
 	Schedule                 pulumi.StringInput
 	ScheduleOffset           pulumi.IntPtrInput
 	ScheduleTimezone         pulumi.StringPtrInput

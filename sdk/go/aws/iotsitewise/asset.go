@@ -39,9 +39,6 @@ func NewAsset(ctx *pulumi.Context,
 	if args.AssetModelId == nil {
 		return nil, errors.New("invalid value for required argument 'AssetModelId'")
 	}
-	if args.AssetName == nil {
-		return nil, errors.New("invalid value for required argument 'AssetName'")
-	}
 	var resource Asset
 	err := ctx.RegisterResource("aws-native:iotsitewise:Asset", name, args, &resource, opts...)
 	if err != nil {
@@ -78,7 +75,7 @@ type assetArgs struct {
 	// The ID of the asset model from which to create the asset.
 	AssetModelId string `pulumi:"assetModelId"`
 	// A unique, friendly name for the asset.
-	AssetName       string          `pulumi:"assetName"`
+	AssetName       *string         `pulumi:"assetName"`
 	AssetProperties []AssetProperty `pulumi:"assetProperties"`
 	// A list of key-value pairs that contain metadata for the asset.
 	Tags []AssetTag `pulumi:"tags"`
@@ -90,7 +87,7 @@ type AssetArgs struct {
 	// The ID of the asset model from which to create the asset.
 	AssetModelId pulumi.StringInput
 	// A unique, friendly name for the asset.
-	AssetName       pulumi.StringInput
+	AssetName       pulumi.StringPtrInput
 	AssetProperties AssetPropertyArrayInput
 	// A list of key-value pairs that contain metadata for the asset.
 	Tags AssetTagArrayInput

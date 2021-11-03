@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,12 +24,9 @@ type XssMatchSet struct {
 func NewXssMatchSet(ctx *pulumi.Context,
 	name string, args *XssMatchSetArgs, opts ...pulumi.ResourceOption) (*XssMatchSet, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &XssMatchSetArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource XssMatchSet
 	err := ctx.RegisterResource("aws-native:wafregional:XssMatchSet", name, args, &resource, opts...)
 	if err != nil {
@@ -63,13 +59,13 @@ func (XssMatchSetState) ElementType() reflect.Type {
 }
 
 type xssMatchSetArgs struct {
-	Name           string                     `pulumi:"name"`
+	Name           *string                    `pulumi:"name"`
 	XssMatchTuples []XssMatchSetXssMatchTuple `pulumi:"xssMatchTuples"`
 }
 
 // The set of arguments for constructing a XssMatchSet resource.
 type XssMatchSetArgs struct {
-	Name           pulumi.StringInput
+	Name           pulumi.StringPtrInput
 	XssMatchTuples XssMatchSetXssMatchTupleArrayInput
 }
 

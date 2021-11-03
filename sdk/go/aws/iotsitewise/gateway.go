@@ -34,9 +34,6 @@ func NewGateway(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.GatewayName == nil {
-		return nil, errors.New("invalid value for required argument 'GatewayName'")
-	}
 	if args.GatewayPlatform == nil {
 		return nil, errors.New("invalid value for required argument 'GatewayPlatform'")
 	}
@@ -75,7 +72,7 @@ type gatewayArgs struct {
 	// A list of gateway capability summaries that each contain a namespace and status.
 	GatewayCapabilitySummaries []GatewayCapabilitySummary `pulumi:"gatewayCapabilitySummaries"`
 	// A unique, friendly name for the gateway.
-	GatewayName string `pulumi:"gatewayName"`
+	GatewayName *string `pulumi:"gatewayName"`
 	// The gateway's platform. You can only specify one platform in a gateway.
 	GatewayPlatform GatewayPlatform `pulumi:"gatewayPlatform"`
 	// A list of key-value pairs that contain metadata for the gateway.
@@ -87,7 +84,7 @@ type GatewayArgs struct {
 	// A list of gateway capability summaries that each contain a namespace and status.
 	GatewayCapabilitySummaries GatewayCapabilitySummaryArrayInput
 	// A unique, friendly name for the gateway.
-	GatewayName pulumi.StringInput
+	GatewayName pulumi.StringPtrInput
 	// The gateway's platform. You can only specify one platform in a gateway.
 	GatewayPlatform GatewayPlatformInput
 	// A list of key-value pairs that contain metadata for the gateway.
