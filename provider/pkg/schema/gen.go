@@ -606,14 +606,6 @@ func (ctx *context) gatherResourceType() error {
 		}
 	}
 
-	primaryIdentifiers := codegen.NewStringSet()
-	if pid, ok := ctx.resourceSpec.Extras["primaryIdentifier"].([]interface{}); ok {
-		for _, propRef := range pid {
-			propName := strings.TrimPrefix(propRef.(string), "/properties/")
-			primaryIdentifiers.Add(propName)
-		}
-	}
-
 	createOnlyProperties := codegen.NewStringSet()
 	if cop, ok := ctx.resourceSpec.Extras["createOnlyProperties"].([]interface{}); ok {
 		for _, propRef := range cop {
@@ -679,12 +671,12 @@ func (ctx *context) gatherResourceType() error {
 	}
 
 	ctx.metadata.Resources[ctx.resourceToken] = CloudAPIResource{
-		CfType:          ctx.cfTypeName,
-		Inputs:          inputProperties,
-		Outputs:         properties,
-		CreateOnly:      createOnlyProperties.SortedValues(),
-		Required:        requiredInputs.SortedValues(),
-		AutoNamingSpec:  autoNamingSpec,
+		CfType:         ctx.cfTypeName,
+		Inputs:         inputProperties,
+		Outputs:        properties,
+		CreateOnly:     createOnlyProperties.SortedValues(),
+		Required:       requiredInputs.SortedValues(),
+		AutoNamingSpec: autoNamingSpec,
 	}
 	return nil
 }
