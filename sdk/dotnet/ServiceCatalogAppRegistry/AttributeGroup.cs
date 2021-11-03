@@ -93,8 +93,8 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         /// <summary>
         /// The name of the attribute group. 
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("tags")]
         public Input<Inputs.AttributeGroupTagsArgs>? Tags { get; set; }

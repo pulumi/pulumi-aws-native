@@ -99,8 +99,8 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// The name of the subnet group. This value must be unique as it also serves as the subnet group identifier.
         /// </summary>
-        [Input("subnetGroupName", required: true)]
-        public Input<string> SubnetGroupName { get; set; } = null!;
+        [Input("subnetGroupName")]
+        public Input<string>? SubnetGroupName { get; set; }
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;

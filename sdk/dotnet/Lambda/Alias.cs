@@ -88,8 +88,8 @@ namespace Pulumi.AwsNative.Lambda
         [Input("functionVersion", required: true)]
         public Input<string> FunctionVersion { get; set; } = null!;
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("provisionedConcurrencyConfig")]
         public Input<Inputs.AliasProvisionedConcurrencyConfigurationArgs>? ProvisionedConcurrencyConfig { get; set; }

@@ -130,8 +130,8 @@ namespace Pulumi.AwsNative.Route53
         [Input("multiValueAnswer")]
         public Input<bool>? MultiValueAnswer { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("region")]
         public Input<string>? Region { get; set; }

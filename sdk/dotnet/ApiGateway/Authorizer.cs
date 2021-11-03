@@ -162,8 +162,8 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// The name of the authorizer.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("providerARNs")]
         private InputList<string>? _providerARNs;

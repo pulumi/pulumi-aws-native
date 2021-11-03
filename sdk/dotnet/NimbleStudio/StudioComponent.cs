@@ -147,8 +147,8 @@ namespace Pulumi.AwsNative.NimbleStudio
         /// <summary>
         /// &lt;p&gt;The name for the studio component.&lt;/p&gt;
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("scriptParameters")]
         private InputList<Inputs.StudioComponentScriptParameterKeyValueArgs>? _scriptParameters;

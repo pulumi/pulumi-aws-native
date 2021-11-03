@@ -165,8 +165,8 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <summary>
         /// The name of the component.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The platform of the component.

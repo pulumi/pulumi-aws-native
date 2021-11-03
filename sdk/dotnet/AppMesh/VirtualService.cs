@@ -102,8 +102,8 @@ namespace Pulumi.AwsNative.AppMesh
             set => _tags = value;
         }
 
-        [Input("virtualServiceName", required: true)]
-        public Input<string> VirtualServiceName { get; set; } = null!;
+        [Input("virtualServiceName")]
+        public Input<string>? VirtualServiceName { get; set; }
 
         public VirtualServiceArgs()
         {

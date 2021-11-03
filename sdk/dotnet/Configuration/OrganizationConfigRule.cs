@@ -36,7 +36,7 @@ namespace Pulumi.AwsNative.Configuration
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public OrganizationConfigRule(string name, OrganizationConfigRuleArgs args, CustomResourceOptions? options = null)
+        public OrganizationConfigRule(string name, OrganizationConfigRuleArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:configuration:OrganizationConfigRule", name, args ?? new OrganizationConfigRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -81,8 +81,8 @@ namespace Pulumi.AwsNative.Configuration
             set => _excludedAccounts = value;
         }
 
-        [Input("organizationConfigRuleName", required: true)]
-        public Input<string> OrganizationConfigRuleName { get; set; } = null!;
+        [Input("organizationConfigRuleName")]
+        public Input<string>? OrganizationConfigRuleName { get; set; }
 
         [Input("organizationCustomRuleMetadata")]
         public Input<Inputs.OrganizationConfigRuleOrganizationCustomRuleMetadataArgs>? OrganizationCustomRuleMetadata { get; set; }

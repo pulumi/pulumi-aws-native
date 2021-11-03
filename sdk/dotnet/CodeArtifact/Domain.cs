@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.CodeArtifact
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Domain(string name, DomainArgs args, CustomResourceOptions? options = null)
+        public Domain(string name, DomainArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:codeartifact:Domain", name, args ?? new DomainArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -105,8 +105,8 @@ namespace Pulumi.AwsNative.CodeArtifact
         /// <summary>
         /// The name of the domain.
         /// </summary>
-        [Input("domainName", required: true)]
-        public Input<string> DomainName { get; set; } = null!;
+        [Input("domainName")]
+        public Input<string>? DomainName { get; set; }
 
         /// <summary>
         /// The access control resource policy on the provided domain.

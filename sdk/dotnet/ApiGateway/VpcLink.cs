@@ -76,8 +76,8 @@ namespace Pulumi.AwsNative.ApiGateway
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.VpcLinkTagArgs>? _tags;

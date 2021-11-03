@@ -123,8 +123,8 @@ namespace Pulumi.AwsNative.Macie
         /// <summary>
         /// Findings filter name
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Findings filter position.

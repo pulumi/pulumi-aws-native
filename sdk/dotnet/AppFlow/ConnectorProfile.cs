@@ -117,8 +117,8 @@ namespace Pulumi.AwsNative.AppFlow
         /// <summary>
         /// The maximum number of items to retrieve in a single batch.
         /// </summary>
-        [Input("connectorProfileName", required: true)]
-        public Input<string> ConnectorProfileName { get; set; } = null!;
+        [Input("connectorProfileName")]
+        public Input<string>? ConnectorProfileName { get; set; }
 
         /// <summary>
         /// List of Saas providers that need connector profile to be created

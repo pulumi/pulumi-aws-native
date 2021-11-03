@@ -137,8 +137,8 @@ namespace Pulumi.AwsNative.SSO
         /// <summary>
         /// The name you want to assign to this permission set.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The relay state URL that redirect links to any service in the AWS Management Console.

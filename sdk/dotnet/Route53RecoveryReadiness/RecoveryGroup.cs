@@ -47,7 +47,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public RecoveryGroup(string name, RecoveryGroupArgs args, CustomResourceOptions? options = null)
+        public RecoveryGroup(string name, RecoveryGroupArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:route53recoveryreadiness:RecoveryGroup", name, args ?? new RecoveryGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -99,8 +99,8 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// <summary>
         /// The name of the recovery group to create.
         /// </summary>
-        [Input("recoveryGroupName", required: true)]
-        public Input<string> RecoveryGroupName { get; set; } = null!;
+        [Input("recoveryGroupName")]
+        public Input<string>? RecoveryGroupName { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.RecoveryGroupTagArgs>? _tags;

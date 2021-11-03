@@ -70,8 +70,8 @@ namespace Pulumi.AwsNative.Glue
         [Input("encryptionConfiguration", required: true)]
         public Input<Inputs.SecurityConfigurationEncryptionConfigurationArgs> EncryptionConfiguration { get; set; } = null!;
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         public SecurityConfigurationArgs()
         {

@@ -201,8 +201,8 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// The names to use for your new Lightsail instance.
         /// </summary>
-        [Input("instanceName", required: true)]
-        public Input<string> InstanceName { get; set; } = null!;
+        [Input("instanceName")]
+        public Input<string>? InstanceName { get; set; }
 
         /// <summary>
         /// The name of your key pair.

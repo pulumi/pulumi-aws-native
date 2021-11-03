@@ -47,7 +47,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public AppImageConfig(string name, AppImageConfigArgs args, CustomResourceOptions? options = null)
+        public AppImageConfig(string name, AppImageConfigArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:sagemaker:AppImageConfig", name, args ?? new AppImageConfigArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -87,8 +87,8 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// The Name of the AppImageConfig.
         /// </summary>
-        [Input("appImageConfigName", required: true)]
-        public Input<string> AppImageConfigName { get; set; } = null!;
+        [Input("appImageConfigName")]
+        public Input<string>? AppImageConfigName { get; set; }
 
         /// <summary>
         /// The KernelGatewayImageConfig.

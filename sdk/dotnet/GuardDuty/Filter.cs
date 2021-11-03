@@ -91,8 +91,8 @@ namespace Pulumi.AwsNative.GuardDuty
         [Input("findingCriteria", required: true)]
         public Input<Inputs.FilterFindingCriteriaArgs> FindingCriteria { get; set; } = null!;
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("rank", required: true)]
         public Input<int> Rank { get; set; } = null!;

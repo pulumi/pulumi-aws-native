@@ -109,8 +109,8 @@ namespace Pulumi.AwsNative.AppSync
         [Input("logConfig")]
         public Input<Inputs.GraphQLApiLogConfigArgs>? LogConfig { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("openIDConnectConfig")]
         public Input<Inputs.GraphQLApiOpenIDConnectConfigArgs>? OpenIDConnectConfig { get; set; }

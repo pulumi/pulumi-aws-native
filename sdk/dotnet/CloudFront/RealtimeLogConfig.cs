@@ -91,8 +91,8 @@ namespace Pulumi.AwsNative.CloudFront
             set => _fields = value;
         }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("samplingRate", required: true)]
         public Input<double> SamplingRate { get; set; } = null!;

@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ACL(string name, ACLArgs args, CustomResourceOptions? options = null)
+        public ACL(string name, ACLArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:memorydb:ACL", name, args ?? new ACLArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -93,8 +93,8 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// The name of the acl.
         /// </summary>
-        [Input("aCLName", required: true)]
-        public Input<string> ACLName { get; set; } = null!;
+        [Input("aCLName")]
+        public Input<string>? ACLName { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.ACLTagArgs>? _tags;

@@ -105,8 +105,8 @@ namespace Pulumi.AwsNative.MediaConnect
         /// <summary>
         /// Immutable and has to be a unique against other VpcInterfaces in this Flow.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Role Arn MediaConnect can assumes to create ENIs in customer's account.

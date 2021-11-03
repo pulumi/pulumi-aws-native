@@ -109,8 +109,8 @@ namespace Pulumi.AwsNative.SSM
         [Input("endDate")]
         public Input<string>? EndDate { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("schedule", required: true)]
         public Input<string> Schedule { get; set; } = null!;

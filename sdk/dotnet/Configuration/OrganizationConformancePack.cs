@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.Configuration
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public OrganizationConformancePack(string name, OrganizationConformancePackArgs args, CustomResourceOptions? options = null)
+        public OrganizationConformancePack(string name, OrganizationConformancePackArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:configuration:OrganizationConformancePack", name, args ?? new OrganizationConformancePackArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -141,8 +141,8 @@ namespace Pulumi.AwsNative.Configuration
         /// <summary>
         /// The name of the organization conformance pack.
         /// </summary>
-        [Input("organizationConformancePackName", required: true)]
-        public Input<string> OrganizationConformancePackName { get; set; } = null!;
+        [Input("organizationConformancePackName")]
+        public Input<string>? OrganizationConformancePackName { get; set; }
 
         /// <summary>
         /// A string containing full conformance pack template body.

@@ -93,8 +93,8 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// The name of the user hierarchy group.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the parent user hierarchy group.

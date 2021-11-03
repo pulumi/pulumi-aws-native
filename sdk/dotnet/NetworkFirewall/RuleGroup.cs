@@ -93,8 +93,8 @@ namespace Pulumi.AwsNative.NetworkFirewall
         [Input("ruleGroup")]
         public Input<Inputs.RuleGroupArgs>? RuleGroupValue { get; set; }
 
-        [Input("ruleGroupName", required: true)]
-        public Input<string> RuleGroupName { get; set; } = null!;
+        [Input("ruleGroupName")]
+        public Input<string>? RuleGroupName { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.RuleGroupTagArgs>? _tags;

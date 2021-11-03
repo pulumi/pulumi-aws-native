@@ -165,8 +165,8 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// An identifier for the new game server group.
         /// </summary>
-        [Input("gameServerGroupName", required: true)]
-        public Input<string> GameServerGroupName { get; set; } = null!;
+        [Input("gameServerGroupName")]
+        public Input<string>? GameServerGroupName { get; set; }
 
         /// <summary>
         /// A flag that indicates whether instances in the game server group are protected from early termination.

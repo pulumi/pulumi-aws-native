@@ -111,8 +111,8 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <summary>
         /// A friendly name for the project.
         /// </summary>
-        [Input("projectName", required: true)]
-        public Input<string> ProjectName { get; set; } = null!;
+        [Input("projectName")]
+        public Input<string>? ProjectName { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.ProjectTagArgs>? _tags;

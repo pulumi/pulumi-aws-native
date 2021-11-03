@@ -105,8 +105,8 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("projectDescription")]
         public Input<string>? ProjectDescription { get; set; }
 
-        [Input("projectName", required: true)]
-        public Input<string> ProjectName { get; set; } = null!;
+        [Input("projectName")]
+        public Input<string>? ProjectName { get; set; }
 
         /// <summary>
         /// Input ServiceCatalog Provisioning Details

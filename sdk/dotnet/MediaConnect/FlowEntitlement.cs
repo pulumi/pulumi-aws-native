@@ -141,8 +141,8 @@ namespace Pulumi.AwsNative.MediaConnect
         /// <summary>
         /// The name of the entitlement.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("subscribers", required: true)]
         private InputList<string>? _subscribers;

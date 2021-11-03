@@ -99,8 +99,8 @@ namespace Pulumi.AwsNative.CE
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("ruleVersion", required: true)]
         public Input<Pulumi.AwsNative.CE.CostCategoryRuleVersion> RuleVersion { get; set; } = null!;

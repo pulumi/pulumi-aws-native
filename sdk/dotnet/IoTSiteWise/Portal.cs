@@ -165,8 +165,8 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <summary>
         /// A friendly name for the portal.
         /// </summary>
-        [Input("portalName", required: true)]
-        public Input<string> PortalName { get; set; } = null!;
+        [Input("portalName")]
+        public Input<string>? PortalName { get; set; }
 
         /// <summary>
         /// The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.

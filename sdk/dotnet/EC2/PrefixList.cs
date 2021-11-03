@@ -141,8 +141,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// Name of Prefix List.
         /// </summary>
-        [Input("prefixListName", required: true)]
-        public Input<string> PrefixListName { get; set; } = null!;
+        [Input("prefixListName")]
+        public Input<string>? PrefixListName { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.PrefixListTagArgs>? _tags;

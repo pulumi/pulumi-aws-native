@@ -51,7 +51,7 @@ namespace Pulumi.AwsNative.CodeCommit
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Repository(string name, RepositoryArgs args, CustomResourceOptions? options = null)
+        public Repository(string name, RepositoryArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:codecommit:Repository", name, args ?? new RepositoryArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -94,8 +94,8 @@ namespace Pulumi.AwsNative.CodeCommit
         [Input("repositoryDescription")]
         public Input<string>? RepositoryDescription { get; set; }
 
-        [Input("repositoryName", required: true)]
-        public Input<string> RepositoryName { get; set; } = null!;
+        [Input("repositoryName")]
+        public Input<string>? RepositoryName { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.RepositoryTagArgs>? _tags;

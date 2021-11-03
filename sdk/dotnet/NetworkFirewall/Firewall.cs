@@ -102,8 +102,8 @@ namespace Pulumi.AwsNative.NetworkFirewall
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("firewallName", required: true)]
-        public Input<string> FirewallName { get; set; } = null!;
+        [Input("firewallName")]
+        public Input<string>? FirewallName { get; set; }
 
         [Input("firewallPolicyArn", required: true)]
         public Input<string> FirewallPolicyArn { get; set; } = null!;

@@ -135,8 +135,8 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// A name for the UserProfile.
         /// </summary>
-        [Input("userProfileName", required: true)]
-        public Input<string> UserProfileName { get; set; } = null!;
+        [Input("userProfileName")]
+        public Input<string>? UserProfileName { get; set; }
 
         /// <summary>
         /// A collection of settings.

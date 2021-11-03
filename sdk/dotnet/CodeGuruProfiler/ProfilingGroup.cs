@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.CodeGuruProfiler
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ProfilingGroup(string name, ProfilingGroupArgs args, CustomResourceOptions? options = null)
+        public ProfilingGroup(string name, ProfilingGroupArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:codeguruprofiler:ProfilingGroup", name, args ?? new ProfilingGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -123,8 +123,8 @@ namespace Pulumi.AwsNative.CodeGuruProfiler
         /// <summary>
         /// The name of the profiling group.
         /// </summary>
-        [Input("profilingGroupName", required: true)]
-        public Input<string> ProfilingGroupName { get; set; } = null!;
+        [Input("profilingGroupName")]
+        public Input<string>? ProfilingGroupName { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.ProfilingGroupTagArgs>? _tags;

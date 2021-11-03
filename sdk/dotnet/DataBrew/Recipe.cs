@@ -87,8 +87,8 @@ namespace Pulumi.AwsNative.DataBrew
         /// <summary>
         /// Recipe name
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("steps", required: true)]
         private InputList<Inputs.RecipeStepArgs>? _steps;

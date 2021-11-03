@@ -151,8 +151,8 @@ namespace Pulumi.AwsNative.AppStream
         [Input("maxUserDurationInSeconds")]
         public Input<int>? MaxUserDurationInSeconds { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("streamView")]
         public Input<string>? StreamView { get; set; }

@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.PinpointEmail
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Identity(string name, IdentityArgs args, CustomResourceOptions? options = null)
+        public Identity(string name, IdentityArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:pinpointemail:Identity", name, args ?? new IdentityArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -103,8 +103,8 @@ namespace Pulumi.AwsNative.PinpointEmail
         [Input("mailFromAttributes")]
         public Input<Inputs.IdentityMailFromAttributesArgs>? MailFromAttributes { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.IdentityTagsArgs>? _tags;

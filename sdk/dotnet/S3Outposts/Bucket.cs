@@ -93,8 +93,8 @@ namespace Pulumi.AwsNative.S3Outposts
         /// <summary>
         /// A name for the bucket.
         /// </summary>
-        [Input("bucketName", required: true)]
-        public Input<string> BucketName { get; set; } = null!;
+        [Input("bucketName")]
+        public Input<string>? BucketName { get; set; }
 
         /// <summary>
         /// Rules that define how Amazon S3Outposts manages objects during their lifetime.

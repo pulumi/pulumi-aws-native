@@ -99,8 +99,8 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// The name of the edge device fleet
         /// </summary>
-        [Input("deviceFleetName", required: true)]
-        public Input<string> DeviceFleetName { get; set; } = null!;
+        [Input("deviceFleetName")]
+        public Input<string>? DeviceFleetName { get; set; }
 
         /// <summary>
         /// S3 bucket and an ecryption key id (if available) to store outputs for the fleet

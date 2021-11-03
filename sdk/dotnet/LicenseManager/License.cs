@@ -157,8 +157,8 @@ namespace Pulumi.AwsNative.LicenseManager
         /// <summary>
         /// Name for the created license.
         /// </summary>
-        [Input("licenseName", required: true)]
-        public Input<string> LicenseName { get; set; } = null!;
+        [Input("licenseName")]
+        public Input<string>? LicenseName { get; set; }
 
         /// <summary>
         /// Product name for the created license.

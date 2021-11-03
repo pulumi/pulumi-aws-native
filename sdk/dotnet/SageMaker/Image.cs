@@ -87,8 +87,8 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("imageDisplayName")]
         public Input<string>? ImageDisplayName { get; set; }
 
-        [Input("imageName", required: true)]
-        public Input<string> ImageName { get; set; } = null!;
+        [Input("imageName")]
+        public Input<string>? ImageName { get; set; }
 
         [Input("imageRoleArn", required: true)]
         public Input<string> ImageRoleArn { get; set; } = null!;

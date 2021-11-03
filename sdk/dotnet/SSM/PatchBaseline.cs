@@ -63,7 +63,7 @@ namespace Pulumi.AwsNative.SSM
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public PatchBaseline(string name, PatchBaselineArgs args, CustomResourceOptions? options = null)
+        public PatchBaseline(string name, PatchBaselineArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:ssm:PatchBaseline", name, args ?? new PatchBaselineArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -123,8 +123,8 @@ namespace Pulumi.AwsNative.SSM
         [Input("globalFilters")]
         public Input<Inputs.PatchBaselinePatchFilterGroupArgs>? GlobalFilters { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("operatingSystem")]
         public Input<string>? OperatingSystem { get; set; }

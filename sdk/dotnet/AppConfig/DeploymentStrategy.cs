@@ -100,8 +100,8 @@ namespace Pulumi.AwsNative.AppConfig
         [Input("growthType")]
         public Input<string>? GrowthType { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("replicateTo", required: true)]
         public Input<string> ReplicateTo { get; set; } = null!;

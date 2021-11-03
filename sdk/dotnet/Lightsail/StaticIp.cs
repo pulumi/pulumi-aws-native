@@ -50,7 +50,7 @@ namespace Pulumi.AwsNative.Lightsail
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public StaticIp(string name, StaticIpArgs args, CustomResourceOptions? options = null)
+        public StaticIp(string name, StaticIpArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:lightsail:StaticIp", name, args ?? new StaticIpArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -96,8 +96,8 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// The name of the static IP address.
         /// </summary>
-        [Input("staticIpName", required: true)]
-        public Input<string> StaticIpName { get; set; } = null!;
+        [Input("staticIpName")]
+        public Input<string>? StaticIpName { get; set; }
 
         public StaticIpArgs()
         {

@@ -36,7 +36,7 @@ namespace Pulumi.AwsNative.Events
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public EventBus(string name, EventBusArgs args, CustomResourceOptions? options = null)
+        public EventBus(string name, EventBusArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:events:EventBus", name, args ?? new EventBusArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -76,8 +76,8 @@ namespace Pulumi.AwsNative.Events
         [Input("eventSourceName")]
         public Input<string>? EventSourceName { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         public EventBusArgs()
         {

@@ -82,8 +82,8 @@ namespace Pulumi.AwsNative.EMR
         [Input("jobFlowId", required: true)]
         public Input<string> JobFlowId { get; set; } = null!;
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         public StepArgs()
         {

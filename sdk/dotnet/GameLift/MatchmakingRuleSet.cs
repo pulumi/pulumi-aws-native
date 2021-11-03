@@ -70,8 +70,8 @@ namespace Pulumi.AwsNative.GameLift
 
     public sealed class MatchmakingRuleSetArgs : Pulumi.ResourceArgs
     {
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("ruleSetBody", required: true)]
         public Input<string> RuleSetBody { get; set; } = null!;

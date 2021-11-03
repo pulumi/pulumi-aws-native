@@ -95,8 +95,8 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// <summary>
         /// The name of the resource set to create.
         /// </summary>
-        [Input("resourceSetName", required: true)]
-        public Input<string> ResourceSetName { get; set; } = null!;
+        [Input("resourceSetName")]
+        public Input<string>? ResourceSetName { get; set; }
 
         /// <summary>
         /// The resource type of the resources in the resource set. Enter one of the following values for resource type: 

@@ -147,8 +147,8 @@ namespace Pulumi.AwsNative.FraudDetector
         /// <summary>
         /// The name of the variable.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.VariableTagArgs>? _tags;

@@ -165,8 +165,8 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// The names to use for your new Lightsail disk.
         /// </summary>
-        [Input("diskName", required: true)]
-        public Input<string> DiskName { get; set; } = null!;
+        [Input("diskName")]
+        public Input<string>? DiskName { get; set; }
 
         /// <summary>
         /// Size of the Lightsail disk

@@ -105,8 +105,8 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// The name of the app.
         /// </summary>
-        [Input("appName", required: true)]
-        public Input<string> AppName { get; set; } = null!;
+        [Input("appName")]
+        public Input<string>? AppName { get; set; }
 
         /// <summary>
         /// The type of app.

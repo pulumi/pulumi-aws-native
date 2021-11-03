@@ -146,8 +146,8 @@ namespace Pulumi.AwsNative.GameLift
             set => _gameSessionQueueArns = value;
         }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("notificationTarget")]
         public Input<string>? NotificationTarget { get; set; }

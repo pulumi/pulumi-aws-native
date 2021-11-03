@@ -87,8 +87,8 @@ namespace Pulumi.AwsNative.IAM
         [Input("policyDocument", required: true)]
         public Input<object> PolicyDocument { get; set; } = null!;
 
-        [Input("policyName", required: true)]
-        public Input<string> PolicyName { get; set; } = null!;
+        [Input("policyName")]
+        public Input<string>? PolicyName { get; set; }
 
         [Input("roles")]
         private InputList<string>? _roles;

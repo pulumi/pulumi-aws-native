@@ -124,8 +124,8 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Input("routeSettings")]
         public Input<object>? RouteSettings { get; set; }
 
-        [Input("stageName", required: true)]
-        public Input<string> StageName { get; set; } = null!;
+        [Input("stageName")]
+        public Input<string>? StageName { get; set; }
 
         [Input("stageVariables")]
         public Input<object>? StageVariables { get; set; }

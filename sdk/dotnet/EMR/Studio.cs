@@ -195,8 +195,8 @@ namespace Pulumi.AwsNative.EMR
         /// <summary>
         /// A descriptive name for the Amazon EMR Studio.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The IAM role that will be assumed by the Amazon EMR Studio. The service role provides a way for Amazon EMR Studio to interoperate with other AWS services.

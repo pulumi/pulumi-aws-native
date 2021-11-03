@@ -135,8 +135,8 @@ namespace Pulumi.AwsNative.Kendra
         [Input("edition", required: true)]
         public Input<Pulumi.AwsNative.Kendra.IndexEdition> Edition { get; set; } = null!;
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;

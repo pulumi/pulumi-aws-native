@@ -99,8 +99,8 @@ namespace Pulumi.AwsNative.Logs
         /// <summary>
         /// A name for the saved query definition
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The query string to use for this definition

@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.FinSpace
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Environment(string name, EnvironmentArgs args, CustomResourceOptions? options = null)
+        public Environment(string name, EnvironmentArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:finspace:Environment", name, args ?? new EnvironmentArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -153,8 +153,8 @@ namespace Pulumi.AwsNative.FinSpace
         /// <summary>
         /// Name of the Environment
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         public EnvironmentArgs()
         {

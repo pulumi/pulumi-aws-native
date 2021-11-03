@@ -109,8 +109,8 @@ namespace Pulumi.AwsNative.AppSync
         [Input("functionVersion", required: true)]
         public Input<string> FunctionVersion { get; set; } = null!;
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("requestMappingTemplate")]
         public Input<string>? RequestMappingTemplate { get; set; }

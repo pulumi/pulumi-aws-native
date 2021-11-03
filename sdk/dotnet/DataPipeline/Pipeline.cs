@@ -88,8 +88,8 @@ namespace Pulumi.AwsNative.DataPipeline
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("parameterObjects", required: true)]
         private InputList<Inputs.PipelineParameterObjectArgs>? _parameterObjects;

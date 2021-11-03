@@ -117,8 +117,8 @@ namespace Pulumi.AwsNative.CodeGuruReviewer
         /// <summary>
         /// Name of the repository to be associated.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The owner of the repository. For a Bitbucket repository, this is the username for the account that owns the repository.

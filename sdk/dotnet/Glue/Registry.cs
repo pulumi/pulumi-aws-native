@@ -47,7 +47,7 @@ namespace Pulumi.AwsNative.Glue
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Registry(string name, RegistryArgs args, CustomResourceOptions? options = null)
+        public Registry(string name, RegistryArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:glue:Registry", name, args ?? new RegistryArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -93,8 +93,8 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// Name of the registry to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.  No whitespace.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.RegistryTagArgs>? _tags;

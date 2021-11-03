@@ -39,7 +39,7 @@ namespace Pulumi.AwsNative.ServiceDiscovery
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public PublicDnsNamespace(string name, PublicDnsNamespaceArgs args, CustomResourceOptions? options = null)
+        public PublicDnsNamespace(string name, PublicDnsNamespaceArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:servicediscovery:PublicDnsNamespace", name, args ?? new PublicDnsNamespaceArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -79,8 +79,8 @@ namespace Pulumi.AwsNative.ServiceDiscovery
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("properties")]
         public Input<Inputs.PublicDnsNamespacePropertiesArgs>? Properties { get; set; }

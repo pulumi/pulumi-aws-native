@@ -112,8 +112,8 @@ namespace Pulumi.AwsNative.ServiceCatalog
         [Input("distributor")]
         public Input<string>? Distributor { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("owner", required: true)]
         public Input<string> Owner { get; set; } = null!;

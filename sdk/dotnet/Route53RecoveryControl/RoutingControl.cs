@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public RoutingControl(string name, RoutingControlArgs args, CustomResourceOptions? options = null)
+        public RoutingControl(string name, RoutingControlArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:route53recoverycontrol:RoutingControl", name, args ?? new RoutingControlArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -105,8 +105,8 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         /// <summary>
         /// The name of the routing control. You can use any non-white space character in the name.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         public RoutingControlArgs()
         {

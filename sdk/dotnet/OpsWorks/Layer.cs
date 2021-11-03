@@ -156,8 +156,8 @@ namespace Pulumi.AwsNative.OpsWorks
         [Input("loadBasedAutoScaling")]
         public Input<Inputs.LayerLoadBasedAutoScalingArgs>? LoadBasedAutoScaling { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("packages")]
         private InputList<string>? _packages;

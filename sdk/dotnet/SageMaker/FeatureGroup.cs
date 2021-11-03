@@ -135,8 +135,8 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// The Name of the FeatureGroup.
         /// </summary>
-        [Input("featureGroupName", required: true)]
-        public Input<string> FeatureGroupName { get; set; } = null!;
+        [Input("featureGroupName")]
+        public Input<string>? FeatureGroupName { get; set; }
 
         [Input("offlineStoreConfig")]
         public Input<Inputs.OfflineStoreConfigPropertiesArgs>? OfflineStoreConfig { get; set; }

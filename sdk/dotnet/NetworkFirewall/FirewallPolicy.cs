@@ -84,8 +84,8 @@ namespace Pulumi.AwsNative.NetworkFirewall
         [Input("firewallPolicy", required: true)]
         public Input<Inputs.FirewallPolicyArgs> FirewallPolicyValue { get; set; } = null!;
 
-        [Input("firewallPolicyName", required: true)]
-        public Input<string> FirewallPolicyName { get; set; } = null!;
+        [Input("firewallPolicyName")]
+        public Input<string>? FirewallPolicyName { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.FirewallPolicyTagArgs>? _tags;

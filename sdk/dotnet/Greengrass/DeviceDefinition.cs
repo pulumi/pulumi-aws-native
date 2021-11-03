@@ -39,7 +39,7 @@ namespace Pulumi.AwsNative.Greengrass
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public DeviceDefinition(string name, DeviceDefinitionArgs args, CustomResourceOptions? options = null)
+        public DeviceDefinition(string name, DeviceDefinitionArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:greengrass:DeviceDefinition", name, args ?? new DeviceDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -79,8 +79,8 @@ namespace Pulumi.AwsNative.Greengrass
         [Input("initialVersion")]
         public Input<Inputs.DeviceDefinitionVersionArgs>? InitialVersion { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("tags")]
         public Input<object>? Tags { get; set; }

@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public AssetModel(string name, AssetModelArgs args, CustomResourceOptions? options = null)
+        public AssetModel(string name, AssetModelArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:iotsitewise:AssetModel", name, args ?? new AssetModelArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -141,8 +141,8 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <summary>
         /// A unique, friendly name for the asset model.
         /// </summary>
-        [Input("assetModelName", required: true)]
-        public Input<string> AssetModelName { get; set; } = null!;
+        [Input("assetModelName")]
+        public Input<string>? AssetModelName { get; set; }
 
         [Input("assetModelProperties")]
         private InputList<Inputs.AssetModelPropertyArgs>? _assetModelProperties;
