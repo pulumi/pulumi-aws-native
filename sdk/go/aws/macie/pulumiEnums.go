@@ -506,6 +506,12 @@ func (in *sessionStatusPtr) ToSessionStatusPtrOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterFindingFilterActionInput)(nil)).Elem(), FindingsFilterFindingFilterAction("ARCHIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterFindingFilterActionPtrInput)(nil)).Elem(), FindingsFilterFindingFilterAction("ARCHIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionFindingPublishingFrequencyInput)(nil)).Elem(), SessionFindingPublishingFrequency("FIFTEEN_MINUTES"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionFindingPublishingFrequencyPtrInput)(nil)).Elem(), SessionFindingPublishingFrequency("FIFTEEN_MINUTES"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionStatusInput)(nil)).Elem(), SessionStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionStatusPtrInput)(nil)).Elem(), SessionStatus("ENABLED"))
 	pulumi.RegisterOutputType(FindingsFilterFindingFilterActionOutput{})
 	pulumi.RegisterOutputType(FindingsFilterFindingFilterActionPtrOutput{})
 	pulumi.RegisterOutputType(SessionFindingPublishingFrequencyOutput{})

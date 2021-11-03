@@ -136,5 +136,6 @@ func (o CostCategoryOutput) ToCostCategoryOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryInput)(nil)).Elem(), &CostCategory{})
 	pulumi.RegisterOutputType(CostCategoryOutput{})
 }

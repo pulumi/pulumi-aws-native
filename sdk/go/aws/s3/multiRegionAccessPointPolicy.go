@@ -120,5 +120,6 @@ func (o MultiRegionAccessPointPolicyOutput) ToMultiRegionAccessPointPolicyOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionAccessPointPolicyInput)(nil)).Elem(), &MultiRegionAccessPointPolicy{})
 	pulumi.RegisterOutputType(MultiRegionAccessPointPolicyOutput{})
 }

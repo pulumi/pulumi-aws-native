@@ -120,6 +120,8 @@ func (o ConnectionTagArrayOutput) Index(i pulumi.IntInput) ConnectionTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTagInput)(nil)).Elem(), ConnectionTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTagArrayInput)(nil)).Elem(), ConnectionTagArray{})
 	pulumi.RegisterOutputType(ConnectionTagOutput{})
 	pulumi.RegisterOutputType(ConnectionTagArrayOutput{})
 }

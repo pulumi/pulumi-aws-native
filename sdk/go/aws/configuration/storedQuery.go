@@ -123,5 +123,6 @@ func (o StoredQueryOutput) ToStoredQueryOutputWithContext(ctx context.Context) S
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StoredQueryInput)(nil)).Elem(), &StoredQuery{})
 	pulumi.RegisterOutputType(StoredQueryOutput{})
 }

@@ -1071,6 +1071,16 @@ func (o FileSystemWindowsConfigurationPtrOutput) WeeklyMaintenanceStartTime() pu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemAuditLogConfigurationInput)(nil)).Elem(), FileSystemAuditLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemAuditLogConfigurationPtrInput)(nil)).Elem(), FileSystemAuditLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemLustreConfigurationInput)(nil)).Elem(), FileSystemLustreConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemLustreConfigurationPtrInput)(nil)).Elem(), FileSystemLustreConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemSelfManagedActiveDirectoryConfigurationInput)(nil)).Elem(), FileSystemSelfManagedActiveDirectoryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemSelfManagedActiveDirectoryConfigurationPtrInput)(nil)).Elem(), FileSystemSelfManagedActiveDirectoryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemTagInput)(nil)).Elem(), FileSystemTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemTagArrayInput)(nil)).Elem(), FileSystemTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemWindowsConfigurationInput)(nil)).Elem(), FileSystemWindowsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemWindowsConfigurationPtrInput)(nil)).Elem(), FileSystemWindowsConfigurationArgs{})
 	pulumi.RegisterOutputType(FileSystemAuditLogConfigurationOutput{})
 	pulumi.RegisterOutputType(FileSystemAuditLogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemLustreConfigurationOutput{})

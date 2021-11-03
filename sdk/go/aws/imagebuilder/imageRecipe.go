@@ -168,5 +168,6 @@ func (o ImageRecipeOutput) ToImageRecipeOutputWithContext(ctx context.Context) I
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageRecipeInput)(nil)).Elem(), &ImageRecipe{})
 	pulumi.RegisterOutputType(ImageRecipeOutput{})
 }

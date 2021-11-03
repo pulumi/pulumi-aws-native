@@ -835,6 +835,16 @@ func (in *serviceSourceCodeVersionTypePtr) ToServiceSourceCodeVersionTypePtrOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCodeConfigurationConfigurationSourceInput)(nil)).Elem(), ServiceCodeConfigurationConfigurationSource("REPOSITORY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCodeConfigurationConfigurationSourcePtrInput)(nil)).Elem(), ServiceCodeConfigurationConfigurationSource("REPOSITORY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCodeConfigurationValuesRuntimeInput)(nil)).Elem(), ServiceCodeConfigurationValuesRuntime("PYTHON_3"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCodeConfigurationValuesRuntimePtrInput)(nil)).Elem(), ServiceCodeConfigurationValuesRuntime("PYTHON_3"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceHealthCheckConfigurationProtocolInput)(nil)).Elem(), ServiceHealthCheckConfigurationProtocol("TCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceHealthCheckConfigurationProtocolPtrInput)(nil)).Elem(), ServiceHealthCheckConfigurationProtocol("TCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceImageRepositoryImageRepositoryTypeInput)(nil)).Elem(), ServiceImageRepositoryImageRepositoryType("ECR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceImageRepositoryImageRepositoryTypePtrInput)(nil)).Elem(), ServiceImageRepositoryImageRepositoryType("ECR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSourceCodeVersionTypeInput)(nil)).Elem(), ServiceSourceCodeVersionType("BRANCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSourceCodeVersionTypePtrInput)(nil)).Elem(), ServiceSourceCodeVersionType("BRANCH"))
 	pulumi.RegisterOutputType(ServiceCodeConfigurationConfigurationSourceOutput{})
 	pulumi.RegisterOutputType(ServiceCodeConfigurationConfigurationSourcePtrOutput{})
 	pulumi.RegisterOutputType(ServiceCodeConfigurationValuesRuntimeOutput{})

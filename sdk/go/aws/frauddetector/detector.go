@@ -159,5 +159,6 @@ func (o DetectorOutput) ToDetectorOutputWithContext(ctx context.Context) Detecto
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorInput)(nil)).Elem(), &Detector{})
 	pulumi.RegisterOutputType(DetectorOutput{})
 }

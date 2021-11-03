@@ -126,5 +126,6 @@ func (o JobQueueOutput) ToJobQueueOutputWithContext(ctx context.Context) JobQueu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueInput)(nil)).Elem(), &JobQueue{})
 	pulumi.RegisterOutputType(JobQueueOutput{})
 }

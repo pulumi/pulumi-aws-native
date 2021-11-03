@@ -129,5 +129,6 @@ func (o UserPoolIdentityProviderOutput) ToUserPoolIdentityProviderOutputWithCont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolIdentityProviderInput)(nil)).Elem(), &UserPoolIdentityProvider{})
 	pulumi.RegisterOutputType(UserPoolIdentityProviderOutput{})
 }

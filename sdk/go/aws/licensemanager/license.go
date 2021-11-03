@@ -173,5 +173,6 @@ func (o LicenseOutput) ToLicenseOutputWithContext(ctx context.Context) LicenseOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseInput)(nil)).Elem(), &License{})
 	pulumi.RegisterOutputType(LicenseOutput{})
 }

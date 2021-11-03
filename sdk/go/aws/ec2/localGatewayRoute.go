@@ -131,5 +131,6 @@ func (o LocalGatewayRouteOutput) ToLocalGatewayRouteOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LocalGatewayRouteInput)(nil)).Elem(), &LocalGatewayRoute{})
 	pulumi.RegisterOutputType(LocalGatewayRouteOutput{})
 }

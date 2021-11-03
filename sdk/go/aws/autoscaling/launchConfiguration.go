@@ -220,5 +220,6 @@ func (o LaunchConfigurationOutput) ToLaunchConfigurationOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationInput)(nil)).Elem(), &LaunchConfiguration{})
 	pulumi.RegisterOutputType(LaunchConfigurationOutput{})
 }

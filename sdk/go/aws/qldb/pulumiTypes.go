@@ -368,6 +368,12 @@ func (o StreamTagArrayOutput) Index(i pulumi.IntInput) StreamTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LedgerTagInput)(nil)).Elem(), LedgerTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LedgerTagArrayInput)(nil)).Elem(), LedgerTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamKinesisConfigurationInput)(nil)).Elem(), StreamKinesisConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamKinesisConfigurationPtrInput)(nil)).Elem(), StreamKinesisConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamTagInput)(nil)).Elem(), StreamTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamTagArrayInput)(nil)).Elem(), StreamTagArray{})
 	pulumi.RegisterOutputType(LedgerTagOutput{})
 	pulumi.RegisterOutputType(LedgerTagArrayOutput{})
 	pulumi.RegisterOutputType(StreamKinesisConfigurationOutput{})

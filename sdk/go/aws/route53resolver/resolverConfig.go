@@ -122,5 +122,6 @@ func (o ResolverConfigOutput) ToResolverConfigOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverConfigInput)(nil)).Elem(), &ResolverConfig{})
 	pulumi.RegisterOutputType(ResolverConfigOutput{})
 }

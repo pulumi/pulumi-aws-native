@@ -126,5 +126,6 @@ func (o AliasOutput) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AliasInput)(nil)).Elem(), &Alias{})
 	pulumi.RegisterOutputType(AliasOutput{})
 }

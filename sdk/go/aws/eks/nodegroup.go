@@ -166,5 +166,6 @@ func (o NodegroupOutput) ToNodegroupOutputWithContext(ctx context.Context) Nodeg
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NodegroupInput)(nil)).Elem(), &Nodegroup{})
 	pulumi.RegisterOutputType(NodegroupOutput{})
 }

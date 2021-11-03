@@ -116,5 +116,6 @@ func (o VirtualMFADeviceOutput) ToVirtualMFADeviceOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMFADeviceInput)(nil)).Elem(), &VirtualMFADevice{})
 	pulumi.RegisterOutputType(VirtualMFADeviceOutput{})
 }

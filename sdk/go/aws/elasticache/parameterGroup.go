@@ -120,5 +120,6 @@ func (o ParameterGroupOutput) ToParameterGroupOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupInput)(nil)).Elem(), &ParameterGroup{})
 	pulumi.RegisterOutputType(ParameterGroupOutput{})
 }

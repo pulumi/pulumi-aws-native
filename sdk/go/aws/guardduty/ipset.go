@@ -129,5 +129,6 @@ func (o IPSetOutput) ToIPSetOutputWithContext(ctx context.Context) IPSetOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSetInput)(nil)).Elem(), &IPSet{})
 	pulumi.RegisterOutputType(IPSetOutput{})
 }

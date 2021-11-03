@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AwsNative
 {
@@ -13,6 +14,9 @@ namespace Pulumi.AwsNative
     {
         public static Task<GetAzsResult> InvokeAsync(GetAzsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAzsResult>("aws-native:index:getAzs", args ?? new GetAzsArgs(), options.WithVersion());
+
+        public static Output<GetAzsResult> Invoke(GetAzsInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAzsResult>("aws-native:index:getAzs", args ?? new GetAzsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -22,6 +26,16 @@ namespace Pulumi.AwsNative
         public string? Region { get; set; }
 
         public GetAzsArgs()
+        {
+        }
+    }
+
+    public sealed class GetAzsInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        public GetAzsInvokeArgs()
         {
         }
     }

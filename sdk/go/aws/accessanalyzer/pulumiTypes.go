@@ -344,6 +344,12 @@ func (o AnalyzerTagArrayOutput) Index(i pulumi.IntInput) AnalyzerTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerArchiveRuleInput)(nil)).Elem(), AnalyzerArchiveRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerArchiveRuleArrayInput)(nil)).Elem(), AnalyzerArchiveRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerFilterInput)(nil)).Elem(), AnalyzerFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerFilterArrayInput)(nil)).Elem(), AnalyzerFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerTagInput)(nil)).Elem(), AnalyzerTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerTagArrayInput)(nil)).Elem(), AnalyzerTagArray{})
 	pulumi.RegisterOutputType(AnalyzerArchiveRuleOutput{})
 	pulumi.RegisterOutputType(AnalyzerArchiveRuleArrayOutput{})
 	pulumi.RegisterOutputType(AnalyzerFilterOutput{})

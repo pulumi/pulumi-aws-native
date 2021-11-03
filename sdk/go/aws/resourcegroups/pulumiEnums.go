@@ -175,6 +175,8 @@ func (in *groupResourceQueryTypePtr) ToGroupResourceQueryTypePtrOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupResourceQueryTypeInput)(nil)).Elem(), GroupResourceQueryType("TAG_FILTERS_1_0"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupResourceQueryTypePtrInput)(nil)).Elem(), GroupResourceQueryType("TAG_FILTERS_1_0"))
 	pulumi.RegisterOutputType(GroupResourceQueryTypeOutput{})
 	pulumi.RegisterOutputType(GroupResourceQueryTypePtrOutput{})
 }

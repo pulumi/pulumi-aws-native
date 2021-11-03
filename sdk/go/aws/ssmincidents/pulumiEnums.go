@@ -176,6 +176,8 @@ func (in *responsePlanSsmAutomationTargetAccountPtr) ToResponsePlanSsmAutomation
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanSsmAutomationTargetAccountInput)(nil)).Elem(), ResponsePlanSsmAutomationTargetAccount("IMPACTED_ACCOUNT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanSsmAutomationTargetAccountPtrInput)(nil)).Elem(), ResponsePlanSsmAutomationTargetAccount("IMPACTED_ACCOUNT"))
 	pulumi.RegisterOutputType(ResponsePlanSsmAutomationTargetAccountOutput{})
 	pulumi.RegisterOutputType(ResponsePlanSsmAutomationTargetAccountPtrOutput{})
 }

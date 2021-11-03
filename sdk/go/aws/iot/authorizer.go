@@ -125,5 +125,6 @@ func (o AuthorizerOutput) ToAuthorizerOutputWithContext(ctx context.Context) Aut
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizerInput)(nil)).Elem(), &Authorizer{})
 	pulumi.RegisterOutputType(AuthorizerOutput{})
 }

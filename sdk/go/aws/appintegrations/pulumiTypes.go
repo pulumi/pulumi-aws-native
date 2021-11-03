@@ -493,6 +493,14 @@ func (o EventIntegrationTagArrayOutput) Index(i pulumi.IntInput) EventIntegratio
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationAssociationInput)(nil)).Elem(), EventIntegrationAssociationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationAssociationArrayInput)(nil)).Elem(), EventIntegrationAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationEventFilterInput)(nil)).Elem(), EventIntegrationEventFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationEventFilterPtrInput)(nil)).Elem(), EventIntegrationEventFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationMetadataInput)(nil)).Elem(), EventIntegrationMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationMetadataArrayInput)(nil)).Elem(), EventIntegrationMetadataArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationTagInput)(nil)).Elem(), EventIntegrationTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationTagArrayInput)(nil)).Elem(), EventIntegrationTagArray{})
 	pulumi.RegisterOutputType(EventIntegrationAssociationOutput{})
 	pulumi.RegisterOutputType(EventIntegrationAssociationArrayOutput{})
 	pulumi.RegisterOutputType(EventIntegrationEventFilterOutput{})

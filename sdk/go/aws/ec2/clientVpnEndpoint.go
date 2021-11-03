@@ -156,5 +156,6 @@ func (o ClientVpnEndpointOutput) ToClientVpnEndpointOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointInput)(nil)).Elem(), &ClientVpnEndpoint{})
 	pulumi.RegisterOutputType(ClientVpnEndpointOutput{})
 }

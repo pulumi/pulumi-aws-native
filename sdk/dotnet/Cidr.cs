@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AwsNative
 {
@@ -13,6 +14,9 @@ namespace Pulumi.AwsNative
     {
         public static Task<CidrResult> InvokeAsync(CidrArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<CidrResult>("aws-native:index:cidr", args ?? new CidrArgs(), options.WithVersion());
+
+        public static Output<CidrResult> Invoke(CidrInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<CidrResult>("aws-native:index:cidr", args ?? new CidrInvokeArgs(), options.WithVersion());
     }
 
 
@@ -28,6 +32,22 @@ namespace Pulumi.AwsNative
         public string IpBlock { get; set; } = null!;
 
         public CidrArgs()
+        {
+        }
+    }
+
+    public sealed class CidrInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("cidrBits", required: true)]
+        public Input<int> CidrBits { get; set; } = null!;
+
+        [Input("count", required: true)]
+        public Input<int> Count { get; set; } = null!;
+
+        [Input("ipBlock", required: true)]
+        public Input<string> IpBlock { get; set; } = null!;
+
+        public CidrInvokeArgs()
         {
         }
     }

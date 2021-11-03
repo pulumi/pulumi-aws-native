@@ -113,5 +113,6 @@ func (o RecordSetGroupOutput) ToRecordSetGroupOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGroupInput)(nil)).Elem(), &RecordSetGroup{})
 	pulumi.RegisterOutputType(RecordSetGroupOutput{})
 }

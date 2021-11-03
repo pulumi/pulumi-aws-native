@@ -116,5 +116,6 @@ func (o ResourceDefinitionOutput) ToResourceDefinitionOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDefinitionInput)(nil)).Elem(), &ResourceDefinition{})
 	pulumi.RegisterOutputType(ResourceDefinitionOutput{})
 }

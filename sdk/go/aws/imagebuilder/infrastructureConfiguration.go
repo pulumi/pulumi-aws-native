@@ -186,5 +186,6 @@ func (o InfrastructureConfigurationOutput) ToInfrastructureConfigurationOutputWi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationInput)(nil)).Elem(), &InfrastructureConfiguration{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationOutput{})
 }

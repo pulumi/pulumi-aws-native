@@ -163,5 +163,6 @@ func (o TaskSetOutput) ToTaskSetOutputWithContext(ctx context.Context) TaskSetOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetInput)(nil)).Elem(), &TaskSet{})
 	pulumi.RegisterOutputType(TaskSetOutput{})
 }

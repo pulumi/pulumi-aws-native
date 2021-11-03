@@ -100,5 +100,6 @@ func (o WaitConditionHandleOutput) ToWaitConditionHandleOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WaitConditionHandleInput)(nil)).Elem(), &WaitConditionHandle{})
 	pulumi.RegisterOutputType(WaitConditionHandleOutput{})
 }

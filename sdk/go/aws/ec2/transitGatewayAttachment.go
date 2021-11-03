@@ -123,5 +123,6 @@ func (o TransitGatewayAttachmentOutput) ToTransitGatewayAttachmentOutputWithCont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentInput)(nil)).Elem(), &TransitGatewayAttachment{})
 	pulumi.RegisterOutputType(TransitGatewayAttachmentOutput{})
 }

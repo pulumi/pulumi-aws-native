@@ -144,5 +144,6 @@ func (o StageOutput) ToStageOutputWithContext(ctx context.Context) StageOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StageInput)(nil)).Elem(), &Stage{})
 	pulumi.RegisterOutputType(StageOutput{})
 }

@@ -114,5 +114,6 @@ func (o ConfigurationAssociationOutput) ToConfigurationAssociationOutputWithCont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationAssociationInput)(nil)).Elem(), &ConfigurationAssociation{})
 	pulumi.RegisterOutputType(ConfigurationAssociationOutput{})
 }

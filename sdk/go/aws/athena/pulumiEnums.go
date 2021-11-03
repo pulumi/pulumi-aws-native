@@ -508,6 +508,12 @@ func (in *workGroupStateEnumPtr) ToWorkGroupStateEnumPtrOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogTypeInput)(nil)).Elem(), DataCatalogType("LAMBDA"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogTypePtrInput)(nil)).Elem(), DataCatalogType("LAMBDA"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupEncryptionOptionInput)(nil)).Elem(), WorkGroupEncryptionOption("SSE_S3"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupEncryptionOptionPtrInput)(nil)).Elem(), WorkGroupEncryptionOption("SSE_S3"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupStateEnumInput)(nil)).Elem(), WorkGroupStateEnum("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupStateEnumPtrInput)(nil)).Elem(), WorkGroupStateEnum("ENABLED"))
 	pulumi.RegisterOutputType(DataCatalogTypeOutput{})
 	pulumi.RegisterOutputType(DataCatalogTypePtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupEncryptionOptionOutput{})

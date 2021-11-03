@@ -123,5 +123,6 @@ func (o SubscriptionFilterOutput) ToSubscriptionFilterOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionFilterInput)(nil)).Elem(), &SubscriptionFilter{})
 	pulumi.RegisterOutputType(SubscriptionFilterOutput{})
 }

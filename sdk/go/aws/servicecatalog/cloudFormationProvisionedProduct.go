@@ -140,5 +140,6 @@ func (o CloudFormationProvisionedProductOutput) ToCloudFormationProvisionedProdu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProvisionedProductInput)(nil)).Elem(), &CloudFormationProvisionedProduct{})
 	pulumi.RegisterOutputType(CloudFormationProvisionedProductOutput{})
 }

@@ -722,6 +722,18 @@ func (o GroupTagFilterArrayOutput) Index(i pulumi.IntInput) GroupTagFilterOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupConfigurationItemInput)(nil)).Elem(), GroupConfigurationItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupConfigurationItemArrayInput)(nil)).Elem(), GroupConfigurationItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupConfigurationParameterInput)(nil)).Elem(), GroupConfigurationParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupConfigurationParameterArrayInput)(nil)).Elem(), GroupConfigurationParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupQueryInput)(nil)).Elem(), GroupQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupQueryPtrInput)(nil)).Elem(), GroupQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupResourceQueryInput)(nil)).Elem(), GroupResourceQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupResourceQueryPtrInput)(nil)).Elem(), GroupResourceQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupTagInput)(nil)).Elem(), GroupTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupTagArrayInput)(nil)).Elem(), GroupTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupTagFilterInput)(nil)).Elem(), GroupTagFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupTagFilterArrayInput)(nil)).Elem(), GroupTagFilterArray{})
 	pulumi.RegisterOutputType(GroupConfigurationItemOutput{})
 	pulumi.RegisterOutputType(GroupConfigurationItemArrayOutput{})
 	pulumi.RegisterOutputType(GroupConfigurationParameterOutput{})

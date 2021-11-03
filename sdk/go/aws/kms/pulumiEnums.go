@@ -347,6 +347,10 @@ func (in *keyUsagePtr) ToKeyUsagePtrOutputWithContext(ctx context.Context) KeyUs
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*KeySpecInput)(nil)).Elem(), KeySpec("SYMMETRIC_DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KeySpecPtrInput)(nil)).Elem(), KeySpec("SYMMETRIC_DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyUsageInput)(nil)).Elem(), KeyUsage("ENCRYPT_DECRYPT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyUsagePtrInput)(nil)).Elem(), KeyUsage("ENCRYPT_DECRYPT"))
 	pulumi.RegisterOutputType(KeySpecOutput{})
 	pulumi.RegisterOutputType(KeySpecPtrOutput{})
 	pulumi.RegisterOutputType(KeyUsageOutput{})

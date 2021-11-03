@@ -114,5 +114,6 @@ func (o EIPOutput) ToEIPOutputWithContext(ctx context.Context) EIPOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EIPInput)(nil)).Elem(), &EIP{})
 	pulumi.RegisterOutputType(EIPOutput{})
 }

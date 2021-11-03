@@ -651,6 +651,14 @@ func (o PolicyStatusPropertiesPtrOutput) IsPublic() pulumi.BoolPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointObjectLambdaConfigurationInput)(nil)).Elem(), AccessPointObjectLambdaConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointObjectLambdaConfigurationPtrInput)(nil)).Elem(), AccessPointObjectLambdaConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointPublicAccessBlockConfigurationInput)(nil)).Elem(), AccessPointPublicAccessBlockConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointPublicAccessBlockConfigurationPtrInput)(nil)).Elem(), AccessPointPublicAccessBlockConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointTransformationConfigurationInput)(nil)).Elem(), AccessPointTransformationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointTransformationConfigurationArrayInput)(nil)).Elem(), AccessPointTransformationConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStatusPropertiesInput)(nil)).Elem(), PolicyStatusPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStatusPropertiesPtrInput)(nil)).Elem(), PolicyStatusPropertiesArgs{})
 	pulumi.RegisterOutputType(AccessPointObjectLambdaConfigurationOutput{})
 	pulumi.RegisterOutputType(AccessPointObjectLambdaConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AccessPointPublicAccessBlockConfigurationOutput{})

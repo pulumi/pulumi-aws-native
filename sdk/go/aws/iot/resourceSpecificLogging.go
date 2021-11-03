@@ -129,5 +129,6 @@ func (o ResourceSpecificLoggingOutput) ToResourceSpecificLoggingOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSpecificLoggingInput)(nil)).Elem(), &ResourceSpecificLogging{})
 	pulumi.RegisterOutputType(ResourceSpecificLoggingOutput{})
 }

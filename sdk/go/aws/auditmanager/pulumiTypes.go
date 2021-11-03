@@ -998,6 +998,21 @@ func (o AssessmentTagArrayOutput) Index(i pulumi.IntInput) AssessmentTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentAWSAccountInput)(nil)).Elem(), AssessmentAWSAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentAWSAccountPtrInput)(nil)).Elem(), AssessmentAWSAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentAWSAccountArrayInput)(nil)).Elem(), AssessmentAWSAccountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentAWSServiceInput)(nil)).Elem(), AssessmentAWSServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentAWSServiceArrayInput)(nil)).Elem(), AssessmentAWSServiceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentDelegationInput)(nil)).Elem(), AssessmentDelegationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentDelegationArrayInput)(nil)).Elem(), AssessmentDelegationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentReportsDestinationInput)(nil)).Elem(), AssessmentReportsDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentReportsDestinationPtrInput)(nil)).Elem(), AssessmentReportsDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentRoleInput)(nil)).Elem(), AssessmentRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentRoleArrayInput)(nil)).Elem(), AssessmentRoleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentScopeInput)(nil)).Elem(), AssessmentScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentScopePtrInput)(nil)).Elem(), AssessmentScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentTagInput)(nil)).Elem(), AssessmentTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentTagArrayInput)(nil)).Elem(), AssessmentTagArray{})
 	pulumi.RegisterOutputType(AssessmentAWSAccountOutput{})
 	pulumi.RegisterOutputType(AssessmentAWSAccountPtrOutput{})
 	pulumi.RegisterOutputType(AssessmentAWSAccountArrayOutput{})

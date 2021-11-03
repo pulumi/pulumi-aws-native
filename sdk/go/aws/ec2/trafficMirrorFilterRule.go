@@ -150,5 +150,6 @@ func (o TrafficMirrorFilterRuleOutput) ToTrafficMirrorFilterRuleOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterRuleInput)(nil)).Elem(), &TrafficMirrorFilterRule{})
 	pulumi.RegisterOutputType(TrafficMirrorFilterRuleOutput{})
 }

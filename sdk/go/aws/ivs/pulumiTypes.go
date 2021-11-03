@@ -685,6 +685,18 @@ func (o StreamKeyTagArrayOutput) Index(i pulumi.IntInput) StreamKeyTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTagInput)(nil)).Elem(), ChannelTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTagArrayInput)(nil)).Elem(), ChannelTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackKeyPairTagInput)(nil)).Elem(), PlaybackKeyPairTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackKeyPairTagArrayInput)(nil)).Elem(), PlaybackKeyPairTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationDestinationConfigurationInput)(nil)).Elem(), RecordingConfigurationDestinationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationDestinationConfigurationPtrInput)(nil)).Elem(), RecordingConfigurationDestinationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationS3DestinationConfigurationInput)(nil)).Elem(), RecordingConfigurationS3DestinationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationS3DestinationConfigurationPtrInput)(nil)).Elem(), RecordingConfigurationS3DestinationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationTagInput)(nil)).Elem(), RecordingConfigurationTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationTagArrayInput)(nil)).Elem(), RecordingConfigurationTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamKeyTagInput)(nil)).Elem(), StreamKeyTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamKeyTagArrayInput)(nil)).Elem(), StreamKeyTagArray{})
 	pulumi.RegisterOutputType(ChannelTagOutput{})
 	pulumi.RegisterOutputType(ChannelTagArrayOutput{})
 	pulumi.RegisterOutputType(PlaybackKeyPairTagOutput{})

@@ -120,5 +120,6 @@ func (o StaticIpOutput) ToStaticIpOutputWithContext(ctx context.Context) StaticI
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StaticIpInput)(nil)).Elem(), &StaticIp{})
 	pulumi.RegisterOutputType(StaticIpOutput{})
 }

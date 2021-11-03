@@ -835,6 +835,16 @@ func (o SecretTagArrayOutput) Index(i pulumi.IntInput) SecretTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RotationScheduleHostedRotationLambdaInput)(nil)).Elem(), RotationScheduleHostedRotationLambdaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RotationScheduleHostedRotationLambdaPtrInput)(nil)).Elem(), RotationScheduleHostedRotationLambdaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RotationScheduleRotationRulesInput)(nil)).Elem(), RotationScheduleRotationRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RotationScheduleRotationRulesPtrInput)(nil)).Elem(), RotationScheduleRotationRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecretGenerateSecretStringInput)(nil)).Elem(), SecretGenerateSecretStringArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecretGenerateSecretStringPtrInput)(nil)).Elem(), SecretGenerateSecretStringArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecretReplicaRegionInput)(nil)).Elem(), SecretReplicaRegionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecretReplicaRegionArrayInput)(nil)).Elem(), SecretReplicaRegionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecretTagInput)(nil)).Elem(), SecretTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecretTagArrayInput)(nil)).Elem(), SecretTagArray{})
 	pulumi.RegisterOutputType(RotationScheduleHostedRotationLambdaOutput{})
 	pulumi.RegisterOutputType(RotationScheduleHostedRotationLambdaPtrOutput{})
 	pulumi.RegisterOutputType(RotationScheduleRotationRulesOutput{})

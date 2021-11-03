@@ -1378,6 +1378,23 @@ func (in *studioEncryptionConfigurationKeyTypePtr) ToStudioEncryptionConfigurati
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileStreamingClipboardModeInput)(nil)).Elem(), LaunchProfileStreamingClipboardMode("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileStreamingClipboardModePtrInput)(nil)).Elem(), LaunchProfileStreamingClipboardMode("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileStreamingInstanceTypeInput)(nil)).Elem(), LaunchProfileStreamingInstanceType("g4dn.xlarge"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileStreamingInstanceTypePtrInput)(nil)).Elem(), LaunchProfileStreamingInstanceType("g4dn.xlarge"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileStreamingInstanceTypeArrayInput)(nil)).Elem(), LaunchProfileStreamingInstanceTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamingImageEncryptionConfigurationKeyTypeInput)(nil)).Elem(), StreamingImageEncryptionConfigurationKeyType("CUSTOMER_MANAGED_KEY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamingImageEncryptionConfigurationKeyTypePtrInput)(nil)).Elem(), StreamingImageEncryptionConfigurationKeyType("CUSTOMER_MANAGED_KEY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentInitializationScriptRunContextInput)(nil)).Elem(), StudioComponentInitializationScriptRunContext("SYSTEM_INITIALIZATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentInitializationScriptRunContextPtrInput)(nil)).Elem(), StudioComponentInitializationScriptRunContext("SYSTEM_INITIALIZATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentLaunchProfilePlatformInput)(nil)).Elem(), StudioComponentLaunchProfilePlatform("LINUX"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentLaunchProfilePlatformPtrInput)(nil)).Elem(), StudioComponentLaunchProfilePlatform("LINUX"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentSubtypeInput)(nil)).Elem(), StudioComponentSubtype("AWS_MANAGED_MICROSOFT_AD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentSubtypePtrInput)(nil)).Elem(), StudioComponentSubtype("AWS_MANAGED_MICROSOFT_AD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentTypeInput)(nil)).Elem(), StudioComponentType("ACTIVE_DIRECTORY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentTypePtrInput)(nil)).Elem(), StudioComponentType("ACTIVE_DIRECTORY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioEncryptionConfigurationKeyTypeInput)(nil)).Elem(), StudioEncryptionConfigurationKeyType("AWS_OWNED_KEY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioEncryptionConfigurationKeyTypePtrInput)(nil)).Elem(), StudioEncryptionConfigurationKeyType("AWS_OWNED_KEY"))
 	pulumi.RegisterOutputType(LaunchProfileStreamingClipboardModeOutput{})
 	pulumi.RegisterOutputType(LaunchProfileStreamingClipboardModePtrOutput{})
 	pulumi.RegisterOutputType(LaunchProfileStreamingInstanceTypeOutput{})

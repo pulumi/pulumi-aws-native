@@ -144,5 +144,6 @@ func (o ApplicationInstanceOutput) ToApplicationInstanceOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInstanceInput)(nil)).Elem(), &ApplicationInstance{})
 	pulumi.RegisterOutputType(ApplicationInstanceOutput{})
 }

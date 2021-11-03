@@ -144,5 +144,6 @@ func (o ScheduledAuditOutput) ToScheduledAuditOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledAuditInput)(nil)).Elem(), &ScheduledAudit{})
 	pulumi.RegisterOutputType(ScheduledAuditOutput{})
 }

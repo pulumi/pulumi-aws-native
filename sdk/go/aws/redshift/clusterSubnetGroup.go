@@ -117,5 +117,6 @@ func (o ClusterSubnetGroupOutput) ToClusterSubnetGroupOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSubnetGroupInput)(nil)).Elem(), &ClusterSubnetGroup{})
 	pulumi.RegisterOutputType(ClusterSubnetGroupOutput{})
 }

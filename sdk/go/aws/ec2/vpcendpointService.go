@@ -110,5 +110,6 @@ func (o VPCEndpointServiceOutput) ToVPCEndpointServiceOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VPCEndpointServiceInput)(nil)).Elem(), &VPCEndpointService{})
 	pulumi.RegisterOutputType(VPCEndpointServiceOutput{})
 }

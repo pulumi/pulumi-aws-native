@@ -127,5 +127,6 @@ func (o SchemaVersionMetadataOutput) ToSchemaVersionMetadataOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaVersionMetadataInput)(nil)).Elem(), &SchemaVersionMetadata{})
 	pulumi.RegisterOutputType(SchemaVersionMetadataOutput{})
 }

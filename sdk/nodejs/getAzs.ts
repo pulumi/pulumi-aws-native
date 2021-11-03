@@ -25,3 +25,11 @@ export interface GetAzsArgs {
 export interface GetAzsResult {
     readonly azs: string[];
 }
+
+export function getAzsOutput(args?: GetAzsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzsResult> {
+    return pulumi.output(args).apply(a => getAzs(a, opts))
+}
+
+export interface GetAzsOutputArgs {
+    region?: pulumi.Input<string>;
+}

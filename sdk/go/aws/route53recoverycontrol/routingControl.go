@@ -125,5 +125,6 @@ func (o RoutingControlOutput) ToRoutingControlOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingControlInput)(nil)).Elem(), &RoutingControl{})
 	pulumi.RegisterOutputType(RoutingControlOutput{})
 }

@@ -114,5 +114,6 @@ func (o DataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsInput)(nil)).Elem(), &DataCatalogEncryptionSettings{})
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsOutput{})
 }

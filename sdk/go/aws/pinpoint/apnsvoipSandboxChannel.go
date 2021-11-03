@@ -132,5 +132,6 @@ func (o APNSVoipSandboxChannelOutput) ToAPNSVoipSandboxChannelOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*APNSVoipSandboxChannelInput)(nil)).Elem(), &APNSVoipSandboxChannel{})
 	pulumi.RegisterOutputType(APNSVoipSandboxChannelOutput{})
 }

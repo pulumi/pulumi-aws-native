@@ -112,5 +112,6 @@ func (o StorageLensOutput) ToStorageLensOutputWithContext(ctx context.Context) S
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensInput)(nil)).Elem(), &StorageLens{})
 	pulumi.RegisterOutputType(StorageLensOutput{})
 }

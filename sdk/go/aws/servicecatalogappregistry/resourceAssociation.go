@@ -129,5 +129,6 @@ func (o ResourceAssociationOutput) ToResourceAssociationOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceAssociationInput)(nil)).Elem(), &ResourceAssociation{})
 	pulumi.RegisterOutputType(ResourceAssociationOutput{})
 }

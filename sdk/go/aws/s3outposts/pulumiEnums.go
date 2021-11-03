@@ -505,6 +505,12 @@ func (in *endpointStatusPtr) ToEndpointStatusPtrOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketRuleStatusInput)(nil)).Elem(), BucketRuleStatus("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketRuleStatusPtrInput)(nil)).Elem(), BucketRuleStatus("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAccessTypeInput)(nil)).Elem(), EndpointAccessType("CustomerOwnedIp"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAccessTypePtrInput)(nil)).Elem(), EndpointAccessType("CustomerOwnedIp"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointStatusInput)(nil)).Elem(), EndpointStatus("Available"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointStatusPtrInput)(nil)).Elem(), EndpointStatus("Available"))
 	pulumi.RegisterOutputType(BucketRuleStatusOutput{})
 	pulumi.RegisterOutputType(BucketRuleStatusPtrOutput{})
 	pulumi.RegisterOutputType(EndpointAccessTypeOutput{})

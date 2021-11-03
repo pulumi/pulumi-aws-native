@@ -1133,6 +1133,16 @@ func (o TagsItemPropertiesArrayOutput) Index(i pulumi.IntInput) TagsItemProperti
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupInsightsConfigurationInput)(nil)).Elem(), GroupInsightsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupInsightsConfigurationPtrInput)(nil)).Elem(), GroupInsightsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamplingRuleTypeInput)(nil)).Elem(), SamplingRuleTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamplingRuleTypePtrInput)(nil)).Elem(), SamplingRuleTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamplingRuleRecordInput)(nil)).Elem(), SamplingRuleRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamplingRuleRecordPtrInput)(nil)).Elem(), SamplingRuleRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamplingRuleUpdateInput)(nil)).Elem(), SamplingRuleUpdateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamplingRuleUpdatePtrInput)(nil)).Elem(), SamplingRuleUpdateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagsItemPropertiesInput)(nil)).Elem(), TagsItemPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagsItemPropertiesArrayInput)(nil)).Elem(), TagsItemPropertiesArray{})
 	pulumi.RegisterOutputType(GroupInsightsConfigurationOutput{})
 	pulumi.RegisterOutputType(GroupInsightsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SamplingRuleTypeOutput{})

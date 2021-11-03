@@ -126,5 +126,6 @@ func (o QueryDefinitionOutput) ToQueryDefinitionOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*QueryDefinitionInput)(nil)).Elem(), &QueryDefinition{})
 	pulumi.RegisterOutputType(QueryDefinitionOutput{})
 }

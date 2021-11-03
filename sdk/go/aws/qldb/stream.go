@@ -140,5 +140,6 @@ func (o StreamOutput) ToStreamOutputWithContext(ctx context.Context) StreamOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamInput)(nil)).Elem(), &Stream{})
 	pulumi.RegisterOutputType(StreamOutput{})
 }

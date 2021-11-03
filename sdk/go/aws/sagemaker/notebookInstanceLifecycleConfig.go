@@ -110,5 +110,6 @@ func (o NotebookInstanceLifecycleConfigOutput) ToNotebookInstanceLifecycleConfig
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstanceLifecycleConfigInput)(nil)).Elem(), &NotebookInstanceLifecycleConfig{})
 	pulumi.RegisterOutputType(NotebookInstanceLifecycleConfigOutput{})
 }

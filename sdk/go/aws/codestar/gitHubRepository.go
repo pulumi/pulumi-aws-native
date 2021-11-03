@@ -132,5 +132,6 @@ func (o GitHubRepositoryOutput) ToGitHubRepositoryOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GitHubRepositoryInput)(nil)).Elem(), &GitHubRepository{})
 	pulumi.RegisterOutputType(GitHubRepositoryOutput{})
 }

@@ -213,5 +213,6 @@ func (o DBClusterOutput) ToDBClusterOutputWithContext(ctx context.Context) DBClu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterInput)(nil)).Elem(), &DBCluster{})
 	pulumi.RegisterOutputType(DBClusterOutput{})
 }

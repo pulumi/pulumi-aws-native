@@ -117,5 +117,6 @@ func (o ModuleDefaultVersionOutput) ToModuleDefaultVersionOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ModuleDefaultVersionInput)(nil)).Elem(), &ModuleDefaultVersion{})
 	pulumi.RegisterOutputType(ModuleDefaultVersionOutput{})
 }

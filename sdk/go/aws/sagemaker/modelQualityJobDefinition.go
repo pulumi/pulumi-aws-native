@@ -155,5 +155,6 @@ func (o ModelQualityJobDefinitionOutput) ToModelQualityJobDefinitionOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionInput)(nil)).Elem(), &ModelQualityJobDefinition{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionOutput{})
 }

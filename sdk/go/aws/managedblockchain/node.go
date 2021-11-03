@@ -122,5 +122,6 @@ func (o NodeOutput) ToNodeOutputWithContext(ctx context.Context) NodeOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NodeInput)(nil)).Elem(), &Node{})
 	pulumi.RegisterOutputType(NodeOutput{})
 }

@@ -141,5 +141,6 @@ func (o QuickConnectOutput) ToQuickConnectOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectInput)(nil)).Elem(), &QuickConnect{})
 	pulumi.RegisterOutputType(QuickConnectOutput{})
 }

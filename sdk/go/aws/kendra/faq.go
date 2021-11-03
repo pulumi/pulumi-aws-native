@@ -155,5 +155,6 @@ func (o FaqOutput) ToFaqOutputWithContext(ctx context.Context) FaqOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FaqInput)(nil)).Elem(), &Faq{})
 	pulumi.RegisterOutputType(FaqOutput{})
 }

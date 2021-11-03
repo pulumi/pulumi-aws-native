@@ -109,5 +109,6 @@ func (o DNSSECOutput) ToDNSSECOutputWithContext(ctx context.Context) DNSSECOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DNSSECInput)(nil)).Elem(), &DNSSEC{})
 	pulumi.RegisterOutputType(DNSSECOutput{})
 }

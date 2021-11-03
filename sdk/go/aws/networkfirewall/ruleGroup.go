@@ -129,5 +129,6 @@ func (o RuleGroupOutput) ToRuleGroupOutputWithContext(ctx context.Context) RuleG
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupInput)(nil)).Elem(), &RuleGroup{})
 	pulumi.RegisterOutputType(RuleGroupOutput{})
 }

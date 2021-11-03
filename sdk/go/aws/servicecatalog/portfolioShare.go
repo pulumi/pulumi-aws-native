@@ -120,5 +120,6 @@ func (o PortfolioShareOutput) ToPortfolioShareOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PortfolioShareInput)(nil)).Elem(), &PortfolioShare{})
 	pulumi.RegisterOutputType(PortfolioShareOutput{})
 }

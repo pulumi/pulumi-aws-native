@@ -116,5 +116,6 @@ func (o WorkteamOutput) ToWorkteamOutputWithContext(ctx context.Context) Worktea
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamInput)(nil)).Elem(), &Workteam{})
 	pulumi.RegisterOutputType(WorkteamOutput{})
 }

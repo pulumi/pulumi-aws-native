@@ -676,6 +676,16 @@ func (o PackageTagArrayOutput) Index(i pulumi.IntInput) PackageTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInstanceManifestOverridesPayloadInput)(nil)).Elem(), ApplicationInstanceManifestOverridesPayloadArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInstanceManifestOverridesPayloadPtrInput)(nil)).Elem(), ApplicationInstanceManifestOverridesPayloadArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInstanceManifestPayloadInput)(nil)).Elem(), ApplicationInstanceManifestPayloadArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInstanceManifestPayloadPtrInput)(nil)).Elem(), ApplicationInstanceManifestPayloadArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInstanceTagInput)(nil)).Elem(), ApplicationInstanceTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInstanceTagArrayInput)(nil)).Elem(), ApplicationInstanceTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PackageStorageLocationInput)(nil)).Elem(), PackageStorageLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PackageStorageLocationPtrInput)(nil)).Elem(), PackageStorageLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PackageTagInput)(nil)).Elem(), PackageTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PackageTagArrayInput)(nil)).Elem(), PackageTagArray{})
 	pulumi.RegisterOutputType(ApplicationInstanceManifestOverridesPayloadOutput{})
 	pulumi.RegisterOutputType(ApplicationInstanceManifestOverridesPayloadPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationInstanceManifestPayloadOutput{})

@@ -114,5 +114,6 @@ func (o TransitGatewayRouteTablePropagationOutput) ToTransitGatewayRouteTablePro
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayRouteTablePropagationInput)(nil)).Elem(), &TransitGatewayRouteTablePropagation{})
 	pulumi.RegisterOutputType(TransitGatewayRouteTablePropagationOutput{})
 }

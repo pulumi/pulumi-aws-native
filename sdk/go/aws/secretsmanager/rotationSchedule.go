@@ -117,5 +117,6 @@ func (o RotationScheduleOutput) ToRotationScheduleOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RotationScheduleInput)(nil)).Elem(), &RotationSchedule{})
 	pulumi.RegisterOutputType(RotationScheduleOutput{})
 }

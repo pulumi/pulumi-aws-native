@@ -160,5 +160,6 @@ func (o FeatureGroupOutput) ToFeatureGroupOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupInput)(nil)).Elem(), &FeatureGroup{})
 	pulumi.RegisterOutputType(FeatureGroupOutput{})
 }

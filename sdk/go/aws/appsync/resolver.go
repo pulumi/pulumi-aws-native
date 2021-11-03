@@ -148,5 +148,6 @@ func (o ResolverOutput) ToResolverOutputWithContext(ctx context.Context) Resolve
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverInput)(nil)).Elem(), &Resolver{})
 	pulumi.RegisterOutputType(ResolverOutput{})
 }

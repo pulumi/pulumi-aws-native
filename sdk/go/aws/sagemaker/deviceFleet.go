@@ -139,5 +139,6 @@ func (o DeviceFleetOutput) ToDeviceFleetOutputWithContext(ctx context.Context) D
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DeviceFleetInput)(nil)).Elem(), &DeviceFleet{})
 	pulumi.RegisterOutputType(DeviceFleetOutput{})
 }

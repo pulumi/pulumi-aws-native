@@ -144,5 +144,6 @@ func (o ReplicaKeyOutput) ToReplicaKeyOutputWithContext(ctx context.Context) Rep
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicaKeyInput)(nil)).Elem(), &ReplicaKey{})
 	pulumi.RegisterOutputType(ReplicaKeyOutput{})
 }

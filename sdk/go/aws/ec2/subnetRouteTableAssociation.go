@@ -112,5 +112,6 @@ func (o SubnetRouteTableAssociationOutput) ToSubnetRouteTableAssociationOutputWi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetRouteTableAssociationInput)(nil)).Elem(), &SubnetRouteTableAssociation{})
 	pulumi.RegisterOutputType(SubnetRouteTableAssociationOutput{})
 }

@@ -912,6 +912,18 @@ func (o InferenceSchedulerTagArrayOutput) Index(i pulumi.IntInput) InferenceSche
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataInputConfigurationPropertiesInput)(nil)).Elem(), DataInputConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataInputConfigurationPropertiesPtrInput)(nil)).Elem(), DataInputConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataOutputConfigurationPropertiesInput)(nil)).Elem(), DataOutputConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataOutputConfigurationPropertiesPtrInput)(nil)).Elem(), DataOutputConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceSchedulerInputNameConfigurationInput)(nil)).Elem(), InferenceSchedulerInputNameConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceSchedulerInputNameConfigurationPtrInput)(nil)).Elem(), InferenceSchedulerInputNameConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceSchedulerS3InputConfigurationInput)(nil)).Elem(), InferenceSchedulerS3InputConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceSchedulerS3InputConfigurationPtrInput)(nil)).Elem(), InferenceSchedulerS3InputConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceSchedulerS3OutputConfigurationInput)(nil)).Elem(), InferenceSchedulerS3OutputConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceSchedulerS3OutputConfigurationPtrInput)(nil)).Elem(), InferenceSchedulerS3OutputConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceSchedulerTagInput)(nil)).Elem(), InferenceSchedulerTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceSchedulerTagArrayInput)(nil)).Elem(), InferenceSchedulerTagArray{})
 	pulumi.RegisterOutputType(DataInputConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(DataInputConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DataOutputConfigurationPropertiesOutput{})

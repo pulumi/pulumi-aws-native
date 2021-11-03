@@ -623,6 +623,18 @@ func (o PipelineTagArrayOutput) Index(i pulumi.IntInput) PipelineTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineFieldInput)(nil)).Elem(), PipelineFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineFieldArrayInput)(nil)).Elem(), PipelineFieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineObjectInput)(nil)).Elem(), PipelineObjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineObjectArrayInput)(nil)).Elem(), PipelineObjectArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineParameterAttributeInput)(nil)).Elem(), PipelineParameterAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineParameterAttributeArrayInput)(nil)).Elem(), PipelineParameterAttributeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineParameterObjectInput)(nil)).Elem(), PipelineParameterObjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineParameterObjectArrayInput)(nil)).Elem(), PipelineParameterObjectArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineParameterValueInput)(nil)).Elem(), PipelineParameterValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineParameterValueArrayInput)(nil)).Elem(), PipelineParameterValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTagInput)(nil)).Elem(), PipelineTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTagArrayInput)(nil)).Elem(), PipelineTagArray{})
 	pulumi.RegisterOutputType(PipelineFieldOutput{})
 	pulumi.RegisterOutputType(PipelineFieldArrayOutput{})
 	pulumi.RegisterOutputType(PipelineObjectOutput{})

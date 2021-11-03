@@ -159,5 +159,6 @@ func (o DeploymentGroupOutput) ToDeploymentGroupOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupInput)(nil)).Elem(), &DeploymentGroup{})
 	pulumi.RegisterOutputType(DeploymentGroupOutput{})
 }

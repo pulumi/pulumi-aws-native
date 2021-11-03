@@ -126,5 +126,6 @@ func (o LaunchRoleConstraintOutput) ToLaunchRoleConstraintOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchRoleConstraintInput)(nil)).Elem(), &LaunchRoleConstraint{})
 	pulumi.RegisterOutputType(LaunchRoleConstraintOutput{})
 }

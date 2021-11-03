@@ -1163,6 +1163,20 @@ func (in *trackerPricingPlanPtr) ToTrackerPricingPlanPtrOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GeofenceCollectionPricingPlanInput)(nil)).Elem(), GeofenceCollectionPricingPlan("RequestBasedUsage"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GeofenceCollectionPricingPlanPtrInput)(nil)).Elem(), GeofenceCollectionPricingPlan("RequestBasedUsage"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MapPricingPlanInput)(nil)).Elem(), MapPricingPlan("RequestBasedUsage"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MapPricingPlanPtrInput)(nil)).Elem(), MapPricingPlan("RequestBasedUsage"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaceIndexIntendedUseInput)(nil)).Elem(), PlaceIndexIntendedUse("SingleUse"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaceIndexIntendedUsePtrInput)(nil)).Elem(), PlaceIndexIntendedUse("SingleUse"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaceIndexPricingPlanInput)(nil)).Elem(), PlaceIndexPricingPlan("RequestBasedUsage"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaceIndexPricingPlanPtrInput)(nil)).Elem(), PlaceIndexPricingPlan("RequestBasedUsage"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteCalculatorPricingPlanInput)(nil)).Elem(), RouteCalculatorPricingPlan("RequestBasedUsage"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteCalculatorPricingPlanPtrInput)(nil)).Elem(), RouteCalculatorPricingPlan("RequestBasedUsage"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TrackerPositionFilteringInput)(nil)).Elem(), TrackerPositionFiltering("TimeBased"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TrackerPositionFilteringPtrInput)(nil)).Elem(), TrackerPositionFiltering("TimeBased"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TrackerPricingPlanInput)(nil)).Elem(), TrackerPricingPlan("RequestBasedUsage"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TrackerPricingPlanPtrInput)(nil)).Elem(), TrackerPricingPlan("RequestBasedUsage"))
 	pulumi.RegisterOutputType(GeofenceCollectionPricingPlanOutput{})
 	pulumi.RegisterOutputType(GeofenceCollectionPricingPlanPtrOutput{})
 	pulumi.RegisterOutputType(MapPricingPlanOutput{})

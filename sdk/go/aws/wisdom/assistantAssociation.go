@@ -124,5 +124,6 @@ func (o AssistantAssociationOutput) ToAssistantAssociationOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AssistantAssociationInput)(nil)).Elem(), &AssistantAssociation{})
 	pulumi.RegisterOutputType(AssistantAssociationOutput{})
 }

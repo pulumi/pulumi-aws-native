@@ -133,5 +133,6 @@ func (o PreparedStatementOutput) ToPreparedStatementOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PreparedStatementInput)(nil)).Elem(), &PreparedStatement{})
 	pulumi.RegisterOutputType(PreparedStatementOutput{})
 }

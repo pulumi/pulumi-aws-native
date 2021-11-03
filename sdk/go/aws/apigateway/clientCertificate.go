@@ -113,5 +113,6 @@ func (o ClientCertificateOutput) ToClientCertificateOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientCertificateInput)(nil)).Elem(), &ClientCertificate{})
 	pulumi.RegisterOutputType(ClientCertificateOutput{})
 }

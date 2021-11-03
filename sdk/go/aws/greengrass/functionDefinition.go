@@ -116,5 +116,6 @@ func (o FunctionDefinitionOutput) ToFunctionDefinitionOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionDefinitionInput)(nil)).Elem(), &FunctionDefinition{})
 	pulumi.RegisterOutputType(FunctionDefinitionOutput{})
 }

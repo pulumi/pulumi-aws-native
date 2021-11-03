@@ -107,5 +107,6 @@ func (o InternetGatewayOutput) ToInternetGatewayOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InternetGatewayInput)(nil)).Elem(), &InternetGateway{})
 	pulumi.RegisterOutputType(InternetGatewayOutput{})
 }

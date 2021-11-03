@@ -116,5 +116,6 @@ func (o CoreDefinitionOutput) ToCoreDefinitionOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CoreDefinitionInput)(nil)).Elem(), &CoreDefinition{})
 	pulumi.RegisterOutputType(CoreDefinitionOutput{})
 }

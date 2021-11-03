@@ -107,5 +107,6 @@ func (o CachePolicyOutput) ToCachePolicyOutputWithContext(ctx context.Context) C
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyInput)(nil)).Elem(), &CachePolicy{})
 	pulumi.RegisterOutputType(CachePolicyOutput{})
 }

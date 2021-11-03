@@ -140,5 +140,6 @@ func (o SimpleADOutput) ToSimpleADOutputWithContext(ctx context.Context) SimpleA
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SimpleADInput)(nil)).Elem(), &SimpleAD{})
 	pulumi.RegisterOutputType(SimpleADOutput{})
 }

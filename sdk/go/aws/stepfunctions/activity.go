@@ -110,5 +110,6 @@ func (o ActivityOutput) ToActivityOutputWithContext(ctx context.Context) Activit
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ActivityInput)(nil)).Elem(), &Activity{})
 	pulumi.RegisterOutputType(ActivityOutput{})
 }

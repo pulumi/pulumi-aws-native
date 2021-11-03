@@ -125,5 +125,6 @@ func (o ResolverQueryLoggingConfigOutput) ToResolverQueryLoggingConfigOutputWith
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverQueryLoggingConfigInput)(nil)).Elem(), &ResolverQueryLoggingConfig{})
 	pulumi.RegisterOutputType(ResolverQueryLoggingConfigOutput{})
 }

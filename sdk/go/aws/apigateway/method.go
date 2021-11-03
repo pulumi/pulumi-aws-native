@@ -187,5 +187,6 @@ func (o MethodOutput) ToMethodOutputWithContext(ctx context.Context) MethodOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MethodInput)(nil)).Elem(), &Method{})
 	pulumi.RegisterOutputType(MethodOutput{})
 }

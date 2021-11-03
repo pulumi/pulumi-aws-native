@@ -114,5 +114,6 @@ func (o VPCDHCPOptionsAssociationOutput) ToVPCDHCPOptionsAssociationOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VPCDHCPOptionsAssociationInput)(nil)).Elem(), &VPCDHCPOptionsAssociation{})
 	pulumi.RegisterOutputType(VPCDHCPOptionsAssociationOutput{})
 }

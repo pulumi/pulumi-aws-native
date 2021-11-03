@@ -190,5 +190,6 @@ func (o AutoScalingGroupOutput) ToAutoScalingGroupOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupInput)(nil)).Elem(), &AutoScalingGroup{})
 	pulumi.RegisterOutputType(AutoScalingGroupOutput{})
 }

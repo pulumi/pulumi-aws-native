@@ -204,5 +204,6 @@ func (o CanaryOutput) ToCanaryOutputWithContext(ctx context.Context) CanaryOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryInput)(nil)).Elem(), &Canary{})
 	pulumi.RegisterOutputType(CanaryOutput{})
 }

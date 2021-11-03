@@ -188,5 +188,6 @@ func (o GameServerGroupOutput) ToGameServerGroupOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupInput)(nil)).Elem(), &GameServerGroup{})
 	pulumi.RegisterOutputType(GameServerGroupOutput{})
 }

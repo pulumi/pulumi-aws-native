@@ -120,5 +120,6 @@ func (o StackOutput) ToStackOutputWithContext(ctx context.Context) StackOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StackInput)(nil)).Elem(), &Stack{})
 	pulumi.RegisterOutputType(StackOutput{})
 }

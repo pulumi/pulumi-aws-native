@@ -413,6 +413,12 @@ func (o SuiteDefinitionTagArrayOutput) Index(i pulumi.IntInput) SuiteDefinitionT
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SuiteDefinitionConfigurationPropertiesInput)(nil)).Elem(), SuiteDefinitionConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SuiteDefinitionConfigurationPropertiesPtrInput)(nil)).Elem(), SuiteDefinitionConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SuiteDefinitionDeviceUnderTestInput)(nil)).Elem(), SuiteDefinitionDeviceUnderTestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SuiteDefinitionDeviceUnderTestArrayInput)(nil)).Elem(), SuiteDefinitionDeviceUnderTestArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SuiteDefinitionTagInput)(nil)).Elem(), SuiteDefinitionTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SuiteDefinitionTagArrayInput)(nil)).Elem(), SuiteDefinitionTagArray{})
 	pulumi.RegisterOutputType(SuiteDefinitionConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(SuiteDefinitionConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SuiteDefinitionDeviceUnderTestOutput{})

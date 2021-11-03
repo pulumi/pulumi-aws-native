@@ -127,5 +127,6 @@ func (o SafetyRuleOutput) ToSafetyRuleOutputWithContext(ctx context.Context) Saf
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SafetyRuleInput)(nil)).Elem(), &SafetyRule{})
 	pulumi.RegisterOutputType(SafetyRuleOutput{})
 }

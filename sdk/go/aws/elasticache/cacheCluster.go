@@ -189,5 +189,6 @@ func (o CacheClusterOutput) ToCacheClusterOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CacheClusterInput)(nil)).Elem(), &CacheCluster{})
 	pulumi.RegisterOutputType(CacheClusterOutput{})
 }

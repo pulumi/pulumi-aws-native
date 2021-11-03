@@ -123,5 +123,6 @@ func (o UserPoolRiskConfigurationAttachmentOutput) ToUserPoolRiskConfigurationAt
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolRiskConfigurationAttachmentInput)(nil)).Elem(), &UserPoolRiskConfigurationAttachment{})
 	pulumi.RegisterOutputType(UserPoolRiskConfigurationAttachmentOutput{})
 }

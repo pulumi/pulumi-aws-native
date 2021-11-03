@@ -127,5 +127,6 @@ func (o BasePathMappingOutput) ToBasePathMappingOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BasePathMappingInput)(nil)).Elem(), &BasePathMapping{})
 	pulumi.RegisterOutputType(BasePathMappingOutput{})
 }

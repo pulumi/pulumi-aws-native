@@ -534,6 +534,12 @@ func (o EnvironmentNetworkConfigurationPtrOutput) SubnetIds() pulumi.StringArray
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentLoggingConfigurationInput)(nil)).Elem(), EnvironmentLoggingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentLoggingConfigurationPtrInput)(nil)).Elem(), EnvironmentLoggingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentModuleLoggingConfigurationInput)(nil)).Elem(), EnvironmentModuleLoggingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentModuleLoggingConfigurationPtrInput)(nil)).Elem(), EnvironmentModuleLoggingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentNetworkConfigurationInput)(nil)).Elem(), EnvironmentNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentNetworkConfigurationPtrInput)(nil)).Elem(), EnvironmentNetworkConfigurationArgs{})
 	pulumi.RegisterOutputType(EnvironmentLoggingConfigurationOutput{})
 	pulumi.RegisterOutputType(EnvironmentLoggingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentModuleLoggingConfigurationOutput{})

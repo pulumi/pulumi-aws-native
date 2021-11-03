@@ -123,5 +123,6 @@ func (o ModelPackageGroupOutput) ToModelPackageGroupOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageGroupInput)(nil)).Elem(), &ModelPackageGroup{})
 	pulumi.RegisterOutputType(ModelPackageGroupOutput{})
 }

@@ -157,5 +157,6 @@ func (o MatchmakingConfigurationOutput) ToMatchmakingConfigurationOutputWithCont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MatchmakingConfigurationInput)(nil)).Elem(), &MatchmakingConfiguration{})
 	pulumi.RegisterOutputType(MatchmakingConfigurationOutput{})
 }

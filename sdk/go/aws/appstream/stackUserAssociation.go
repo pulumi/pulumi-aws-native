@@ -123,5 +123,6 @@ func (o StackUserAssociationOutput) ToStackUserAssociationOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StackUserAssociationInput)(nil)).Elem(), &StackUserAssociation{})
 	pulumi.RegisterOutputType(StackUserAssociationOutput{})
 }

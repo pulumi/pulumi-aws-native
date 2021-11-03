@@ -127,5 +127,6 @@ func (o LinkAssociationOutput) ToLinkAssociationOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkAssociationInput)(nil)).Elem(), &LinkAssociation{})
 	pulumi.RegisterOutputType(LinkAssociationOutput{})
 }

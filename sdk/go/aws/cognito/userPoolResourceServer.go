@@ -123,5 +123,6 @@ func (o UserPoolResourceServerOutput) ToUserPoolResourceServerOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolResourceServerInput)(nil)).Elem(), &UserPoolResourceServer{})
 	pulumi.RegisterOutputType(UserPoolResourceServerOutput{})
 }

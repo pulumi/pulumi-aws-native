@@ -405,6 +405,13 @@ func (o PermissionSetTagArrayOutput) Index(i pulumi.IntInput) PermissionSetTagOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAccessControlAttributeConfigurationAccessControlAttributeInput)(nil)).Elem(), InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayInput)(nil)).Elem(), InstanceAccessControlAttributeConfigurationAccessControlAttributeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAccessControlAttributeConfigurationAccessControlAttributeValueInput)(nil)).Elem(), InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAccessControlAttributeConfigurationPropertiesInput)(nil)).Elem(), InstanceAccessControlAttributeConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAccessControlAttributeConfigurationPropertiesPtrInput)(nil)).Elem(), InstanceAccessControlAttributeConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionSetTagInput)(nil)).Elem(), PermissionSetTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionSetTagArrayInput)(nil)).Elem(), PermissionSetTagArray{})
 	pulumi.RegisterOutputType(InstanceAccessControlAttributeConfigurationAccessControlAttributeOutput{})
 	pulumi.RegisterOutputType(InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutput{})
 	pulumi.RegisterOutputType(InstanceAccessControlAttributeConfigurationAccessControlAttributeValueOutput{})

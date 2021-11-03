@@ -125,5 +125,6 @@ func (o GeofenceCollectionOutput) ToGeofenceCollectionOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GeofenceCollectionInput)(nil)).Elem(), &GeofenceCollection{})
 	pulumi.RegisterOutputType(GeofenceCollectionOutput{})
 }

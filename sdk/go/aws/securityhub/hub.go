@@ -104,5 +104,6 @@ func (o HubOutput) ToHubOutputWithContext(ctx context.Context) HubOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HubInput)(nil)).Elem(), &Hub{})
 	pulumi.RegisterOutputType(HubOutput{})
 }

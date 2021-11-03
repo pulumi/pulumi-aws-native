@@ -123,5 +123,6 @@ func (o MacroOutput) ToMacroOutputWithContext(ctx context.Context) MacroOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MacroInput)(nil)).Elem(), &Macro{})
 	pulumi.RegisterOutputType(MacroOutput{})
 }

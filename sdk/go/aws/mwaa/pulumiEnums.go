@@ -343,6 +343,10 @@ func (in *environmentWebserverAccessModePtr) ToEnvironmentWebserverAccessModePtr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentLoggingLevelInput)(nil)).Elem(), EnvironmentLoggingLevel("CRITICAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentLoggingLevelPtrInput)(nil)).Elem(), EnvironmentLoggingLevel("CRITICAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentWebserverAccessModeInput)(nil)).Elem(), EnvironmentWebserverAccessMode("PRIVATE_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentWebserverAccessModePtrInput)(nil)).Elem(), EnvironmentWebserverAccessMode("PRIVATE_ONLY"))
 	pulumi.RegisterOutputType(EnvironmentLoggingLevelOutput{})
 	pulumi.RegisterOutputType(EnvironmentLoggingLevelPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentWebserverAccessModeOutput{})

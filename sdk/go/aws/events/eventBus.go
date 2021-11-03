@@ -113,5 +113,6 @@ func (o EventBusOutput) ToEventBusOutputWithContext(ctx context.Context) EventBu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventBusInput)(nil)).Elem(), &EventBus{})
 	pulumi.RegisterOutputType(EventBusOutput{})
 }

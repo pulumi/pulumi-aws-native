@@ -161,5 +161,6 @@ func (o GlobalReplicationGroupOutput) ToGlobalReplicationGroupOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalReplicationGroupInput)(nil)).Elem(), &GlobalReplicationGroup{})
 	pulumi.RegisterOutputType(GlobalReplicationGroupOutput{})
 }

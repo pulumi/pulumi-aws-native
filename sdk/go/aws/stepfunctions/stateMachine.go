@@ -135,5 +135,6 @@ func (o StateMachineOutput) ToStateMachineOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineInput)(nil)).Elem(), &StateMachine{})
 	pulumi.RegisterOutputType(StateMachineOutput{})
 }

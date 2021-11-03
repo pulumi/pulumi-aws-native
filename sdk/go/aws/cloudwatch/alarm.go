@@ -172,5 +172,6 @@ func (o AlarmOutput) ToAlarmOutputWithContext(ctx context.Context) AlarmOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AlarmInput)(nil)).Elem(), &Alarm{})
 	pulumi.RegisterOutputType(AlarmOutput{})
 }

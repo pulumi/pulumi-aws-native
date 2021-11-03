@@ -119,5 +119,6 @@ func (o DeviceProfileOutput) ToDeviceProfileOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DeviceProfileInput)(nil)).Elem(), &DeviceProfile{})
 	pulumi.RegisterOutputType(DeviceProfileOutput{})
 }

@@ -129,5 +129,6 @@ func (o GroupVersionOutput) ToGroupVersionOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupVersionInput)(nil)).Elem(), &GroupVersion{})
 	pulumi.RegisterOutputType(GroupVersionOutput{})
 }

@@ -128,5 +128,6 @@ func (o TrackerOutput) ToTrackerOutputWithContext(ctx context.Context) TrackerOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TrackerInput)(nil)).Elem(), &Tracker{})
 	pulumi.RegisterOutputType(TrackerOutput{})
 }

@@ -141,5 +141,6 @@ func (o RemediationConfigurationOutput) ToRemediationConfigurationOutputWithCont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RemediationConfigurationInput)(nil)).Elem(), &RemediationConfiguration{})
 	pulumi.RegisterOutputType(RemediationConfigurationOutput{})
 }

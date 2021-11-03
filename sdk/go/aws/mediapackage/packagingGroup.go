@@ -121,5 +121,6 @@ func (o PackagingGroupOutput) ToPackagingGroupOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PackagingGroupInput)(nil)).Elem(), &PackagingGroup{})
 	pulumi.RegisterOutputType(PackagingGroupOutput{})
 }

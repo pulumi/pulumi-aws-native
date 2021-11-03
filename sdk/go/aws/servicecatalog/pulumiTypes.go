@@ -856,6 +856,20 @@ func (o ServiceActionDefinitionParameterArrayOutput) Index(i pulumi.IntInput) Se
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductProvisioningArtifactPropertiesInput)(nil)).Elem(), CloudFormationProductProvisioningArtifactPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductProvisioningArtifactPropertiesArrayInput)(nil)).Elem(), CloudFormationProductProvisioningArtifactPropertiesArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductTagInput)(nil)).Elem(), CloudFormationProductTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductTagArrayInput)(nil)).Elem(), CloudFormationProductTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProvisionedProductProvisioningParameterInput)(nil)).Elem(), CloudFormationProvisionedProductProvisioningParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProvisionedProductProvisioningParameterArrayInput)(nil)).Elem(), CloudFormationProvisionedProductProvisioningParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProvisionedProductProvisioningPreferencesInput)(nil)).Elem(), CloudFormationProvisionedProductProvisioningPreferencesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProvisionedProductProvisioningPreferencesPtrInput)(nil)).Elem(), CloudFormationProvisionedProductProvisioningPreferencesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProvisionedProductTagInput)(nil)).Elem(), CloudFormationProvisionedProductTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProvisionedProductTagArrayInput)(nil)).Elem(), CloudFormationProvisionedProductTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PortfolioTagInput)(nil)).Elem(), PortfolioTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PortfolioTagArrayInput)(nil)).Elem(), PortfolioTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceActionDefinitionParameterInput)(nil)).Elem(), ServiceActionDefinitionParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceActionDefinitionParameterArrayInput)(nil)).Elem(), ServiceActionDefinitionParameterArray{})
 	pulumi.RegisterOutputType(CloudFormationProductProvisioningArtifactPropertiesOutput{})
 	pulumi.RegisterOutputType(CloudFormationProductProvisioningArtifactPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(CloudFormationProductTagOutput{})

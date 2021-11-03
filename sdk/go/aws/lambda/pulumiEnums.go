@@ -1092,6 +1092,20 @@ func (in *functionTracingConfigModePtr) ToFunctionTracingConfigModePtrOutputWith
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentInput)(nil)).Elem(), CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment("Warn"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtrInput)(nil)).Elem(), CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment("Warn"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingFunctionResponseTypesItemInput)(nil)).Elem(), EventSourceMappingFunctionResponseTypesItem("ReportBatchItemFailures"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingFunctionResponseTypesItemPtrInput)(nil)).Elem(), EventSourceMappingFunctionResponseTypesItem("ReportBatchItemFailures"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingFunctionResponseTypesItemArrayInput)(nil)).Elem(), EventSourceMappingFunctionResponseTypesItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSourceAccessConfigurationTypeInput)(nil)).Elem(), EventSourceMappingSourceAccessConfigurationType("BASIC_AUTH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSourceAccessConfigurationTypePtrInput)(nil)).Elem(), EventSourceMappingSourceAccessConfigurationType("BASIC_AUTH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionArchitecturesItemInput)(nil)).Elem(), FunctionArchitecturesItem("x86_64"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionArchitecturesItemPtrInput)(nil)).Elem(), FunctionArchitecturesItem("x86_64"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionArchitecturesItemArrayInput)(nil)).Elem(), FunctionArchitecturesItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionPackageTypeInput)(nil)).Elem(), FunctionPackageType("Image"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionPackageTypePtrInput)(nil)).Elem(), FunctionPackageType("Image"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTracingConfigModeInput)(nil)).Elem(), FunctionTracingConfigMode("Active"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTracingConfigModePtrInput)(nil)).Elem(), FunctionTracingConfigMode("Active"))
 	pulumi.RegisterOutputType(CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingFunctionResponseTypesItemOutput{})

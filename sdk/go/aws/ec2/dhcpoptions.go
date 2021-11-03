@@ -136,5 +136,6 @@ func (o DHCPOptionsOutput) ToDHCPOptionsOutputWithContext(ctx context.Context) D
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DHCPOptionsInput)(nil)).Elem(), &DHCPOptions{})
 	pulumi.RegisterOutputType(DHCPOptionsOutput{})
 }

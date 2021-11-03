@@ -339,6 +339,10 @@ func (in *notificationRuleStatusPtr) ToNotificationRuleStatusPtrOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationRuleDetailTypeInput)(nil)).Elem(), NotificationRuleDetailType("BASIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationRuleDetailTypePtrInput)(nil)).Elem(), NotificationRuleDetailType("BASIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationRuleStatusInput)(nil)).Elem(), NotificationRuleStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationRuleStatusPtrInput)(nil)).Elem(), NotificationRuleStatus("ENABLED"))
 	pulumi.RegisterOutputType(NotificationRuleDetailTypeOutput{})
 	pulumi.RegisterOutputType(NotificationRuleDetailTypePtrOutput{})
 	pulumi.RegisterOutputType(NotificationRuleStatusOutput{})

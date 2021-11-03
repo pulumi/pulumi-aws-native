@@ -950,6 +950,20 @@ func (o FileSystemLifecyclePolicyArrayOutput) Index(i pulumi.IntInput) FileSyste
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointCreationInfoInput)(nil)).Elem(), AccessPointCreationInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointCreationInfoPtrInput)(nil)).Elem(), AccessPointCreationInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointPosixUserInput)(nil)).Elem(), AccessPointPosixUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointPosixUserPtrInput)(nil)).Elem(), AccessPointPosixUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointRootDirectoryInput)(nil)).Elem(), AccessPointRootDirectoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointRootDirectoryPtrInput)(nil)).Elem(), AccessPointRootDirectoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointTagInput)(nil)).Elem(), AccessPointTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointTagArrayInput)(nil)).Elem(), AccessPointTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemBackupPolicyInput)(nil)).Elem(), FileSystemBackupPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemBackupPolicyPtrInput)(nil)).Elem(), FileSystemBackupPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemElasticFileSystemTagInput)(nil)).Elem(), FileSystemElasticFileSystemTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemElasticFileSystemTagArrayInput)(nil)).Elem(), FileSystemElasticFileSystemTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemLifecyclePolicyInput)(nil)).Elem(), FileSystemLifecyclePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemLifecyclePolicyArrayInput)(nil)).Elem(), FileSystemLifecyclePolicyArray{})
 	pulumi.RegisterOutputType(AccessPointCreationInfoOutput{})
 	pulumi.RegisterOutputType(AccessPointCreationInfoPtrOutput{})
 	pulumi.RegisterOutputType(AccessPointPosixUserOutput{})

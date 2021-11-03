@@ -119,5 +119,6 @@ func (o ConfigurationAggregatorOutput) ToConfigurationAggregatorOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationAggregatorInput)(nil)).Elem(), &ConfigurationAggregator{})
 	pulumi.RegisterOutputType(ConfigurationAggregatorOutput{})
 }

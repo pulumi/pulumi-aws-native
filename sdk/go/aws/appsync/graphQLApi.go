@@ -138,5 +138,6 @@ func (o GraphQLApiOutput) ToGraphQLApiOutputWithContext(ctx context.Context) Gra
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiInput)(nil)).Elem(), &GraphQLApi{})
 	pulumi.RegisterOutputType(GraphQLApiOutput{})
 }

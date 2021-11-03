@@ -125,5 +125,6 @@ func (o PlaybackKeyPairOutput) ToPlaybackKeyPairOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackKeyPairInput)(nil)).Elem(), &PlaybackKeyPair{})
 	pulumi.RegisterOutputType(PlaybackKeyPairOutput{})
 }

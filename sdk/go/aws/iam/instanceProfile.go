@@ -115,5 +115,6 @@ func (o InstanceProfileOutput) ToInstanceProfileOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceProfileInput)(nil)).Elem(), &InstanceProfile{})
 	pulumi.RegisterOutputType(InstanceProfileOutput{})
 }

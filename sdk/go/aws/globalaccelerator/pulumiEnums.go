@@ -672,6 +672,14 @@ func (in *listenerProtocolPtr) ToListenerProtocolPtrOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AcceleratorIpAddressTypeInput)(nil)).Elem(), AcceleratorIpAddressType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AcceleratorIpAddressTypePtrInput)(nil)).Elem(), AcceleratorIpAddressType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGroupHealthCheckProtocolInput)(nil)).Elem(), EndpointGroupHealthCheckProtocol("TCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGroupHealthCheckProtocolPtrInput)(nil)).Elem(), EndpointGroupHealthCheckProtocol("TCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerClientAffinityInput)(nil)).Elem(), ListenerClientAffinity("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerClientAffinityPtrInput)(nil)).Elem(), ListenerClientAffinity("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerProtocolInput)(nil)).Elem(), ListenerProtocol("TCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerProtocolPtrInput)(nil)).Elem(), ListenerProtocol("TCP"))
 	pulumi.RegisterOutputType(AcceleratorIpAddressTypeOutput{})
 	pulumi.RegisterOutputType(AcceleratorIpAddressTypePtrOutput{})
 	pulumi.RegisterOutputType(EndpointGroupHealthCheckProtocolOutput{})

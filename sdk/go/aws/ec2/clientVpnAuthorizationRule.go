@@ -123,5 +123,6 @@ func (o ClientVpnAuthorizationRuleOutput) ToClientVpnAuthorizationRuleOutputWith
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnAuthorizationRuleInput)(nil)).Elem(), &ClientVpnAuthorizationRule{})
 	pulumi.RegisterOutputType(ClientVpnAuthorizationRuleOutput{})
 }

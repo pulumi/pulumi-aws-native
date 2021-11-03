@@ -138,5 +138,6 @@ func (o GatewayResponseOutput) ToGatewayResponseOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayResponseInput)(nil)).Elem(), &GatewayResponse{})
 	pulumi.RegisterOutputType(GatewayResponseOutput{})
 }

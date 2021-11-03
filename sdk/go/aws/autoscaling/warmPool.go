@@ -115,5 +115,6 @@ func (o WarmPoolOutput) ToWarmPoolOutputWithContext(ctx context.Context) WarmPoo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WarmPoolInput)(nil)).Elem(), &WarmPool{})
 	pulumi.RegisterOutputType(WarmPoolOutput{})
 }

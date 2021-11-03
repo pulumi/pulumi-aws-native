@@ -114,5 +114,6 @@ func (o VPCGatewayAttachmentOutput) ToVPCGatewayAttachmentOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VPCGatewayAttachmentInput)(nil)).Elem(), &VPCGatewayAttachment{})
 	pulumi.RegisterOutputType(VPCGatewayAttachmentOutput{})
 }

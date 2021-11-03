@@ -120,5 +120,6 @@ func (o AttributeGroupAssociationOutput) ToAttributeGroupAssociationOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AttributeGroupAssociationInput)(nil)).Elem(), &AttributeGroupAssociation{})
 	pulumi.RegisterOutputType(AttributeGroupAssociationOutput{})
 }

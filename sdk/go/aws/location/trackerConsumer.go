@@ -112,5 +112,6 @@ func (o TrackerConsumerOutput) ToTrackerConsumerOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TrackerConsumerInput)(nil)).Elem(), &TrackerConsumer{})
 	pulumi.RegisterOutputType(TrackerConsumerOutput{})
 }

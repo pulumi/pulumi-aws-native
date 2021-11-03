@@ -114,5 +114,6 @@ func (o ElasticLoadBalancerAttachmentOutput) ToElasticLoadBalancerAttachmentOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ElasticLoadBalancerAttachmentInput)(nil)).Elem(), &ElasticLoadBalancerAttachment{})
 	pulumi.RegisterOutputType(ElasticLoadBalancerAttachmentOutput{})
 }

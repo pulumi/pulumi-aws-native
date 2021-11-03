@@ -114,5 +114,6 @@ func (o SizeConstraintSetOutput) ToSizeConstraintSetOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SizeConstraintSetInput)(nil)).Elem(), &SizeConstraintSet{})
 	pulumi.RegisterOutputType(SizeConstraintSetOutput{})
 }

@@ -1184,6 +1184,23 @@ func (o TypeActivationLoggingConfigPtrOutput) LogRoleArn() pulumi.StringPtrOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceVersionLoggingConfigInput)(nil)).Elem(), ResourceVersionLoggingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceVersionLoggingConfigPtrInput)(nil)).Elem(), ResourceVersionLoggingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetAutoDeploymentInput)(nil)).Elem(), StackSetAutoDeploymentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetAutoDeploymentPtrInput)(nil)).Elem(), StackSetAutoDeploymentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetDeploymentTargetsInput)(nil)).Elem(), StackSetDeploymentTargetsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetOperationPreferencesInput)(nil)).Elem(), StackSetOperationPreferencesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetOperationPreferencesPtrInput)(nil)).Elem(), StackSetOperationPreferencesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetParameterInput)(nil)).Elem(), StackSetParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetParameterArrayInput)(nil)).Elem(), StackSetParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetStackInstancesInput)(nil)).Elem(), StackSetStackInstancesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetStackInstancesArrayInput)(nil)).Elem(), StackSetStackInstancesArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetTagInput)(nil)).Elem(), StackSetTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetTagArrayInput)(nil)).Elem(), StackSetTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackTagInput)(nil)).Elem(), StackTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackTagArrayInput)(nil)).Elem(), StackTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TypeActivationLoggingConfigInput)(nil)).Elem(), TypeActivationLoggingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TypeActivationLoggingConfigPtrInput)(nil)).Elem(), TypeActivationLoggingConfigArgs{})
 	pulumi.RegisterOutputType(ResourceVersionLoggingConfigOutput{})
 	pulumi.RegisterOutputType(ResourceVersionLoggingConfigPtrOutput{})
 	pulumi.RegisterOutputType(StackSetAutoDeploymentOutput{})

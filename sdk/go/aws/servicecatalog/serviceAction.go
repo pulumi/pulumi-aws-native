@@ -124,5 +124,6 @@ func (o ServiceActionOutput) ToServiceActionOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceActionInput)(nil)).Elem(), &ServiceAction{})
 	pulumi.RegisterOutputType(ServiceActionOutput{})
 }

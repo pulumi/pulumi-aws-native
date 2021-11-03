@@ -453,6 +453,14 @@ func (o TrailTagArrayOutput) Index(i pulumi.IntInput) TrailTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailDataResourceInput)(nil)).Elem(), TrailDataResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailDataResourceArrayInput)(nil)).Elem(), TrailDataResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailEventSelectorInput)(nil)).Elem(), TrailEventSelectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailEventSelectorArrayInput)(nil)).Elem(), TrailEventSelectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailInsightSelectorInput)(nil)).Elem(), TrailInsightSelectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailInsightSelectorArrayInput)(nil)).Elem(), TrailInsightSelectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailTagInput)(nil)).Elem(), TrailTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailTagArrayInput)(nil)).Elem(), TrailTagArray{})
 	pulumi.RegisterOutputType(TrailDataResourceOutput{})
 	pulumi.RegisterOutputType(TrailDataResourceArrayOutput{})
 	pulumi.RegisterOutputType(TrailEventSelectorOutput{})

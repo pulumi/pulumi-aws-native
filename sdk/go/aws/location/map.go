@@ -126,5 +126,6 @@ func (o MapOutput) ToMapOutputWithContext(ctx context.Context) MapOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MapInput)(nil)).Elem(), &Map{})
 	pulumi.RegisterOutputType(MapOutput{})
 }

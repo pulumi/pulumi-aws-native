@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AwsNative
 {
@@ -13,6 +14,9 @@ namespace Pulumi.AwsNative
     {
         public static Task<ImportValueResult> InvokeAsync(ImportValueArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ImportValueResult>("aws-native:index:importValue", args ?? new ImportValueArgs(), options.WithVersion());
+
+        public static Output<ImportValueResult> Invoke(ImportValueInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<ImportValueResult>("aws-native:index:importValue", args ?? new ImportValueInvokeArgs(), options.WithVersion());
     }
 
 
@@ -22,6 +26,16 @@ namespace Pulumi.AwsNative
         public string Name { get; set; } = null!;
 
         public ImportValueArgs()
+        {
+        }
+    }
+
+    public sealed class ImportValueInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public ImportValueInvokeArgs()
         {
         }
     }

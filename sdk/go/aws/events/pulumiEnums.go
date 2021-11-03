@@ -510,6 +510,12 @@ func (in *connectionOAuthParametersHttpMethodPtr) ToConnectionOAuthParametersHtt
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiDestinationHttpMethodInput)(nil)).Elem(), ApiDestinationHttpMethod("GET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiDestinationHttpMethodPtrInput)(nil)).Elem(), ApiDestinationHttpMethod("GET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAuthorizationTypeInput)(nil)).Elem(), ConnectionAuthorizationType("API_KEY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAuthorizationTypePtrInput)(nil)).Elem(), ConnectionAuthorizationType("API_KEY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionOAuthParametersHttpMethodInput)(nil)).Elem(), ConnectionOAuthParametersHttpMethod("GET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionOAuthParametersHttpMethodPtrInput)(nil)).Elem(), ConnectionOAuthParametersHttpMethod("GET"))
 	pulumi.RegisterOutputType(ApiDestinationHttpMethodOutput{})
 	pulumi.RegisterOutputType(ApiDestinationHttpMethodPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionAuthorizationTypeOutput{})

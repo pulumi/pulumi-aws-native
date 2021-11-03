@@ -178,6 +178,8 @@ func (in *repositoryAssociationTypePtr) ToRepositoryAssociationTypePtrOutputWith
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryAssociationTypeInput)(nil)).Elem(), RepositoryAssociationType("CodeCommit"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryAssociationTypePtrInput)(nil)).Elem(), RepositoryAssociationType("CodeCommit"))
 	pulumi.RegisterOutputType(RepositoryAssociationTypeOutput{})
 	pulumi.RegisterOutputType(RepositoryAssociationTypePtrOutput{})
 }

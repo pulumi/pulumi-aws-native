@@ -181,6 +181,8 @@ func (in *policySecurityServicePolicyDataPropertiesTypePtr) ToPolicySecurityServ
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPropertiesTypeInput)(nil)).Elem(), PolicySecurityServicePolicyDataPropertiesType("WAF"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPropertiesTypePtrInput)(nil)).Elem(), PolicySecurityServicePolicyDataPropertiesType("WAF"))
 	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPropertiesTypeOutput{})
 	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPropertiesTypePtrOutput{})
 }

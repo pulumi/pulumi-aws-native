@@ -114,5 +114,6 @@ func (o ApplicationCloudWatchLoggingOptionOutput) ToApplicationCloudWatchLogging
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCloudWatchLoggingOptionInput)(nil)).Elem(), &ApplicationCloudWatchLoggingOption{})
 	pulumi.RegisterOutputType(ApplicationCloudWatchLoggingOptionOutput{})
 }

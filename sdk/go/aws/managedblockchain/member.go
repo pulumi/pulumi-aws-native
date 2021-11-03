@@ -118,5 +118,6 @@ func (o MemberOutput) ToMemberOutputWithContext(ctx context.Context) MemberOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MemberInput)(nil)).Elem(), &Member{})
 	pulumi.RegisterOutputType(MemberOutput{})
 }

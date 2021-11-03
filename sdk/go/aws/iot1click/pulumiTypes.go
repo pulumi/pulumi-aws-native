@@ -159,6 +159,8 @@ func (o ProjectPlacementTemplatePtrOutput) DeviceTemplates() pulumi.AnyOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectPlacementTemplateInput)(nil)).Elem(), ProjectPlacementTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectPlacementTemplatePtrInput)(nil)).Elem(), ProjectPlacementTemplateArgs{})
 	pulumi.RegisterOutputType(ProjectPlacementTemplateOutput{})
 	pulumi.RegisterOutputType(ProjectPlacementTemplatePtrOutput{})
 }

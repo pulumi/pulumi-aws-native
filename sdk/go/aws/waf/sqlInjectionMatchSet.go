@@ -111,5 +111,6 @@ func (o SqlInjectionMatchSetOutput) ToSqlInjectionMatchSetOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlInjectionMatchSetInput)(nil)).Elem(), &SqlInjectionMatchSet{})
 	pulumi.RegisterOutputType(SqlInjectionMatchSetOutput{})
 }

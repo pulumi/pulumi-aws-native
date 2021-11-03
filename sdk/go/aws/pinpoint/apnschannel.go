@@ -132,5 +132,6 @@ func (o APNSChannelOutput) ToAPNSChannelOutputWithContext(ctx context.Context) A
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*APNSChannelInput)(nil)).Elem(), &APNSChannel{})
 	pulumi.RegisterOutputType(APNSChannelOutput{})
 }

@@ -107,5 +107,6 @@ func (o OriginRequestPolicyOutput) ToOriginRequestPolicyOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginRequestPolicyInput)(nil)).Elem(), &OriginRequestPolicy{})
 	pulumi.RegisterOutputType(OriginRequestPolicyOutput{})
 }

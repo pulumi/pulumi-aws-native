@@ -126,5 +126,6 @@ func (o DomainConfigurationOutput) ToDomainConfigurationOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationInput)(nil)).Elem(), &DomainConfiguration{})
 	pulumi.RegisterOutputType(DomainConfigurationOutput{})
 }

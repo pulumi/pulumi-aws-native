@@ -143,5 +143,6 @@ func (o BranchOutput) ToBranchOutputWithContext(ctx context.Context) BranchOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchInput)(nil)).Elem(), &Branch{})
 	pulumi.RegisterOutputType(BranchOutput{})
 }

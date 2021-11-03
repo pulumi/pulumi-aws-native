@@ -141,5 +141,6 @@ func (o CustomActionTypeOutput) ToCustomActionTypeOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomActionTypeInput)(nil)).Elem(), &CustomActionType{})
 	pulumi.RegisterOutputType(CustomActionTypeOutput{})
 }

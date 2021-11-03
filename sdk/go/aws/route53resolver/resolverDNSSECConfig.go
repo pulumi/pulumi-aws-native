@@ -109,5 +109,6 @@ func (o ResolverDNSSECConfigOutput) ToResolverDNSSECConfigOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverDNSSECConfigInput)(nil)).Elem(), &ResolverDNSSECConfig{})
 	pulumi.RegisterOutputType(ResolverDNSSECConfigOutput{})
 }

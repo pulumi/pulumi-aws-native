@@ -132,5 +132,6 @@ func (o DimensionOutput) ToDimensionOutputWithContext(ctx context.Context) Dimen
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DimensionInput)(nil)).Elem(), &Dimension{})
 	pulumi.RegisterOutputType(DimensionOutput{})
 }

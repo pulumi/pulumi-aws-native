@@ -376,6 +376,12 @@ func (o TableTagArrayOutput) Index(i pulumi.IntInput) TableTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseTagInput)(nil)).Elem(), DatabaseTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseTagArrayInput)(nil)).Elem(), DatabaseTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RetentionPropertiesPropertiesInput)(nil)).Elem(), RetentionPropertiesPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RetentionPropertiesPropertiesPtrInput)(nil)).Elem(), RetentionPropertiesPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableTagInput)(nil)).Elem(), TableTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableTagArrayInput)(nil)).Elem(), TableTagArray{})
 	pulumi.RegisterOutputType(DatabaseTagOutput{})
 	pulumi.RegisterOutputType(DatabaseTagArrayOutput{})
 	pulumi.RegisterOutputType(RetentionPropertiesPropertiesOutput{})

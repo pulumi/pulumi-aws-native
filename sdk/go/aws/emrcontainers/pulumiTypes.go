@@ -557,6 +557,14 @@ func (o VirtualClusterTagArrayOutput) Index(i pulumi.IntInput) VirtualClusterTag
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualClusterContainerInfoInput)(nil)).Elem(), VirtualClusterContainerInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualClusterContainerInfoPtrInput)(nil)).Elem(), VirtualClusterContainerInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualClusterContainerProviderInput)(nil)).Elem(), VirtualClusterContainerProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualClusterContainerProviderPtrInput)(nil)).Elem(), VirtualClusterContainerProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualClusterEksInfoInput)(nil)).Elem(), VirtualClusterEksInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualClusterEksInfoPtrInput)(nil)).Elem(), VirtualClusterEksInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualClusterTagInput)(nil)).Elem(), VirtualClusterTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualClusterTagArrayInput)(nil)).Elem(), VirtualClusterTagArray{})
 	pulumi.RegisterOutputType(VirtualClusterContainerInfoOutput{})
 	pulumi.RegisterOutputType(VirtualClusterContainerInfoPtrOutput{})
 	pulumi.RegisterOutputType(VirtualClusterContainerProviderOutput{})

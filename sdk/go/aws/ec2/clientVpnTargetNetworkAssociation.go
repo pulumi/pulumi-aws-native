@@ -114,5 +114,6 @@ func (o ClientVpnTargetNetworkAssociationOutput) ToClientVpnTargetNetworkAssocia
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnTargetNetworkAssociationInput)(nil)).Elem(), &ClientVpnTargetNetworkAssociation{})
 	pulumi.RegisterOutputType(ClientVpnTargetNetworkAssociationOutput{})
 }

@@ -110,5 +110,6 @@ func (o DistributionOutput) ToDistributionOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionInput)(nil)).Elem(), &Distribution{})
 	pulumi.RegisterOutputType(DistributionOutput{})
 }

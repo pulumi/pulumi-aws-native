@@ -114,5 +114,6 @@ func (o SubnetCidrBlockOutput) ToSubnetCidrBlockOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetCidrBlockInput)(nil)).Elem(), &SubnetCidrBlock{})
 	pulumi.RegisterOutputType(SubnetCidrBlockOutput{})
 }

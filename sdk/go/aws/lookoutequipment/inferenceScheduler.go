@@ -173,5 +173,6 @@ func (o InferenceSchedulerOutput) ToInferenceSchedulerOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceSchedulerInput)(nil)).Elem(), &InferenceScheduler{})
 	pulumi.RegisterOutputType(InferenceSchedulerOutput{})
 }

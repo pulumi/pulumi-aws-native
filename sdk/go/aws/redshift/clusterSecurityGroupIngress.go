@@ -117,5 +117,6 @@ func (o ClusterSecurityGroupIngressOutput) ToClusterSecurityGroupIngressOutputWi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSecurityGroupIngressInput)(nil)).Elem(), &ClusterSecurityGroupIngress{})
 	pulumi.RegisterOutputType(ClusterSecurityGroupIngressOutput{})
 }

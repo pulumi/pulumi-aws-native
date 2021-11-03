@@ -117,5 +117,6 @@ func (o OrganizationConfigRuleOutput) ToOrganizationConfigRuleOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigRuleInput)(nil)).Elem(), &OrganizationConfigRule{})
 	pulumi.RegisterOutputType(OrganizationConfigRuleOutput{})
 }

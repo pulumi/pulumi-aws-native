@@ -126,5 +126,6 @@ func (o ConfigurationTemplateOutput) ToConfigurationTemplateOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationTemplateInput)(nil)).Elem(), &ConfigurationTemplate{})
 	pulumi.RegisterOutputType(ConfigurationTemplateOutput{})
 }

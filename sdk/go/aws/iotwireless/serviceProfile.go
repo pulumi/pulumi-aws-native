@@ -119,5 +119,6 @@ func (o ServiceProfileOutput) ToServiceProfileOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceProfileInput)(nil)).Elem(), &ServiceProfile{})
 	pulumi.RegisterOutputType(ServiceProfileOutput{})
 }

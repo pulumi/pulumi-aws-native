@@ -108,5 +108,6 @@ func (o ReceiptFilterOutput) ToReceiptFilterOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptFilterInput)(nil)).Elem(), &ReceiptFilter{})
 	pulumi.RegisterOutputType(ReceiptFilterOutput{})
 }

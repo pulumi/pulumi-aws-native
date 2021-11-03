@@ -107,5 +107,6 @@ func (o DedicatedIpPoolOutput) ToDedicatedIpPoolOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DedicatedIpPoolInput)(nil)).Elem(), &DedicatedIpPool{})
 	pulumi.RegisterOutputType(DedicatedIpPoolOutput{})
 }

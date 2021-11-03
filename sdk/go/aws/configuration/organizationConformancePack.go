@@ -145,5 +145,6 @@ func (o OrganizationConformancePackOutput) ToOrganizationConformancePackOutputWi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConformancePackInput)(nil)).Elem(), &OrganizationConformancePack{})
 	pulumi.RegisterOutputType(OrganizationConformancePackOutput{})
 }

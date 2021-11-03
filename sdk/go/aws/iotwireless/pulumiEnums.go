@@ -669,6 +669,14 @@ func (in *wirelessDeviceTypePtr) ToWirelessDeviceTypePtrOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationExpressionTypeInput)(nil)).Elem(), DestinationExpressionType("RuleName"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationExpressionTypePtrInput)(nil)).Elem(), DestinationExpressionType("RuleName"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountPartnerTypeInput)(nil)).Elem(), PartnerAccountPartnerType("Sidewalk"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountPartnerTypePtrInput)(nil)).Elem(), PartnerAccountPartnerType("Sidewalk"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionTypeInput)(nil)).Elem(), TaskDefinitionType("UPDATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionTypePtrInput)(nil)).Elem(), TaskDefinitionType("UPDATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceTypeInput)(nil)).Elem(), WirelessDeviceType("Sidewalk"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceTypePtrInput)(nil)).Elem(), WirelessDeviceType("Sidewalk"))
 	pulumi.RegisterOutputType(DestinationExpressionTypeOutput{})
 	pulumi.RegisterOutputType(DestinationExpressionTypePtrOutput{})
 	pulumi.RegisterOutputType(PartnerAccountPartnerTypeOutput{})

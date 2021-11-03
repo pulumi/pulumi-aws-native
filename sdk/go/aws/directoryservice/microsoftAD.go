@@ -134,5 +134,6 @@ func (o MicrosoftADOutput) ToMicrosoftADOutputWithContext(ctx context.Context) M
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrosoftADInput)(nil)).Elem(), &MicrosoftAD{})
 	pulumi.RegisterOutputType(MicrosoftADOutput{})
 }

@@ -104,5 +104,6 @@ func (o ReceiptRuleSetOutput) ToReceiptRuleSetOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleSetInput)(nil)).Elem(), &ReceiptRuleSet{})
 	pulumi.RegisterOutputType(ReceiptRuleSetOutput{})
 }

@@ -114,5 +114,6 @@ func (o PolicyPrincipalAttachmentOutput) ToPolicyPrincipalAttachmentOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPrincipalAttachmentInput)(nil)).Elem(), &PolicyPrincipalAttachment{})
 	pulumi.RegisterOutputType(PolicyPrincipalAttachmentOutput{})
 }

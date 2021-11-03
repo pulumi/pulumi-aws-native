@@ -150,5 +150,6 @@ func (o MLTransformOutput) ToMLTransformOutputWithContext(ctx context.Context) M
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformInput)(nil)).Elem(), &MLTransform{})
 	pulumi.RegisterOutputType(MLTransformOutput{})
 }

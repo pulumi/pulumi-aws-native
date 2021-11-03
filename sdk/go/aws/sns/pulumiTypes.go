@@ -211,6 +211,10 @@ func (o TopicTagArrayOutput) Index(i pulumi.IntInput) TopicTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicSubscriptionInput)(nil)).Elem(), TopicSubscriptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicSubscriptionArrayInput)(nil)).Elem(), TopicSubscriptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicTagInput)(nil)).Elem(), TopicTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicTagArrayInput)(nil)).Elem(), TopicTagArray{})
 	pulumi.RegisterOutputType(TopicSubscriptionOutput{})
 	pulumi.RegisterOutputType(TopicSubscriptionArrayOutput{})
 	pulumi.RegisterOutputType(TopicTagOutput{})

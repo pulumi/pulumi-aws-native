@@ -150,5 +150,6 @@ func (o DevEndpointOutput) ToDevEndpointOutputWithContext(ctx context.Context) D
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DevEndpointInput)(nil)).Elem(), &DevEndpoint{})
 	pulumi.RegisterOutputType(DevEndpointOutput{})
 }

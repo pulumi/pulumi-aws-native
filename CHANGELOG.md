@@ -1,5 +1,7 @@
 ## HEAD (Unreleased)
 
+- Update to pulumi v3.16.0 deps [#202](https://github.com/pulumi/pulumi-aws-native/pull/202)
+
 ## 0.3.0 (November 2, 2021)
 
 - Latest resource definitions

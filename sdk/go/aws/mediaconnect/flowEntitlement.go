@@ -156,5 +156,6 @@ func (o FlowEntitlementOutput) ToFlowEntitlementOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowEntitlementInput)(nil)).Elem(), &FlowEntitlement{})
 	pulumi.RegisterOutputType(FlowEntitlementOutput{})
 }

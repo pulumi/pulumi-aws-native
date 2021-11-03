@@ -114,5 +114,6 @@ func (o SimulationApplicationVersionOutput) ToSimulationApplicationVersionOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SimulationApplicationVersionInput)(nil)).Elem(), &SimulationApplicationVersion{})
 	pulumi.RegisterOutputType(SimulationApplicationVersionOutput{})
 }

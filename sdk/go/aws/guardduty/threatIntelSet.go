@@ -129,5 +129,6 @@ func (o ThreatIntelSetOutput) ToThreatIntelSetOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ThreatIntelSetInput)(nil)).Elem(), &ThreatIntelSet{})
 	pulumi.RegisterOutputType(ThreatIntelSetOutput{})
 }

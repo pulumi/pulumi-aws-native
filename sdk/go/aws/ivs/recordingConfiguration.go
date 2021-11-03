@@ -122,5 +122,6 @@ func (o RecordingConfigurationOutput) ToRecordingConfigurationOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationInput)(nil)).Elem(), &RecordingConfiguration{})
 	pulumi.RegisterOutputType(RecordingConfigurationOutput{})
 }

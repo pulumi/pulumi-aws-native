@@ -125,5 +125,6 @@ func (o CellOutput) ToCellOutputWithContext(ctx context.Context) CellOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CellInput)(nil)).Elem(), &Cell{})
 	pulumi.RegisterOutputType(CellOutput{})
 }

@@ -114,5 +114,6 @@ func (o CodeRepositoryOutput) ToCodeRepositoryOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeRepositoryInput)(nil)).Elem(), &CodeRepository{})
 	pulumi.RegisterOutputType(CodeRepositoryOutput{})
 }

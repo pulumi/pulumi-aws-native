@@ -117,5 +117,6 @@ func (o FunctionDefinitionVersionOutput) ToFunctionDefinitionVersionOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionDefinitionVersionInput)(nil)).Elem(), &FunctionDefinitionVersion{})
 	pulumi.RegisterOutputType(FunctionDefinitionVersionOutput{})
 }

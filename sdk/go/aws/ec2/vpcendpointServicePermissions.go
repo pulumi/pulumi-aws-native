@@ -111,5 +111,6 @@ func (o VPCEndpointServicePermissionsOutput) ToVPCEndpointServicePermissionsOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VPCEndpointServicePermissionsInput)(nil)).Elem(), &VPCEndpointServicePermissions{})
 	pulumi.RegisterOutputType(VPCEndpointServicePermissionsOutput{})
 }

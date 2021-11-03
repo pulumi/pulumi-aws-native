@@ -175,6 +175,8 @@ func (in *streamEncryptionEncryptionTypePtr) ToStreamEncryptionEncryptionTypePtr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamEncryptionEncryptionTypeInput)(nil)).Elem(), StreamEncryptionEncryptionType("KMS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamEncryptionEncryptionTypePtrInput)(nil)).Elem(), StreamEncryptionEncryptionType("KMS"))
 	pulumi.RegisterOutputType(StreamEncryptionEncryptionTypeOutput{})
 	pulumi.RegisterOutputType(StreamEncryptionEncryptionTypePtrOutput{})
 }

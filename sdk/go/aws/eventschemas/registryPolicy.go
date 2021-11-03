@@ -115,5 +115,6 @@ func (o RegistryPolicyOutput) ToRegistryPolicyOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryPolicyInput)(nil)).Elem(), &RegistryPolicy{})
 	pulumi.RegisterOutputType(RegistryPolicyOutput{})
 }

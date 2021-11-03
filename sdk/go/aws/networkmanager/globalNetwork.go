@@ -113,5 +113,6 @@ func (o GlobalNetworkOutput) ToGlobalNetworkOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalNetworkInput)(nil)).Elem(), &GlobalNetwork{})
 	pulumi.RegisterOutputType(GlobalNetworkOutput{})
 }

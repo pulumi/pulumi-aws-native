@@ -277,6 +277,10 @@ func (o PlaceIndexDataSourceConfigurationPtrOutput) IntendedUse() PlaceIndexInte
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MapConfigurationInput)(nil)).Elem(), MapConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MapConfigurationPtrInput)(nil)).Elem(), MapConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaceIndexDataSourceConfigurationInput)(nil)).Elem(), PlaceIndexDataSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaceIndexDataSourceConfigurationPtrInput)(nil)).Elem(), PlaceIndexDataSourceConfigurationArgs{})
 	pulumi.RegisterOutputType(MapConfigurationOutput{})
 	pulumi.RegisterOutputType(MapConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PlaceIndexDataSourceConfigurationOutput{})

@@ -117,5 +117,6 @@ func (o PlacementOutput) ToPlacementOutputWithContext(ctx context.Context) Place
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PlacementInput)(nil)).Elem(), &Placement{})
 	pulumi.RegisterOutputType(PlacementOutput{})
 }

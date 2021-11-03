@@ -129,5 +129,6 @@ func (o SigningProfileOutput) ToSigningProfileOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SigningProfileInput)(nil)).Elem(), &SigningProfile{})
 	pulumi.RegisterOutputType(SigningProfileOutput{})
 }

@@ -129,5 +129,6 @@ func (o MaintenanceWindowTargetOutput) ToMaintenanceWindowTargetOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowTargetInput)(nil)).Elem(), &MaintenanceWindowTarget{})
 	pulumi.RegisterOutputType(MaintenanceWindowTargetOutput{})
 }

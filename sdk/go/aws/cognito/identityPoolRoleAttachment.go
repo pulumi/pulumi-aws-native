@@ -114,5 +114,6 @@ func (o IdentityPoolRoleAttachmentOutput) ToIdentityPoolRoleAttachmentOutputWith
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolRoleAttachmentInput)(nil)).Elem(), &IdentityPoolRoleAttachment{})
 	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentOutput{})
 }

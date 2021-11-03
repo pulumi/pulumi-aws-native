@@ -307,6 +307,10 @@ func (o SimpleADVpcSettingsPtrOutput) VpcId() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrosoftADVpcSettingsInput)(nil)).Elem(), MicrosoftADVpcSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrosoftADVpcSettingsPtrInput)(nil)).Elem(), MicrosoftADVpcSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SimpleADVpcSettingsInput)(nil)).Elem(), SimpleADVpcSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SimpleADVpcSettingsPtrInput)(nil)).Elem(), SimpleADVpcSettingsArgs{})
 	pulumi.RegisterOutputType(MicrosoftADVpcSettingsOutput{})
 	pulumi.RegisterOutputType(MicrosoftADVpcSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SimpleADVpcSettingsOutput{})

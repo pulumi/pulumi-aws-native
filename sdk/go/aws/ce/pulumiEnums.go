@@ -996,6 +996,18 @@ func (in *costCategoryRuleVersionPtr) ToCostCategoryRuleVersionPtrOutputWithCont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyMonitorMonitorDimensionInput)(nil)).Elem(), AnomalyMonitorMonitorDimension("SERVICE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyMonitorMonitorDimensionPtrInput)(nil)).Elem(), AnomalyMonitorMonitorDimension("SERVICE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyMonitorMonitorTypeInput)(nil)).Elem(), AnomalyMonitorMonitorType("DIMENSIONAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyMonitorMonitorTypePtrInput)(nil)).Elem(), AnomalyMonitorMonitorType("DIMENSIONAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionFrequencyInput)(nil)).Elem(), AnomalySubscriptionFrequency("DAILY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionFrequencyPtrInput)(nil)).Elem(), AnomalySubscriptionFrequency("DAILY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionSubscriberStatusInput)(nil)).Elem(), AnomalySubscriptionSubscriberStatus("CONFIRMED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionSubscriberStatusPtrInput)(nil)).Elem(), AnomalySubscriptionSubscriberStatus("CONFIRMED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionSubscriberTypeInput)(nil)).Elem(), AnomalySubscriptionSubscriberType("EMAIL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionSubscriberTypePtrInput)(nil)).Elem(), AnomalySubscriptionSubscriberType("EMAIL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleVersionInput)(nil)).Elem(), CostCategoryRuleVersion("CostCategoryExpression.v1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleVersionPtrInput)(nil)).Elem(), CostCategoryRuleVersion("CostCategoryExpression.v1"))
 	pulumi.RegisterOutputType(AnomalyMonitorMonitorDimensionOutput{})
 	pulumi.RegisterOutputType(AnomalyMonitorMonitorDimensionPtrOutput{})
 	pulumi.RegisterOutputType(AnomalyMonitorMonitorTypeOutput{})

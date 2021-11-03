@@ -128,5 +128,6 @@ func (o UserGroupOutput) ToUserGroupOutputWithContext(ctx context.Context) UserG
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UserGroupInput)(nil)).Elem(), &UserGroup{})
 	pulumi.RegisterOutputType(UserGroupOutput{})
 }
