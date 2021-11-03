@@ -507,6 +507,13 @@ func (p *cfnProvider) Check(ctx context.Context, req *pulumirpc.CheckRequest) (*
 		return nil, errors.Errorf("Resource type %s not found", resourceToken)
 	}
 
+	olds, err := plugin.UnmarshalProperties(req.GetOlds(), plugin.MarshalOptions{
+		Label: fmt.Sprintf("%s.olds", label), SkipNulls: true,
+	})
+	if err != nil {
+		return nil, err
+	}
+
 	// Parse inputs.
 	newInputs, err := plugin.UnmarshalProperties(req.GetNews(), plugin.MarshalOptions{
 		Label:        fmt.Sprintf("%s.properties", label),
@@ -520,6 +527,9 @@ func (p *cfnProvider) Check(ctx context.Context, req *pulumirpc.CheckRequest) (*
 
 	// Filter null properties from the inputs.
 	newInputs = filterNullProperties(newInputs)
+
+	// Auto-name fields if not already specified
+	setDefaultName(urn, spec, olds, newInputs)
 
 	var checkFailures []*pulumirpc.CheckFailure
 	failures, err := schema.ValidateResource(&spec, p.resourceMap.Types, newInputs)
@@ -543,6 +553,8 @@ func (p *cfnProvider) Check(ctx context.Context, req *pulumirpc.CheckRequest) (*
 	}
 	return &pulumirpc.CheckResponse{Failures: checkFailures}, nil
 }
+
+
 
 func (p *cfnProvider) Diff(ctx context.Context, req *pulumirpc.DiffRequest) (*pulumirpc.DiffResponse, error) {
 	urn := resource.URN(req.GetUrn())

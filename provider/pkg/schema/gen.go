@@ -606,6 +606,22 @@ func (ctx *context) gatherResourceType() error {
 		}
 	}
 
+	primaryIdentifiers := codegen.NewStringSet()
+	if pid, ok := ctx.resourceSpec.Extras["primaryIdentifier"].([]interface{}); ok {
+		for _, propRef := range pid {
+			propName := strings.TrimPrefix(propRef.(string), "/properties/")
+			primaryIdentifiers.Add(propName)
+		}
+	}
+
+	createOnlyProperties := codegen.NewStringSet()
+	if cop, ok := ctx.resourceSpec.Extras["createOnlyProperties"].([]interface{}); ok {
+		for _, propRef := range cop {
+			cfName := strings.TrimPrefix(propRef.(string), "/properties/")
+			createOnlyProperties.Add(ToSdkName(cfName))
+		}
+	}
+
 	inputProperties, requiredInputs := map[string]pschema.PropertySpec{}, codegen.NewStringSet()
 	properties, required := map[string]pschema.PropertySpec{}, codegen.NewStringSet()
 	for prop, spec := range ctx.resourceSpec.Properties {
@@ -632,6 +648,42 @@ func (ctx *context) gatherResourceType() error {
 			requiredInputs.Add(sdkName)
 		}
 	}
+
+	// ** Autonaming **
+	autonameSpecs := map[string]AutoNamingSpec{}
+
+	lookForField := func(fieldName string) func(map[string]pschema.PropertySpec) {
+		return func(properties map[string]pschema.PropertySpec) {
+			sdkName := ToSdkName(fieldName)
+			if propSpec, has := inputProperties[sdkName]; has && propSpec.Type == "string" {
+				autonameSpec := AutoNamingSpec{}
+				spec, ok := ctx.resourceSpec.Properties[fieldName]
+				if ok {
+					autonameSpec.MinLength = spec.MinLength.Val
+					autonameSpec.MaxLength = spec.MaxLength.Val
+				}
+				autonameSpecs[sdkName] = autonameSpec
+			}
+		}
+	}
+
+	autoNamePropLookupFuncs := []func(map[string]pschema.PropertySpec){
+		lookForField("Name"),
+		lookForField(resourceTypeName+"Name"),
+	}
+
+	for _, fn := range autoNamePropLookupFuncs {
+		fn(properties)
+		if len(autonameSpecs) > 0 {
+			for autoNamed := range autonameSpecs {
+				// Apply auto-naming, i.e. mark the property as no longer required.
+				delete(requiredInputs, autoNamed)
+			}
+			break
+		}
+	}
+	// ** Autonaming **
+
 	for prop := range readOnlyProperties {
 		sdkName := ToSdkName(prop)
 		if _, has := properties[sdkName]; has {
@@ -655,19 +707,13 @@ func (ctx *context) gatherResourceType() error {
 		DeprecationMessage: deprecationMessage,
 	}
 
-	createOnlyProperties := codegen.NewStringSet()
-	if rop, ok := ctx.resourceSpec.Extras["createOnlyProperties"].([]interface{}); ok {
-		for _, propRef := range rop {
-			cfName := strings.TrimPrefix(propRef.(string), "/properties/")
-			createOnlyProperties.Add(ToSdkName(cfName))
-		}
-	}
 	ctx.metadata.Resources[ctx.resourceToken] = CloudAPIResource{
-		CfType:     ctx.cfTypeName,
-		Inputs:     inputProperties,
-		Outputs:    properties,
-		CreateOnly: createOnlyProperties.SortedValues(),
-		Required:   requiredInputs.SortedValues(),
+		CfType:          ctx.cfTypeName,
+		Inputs:          inputProperties,
+		Outputs:         properties,
+		CreateOnly:      createOnlyProperties.SortedValues(),
+		Required:        requiredInputs.SortedValues(),
+		AutoNamingSpecs: autonameSpecs,
 	}
 	return nil
 }

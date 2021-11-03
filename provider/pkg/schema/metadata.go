@@ -12,11 +12,17 @@ type CloudAPIMetadata struct {
 
 // CloudAPIResource contains metadata for a single AWS Resource.
 type CloudAPIResource struct {
-	CfType     string                          `json:"cf"`
-	Inputs     map[string]pschema.PropertySpec `json:"inputs"`
-	Outputs    map[string]pschema.PropertySpec `json:"outputs"`
-	Required   []string                        `json:"required,omitempty"`
-	CreateOnly []string                        `json:"createOnly,omitempty"`
+	CfType          string                          `json:"cf"`
+	Inputs          map[string]pschema.PropertySpec `json:"inputs"`
+	Outputs         map[string]pschema.PropertySpec `json:"outputs"`
+	AutoNamingSpecs map[string]AutoNamingSpec       `json:"autoNamingSpecs,omitempty"`
+	Required        []string                        `json:"required,omitempty"`
+	CreateOnly      []string                        `json:"createOnly,omitempty"`
+}
+
+type AutoNamingSpec struct {
+	MinLength int    `json:"minLength,omitempty"`
+	MaxLength int    `json:"maxLength,omitempty"`
 }
 
 // CloudAPIType contains metadata for an auxiliary type.
