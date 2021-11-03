@@ -179,6 +179,8 @@ func (in *inferenceSchedulerDataUploadFrequencyPtr) ToInferenceSchedulerDataUplo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceSchedulerDataUploadFrequencyInput)(nil)).Elem(), InferenceSchedulerDataUploadFrequency("PT5M"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceSchedulerDataUploadFrequencyPtrInput)(nil)).Elem(), InferenceSchedulerDataUploadFrequency("PT5M"))
 	pulumi.RegisterOutputType(InferenceSchedulerDataUploadFrequencyOutput{})
 	pulumi.RegisterOutputType(InferenceSchedulerDataUploadFrequencyPtrOutput{})
 }

@@ -135,5 +135,6 @@ func (o ParameterOutput) ToParameterOutputWithContext(ctx context.Context) Param
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ParameterInput)(nil)).Elem(), &Parameter{})
 	pulumi.RegisterOutputType(ParameterOutput{})
 }

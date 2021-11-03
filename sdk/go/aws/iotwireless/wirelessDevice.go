@@ -158,5 +158,6 @@ func (o WirelessDeviceOutput) ToWirelessDeviceOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceInput)(nil)).Elem(), &WirelessDevice{})
 	pulumi.RegisterOutputType(WirelessDeviceOutput{})
 }

@@ -123,5 +123,6 @@ func (o PublisherOutput) ToPublisherOutputWithContext(ctx context.Context) Publi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PublisherInput)(nil)).Elem(), &Publisher{})
 	pulumi.RegisterOutputType(PublisherOutput{})
 }

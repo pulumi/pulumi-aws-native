@@ -160,5 +160,6 @@ func (o ResourceVersionOutput) ToResourceVersionOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceVersionInput)(nil)).Elem(), &ResourceVersion{})
 	pulumi.RegisterOutputType(ResourceVersionOutput{})
 }

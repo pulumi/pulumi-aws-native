@@ -123,5 +123,6 @@ func (o AssistantOutput) ToAssistantOutputWithContext(ctx context.Context) Assis
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AssistantInput)(nil)).Elem(), &Assistant{})
 	pulumi.RegisterOutputType(AssistantOutput{})
 }

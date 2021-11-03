@@ -512,6 +512,12 @@ func (in *userPhoneTypePtr) ToUserPhoneTypePtrOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationConfigDayInput)(nil)).Elem(), HoursOfOperationConfigDay("SUNDAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationConfigDayPtrInput)(nil)).Elem(), HoursOfOperationConfigDay("SUNDAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectTypeInput)(nil)).Elem(), QuickConnectType("PHONE_NUMBER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectTypePtrInput)(nil)).Elem(), QuickConnectType("PHONE_NUMBER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneTypeInput)(nil)).Elem(), UserPhoneType("SOFT_PHONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneTypePtrInput)(nil)).Elem(), UserPhoneType("SOFT_PHONE"))
 	pulumi.RegisterOutputType(HoursOfOperationConfigDayOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationConfigDayPtrOutput{})
 	pulumi.RegisterOutputType(QuickConnectTypeOutput{})

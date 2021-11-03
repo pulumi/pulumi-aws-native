@@ -120,5 +120,6 @@ func (o DirectoryConfigOutput) ToDirectoryConfigOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryConfigInput)(nil)).Elem(), &DirectoryConfig{})
 	pulumi.RegisterOutputType(DirectoryConfigOutput{})
 }

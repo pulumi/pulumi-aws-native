@@ -117,5 +117,6 @@ func (o OIDCProviderOutput) ToOIDCProviderOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OIDCProviderInput)(nil)).Elem(), &OIDCProvider{})
 	pulumi.RegisterOutputType(OIDCProviderOutput{})
 }

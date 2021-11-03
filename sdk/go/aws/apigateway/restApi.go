@@ -147,5 +147,6 @@ func (o RestApiOutput) ToRestApiOutputWithContext(ctx context.Context) RestApiOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RestApiInput)(nil)).Elem(), &RestApi{})
 	pulumi.RegisterOutputType(RestApiOutput{})
 }

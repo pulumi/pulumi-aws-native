@@ -124,5 +124,6 @@ func (o PortfolioOutput) ToPortfolioOutputWithContext(ctx context.Context) Portf
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PortfolioInput)(nil)).Elem(), &Portfolio{})
 	pulumi.RegisterOutputType(PortfolioOutput{})
 }

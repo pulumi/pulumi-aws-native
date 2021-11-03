@@ -133,5 +133,6 @@ func (o NetworkInsightsPathOutput) ToNetworkInsightsPathOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathInput)(nil)).Elem(), &NetworkInsightsPath{})
 	pulumi.RegisterOutputType(NetworkInsightsPathOutput{})
 }

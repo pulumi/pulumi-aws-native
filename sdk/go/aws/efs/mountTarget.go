@@ -121,5 +121,6 @@ func (o MountTargetOutput) ToMountTargetOutputWithContext(ctx context.Context) M
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MountTargetInput)(nil)).Elem(), &MountTarget{})
 	pulumi.RegisterOutputType(MountTargetOutput{})
 }

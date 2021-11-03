@@ -127,5 +127,6 @@ func (o LabelOutput) ToLabelOutputWithContext(ctx context.Context) LabelOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelInput)(nil)).Elem(), &Label{})
 	pulumi.RegisterOutputType(LabelOutput{})
 }

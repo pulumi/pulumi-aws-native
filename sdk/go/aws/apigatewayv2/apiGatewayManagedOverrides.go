@@ -117,5 +117,6 @@ func (o ApiGatewayManagedOverridesOutput) ToApiGatewayManagedOverridesOutputWith
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiGatewayManagedOverridesInput)(nil)).Elem(), &ApiGatewayManagedOverrides{})
 	pulumi.RegisterOutputType(ApiGatewayManagedOverridesOutput{})
 }

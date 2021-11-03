@@ -125,5 +125,6 @@ func (o VirtualClusterOutput) ToVirtualClusterOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualClusterInput)(nil)).Elem(), &VirtualCluster{})
 	pulumi.RegisterOutputType(VirtualClusterOutput{})
 }

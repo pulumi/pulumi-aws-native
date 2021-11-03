@@ -150,5 +150,6 @@ func (o AnomalySubscriptionOutput) ToAnomalySubscriptionOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionInput)(nil)).Elem(), &AnomalySubscription{})
 	pulumi.RegisterOutputType(AnomalySubscriptionOutput{})
 }

@@ -191,5 +191,6 @@ func (o ContainerRecipeOutput) ToContainerRecipeOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeInput)(nil)).Elem(), &ContainerRecipe{})
 	pulumi.RegisterOutputType(ContainerRecipeOutput{})
 }

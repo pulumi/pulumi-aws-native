@@ -144,5 +144,6 @@ func (o RepositoryAssociationOutput) ToRepositoryAssociationOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryAssociationInput)(nil)).Elem(), &RepositoryAssociation{})
 	pulumi.RegisterOutputType(RepositoryAssociationOutput{})
 }

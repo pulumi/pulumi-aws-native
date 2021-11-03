@@ -176,6 +176,8 @@ func (in *addonResolveConflictsPtr) ToAddonResolveConflictsPtrOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AddonResolveConflictsInput)(nil)).Elem(), AddonResolveConflicts("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AddonResolveConflictsPtrInput)(nil)).Elem(), AddonResolveConflicts("NONE"))
 	pulumi.RegisterOutputType(AddonResolveConflictsOutput{})
 	pulumi.RegisterOutputType(AddonResolveConflictsPtrOutput{})
 }

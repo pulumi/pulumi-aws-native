@@ -127,5 +127,6 @@ func (o AccountAuditConfigurationOutput) ToAccountAuditConfigurationOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountAuditConfigurationInput)(nil)).Elem(), &AccountAuditConfiguration{})
 	pulumi.RegisterOutputType(AccountAuditConfigurationOutput{})
 }

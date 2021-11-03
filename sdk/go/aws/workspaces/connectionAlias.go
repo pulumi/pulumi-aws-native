@@ -112,5 +112,6 @@ func (o ConnectionAliasOutput) ToConnectionAliasOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAliasInput)(nil)).Elem(), &ConnectionAlias{})
 	pulumi.RegisterOutputType(ConnectionAliasOutput{})
 }

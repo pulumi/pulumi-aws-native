@@ -107,5 +107,6 @@ func (o ThingOutput) ToThingOutputWithContext(ctx context.Context) ThingOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingInput)(nil)).Elem(), &Thing{})
 	pulumi.RegisterOutputType(ThingOutput{})
 }

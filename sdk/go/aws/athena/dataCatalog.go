@@ -136,5 +136,6 @@ func (o DataCatalogOutput) ToDataCatalogOutputWithContext(ctx context.Context) D
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogInput)(nil)).Elem(), &DataCatalog{})
 	pulumi.RegisterOutputType(DataCatalogOutput{})
 }

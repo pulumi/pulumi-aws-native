@@ -114,5 +114,6 @@ func (o CoreDefinitionVersionOutput) ToCoreDefinitionVersionOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CoreDefinitionVersionInput)(nil)).Elem(), &CoreDefinitionVersion{})
 	pulumi.RegisterOutputType(CoreDefinitionVersionOutput{})
 }

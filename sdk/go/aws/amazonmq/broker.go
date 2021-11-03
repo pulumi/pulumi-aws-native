@@ -189,5 +189,6 @@ func (o BrokerOutput) ToBrokerOutputWithContext(ctx context.Context) BrokerOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BrokerInput)(nil)).Elem(), &Broker{})
 	pulumi.RegisterOutputType(BrokerOutput{})
 }

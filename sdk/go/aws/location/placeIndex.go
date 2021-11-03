@@ -128,5 +128,6 @@ func (o PlaceIndexOutput) ToPlaceIndexOutputWithContext(ctx context.Context) Pla
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaceIndexInput)(nil)).Elem(), &PlaceIndex{})
 	pulumi.RegisterOutputType(PlaceIndexOutput{})
 }

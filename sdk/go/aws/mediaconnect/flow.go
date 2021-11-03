@@ -134,5 +134,6 @@ func (o FlowOutput) ToFlowOutputWithContext(ctx context.Context) FlowOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowInput)(nil)).Elem(), &Flow{})
 	pulumi.RegisterOutputType(FlowOutput{})
 }

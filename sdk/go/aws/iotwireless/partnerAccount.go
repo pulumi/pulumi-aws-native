@@ -147,5 +147,6 @@ func (o PartnerAccountOutput) ToPartnerAccountOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountInput)(nil)).Elem(), &PartnerAccount{})
 	pulumi.RegisterOutputType(PartnerAccountOutput{})
 }

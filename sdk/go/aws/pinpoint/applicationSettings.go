@@ -120,5 +120,6 @@ func (o ApplicationSettingsOutput) ToApplicationSettingsOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSettingsInput)(nil)).Elem(), &ApplicationSettings{})
 	pulumi.RegisterOutputType(ApplicationSettingsOutput{})
 }

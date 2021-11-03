@@ -838,6 +838,16 @@ func (in *anomalyDetectorMetricSetMetricSetFrequencyPtr) ToAnomalyDetectorMetric
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorCsvFormatDescriptorFileCompressionInput)(nil)).Elem(), AnomalyDetectorCsvFormatDescriptorFileCompression("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorCsvFormatDescriptorFileCompressionPtrInput)(nil)).Elem(), AnomalyDetectorCsvFormatDescriptorFileCompression("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorFrequencyInput)(nil)).Elem(), AnomalyDetectorFrequency("PT5M"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorFrequencyPtrInput)(nil)).Elem(), AnomalyDetectorFrequency("PT5M"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorJsonFormatDescriptorFileCompressionInput)(nil)).Elem(), AnomalyDetectorJsonFormatDescriptorFileCompression("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorJsonFormatDescriptorFileCompressionPtrInput)(nil)).Elem(), AnomalyDetectorJsonFormatDescriptorFileCompression("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorMetricAggregationFunctionInput)(nil)).Elem(), AnomalyDetectorMetricAggregationFunction("AVG"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorMetricAggregationFunctionPtrInput)(nil)).Elem(), AnomalyDetectorMetricAggregationFunction("AVG"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorMetricSetMetricSetFrequencyInput)(nil)).Elem(), AnomalyDetectorMetricSetMetricSetFrequency("PT5M"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorMetricSetMetricSetFrequencyPtrInput)(nil)).Elem(), AnomalyDetectorMetricSetMetricSetFrequency("PT5M"))
 	pulumi.RegisterOutputType(AnomalyDetectorCsvFormatDescriptorFileCompressionOutput{})
 	pulumi.RegisterOutputType(AnomalyDetectorCsvFormatDescriptorFileCompressionPtrOutput{})
 	pulumi.RegisterOutputType(AnomalyDetectorFrequencyOutput{})

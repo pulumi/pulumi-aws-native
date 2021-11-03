@@ -500,6 +500,12 @@ func (o SkillPackagePtrOutput) S3ObjectVersion() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SkillAuthenticationConfigurationInput)(nil)).Elem(), SkillAuthenticationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkillAuthenticationConfigurationPtrInput)(nil)).Elem(), SkillAuthenticationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkillOverridesInput)(nil)).Elem(), SkillOverridesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkillOverridesPtrInput)(nil)).Elem(), SkillOverridesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkillPackageInput)(nil)).Elem(), SkillPackageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SkillPackagePtrInput)(nil)).Elem(), SkillPackageArgs{})
 	pulumi.RegisterOutputType(SkillAuthenticationConfigurationOutput{})
 	pulumi.RegisterOutputType(SkillAuthenticationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SkillOverridesOutput{})

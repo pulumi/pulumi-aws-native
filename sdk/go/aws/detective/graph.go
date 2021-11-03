@@ -104,5 +104,6 @@ func (o GraphOutput) ToGraphOutputWithContext(ctx context.Context) GraphOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphInput)(nil)).Elem(), &Graph{})
 	pulumi.RegisterOutputType(GraphOutput{})
 }

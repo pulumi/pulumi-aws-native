@@ -343,6 +343,10 @@ func (in *connectionAliasStateEnumPtr) ToConnectionAliasStateEnumPtrOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAliasAssociationAssociationStatusInput)(nil)).Elem(), ConnectionAliasAssociationAssociationStatus("NOT_ASSOCIATED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAliasAssociationAssociationStatusPtrInput)(nil)).Elem(), ConnectionAliasAssociationAssociationStatus("NOT_ASSOCIATED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAliasStateEnumInput)(nil)).Elem(), ConnectionAliasStateEnum("CREATING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAliasStateEnumPtrInput)(nil)).Elem(), ConnectionAliasStateEnum("CREATING"))
 	pulumi.RegisterOutputType(ConnectionAliasAssociationAssociationStatusOutput{})
 	pulumi.RegisterOutputType(ConnectionAliasAssociationAssociationStatusPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionAliasStateEnumOutput{})

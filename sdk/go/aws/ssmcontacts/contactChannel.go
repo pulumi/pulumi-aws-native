@@ -131,5 +131,6 @@ func (o ContactChannelOutput) ToContactChannelOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactChannelInput)(nil)).Elem(), &ContactChannel{})
 	pulumi.RegisterOutputType(ContactChannelOutput{})
 }

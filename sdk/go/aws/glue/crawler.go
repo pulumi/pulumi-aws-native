@@ -147,5 +147,6 @@ func (o CrawlerOutput) ToCrawlerOutputWithContext(ctx context.Context) CrawlerOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerInput)(nil)).Elem(), &Crawler{})
 	pulumi.RegisterOutputType(CrawlerOutput{})
 }

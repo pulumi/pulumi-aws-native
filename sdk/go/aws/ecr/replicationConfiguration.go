@@ -108,5 +108,6 @@ func (o ReplicationConfigurationOutput) ToReplicationConfigurationOutputWithCont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationInput)(nil)).Elem(), &ReplicationConfiguration{})
 	pulumi.RegisterOutputType(ReplicationConfigurationOutput{})
 }

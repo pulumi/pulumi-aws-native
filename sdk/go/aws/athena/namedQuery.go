@@ -138,5 +138,6 @@ func (o NamedQueryOutput) ToNamedQueryOutputWithContext(ctx context.Context) Nam
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NamedQueryInput)(nil)).Elem(), &NamedQuery{})
 	pulumi.RegisterOutputType(NamedQueryOutput{})
 }

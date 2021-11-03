@@ -139,5 +139,6 @@ func (o ConformancePackOutput) ToConformancePackOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConformancePackInput)(nil)).Elem(), &ConformancePack{})
 	pulumi.RegisterOutputType(ConformancePackOutput{})
 }

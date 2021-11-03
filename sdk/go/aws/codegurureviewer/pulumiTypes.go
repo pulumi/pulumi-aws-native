@@ -120,6 +120,8 @@ func (o RepositoryAssociationTagArrayOutput) Index(i pulumi.IntInput) Repository
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryAssociationTagInput)(nil)).Elem(), RepositoryAssociationTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryAssociationTagArrayInput)(nil)).Elem(), RepositoryAssociationTagArray{})
 	pulumi.RegisterOutputType(RepositoryAssociationTagOutput{})
 	pulumi.RegisterOutputType(RepositoryAssociationTagArrayOutput{})
 }

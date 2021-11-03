@@ -129,5 +129,6 @@ func (o EmailChannelOutput) ToEmailChannelOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailChannelInput)(nil)).Elem(), &EmailChannel{})
 	pulumi.RegisterOutputType(EmailChannelOutput{})
 }

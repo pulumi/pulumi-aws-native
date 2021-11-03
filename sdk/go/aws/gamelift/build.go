@@ -113,5 +113,6 @@ func (o BuildOutput) ToBuildOutputWithContext(ctx context.Context) BuildOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildInput)(nil)).Elem(), &Build{})
 	pulumi.RegisterOutputType(BuildOutput{})
 }

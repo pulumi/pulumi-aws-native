@@ -125,5 +125,6 @@ func (o RealtimeLogConfigOutput) ToRealtimeLogConfigOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RealtimeLogConfigInput)(nil)).Elem(), &RealtimeLogConfig{})
 	pulumi.RegisterOutputType(RealtimeLogConfigOutput{})
 }

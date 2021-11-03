@@ -117,5 +117,6 @@ func (o SecurityGroupIngressOutput) ToSecurityGroupIngressOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupIngressInput)(nil)).Elem(), &SecurityGroupIngress{})
 	pulumi.RegisterOutputType(SecurityGroupIngressOutput{})
 }

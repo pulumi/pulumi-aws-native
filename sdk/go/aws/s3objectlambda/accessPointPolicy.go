@@ -118,5 +118,6 @@ func (o AccessPointPolicyOutput) ToAccessPointPolicyOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointPolicyInput)(nil)).Elem(), &AccessPointPolicy{})
 	pulumi.RegisterOutputType(AccessPointPolicyOutput{})
 }

@@ -115,5 +115,6 @@ func (o StreamingDistributionOutput) ToStreamingDistributionOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamingDistributionInput)(nil)).Elem(), &StreamingDistribution{})
 	pulumi.RegisterOutputType(StreamingDistributionOutput{})
 }

@@ -1171,6 +1171,20 @@ func (in *usagePlanKeyKeyTypePtr) ToUsagePlanKeyKeyTypePtrOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MethodAuthorizationTypeInput)(nil)).Elem(), MethodAuthorizationType("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MethodAuthorizationTypePtrInput)(nil)).Elem(), MethodAuthorizationType("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationConnectionTypeInput)(nil)).Elem(), MethodIntegrationConnectionType("INTERNET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationConnectionTypePtrInput)(nil)).Elem(), MethodIntegrationConnectionType("INTERNET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationContentHandlingInput)(nil)).Elem(), MethodIntegrationContentHandling("CONVERT_TO_BINARY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationContentHandlingPtrInput)(nil)).Elem(), MethodIntegrationContentHandling("CONVERT_TO_BINARY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationPassthroughBehaviorInput)(nil)).Elem(), MethodIntegrationPassthroughBehavior("WHEN_NO_MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationPassthroughBehaviorPtrInput)(nil)).Elem(), MethodIntegrationPassthroughBehavior("WHEN_NO_MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationResponseContentHandlingInput)(nil)).Elem(), MethodIntegrationResponseContentHandling("CONVERT_TO_BINARY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationResponseContentHandlingPtrInput)(nil)).Elem(), MethodIntegrationResponseContentHandling("CONVERT_TO_BINARY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationTypeInput)(nil)).Elem(), MethodIntegrationType("AWS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationTypePtrInput)(nil)).Elem(), MethodIntegrationType("AWS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanKeyKeyTypeInput)(nil)).Elem(), UsagePlanKeyKeyType("API_KEY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanKeyKeyTypePtrInput)(nil)).Elem(), UsagePlanKeyKeyType("API_KEY"))
 	pulumi.RegisterOutputType(MethodAuthorizationTypeOutput{})
 	pulumi.RegisterOutputType(MethodAuthorizationTypePtrOutput{})
 	pulumi.RegisterOutputType(MethodIntegrationConnectionTypeOutput{})

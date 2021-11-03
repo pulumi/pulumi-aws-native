@@ -144,5 +144,6 @@ func (o ScalableTargetOutput) ToScalableTargetOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalableTargetInput)(nil)).Elem(), &ScalableTarget{})
 	pulumi.RegisterOutputType(ScalableTargetOutput{})
 }

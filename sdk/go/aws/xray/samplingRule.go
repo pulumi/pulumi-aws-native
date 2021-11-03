@@ -115,5 +115,6 @@ func (o SamplingRuleOutput) ToSamplingRuleOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SamplingRuleInput)(nil)).Elem(), &SamplingRule{})
 	pulumi.RegisterOutputType(SamplingRuleOutput{})
 }

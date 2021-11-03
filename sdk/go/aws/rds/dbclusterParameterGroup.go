@@ -123,5 +123,6 @@ func (o DBClusterParameterGroupOutput) ToDBClusterParameterGroupOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterParameterGroupInput)(nil)).Elem(), &DBClusterParameterGroup{})
 	pulumi.RegisterOutputType(DBClusterParameterGroupOutput{})
 }

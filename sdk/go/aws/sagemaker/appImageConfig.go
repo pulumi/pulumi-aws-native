@@ -123,5 +123,6 @@ func (o AppImageConfigOutput) ToAppImageConfigOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigInput)(nil)).Elem(), &AppImageConfig{})
 	pulumi.RegisterOutputType(AppImageConfigOutput{})
 }

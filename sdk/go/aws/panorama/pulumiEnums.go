@@ -682,6 +682,14 @@ func (in *packageVersionStatusPtr) ToPackageVersionStatusPtrOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInstanceHealthStatusInput)(nil)).Elem(), ApplicationInstanceHealthStatus("RUNNING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInstanceHealthStatusPtrInput)(nil)).Elem(), ApplicationInstanceHealthStatus("RUNNING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInstanceStatusInput)(nil)).Elem(), ApplicationInstanceStatus("DEPLOYMENT_PENDING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInstanceStatusPtrInput)(nil)).Elem(), ApplicationInstanceStatus("DEPLOYMENT_PENDING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInstanceStatusFilterInput)(nil)).Elem(), ApplicationInstanceStatusFilter("DEPLOYMENT_SUCCEEDED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInstanceStatusFilterPtrInput)(nil)).Elem(), ApplicationInstanceStatusFilter("DEPLOYMENT_SUCCEEDED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PackageVersionStatusInput)(nil)).Elem(), PackageVersionStatus("REGISTER_PENDING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PackageVersionStatusPtrInput)(nil)).Elem(), PackageVersionStatus("REGISTER_PENDING"))
 	pulumi.RegisterOutputType(ApplicationInstanceHealthStatusOutput{})
 	pulumi.RegisterOutputType(ApplicationInstanceHealthStatusPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationInstanceStatusOutput{})

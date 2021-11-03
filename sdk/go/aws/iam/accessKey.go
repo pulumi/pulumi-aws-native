@@ -115,5 +115,6 @@ func (o AccessKeyOutput) ToAccessKeyOutputWithContext(ctx context.Context) Acces
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessKeyInput)(nil)).Elem(), &AccessKey{})
 	pulumi.RegisterOutputType(AccessKeyOutput{})
 }

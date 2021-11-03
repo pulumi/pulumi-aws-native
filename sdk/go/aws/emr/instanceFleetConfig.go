@@ -129,5 +129,6 @@ func (o InstanceFleetConfigOutput) ToInstanceFleetConfigOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetConfigInput)(nil)).Elem(), &InstanceFleetConfig{})
 	pulumi.RegisterOutputType(InstanceFleetConfigOutput{})
 }

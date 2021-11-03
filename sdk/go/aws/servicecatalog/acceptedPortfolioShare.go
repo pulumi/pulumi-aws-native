@@ -111,5 +111,6 @@ func (o AcceptedPortfolioShareOutput) ToAcceptedPortfolioShareOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AcceptedPortfolioShareInput)(nil)).Elem(), &AcceptedPortfolioShare{})
 	pulumi.RegisterOutputType(AcceptedPortfolioShareOutput{})
 }

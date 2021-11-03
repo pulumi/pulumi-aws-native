@@ -125,5 +125,6 @@ func (o SegmentOutput) ToSegmentOutputWithContext(ctx context.Context) SegmentOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentInput)(nil)).Elem(), &Segment{})
 	pulumi.RegisterOutputType(SegmentOutput{})
 }

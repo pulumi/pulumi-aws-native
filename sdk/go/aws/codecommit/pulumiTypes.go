@@ -540,6 +540,14 @@ func (o RepositoryTriggerArrayOutput) Index(i pulumi.IntInput) RepositoryTrigger
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCodeInput)(nil)).Elem(), RepositoryCodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCodePtrInput)(nil)).Elem(), RepositoryCodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryS3Input)(nil)).Elem(), RepositoryS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryS3PtrInput)(nil)).Elem(), RepositoryS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryTagInput)(nil)).Elem(), RepositoryTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryTagArrayInput)(nil)).Elem(), RepositoryTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryTriggerInput)(nil)).Elem(), RepositoryTriggerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryTriggerArrayInput)(nil)).Elem(), RepositoryTriggerArray{})
 	pulumi.RegisterOutputType(RepositoryCodeOutput{})
 	pulumi.RegisterOutputType(RepositoryCodePtrOutput{})
 	pulumi.RegisterOutputType(RepositoryS3Output{})

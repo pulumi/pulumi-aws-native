@@ -155,5 +155,6 @@ func (o DataQualityJobDefinitionOutput) ToDataQualityJobDefinitionOutputWithCont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionInput)(nil)).Elem(), &DataQualityJobDefinition{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionOutput{})
 }

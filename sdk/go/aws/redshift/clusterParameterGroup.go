@@ -120,5 +120,6 @@ func (o ClusterParameterGroupOutput) ToClusterParameterGroupOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterParameterGroupInput)(nil)).Elem(), &ClusterParameterGroup{})
 	pulumi.RegisterOutputType(ClusterParameterGroupOutput{})
 }

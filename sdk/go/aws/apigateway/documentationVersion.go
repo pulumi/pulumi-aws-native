@@ -124,5 +124,6 @@ func (o DocumentationVersionOutput) ToDocumentationVersionOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationVersionInput)(nil)).Elem(), &DocumentationVersion{})
 	pulumi.RegisterOutputType(DocumentationVersionOutput{})
 }

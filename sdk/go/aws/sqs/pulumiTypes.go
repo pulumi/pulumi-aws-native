@@ -111,6 +111,8 @@ func (o QueueTagArrayOutput) Index(i pulumi.IntInput) QueueTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueTagInput)(nil)).Elem(), QueueTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueTagArrayInput)(nil)).Elem(), QueueTagArray{})
 	pulumi.RegisterOutputType(QueueTagOutput{})
 	pulumi.RegisterOutputType(QueueTagArrayOutput{})
 }

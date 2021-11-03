@@ -124,5 +124,6 @@ func (o PrivateDnsNamespaceOutput) ToPrivateDnsNamespaceOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateDnsNamespaceInput)(nil)).Elem(), &PrivateDnsNamespace{})
 	pulumi.RegisterOutputType(PrivateDnsNamespaceOutput{})
 }

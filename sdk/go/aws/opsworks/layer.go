@@ -180,5 +180,6 @@ func (o LayerOutput) ToLayerOutputWithContext(ctx context.Context) LayerOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LayerInput)(nil)).Elem(), &Layer{})
 	pulumi.RegisterOutputType(LayerOutput{})
 }

@@ -164,5 +164,6 @@ func (o LocationSMBOutput) ToLocationSMBOutputWithContext(ctx context.Context) L
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationSMBInput)(nil)).Elem(), &LocationSMB{})
 	pulumi.RegisterOutputType(LocationSMBOutput{})
 }

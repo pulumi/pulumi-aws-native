@@ -211,5 +211,6 @@ func (o EventSourceMappingOutput) ToEventSourceMappingOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingInput)(nil)).Elem(), &EventSourceMapping{})
 	pulumi.RegisterOutputType(EventSourceMappingOutput{})
 }

@@ -130,5 +130,6 @@ func (o GameSessionQueueOutput) ToGameSessionQueueOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueueInput)(nil)).Elem(), &GameSessionQueue{})
 	pulumi.RegisterOutputType(GameSessionQueueOutput{})
 }

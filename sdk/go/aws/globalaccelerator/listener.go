@@ -132,5 +132,6 @@ func (o ListenerOutput) ToListenerOutputWithContext(ctx context.Context) Listene
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerInput)(nil)).Elem(), &Listener{})
 	pulumi.RegisterOutputType(ListenerOutput{})
 }

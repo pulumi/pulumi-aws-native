@@ -131,5 +131,6 @@ func (o SchemaOutput) ToSchemaOutputWithContext(ctx context.Context) SchemaOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaInput)(nil)).Elem(), &Schema{})
 	pulumi.RegisterOutputType(SchemaOutput{})
 }

@@ -123,5 +123,6 @@ func (o WebACLOutput) ToWebACLOutputWithContext(ctx context.Context) WebACLOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLInput)(nil)).Elem(), &WebACL{})
 	pulumi.RegisterOutputType(WebACLOutput{})
 }

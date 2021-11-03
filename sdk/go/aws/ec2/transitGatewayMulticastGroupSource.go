@@ -143,5 +143,6 @@ func (o TransitGatewayMulticastGroupSourceOutput) ToTransitGatewayMulticastGroup
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayMulticastGroupSourceInput)(nil)).Elem(), &TransitGatewayMulticastGroupSource{})
 	pulumi.RegisterOutputType(TransitGatewayMulticastGroupSourceOutput{})
 }

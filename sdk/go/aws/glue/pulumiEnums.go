@@ -347,6 +347,10 @@ func (in *schemaDataFormatPtr) ToSchemaDataFormatPtrOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaCompatibilityInput)(nil)).Elem(), SchemaCompatibility("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaCompatibilityPtrInput)(nil)).Elem(), SchemaCompatibility("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaDataFormatInput)(nil)).Elem(), SchemaDataFormat("AVRO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaDataFormatPtrInput)(nil)).Elem(), SchemaDataFormat("AVRO"))
 	pulumi.RegisterOutputType(SchemaCompatibilityOutput{})
 	pulumi.RegisterOutputType(SchemaCompatibilityPtrOutput{})
 	pulumi.RegisterOutputType(SchemaDataFormatOutput{})

@@ -124,5 +124,6 @@ func (o ResourceShareOutput) ToResourceShareOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceShareInput)(nil)).Elem(), &ResourceShare{})
 	pulumi.RegisterOutputType(ResourceShareOutput{})
 }

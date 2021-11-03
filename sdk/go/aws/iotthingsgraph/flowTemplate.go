@@ -111,5 +111,6 @@ func (o FlowTemplateOutput) ToFlowTemplateOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowTemplateInput)(nil)).Elem(), &FlowTemplate{})
 	pulumi.RegisterOutputType(FlowTemplateOutput{})
 }

@@ -887,6 +887,17 @@ func (in *applicationSubComponentTypeConfigurationSubComponentTypePtr) ToApplica
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAlarmSeverityInput)(nil)).Elem(), ApplicationAlarmSeverity("HIGH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAlarmSeverityPtrInput)(nil)).Elem(), ApplicationAlarmSeverity("HIGH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationComponentMonitoringSettingComponentConfigurationModeInput)(nil)).Elem(), ApplicationComponentMonitoringSettingComponentConfigurationMode("DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationComponentMonitoringSettingComponentConfigurationModePtrInput)(nil)).Elem(), ApplicationComponentMonitoringSettingComponentConfigurationMode("DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationEventLevelInput)(nil)).Elem(), ApplicationEventLevel("INFORMATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationEventLevelPtrInput)(nil)).Elem(), ApplicationEventLevel("INFORMATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationEventLevelArrayInput)(nil)).Elem(), ApplicationEventLevelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationLogEncodingInput)(nil)).Elem(), ApplicationLogEncoding("utf-8"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationLogEncodingPtrInput)(nil)).Elem(), ApplicationLogEncoding("utf-8"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSubComponentTypeConfigurationSubComponentTypeInput)(nil)).Elem(), ApplicationSubComponentTypeConfigurationSubComponentType("AWS::EC2::Instance"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSubComponentTypeConfigurationSubComponentTypePtrInput)(nil)).Elem(), ApplicationSubComponentTypeConfigurationSubComponentType("AWS::EC2::Instance"))
 	pulumi.RegisterOutputType(ApplicationAlarmSeverityOutput{})
 	pulumi.RegisterOutputType(ApplicationAlarmSeverityPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationComponentMonitoringSettingComponentConfigurationModeOutput{})

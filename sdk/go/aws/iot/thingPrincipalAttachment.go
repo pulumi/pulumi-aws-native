@@ -114,5 +114,6 @@ func (o ThingPrincipalAttachmentOutput) ToThingPrincipalAttachmentOutputWithCont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingPrincipalAttachmentInput)(nil)).Elem(), &ThingPrincipalAttachment{})
 	pulumi.RegisterOutputType(ThingPrincipalAttachmentOutput{})
 }

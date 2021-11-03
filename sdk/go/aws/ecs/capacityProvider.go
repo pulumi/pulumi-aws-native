@@ -112,5 +112,6 @@ func (o CapacityProviderOutput) ToCapacityProviderOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInput)(nil)).Elem(), &CapacityProvider{})
 	pulumi.RegisterOutputType(CapacityProviderOutput{})
 }

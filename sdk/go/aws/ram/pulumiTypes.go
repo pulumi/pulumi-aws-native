@@ -111,6 +111,8 @@ func (o ResourceShareTagArrayOutput) Index(i pulumi.IntInput) ResourceShareTagOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceShareTagInput)(nil)).Elem(), ResourceShareTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceShareTagArrayInput)(nil)).Elem(), ResourceShareTagArray{})
 	pulumi.RegisterOutputType(ResourceShareTagOutput{})
 	pulumi.RegisterOutputType(ResourceShareTagArrayOutput{})
 }

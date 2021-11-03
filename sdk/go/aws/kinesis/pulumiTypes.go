@@ -279,6 +279,10 @@ func (o StreamTagArrayOutput) Index(i pulumi.IntInput) StreamTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamEncryptionInput)(nil)).Elem(), StreamEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamEncryptionPtrInput)(nil)).Elem(), StreamEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamTagInput)(nil)).Elem(), StreamTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamTagArrayInput)(nil)).Elem(), StreamTagArray{})
 	pulumi.RegisterOutputType(StreamEncryptionOutput{})
 	pulumi.RegisterOutputType(StreamEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(StreamTagOutput{})

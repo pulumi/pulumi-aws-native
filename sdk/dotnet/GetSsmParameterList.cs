@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AwsNative
 {
@@ -13,6 +14,9 @@ namespace Pulumi.AwsNative
     {
         public static Task<GetSsmParameterListResult> InvokeAsync(GetSsmParameterListArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSsmParameterListResult>("aws-native:index:getSsmParameterList", args ?? new GetSsmParameterListArgs(), options.WithVersion());
+
+        public static Output<GetSsmParameterListResult> Invoke(GetSsmParameterListInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSsmParameterListResult>("aws-native:index:getSsmParameterList", args ?? new GetSsmParameterListInvokeArgs(), options.WithVersion());
     }
 
 
@@ -22,6 +26,16 @@ namespace Pulumi.AwsNative
         public string Name { get; set; } = null!;
 
         public GetSsmParameterListArgs()
+        {
+        }
+    }
+
+    public sealed class GetSsmParameterListInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetSsmParameterListInvokeArgs()
         {
         }
     }

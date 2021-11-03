@@ -124,5 +124,6 @@ func (o RecipeOutput) ToRecipeOutputWithContext(ctx context.Context) RecipeOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RecipeInput)(nil)).Elem(), &Recipe{})
 	pulumi.RegisterOutputType(RecipeOutput{})
 }

@@ -150,5 +150,6 @@ func (o HoursOfOperationOutput) ToHoursOfOperationOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationInput)(nil)).Elem(), &HoursOfOperation{})
 	pulumi.RegisterOutputType(HoursOfOperationOutput{})
 }

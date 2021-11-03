@@ -115,5 +115,6 @@ func (o NetworkAclOutput) ToNetworkAclOutputWithContext(ctx context.Context) Net
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclInput)(nil)).Elem(), &NetworkAcl{})
 	pulumi.RegisterOutputType(NetworkAclOutput{})
 }

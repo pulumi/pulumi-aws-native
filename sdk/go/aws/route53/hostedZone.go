@@ -140,5 +140,6 @@ func (o HostedZoneOutput) ToHostedZoneOutputWithContext(ctx context.Context) Hos
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneInput)(nil)).Elem(), &HostedZone{})
 	pulumi.RegisterOutputType(HostedZoneOutput{})
 }

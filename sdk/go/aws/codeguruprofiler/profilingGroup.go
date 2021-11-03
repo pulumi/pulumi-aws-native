@@ -135,5 +135,6 @@ func (o ProfilingGroupOutput) ToProfilingGroupOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfilingGroupInput)(nil)).Elem(), &ProfilingGroup{})
 	pulumi.RegisterOutputType(ProfilingGroupOutput{})
 }

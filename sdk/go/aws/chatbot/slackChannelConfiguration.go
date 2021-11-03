@@ -150,5 +150,6 @@ func (o SlackChannelConfigurationOutput) ToSlackChannelConfigurationOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SlackChannelConfigurationInput)(nil)).Elem(), &SlackChannelConfiguration{})
 	pulumi.RegisterOutputType(SlackChannelConfigurationOutput{})
 }

@@ -908,6 +908,22 @@ func (o ResolverRuleTargetAddressArrayOutput) Index(i pulumi.IntInput) ResolverR
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallDomainListTagInput)(nil)).Elem(), FirewallDomainListTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallDomainListTagArrayInput)(nil)).Elem(), FirewallDomainListTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupAssociationTagInput)(nil)).Elem(), FirewallRuleGroupAssociationTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupAssociationTagArrayInput)(nil)).Elem(), FirewallRuleGroupAssociationTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleArrayInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupTagInput)(nil)).Elem(), FirewallRuleGroupTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupTagArrayInput)(nil)).Elem(), FirewallRuleGroupTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverEndpointIpAddressRequestInput)(nil)).Elem(), ResolverEndpointIpAddressRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverEndpointIpAddressRequestArrayInput)(nil)).Elem(), ResolverEndpointIpAddressRequestArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverEndpointTagInput)(nil)).Elem(), ResolverEndpointTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverEndpointTagArrayInput)(nil)).Elem(), ResolverEndpointTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleTagInput)(nil)).Elem(), ResolverRuleTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleTagArrayInput)(nil)).Elem(), ResolverRuleTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleTargetAddressInput)(nil)).Elem(), ResolverRuleTargetAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleTargetAddressArrayInput)(nil)).Elem(), ResolverRuleTargetAddressArray{})
 	pulumi.RegisterOutputType(FirewallDomainListTagOutput{})
 	pulumi.RegisterOutputType(FirewallDomainListTagArrayOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupAssociationTagOutput{})

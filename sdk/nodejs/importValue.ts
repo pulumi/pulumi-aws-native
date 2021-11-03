@@ -24,3 +24,11 @@ export interface ImportValueArgs {
 export interface ImportValueResult {
     readonly value?: any;
 }
+
+export function importValueOutput(args: ImportValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ImportValueResult> {
+    return pulumi.output(args).apply(a => importValue(a, opts))
+}
+
+export interface ImportValueOutputArgs {
+    name: pulumi.Input<string>;
+}

@@ -117,5 +117,6 @@ func (o TransitGatewayRouteOutput) ToTransitGatewayRouteOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayRouteInput)(nil)).Elem(), &TransitGatewayRoute{})
 	pulumi.RegisterOutputType(TransitGatewayRouteOutput{})
 }

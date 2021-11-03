@@ -711,6 +711,20 @@ func (o EnvironmentTagsArrayOutput) Index(i pulumi.IntInput) EnvironmentTagsOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagsInput)(nil)).Elem(), ApplicationTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagsArrayInput)(nil)).Elem(), ApplicationTagsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileTagsInput)(nil)).Elem(), ConfigurationProfileTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileTagsArrayInput)(nil)).Elem(), ConfigurationProfileTagsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileValidatorsInput)(nil)).Elem(), ConfigurationProfileValidatorsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileValidatorsArrayInput)(nil)).Elem(), ConfigurationProfileValidatorsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentStrategyTagsInput)(nil)).Elem(), DeploymentStrategyTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentStrategyTagsArrayInput)(nil)).Elem(), DeploymentStrategyTagsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentTagsInput)(nil)).Elem(), DeploymentTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentTagsArrayInput)(nil)).Elem(), DeploymentTagsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentMonitorsInput)(nil)).Elem(), EnvironmentMonitorsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentMonitorsArrayInput)(nil)).Elem(), EnvironmentMonitorsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentTagsInput)(nil)).Elem(), EnvironmentTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentTagsArrayInput)(nil)).Elem(), EnvironmentTagsArray{})
 	pulumi.RegisterOutputType(ApplicationTagsOutput{})
 	pulumi.RegisterOutputType(ApplicationTagsArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileTagsOutput{})

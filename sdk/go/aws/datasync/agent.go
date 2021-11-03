@@ -143,5 +143,6 @@ func (o AgentOutput) ToAgentOutputWithContext(ctx context.Context) AgentOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentInput)(nil)).Elem(), &Agent{})
 	pulumi.RegisterOutputType(AgentOutput{})
 }

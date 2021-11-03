@@ -117,5 +117,6 @@ func (o GCMChannelOutput) ToGCMChannelOutputWithContext(ctx context.Context) GCM
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GCMChannelInput)(nil)).Elem(), &GCMChannel{})
 	pulumi.RegisterOutputType(GCMChannelOutput{})
 }

@@ -126,5 +126,6 @@ func (o PublicRepositoryOutput) ToPublicRepositoryOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PublicRepositoryInput)(nil)).Elem(), &PublicRepository{})
 	pulumi.RegisterOutputType(PublicRepositoryOutput{})
 }

@@ -155,5 +155,6 @@ func (o ModelExplainabilityJobDefinitionOutput) ToModelExplainabilityJobDefiniti
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionInput)(nil)).Elem(), &ModelExplainabilityJobDefinition{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionOutput{})
 }

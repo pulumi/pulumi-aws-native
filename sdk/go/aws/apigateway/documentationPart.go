@@ -120,5 +120,6 @@ func (o DocumentationPartOutput) ToDocumentationPartOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationPartInput)(nil)).Elem(), &DocumentationPart{})
 	pulumi.RegisterOutputType(DocumentationPartOutput{})
 }

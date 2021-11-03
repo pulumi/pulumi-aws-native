@@ -127,5 +127,6 @@ func (o AssessmentTemplateOutput) ToAssessmentTemplateOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentTemplateInput)(nil)).Elem(), &AssessmentTemplate{})
 	pulumi.RegisterOutputType(AssessmentTemplateOutput{})
 }

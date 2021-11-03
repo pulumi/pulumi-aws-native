@@ -126,5 +126,6 @@ func (o AggregationAuthorizationOutput) ToAggregationAuthorizationOutputWithCont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AggregationAuthorizationInput)(nil)).Elem(), &AggregationAuthorization{})
 	pulumi.RegisterOutputType(AggregationAuthorizationOutput{})
 }

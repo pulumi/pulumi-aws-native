@@ -250,6 +250,10 @@ func (o JobTemplateHopDestinationArrayOutput) Index(i pulumi.IntInput) JobTempla
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateAccelerationSettingsInput)(nil)).Elem(), JobTemplateAccelerationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateAccelerationSettingsPtrInput)(nil)).Elem(), JobTemplateAccelerationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateHopDestinationInput)(nil)).Elem(), JobTemplateHopDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateHopDestinationArrayInput)(nil)).Elem(), JobTemplateHopDestinationArray{})
 	pulumi.RegisterOutputType(JobTemplateAccelerationSettingsOutput{})
 	pulumi.RegisterOutputType(JobTemplateAccelerationSettingsPtrOutput{})
 	pulumi.RegisterOutputType(JobTemplateHopDestinationOutput{})

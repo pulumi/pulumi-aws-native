@@ -127,5 +127,6 @@ func (o DestinationOutput) ToDestinationOutputWithContext(ctx context.Context) D
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DestinationInput)(nil)).Elem(), &Destination{})
 	pulumi.RegisterOutputType(DestinationOutput{})
 }

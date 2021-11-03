@@ -124,5 +124,6 @@ func (o InsightRuleOutput) ToInsightRuleOutputWithContext(ctx context.Context) I
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightRuleInput)(nil)).Elem(), &InsightRule{})
 	pulumi.RegisterOutputType(InsightRuleOutput{})
 }

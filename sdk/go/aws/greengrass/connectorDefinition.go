@@ -116,5 +116,6 @@ func (o ConnectorDefinitionOutput) ToConnectorDefinitionOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorDefinitionInput)(nil)).Elem(), &ConnectorDefinition{})
 	pulumi.RegisterOutputType(ConnectorDefinitionOutput{})
 }

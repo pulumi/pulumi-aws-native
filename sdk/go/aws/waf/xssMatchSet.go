@@ -114,5 +114,6 @@ func (o XssMatchSetOutput) ToXssMatchSetOutputWithContext(ctx context.Context) X
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*XssMatchSetInput)(nil)).Elem(), &XssMatchSet{})
 	pulumi.RegisterOutputType(XssMatchSetOutput{})
 }

@@ -192,5 +192,6 @@ func (o FlowOutputResourceOutput) ToFlowOutputResourceOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputResourceInput)(nil)).Elem(), &FlowOutputResource{})
 	pulumi.RegisterOutputType(FlowOutputResourceOutput{})
 }

@@ -134,5 +134,6 @@ func (o RobotOutput) ToRobotOutputWithContext(ctx context.Context) RobotOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RobotInput)(nil)).Elem(), &Robot{})
 	pulumi.RegisterOutputType(RobotOutput{})
 }

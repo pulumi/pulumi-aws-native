@@ -120,5 +120,6 @@ func (o DBSubnetGroupOutput) ToDBSubnetGroupOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DBSubnetGroupInput)(nil)).Elem(), &DBSubnetGroup{})
 	pulumi.RegisterOutputType(DBSubnetGroupOutput{})
 }

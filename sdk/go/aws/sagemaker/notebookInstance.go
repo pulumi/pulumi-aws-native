@@ -153,5 +153,6 @@ func (o NotebookInstanceOutput) ToNotebookInstanceOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstanceInput)(nil)).Elem(), &NotebookInstance{})
 	pulumi.RegisterOutputType(NotebookInstanceOutput{})
 }

@@ -118,5 +118,6 @@ func (o ResolverRuleAssociationOutput) ToResolverRuleAssociationOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleAssociationInput)(nil)).Elem(), &ResolverRuleAssociation{})
 	pulumi.RegisterOutputType(ResolverRuleAssociationOutput{})
 }

@@ -150,5 +150,6 @@ func (o CompositeAlarmOutput) ToCompositeAlarmOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CompositeAlarmInput)(nil)).Elem(), &CompositeAlarm{})
 	pulumi.RegisterOutputType(CompositeAlarmOutput{})
 }

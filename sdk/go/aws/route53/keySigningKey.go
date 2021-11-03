@@ -136,5 +136,6 @@ func (o KeySigningKeyOutput) ToKeySigningKeyOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*KeySigningKeyInput)(nil)).Elem(), &KeySigningKey{})
 	pulumi.RegisterOutputType(KeySigningKeyOutput{})
 }

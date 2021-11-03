@@ -114,5 +114,6 @@ func (o DeviceDefinitionVersionOutput) ToDeviceDefinitionVersionOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DeviceDefinitionVersionInput)(nil)).Elem(), &DeviceDefinitionVersion{})
 	pulumi.RegisterOutputType(DeviceDefinitionVersionOutput{})
 }

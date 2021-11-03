@@ -132,5 +132,6 @@ func (o IntegrationResponseOutput) ToIntegrationResponseOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationResponseInput)(nil)).Elem(), &IntegrationResponse{})
 	pulumi.RegisterOutputType(IntegrationResponseOutput{})
 }

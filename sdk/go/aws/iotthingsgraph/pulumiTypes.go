@@ -159,6 +159,8 @@ func (o FlowTemplateDefinitionDocumentPtrOutput) Text() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowTemplateDefinitionDocumentInput)(nil)).Elem(), FlowTemplateDefinitionDocumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowTemplateDefinitionDocumentPtrInput)(nil)).Elem(), FlowTemplateDefinitionDocumentArgs{})
 	pulumi.RegisterOutputType(FlowTemplateDefinitionDocumentOutput{})
 	pulumi.RegisterOutputType(FlowTemplateDefinitionDocumentPtrOutput{})
 }

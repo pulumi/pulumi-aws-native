@@ -128,5 +128,6 @@ func (o DevicePoolOutput) ToDevicePoolOutputWithContext(ctx context.Context) Dev
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DevicePoolInput)(nil)).Elem(), &DevicePool{})
 	pulumi.RegisterOutputType(DevicePoolOutput{})
 }

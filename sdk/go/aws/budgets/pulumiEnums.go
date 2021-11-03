@@ -996,6 +996,18 @@ func (in *budgetsActionSubscriberTypePtr) ToBudgetsActionSubscriberTypePtrOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetsActionActionThresholdTypeInput)(nil)).Elem(), BudgetsActionActionThresholdType("PERCENTAGE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetsActionActionThresholdTypePtrInput)(nil)).Elem(), BudgetsActionActionThresholdType("PERCENTAGE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetsActionActionTypeInput)(nil)).Elem(), BudgetsActionActionType("APPLY_IAM_POLICY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetsActionActionTypePtrInput)(nil)).Elem(), BudgetsActionActionType("APPLY_IAM_POLICY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetsActionApprovalModelInput)(nil)).Elem(), BudgetsActionApprovalModel("AUTOMATIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetsActionApprovalModelPtrInput)(nil)).Elem(), BudgetsActionApprovalModel("AUTOMATIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetsActionNotificationTypeInput)(nil)).Elem(), BudgetsActionNotificationType("ACTUAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetsActionNotificationTypePtrInput)(nil)).Elem(), BudgetsActionNotificationType("ACTUAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetsActionSsmActionDefinitionSubtypeInput)(nil)).Elem(), BudgetsActionSsmActionDefinitionSubtype("STOP_EC2_INSTANCES"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetsActionSsmActionDefinitionSubtypePtrInput)(nil)).Elem(), BudgetsActionSsmActionDefinitionSubtype("STOP_EC2_INSTANCES"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetsActionSubscriberTypeInput)(nil)).Elem(), BudgetsActionSubscriberType("SNS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetsActionSubscriberTypePtrInput)(nil)).Elem(), BudgetsActionSubscriberType("SNS"))
 	pulumi.RegisterOutputType(BudgetsActionActionThresholdTypeOutput{})
 	pulumi.RegisterOutputType(BudgetsActionActionThresholdTypePtrOutput{})
 	pulumi.RegisterOutputType(BudgetsActionActionTypeOutput{})

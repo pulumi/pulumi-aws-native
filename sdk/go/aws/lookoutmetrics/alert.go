@@ -141,5 +141,6 @@ func (o AlertOutput) ToAlertOutputWithContext(ctx context.Context) AlertOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertInput)(nil)).Elem(), &Alert{})
 	pulumi.RegisterOutputType(AlertOutput{})
 }

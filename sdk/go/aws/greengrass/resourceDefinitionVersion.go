@@ -114,5 +114,6 @@ func (o ResourceDefinitionVersionOutput) ToResourceDefinitionVersionOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDefinitionVersionInput)(nil)).Elem(), &ResourceDefinitionVersion{})
 	pulumi.RegisterOutputType(ResourceDefinitionVersionOutput{})
 }

@@ -132,5 +132,6 @@ func (o ApiCacheOutput) ToApiCacheOutputWithContext(ctx context.Context) ApiCach
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiCacheInput)(nil)).Elem(), &ApiCache{})
 	pulumi.RegisterOutputType(ApiCacheOutput{})
 }

@@ -114,5 +114,6 @@ func (o TagOptionAssociationOutput) ToTagOptionAssociationOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TagOptionAssociationInput)(nil)).Elem(), &TagOptionAssociation{})
 	pulumi.RegisterOutputType(TagOptionAssociationOutput{})
 }

@@ -341,6 +341,10 @@ func (in *studioSessionMappingIdentityTypePtr) ToStudioSessionMappingIdentityTyp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioAuthModeInput)(nil)).Elem(), StudioAuthMode("SSO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioAuthModePtrInput)(nil)).Elem(), StudioAuthMode("SSO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioSessionMappingIdentityTypeInput)(nil)).Elem(), StudioSessionMappingIdentityType("USER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioSessionMappingIdentityTypePtrInput)(nil)).Elem(), StudioSessionMappingIdentityType("USER"))
 	pulumi.RegisterOutputType(StudioAuthModeOutput{})
 	pulumi.RegisterOutputType(StudioAuthModePtrOutput{})
 	pulumi.RegisterOutputType(StudioSessionMappingIdentityTypeOutput{})

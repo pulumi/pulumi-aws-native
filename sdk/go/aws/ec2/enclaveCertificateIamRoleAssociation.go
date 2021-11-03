@@ -124,5 +124,6 @@ func (o EnclaveCertificateIamRoleAssociationOutput) ToEnclaveCertificateIamRoleA
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EnclaveCertificateIamRoleAssociationInput)(nil)).Elem(), &EnclaveCertificateIamRoleAssociation{})
 	pulumi.RegisterOutputType(EnclaveCertificateIamRoleAssociationOutput{})
 }

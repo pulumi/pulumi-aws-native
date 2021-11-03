@@ -128,5 +128,6 @@ func (o ProvisioningTemplateOutput) ToProvisioningTemplateOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningTemplateInput)(nil)).Elem(), &ProvisioningTemplate{})
 	pulumi.RegisterOutputType(ProvisioningTemplateOutput{})
 }

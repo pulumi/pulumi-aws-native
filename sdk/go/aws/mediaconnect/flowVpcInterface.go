@@ -147,5 +147,6 @@ func (o FlowVpcInterfaceOutput) ToFlowVpcInterfaceOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowVpcInterfaceInput)(nil)).Elem(), &FlowVpcInterface{})
 	pulumi.RegisterOutputType(FlowVpcInterfaceOutput{})
 }

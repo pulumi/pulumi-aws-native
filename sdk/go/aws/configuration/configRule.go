@@ -128,5 +128,6 @@ func (o ConfigRuleOutput) ToConfigRuleOutputWithContext(ctx context.Context) Con
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigRuleInput)(nil)).Elem(), &ConfigRule{})
 	pulumi.RegisterOutputType(ConfigRuleOutput{})
 }

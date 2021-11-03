@@ -114,5 +114,6 @@ func (o TransitGatewayRouteTableAssociationOutput) ToTransitGatewayRouteTableAss
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayRouteTableAssociationInput)(nil)).Elem(), &TransitGatewayRouteTableAssociation{})
 	pulumi.RegisterOutputType(TransitGatewayRouteTableAssociationOutput{})
 }

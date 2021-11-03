@@ -140,5 +140,6 @@ func (o FargateProfileOutput) ToFargateProfileOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FargateProfileInput)(nil)).Elem(), &FargateProfile{})
 	pulumi.RegisterOutputType(FargateProfileOutput{})
 }

@@ -125,5 +125,6 @@ func (o ACLOutput) ToACLOutputWithContext(ctx context.Context) ACLOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ACLInput)(nil)).Elem(), &ACL{})
 	pulumi.RegisterOutputType(ACLOutput{})
 }

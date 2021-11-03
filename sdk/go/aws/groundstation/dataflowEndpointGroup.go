@@ -110,5 +110,6 @@ func (o DataflowEndpointGroupOutput) ToDataflowEndpointGroupOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupInput)(nil)).Elem(), &DataflowEndpointGroup{})
 	pulumi.RegisterOutputType(DataflowEndpointGroupOutput{})
 }

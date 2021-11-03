@@ -345,6 +345,10 @@ func (in *branchStagePtr) ToBranchStagePtrOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AppAutoBranchCreationConfigStageInput)(nil)).Elem(), AppAutoBranchCreationConfigStage("EXPERIMENTAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppAutoBranchCreationConfigStagePtrInput)(nil)).Elem(), AppAutoBranchCreationConfigStage("EXPERIMENTAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchStageInput)(nil)).Elem(), BranchStage("EXPERIMENTAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchStagePtrInput)(nil)).Elem(), BranchStage("EXPERIMENTAL"))
 	pulumi.RegisterOutputType(AppAutoBranchCreationConfigStageOutput{})
 	pulumi.RegisterOutputType(AppAutoBranchCreationConfigStagePtrOutput{})
 	pulumi.RegisterOutputType(BranchStageOutput{})

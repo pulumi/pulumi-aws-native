@@ -175,6 +175,8 @@ func (in *resourceCollectionTypePtr) ToResourceCollectionTypePtrOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceCollectionTypeInput)(nil)).Elem(), ResourceCollectionType("AWS_CLOUD_FORMATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceCollectionTypePtrInput)(nil)).Elem(), ResourceCollectionType("AWS_CLOUD_FORMATION"))
 	pulumi.RegisterOutputType(ResourceCollectionTypeOutput{})
 	pulumi.RegisterOutputType(ResourceCollectionTypePtrOutput{})
 }

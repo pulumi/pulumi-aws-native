@@ -117,6 +117,8 @@ func (o AnomalySubscriptionSubscriberArrayOutput) Index(i pulumi.IntInput) Anoma
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionSubscriberInput)(nil)).Elem(), AnomalySubscriptionSubscriberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionSubscriberArrayInput)(nil)).Elem(), AnomalySubscriptionSubscriberArray{})
 	pulumi.RegisterOutputType(AnomalySubscriptionSubscriberOutput{})
 	pulumi.RegisterOutputType(AnomalySubscriptionSubscriberArrayOutput{})
 }

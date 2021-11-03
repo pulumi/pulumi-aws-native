@@ -129,5 +129,6 @@ func (o CustomMetricOutput) ToCustomMetricOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomMetricInput)(nil)).Elem(), &CustomMetric{})
 	pulumi.RegisterOutputType(CustomMetricOutput{})
 }

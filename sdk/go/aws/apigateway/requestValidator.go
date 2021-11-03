@@ -129,5 +129,6 @@ func (o RequestValidatorOutput) ToRequestValidatorOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestValidatorInput)(nil)).Elem(), &RequestValidator{})
 	pulumi.RegisterOutputType(RequestValidatorOutput{})
 }

@@ -129,5 +129,6 @@ func (o ScheduledActionOutput) ToScheduledActionOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionInput)(nil)).Elem(), &ScheduledAction{})
 	pulumi.RegisterOutputType(ScheduledActionOutput{})
 }

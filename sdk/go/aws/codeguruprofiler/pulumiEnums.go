@@ -176,6 +176,8 @@ func (in *profilingGroupComputePlatformPtr) ToProfilingGroupComputePlatformPtrOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfilingGroupComputePlatformInput)(nil)).Elem(), ProfilingGroupComputePlatform("Default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfilingGroupComputePlatformPtrInput)(nil)).Elem(), ProfilingGroupComputePlatform("Default"))
 	pulumi.RegisterOutputType(ProfilingGroupComputePlatformOutput{})
 	pulumi.RegisterOutputType(ProfilingGroupComputePlatformPtrOutput{})
 }

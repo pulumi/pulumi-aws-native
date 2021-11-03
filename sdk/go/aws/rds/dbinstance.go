@@ -267,5 +267,6 @@ func (o DBInstanceOutput) ToDBInstanceOutputWithContext(ctx context.Context) DBI
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceInput)(nil)).Elem(), &DBInstance{})
 	pulumi.RegisterOutputType(DBInstanceOutput{})
 }

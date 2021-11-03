@@ -167,5 +167,6 @@ func (o CampaignOutput) ToCampaignOutputWithContext(ctx context.Context) Campaig
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignInput)(nil)).Elem(), &Campaign{})
 	pulumi.RegisterOutputType(CampaignOutput{})
 }

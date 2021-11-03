@@ -115,5 +115,6 @@ func (o MatchmakingRuleSetOutput) ToMatchmakingRuleSetOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MatchmakingRuleSetInput)(nil)).Elem(), &MatchmakingRuleSet{})
 	pulumi.RegisterOutputType(MatchmakingRuleSetOutput{})
 }

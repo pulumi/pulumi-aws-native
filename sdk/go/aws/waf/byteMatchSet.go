@@ -111,5 +111,6 @@ func (o ByteMatchSetOutput) ToByteMatchSetOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ByteMatchSetInput)(nil)).Elem(), &ByteMatchSet{})
 	pulumi.RegisterOutputType(ByteMatchSetOutput{})
 }

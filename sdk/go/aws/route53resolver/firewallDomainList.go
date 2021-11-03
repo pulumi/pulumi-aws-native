@@ -136,5 +136,6 @@ func (o FirewallDomainListOutput) ToFirewallDomainListOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallDomainListInput)(nil)).Elem(), &FirewallDomainList{})
 	pulumi.RegisterOutputType(FirewallDomainListOutput{})
 }

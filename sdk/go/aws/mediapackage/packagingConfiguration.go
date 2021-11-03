@@ -141,5 +141,6 @@ func (o PackagingConfigurationOutput) ToPackagingConfigurationOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationInput)(nil)).Elem(), &PackagingConfiguration{})
 	pulumi.RegisterOutputType(PackagingConfigurationOutput{})
 }

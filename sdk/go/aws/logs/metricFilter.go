@@ -120,5 +120,6 @@ func (o MetricFilterOutput) ToMetricFilterOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterInput)(nil)).Elem(), &MetricFilter{})
 	pulumi.RegisterOutputType(MetricFilterOutput{})
 }

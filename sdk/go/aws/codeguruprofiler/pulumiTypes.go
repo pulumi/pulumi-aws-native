@@ -363,6 +363,12 @@ func (o ProfilingGroupTagArrayOutput) Index(i pulumi.IntInput) ProfilingGroupTag
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPermissionsPropertiesInput)(nil)).Elem(), AgentPermissionsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPermissionsPropertiesPtrInput)(nil)).Elem(), AgentPermissionsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfilingGroupChannelInput)(nil)).Elem(), ProfilingGroupChannelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfilingGroupChannelArrayInput)(nil)).Elem(), ProfilingGroupChannelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfilingGroupTagInput)(nil)).Elem(), ProfilingGroupTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfilingGroupTagArrayInput)(nil)).Elem(), ProfilingGroupTagArray{})
 	pulumi.RegisterOutputType(AgentPermissionsPropertiesOutput{})
 	pulumi.RegisterOutputType(AgentPermissionsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ProfilingGroupChannelOutput{})

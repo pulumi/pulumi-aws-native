@@ -235,5 +235,6 @@ func (o ReplicationGroupOutput) ToReplicationGroupOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupInput)(nil)).Elem(), &ReplicationGroup{})
 	pulumi.RegisterOutputType(ReplicationGroupOutput{})
 }

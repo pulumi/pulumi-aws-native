@@ -129,5 +129,6 @@ func (o KnowledgeBaseOutput) ToKnowledgeBaseOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseInput)(nil)).Elem(), &KnowledgeBase{})
 	pulumi.RegisterOutputType(KnowledgeBaseOutput{})
 }

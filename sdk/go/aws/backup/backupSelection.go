@@ -113,5 +113,6 @@ func (o BackupSelectionOutput) ToBackupSelectionOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupSelectionInput)(nil)).Elem(), &BackupSelection{})
 	pulumi.RegisterOutputType(BackupSelectionOutput{})
 }

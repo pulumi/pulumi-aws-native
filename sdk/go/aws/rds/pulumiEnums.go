@@ -1001,6 +1001,18 @@ func (in *globalClusterEnginePtr) ToGlobalClusterEnginePtrOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyAuthFormatAuthSchemeInput)(nil)).Elem(), DBProxyAuthFormatAuthScheme("SECRETS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyAuthFormatAuthSchemePtrInput)(nil)).Elem(), DBProxyAuthFormatAuthScheme("SECRETS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyAuthFormatIAMAuthInput)(nil)).Elem(), DBProxyAuthFormatIAMAuth("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyAuthFormatIAMAuthPtrInput)(nil)).Elem(), DBProxyAuthFormatIAMAuth("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyEndpointTargetRoleInput)(nil)).Elem(), DBProxyEndpointTargetRole("READ_WRITE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyEndpointTargetRolePtrInput)(nil)).Elem(), DBProxyEndpointTargetRole("READ_WRITE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyEngineFamilyInput)(nil)).Elem(), DBProxyEngineFamily("MYSQL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyEngineFamilyPtrInput)(nil)).Elem(), DBProxyEngineFamily("MYSQL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyTargetGroupTargetGroupNameInput)(nil)).Elem(), DBProxyTargetGroupTargetGroupName("default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyTargetGroupTargetGroupNamePtrInput)(nil)).Elem(), DBProxyTargetGroupTargetGroupName("default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterEngineInput)(nil)).Elem(), GlobalClusterEngine("aurora"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterEnginePtrInput)(nil)).Elem(), GlobalClusterEngine("aurora"))
 	pulumi.RegisterOutputType(DBProxyAuthFormatAuthSchemeOutput{})
 	pulumi.RegisterOutputType(DBProxyAuthFormatAuthSchemePtrOutput{})
 	pulumi.RegisterOutputType(DBProxyAuthFormatIAMAuthOutput{})

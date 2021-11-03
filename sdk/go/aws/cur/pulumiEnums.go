@@ -1093,6 +1093,20 @@ func (in *reportDefinitionTimeUnitPtr) ToReportDefinitionTimeUnitPtrOutputWithCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportDefinitionAdditionalArtifactsItemInput)(nil)).Elem(), ReportDefinitionAdditionalArtifactsItem("REDSHIFT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportDefinitionAdditionalArtifactsItemPtrInput)(nil)).Elem(), ReportDefinitionAdditionalArtifactsItem("REDSHIFT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportDefinitionAdditionalArtifactsItemArrayInput)(nil)).Elem(), ReportDefinitionAdditionalArtifactsItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportDefinitionAdditionalSchemaElementsItemInput)(nil)).Elem(), ReportDefinitionAdditionalSchemaElementsItem("RESOURCES"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportDefinitionAdditionalSchemaElementsItemPtrInput)(nil)).Elem(), ReportDefinitionAdditionalSchemaElementsItem("RESOURCES"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportDefinitionAdditionalSchemaElementsItemArrayInput)(nil)).Elem(), ReportDefinitionAdditionalSchemaElementsItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportDefinitionCompressionInput)(nil)).Elem(), ReportDefinitionCompression("ZIP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportDefinitionCompressionPtrInput)(nil)).Elem(), ReportDefinitionCompression("ZIP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportDefinitionFormatInput)(nil)).Elem(), ReportDefinitionFormat("textORcsv"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportDefinitionFormatPtrInput)(nil)).Elem(), ReportDefinitionFormat("textORcsv"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportDefinitionReportVersioningInput)(nil)).Elem(), ReportDefinitionReportVersioning("CREATE_NEW_REPORT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportDefinitionReportVersioningPtrInput)(nil)).Elem(), ReportDefinitionReportVersioning("CREATE_NEW_REPORT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportDefinitionTimeUnitInput)(nil)).Elem(), ReportDefinitionTimeUnit("HOURLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportDefinitionTimeUnitPtrInput)(nil)).Elem(), ReportDefinitionTimeUnit("HOURLY"))
 	pulumi.RegisterOutputType(ReportDefinitionAdditionalArtifactsItemOutput{})
 	pulumi.RegisterOutputType(ReportDefinitionAdditionalArtifactsItemPtrOutput{})
 	pulumi.RegisterOutputType(ReportDefinitionAdditionalArtifactsItemArrayOutput{})

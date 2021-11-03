@@ -561,6 +561,14 @@ func (o ResourceCollectionFilterPtrOutput) CloudFormation() ResourceCollectionCl
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationChannelConfigInput)(nil)).Elem(), NotificationChannelConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationChannelConfigPtrInput)(nil)).Elem(), NotificationChannelConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationChannelSnsChannelConfigInput)(nil)).Elem(), NotificationChannelSnsChannelConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationChannelSnsChannelConfigPtrInput)(nil)).Elem(), NotificationChannelSnsChannelConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceCollectionCloudFormationCollectionFilterInput)(nil)).Elem(), ResourceCollectionCloudFormationCollectionFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceCollectionCloudFormationCollectionFilterPtrInput)(nil)).Elem(), ResourceCollectionCloudFormationCollectionFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceCollectionFilterInput)(nil)).Elem(), ResourceCollectionFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceCollectionFilterPtrInput)(nil)).Elem(), ResourceCollectionFilterArgs{})
 	pulumi.RegisterOutputType(NotificationChannelConfigOutput{})
 	pulumi.RegisterOutputType(NotificationChannelConfigPtrOutput{})
 	pulumi.RegisterOutputType(NotificationChannelSnsChannelConfigOutput{})

@@ -114,5 +114,6 @@ func (o StackFleetAssociationOutput) ToStackFleetAssociationOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StackFleetAssociationInput)(nil)).Elem(), &StackFleetAssociation{})
 	pulumi.RegisterOutputType(StackFleetAssociationOutput{})
 }

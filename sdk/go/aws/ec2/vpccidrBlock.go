@@ -120,5 +120,6 @@ func (o VPCCidrBlockOutput) ToVPCCidrBlockOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VPCCidrBlockInput)(nil)).Elem(), &VPCCidrBlock{})
 	pulumi.RegisterOutputType(VPCCidrBlockOutput{})
 }

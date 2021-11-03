@@ -120,6 +120,8 @@ func (o GraphTagArrayOutput) Index(i pulumi.IntInput) GraphTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphTagInput)(nil)).Elem(), GraphTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphTagArrayInput)(nil)).Elem(), GraphTagArray{})
 	pulumi.RegisterOutputType(GraphTagOutput{})
 	pulumi.RegisterOutputType(GraphTagArrayOutput{})
 }

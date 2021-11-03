@@ -834,6 +834,16 @@ func (in *configTrackingConfigAutotrackPtr) ToConfigTrackingConfigAutotrackPtrOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigBandwidthUnitsInput)(nil)).Elem(), ConfigBandwidthUnits("GHz"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigBandwidthUnitsPtrInput)(nil)).Elem(), ConfigBandwidthUnits("GHz"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigEirpUnitsInput)(nil)).Elem(), ConfigEirpUnits("dBW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigEirpUnitsPtrInput)(nil)).Elem(), ConfigEirpUnits("dBW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigFrequencyUnitsInput)(nil)).Elem(), ConfigFrequencyUnits("GHz"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigFrequencyUnitsPtrInput)(nil)).Elem(), ConfigFrequencyUnits("GHz"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigPolarizationInput)(nil)).Elem(), ConfigPolarization("LEFT_HAND"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigPolarizationPtrInput)(nil)).Elem(), ConfigPolarization("LEFT_HAND"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigTrackingConfigAutotrackInput)(nil)).Elem(), ConfigTrackingConfigAutotrack("REQUIRED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigTrackingConfigAutotrackPtrInput)(nil)).Elem(), ConfigTrackingConfigAutotrack("REQUIRED"))
 	pulumi.RegisterOutputType(ConfigBandwidthUnitsOutput{})
 	pulumi.RegisterOutputType(ConfigBandwidthUnitsPtrOutput{})
 	pulumi.RegisterOutputType(ConfigEirpUnitsOutput{})

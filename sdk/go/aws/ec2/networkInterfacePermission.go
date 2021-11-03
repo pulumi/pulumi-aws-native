@@ -120,5 +120,6 @@ func (o NetworkInterfacePermissionOutput) ToNetworkInterfacePermissionOutputWith
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfacePermissionInput)(nil)).Elem(), &NetworkInterfacePermission{})
 	pulumi.RegisterOutputType(NetworkInterfacePermissionOutput{})
 }

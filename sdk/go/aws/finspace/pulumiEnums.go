@@ -349,6 +349,10 @@ func (in *environmentStatusPtr) ToEnvironmentStatusPtrOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentFederationModeInput)(nil)).Elem(), EnvironmentFederationMode("LOCAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentFederationModePtrInput)(nil)).Elem(), EnvironmentFederationMode("LOCAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentStatusInput)(nil)).Elem(), EnvironmentStatus("CREATE_REQUESTED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentStatusPtrInput)(nil)).Elem(), EnvironmentStatus("CREATE_REQUESTED"))
 	pulumi.RegisterOutputType(EnvironmentFederationModeOutput{})
 	pulumi.RegisterOutputType(EnvironmentFederationModePtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentStatusOutput{})

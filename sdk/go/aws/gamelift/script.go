@@ -115,5 +115,6 @@ func (o ScriptOutput) ToScriptOutputWithContext(ctx context.Context) ScriptOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ScriptInput)(nil)).Elem(), &Script{})
 	pulumi.RegisterOutputType(ScriptOutput{})
 }

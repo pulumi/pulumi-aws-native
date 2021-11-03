@@ -143,5 +143,6 @@ func (o WirelessGatewayOutput) ToWirelessGatewayOutputWithContext(ctx context.Co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WirelessGatewayInput)(nil)).Elem(), &WirelessGateway{})
 	pulumi.RegisterOutputType(WirelessGatewayOutput{})
 }

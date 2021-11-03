@@ -126,5 +126,6 @@ func (o LaunchTemplateConstraintOutput) ToLaunchTemplateConstraintOutputWithCont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateConstraintInput)(nil)).Elem(), &LaunchTemplateConstraint{})
 	pulumi.RegisterOutputType(LaunchTemplateConstraintOutput{})
 }

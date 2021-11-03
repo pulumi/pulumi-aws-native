@@ -144,5 +144,6 @@ func (o ModuleVersionOutput) ToModuleVersionOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ModuleVersionInput)(nil)).Elem(), &ModuleVersion{})
 	pulumi.RegisterOutputType(ModuleVersionOutput{})
 }

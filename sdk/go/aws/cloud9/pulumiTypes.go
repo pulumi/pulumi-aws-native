@@ -211,6 +211,10 @@ func (o EnvironmentEC2TagArrayOutput) Index(i pulumi.IntInput) EnvironmentEC2Tag
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEC2RepositoryInput)(nil)).Elem(), EnvironmentEC2RepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEC2RepositoryArrayInput)(nil)).Elem(), EnvironmentEC2RepositoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEC2TagInput)(nil)).Elem(), EnvironmentEC2TagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEC2TagArrayInput)(nil)).Elem(), EnvironmentEC2TagArray{})
 	pulumi.RegisterOutputType(EnvironmentEC2RepositoryOutput{})
 	pulumi.RegisterOutputType(EnvironmentEC2RepositoryArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentEC2TagOutput{})

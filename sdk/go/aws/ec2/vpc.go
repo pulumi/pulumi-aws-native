@@ -159,5 +159,6 @@ func (o VPCOutput) ToVPCOutputWithContext(ctx context.Context) VPCOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VPCInput)(nil)).Elem(), &VPC{})
 	pulumi.RegisterOutputType(VPCOutput{})
 }

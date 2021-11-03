@@ -1285,6 +1285,22 @@ func (o WorkGroupTagArrayOutput) Index(i pulumi.IntInput) WorkGroupTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogTagInput)(nil)).Elem(), DataCatalogTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogTagArrayInput)(nil)).Elem(), DataCatalogTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupConfigurationInput)(nil)).Elem(), WorkGroupConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupConfigurationPtrInput)(nil)).Elem(), WorkGroupConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupConfigurationUpdatesInput)(nil)).Elem(), WorkGroupConfigurationUpdatesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupConfigurationUpdatesPtrInput)(nil)).Elem(), WorkGroupConfigurationUpdatesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupEncryptionConfigurationInput)(nil)).Elem(), WorkGroupEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupEncryptionConfigurationPtrInput)(nil)).Elem(), WorkGroupEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupEngineVersionInput)(nil)).Elem(), WorkGroupEngineVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupEngineVersionPtrInput)(nil)).Elem(), WorkGroupEngineVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupResultConfigurationInput)(nil)).Elem(), WorkGroupResultConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupResultConfigurationPtrInput)(nil)).Elem(), WorkGroupResultConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupResultConfigurationUpdatesInput)(nil)).Elem(), WorkGroupResultConfigurationUpdatesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupResultConfigurationUpdatesPtrInput)(nil)).Elem(), WorkGroupResultConfigurationUpdatesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupTagInput)(nil)).Elem(), WorkGroupTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupTagArrayInput)(nil)).Elem(), WorkGroupTagArray{})
 	pulumi.RegisterOutputType(DataCatalogTagOutput{})
 	pulumi.RegisterOutputType(DataCatalogTagArrayOutput{})
 	pulumi.RegisterOutputType(WorkGroupConfigurationOutput{})

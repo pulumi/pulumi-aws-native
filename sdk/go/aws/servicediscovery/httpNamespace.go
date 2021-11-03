@@ -115,5 +115,6 @@ func (o HttpNamespaceOutput) ToHttpNamespaceOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HttpNamespaceInput)(nil)).Elem(), &HttpNamespace{})
 	pulumi.RegisterOutputType(HttpNamespaceOutput{})
 }

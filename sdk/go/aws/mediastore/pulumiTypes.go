@@ -477,6 +477,14 @@ func (o ContainerTagArrayOutput) Index(i pulumi.IntInput) ContainerTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerCorsRuleInput)(nil)).Elem(), ContainerCorsRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerCorsRuleArrayInput)(nil)).Elem(), ContainerCorsRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerMetricPolicyInput)(nil)).Elem(), ContainerMetricPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerMetricPolicyPtrInput)(nil)).Elem(), ContainerMetricPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerMetricPolicyRuleInput)(nil)).Elem(), ContainerMetricPolicyRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerMetricPolicyRuleArrayInput)(nil)).Elem(), ContainerMetricPolicyRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerTagInput)(nil)).Elem(), ContainerTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerTagArrayInput)(nil)).Elem(), ContainerTagArray{})
 	pulumi.RegisterOutputType(ContainerCorsRuleOutput{})
 	pulumi.RegisterOutputType(ContainerCorsRuleArrayOutput{})
 	pulumi.RegisterOutputType(ContainerMetricPolicyOutput{})

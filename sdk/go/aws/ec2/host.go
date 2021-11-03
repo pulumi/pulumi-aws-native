@@ -132,5 +132,6 @@ func (o HostOutput) ToHostOutputWithContext(ctx context.Context) HostOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HostInput)(nil)).Elem(), &Host{})
 	pulumi.RegisterOutputType(HostOutput{})
 }

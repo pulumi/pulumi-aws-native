@@ -108,5 +108,6 @@ func (o InputSecurityGroupOutput) ToInputSecurityGroupOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InputSecurityGroupInput)(nil)).Elem(), &InputSecurityGroup{})
 	pulumi.RegisterOutputType(InputSecurityGroupOutput{})
 }

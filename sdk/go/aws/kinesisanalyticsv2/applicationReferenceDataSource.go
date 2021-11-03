@@ -114,5 +114,6 @@ func (o ApplicationReferenceDataSourceOutput) ToApplicationReferenceDataSourceOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationReferenceDataSourceInput)(nil)).Elem(), &ApplicationReferenceDataSource{})
 	pulumi.RegisterOutputType(ApplicationReferenceDataSourceOutput{})
 }

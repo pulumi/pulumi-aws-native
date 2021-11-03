@@ -123,5 +123,6 @@ func (o RecoveryGroupOutput) ToRecoveryGroupOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RecoveryGroupInput)(nil)).Elem(), &RecoveryGroup{})
 	pulumi.RegisterOutputType(RecoveryGroupOutput{})
 }

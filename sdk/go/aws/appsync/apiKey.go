@@ -117,5 +117,6 @@ func (o ApiKeyOutput) ToApiKeyOutputWithContext(ctx context.Context) ApiKeyOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyInput)(nil)).Elem(), &ApiKey{})
 	pulumi.RegisterOutputType(ApiKeyOutput{})
 }

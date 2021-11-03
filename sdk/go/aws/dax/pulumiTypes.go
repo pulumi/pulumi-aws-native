@@ -144,6 +144,8 @@ func (o ClusterSSESpecificationPtrOutput) SSEEnabled() pulumi.BoolPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSSESpecificationInput)(nil)).Elem(), ClusterSSESpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSSESpecificationPtrInput)(nil)).Elem(), ClusterSSESpecificationArgs{})
 	pulumi.RegisterOutputType(ClusterSSESpecificationOutput{})
 	pulumi.RegisterOutputType(ClusterSSESpecificationPtrOutput{})
 }

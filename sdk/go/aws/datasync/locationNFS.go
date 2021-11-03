@@ -137,5 +137,6 @@ func (o LocationNFSOutput) ToLocationNFSOutputWithContext(ctx context.Context) L
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationNFSInput)(nil)).Elem(), &LocationNFS{})
 	pulumi.RegisterOutputType(LocationNFSOutput{})
 }

@@ -133,5 +133,6 @@ func (o ModelOutput) ToModelOutputWithContext(ctx context.Context) ModelOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelInput)(nil)).Elem(), &Model{})
 	pulumi.RegisterOutputType(ModelOutput{})
 }

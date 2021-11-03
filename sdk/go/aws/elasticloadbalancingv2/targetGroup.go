@@ -161,5 +161,6 @@ func (o TargetGroupOutput) ToTargetGroupOutputWithContext(ctx context.Context) T
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupInput)(nil)).Elem(), &TargetGroup{})
 	pulumi.RegisterOutputType(TargetGroupOutput{})
 }

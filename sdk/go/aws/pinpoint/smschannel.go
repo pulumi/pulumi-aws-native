@@ -117,5 +117,6 @@ func (o SMSChannelOutput) ToSMSChannelOutputWithContext(ctx context.Context) SMS
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SMSChannelInput)(nil)).Elem(), &SMSChannel{})
 	pulumi.RegisterOutputType(SMSChannelOutput{})
 }

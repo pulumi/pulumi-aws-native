@@ -114,5 +114,6 @@ func (o ConnectorDefinitionVersionOutput) ToConnectorDefinitionVersionOutputWith
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorDefinitionVersionInput)(nil)).Elem(), &ConnectorDefinitionVersion{})
 	pulumi.RegisterOutputType(ConnectorDefinitionVersionOutput{})
 }

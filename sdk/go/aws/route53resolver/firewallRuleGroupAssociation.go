@@ -159,5 +159,6 @@ func (o FirewallRuleGroupAssociationOutput) ToFirewallRuleGroupAssociationOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupAssociationInput)(nil)).Elem(), &FirewallRuleGroupAssociation{})
 	pulumi.RegisterOutputType(FirewallRuleGroupAssociationOutput{})
 }

@@ -111,5 +111,6 @@ func (o ClusterSecurityGroupOutput) ToClusterSecurityGroupOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSecurityGroupInput)(nil)).Elem(), &ClusterSecurityGroup{})
 	pulumi.RegisterOutputType(ClusterSecurityGroupOutput{})
 }

@@ -511,6 +511,12 @@ func (in *keySigningKeyStatusPtr) ToKeySigningKeyStatusPtrOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckConfigPropertiesInsufficientDataHealthStatusInput)(nil)).Elem(), HealthCheckConfigPropertiesInsufficientDataHealthStatus("Healthy"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrInput)(nil)).Elem(), HealthCheckConfigPropertiesInsufficientDataHealthStatus("Healthy"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckConfigPropertiesTypeInput)(nil)).Elem(), HealthCheckConfigPropertiesType("CALCULATED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckConfigPropertiesTypePtrInput)(nil)).Elem(), HealthCheckConfigPropertiesType("CALCULATED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KeySigningKeyStatusInput)(nil)).Elem(), KeySigningKeyStatus("ACTIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KeySigningKeyStatusPtrInput)(nil)).Elem(), KeySigningKeyStatus("ACTIVE"))
 	pulumi.RegisterOutputType(HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput{})
 	pulumi.RegisterOutputType(HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput{})
 	pulumi.RegisterOutputType(HealthCheckConfigPropertiesTypeOutput{})

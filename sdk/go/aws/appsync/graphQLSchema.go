@@ -114,5 +114,6 @@ func (o GraphQLSchemaOutput) ToGraphQLSchemaOutputWithContext(ctx context.Contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLSchemaInput)(nil)).Elem(), &GraphQLSchema{})
 	pulumi.RegisterOutputType(GraphQLSchemaOutput{})
 }

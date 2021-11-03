@@ -126,5 +126,6 @@ func (o UserHierarchyGroupOutput) ToUserHierarchyGroupOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UserHierarchyGroupInput)(nil)).Elem(), &UserHierarchyGroup{})
 	pulumi.RegisterOutputType(UserHierarchyGroupOutput{})
 }

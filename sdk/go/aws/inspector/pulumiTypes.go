@@ -211,6 +211,10 @@ func (o ResourceGroupTagArrayOutput) Index(i pulumi.IntInput) ResourceGroupTagOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentTemplateTagInput)(nil)).Elem(), AssessmentTemplateTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentTemplateTagArrayInput)(nil)).Elem(), AssessmentTemplateTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupTagInput)(nil)).Elem(), ResourceGroupTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupTagArrayInput)(nil)).Elem(), ResourceGroupTagArray{})
 	pulumi.RegisterOutputType(AssessmentTemplateTagOutput{})
 	pulumi.RegisterOutputType(AssessmentTemplateTagArrayOutput{})
 	pulumi.RegisterOutputType(ResourceGroupTagOutput{})

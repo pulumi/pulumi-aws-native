@@ -124,5 +124,6 @@ func (o ReportGroupOutput) ToReportGroupOutputWithContext(ctx context.Context) R
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupInput)(nil)).Elem(), &ReportGroup{})
 	pulumi.RegisterOutputType(ReportGroupOutput{})
 }

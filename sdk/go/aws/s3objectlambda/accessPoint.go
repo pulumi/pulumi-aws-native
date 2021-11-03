@@ -117,5 +117,6 @@ func (o AccessPointOutput) ToAccessPointOutputWithContext(ctx context.Context) A
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointInput)(nil)).Elem(), &AccessPoint{})
 	pulumi.RegisterOutputType(AccessPointOutput{})
 }

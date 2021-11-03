@@ -144,5 +144,6 @@ func (o StreamingImageOutput) ToStreamingImageOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamingImageInput)(nil)).Elem(), &StreamingImage{})
 	pulumi.RegisterOutputType(StreamingImageOutput{})
 }

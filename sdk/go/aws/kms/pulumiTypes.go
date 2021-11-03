@@ -229,6 +229,10 @@ func (o ReplicaKeyTagArrayOutput) Index(i pulumi.IntInput) ReplicaKeyTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyTagInput)(nil)).Elem(), KeyTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyTagArrayInput)(nil)).Elem(), KeyTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicaKeyTagInput)(nil)).Elem(), ReplicaKeyTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicaKeyTagArrayInput)(nil)).Elem(), ReplicaKeyTagArray{})
 	pulumi.RegisterOutputType(KeyTagOutput{})
 	pulumi.RegisterOutputType(KeyTagArrayOutput{})
 	pulumi.RegisterOutputType(ReplicaKeyTagOutput{})

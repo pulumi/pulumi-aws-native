@@ -114,5 +114,6 @@ func (o UserToGroupAdditionOutput) ToUserToGroupAdditionOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UserToGroupAdditionInput)(nil)).Elem(), &UserToGroupAddition{})
 	pulumi.RegisterOutputType(UserToGroupAdditionOutput{})
 }

@@ -1174,6 +1174,20 @@ func (in *simulationApplicationSourceConfigArchitecturePtr) ToSimulationApplicat
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RobotArchitectureInput)(nil)).Elem(), RobotArchitecture("X86_64"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RobotArchitecturePtrInput)(nil)).Elem(), RobotArchitecture("X86_64"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SimulationApplicationRenderingEngineNameInput)(nil)).Elem(), SimulationApplicationRenderingEngineName("OGRE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SimulationApplicationRenderingEngineNamePtrInput)(nil)).Elem(), SimulationApplicationRenderingEngineName("OGRE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SimulationApplicationRobotSoftwareSuiteNameInput)(nil)).Elem(), SimulationApplicationRobotSoftwareSuiteName("ROS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SimulationApplicationRobotSoftwareSuiteNamePtrInput)(nil)).Elem(), SimulationApplicationRobotSoftwareSuiteName("ROS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SimulationApplicationRobotSoftwareSuiteVersionInput)(nil)).Elem(), SimulationApplicationRobotSoftwareSuiteVersion("Kinetic"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SimulationApplicationRobotSoftwareSuiteVersionPtrInput)(nil)).Elem(), SimulationApplicationRobotSoftwareSuiteVersion("Kinetic"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SimulationApplicationSimulationSoftwareSuiteNameInput)(nil)).Elem(), SimulationApplicationSimulationSoftwareSuiteName("Gazebo"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SimulationApplicationSimulationSoftwareSuiteNamePtrInput)(nil)).Elem(), SimulationApplicationSimulationSoftwareSuiteName("Gazebo"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SimulationApplicationSimulationSoftwareSuiteVersionInput)(nil)).Elem(), SimulationApplicationSimulationSoftwareSuiteVersion("7"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SimulationApplicationSimulationSoftwareSuiteVersionPtrInput)(nil)).Elem(), SimulationApplicationSimulationSoftwareSuiteVersion("7"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SimulationApplicationSourceConfigArchitectureInput)(nil)).Elem(), SimulationApplicationSourceConfigArchitecture("X86_64"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SimulationApplicationSourceConfigArchitecturePtrInput)(nil)).Elem(), SimulationApplicationSourceConfigArchitecture("X86_64"))
 	pulumi.RegisterOutputType(RobotArchitectureOutput{})
 	pulumi.RegisterOutputType(RobotArchitecturePtrOutput{})
 	pulumi.RegisterOutputType(SimulationApplicationRenderingEngineNameOutput{})

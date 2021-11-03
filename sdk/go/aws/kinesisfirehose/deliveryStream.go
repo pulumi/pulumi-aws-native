@@ -136,5 +136,6 @@ func (o DeliveryStreamOutput) ToDeliveryStreamOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamInput)(nil)).Elem(), &DeliveryStream{})
 	pulumi.RegisterOutputType(DeliveryStreamOutput{})
 }

@@ -311,6 +311,12 @@ func (o SchemaTagsEntryArrayOutput) Index(i pulumi.IntInput) SchemaTagsEntryOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DiscovererTagsEntryInput)(nil)).Elem(), DiscovererTagsEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiscovererTagsEntryArrayInput)(nil)).Elem(), DiscovererTagsEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTagsEntryInput)(nil)).Elem(), RegistryTagsEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTagsEntryArrayInput)(nil)).Elem(), RegistryTagsEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaTagsEntryInput)(nil)).Elem(), SchemaTagsEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaTagsEntryArrayInput)(nil)).Elem(), SchemaTagsEntryArray{})
 	pulumi.RegisterOutputType(DiscovererTagsEntryOutput{})
 	pulumi.RegisterOutputType(DiscovererTagsEntryArrayOutput{})
 	pulumi.RegisterOutputType(RegistryTagsEntryOutput{})

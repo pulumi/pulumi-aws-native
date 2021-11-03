@@ -137,5 +137,6 @@ func (o LocationS3Output) ToLocationS3OutputWithContext(ctx context.Context) Loc
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationS3Input)(nil)).Elem(), &LocationS3{})
 	pulumi.RegisterOutputType(LocationS3Output{})
 }

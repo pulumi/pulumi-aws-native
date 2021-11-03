@@ -130,5 +130,6 @@ func (o ResolverEndpointOutput) ToResolverEndpointOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverEndpointInput)(nil)).Elem(), &ResolverEndpoint{})
 	pulumi.RegisterOutputType(ResolverEndpointOutput{})
 }

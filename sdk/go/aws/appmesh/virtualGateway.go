@@ -126,5 +126,6 @@ func (o VirtualGatewayOutput) ToVirtualGatewayOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewayInput)(nil)).Elem(), &VirtualGateway{})
 	pulumi.RegisterOutputType(VirtualGatewayOutput{})
 }

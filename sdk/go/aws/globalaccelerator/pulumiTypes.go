@@ -444,6 +444,14 @@ func (o ListenerPortRangeArrayOutput) Index(i pulumi.IntInput) ListenerPortRange
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AcceleratorTagInput)(nil)).Elem(), AcceleratorTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AcceleratorTagArrayInput)(nil)).Elem(), AcceleratorTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGroupEndpointConfigurationInput)(nil)).Elem(), EndpointGroupEndpointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGroupEndpointConfigurationArrayInput)(nil)).Elem(), EndpointGroupEndpointConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGroupPortOverrideInput)(nil)).Elem(), EndpointGroupPortOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGroupPortOverrideArrayInput)(nil)).Elem(), EndpointGroupPortOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerPortRangeInput)(nil)).Elem(), ListenerPortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerPortRangeArrayInput)(nil)).Elem(), ListenerPortRangeArray{})
 	pulumi.RegisterOutputType(AcceleratorTagOutput{})
 	pulumi.RegisterOutputType(AcceleratorTagArrayOutput{})
 	pulumi.RegisterOutputType(EndpointGroupEndpointConfigurationOutput{})

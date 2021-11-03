@@ -24,3 +24,11 @@ export interface GetSsmParameterListArgs {
 export interface GetSsmParameterListResult {
     readonly value: string[];
 }
+
+export function getSsmParameterListOutput(args: GetSsmParameterListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSsmParameterListResult> {
+    return pulumi.output(args).apply(a => getSsmParameterList(a, opts))
+}
+
+export interface GetSsmParameterListOutputArgs {
+    name: pulumi.Input<string>;
+}

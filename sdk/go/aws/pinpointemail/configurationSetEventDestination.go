@@ -117,5 +117,6 @@ func (o ConfigurationSetEventDestinationOutput) ToConfigurationSetEventDestinati
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationInput)(nil)).Elem(), &ConfigurationSetEventDestination{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationOutput{})
 }

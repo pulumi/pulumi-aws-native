@@ -156,5 +156,6 @@ func (o MaintenanceWindowTaskOutput) ToMaintenanceWindowTaskOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowTaskInput)(nil)).Elem(), &MaintenanceWindowTask{})
 	pulumi.RegisterOutputType(MaintenanceWindowTaskOutput{})
 }

@@ -177,5 +177,6 @@ func (o ThemeOutput) ToThemeOutputWithContext(ctx context.Context) ThemeOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeInput)(nil)).Elem(), &Theme{})
 	pulumi.RegisterOutputType(ThemeOutput{})
 }

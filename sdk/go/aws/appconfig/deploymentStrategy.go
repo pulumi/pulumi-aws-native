@@ -138,5 +138,6 @@ func (o DeploymentStrategyOutput) ToDeploymentStrategyOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentStrategyInput)(nil)).Elem(), &DeploymentStrategy{})
 	pulumi.RegisterOutputType(DeploymentStrategyOutput{})
 }

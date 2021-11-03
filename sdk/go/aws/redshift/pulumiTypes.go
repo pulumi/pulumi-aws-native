@@ -816,6 +816,20 @@ func (o ClusterTagArrayOutput) Index(i pulumi.IntInput) ClusterTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEndpointInput)(nil)).Elem(), ClusterEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEndpointPtrInput)(nil)).Elem(), ClusterEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLoggingPropertiesInput)(nil)).Elem(), ClusterLoggingPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLoggingPropertiesPtrInput)(nil)).Elem(), ClusterLoggingPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterParameterGroupParameterInput)(nil)).Elem(), ClusterParameterGroupParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterParameterGroupParameterArrayInput)(nil)).Elem(), ClusterParameterGroupParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterParameterGroupTagInput)(nil)).Elem(), ClusterParameterGroupTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterParameterGroupTagArrayInput)(nil)).Elem(), ClusterParameterGroupTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSecurityGroupTagInput)(nil)).Elem(), ClusterSecurityGroupTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSecurityGroupTagArrayInput)(nil)).Elem(), ClusterSecurityGroupTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSubnetGroupTagInput)(nil)).Elem(), ClusterSubnetGroupTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSubnetGroupTagArrayInput)(nil)).Elem(), ClusterSubnetGroupTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTagInput)(nil)).Elem(), ClusterTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTagArrayInput)(nil)).Elem(), ClusterTagArray{})
 	pulumi.RegisterOutputType(ClusterEndpointOutput{})
 	pulumi.RegisterOutputType(ClusterEndpointPtrOutput{})
 	pulumi.RegisterOutputType(ClusterLoggingPropertiesOutput{})

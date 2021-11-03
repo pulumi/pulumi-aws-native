@@ -344,6 +344,10 @@ func (in *contactTypePtr) ToContactTypePtrOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactChannelChannelTypeInput)(nil)).Elem(), ContactChannelChannelType("SMS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactChannelChannelTypePtrInput)(nil)).Elem(), ContactChannelChannelType("SMS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactTypeInput)(nil)).Elem(), ContactType("PERSONAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactTypePtrInput)(nil)).Elem(), ContactType("PERSONAL"))
 	pulumi.RegisterOutputType(ContactChannelChannelTypeOutput{})
 	pulumi.RegisterOutputType(ContactChannelChannelTypePtrOutput{})
 	pulumi.RegisterOutputType(ContactTypeOutput{})

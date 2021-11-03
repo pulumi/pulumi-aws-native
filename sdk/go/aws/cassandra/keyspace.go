@@ -108,5 +108,6 @@ func (o KeyspaceOutput) ToKeyspaceOutputWithContext(ctx context.Context) Keyspac
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceInput)(nil)).Elem(), &Keyspace{})
 	pulumi.RegisterOutputType(KeyspaceOutput{})
 }

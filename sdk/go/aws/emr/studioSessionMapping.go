@@ -136,5 +136,6 @@ func (o StudioSessionMappingOutput) ToStudioSessionMappingOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioSessionMappingInput)(nil)).Elem(), &StudioSessionMapping{})
 	pulumi.RegisterOutputType(StudioSessionMappingOutput{})
 }

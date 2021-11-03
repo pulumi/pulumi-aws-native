@@ -119,5 +119,6 @@ func (o DiscovererOutput) ToDiscovererOutputWithContext(ctx context.Context) Dis
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DiscovererInput)(nil)).Elem(), &Discoverer{})
 	pulumi.RegisterOutputType(DiscovererOutput{})
 }

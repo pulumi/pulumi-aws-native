@@ -106,5 +106,6 @@ func (o SpotFleetOutput) ToSpotFleetOutputWithContext(ctx context.Context) SpotF
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetInput)(nil)).Elem(), &SpotFleet{})
 	pulumi.RegisterOutputType(SpotFleetOutput{})
 }

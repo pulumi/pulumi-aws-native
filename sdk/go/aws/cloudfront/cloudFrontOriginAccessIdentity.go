@@ -107,5 +107,6 @@ func (o CloudFrontOriginAccessIdentityOutput) ToCloudFrontOriginAccessIdentityOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFrontOriginAccessIdentityInput)(nil)).Elem(), &CloudFrontOriginAccessIdentity{})
 	pulumi.RegisterOutputType(CloudFrontOriginAccessIdentityOutput{})
 }

@@ -116,5 +116,6 @@ func (o ImageVersionOutput) ToImageVersionOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageVersionInput)(nil)).Elem(), &ImageVersion{})
 	pulumi.RegisterOutputType(ImageVersionOutput{})
 }

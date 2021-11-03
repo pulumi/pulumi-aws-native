@@ -114,5 +114,6 @@ func (o VPNGatewayRoutePropagationOutput) ToVPNGatewayRoutePropagationOutputWith
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VPNGatewayRoutePropagationInput)(nil)).Elem(), &VPNGatewayRoutePropagation{})
 	pulumi.RegisterOutputType(VPNGatewayRoutePropagationOutput{})
 }

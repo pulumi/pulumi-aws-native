@@ -113,5 +113,6 @@ func (o ClassifierOutput) ToClassifierOutputWithContext(ctx context.Context) Cla
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierInput)(nil)).Elem(), &Classifier{})
 	pulumi.RegisterOutputType(ClassifierOutput{})
 }

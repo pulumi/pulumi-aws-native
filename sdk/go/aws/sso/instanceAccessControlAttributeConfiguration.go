@@ -118,5 +118,6 @@ func (o InstanceAccessControlAttributeConfigurationOutput) ToInstanceAccessContr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAccessControlAttributeConfigurationInput)(nil)).Elem(), &InstanceAccessControlAttributeConfiguration{})
 	pulumi.RegisterOutputType(InstanceAccessControlAttributeConfigurationOutput{})
 }

@@ -127,5 +127,6 @@ func (o CapacityReservationFleetOutput) ToCapacityReservationFleetOutputWithCont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationFleetInput)(nil)).Elem(), &CapacityReservationFleet{})
 	pulumi.RegisterOutputType(CapacityReservationFleetOutput{})
 }

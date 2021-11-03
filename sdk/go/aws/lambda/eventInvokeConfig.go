@@ -123,5 +123,6 @@ func (o EventInvokeConfigOutput) ToEventInvokeConfigOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventInvokeConfigInput)(nil)).Elem(), &EventInvokeConfig{})
 	pulumi.RegisterOutputType(EventInvokeConfigOutput{})
 }

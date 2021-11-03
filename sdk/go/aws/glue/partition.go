@@ -126,5 +126,6 @@ func (o PartitionOutput) ToPartitionOutputWithContext(ctx context.Context) Parti
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PartitionInput)(nil)).Elem(), &Partition{})
 	pulumi.RegisterOutputType(PartitionOutput{})
 }

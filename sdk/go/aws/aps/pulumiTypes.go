@@ -229,6 +229,10 @@ func (o WorkspaceTagArrayOutput) Index(i pulumi.IntInput) WorkspaceTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupsNamespaceTagInput)(nil)).Elem(), RuleGroupsNamespaceTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupsNamespaceTagArrayInput)(nil)).Elem(), RuleGroupsNamespaceTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceTagInput)(nil)).Elem(), WorkspaceTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceTagArrayInput)(nil)).Elem(), WorkspaceTagArray{})
 	pulumi.RegisterOutputType(RuleGroupsNamespaceTagOutput{})
 	pulumi.RegisterOutputType(RuleGroupsNamespaceTagArrayOutput{})
 	pulumi.RegisterOutputType(WorkspaceTagOutput{})

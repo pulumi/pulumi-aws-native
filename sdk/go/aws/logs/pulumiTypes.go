@@ -123,6 +123,8 @@ func (o MetricFilterMetricTransformationArrayOutput) Index(i pulumi.IntInput) Me
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterMetricTransformationInput)(nil)).Elem(), MetricFilterMetricTransformationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterMetricTransformationArrayInput)(nil)).Elem(), MetricFilterMetricTransformationArray{})
 	pulumi.RegisterOutputType(MetricFilterMetricTransformationOutput{})
 	pulumi.RegisterOutputType(MetricFilterMetricTransformationArrayOutput{})
 }

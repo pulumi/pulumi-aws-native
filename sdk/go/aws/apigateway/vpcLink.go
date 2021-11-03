@@ -120,5 +120,6 @@ func (o VpcLinkOutput) ToVpcLinkOutputWithContext(ctx context.Context) VpcLinkOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcLinkInput)(nil)).Elem(), &VpcLink{})
 	pulumi.RegisterOutputType(VpcLinkOutput{})
 }

@@ -130,5 +130,6 @@ func (o LocalGatewayRouteTableVPCAssociationOutput) ToLocalGatewayRouteTableVPCA
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LocalGatewayRouteTableVPCAssociationInput)(nil)).Elem(), &LocalGatewayRouteTableVPCAssociation{})
 	pulumi.RegisterOutputType(LocalGatewayRouteTableVPCAssociationOutput{})
 }
