@@ -20,34 +20,29 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
-// setDefaultName generates a random name for a resource's autonameable fields
+// getDefaultName generates a random name for a resource's autonameable fields
 // based on its URN name, It ensures the name meets the length constraints, if known.
 // Defaults to the name followed by 7 random hex characters separated by a '-'.
-func setDefaultName(
+func getDefaultName(
 	urn resource.URN,
-	resourceInfo schema.CloudAPIResource,
+	autoNamingSpec *schema.AutoNamingSpec,
 	olds,
 	news resource.PropertyMap,
-) bool {
-	var mutated bool
-
-	for sdkName, autoNamingSpec := range resourceInfo.AutoNamingSpecs {
-		if _, ok := olds[resource.PropertyKey(sdkName)]; ok {
-			continue
-		}
-
-		name := urn.Name().String()
-		prefix := name+"-"
-		randLength := 7
-		if len(prefix) + randLength < autoNamingSpec.MinLength {
-			randLength = autoNamingSpec.MinLength
-		}
-
-		// Resource name is URN name + "-" + random suffix.
-		random, err := resource.NewUniqueHex(prefix, randLength, autoNamingSpec.MaxLength)
-		contract.AssertNoError(err)
-		news[resource.PropertyKey(sdkName)] = resource.NewStringProperty(random)
-		mutated = true
+) resource.PropertyValue {
+	sdkName := autoNamingSpec.SdkName
+	if v, ok := olds[resource.PropertyKey(sdkName)]; ok {
+		return v
 	}
-	return mutated
+
+	name := urn.Name().String()
+	prefix := name + "-"
+	randLength := 7
+	if len(prefix)+randLength < autoNamingSpec.MinLength {
+		randLength = autoNamingSpec.MinLength - len(prefix)
+	}
+
+	// Resource name is URN name + "-" + random suffix.
+	random, err := resource.NewUniqueHex(prefix, randLength, autoNamingSpec.MaxLength)
+	contract.AssertNoError(err)
+	return resource.NewStringProperty(random)
 }

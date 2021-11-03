@@ -528,9 +528,10 @@ func (p *cfnProvider) Check(ctx context.Context, req *pulumirpc.CheckRequest) (*
 	// Filter null properties from the inputs.
 	newInputs = filterNullProperties(newInputs)
 
-	// Auto-name fields if not already specified
-	setDefaultName(urn, spec, olds, newInputs)
-
+	if autoNamingSpec := spec.AutoNamingSpec; autoNamingSpec != nil {
+		// Auto-name fields if not already specified
+		newInputs[resource.PropertyKey(autoNamingSpec.SdkName)] = getDefaultName(urn, autoNamingSpec, olds, newInputs)
+	}
 	var checkFailures []*pulumirpc.CheckFailure
 	failures, err := schema.ValidateResource(&spec, p.resourceMap.Types, newInputs)
 	if err != nil {

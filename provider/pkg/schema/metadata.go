@@ -15,12 +15,13 @@ type CloudAPIResource struct {
 	CfType          string                          `json:"cf"`
 	Inputs          map[string]pschema.PropertySpec `json:"inputs"`
 	Outputs         map[string]pschema.PropertySpec `json:"outputs"`
-	AutoNamingSpecs map[string]AutoNamingSpec       `json:"autoNamingSpecs,omitempty"`
+	AutoNamingSpec  *AutoNamingSpec                 `json:"autoNamingSpec,omitempty"`
 	Required        []string                        `json:"required,omitempty"`
 	CreateOnly      []string                        `json:"createOnly,omitempty"`
 }
 
 type AutoNamingSpec struct {
+	SdkName   string `json:"sdkName"`
 	MinLength int    `json:"minLength,omitempty"`
 	MaxLength int    `json:"maxLength,omitempty"`
 }

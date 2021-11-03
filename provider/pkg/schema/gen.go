@@ -649,40 +649,11 @@ func (ctx *context) gatherResourceType() error {
 		}
 	}
 
-	// ** Autonaming **
-	autonameSpecs := map[string]AutoNamingSpec{}
-
-	lookForField := func(fieldName string) func(map[string]pschema.PropertySpec) {
-		return func(properties map[string]pschema.PropertySpec) {
-			sdkName := ToSdkName(fieldName)
-			if propSpec, has := inputProperties[sdkName]; has && propSpec.Type == "string" {
-				autonameSpec := AutoNamingSpec{}
-				spec, ok := ctx.resourceSpec.Properties[fieldName]
-				if ok {
-					autonameSpec.MinLength = spec.MinLength.Val
-					autonameSpec.MaxLength = spec.MaxLength.Val
-				}
-				autonameSpecs[sdkName] = autonameSpec
-			}
-		}
+	autoNamingSpec := ctx.createAutoNamingSpec(inputProperties, resourceTypeName, properties)
+	// If a field can be auto-named, its no longer required.
+	if autoNamingSpec != nil {
+		delete(requiredInputs, autoNamingSpec.SdkName)
 	}
-
-	autoNamePropLookupFuncs := []func(map[string]pschema.PropertySpec){
-		lookForField("Name"),
-		lookForField(resourceTypeName+"Name"),
-	}
-
-	for _, fn := range autoNamePropLookupFuncs {
-		fn(properties)
-		if len(autonameSpecs) > 0 {
-			for autoNamed := range autonameSpecs {
-				// Apply auto-naming, i.e. mark the property as no longer required.
-				delete(requiredInputs, autoNamed)
-			}
-			break
-		}
-	}
-	// ** Autonaming **
 
 	for prop := range readOnlyProperties {
 		sdkName := ToSdkName(prop)
@@ -713,9 +684,44 @@ func (ctx *context) gatherResourceType() error {
 		Outputs:         properties,
 		CreateOnly:      createOnlyProperties.SortedValues(),
 		Required:        requiredInputs.SortedValues(),
-		AutoNamingSpecs: autonameSpecs,
+		AutoNamingSpec:  autoNamingSpec,
 	}
 	return nil
+}
+
+func (ctx *context) createAutoNamingSpec(inputProperties map[string]pschema.PropertySpec, resourceTypeName string, properties map[string]pschema.PropertySpec) *AutoNamingSpec {
+	// ** Autonaming **
+	var autoNameSpec *AutoNamingSpec
+
+	lookForField := func(fieldName string) func(map[string]pschema.PropertySpec) {
+		return func(properties map[string]pschema.PropertySpec) {
+			sdkName := ToSdkName(fieldName)
+			if propSpec, has := inputProperties[sdkName]; has && propSpec.Type == "string" {
+				autoNameSpec = &AutoNamingSpec{
+					SdkName: sdkName,
+				}
+				spec, ok := ctx.resourceSpec.Properties[fieldName]
+				if ok {
+					autoNameSpec.MinLength = spec.MinLength.Val
+					autoNameSpec.MaxLength = spec.MaxLength.Val
+				}
+			}
+		}
+	}
+
+	autoNamePropLookupFuncs := []func(map[string]pschema.PropertySpec){
+		lookForField("Name"),
+		lookForField(resourceTypeName + "Name"),
+	}
+
+	for _, fn := range autoNamePropLookupFuncs {
+		fn(properties)
+		if autoNameSpec != nil {
+			break
+		}
+	}
+
+	return autoNameSpec
 }
 
 func (ctx *context) propertySpec(propName, resourceTypeName string, spec *jsschema.Schema) (*pschema.PropertySpec, error) {
