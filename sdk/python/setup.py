@@ -45,7 +45,7 @@ setup(name='pulumi_aws_native',
       cmdclass={
           'install': InstallPluginCommand,
       },
-      keywords='pulumi aws aws-native',
+      keywords='pulumi aws aws-native category/cloud kind/native',
       url='https://pulumi.com',
       project_urls={
           'Repository': 'https://github.com/pulumi/pulumi-aws-native'

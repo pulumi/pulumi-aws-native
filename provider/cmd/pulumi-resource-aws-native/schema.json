@@ -1,14 +1,18 @@
 {
     "name": "aws-native",
+    "displayName": "AWS Native",
     "description": "A native Pulumi package for creating and managing Amazon Web Services (AWS) resources.",
     "keywords": [
         "pulumi",
         "aws",
-        "aws-native"
+        "aws-native",
+        "category/cloud",
+        "kind/native"
     ],
     "homepage": "https://pulumi.com",
     "license": "Apache-2.0",
     "repository": "https://github.com/pulumi/pulumi-aws-native",
+    "publisher": "Pulumi",
     "config": {
         "variables": {
             "accessKey": {
