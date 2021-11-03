@@ -15,12 +15,14 @@
 package provider
 
 import (
+	"fmt"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
-// getDefaultName generates a random name for a resource's autonameable fields
+// getDefaultName retrieves either the explicitly specified name in inputs,
+// or the equivalent in the old values. If neither is specified, it generates
+// a random name for a resource's autonameable fields
 // based on its URN name, It ensures the name meets the length constraints, if known.
 // Defaults to the name followed by 7 random hex characters separated by a '-'.
 func getDefaultName(
@@ -28,12 +30,20 @@ func getDefaultName(
 	autoNamingSpec *schema.AutoNamingSpec,
 	olds,
 	news resource.PropertyMap,
-) resource.PropertyValue {
+) (resource.PropertyValue, error) {
 	sdkName := autoNamingSpec.SdkName
-	if v, ok := olds[resource.PropertyKey(sdkName)]; ok {
-		return v
+
+	// Prefer explicitly specified name
+	if v, ok := news[resource.PropertyKey(sdkName)]; ok {
+		return v, nil
 	}
 
+	// Fallback to previous name if specified/set.
+	if v, ok := olds[resource.PropertyKey(sdkName)]; ok {
+		return v, nil
+	}
+
+	// Generate random name that fits the length constraints.
 	name := urn.Name().String()
 	prefix := name + "-"
 	randLength := 7
@@ -41,8 +51,25 @@ func getDefaultName(
 		randLength = autoNamingSpec.MinLength - len(prefix)
 	}
 
+	maxLength := 0
+	if autoNamingSpec.MaxLength > 0 {
+		left := autoNamingSpec.MaxLength - len(prefix)
+
+		if left <= 0 {
+			return resource.PropertyValue{}, fmt.Errorf("failed to auto-generate value for %[1]q."+
+				" Prefix: %[2]q is too large to fix max length constraint of %[3]d. Please provide a value for %[1]q",
+				sdkName, prefix, autoNamingSpec.MaxLength)
+		}
+		if left < randLength {
+			randLength = left
+		}
+		maxLength = len(prefix) + left
+	}
+
 	// Resource name is URN name + "-" + random suffix.
-	random, err := resource.NewUniqueHex(prefix, randLength, autoNamingSpec.MaxLength)
-	contract.AssertNoError(err)
-	return resource.NewStringProperty(random)
+	random, err := resource.NewUniqueHex(prefix, randLength, maxLength)
+	if err != nil {
+		return resource.PropertyValue{}, err
+	}
+	return resource.NewStringProperty(random), nil
 }
