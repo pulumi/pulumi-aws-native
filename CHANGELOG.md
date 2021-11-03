@@ -1,5 +1,9 @@
 ## HEAD (Unreleased)
 
+## 0.3.0 (November 2, 2021)
+
+- Latest resource definitions
+
 ## 0.2.0 (October 8, 2021)
 
 - Deduplicate type names [#160](https://github.com/pulumi/pulumi-aws-native/issues/160)
