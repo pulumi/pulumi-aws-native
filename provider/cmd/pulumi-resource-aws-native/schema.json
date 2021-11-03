@@ -49146,10 +49146,7 @@
                         "$ref": "#/types/aws-native:amplify:AppTag"
                     }
                 }
-            },
-            "requiredInputs": [
-                "name"
-            ]
+            }
         },
         "aws-native:amplify:Branch": {
             "description": "The AWS::Amplify::Branch resource creates a new branch within an app.",
@@ -49251,8 +49248,7 @@
                 }
             },
             "requiredInputs": [
-                "appId",
-                "branchName"
+                "appId"
             ]
         },
         "aws-native:amplify:Domain": {
@@ -49333,7 +49329,6 @@
             },
             "requiredInputs": [
                 "appId",
-                "domainName",
                 "subDomainSettings"
             ]
         },
@@ -49547,7 +49542,6 @@
                 }
             },
             "requiredInputs": [
-                "name",
                 "restApiId",
                 "type"
             ]
@@ -50373,7 +50367,6 @@
             },
             "requiredInputs": [
                 "connectionMode",
-                "connectorProfileName",
                 "connectorType"
             ]
         },
@@ -50480,7 +50473,6 @@
             },
             "requiredInputs": [
                 "destinationFlowConfigList",
-                "flowName",
                 "sourceFlowConfig",
                 "tasks",
                 "triggerConfig"
@@ -50559,8 +50551,7 @@
             },
             "requiredInputs": [
                 "eventBridgeBus",
-                "eventFilter",
-                "name"
+                "eventFilter"
             ]
         },
         "aws-native:applicationinsights:Application": {
@@ -50936,7 +50927,6 @@
                 }
             },
             "requiredInputs": [
-                "name",
                 "type"
             ]
         },
@@ -51127,10 +51117,7 @@
                     "$ref": "#/types/aws-native:athena:WorkGroupConfigurationUpdates",
                     "description": "The workgroup configuration update object"
                 }
-            },
-            "requiredInputs": [
-                "name"
-            ]
+            }
         },
         "aws-native:auditmanager:Assessment": {
             "description": "An entity that defines the scope of audit evidence collected by AWS Audit Manager.",
@@ -51675,10 +51662,7 @@
                 "notifications": {
                     "$ref": "#/types/aws-native:backup:BackupVaultNotificationObjectType"
                 }
-            },
-            "requiredInputs": [
-                "backupVaultName"
-            ]
+            }
         },
         "aws-native:backup:Framework": {
             "description": "Contains detailed information about a framework. Frameworks contain controls, which evaluate and report on your backup events and resources. Frameworks generate daily compliance results.",
@@ -52111,7 +52095,6 @@
                 }
             },
             "requiredInputs": [
-                "name",
                 "ruleVersion",
                 "rules"
             ]
@@ -52706,8 +52689,7 @@
                 }
             },
             "requiredInputs": [
-                "permissionModel",
-                "stackSetName"
+                "permissionModel"
             ]
         },
         "aws-native:cloudformation:TypeActivation": {
@@ -52936,10 +52918,7 @@
                 "name": {
                     "type": "string"
                 }
-            },
-            "requiredInputs": [
-                "name"
-            ]
+            }
         },
         "aws-native:cloudfront:KeyGroup": {
             "description": "Resource Type definition for AWS::CloudFront::KeyGroup",
@@ -53069,7 +53048,6 @@
             "requiredInputs": [
                 "endPoints",
                 "fields",
-                "name",
                 "samplingRate"
             ]
         },
@@ -53497,10 +53475,7 @@
                     },
                     "description": "An array of key-value pairs to apply to this resource."
                 }
-            },
-            "requiredInputs": [
-                "domainName"
-            ]
+            }
         },
         "aws-native:codeartifact:Repository": {
             "description": "The resource schema to create a CodeArtifact repository.",
@@ -53597,10 +53572,7 @@
                     },
                     "description": "A list of upstream repositories associated with the repository."
                 }
-            },
-            "requiredInputs": [
-                "repositoryName"
-            ]
+            }
         },
         "aws-native:codeguruprofiler:ProfilingGroup": {
             "description": "This resource schema represents the Profiling Group resource in the Amazon CodeGuru Profiler service.",
@@ -53668,10 +53640,7 @@
                     },
                     "description": "The tags associated with a profiling group."
                 }
-            },
-            "requiredInputs": [
-                "profilingGroupName"
-            ]
+            }
         },
         "aws-native:codegurureviewer:RepositoryAssociation": {
             "description": "This resource schema represents the RepositoryAssociation resource in the Amazon CodeGuru Reviewer service.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var myRepositoryAssociation = new AwsNative.CodeGuruReviewer.RepositoryAssociation(\"myRepositoryAssociation\", new AwsNative.CodeGuruReviewer.RepositoryAssociationArgs\n        {\n            Name = \"MyRepository\",\n            Type = \"CodeCommit\",\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/codegurureviewer\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := codegurureviewer.NewRepositoryAssociation(ctx, \"myRepositoryAssociation\", \u0026codegurureviewer.RepositoryAssociationArgs{\n\t\t\tName: pulumi.String(\"MyRepository\"),\n\t\t\tType: \"CodeCommit\",\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst myRepositoryAssociation = new aws_native.codegurureviewer.RepositoryAssociation(\"myRepositoryAssociation\", {\n    name: \"MyRepository\",\n    type: \"CodeCommit\",\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nmy_repository_association = aws_native.codegurureviewer.RepositoryAssociation(\"myRepositoryAssociation\",\n    name=\"MyRepository\",\n    type=\"CodeCommit\")\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var myRepositoryAssociation = new AwsNative.CodeGuruReviewer.RepositoryAssociation(\"myRepositoryAssociation\", new AwsNative.CodeGuruReviewer.RepositoryAssociationArgs\n        {\n            Name = \"MyRepository\",\n            Type = \"CodeCommit\",\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/codegurureviewer\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := codegurureviewer.NewRepositoryAssociation(ctx, \"myRepositoryAssociation\", \u0026codegurureviewer.RepositoryAssociationArgs{\n\t\t\tName: pulumi.String(\"MyRepository\"),\n\t\t\tType: \"CodeCommit\",\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst myRepositoryAssociation = new aws_native.codegurureviewer.RepositoryAssociation(\"myRepositoryAssociation\", {\n    name: \"MyRepository\",\n    type: \"CodeCommit\",\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nmy_repository_association = aws_native.codegurureviewer.RepositoryAssociation(\"myRepositoryAssociation\",\n    name=\"MyRepository\",\n    type=\"CodeCommit\")\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var myRepositoryAssociation = new AwsNative.CodeGuruReviewer.RepositoryAssociation(\"myRepositoryAssociation\", new AwsNative.CodeGuruReviewer.RepositoryAssociationArgs\n        {\n            Name = \"MyBitbucketRepoName\",\n            Type = \"Bitbucket\",\n            ConnectionArn = \"arn:aws:codestar-connections:us-west-2:123456789012:connection/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\",\n            Owner = \"MyOwnerName\",\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/codegurureviewer\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := codegurureviewer.NewRepositoryAssociation(ctx, \"myRepositoryAssociation\", \u0026codegurureviewer.RepositoryAssociationArgs{\n\t\t\tName:          pulumi.String(\"MyBitbucketRepoName\"),\n\t\t\tType:          \"Bitbucket\",\n\t\t\tConnectionArn: pulumi.String(\"arn:aws:codestar-connections:us-west-2:123456789012:connection/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\"),\n\t\t\tOwner:         pulumi.String(\"MyOwnerName\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst myRepositoryAssociation = new aws_native.codegurureviewer.RepositoryAssociation(\"myRepositoryAssociation\", {\n    name: \"MyBitbucketRepoName\",\n    type: \"Bitbucket\",\n    connectionArn: \"arn:aws:codestar-connections:us-west-2:123456789012:connection/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\",\n    owner: \"MyOwnerName\",\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nmy_repository_association = aws_native.codegurureviewer.RepositoryAssociation(\"myRepositoryAssociation\",\n    name=\"MyBitbucketRepoName\",\n    type=\"Bitbucket\",\n    connection_arn=\"arn:aws:codestar-connections:us-west-2:123456789012:connection/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\",\n    owner=\"MyOwnerName\")\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var myRepositoryAssociation = new AwsNative.CodeGuruReviewer.RepositoryAssociation(\"myRepositoryAssociation\", new AwsNative.CodeGuruReviewer.RepositoryAssociationArgs\n        {\n            Name = \"MyBitbucketRepoName\",\n            Type = \"Bitbucket\",\n            ConnectionArn = \"arn:aws:codestar-connections:us-west-2:123456789012:connection/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\",\n            Owner = \"MyOwnerName\",\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/codegurureviewer\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := codegurureviewer.NewRepositoryAssociation(ctx, \"myRepositoryAssociation\", \u0026codegurureviewer.RepositoryAssociationArgs{\n\t\t\tName:          pulumi.String(\"MyBitbucketRepoName\"),\n\t\t\tType:          \"Bitbucket\",\n\t\t\tConnectionArn: pulumi.String(\"arn:aws:codestar-connections:us-west-2:123456789012:connection/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\"),\n\t\t\tOwner:         pulumi.String(\"MyOwnerName\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst myRepositoryAssociation = new aws_native.codegurureviewer.RepositoryAssociation(\"myRepositoryAssociation\", {\n    name: \"MyBitbucketRepoName\",\n    type: \"Bitbucket\",\n    connectionArn: \"arn:aws:codestar-connections:us-west-2:123456789012:connection/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\",\n    owner: \"MyOwnerName\",\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nmy_repository_association = aws_native.codegurureviewer.RepositoryAssociation(\"myRepositoryAssociation\",\n    name=\"MyBitbucketRepoName\",\n    type=\"Bitbucket\",\n    connection_arn=\"arn:aws:codestar-connections:us-west-2:123456789012:connection/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\",\n    owner=\"MyOwnerName\")\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var myRepositoryAssociation = new AwsNative.CodeGuruReviewer.RepositoryAssociation(\"myRepositoryAssociation\", new AwsNative.CodeGuruReviewer.RepositoryAssociationArgs\n        {\n            Name = \"MyGitHubEnterpriseRepoName\",\n            Type = \"GitHubEnterpriseServer\",\n            ConnectionArn = \"arn:aws:codestar-connections:us-west-2:123456789012:connection/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\",\n            Owner = \"MyOwnerName\",\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/codegurureviewer\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := codegurureviewer.NewRepositoryAssociation(ctx, \"myRepositoryAssociation\", \u0026codegurureviewer.RepositoryAssociationArgs{\n\t\t\tName:          pulumi.String(\"MyGitHubEnterpriseRepoName\"),\n\t\t\tType:          \"GitHubEnterpriseServer\",\n\t\t\tConnectionArn: pulumi.String(\"arn:aws:codestar-connections:us-west-2:123456789012:connection/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\"),\n\t\t\tOwner:         pulumi.String(\"MyOwnerName\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst myRepositoryAssociation = new aws_native.codegurureviewer.RepositoryAssociation(\"myRepositoryAssociation\", {\n    name: \"MyGitHubEnterpriseRepoName\",\n    type: \"GitHubEnterpriseServer\",\n    connectionArn: \"arn:aws:codestar-connections:us-west-2:123456789012:connection/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\",\n    owner: \"MyOwnerName\",\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nmy_repository_association = aws_native.codegurureviewer.RepositoryAssociation(\"myRepositoryAssociation\",\n    name=\"MyGitHubEnterpriseRepoName\",\n    type=\"GitHubEnterpriseServer\",\n    connection_arn=\"arn:aws:codestar-connections:us-west-2:123456789012:connection/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\",\n    owner=\"MyOwnerName\")\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var myRepositoryAssociation = new AwsNative.CodeGuruReviewer.RepositoryAssociation(\"myRepositoryAssociation\", new AwsNative.CodeGuruReviewer.RepositoryAssociationArgs\n        {\n            Name = \"MyGitHubEnterpriseRepoName\",\n            Type = \"GitHubEnterpriseServer\",\n            ConnectionArn = \"arn:aws:codestar-connections:us-west-2:123456789012:connection/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\",\n            Owner = \"MyOwnerName\",\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/codegurureviewer\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := codegurureviewer.NewRepositoryAssociation(ctx, \"myRepositoryAssociation\", \u0026codegurureviewer.RepositoryAssociationArgs{\n\t\t\tName:          pulumi.String(\"MyGitHubEnterpriseRepoName\"),\n\t\t\tType:          \"GitHubEnterpriseServer\",\n\t\t\tConnectionArn: pulumi.String(\"arn:aws:codestar-connections:us-west-2:123456789012:connection/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\"),\n\t\t\tOwner:         pulumi.String(\"MyOwnerName\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst myRepositoryAssociation = new aws_native.codegurureviewer.RepositoryAssociation(\"myRepositoryAssociation\", {\n    name: \"MyGitHubEnterpriseRepoName\",\n    type: \"GitHubEnterpriseServer\",\n    connectionArn: \"arn:aws:codestar-connections:us-west-2:123456789012:connection/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\",\n    owner: \"MyOwnerName\",\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nmy_repository_association = aws_native.codegurureviewer.RepositoryAssociation(\"myRepositoryAssociation\",\n    name=\"MyGitHubEnterpriseRepoName\",\n    type=\"GitHubEnterpriseServer\",\n    connection_arn=\"arn:aws:codestar-connections:us-west-2:123456789012:connection/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\",\n    owner=\"MyOwnerName\")\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var myRepositoryAssociation = new AwsNative.CodeGuruReviewer.RepositoryAssociation(\"myRepositoryAssociation\", new AwsNative.CodeGuruReviewer.RepositoryAssociationArgs\n        {\n            Name = \"MyRepository\",\n            Type = \"CodeCommit\",\n            Tags = \n            {\n                new AwsNative.CodeGuruReviewer.Inputs.RepositoryAssociationTagArgs\n                {\n                    Key = \"tag1-key\",\n                    Value = \"tag1-value\",\n                },\n                new AwsNative.CodeGuruReviewer.Inputs.RepositoryAssociationTagArgs\n                {\n                    Key = \"tag2-key\",\n                    Value = \"tag2-value\",\n                },\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/codegurureviewer\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := codegurureviewer.NewRepositoryAssociation(ctx, \"myRepositoryAssociation\", \u0026codegurureviewer.RepositoryAssociationArgs{\n\t\t\tName: pulumi.String(\"MyRepository\"),\n\t\t\tType: \"CodeCommit\",\n\t\t\tTags: []codegurureviewer.RepositoryAssociationTagArgs{\n\t\t\t\t\u0026codegurureviewer.RepositoryAssociationTagArgs{\n\t\t\t\t\tKey:   pulumi.String(\"tag1-key\"),\n\t\t\t\t\tValue: pulumi.String(\"tag1-value\"),\n\t\t\t\t},\n\t\t\t\t\u0026codegurureviewer.RepositoryAssociationTagArgs{\n\t\t\t\t\tKey:   pulumi.String(\"tag2-key\"),\n\t\t\t\t\tValue: pulumi.String(\"tag2-value\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst myRepositoryAssociation = new aws_native.codegurureviewer.RepositoryAssociation(\"myRepositoryAssociation\", {\n    name: \"MyRepository\",\n    type: \"CodeCommit\",\n    tags: [\n        {\n            key: \"tag1-key\",\n            value: \"tag1-value\",\n        },\n        {\n            key: \"tag2-key\",\n            value: \"tag2-value\",\n        },\n    ],\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nmy_repository_association = aws_native.codegurureviewer.RepositoryAssociation(\"myRepositoryAssociation\",\n    name=\"MyRepository\",\n    type=\"CodeCommit\",\n    tags=[\n        aws_native.codegurureviewer.RepositoryAssociationTagArgs(\n            key=\"tag1-key\",\n            value=\"tag1-value\",\n        ),\n        aws_native.codegurureviewer.RepositoryAssociationTagArgs(\n            key=\"tag2-key\",\n            value=\"tag2-value\",\n        ),\n    ])\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var myRepositoryAssociation = new AwsNative.CodeGuruReviewer.RepositoryAssociation(\"myRepositoryAssociation\", new AwsNative.CodeGuruReviewer.RepositoryAssociationArgs\n        {\n            Name = \"MyRepository\",\n            Type = \"CodeCommit\",\n            Tags = \n            {\n                new AwsNative.CodeGuruReviewer.Inputs.RepositoryAssociationTagArgs\n                {\n                    Key = \"tag1-key\",\n                    Value = \"tag1-value\",\n                },\n                new AwsNative.CodeGuruReviewer.Inputs.RepositoryAssociationTagArgs\n                {\n                    Key = \"tag2-key\",\n                    Value = \"tag2-value\",\n                },\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/codegurureviewer\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := codegurureviewer.NewRepositoryAssociation(ctx, \"myRepositoryAssociation\", \u0026codegurureviewer.RepositoryAssociationArgs{\n\t\t\tName: pulumi.String(\"MyRepository\"),\n\t\t\tType: \"CodeCommit\",\n\t\t\tTags: []codegurureviewer.RepositoryAssociationTagArgs{\n\t\t\t\t\u0026codegurureviewer.RepositoryAssociationTagArgs{\n\t\t\t\t\tKey:   pulumi.String(\"tag1-key\"),\n\t\t\t\t\tValue: pulumi.String(\"tag1-value\"),\n\t\t\t\t},\n\t\t\t\t\u0026codegurureviewer.RepositoryAssociationTagArgs{\n\t\t\t\t\tKey:   pulumi.String(\"tag2-key\"),\n\t\t\t\t\tValue: pulumi.String(\"tag2-value\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst myRepositoryAssociation = new aws_native.codegurureviewer.RepositoryAssociation(\"myRepositoryAssociation\", {\n    name: \"MyRepository\",\n    type: \"CodeCommit\",\n    tags: [\n        {\n            key: \"tag1-key\",\n            value: \"tag1-value\",\n        },\n        {\n            key: \"tag2-key\",\n            value: \"tag2-value\",\n        },\n    ],\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nmy_repository_association = aws_native.codegurureviewer.RepositoryAssociation(\"myRepositoryAssociation\",\n    name=\"MyRepository\",\n    type=\"CodeCommit\",\n    tags=[\n        aws_native.codegurureviewer.RepositoryAssociationTagArgs(\n            key=\"tag1-key\",\n            value=\"tag1-value\",\n        ),\n        aws_native.codegurureviewer.RepositoryAssociationTagArgs(\n            key=\"tag2-key\",\n            value=\"tag2-value\",\n        ),\n    ])\n\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
@@ -53744,7 +53713,6 @@
                 }
             },
             "requiredInputs": [
-                "name",
                 "type"
             ]
         },
@@ -53810,10 +53778,7 @@
                     },
                     "description": "Specifies the tags applied to a connection."
                 }
-            },
-            "requiredInputs": [
-                "connectionName"
-            ]
+            }
         },
         "aws-native:codestarnotifications:NotificationRule": {
             "description": "Resource Type definition for AWS::CodeStarNotifications::NotificationRule",
@@ -53908,7 +53873,6 @@
             "requiredInputs": [
                 "detailType",
                 "eventTypeIds",
-                "name",
                 "resource",
                 "targets"
             ]
@@ -54082,10 +54046,7 @@
                     "type": "string",
                     "description": "Location of file containing the template body which points to the conformance pack template that is located in an Amazon S3 bucket. You can only specify one of the template body or template S3Uri fields."
                 }
-            },
-            "requiredInputs": [
-                "conformancePackName"
-            ]
+            }
         },
         "aws-native:configuration:OrganizationConformancePack": {
             "description": "Resource schema for AWS::Config::OrganizationConformancePack.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var organizationConformancePack = new AwsNative.Configuration.OrganizationConformancePack(\"organizationConformancePack\", new AwsNative.Configuration.OrganizationConformancePackArgs\n        {\n            OrganizationConformancePackName = \"OrganizationConformancePackName\",\n            DeliveryS3Bucket = \"DeliveryS3Bucket\",\n            TemplateS3Uri = \"s3://bucketname/prefix\",\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/configuration\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := configuration.NewOrganizationConformancePack(ctx, \"organizationConformancePack\", \u0026configuration.OrganizationConformancePackArgs{\n\t\t\tOrganizationConformancePackName: pulumi.String(\"OrganizationConformancePackName\"),\n\t\t\tDeliveryS3Bucket:                pulumi.String(\"DeliveryS3Bucket\"),\n\t\t\tTemplateS3Uri:                   pulumi.String(\"s3://bucketname/prefix\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst organizationConformancePack = new aws_native.configuration.OrganizationConformancePack(\"organizationConformancePack\", {\n    organizationConformancePackName: \"OrganizationConformancePackName\",\n    deliveryS3Bucket: \"DeliveryS3Bucket\",\n    templateS3Uri: \"s3://bucketname/prefix\",\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\norganization_conformance_pack = aws_native.configuration.OrganizationConformancePack(\"organizationConformancePack\",\n    organization_conformance_pack_name=\"OrganizationConformancePackName\",\n    delivery_s3_bucket=\"DeliveryS3Bucket\",\n    template_s3_uri=\"s3://bucketname/prefix\")\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var organizationConformancePack = new AwsNative.Configuration.OrganizationConformancePack(\"organizationConformancePack\", new AwsNative.Configuration.OrganizationConformancePackArgs\n        {\n            OrganizationConformancePackName = \"OrganizationConformancePackName\",\n            DeliveryS3Bucket = \"DeliveryS3Bucket\",\n            TemplateS3Uri = \"s3://bucketname/prefix\",\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/configuration\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := configuration.NewOrganizationConformancePack(ctx, \"organizationConformancePack\", \u0026configuration.OrganizationConformancePackArgs{\n\t\t\tOrganizationConformancePackName: pulumi.String(\"OrganizationConformancePackName\"),\n\t\t\tDeliveryS3Bucket:                pulumi.String(\"DeliveryS3Bucket\"),\n\t\t\tTemplateS3Uri:                   pulumi.String(\"s3://bucketname/prefix\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst organizationConformancePack = new aws_native.configuration.OrganizationConformancePack(\"organizationConformancePack\", {\n    organizationConformancePackName: \"OrganizationConformancePackName\",\n    deliveryS3Bucket: \"DeliveryS3Bucket\",\n    templateS3Uri: \"s3://bucketname/prefix\",\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\norganization_conformance_pack = aws_native.configuration.OrganizationConformancePack(\"organizationConformancePack\",\n    organization_conformance_pack_name=\"OrganizationConformancePackName\",\n    delivery_s3_bucket=\"DeliveryS3Bucket\",\n    template_s3_uri=\"s3://bucketname/prefix\")\n\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
@@ -54164,10 +54125,7 @@
                     "type": "string",
                     "description": "Location of file containing the template body."
                 }
-            },
-            "requiredInputs": [
-                "organizationConformancePackName"
-            ]
+            }
         },
         "aws-native:configuration:StoredQuery": {
             "description": "Resource Type definition for AWS::Config::StoredQuery",
@@ -54306,7 +54264,6 @@
             "requiredInputs": [
                 "config",
                 "instanceArn",
-                "name",
                 "timeZone"
             ]
         },
@@ -54375,7 +54332,6 @@
             },
             "requiredInputs": [
                 "instanceArn",
-                "name",
                 "quickConnectConfig"
             ]
         },
@@ -54539,8 +54495,7 @@
                 }
             },
             "requiredInputs": [
-                "instanceArn",
-                "name"
+                "instanceArn"
             ]
         },
         "aws-native:customerprofiles:Domain": {
@@ -54608,10 +54563,7 @@
                     },
                     "description": "The tags (keys and values) associated with the domain"
                 }
-            },
-            "requiredInputs": [
-                "domainName"
-            ]
+            }
         },
         "aws-native:customerprofiles:Integration": {
             "description": "The resource schema for creating an Amazon Connect Customer Profiles Integration.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var integration = new AwsNative.CustomerProfiles.Integration(\"integration\", new AwsNative.CustomerProfiles.IntegrationArgs\n        {\n            DomainName = \"ExampleDomain\",\n            ObjectTypeName = \"CTR\",\n            Uri = \"arn:aws:connect:us-east-1:123456789012:instance/11111111-1111-1111-1111-111111111111\",\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/customerprofiles\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := customerprofiles.NewIntegration(ctx, \"integration\", \u0026customerprofiles.IntegrationArgs{\n\t\t\tDomainName:     pulumi.String(\"ExampleDomain\"),\n\t\t\tObjectTypeName: pulumi.String(\"CTR\"),\n\t\t\tUri:            pulumi.String(\"arn:aws:connect:us-east-1:123456789012:instance/11111111-1111-1111-1111-111111111111\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst integration = new aws_native.customerprofiles.Integration(\"integration\", {\n    domainName: \"ExampleDomain\",\n    objectTypeName: \"CTR\",\n    uri: \"arn:aws:connect:us-east-1:123456789012:instance/11111111-1111-1111-1111-111111111111\",\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nintegration = aws_native.customerprofiles.Integration(\"integration\",\n    domain_name=\"ExampleDomain\",\n    object_type_name=\"CTR\",\n    uri=\"arn:aws:connect:us-east-1:123456789012:instance/11111111-1111-1111-1111-111111111111\")\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var testIntegration = new AwsNative.CustomerProfiles.Integration(\"testIntegration\", new AwsNative.CustomerProfiles.IntegrationArgs\n        {\n            DomainName = \"ExampleDomain\",\n            ObjectTypeName = \"CTR\",\n            Uri = \"arn:aws:connect:us-east-1:123456789012:instance/11111111-1111-1111-1111-111111111111\",\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/customerprofiles\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := customerprofiles.NewIntegration(ctx, \"testIntegration\", \u0026customerprofiles.IntegrationArgs{\n\t\t\tDomainName:     pulumi.String(\"ExampleDomain\"),\n\t\t\tObjectTypeName: pulumi.String(\"CTR\"),\n\t\t\tUri:            pulumi.String(\"arn:aws:connect:us-east-1:123456789012:instance/11111111-1111-1111-1111-111111111111\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst testIntegration = new aws_native.customerprofiles.Integration(\"testIntegration\", {\n    domainName: \"ExampleDomain\",\n    objectTypeName: \"CTR\",\n    uri: \"arn:aws:connect:us-east-1:123456789012:instance/11111111-1111-1111-1111-111111111111\",\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\ntest_integration = aws_native.customerprofiles.Integration(\"testIntegration\",\n    domain_name=\"ExampleDomain\",\n    object_type_name=\"CTR\",\n    uri=\"arn:aws:connect:us-east-1:123456789012:instance/11111111-1111-1111-1111-111111111111\")\n\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
@@ -54869,8 +54821,7 @@
                 }
             },
             "requiredInputs": [
-                "input",
-                "name"
+                "input"
             ]
         },
         "aws-native:databrew:Job": {
@@ -55052,7 +55003,6 @@
                 }
             },
             "requiredInputs": [
-                "name",
                 "roleArn",
                 "type"
             ]
@@ -55124,7 +55074,6 @@
             },
             "requiredInputs": [
                 "datasetName",
-                "name",
                 "recipeName",
                 "roleArn"
             ]
@@ -55181,7 +55130,6 @@
                 }
             },
             "requiredInputs": [
-                "name",
                 "steps"
             ]
         },
@@ -55237,8 +55185,7 @@
                 }
             },
             "requiredInputs": [
-                "cronExpression",
-                "name"
+                "cronExpression"
             ]
         },
         "aws-native:datasync:Agent": {
@@ -56131,7 +56078,6 @@
                 }
             },
             "requiredInputs": [
-                "name",
                 "projectArn",
                 "rules"
             ]
@@ -56197,10 +56143,7 @@
                         "$ref": "#/types/aws-native:devicefarm:InstanceProfileTag"
                     }
                 }
-            },
-            "requiredInputs": [
-                "name"
-            ]
+            }
         },
         "aws-native:devicefarm:NetworkProfile": {
             "description": "AWS::DeviceFarm::NetworkProfile creates a new DF Network Profile",
@@ -56296,7 +56239,6 @@
                 }
             },
             "requiredInputs": [
-                "name",
                 "projectArn"
             ]
         },
@@ -56337,10 +56279,7 @@
                         "$ref": "#/types/aws-native:devicefarm:ProjectTag"
                     }
                 }
-            },
-            "requiredInputs": [
-                "name"
-            ]
+            }
         },
         "aws-native:devicefarm:TestGridProject": {
             "description": "AWS::DeviceFarm::TestGridProject creates a new TestGrid Project",
@@ -56385,10 +56324,7 @@
                 "vpcConfig": {
                     "$ref": "#/types/aws-native:devicefarm:TestGridProjectVpcConfig"
                 }
-            },
-            "requiredInputs": [
-                "name"
-            ]
+            }
         },
         "aws-native:devicefarm:VPCEConfiguration": {
             "description": "AWS::DeviceFarm::VPCEConfiguration creates a new Device Farm VPCE Configuration",
@@ -57780,8 +57716,7 @@
             },
             "requiredInputs": [
                 "addressFamily",
-                "maxEntries",
-                "prefixListName"
+                "maxEntries"
             ]
         },
         "aws-native:ec2:RouteTable": {
@@ -59769,7 +59704,6 @@
                 }
             },
             "requiredInputs": [
-                "addonName",
                 "clusterName"
             ]
         },
@@ -60157,8 +60091,7 @@
             },
             "requiredInputs": [
                 "engine",
-                "userId",
-                "userName"
+                "userId"
             ]
         },
         "aws-native:elasticache:UserGroup": {
@@ -60513,7 +60446,6 @@
                 "authMode",
                 "defaultS3Location",
                 "engineSecurityGroupId",
-                "name",
                 "serviceRole",
                 "subnetIds",
                 "vpcId",
@@ -60618,8 +60550,7 @@
                 }
             },
             "requiredInputs": [
-                "containerProvider",
-                "name"
+                "containerProvider"
             ]
         },
         "aws-native:events:ApiDestination": {
@@ -60903,10 +60834,7 @@
                     "type": "string",
                     "description": "Name of the Environment"
                 }
-            },
-            "requiredInputs": [
-                "name"
-            ]
+            }
         },
         "aws-native:fis:ExperimentTemplate": {
             "description": "Resource schema for AWS::FIS::ExperimentTemplate",
@@ -61110,7 +61038,6 @@
             },
             "requiredInputs": [
                 "excludeResourceTags",
-                "policyName",
                 "remediationEnabled",
                 "resourceType",
                 "securityServicePolicyData"
@@ -61286,10 +61213,7 @@
                     },
                     "description": "Tags associated with this entity type."
                 }
-            },
-            "requiredInputs": [
-                "name"
-            ]
+            }
         },
         "aws-native:frauddetector:EventType": {
             "description": "A resource schema for an EventType in Amazon Fraud Detector.",
@@ -61388,8 +61312,7 @@
             "requiredInputs": [
                 "entityTypes",
                 "eventVariables",
-                "labels",
-                "name"
+                "labels"
             ]
         },
         "aws-native:frauddetector:Label": {
@@ -61446,10 +61369,7 @@
                     },
                     "description": "Tags associated with this label."
                 }
-            },
-            "requiredInputs": [
-                "name"
-            ]
+            }
         },
         "aws-native:frauddetector:Outcome": {
             "description": "An outcome for rule evaluation.",
@@ -61505,10 +61425,7 @@
                     },
                     "description": "Tags associated with this outcome."
                 }
-            },
-            "requiredInputs": [
-                "name"
-            ]
+            }
         },
         "aws-native:frauddetector:Variable": {
             "description": "A resource schema for a Variable in Amazon Fraud Detector.",
@@ -61603,8 +61520,7 @@
             "requiredInputs": [
                 "dataSource",
                 "dataType",
-                "defaultValue",
-                "name"
+                "defaultValue"
             ]
         },
         "aws-native:gamelift:Alias": {
@@ -61648,7 +61564,6 @@
                 }
             },
             "requiredInputs": [
-                "name",
                 "routingStrategy"
             ]
         },
@@ -62003,7 +61918,6 @@
                 }
             },
             "requiredInputs": [
-                "gameServerGroupName",
                 "instanceDefinitions",
                 "launchTemplate",
                 "roleArn"
@@ -62078,10 +61992,7 @@
                         "$ref": "#/types/aws-native:globalaccelerator:AcceleratorTag"
                     }
                 }
-            },
-            "requiredInputs": [
-                "name"
-            ]
+            }
         },
         "aws-native:globalaccelerator:EndpointGroup": {
             "description": "Resource Type definition for AWS::GlobalAccelerator::EndpointGroup",
@@ -62295,10 +62206,7 @@
                     },
                     "description": "List of tags to tag the Registry"
                 }
-            },
-            "requiredInputs": [
-                "name"
-            ]
+            }
         },
         "aws-native:glue:Schema": {
             "description": "This resource represents a schema of Glue Schema Registry.",
@@ -62392,7 +62300,6 @@
             "requiredInputs": [
                 "compatibility",
                 "dataFormat",
-                "name",
                 "schemaDefinition"
             ]
         },
@@ -62562,8 +62469,7 @@
                 }
             },
             "requiredInputs": [
-                "configData",
-                "name"
+                "configData"
             ]
         },
         "aws-native:groundstation:DataflowEndpointGroup": {
@@ -62694,7 +62600,6 @@
             "requiredInputs": [
                 "dataflowEdges",
                 "minimumViableContactDurationSeconds",
-                "name",
                 "trackingConfigArn"
             ]
         },
@@ -63211,7 +63116,6 @@
                 }
             },
             "requiredInputs": [
-                "name",
                 "platform",
                 "version"
             ]
@@ -63412,8 +63316,7 @@
                 }
             },
             "requiredInputs": [
-                "distributions",
-                "name"
+                "distributions"
             ]
         },
         "aws-native:imagebuilder:Image": {
@@ -63704,7 +63607,6 @@
             },
             "requiredInputs": [
                 "components",
-                "name",
                 "parentImage",
                 "version"
             ]
@@ -63842,8 +63744,7 @@
                 }
             },
             "requiredInputs": [
-                "instanceProfileName",
-                "name"
+                "instanceProfileName"
             ]
         },
         "aws-native:index:ExtensionResource": {
@@ -65297,7 +65198,6 @@
                 }
             },
             "requiredInputs": [
-                "applicationName",
                 "roleArn"
             ]
         },
@@ -65429,8 +65329,7 @@
                 }
             },
             "requiredInputs": [
-                "assetModelId",
-                "assetName"
+                "assetModelId"
             ]
         },
         "aws-native:iotsitewise:AssetModel": {
@@ -65524,10 +65423,7 @@
                     },
                     "description": "A list of key-value pairs that contain metadata for the asset model."
                 }
-            },
-            "requiredInputs": [
-                "assetModelName"
-            ]
+            }
         },
         "aws-native:iotsitewise:Dashboard": {
             "description": "Resource schema for AWS::IoTSiteWise::Dashboard",
@@ -65599,8 +65495,7 @@
             },
             "requiredInputs": [
                 "dashboardDefinition",
-                "dashboardDescription",
-                "dashboardName"
+                "dashboardDescription"
             ]
         },
         "aws-native:iotsitewise:Gateway": {
@@ -65664,7 +65559,6 @@
                 }
             },
             "requiredInputs": [
-                "gatewayName",
                 "gatewayPlatform"
             ]
         },
@@ -65772,7 +65666,6 @@
             },
             "requiredInputs": [
                 "portalContactEmail",
-                "portalName",
                 "roleArn"
             ]
         },
@@ -65836,8 +65729,7 @@
                 }
             },
             "requiredInputs": [
-                "portalId",
-                "projectName"
+                "portalId"
             ]
         },
         "aws-native:iotwireless:Destination": {
@@ -65915,7 +65807,6 @@
             "requiredInputs": [
                 "expression",
                 "expressionType",
-                "name",
                 "roleArn"
             ]
         },
@@ -66561,7 +66452,6 @@
             },
             "requiredInputs": [
                 "indexId",
-                "name",
                 "type"
             ]
         },
@@ -66646,7 +66536,6 @@
             },
             "requiredInputs": [
                 "indexId",
-                "name",
                 "roleArn",
                 "s3Path"
             ]
@@ -66757,7 +66646,6 @@
             },
             "requiredInputs": [
                 "edition",
-                "name",
                 "roleArn"
             ]
         },
@@ -66946,7 +66834,6 @@
                 }
             },
             "requiredInputs": [
-                "aliasName",
                 "targetKeyId"
             ]
         },
@@ -67762,7 +67649,6 @@
                 "entitlements",
                 "homeRegion",
                 "issuer",
-                "licenseName",
                 "productName",
                 "validity"
             ]
@@ -68037,7 +67923,6 @@
                 }
             },
             "requiredInputs": [
-                "diskName",
                 "sizeInGb"
             ]
         },
@@ -68194,8 +68079,7 @@
             },
             "requiredInputs": [
                 "blueprintId",
-                "bundleId",
-                "instanceName"
+                "bundleId"
             ]
         },
         "aws-native:lightsail:StaticIp": {
@@ -68237,10 +68121,7 @@
                     "type": "string",
                     "description": "The name of the static IP address."
                 }
-            },
-            "requiredInputs": [
-                "staticIpName"
-            ]
+            }
         },
         "aws-native:location:GeofenceCollection": {
             "description": "Definition of AWS::Location::GeofenceCollection Resource Type",
@@ -68362,7 +68243,6 @@
             },
             "requiredInputs": [
                 "configuration",
-                "mapName",
                 "pricingPlan"
             ]
         },
@@ -68552,8 +68432,7 @@
                 }
             },
             "requiredInputs": [
-                "pricingPlan",
-                "trackerName"
+                "pricingPlan"
             ]
         },
         "aws-native:location:TrackerConsumer": {
@@ -68670,7 +68549,6 @@
                 }
             },
             "requiredInputs": [
-                "name",
                 "queryString"
             ]
         },
@@ -68854,10 +68732,7 @@
                 "projectName": {
                     "type": "string"
                 }
-            },
-            "requiredInputs": [
-                "projectName"
-            ]
+            }
         },
         "aws-native:macie:CustomDataIdentifier": {
             "description": "Macie CustomDataIdentifier resource schema",
@@ -68936,7 +68811,6 @@
                 }
             },
             "requiredInputs": [
-                "name",
                 "regex"
             ]
         },
@@ -69005,8 +68879,7 @@
                 }
             },
             "requiredInputs": [
-                "findingCriteria",
-                "name"
+                "findingCriteria"
             ]
         },
         "aws-native:macie:Session": {
@@ -69099,7 +68972,6 @@
                 }
             },
             "requiredInputs": [
-                "name",
                 "source"
             ]
         },
@@ -69186,7 +69058,6 @@
             "requiredInputs": [
                 "description",
                 "flowArn",
-                "name",
                 "subscribers"
             ]
         },
@@ -69452,8 +69323,7 @@
                 }
             },
             "requiredInputs": [
-                "description",
-                "name"
+                "description"
             ]
         },
         "aws-native:mediaconnect:FlowVpcInterface": {
@@ -69526,7 +69396,6 @@
             },
             "requiredInputs": [
                 "flowArn",
-                "name",
                 "roleArn",
                 "securityGroupIds",
                 "subnetId"
@@ -69980,10 +69849,7 @@
                     },
                     "description": "List of users associated to this acl."
                 }
-            },
-            "requiredInputs": [
-                "aCLName"
-            ]
+            }
         },
         "aws-native:memorydb:Cluster": {
             "description": "The AWS::MemoryDB::Cluster resource creates an Amazon MemoryDB Cluster.",
@@ -70224,7 +70090,6 @@
             },
             "requiredInputs": [
                 "aCLName",
-                "clusterName",
                 "nodeType"
             ]
         },
@@ -70291,8 +70156,7 @@
                 }
             },
             "requiredInputs": [
-                "family",
-                "parameterGroupName"
+                "family"
             ]
         },
         "aws-native:memorydb:SubnetGroup": {
@@ -70356,7 +70220,6 @@
                 }
             },
             "requiredInputs": [
-                "subnetGroupName",
                 "subnetIds"
             ]
         },
@@ -70420,8 +70283,7 @@
             },
             "requiredInputs": [
                 "accessString",
-                "authenticationMode",
-                "userName"
+                "authenticationMode"
             ]
         },
         "aws-native:mwaa:Environment": {
@@ -70565,10 +70427,7 @@
                 "weeklyMaintenanceWindowStart": {
                     "type": "string"
                 }
-            },
-            "requiredInputs": [
-                "name"
-            ]
+            }
         },
         "aws-native:networkfirewall:Firewall": {
             "description": "Resource type definition for AWS::NetworkFirewall::Firewall",
@@ -70665,7 +70524,6 @@
                 }
             },
             "requiredInputs": [
-                "firewallName",
                 "firewallPolicyArn",
                 "subnetMappings",
                 "vpcId"
@@ -70731,8 +70589,7 @@
                 }
             },
             "requiredInputs": [
-                "firewallPolicy",
-                "firewallPolicyName"
+                "firewallPolicy"
             ]
         },
         "aws-native:networkfirewall:LoggingConfiguration": {
@@ -70853,7 +70710,6 @@
             },
             "requiredInputs": [
                 "capacity",
-                "ruleGroupName",
                 "type"
             ]
         },
@@ -71372,7 +71228,6 @@
             "requiredInputs": [
                 "ec2SubnetIds",
                 "launchProfileProtocolVersions",
-                "name",
                 "streamConfiguration",
                 "studioComponentIds",
                 "studioId"
@@ -71456,7 +71311,6 @@
             },
             "requiredInputs": [
                 "ec2ImageId",
-                "name",
                 "studioId"
             ]
         },
@@ -71539,7 +71393,6 @@
             "requiredInputs": [
                 "adminRoleArn",
                 "displayName",
-                "studioName",
                 "userRoleArn"
             ]
         },
@@ -71650,7 +71503,6 @@
                 }
             },
             "requiredInputs": [
-                "name",
                 "studioId",
                 "type"
             ]
@@ -72116,10 +71968,7 @@
                         "$ref": "#/types/aws-native:panorama:PackageTag"
                     }
                 }
-            },
-            "requiredInputs": [
-                "packageName"
-            ]
+            }
         },
         "aws-native:panorama:PackageVersion": {
             "description": "Schema for PackageVersion Resource Type",
@@ -72281,8 +72130,7 @@
                 "inclusiveStartTime",
                 "kinesisConfiguration",
                 "ledgerName",
-                "roleArn",
-                "streamName"
+                "roleArn"
             ]
         },
         "aws-native:quicksight:Analysis": {
@@ -73162,7 +73010,6 @@
             },
             "requiredInputs": [
                 "auth",
-                "dBProxyName",
                 "engineFamily",
                 "roleArn",
                 "vpcSubnetIds"
@@ -73267,7 +73114,6 @@
                 }
             },
             "requiredInputs": [
-                "dBProxyEndpointName",
                 "dBProxyName",
                 "vpcSubnetIds"
             ]
@@ -73843,10 +73689,7 @@
                 "projectName": {
                     "type": "string"
                 }
-            },
-            "requiredInputs": [
-                "projectName"
-            ]
+            }
         },
         "aws-native:resourcegroups:Group": {
             "description": "Schema for ResourceGroups::Group",
@@ -73920,10 +73763,7 @@
                         "$ref": "#/types/aws-native:resourcegroups:GroupTag"
                     }
                 }
-            },
-            "requiredInputs": [
-                "name"
-            ]
+            }
         },
         "aws-native:robomaker:Fleet": {
             "description": "AWS::RoboMaker::Fleet resource creates an AWS RoboMaker fleet. Fleets contain robots and can receive deployments.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var basicFleet = new AwsNative.RoboMaker.Fleet(\"basicFleet\", new AwsNative.RoboMaker.FleetArgs\n        {\n            Name = \"MyFleet\",\n            Tags = new AwsNative.RoboMaker.Inputs.FleetTagsArgs\n            {\n                Name = \"BasicFleet\",\n                Type = \"CFN\",\n            },\n        });\n        this.Fleet = \"BasicFleet\";\n    }\n\n    [Output(\"fleet\")]\n    public Output\u003cstring\u003e Fleet { get; set; }\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/robomaker\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := robomaker.NewFleet(ctx, \"basicFleet\", \u0026robomaker.FleetArgs{\n\t\t\tName: pulumi.String(\"MyFleet\"),\n\t\t\tTags: \u0026robomaker.FleetTagsArgs{\n\t\t\t\tName: \"BasicFleet\",\n\t\t\t\tType: \"CFN\",\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"fleet\", \"BasicFleet\")\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst basicFleet = new aws_native.robomaker.Fleet(\"basicFleet\", {\n    name: \"MyFleet\",\n    tags: {\n        name: \"BasicFleet\",\n        type: \"CFN\",\n    },\n});\nexport const fleet = \"BasicFleet\";\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nbasic_fleet = aws_native.robomaker.Fleet(\"basicFleet\",\n    name=\"MyFleet\",\n    tags=aws_native.robomaker.FleetTagsArgs(\n        name=\"BasicFleet\",\n        type=\"CFN\",\n    ))\npulumi.export(\"fleet\", \"BasicFleet\")\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var basicFleet = new AwsNative.RoboMaker.Fleet(\"basicFleet\", new AwsNative.RoboMaker.FleetArgs\n        {\n            Name = \"MyFleet\",\n            Tags = new AwsNative.RoboMaker.Inputs.FleetTagsArgs\n            {\n                Name = \"BasicFleet\",\n                Type = \"CFN\",\n            },\n        });\n        this.Fleet = basicFleet.Id;\n    }\n\n    [Output(\"fleet\")]\n    public Output\u003cstring\u003e Fleet { get; set; }\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/robomaker\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tbasicFleet, err := robomaker.NewFleet(ctx, \"basicFleet\", \u0026robomaker.FleetArgs{\n\t\t\tName: pulumi.String(\"MyFleet\"),\n\t\t\tTags: \u0026robomaker.FleetTagsArgs{\n\t\t\t\tName: \"BasicFleet\",\n\t\t\t\tType: \"CFN\",\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"fleet\", basicFleet.ID())\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst basicFleet = new aws_native.robomaker.Fleet(\"basicFleet\", {\n    name: \"MyFleet\",\n    tags: {\n        name: \"BasicFleet\",\n        type: \"CFN\",\n    },\n});\nexport const fleet = basicFleet.id;\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nbasic_fleet = aws_native.robomaker.Fleet(\"basicFleet\",\n    name=\"MyFleet\",\n    tags=aws_native.robomaker.FleetTagsArgs(\n        name=\"BasicFleet\",\n        type=\"CFN\",\n    ))\npulumi.export(\"fleet\", basic_fleet.id)\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var basicFleet = new AwsNative.RoboMaker.Fleet(\"basicFleet\", new AwsNative.RoboMaker.FleetArgs\n        {\n            Name = \"MyFleet\",\n        });\n        var basicRobot = new AwsNative.RoboMaker.Robot(\"basicRobot\", new AwsNative.RoboMaker.RobotArgs\n        {\n            Name = \"MyRobot\",\n            GreengrassGroupId = \"51229986-abdc-4ca6-94f8-04735a0c9f07\",\n            Architecture = \"ARMHF\",\n            Fleet = basicFleet.Arn,\n            Tags = new AwsNative.RoboMaker.Inputs.RobotTagsArgs\n            {\n                Name = \"BasicRobot\",\n                Type = \"CFN\",\n            },\n        });\n        this.Robot = \"BasicRobot\";\n    }\n\n    [Output(\"robot\")]\n    public Output\u003cstring\u003e Robot { get; set; }\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/robomaker\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tbasicFleet, err := robomaker.NewFleet(ctx, \"basicFleet\", \u0026robomaker.FleetArgs{\n\t\t\tName: pulumi.String(\"MyFleet\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = robomaker.NewRobot(ctx, \"basicRobot\", \u0026robomaker.RobotArgs{\n\t\t\tName:              pulumi.String(\"MyRobot\"),\n\t\t\tGreengrassGroupId: pulumi.String(\"51229986-abdc-4ca6-94f8-04735a0c9f07\"),\n\t\t\tArchitecture:      \"ARMHF\",\n\t\t\tFleet:             basicFleet.Arn,\n\t\t\tTags: \u0026robomaker.RobotTagsArgs{\n\t\t\t\tName: \"BasicRobot\",\n\t\t\t\tType: \"CFN\",\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"robot\", \"BasicRobot\")\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst basicFleet = new aws_native.robomaker.Fleet(\"basicFleet\", {name: \"MyFleet\"});\nconst basicRobot = new aws_native.robomaker.Robot(\"basicRobot\", {\n    name: \"MyRobot\",\n    greengrassGroupId: \"51229986-abdc-4ca6-94f8-04735a0c9f07\",\n    architecture: \"ARMHF\",\n    fleet: basicFleet.arn,\n    tags: {\n        name: \"BasicRobot\",\n        type: \"CFN\",\n    },\n});\nexport const robot = \"BasicRobot\";\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nbasic_fleet = aws_native.robomaker.Fleet(\"basicFleet\", name=\"MyFleet\")\nbasic_robot = aws_native.robomaker.Robot(\"basicRobot\",\n    name=\"MyRobot\",\n    greengrass_group_id=\"51229986-abdc-4ca6-94f8-04735a0c9f07\",\n    architecture=\"ARMHF\",\n    fleet=basic_fleet.arn,\n    tags=aws_native.robomaker.RobotTagsArgs(\n        name=\"BasicRobot\",\n        type=\"CFN\",\n    ))\npulumi.export(\"robot\", \"BasicRobot\")\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var basicFleet = new AwsNative.RoboMaker.Fleet(\"basicFleet\", new AwsNative.RoboMaker.FleetArgs\n        {\n            Name = \"MyFleet\",\n        });\n        var basicRobot = new AwsNative.RoboMaker.Robot(\"basicRobot\", new AwsNative.RoboMaker.RobotArgs\n        {\n            Name = \"MyRobot\",\n            GreengrassGroupId = \"51229986-abdc-4ca6-94f8-04735a0c9f07\",\n            Architecture = \"ARMHF\",\n            Fleet = basicFleet.Arn,\n            Tags = new AwsNative.RoboMaker.Inputs.RobotTagsArgs\n            {\n                Name = \"BasicRobot\",\n                Type = \"CFN\",\n            },\n        });\n        this.Robot = basicRobot.Id;\n    }\n\n    [Output(\"robot\")]\n    public Output\u003cstring\u003e Robot { get; set; }\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/robomaker\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tbasicFleet, err := robomaker.NewFleet(ctx, \"basicFleet\", \u0026robomaker.FleetArgs{\n\t\t\tName: pulumi.String(\"MyFleet\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tbasicRobot, err := robomaker.NewRobot(ctx, \"basicRobot\", \u0026robomaker.RobotArgs{\n\t\t\tName:              pulumi.String(\"MyRobot\"),\n\t\t\tGreengrassGroupId: pulumi.String(\"51229986-abdc-4ca6-94f8-04735a0c9f07\"),\n\t\t\tArchitecture:      \"ARMHF\",\n\t\t\tFleet:             basicFleet.Arn,\n\t\t\tTags: \u0026robomaker.RobotTagsArgs{\n\t\t\t\tName: \"BasicRobot\",\n\t\t\t\tType: \"CFN\",\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"robot\", basicRobot.ID())\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst basicFleet = new aws_native.robomaker.Fleet(\"basicFleet\", {name: \"MyFleet\"});\nconst basicRobot = new aws_native.robomaker.Robot(\"basicRobot\", {\n    name: \"MyRobot\",\n    greengrassGroupId: \"51229986-abdc-4ca6-94f8-04735a0c9f07\",\n    architecture: \"ARMHF\",\n    fleet: basicFleet.arn,\n    tags: {\n        name: \"BasicRobot\",\n        type: \"CFN\",\n    },\n});\nexport const robot = basicRobot.id;\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nbasic_fleet = aws_native.robomaker.Fleet(\"basicFleet\", name=\"MyFleet\")\nbasic_robot = aws_native.robomaker.Robot(\"basicRobot\",\n    name=\"MyRobot\",\n    greengrass_group_id=\"51229986-abdc-4ca6-94f8-04735a0c9f07\",\n    architecture=\"ARMHF\",\n    fleet=basic_fleet.arn,\n    tags=aws_native.robomaker.RobotTagsArgs(\n        name=\"BasicRobot\",\n        type=\"CFN\",\n    ))\npulumi.export(\"robot\", basic_robot.id)\n\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
@@ -74297,10 +74137,7 @@
                     },
                     "description": "A complex type that contains information about the VPCs that are associated with the specified hosted zone."
                 }
-            },
-            "requiredInputs": [
-                "name"
-            ]
+            }
         },
         "aws-native:route53:KeySigningKey": {
             "description": "Represents a key signing key (KSK) associated with a hosted zone. You can only have two KSKs per hosted zone.",
@@ -74350,7 +74187,6 @@
             "requiredInputs": [
                 "hostedZoneId",
                 "keyManagementServiceArn",
-                "name",
                 "status"
             ]
         },
@@ -74463,10 +74299,7 @@
                     },
                     "description": "A collection of tags associated with a resource"
                 }
-            },
-            "requiredInputs": [
-                "name"
-            ]
+            }
         },
         "aws-native:route53recoverycontrol:RoutingControl": {
             "description": "AWS Route53 Recovery Control Routing Control resource schema .",
@@ -74511,10 +74344,7 @@
                     "type": "string",
                     "description": "The name of the routing control. You can use any non-white space character in the name."
                 }
-            },
-            "requiredInputs": [
-                "name"
-            ]
+            }
         },
         "aws-native:route53recoverycontrol:SafetyRule": {
             "description": "Resource schema for AWS Route53 Recovery Control basic constructs and validation rules.",
@@ -74640,10 +74470,7 @@
                     },
                     "description": "A collection of tags associated with a resource"
                 }
-            },
-            "requiredInputs": [
-                "cellName"
-            ]
+            }
         },
         "aws-native:route53recoveryreadiness:ReadinessCheck": {
             "description": "Aws Route53 Recovery Readiness Check Schema and API specification.",
@@ -74689,10 +74516,7 @@
                     },
                     "description": "A collection of tags associated with a resource."
                 }
-            },
-            "requiredInputs": [
-                "readinessCheckName"
-            ]
+            }
         },
         "aws-native:route53recoveryreadiness:RecoveryGroup": {
             "description": "AWS Route53 Recovery Readiness Recovery Group Schema and API specifications.",
@@ -74744,10 +74568,7 @@
                     },
                     "description": "A collection of tags associated with a resource."
                 }
-            },
-            "requiredInputs": [
-                "recoveryGroupName"
-            ]
+            }
         },
         "aws-native:route53recoveryreadiness:ResourceSet": {
             "description": "Schema for the AWS Route53 Recovery Readiness ResourceSet Resource and API.",
@@ -74811,7 +74632,6 @@
                 }
             },
             "requiredInputs": [
-                "resourceSetName",
                 "resourceSetType",
                 "resources"
             ]
@@ -75910,7 +75730,6 @@
             },
             "requiredInputs": [
                 "bucket",
-                "name",
                 "vpcConfiguration"
             ]
         },
@@ -75969,7 +75788,6 @@
                 }
             },
             "requiredInputs": [
-                "bucketName",
                 "outpostId"
             ]
         },
@@ -76163,7 +75981,6 @@
                 }
             },
             "requiredInputs": [
-                "appName",
                 "appType",
                 "domainId",
                 "userProfileName"
@@ -76213,10 +76030,7 @@
                     },
                     "description": "A list of tags to apply to the AppImageConfig."
                 }
-            },
-            "requiredInputs": [
-                "appImageConfigName"
-            ]
+            }
         },
         "aws-native:sagemaker:DataQualityJobDefinition": {
             "description": "Resource Type definition for AWS::SageMaker::DataQualityJobDefinition",
@@ -76433,7 +76247,6 @@
                 }
             },
             "requiredInputs": [
-                "deviceFleetName",
                 "outputConfig",
                 "roleArn"
             ]
@@ -76556,7 +76369,6 @@
             "requiredInputs": [
                 "authMode",
                 "defaultUserSettings",
-                "domainName",
                 "subnetIds",
                 "vpcId"
             ]
@@ -76657,7 +76469,6 @@
             "requiredInputs": [
                 "eventTimeFeatureName",
                 "featureDefinitions",
-                "featureGroupName",
                 "recordIdentifierFeatureName"
             ]
         },
@@ -76715,7 +76526,6 @@
                 }
             },
             "requiredInputs": [
-                "imageName",
                 "imageRoleArn"
             ]
         },
@@ -77022,10 +76832,7 @@
                     },
                     "description": "An array of key-value pairs to apply to this resource."
                 }
-            },
-            "requiredInputs": [
-                "modelPackageGroupName"
-            ]
+            }
         },
         "aws-native:sagemaker:ModelQualityJobDefinition": {
             "description": "Resource Type definition for AWS::SageMaker::ModelQualityJobDefinition",
@@ -77212,8 +77019,7 @@
                 }
             },
             "requiredInputs": [
-                "monitoringScheduleConfig",
-                "monitoringScheduleName"
+                "monitoringScheduleConfig"
             ]
         },
         "aws-native:sagemaker:Pipeline": {
@@ -77280,7 +77086,6 @@
             },
             "requiredInputs": [
                 "pipelineDefinition",
-                "pipelineName",
                 "roleArn"
             ]
         },
@@ -77353,7 +77158,6 @@
                 }
             },
             "requiredInputs": [
-                "projectName",
                 "serviceCatalogProvisioningDetails"
             ]
         },
@@ -77428,8 +77232,7 @@
                 }
             },
             "requiredInputs": [
-                "domainId",
-                "userProfileName"
+                "domainId"
             ]
         },
         "aws-native:servicecatalog:CloudFormationProvisionedProduct": {
@@ -77599,8 +77402,7 @@
             },
             "requiredInputs": [
                 "definition",
-                "definitionType",
-                "name"
+                "definitionType"
             ]
         },
         "aws-native:servicecatalog:ServiceActionAssociation": {
@@ -77674,10 +77476,7 @@
                 "tags": {
                     "$ref": "#/types/aws-native:servicecatalogappregistry:ApplicationTags"
                 }
-            },
-            "requiredInputs": [
-                "name"
-            ]
+            }
         },
         "aws-native:servicecatalogappregistry:AttributeGroup": {
             "description": "Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroup.",
@@ -77723,8 +77522,7 @@
                 }
             },
             "requiredInputs": [
-                "attributes",
-                "name"
+                "attributes"
             ]
         },
         "aws-native:servicecatalogappregistry:AttributeGroupAssociation": {
@@ -78135,10 +77933,7 @@
                 "waitForSuccessTimeoutSeconds": {
                     "type": "integer"
                 }
-            },
-            "requiredInputs": [
-                "name"
-            ]
+            }
         },
         "aws-native:ssm:Document": {
             "description": "The AWS::SSM::Document resource is an SSM document in AWS Systems Manager that defines the actions that Systems Manager performs, which can be used to set up and run commands on your instances.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var sessionPreferencesDocument = new AwsNative.SSM.Document(\"sessionPreferencesDocument\", new AwsNative.SSM.DocumentArgs\n        {\n            Name = \"SSM-SessionManagerRunShell\",\n            Content = \n            {\n                { \"schemaVersion\", \"1.0\" },\n                { \"description\", \"Document to hold regional settings for Session Manager\" },\n                { \"sessionType\", \"Standard_Stream\" },\n                { \"inputs\", \n                {\n                    { \"s3BucketName\", \"DOC-EXAMPLE-BUCKET\" },\n                    { \"s3KeyPrefix\", \"MyBucketPrefix\" },\n                    { \"s3EncryptionEnabled\", true },\n                    { \"cloudWatchLogGroupName\", \"MyLogGroupName\" },\n                    { \"cloudWatchEncryptionEnabled\", true },\n                    { \"cloudWatchStreamingEnabled\", false },\n                    { \"kmsKeyId\", \"MyKMSKeyID\" },\n                    { \"runAsEnabled\", false },\n                    { \"runAsDefaultUser\", \"MyDefaultRunAsUser\" },\n                    { \"idleSessionTimeout\", \"20\" },\n                    { \"shellProfile\", \n                    {\n                        { \"windows\", \"example commands\" },\n                        { \"linux\", \"example commands\" },\n                    } },\n                } },\n            },\n            DocumentType = \"Session\",\n        });\n        this.DocumentName = \"SSM-SessionManagerRunShell\";\n    }\n\n    [Output(\"documentName\")]\n    public Output\u003cstring\u003e DocumentName { get; set; }\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/ssm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ssm.NewDocument(ctx, \"sessionPreferencesDocument\", \u0026ssm.DocumentArgs{\n\t\t\tName: pulumi.String(\"SSM-SessionManagerRunShell\"),\n\t\t\tContent: pulumi.Any{\n\t\t\t\tSchemaVersion: \"1.0\",\n\t\t\t\tDescription:   \"Document to hold regional settings for Session Manager\",\n\t\t\t\tSessionType:   \"Standard_Stream\",\n\t\t\t\tInputs: map[string]interface{}{\n\t\t\t\t\t\"s3BucketName\":                \"DOC-EXAMPLE-BUCKET\",\n\t\t\t\t\t\"s3KeyPrefix\":                 \"MyBucketPrefix\",\n\t\t\t\t\t\"s3EncryptionEnabled\":         true,\n\t\t\t\t\t\"cloudWatchLogGroupName\":      \"MyLogGroupName\",\n\t\t\t\t\t\"cloudWatchEncryptionEnabled\": true,\n\t\t\t\t\t\"cloudWatchStreamingEnabled\":  false,\n\t\t\t\t\t\"kmsKeyId\":                    \"MyKMSKeyID\",\n\t\t\t\t\t\"runAsEnabled\":                false,\n\t\t\t\t\t\"runAsDefaultUser\":            \"MyDefaultRunAsUser\",\n\t\t\t\t\t\"idleSessionTimeout\":          \"20\",\n\t\t\t\t\t\"shellProfile\": map[string]interface{}{\n\t\t\t\t\t\t\"windows\": \"example commands\",\n\t\t\t\t\t\t\"linux\":   \"example commands\",\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tDocumentType: \"Session\",\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"documentName\", \"SSM-SessionManagerRunShell\")\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst sessionPreferencesDocument = new aws_native.ssm.Document(\"sessionPreferencesDocument\", {\n    name: \"SSM-SessionManagerRunShell\",\n    content: {\n        schemaVersion: \"1.0\",\n        description: \"Document to hold regional settings for Session Manager\",\n        sessionType: \"Standard_Stream\",\n        inputs: {\n            s3BucketName: \"DOC-EXAMPLE-BUCKET\",\n            s3KeyPrefix: \"MyBucketPrefix\",\n            s3EncryptionEnabled: true,\n            cloudWatchLogGroupName: \"MyLogGroupName\",\n            cloudWatchEncryptionEnabled: true,\n            cloudWatchStreamingEnabled: false,\n            kmsKeyId: \"MyKMSKeyID\",\n            runAsEnabled: false,\n            runAsDefaultUser: \"MyDefaultRunAsUser\",\n            idleSessionTimeout: \"20\",\n            shellProfile: {\n                windows: \"example commands\",\n                linux: \"example commands\",\n            },\n        },\n    },\n    documentType: \"Session\",\n});\nexport const documentName = \"SSM-SessionManagerRunShell\";\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nsession_preferences_document = aws_native.ssm.Document(\"sessionPreferencesDocument\",\n    name=\"SSM-SessionManagerRunShell\",\n    content={\n        \"schemaVersion\": \"1.0\",\n        \"description\": \"Document to hold regional settings for Session Manager\",\n        \"sessionType\": \"Standard_Stream\",\n        \"inputs\": {\n            \"s3BucketName\": \"DOC-EXAMPLE-BUCKET\",\n            \"s3KeyPrefix\": \"MyBucketPrefix\",\n            \"s3EncryptionEnabled\": True,\n            \"cloudWatchLogGroupName\": \"MyLogGroupName\",\n            \"cloudWatchEncryptionEnabled\": True,\n            \"cloudWatchStreamingEnabled\": False,\n            \"kmsKeyId\": \"MyKMSKeyID\",\n            \"runAsEnabled\": False,\n            \"runAsDefaultUser\": \"MyDefaultRunAsUser\",\n            \"idleSessionTimeout\": \"20\",\n            \"shellProfile\": {\n                \"windows\": \"example commands\",\n                \"linux\": \"example commands\",\n            },\n        },\n    },\n    document_type=\"Session\")\npulumi.export(\"documentName\", \"SSM-SessionManagerRunShell\")\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var sessionPreferencesDocument = new AwsNative.SSM.Document(\"sessionPreferencesDocument\", new AwsNative.SSM.DocumentArgs\n        {\n            Name = \"SSM-SessionManagerRunShell\",\n            Content = \n            {\n                { \"schemaVersion\", \"1.0\" },\n                { \"description\", \"Document to hold regional settings for Session Manager\" },\n                { \"sessionType\", \"Standard_Stream\" },\n                { \"inputs\", \n                {\n                    { \"s3BucketName\", \"DOC-EXAMPLE-BUCKET\" },\n                    { \"s3KeyPrefix\", \"MyBucketPrefix\" },\n                    { \"s3EncryptionEnabled\", true },\n                    { \"cloudWatchLogGroupName\", \"MyLogGroupName\" },\n                    { \"cloudWatchEncryptionEnabled\", true },\n                    { \"cloudWatchStreamingEnabled\", false },\n                    { \"kmsKeyId\", \"MyKMSKeyID\" },\n                    { \"runAsEnabled\", false },\n                    { \"runAsDefaultUser\", \"MyDefaultRunAsUser\" },\n                    { \"idleSessionTimeout\", \"20\" },\n                    { \"shellProfile\", \n                    {\n                        { \"windows\", \"example commands\" },\n                        { \"linux\", \"example commands\" },\n                    } },\n                } },\n            },\n            DocumentType = \"Session\",\n        });\n        this.DocumentName = \"SSM-SessionManagerRunShell\";\n    }\n\n    [Output(\"documentName\")]\n    public Output\u003cstring\u003e DocumentName { get; set; }\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/ssm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ssm.NewDocument(ctx, \"sessionPreferencesDocument\", \u0026ssm.DocumentArgs{\n\t\t\tName: pulumi.String(\"SSM-SessionManagerRunShell\"),\n\t\t\tContent: pulumi.Any{\n\t\t\t\tSchemaVersion: \"1.0\",\n\t\t\t\tDescription:   \"Document to hold regional settings for Session Manager\",\n\t\t\t\tSessionType:   \"Standard_Stream\",\n\t\t\t\tInputs: map[string]interface{}{\n\t\t\t\t\t\"s3BucketName\":                \"DOC-EXAMPLE-BUCKET\",\n\t\t\t\t\t\"s3KeyPrefix\":                 \"MyBucketPrefix\",\n\t\t\t\t\t\"s3EncryptionEnabled\":         true,\n\t\t\t\t\t\"cloudWatchLogGroupName\":      \"MyLogGroupName\",\n\t\t\t\t\t\"cloudWatchEncryptionEnabled\": true,\n\t\t\t\t\t\"cloudWatchStreamingEnabled\":  false,\n\t\t\t\t\t\"kmsKeyId\":                    \"MyKMSKeyID\",\n\t\t\t\t\t\"runAsEnabled\":                false,\n\t\t\t\t\t\"runAsDefaultUser\":            \"MyDefaultRunAsUser\",\n\t\t\t\t\t\"idleSessionTimeout\":          \"20\",\n\t\t\t\t\t\"shellProfile\": map[string]interface{}{\n\t\t\t\t\t\t\"windows\": \"example commands\",\n\t\t\t\t\t\t\"linux\":   \"example commands\",\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tDocumentType: \"Session\",\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"documentName\", \"SSM-SessionManagerRunShell\")\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst sessionPreferencesDocument = new aws_native.ssm.Document(\"sessionPreferencesDocument\", {\n    name: \"SSM-SessionManagerRunShell\",\n    content: {\n        schemaVersion: \"1.0\",\n        description: \"Document to hold regional settings for Session Manager\",\n        sessionType: \"Standard_Stream\",\n        inputs: {\n            s3BucketName: \"DOC-EXAMPLE-BUCKET\",\n            s3KeyPrefix: \"MyBucketPrefix\",\n            s3EncryptionEnabled: true,\n            cloudWatchLogGroupName: \"MyLogGroupName\",\n            cloudWatchEncryptionEnabled: true,\n            cloudWatchStreamingEnabled: false,\n            kmsKeyId: \"MyKMSKeyID\",\n            runAsEnabled: false,\n            runAsDefaultUser: \"MyDefaultRunAsUser\",\n            idleSessionTimeout: \"20\",\n            shellProfile: {\n                windows: \"example commands\",\n                linux: \"example commands\",\n            },\n        },\n    },\n    documentType: \"Session\",\n});\nexport const documentName = \"SSM-SessionManagerRunShell\";\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nsession_preferences_document = aws_native.ssm.Document(\"sessionPreferencesDocument\",\n    name=\"SSM-SessionManagerRunShell\",\n    content={\n        \"schemaVersion\": \"1.0\",\n        \"description\": \"Document to hold regional settings for Session Manager\",\n        \"sessionType\": \"Standard_Stream\",\n        \"inputs\": {\n            \"s3BucketName\": \"DOC-EXAMPLE-BUCKET\",\n            \"s3KeyPrefix\": \"MyBucketPrefix\",\n            \"s3EncryptionEnabled\": True,\n            \"cloudWatchLogGroupName\": \"MyLogGroupName\",\n            \"cloudWatchEncryptionEnabled\": True,\n            \"cloudWatchStreamingEnabled\": False,\n            \"kmsKeyId\": \"MyKMSKeyID\",\n            \"runAsEnabled\": False,\n            \"runAsDefaultUser\": \"MyDefaultRunAsUser\",\n            \"idleSessionTimeout\": \"20\",\n            \"shellProfile\": {\n                \"windows\": \"example commands\",\n                \"linux\": \"example commands\",\n            },\n        },\n    },\n    document_type=\"Session\")\npulumi.export(\"documentName\", \"SSM-SessionManagerRunShell\")\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var examplePackageDocument = new AwsNative.SSM.Document(\"examplePackageDocument\", new AwsNative.SSM.DocumentArgs\n        {\n            Content = \"{\\\"files\\\": {\\\"NewPackage_WINDOWS.zip\\\": {\\\"checksums\\\": {\\\"sha256\\\": \\\"36aeb0ec2c706013cf8c68163459678f7f6daa9489cd3f91d52799331EXAMPLE\\\"}}}, \\\"publisher\\\": \\\"publisherName\\\", \\\"schemaVersion\\\": \\\"2.0\\\", \\\"packages\\\": {\\\"_any\\\": {\\\"_any\\\": {\\\"x86_64\\\": {\\\"file\\\": \\\"NewPackage_WINDOWS.zip\\\"}}}}, \\\"version\\\": \\\"1.0\\\"}\",\n            DocumentType = \"Package\",\n            Attachments = \n            {\n                new AwsNative.SSM.Inputs.DocumentAttachmentsSourceArgs\n                {\n                    Key = \"SourceUrl\",\n                    Values = \n                    {\n                        \"s3://example-package-path/valid-package\",\n                    },\n                },\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/ssm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ssm.NewDocument(ctx, \"examplePackageDocument\", \u0026ssm.DocumentArgs{\n\t\t\tContent:      pulumi.Any(\"{\\\"files\\\": {\\\"NewPackage_WINDOWS.zip\\\": {\\\"checksums\\\": {\\\"sha256\\\": \\\"36aeb0ec2c706013cf8c68163459678f7f6daa9489cd3f91d52799331EXAMPLE\\\"}}}, \\\"publisher\\\": \\\"publisherName\\\", \\\"schemaVersion\\\": \\\"2.0\\\", \\\"packages\\\": {\\\"_any\\\": {\\\"_any\\\": {\\\"x86_64\\\": {\\\"file\\\": \\\"NewPackage_WINDOWS.zip\\\"}}}}, \\\"version\\\": \\\"1.0\\\"}\"),\n\t\t\tDocumentType: \"Package\",\n\t\t\tAttachments: []ssm.DocumentAttachmentsSourceArgs{\n\t\t\t\t\u0026ssm.DocumentAttachmentsSourceArgs{\n\t\t\t\t\tKey: \"SourceUrl\",\n\t\t\t\t\tValues: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"s3://example-package-path/valid-package\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst examplePackageDocument = new aws_native.ssm.Document(\"examplePackageDocument\", {\n    content: \"{\\\"files\\\": {\\\"NewPackage_WINDOWS.zip\\\": {\\\"checksums\\\": {\\\"sha256\\\": \\\"36aeb0ec2c706013cf8c68163459678f7f6daa9489cd3f91d52799331EXAMPLE\\\"}}}, \\\"publisher\\\": \\\"publisherName\\\", \\\"schemaVersion\\\": \\\"2.0\\\", \\\"packages\\\": {\\\"_any\\\": {\\\"_any\\\": {\\\"x86_64\\\": {\\\"file\\\": \\\"NewPackage_WINDOWS.zip\\\"}}}}, \\\"version\\\": \\\"1.0\\\"}\",\n    documentType: \"Package\",\n    attachments: [{\n        key: \"SourceUrl\",\n        values: [\"s3://example-package-path/valid-package\"],\n    }],\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nexample_package_document = aws_native.ssm.Document(\"examplePackageDocument\",\n    content=\"{\\\"files\\\": {\\\"NewPackage_WINDOWS.zip\\\": {\\\"checksums\\\": {\\\"sha256\\\": \\\"36aeb0ec2c706013cf8c68163459678f7f6daa9489cd3f91d52799331EXAMPLE\\\"}}}, \\\"publisher\\\": \\\"publisherName\\\", \\\"schemaVersion\\\": \\\"2.0\\\", \\\"packages\\\": {\\\"_any\\\": {\\\"_any\\\": {\\\"x86_64\\\": {\\\"file\\\": \\\"NewPackage_WINDOWS.zip\\\"}}}}, \\\"version\\\": \\\"1.0\\\"}\",\n    document_type=\"Package\",\n    attachments=[aws_native.ssm.DocumentAttachmentsSourceArgs(\n        key=\"SourceUrl\",\n        values=[\"s3://example-package-path/valid-package\"],\n    )])\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var examplePackageDocument = new AwsNative.SSM.Document(\"examplePackageDocument\", new AwsNative.SSM.DocumentArgs\n        {\n            Content = \"{\\\\\\\"files\\\\\\\": {\\\\\\\"NewPackage_WINDOWS.zip\\\\\\\": {\\\\\\\"checksums\\\\\\\": {\\\\\\\"sha256\\\\\\\": \\\\\\\"36aeb0ec2c706013cf8c68163459678f7f6daa9489cd3f91d52799331EXAMPLE\\\\\\\"}}}, \\\\\\\"publisher\\\\\\\": \\\\\\\"publisherName\\\\\\\", \\\\\\\"schemaVersion\\\\\\\": \\\\\\\"2.0\\\\\\\", \\\\\\\"packages\\\\\\\": {\\\\\\\"_any\\\\\\\": {\\\\\\\"_any\\\\\\\": {\\\\\\\"x86_64\\\\\\\": {\\\\\\\"file\\\\\\\": \\\\\\\"NewPackage_WINDOWS.zip\\\\\\\"}}}}, \\\\\\\"version\\\\\\\": \\\\\\\"1.0\\\\\\\"}\",\n            DocumentType = \"Package\",\n            Attachments = \n            {\n                new AwsNative.SSM.Inputs.DocumentAttachmentsSourceArgs\n                {\n                    Key = \"SourceUrl\",\n                    Values = \n                    {\n                        \"s3://example-package-path/valid-package\",\n                    },\n                },\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/ssm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ssm.NewDocument(ctx, \"examplePackageDocument\", \u0026ssm.DocumentArgs{\n\t\t\tContent:      pulumi.Any(\"{\\\\\\\"files\\\\\\\": {\\\\\\\"NewPackage_WINDOWS.zip\\\\\\\": {\\\\\\\"checksums\\\\\\\": {\\\\\\\"sha256\\\\\\\": \\\\\\\"36aeb0ec2c706013cf8c68163459678f7f6daa9489cd3f91d52799331EXAMPLE\\\\\\\"}}}, \\\\\\\"publisher\\\\\\\": \\\\\\\"publisherName\\\\\\\", \\\\\\\"schemaVersion\\\\\\\": \\\\\\\"2.0\\\\\\\", \\\\\\\"packages\\\\\\\": {\\\\\\\"_any\\\\\\\": {\\\\\\\"_any\\\\\\\": {\\\\\\\"x86_64\\\\\\\": {\\\\\\\"file\\\\\\\": \\\\\\\"NewPackage_WINDOWS.zip\\\\\\\"}}}}, \\\\\\\"version\\\\\\\": \\\\\\\"1.0\\\\\\\"}\"),\n\t\t\tDocumentType: \"Package\",\n\t\t\tAttachments: []ssm.DocumentAttachmentsSourceArgs{\n\t\t\t\t\u0026ssm.DocumentAttachmentsSourceArgs{\n\t\t\t\t\tKey: \"SourceUrl\",\n\t\t\t\t\tValues: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"s3://example-package-path/valid-package\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst examplePackageDocument = new aws_native.ssm.Document(\"examplePackageDocument\", {\n    content: \"{\\\\\\\"files\\\\\\\": {\\\\\\\"NewPackage_WINDOWS.zip\\\\\\\": {\\\\\\\"checksums\\\\\\\": {\\\\\\\"sha256\\\\\\\": \\\\\\\"36aeb0ec2c706013cf8c68163459678f7f6daa9489cd3f91d52799331EXAMPLE\\\\\\\"}}}, \\\\\\\"publisher\\\\\\\": \\\\\\\"publisherName\\\\\\\", \\\\\\\"schemaVersion\\\\\\\": \\\\\\\"2.0\\\\\\\", \\\\\\\"packages\\\\\\\": {\\\\\\\"_any\\\\\\\": {\\\\\\\"_any\\\\\\\": {\\\\\\\"x86_64\\\\\\\": {\\\\\\\"file\\\\\\\": \\\\\\\"NewPackage_WINDOWS.zip\\\\\\\"}}}}, \\\\\\\"version\\\\\\\": \\\\\\\"1.0\\\\\\\"}\",\n    documentType: \"Package\",\n    attachments: [{\n        key: \"SourceUrl\",\n        values: [\"s3://example-package-path/valid-package\"],\n    }],\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nexample_package_document = aws_native.ssm.Document(\"examplePackageDocument\",\n    content=\"{\\\\\\\"files\\\\\\\": {\\\\\\\"NewPackage_WINDOWS.zip\\\\\\\": {\\\\\\\"checksums\\\\\\\": {\\\\\\\"sha256\\\\\\\": \\\\\\\"36aeb0ec2c706013cf8c68163459678f7f6daa9489cd3f91d52799331EXAMPLE\\\\\\\"}}}, \\\\\\\"publisher\\\\\\\": \\\\\\\"publisherName\\\\\\\", \\\\\\\"schemaVersion\\\\\\\": \\\\\\\"2.0\\\\\\\", \\\\\\\"packages\\\\\\\": {\\\\\\\"_any\\\\\\\": {\\\\\\\"_any\\\\\\\": {\\\\\\\"x86_64\\\\\\\": {\\\\\\\"file\\\\\\\": \\\\\\\"NewPackage_WINDOWS.zip\\\\\\\"}}}}, \\\\\\\"version\\\\\\\": \\\\\\\"1.0\\\\\\\"}\",\n    document_type=\"Package\",\n    attachments=[aws_native.ssm.DocumentAttachmentsSourceArgs(\n        key=\"SourceUrl\",\n        values=[\"s3://example-package-path/valid-package\"],\n    )])\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var exampleChangeCalendarDocument = new AwsNative.SSM.Document(\"exampleChangeCalendarDocument\", new AwsNative.SSM.DocumentArgs\n        {\n            Content = @\"BEGIN:VCALENDAR\\r\nPRODID:-//AWS//Change Calendar 1.0//EN\\r\nVERSION:2.0\\r\nX-CALENDAR-TYPE:DEFAULT_OPEN\\r\nX-WR-CALDESC:test\\r\nBEGIN:VTODO\\r\nDTSTAMP:20200320T004207Z\\r\nUID:3b5af39a-d0b3-4049-a839-d7bb8af01f92\\r\nSUMMARY:Add events to this calendar.\\r\nEND:VTODO\\r\nEND:VCALENDAR\\r\n\",\n            DocumentType = \"ChangeCalendar\",\n            DocumentFormat = \"TEXT\",\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/ssm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ssm.NewDocument(ctx, \"exampleChangeCalendarDocument\", \u0026ssm.DocumentArgs{\n\t\t\tContent:        pulumi.Any(\"BEGIN:VCALENDAR\\\\r\\nPRODID:-//AWS//Change Calendar 1.0//EN\\\\r\\nVERSION:2.0\\\\r\\nX-CALENDAR-TYPE:DEFAULT_OPEN\\\\r\\nX-WR-CALDESC:test\\\\r\\nBEGIN:VTODO\\\\r\\nDTSTAMP:20200320T004207Z\\\\r\\nUID:3b5af39a-d0b3-4049-a839-d7bb8af01f92\\\\r\\nSUMMARY:Add events to this calendar.\\\\r\\nEND:VTODO\\\\r\\nEND:VCALENDAR\\\\r\\n\"),\n\t\t\tDocumentType:   \"ChangeCalendar\",\n\t\t\tDocumentFormat: \"TEXT\",\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst exampleChangeCalendarDocument = new aws_native.ssm.Document(\"exampleChangeCalendarDocument\", {\n    content: `BEGIN:VCALENDAR\\\\r\nPRODID:-//AWS//Change Calendar 1.0//EN\\\\r\nVERSION:2.0\\\\r\nX-CALENDAR-TYPE:DEFAULT_OPEN\\\\r\nX-WR-CALDESC:test\\\\r\nBEGIN:VTODO\\\\r\nDTSTAMP:20200320T004207Z\\\\r\nUID:3b5af39a-d0b3-4049-a839-d7bb8af01f92\\\\r\nSUMMARY:Add events to this calendar.\\\\r\nEND:VTODO\\\\r\nEND:VCALENDAR\\\\r\n`,\n    documentType: \"ChangeCalendar\",\n    documentFormat: \"TEXT\",\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nexample_change_calendar_document = aws_native.ssm.Document(\"exampleChangeCalendarDocument\",\n    content=\"\"\"BEGIN:VCALENDAR\\r\nPRODID:-//AWS//Change Calendar 1.0//EN\\r\nVERSION:2.0\\r\nX-CALENDAR-TYPE:DEFAULT_OPEN\\r\nX-WR-CALDESC:test\\r\nBEGIN:VTODO\\r\nDTSTAMP:20200320T004207Z\\r\nUID:3b5af39a-d0b3-4049-a839-d7bb8af01f92\\r\nSUMMARY:Add events to this calendar.\\r\nEND:VTODO\\r\nEND:VCALENDAR\\r\n\"\"\",\n    document_type=\"ChangeCalendar\",\n    document_format=\"TEXT\")\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var exampleChangeCalendarDocument = new AwsNative.SSM.Document(\"exampleChangeCalendarDocument\", new AwsNative.SSM.DocumentArgs\n        {\n            Content = @\"BEGIN:VCALENDAR\\r\nPRODID:-//AWS//Change Calendar 1.0//EN\\r\nVERSION:2.0\\r\nX-CALENDAR-TYPE:DEFAULT_OPEN\\r\nX-WR-CALDESC:test\\r\nBEGIN:VTODO\\r\nDTSTAMP:20200320T004207Z\\r\nUID:3b5af39a-d0b3-4049-a839-d7bb8af01f92\\r\nSUMMARY:Add events to this calendar.\\r\nEND:VTODO\\r\nEND:VCALENDAR\\r\n\",\n            DocumentType = \"ChangeCalendar\",\n            DocumentFormat = \"TEXT\",\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/ssm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ssm.NewDocument(ctx, \"exampleChangeCalendarDocument\", \u0026ssm.DocumentArgs{\n\t\t\tContent:        pulumi.Any(\"BEGIN:VCALENDAR\\\\r\\nPRODID:-//AWS//Change Calendar 1.0//EN\\\\r\\nVERSION:2.0\\\\r\\nX-CALENDAR-TYPE:DEFAULT_OPEN\\\\r\\nX-WR-CALDESC:test\\\\r\\nBEGIN:VTODO\\\\r\\nDTSTAMP:20200320T004207Z\\\\r\\nUID:3b5af39a-d0b3-4049-a839-d7bb8af01f92\\\\r\\nSUMMARY:Add events to this calendar.\\\\r\\nEND:VTODO\\\\r\\nEND:VCALENDAR\\\\r\\n\"),\n\t\t\tDocumentType:   \"ChangeCalendar\",\n\t\t\tDocumentFormat: \"TEXT\",\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst exampleChangeCalendarDocument = new aws_native.ssm.Document(\"exampleChangeCalendarDocument\", {\n    content: `BEGIN:VCALENDAR\\\\r\nPRODID:-//AWS//Change Calendar 1.0//EN\\\\r\nVERSION:2.0\\\\r\nX-CALENDAR-TYPE:DEFAULT_OPEN\\\\r\nX-WR-CALDESC:test\\\\r\nBEGIN:VTODO\\\\r\nDTSTAMP:20200320T004207Z\\\\r\nUID:3b5af39a-d0b3-4049-a839-d7bb8af01f92\\\\r\nSUMMARY:Add events to this calendar.\\\\r\nEND:VTODO\\\\r\nEND:VCALENDAR\\\\r\n`,\n    documentType: \"ChangeCalendar\",\n    documentFormat: \"TEXT\",\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nexample_change_calendar_document = aws_native.ssm.Document(\"exampleChangeCalendarDocument\",\n    content=\"\"\"BEGIN:VCALENDAR\\r\nPRODID:-//AWS//Change Calendar 1.0//EN\\r\nVERSION:2.0\\r\nX-CALENDAR-TYPE:DEFAULT_OPEN\\r\nX-WR-CALDESC:test\\r\nBEGIN:VTODO\\r\nDTSTAMP:20200320T004207Z\\r\nUID:3b5af39a-d0b3-4049-a839-d7bb8af01f92\\r\nSUMMARY:Add events to this calendar.\\r\nEND:VTODO\\r\nEND:VCALENDAR\\r\n\"\"\",\n    document_type=\"ChangeCalendar\",\n    document_format=\"TEXT\")\n\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
@@ -78550,8 +78345,7 @@
                 }
             },
             "requiredInputs": [
-                "incidentTemplate",
-                "name"
+                "incidentTemplate"
             ]
         },
         "aws-native:sso:Assignment": {
@@ -78767,8 +78561,7 @@
                 }
             },
             "requiredInputs": [
-                "instanceArn",
-                "name"
+                "instanceArn"
             ]
         },
         "aws-native:stepfunctions:Activity": {
@@ -78802,10 +78595,7 @@
                         "$ref": "#/types/aws-native:stepfunctions:ActivityTagsEntry"
                     }
                 }
-            },
-            "requiredInputs": [
-                "name"
-            ]
+            }
         },
         "aws-native:stepfunctions:StateMachine": {
             "description": "Resource schema for StateMachine\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var myStateMachine = new AwsNative.StepFunctions.StateMachine(\"myStateMachine\", new AwsNative.StepFunctions.StateMachineArgs\n        {\n            StateMachineName = \"HelloWorld-StateMachine\",\n            StateMachineType = \"STANDARD\",\n            DefinitionString = \"{\\\"StartAt\\\": \\\"HelloWorld\\\",  \\\"States\\\": {\\\"HelloWorld\\\": {\\\"Type\\\": \\\"Task\\\", \\\"Resource\\\":  \\\"arn:aws:lambda:us-east-1:111122223333;:function:HelloFunction\\\", \\\"End\\\": true}}}\",\n            RoleArn = \"arn:aws:iam::111122223333:role/service-role/StatesExecutionRole-us-east-1;\",\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/stepfunctions\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := stepfunctions.NewStateMachine(ctx, \"myStateMachine\", \u0026stepfunctions.StateMachineArgs{\n\t\t\tStateMachineName: pulumi.String(\"HelloWorld-StateMachine\"),\n\t\t\tStateMachineType: \"STANDARD\",\n\t\t\tDefinitionString: pulumi.String(\"{\\\"StartAt\\\": \\\"HelloWorld\\\",  \\\"States\\\": {\\\"HelloWorld\\\": {\\\"Type\\\": \\\"Task\\\", \\\"Resource\\\":  \\\"arn:aws:lambda:us-east-1:111122223333;:function:HelloFunction\\\", \\\"End\\\": true}}}\"),\n\t\t\tRoleArn:          pulumi.String(\"arn:aws:iam::111122223333:role/service-role/StatesExecutionRole-us-east-1;\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst myStateMachine = new aws_native.stepfunctions.StateMachine(\"myStateMachine\", {\n    stateMachineName: \"HelloWorld-StateMachine\",\n    stateMachineType: \"STANDARD\",\n    definitionString: \"{\\\"StartAt\\\": \\\"HelloWorld\\\",  \\\"States\\\": {\\\"HelloWorld\\\": {\\\"Type\\\": \\\"Task\\\", \\\"Resource\\\":  \\\"arn:aws:lambda:us-east-1:111122223333;:function:HelloFunction\\\", \\\"End\\\": true}}}\",\n    roleArn: \"arn:aws:iam::111122223333:role/service-role/StatesExecutionRole-us-east-1;\",\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nmy_state_machine = aws_native.stepfunctions.StateMachine(\"myStateMachine\",\n    state_machine_name=\"HelloWorld-StateMachine\",\n    state_machine_type=\"STANDARD\",\n    definition_string=\"{\\\"StartAt\\\": \\\"HelloWorld\\\",  \\\"States\\\": {\\\"HelloWorld\\\": {\\\"Type\\\": \\\"Task\\\", \\\"Resource\\\":  \\\"arn:aws:lambda:us-east-1:111122223333;:function:HelloFunction\\\", \\\"End\\\": true}}}\",\n    role_arn=\"arn:aws:iam::111122223333:role/service-role/StatesExecutionRole-us-east-1;\")\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var myStateMachine = new AwsNative.StepFunctions.StateMachine(\"myStateMachine\", new AwsNative.StepFunctions.StateMachineArgs\n        {\n            StateMachineName = \"HelloWorld-StateMachine\",\n            StateMachineType = \"STANDARD\",\n            DefinitionString = @\"{\n    \"\"StartAt\"\": \"\"HelloWorld\"\",\n    \"\"States\"\" : {\n        \"\"HelloWorld\"\" : {\n            \"\"Type\"\" : \"\"Task\"\", \n            \"\"Resource\"\" : \"\"arn:aws:lambda:us-east-1:111122223333:function:HelloFunction\"\",\n            \"\"End\"\" : true\n        }\n    }\n}\",\n            RoleArn = \"arn:aws:iam::111122223333:role/service-role/StatesExecutionRole-us-east-1\",\n            Tags = \n            {\n                new AwsNative.StepFunctions.Inputs.StateMachineTagsEntryArgs\n                {\n                    Key = \"keyname1\",\n                    Value = \"value1\",\n                },\n                new AwsNative.StepFunctions.Inputs.StateMachineTagsEntryArgs\n                {\n                    Key = \"keyname2\",\n                    Value = \"value2\",\n                },\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/stepfunctions\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := stepfunctions.NewStateMachine(ctx, \"myStateMachine\", \u0026stepfunctions.StateMachineArgs{\n\t\t\tStateMachineName: pulumi.String(\"HelloWorld-StateMachine\"),\n\t\t\tStateMachineType: \"STANDARD\",\n\t\t\tDefinitionString: pulumi.String(\"{\\n    \\\"StartAt\\\": \\\"HelloWorld\\\",\\n    \\\"States\\\" : {\\n        \\\"HelloWorld\\\" : {\\n            \\\"Type\\\" : \\\"Task\\\", \\n            \\\"Resource\\\" : \\\"arn:aws:lambda:us-east-1:111122223333:function:HelloFunction\\\",\\n            \\\"End\\\" : true\\n        }\\n    }\\n}\"),\n\t\t\tRoleArn:          pulumi.String(\"arn:aws:iam::111122223333:role/service-role/StatesExecutionRole-us-east-1\"),\n\t\t\tTags: []stepfunctions.StateMachineTagsEntryArgs{\n\t\t\t\t\u0026stepfunctions.StateMachineTagsEntryArgs{\n\t\t\t\t\tKey:   pulumi.String(\"keyname1\"),\n\t\t\t\t\tValue: pulumi.String(\"value1\"),\n\t\t\t\t},\n\t\t\t\t\u0026stepfunctions.StateMachineTagsEntryArgs{\n\t\t\t\t\tKey:   pulumi.String(\"keyname2\"),\n\t\t\t\t\tValue: pulumi.String(\"value2\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst myStateMachine = new aws_native.stepfunctions.StateMachine(\"myStateMachine\", {\n    stateMachineName: \"HelloWorld-StateMachine\",\n    stateMachineType: \"STANDARD\",\n    definitionString: `{\n    \"StartAt\": \"HelloWorld\",\n    \"States\" : {\n        \"HelloWorld\" : {\n            \"Type\" : \"Task\", \n            \"Resource\" : \"arn:aws:lambda:us-east-1:111122223333:function:HelloFunction\",\n            \"End\" : true\n        }\n    }\n}`,\n    roleArn: \"arn:aws:iam::111122223333:role/service-role/StatesExecutionRole-us-east-1\",\n    tags: [\n        {\n            key: \"keyname1\",\n            value: \"value1\",\n        },\n        {\n            key: \"keyname2\",\n            value: \"value2\",\n        },\n    ],\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nmy_state_machine = aws_native.stepfunctions.StateMachine(\"myStateMachine\",\n    state_machine_name=\"HelloWorld-StateMachine\",\n    state_machine_type=\"STANDARD\",\n    definition_string=\"\"\"{\n    \"StartAt\": \"HelloWorld\",\n    \"States\" : {\n        \"HelloWorld\" : {\n            \"Type\" : \"Task\", \n            \"Resource\" : \"arn:aws:lambda:us-east-1:111122223333:function:HelloFunction\",\n            \"End\" : true\n        }\n    }\n}\"\"\",\n    role_arn=\"arn:aws:iam::111122223333:role/service-role/StatesExecutionRole-us-east-1\",\n    tags=[\n        aws_native.stepfunctions.StateMachineTagsEntryArgs(\n            key=\"keyname1\",\n            value=\"value1\",\n        ),\n        aws_native.stepfunctions.StateMachineTagsEntryArgs(\n            key=\"keyname2\",\n            value=\"value2\",\n        ),\n    ])\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var myStateMachine = new AwsNative.StepFunctions.StateMachine(\"myStateMachine\", new AwsNative.StepFunctions.StateMachineArgs\n        {\n            StateMachineName = \"HelloWorld-StateMachine\",\n            DefinitionString = @\"{\n  \"\"StartAt\"\": \"\"HelloWorld\"\",\n  \"\"States\"\": {\n    \"\"HelloWorld\"\": {\n      \"\"Type\"\": \"\"Task\"\",\n      \"\"Resource\"\": \"\"arn:aws:lambda:us-east-1:111122223333:function:HelloFunction\"\",\n      \"\"End\"\": true\n    }\n  }\n}\",\n            RoleArn = \"arn:aws:iam::111122223333:role/service-role/StatesExecutionRole-us-east-1\",\n            Tags = \n            {\n                new AwsNative.StepFunctions.Inputs.StateMachineTagsEntryArgs\n                {\n                    Key = \"keyname1\",\n                    Value = \"value1\",\n                },\n                new AwsNative.StepFunctions.Inputs.StateMachineTagsEntryArgs\n                {\n                    Key = \"keyname2\",\n                    Value = \"value2\",\n                },\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/stepfunctions\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := stepfunctions.NewStateMachine(ctx, \"myStateMachine\", \u0026stepfunctions.StateMachineArgs{\n\t\t\tStateMachineName: pulumi.String(\"HelloWorld-StateMachine\"),\n\t\t\tDefinitionString: pulumi.String(\"{\\n  \\\"StartAt\\\": \\\"HelloWorld\\\",\\n  \\\"States\\\": {\\n    \\\"HelloWorld\\\": {\\n      \\\"Type\\\": \\\"Task\\\",\\n      \\\"Resource\\\": \\\"arn:aws:lambda:us-east-1:111122223333:function:HelloFunction\\\",\\n      \\\"End\\\": true\\n    }\\n  }\\n}\"),\n\t\t\tRoleArn:          pulumi.String(\"arn:aws:iam::111122223333:role/service-role/StatesExecutionRole-us-east-1\"),\n\t\t\tTags: []stepfunctions.StateMachineTagsEntryArgs{\n\t\t\t\t\u0026stepfunctions.StateMachineTagsEntryArgs{\n\t\t\t\t\tKey:   pulumi.String(\"keyname1\"),\n\t\t\t\t\tValue: pulumi.String(\"value1\"),\n\t\t\t\t},\n\t\t\t\t\u0026stepfunctions.StateMachineTagsEntryArgs{\n\t\t\t\t\tKey:   pulumi.String(\"keyname2\"),\n\t\t\t\t\tValue: pulumi.String(\"value2\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst myStateMachine = new aws_native.stepfunctions.StateMachine(\"myStateMachine\", {\n    stateMachineName: \"HelloWorld-StateMachine\",\n    definitionString: `{\n  \"StartAt\": \"HelloWorld\",\n  \"States\": {\n    \"HelloWorld\": {\n      \"Type\": \"Task\",\n      \"Resource\": \"arn:aws:lambda:us-east-1:111122223333:function:HelloFunction\",\n      \"End\": true\n    }\n  }\n}`,\n    roleArn: \"arn:aws:iam::111122223333:role/service-role/StatesExecutionRole-us-east-1\",\n    tags: [\n        {\n            key: \"keyname1\",\n            value: \"value1\",\n        },\n        {\n            key: \"keyname2\",\n            value: \"value2\",\n        },\n    ],\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nmy_state_machine = aws_native.stepfunctions.StateMachine(\"myStateMachine\",\n    state_machine_name=\"HelloWorld-StateMachine\",\n    definition_string=\"\"\"{\n  \"StartAt\": \"HelloWorld\",\n  \"States\": {\n    \"HelloWorld\": {\n      \"Type\": \"Task\",\n      \"Resource\": \"arn:aws:lambda:us-east-1:111122223333:function:HelloFunction\",\n      \"End\": true\n    }\n  }\n}\"\"\",\n    role_arn=\"arn:aws:iam::111122223333:role/service-role/StatesExecutionRole-us-east-1\",\n    tags=[\n        aws_native.stepfunctions.StateMachineTagsEntryArgs(\n            key=\"keyname1\",\n            value=\"value1\",\n        ),\n        aws_native.stepfunctions.StateMachineTagsEntryArgs(\n            key=\"keyname2\",\n            value=\"value2\",\n        ),\n    ])\n\n```\n\n{{% /example %}}\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var myStateMachine = new AwsNative.StepFunctions.StateMachine(\"myStateMachine\", new AwsNative.StepFunctions.StateMachineArgs\n        {\n            StateMachineName = \"HelloWorld-StateMachine\",\n            DefinitionS3Location = new AwsNative.StepFunctions.Inputs.StateMachineS3LocationArgs\n            {\n                Bucket = \"example_bucket\",\n                Key = \"hello_world.json\",\n            },\n            DefinitionSubstitutions = new AwsNative.StepFunctions.Inputs.StateMachineDefinitionSubstitutionsArgs\n            {\n                HelloFunction = \"arn:aws:lambda:us-east-1:111122223333:function:HelloFunction\",\n            },\n            RoleArn = \"arn:aws:iam::111122223333:role/service-role/StatesExecutionRole-us-east-1\",\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/stepfunctions\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := stepfunctions.NewStateMachine(ctx, \"myStateMachine\", \u0026stepfunctions.StateMachineArgs{\n\t\t\tStateMachineName: pulumi.String(\"HelloWorld-StateMachine\"),\n\t\t\tDefinitionS3Location: \u0026stepfunctions.StateMachineS3LocationArgs{\n\t\t\t\tBucket: pulumi.String(\"example_bucket\"),\n\t\t\t\tKey:    pulumi.String(\"hello_world.json\"),\n\t\t\t},\n\t\t\tDefinitionSubstitutions: \u0026stepfunctions.StateMachineDefinitionSubstitutionsArgs{\n\t\t\t\tHelloFunction: \"arn:aws:lambda:us-east-1:111122223333:function:HelloFunction\",\n\t\t\t},\n\t\t\tRoleArn: pulumi.String(\"arn:aws:iam::111122223333:role/service-role/StatesExecutionRole-us-east-1\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst myStateMachine = new aws_native.stepfunctions.StateMachine(\"myStateMachine\", {\n    stateMachineName: \"HelloWorld-StateMachine\",\n    definitionS3Location: {\n        bucket: \"example_bucket\",\n        key: \"hello_world.json\",\n    },\n    definitionSubstitutions: {\n        helloFunction: \"arn:aws:lambda:us-east-1:111122223333:function:HelloFunction\",\n    },\n    roleArn: \"arn:aws:iam::111122223333:role/service-role/StatesExecutionRole-us-east-1\",\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\nmy_state_machine = aws_native.stepfunctions.StateMachine(\"myStateMachine\",\n    state_machine_name=\"HelloWorld-StateMachine\",\n    definition_s3_location=aws_native.stepfunctions.StateMachineS3LocationArgs(\n        bucket=\"example_bucket\",\n        key=\"hello_world.json\",\n    ),\n    definition_substitutions=aws_native.stepfunctions.StateMachineDefinitionSubstitutionsArgs(\n        hello_function=\"arn:aws:lambda:us-east-1:111122223333:function:HelloFunction\",\n    ),\n    role_arn=\"arn:aws:iam::111122223333:role/service-role/StatesExecutionRole-us-east-1\")\n\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
@@ -79036,7 +78826,6 @@
                 "artifactS3Location",
                 "code",
                 "executionRoleArn",
-                "name",
                 "runtimeVersion",
                 "schedule",
                 "startCanaryAfterCreation"
@@ -79633,7 +79422,6 @@
                 }
             },
             "requiredInputs": [
-                "name",
                 "type"
             ]
         },
@@ -79765,8 +79553,7 @@
                 }
             },
             "requiredInputs": [
-                "knowledgeBaseType",
-                "name"
+                "knowledgeBaseType"
             ]
         },
         "aws-native:workspaces:ConnectionAlias": {
