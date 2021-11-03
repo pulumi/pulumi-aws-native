@@ -15,7 +15,7 @@ __all__ = ['ConnectionArgs', 'Connection']
 @pulumi.input_type
 class ConnectionArgs:
     def __init__(__self__, *,
-                 connection_name: pulumi.Input[str],
+                 connection_name: Optional[pulumi.Input[str]] = None,
                  host_arn: Optional[pulumi.Input[str]] = None,
                  provider_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionTagArgs']]]] = None):
@@ -26,7 +26,8 @@ class ConnectionArgs:
         :param pulumi.Input[str] provider_type: The name of the external provider where your third-party code repository is configured. You must specify either a ProviderType or a HostArn.
         :param pulumi.Input[Sequence[pulumi.Input['ConnectionTagArgs']]] tags: Specifies the tags applied to a connection.
         """
-        pulumi.set(__self__, "connection_name", connection_name)
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
         if host_arn is not None:
             pulumi.set(__self__, "host_arn", host_arn)
         if provider_type is not None:
@@ -36,14 +37,14 @@ class ConnectionArgs:
 
     @property
     @pulumi.getter(name="connectionName")
-    def connection_name(self) -> pulumi.Input[str]:
+    def connection_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the connection. Connection names must be unique in an AWS user account.
         """
         return pulumi.get(self, "connection_name")
 
     @connection_name.setter
-    def connection_name(self, value: pulumi.Input[str]):
+    def connection_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "connection_name", value)
 
     @property
@@ -107,7 +108,7 @@ class Connection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ConnectionArgs,
+                 args: Optional[ConnectionArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Schema for AWS::CodeStarConnections::Connection resource which can be used to connect external source providers with AWS CodePipeline
@@ -143,8 +144,6 @@ class Connection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConnectionArgs.__new__(ConnectionArgs)
 
-            if connection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'connection_name'")
             __props__.__dict__["connection_name"] = connection_name
             __props__.__dict__["host_arn"] = host_arn
             __props__.__dict__["provider_type"] = provider_type

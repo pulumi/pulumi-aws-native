@@ -19,8 +19,8 @@ class VariableArgs:
                  data_source: pulumi.Input['VariableDataSource'],
                  data_type: pulumi.Input['VariableDataType'],
                  default_value: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['VariableTagArgs']]]] = None,
                  variable_type: Optional[pulumi.Input['VariableType']] = None):
         """
@@ -28,17 +28,18 @@ class VariableArgs:
         :param pulumi.Input['VariableDataSource'] data_source: The source of the data.
         :param pulumi.Input['VariableDataType'] data_type: The data type.
         :param pulumi.Input[str] default_value: The default value for the variable when no value is received.
-        :param pulumi.Input[str] name: The name of the variable.
         :param pulumi.Input[str] description: The description.
+        :param pulumi.Input[str] name: The name of the variable.
         :param pulumi.Input[Sequence[pulumi.Input['VariableTagArgs']]] tags: Tags associated with this variable.
         :param pulumi.Input['VariableType'] variable_type: The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "data_type", data_type)
         pulumi.set(__self__, "default_value", default_value)
-        pulumi.set(__self__, "name", name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if variable_type is not None:
@@ -82,18 +83,6 @@ class VariableArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the variable.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
         The description.
@@ -103,6 +92,18 @@ class VariableArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the variable.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -208,8 +209,6 @@ class Variable(pulumi.CustomResource):
                 raise TypeError("Missing required property 'default_value'")
             __props__.__dict__["default_value"] = default_value
             __props__.__dict__["description"] = description
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["variable_type"] = variable_type

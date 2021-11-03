@@ -17,8 +17,8 @@ class ConfigurationProfileArgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[str],
                  location_uri: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  retrieval_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileTagsArgs']]]] = None,
                  validators: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorsArgs']]]] = None):
@@ -27,9 +27,10 @@ class ConfigurationProfileArgs:
         """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "location_uri", location_uri)
-        pulumi.set(__self__, "name", name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if retrieval_role_arn is not None:
             pulumi.set(__self__, "retrieval_role_arn", retrieval_role_arn)
         if tags is not None:
@@ -57,21 +58,21 @@ class ConfigurationProfileArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "description")
 
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="retrievalRoleArn")
@@ -176,8 +177,6 @@ class ConfigurationProfile(pulumi.CustomResource):
             if location_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'location_uri'")
             __props__.__dict__["location_uri"] = location_uri
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["retrieval_role_arn"] = retrieval_role_arn
             __props__.__dict__["tags"] = tags

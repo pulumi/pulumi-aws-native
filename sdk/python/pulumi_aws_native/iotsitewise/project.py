@@ -16,20 +16,21 @@ __all__ = ['ProjectArgs', 'Project']
 class ProjectArgs:
     def __init__(__self__, *,
                  portal_id: pulumi.Input[str],
-                 project_name: pulumi.Input[str],
                  project_description: Optional[pulumi.Input[str]] = None,
+                 project_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]] = None):
         """
         The set of arguments for constructing a Project resource.
         :param pulumi.Input[str] portal_id: The ID of the portal in which to create the project.
-        :param pulumi.Input[str] project_name: A friendly name for the project.
         :param pulumi.Input[str] project_description: A description for the project.
+        :param pulumi.Input[str] project_name: A friendly name for the project.
         :param pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]] tags: A list of key-value pairs that contain metadata for the project.
         """
         pulumi.set(__self__, "portal_id", portal_id)
-        pulumi.set(__self__, "project_name", project_name)
         if project_description is not None:
             pulumi.set(__self__, "project_description", project_description)
+        if project_name is not None:
+            pulumi.set(__self__, "project_name", project_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -46,18 +47,6 @@ class ProjectArgs:
         pulumi.set(self, "portal_id", value)
 
     @property
-    @pulumi.getter(name="projectName")
-    def project_name(self) -> pulumi.Input[str]:
-        """
-        A friendly name for the project.
-        """
-        return pulumi.get(self, "project_name")
-
-    @project_name.setter
-    def project_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "project_name", value)
-
-    @property
     @pulumi.getter(name="projectDescription")
     def project_description(self) -> Optional[pulumi.Input[str]]:
         """
@@ -68,6 +57,18 @@ class ProjectArgs:
     @project_description.setter
     def project_description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "project_description", value)
+
+    @property
+    @pulumi.getter(name="projectName")
+    def project_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly name for the project.
+        """
+        return pulumi.get(self, "project_name")
+
+    @project_name.setter
+    def project_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "project_name", value)
 
     @property
     @pulumi.getter
@@ -146,8 +147,6 @@ class Project(pulumi.CustomResource):
                 raise TypeError("Missing required property 'portal_id'")
             __props__.__dict__["portal_id"] = portal_id
             __props__.__dict__["project_description"] = project_description
-            if project_name is None and not opts.urn:
-                raise TypeError("Missing required property 'project_name'")
             __props__.__dict__["project_name"] = project_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["project_arn"] = None

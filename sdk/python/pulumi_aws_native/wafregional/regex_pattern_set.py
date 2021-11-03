@@ -13,22 +13,14 @@ __all__ = ['RegexPatternSetArgs', 'RegexPatternSet']
 @pulumi.input_type
 class RegexPatternSetArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 regex_pattern_strings: pulumi.Input[Sequence[pulumi.Input[str]]]):
+                 regex_pattern_strings: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RegexPatternSet resource.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "regex_pattern_strings", regex_pattern_strings)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="regexPatternStrings")
@@ -38,6 +30,15 @@ class RegexPatternSetArgs:
     @regex_pattern_strings.setter
     def regex_pattern_strings(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "regex_pattern_strings", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 warnings.warn("""RegexPatternSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
@@ -98,8 +99,6 @@ class RegexPatternSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RegexPatternSetArgs.__new__(RegexPatternSetArgs)
 
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if regex_pattern_strings is None and not opts.urn:
                 raise TypeError("Missing required property 'regex_pattern_strings'")

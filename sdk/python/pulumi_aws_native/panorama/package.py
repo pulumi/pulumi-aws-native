@@ -15,22 +15,23 @@ __all__ = ['PackageArgs', 'Package']
 @pulumi.input_type
 class PackageArgs:
     def __init__(__self__, *,
-                 package_name: pulumi.Input[str],
+                 package_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['PackageTagArgs']]]] = None):
         """
         The set of arguments for constructing a Package resource.
         """
-        pulumi.set(__self__, "package_name", package_name)
+        if package_name is not None:
+            pulumi.set(__self__, "package_name", package_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="packageName")
-    def package_name(self) -> pulumi.Input[str]:
+    def package_name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "package_name")
 
     @package_name.setter
-    def package_name(self, value: pulumi.Input[str]):
+    def package_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "package_name", value)
 
     @property
@@ -61,7 +62,7 @@ class Package(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PackageArgs,
+                 args: Optional[PackageArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Schema for Package CloudFormation Resource
@@ -95,8 +96,6 @@ class Package(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PackageArgs.__new__(PackageArgs)
 
-            if package_name is None and not opts.urn:
-                raise TypeError("Missing required property 'package_name'")
             __props__.__dict__["package_name"] = package_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

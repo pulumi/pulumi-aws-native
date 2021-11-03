@@ -14,21 +14,22 @@ __all__ = ['MacroArgs', 'Macro']
 class MacroArgs:
     def __init__(__self__, *,
                  function_name: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  log_group_name: Optional[pulumi.Input[str]] = None,
-                 log_role_arn: Optional[pulumi.Input[str]] = None):
+                 log_role_arn: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Macro resource.
         """
         pulumi.set(__self__, "function_name", function_name)
-        pulumi.set(__self__, "name", name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if log_group_name is not None:
             pulumi.set(__self__, "log_group_name", log_group_name)
         if log_role_arn is not None:
             pulumi.set(__self__, "log_role_arn", log_role_arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="functionName")
@@ -38,15 +39,6 @@ class MacroArgs:
     @function_name.setter
     def function_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "function_name", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -74,6 +66,15 @@ class MacroArgs:
     @log_role_arn.setter
     def log_role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "log_role_arn", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 warnings.warn("""Macro is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
@@ -146,8 +147,6 @@ class Macro(pulumi.CustomResource):
             __props__.__dict__["function_name"] = function_name
             __props__.__dict__["log_group_name"] = log_group_name
             __props__.__dict__["log_role_arn"] = log_role_arn
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
         super(Macro, __self__).__init__(
             'aws-native:cloudformation:Macro',

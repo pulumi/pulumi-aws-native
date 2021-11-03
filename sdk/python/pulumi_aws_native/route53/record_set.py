@@ -15,7 +15,6 @@ __all__ = ['RecordSetArgs', 'RecordSet']
 @pulumi.input_type
 class RecordSetArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  type: pulumi.Input[str],
                  alias_target: Optional[pulumi.Input['RecordSetAliasTargetArgs']] = None,
                  comment: Optional[pulumi.Input[str]] = None,
@@ -25,6 +24,7 @@ class RecordSetArgs:
                  hosted_zone_id: Optional[pulumi.Input[str]] = None,
                  hosted_zone_name: Optional[pulumi.Input[str]] = None,
                  multi_value_answer: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  resource_records: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  set_identifier: Optional[pulumi.Input[str]] = None,
@@ -33,7 +33,6 @@ class RecordSetArgs:
         """
         The set of arguments for constructing a RecordSet resource.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
         if alias_target is not None:
             pulumi.set(__self__, "alias_target", alias_target)
@@ -51,6 +50,8 @@ class RecordSetArgs:
             pulumi.set(__self__, "hosted_zone_name", hosted_zone_name)
         if multi_value_answer is not None:
             pulumi.set(__self__, "multi_value_answer", multi_value_answer)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if resource_records is not None:
@@ -61,15 +62,6 @@ class RecordSetArgs:
             pulumi.set(__self__, "t_tl", t_tl)
         if weight is not None:
             pulumi.set(__self__, "weight", weight)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -151,6 +143,15 @@ class RecordSetArgs:
     @multi_value_answer.setter
     def multi_value_answer(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "multi_value_answer", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -290,8 +291,6 @@ class RecordSet(pulumi.CustomResource):
             __props__.__dict__["hosted_zone_id"] = hosted_zone_id
             __props__.__dict__["hosted_zone_name"] = hosted_zone_name
             __props__.__dict__["multi_value_answer"] = multi_value_answer
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["region"] = region
             __props__.__dict__["resource_records"] = resource_records

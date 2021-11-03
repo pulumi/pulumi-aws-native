@@ -16,26 +16,25 @@ __all__ = ['PortalArgs', 'Portal']
 class PortalArgs:
     def __init__(__self__, *,
                  portal_contact_email: pulumi.Input[str],
-                 portal_name: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  alarms: Optional[pulumi.Input['AlarmsPropertiesArgs']] = None,
                  notification_sender_email: Optional[pulumi.Input[str]] = None,
                  portal_auth_mode: Optional[pulumi.Input[str]] = None,
                  portal_description: Optional[pulumi.Input[str]] = None,
+                 portal_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['PortalTagArgs']]]] = None):
         """
         The set of arguments for constructing a Portal resource.
         :param pulumi.Input[str] portal_contact_email: The AWS administrator's contact email address.
-        :param pulumi.Input[str] portal_name: A friendly name for the portal.
         :param pulumi.Input[str] role_arn: The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
         :param pulumi.Input['AlarmsPropertiesArgs'] alarms: Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
         :param pulumi.Input[str] notification_sender_email: The email address that sends alarm notifications.
         :param pulumi.Input[str] portal_auth_mode: The service to use to authenticate users to the portal. Choose from SSO or IAM. You can't change this value after you create a portal.
         :param pulumi.Input[str] portal_description: A description for the portal.
+        :param pulumi.Input[str] portal_name: A friendly name for the portal.
         :param pulumi.Input[Sequence[pulumi.Input['PortalTagArgs']]] tags: A list of key-value pairs that contain metadata for the portal.
         """
         pulumi.set(__self__, "portal_contact_email", portal_contact_email)
-        pulumi.set(__self__, "portal_name", portal_name)
         pulumi.set(__self__, "role_arn", role_arn)
         if alarms is not None:
             pulumi.set(__self__, "alarms", alarms)
@@ -45,6 +44,8 @@ class PortalArgs:
             pulumi.set(__self__, "portal_auth_mode", portal_auth_mode)
         if portal_description is not None:
             pulumi.set(__self__, "portal_description", portal_description)
+        if portal_name is not None:
+            pulumi.set(__self__, "portal_name", portal_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -59,18 +60,6 @@ class PortalArgs:
     @portal_contact_email.setter
     def portal_contact_email(self, value: pulumi.Input[str]):
         pulumi.set(self, "portal_contact_email", value)
-
-    @property
-    @pulumi.getter(name="portalName")
-    def portal_name(self) -> pulumi.Input[str]:
-        """
-        A friendly name for the portal.
-        """
-        return pulumi.get(self, "portal_name")
-
-    @portal_name.setter
-    def portal_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "portal_name", value)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -131,6 +120,18 @@ class PortalArgs:
     @portal_description.setter
     def portal_description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "portal_description", value)
+
+    @property
+    @pulumi.getter(name="portalName")
+    def portal_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly name for the portal.
+        """
+        return pulumi.get(self, "portal_name")
+
+    @portal_name.setter
+    def portal_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "portal_name", value)
 
     @property
     @pulumi.getter
@@ -224,8 +225,6 @@ class Portal(pulumi.CustomResource):
                 raise TypeError("Missing required property 'portal_contact_email'")
             __props__.__dict__["portal_contact_email"] = portal_contact_email
             __props__.__dict__["portal_description"] = portal_description
-            if portal_name is None and not opts.urn:
-                raise TypeError("Missing required property 'portal_name'")
             __props__.__dict__["portal_name"] = portal_name
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")

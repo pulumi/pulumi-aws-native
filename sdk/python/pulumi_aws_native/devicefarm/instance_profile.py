@@ -15,35 +15,27 @@ __all__ = ['InstanceProfileArgs', 'InstanceProfile']
 @pulumi.input_type
 class InstanceProfileArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  exclude_app_packages_from_cleanup: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  package_cleanup: Optional[pulumi.Input[bool]] = None,
                  reboot_after_use: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceProfileTagArgs']]]] = None):
         """
         The set of arguments for constructing a InstanceProfile resource.
         """
-        pulumi.set(__self__, "name", name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if exclude_app_packages_from_cleanup is not None:
             pulumi.set(__self__, "exclude_app_packages_from_cleanup", exclude_app_packages_from_cleanup)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if package_cleanup is not None:
             pulumi.set(__self__, "package_cleanup", package_cleanup)
         if reboot_after_use is not None:
             pulumi.set(__self__, "reboot_after_use", reboot_after_use)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -62,6 +54,15 @@ class InstanceProfileArgs:
     @exclude_app_packages_from_cleanup.setter
     def exclude_app_packages_from_cleanup(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "exclude_app_packages_from_cleanup", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="packageCleanup")
@@ -113,7 +114,7 @@ class InstanceProfile(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: InstanceProfileArgs,
+                 args: Optional[InstanceProfileArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS::DeviceFarm::InstanceProfile creates a new Device Farm Instance Profile
@@ -153,8 +154,6 @@ class InstanceProfile(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["exclude_app_packages_from_cleanup"] = exclude_app_packages_from_cleanup
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["package_cleanup"] = package_cleanup
             __props__.__dict__["reboot_after_use"] = reboot_after_use

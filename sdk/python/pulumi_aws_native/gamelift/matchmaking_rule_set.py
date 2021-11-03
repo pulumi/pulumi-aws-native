@@ -13,22 +13,14 @@ __all__ = ['MatchmakingRuleSetArgs', 'MatchmakingRuleSet']
 @pulumi.input_type
 class MatchmakingRuleSetArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 rule_set_body: pulumi.Input[str]):
+                 rule_set_body: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a MatchmakingRuleSet resource.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "rule_set_body", rule_set_body)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="ruleSetBody")
@@ -38,6 +30,15 @@ class MatchmakingRuleSetArgs:
     @rule_set_body.setter
     def rule_set_body(self, value: pulumi.Input[str]):
         pulumi.set(self, "rule_set_body", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 warnings.warn("""MatchmakingRuleSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
@@ -98,8 +99,6 @@ class MatchmakingRuleSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MatchmakingRuleSetArgs.__new__(MatchmakingRuleSetArgs)
 
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if rule_set_body is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_set_body'")

@@ -17,28 +17,29 @@ __all__ = ['UserProfileArgs', 'UserProfile']
 class UserProfileArgs:
     def __init__(__self__, *,
                  domain_id: pulumi.Input[str],
-                 user_profile_name: pulumi.Input[str],
                  single_sign_on_user_identifier: Optional[pulumi.Input[str]] = None,
                  single_sign_on_user_value: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileTagArgs']]]] = None,
+                 user_profile_name: Optional[pulumi.Input[str]] = None,
                  user_settings: Optional[pulumi.Input['UserProfileUserSettingsArgs']] = None):
         """
         The set of arguments for constructing a UserProfile resource.
         :param pulumi.Input[str] domain_id: The ID of the associated Domain.
-        :param pulumi.Input[str] user_profile_name: A name for the UserProfile.
         :param pulumi.Input[str] single_sign_on_user_identifier: A specifier for the type of value specified in SingleSignOnUserValue. Currently, the only supported value is "UserName". If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
         :param pulumi.Input[str] single_sign_on_user_value: The username of the associated AWS Single Sign-On User for this UserProfile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
         :param pulumi.Input[Sequence[pulumi.Input['UserProfileTagArgs']]] tags: A list of tags to apply to the user profile.
+        :param pulumi.Input[str] user_profile_name: A name for the UserProfile.
         :param pulumi.Input['UserProfileUserSettingsArgs'] user_settings: A collection of settings.
         """
         pulumi.set(__self__, "domain_id", domain_id)
-        pulumi.set(__self__, "user_profile_name", user_profile_name)
         if single_sign_on_user_identifier is not None:
             pulumi.set(__self__, "single_sign_on_user_identifier", single_sign_on_user_identifier)
         if single_sign_on_user_value is not None:
             pulumi.set(__self__, "single_sign_on_user_value", single_sign_on_user_value)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if user_profile_name is not None:
+            pulumi.set(__self__, "user_profile_name", user_profile_name)
         if user_settings is not None:
             pulumi.set(__self__, "user_settings", user_settings)
 
@@ -53,18 +54,6 @@ class UserProfileArgs:
     @domain_id.setter
     def domain_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "domain_id", value)
-
-    @property
-    @pulumi.getter(name="userProfileName")
-    def user_profile_name(self) -> pulumi.Input[str]:
-        """
-        A name for the UserProfile.
-        """
-        return pulumi.get(self, "user_profile_name")
-
-    @user_profile_name.setter
-    def user_profile_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "user_profile_name", value)
 
     @property
     @pulumi.getter(name="singleSignOnUserIdentifier")
@@ -101,6 +90,18 @@ class UserProfileArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileTagArgs']]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="userProfileName")
+    def user_profile_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for the UserProfile.
+        """
+        return pulumi.get(self, "user_profile_name")
+
+    @user_profile_name.setter
+    def user_profile_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_profile_name", value)
 
     @property
     @pulumi.getter(name="userSettings")
@@ -187,8 +188,6 @@ class UserProfile(pulumi.CustomResource):
             __props__.__dict__["single_sign_on_user_identifier"] = single_sign_on_user_identifier
             __props__.__dict__["single_sign_on_user_value"] = single_sign_on_user_value
             __props__.__dict__["tags"] = tags
-            if user_profile_name is None and not opts.urn:
-                raise TypeError("Missing required property 'user_profile_name'")
             __props__.__dict__["user_profile_name"] = user_profile_name
             __props__.__dict__["user_settings"] = user_settings
             __props__.__dict__["user_profile_arn"] = None

@@ -16,19 +16,18 @@ __all__ = ['EnvironmentArgs', 'Environment']
 @pulumi.input_type
 class EnvironmentArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  federation_mode: Optional[pulumi.Input['EnvironmentFederationMode']] = None,
                  federation_parameters: Optional[pulumi.Input['EnvironmentFederationParametersArgs']] = None,
-                 kms_key_id: Optional[pulumi.Input[str]] = None):
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Environment resource.
-        :param pulumi.Input[str] name: Name of the Environment
         :param pulumi.Input[str] description: Description of the Environment
         :param pulumi.Input['EnvironmentFederationMode'] federation_mode: Federation mode used with the Environment
         :param pulumi.Input[str] kms_key_id: KMS key used to encrypt customer data within FinSpace Environment infrastructure
+        :param pulumi.Input[str] name: Name of the Environment
         """
-        pulumi.set(__self__, "name", name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if federation_mode is not None:
@@ -37,18 +36,8 @@ class EnvironmentArgs:
             pulumi.set(__self__, "federation_parameters", federation_parameters)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Name of the Environment
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -95,6 +84,18 @@ class EnvironmentArgs:
     def kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_id", value)
 
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Environment
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
 
 class Environment(pulumi.CustomResource):
     @overload
@@ -121,7 +122,7 @@ class Environment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EnvironmentArgs,
+                 args: Optional[EnvironmentArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
@@ -162,8 +163,6 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["federation_mode"] = federation_mode
             __props__.__dict__["federation_parameters"] = federation_parameters
             __props__.__dict__["kms_key_id"] = kms_key_id
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["aws_account_id"] = None
             __props__.__dict__["dedicated_service_account_id"] = None

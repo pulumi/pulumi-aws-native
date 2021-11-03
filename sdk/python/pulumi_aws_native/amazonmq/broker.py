@@ -16,7 +16,6 @@ __all__ = ['BrokerArgs', 'Broker']
 class BrokerArgs:
     def __init__(__self__, *,
                  auto_minor_version_upgrade: pulumi.Input[bool],
-                 broker_name: pulumi.Input[str],
                  deployment_mode: pulumi.Input[str],
                  engine_type: pulumi.Input[str],
                  engine_version: pulumi.Input[str],
@@ -24,6 +23,7 @@ class BrokerArgs:
                  publicly_accessible: pulumi.Input[bool],
                  users: pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]],
                  authentication_strategy: Optional[pulumi.Input[str]] = None,
+                 broker_name: Optional[pulumi.Input[str]] = None,
                  configuration: Optional[pulumi.Input['BrokerConfigurationIdArgs']] = None,
                  encryption_options: Optional[pulumi.Input['BrokerEncryptionOptionsArgs']] = None,
                  ldap_server_metadata: Optional[pulumi.Input['BrokerLdapServerMetadataArgs']] = None,
@@ -37,7 +37,6 @@ class BrokerArgs:
         The set of arguments for constructing a Broker resource.
         """
         pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
-        pulumi.set(__self__, "broker_name", broker_name)
         pulumi.set(__self__, "deployment_mode", deployment_mode)
         pulumi.set(__self__, "engine_type", engine_type)
         pulumi.set(__self__, "engine_version", engine_version)
@@ -46,6 +45,8 @@ class BrokerArgs:
         pulumi.set(__self__, "users", users)
         if authentication_strategy is not None:
             pulumi.set(__self__, "authentication_strategy", authentication_strategy)
+        if broker_name is not None:
+            pulumi.set(__self__, "broker_name", broker_name)
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
         if encryption_options is not None:
@@ -73,15 +74,6 @@ class BrokerArgs:
     @auto_minor_version_upgrade.setter
     def auto_minor_version_upgrade(self, value: pulumi.Input[bool]):
         pulumi.set(self, "auto_minor_version_upgrade", value)
-
-    @property
-    @pulumi.getter(name="brokerName")
-    def broker_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "broker_name")
-
-    @broker_name.setter
-    def broker_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "broker_name", value)
 
     @property
     @pulumi.getter(name="deploymentMode")
@@ -145,6 +137,15 @@ class BrokerArgs:
     @authentication_strategy.setter
     def authentication_strategy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "authentication_strategy", value)
+
+    @property
+    @pulumi.getter(name="brokerName")
+    def broker_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "broker_name")
+
+    @broker_name.setter
+    def broker_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "broker_name", value)
 
     @property
     @pulumi.getter
@@ -322,8 +323,6 @@ class Broker(pulumi.CustomResource):
             if auto_minor_version_upgrade is None and not opts.urn:
                 raise TypeError("Missing required property 'auto_minor_version_upgrade'")
             __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
-            if broker_name is None and not opts.urn:
-                raise TypeError("Missing required property 'broker_name'")
             __props__.__dict__["broker_name"] = broker_name
             __props__.__dict__["configuration"] = configuration
             if deployment_mode is None and not opts.urn:

@@ -18,8 +18,8 @@ class FunctionConfigurationArgs:
                  api_id: pulumi.Input[str],
                  data_source_name: pulumi.Input[str],
                  function_version: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  request_mapping_template: Optional[pulumi.Input[str]] = None,
                  request_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
                  response_mapping_template: Optional[pulumi.Input[str]] = None,
@@ -31,9 +31,10 @@ class FunctionConfigurationArgs:
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "data_source_name", data_source_name)
         pulumi.set(__self__, "function_version", function_version)
-        pulumi.set(__self__, "name", name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if request_mapping_template is not None:
             pulumi.set(__self__, "request_mapping_template", request_mapping_template)
         if request_mapping_template_s3_location is not None:
@@ -74,21 +75,21 @@ class FunctionConfigurationArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "description")
 
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="requestMappingTemplate")
@@ -220,8 +221,6 @@ class FunctionConfiguration(pulumi.CustomResource):
             if function_version is None and not opts.urn:
                 raise TypeError("Missing required property 'function_version'")
             __props__.__dict__["function_version"] = function_version
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["request_mapping_template"] = request_mapping_template
             __props__.__dict__["request_mapping_template_s3_location"] = request_mapping_template_s3_location

@@ -16,10 +16,10 @@ __all__ = ['ClusterArgs', 'Cluster']
 class ClusterArgs:
     def __init__(__self__, *,
                  broker_node_group_info: pulumi.Input['ClusterBrokerNodeGroupInfoArgs'],
-                 cluster_name: pulumi.Input[str],
                  kafka_version: pulumi.Input[str],
                  number_of_broker_nodes: pulumi.Input[int],
                  client_authentication: Optional[pulumi.Input['ClusterClientAuthenticationArgs']] = None,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
                  configuration_info: Optional[pulumi.Input['ClusterConfigurationInfoArgs']] = None,
                  encryption_info: Optional[pulumi.Input['ClusterEncryptionInfoArgs']] = None,
                  enhanced_monitoring: Optional[pulumi.Input[str]] = None,
@@ -30,11 +30,12 @@ class ClusterArgs:
         The set of arguments for constructing a Cluster resource.
         """
         pulumi.set(__self__, "broker_node_group_info", broker_node_group_info)
-        pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "kafka_version", kafka_version)
         pulumi.set(__self__, "number_of_broker_nodes", number_of_broker_nodes)
         if client_authentication is not None:
             pulumi.set(__self__, "client_authentication", client_authentication)
+        if cluster_name is not None:
+            pulumi.set(__self__, "cluster_name", cluster_name)
         if configuration_info is not None:
             pulumi.set(__self__, "configuration_info", configuration_info)
         if encryption_info is not None:
@@ -56,15 +57,6 @@ class ClusterArgs:
     @broker_node_group_info.setter
     def broker_node_group_info(self, value: pulumi.Input['ClusterBrokerNodeGroupInfoArgs']):
         pulumi.set(self, "broker_node_group_info", value)
-
-    @property
-    @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "cluster_name")
-
-    @cluster_name.setter
-    def cluster_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "cluster_name", value)
 
     @property
     @pulumi.getter(name="kafkaVersion")
@@ -92,6 +84,15 @@ class ClusterArgs:
     @client_authentication.setter
     def client_authentication(self, value: Optional[pulumi.Input['ClusterClientAuthenticationArgs']]):
         pulumi.set(self, "client_authentication", value)
+
+    @property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_name", value)
 
     @property
     @pulumi.getter(name="configurationInfo")
@@ -228,8 +229,6 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'broker_node_group_info'")
             __props__.__dict__["broker_node_group_info"] = broker_node_group_info
             __props__.__dict__["client_authentication"] = client_authentication
-            if cluster_name is None and not opts.urn:
-                raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["configuration_info"] = configuration_info
             __props__.__dict__["encryption_info"] = encryption_info

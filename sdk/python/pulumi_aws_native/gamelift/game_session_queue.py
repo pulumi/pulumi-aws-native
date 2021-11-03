@@ -15,10 +15,10 @@ __all__ = ['GameSessionQueueArgs', 'GameSessionQueue']
 @pulumi.input_type
 class GameSessionQueueArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  custom_event_data: Optional[pulumi.Input[str]] = None,
                  destinations: Optional[pulumi.Input[Sequence[pulumi.Input['GameSessionQueueDestinationArgs']]]] = None,
                  filter_configuration: Optional[pulumi.Input['GameSessionQueueFilterConfigurationArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  notification_target: Optional[pulumi.Input[str]] = None,
                  player_latency_policies: Optional[pulumi.Input[Sequence[pulumi.Input['GameSessionQueuePlayerLatencyPolicyArgs']]]] = None,
                  priority_configuration: Optional[pulumi.Input['GameSessionQueuePriorityConfigurationArgs']] = None,
@@ -26,13 +26,14 @@ class GameSessionQueueArgs:
         """
         The set of arguments for constructing a GameSessionQueue resource.
         """
-        pulumi.set(__self__, "name", name)
         if custom_event_data is not None:
             pulumi.set(__self__, "custom_event_data", custom_event_data)
         if destinations is not None:
             pulumi.set(__self__, "destinations", destinations)
         if filter_configuration is not None:
             pulumi.set(__self__, "filter_configuration", filter_configuration)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if notification_target is not None:
             pulumi.set(__self__, "notification_target", notification_target)
         if player_latency_policies is not None:
@@ -41,15 +42,6 @@ class GameSessionQueueArgs:
             pulumi.set(__self__, "priority_configuration", priority_configuration)
         if timeout_in_seconds is not None:
             pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="customEventData")
@@ -77,6 +69,15 @@ class GameSessionQueueArgs:
     @filter_configuration.setter
     def filter_configuration(self, value: Optional[pulumi.Input['GameSessionQueueFilterConfigurationArgs']]):
         pulumi.set(self, "filter_configuration", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="notificationTarget")
@@ -144,7 +145,7 @@ class GameSessionQueue(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: GameSessionQueueArgs,
+                 args: Optional[GameSessionQueueArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::GameLift::GameSessionQueue
@@ -188,8 +189,6 @@ class GameSessionQueue(pulumi.CustomResource):
             __props__.__dict__["custom_event_data"] = custom_event_data
             __props__.__dict__["destinations"] = destinations
             __props__.__dict__["filter_configuration"] = filter_configuration
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["notification_target"] = notification_target
             __props__.__dict__["player_latency_policies"] = player_latency_policies

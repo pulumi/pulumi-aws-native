@@ -16,26 +16,25 @@ __all__ = ['StudioComponentArgs', 'StudioComponent']
 @pulumi.input_type
 class StudioComponentArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  studio_id: pulumi.Input[str],
                  type: pulumi.Input['StudioComponentType'],
                  configuration: Optional[pulumi.Input['StudioComponentConfigurationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ec2_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  initialization_scripts: Optional[pulumi.Input[Sequence[pulumi.Input['StudioComponentInitializationScriptArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  script_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['StudioComponentScriptParameterKeyValueArgs']]]] = None,
                  subtype: Optional[pulumi.Input['StudioComponentSubtype']] = None,
                  tags: Optional[pulumi.Input['StudioComponentTagsArgs']] = None):
         """
         The set of arguments for constructing a StudioComponent resource.
-        :param pulumi.Input[str] name: <p>The name for the studio component.</p>
         :param pulumi.Input[str] studio_id: <p>The studioId. </p>
         :param pulumi.Input[str] description: <p>The description.</p>
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ec2_security_group_ids: <p>The EC2 security groups that control access to the studio component.</p>
         :param pulumi.Input[Sequence[pulumi.Input['StudioComponentInitializationScriptArgs']]] initialization_scripts: <p>Initialization scripts for studio components.</p>
+        :param pulumi.Input[str] name: <p>The name for the studio component.</p>
         :param pulumi.Input[Sequence[pulumi.Input['StudioComponentScriptParameterKeyValueArgs']]] script_parameters: <p>Parameters for the studio component scripts.</p>
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "studio_id", studio_id)
         pulumi.set(__self__, "type", type)
         if configuration is not None:
@@ -46,24 +45,14 @@ class StudioComponentArgs:
             pulumi.set(__self__, "ec2_security_group_ids", ec2_security_group_ids)
         if initialization_scripts is not None:
             pulumi.set(__self__, "initialization_scripts", initialization_scripts)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if script_parameters is not None:
             pulumi.set(__self__, "script_parameters", script_parameters)
         if subtype is not None:
             pulumi.set(__self__, "subtype", subtype)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        <p>The name for the studio component.</p>
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="studioId")
@@ -130,6 +119,18 @@ class StudioComponentArgs:
     @initialization_scripts.setter
     def initialization_scripts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StudioComponentInitializationScriptArgs']]]]):
         pulumi.set(self, "initialization_scripts", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The name for the studio component.</p>
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="scriptParameters")
@@ -240,8 +241,6 @@ class StudioComponent(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["ec2_security_group_ids"] = ec2_security_group_ids
             __props__.__dict__["initialization_scripts"] = initialization_scripts
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["script_parameters"] = script_parameters
             if studio_id is None and not opts.urn:

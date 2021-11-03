@@ -15,44 +15,33 @@ __all__ = ['RepositoryArgs', 'Repository']
 @pulumi.input_type
 class RepositoryArgs:
     def __init__(__self__, *,
-                 repository_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  external_connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  permissions_policy_document: Optional[Any] = None,
+                 repository_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryTagArgs']]]] = None,
                  upstreams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Repository resource.
-        :param pulumi.Input[str] repository_name: The name of the repository.
         :param pulumi.Input[str] description: A text description of the repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_connections: A list of external connections associated with the repository.
         :param Any permissions_policy_document: The access control resource policy on the provided repository.
+        :param pulumi.Input[str] repository_name: The name of the repository.
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] upstreams: A list of upstream repositories associated with the repository.
         """
-        pulumi.set(__self__, "repository_name", repository_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if external_connections is not None:
             pulumi.set(__self__, "external_connections", external_connections)
         if permissions_policy_document is not None:
             pulumi.set(__self__, "permissions_policy_document", permissions_policy_document)
+        if repository_name is not None:
+            pulumi.set(__self__, "repository_name", repository_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if upstreams is not None:
             pulumi.set(__self__, "upstreams", upstreams)
-
-    @property
-    @pulumi.getter(name="repositoryName")
-    def repository_name(self) -> pulumi.Input[str]:
-        """
-        The name of the repository.
-        """
-        return pulumi.get(self, "repository_name")
-
-    @repository_name.setter
-    def repository_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "repository_name", value)
 
     @property
     @pulumi.getter
@@ -89,6 +78,18 @@ class RepositoryArgs:
     @permissions_policy_document.setter
     def permissions_policy_document(self, value: Optional[Any]):
         pulumi.set(self, "permissions_policy_document", value)
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the repository.
+        """
+        return pulumi.get(self, "repository_name")
+
+    @repository_name.setter
+    def repository_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_name", value)
 
     @property
     @pulumi.getter
@@ -143,7 +144,7 @@ class Repository(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RepositoryArgs,
+                 args: Optional[RepositoryArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The resource schema to create a CodeArtifact repository.
@@ -184,8 +185,6 @@ class Repository(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["external_connections"] = external_connections
             __props__.__dict__["permissions_policy_document"] = permissions_policy_document
-            if repository_name is None and not opts.urn:
-                raise TypeError("Missing required property 'repository_name'")
             __props__.__dict__["repository_name"] = repository_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["upstreams"] = upstreams

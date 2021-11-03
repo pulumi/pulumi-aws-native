@@ -18,9 +18,9 @@ class FeatureGroupArgs:
     def __init__(__self__, *,
                  event_time_feature_name: pulumi.Input[str],
                  feature_definitions: pulumi.Input[Sequence[pulumi.Input['FeatureGroupFeatureDefinitionArgs']]],
-                 feature_group_name: pulumi.Input[str],
                  record_identifier_feature_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 feature_group_name: Optional[pulumi.Input[str]] = None,
                  offline_store_config: Optional[pulumi.Input['OfflineStoreConfigPropertiesArgs']] = None,
                  online_store_config: Optional[pulumi.Input['OnlineStoreConfigPropertiesArgs']] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
@@ -29,18 +29,19 @@ class FeatureGroupArgs:
         The set of arguments for constructing a FeatureGroup resource.
         :param pulumi.Input[str] event_time_feature_name: The Event Time Feature Name.
         :param pulumi.Input[Sequence[pulumi.Input['FeatureGroupFeatureDefinitionArgs']]] feature_definitions: An Array of Feature Definition
-        :param pulumi.Input[str] feature_group_name: The Name of the FeatureGroup.
         :param pulumi.Input[str] record_identifier_feature_name: The Record Identifier Feature Name.
         :param pulumi.Input[str] description: Description about the FeatureGroup.
+        :param pulumi.Input[str] feature_group_name: The Name of the FeatureGroup.
         :param pulumi.Input[str] role_arn: Role Arn
         :param pulumi.Input[Sequence[pulumi.Input['FeatureGroupTagArgs']]] tags: An array of key-value pair to apply to this resource.
         """
         pulumi.set(__self__, "event_time_feature_name", event_time_feature_name)
         pulumi.set(__self__, "feature_definitions", feature_definitions)
-        pulumi.set(__self__, "feature_group_name", feature_group_name)
         pulumi.set(__self__, "record_identifier_feature_name", record_identifier_feature_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if feature_group_name is not None:
+            pulumi.set(__self__, "feature_group_name", feature_group_name)
         if offline_store_config is not None:
             pulumi.set(__self__, "offline_store_config", offline_store_config)
         if online_store_config is not None:
@@ -75,18 +76,6 @@ class FeatureGroupArgs:
         pulumi.set(self, "feature_definitions", value)
 
     @property
-    @pulumi.getter(name="featureGroupName")
-    def feature_group_name(self) -> pulumi.Input[str]:
-        """
-        The Name of the FeatureGroup.
-        """
-        return pulumi.get(self, "feature_group_name")
-
-    @feature_group_name.setter
-    def feature_group_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "feature_group_name", value)
-
-    @property
     @pulumi.getter(name="recordIdentifierFeatureName")
     def record_identifier_feature_name(self) -> pulumi.Input[str]:
         """
@@ -109,6 +98,18 @@ class FeatureGroupArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="featureGroupName")
+    def feature_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Name of the FeatureGroup.
+        """
+        return pulumi.get(self, "feature_group_name")
+
+    @feature_group_name.setter
+    def feature_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "feature_group_name", value)
 
     @property
     @pulumi.getter(name="offlineStoreConfig")
@@ -233,8 +234,6 @@ class FeatureGroup(pulumi.CustomResource):
             if feature_definitions is None and not opts.urn:
                 raise TypeError("Missing required property 'feature_definitions'")
             __props__.__dict__["feature_definitions"] = feature_definitions
-            if feature_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'feature_group_name'")
             __props__.__dict__["feature_group_name"] = feature_group_name
             __props__.__dict__["offline_store_config"] = offline_store_config
             __props__.__dict__["online_store_config"] = online_store_config

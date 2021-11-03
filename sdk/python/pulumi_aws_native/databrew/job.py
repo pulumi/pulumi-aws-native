@@ -16,7 +16,6 @@ __all__ = ['JobArgs', 'Job']
 @pulumi.input_type
 class JobArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  type: pulumi.Input['JobType'],
                  data_catalog_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['JobDataCatalogOutputArgs']]]] = None,
@@ -28,6 +27,7 @@ class JobArgs:
                  log_subscription: Optional[pulumi.Input['JobLogSubscription']] = None,
                  max_capacity: Optional[pulumi.Input[int]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  output_location: Optional[pulumi.Input['JobOutputLocationArgs']] = None,
                  outputs: Optional[pulumi.Input[Sequence[pulumi.Input['JobOutputArgs']]]] = None,
                  profile_configuration: Optional[pulumi.Input['JobProfileConfigurationArgs']] = None,
@@ -37,7 +37,6 @@ class JobArgs:
                  timeout: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Job resource.
-        :param pulumi.Input[str] name: Job name
         :param pulumi.Input[str] role_arn: Role arn
         :param pulumi.Input['JobType'] type: Job type
         :param pulumi.Input[str] dataset_name: Dataset name
@@ -47,12 +46,12 @@ class JobArgs:
         :param pulumi.Input['JobLogSubscription'] log_subscription: Log subscription
         :param pulumi.Input[int] max_capacity: Max capacity
         :param pulumi.Input[int] max_retries: Max retries
+        :param pulumi.Input[str] name: Job name
         :param pulumi.Input['JobOutputLocationArgs'] output_location: Output location
         :param pulumi.Input['JobProfileConfigurationArgs'] profile_configuration: Profile Job configuration
         :param pulumi.Input[str] project_name: Project name
         :param pulumi.Input[int] timeout: Timeout
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "type", type)
         if data_catalog_outputs is not None:
@@ -73,6 +72,8 @@ class JobArgs:
             pulumi.set(__self__, "max_capacity", max_capacity)
         if max_retries is not None:
             pulumi.set(__self__, "max_retries", max_retries)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if output_location is not None:
             pulumi.set(__self__, "output_location", output_location)
         if outputs is not None:
@@ -87,18 +88,6 @@ class JobArgs:
             pulumi.set(__self__, "tags", tags)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Job name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -225,6 +214,18 @@ class JobArgs:
     @max_retries.setter
     def max_retries(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_retries", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Job name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="outputLocation")
@@ -411,8 +412,6 @@ class Job(pulumi.CustomResource):
             __props__.__dict__["log_subscription"] = log_subscription
             __props__.__dict__["max_capacity"] = max_capacity
             __props__.__dict__["max_retries"] = max_retries
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["output_location"] = output_location
             __props__.__dict__["outputs"] = outputs

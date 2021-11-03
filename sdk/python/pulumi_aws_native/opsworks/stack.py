@@ -16,7 +16,6 @@ __all__ = ['StackArgs', 'Stack']
 class StackArgs:
     def __init__(__self__, *,
                  default_instance_profile_arn: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  service_role_arn: pulumi.Input[str],
                  agent_version: Optional[pulumi.Input[str]] = None,
                  attributes: Optional[Any] = None,
@@ -34,6 +33,7 @@ class StackArgs:
                  ecs_cluster_arn: Optional[pulumi.Input[str]] = None,
                  elastic_ips: Optional[pulumi.Input[Sequence[pulumi.Input['StackElasticIpArgs']]]] = None,
                  hostname_theme: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  rds_db_instances: Optional[pulumi.Input[Sequence[pulumi.Input['StackRdsDbInstanceArgs']]]] = None,
                  source_stack_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['StackTagArgs']]]] = None,
@@ -44,7 +44,6 @@ class StackArgs:
         The set of arguments for constructing a Stack resource.
         """
         pulumi.set(__self__, "default_instance_profile_arn", default_instance_profile_arn)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service_role_arn", service_role_arn)
         if agent_version is not None:
             pulumi.set(__self__, "agent_version", agent_version)
@@ -78,6 +77,8 @@ class StackArgs:
             pulumi.set(__self__, "elastic_ips", elastic_ips)
         if hostname_theme is not None:
             pulumi.set(__self__, "hostname_theme", hostname_theme)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if rds_db_instances is not None:
             pulumi.set(__self__, "rds_db_instances", rds_db_instances)
         if source_stack_id is not None:
@@ -99,15 +100,6 @@ class StackArgs:
     @default_instance_profile_arn.setter
     def default_instance_profile_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "default_instance_profile_arn", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="serviceRoleArn")
@@ -261,6 +253,15 @@ class StackArgs:
     @hostname_theme.setter
     def hostname_theme(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "hostname_theme", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="rdsDbInstances")
@@ -440,8 +441,6 @@ class Stack(pulumi.CustomResource):
             __props__.__dict__["ecs_cluster_arn"] = ecs_cluster_arn
             __props__.__dict__["elastic_ips"] = elastic_ips
             __props__.__dict__["hostname_theme"] = hostname_theme
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["rds_db_instances"] = rds_db_instances
             if service_role_arn is None and not opts.urn:

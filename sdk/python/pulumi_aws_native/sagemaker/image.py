@@ -15,32 +15,24 @@ __all__ = ['ImageArgs', 'Image']
 @pulumi.input_type
 class ImageArgs:
     def __init__(__self__, *,
-                 image_name: pulumi.Input[str],
                  image_role_arn: pulumi.Input[str],
                  image_description: Optional[pulumi.Input[str]] = None,
                  image_display_name: Optional[pulumi.Input[str]] = None,
+                 image_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ImageTagArgs']]]] = None):
         """
         The set of arguments for constructing a Image resource.
         :param pulumi.Input[Sequence[pulumi.Input['ImageTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "image_name", image_name)
         pulumi.set(__self__, "image_role_arn", image_role_arn)
         if image_description is not None:
             pulumi.set(__self__, "image_description", image_description)
         if image_display_name is not None:
             pulumi.set(__self__, "image_display_name", image_display_name)
+        if image_name is not None:
+            pulumi.set(__self__, "image_name", image_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="imageName")
-    def image_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "image_name")
-
-    @image_name.setter
-    def image_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "image_name", value)
 
     @property
     @pulumi.getter(name="imageRoleArn")
@@ -68,6 +60,15 @@ class ImageArgs:
     @image_display_name.setter
     def image_display_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "image_display_name", value)
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "image_name")
+
+    @image_name.setter
+    def image_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_name", value)
 
     @property
     @pulumi.getter
@@ -143,8 +144,6 @@ class Image(pulumi.CustomResource):
 
             __props__.__dict__["image_description"] = image_description
             __props__.__dict__["image_display_name"] = image_display_name
-            if image_name is None and not opts.urn:
-                raise TypeError("Missing required property 'image_name'")
             __props__.__dict__["image_name"] = image_name
             if image_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'image_role_arn'")

@@ -16,10 +16,10 @@ __all__ = ['GraphQLApiArgs', 'GraphQLApi']
 class GraphQLApiArgs:
     def __init__(__self__, *,
                  authentication_type: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  additional_authentication_providers: Optional[pulumi.Input['GraphQLApiAdditionalAuthenticationProvidersArgs']] = None,
                  lambda_authorizer_config: Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']] = None,
                  log_config: Optional[pulumi.Input['GraphQLApiLogConfigArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  open_id_connect_config: Optional[pulumi.Input['GraphQLApiOpenIDConnectConfigArgs']] = None,
                  tags: Optional[pulumi.Input['GraphQLApiTagsArgs']] = None,
                  user_pool_config: Optional[pulumi.Input['GraphQLApiUserPoolConfigArgs']] = None,
@@ -28,13 +28,14 @@ class GraphQLApiArgs:
         The set of arguments for constructing a GraphQLApi resource.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
-        pulumi.set(__self__, "name", name)
         if additional_authentication_providers is not None:
             pulumi.set(__self__, "additional_authentication_providers", additional_authentication_providers)
         if lambda_authorizer_config is not None:
             pulumi.set(__self__, "lambda_authorizer_config", lambda_authorizer_config)
         if log_config is not None:
             pulumi.set(__self__, "log_config", log_config)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if open_id_connect_config is not None:
             pulumi.set(__self__, "open_id_connect_config", open_id_connect_config)
         if tags is not None:
@@ -52,15 +53,6 @@ class GraphQLApiArgs:
     @authentication_type.setter
     def authentication_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "authentication_type", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="additionalAuthenticationProviders")
@@ -88,6 +80,15 @@ class GraphQLApiArgs:
     @log_config.setter
     def log_config(self, value: Optional[pulumi.Input['GraphQLApiLogConfigArgs']]):
         pulumi.set(self, "log_config", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="openIDConnectConfig")
@@ -204,8 +205,6 @@ class GraphQLApi(pulumi.CustomResource):
             __props__.__dict__["authentication_type"] = authentication_type
             __props__.__dict__["lambda_authorizer_config"] = lambda_authorizer_config
             __props__.__dict__["log_config"] = log_config
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["open_id_connect_config"] = open_id_connect_config
             __props__.__dict__["tags"] = tags

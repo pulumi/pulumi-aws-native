@@ -17,28 +17,27 @@ __all__ = ['ImageRecipeArgs', 'ImageRecipe']
 class ImageRecipeArgs:
     def __init__(__self__, *,
                  components: pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentConfigurationArgs']]],
-                 name: pulumi.Input[str],
                  parent_image: pulumi.Input[str],
                  version: pulumi.Input[str],
                  additional_instance_configuration: Optional[pulumi.Input['ImageRecipeAdditionalInstanceConfigurationArgs']] = None,
                  block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeInstanceBlockDeviceMappingArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  working_directory: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ImageRecipe resource.
         :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentConfigurationArgs']]] components: The components of the image recipe.
-        :param pulumi.Input[str] name: The name of the image recipe.
         :param pulumi.Input[str] parent_image: The parent image of the image recipe.
         :param pulumi.Input[str] version: The version of the image recipe.
         :param pulumi.Input['ImageRecipeAdditionalInstanceConfigurationArgs'] additional_instance_configuration: Specify additional settings and launch scripts for your build instances.
         :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeInstanceBlockDeviceMappingArgs']]] block_device_mappings: The block device mappings to apply when creating images from this recipe.
         :param pulumi.Input[str] description: The description of the image recipe.
+        :param pulumi.Input[str] name: The name of the image recipe.
         :param Any tags: The tags of the image recipe.
         :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
         """
         pulumi.set(__self__, "components", components)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "parent_image", parent_image)
         pulumi.set(__self__, "version", version)
         if additional_instance_configuration is not None:
@@ -47,6 +46,8 @@ class ImageRecipeArgs:
             pulumi.set(__self__, "block_device_mappings", block_device_mappings)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if working_directory is not None:
@@ -63,18 +64,6 @@ class ImageRecipeArgs:
     @components.setter
     def components(self, value: pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentConfigurationArgs']]]):
         pulumi.set(self, "components", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the image recipe.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="parentImage")
@@ -135,6 +124,18 @@ class ImageRecipeArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the image recipe.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -242,8 +243,6 @@ class ImageRecipe(pulumi.CustomResource):
                 raise TypeError("Missing required property 'components'")
             __props__.__dict__["components"] = components
             __props__.__dict__["description"] = description
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if parent_image is None and not opts.urn:
                 raise TypeError("Missing required property 'parent_image'")

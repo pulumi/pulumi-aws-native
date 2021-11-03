@@ -15,33 +15,22 @@ __all__ = ['RecipeArgs', 'Recipe']
 @pulumi.input_type
 class RecipeArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  steps: pulumi.Input[Sequence[pulumi.Input['RecipeStepArgs']]],
                  description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['RecipeTagArgs']]]] = None):
         """
         The set of arguments for constructing a Recipe resource.
-        :param pulumi.Input[str] name: Recipe name
         :param pulumi.Input[str] description: Description of the recipe
+        :param pulumi.Input[str] name: Recipe name
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "steps", steps)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Recipe name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -63,6 +52,18 @@ class RecipeArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Recipe name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -133,8 +134,6 @@ class Recipe(pulumi.CustomResource):
             __props__ = RecipeArgs.__new__(RecipeArgs)
 
             __props__.__dict__["description"] = description
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if steps is None and not opts.urn:
                 raise TypeError("Missing required property 'steps'")

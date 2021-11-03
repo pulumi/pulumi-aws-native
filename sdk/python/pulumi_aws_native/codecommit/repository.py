@@ -15,32 +15,24 @@ __all__ = ['RepositoryArgs', 'Repository']
 @pulumi.input_type
 class RepositoryArgs:
     def __init__(__self__, *,
-                 repository_name: pulumi.Input[str],
                  code: Optional[pulumi.Input['RepositoryCodeArgs']] = None,
                  repository_description: Optional[pulumi.Input[str]] = None,
+                 repository_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryTagArgs']]]] = None,
                  triggers: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryTriggerArgs']]]] = None):
         """
         The set of arguments for constructing a Repository resource.
         """
-        pulumi.set(__self__, "repository_name", repository_name)
         if code is not None:
             pulumi.set(__self__, "code", code)
         if repository_description is not None:
             pulumi.set(__self__, "repository_description", repository_description)
+        if repository_name is not None:
+            pulumi.set(__self__, "repository_name", repository_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if triggers is not None:
             pulumi.set(__self__, "triggers", triggers)
-
-    @property
-    @pulumi.getter(name="repositoryName")
-    def repository_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "repository_name")
-
-    @repository_name.setter
-    def repository_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "repository_name", value)
 
     @property
     @pulumi.getter
@@ -59,6 +51,15 @@ class RepositoryArgs:
     @repository_description.setter
     def repository_description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "repository_description", value)
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "repository_name")
+
+    @repository_name.setter
+    def repository_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_name", value)
 
     @property
     @pulumi.getter
@@ -105,7 +106,7 @@ class Repository(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RepositoryArgs,
+                 args: Optional[RepositoryArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::CodeCommit::Repository
@@ -145,8 +146,6 @@ class Repository(pulumi.CustomResource):
 
             __props__.__dict__["code"] = code
             __props__.__dict__["repository_description"] = repository_description
-            if repository_name is None and not opts.urn:
-                raise TypeError("Missing required property 'repository_name'")
             __props__.__dict__["repository_name"] = repository_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["triggers"] = triggers

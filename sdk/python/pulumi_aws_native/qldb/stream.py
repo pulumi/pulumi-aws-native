@@ -19,8 +19,8 @@ class StreamArgs:
                  kinesis_configuration: pulumi.Input['StreamKinesisConfigurationArgs'],
                  ledger_name: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
-                 stream_name: pulumi.Input[str],
                  exclusive_end_time: Optional[pulumi.Input[str]] = None,
+                 stream_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['StreamTagArgs']]]] = None):
         """
         The set of arguments for constructing a Stream resource.
@@ -30,9 +30,10 @@ class StreamArgs:
         pulumi.set(__self__, "kinesis_configuration", kinesis_configuration)
         pulumi.set(__self__, "ledger_name", ledger_name)
         pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "stream_name", stream_name)
         if exclusive_end_time is not None:
             pulumi.set(__self__, "exclusive_end_time", exclusive_end_time)
+        if stream_name is not None:
+            pulumi.set(__self__, "stream_name", stream_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -73,15 +74,6 @@ class StreamArgs:
         pulumi.set(self, "role_arn", value)
 
     @property
-    @pulumi.getter(name="streamName")
-    def stream_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "stream_name")
-
-    @stream_name.setter
-    def stream_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "stream_name", value)
-
-    @property
     @pulumi.getter(name="exclusiveEndTime")
     def exclusive_end_time(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "exclusive_end_time")
@@ -89,6 +81,15 @@ class StreamArgs:
     @exclusive_end_time.setter
     def exclusive_end_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "exclusive_end_time", value)
+
+    @property
+    @pulumi.getter(name="streamName")
+    def stream_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "stream_name")
+
+    @stream_name.setter
+    def stream_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stream_name", value)
 
     @property
     @pulumi.getter
@@ -179,8 +180,6 @@ class Stream(pulumi.CustomResource):
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
-            if stream_name is None and not opts.urn:
-                raise TypeError("Missing required property 'stream_name'")
             __props__.__dict__["stream_name"] = stream_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

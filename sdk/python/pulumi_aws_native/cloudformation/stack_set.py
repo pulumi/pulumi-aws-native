@@ -17,7 +17,6 @@ __all__ = ['StackSetArgs', 'StackSet']
 class StackSetArgs:
     def __init__(__self__, *,
                  permission_model: pulumi.Input['StackSetPermissionModel'],
-                 stack_set_name: pulumi.Input[str],
                  administration_role_arn: Optional[pulumi.Input[str]] = None,
                  auto_deployment: Optional[pulumi.Input['StackSetAutoDeploymentArgs']] = None,
                  call_as: Optional[pulumi.Input['StackSetCallAs']] = None,
@@ -27,13 +26,13 @@ class StackSetArgs:
                  operation_preferences: Optional[pulumi.Input['StackSetOperationPreferencesArgs']] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgs']]]] = None,
                  stack_instances_group: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetStackInstancesArgs']]]] = None,
+                 stack_set_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetTagArgs']]]] = None,
                  template_body: Optional[pulumi.Input[str]] = None,
                  template_url: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a StackSet resource.
         :param pulumi.Input['StackSetPermissionModel'] permission_model: Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
-        :param pulumi.Input[str] stack_set_name: The name to associate with the stack set. The name must be unique in the Region where you create your stack set.
         :param pulumi.Input[str] administration_role_arn: The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
         :param pulumi.Input['StackSetAutoDeploymentArgs'] auto_deployment: Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to the target organization or organizational unit (OU). Specify only if PermissionModel is SERVICE_MANAGED.
         :param pulumi.Input['StackSetCallAs'] call_as: Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
@@ -42,12 +41,12 @@ class StackSetArgs:
         :param pulumi.Input[str] execution_role_name: The name of the IAM execution role to use to create the stack set. If you do not specify an execution role, AWS CloudFormation uses the AWSCloudFormationStackSetExecutionRole role for the stack set operation.
         :param pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgs']]] parameters: The input parameters for the stack set template.
         :param pulumi.Input[Sequence[pulumi.Input['StackSetStackInstancesArgs']]] stack_instances_group: A group of stack instances with parameters in some specific accounts and regions.
+        :param pulumi.Input[str] stack_set_name: The name to associate with the stack set. The name must be unique in the Region where you create your stack set.
         :param pulumi.Input[Sequence[pulumi.Input['StackSetTagArgs']]] tags: The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
         :param pulumi.Input[str] template_body: The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.
         :param pulumi.Input[str] template_url: Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket.
         """
         pulumi.set(__self__, "permission_model", permission_model)
-        pulumi.set(__self__, "stack_set_name", stack_set_name)
         if administration_role_arn is not None:
             pulumi.set(__self__, "administration_role_arn", administration_role_arn)
         if auto_deployment is not None:
@@ -66,6 +65,8 @@ class StackSetArgs:
             pulumi.set(__self__, "parameters", parameters)
         if stack_instances_group is not None:
             pulumi.set(__self__, "stack_instances_group", stack_instances_group)
+        if stack_set_name is not None:
+            pulumi.set(__self__, "stack_set_name", stack_set_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if template_body is not None:
@@ -84,18 +85,6 @@ class StackSetArgs:
     @permission_model.setter
     def permission_model(self, value: pulumi.Input['StackSetPermissionModel']):
         pulumi.set(self, "permission_model", value)
-
-    @property
-    @pulumi.getter(name="stackSetName")
-    def stack_set_name(self) -> pulumi.Input[str]:
-        """
-        The name to associate with the stack set. The name must be unique in the Region where you create your stack set.
-        """
-        return pulumi.get(self, "stack_set_name")
-
-    @stack_set_name.setter
-    def stack_set_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "stack_set_name", value)
 
     @property
     @pulumi.getter(name="administrationRoleARN")
@@ -201,6 +190,18 @@ class StackSetArgs:
     @stack_instances_group.setter
     def stack_instances_group(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetStackInstancesArgs']]]]):
         pulumi.set(self, "stack_instances_group", value)
+
+    @property
+    @pulumi.getter(name="stackSetName")
+    def stack_set_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name to associate with the stack set. The name must be unique in the Region where you create your stack set.
+        """
+        return pulumi.get(self, "stack_set_name")
+
+    @stack_set_name.setter
+    def stack_set_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stack_set_name", value)
 
     @property
     @pulumi.getter
@@ -340,8 +341,6 @@ class StackSet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'permission_model'")
             __props__.__dict__["permission_model"] = permission_model
             __props__.__dict__["stack_instances_group"] = stack_instances_group
-            if stack_set_name is None and not opts.urn:
-                raise TypeError("Missing required property 'stack_set_name'")
             __props__.__dict__["stack_set_name"] = stack_set_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["template_body"] = template_body

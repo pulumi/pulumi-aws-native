@@ -16,30 +16,31 @@ __all__ = ['PermissionSetArgs', 'PermissionSet']
 class PermissionSetArgs:
     def __init__(__self__, *,
                  instance_arn: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  inline_policy: Optional[Any] = None,
                  managed_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  relay_state_type: Optional[pulumi.Input[str]] = None,
                  session_duration: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionSetTagArgs']]]] = None):
         """
         The set of arguments for constructing a PermissionSet resource.
         :param pulumi.Input[str] instance_arn: The sso instance arn that the permission set is owned.
-        :param pulumi.Input[str] name: The name you want to assign to this permission set.
         :param pulumi.Input[str] description: The permission set description.
         :param Any inline_policy: The inline policy to put in permission set.
+        :param pulumi.Input[str] name: The name you want to assign to this permission set.
         :param pulumi.Input[str] relay_state_type: The relay state URL that redirect links to any service in the AWS Management Console.
         :param pulumi.Input[str] session_duration: The length of time that a user can be signed in to an AWS account.
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
-        pulumi.set(__self__, "name", name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if inline_policy is not None:
             pulumi.set(__self__, "inline_policy", inline_policy)
         if managed_policies is not None:
             pulumi.set(__self__, "managed_policies", managed_policies)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if relay_state_type is not None:
             pulumi.set(__self__, "relay_state_type", relay_state_type)
         if session_duration is not None:
@@ -58,18 +59,6 @@ class PermissionSetArgs:
     @instance_arn.setter
     def instance_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "instance_arn", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name you want to assign to this permission set.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -103,6 +92,18 @@ class PermissionSetArgs:
     @managed_policies.setter
     def managed_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "managed_policies", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name you want to assign to this permission set.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="relayStateType")
@@ -214,8 +215,6 @@ class PermissionSet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'instance_arn'")
             __props__.__dict__["instance_arn"] = instance_arn
             __props__.__dict__["managed_policies"] = managed_policies
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["relay_state_type"] = relay_state_type
             __props__.__dict__["session_duration"] = session_duration

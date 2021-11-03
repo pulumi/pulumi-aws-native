@@ -18,19 +18,20 @@ class ServiceActionArgs:
     def __init__(__self__, *,
                  definition: pulumi.Input[Sequence[pulumi.Input['ServiceActionDefinitionParameterArgs']]],
                  definition_type: pulumi.Input['ServiceActionDefinitionType'],
-                 name: pulumi.Input[str],
                  accept_language: Optional[pulumi.Input['ServiceActionAcceptLanguage']] = None,
-                 description: Optional[pulumi.Input[str]] = None):
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServiceAction resource.
         """
         pulumi.set(__self__, "definition", definition)
         pulumi.set(__self__, "definition_type", definition_type)
-        pulumi.set(__self__, "name", name)
         if accept_language is not None:
             pulumi.set(__self__, "accept_language", accept_language)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -51,15 +52,6 @@ class ServiceActionArgs:
         pulumi.set(self, "definition_type", value)
 
     @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> Optional[pulumi.Input['ServiceActionAcceptLanguage']]:
         return pulumi.get(self, "accept_language")
@@ -76,6 +68,15 @@ class ServiceActionArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class ServiceAction(pulumi.CustomResource):
@@ -144,8 +145,6 @@ class ServiceAction(pulumi.CustomResource):
                 raise TypeError("Missing required property 'definition_type'")
             __props__.__dict__["definition_type"] = definition_type
             __props__.__dict__["description"] = description
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
         super(ServiceAction, __self__).__init__(
             'aws-native:servicecatalog:ServiceAction',

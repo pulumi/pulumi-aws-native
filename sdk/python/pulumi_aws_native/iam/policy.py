@@ -14,17 +14,18 @@ __all__ = ['PolicyArgs', 'Policy']
 class PolicyArgs:
     def __init__(__self__, *,
                  policy_document: Any,
-                 policy_name: pulumi.Input[str],
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 policy_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Policy resource.
         """
         pulumi.set(__self__, "policy_document", policy_document)
-        pulumi.set(__self__, "policy_name", policy_name)
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if roles is not None:
             pulumi.set(__self__, "roles", roles)
         if users is not None:
@@ -40,15 +41,6 @@ class PolicyArgs:
         pulumi.set(self, "policy_document", value)
 
     @property
-    @pulumi.getter(name="policyName")
-    def policy_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "policy_name")
-
-    @policy_name.setter
-    def policy_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "policy_name", value)
-
-    @property
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "groups")
@@ -56,6 +48,15 @@ class PolicyArgs:
     @groups.setter
     def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "groups", value)
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "policy_name")
+
+    @policy_name.setter
+    def policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_name", value)
 
     @property
     @pulumi.getter
@@ -144,8 +145,6 @@ class Policy(pulumi.CustomResource):
             if policy_document is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_document'")
             __props__.__dict__["policy_document"] = policy_document
-            if policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'policy_name'")
             __props__.__dict__["policy_name"] = policy_name
             __props__.__dict__["roles"] = roles
             __props__.__dict__["users"] = users

@@ -15,13 +15,13 @@ __all__ = ['PatchBaselineArgs', 'PatchBaseline']
 @pulumi.input_type
 class PatchBaselineArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  approval_rules: Optional[pulumi.Input['PatchBaselineRuleGroupArgs']] = None,
                  approved_patches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  approved_patches_compliance_level: Optional[pulumi.Input[str]] = None,
                  approved_patches_enable_non_security: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  global_filters: Optional[pulumi.Input['PatchBaselinePatchFilterGroupArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  operating_system: Optional[pulumi.Input[str]] = None,
                  patch_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  rejected_patches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -31,7 +31,6 @@ class PatchBaselineArgs:
         """
         The set of arguments for constructing a PatchBaseline resource.
         """
-        pulumi.set(__self__, "name", name)
         if approval_rules is not None:
             pulumi.set(__self__, "approval_rules", approval_rules)
         if approved_patches is not None:
@@ -44,6 +43,8 @@ class PatchBaselineArgs:
             pulumi.set(__self__, "description", description)
         if global_filters is not None:
             pulumi.set(__self__, "global_filters", global_filters)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if operating_system is not None:
             pulumi.set(__self__, "operating_system", operating_system)
         if patch_groups is not None:
@@ -56,15 +57,6 @@ class PatchBaselineArgs:
             pulumi.set(__self__, "sources", sources)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="approvalRules")
@@ -119,6 +111,15 @@ class PatchBaselineArgs:
     @global_filters.setter
     def global_filters(self, value: Optional[pulumi.Input['PatchBaselinePatchFilterGroupArgs']]):
         pulumi.set(self, "global_filters", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="operatingSystem")
@@ -209,7 +210,7 @@ class PatchBaseline(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PatchBaselineArgs,
+                 args: Optional[PatchBaselineArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SSM::PatchBaseline
@@ -261,8 +262,6 @@ class PatchBaseline(pulumi.CustomResource):
             __props__.__dict__["approved_patches_enable_non_security"] = approved_patches_enable_non_security
             __props__.__dict__["description"] = description
             __props__.__dict__["global_filters"] = global_filters
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["operating_system"] = operating_system
             __props__.__dict__["patch_groups"] = patch_groups

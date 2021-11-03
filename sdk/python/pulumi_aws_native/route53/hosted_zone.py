@@ -15,44 +15,31 @@ __all__ = ['HostedZoneArgs', 'HostedZone']
 @pulumi.input_type
 class HostedZoneArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  hosted_zone_config: Optional[pulumi.Input['HostedZoneConfigArgs']] = None,
                  hosted_zone_tags: Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneTagArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  query_logging_config: Optional[pulumi.Input['HostedZoneQueryLoggingConfigArgs']] = None,
                  v_pcs: Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneVPCArgs']]]] = None):
         """
         The set of arguments for constructing a HostedZone resource.
-        :param pulumi.Input[str] name: The name of the domain. Specify a fully qualified domain name, for example, www.example.com. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats www.example.com (without a trailing dot) and www.example.com. (with a trailing dot) as identical.
-               
-               If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of NameServers that are returned by the Fn::GetAtt intrinsic function.
         :param pulumi.Input[Sequence[pulumi.Input['HostedZoneTagArgs']]] hosted_zone_tags: Adds, edits, or deletes tags for a health check or a hosted zone.
                
                For information about using tags for cost allocation, see Using Cost Allocation Tags in the AWS Billing and Cost Management User Guide.
+        :param pulumi.Input[str] name: The name of the domain. Specify a fully qualified domain name, for example, www.example.com. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats www.example.com (without a trailing dot) and www.example.com. (with a trailing dot) as identical.
+               
+               If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of NameServers that are returned by the Fn::GetAtt intrinsic function.
         :param pulumi.Input[Sequence[pulumi.Input['HostedZoneVPCArgs']]] v_pcs: A complex type that contains information about the VPCs that are associated with the specified hosted zone.
         """
-        pulumi.set(__self__, "name", name)
         if hosted_zone_config is not None:
             pulumi.set(__self__, "hosted_zone_config", hosted_zone_config)
         if hosted_zone_tags is not None:
             pulumi.set(__self__, "hosted_zone_tags", hosted_zone_tags)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if query_logging_config is not None:
             pulumi.set(__self__, "query_logging_config", query_logging_config)
         if v_pcs is not None:
             pulumi.set(__self__, "v_pcs", v_pcs)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the domain. Specify a fully qualified domain name, for example, www.example.com. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats www.example.com (without a trailing dot) and www.example.com. (with a trailing dot) as identical.
-
-        If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of NameServers that are returned by the Fn::GetAtt intrinsic function.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="hostedZoneConfig")
@@ -76,6 +63,20 @@ class HostedZoneArgs:
     @hosted_zone_tags.setter
     def hosted_zone_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneTagArgs']]]]):
         pulumi.set(self, "hosted_zone_tags", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the domain. Specify a fully qualified domain name, for example, www.example.com. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats www.example.com (without a trailing dot) and www.example.com. (with a trailing dot) as identical.
+
+        If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of NameServers that are returned by the Fn::GetAtt intrinsic function.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="queryLoggingConfig")
@@ -127,7 +128,7 @@ class HostedZone(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: HostedZoneArgs,
+                 args: Optional[HostedZoneArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::Route53::HostedZone.
@@ -166,8 +167,6 @@ class HostedZone(pulumi.CustomResource):
 
             __props__.__dict__["hosted_zone_config"] = hosted_zone_config
             __props__.__dict__["hosted_zone_tags"] = hosted_zone_tags
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["query_logging_config"] = query_logging_config
             __props__.__dict__["v_pcs"] = v_pcs

@@ -17,12 +17,12 @@ __all__ = ['InfrastructureConfigurationArgs', 'InfrastructureConfiguration']
 class InfrastructureConfigurationArgs:
     def __init__(__self__, *,
                  instance_profile_name: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  instance_metadata_options: Optional[pulumi.Input['InfrastructureConfigurationInstanceMetadataOptionsArgs']] = None,
                  instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key_pair: Optional[pulumi.Input[str]] = None,
                  logging: Optional[pulumi.Input['InfrastructureConfigurationLoggingArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  resource_tags: Optional[Any] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sns_topic_arn: Optional[pulumi.Input[str]] = None,
@@ -32,12 +32,12 @@ class InfrastructureConfigurationArgs:
         """
         The set of arguments for constructing a InfrastructureConfiguration resource.
         :param pulumi.Input[str] instance_profile_name: The instance profile of the infrastructure configuration.
-        :param pulumi.Input[str] name: The name of the infrastructure configuration.
         :param pulumi.Input[str] description: The description of the infrastructure configuration.
         :param pulumi.Input['InfrastructureConfigurationInstanceMetadataOptionsArgs'] instance_metadata_options: The instance metadata option settings for the infrastructure configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: The instance types of the infrastructure configuration.
         :param pulumi.Input[str] key_pair: The EC2 key pair of the infrastructure configuration..
         :param pulumi.Input['InfrastructureConfigurationLoggingArgs'] logging: The logging configuration of the infrastructure configuration.
+        :param pulumi.Input[str] name: The name of the infrastructure configuration.
         :param Any resource_tags: The tags attached to the resource created by Image Builder.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The security group IDs of the infrastructure configuration.
         :param pulumi.Input[str] sns_topic_arn: The SNS Topic Amazon Resource Name (ARN) of the infrastructure configuration.
@@ -46,7 +46,6 @@ class InfrastructureConfigurationArgs:
         :param pulumi.Input[bool] terminate_instance_on_failure: The terminate instance on failure configuration of the infrastructure configuration.
         """
         pulumi.set(__self__, "instance_profile_name", instance_profile_name)
-        pulumi.set(__self__, "name", name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if instance_metadata_options is not None:
@@ -57,6 +56,8 @@ class InfrastructureConfigurationArgs:
             pulumi.set(__self__, "key_pair", key_pair)
         if logging is not None:
             pulumi.set(__self__, "logging", logging)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if resource_tags is not None:
             pulumi.set(__self__, "resource_tags", resource_tags)
         if security_group_ids is not None:
@@ -81,18 +82,6 @@ class InfrastructureConfigurationArgs:
     @instance_profile_name.setter
     def instance_profile_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "instance_profile_name", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the infrastructure configuration.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -153,6 +142,18 @@ class InfrastructureConfigurationArgs:
     @logging.setter
     def logging(self, value: Optional[pulumi.Input['InfrastructureConfigurationLoggingArgs']]):
         pulumi.set(self, "logging", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the infrastructure configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="resourceTags")
@@ -322,8 +323,6 @@ class InfrastructureConfiguration(pulumi.CustomResource):
             __props__.__dict__["instance_types"] = instance_types
             __props__.__dict__["key_pair"] = key_pair
             __props__.__dict__["logging"] = logging
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["resource_tags"] = resource_tags
             __props__.__dict__["security_group_ids"] = security_group_ids

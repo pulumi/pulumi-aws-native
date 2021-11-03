@@ -13,23 +13,15 @@ __all__ = ['EventBusArgs', 'EventBus']
 @pulumi.input_type
 class EventBusArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 event_source_name: Optional[pulumi.Input[str]] = None):
+                 event_source_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a EventBus resource.
         """
-        pulumi.set(__self__, "name", name)
         if event_source_name is not None:
             pulumi.set(__self__, "event_source_name", event_source_name)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="eventSourceName")
@@ -39,6 +31,15 @@ class EventBusArgs:
     @event_source_name.setter
     def event_source_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "event_source_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 warnings.warn("""EventBus is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
@@ -64,7 +65,7 @@ class EventBus(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EventBusArgs,
+                 args: Optional[EventBusArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Events::EventBus
@@ -100,8 +101,6 @@ class EventBus(pulumi.CustomResource):
             __props__ = EventBusArgs.__new__(EventBusArgs)
 
             __props__.__dict__["event_source_name"] = event_source_name
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["arn"] = None
             __props__.__dict__["policy"] = None

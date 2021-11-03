@@ -17,7 +17,6 @@ class CampaignArgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[str],
                  message_configuration: pulumi.Input['CampaignMessageConfigurationArgs'],
-                 name: pulumi.Input[str],
                  schedule: pulumi.Input['CampaignScheduleArgs'],
                  segment_id: pulumi.Input[str],
                  additional_treatments: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignWriteTreatmentResourceArgs']]]] = None,
@@ -26,6 +25,7 @@ class CampaignArgs:
                  holdout_percent: Optional[pulumi.Input[int]] = None,
                  is_paused: Optional[pulumi.Input[bool]] = None,
                  limits: Optional[pulumi.Input['CampaignLimitsArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  segment_version: Optional[pulumi.Input[int]] = None,
                  tags: Optional[Any] = None,
@@ -36,7 +36,6 @@ class CampaignArgs:
         """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "message_configuration", message_configuration)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "schedule", schedule)
         pulumi.set(__self__, "segment_id", segment_id)
         if additional_treatments is not None:
@@ -51,6 +50,8 @@ class CampaignArgs:
             pulumi.set(__self__, "is_paused", is_paused)
         if limits is not None:
             pulumi.set(__self__, "limits", limits)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if segment_version is not None:
@@ -79,15 +80,6 @@ class CampaignArgs:
     @message_configuration.setter
     def message_configuration(self, value: pulumi.Input['CampaignMessageConfigurationArgs']):
         pulumi.set(self, "message_configuration", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -160,6 +152,15 @@ class CampaignArgs:
     @limits.setter
     def limits(self, value: Optional[pulumi.Input['CampaignLimitsArgs']]):
         pulumi.set(self, "limits", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -305,8 +306,6 @@ class Campaign(pulumi.CustomResource):
             if message_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'message_configuration'")
             __props__.__dict__["message_configuration"] = message_configuration
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["priority"] = priority
             if schedule is None and not opts.urn:

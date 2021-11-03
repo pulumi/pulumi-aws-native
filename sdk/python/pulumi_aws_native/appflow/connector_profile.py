@@ -17,23 +17,24 @@ __all__ = ['ConnectorProfileArgs', 'ConnectorProfile']
 class ConnectorProfileArgs:
     def __init__(__self__, *,
                  connection_mode: pulumi.Input['ConnectorProfileConnectionMode'],
-                 connector_profile_name: pulumi.Input[str],
                  connector_type: pulumi.Input['ConnectorProfileConnectorType'],
                  connector_profile_config: Optional[pulumi.Input['ConnectorProfileConfigArgs']] = None,
+                 connector_profile_name: Optional[pulumi.Input[str]] = None,
                  k_ms_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ConnectorProfile resource.
         :param pulumi.Input['ConnectorProfileConnectionMode'] connection_mode: Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
-        :param pulumi.Input[str] connector_profile_name: The maximum number of items to retrieve in a single batch.
         :param pulumi.Input['ConnectorProfileConnectorType'] connector_type: List of Saas providers that need connector profile to be created
         :param pulumi.Input['ConnectorProfileConfigArgs'] connector_profile_config: Connector specific configurations needed to create connector profile
+        :param pulumi.Input[str] connector_profile_name: The maximum number of items to retrieve in a single batch.
         :param pulumi.Input[str] k_ms_arn: The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         """
         pulumi.set(__self__, "connection_mode", connection_mode)
-        pulumi.set(__self__, "connector_profile_name", connector_profile_name)
         pulumi.set(__self__, "connector_type", connector_type)
         if connector_profile_config is not None:
             pulumi.set(__self__, "connector_profile_config", connector_profile_config)
+        if connector_profile_name is not None:
+            pulumi.set(__self__, "connector_profile_name", connector_profile_name)
         if k_ms_arn is not None:
             pulumi.set(__self__, "k_ms_arn", k_ms_arn)
 
@@ -48,18 +49,6 @@ class ConnectorProfileArgs:
     @connection_mode.setter
     def connection_mode(self, value: pulumi.Input['ConnectorProfileConnectionMode']):
         pulumi.set(self, "connection_mode", value)
-
-    @property
-    @pulumi.getter(name="connectorProfileName")
-    def connector_profile_name(self) -> pulumi.Input[str]:
-        """
-        The maximum number of items to retrieve in a single batch.
-        """
-        return pulumi.get(self, "connector_profile_name")
-
-    @connector_profile_name.setter
-    def connector_profile_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "connector_profile_name", value)
 
     @property
     @pulumi.getter(name="connectorType")
@@ -84,6 +73,18 @@ class ConnectorProfileArgs:
     @connector_profile_config.setter
     def connector_profile_config(self, value: Optional[pulumi.Input['ConnectorProfileConfigArgs']]):
         pulumi.set(self, "connector_profile_config", value)
+
+    @property
+    @pulumi.getter(name="connectorProfileName")
+    def connector_profile_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The maximum number of items to retrieve in a single batch.
+        """
+        return pulumi.get(self, "connector_profile_name")
+
+    @connector_profile_name.setter
+    def connector_profile_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connector_profile_name", value)
 
     @property
     @pulumi.getter(name="kMSArn")
@@ -165,8 +166,6 @@ class ConnectorProfile(pulumi.CustomResource):
                 raise TypeError("Missing required property 'connection_mode'")
             __props__.__dict__["connection_mode"] = connection_mode
             __props__.__dict__["connector_profile_config"] = connector_profile_config
-            if connector_profile_name is None and not opts.urn:
-                raise TypeError("Missing required property 'connector_profile_name'")
             __props__.__dict__["connector_profile_name"] = connector_profile_name
             if connector_type is None and not opts.urn:
                 raise TypeError("Missing required property 'connector_type'")

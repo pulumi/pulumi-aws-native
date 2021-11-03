@@ -17,23 +17,24 @@ __all__ = ['ProjectArgs', 'Project']
 class ProjectArgs:
     def __init__(__self__, *,
                  dataset_name: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  recipe_name: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
                  sample: Optional[pulumi.Input['ProjectSampleArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]] = None):
         """
         The set of arguments for constructing a Project resource.
         :param pulumi.Input[str] dataset_name: Dataset name
-        :param pulumi.Input[str] name: Project name
         :param pulumi.Input[str] recipe_name: Recipe name
         :param pulumi.Input[str] role_arn: Role arn
+        :param pulumi.Input[str] name: Project name
         :param pulumi.Input['ProjectSampleArgs'] sample: Sample
         """
         pulumi.set(__self__, "dataset_name", dataset_name)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "recipe_name", recipe_name)
         pulumi.set(__self__, "role_arn", role_arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if sample is not None:
             pulumi.set(__self__, "sample", sample)
         if tags is not None:
@@ -50,18 +51,6 @@ class ProjectArgs:
     @dataset_name.setter
     def dataset_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "dataset_name", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Project name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="recipeName")
@@ -86,6 +75,18 @@ class ProjectArgs:
     @role_arn.setter
     def role_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Project name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -177,8 +178,6 @@ class Project(pulumi.CustomResource):
             if dataset_name is None and not opts.urn:
                 raise TypeError("Missing required property 'dataset_name'")
             __props__.__dict__["dataset_name"] = dataset_name
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if recipe_name is None and not opts.urn:
                 raise TypeError("Missing required property 'recipe_name'")

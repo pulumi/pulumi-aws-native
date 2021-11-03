@@ -16,35 +16,24 @@ __all__ = ['FlowArgs', 'Flow']
 @pulumi.input_type
 class FlowArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  source: pulumi.Input['FlowSourceArgs'],
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  source_failover_config: Optional[pulumi.Input['FlowFailoverConfigArgs']] = None):
         """
         The set of arguments for constructing a Flow resource.
-        :param pulumi.Input[str] name: The name of the flow.
         :param pulumi.Input['FlowSourceArgs'] source: The source of the flow.
         :param pulumi.Input[str] availability_zone: The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
+        :param pulumi.Input[str] name: The name of the flow.
         :param pulumi.Input['FlowFailoverConfigArgs'] source_failover_config: The source failover config of the flow.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "source", source)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if source_failover_config is not None:
             pulumi.set(__self__, "source_failover_config", source_failover_config)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the flow.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -69,6 +58,18 @@ class FlowArgs:
     @availability_zone.setter
     def availability_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the flow.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="sourceFailoverConfig")
@@ -144,8 +145,6 @@ class Flow(pulumi.CustomResource):
             __props__ = FlowArgs.__new__(FlowArgs)
 
             __props__.__dict__["availability_zone"] = availability_zone
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")

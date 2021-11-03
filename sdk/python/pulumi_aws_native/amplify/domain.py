@@ -16,21 +16,22 @@ __all__ = ['DomainArgs', 'Domain']
 class DomainArgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
-                 domain_name: pulumi.Input[str],
                  sub_domain_settings: pulumi.Input[Sequence[pulumi.Input['DomainSubDomainSettingArgs']]],
                  auto_sub_domain_creation_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_sub_domain_iam_role: Optional[pulumi.Input[str]] = None,
+                 domain_name: Optional[pulumi.Input[str]] = None,
                  enable_auto_sub_domain: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Domain resource.
         """
         pulumi.set(__self__, "app_id", app_id)
-        pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "sub_domain_settings", sub_domain_settings)
         if auto_sub_domain_creation_patterns is not None:
             pulumi.set(__self__, "auto_sub_domain_creation_patterns", auto_sub_domain_creation_patterns)
         if auto_sub_domain_iam_role is not None:
             pulumi.set(__self__, "auto_sub_domain_iam_role", auto_sub_domain_iam_role)
+        if domain_name is not None:
+            pulumi.set(__self__, "domain_name", domain_name)
         if enable_auto_sub_domain is not None:
             pulumi.set(__self__, "enable_auto_sub_domain", enable_auto_sub_domain)
 
@@ -42,15 +43,6 @@ class DomainArgs:
     @app_id.setter
     def app_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "app_id", value)
-
-    @property
-    @pulumi.getter(name="domainName")
-    def domain_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "domain_name")
-
-    @domain_name.setter
-    def domain_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "domain_name", value)
 
     @property
     @pulumi.getter(name="subDomainSettings")
@@ -78,6 +70,15 @@ class DomainArgs:
     @auto_sub_domain_iam_role.setter
     def auto_sub_domain_iam_role(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "auto_sub_domain_iam_role", value)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_name", value)
 
     @property
     @pulumi.getter(name="enableAutoSubDomain")
@@ -154,8 +155,6 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["app_id"] = app_id
             __props__.__dict__["auto_sub_domain_creation_patterns"] = auto_sub_domain_creation_patterns
             __props__.__dict__["auto_sub_domain_iam_role"] = auto_sub_domain_iam_role
-            if domain_name is None and not opts.urn:
-                raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["enable_auto_sub_domain"] = enable_auto_sub_domain
             if sub_domain_settings is None and not opts.urn:

@@ -16,31 +16,20 @@ __all__ = ['AliasArgs', 'Alias']
 @pulumi.input_type
 class AliasArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  routing_strategy: pulumi.Input['AliasRoutingStrategyArgs'],
-                 description: Optional[pulumi.Input[str]] = None):
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Alias resource.
-        :param pulumi.Input[str] name: A descriptive label that is associated with an alias. Alias names do not need to be unique.
         :param pulumi.Input['AliasRoutingStrategyArgs'] routing_strategy: A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
         :param pulumi.Input[str] description: A human-readable description of the alias.
+        :param pulumi.Input[str] name: A descriptive label that is associated with an alias. Alias names do not need to be unique.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "routing_strategy", routing_strategy)
         if description is not None:
             pulumi.set(__self__, "description", description)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        A descriptive label that is associated with an alias. Alias names do not need to be unique.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="routingStrategy")
@@ -65,6 +54,18 @@ class AliasArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A descriptive label that is associated with an alias. Alias names do not need to be unique.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class Alias(pulumi.CustomResource):
@@ -125,8 +126,6 @@ class Alias(pulumi.CustomResource):
             __props__ = AliasArgs.__new__(AliasArgs)
 
             __props__.__dict__["description"] = description
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if routing_strategy is None and not opts.urn:
                 raise TypeError("Missing required property 'routing_strategy'")

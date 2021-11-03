@@ -18,23 +18,24 @@ class StudioArgs:
     def __init__(__self__, *,
                  admin_role_arn: pulumi.Input[str],
                  display_name: pulumi.Input[str],
-                 studio_name: pulumi.Input[str],
                  user_role_arn: pulumi.Input[str],
                  studio_encryption_configuration: Optional[pulumi.Input['StudioEncryptionConfigurationArgs']] = None,
+                 studio_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input['StudioTagsArgs']] = None):
         """
         The set of arguments for constructing a Studio resource.
         :param pulumi.Input[str] admin_role_arn: <p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio portal.</p>
         :param pulumi.Input[str] display_name: <p>A friendly name for the studio.</p>
-        :param pulumi.Input[str] studio_name: <p>The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.</p>
         :param pulumi.Input[str] user_role_arn: <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p>
+        :param pulumi.Input[str] studio_name: <p>The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.</p>
         """
         pulumi.set(__self__, "admin_role_arn", admin_role_arn)
         pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "studio_name", studio_name)
         pulumi.set(__self__, "user_role_arn", user_role_arn)
         if studio_encryption_configuration is not None:
             pulumi.set(__self__, "studio_encryption_configuration", studio_encryption_configuration)
+        if studio_name is not None:
+            pulumi.set(__self__, "studio_name", studio_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -63,18 +64,6 @@ class StudioArgs:
         pulumi.set(self, "display_name", value)
 
     @property
-    @pulumi.getter(name="studioName")
-    def studio_name(self) -> pulumi.Input[str]:
-        """
-        <p>The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.</p>
-        """
-        return pulumi.get(self, "studio_name")
-
-    @studio_name.setter
-    def studio_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "studio_name", value)
-
-    @property
     @pulumi.getter(name="userRoleArn")
     def user_role_arn(self) -> pulumi.Input[str]:
         """
@@ -94,6 +83,18 @@ class StudioArgs:
     @studio_encryption_configuration.setter
     def studio_encryption_configuration(self, value: Optional[pulumi.Input['StudioEncryptionConfigurationArgs']]):
         pulumi.set(self, "studio_encryption_configuration", value)
+
+    @property
+    @pulumi.getter(name="studioName")
+    def studio_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.</p>
+        """
+        return pulumi.get(self, "studio_name")
+
+    @studio_name.setter
+    def studio_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "studio_name", value)
 
     @property
     @pulumi.getter
@@ -176,8 +177,6 @@ class Studio(pulumi.CustomResource):
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["studio_encryption_configuration"] = studio_encryption_configuration
-            if studio_name is None and not opts.urn:
-                raise TypeError("Missing required property 'studio_name'")
             __props__.__dict__["studio_name"] = studio_name
             __props__.__dict__["tags"] = tags
             if user_role_arn is None and not opts.urn:

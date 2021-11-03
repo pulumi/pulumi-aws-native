@@ -15,8 +15,8 @@ __all__ = ['ContainerArgs', 'Container']
 @pulumi.input_type
 class ContainerArgs:
     def __init__(__self__, *,
-                 container_name: pulumi.Input[str],
                  access_logging_enabled: Optional[pulumi.Input[bool]] = None,
+                 container_name: Optional[pulumi.Input[str]] = None,
                  cors_policy: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerCorsRuleArgs']]]] = None,
                  lifecycle_policy: Optional[pulumi.Input[str]] = None,
                  metric_policy: Optional[pulumi.Input['ContainerMetricPolicyArgs']] = None,
@@ -25,9 +25,10 @@ class ContainerArgs:
         """
         The set of arguments for constructing a Container resource.
         """
-        pulumi.set(__self__, "container_name", container_name)
         if access_logging_enabled is not None:
             pulumi.set(__self__, "access_logging_enabled", access_logging_enabled)
+        if container_name is not None:
+            pulumi.set(__self__, "container_name", container_name)
         if cors_policy is not None:
             pulumi.set(__self__, "cors_policy", cors_policy)
         if lifecycle_policy is not None:
@@ -40,15 +41,6 @@ class ContainerArgs:
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="containerName")
-    def container_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "container_name")
-
-    @container_name.setter
-    def container_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "container_name", value)
-
-    @property
     @pulumi.getter(name="accessLoggingEnabled")
     def access_logging_enabled(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "access_logging_enabled")
@@ -56,6 +48,15 @@ class ContainerArgs:
     @access_logging_enabled.setter
     def access_logging_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "access_logging_enabled", value)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_name", value)
 
     @property
     @pulumi.getter(name="corsPolicy")
@@ -131,7 +132,7 @@ class Container(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ContainerArgs,
+                 args: Optional[ContainerArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::MediaStore::Container
@@ -172,8 +173,6 @@ class Container(pulumi.CustomResource):
             __props__ = ContainerArgs.__new__(ContainerArgs)
 
             __props__.__dict__["access_logging_enabled"] = access_logging_enabled
-            if container_name is None and not opts.urn:
-                raise TypeError("Missing required property 'container_name'")
             __props__.__dict__["container_name"] = container_name
             __props__.__dict__["cors_policy"] = cors_policy
             __props__.__dict__["lifecycle_policy"] = lifecycle_policy

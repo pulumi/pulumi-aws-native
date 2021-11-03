@@ -13,28 +13,17 @@ __all__ = ['StaticIpArgs', 'StaticIp']
 @pulumi.input_type
 class StaticIpArgs:
     def __init__(__self__, *,
-                 static_ip_name: pulumi.Input[str],
-                 attached_to: Optional[pulumi.Input[str]] = None):
+                 attached_to: Optional[pulumi.Input[str]] = None,
+                 static_ip_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a StaticIp resource.
-        :param pulumi.Input[str] static_ip_name: The name of the static IP address.
         :param pulumi.Input[str] attached_to: The instance where the static IP is attached.
+        :param pulumi.Input[str] static_ip_name: The name of the static IP address.
         """
-        pulumi.set(__self__, "static_ip_name", static_ip_name)
         if attached_to is not None:
             pulumi.set(__self__, "attached_to", attached_to)
-
-    @property
-    @pulumi.getter(name="staticIpName")
-    def static_ip_name(self) -> pulumi.Input[str]:
-        """
-        The name of the static IP address.
-        """
-        return pulumi.get(self, "static_ip_name")
-
-    @static_ip_name.setter
-    def static_ip_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "static_ip_name", value)
+        if static_ip_name is not None:
+            pulumi.set(__self__, "static_ip_name", static_ip_name)
 
     @property
     @pulumi.getter(name="attachedTo")
@@ -47,6 +36,18 @@ class StaticIpArgs:
     @attached_to.setter
     def attached_to(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "attached_to", value)
+
+    @property
+    @pulumi.getter(name="staticIpName")
+    def static_ip_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the static IP address.
+        """
+        return pulumi.get(self, "static_ip_name")
+
+    @static_ip_name.setter
+    def static_ip_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "static_ip_name", value)
 
 
 class StaticIp(pulumi.CustomResource):
@@ -69,7 +70,7 @@ class StaticIp(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: StaticIpArgs,
+                 args: Optional[StaticIpArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Lightsail::StaticIp
@@ -104,8 +105,6 @@ class StaticIp(pulumi.CustomResource):
             __props__ = StaticIpArgs.__new__(StaticIpArgs)
 
             __props__.__dict__["attached_to"] = attached_to
-            if static_ip_name is None and not opts.urn:
-                raise TypeError("Missing required property 'static_ip_name'")
             __props__.__dict__["static_ip_name"] = static_ip_name
             __props__.__dict__["ip_address"] = None
             __props__.__dict__["is_attached"] = None

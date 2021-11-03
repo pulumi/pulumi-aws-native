@@ -18,14 +18,15 @@ class StepArgs:
                  action_on_failure: pulumi.Input[str],
                  hadoop_jar_step: pulumi.Input['StepHadoopJarStepConfigArgs'],
                  job_flow_id: pulumi.Input[str],
-                 name: pulumi.Input[str]):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Step resource.
         """
         pulumi.set(__self__, "action_on_failure", action_on_failure)
         pulumi.set(__self__, "hadoop_jar_step", hadoop_jar_step)
         pulumi.set(__self__, "job_flow_id", job_flow_id)
-        pulumi.set(__self__, "name", name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="actionOnFailure")
@@ -56,11 +57,11 @@ class StepArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
 
@@ -135,8 +136,6 @@ class Step(pulumi.CustomResource):
             if job_flow_id is None and not opts.urn:
                 raise TypeError("Missing required property 'job_flow_id'")
             __props__.__dict__["job_flow_id"] = job_flow_id
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
         super(Step, __self__).__init__(
             'aws-native:emr:Step',

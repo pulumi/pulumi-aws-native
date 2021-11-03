@@ -15,35 +15,24 @@ __all__ = ['ApplicationArgs', 'Application']
 @pulumi.input_type
 class ApplicationArgs:
     def __init__(__self__, *,
-                 application_name: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  application_description: Optional[pulumi.Input[str]] = None,
+                 application_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
-        :param pulumi.Input[str] application_name: Application Name, should be between 1 and 256 characters.
         :param pulumi.Input[str] role_arn: The ARN of the role that the web application assumes when it interacts with AWS IoT Core. For more info on configuring this attribute, see https://docs.aws.amazon.com/iot/latest/apireference/API_iotfleethub_CreateApplication.html#API_iotfleethub_CreateApplication_RequestSyntax
         :param pulumi.Input[str] application_description: Application Description, should be between 1 and 2048 characters.
+        :param pulumi.Input[str] application_name: Application Name, should be between 1 and 256 characters.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]] tags: A list of key-value pairs that contain metadata for the application.
         """
-        pulumi.set(__self__, "application_name", application_name)
         pulumi.set(__self__, "role_arn", role_arn)
         if application_description is not None:
             pulumi.set(__self__, "application_description", application_description)
+        if application_name is not None:
+            pulumi.set(__self__, "application_name", application_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="applicationName")
-    def application_name(self) -> pulumi.Input[str]:
-        """
-        Application Name, should be between 1 and 256 characters.
-        """
-        return pulumi.get(self, "application_name")
-
-    @application_name.setter
-    def application_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "application_name", value)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -68,6 +57,18 @@ class ApplicationArgs:
     @application_description.setter
     def application_description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "application_description", value)
+
+    @property
+    @pulumi.getter(name="applicationName")
+    def application_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application Name, should be between 1 and 256 characters.
+        """
+        return pulumi.get(self, "application_name")
+
+    @application_name.setter
+    def application_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_name", value)
 
     @property
     @pulumi.getter
@@ -143,8 +144,6 @@ class Application(pulumi.CustomResource):
             __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
             __props__.__dict__["application_description"] = application_description
-            if application_name is None and not opts.urn:
-                raise TypeError("Missing required property 'application_name'")
             __props__.__dict__["application_name"] = application_name
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")

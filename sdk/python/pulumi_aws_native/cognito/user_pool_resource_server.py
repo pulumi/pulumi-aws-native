@@ -16,15 +16,16 @@ __all__ = ['UserPoolResourceServerArgs', 'UserPoolResourceServer']
 class UserPoolResourceServerArgs:
     def __init__(__self__, *,
                  identifier: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  user_pool_id: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolResourceServerResourceServerScopeTypeArgs']]]] = None):
         """
         The set of arguments for constructing a UserPoolResourceServer resource.
         """
         pulumi.set(__self__, "identifier", identifier)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "user_pool_id", user_pool_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if scopes is not None:
             pulumi.set(__self__, "scopes", scopes)
 
@@ -38,15 +39,6 @@ class UserPoolResourceServerArgs:
         pulumi.set(self, "identifier", value)
 
     @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Input[str]:
         return pulumi.get(self, "user_pool_id")
@@ -54,6 +46,15 @@ class UserPoolResourceServerArgs:
     @user_pool_id.setter
     def user_pool_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "user_pool_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -130,8 +131,6 @@ class UserPoolResourceServer(pulumi.CustomResource):
             if identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'identifier'")
             __props__.__dict__["identifier"] = identifier
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["scopes"] = scopes
             if user_pool_id is None and not opts.urn:

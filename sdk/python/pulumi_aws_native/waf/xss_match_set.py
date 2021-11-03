@@ -15,22 +15,14 @@ __all__ = ['XssMatchSetArgs', 'XssMatchSet']
 @pulumi.input_type
 class XssMatchSetArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 xss_match_tuples: pulumi.Input[Sequence[pulumi.Input['XssMatchSetXssMatchTupleArgs']]]):
+                 xss_match_tuples: pulumi.Input[Sequence[pulumi.Input['XssMatchSetXssMatchTupleArgs']]],
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a XssMatchSet resource.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "xss_match_tuples", xss_match_tuples)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="xssMatchTuples")
@@ -40,6 +32,15 @@ class XssMatchSetArgs:
     @xss_match_tuples.setter
     def xss_match_tuples(self, value: pulumi.Input[Sequence[pulumi.Input['XssMatchSetXssMatchTupleArgs']]]):
         pulumi.set(self, "xss_match_tuples", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 warnings.warn("""XssMatchSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
@@ -100,8 +101,6 @@ class XssMatchSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = XssMatchSetArgs.__new__(XssMatchSetArgs)
 
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if xss_match_tuples is None and not opts.urn:
                 raise TypeError("Missing required property 'xss_match_tuples'")

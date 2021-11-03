@@ -17,22 +17,21 @@ __all__ = ['ResponsePlanArgs', 'ResponsePlan']
 class ResponsePlanArgs:
     def __init__(__self__, *,
                  incident_template: pulumi.Input['ResponsePlanIncidentTemplateArgs'],
-                 name: pulumi.Input[str],
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionArgs']]]] = None,
                  chat_channel: Optional[pulumi.Input['ResponsePlanChatChannelArgs']] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  engagements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanTagArgs']]]] = None):
         """
         The set of arguments for constructing a ResponsePlan resource.
-        :param pulumi.Input[str] name: The name of the response plan.
         :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionArgs']]] actions: The list of actions.
         :param pulumi.Input[str] display_name: The display name of the response plan.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] engagements: The list of engagements to use.
+        :param pulumi.Input[str] name: The name of the response plan.
         :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanTagArgs']]] tags: The tags to apply to the response plan.
         """
         pulumi.set(__self__, "incident_template", incident_template)
-        pulumi.set(__self__, "name", name)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
         if chat_channel is not None:
@@ -41,6 +40,8 @@ class ResponsePlanArgs:
             pulumi.set(__self__, "display_name", display_name)
         if engagements is not None:
             pulumi.set(__self__, "engagements", engagements)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -52,18 +53,6 @@ class ResponsePlanArgs:
     @incident_template.setter
     def incident_template(self, value: pulumi.Input['ResponsePlanIncidentTemplateArgs']):
         pulumi.set(self, "incident_template", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the response plan.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -109,6 +98,18 @@ class ResponsePlanArgs:
     @engagements.setter
     def engagements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "engagements", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the response plan.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -197,8 +198,6 @@ class ResponsePlan(pulumi.CustomResource):
             if incident_template is None and not opts.urn:
                 raise TypeError("Missing required property 'incident_template'")
             __props__.__dict__["incident_template"] = incident_template
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

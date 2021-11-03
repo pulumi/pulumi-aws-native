@@ -15,18 +15,17 @@ __all__ = ['SimpleADArgs', 'SimpleAD']
 @pulumi.input_type
 class SimpleADArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  password: pulumi.Input[str],
                  size: pulumi.Input[str],
                  vpc_settings: pulumi.Input['SimpleADVpcSettingsArgs'],
                  create_alias: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_sso: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  short_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SimpleAD resource.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "size", size)
         pulumi.set(__self__, "vpc_settings", vpc_settings)
@@ -36,17 +35,10 @@ class SimpleADArgs:
             pulumi.set(__self__, "description", description)
         if enable_sso is not None:
             pulumi.set(__self__, "enable_sso", enable_sso)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if short_name is not None:
             pulumi.set(__self__, "short_name", short_name)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -101,6 +93,15 @@ class SimpleADArgs:
     @enable_sso.setter
     def enable_sso(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_sso", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="shortName")
@@ -185,8 +186,6 @@ class SimpleAD(pulumi.CustomResource):
             __props__.__dict__["create_alias"] = create_alias
             __props__.__dict__["description"] = description
             __props__.__dict__["enable_sso"] = enable_sso
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if password is None and not opts.urn:
                 raise TypeError("Missing required property 'password'")

@@ -14,21 +14,22 @@ __all__ = ['UserArgs', 'User']
 class UserArgs:
     def __init__(__self__, *,
                  authentication_type: pulumi.Input[str],
-                 user_name: pulumi.Input[str],
                  first_name: Optional[pulumi.Input[str]] = None,
                  last_name: Optional[pulumi.Input[str]] = None,
-                 message_action: Optional[pulumi.Input[str]] = None):
+                 message_action: Optional[pulumi.Input[str]] = None,
+                 user_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a User resource.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
-        pulumi.set(__self__, "user_name", user_name)
         if first_name is not None:
             pulumi.set(__self__, "first_name", first_name)
         if last_name is not None:
             pulumi.set(__self__, "last_name", last_name)
         if message_action is not None:
             pulumi.set(__self__, "message_action", message_action)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -38,15 +39,6 @@ class UserArgs:
     @authentication_type.setter
     def authentication_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "authentication_type", value)
-
-    @property
-    @pulumi.getter(name="userName")
-    def user_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "user_name")
-
-    @user_name.setter
-    def user_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "user_name", value)
 
     @property
     @pulumi.getter(name="firstName")
@@ -74,6 +66,15 @@ class UserArgs:
     @message_action.setter
     def message_action(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "message_action", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name", value)
 
 
 warnings.warn("""User is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
@@ -146,8 +147,6 @@ class User(pulumi.CustomResource):
             __props__.__dict__["first_name"] = first_name
             __props__.__dict__["last_name"] = last_name
             __props__.__dict__["message_action"] = message_action
-            if user_name is None and not opts.urn:
-                raise TypeError("Missing required property 'user_name'")
             __props__.__dict__["user_name"] = user_name
         super(User, __self__).__init__(
             'aws-native:appstream:User',

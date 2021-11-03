@@ -15,12 +15,12 @@ __all__ = ['CloudFormationProductArgs', 'CloudFormationProduct']
 @pulumi.input_type
 class CloudFormationProductArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  owner: pulumi.Input[str],
                  provisioning_artifact_parameters: pulumi.Input[Sequence[pulumi.Input['CloudFormationProductProvisioningArtifactPropertiesArgs']]],
                  accept_language: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  distributor: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  replace_provisioning_artifacts: Optional[pulumi.Input[bool]] = None,
                  support_description: Optional[pulumi.Input[str]] = None,
                  support_email: Optional[pulumi.Input[str]] = None,
@@ -29,7 +29,6 @@ class CloudFormationProductArgs:
         """
         The set of arguments for constructing a CloudFormationProduct resource.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "owner", owner)
         pulumi.set(__self__, "provisioning_artifact_parameters", provisioning_artifact_parameters)
         if accept_language is not None:
@@ -38,6 +37,8 @@ class CloudFormationProductArgs:
             pulumi.set(__self__, "description", description)
         if distributor is not None:
             pulumi.set(__self__, "distributor", distributor)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if replace_provisioning_artifacts is not None:
             pulumi.set(__self__, "replace_provisioning_artifacts", replace_provisioning_artifacts)
         if support_description is not None:
@@ -48,15 +49,6 @@ class CloudFormationProductArgs:
             pulumi.set(__self__, "support_url", support_url)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -102,6 +94,15 @@ class CloudFormationProductArgs:
     @distributor.setter
     def distributor(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "distributor", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="replaceProvisioningArtifacts")
@@ -228,8 +229,6 @@ class CloudFormationProduct(pulumi.CustomResource):
             __props__.__dict__["accept_language"] = accept_language
             __props__.__dict__["description"] = description
             __props__.__dict__["distributor"] = distributor
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if owner is None and not opts.urn:
                 raise TypeError("Missing required property 'owner'")

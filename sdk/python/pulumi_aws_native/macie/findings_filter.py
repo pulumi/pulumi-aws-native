@@ -17,24 +17,25 @@ __all__ = ['FindingsFilterArgs', 'FindingsFilter']
 class FindingsFilterArgs:
     def __init__(__self__, *,
                  finding_criteria: pulumi.Input['FindingsFilterFindingCriteriaArgs'],
-                 name: pulumi.Input[str],
                  action: Optional[pulumi.Input['FindingsFilterFindingFilterAction']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  position: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a FindingsFilter resource.
         :param pulumi.Input['FindingsFilterFindingCriteriaArgs'] finding_criteria: Findings filter criteria.
-        :param pulumi.Input[str] name: Findings filter name
         :param pulumi.Input['FindingsFilterFindingFilterAction'] action: Findings filter action.
         :param pulumi.Input[str] description: Findings filter description
+        :param pulumi.Input[str] name: Findings filter name
         :param pulumi.Input[int] position: Findings filter position.
         """
         pulumi.set(__self__, "finding_criteria", finding_criteria)
-        pulumi.set(__self__, "name", name)
         if action is not None:
             pulumi.set(__self__, "action", action)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if position is not None:
             pulumi.set(__self__, "position", position)
 
@@ -49,18 +50,6 @@ class FindingsFilterArgs:
     @finding_criteria.setter
     def finding_criteria(self, value: pulumi.Input['FindingsFilterFindingCriteriaArgs']):
         pulumi.set(self, "finding_criteria", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Findings filter name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -85,6 +74,18 @@ class FindingsFilterArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Findings filter name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -167,8 +168,6 @@ class FindingsFilter(pulumi.CustomResource):
             if finding_criteria is None and not opts.urn:
                 raise TypeError("Missing required property 'finding_criteria'")
             __props__.__dict__["finding_criteria"] = finding_criteria
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["position"] = position
             __props__.__dict__["arn"] = None

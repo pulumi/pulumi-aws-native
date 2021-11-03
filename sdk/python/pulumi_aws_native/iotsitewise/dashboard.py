@@ -17,7 +17,7 @@ class DashboardArgs:
     def __init__(__self__, *,
                  dashboard_definition: pulumi.Input[str],
                  dashboard_description: pulumi.Input[str],
-                 dashboard_name: pulumi.Input[str],
+                 dashboard_name: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTagArgs']]]] = None):
         """
@@ -30,7 +30,8 @@ class DashboardArgs:
         """
         pulumi.set(__self__, "dashboard_definition", dashboard_definition)
         pulumi.set(__self__, "dashboard_description", dashboard_description)
-        pulumi.set(__self__, "dashboard_name", dashboard_name)
+        if dashboard_name is not None:
+            pulumi.set(__self__, "dashboard_name", dashboard_name)
         if project_id is not None:
             pulumi.set(__self__, "project_id", project_id)
         if tags is not None:
@@ -62,14 +63,14 @@ class DashboardArgs:
 
     @property
     @pulumi.getter(name="dashboardName")
-    def dashboard_name(self) -> pulumi.Input[str]:
+    def dashboard_name(self) -> Optional[pulumi.Input[str]]:
         """
         A friendly name for the dashboard.
         """
         return pulumi.get(self, "dashboard_name")
 
     @dashboard_name.setter
-    def dashboard_name(self, value: pulumi.Input[str]):
+    def dashboard_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dashboard_name", value)
 
     @property
@@ -166,8 +167,6 @@ class Dashboard(pulumi.CustomResource):
             if dashboard_description is None and not opts.urn:
                 raise TypeError("Missing required property 'dashboard_description'")
             __props__.__dict__["dashboard_description"] = dashboard_description
-            if dashboard_name is None and not opts.urn:
-                raise TypeError("Missing required property 'dashboard_name'")
             __props__.__dict__["dashboard_name"] = dashboard_name
             __props__.__dict__["project_id"] = project_id
             __props__.__dict__["tags"] = tags

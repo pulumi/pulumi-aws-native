@@ -18,7 +18,6 @@ class LayerArgs:
                  auto_assign_elastic_ips: pulumi.Input[bool],
                  auto_assign_public_ips: pulumi.Input[bool],
                  enable_auto_healing: pulumi.Input[bool],
-                 name: pulumi.Input[str],
                  shortname: pulumi.Input[str],
                  stack_id: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -30,6 +29,7 @@ class LayerArgs:
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  lifecycle_event_configuration: Optional[pulumi.Input['LayerLifecycleEventConfigurationArgs']] = None,
                  load_based_auto_scaling: Optional[pulumi.Input['LayerLoadBasedAutoScalingArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['LayerTagArgs']]]] = None,
                  use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None,
@@ -40,7 +40,6 @@ class LayerArgs:
         pulumi.set(__self__, "auto_assign_elastic_ips", auto_assign_elastic_ips)
         pulumi.set(__self__, "auto_assign_public_ips", auto_assign_public_ips)
         pulumi.set(__self__, "enable_auto_healing", enable_auto_healing)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "shortname", shortname)
         pulumi.set(__self__, "stack_id", stack_id)
         pulumi.set(__self__, "type", type)
@@ -60,6 +59,8 @@ class LayerArgs:
             pulumi.set(__self__, "lifecycle_event_configuration", lifecycle_event_configuration)
         if load_based_auto_scaling is not None:
             pulumi.set(__self__, "load_based_auto_scaling", load_based_auto_scaling)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if packages is not None:
             pulumi.set(__self__, "packages", packages)
         if tags is not None:
@@ -95,15 +96,6 @@ class LayerArgs:
     @enable_auto_healing.setter
     def enable_auto_healing(self, value: pulumi.Input[bool]):
         pulumi.set(self, "enable_auto_healing", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -203,6 +195,15 @@ class LayerArgs:
     @load_based_auto_scaling.setter
     def load_based_auto_scaling(self, value: Optional[pulumi.Input['LayerLoadBasedAutoScalingArgs']]):
         pulumi.set(self, "load_based_auto_scaling", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -350,8 +351,6 @@ class Layer(pulumi.CustomResource):
             __props__.__dict__["install_updates_on_boot"] = install_updates_on_boot
             __props__.__dict__["lifecycle_event_configuration"] = lifecycle_event_configuration
             __props__.__dict__["load_based_auto_scaling"] = load_based_auto_scaling
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["packages"] = packages
             if shortname is None and not opts.urn:

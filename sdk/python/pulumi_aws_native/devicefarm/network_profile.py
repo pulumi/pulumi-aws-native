@@ -15,13 +15,13 @@ __all__ = ['NetworkProfileArgs', 'NetworkProfile']
 @pulumi.input_type
 class NetworkProfileArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  project_arn: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  downlink_bandwidth_bits: Optional[pulumi.Input[int]] = None,
                  downlink_delay_ms: Optional[pulumi.Input[int]] = None,
                  downlink_jitter_ms: Optional[pulumi.Input[int]] = None,
                  downlink_loss_percent: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkProfileTagArgs']]]] = None,
                  uplink_bandwidth_bits: Optional[pulumi.Input[int]] = None,
                  uplink_delay_ms: Optional[pulumi.Input[int]] = None,
@@ -30,7 +30,6 @@ class NetworkProfileArgs:
         """
         The set of arguments for constructing a NetworkProfile resource.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "project_arn", project_arn)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -42,6 +41,8 @@ class NetworkProfileArgs:
             pulumi.set(__self__, "downlink_jitter_ms", downlink_jitter_ms)
         if downlink_loss_percent is not None:
             pulumi.set(__self__, "downlink_loss_percent", downlink_loss_percent)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if uplink_bandwidth_bits is not None:
@@ -52,15 +53,6 @@ class NetworkProfileArgs:
             pulumi.set(__self__, "uplink_jitter_ms", uplink_jitter_ms)
         if uplink_loss_percent is not None:
             pulumi.set(__self__, "uplink_loss_percent", uplink_loss_percent)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="projectArn")
@@ -115,6 +107,15 @@ class NetworkProfileArgs:
     @downlink_loss_percent.setter
     def downlink_loss_percent(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "downlink_loss_percent", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -239,8 +240,6 @@ class NetworkProfile(pulumi.CustomResource):
             __props__.__dict__["downlink_delay_ms"] = downlink_delay_ms
             __props__.__dict__["downlink_jitter_ms"] = downlink_jitter_ms
             __props__.__dict__["downlink_loss_percent"] = downlink_loss_percent
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if project_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'project_arn'")

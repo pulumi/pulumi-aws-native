@@ -18,9 +18,9 @@ class ConfigurationArgs:
                  data: pulumi.Input[str],
                  engine_type: pulumi.Input[str],
                  engine_version: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  authentication_strategy: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationTagsEntryArgs']]]] = None):
         """
         The set of arguments for constructing a Configuration resource.
@@ -28,11 +28,12 @@ class ConfigurationArgs:
         pulumi.set(__self__, "data", data)
         pulumi.set(__self__, "engine_type", engine_type)
         pulumi.set(__self__, "engine_version", engine_version)
-        pulumi.set(__self__, "name", name)
         if authentication_strategy is not None:
             pulumi.set(__self__, "authentication_strategy", authentication_strategy)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -64,15 +65,6 @@ class ConfigurationArgs:
         pulumi.set(self, "engine_version", value)
 
     @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
     @pulumi.getter(name="authenticationStrategy")
     def authentication_strategy(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "authentication_strategy")
@@ -89,6 +81,15 @@ class ConfigurationArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -179,8 +180,6 @@ class Configuration(pulumi.CustomResource):
             if engine_version is None and not opts.urn:
                 raise TypeError("Missing required property 'engine_version'")
             __props__.__dict__["engine_version"] = engine_version
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

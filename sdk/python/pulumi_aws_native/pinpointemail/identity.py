@@ -15,32 +15,24 @@ __all__ = ['IdentityArgs', 'Identity']
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  dkim_signing_enabled: Optional[pulumi.Input[bool]] = None,
                  feedback_forwarding_enabled: Optional[pulumi.Input[bool]] = None,
                  mail_from_attributes: Optional[pulumi.Input['IdentityMailFromAttributesArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityTagsArgs']]]] = None):
         """
         The set of arguments for constructing a Identity resource.
         """
-        pulumi.set(__self__, "name", name)
         if dkim_signing_enabled is not None:
             pulumi.set(__self__, "dkim_signing_enabled", dkim_signing_enabled)
         if feedback_forwarding_enabled is not None:
             pulumi.set(__self__, "feedback_forwarding_enabled", feedback_forwarding_enabled)
         if mail_from_attributes is not None:
             pulumi.set(__self__, "mail_from_attributes", mail_from_attributes)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="dkimSigningEnabled")
@@ -68,6 +60,15 @@ class IdentityArgs:
     @mail_from_attributes.setter
     def mail_from_attributes(self, value: Optional[pulumi.Input['IdentityMailFromAttributesArgs']]):
         pulumi.set(self, "mail_from_attributes", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -105,7 +106,7 @@ class Identity(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: IdentityArgs,
+                 args: Optional[IdentityArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::PinpointEmail::Identity
@@ -146,8 +147,6 @@ class Identity(pulumi.CustomResource):
             __props__.__dict__["dkim_signing_enabled"] = dkim_signing_enabled
             __props__.__dict__["feedback_forwarding_enabled"] = feedback_forwarding_enabled
             __props__.__dict__["mail_from_attributes"] = mail_from_attributes
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["identity_dns_record_name1"] = None

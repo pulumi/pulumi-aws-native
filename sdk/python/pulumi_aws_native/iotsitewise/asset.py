@@ -17,8 +17,8 @@ __all__ = ['AssetArgs', 'Asset']
 class AssetArgs:
     def __init__(__self__, *,
                  asset_model_id: pulumi.Input[str],
-                 asset_name: pulumi.Input[str],
                  asset_hierarchies: Optional[pulumi.Input[Sequence[pulumi.Input['AssetHierarchyArgs']]]] = None,
+                 asset_name: Optional[pulumi.Input[str]] = None,
                  asset_properties: Optional[pulumi.Input[Sequence[pulumi.Input['AssetPropertyArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AssetTagArgs']]]] = None):
         """
@@ -28,9 +28,10 @@ class AssetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AssetTagArgs']]] tags: A list of key-value pairs that contain metadata for the asset.
         """
         pulumi.set(__self__, "asset_model_id", asset_model_id)
-        pulumi.set(__self__, "asset_name", asset_name)
         if asset_hierarchies is not None:
             pulumi.set(__self__, "asset_hierarchies", asset_hierarchies)
+        if asset_name is not None:
+            pulumi.set(__self__, "asset_name", asset_name)
         if asset_properties is not None:
             pulumi.set(__self__, "asset_properties", asset_properties)
         if tags is not None:
@@ -49,18 +50,6 @@ class AssetArgs:
         pulumi.set(self, "asset_model_id", value)
 
     @property
-    @pulumi.getter(name="assetName")
-    def asset_name(self) -> pulumi.Input[str]:
-        """
-        A unique, friendly name for the asset.
-        """
-        return pulumi.get(self, "asset_name")
-
-    @asset_name.setter
-    def asset_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "asset_name", value)
-
-    @property
     @pulumi.getter(name="assetHierarchies")
     def asset_hierarchies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetHierarchyArgs']]]]:
         return pulumi.get(self, "asset_hierarchies")
@@ -68,6 +57,18 @@ class AssetArgs:
     @asset_hierarchies.setter
     def asset_hierarchies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssetHierarchyArgs']]]]):
         pulumi.set(self, "asset_hierarchies", value)
+
+    @property
+    @pulumi.getter(name="assetName")
+    def asset_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique, friendly name for the asset.
+        """
+        return pulumi.get(self, "asset_name")
+
+    @asset_name.setter
+    def asset_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "asset_name", value)
 
     @property
     @pulumi.getter(name="assetProperties")
@@ -156,8 +157,6 @@ class Asset(pulumi.CustomResource):
             if asset_model_id is None and not opts.urn:
                 raise TypeError("Missing required property 'asset_model_id'")
             __props__.__dict__["asset_model_id"] = asset_model_id
-            if asset_name is None and not opts.urn:
-                raise TypeError("Missing required property 'asset_name'")
             __props__.__dict__["asset_name"] = asset_name
             __props__.__dict__["asset_properties"] = asset_properties
             __props__.__dict__["tags"] = tags

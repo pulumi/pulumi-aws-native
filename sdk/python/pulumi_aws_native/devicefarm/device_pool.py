@@ -16,33 +16,25 @@ __all__ = ['DevicePoolArgs', 'DevicePool']
 @pulumi.input_type
 class DevicePoolArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  project_arn: pulumi.Input[str],
                  rules: pulumi.Input[Sequence[pulumi.Input['DevicePoolRuleArgs']]],
                  description: Optional[pulumi.Input[str]] = None,
                  max_devices: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DevicePoolTagArgs']]]] = None):
         """
         The set of arguments for constructing a DevicePool resource.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "project_arn", project_arn)
         pulumi.set(__self__, "rules", rules)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if max_devices is not None:
             pulumi.set(__self__, "max_devices", max_devices)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="projectArn")
@@ -79,6 +71,15 @@ class DevicePoolArgs:
     @max_devices.setter
     def max_devices(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_devices", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -152,8 +153,6 @@ class DevicePool(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["max_devices"] = max_devices
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if project_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'project_arn'")

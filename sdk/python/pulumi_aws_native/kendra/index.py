@@ -17,11 +17,11 @@ __all__ = ['IndexArgs', 'Index']
 class IndexArgs:
     def __init__(__self__, *,
                  edition: pulumi.Input['IndexEdition'],
-                 name: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  capacity_units: Optional[pulumi.Input['IndexCapacityUnitsConfigurationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  document_metadata_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input['IndexServerSideEncryptionConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['IndexTagArgs']]]] = None,
                  user_context_policy: Optional[pulumi.Input['IndexUserContextPolicy']] = None,
@@ -35,7 +35,6 @@ class IndexArgs:
         :param pulumi.Input[Sequence[pulumi.Input['IndexTagArgs']]] tags: Tags for labeling the index
         """
         pulumi.set(__self__, "edition", edition)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "role_arn", role_arn)
         if capacity_units is not None:
             pulumi.set(__self__, "capacity_units", capacity_units)
@@ -43,6 +42,8 @@ class IndexArgs:
             pulumi.set(__self__, "description", description)
         if document_metadata_configurations is not None:
             pulumi.set(__self__, "document_metadata_configurations", document_metadata_configurations)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if server_side_encryption_configuration is not None:
             pulumi.set(__self__, "server_side_encryption_configuration", server_side_encryption_configuration)
         if tags is not None:
@@ -60,15 +61,6 @@ class IndexArgs:
     @edition.setter
     def edition(self, value: pulumi.Input['IndexEdition']):
         pulumi.set(self, "edition", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -114,6 +106,15 @@ class IndexArgs:
     @document_metadata_configurations.setter
     def document_metadata_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationArgs']]]]):
         pulumi.set(self, "document_metadata_configurations", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
@@ -237,8 +238,6 @@ class Index(pulumi.CustomResource):
             if edition is None and not opts.urn:
                 raise TypeError("Missing required property 'edition'")
             __props__.__dict__["edition"] = edition
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")

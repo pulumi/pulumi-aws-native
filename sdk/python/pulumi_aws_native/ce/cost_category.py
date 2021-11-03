@@ -14,10 +14,10 @@ __all__ = ['CostCategoryArgs', 'CostCategory']
 @pulumi.input_type
 class CostCategoryArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  rule_version: pulumi.Input['CostCategoryRuleVersion'],
                  rules: pulumi.Input[str],
                  default_value: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  split_charge_rules: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CostCategory resource.
@@ -25,22 +25,14 @@ class CostCategoryArgs:
         :param pulumi.Input[str] default_value: The default value for the cost category
         :param pulumi.Input[str] split_charge_rules: Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "rule_version", rule_version)
         pulumi.set(__self__, "rules", rules)
         if default_value is not None:
             pulumi.set(__self__, "default_value", default_value)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if split_charge_rules is not None:
             pulumi.set(__self__, "split_charge_rules", split_charge_rules)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="ruleVersion")
@@ -74,6 +66,15 @@ class CostCategoryArgs:
     @default_value.setter
     def default_value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "default_value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="splitChargeRules")
@@ -150,8 +151,6 @@ class CostCategory(pulumi.CustomResource):
             __props__ = CostCategoryArgs.__new__(CostCategoryArgs)
 
             __props__.__dict__["default_value"] = default_value
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if rule_version is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_version'")

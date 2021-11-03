@@ -16,25 +16,26 @@ __all__ = ['PipelineArgs', 'Pipeline']
 class PipelineArgs:
     def __init__(__self__, *,
                  pipeline_definition: Any,
-                 pipeline_name: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  pipeline_description: Optional[pulumi.Input[str]] = None,
                  pipeline_display_name: Optional[pulumi.Input[str]] = None,
+                 pipeline_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTagArgs']]]] = None):
         """
         The set of arguments for constructing a Pipeline resource.
-        :param pulumi.Input[str] pipeline_name: The name of the Pipeline.
         :param pulumi.Input[str] role_arn: Role Arn
         :param pulumi.Input[str] pipeline_description: The description of the Pipeline.
         :param pulumi.Input[str] pipeline_display_name: The display name of the Pipeline.
+        :param pulumi.Input[str] pipeline_name: The name of the Pipeline.
         """
         pulumi.set(__self__, "pipeline_definition", pipeline_definition)
-        pulumi.set(__self__, "pipeline_name", pipeline_name)
         pulumi.set(__self__, "role_arn", role_arn)
         if pipeline_description is not None:
             pulumi.set(__self__, "pipeline_description", pipeline_description)
         if pipeline_display_name is not None:
             pulumi.set(__self__, "pipeline_display_name", pipeline_display_name)
+        if pipeline_name is not None:
+            pulumi.set(__self__, "pipeline_name", pipeline_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -46,18 +47,6 @@ class PipelineArgs:
     @pipeline_definition.setter
     def pipeline_definition(self, value: Any):
         pulumi.set(self, "pipeline_definition", value)
-
-    @property
-    @pulumi.getter(name="pipelineName")
-    def pipeline_name(self) -> pulumi.Input[str]:
-        """
-        The name of the Pipeline.
-        """
-        return pulumi.get(self, "pipeline_name")
-
-    @pipeline_name.setter
-    def pipeline_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "pipeline_name", value)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -94,6 +83,18 @@ class PipelineArgs:
     @pipeline_display_name.setter
     def pipeline_display_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "pipeline_display_name", value)
+
+    @property
+    @pulumi.getter(name="pipelineName")
+    def pipeline_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Pipeline.
+        """
+        return pulumi.get(self, "pipeline_name")
+
+    @pipeline_name.setter
+    def pipeline_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pipeline_name", value)
 
     @property
     @pulumi.getter
@@ -174,8 +175,6 @@ class Pipeline(pulumi.CustomResource):
             __props__.__dict__["pipeline_definition"] = pipeline_definition
             __props__.__dict__["pipeline_description"] = pipeline_description
             __props__.__dict__["pipeline_display_name"] = pipeline_display_name
-            if pipeline_name is None and not opts.urn:
-                raise TypeError("Missing required property 'pipeline_name'")
             __props__.__dict__["pipeline_name"] = pipeline_name
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")

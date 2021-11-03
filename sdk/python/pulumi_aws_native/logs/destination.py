@@ -13,26 +13,18 @@ __all__ = ['DestinationArgs', 'Destination']
 @pulumi.input_type
 class DestinationArgs:
     def __init__(__self__, *,
-                 destination_name: pulumi.Input[str],
                  destination_policy: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
-                 target_arn: pulumi.Input[str]):
+                 target_arn: pulumi.Input[str],
+                 destination_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Destination resource.
         """
-        pulumi.set(__self__, "destination_name", destination_name)
         pulumi.set(__self__, "destination_policy", destination_policy)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "target_arn", target_arn)
-
-    @property
-    @pulumi.getter(name="destinationName")
-    def destination_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "destination_name")
-
-    @destination_name.setter
-    def destination_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "destination_name", value)
+        if destination_name is not None:
+            pulumi.set(__self__, "destination_name", destination_name)
 
     @property
     @pulumi.getter(name="destinationPolicy")
@@ -60,6 +52,15 @@ class DestinationArgs:
     @target_arn.setter
     def target_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "target_arn", value)
+
+    @property
+    @pulumi.getter(name="destinationName")
+    def destination_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "destination_name")
+
+    @destination_name.setter
+    def destination_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_name", value)
 
 
 warnings.warn("""Destination is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
@@ -124,8 +125,6 @@ class Destination(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DestinationArgs.__new__(DestinationArgs)
 
-            if destination_name is None and not opts.urn:
-                raise TypeError("Missing required property 'destination_name'")
             __props__.__dict__["destination_name"] = destination_name
             if destination_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_policy'")

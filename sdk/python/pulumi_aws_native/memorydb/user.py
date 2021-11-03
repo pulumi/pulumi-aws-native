@@ -18,19 +18,20 @@ class UserArgs:
     def __init__(__self__, *,
                  access_string: pulumi.Input[str],
                  authentication_mode: pulumi.Input['AuthenticationModePropertiesArgs'],
-                 user_name: pulumi.Input[str],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]] = None,
+                 user_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a User resource.
         :param pulumi.Input[str] access_string: Access permissions string used for this user account.
-        :param pulumi.Input[str] user_name: The name of the user.
         :param pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]] tags: An array of key-value pairs to apply to this user.
+        :param pulumi.Input[str] user_name: The name of the user.
         """
         pulumi.set(__self__, "access_string", access_string)
         pulumi.set(__self__, "authentication_mode", authentication_mode)
-        pulumi.set(__self__, "user_name", user_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
 
     @property
     @pulumi.getter(name="accessString")
@@ -54,18 +55,6 @@ class UserArgs:
         pulumi.set(self, "authentication_mode", value)
 
     @property
-    @pulumi.getter(name="userName")
-    def user_name(self) -> pulumi.Input[str]:
-        """
-        The name of the user.
-        """
-        return pulumi.get(self, "user_name")
-
-    @user_name.setter
-    def user_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "user_name", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]]:
         """
@@ -76,6 +65,18 @@ class UserArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the user.
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name", value)
 
 
 class User(pulumi.CustomResource):
@@ -144,8 +145,6 @@ class User(pulumi.CustomResource):
                 raise TypeError("Missing required property 'authentication_mode'")
             __props__.__dict__["authentication_mode"] = authentication_mode
             __props__.__dict__["tags"] = tags
-            if user_name is None and not opts.urn:
-                raise TypeError("Missing required property 'user_name'")
             __props__.__dict__["user_name"] = user_name
             __props__.__dict__["arn"] = None
             __props__.__dict__["status"] = None

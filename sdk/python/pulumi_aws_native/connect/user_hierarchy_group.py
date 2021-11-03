@@ -14,7 +14,7 @@ __all__ = ['UserHierarchyGroupArgs', 'UserHierarchyGroup']
 class UserHierarchyGroupArgs:
     def __init__(__self__, *,
                  instance_arn: pulumi.Input[str],
-                 name: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
                  parent_group_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a UserHierarchyGroup resource.
@@ -23,7 +23,8 @@ class UserHierarchyGroupArgs:
         :param pulumi.Input[str] parent_group_arn: The Amazon Resource Name (ARN) for the parent user hierarchy group.
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
-        pulumi.set(__self__, "name", name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if parent_group_arn is not None:
             pulumi.set(__self__, "parent_group_arn", parent_group_arn)
 
@@ -41,14 +42,14 @@ class UserHierarchyGroupArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the user hierarchy group.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
     @property
@@ -124,8 +125,6 @@ class UserHierarchyGroup(pulumi.CustomResource):
             if instance_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_arn'")
             __props__.__dict__["instance_arn"] = instance_arn
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["parent_group_arn"] = parent_group_arn
             __props__.__dict__["user_hierarchy_group_arn"] = None

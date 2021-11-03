@@ -16,19 +16,20 @@ __all__ = ['RateBasedRuleArgs', 'RateBasedRule']
 class RateBasedRuleArgs:
     def __init__(__self__, *,
                  metric_name: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  rate_key: pulumi.Input[str],
                  rate_limit: pulumi.Input[int],
-                 match_predicates: Optional[pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]]] = None):
+                 match_predicates: Optional[pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RateBasedRule resource.
         """
         pulumi.set(__self__, "metric_name", metric_name)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "rate_key", rate_key)
         pulumi.set(__self__, "rate_limit", rate_limit)
         if match_predicates is not None:
             pulumi.set(__self__, "match_predicates", match_predicates)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="metricName")
@@ -38,15 +39,6 @@ class RateBasedRuleArgs:
     @metric_name.setter
     def metric_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "metric_name", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="rateKey")
@@ -74,6 +66,15 @@ class RateBasedRuleArgs:
     @match_predicates.setter
     def match_predicates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]]]):
         pulumi.set(self, "match_predicates", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 warnings.warn("""RateBasedRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
@@ -144,8 +145,6 @@ class RateBasedRule(pulumi.CustomResource):
             if metric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'metric_name'")
             __props__.__dict__["metric_name"] = metric_name
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if rate_key is None and not opts.urn:
                 raise TypeError("Missing required property 'rate_key'")

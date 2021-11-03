@@ -17,7 +17,6 @@ class AuthorizerArgs:
     def __init__(__self__, *,
                  api_id: pulumi.Input[str],
                  authorizer_type: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  authorizer_credentials_arn: Optional[pulumi.Input[str]] = None,
                  authorizer_payload_format_version: Optional[pulumi.Input[str]] = None,
                  authorizer_result_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
@@ -25,13 +24,13 @@ class AuthorizerArgs:
                  enable_simple_responses: Optional[pulumi.Input[bool]] = None,
                  identity_source: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  identity_validation_expression: Optional[pulumi.Input[str]] = None,
-                 jwt_configuration: Optional[pulumi.Input['AuthorizerJWTConfigurationArgs']] = None):
+                 jwt_configuration: Optional[pulumi.Input['AuthorizerJWTConfigurationArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Authorizer resource.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "authorizer_type", authorizer_type)
-        pulumi.set(__self__, "name", name)
         if authorizer_credentials_arn is not None:
             pulumi.set(__self__, "authorizer_credentials_arn", authorizer_credentials_arn)
         if authorizer_payload_format_version is not None:
@@ -48,6 +47,8 @@ class AuthorizerArgs:
             pulumi.set(__self__, "identity_validation_expression", identity_validation_expression)
         if jwt_configuration is not None:
             pulumi.set(__self__, "jwt_configuration", jwt_configuration)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="apiId")
@@ -66,15 +67,6 @@ class AuthorizerArgs:
     @authorizer_type.setter
     def authorizer_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "authorizer_type", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="authorizerCredentialsArn")
@@ -147,6 +139,15 @@ class AuthorizerArgs:
     @jwt_configuration.setter
     def jwt_configuration(self, value: Optional[pulumi.Input['AuthorizerJWTConfigurationArgs']]):
         pulumi.set(self, "jwt_configuration", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 warnings.warn("""Authorizer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
@@ -239,8 +240,6 @@ class Authorizer(pulumi.CustomResource):
             __props__.__dict__["identity_source"] = identity_source
             __props__.__dict__["identity_validation_expression"] = identity_validation_expression
             __props__.__dict__["jwt_configuration"] = jwt_configuration
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
         super(Authorizer, __self__).__init__(
             'aws-native:apigatewayv2:Authorizer',

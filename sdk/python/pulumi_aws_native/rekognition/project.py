@@ -13,19 +13,20 @@ __all__ = ['ProjectArgs', 'Project']
 @pulumi.input_type
 class ProjectArgs:
     def __init__(__self__, *,
-                 project_name: pulumi.Input[str]):
+                 project_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Project resource.
         """
-        pulumi.set(__self__, "project_name", project_name)
+        if project_name is not None:
+            pulumi.set(__self__, "project_name", project_name)
 
     @property
     @pulumi.getter(name="projectName")
-    def project_name(self) -> pulumi.Input[str]:
+    def project_name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "project_name")
 
     @project_name.setter
-    def project_name(self, value: pulumi.Input[str]):
+    def project_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "project_name", value)
 
 
@@ -46,7 +47,7 @@ class Project(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ProjectArgs,
+                 args: Optional[ProjectArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::Rekognition::Project type creates an Amazon Rekognition CustomLabels Project. A project is a grouping of the resources needed to create and manage Dataset and ProjectVersions.
@@ -79,8 +80,6 @@ class Project(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProjectArgs.__new__(ProjectArgs)
 
-            if project_name is None and not opts.urn:
-                raise TypeError("Missing required property 'project_name'")
             __props__.__dict__["project_name"] = project_name
             __props__.__dict__["arn"] = None
         super(Project, __self__).__init__(

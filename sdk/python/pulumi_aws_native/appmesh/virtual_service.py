@@ -17,19 +17,20 @@ class VirtualServiceArgs:
     def __init__(__self__, *,
                  mesh_name: pulumi.Input[str],
                  spec: pulumi.Input['VirtualServiceSpecArgs'],
-                 virtual_service_name: pulumi.Input[str],
                  mesh_owner: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualServiceTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualServiceTagArgs']]]] = None,
+                 virtual_service_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VirtualService resource.
         """
         pulumi.set(__self__, "mesh_name", mesh_name)
         pulumi.set(__self__, "spec", spec)
-        pulumi.set(__self__, "virtual_service_name", virtual_service_name)
         if mesh_owner is not None:
             pulumi.set(__self__, "mesh_owner", mesh_owner)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if virtual_service_name is not None:
+            pulumi.set(__self__, "virtual_service_name", virtual_service_name)
 
     @property
     @pulumi.getter(name="meshName")
@@ -50,15 +51,6 @@ class VirtualServiceArgs:
         pulumi.set(self, "spec", value)
 
     @property
-    @pulumi.getter(name="virtualServiceName")
-    def virtual_service_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "virtual_service_name")
-
-    @virtual_service_name.setter
-    def virtual_service_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "virtual_service_name", value)
-
-    @property
     @pulumi.getter(name="meshOwner")
     def mesh_owner(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "mesh_owner")
@@ -75,6 +67,15 @@ class VirtualServiceArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualServiceTagArgs']]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="virtualServiceName")
+    def virtual_service_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "virtual_service_name")
+
+    @virtual_service_name.setter
+    def virtual_service_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_service_name", value)
 
 
 warnings.warn("""VirtualService is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
@@ -149,8 +150,6 @@ class VirtualService(pulumi.CustomResource):
                 raise TypeError("Missing required property 'spec'")
             __props__.__dict__["spec"] = spec
             __props__.__dict__["tags"] = tags
-            if virtual_service_name is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_service_name'")
             __props__.__dict__["virtual_service_name"] = virtual_service_name
             __props__.__dict__["arn"] = None
             __props__.__dict__["resource_owner"] = None

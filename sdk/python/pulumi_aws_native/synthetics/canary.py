@@ -18,12 +18,12 @@ class CanaryArgs:
                  artifact_s3_location: pulumi.Input[str],
                  code: pulumi.Input['CanaryCodeArgs'],
                  execution_role_arn: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  runtime_version: pulumi.Input[str],
                  schedule: pulumi.Input['CanaryScheduleArgs'],
                  start_canary_after_creation: pulumi.Input[bool],
                  artifact_config: Optional[pulumi.Input['CanaryArtifactConfigArgs']] = None,
                  failure_retention_period: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  run_config: Optional[pulumi.Input['CanaryRunConfigArgs']] = None,
                  success_retention_period: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryTagArgs']]]] = None,
@@ -34,12 +34,12 @@ class CanaryArgs:
         :param pulumi.Input[str] artifact_s3_location: Provide the s3 bucket output location for test results
         :param pulumi.Input['CanaryCodeArgs'] code: Provide the canary script source
         :param pulumi.Input[str] execution_role_arn: Lambda Execution role used to run your canaries
-        :param pulumi.Input[str] name: Name of the canary.
         :param pulumi.Input[str] runtime_version: Runtime version of Synthetics Library
         :param pulumi.Input['CanaryScheduleArgs'] schedule: Frequency to run your canaries
         :param pulumi.Input[bool] start_canary_after_creation: Runs canary if set to True. Default is False
         :param pulumi.Input['CanaryArtifactConfigArgs'] artifact_config: Provide artifact configuration
         :param pulumi.Input[int] failure_retention_period: Retention period of failed canary runs represented in number of days
+        :param pulumi.Input[str] name: Name of the canary.
         :param pulumi.Input['CanaryRunConfigArgs'] run_config: Provide canary run configuration
         :param pulumi.Input[int] success_retention_period: Retention period of successful canary runs represented in number of days
         :param pulumi.Input['CanaryVPCConfigArgs'] v_pc_config: Provide VPC Configuration if enabled.
@@ -48,7 +48,6 @@ class CanaryArgs:
         pulumi.set(__self__, "artifact_s3_location", artifact_s3_location)
         pulumi.set(__self__, "code", code)
         pulumi.set(__self__, "execution_role_arn", execution_role_arn)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "runtime_version", runtime_version)
         pulumi.set(__self__, "schedule", schedule)
         pulumi.set(__self__, "start_canary_after_creation", start_canary_after_creation)
@@ -56,6 +55,8 @@ class CanaryArgs:
             pulumi.set(__self__, "artifact_config", artifact_config)
         if failure_retention_period is not None:
             pulumi.set(__self__, "failure_retention_period", failure_retention_period)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if run_config is not None:
             pulumi.set(__self__, "run_config", run_config)
         if success_retention_period is not None:
@@ -102,18 +103,6 @@ class CanaryArgs:
     @execution_role_arn.setter
     def execution_role_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "execution_role_arn", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Name of the canary.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="runtimeVersion")
@@ -174,6 +163,18 @@ class CanaryArgs:
     @failure_retention_period.setter
     def failure_retention_period(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "failure_retention_period", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the canary.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="runConfig")
@@ -333,8 +334,6 @@ class Canary(pulumi.CustomResource):
                 raise TypeError("Missing required property 'execution_role_arn'")
             __props__.__dict__["execution_role_arn"] = execution_role_arn
             __props__.__dict__["failure_retention_period"] = failure_retention_period
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["run_config"] = run_config
             if runtime_version is None and not opts.urn:

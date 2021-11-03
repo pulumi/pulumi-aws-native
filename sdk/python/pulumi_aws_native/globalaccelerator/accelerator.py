@@ -16,39 +16,28 @@ __all__ = ['AcceleratorArgs', 'Accelerator']
 @pulumi.input_type
 class AcceleratorArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None,
                  ip_address_type: Optional[pulumi.Input['AcceleratorIpAddressType']] = None,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AcceleratorTagArgs']]]] = None):
         """
         The set of arguments for constructing a Accelerator resource.
-        :param pulumi.Input[str] name: Name of accelerator.
         :param pulumi.Input[bool] enabled: Indicates whether an accelerator is enabled. The value is true or false.
         :param pulumi.Input['AcceleratorIpAddressType'] ip_address_type: IP Address type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: The IP addresses from BYOIP Prefix pool.
+        :param pulumi.Input[str] name: Name of accelerator.
         """
-        pulumi.set(__self__, "name", name)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if ip_address_type is not None:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
         if ip_addresses is not None:
             pulumi.set(__self__, "ip_addresses", ip_addresses)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Name of accelerator.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -88,6 +77,18 @@ class AcceleratorArgs:
 
     @property
     @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of accelerator.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AcceleratorTagArgs']]]]:
         return pulumi.get(self, "tags")
 
@@ -121,7 +122,7 @@ class Accelerator(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AcceleratorArgs,
+                 args: Optional[AcceleratorArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::GlobalAccelerator::Accelerator
@@ -161,8 +162,6 @@ class Accelerator(pulumi.CustomResource):
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["ip_addresses"] = ip_addresses
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["accelerator_arn"] = None

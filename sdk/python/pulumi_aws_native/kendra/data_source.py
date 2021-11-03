@@ -17,10 +17,10 @@ __all__ = ['DataSourceArgs', 'DataSource']
 class DataSourceArgs:
     def __init__(__self__, *,
                  index_id: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  type: pulumi.Input['DataSourceType'],
                  data_source_configuration: Optional[pulumi.Input['DataSourceConfigurationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceTagArgs']]]] = None):
@@ -29,12 +29,13 @@ class DataSourceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DataSourceTagArgs']]] tags: Tags for labeling the data source
         """
         pulumi.set(__self__, "index_id", index_id)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
         if data_source_configuration is not None:
             pulumi.set(__self__, "data_source_configuration", data_source_configuration)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if schedule is not None:
@@ -50,15 +51,6 @@ class DataSourceArgs:
     @index_id.setter
     def index_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "index_id", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -86,6 +78,15 @@ class DataSourceArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -188,8 +189,6 @@ class DataSource(pulumi.CustomResource):
             if index_id is None and not opts.urn:
                 raise TypeError("Missing required property 'index_id'")
             __props__.__dict__["index_id"] = index_id
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["schedule"] = schedule

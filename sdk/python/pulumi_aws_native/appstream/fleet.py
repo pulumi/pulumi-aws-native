@@ -17,7 +17,6 @@ class FleetArgs:
     def __init__(__self__, *,
                  compute_capacity: pulumi.Input['FleetComputeCapacityArgs'],
                  instance_type: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  disconnect_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -29,6 +28,7 @@ class FleetArgs:
                  image_arn: Optional[pulumi.Input[str]] = None,
                  image_name: Optional[pulumi.Input[str]] = None,
                  max_user_duration_in_seconds: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  stream_view: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['FleetTagArgs']]]] = None,
                  vpc_config: Optional[pulumi.Input['FleetVpcConfigArgs']] = None):
@@ -37,7 +37,6 @@ class FleetArgs:
         """
         pulumi.set(__self__, "compute_capacity", compute_capacity)
         pulumi.set(__self__, "instance_type", instance_type)
-        pulumi.set(__self__, "name", name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if disconnect_timeout_in_seconds is not None:
@@ -60,6 +59,8 @@ class FleetArgs:
             pulumi.set(__self__, "image_name", image_name)
         if max_user_duration_in_seconds is not None:
             pulumi.set(__self__, "max_user_duration_in_seconds", max_user_duration_in_seconds)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if stream_view is not None:
             pulumi.set(__self__, "stream_view", stream_view)
         if tags is not None:
@@ -84,15 +85,6 @@ class FleetArgs:
     @instance_type.setter
     def instance_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "instance_type", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -192,6 +184,15 @@ class FleetArgs:
     @max_user_duration_in_seconds.setter
     def max_user_duration_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_user_duration_in_seconds", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="streamView")
@@ -326,8 +327,6 @@ class Fleet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'instance_type'")
             __props__.__dict__["instance_type"] = instance_type
             __props__.__dict__["max_user_duration_in_seconds"] = max_user_duration_in_seconds
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["stream_view"] = stream_view
             __props__.__dict__["tags"] = tags

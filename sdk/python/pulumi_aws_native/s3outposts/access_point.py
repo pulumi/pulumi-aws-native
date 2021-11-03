@@ -16,19 +16,20 @@ __all__ = ['AccessPointArgs', 'AccessPoint']
 class AccessPointArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  vpc_configuration: pulumi.Input['AccessPointVpcConfigurationArgs'],
+                 name: Optional[pulumi.Input[str]] = None,
                  policy: Optional[Any] = None):
         """
         The set of arguments for constructing a AccessPoint resource.
         :param pulumi.Input[str] bucket: The Amazon Resource Name (ARN) of the bucket you want to associate this AccessPoint with.
-        :param pulumi.Input[str] name: A name for the AccessPoint.
         :param pulumi.Input['AccessPointVpcConfigurationArgs'] vpc_configuration: Virtual Private Cloud (VPC) from which requests can be made to the AccessPoint.
+        :param pulumi.Input[str] name: A name for the AccessPoint.
         :param Any policy: The access point policy associated with this access point.
         """
         pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "vpc_configuration", vpc_configuration)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
 
@@ -45,18 +46,6 @@ class AccessPointArgs:
         pulumi.set(self, "bucket", value)
 
     @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        A name for the AccessPoint.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> pulumi.Input['AccessPointVpcConfigurationArgs']:
         """
@@ -67,6 +56,18 @@ class AccessPointArgs:
     @vpc_configuration.setter
     def vpc_configuration(self, value: pulumi.Input['AccessPointVpcConfigurationArgs']):
         pulumi.set(self, "vpc_configuration", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for the AccessPoint.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -144,8 +145,6 @@ class AccessPoint(pulumi.CustomResource):
             if bucket is None and not opts.urn:
                 raise TypeError("Missing required property 'bucket'")
             __props__.__dict__["bucket"] = bucket
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["policy"] = policy
             if vpc_configuration is None and not opts.urn:

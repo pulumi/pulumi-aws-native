@@ -16,7 +16,6 @@ __all__ = ['ImageBuilderArgs', 'ImageBuilder']
 class ImageBuilderArgs:
     def __init__(__self__, *,
                  instance_type: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]] = None,
                  appstream_agent_version: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -26,13 +25,13 @@ class ImageBuilderArgs:
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
                  image_arn: Optional[pulumi.Input[str]] = None,
                  image_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderTagArgs']]]] = None,
                  vpc_config: Optional[pulumi.Input['ImageBuilderVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a ImageBuilder resource.
         """
         pulumi.set(__self__, "instance_type", instance_type)
-        pulumi.set(__self__, "name", name)
         if access_endpoints is not None:
             pulumi.set(__self__, "access_endpoints", access_endpoints)
         if appstream_agent_version is not None:
@@ -51,6 +50,8 @@ class ImageBuilderArgs:
             pulumi.set(__self__, "image_arn", image_arn)
         if image_name is not None:
             pulumi.set(__self__, "image_name", image_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if vpc_config is not None:
@@ -64,15 +65,6 @@ class ImageBuilderArgs:
     @instance_type.setter
     def instance_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "instance_type", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="accessEndpoints")
@@ -154,6 +146,15 @@ class ImageBuilderArgs:
     @image_name.setter
     def image_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "image_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -266,8 +267,6 @@ class ImageBuilder(pulumi.CustomResource):
             if instance_type is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_type'")
             __props__.__dict__["instance_type"] = instance_type
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_config"] = vpc_config

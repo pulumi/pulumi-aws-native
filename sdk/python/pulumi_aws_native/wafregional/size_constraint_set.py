@@ -15,22 +15,23 @@ __all__ = ['SizeConstraintSetArgs', 'SizeConstraintSet']
 @pulumi.input_type
 class SizeConstraintSetArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
                  size_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['SizeConstraintSetSizeConstraintArgs']]]] = None):
         """
         The set of arguments for constructing a SizeConstraintSet resource.
         """
-        pulumi.set(__self__, "name", name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if size_constraints is not None:
             pulumi.set(__self__, "size_constraints", size_constraints)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
     @property
@@ -66,7 +67,7 @@ class SizeConstraintSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SizeConstraintSetArgs,
+                 args: Optional[SizeConstraintSetArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::WAFRegional::SizeConstraintSet
@@ -101,8 +102,6 @@ class SizeConstraintSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SizeConstraintSetArgs.__new__(SizeConstraintSetArgs)
 
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["size_constraints"] = size_constraints
         super(SizeConstraintSet, __self__).__init__(

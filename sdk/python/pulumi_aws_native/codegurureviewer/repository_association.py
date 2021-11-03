@@ -16,43 +16,32 @@ __all__ = ['RepositoryAssociationArgs', 'RepositoryAssociation']
 @pulumi.input_type
 class RepositoryAssociationArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  type: pulumi.Input['RepositoryAssociationType'],
                  bucket_name: Optional[pulumi.Input[str]] = None,
                  connection_arn: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryAssociationTagArgs']]]] = None):
         """
         The set of arguments for constructing a RepositoryAssociation resource.
-        :param pulumi.Input[str] name: Name of the repository to be associated.
         :param pulumi.Input['RepositoryAssociationType'] type: The type of repository to be associated.
         :param pulumi.Input[str] bucket_name: The name of the S3 bucket associated with an associated S3 repository. It must start with `codeguru-reviewer-`.
         :param pulumi.Input[str] connection_arn: The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+        :param pulumi.Input[str] name: Name of the repository to be associated.
         :param pulumi.Input[str] owner: The owner of the repository. For a Bitbucket repository, this is the username for the account that owns the repository.
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryAssociationTagArgs']]] tags: The tags associated with a repository association.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
         if bucket_name is not None:
             pulumi.set(__self__, "bucket_name", bucket_name)
         if connection_arn is not None:
             pulumi.set(__self__, "connection_arn", connection_arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if owner is not None:
             pulumi.set(__self__, "owner", owner)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Name of the repository to be associated.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -89,6 +78,18 @@ class RepositoryAssociationArgs:
     @connection_arn.setter
     def connection_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "connection_arn", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the repository to be associated.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -183,8 +184,6 @@ class RepositoryAssociation(pulumi.CustomResource):
 
             __props__.__dict__["bucket_name"] = bucket_name
             __props__.__dict__["connection_arn"] = connection_arn
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["owner"] = owner
             __props__.__dict__["tags"] = tags

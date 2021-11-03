@@ -15,22 +15,23 @@ __all__ = ['SqlInjectionMatchSetArgs', 'SqlInjectionMatchSet']
 @pulumi.input_type
 class SqlInjectionMatchSetArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
                  sql_injection_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]]] = None):
         """
         The set of arguments for constructing a SqlInjectionMatchSet resource.
         """
-        pulumi.set(__self__, "name", name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if sql_injection_match_tuples is not None:
             pulumi.set(__self__, "sql_injection_match_tuples", sql_injection_match_tuples)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
     @property
@@ -66,7 +67,7 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SqlInjectionMatchSetArgs,
+                 args: Optional[SqlInjectionMatchSetArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::WAF::SqlInjectionMatchSet
@@ -101,8 +102,6 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SqlInjectionMatchSetArgs.__new__(SqlInjectionMatchSetArgs)
 
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["sql_injection_match_tuples"] = sql_injection_match_tuples
         super(SqlInjectionMatchSet, __self__).__init__(

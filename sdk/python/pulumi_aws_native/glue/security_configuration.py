@@ -16,12 +16,13 @@ __all__ = ['SecurityConfigurationArgs', 'SecurityConfiguration']
 class SecurityConfigurationArgs:
     def __init__(__self__, *,
                  encryption_configuration: pulumi.Input['SecurityConfigurationEncryptionConfigurationArgs'],
-                 name: pulumi.Input[str]):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SecurityConfiguration resource.
         """
         pulumi.set(__self__, "encryption_configuration", encryption_configuration)
-        pulumi.set(__self__, "name", name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="encryptionConfiguration")
@@ -34,11 +35,11 @@ class SecurityConfigurationArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
 
@@ -103,8 +104,6 @@ class SecurityConfiguration(pulumi.CustomResource):
             if encryption_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'encryption_configuration'")
             __props__.__dict__["encryption_configuration"] = encryption_configuration
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
         super(SecurityConfiguration, __self__).__init__(
             'aws-native:glue:SecurityConfiguration',

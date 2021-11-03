@@ -15,35 +15,24 @@ __all__ = ['GatewayArgs', 'Gateway']
 @pulumi.input_type
 class GatewayArgs:
     def __init__(__self__, *,
-                 gateway_name: pulumi.Input[str],
                  gateway_platform: pulumi.Input['GatewayPlatformArgs'],
                  gateway_capability_summaries: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayCapabilitySummaryArgs']]]] = None,
+                 gateway_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTagArgs']]]] = None):
         """
         The set of arguments for constructing a Gateway resource.
-        :param pulumi.Input[str] gateway_name: A unique, friendly name for the gateway.
         :param pulumi.Input['GatewayPlatformArgs'] gateway_platform: The gateway's platform. You can only specify one platform in a gateway.
         :param pulumi.Input[Sequence[pulumi.Input['GatewayCapabilitySummaryArgs']]] gateway_capability_summaries: A list of gateway capability summaries that each contain a namespace and status.
+        :param pulumi.Input[str] gateway_name: A unique, friendly name for the gateway.
         :param pulumi.Input[Sequence[pulumi.Input['GatewayTagArgs']]] tags: A list of key-value pairs that contain metadata for the gateway.
         """
-        pulumi.set(__self__, "gateway_name", gateway_name)
         pulumi.set(__self__, "gateway_platform", gateway_platform)
         if gateway_capability_summaries is not None:
             pulumi.set(__self__, "gateway_capability_summaries", gateway_capability_summaries)
+        if gateway_name is not None:
+            pulumi.set(__self__, "gateway_name", gateway_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="gatewayName")
-    def gateway_name(self) -> pulumi.Input[str]:
-        """
-        A unique, friendly name for the gateway.
-        """
-        return pulumi.get(self, "gateway_name")
-
-    @gateway_name.setter
-    def gateway_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "gateway_name", value)
 
     @property
     @pulumi.getter(name="gatewayPlatform")
@@ -68,6 +57,18 @@ class GatewayArgs:
     @gateway_capability_summaries.setter
     def gateway_capability_summaries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayCapabilitySummaryArgs']]]]):
         pulumi.set(self, "gateway_capability_summaries", value)
+
+    @property
+    @pulumi.getter(name="gatewayName")
+    def gateway_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique, friendly name for the gateway.
+        """
+        return pulumi.get(self, "gateway_name")
+
+    @gateway_name.setter
+    def gateway_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gateway_name", value)
 
     @property
     @pulumi.getter
@@ -143,8 +144,6 @@ class Gateway(pulumi.CustomResource):
             __props__ = GatewayArgs.__new__(GatewayArgs)
 
             __props__.__dict__["gateway_capability_summaries"] = gateway_capability_summaries
-            if gateway_name is None and not opts.urn:
-                raise TypeError("Missing required property 'gateway_name'")
             __props__.__dict__["gateway_name"] = gateway_name
             if gateway_platform is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_platform'")

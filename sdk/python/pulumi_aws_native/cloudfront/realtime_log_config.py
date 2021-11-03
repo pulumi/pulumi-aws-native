@@ -17,15 +17,16 @@ class RealtimeLogConfigArgs:
     def __init__(__self__, *,
                  end_points: pulumi.Input[Sequence[pulumi.Input['RealtimeLogConfigEndPointArgs']]],
                  fields: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 name: pulumi.Input[str],
-                 sampling_rate: pulumi.Input[float]):
+                 sampling_rate: pulumi.Input[float],
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RealtimeLogConfig resource.
         """
         pulumi.set(__self__, "end_points", end_points)
         pulumi.set(__self__, "fields", fields)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "sampling_rate", sampling_rate)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="endPoints")
@@ -46,15 +47,6 @@ class RealtimeLogConfigArgs:
         pulumi.set(self, "fields", value)
 
     @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
     @pulumi.getter(name="samplingRate")
     def sampling_rate(self) -> pulumi.Input[float]:
         return pulumi.get(self, "sampling_rate")
@@ -62,6 +54,15 @@ class RealtimeLogConfigArgs:
     @sampling_rate.setter
     def sampling_rate(self, value: pulumi.Input[float]):
         pulumi.set(self, "sampling_rate", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class RealtimeLogConfig(pulumi.CustomResource):
@@ -126,8 +127,6 @@ class RealtimeLogConfig(pulumi.CustomResource):
             if fields is None and not opts.urn:
                 raise TypeError("Missing required property 'fields'")
             __props__.__dict__["fields"] = fields
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if sampling_rate is None and not opts.urn:
                 raise TypeError("Missing required property 'sampling_rate'")

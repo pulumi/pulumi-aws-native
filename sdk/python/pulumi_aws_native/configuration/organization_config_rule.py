@@ -15,29 +15,21 @@ __all__ = ['OrganizationConfigRuleArgs', 'OrganizationConfigRule']
 @pulumi.input_type
 class OrganizationConfigRuleArgs:
     def __init__(__self__, *,
-                 organization_config_rule_name: pulumi.Input[str],
                  excluded_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 organization_config_rule_name: Optional[pulumi.Input[str]] = None,
                  organization_custom_rule_metadata: Optional[pulumi.Input['OrganizationConfigRuleOrganizationCustomRuleMetadataArgs']] = None,
                  organization_managed_rule_metadata: Optional[pulumi.Input['OrganizationConfigRuleOrganizationManagedRuleMetadataArgs']] = None):
         """
         The set of arguments for constructing a OrganizationConfigRule resource.
         """
-        pulumi.set(__self__, "organization_config_rule_name", organization_config_rule_name)
         if excluded_accounts is not None:
             pulumi.set(__self__, "excluded_accounts", excluded_accounts)
+        if organization_config_rule_name is not None:
+            pulumi.set(__self__, "organization_config_rule_name", organization_config_rule_name)
         if organization_custom_rule_metadata is not None:
             pulumi.set(__self__, "organization_custom_rule_metadata", organization_custom_rule_metadata)
         if organization_managed_rule_metadata is not None:
             pulumi.set(__self__, "organization_managed_rule_metadata", organization_managed_rule_metadata)
-
-    @property
-    @pulumi.getter(name="organizationConfigRuleName")
-    def organization_config_rule_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "organization_config_rule_name")
-
-    @organization_config_rule_name.setter
-    def organization_config_rule_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "organization_config_rule_name", value)
 
     @property
     @pulumi.getter(name="excludedAccounts")
@@ -47,6 +39,15 @@ class OrganizationConfigRuleArgs:
     @excluded_accounts.setter
     def excluded_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "excluded_accounts", value)
+
+    @property
+    @pulumi.getter(name="organizationConfigRuleName")
+    def organization_config_rule_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "organization_config_rule_name")
+
+    @organization_config_rule_name.setter
+    def organization_config_rule_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "organization_config_rule_name", value)
 
     @property
     @pulumi.getter(name="organizationCustomRuleMetadata")
@@ -92,7 +93,7 @@ class OrganizationConfigRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: OrganizationConfigRuleArgs,
+                 args: Optional[OrganizationConfigRuleArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Config::OrganizationConfigRule
@@ -130,8 +131,6 @@ class OrganizationConfigRule(pulumi.CustomResource):
             __props__ = OrganizationConfigRuleArgs.__new__(OrganizationConfigRuleArgs)
 
             __props__.__dict__["excluded_accounts"] = excluded_accounts
-            if organization_config_rule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'organization_config_rule_name'")
             __props__.__dict__["organization_config_rule_name"] = organization_config_rule_name
             __props__.__dict__["organization_custom_rule_metadata"] = organization_custom_rule_metadata
             __props__.__dict__["organization_managed_rule_metadata"] = organization_managed_rule_metadata

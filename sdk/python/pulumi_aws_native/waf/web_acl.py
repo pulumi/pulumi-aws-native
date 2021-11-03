@@ -17,14 +17,15 @@ class WebACLArgs:
     def __init__(__self__, *,
                  default_action: pulumi.Input['WebACLWafActionArgs'],
                  metric_name: pulumi.Input[str],
-                 name: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLActivatedRuleArgs']]]] = None):
         """
         The set of arguments for constructing a WebACL resource.
         """
         pulumi.set(__self__, "default_action", default_action)
         pulumi.set(__self__, "metric_name", metric_name)
-        pulumi.set(__self__, "name", name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
 
@@ -48,11 +49,11 @@ class WebACLArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
     @property
@@ -133,8 +134,6 @@ class WebACL(pulumi.CustomResource):
             if metric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'metric_name'")
             __props__.__dict__["metric_name"] = metric_name
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["rules"] = rules
         super(WebACL, __self__).__init__(

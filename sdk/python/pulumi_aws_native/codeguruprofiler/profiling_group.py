@@ -16,40 +16,29 @@ __all__ = ['ProfilingGroupArgs', 'ProfilingGroup']
 @pulumi.input_type
 class ProfilingGroupArgs:
     def __init__(__self__, *,
-                 profiling_group_name: pulumi.Input[str],
                  agent_permissions: Optional[pulumi.Input['AgentPermissionsPropertiesArgs']] = None,
                  anomaly_detection_notification_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['ProfilingGroupChannelArgs']]]] = None,
                  compute_platform: Optional[pulumi.Input['ProfilingGroupComputePlatform']] = None,
+                 profiling_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProfilingGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a ProfilingGroup resource.
-        :param pulumi.Input[str] profiling_group_name: The name of the profiling group.
         :param pulumi.Input['AgentPermissionsPropertiesArgs'] agent_permissions: The agent permissions attached to this profiling group.
         :param pulumi.Input[Sequence[pulumi.Input['ProfilingGroupChannelArgs']]] anomaly_detection_notification_configuration: Configuration for Notification Channels for Anomaly Detection feature in CodeGuru Profiler which enables customers to detect anomalies in the application profile for those methods that represent the highest proportion of CPU time or latency
         :param pulumi.Input['ProfilingGroupComputePlatform'] compute_platform: The compute platform of the profiling group.
+        :param pulumi.Input[str] profiling_group_name: The name of the profiling group.
         :param pulumi.Input[Sequence[pulumi.Input['ProfilingGroupTagArgs']]] tags: The tags associated with a profiling group.
         """
-        pulumi.set(__self__, "profiling_group_name", profiling_group_name)
         if agent_permissions is not None:
             pulumi.set(__self__, "agent_permissions", agent_permissions)
         if anomaly_detection_notification_configuration is not None:
             pulumi.set(__self__, "anomaly_detection_notification_configuration", anomaly_detection_notification_configuration)
         if compute_platform is not None:
             pulumi.set(__self__, "compute_platform", compute_platform)
+        if profiling_group_name is not None:
+            pulumi.set(__self__, "profiling_group_name", profiling_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="profilingGroupName")
-    def profiling_group_name(self) -> pulumi.Input[str]:
-        """
-        The name of the profiling group.
-        """
-        return pulumi.get(self, "profiling_group_name")
-
-    @profiling_group_name.setter
-    def profiling_group_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "profiling_group_name", value)
 
     @property
     @pulumi.getter(name="agentPermissions")
@@ -86,6 +75,18 @@ class ProfilingGroupArgs:
     @compute_platform.setter
     def compute_platform(self, value: Optional[pulumi.Input['ProfilingGroupComputePlatform']]):
         pulumi.set(self, "compute_platform", value)
+
+    @property
+    @pulumi.getter(name="profilingGroupName")
+    def profiling_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the profiling group.
+        """
+        return pulumi.get(self, "profiling_group_name")
+
+    @profiling_group_name.setter
+    def profiling_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "profiling_group_name", value)
 
     @property
     @pulumi.getter
@@ -126,7 +127,7 @@ class ProfilingGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ProfilingGroupArgs,
+                 args: Optional[ProfilingGroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource schema represents the Profiling Group resource in the Amazon CodeGuru Profiler service.
@@ -166,8 +167,6 @@ class ProfilingGroup(pulumi.CustomResource):
             __props__.__dict__["agent_permissions"] = agent_permissions
             __props__.__dict__["anomaly_detection_notification_configuration"] = anomaly_detection_notification_configuration
             __props__.__dict__["compute_platform"] = compute_platform
-            if profiling_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'profiling_group_name'")
             __props__.__dict__["profiling_group_name"] = profiling_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

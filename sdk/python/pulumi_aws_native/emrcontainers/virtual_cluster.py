@@ -16,7 +16,7 @@ __all__ = ['VirtualClusterArgs', 'VirtualCluster']
 class VirtualClusterArgs:
     def __init__(__self__, *,
                  container_provider: pulumi.Input['VirtualClusterContainerProviderArgs'],
-                 name: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualClusterTagArgs']]]] = None):
         """
         The set of arguments for constructing a VirtualCluster resource.
@@ -25,7 +25,8 @@ class VirtualClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VirtualClusterTagArgs']]] tags: An array of key-value pairs to apply to this virtual cluster.
         """
         pulumi.set(__self__, "container_provider", container_provider)
-        pulumi.set(__self__, "name", name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -43,14 +44,14 @@ class VirtualClusterArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the virtual cluster.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
     @property
@@ -126,8 +127,6 @@ class VirtualCluster(pulumi.CustomResource):
             if container_provider is None and not opts.urn:
                 raise TypeError("Missing required property 'container_provider'")
             __props__.__dict__["container_provider"] = container_provider
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

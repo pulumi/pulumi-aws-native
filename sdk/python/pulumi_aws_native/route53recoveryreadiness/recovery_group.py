@@ -15,32 +15,21 @@ __all__ = ['RecoveryGroupArgs', 'RecoveryGroup']
 @pulumi.input_type
 class RecoveryGroupArgs:
     def __init__(__self__, *,
-                 recovery_group_name: pulumi.Input[str],
                  cells: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 recovery_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a RecoveryGroup resource.
-        :param pulumi.Input[str] recovery_group_name: The name of the recovery group to create.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cells: A list of the cell Amazon Resource Names (ARNs) in the recovery group.
+        :param pulumi.Input[str] recovery_group_name: The name of the recovery group to create.
         :param pulumi.Input[Sequence[pulumi.Input['RecoveryGroupTagArgs']]] tags: A collection of tags associated with a resource.
         """
-        pulumi.set(__self__, "recovery_group_name", recovery_group_name)
         if cells is not None:
             pulumi.set(__self__, "cells", cells)
+        if recovery_group_name is not None:
+            pulumi.set(__self__, "recovery_group_name", recovery_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="recoveryGroupName")
-    def recovery_group_name(self) -> pulumi.Input[str]:
-        """
-        The name of the recovery group to create.
-        """
-        return pulumi.get(self, "recovery_group_name")
-
-    @recovery_group_name.setter
-    def recovery_group_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "recovery_group_name", value)
 
     @property
     @pulumi.getter
@@ -53,6 +42,18 @@ class RecoveryGroupArgs:
     @cells.setter
     def cells(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "cells", value)
+
+    @property
+    @pulumi.getter(name="recoveryGroupName")
+    def recovery_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the recovery group to create.
+        """
+        return pulumi.get(self, "recovery_group_name")
+
+    @recovery_group_name.setter
+    def recovery_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_group_name", value)
 
     @property
     @pulumi.getter
@@ -89,7 +90,7 @@ class RecoveryGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RecoveryGroupArgs,
+                 args: Optional[RecoveryGroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS Route53 Recovery Readiness Recovery Group Schema and API specifications.
@@ -125,8 +126,6 @@ class RecoveryGroup(pulumi.CustomResource):
             __props__ = RecoveryGroupArgs.__new__(RecoveryGroupArgs)
 
             __props__.__dict__["cells"] = cells
-            if recovery_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'recovery_group_name'")
             __props__.__dict__["recovery_group_name"] = recovery_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["recovery_group_arn"] = None

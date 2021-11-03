@@ -15,26 +15,18 @@ __all__ = ['ConnectorDefinitionArgs', 'ConnectorDefinition']
 @pulumi.input_type
 class ConnectorDefinitionArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  initial_version: Optional[pulumi.Input['ConnectorDefinitionVersionArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None):
         """
         The set of arguments for constructing a ConnectorDefinition resource.
         """
-        pulumi.set(__self__, "name", name)
         if initial_version is not None:
             pulumi.set(__self__, "initial_version", initial_version)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="initialVersion")
@@ -44,6 +36,15 @@ class ConnectorDefinitionArgs:
     @initial_version.setter
     def initial_version(self, value: Optional[pulumi.Input['ConnectorDefinitionVersionArgs']]):
         pulumi.set(self, "initial_version", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -79,7 +80,7 @@ class ConnectorDefinition(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ConnectorDefinitionArgs,
+                 args: Optional[ConnectorDefinitionArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Greengrass::ConnectorDefinition
@@ -116,8 +117,6 @@ class ConnectorDefinition(pulumi.CustomResource):
             __props__ = ConnectorDefinitionArgs.__new__(ConnectorDefinitionArgs)
 
             __props__.__dict__["initial_version"] = initial_version
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

@@ -16,23 +16,24 @@ __all__ = ['AddonArgs', 'Addon']
 @pulumi.input_type
 class AddonArgs:
     def __init__(__self__, *,
-                 addon_name: pulumi.Input[str],
                  cluster_name: pulumi.Input[str],
+                 addon_name: Optional[pulumi.Input[str]] = None,
                  addon_version: Optional[pulumi.Input[str]] = None,
                  resolve_conflicts: Optional[pulumi.Input['AddonResolveConflicts']] = None,
                  service_account_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AddonTagArgs']]]] = None):
         """
         The set of arguments for constructing a Addon resource.
-        :param pulumi.Input[str] addon_name: Name of Addon
         :param pulumi.Input[str] cluster_name: Name of Cluster
+        :param pulumi.Input[str] addon_name: Name of Addon
         :param pulumi.Input[str] addon_version: Version of Addon
         :param pulumi.Input['AddonResolveConflicts'] resolve_conflicts: Resolve parameter value conflicts
         :param pulumi.Input[str] service_account_role_arn: IAM role to bind to the add-on's service account
         :param pulumi.Input[Sequence[pulumi.Input['AddonTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "addon_name", addon_name)
         pulumi.set(__self__, "cluster_name", cluster_name)
+        if addon_name is not None:
+            pulumi.set(__self__, "addon_name", addon_name)
         if addon_version is not None:
             pulumi.set(__self__, "addon_version", addon_version)
         if resolve_conflicts is not None:
@@ -41,18 +42,6 @@ class AddonArgs:
             pulumi.set(__self__, "service_account_role_arn", service_account_role_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="addonName")
-    def addon_name(self) -> pulumi.Input[str]:
-        """
-        Name of Addon
-        """
-        return pulumi.get(self, "addon_name")
-
-    @addon_name.setter
-    def addon_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "addon_name", value)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -65,6 +54,18 @@ class AddonArgs:
     @cluster_name.setter
     def cluster_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "cluster_name", value)
+
+    @property
+    @pulumi.getter(name="addonName")
+    def addon_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of Addon
+        """
+        return pulumi.get(self, "addon_name")
+
+    @addon_name.setter
+    def addon_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "addon_name", value)
 
     @property
     @pulumi.getter(name="addonVersion")
@@ -181,8 +182,6 @@ class Addon(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AddonArgs.__new__(AddonArgs)
 
-            if addon_name is None and not opts.urn:
-                raise TypeError("Missing required property 'addon_name'")
             __props__.__dict__["addon_name"] = addon_name
             __props__.__dict__["addon_version"] = addon_version
             if cluster_name is None and not opts.urn:

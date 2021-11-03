@@ -17,20 +17,21 @@ __all__ = ['DistributionConfigurationArgs', 'DistributionConfiguration']
 class DistributionConfigurationArgs:
     def __init__(__self__, *,
                  distributions: pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArgs']]],
-                 name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None):
         """
         The set of arguments for constructing a DistributionConfiguration resource.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArgs']]] distributions: The distributions of the distribution configuration.
-        :param pulumi.Input[str] name: The name of the distribution configuration.
         :param pulumi.Input[str] description: The description of the distribution configuration.
+        :param pulumi.Input[str] name: The name of the distribution configuration.
         :param Any tags: The tags associated with the component.
         """
         pulumi.set(__self__, "distributions", distributions)
-        pulumi.set(__self__, "name", name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -48,18 +49,6 @@ class DistributionConfigurationArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the distribution configuration.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
         The description of the distribution configuration.
@@ -69,6 +58,18 @@ class DistributionConfigurationArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the distribution configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -147,8 +148,6 @@ class DistributionConfiguration(pulumi.CustomResource):
             if distributions is None and not opts.urn:
                 raise TypeError("Missing required property 'distributions'")
             __props__.__dict__["distributions"] = distributions
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

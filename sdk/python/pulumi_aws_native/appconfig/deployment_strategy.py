@@ -17,18 +17,17 @@ class DeploymentStrategyArgs:
     def __init__(__self__, *,
                  deployment_duration_in_minutes: pulumi.Input[float],
                  growth_factor: pulumi.Input[float],
-                 name: pulumi.Input[str],
                  replicate_to: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  final_bake_time_in_minutes: Optional[pulumi.Input[float]] = None,
                  growth_type: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentStrategyTagsArgs']]]] = None):
         """
         The set of arguments for constructing a DeploymentStrategy resource.
         """
         pulumi.set(__self__, "deployment_duration_in_minutes", deployment_duration_in_minutes)
         pulumi.set(__self__, "growth_factor", growth_factor)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "replicate_to", replicate_to)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -36,6 +35,8 @@ class DeploymentStrategyArgs:
             pulumi.set(__self__, "final_bake_time_in_minutes", final_bake_time_in_minutes)
         if growth_type is not None:
             pulumi.set(__self__, "growth_type", growth_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -56,15 +57,6 @@ class DeploymentStrategyArgs:
     @growth_factor.setter
     def growth_factor(self, value: pulumi.Input[float]):
         pulumi.set(self, "growth_factor", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="replicateTo")
@@ -101,6 +93,15 @@ class DeploymentStrategyArgs:
     @growth_type.setter
     def growth_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "growth_type", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -191,8 +192,6 @@ class DeploymentStrategy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'growth_factor'")
             __props__.__dict__["growth_factor"] = growth_factor
             __props__.__dict__["growth_type"] = growth_type
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if replicate_to is None and not opts.urn:
                 raise TypeError("Missing required property 'replicate_to'")

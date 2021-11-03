@@ -13,28 +13,20 @@ __all__ = ['VpcLinkArgs', 'VpcLink']
 @pulumi.input_type
 class VpcLinkArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 name: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[Any] = None):
         """
         The set of arguments for constructing a VpcLink resource.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="subnetIds")
@@ -44,6 +36,15 @@ class VpcLinkArgs:
     @subnet_ids.setter
     def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "subnet_ids", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -126,8 +127,6 @@ class VpcLink(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VpcLinkArgs.__new__(VpcLinkArgs)
 
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["security_group_ids"] = security_group_ids
             if subnet_ids is None and not opts.urn:
