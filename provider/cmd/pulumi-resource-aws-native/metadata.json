@@ -16107,6 +16107,9 @@
                     }
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "channelName"
+            },
             "createOnly": [
                 "channelName"
             ]
@@ -16194,6 +16197,9 @@
                 "versioningConfiguration": {
                     "$ref": "#/types/aws-native:iotanalytics:DatasetVersioningConfiguration"
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "datasetName"
             },
             "required": [
                 "actions"
