@@ -15732,6 +15732,137 @@
                 "vpcProperties"
             ]
         },
+        "aws-native:iotanalytics:Channel": {
+            "cf": "AWS::IoTAnalytics::Channel",
+            "inputs": {
+                "channelName": {
+                    "type": "string"
+                },
+                "channelStorage": {
+                    "$ref": "#/types/aws-native:iotanalytics:ChannelStorage"
+                },
+                "retentionPeriod": {
+                    "$ref": "#/types/aws-native:iotanalytics:ChannelRetentionPeriod"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:ChannelTag"
+                    }
+                }
+            },
+            "outputs": {
+                "channelName": {
+                    "type": "string"
+                },
+                "channelStorage": {
+                    "$ref": "#/types/aws-native:iotanalytics:ChannelStorage"
+                },
+                "retentionPeriod": {
+                    "$ref": "#/types/aws-native:iotanalytics:ChannelRetentionPeriod"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:ChannelTag"
+                    }
+                }
+            },
+            "createOnly": [
+                "channelName"
+            ]
+        },
+        "aws-native:iotanalytics:Dataset": {
+            "cf": "AWS::IoTAnalytics::Dataset",
+            "inputs": {
+                "actions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:DatasetAction"
+                    }
+                },
+                "contentDeliveryRules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:DatasetContentDeliveryRule"
+                    }
+                },
+                "datasetName": {
+                    "type": "string"
+                },
+                "lateDataRules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:DatasetLateDataRule"
+                    }
+                },
+                "retentionPeriod": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetRetentionPeriod"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:DatasetTag"
+                    }
+                },
+                "triggers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:DatasetTrigger"
+                    }
+                },
+                "versioningConfiguration": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetVersioningConfiguration"
+                }
+            },
+            "outputs": {
+                "actions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:DatasetAction"
+                    }
+                },
+                "contentDeliveryRules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:DatasetContentDeliveryRule"
+                    }
+                },
+                "datasetName": {
+                    "type": "string"
+                },
+                "lateDataRules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:DatasetLateDataRule"
+                    }
+                },
+                "retentionPeriod": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetRetentionPeriod"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:DatasetTag"
+                    }
+                },
+                "triggers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:DatasetTrigger"
+                    }
+                },
+                "versioningConfiguration": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetVersioningConfiguration"
+                }
+            },
+            "required": [
+                "actions"
+            ],
+            "createOnly": [
+                "datasetName"
+            ]
+        },
         "aws-native:iotcoredeviceadvisor:SuiteDefinition": {
             "cf": "AWS::IoTCoreDeviceAdvisor::SuiteDefinition",
             "inputs": {
@@ -44368,6 +44499,318 @@
                 },
                 "value": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:ChannelCustomerManagedS3": {
+            "type": "object",
+            "properties": {
+                "bucket": {
+                    "type": "string"
+                },
+                "keyPrefix": {
+                    "type": "string"
+                },
+                "roleArn": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:ChannelRetentionPeriod": {
+            "type": "object",
+            "properties": {
+                "numberOfDays": {
+                    "type": "integer"
+                },
+                "unlimited": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:iotanalytics:ChannelServiceManagedS3": {
+            "type": "object"
+        },
+        "aws-native:iotanalytics:ChannelStorage": {
+            "type": "object",
+            "properties": {
+                "customerManagedS3": {
+                    "$ref": "#/types/aws-native:iotanalytics:ChannelCustomerManagedS3"
+                },
+                "serviceManagedS3": {
+                    "$ref": "#/types/aws-native:iotanalytics:ChannelServiceManagedS3"
+                }
+            }
+        },
+        "aws-native:iotanalytics:ChannelTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetAction": {
+            "type": "object",
+            "properties": {
+                "actionName": {
+                    "type": "string"
+                },
+                "containerAction": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetContainerAction"
+                },
+                "queryAction": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetQueryAction"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetContainerAction": {
+            "type": "object",
+            "properties": {
+                "executionRoleArn": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "resourceConfiguration": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetResourceConfiguration"
+                },
+                "variables": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:DatasetVariable"
+                    }
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetContentDeliveryRule": {
+            "type": "object",
+            "properties": {
+                "destination": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetContentDeliveryRuleDestination"
+                },
+                "entryName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetContentDeliveryRuleDestination": {
+            "type": "object",
+            "properties": {
+                "iotEventsDestinationConfiguration": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetIotEventsDestinationConfiguration"
+                },
+                "s3DestinationConfiguration": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetS3DestinationConfiguration"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetContentVersionValue": {
+            "type": "object",
+            "properties": {
+                "datasetName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetDeltaTime": {
+            "type": "object",
+            "properties": {
+                "offsetSeconds": {
+                    "type": "integer"
+                },
+                "timeExpression": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetDeltaTimeSessionWindowConfiguration": {
+            "type": "object",
+            "properties": {
+                "timeoutInMinutes": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetFilter": {
+            "type": "object",
+            "properties": {
+                "deltaTime": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetDeltaTime"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetGlueConfiguration": {
+            "type": "object",
+            "properties": {
+                "databaseName": {
+                    "type": "string"
+                },
+                "tableName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetIotEventsDestinationConfiguration": {
+            "type": "object",
+            "properties": {
+                "inputName": {
+                    "type": "string"
+                },
+                "roleArn": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetLateDataRule": {
+            "type": "object",
+            "properties": {
+                "ruleConfiguration": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetLateDataRuleConfiguration"
+                },
+                "ruleName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetLateDataRuleConfiguration": {
+            "type": "object",
+            "properties": {
+                "deltaTimeSessionWindowConfiguration": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetDeltaTimeSessionWindowConfiguration"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetOutputFileUriValue": {
+            "type": "object",
+            "properties": {
+                "fileName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetQueryAction": {
+            "type": "object",
+            "properties": {
+                "filters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotanalytics:DatasetFilter"
+                    }
+                },
+                "sqlQuery": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetResourceConfiguration": {
+            "type": "object",
+            "properties": {
+                "computeType": {
+                    "type": "string"
+                },
+                "volumeSizeInGB": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetRetentionPeriod": {
+            "type": "object",
+            "properties": {
+                "numberOfDays": {
+                    "type": "integer"
+                },
+                "unlimited": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetS3DestinationConfiguration": {
+            "type": "object",
+            "properties": {
+                "bucket": {
+                    "type": "string"
+                },
+                "glueConfiguration": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetGlueConfiguration"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "roleArn": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetSchedule": {
+            "type": "object",
+            "properties": {
+                "scheduleExpression": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetTrigger": {
+            "type": "object",
+            "properties": {
+                "schedule": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetSchedule"
+                },
+                "triggeringDataset": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetTriggeringDataset"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetTriggeringDataset": {
+            "type": "object",
+            "properties": {
+                "datasetName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetVariable": {
+            "type": "object",
+            "properties": {
+                "datasetContentVersionValue": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetContentVersionValue"
+                },
+                "doubleValue": {
+                    "type": "number"
+                },
+                "outputFileUriValue": {
+                    "$ref": "#/types/aws-native:iotanalytics:DatasetOutputFileUriValue"
+                },
+                "stringValue": {
+                    "type": "string"
+                },
+                "variableName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotanalytics:DatasetVersioningConfiguration": {
+            "type": "object",
+            "properties": {
+                "maxVersions": {
+                    "type": "integer"
+                },
+                "unlimited": {
+                    "type": "boolean"
                 }
             }
         },
