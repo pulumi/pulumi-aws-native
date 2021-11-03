@@ -53,13 +53,10 @@ export class Application extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -88,6 +85,6 @@ export interface ApplicationArgs {
     /**
      * The name of the application. 
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     tags?: pulumi.Input<inputs.servicecatalogappregistry.ApplicationTagsArgs>;
 }

@@ -56,14 +56,11 @@ export class Repository extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated Repository is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
-    constructor(name: string, args: RepositoryArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: RepositoryArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Repository is deprecated: Repository is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.repositoryName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'repositoryName'");
-            }
             inputs["code"] = args ? args.code : undefined;
             inputs["repositoryDescription"] = args ? args.repositoryDescription : undefined;
             inputs["repositoryName"] = args ? args.repositoryName : undefined;
@@ -97,7 +94,7 @@ export class Repository extends pulumi.CustomResource {
 export interface RepositoryArgs {
     code?: pulumi.Input<inputs.codecommit.RepositoryCodeArgs>;
     repositoryDescription?: pulumi.Input<string>;
-    repositoryName: pulumi.Input<string>;
+    repositoryName?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.codecommit.RepositoryTagArgs>[]>;
     triggers?: pulumi.Input<pulumi.Input<inputs.codecommit.RepositoryTriggerArgs>[]>;
 }

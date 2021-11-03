@@ -67,13 +67,10 @@ export class ProfilingGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProfilingGroupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ProfilingGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.profilingGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'profilingGroupName'");
-            }
             inputs["agentPermissions"] = args ? args.agentPermissions : undefined;
             inputs["anomalyDetectionNotificationConfiguration"] = args ? args.anomalyDetectionNotificationConfiguration : undefined;
             inputs["computePlatform"] = args ? args.computePlatform : undefined;
@@ -114,7 +111,7 @@ export interface ProfilingGroupArgs {
     /**
      * The name of the profiling group.
      */
-    profilingGroupName: pulumi.Input<string>;
+    profilingGroupName?: pulumi.Input<string>;
     /**
      * The tags associated with a profiling group.
      */

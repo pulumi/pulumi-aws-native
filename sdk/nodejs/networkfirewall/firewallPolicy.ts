@@ -56,9 +56,6 @@ export class FirewallPolicy extends pulumi.CustomResource {
             if ((!args || args.firewallPolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'firewallPolicy'");
             }
-            if ((!args || args.firewallPolicyName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'firewallPolicyName'");
-            }
             inputs["description"] = args ? args.description : undefined;
             inputs["firewallPolicy"] = args ? args.firewallPolicy : undefined;
             inputs["firewallPolicyName"] = args ? args.firewallPolicyName : undefined;
@@ -86,6 +83,6 @@ export class FirewallPolicy extends pulumi.CustomResource {
 export interface FirewallPolicyArgs {
     description?: pulumi.Input<string>;
     firewallPolicy: pulumi.Input<inputs.networkfirewall.FirewallPolicyArgs>;
-    firewallPolicyName: pulumi.Input<string>;
+    firewallPolicyName?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallPolicyTagArgs>[]>;
 }

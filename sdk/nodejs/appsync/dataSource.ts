@@ -67,9 +67,6 @@ export class DataSource extends pulumi.CustomResource {
             if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
@@ -116,7 +113,7 @@ export interface DataSourceArgs {
     elasticsearchConfig?: pulumi.Input<inputs.appsync.DataSourceElasticsearchConfigArgs>;
     httpConfig?: pulumi.Input<inputs.appsync.DataSourceHttpConfigArgs>;
     lambdaConfig?: pulumi.Input<inputs.appsync.DataSourceLambdaConfigArgs>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     openSearchServiceConfig?: pulumi.Input<inputs.appsync.DataSourceOpenSearchServiceConfigArgs>;
     relationalDatabaseConfig?: pulumi.Input<inputs.appsync.DataSourceRelationalDatabaseConfigArgs>;
     serviceRoleArn?: pulumi.Input<string>;

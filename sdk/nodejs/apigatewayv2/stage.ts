@@ -67,9 +67,6 @@ export class Stage extends pulumi.CustomResource {
             if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.stageName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'stageName'");
-            }
             inputs["accessLogSettings"] = args ? args.accessLogSettings : undefined;
             inputs["accessPolicyId"] = args ? args.accessPolicyId : undefined;
             inputs["apiId"] = args ? args.apiId : undefined;
@@ -116,7 +113,7 @@ export interface StageArgs {
     deploymentId?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     routeSettings?: any;
-    stageName: pulumi.Input<string>;
+    stageName?: pulumi.Input<string>;
     stageVariables?: any;
     tags?: any;
 }

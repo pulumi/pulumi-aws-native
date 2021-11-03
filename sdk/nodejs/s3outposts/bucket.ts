@@ -67,9 +67,6 @@ export class Bucket extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.bucketName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'bucketName'");
-            }
             if ((!args || args.outpostId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'outpostId'");
             }
@@ -99,7 +96,7 @@ export interface BucketArgs {
     /**
      * A name for the bucket.
      */
-    bucketName: pulumi.Input<string>;
+    bucketName?: pulumi.Input<string>;
     /**
      * Rules that define how Amazon S3Outposts manages objects during their lifetime.
      */

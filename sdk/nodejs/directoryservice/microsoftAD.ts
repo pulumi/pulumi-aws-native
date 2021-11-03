@@ -61,9 +61,6 @@ export class MicrosoftAD extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.password === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'password'");
             }
@@ -104,7 +101,7 @@ export interface MicrosoftADArgs {
     createAlias?: pulumi.Input<boolean>;
     edition?: pulumi.Input<string>;
     enableSso?: pulumi.Input<boolean>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     password: pulumi.Input<string>;
     shortName?: pulumi.Input<string>;
     vpcSettings: pulumi.Input<inputs.directoryservice.MicrosoftADVpcSettingsArgs>;

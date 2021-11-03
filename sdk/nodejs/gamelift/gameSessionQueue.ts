@@ -56,14 +56,11 @@ export class GameSessionQueue extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated GameSessionQueue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
-    constructor(name: string, args: GameSessionQueueArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: GameSessionQueueArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("GameSessionQueue is deprecated: GameSessionQueue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["customEventData"] = args ? args.customEventData : undefined;
             inputs["destinations"] = args ? args.destinations : undefined;
             inputs["filterConfiguration"] = args ? args.filterConfiguration : undefined;
@@ -98,7 +95,7 @@ export interface GameSessionQueueArgs {
     customEventData?: pulumi.Input<string>;
     destinations?: pulumi.Input<pulumi.Input<inputs.gamelift.GameSessionQueueDestinationArgs>[]>;
     filterConfiguration?: pulumi.Input<inputs.gamelift.GameSessionQueueFilterConfigurationArgs>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     notificationTarget?: pulumi.Input<string>;
     playerLatencyPolicies?: pulumi.Input<pulumi.Input<inputs.gamelift.GameSessionQueuePlayerLatencyPolicyArgs>[]>;
     priorityConfiguration?: pulumi.Input<inputs.gamelift.GameSessionQueuePriorityConfigurationArgs>;

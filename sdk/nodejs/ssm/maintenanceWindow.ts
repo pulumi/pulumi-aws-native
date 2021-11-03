@@ -72,9 +72,6 @@ export class MaintenanceWindow extends pulumi.CustomResource {
             if ((!args || args.duration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'duration'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.schedule === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schedule'");
             }
@@ -118,7 +115,7 @@ export interface MaintenanceWindowArgs {
     description?: pulumi.Input<string>;
     duration: pulumi.Input<number>;
     endDate?: pulumi.Input<string>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     schedule: pulumi.Input<string>;
     scheduleOffset?: pulumi.Input<number>;
     scheduleTimezone?: pulumi.Input<string>;

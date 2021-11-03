@@ -71,13 +71,10 @@ export class ControlPanel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ControlPanelArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ControlPanelArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["clusterArn"] = args ? args.clusterArn : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -112,7 +109,7 @@ export interface ControlPanelArgs {
     /**
      * The name of the control panel. You can use any non-white space character in the name.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A collection of tags associated with a resource
      */

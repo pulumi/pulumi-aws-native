@@ -71,9 +71,6 @@ export class Project extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.projectName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'projectName'");
-            }
             if ((!args || args.serviceCatalogProvisioningDetails === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceCatalogProvisioningDetails'");
             }
@@ -109,7 +106,7 @@ export class Project extends pulumi.CustomResource {
  */
 export interface ProjectArgs {
     projectDescription?: pulumi.Input<string>;
-    projectName: pulumi.Input<string>;
+    projectName?: pulumi.Input<string>;
     /**
      * Input ServiceCatalog Provisioning Details
      */

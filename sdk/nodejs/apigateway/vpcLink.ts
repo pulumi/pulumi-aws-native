@@ -56,9 +56,6 @@ export class VpcLink extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.targetArns === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetArns'");
             }
@@ -84,7 +81,7 @@ export class VpcLink extends pulumi.CustomResource {
  */
 export interface VpcLinkArgs {
     description?: pulumi.Input<string>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.apigateway.VpcLinkTagArgs>[]>;
     targetArns: pulumi.Input<pulumi.Input<string>[]>;
 }

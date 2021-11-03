@@ -81,9 +81,6 @@ export class Destination extends pulumi.CustomResource {
             if ((!args || args.expressionType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'expressionType'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
@@ -129,7 +126,7 @@ export interface DestinationArgs {
     /**
      * Unique name of destination
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * AWS role ARN that grants access
      */

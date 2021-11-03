@@ -74,9 +74,6 @@ export class QuickConnect extends pulumi.CustomResource {
             if ((!args || args.instanceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.quickConnectConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'quickConnectConfig'");
             }
@@ -116,7 +113,7 @@ export interface QuickConnectArgs {
     /**
      * The name of the quick connect.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Configuration settings for the quick connect.
      */

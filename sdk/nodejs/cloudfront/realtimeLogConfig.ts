@@ -58,9 +58,6 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
             if ((!args || args.fields === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fields'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.samplingRate === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'samplingRate'");
             }
@@ -89,6 +86,6 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
 export interface RealtimeLogConfigArgs {
     endPoints: pulumi.Input<pulumi.Input<inputs.cloudfront.RealtimeLogConfigEndPointArgs>[]>;
     fields: pulumi.Input<pulumi.Input<string>[]>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     samplingRate: pulumi.Input<number>;
 }

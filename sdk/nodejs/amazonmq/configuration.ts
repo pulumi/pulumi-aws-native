@@ -70,9 +70,6 @@ export class Configuration extends pulumi.CustomResource {
             if ((!args || args.engineVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engineVersion'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["authenticationStrategy"] = args ? args.authenticationStrategy : undefined;
             inputs["data"] = args ? args.data : undefined;
             inputs["description"] = args ? args.description : undefined;
@@ -109,6 +106,6 @@ export interface ConfigurationArgs {
     description?: pulumi.Input<string>;
     engineType: pulumi.Input<string>;
     engineVersion: pulumi.Input<string>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.amazonmq.ConfigurationTagsEntryArgs>[]>;
 }

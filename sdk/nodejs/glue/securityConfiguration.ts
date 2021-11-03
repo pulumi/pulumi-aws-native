@@ -57,9 +57,6 @@ export class SecurityConfiguration extends pulumi.CustomResource {
             if ((!args || args.encryptionConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'encryptionConfiguration'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
             inputs["name"] = args ? args.name : undefined;
         } else {
@@ -78,5 +75,5 @@ export class SecurityConfiguration extends pulumi.CustomResource {
  */
 export interface SecurityConfigurationArgs {
     encryptionConfiguration: pulumi.Input<inputs.glue.SecurityConfigurationEncryptionConfigurationArgs>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

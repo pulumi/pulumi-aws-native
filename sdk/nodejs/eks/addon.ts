@@ -75,9 +75,6 @@ export class Addon extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.addonName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'addonName'");
-            }
             if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
@@ -111,7 +108,7 @@ export interface AddonArgs {
     /**
      * Name of Addon
      */
-    addonName: pulumi.Input<string>;
+    addonName?: pulumi.Input<string>;
     /**
      * Version of Addon
      */

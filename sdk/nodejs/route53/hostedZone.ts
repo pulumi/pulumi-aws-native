@@ -62,13 +62,10 @@ export class HostedZone extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: HostedZoneArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: HostedZoneArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["hostedZoneConfig"] = args ? args.hostedZoneConfig : undefined;
             inputs["hostedZoneTags"] = args ? args.hostedZoneTags : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -106,7 +103,7 @@ export interface HostedZoneArgs {
      *
      * If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of NameServers that are returned by the Fn::GetAtt intrinsic function.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     queryLoggingConfig?: pulumi.Input<inputs.route53.HostedZoneQueryLoggingConfigArgs>;
     /**
      * A complex type that contains information about the VPCs that are associated with the specified hosted zone.

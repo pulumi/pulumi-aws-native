@@ -59,13 +59,10 @@ export class ModelPackageGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ModelPackageGroupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ModelPackageGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.modelPackageGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'modelPackageGroupName'");
-            }
             inputs["modelPackageGroupDescription"] = args ? args.modelPackageGroupDescription : undefined;
             inputs["modelPackageGroupName"] = args ? args.modelPackageGroupName : undefined;
             inputs["modelPackageGroupPolicy"] = args ? args.modelPackageGroupPolicy : undefined;
@@ -94,7 +91,7 @@ export class ModelPackageGroup extends pulumi.CustomResource {
  */
 export interface ModelPackageGroupArgs {
     modelPackageGroupDescription?: pulumi.Input<string>;
-    modelPackageGroupName: pulumi.Input<string>;
+    modelPackageGroupName?: pulumi.Input<string>;
     modelPackageGroupPolicy?: any;
     /**
      * An array of key-value pairs to apply to this resource.

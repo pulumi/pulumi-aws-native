@@ -60,9 +60,6 @@ export class Domain extends pulumi.CustomResource {
             if ((!args || args.appId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'appId'");
             }
-            if ((!args || args.domainName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'domainName'");
-            }
             if ((!args || args.subDomainSettings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subDomainSettings'");
             }
@@ -102,7 +99,7 @@ export interface DomainArgs {
     appId: pulumi.Input<string>;
     autoSubDomainCreationPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     autoSubDomainIAMRole?: pulumi.Input<string>;
-    domainName: pulumi.Input<string>;
+    domainName?: pulumi.Input<string>;
     enableAutoSubDomain?: pulumi.Input<boolean>;
     subDomainSettings: pulumi.Input<pulumi.Input<inputs.amplify.DomainSubDomainSettingArgs>[]>;
 }

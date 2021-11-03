@@ -68,9 +68,6 @@ export class Pipeline extends pulumi.CustomResource {
             if ((!args || args.pipelineDefinition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'pipelineDefinition'");
             }
-            if ((!args || args.pipelineName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'pipelineName'");
-            }
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
@@ -111,7 +108,7 @@ export interface PipelineArgs {
     /**
      * The name of the Pipeline.
      */
-    pipelineName: pulumi.Input<string>;
+    pipelineName?: pulumi.Input<string>;
     /**
      * Role Arn
      */

@@ -60,9 +60,6 @@ export class RateBasedRule extends pulumi.CustomResource {
             if ((!args || args.metricName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'metricName'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.rateKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rateKey'");
             }
@@ -94,7 +91,7 @@ export class RateBasedRule extends pulumi.CustomResource {
 export interface RateBasedRuleArgs {
     matchPredicates?: pulumi.Input<pulumi.Input<inputs.wafregional.RateBasedRulePredicateArgs>[]>;
     metricName: pulumi.Input<string>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     rateKey: pulumi.Input<string>;
     rateLimit: pulumi.Input<number>;
 }

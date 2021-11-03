@@ -71,9 +71,6 @@ export class Flow extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.source === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
@@ -109,7 +106,7 @@ export interface FlowArgs {
     /**
      * The name of the flow.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The source of the flow.
      */

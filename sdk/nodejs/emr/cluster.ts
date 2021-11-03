@@ -81,9 +81,6 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.jobFlowRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'jobFlowRole'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.serviceRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceRole'");
             }
@@ -159,7 +156,7 @@ export interface ClusterArgs {
     logEncryptionKmsKeyId?: pulumi.Input<string>;
     logUri?: pulumi.Input<string>;
     managedScalingPolicy?: pulumi.Input<inputs.emr.ClusterManagedScalingPolicyArgs>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     releaseLabel?: pulumi.Input<string>;
     scaleDownBehavior?: pulumi.Input<string>;
     securityConfiguration?: pulumi.Input<string>;

@@ -118,9 +118,6 @@ export class Instance extends pulumi.CustomResource {
             if ((!args || args.bundleId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bundleId'");
             }
-            if ((!args || args.instanceName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'instanceName'");
-            }
             inputs["addOns"] = args ? args.addOns : undefined;
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             inputs["blueprintId"] = args ? args.blueprintId : undefined;
@@ -194,7 +191,7 @@ export interface InstanceArgs {
     /**
      * The names to use for your new Lightsail instance.
      */
-    instanceName: pulumi.Input<string>;
+    instanceName?: pulumi.Input<string>;
     /**
      * The name of your key pair.
      */

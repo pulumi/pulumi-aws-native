@@ -58,9 +58,6 @@ export class Rule extends pulumi.CustomResource {
             if ((!args || args.metricName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'metricName'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["metricName"] = args ? args.metricName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["predicates"] = args ? args.predicates : undefined;
@@ -81,6 +78,6 @@ export class Rule extends pulumi.CustomResource {
  */
 export interface RuleArgs {
     metricName: pulumi.Input<string>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     predicates?: pulumi.Input<pulumi.Input<inputs.waf.RulePredicateArgs>[]>;
 }

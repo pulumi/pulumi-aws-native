@@ -49,14 +49,11 @@ export class IPSet extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated IPSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
-    constructor(name: string, args: IPSetArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: IPSetArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("IPSet is deprecated: IPSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["iPSetDescriptors"] = args ? args.iPSetDescriptors : undefined;
             inputs["name"] = args ? args.name : undefined;
         } else {
@@ -75,5 +72,5 @@ export class IPSet extends pulumi.CustomResource {
  */
 export interface IPSetArgs {
     iPSetDescriptors?: pulumi.Input<pulumi.Input<inputs.wafregional.IPSetDescriptorArgs>[]>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

@@ -63,13 +63,10 @@ export class ACL extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ACLArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ACLArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.aCLName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'aCLName'");
-            }
             inputs["aCLName"] = args ? args.aCLName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["userNames"] = args ? args.userNames : undefined;
@@ -96,7 +93,7 @@ export interface ACLArgs {
     /**
      * The name of the acl.
      */
-    aCLName: pulumi.Input<string>;
+    aCLName?: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this cluster.
      */

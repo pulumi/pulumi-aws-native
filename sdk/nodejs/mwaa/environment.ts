@@ -79,13 +79,10 @@ export class Environment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: EnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["airflowConfigurationOptions"] = args ? args.airflowConfigurationOptions : undefined;
             inputs["airflowVersion"] = args ? args.airflowVersion : undefined;
             inputs["dagS3Path"] = args ? args.dagS3Path : undefined;
@@ -163,7 +160,7 @@ export interface EnvironmentArgs {
     loggingConfiguration?: pulumi.Input<inputs.mwaa.EnvironmentLoggingConfigurationArgs>;
     maxWorkers?: pulumi.Input<number>;
     minWorkers?: pulumi.Input<number>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     networkConfiguration?: pulumi.Input<inputs.mwaa.EnvironmentNetworkConfigurationArgs>;
     pluginsS3ObjectVersion?: pulumi.Input<string>;
     pluginsS3Path?: pulumi.Input<string>;

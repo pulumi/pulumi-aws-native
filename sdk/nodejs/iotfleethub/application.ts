@@ -95,9 +95,6 @@ export class Application extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'applicationName'");
-            }
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
@@ -145,7 +142,7 @@ export interface ApplicationArgs {
     /**
      * Application Name, should be between 1 and 256 characters.
      */
-    applicationName: pulumi.Input<string>;
+    applicationName?: pulumi.Input<string>;
     /**
      * The ARN of the role that the web application assumes when it interacts with AWS IoT Core. For more info on configuring this attribute, see https://docs.aws.amazon.com/iot/latest/apireference/API_iotfleethub_CreateApplication.html#API_iotfleethub_CreateApplication_RequestSyntax
      */

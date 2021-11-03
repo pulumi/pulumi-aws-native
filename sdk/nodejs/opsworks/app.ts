@@ -64,9 +64,6 @@ export class App extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.stackId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stackId'");
             }
@@ -117,7 +114,7 @@ export interface AppArgs {
     domains?: pulumi.Input<pulumi.Input<string>[]>;
     enableSsl?: pulumi.Input<boolean>;
     environment?: pulumi.Input<pulumi.Input<inputs.opsworks.AppEnvironmentVariableArgs>[]>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     shortname?: pulumi.Input<string>;
     sslConfiguration?: pulumi.Input<inputs.opsworks.AppSslConfigurationArgs>;
     stackId: pulumi.Input<string>;

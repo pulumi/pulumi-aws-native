@@ -86,9 +86,6 @@ export class Flow extends pulumi.CustomResource {
             if ((!args || args.destinationFlowConfigList === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destinationFlowConfigList'");
             }
-            if ((!args || args.flowName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'flowName'");
-            }
             if ((!args || args.sourceFlowConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceFlowConfig'");
             }
@@ -140,7 +137,7 @@ export interface FlowArgs {
     /**
      * Name of the flow.
      */
-    flowName: pulumi.Input<string>;
+    flowName?: pulumi.Input<string>;
     /**
      * The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
      */

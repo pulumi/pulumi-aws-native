@@ -59,9 +59,6 @@ export class Macro extends pulumi.CustomResource {
             if ((!args || args.functionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'functionName'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["description"] = args ? args.description : undefined;
             inputs["functionName"] = args ? args.functionName : undefined;
             inputs["logGroupName"] = args ? args.logGroupName : undefined;
@@ -89,5 +86,5 @@ export interface MacroArgs {
     functionName: pulumi.Input<string>;
     logGroupName?: pulumi.Input<string>;
     logRoleARN?: pulumi.Input<string>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

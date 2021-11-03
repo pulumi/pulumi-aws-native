@@ -56,9 +56,6 @@ export class Destination extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.destinationName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'destinationName'");
-            }
             if ((!args || args.destinationPolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destinationPolicy'");
             }
@@ -91,7 +88,7 @@ export class Destination extends pulumi.CustomResource {
  * The set of arguments for constructing a Destination resource.
  */
 export interface DestinationArgs {
-    destinationName: pulumi.Input<string>;
+    destinationName?: pulumi.Input<string>;
     destinationPolicy: pulumi.Input<string>;
     roleArn: pulumi.Input<string>;
     targetArn: pulumi.Input<string>;

@@ -66,9 +66,6 @@ export class CostCategory extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.ruleVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleVersion'");
             }
@@ -106,7 +103,7 @@ export interface CostCategoryArgs {
      * The default value for the cost category
      */
     defaultValue?: pulumi.Input<string>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     ruleVersion: pulumi.Input<enums.ce.CostCategoryRuleVersion>;
     /**
      * JSON array format of Expression in Billing and Cost Management API

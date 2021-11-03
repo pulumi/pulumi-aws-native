@@ -71,9 +71,6 @@ export class Dataset extends pulumi.CustomResource {
             if ((!args || args.input === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'input'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["format"] = args ? args.format : undefined;
             inputs["formatOptions"] = args ? args.formatOptions : undefined;
             inputs["input"] = args ? args.input : undefined;
@@ -114,7 +111,7 @@ export interface DatasetArgs {
     /**
      * Dataset name
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * PathOptions
      */

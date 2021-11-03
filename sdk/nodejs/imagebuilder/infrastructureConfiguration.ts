@@ -106,9 +106,6 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
             if ((!args || args.instanceProfileName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceProfileName'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["description"] = args ? args.description : undefined;
             inputs["instanceMetadataOptions"] = args ? args.instanceMetadataOptions : undefined;
             inputs["instanceProfileName"] = args ? args.instanceProfileName : undefined;
@@ -177,7 +174,7 @@ export interface InfrastructureConfigurationArgs {
     /**
      * The name of the infrastructure configuration.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The tags attached to the resource created by Image Builder.
      */

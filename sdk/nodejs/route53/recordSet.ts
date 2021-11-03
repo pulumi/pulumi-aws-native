@@ -67,9 +67,6 @@ export class RecordSet extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
@@ -124,7 +121,7 @@ export interface RecordSetArgs {
     hostedZoneId?: pulumi.Input<string>;
     hostedZoneName?: pulumi.Input<string>;
     multiValueAnswer?: pulumi.Input<boolean>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     region?: pulumi.Input<string>;
     resourceRecords?: pulumi.Input<pulumi.Input<string>[]>;
     setIdentifier?: pulumi.Input<string>;

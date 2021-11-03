@@ -46,13 +46,10 @@ export class Activity extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ActivityArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ActivityArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -72,6 +69,6 @@ export class Activity extends pulumi.CustomResource {
  * The set of arguments for constructing a Activity resource.
  */
 export interface ActivityArgs {
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.stepfunctions.ActivityTagsEntryArgs>[]>;
 }

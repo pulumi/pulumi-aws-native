@@ -69,9 +69,6 @@ export class ResourceSet extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceSetName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceSetName'");
-            }
             if ((!args || args.resourceSetType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceSetType'");
             }
@@ -104,7 +101,7 @@ export interface ResourceSetArgs {
     /**
      * The name of the resource set to create.
      */
-    resourceSetName: pulumi.Input<string>;
+    resourceSetName?: pulumi.Input<string>;
     /**
      * The resource type of the resources in the resource set. Enter one of the following values for resource type: 
      *

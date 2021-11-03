@@ -63,9 +63,6 @@ export class Alias extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.routingStrategy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routingStrategy'");
             }
@@ -97,7 +94,7 @@ export interface AliasArgs {
     /**
      * A descriptive label that is associated with an alias. Alias names do not need to be unique.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
      */

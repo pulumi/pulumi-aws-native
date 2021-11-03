@@ -44,13 +44,10 @@ export class Project extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProjectArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ProjectArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.projectName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'projectName'");
-            }
             inputs["projectName"] = args ? args.projectName : undefined;
             inputs["arn"] = undefined /*out*/;
         } else {
@@ -68,5 +65,5 @@ export class Project extends pulumi.CustomResource {
  * The set of arguments for constructing a Project resource.
  */
 export interface ProjectArgs {
-    projectName: pulumi.Input<string>;
+    projectName?: pulumi.Input<string>;
 }

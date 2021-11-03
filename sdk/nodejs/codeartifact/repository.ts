@@ -83,13 +83,10 @@ export class Repository extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RepositoryArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: RepositoryArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.repositoryName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'repositoryName'");
-            }
             inputs["description"] = args ? args.description : undefined;
             inputs["externalConnections"] = args ? args.externalConnections : undefined;
             inputs["permissionsPolicyDocument"] = args ? args.permissionsPolicyDocument : undefined;
@@ -138,7 +135,7 @@ export interface RepositoryArgs {
     /**
      * The name of the repository.
      */
-    repositoryName: pulumi.Input<string>;
+    repositoryName?: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

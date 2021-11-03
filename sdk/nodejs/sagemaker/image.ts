@@ -56,9 +56,6 @@ export class Image extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.imageName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'imageName'");
-            }
             if ((!args || args.imageRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'imageRoleArn'");
             }
@@ -89,7 +86,7 @@ export class Image extends pulumi.CustomResource {
 export interface ImageArgs {
     imageDescription?: pulumi.Input<string>;
     imageDisplayName?: pulumi.Input<string>;
-    imageName: pulumi.Input<string>;
+    imageName?: pulumi.Input<string>;
     imageRoleArn: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.

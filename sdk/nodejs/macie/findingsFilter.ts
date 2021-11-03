@@ -78,9 +78,6 @@ export class FindingsFilter extends pulumi.CustomResource {
             if ((!args || args.findingCriteria === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'findingCriteria'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["action"] = args ? args.action : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["findingCriteria"] = args ? args.findingCriteria : undefined;
@@ -123,7 +120,7 @@ export interface FindingsFilterArgs {
     /**
      * Findings filter name
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Findings filter position.
      */

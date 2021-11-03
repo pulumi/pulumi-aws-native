@@ -87,9 +87,6 @@ export class DBProxyEndpoint extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dBProxyEndpointName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dBProxyEndpointName'");
-            }
             if ((!args || args.dBProxyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dBProxyName'");
             }
@@ -132,7 +129,7 @@ export interface DBProxyEndpointArgs {
     /**
      * The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
      */
-    dBProxyEndpointName: pulumi.Input<string>;
+    dBProxyEndpointName?: pulumi.Input<string>;
     /**
      * The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
      */

@@ -58,9 +58,6 @@ export class PrivateDnsNamespace extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.vpc === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpc'");
             }
@@ -90,7 +87,7 @@ export class PrivateDnsNamespace extends pulumi.CustomResource {
  */
 export interface PrivateDnsNamespaceArgs {
     description?: pulumi.Input<string>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     properties?: pulumi.Input<inputs.servicediscovery.PrivateDnsNamespacePropertiesArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.servicediscovery.PrivateDnsNamespaceTagArgs>[]>;
     vpc: pulumi.Input<string>;

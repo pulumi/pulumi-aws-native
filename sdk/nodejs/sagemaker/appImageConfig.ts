@@ -59,13 +59,10 @@ export class AppImageConfig extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AppImageConfigArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: AppImageConfigArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.appImageConfigName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'appImageConfigName'");
-            }
             inputs["appImageConfigName"] = args ? args.appImageConfigName : undefined;
             inputs["kernelGatewayImageConfig"] = args ? args.kernelGatewayImageConfig : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -90,7 +87,7 @@ export interface AppImageConfigArgs {
     /**
      * The Name of the AppImageConfig.
      */
-    appImageConfigName: pulumi.Input<string>;
+    appImageConfigName?: pulumi.Input<string>;
     /**
      * The KernelGatewayImageConfig.
      */

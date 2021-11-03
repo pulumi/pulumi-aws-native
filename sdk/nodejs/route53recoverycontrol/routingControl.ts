@@ -63,13 +63,10 @@ export class RoutingControl extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RoutingControlArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: RoutingControlArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["clusterArn"] = args ? args.clusterArn : undefined;
             inputs["controlPanelArn"] = args ? args.controlPanelArn : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -104,5 +101,5 @@ export interface RoutingControlArgs {
     /**
      * The name of the routing control. You can use any non-white space character in the name.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

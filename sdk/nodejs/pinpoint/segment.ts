@@ -62,9 +62,6 @@ export class Segment extends pulumi.CustomResource {
             if ((!args || args.applicationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["applicationId"] = args ? args.applicationId : undefined;
             inputs["dimensions"] = args ? args.dimensions : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -94,7 +91,7 @@ export class Segment extends pulumi.CustomResource {
 export interface SegmentArgs {
     applicationId: pulumi.Input<string>;
     dimensions?: pulumi.Input<inputs.pinpoint.SegmentDimensionsArgs>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     segmentGroups?: pulumi.Input<inputs.pinpoint.SegmentGroupsArgs>;
     tags?: any;
 }

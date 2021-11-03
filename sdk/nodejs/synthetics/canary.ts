@@ -113,9 +113,6 @@ export class Canary extends pulumi.CustomResource {
             if ((!args || args.executionRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'executionRoleArn'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.runtimeVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'runtimeVersion'");
             }
@@ -191,7 +188,7 @@ export interface CanaryArgs {
     /**
      * Name of the canary.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Provide canary run configuration
      */

@@ -67,9 +67,6 @@ export class SubnetGroup extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.subnetGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'subnetGroupName'");
-            }
             if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
@@ -103,7 +100,7 @@ export interface SubnetGroupArgs {
     /**
      * The name of the subnet group. This value must be unique as it also serves as the subnet group identifier.
      */
-    subnetGroupName: pulumi.Input<string>;
+    subnetGroupName?: pulumi.Input<string>;
     /**
      * A list of VPC subnet IDs for the subnet group.
      */

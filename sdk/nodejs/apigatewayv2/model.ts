@@ -59,9 +59,6 @@ export class Model extends pulumi.CustomResource {
             if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.schema === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
@@ -91,6 +88,6 @@ export interface ModelArgs {
     apiId: pulumi.Input<string>;
     contentType?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     schema: any;
 }

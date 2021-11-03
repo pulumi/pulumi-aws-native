@@ -50,13 +50,10 @@ export class Function extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FunctionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: FunctionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["autoPublish"] = args ? args.autoPublish : undefined;
             inputs["functionCode"] = args ? args.functionCode : undefined;
             inputs["functionConfig"] = args ? args.functionConfig : undefined;
@@ -88,5 +85,5 @@ export interface FunctionArgs {
     functionCode?: pulumi.Input<string>;
     functionConfig?: pulumi.Input<inputs.cloudfront.FunctionConfigArgs>;
     functionMetadata?: pulumi.Input<inputs.cloudfront.FunctionMetadataArgs>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

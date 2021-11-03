@@ -59,9 +59,6 @@ export class Policy extends pulumi.CustomResource {
             if ((!args || args.policyDocument === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            if ((!args || args.policyName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'policyName'");
-            }
             inputs["groups"] = args ? args.groups : undefined;
             inputs["policyDocument"] = args ? args.policyDocument : undefined;
             inputs["policyName"] = args ? args.policyName : undefined;
@@ -87,7 +84,7 @@ export class Policy extends pulumi.CustomResource {
 export interface PolicyArgs {
     groups?: pulumi.Input<pulumi.Input<string>[]>;
     policyDocument: any;
-    policyName: pulumi.Input<string>;
+    policyName?: pulumi.Input<string>;
     roles?: pulumi.Input<pulumi.Input<string>[]>;
     users?: pulumi.Input<pulumi.Input<string>[]>;
 }

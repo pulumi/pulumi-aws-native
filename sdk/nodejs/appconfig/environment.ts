@@ -60,9 +60,6 @@ export class Environment extends pulumi.CustomResource {
             if ((!args || args.applicationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["applicationId"] = args ? args.applicationId : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["monitors"] = args ? args.monitors : undefined;
@@ -89,6 +86,6 @@ export interface EnvironmentArgs {
     applicationId: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     monitors?: pulumi.Input<pulumi.Input<inputs.appconfig.EnvironmentMonitorsArgs>[]>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.appconfig.EnvironmentTagsArgs>[]>;
 }

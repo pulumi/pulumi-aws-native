@@ -63,9 +63,6 @@ export class VirtualCluster extends pulumi.CustomResource {
             if ((!args || args.containerProvider === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'containerProvider'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["containerProvider"] = args ? args.containerProvider : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -94,7 +91,7 @@ export interface VirtualClusterArgs {
     /**
      * Name of the virtual cluster.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this virtual cluster.
      */

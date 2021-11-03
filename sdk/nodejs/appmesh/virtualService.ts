@@ -66,9 +66,6 @@ export class VirtualService extends pulumi.CustomResource {
             if ((!args || args.spec === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'spec'");
             }
-            if ((!args || args.virtualServiceName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'virtualServiceName'");
-            }
             inputs["meshName"] = args ? args.meshName : undefined;
             inputs["meshOwner"] = args ? args.meshOwner : undefined;
             inputs["spec"] = args ? args.spec : undefined;
@@ -102,5 +99,5 @@ export interface VirtualServiceArgs {
     meshOwner?: pulumi.Input<string>;
     spec: pulumi.Input<inputs.appmesh.VirtualServiceSpecArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.appmesh.VirtualServiceTagArgs>[]>;
-    virtualServiceName: pulumi.Input<string>;
+    virtualServiceName?: pulumi.Input<string>;
 }

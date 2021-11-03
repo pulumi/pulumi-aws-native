@@ -63,9 +63,6 @@ export class Policy extends pulumi.CustomResource {
             if ((!args || args.excludeResourceTags === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'excludeResourceTags'");
             }
-            if ((!args || args.policyName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'policyName'");
-            }
             if ((!args || args.remediationEnabled === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'remediationEnabled'");
             }
@@ -118,7 +115,7 @@ export interface PolicyArgs {
     excludeMap?: pulumi.Input<inputs.fms.PolicyIEMapArgs>;
     excludeResourceTags: pulumi.Input<boolean>;
     includeMap?: pulumi.Input<inputs.fms.PolicyIEMapArgs>;
-    policyName: pulumi.Input<string>;
+    policyName?: pulumi.Input<string>;
     remediationEnabled: pulumi.Input<boolean>;
     resourceTags?: pulumi.Input<pulumi.Input<inputs.fms.PolicyResourceTagArgs>[]>;
     resourceType: pulumi.Input<string>;

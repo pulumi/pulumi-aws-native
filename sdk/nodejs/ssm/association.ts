@@ -84,13 +84,10 @@ export class Association extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AssociationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: AssociationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["applyOnlyAtCronInterval"] = args ? args.applyOnlyAtCronInterval : undefined;
             inputs["associationName"] = args ? args.associationName : undefined;
             inputs["automationTargetParameterName"] = args ? args.automationTargetParameterName : undefined;
@@ -159,7 +156,7 @@ export interface AssociationArgs {
     /**
      * The name of the SSM document.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     outputLocation?: pulumi.Input<inputs.ssm.AssociationInstanceAssociationOutputLocationArgs>;
     /**
      * Parameter values that the SSM document uses at runtime.

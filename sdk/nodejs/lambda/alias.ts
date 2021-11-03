@@ -64,9 +64,6 @@ export class Alias extends pulumi.CustomResource {
             if ((!args || args.functionVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'functionVersion'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["description"] = args ? args.description : undefined;
             inputs["functionName"] = args ? args.functionName : undefined;
             inputs["functionVersion"] = args ? args.functionVersion : undefined;
@@ -95,7 +92,7 @@ export interface AliasArgs {
     description?: pulumi.Input<string>;
     functionName: pulumi.Input<string>;
     functionVersion: pulumi.Input<string>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     provisionedConcurrencyConfig?: pulumi.Input<inputs.lambda.AliasProvisionedConcurrencyConfigurationArgs>;
     routingConfig?: pulumi.Input<inputs.lambda.AliasRoutingConfigurationArgs>;
 }

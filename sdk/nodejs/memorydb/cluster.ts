@@ -162,9 +162,6 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.aCLName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'aCLName'");
             }
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'clusterName'");
-            }
             if ((!args || args.nodeType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'nodeType'");
             }
@@ -252,7 +249,7 @@ export interface ClusterArgs {
     /**
      * The name of the cluster. This value must be unique as it also serves as the cluster identifier.
      */
-    clusterName: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * An optional description of the cluster.
      */

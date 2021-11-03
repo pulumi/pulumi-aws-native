@@ -74,9 +74,6 @@ export class User extends pulumi.CustomResource {
             if ((!args || args.authenticationMode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authenticationMode'");
             }
-            if ((!args || args.userName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'userName'");
-            }
             inputs["accessString"] = args ? args.accessString : undefined;
             inputs["authenticationMode"] = args ? args.authenticationMode : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -114,5 +111,5 @@ export interface UserArgs {
     /**
      * The name of the user.
      */
-    userName: pulumi.Input<string>;
+    userName?: pulumi.Input<string>;
 }

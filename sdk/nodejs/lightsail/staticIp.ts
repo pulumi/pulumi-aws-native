@@ -59,13 +59,10 @@ export class StaticIp extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: StaticIpArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: StaticIpArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.staticIpName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'staticIpName'");
-            }
             inputs["attachedTo"] = args ? args.attachedTo : undefined;
             inputs["staticIpName"] = args ? args.staticIpName : undefined;
             inputs["ipAddress"] = undefined /*out*/;
@@ -96,5 +93,5 @@ export interface StaticIpArgs {
     /**
      * The name of the static IP address.
      */
-    staticIpName: pulumi.Input<string>;
+    staticIpName?: pulumi.Input<string>;
 }

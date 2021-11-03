@@ -75,13 +75,10 @@ export class WorkGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: WorkGroupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: WorkGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["recursiveDeleteOption"] = args ? args.recursiveDeleteOption : undefined;
@@ -118,7 +115,7 @@ export interface WorkGroupArgs {
     /**
      * The workGroup name.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The option to delete the workgroup and its contents even if the workgroup contains any named queries.
      */

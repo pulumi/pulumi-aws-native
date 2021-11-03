@@ -81,9 +81,6 @@ export class Dashboard extends pulumi.CustomResource {
             if ((!args || args.dashboardDescription === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dashboardDescription'");
             }
-            if ((!args || args.dashboardName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dashboardName'");
-            }
             inputs["dashboardDefinition"] = args ? args.dashboardDefinition : undefined;
             inputs["dashboardDescription"] = args ? args.dashboardDescription : undefined;
             inputs["dashboardName"] = args ? args.dashboardName : undefined;
@@ -122,7 +119,7 @@ export interface DashboardArgs {
     /**
      * A friendly name for the dashboard.
      */
-    dashboardName: pulumi.Input<string>;
+    dashboardName?: pulumi.Input<string>;
     /**
      * The ID of the project in which to create the dashboard.
      */

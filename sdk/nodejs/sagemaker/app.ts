@@ -75,9 +75,6 @@ export class App extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.appName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'appName'");
-            }
             if ((!args || args.appType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'appType'");
             }
@@ -117,7 +114,7 @@ export interface AppArgs {
     /**
      * The name of the app.
      */
-    appName: pulumi.Input<string>;
+    appName?: pulumi.Input<string>;
     /**
      * The type of app.
      */

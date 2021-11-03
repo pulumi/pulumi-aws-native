@@ -59,13 +59,10 @@ export class ReadinessCheck extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ReadinessCheckArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ReadinessCheckArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.readinessCheckName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'readinessCheckName'");
-            }
             inputs["readinessCheckName"] = args ? args.readinessCheckName : undefined;
             inputs["resourceSetName"] = args ? args.resourceSetName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -90,7 +87,7 @@ export interface ReadinessCheckArgs {
     /**
      * Name of the ReadinessCheck to create.
      */
-    readinessCheckName: pulumi.Input<string>;
+    readinessCheckName?: pulumi.Input<string>;
     /**
      * The name of the resource set to check.
      */

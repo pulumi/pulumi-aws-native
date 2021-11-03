@@ -103,9 +103,6 @@ export class GameServerGroup extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.gameServerGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'gameServerGroupName'");
-            }
             if ((!args || args.instanceDefinitions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceDefinitions'");
             }
@@ -171,7 +168,7 @@ export interface GameServerGroupArgs {
     /**
      * An identifier for the new game server group.
      */
-    gameServerGroupName: pulumi.Input<string>;
+    gameServerGroupName?: pulumi.Input<string>;
     /**
      * A flag that indicates whether instances in the game server group are protected from early termination.
      */

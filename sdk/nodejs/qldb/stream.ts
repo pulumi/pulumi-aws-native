@@ -70,9 +70,6 @@ export class Stream extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.streamName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'streamName'");
-            }
             inputs["exclusiveEndTime"] = args ? args.exclusiveEndTime : undefined;
             inputs["inclusiveStartTime"] = args ? args.inclusiveStartTime : undefined;
             inputs["kinesisConfiguration"] = args ? args.kinesisConfiguration : undefined;
@@ -107,7 +104,7 @@ export interface StreamArgs {
     kinesisConfiguration: pulumi.Input<inputs.qldb.StreamKinesisConfigurationArgs>;
     ledgerName: pulumi.Input<string>;
     roleArn: pulumi.Input<string>;
-    streamName: pulumi.Input<string>;
+    streamName?: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

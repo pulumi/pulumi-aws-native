@@ -105,9 +105,6 @@ export class Domain extends pulumi.CustomResource {
             if ((!args || args.defaultUserSettings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'defaultUserSettings'");
             }
-            if ((!args || args.domainName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'domainName'");
-            }
             if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
@@ -168,7 +165,7 @@ export interface DomainArgs {
     /**
      * A name for the domain.
      */
-    domainName: pulumi.Input<string>;
+    domainName?: pulumi.Input<string>;
     /**
      * SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
      */

@@ -93,9 +93,6 @@ export class License extends pulumi.CustomResource {
             if ((!args || args.issuer === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'issuer'");
             }
-            if ((!args || args.licenseName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'licenseName'");
-            }
             if ((!args || args.productName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'productName'");
             }
@@ -156,7 +153,7 @@ export interface LicenseArgs {
     /**
      * Name for the created license.
      */
-    licenseName: pulumi.Input<string>;
+    licenseName?: pulumi.Input<string>;
     /**
      * Product name for the created license.
      */

@@ -57,9 +57,6 @@ export class Recipe extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.steps === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'steps'");
             }
@@ -91,7 +88,7 @@ export interface RecipeArgs {
     /**
      * Recipe name
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     steps: pulumi.Input<pulumi.Input<inputs.databrew.RecipeStepArgs>[]>;
     tags?: pulumi.Input<pulumi.Input<inputs.databrew.RecipeTagArgs>[]>;
 }

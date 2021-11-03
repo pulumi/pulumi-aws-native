@@ -52,14 +52,11 @@ export class PublicDnsNamespace extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated PublicDnsNamespace is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
-    constructor(name: string, args: PublicDnsNamespaceArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: PublicDnsNamespaceArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("PublicDnsNamespace is deprecated: PublicDnsNamespace is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
@@ -84,7 +81,7 @@ export class PublicDnsNamespace extends pulumi.CustomResource {
  */
 export interface PublicDnsNamespaceArgs {
     description?: pulumi.Input<string>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     properties?: pulumi.Input<inputs.servicediscovery.PublicDnsNamespacePropertiesArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.servicediscovery.PublicDnsNamespaceTagArgs>[]>;
 }

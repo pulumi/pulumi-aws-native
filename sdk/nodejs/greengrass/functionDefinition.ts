@@ -52,14 +52,11 @@ export class FunctionDefinition extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated FunctionDefinition is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
-    constructor(name: string, args: FunctionDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: FunctionDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("FunctionDefinition is deprecated: FunctionDefinition is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["initialVersion"] = args ? args.initialVersion : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -84,6 +81,6 @@ export class FunctionDefinition extends pulumi.CustomResource {
  */
 export interface FunctionDefinitionArgs {
     initialVersion?: pulumi.Input<inputs.greengrass.FunctionDefinitionVersionArgs>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     tags?: any;
 }

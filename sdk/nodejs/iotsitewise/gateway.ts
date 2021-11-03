@@ -67,9 +67,6 @@ export class Gateway extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.gatewayName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'gatewayName'");
-            }
             if ((!args || args.gatewayPlatform === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'gatewayPlatform'");
             }
@@ -103,7 +100,7 @@ export interface GatewayArgs {
     /**
      * A unique, friendly name for the gateway.
      */
-    gatewayName: pulumi.Input<string>;
+    gatewayName?: pulumi.Input<string>;
     /**
      * The gateway's platform. You can only specify one platform in a gateway.
      */

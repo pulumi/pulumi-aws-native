@@ -63,9 +63,6 @@ export class Branch extends pulumi.CustomResource {
             if ((!args || args.appId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'appId'");
             }
-            if ((!args || args.branchName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'branchName'");
-            }
             inputs["appId"] = args ? args.appId : undefined;
             inputs["basicAuthConfig"] = args ? args.basicAuthConfig : undefined;
             inputs["branchName"] = args ? args.branchName : undefined;
@@ -107,7 +104,7 @@ export class Branch extends pulumi.CustomResource {
 export interface BranchArgs {
     appId: pulumi.Input<string>;
     basicAuthConfig?: pulumi.Input<inputs.amplify.BranchBasicAuthConfigArgs>;
-    branchName: pulumi.Input<string>;
+    branchName?: pulumi.Input<string>;
     buildSpec?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     enableAutoBuild?: pulumi.Input<boolean>;

@@ -110,9 +110,6 @@ export class FlowSource extends pulumi.CustomResource {
             if ((!args || args.description === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["decryption"] = args ? args.decryption : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["entitlementArn"] = args ? args.entitlementArn : undefined;
@@ -187,7 +184,7 @@ export interface FlowSourceArgs {
     /**
      * The name of the source.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The protocol that is used by the source.
      */

@@ -83,9 +83,6 @@ export class EventType extends pulumi.CustomResource {
             if ((!args || args.labels === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labels'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["description"] = args ? args.description : undefined;
             inputs["entityTypes"] = args ? args.entityTypes : undefined;
             inputs["eventVariables"] = args ? args.eventVariables : undefined;
@@ -127,7 +124,7 @@ export interface EventTypeArgs {
     /**
      * The name for the event type
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Tags associated with this event type.
      */

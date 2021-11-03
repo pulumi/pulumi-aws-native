@@ -76,9 +76,6 @@ export class StudioComponent extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.studioId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'studioId'");
             }
@@ -136,7 +133,7 @@ export interface StudioComponentArgs {
     /**
      * <p>The name for the studio component.</p>
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * <p>Parameters for the studio component scripts.</p>
      */

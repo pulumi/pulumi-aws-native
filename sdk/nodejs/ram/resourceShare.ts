@@ -54,14 +54,11 @@ export class ResourceShare extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated ResourceShare is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
-    constructor(name: string, args: ResourceShareArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ResourceShareArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ResourceShare is deprecated: ResourceShare is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["allowExternalPrincipals"] = args ? args.allowExternalPrincipals : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["permissionArns"] = args ? args.permissionArns : undefined;
@@ -90,7 +87,7 @@ export class ResourceShare extends pulumi.CustomResource {
  */
 export interface ResourceShareArgs {
     allowExternalPrincipals?: pulumi.Input<boolean>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     permissionArns?: pulumi.Input<pulumi.Input<string>[]>;
     principals?: pulumi.Input<pulumi.Input<string>[]>;
     resourceArns?: pulumi.Input<pulumi.Input<string>[]>;

@@ -59,9 +59,6 @@ export class User extends pulumi.CustomResource {
             if ((!args || args.authenticationType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authenticationType'");
             }
-            if ((!args || args.userName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'userName'");
-            }
             inputs["authenticationType"] = args ? args.authenticationType : undefined;
             inputs["firstName"] = args ? args.firstName : undefined;
             inputs["lastName"] = args ? args.lastName : undefined;
@@ -89,5 +86,5 @@ export interface UserArgs {
     firstName?: pulumi.Input<string>;
     lastName?: pulumi.Input<string>;
     messageAction?: pulumi.Input<string>;
-    userName: pulumi.Input<string>;
+    userName?: pulumi.Input<string>;
 }

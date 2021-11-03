@@ -59,9 +59,6 @@ export class UserPoolResourceServer extends pulumi.CustomResource {
             if ((!args || args.identifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identifier'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.userPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
@@ -87,7 +84,7 @@ export class UserPoolResourceServer extends pulumi.CustomResource {
  */
 export interface UserPoolResourceServerArgs {
     identifier: pulumi.Input<string>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     scopes?: pulumi.Input<pulumi.Input<inputs.cognito.UserPoolResourceServerResourceServerScopeTypeArgs>[]>;
     userPoolId: pulumi.Input<string>;
 }
