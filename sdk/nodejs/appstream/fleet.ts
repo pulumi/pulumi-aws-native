@@ -75,9 +75,6 @@ export class Fleet extends pulumi.CustomResource {
             if ((!args || args.instanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["computeCapacity"] = args ? args.computeCapacity : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["disconnectTimeoutInSeconds"] = args ? args.disconnectTimeoutInSeconds : undefined;
@@ -138,7 +135,7 @@ export interface FleetArgs {
     imageName?: pulumi.Input<string>;
     instanceType: pulumi.Input<string>;
     maxUserDurationInSeconds?: pulumi.Input<number>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     streamView?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.appstream.FleetTagArgs>[]>;
     vpcConfig?: pulumi.Input<inputs.appstream.FleetVpcConfigArgs>;

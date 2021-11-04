@@ -15,7 +15,7 @@ __all__ = ['CellArgs', 'Cell']
 @pulumi.input_type
 class CellArgs:
     def __init__(__self__, *,
-                 cell_name: pulumi.Input[str],
+                 cell_name: Optional[pulumi.Input[str]] = None,
                  cells: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['CellTagArgs']]]] = None):
         """
@@ -24,7 +24,8 @@ class CellArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cells: A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells. For example, Availability Zones within specific Regions.
         :param pulumi.Input[Sequence[pulumi.Input['CellTagArgs']]] tags: A collection of tags associated with a resource
         """
-        pulumi.set(__self__, "cell_name", cell_name)
+        if cell_name is not None:
+            pulumi.set(__self__, "cell_name", cell_name)
         if cells is not None:
             pulumi.set(__self__, "cells", cells)
         if tags is not None:
@@ -32,14 +33,14 @@ class CellArgs:
 
     @property
     @pulumi.getter(name="cellName")
-    def cell_name(self) -> pulumi.Input[str]:
+    def cell_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the cell to create.
         """
         return pulumi.get(self, "cell_name")
 
     @cell_name.setter
-    def cell_name(self, value: pulumi.Input[str]):
+    def cell_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cell_name", value)
 
     @property
@@ -89,7 +90,7 @@ class Cell(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CellArgs,
+                 args: Optional[CellArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The API Schema for AWS Route53 Recovery Readiness Cells.
@@ -124,8 +125,6 @@ class Cell(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CellArgs.__new__(CellArgs)
 
-            if cell_name is None and not opts.urn:
-                raise TypeError("Missing required property 'cell_name'")
             __props__.__dict__["cell_name"] = cell_name
             __props__.__dict__["cells"] = cells
             __props__.__dict__["tags"] = tags

@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,12 +35,9 @@ type PatchBaseline struct {
 func NewPatchBaseline(ctx *pulumi.Context,
 	name string, args *PatchBaselineArgs, opts ...pulumi.ResourceOption) (*PatchBaseline, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &PatchBaselineArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource PatchBaseline
 	err := ctx.RegisterResource("aws-native:ssm:PatchBaseline", name, args, &resource, opts...)
 	if err != nil {
@@ -80,7 +76,7 @@ type patchBaselineArgs struct {
 	ApprovedPatchesEnableNonSecurity *bool                          `pulumi:"approvedPatchesEnableNonSecurity"`
 	Description                      *string                        `pulumi:"description"`
 	GlobalFilters                    *PatchBaselinePatchFilterGroup `pulumi:"globalFilters"`
-	Name                             string                         `pulumi:"name"`
+	Name                             *string                        `pulumi:"name"`
 	OperatingSystem                  *string                        `pulumi:"operatingSystem"`
 	PatchGroups                      []string                       `pulumi:"patchGroups"`
 	RejectedPatches                  []string                       `pulumi:"rejectedPatches"`
@@ -97,7 +93,7 @@ type PatchBaselineArgs struct {
 	ApprovedPatchesEnableNonSecurity pulumi.BoolPtrInput
 	Description                      pulumi.StringPtrInput
 	GlobalFilters                    PatchBaselinePatchFilterGroupPtrInput
-	Name                             pulumi.StringInput
+	Name                             pulumi.StringPtrInput
 	OperatingSystem                  pulumi.StringPtrInput
 	PatchGroups                      pulumi.StringArrayInput
 	RejectedPatches                  pulumi.StringArrayInput

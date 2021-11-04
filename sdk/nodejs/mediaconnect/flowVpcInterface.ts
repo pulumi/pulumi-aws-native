@@ -73,9 +73,6 @@ export class FlowVpcInterface extends pulumi.CustomResource {
             if ((!args || args.flowArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'flowArn'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
@@ -117,7 +114,7 @@ export interface FlowVpcInterfaceArgs {
     /**
      * Immutable and has to be a unique against other VpcInterfaces in this Flow.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Role Arn MediaConnect can assumes to create ENIs in customer's account.
      */

@@ -16,8 +16,8 @@ __all__ = ['WorkGroupArgs', 'WorkGroup']
 @pulumi.input_type
 class WorkGroupArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  recursive_delete_option: Optional[pulumi.Input[bool]] = None,
                  state: Optional[pulumi.Input['WorkGroupState']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['WorkGroupTagArgs']]]] = None,
@@ -25,17 +25,18 @@ class WorkGroupArgs:
                  work_group_configuration_updates: Optional[pulumi.Input['WorkGroupConfigurationUpdatesArgs']] = None):
         """
         The set of arguments for constructing a WorkGroup resource.
-        :param pulumi.Input[str] name: The workGroup name.
         :param pulumi.Input[str] description: The workgroup description.
+        :param pulumi.Input[str] name: The workGroup name.
         :param pulumi.Input[bool] recursive_delete_option: The option to delete the workgroup and its contents even if the workgroup contains any named queries.
         :param pulumi.Input['WorkGroupState'] state: The state of the workgroup: ENABLED or DISABLED.
         :param pulumi.Input[Sequence[pulumi.Input['WorkGroupTagArgs']]] tags: One or more tags, separated by commas, that you want to attach to the workgroup as you create it
         :param pulumi.Input['WorkGroupConfigurationArgs'] work_group_configuration: The workgroup configuration
         :param pulumi.Input['WorkGroupConfigurationUpdatesArgs'] work_group_configuration_updates: The workgroup configuration update object
         """
-        pulumi.set(__self__, "name", name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if recursive_delete_option is not None:
             pulumi.set(__self__, "recursive_delete_option", recursive_delete_option)
         if state is not None:
@@ -49,18 +50,6 @@ class WorkGroupArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The workGroup name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
         The workgroup description.
@@ -70,6 +59,18 @@ class WorkGroupArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The workGroup name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="recursiveDeleteOption")
@@ -162,7 +163,7 @@ class WorkGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WorkGroupArgs,
+                 args: Optional[WorkGroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::Athena::WorkGroup
@@ -202,8 +203,6 @@ class WorkGroup(pulumi.CustomResource):
             __props__ = WorkGroupArgs.__new__(WorkGroupArgs)
 
             __props__.__dict__["description"] = description
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["recursive_delete_option"] = recursive_delete_option
             __props__.__dict__["state"] = state

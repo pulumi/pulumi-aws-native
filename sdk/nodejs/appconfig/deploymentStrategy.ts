@@ -66,9 +66,6 @@ export class DeploymentStrategy extends pulumi.CustomResource {
             if ((!args || args.growthFactor === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'growthFactor'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.replicateTo === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'replicateTo'");
             }
@@ -106,7 +103,7 @@ export interface DeploymentStrategyArgs {
     finalBakeTimeInMinutes?: pulumi.Input<number>;
     growthFactor: pulumi.Input<number>;
     growthType?: pulumi.Input<string>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     replicateTo: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.appconfig.DeploymentStrategyTagsArgs>[]>;
 }

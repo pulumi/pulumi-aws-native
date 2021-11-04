@@ -69,9 +69,6 @@ export class ImageBuilder extends pulumi.CustomResource {
             if ((!args || args.instanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["accessEndpoints"] = args ? args.accessEndpoints : undefined;
             inputs["appstreamAgentVersion"] = args ? args.appstreamAgentVersion : undefined;
             inputs["description"] = args ? args.description : undefined;
@@ -123,7 +120,7 @@ export interface ImageBuilderArgs {
     imageArn?: pulumi.Input<string>;
     imageName?: pulumi.Input<string>;
     instanceType: pulumi.Input<string>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.appstream.ImageBuilderTagArgs>[]>;
     vpcConfig?: pulumi.Input<inputs.appstream.ImageBuilderVpcConfigArgs>;
 }

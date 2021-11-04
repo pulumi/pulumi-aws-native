@@ -56,9 +56,6 @@ func NewLicense(ctx *pulumi.Context,
 	if args.Issuer == nil {
 		return nil, errors.New("invalid value for required argument 'Issuer'")
 	}
-	if args.LicenseName == nil {
-		return nil, errors.New("invalid value for required argument 'LicenseName'")
-	}
 	if args.ProductName == nil {
 		return nil, errors.New("invalid value for required argument 'ProductName'")
 	}
@@ -106,7 +103,7 @@ type licenseArgs struct {
 	Issuer          LicenseIssuerData `pulumi:"issuer"`
 	LicenseMetadata []LicenseMetadata `pulumi:"licenseMetadata"`
 	// Name for the created license.
-	LicenseName string `pulumi:"licenseName"`
+	LicenseName *string `pulumi:"licenseName"`
 	// Product name for the created license.
 	ProductName string `pulumi:"productName"`
 	// ProductSKU of the license.
@@ -126,7 +123,7 @@ type LicenseArgs struct {
 	Issuer          LicenseIssuerDataInput
 	LicenseMetadata LicenseMetadataArrayInput
 	// Name for the created license.
-	LicenseName pulumi.StringInput
+	LicenseName pulumi.StringPtrInput
 	// Product name for the created license.
 	ProductName pulumi.StringInput
 	// ProductSKU of the license.

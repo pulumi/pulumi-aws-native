@@ -56,9 +56,6 @@ func NewStackSet(ctx *pulumi.Context,
 	if args.PermissionModel == nil {
 		return nil, errors.New("invalid value for required argument 'PermissionModel'")
 	}
-	if args.StackSetName == nil {
-		return nil, errors.New("invalid value for required argument 'StackSetName'")
-	}
 	var resource StackSet
 	err := ctx.RegisterResource("aws-native:cloudformation:StackSet", name, args, &resource, opts...)
 	if err != nil {
@@ -111,7 +108,7 @@ type stackSetArgs struct {
 	// A group of stack instances with parameters in some specific accounts and regions.
 	StackInstancesGroup []StackSetStackInstances `pulumi:"stackInstancesGroup"`
 	// The name to associate with the stack set. The name must be unique in the Region where you create your stack set.
-	StackSetName string `pulumi:"stackSetName"`
+	StackSetName *string `pulumi:"stackSetName"`
 	// The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
 	Tags []StackSetTag `pulumi:"tags"`
 	// The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.
@@ -142,7 +139,7 @@ type StackSetArgs struct {
 	// A group of stack instances with parameters in some specific accounts and regions.
 	StackInstancesGroup StackSetStackInstancesArrayInput
 	// The name to associate with the stack set. The name must be unique in the Region where you create your stack set.
-	StackSetName pulumi.StringInput
+	StackSetName pulumi.StringPtrInput
 	// The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
 	Tags StackSetTagArrayInput
 	// The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.

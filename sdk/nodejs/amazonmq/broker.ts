@@ -82,9 +82,6 @@ export class Broker extends pulumi.CustomResource {
             if ((!args || args.autoMinorVersionUpgrade === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'autoMinorVersionUpgrade'");
             }
-            if ((!args || args.brokerName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'brokerName'");
-            }
             if ((!args || args.deploymentMode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'deploymentMode'");
             }
@@ -172,7 +169,7 @@ export class Broker extends pulumi.CustomResource {
 export interface BrokerArgs {
     authenticationStrategy?: pulumi.Input<string>;
     autoMinorVersionUpgrade: pulumi.Input<boolean>;
-    brokerName: pulumi.Input<string>;
+    brokerName?: pulumi.Input<string>;
     configuration?: pulumi.Input<inputs.amazonmq.BrokerConfigurationIdArgs>;
     deploymentMode: pulumi.Input<string>;
     encryptionOptions?: pulumi.Input<inputs.amazonmq.BrokerEncryptionOptionsArgs>;

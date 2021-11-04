@@ -129,8 +129,8 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Input("jwtConfiguration")]
         public Input<Inputs.AuthorizerJWTConfigurationArgs>? JwtConfiguration { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         public AuthorizerArgs()
         {

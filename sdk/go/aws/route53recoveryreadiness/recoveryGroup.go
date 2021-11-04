@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,12 +28,9 @@ type RecoveryGroup struct {
 func NewRecoveryGroup(ctx *pulumi.Context,
 	name string, args *RecoveryGroupArgs, opts ...pulumi.ResourceOption) (*RecoveryGroup, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &RecoveryGroupArgs{}
 	}
 
-	if args.RecoveryGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'RecoveryGroupName'")
-	}
 	var resource RecoveryGroup
 	err := ctx.RegisterResource("aws-native:route53recoveryreadiness:RecoveryGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -70,7 +66,7 @@ type recoveryGroupArgs struct {
 	// A list of the cell Amazon Resource Names (ARNs) in the recovery group.
 	Cells []string `pulumi:"cells"`
 	// The name of the recovery group to create.
-	RecoveryGroupName string `pulumi:"recoveryGroupName"`
+	RecoveryGroupName *string `pulumi:"recoveryGroupName"`
 	// A collection of tags associated with a resource.
 	Tags []RecoveryGroupTag `pulumi:"tags"`
 }
@@ -80,7 +76,7 @@ type RecoveryGroupArgs struct {
 	// A list of the cell Amazon Resource Names (ARNs) in the recovery group.
 	Cells pulumi.StringArrayInput
 	// The name of the recovery group to create.
-	RecoveryGroupName pulumi.StringInput
+	RecoveryGroupName pulumi.StringPtrInput
 	// A collection of tags associated with a resource.
 	Tags RecoveryGroupTagArrayInput
 }

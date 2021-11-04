@@ -136,8 +136,8 @@ namespace Pulumi.AwsNative.Transfer
             set => _tags = value;
         }
 
-        [Input("userName", required: true)]
-        public Input<string> UserName { get; set; } = null!;
+        [Input("userName")]
+        public Input<string>? UserName { get; set; }
 
         public UserArgs()
         {

@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,12 +32,9 @@ type EntityType struct {
 func NewEntityType(ctx *pulumi.Context,
 	name string, args *EntityTypeArgs, opts ...pulumi.ResourceOption) (*EntityType, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &EntityTypeArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource EntityType
 	err := ctx.RegisterResource("aws-native:frauddetector:EntityType", name, args, &resource, opts...)
 	if err != nil {
@@ -74,7 +70,7 @@ type entityTypeArgs struct {
 	// The entity type description.
 	Description *string `pulumi:"description"`
 	// The name of the entity type.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Tags associated with this entity type.
 	Tags []EntityTypeTag `pulumi:"tags"`
 }
@@ -84,7 +80,7 @@ type EntityTypeArgs struct {
 	// The entity type description.
 	Description pulumi.StringPtrInput
 	// The name of the entity type.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Tags associated with this entity type.
 	Tags EntityTypeTagArrayInput
 }

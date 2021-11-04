@@ -35,9 +35,6 @@ func NewServiceAction(ctx *pulumi.Context,
 	if args.DefinitionType == nil {
 		return nil, errors.New("invalid value for required argument 'DefinitionType'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource ServiceAction
 	err := ctx.RegisterResource("aws-native:servicecatalog:ServiceAction", name, args, &resource, opts...)
 	if err != nil {
@@ -74,7 +71,7 @@ type serviceActionArgs struct {
 	Definition     []ServiceActionDefinitionParameter `pulumi:"definition"`
 	DefinitionType ServiceActionDefinitionType        `pulumi:"definitionType"`
 	Description    *string                            `pulumi:"description"`
-	Name           string                             `pulumi:"name"`
+	Name           *string                            `pulumi:"name"`
 }
 
 // The set of arguments for constructing a ServiceAction resource.
@@ -83,7 +80,7 @@ type ServiceActionArgs struct {
 	Definition     ServiceActionDefinitionParameterArrayInput
 	DefinitionType ServiceActionDefinitionTypeInput
 	Description    pulumi.StringPtrInput
-	Name           pulumi.StringInput
+	Name           pulumi.StringPtrInput
 }
 
 func (ServiceActionArgs) ElementType() reflect.Type {

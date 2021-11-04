@@ -115,8 +115,8 @@ namespace Pulumi.AwsNative.AppSync
         [Input("lambdaConfig")]
         public Input<Inputs.DataSourceLambdaConfigArgs>? LambdaConfig { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("openSearchServiceConfig")]
         public Input<Inputs.DataSourceOpenSearchServiceConfigArgs>? OpenSearchServiceConfig { get; set; }

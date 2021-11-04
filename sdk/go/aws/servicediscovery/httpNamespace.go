@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,12 +26,9 @@ type HttpNamespace struct {
 func NewHttpNamespace(ctx *pulumi.Context,
 	name string, args *HttpNamespaceArgs, opts ...pulumi.ResourceOption) (*HttpNamespace, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &HttpNamespaceArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource HttpNamespace
 	err := ctx.RegisterResource("aws-native:servicediscovery:HttpNamespace", name, args, &resource, opts...)
 	if err != nil {
@@ -66,14 +62,14 @@ func (HttpNamespaceState) ElementType() reflect.Type {
 
 type httpNamespaceArgs struct {
 	Description *string            `pulumi:"description"`
-	Name        string             `pulumi:"name"`
+	Name        *string            `pulumi:"name"`
 	Tags        []HttpNamespaceTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a HttpNamespace resource.
 type HttpNamespaceArgs struct {
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringInput
+	Name        pulumi.StringPtrInput
 	Tags        HttpNamespaceTagArrayInput
 }
 

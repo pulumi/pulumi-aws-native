@@ -32,9 +32,6 @@ func NewAlias(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.RoutingStrategy == nil {
 		return nil, errors.New("invalid value for required argument 'RoutingStrategy'")
 	}
@@ -73,7 +70,7 @@ type aliasArgs struct {
 	// A human-readable description of the alias.
 	Description *string `pulumi:"description"`
 	// A descriptive label that is associated with an alias. Alias names do not need to be unique.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
 	RoutingStrategy AliasRoutingStrategy `pulumi:"routingStrategy"`
 }
@@ -83,7 +80,7 @@ type AliasArgs struct {
 	// A human-readable description of the alias.
 	Description pulumi.StringPtrInput
 	// A descriptive label that is associated with an alias. Alias names do not need to be unique.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
 	RoutingStrategy AliasRoutingStrategyInput
 }

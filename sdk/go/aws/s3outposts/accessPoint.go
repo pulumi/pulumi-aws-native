@@ -37,9 +37,6 @@ func NewAccessPoint(ctx *pulumi.Context,
 	if args.Bucket == nil {
 		return nil, errors.New("invalid value for required argument 'Bucket'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.VpcConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'VpcConfiguration'")
 	}
@@ -78,7 +75,7 @@ type accessPointArgs struct {
 	// The Amazon Resource Name (ARN) of the bucket you want to associate this AccessPoint with.
 	Bucket string `pulumi:"bucket"`
 	// A name for the AccessPoint.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The access point policy associated with this access point.
 	Policy interface{} `pulumi:"policy"`
 	// Virtual Private Cloud (VPC) from which requests can be made to the AccessPoint.
@@ -90,7 +87,7 @@ type AccessPointArgs struct {
 	// The Amazon Resource Name (ARN) of the bucket you want to associate this AccessPoint with.
 	Bucket pulumi.StringInput
 	// A name for the AccessPoint.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The access point policy associated with this access point.
 	Policy pulumi.Input
 	// Virtual Private Cloud (VPC) from which requests can be made to the AccessPoint.

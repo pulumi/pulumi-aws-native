@@ -81,9 +81,6 @@ export class EventIntegration extends pulumi.CustomResource {
             if ((!args || args.eventFilter === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventFilter'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["description"] = args ? args.description : undefined;
             inputs["eventBridgeBus"] = args ? args.eventBridgeBus : undefined;
             inputs["eventFilter"] = args ? args.eventFilter : undefined;
@@ -126,7 +123,7 @@ export interface EventIntegrationArgs {
     /**
      * The name of the event integration.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The tags (keys and values) associated with the event integration.
      */

@@ -17,16 +17,17 @@ __all__ = ['FirewallPolicyInitArgs', 'FirewallPolicy']
 class FirewallPolicyInitArgs:
     def __init__(__self__, *,
                  firewall_policy: pulumi.Input['FirewallPolicyArgs'],
-                 firewall_policy_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 firewall_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyTagArgs']]]] = None):
         """
         The set of arguments for constructing a FirewallPolicy resource.
         """
         pulumi.set(__self__, "firewall_policy", firewall_policy)
-        pulumi.set(__self__, "firewall_policy_name", firewall_policy_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if firewall_policy_name is not None:
+            pulumi.set(__self__, "firewall_policy_name", firewall_policy_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -40,15 +41,6 @@ class FirewallPolicyInitArgs:
         pulumi.set(self, "firewall_policy", value)
 
     @property
-    @pulumi.getter(name="firewallPolicyName")
-    def firewall_policy_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "firewall_policy_name")
-
-    @firewall_policy_name.setter
-    def firewall_policy_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "firewall_policy_name", value)
-
-    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "description")
@@ -56,6 +48,15 @@ class FirewallPolicyInitArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="firewallPolicyName")
+    def firewall_policy_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "firewall_policy_name")
+
+    @firewall_policy_name.setter
+    def firewall_policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "firewall_policy_name", value)
 
     @property
     @pulumi.getter
@@ -127,8 +128,6 @@ class FirewallPolicy(pulumi.CustomResource):
             if firewall_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'firewall_policy'")
             __props__.__dict__["firewall_policy"] = firewall_policy
-            if firewall_policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'firewall_policy_name'")
             __props__.__dict__["firewall_policy_name"] = firewall_policy_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["firewall_policy_arn"] = None

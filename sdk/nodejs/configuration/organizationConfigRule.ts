@@ -51,14 +51,11 @@ export class OrganizationConfigRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated OrganizationConfigRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
-    constructor(name: string, args: OrganizationConfigRuleArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: OrganizationConfigRuleArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("OrganizationConfigRule is deprecated: OrganizationConfigRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.organizationConfigRuleName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'organizationConfigRuleName'");
-            }
             inputs["excludedAccounts"] = args ? args.excludedAccounts : undefined;
             inputs["organizationConfigRuleName"] = args ? args.organizationConfigRuleName : undefined;
             inputs["organizationCustomRuleMetadata"] = args ? args.organizationCustomRuleMetadata : undefined;
@@ -81,7 +78,7 @@ export class OrganizationConfigRule extends pulumi.CustomResource {
  */
 export interface OrganizationConfigRuleArgs {
     excludedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
-    organizationConfigRuleName: pulumi.Input<string>;
+    organizationConfigRuleName?: pulumi.Input<string>;
     organizationCustomRuleMetadata?: pulumi.Input<inputs.configuration.OrganizationConfigRuleOrganizationCustomRuleMetadataArgs>;
     organizationManagedRuleMetadata?: pulumi.Input<inputs.configuration.OrganizationConfigRuleOrganizationManagedRuleMetadataArgs>;
 }

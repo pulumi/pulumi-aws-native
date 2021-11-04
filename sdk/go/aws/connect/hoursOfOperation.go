@@ -44,9 +44,6 @@ func NewHoursOfOperation(ctx *pulumi.Context,
 	if args.InstanceArn == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceArn'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.TimeZone == nil {
 		return nil, errors.New("invalid value for required argument 'TimeZone'")
 	}
@@ -89,7 +86,7 @@ type hoursOfOperationArgs struct {
 	// The identifier of the Amazon Connect instance.
 	InstanceArn string `pulumi:"instanceArn"`
 	// The name of the hours of operation.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// One or more tags.
 	Tags []HoursOfOperationTag `pulumi:"tags"`
 	// The time zone of the hours of operation.
@@ -105,7 +102,7 @@ type HoursOfOperationArgs struct {
 	// The identifier of the Amazon Connect instance.
 	InstanceArn pulumi.StringInput
 	// The name of the hours of operation.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// One or more tags.
 	Tags HoursOfOperationTagArrayInput
 	// The time zone of the hours of operation.

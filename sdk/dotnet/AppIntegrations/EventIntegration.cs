@@ -123,8 +123,8 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// <summary>
         /// The name of the event integration.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.EventIntegrationTagArgs>? _tags;

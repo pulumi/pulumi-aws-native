@@ -15,8 +15,8 @@ __all__ = ['ResourceShareArgs', 'ResourceShare']
 @pulumi.input_type
 class ResourceShareArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  allow_external_principals: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  permission_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -24,9 +24,10 @@ class ResourceShareArgs:
         """
         The set of arguments for constructing a ResourceShare resource.
         """
-        pulumi.set(__self__, "name", name)
         if allow_external_principals is not None:
             pulumi.set(__self__, "allow_external_principals", allow_external_principals)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if permission_arns is not None:
             pulumi.set(__self__, "permission_arns", permission_arns)
         if principals is not None:
@@ -37,15 +38,6 @@ class ResourceShareArgs:
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
     @pulumi.getter(name="allowExternalPrincipals")
     def allow_external_principals(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "allow_external_principals")
@@ -53,6 +45,15 @@ class ResourceShareArgs:
     @allow_external_principals.setter
     def allow_external_principals(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_external_principals", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="permissionArns")
@@ -118,7 +119,7 @@ class ResourceShare(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ResourceShareArgs,
+                 args: Optional[ResourceShareArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::RAM::ResourceShare
@@ -158,8 +159,6 @@ class ResourceShare(pulumi.CustomResource):
             __props__ = ResourceShareArgs.__new__(ResourceShareArgs)
 
             __props__.__dict__["allow_external_principals"] = allow_external_principals
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["permission_arns"] = permission_arns
             __props__.__dict__["principals"] = principals

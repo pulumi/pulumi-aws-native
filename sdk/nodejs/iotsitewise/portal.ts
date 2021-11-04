@@ -98,9 +98,6 @@ export class Portal extends pulumi.CustomResource {
             if ((!args || args.portalContactEmail === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'portalContactEmail'");
             }
-            if ((!args || args.portalName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'portalName'");
-            }
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
@@ -164,7 +161,7 @@ export interface PortalArgs {
     /**
      * A friendly name for the portal.
      */
-    portalName: pulumi.Input<string>;
+    portalName?: pulumi.Input<string>;
     /**
      * The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
      */

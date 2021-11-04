@@ -17,8 +17,8 @@ class AliasArgs:
     def __init__(__self__, *,
                  function_name: pulumi.Input[str],
                  function_version: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  provisioned_concurrency_config: Optional[pulumi.Input['AliasProvisionedConcurrencyConfigurationArgs']] = None,
                  routing_config: Optional[pulumi.Input['AliasRoutingConfigurationArgs']] = None):
         """
@@ -26,9 +26,10 @@ class AliasArgs:
         """
         pulumi.set(__self__, "function_name", function_name)
         pulumi.set(__self__, "function_version", function_version)
-        pulumi.set(__self__, "name", name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if provisioned_concurrency_config is not None:
             pulumi.set(__self__, "provisioned_concurrency_config", provisioned_concurrency_config)
         if routing_config is not None:
@@ -54,21 +55,21 @@ class AliasArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "description")
 
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="provisionedConcurrencyConfig")
@@ -162,8 +163,6 @@ class Alias(pulumi.CustomResource):
             if function_version is None and not opts.urn:
                 raise TypeError("Missing required property 'function_version'")
             __props__.__dict__["function_version"] = function_version
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["provisioned_concurrency_config"] = provisioned_concurrency_config
             __props__.__dict__["routing_config"] = routing_config

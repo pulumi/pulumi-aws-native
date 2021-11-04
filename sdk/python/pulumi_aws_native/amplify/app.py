@@ -16,7 +16,6 @@ __all__ = ['AppArgs', 'App']
 @pulumi.input_type
 class AppArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  access_token: Optional[pulumi.Input[str]] = None,
                  auto_branch_creation_config: Optional[pulumi.Input['AppAutoBranchCreationConfigArgs']] = None,
                  basic_auth_config: Optional[pulumi.Input['AppBasicAuthConfigArgs']] = None,
@@ -27,13 +26,13 @@ class AppArgs:
                  enable_branch_auto_deletion: Optional[pulumi.Input[bool]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['AppEnvironmentVariableArgs']]]] = None,
                  i_am_service_role: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  oauth_token: Optional[pulumi.Input[str]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AppTagArgs']]]] = None):
         """
         The set of arguments for constructing a App resource.
         """
-        pulumi.set(__self__, "name", name)
         if access_token is not None:
             pulumi.set(__self__, "access_token", access_token)
         if auto_branch_creation_config is not None:
@@ -54,21 +53,14 @@ class AppArgs:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if i_am_service_role is not None:
             pulumi.set(__self__, "i_am_service_role", i_am_service_role)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if oauth_token is not None:
             pulumi.set(__self__, "oauth_token", oauth_token)
         if repository is not None:
             pulumi.set(__self__, "repository", repository)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="accessToken")
@@ -161,6 +153,15 @@ class AppArgs:
         pulumi.set(self, "i_am_service_role", value)
 
     @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
     @pulumi.getter(name="oauthToken")
     def oauth_token(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "oauth_token")
@@ -218,7 +219,7 @@ class App(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AppArgs,
+                 args: Optional[AppArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::Amplify::App resource creates Apps in the Amplify Console. An App is a collection of branches.
@@ -274,8 +275,6 @@ class App(pulumi.CustomResource):
             __props__.__dict__["enable_branch_auto_deletion"] = enable_branch_auto_deletion
             __props__.__dict__["environment_variables"] = environment_variables
             __props__.__dict__["i_am_service_role"] = i_am_service_role
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["oauth_token"] = oauth_token
             __props__.__dict__["repository"] = repository

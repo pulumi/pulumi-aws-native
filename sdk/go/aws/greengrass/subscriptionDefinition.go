@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,12 +27,9 @@ type SubscriptionDefinition struct {
 func NewSubscriptionDefinition(ctx *pulumi.Context,
 	name string, args *SubscriptionDefinitionArgs, opts ...pulumi.ResourceOption) (*SubscriptionDefinition, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &SubscriptionDefinitionArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource SubscriptionDefinition
 	err := ctx.RegisterResource("aws-native:greengrass:SubscriptionDefinition", name, args, &resource, opts...)
 	if err != nil {
@@ -67,14 +63,14 @@ func (SubscriptionDefinitionState) ElementType() reflect.Type {
 
 type subscriptionDefinitionArgs struct {
 	InitialVersion *SubscriptionDefinitionVersionType `pulumi:"initialVersion"`
-	Name           string                             `pulumi:"name"`
+	Name           *string                            `pulumi:"name"`
 	Tags           interface{}                        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SubscriptionDefinition resource.
 type SubscriptionDefinitionArgs struct {
 	InitialVersion SubscriptionDefinitionVersionTypePtrInput
-	Name           pulumi.StringInput
+	Name           pulumi.StringPtrInput
 	Tags           pulumi.Input
 }
 

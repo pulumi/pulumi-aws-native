@@ -18,29 +18,30 @@ class SchemaArgs:
     def __init__(__self__, *,
                  compatibility: pulumi.Input['SchemaCompatibility'],
                  data_format: pulumi.Input['SchemaDataFormat'],
-                 name: pulumi.Input[str],
                  schema_definition: pulumi.Input[str],
                  checkpoint_version: Optional[pulumi.Input['SchemaVersionArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  registry: Optional[pulumi.Input['SchemaRegistryArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaTagArgs']]]] = None):
         """
         The set of arguments for constructing a Schema resource.
         :param pulumi.Input['SchemaCompatibility'] compatibility: Compatibility setting for the schema.
         :param pulumi.Input['SchemaDataFormat'] data_format: Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
-        :param pulumi.Input[str] name: Name of the schema.
         :param pulumi.Input[str] schema_definition: Definition for the initial schema version in plain-text.
         :param pulumi.Input[str] description: A description of the schema. If description is not provided, there will not be any default value for this.
+        :param pulumi.Input[str] name: Name of the schema.
         :param pulumi.Input[Sequence[pulumi.Input['SchemaTagArgs']]] tags: List of tags to tag the schema
         """
         pulumi.set(__self__, "compatibility", compatibility)
         pulumi.set(__self__, "data_format", data_format)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "schema_definition", schema_definition)
         if checkpoint_version is not None:
             pulumi.set(__self__, "checkpoint_version", checkpoint_version)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if registry is not None:
             pulumi.set(__self__, "registry", registry)
         if tags is not None:
@@ -69,18 +70,6 @@ class SchemaArgs:
     @data_format.setter
     def data_format(self, value: pulumi.Input['SchemaDataFormat']):
         pulumi.set(self, "data_format", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Name of the schema.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="schemaDefinition")
@@ -114,6 +103,18 @@ class SchemaArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the schema.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -215,8 +216,6 @@ class Schema(pulumi.CustomResource):
                 raise TypeError("Missing required property 'data_format'")
             __props__.__dict__["data_format"] = data_format
             __props__.__dict__["description"] = description
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["registry"] = registry
             if schema_definition is None and not opts.urn:

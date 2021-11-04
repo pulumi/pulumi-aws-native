@@ -19,8 +19,8 @@ class FilterArgs:
                  description: pulumi.Input[str],
                  detector_id: pulumi.Input[str],
                  finding_criteria: pulumi.Input['FilterFindingCriteriaArgs'],
-                 name: pulumi.Input[str],
-                 rank: pulumi.Input[int]):
+                 rank: pulumi.Input[int],
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Filter resource.
         """
@@ -28,8 +28,9 @@ class FilterArgs:
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "detector_id", detector_id)
         pulumi.set(__self__, "finding_criteria", finding_criteria)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "rank", rank)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -69,21 +70,21 @@ class FilterArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
     def rank(self) -> pulumi.Input[int]:
         return pulumi.get(self, "rank")
 
     @rank.setter
     def rank(self, value: pulumi.Input[int]):
         pulumi.set(self, "rank", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 warnings.warn("""Filter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
@@ -164,8 +165,6 @@ class Filter(pulumi.CustomResource):
             if finding_criteria is None and not opts.urn:
                 raise TypeError("Missing required property 'finding_criteria'")
             __props__.__dict__["finding_criteria"] = finding_criteria
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if rank is None and not opts.urn:
                 raise TypeError("Missing required property 'rank'")

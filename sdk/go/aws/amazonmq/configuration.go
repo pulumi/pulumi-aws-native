@@ -44,9 +44,6 @@ func NewConfiguration(ctx *pulumi.Context,
 	if args.EngineVersion == nil {
 		return nil, errors.New("invalid value for required argument 'EngineVersion'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource Configuration
 	err := ctx.RegisterResource("aws-native:amazonmq:Configuration", name, args, &resource, opts...)
 	if err != nil {
@@ -84,7 +81,7 @@ type configurationArgs struct {
 	Description            *string                  `pulumi:"description"`
 	EngineType             string                   `pulumi:"engineType"`
 	EngineVersion          string                   `pulumi:"engineVersion"`
-	Name                   string                   `pulumi:"name"`
+	Name                   *string                  `pulumi:"name"`
 	Tags                   []ConfigurationTagsEntry `pulumi:"tags"`
 }
 
@@ -95,7 +92,7 @@ type ConfigurationArgs struct {
 	Description            pulumi.StringPtrInput
 	EngineType             pulumi.StringInput
 	EngineVersion          pulumi.StringInput
-	Name                   pulumi.StringInput
+	Name                   pulumi.StringPtrInput
 	Tags                   ConfigurationTagsEntryArrayInput
 }
 

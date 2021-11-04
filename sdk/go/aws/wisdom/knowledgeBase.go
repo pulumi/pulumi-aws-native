@@ -36,9 +36,6 @@ func NewKnowledgeBase(ctx *pulumi.Context,
 	if args.KnowledgeBaseType == nil {
 		return nil, errors.New("invalid value for required argument 'KnowledgeBaseType'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource KnowledgeBase
 	err := ctx.RegisterResource("aws-native:wisdom:KnowledgeBase", name, args, &resource, opts...)
 	if err != nil {
@@ -73,7 +70,7 @@ func (KnowledgeBaseState) ElementType() reflect.Type {
 type knowledgeBaseArgs struct {
 	Description                       *string                                         `pulumi:"description"`
 	KnowledgeBaseType                 KnowledgeBaseType                               `pulumi:"knowledgeBaseType"`
-	Name                              string                                          `pulumi:"name"`
+	Name                              *string                                         `pulumi:"name"`
 	RenderingConfiguration            *KnowledgeBaseRenderingConfiguration            `pulumi:"renderingConfiguration"`
 	ServerSideEncryptionConfiguration *KnowledgeBaseServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 	SourceConfiguration               *KnowledgeBaseSourceConfiguration               `pulumi:"sourceConfiguration"`
@@ -84,7 +81,7 @@ type knowledgeBaseArgs struct {
 type KnowledgeBaseArgs struct {
 	Description                       pulumi.StringPtrInput
 	KnowledgeBaseType                 KnowledgeBaseTypeInput
-	Name                              pulumi.StringInput
+	Name                              pulumi.StringPtrInput
 	RenderingConfiguration            KnowledgeBaseRenderingConfigurationPtrInput
 	ServerSideEncryptionConfiguration KnowledgeBaseServerSideEncryptionConfigurationPtrInput
 	SourceConfiguration               KnowledgeBaseSourceConfigurationPtrInput

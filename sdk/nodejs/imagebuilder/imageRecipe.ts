@@ -90,9 +90,6 @@ export class ImageRecipe extends pulumi.CustomResource {
             if ((!args || args.components === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'components'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.parentImage === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'parentImage'");
             }
@@ -151,7 +148,7 @@ export interface ImageRecipeArgs {
     /**
      * The name of the image recipe.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The parent image of the image recipe.
      */

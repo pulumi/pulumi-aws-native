@@ -113,8 +113,8 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <summary>
         /// A unique, friendly name for the asset.
         /// </summary>
-        [Input("assetName", required: true)]
-        public Input<string> AssetName { get; set; } = null!;
+        [Input("assetName")]
+        public Input<string>? AssetName { get; set; }
 
         [Input("assetProperties")]
         private InputList<Inputs.AssetPropertyArgs>? _assetProperties;

@@ -126,8 +126,8 @@ namespace Pulumi.AwsNative.NimbleStudio
         /// <summary>
         /// &lt;p&gt;A friendly name for a streaming image resource.&lt;/p&gt;
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// &lt;p&gt;The studioId. &lt;/p&gt;

@@ -17,31 +17,32 @@ __all__ = ['FlowArgs', 'Flow']
 class FlowArgs:
     def __init__(__self__, *,
                  destination_flow_config_list: pulumi.Input[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]],
-                 flow_name: pulumi.Input[str],
                  source_flow_config: pulumi.Input['FlowSourceFlowConfigArgs'],
                  tasks: pulumi.Input[Sequence[pulumi.Input['FlowTaskArgs']]],
                  trigger_config: pulumi.Input['FlowTriggerConfigArgs'],
                  description: Optional[pulumi.Input[str]] = None,
+                 flow_name: Optional[pulumi.Input[str]] = None,
                  k_ms_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['FlowTagArgs']]]] = None):
         """
         The set of arguments for constructing a Flow resource.
         :param pulumi.Input[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]] destination_flow_config_list: List of Destination connectors of the flow.
-        :param pulumi.Input[str] flow_name: Name of the flow.
         :param pulumi.Input['FlowSourceFlowConfigArgs'] source_flow_config: Configurations of Source connector of the flow.
         :param pulumi.Input[Sequence[pulumi.Input['FlowTaskArgs']]] tasks: List of tasks for the flow.
         :param pulumi.Input['FlowTriggerConfigArgs'] trigger_config: Trigger settings of the flow.
         :param pulumi.Input[str] description: Description of the flow.
+        :param pulumi.Input[str] flow_name: Name of the flow.
         :param pulumi.Input[str] k_ms_arn: The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         :param pulumi.Input[Sequence[pulumi.Input['FlowTagArgs']]] tags: List of Tags.
         """
         pulumi.set(__self__, "destination_flow_config_list", destination_flow_config_list)
-        pulumi.set(__self__, "flow_name", flow_name)
         pulumi.set(__self__, "source_flow_config", source_flow_config)
         pulumi.set(__self__, "tasks", tasks)
         pulumi.set(__self__, "trigger_config", trigger_config)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if flow_name is not None:
+            pulumi.set(__self__, "flow_name", flow_name)
         if k_ms_arn is not None:
             pulumi.set(__self__, "k_ms_arn", k_ms_arn)
         if tags is not None:
@@ -58,18 +59,6 @@ class FlowArgs:
     @destination_flow_config_list.setter
     def destination_flow_config_list(self, value: pulumi.Input[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]]):
         pulumi.set(self, "destination_flow_config_list", value)
-
-    @property
-    @pulumi.getter(name="flowName")
-    def flow_name(self) -> pulumi.Input[str]:
-        """
-        Name of the flow.
-        """
-        return pulumi.get(self, "flow_name")
-
-    @flow_name.setter
-    def flow_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "flow_name", value)
 
     @property
     @pulumi.getter(name="sourceFlowConfig")
@@ -118,6 +107,18 @@ class FlowArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="flowName")
+    def flow_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the flow.
+        """
+        return pulumi.get(self, "flow_name")
+
+    @flow_name.setter
+    def flow_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "flow_name", value)
 
     @property
     @pulumi.getter(name="kMSArn")
@@ -220,8 +221,6 @@ class Flow(pulumi.CustomResource):
             if destination_flow_config_list is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_flow_config_list'")
             __props__.__dict__["destination_flow_config_list"] = destination_flow_config_list
-            if flow_name is None and not opts.urn:
-                raise TypeError("Missing required property 'flow_name'")
             __props__.__dict__["flow_name"] = flow_name
             __props__.__dict__["k_ms_arn"] = k_ms_arn
             if source_flow_config is None and not opts.urn:

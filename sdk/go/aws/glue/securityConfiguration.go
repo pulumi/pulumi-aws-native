@@ -31,9 +31,6 @@ func NewSecurityConfiguration(ctx *pulumi.Context,
 	if args.EncryptionConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'EncryptionConfiguration'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource SecurityConfiguration
 	err := ctx.RegisterResource("aws-native:glue:SecurityConfiguration", name, args, &resource, opts...)
 	if err != nil {
@@ -67,13 +64,13 @@ func (SecurityConfigurationState) ElementType() reflect.Type {
 
 type securityConfigurationArgs struct {
 	EncryptionConfiguration SecurityConfigurationEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	Name                    string                                       `pulumi:"name"`
+	Name                    *string                                      `pulumi:"name"`
 }
 
 // The set of arguments for constructing a SecurityConfiguration resource.
 type SecurityConfigurationArgs struct {
 	EncryptionConfiguration SecurityConfigurationEncryptionConfigurationInput
-	Name                    pulumi.StringInput
+	Name                    pulumi.StringPtrInput
 }
 
 func (SecurityConfigurationArgs) ElementType() reflect.Type {

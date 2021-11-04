@@ -60,9 +60,6 @@ export class NetworkProfile extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.projectArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectArn'");
             }
@@ -110,7 +107,7 @@ export interface NetworkProfileArgs {
     downlinkDelayMs?: pulumi.Input<number>;
     downlinkJitterMs?: pulumi.Input<number>;
     downlinkLossPercent?: pulumi.Input<number>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     projectArn: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.devicefarm.NetworkProfileTagArgs>[]>;
     uplinkBandwidthBits?: pulumi.Input<number>;

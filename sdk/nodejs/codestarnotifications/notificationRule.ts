@@ -64,9 +64,6 @@ export class NotificationRule extends pulumi.CustomResource {
             if ((!args || args.eventTypeIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventTypeIds'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.resource === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resource'");
             }
@@ -112,7 +109,7 @@ export interface NotificationRuleArgs {
     detailType: pulumi.Input<enums.codestarnotifications.NotificationRuleDetailType>;
     eventTypeId?: pulumi.Input<string>;
     eventTypeIds: pulumi.Input<pulumi.Input<string>[]>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     resource: pulumi.Input<string>;
     status?: pulumi.Input<enums.codestarnotifications.NotificationRuleStatus>;
     tags?: any;

@@ -96,9 +96,6 @@ export class Variable extends pulumi.CustomResource {
             if ((!args || args.defaultValue === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'defaultValue'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["dataSource"] = args ? args.dataSource : undefined;
             inputs["dataType"] = args ? args.dataType : undefined;
             inputs["defaultValue"] = args ? args.defaultValue : undefined;
@@ -151,7 +148,7 @@ export interface VariableArgs {
     /**
      * The name of the variable.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Tags associated with this variable.
      */

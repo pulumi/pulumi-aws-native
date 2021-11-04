@@ -76,8 +76,8 @@ namespace Pulumi.AwsNative.Cognito
         [Input("identifier", required: true)]
         public Input<string> Identifier { get; set; } = null!;
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("scopes")]
         private InputList<Inputs.UserPoolResourceServerResourceServerScopeTypeArgs>? _scopes;

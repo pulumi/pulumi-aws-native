@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,12 +32,9 @@ type ProfilingGroup struct {
 func NewProfilingGroup(ctx *pulumi.Context,
 	name string, args *ProfilingGroupArgs, opts ...pulumi.ResourceOption) (*ProfilingGroup, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ProfilingGroupArgs{}
 	}
 
-	if args.ProfilingGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ProfilingGroupName'")
-	}
 	var resource ProfilingGroup
 	err := ctx.RegisterResource("aws-native:codeguruprofiler:ProfilingGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -78,7 +74,7 @@ type profilingGroupArgs struct {
 	// The compute platform of the profiling group.
 	ComputePlatform *ProfilingGroupComputePlatform `pulumi:"computePlatform"`
 	// The name of the profiling group.
-	ProfilingGroupName string `pulumi:"profilingGroupName"`
+	ProfilingGroupName *string `pulumi:"profilingGroupName"`
 	// The tags associated with a profiling group.
 	Tags []ProfilingGroupTag `pulumi:"tags"`
 }
@@ -92,7 +88,7 @@ type ProfilingGroupArgs struct {
 	// The compute platform of the profiling group.
 	ComputePlatform ProfilingGroupComputePlatformPtrInput
 	// The name of the profiling group.
-	ProfilingGroupName pulumi.StringInput
+	ProfilingGroupName pulumi.StringPtrInput
 	// The tags associated with a profiling group.
 	Tags ProfilingGroupTagArrayInput
 }

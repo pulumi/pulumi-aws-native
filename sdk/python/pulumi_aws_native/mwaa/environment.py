@@ -16,7 +16,6 @@ __all__ = ['EnvironmentArgs', 'Environment']
 @pulumi.input_type
 class EnvironmentArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  airflow_configuration_options: Optional[Any] = None,
                  airflow_version: Optional[pulumi.Input[str]] = None,
                  dag_s3_path: Optional[pulumi.Input[str]] = None,
@@ -26,6 +25,7 @@ class EnvironmentArgs:
                  logging_configuration: Optional[pulumi.Input['EnvironmentLoggingConfigurationArgs']] = None,
                  max_workers: Optional[pulumi.Input[int]] = None,
                  min_workers: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  network_configuration: Optional[pulumi.Input['EnvironmentNetworkConfigurationArgs']] = None,
                  plugins_s3_object_version: Optional[pulumi.Input[str]] = None,
                  plugins_s3_path: Optional[pulumi.Input[str]] = None,
@@ -49,7 +49,6 @@ class EnvironmentArgs:
                    "core.dags_folder": "{AIRFLOW_HOME}/dags"
         :param Any tags: A map of tags for the environment.
         """
-        pulumi.set(__self__, "name", name)
         if airflow_configuration_options is not None:
             pulumi.set(__self__, "airflow_configuration_options", airflow_configuration_options)
         if airflow_version is not None:
@@ -68,6 +67,8 @@ class EnvironmentArgs:
             pulumi.set(__self__, "max_workers", max_workers)
         if min_workers is not None:
             pulumi.set(__self__, "min_workers", min_workers)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if network_configuration is not None:
             pulumi.set(__self__, "network_configuration", network_configuration)
         if plugins_s3_object_version is not None:
@@ -88,15 +89,6 @@ class EnvironmentArgs:
             pulumi.set(__self__, "webserver_access_mode", webserver_access_mode)
         if weekly_maintenance_window_start is not None:
             pulumi.set(__self__, "weekly_maintenance_window_start", weekly_maintenance_window_start)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="airflowConfigurationOptions")
@@ -189,6 +181,15 @@ class EnvironmentArgs:
     @min_workers.setter
     def min_workers(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_workers", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="networkConfiguration")
@@ -330,7 +331,7 @@ class Environment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EnvironmentArgs,
+                 args: Optional[EnvironmentArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::MWAA::Environment
@@ -391,8 +392,6 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["logging_configuration"] = logging_configuration
             __props__.__dict__["max_workers"] = max_workers
             __props__.__dict__["min_workers"] = min_workers
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["network_configuration"] = network_configuration
             __props__.__dict__["plugins_s3_object_version"] = plugins_s3_object_version

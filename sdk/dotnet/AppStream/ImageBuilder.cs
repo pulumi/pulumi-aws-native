@@ -138,8 +138,8 @@ namespace Pulumi.AwsNative.AppStream
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.ImageBuilderTagArgs>? _tags;

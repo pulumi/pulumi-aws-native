@@ -59,9 +59,6 @@ export class Pipeline extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.parameterObjects === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'parameterObjects'");
             }
@@ -94,7 +91,7 @@ export class Pipeline extends pulumi.CustomResource {
 export interface PipelineArgs {
     activate?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     parameterObjects: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineParameterObjectArgs>[]>;
     parameterValues?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineParameterValueArgs>[]>;
     pipelineObjects?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineObjectArgs>[]>;

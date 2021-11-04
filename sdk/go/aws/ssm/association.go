@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,12 +45,9 @@ type Association struct {
 func NewAssociation(ctx *pulumi.Context,
 	name string, args *AssociationArgs, opts ...pulumi.ResourceOption) (*Association, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &AssociationArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource Association
 	err := ctx.RegisterResource("aws-native:ssm:Association", name, args, &resource, opts...)
 	if err != nil {
@@ -97,7 +93,7 @@ type associationArgs struct {
 	MaxConcurrency *string `pulumi:"maxConcurrency"`
 	MaxErrors      *string `pulumi:"maxErrors"`
 	// The name of the SSM document.
-	Name           string                                        `pulumi:"name"`
+	Name           *string                                       `pulumi:"name"`
 	OutputLocation *AssociationInstanceAssociationOutputLocation `pulumi:"outputLocation"`
 	// Parameter values that the SSM document uses at runtime.
 	Parameters interface{} `pulumi:"parameters"`
@@ -124,7 +120,7 @@ type AssociationArgs struct {
 	MaxConcurrency pulumi.StringPtrInput
 	MaxErrors      pulumi.StringPtrInput
 	// The name of the SSM document.
-	Name           pulumi.StringInput
+	Name           pulumi.StringPtrInput
 	OutputLocation AssociationInstanceAssociationOutputLocationPtrInput
 	// Parameter values that the SSM document uses at runtime.
 	Parameters pulumi.Input

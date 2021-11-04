@@ -41,7 +41,7 @@ namespace Pulumi.AwsNative.Panorama
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Package(string name, PackageArgs args, CustomResourceOptions? options = null)
+        public Package(string name, PackageArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:panorama:Package", name, args ?? new PackageArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -78,8 +78,8 @@ namespace Pulumi.AwsNative.Panorama
 
     public sealed class PackageArgs : Pulumi.ResourceArgs
     {
-        [Input("packageName", required: true)]
-        public Input<string> PackageName { get; set; } = null!;
+        [Input("packageName")]
+        public Input<string>? PackageName { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.PackageTagArgs>? _tags;

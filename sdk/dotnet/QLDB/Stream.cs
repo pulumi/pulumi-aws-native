@@ -102,8 +102,8 @@ namespace Pulumi.AwsNative.QLDB
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
-        [Input("streamName", required: true)]
-        public Input<string> StreamName { get; set; } = null!;
+        [Input("streamName")]
+        public Input<string>? StreamName { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.StreamTagArgs>? _tags;

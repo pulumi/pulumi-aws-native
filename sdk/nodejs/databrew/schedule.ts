@@ -60,9 +60,6 @@ export class Schedule extends pulumi.CustomResource {
             if ((!args || args.cronExpression === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cronExpression'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["cronExpression"] = args ? args.cronExpression : undefined;
             inputs["jobNames"] = args ? args.jobNames : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -92,6 +89,6 @@ export interface ScheduleArgs {
     /**
      * Schedule Name
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.databrew.ScheduleTagArgs>[]>;
 }

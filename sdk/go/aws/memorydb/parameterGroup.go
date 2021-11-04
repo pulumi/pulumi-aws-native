@@ -39,9 +39,6 @@ func NewParameterGroup(ctx *pulumi.Context,
 	if args.Family == nil {
 		return nil, errors.New("invalid value for required argument 'Family'")
 	}
-	if args.ParameterGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ParameterGroupName'")
-	}
 	var resource ParameterGroup
 	err := ctx.RegisterResource("aws-native:memorydb:ParameterGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -79,7 +76,7 @@ type parameterGroupArgs struct {
 	// The name of the parameter group family that this parameter group is compatible with.
 	Family string `pulumi:"family"`
 	// The name of the parameter group.
-	ParameterGroupName string `pulumi:"parameterGroupName"`
+	ParameterGroupName *string `pulumi:"parameterGroupName"`
 	// An map of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional.
 	Parameters interface{} `pulumi:"parameters"`
 	// An array of key-value pairs to apply to this parameter group.
@@ -93,7 +90,7 @@ type ParameterGroupArgs struct {
 	// The name of the parameter group family that this parameter group is compatible with.
 	Family pulumi.StringInput
 	// The name of the parameter group.
-	ParameterGroupName pulumi.StringInput
+	ParameterGroupName pulumi.StringPtrInput
 	// An map of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional.
 	Parameters pulumi.Input
 	// An array of key-value pairs to apply to this parameter group.

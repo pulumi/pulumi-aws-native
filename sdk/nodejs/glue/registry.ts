@@ -59,13 +59,10 @@ export class Registry extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RegistryArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: RegistryArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -94,7 +91,7 @@ export interface RegistryArgs {
     /**
      * Name of the registry to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.  No whitespace.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * List of tags to tag the Registry
      */

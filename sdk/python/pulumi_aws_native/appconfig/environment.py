@@ -16,19 +16,20 @@ __all__ = ['EnvironmentArgs', 'Environment']
 class EnvironmentArgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  monitors: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorsArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTagsArgs']]]] = None):
         """
         The set of arguments for constructing a Environment resource.
         """
         pulumi.set(__self__, "application_id", application_id)
-        pulumi.set(__self__, "name", name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if monitors is not None:
             pulumi.set(__self__, "monitors", monitors)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -40,15 +41,6 @@ class EnvironmentArgs:
     @application_id.setter
     def application_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "application_id", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -67,6 +59,15 @@ class EnvironmentArgs:
     @monitors.setter
     def monitors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorsArgs']]]]):
         pulumi.set(self, "monitors", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -147,8 +148,6 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["application_id"] = application_id
             __props__.__dict__["description"] = description
             __props__.__dict__["monitors"] = monitors
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
         super(Environment, __self__).__init__(

@@ -30,9 +30,6 @@ func NewVpcLink(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.SubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetIds'")
 	}
@@ -68,7 +65,7 @@ func (VpcLinkState) ElementType() reflect.Type {
 }
 
 type vpcLinkArgs struct {
-	Name             string      `pulumi:"name"`
+	Name             *string     `pulumi:"name"`
 	SecurityGroupIds []string    `pulumi:"securityGroupIds"`
 	SubnetIds        []string    `pulumi:"subnetIds"`
 	Tags             interface{} `pulumi:"tags"`
@@ -76,7 +73,7 @@ type vpcLinkArgs struct {
 
 // The set of arguments for constructing a VpcLink resource.
 type VpcLinkArgs struct {
-	Name             pulumi.StringInput
+	Name             pulumi.StringPtrInput
 	SecurityGroupIds pulumi.StringArrayInput
 	SubnetIds        pulumi.StringArrayInput
 	Tags             pulumi.Input

@@ -129,8 +129,8 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("monitoringScheduleConfig", required: true)]
         public Input<Inputs.MonitoringScheduleConfigArgs> MonitoringScheduleConfig { get; set; } = null!;
 
-        [Input("monitoringScheduleName", required: true)]
-        public Input<string> MonitoringScheduleName { get; set; } = null!;
+        [Input("monitoringScheduleName")]
+        public Input<string>? MonitoringScheduleName { get; set; }
 
         /// <summary>
         /// The status of a schedule job.

@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,12 +34,9 @@ type Domain struct {
 func NewDomain(ctx *pulumi.Context,
 	name string, args *DomainArgs, opts ...pulumi.ResourceOption) (*Domain, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &DomainArgs{}
 	}
 
-	if args.DomainName == nil {
-		return nil, errors.New("invalid value for required argument 'DomainName'")
-	}
 	var resource Domain
 	err := ctx.RegisterResource("aws-native:codeartifact:Domain", name, args, &resource, opts...)
 	if err != nil {
@@ -74,7 +70,7 @@ func (DomainState) ElementType() reflect.Type {
 
 type domainArgs struct {
 	// The name of the domain.
-	DomainName string `pulumi:"domainName"`
+	DomainName *string `pulumi:"domainName"`
 	// The access control resource policy on the provided domain.
 	PermissionsPolicyDocument interface{} `pulumi:"permissionsPolicyDocument"`
 	// An array of key-value pairs to apply to this resource.
@@ -84,7 +80,7 @@ type domainArgs struct {
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
 	// The name of the domain.
-	DomainName pulumi.StringInput
+	DomainName pulumi.StringPtrInput
 	// The access control resource policy on the provided domain.
 	PermissionsPolicyDocument pulumi.Input
 	// An array of key-value pairs to apply to this resource.

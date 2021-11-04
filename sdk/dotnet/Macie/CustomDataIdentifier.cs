@@ -141,8 +141,8 @@ namespace Pulumi.AwsNative.Macie
         /// <summary>
         /// Name of custom data identifier.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Regular expression for custom data identifier.

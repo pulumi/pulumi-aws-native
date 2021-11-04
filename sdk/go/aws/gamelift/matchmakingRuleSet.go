@@ -29,9 +29,6 @@ func NewMatchmakingRuleSet(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.RuleSetBody == nil {
 		return nil, errors.New("invalid value for required argument 'RuleSetBody'")
 	}
@@ -67,13 +64,13 @@ func (MatchmakingRuleSetState) ElementType() reflect.Type {
 }
 
 type matchmakingRuleSetArgs struct {
-	Name        string `pulumi:"name"`
-	RuleSetBody string `pulumi:"ruleSetBody"`
+	Name        *string `pulumi:"name"`
+	RuleSetBody string  `pulumi:"ruleSetBody"`
 }
 
 // The set of arguments for constructing a MatchmakingRuleSet resource.
 type MatchmakingRuleSetArgs struct {
-	Name        pulumi.StringInput
+	Name        pulumi.StringPtrInput
 	RuleSetBody pulumi.StringInput
 }
 

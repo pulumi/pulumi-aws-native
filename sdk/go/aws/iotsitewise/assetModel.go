@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,12 +36,9 @@ type AssetModel struct {
 func NewAssetModel(ctx *pulumi.Context,
 	name string, args *AssetModelArgs, opts ...pulumi.ResourceOption) (*AssetModel, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &AssetModelArgs{}
 	}
 
-	if args.AssetModelName == nil {
-		return nil, errors.New("invalid value for required argument 'AssetModelName'")
-	}
 	var resource AssetModel
 	err := ctx.RegisterResource("aws-native:iotsitewise:AssetModel", name, args, &resource, opts...)
 	if err != nil {
@@ -82,7 +78,7 @@ type assetModelArgs struct {
 	// The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.
 	AssetModelHierarchies []AssetModelHierarchy `pulumi:"assetModelHierarchies"`
 	// A unique, friendly name for the asset model.
-	AssetModelName string `pulumi:"assetModelName"`
+	AssetModelName *string `pulumi:"assetModelName"`
 	// The property definitions of the asset model. You can specify up to 200 properties per asset model.
 	AssetModelProperties []AssetModelProperty `pulumi:"assetModelProperties"`
 	// A list of key-value pairs that contain metadata for the asset model.
@@ -98,7 +94,7 @@ type AssetModelArgs struct {
 	// The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.
 	AssetModelHierarchies AssetModelHierarchyArrayInput
 	// A unique, friendly name for the asset model.
-	AssetModelName pulumi.StringInput
+	AssetModelName pulumi.StringPtrInput
 	// The property definitions of the asset model. You can specify up to 200 properties per asset model.
 	AssetModelProperties AssetModelPropertyArrayInput
 	// A list of key-value pairs that contain metadata for the asset model.

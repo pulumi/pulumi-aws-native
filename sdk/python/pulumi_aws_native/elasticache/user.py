@@ -16,28 +16,29 @@ class UserArgs:
     def __init__(__self__, *,
                  engine: pulumi.Input['UserEngine'],
                  user_id: pulumi.Input[str],
-                 user_name: pulumi.Input[str],
                  access_string: Optional[pulumi.Input[str]] = None,
                  no_password_required: Optional[pulumi.Input[bool]] = None,
-                 passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 user_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a User resource.
         :param pulumi.Input['UserEngine'] engine: Must be redis.
         :param pulumi.Input[str] user_id: The ID of the user.
-        :param pulumi.Input[str] user_name: The username of the user.
         :param pulumi.Input[str] access_string: Access permissions string used for this user account.
         :param pulumi.Input[bool] no_password_required: Indicates a password is not required for this user account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: Passwords used for this user account. You can create up to two passwords for each user.
+        :param pulumi.Input[str] user_name: The username of the user.
         """
         pulumi.set(__self__, "engine", engine)
         pulumi.set(__self__, "user_id", user_id)
-        pulumi.set(__self__, "user_name", user_name)
         if access_string is not None:
             pulumi.set(__self__, "access_string", access_string)
         if no_password_required is not None:
             pulumi.set(__self__, "no_password_required", no_password_required)
         if passwords is not None:
             pulumi.set(__self__, "passwords", passwords)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
 
     @property
     @pulumi.getter
@@ -62,18 +63,6 @@ class UserArgs:
     @user_id.setter
     def user_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "user_id", value)
-
-    @property
-    @pulumi.getter(name="userName")
-    def user_name(self) -> pulumi.Input[str]:
-        """
-        The username of the user.
-        """
-        return pulumi.get(self, "user_name")
-
-    @user_name.setter
-    def user_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "user_name", value)
 
     @property
     @pulumi.getter(name="accessString")
@@ -110,6 +99,18 @@ class UserArgs:
     @passwords.setter
     def passwords(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "passwords", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The username of the user.
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name", value)
 
 
 class User(pulumi.CustomResource):
@@ -187,8 +188,6 @@ class User(pulumi.CustomResource):
             if user_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_id'")
             __props__.__dict__["user_id"] = user_id
-            if user_name is None and not opts.urn:
-                raise TypeError("Missing required property 'user_name'")
             __props__.__dict__["user_name"] = user_name
             __props__.__dict__["arn"] = None
             __props__.__dict__["status"] = None

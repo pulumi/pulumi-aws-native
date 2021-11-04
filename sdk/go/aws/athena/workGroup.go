@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,12 +36,9 @@ type WorkGroup struct {
 func NewWorkGroup(ctx *pulumi.Context,
 	name string, args *WorkGroupArgs, opts ...pulumi.ResourceOption) (*WorkGroup, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &WorkGroupArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource WorkGroup
 	err := ctx.RegisterResource("aws-native:athena:WorkGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -78,7 +74,7 @@ type workGroupArgs struct {
 	// The workgroup description.
 	Description *string `pulumi:"description"`
 	// The workGroup name.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The option to delete the workgroup and its contents even if the workgroup contains any named queries.
 	RecursiveDeleteOption *bool `pulumi:"recursiveDeleteOption"`
 	// The state of the workgroup: ENABLED or DISABLED.
@@ -96,7 +92,7 @@ type WorkGroupArgs struct {
 	// The workgroup description.
 	Description pulumi.StringPtrInput
 	// The workGroup name.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The option to delete the workgroup and its contents even if the workgroup contains any named queries.
 	RecursiveDeleteOption pulumi.BoolPtrInput
 	// The state of the workgroup: ENABLED or DISABLED.

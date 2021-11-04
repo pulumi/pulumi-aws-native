@@ -16,17 +16,18 @@ __all__ = ['SegmentArgs', 'Segment']
 class SegmentArgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  dimensions: Optional[pulumi.Input['SegmentDimensionsArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  segment_groups: Optional[pulumi.Input['SegmentGroupsArgs']] = None,
                  tags: Optional[Any] = None):
         """
         The set of arguments for constructing a Segment resource.
         """
         pulumi.set(__self__, "application_id", application_id)
-        pulumi.set(__self__, "name", name)
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if segment_groups is not None:
             pulumi.set(__self__, "segment_groups", segment_groups)
         if tags is not None:
@@ -43,21 +44,21 @@ class SegmentArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
     def dimensions(self) -> Optional[pulumi.Input['SegmentDimensionsArgs']]:
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
     def dimensions(self, value: Optional[pulumi.Input['SegmentDimensionsArgs']]):
         pulumi.set(self, "dimensions", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="segmentGroups")
@@ -146,8 +147,6 @@ class Segment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'application_id'")
             __props__.__dict__["application_id"] = application_id
             __props__.__dict__["dimensions"] = dimensions
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["segment_groups"] = segment_groups
             __props__.__dict__["tags"] = tags

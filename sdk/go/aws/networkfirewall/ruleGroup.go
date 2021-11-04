@@ -35,9 +35,6 @@ func NewRuleGroup(ctx *pulumi.Context,
 	if args.Capacity == nil {
 		return nil, errors.New("invalid value for required argument 'Capacity'")
 	}
-	if args.RuleGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'RuleGroupName'")
-	}
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
@@ -76,7 +73,7 @@ type ruleGroupArgs struct {
 	Capacity      int               `pulumi:"capacity"`
 	Description   *string           `pulumi:"description"`
 	RuleGroup     *RuleGroupType    `pulumi:"ruleGroup"`
-	RuleGroupName string            `pulumi:"ruleGroupName"`
+	RuleGroupName *string           `pulumi:"ruleGroupName"`
 	Tags          []RuleGroupTag    `pulumi:"tags"`
 	Type          RuleGroupTypeEnum `pulumi:"type"`
 }
@@ -86,7 +83,7 @@ type RuleGroupArgs struct {
 	Capacity      pulumi.IntInput
 	Description   pulumi.StringPtrInput
 	RuleGroup     RuleGroupTypePtrInput
-	RuleGroupName pulumi.StringInput
+	RuleGroupName pulumi.StringPtrInput
 	Tags          RuleGroupTagArrayInput
 	Type          RuleGroupTypeEnumInput
 }

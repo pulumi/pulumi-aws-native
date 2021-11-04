@@ -15,24 +15,25 @@ __all__ = ['ConformancePackArgs', 'ConformancePack']
 @pulumi.input_type
 class ConformancePackArgs:
     def __init__(__self__, *,
-                 conformance_pack_name: pulumi.Input[str],
                  conformance_pack_input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ConformancePackInputParameterArgs']]]] = None,
+                 conformance_pack_name: Optional[pulumi.Input[str]] = None,
                  delivery_s3_bucket: Optional[pulumi.Input[str]] = None,
                  delivery_s3_key_prefix: Optional[pulumi.Input[str]] = None,
                  template_body: Optional[pulumi.Input[str]] = None,
                  template_s3_uri: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ConformancePack resource.
-        :param pulumi.Input[str] conformance_pack_name: Name of the conformance pack which will be assigned as the unique identifier.
         :param pulumi.Input[Sequence[pulumi.Input['ConformancePackInputParameterArgs']]] conformance_pack_input_parameters: A list of ConformancePackInputParameter objects.
+        :param pulumi.Input[str] conformance_pack_name: Name of the conformance pack which will be assigned as the unique identifier.
         :param pulumi.Input[str] delivery_s3_bucket: AWS Config stores intermediate files while processing conformance pack template.
         :param pulumi.Input[str] delivery_s3_key_prefix: The prefix for delivery S3 bucket.
         :param pulumi.Input[str] template_body: A string containing full conformance pack template body. You can only specify one of the template body or template S3Uri fields.
         :param pulumi.Input[str] template_s3_uri: Location of file containing the template body which points to the conformance pack template that is located in an Amazon S3 bucket. You can only specify one of the template body or template S3Uri fields.
         """
-        pulumi.set(__self__, "conformance_pack_name", conformance_pack_name)
         if conformance_pack_input_parameters is not None:
             pulumi.set(__self__, "conformance_pack_input_parameters", conformance_pack_input_parameters)
+        if conformance_pack_name is not None:
+            pulumi.set(__self__, "conformance_pack_name", conformance_pack_name)
         if delivery_s3_bucket is not None:
             pulumi.set(__self__, "delivery_s3_bucket", delivery_s3_bucket)
         if delivery_s3_key_prefix is not None:
@@ -41,18 +42,6 @@ class ConformancePackArgs:
             pulumi.set(__self__, "template_body", template_body)
         if template_s3_uri is not None:
             pulumi.set(__self__, "template_s3_uri", template_s3_uri)
-
-    @property
-    @pulumi.getter(name="conformancePackName")
-    def conformance_pack_name(self) -> pulumi.Input[str]:
-        """
-        Name of the conformance pack which will be assigned as the unique identifier.
-        """
-        return pulumi.get(self, "conformance_pack_name")
-
-    @conformance_pack_name.setter
-    def conformance_pack_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "conformance_pack_name", value)
 
     @property
     @pulumi.getter(name="conformancePackInputParameters")
@@ -65,6 +54,18 @@ class ConformancePackArgs:
     @conformance_pack_input_parameters.setter
     def conformance_pack_input_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConformancePackInputParameterArgs']]]]):
         pulumi.set(self, "conformance_pack_input_parameters", value)
+
+    @property
+    @pulumi.getter(name="conformancePackName")
+    def conformance_pack_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the conformance pack which will be assigned as the unique identifier.
+        """
+        return pulumi.get(self, "conformance_pack_name")
+
+    @conformance_pack_name.setter
+    def conformance_pack_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "conformance_pack_name", value)
 
     @property
     @pulumi.getter(name="deliveryS3Bucket")
@@ -143,7 +144,7 @@ class ConformancePack(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ConformancePackArgs,
+                 args: Optional[ConformancePackArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed as a single entity in an account and a region or across an entire AWS Organization.
@@ -182,8 +183,6 @@ class ConformancePack(pulumi.CustomResource):
             __props__ = ConformancePackArgs.__new__(ConformancePackArgs)
 
             __props__.__dict__["conformance_pack_input_parameters"] = conformance_pack_input_parameters
-            if conformance_pack_name is None and not opts.urn:
-                raise TypeError("Missing required property 'conformance_pack_name'")
             __props__.__dict__["conformance_pack_name"] = conformance_pack_name
             __props__.__dict__["delivery_s3_bucket"] = delivery_s3_bucket
             __props__.__dict__["delivery_s3_key_prefix"] = delivery_s3_key_prefix

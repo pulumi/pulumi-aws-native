@@ -105,8 +105,8 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <summary>
         /// A unique, friendly name for the gateway.
         /// </summary>
-        [Input("gatewayName", required: true)]
-        public Input<string> GatewayName { get; set; } = null!;
+        [Input("gatewayName")]
+        public Input<string>? GatewayName { get; set; }
 
         /// <summary>
         /// The gateway's platform. You can only specify one platform in a gateway.

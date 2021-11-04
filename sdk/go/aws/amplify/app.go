@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,12 +38,9 @@ type App struct {
 func NewApp(ctx *pulumi.Context,
 	name string, args *AppArgs, opts ...pulumi.ResourceOption) (*App, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &AppArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource App
 	err := ctx.RegisterResource("aws-native:amplify:App", name, args, &resource, opts...)
 	if err != nil {
@@ -87,7 +83,7 @@ type appArgs struct {
 	EnableBranchAutoDeletion *bool                        `pulumi:"enableBranchAutoDeletion"`
 	EnvironmentVariables     []AppEnvironmentVariable     `pulumi:"environmentVariables"`
 	IAMServiceRole           *string                      `pulumi:"iAMServiceRole"`
-	Name                     string                       `pulumi:"name"`
+	Name                     *string                      `pulumi:"name"`
 	OauthToken               *string                      `pulumi:"oauthToken"`
 	Repository               *string                      `pulumi:"repository"`
 	Tags                     []AppTag                     `pulumi:"tags"`
@@ -105,7 +101,7 @@ type AppArgs struct {
 	EnableBranchAutoDeletion pulumi.BoolPtrInput
 	EnvironmentVariables     AppEnvironmentVariableArrayInput
 	IAMServiceRole           pulumi.StringPtrInput
-	Name                     pulumi.StringInput
+	Name                     pulumi.StringPtrInput
 	OauthToken               pulumi.StringPtrInput
 	Repository               pulumi.StringPtrInput
 	Tags                     AppTagArrayInput

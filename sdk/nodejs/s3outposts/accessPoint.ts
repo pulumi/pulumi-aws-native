@@ -70,9 +70,6 @@ export class AccessPoint extends pulumi.CustomResource {
             if ((!args || args.bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.vpcConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcConfiguration'");
             }
@@ -106,7 +103,7 @@ export interface AccessPointArgs {
     /**
      * A name for the AccessPoint.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The access point policy associated with this access point.
      */

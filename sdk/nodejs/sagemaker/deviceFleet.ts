@@ -67,9 +67,6 @@ export class DeviceFleet extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.deviceFleetName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'deviceFleetName'");
-            }
             if ((!args || args.outputConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'outputConfig'");
             }
@@ -106,7 +103,7 @@ export interface DeviceFleetArgs {
     /**
      * The name of the edge device fleet
      */
-    deviceFleetName: pulumi.Input<string>;
+    deviceFleetName?: pulumi.Input<string>;
     /**
      * S3 bucket and an ecryption key id (if available) to store outputs for the fleet
      */

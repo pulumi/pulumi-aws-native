@@ -17,23 +17,24 @@ __all__ = ['QuickConnectArgs', 'QuickConnect']
 class QuickConnectArgs:
     def __init__(__self__, *,
                  instance_arn: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  quick_connect_config: pulumi.Input['QuickConnectConfigArgs'],
                  description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectTagArgs']]]] = None):
         """
         The set of arguments for constructing a QuickConnect resource.
         :param pulumi.Input[str] instance_arn: The identifier of the Amazon Connect instance.
-        :param pulumi.Input[str] name: The name of the quick connect.
         :param pulumi.Input['QuickConnectConfigArgs'] quick_connect_config: Configuration settings for the quick connect.
         :param pulumi.Input[str] description: The description of the quick connect.
+        :param pulumi.Input[str] name: The name of the quick connect.
         :param pulumi.Input[Sequence[pulumi.Input['QuickConnectTagArgs']]] tags: One or more tags.
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "quick_connect_config", quick_connect_config)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -48,18 +49,6 @@ class QuickConnectArgs:
     @instance_arn.setter
     def instance_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "instance_arn", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the quick connect.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="quickConnectConfig")
@@ -84,6 +73,18 @@ class QuickConnectArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the quick connect.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -165,8 +166,6 @@ class QuickConnect(pulumi.CustomResource):
             if instance_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_arn'")
             __props__.__dict__["instance_arn"] = instance_arn
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if quick_connect_config is None and not opts.urn:
                 raise TypeError("Missing required property 'quick_connect_config'")

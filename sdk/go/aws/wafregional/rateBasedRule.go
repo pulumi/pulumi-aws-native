@@ -34,9 +34,6 @@ func NewRateBasedRule(ctx *pulumi.Context,
 	if args.MetricName == nil {
 		return nil, errors.New("invalid value for required argument 'MetricName'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.RateKey == nil {
 		return nil, errors.New("invalid value for required argument 'RateKey'")
 	}
@@ -77,7 +74,7 @@ func (RateBasedRuleState) ElementType() reflect.Type {
 type rateBasedRuleArgs struct {
 	MatchPredicates []RateBasedRulePredicate `pulumi:"matchPredicates"`
 	MetricName      string                   `pulumi:"metricName"`
-	Name            string                   `pulumi:"name"`
+	Name            *string                  `pulumi:"name"`
 	RateKey         string                   `pulumi:"rateKey"`
 	RateLimit       int                      `pulumi:"rateLimit"`
 }
@@ -86,7 +83,7 @@ type rateBasedRuleArgs struct {
 type RateBasedRuleArgs struct {
 	MatchPredicates RateBasedRulePredicateArrayInput
 	MetricName      pulumi.StringInput
-	Name            pulumi.StringInput
+	Name            pulumi.StringPtrInput
 	RateKey         pulumi.StringInput
 	RateLimit       pulumi.IntInput
 }

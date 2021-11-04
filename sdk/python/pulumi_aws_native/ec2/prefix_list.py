@@ -18,22 +18,23 @@ class PrefixListArgs:
     def __init__(__self__, *,
                  address_family: pulumi.Input['PrefixListAddressFamily'],
                  max_entries: pulumi.Input[int],
-                 prefix_list_name: pulumi.Input[str],
                  entries: Optional[pulumi.Input[Sequence[pulumi.Input['PrefixListEntryArgs']]]] = None,
+                 prefix_list_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['PrefixListTagArgs']]]] = None):
         """
         The set of arguments for constructing a PrefixList resource.
         :param pulumi.Input['PrefixListAddressFamily'] address_family: Ip Version of Prefix List.
         :param pulumi.Input[int] max_entries: Max Entries of Prefix List.
-        :param pulumi.Input[str] prefix_list_name: Name of Prefix List.
         :param pulumi.Input[Sequence[pulumi.Input['PrefixListEntryArgs']]] entries: Entries of Prefix List.
+        :param pulumi.Input[str] prefix_list_name: Name of Prefix List.
         :param pulumi.Input[Sequence[pulumi.Input['PrefixListTagArgs']]] tags: Tags for Prefix List
         """
         pulumi.set(__self__, "address_family", address_family)
         pulumi.set(__self__, "max_entries", max_entries)
-        pulumi.set(__self__, "prefix_list_name", prefix_list_name)
         if entries is not None:
             pulumi.set(__self__, "entries", entries)
+        if prefix_list_name is not None:
+            pulumi.set(__self__, "prefix_list_name", prefix_list_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -62,18 +63,6 @@ class PrefixListArgs:
         pulumi.set(self, "max_entries", value)
 
     @property
-    @pulumi.getter(name="prefixListName")
-    def prefix_list_name(self) -> pulumi.Input[str]:
-        """
-        Name of Prefix List.
-        """
-        return pulumi.get(self, "prefix_list_name")
-
-    @prefix_list_name.setter
-    def prefix_list_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "prefix_list_name", value)
-
-    @property
     @pulumi.getter
     def entries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrefixListEntryArgs']]]]:
         """
@@ -84,6 +73,18 @@ class PrefixListArgs:
     @entries.setter
     def entries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrefixListEntryArgs']]]]):
         pulumi.set(self, "entries", value)
+
+    @property
+    @pulumi.getter(name="prefixListName")
+    def prefix_list_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of Prefix List.
+        """
+        return pulumi.get(self, "prefix_list_name")
+
+    @prefix_list_name.setter
+    def prefix_list_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix_list_name", value)
 
     @property
     @pulumi.getter
@@ -168,8 +169,6 @@ class PrefixList(pulumi.CustomResource):
             if max_entries is None and not opts.urn:
                 raise TypeError("Missing required property 'max_entries'")
             __props__.__dict__["max_entries"] = max_entries
-            if prefix_list_name is None and not opts.urn:
-                raise TypeError("Missing required property 'prefix_list_name'")
             __props__.__dict__["prefix_list_name"] = prefix_list_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

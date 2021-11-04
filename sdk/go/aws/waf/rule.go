@@ -32,9 +32,6 @@ func NewRule(ctx *pulumi.Context,
 	if args.MetricName == nil {
 		return nil, errors.New("invalid value for required argument 'MetricName'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource Rule
 	err := ctx.RegisterResource("aws-native:waf:Rule", name, args, &resource, opts...)
 	if err != nil {
@@ -68,14 +65,14 @@ func (RuleState) ElementType() reflect.Type {
 
 type ruleArgs struct {
 	MetricName string          `pulumi:"metricName"`
-	Name       string          `pulumi:"name"`
+	Name       *string         `pulumi:"name"`
 	Predicates []RulePredicate `pulumi:"predicates"`
 }
 
 // The set of arguments for constructing a Rule resource.
 type RuleArgs struct {
 	MetricName pulumi.StringInput
-	Name       pulumi.StringInput
+	Name       pulumi.StringPtrInput
 	Predicates RulePredicateArrayInput
 }
 

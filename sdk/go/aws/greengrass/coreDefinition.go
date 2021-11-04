@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,12 +27,9 @@ type CoreDefinition struct {
 func NewCoreDefinition(ctx *pulumi.Context,
 	name string, args *CoreDefinitionArgs, opts ...pulumi.ResourceOption) (*CoreDefinition, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &CoreDefinitionArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource CoreDefinition
 	err := ctx.RegisterResource("aws-native:greengrass:CoreDefinition", name, args, &resource, opts...)
 	if err != nil {
@@ -67,14 +63,14 @@ func (CoreDefinitionState) ElementType() reflect.Type {
 
 type coreDefinitionArgs struct {
 	InitialVersion *CoreDefinitionVersionType `pulumi:"initialVersion"`
-	Name           string                     `pulumi:"name"`
+	Name           *string                    `pulumi:"name"`
 	Tags           interface{}                `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CoreDefinition resource.
 type CoreDefinitionArgs struct {
 	InitialVersion CoreDefinitionVersionTypePtrInput
-	Name           pulumi.StringInput
+	Name           pulumi.StringPtrInput
 	Tags           pulumi.Input
 }
 

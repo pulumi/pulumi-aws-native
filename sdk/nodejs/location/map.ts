@@ -59,9 +59,6 @@ export class Map extends pulumi.CustomResource {
             if ((!args || args.configuration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'configuration'");
             }
-            if ((!args || args.mapName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'mapName'");
-            }
             if ((!args || args.pricingPlan === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'pricingPlan'");
             }
@@ -98,6 +95,6 @@ export class Map extends pulumi.CustomResource {
 export interface MapArgs {
     configuration: pulumi.Input<inputs.location.MapConfigurationArgs>;
     description?: pulumi.Input<string>;
-    mapName: pulumi.Input<string>;
+    mapName?: pulumi.Input<string>;
     pricingPlan: pulumi.Input<enums.location.MapPricingPlan>;
 }

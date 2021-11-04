@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,12 +31,9 @@ type GameSessionQueue struct {
 func NewGameSessionQueue(ctx *pulumi.Context,
 	name string, args *GameSessionQueueArgs, opts ...pulumi.ResourceOption) (*GameSessionQueue, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &GameSessionQueueArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource GameSessionQueue
 	err := ctx.RegisterResource("aws-native:gamelift:GameSessionQueue", name, args, &resource, opts...)
 	if err != nil {
@@ -73,7 +69,7 @@ type gameSessionQueueArgs struct {
 	CustomEventData       *string                                `pulumi:"customEventData"`
 	Destinations          []GameSessionQueueDestination          `pulumi:"destinations"`
 	FilterConfiguration   *GameSessionQueueFilterConfiguration   `pulumi:"filterConfiguration"`
-	Name                  string                                 `pulumi:"name"`
+	Name                  *string                                `pulumi:"name"`
 	NotificationTarget    *string                                `pulumi:"notificationTarget"`
 	PlayerLatencyPolicies []GameSessionQueuePlayerLatencyPolicy  `pulumi:"playerLatencyPolicies"`
 	PriorityConfiguration *GameSessionQueuePriorityConfiguration `pulumi:"priorityConfiguration"`
@@ -85,7 +81,7 @@ type GameSessionQueueArgs struct {
 	CustomEventData       pulumi.StringPtrInput
 	Destinations          GameSessionQueueDestinationArrayInput
 	FilterConfiguration   GameSessionQueueFilterConfigurationPtrInput
-	Name                  pulumi.StringInput
+	Name                  pulumi.StringPtrInput
 	NotificationTarget    pulumi.StringPtrInput
 	PlayerLatencyPolicies GameSessionQueuePlayerLatencyPolicyArrayInput
 	PriorityConfiguration GameSessionQueuePriorityConfigurationPtrInput

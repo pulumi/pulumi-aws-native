@@ -18,29 +18,30 @@ class LaunchProfileArgs:
     def __init__(__self__, *,
                  ec2_subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  launch_profile_protocol_versions: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 name: pulumi.Input[str],
                  stream_configuration: pulumi.Input['LaunchProfileStreamConfigurationArgs'],
                  studio_component_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  studio_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input['LaunchProfileTagsArgs']] = None):
         """
         The set of arguments for constructing a LaunchProfile resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ec2_subnet_ids: <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from. These subnets must support the specified instance types. </p>
         :param pulumi.Input[Sequence[pulumi.Input[str]]] launch_profile_protocol_versions: <p>The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".</p>
-        :param pulumi.Input[str] name: <p>The name for the launch profile.</p>
         :param pulumi.Input[Sequence[pulumi.Input[str]]] studio_component_ids: <p>Unique identifiers for a collection of studio components that can be used with this launch profile.</p>
         :param pulumi.Input[str] studio_id: <p>The studioId. </p>
         :param pulumi.Input[str] description: <p>The description.</p>
+        :param pulumi.Input[str] name: <p>The name for the launch profile.</p>
         """
         pulumi.set(__self__, "ec2_subnet_ids", ec2_subnet_ids)
         pulumi.set(__self__, "launch_profile_protocol_versions", launch_profile_protocol_versions)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "stream_configuration", stream_configuration)
         pulumi.set(__self__, "studio_component_ids", studio_component_ids)
         pulumi.set(__self__, "studio_id", studio_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -67,18 +68,6 @@ class LaunchProfileArgs:
     @launch_profile_protocol_versions.setter
     def launch_profile_protocol_versions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "launch_profile_protocol_versions", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        <p>The name for the launch profile.</p>
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="streamConfiguration")
@@ -124,6 +113,18 @@ class LaunchProfileArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The name for the launch profile.</p>
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -212,8 +213,6 @@ class LaunchProfile(pulumi.CustomResource):
             if launch_profile_protocol_versions is None and not opts.urn:
                 raise TypeError("Missing required property 'launch_profile_protocol_versions'")
             __props__.__dict__["launch_profile_protocol_versions"] = launch_profile_protocol_versions
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if stream_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'stream_configuration'")

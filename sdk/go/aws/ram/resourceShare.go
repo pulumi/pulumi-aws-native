@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,12 +29,9 @@ type ResourceShare struct {
 func NewResourceShare(ctx *pulumi.Context,
 	name string, args *ResourceShareArgs, opts ...pulumi.ResourceOption) (*ResourceShare, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ResourceShareArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource ResourceShare
 	err := ctx.RegisterResource("aws-native:ram:ResourceShare", name, args, &resource, opts...)
 	if err != nil {
@@ -69,7 +65,7 @@ func (ResourceShareState) ElementType() reflect.Type {
 
 type resourceShareArgs struct {
 	AllowExternalPrincipals *bool              `pulumi:"allowExternalPrincipals"`
-	Name                    string             `pulumi:"name"`
+	Name                    *string            `pulumi:"name"`
 	PermissionArns          []string           `pulumi:"permissionArns"`
 	Principals              []string           `pulumi:"principals"`
 	ResourceArns            []string           `pulumi:"resourceArns"`
@@ -79,7 +75,7 @@ type resourceShareArgs struct {
 // The set of arguments for constructing a ResourceShare resource.
 type ResourceShareArgs struct {
 	AllowExternalPrincipals pulumi.BoolPtrInput
-	Name                    pulumi.StringInput
+	Name                    pulumi.StringPtrInput
 	PermissionArns          pulumi.StringArrayInput
 	Principals              pulumi.StringArrayInput
 	ResourceArns            pulumi.StringArrayInput

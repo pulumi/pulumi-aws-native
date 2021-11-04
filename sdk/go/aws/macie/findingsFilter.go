@@ -41,9 +41,6 @@ func NewFindingsFilter(ctx *pulumi.Context,
 	if args.FindingCriteria == nil {
 		return nil, errors.New("invalid value for required argument 'FindingCriteria'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource FindingsFilter
 	err := ctx.RegisterResource("aws-native:macie:FindingsFilter", name, args, &resource, opts...)
 	if err != nil {
@@ -83,7 +80,7 @@ type findingsFilterArgs struct {
 	// Findings filter criteria.
 	FindingCriteria FindingsFilterFindingCriteria `pulumi:"findingCriteria"`
 	// Findings filter name
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Findings filter position.
 	Position *int `pulumi:"position"`
 }
@@ -97,7 +94,7 @@ type FindingsFilterArgs struct {
 	// Findings filter criteria.
 	FindingCriteria FindingsFilterFindingCriteriaInput
 	// Findings filter name
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Findings filter position.
 	Position pulumi.IntPtrInput
 }

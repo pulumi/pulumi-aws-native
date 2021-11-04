@@ -110,8 +110,8 @@ namespace Pulumi.AwsNative.CodeStarNotifications
             set => _eventTypeIds = value;
         }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("resource", required: true)]
         public Input<string> Resource { get; set; } = null!;

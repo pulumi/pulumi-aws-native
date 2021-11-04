@@ -70,9 +70,6 @@ export class DistributionConfiguration extends pulumi.CustomResource {
             if ((!args || args.distributions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'distributions'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["description"] = args ? args.description : undefined;
             inputs["distributions"] = args ? args.distributions : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -107,7 +104,7 @@ export interface DistributionConfigurationArgs {
     /**
      * The name of the distribution configuration.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The tags associated with the component.
      */

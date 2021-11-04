@@ -36,9 +36,6 @@ func NewResourceSet(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ResourceSetName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceSetName'")
-	}
 	if args.ResourceSetType == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceSetType'")
 	}
@@ -78,7 +75,7 @@ func (ResourceSetState) ElementType() reflect.Type {
 
 type resourceSetArgs struct {
 	// The name of the resource set to create.
-	ResourceSetName string `pulumi:"resourceSetName"`
+	ResourceSetName *string `pulumi:"resourceSetName"`
 	// The resource type of the resources in the resource set. Enter one of the following values for resource type:
 	//
 	// AWS: :AutoScaling: :AutoScalingGroup, AWS: :CloudWatch: :Alarm, AWS: :EC2: :CustomerGateway, AWS: :DynamoDB: :Table, AWS: :EC2: :Volume, AWS: :ElasticLoadBalancing: :LoadBalancer, AWS: :ElasticLoadBalancingV2: :LoadBalancer, AWS: :MSK: :Cluster, AWS: :RDS: :DBCluster, AWS: :Route53: :HealthCheck, AWS: :SQS: :Queue, AWS: :SNS: :Topic, AWS: :SNS: :Subscription, AWS: :EC2: :VPC, AWS: :EC2: :VPNConnection, AWS: :EC2: :VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource
@@ -92,7 +89,7 @@ type resourceSetArgs struct {
 // The set of arguments for constructing a ResourceSet resource.
 type ResourceSetArgs struct {
 	// The name of the resource set to create.
-	ResourceSetName pulumi.StringInput
+	ResourceSetName pulumi.StringPtrInput
 	// The resource type of the resources in the resource set. Enter one of the following values for resource type:
 	//
 	// AWS: :AutoScaling: :AutoScalingGroup, AWS: :CloudWatch: :Alarm, AWS: :EC2: :CustomerGateway, AWS: :DynamoDB: :Table, AWS: :EC2: :Volume, AWS: :ElasticLoadBalancing: :LoadBalancer, AWS: :ElasticLoadBalancingV2: :LoadBalancer, AWS: :MSK: :Cluster, AWS: :RDS: :DBCluster, AWS: :Route53: :HealthCheck, AWS: :SQS: :Queue, AWS: :SNS: :Topic, AWS: :SNS: :Subscription, AWS: :EC2: :VPC, AWS: :EC2: :VPNConnection, AWS: :EC2: :VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource

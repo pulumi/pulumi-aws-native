@@ -159,8 +159,8 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <summary>
         /// The name of the image recipe.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The parent image of the image recipe.

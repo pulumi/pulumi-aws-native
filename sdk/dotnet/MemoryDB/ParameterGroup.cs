@@ -111,8 +111,8 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// The name of the parameter group.
         /// </summary>
-        [Input("parameterGroupName", required: true)]
-        public Input<string> ParameterGroupName { get; set; } = null!;
+        [Input("parameterGroupName")]
+        public Input<string>? ParameterGroupName { get; set; }
 
         /// <summary>
         /// An map of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional.

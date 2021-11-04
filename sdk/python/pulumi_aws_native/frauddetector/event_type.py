@@ -19,21 +19,22 @@ class EventTypeArgs:
                  entity_types: pulumi.Input[Sequence[pulumi.Input['EventTypeEntityTypeArgs']]],
                  event_variables: pulumi.Input[Sequence[pulumi.Input['EventTypeEventVariableArgs']]],
                  labels: pulumi.Input[Sequence[pulumi.Input['EventTypeLabelArgs']]],
-                 name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['EventTypeTagArgs']]]] = None):
         """
         The set of arguments for constructing a EventType resource.
-        :param pulumi.Input[str] name: The name for the event type
         :param pulumi.Input[str] description: The description of the event type.
+        :param pulumi.Input[str] name: The name for the event type
         :param pulumi.Input[Sequence[pulumi.Input['EventTypeTagArgs']]] tags: Tags associated with this event type.
         """
         pulumi.set(__self__, "entity_types", entity_types)
         pulumi.set(__self__, "event_variables", event_variables)
         pulumi.set(__self__, "labels", labels)
-        pulumi.set(__self__, "name", name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -66,18 +67,6 @@ class EventTypeArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name for the event type
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
         The description of the event type.
@@ -87,6 +76,18 @@ class EventTypeArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for the event type
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -174,8 +175,6 @@ class EventType(pulumi.CustomResource):
             if labels is None and not opts.urn:
                 raise TypeError("Missing required property 'labels'")
             __props__.__dict__["labels"] = labels
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

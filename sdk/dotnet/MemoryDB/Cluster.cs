@@ -249,8 +249,8 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// The name of the cluster. This value must be unique as it also serves as the cluster identifier.
         /// </summary>
-        [Input("clusterName", required: true)]
-        public Input<string> ClusterName { get; set; } = null!;
+        [Input("clusterName")]
+        public Input<string>? ClusterName { get; set; }
 
         /// <summary>
         /// An optional description of the cluster.

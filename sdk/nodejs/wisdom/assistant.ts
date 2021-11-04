@@ -54,9 +54,6 @@ export class Assistant extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
@@ -88,7 +85,7 @@ export class Assistant extends pulumi.CustomResource {
  */
 export interface AssistantArgs {
     description?: pulumi.Input<string>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     serverSideEncryptionConfiguration?: pulumi.Input<inputs.wisdom.AssistantServerSideEncryptionConfigurationArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.wisdom.AssistantTagArgs>[]>;
     type: pulumi.Input<enums.wisdom.AssistantType>;

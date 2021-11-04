@@ -16,8 +16,8 @@ __all__ = ['ScheduleArgs', 'Schedule']
 class ScheduleArgs:
     def __init__(__self__, *,
                  cron_expression: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  job_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleTagArgs']]]] = None):
         """
         The set of arguments for constructing a Schedule resource.
@@ -25,9 +25,10 @@ class ScheduleArgs:
         :param pulumi.Input[str] name: Schedule Name
         """
         pulumi.set(__self__, "cron_expression", cron_expression)
-        pulumi.set(__self__, "name", name)
         if job_names is not None:
             pulumi.set(__self__, "job_names", job_names)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -44,18 +45,6 @@ class ScheduleArgs:
         pulumi.set(self, "cron_expression", value)
 
     @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Schedule Name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
     @pulumi.getter(name="jobNames")
     def job_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "job_names")
@@ -63,6 +52,18 @@ class ScheduleArgs:
     @job_names.setter
     def job_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "job_names", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Schedule Name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -136,8 +137,6 @@ class Schedule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cron_expression'")
             __props__.__dict__["cron_expression"] = cron_expression
             __props__.__dict__["job_names"] = job_names
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
         super(Schedule, __self__).__init__(

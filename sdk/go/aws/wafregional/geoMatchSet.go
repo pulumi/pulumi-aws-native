@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,12 +24,9 @@ type GeoMatchSet struct {
 func NewGeoMatchSet(ctx *pulumi.Context,
 	name string, args *GeoMatchSetArgs, opts ...pulumi.ResourceOption) (*GeoMatchSet, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &GeoMatchSetArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource GeoMatchSet
 	err := ctx.RegisterResource("aws-native:wafregional:GeoMatchSet", name, args, &resource, opts...)
 	if err != nil {
@@ -64,13 +60,13 @@ func (GeoMatchSetState) ElementType() reflect.Type {
 
 type geoMatchSetArgs struct {
 	GeoMatchConstraints []GeoMatchSetGeoMatchConstraint `pulumi:"geoMatchConstraints"`
-	Name                string                          `pulumi:"name"`
+	Name                *string                         `pulumi:"name"`
 }
 
 // The set of arguments for constructing a GeoMatchSet resource.
 type GeoMatchSetArgs struct {
 	GeoMatchConstraints GeoMatchSetGeoMatchConstraintArrayInput
-	Name                pulumi.StringInput
+	Name                pulumi.StringPtrInput
 }
 
 func (GeoMatchSetArgs) ElementType() reflect.Type {

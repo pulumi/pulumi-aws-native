@@ -31,9 +31,6 @@ func NewDevicePool(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ProjectArn == nil {
 		return nil, errors.New("invalid value for required argument 'ProjectArn'")
 	}
@@ -74,7 +71,7 @@ func (DevicePoolState) ElementType() reflect.Type {
 type devicePoolArgs struct {
 	Description *string          `pulumi:"description"`
 	MaxDevices  *int             `pulumi:"maxDevices"`
-	Name        string           `pulumi:"name"`
+	Name        *string          `pulumi:"name"`
 	ProjectArn  string           `pulumi:"projectArn"`
 	Rules       []DevicePoolRule `pulumi:"rules"`
 	Tags        []DevicePoolTag  `pulumi:"tags"`
@@ -84,7 +81,7 @@ type devicePoolArgs struct {
 type DevicePoolArgs struct {
 	Description pulumi.StringPtrInput
 	MaxDevices  pulumi.IntPtrInput
-	Name        pulumi.StringInput
+	Name        pulumi.StringPtrInput
 	ProjectArn  pulumi.StringInput
 	Rules       DevicePoolRuleArrayInput
 	Tags        DevicePoolTagArrayInput

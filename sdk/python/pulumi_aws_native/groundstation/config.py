@@ -17,13 +17,14 @@ __all__ = ['ConfigArgs', 'Config']
 class ConfigArgs:
     def __init__(__self__, *,
                  config_data: pulumi.Input['ConfigDataArgs'],
-                 name: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigTagArgs']]]] = None):
         """
         The set of arguments for constructing a Config resource.
         """
         pulumi.set(__self__, "config_data", config_data)
-        pulumi.set(__self__, "name", name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -38,11 +39,11 @@ class ConfigArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
     @property
@@ -112,8 +113,6 @@ class Config(pulumi.CustomResource):
             if config_data is None and not opts.urn:
                 raise TypeError("Missing required property 'config_data'")
             __props__.__dict__["config_data"] = config_data
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

@@ -44,9 +44,6 @@ func NewMatchmakingConfiguration(ctx *pulumi.Context,
 	if args.AcceptanceRequired == nil {
 		return nil, errors.New("invalid value for required argument 'AcceptanceRequired'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.RequestTimeoutSeconds == nil {
 		return nil, errors.New("invalid value for required argument 'RequestTimeoutSeconds'")
 	}
@@ -95,7 +92,7 @@ type matchmakingConfigurationArgs struct {
 	GameProperties           []MatchmakingConfigurationGameProperty `pulumi:"gameProperties"`
 	GameSessionData          *string                                `pulumi:"gameSessionData"`
 	GameSessionQueueArns     []string                               `pulumi:"gameSessionQueueArns"`
-	Name                     string                                 `pulumi:"name"`
+	Name                     *string                                `pulumi:"name"`
 	NotificationTarget       *string                                `pulumi:"notificationTarget"`
 	RequestTimeoutSeconds    int                                    `pulumi:"requestTimeoutSeconds"`
 	RuleSetName              string                                 `pulumi:"ruleSetName"`
@@ -113,7 +110,7 @@ type MatchmakingConfigurationArgs struct {
 	GameProperties           MatchmakingConfigurationGamePropertyArrayInput
 	GameSessionData          pulumi.StringPtrInput
 	GameSessionQueueArns     pulumi.StringArrayInput
-	Name                     pulumi.StringInput
+	Name                     pulumi.StringPtrInput
 	NotificationTarget       pulumi.StringPtrInput
 	RequestTimeoutSeconds    pulumi.IntInput
 	RuleSetName              pulumi.StringInput

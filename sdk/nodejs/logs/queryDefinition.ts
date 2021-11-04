@@ -62,9 +62,6 @@ export class QueryDefinition extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.queryString === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'queryString'");
             }
@@ -96,7 +93,7 @@ export interface QueryDefinitionArgs {
     /**
      * A name for the saved query definition
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The query string to use for this definition
      */

@@ -128,8 +128,8 @@ namespace Pulumi.AwsNative.GroundStation
         /// <summary>
         /// A name used to identify a mission profile.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.MissionProfileTagArgs>? _tags;

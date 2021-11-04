@@ -36,9 +36,6 @@ func NewMap(ctx *pulumi.Context,
 	if args.Configuration == nil {
 		return nil, errors.New("invalid value for required argument 'Configuration'")
 	}
-	if args.MapName == nil {
-		return nil, errors.New("invalid value for required argument 'MapName'")
-	}
 	if args.PricingPlan == nil {
 		return nil, errors.New("invalid value for required argument 'PricingPlan'")
 	}
@@ -76,7 +73,7 @@ func (MapState) ElementType() reflect.Type {
 type mapArgs struct {
 	Configuration MapConfiguration `pulumi:"configuration"`
 	Description   *string          `pulumi:"description"`
-	MapName       string           `pulumi:"mapName"`
+	MapName       *string          `pulumi:"mapName"`
 	PricingPlan   MapPricingPlan   `pulumi:"pricingPlan"`
 }
 
@@ -84,7 +81,7 @@ type mapArgs struct {
 type MapArgs struct {
 	Configuration MapConfigurationInput
 	Description   pulumi.StringPtrInput
-	MapName       pulumi.StringInput
+	MapName       pulumi.StringPtrInput
 	PricingPlan   MapPricingPlanInput
 }
 

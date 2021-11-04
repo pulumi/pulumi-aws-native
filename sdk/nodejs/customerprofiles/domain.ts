@@ -71,13 +71,10 @@ export class Domain extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DomainArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: DomainArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'domainName'");
-            }
             inputs["deadLetterQueueUrl"] = args ? args.deadLetterQueueUrl : undefined;
             inputs["defaultEncryptionKey"] = args ? args.defaultEncryptionKey : undefined;
             inputs["defaultExpirationDays"] = args ? args.defaultExpirationDays : undefined;
@@ -120,7 +117,7 @@ export interface DomainArgs {
     /**
      * The unique name of the domain.
      */
-    domainName: pulumi.Input<string>;
+    domainName?: pulumi.Input<string>;
     /**
      * The tags (keys and values) associated with the domain
      */

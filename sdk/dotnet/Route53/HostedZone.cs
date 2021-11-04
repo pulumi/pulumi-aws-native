@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.Route53
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public HostedZone(string name, HostedZoneArgs args, CustomResourceOptions? options = null)
+        public HostedZone(string name, HostedZoneArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:route53:HostedZone", name, args ?? new HostedZoneArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -113,8 +113,8 @@ namespace Pulumi.AwsNative.Route53
         /// 
         /// If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of NameServers that are returned by the Fn::GetAtt intrinsic function.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("queryLoggingConfig")]
         public Input<Inputs.HostedZoneQueryLoggingConfigArgs>? QueryLoggingConfig { get; set; }

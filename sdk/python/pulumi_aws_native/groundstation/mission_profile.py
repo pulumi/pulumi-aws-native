@@ -17,26 +17,27 @@ class MissionProfileArgs:
     def __init__(__self__, *,
                  dataflow_edges: pulumi.Input[Sequence[pulumi.Input['MissionProfileDataflowEdgeArgs']]],
                  minimum_viable_contact_duration_seconds: pulumi.Input[int],
-                 name: pulumi.Input[str],
                  tracking_config_arn: pulumi.Input[str],
                  contact_post_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
                  contact_pre_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['MissionProfileTagArgs']]]] = None):
         """
         The set of arguments for constructing a MissionProfile resource.
         :param pulumi.Input[int] minimum_viable_contact_duration_seconds: Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
-        :param pulumi.Input[str] name: A name used to identify a mission profile.
         :param pulumi.Input[int] contact_post_pass_duration_seconds: Post-pass time needed after the contact.
         :param pulumi.Input[int] contact_pre_pass_duration_seconds: Pre-pass time needed before the contact.
+        :param pulumi.Input[str] name: A name used to identify a mission profile.
         """
         pulumi.set(__self__, "dataflow_edges", dataflow_edges)
         pulumi.set(__self__, "minimum_viable_contact_duration_seconds", minimum_viable_contact_duration_seconds)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "tracking_config_arn", tracking_config_arn)
         if contact_post_pass_duration_seconds is not None:
             pulumi.set(__self__, "contact_post_pass_duration_seconds", contact_post_pass_duration_seconds)
         if contact_pre_pass_duration_seconds is not None:
             pulumi.set(__self__, "contact_pre_pass_duration_seconds", contact_pre_pass_duration_seconds)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -60,18 +61,6 @@ class MissionProfileArgs:
     @minimum_viable_contact_duration_seconds.setter
     def minimum_viable_contact_duration_seconds(self, value: pulumi.Input[int]):
         pulumi.set(self, "minimum_viable_contact_duration_seconds", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        A name used to identify a mission profile.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="trackingConfigArn")
@@ -105,6 +94,18 @@ class MissionProfileArgs:
     @contact_pre_pass_duration_seconds.setter
     def contact_pre_pass_duration_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "contact_pre_pass_duration_seconds", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name used to identify a mission profile.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -190,8 +191,6 @@ class MissionProfile(pulumi.CustomResource):
             if minimum_viable_contact_duration_seconds is None and not opts.urn:
                 raise TypeError("Missing required property 'minimum_viable_contact_duration_seconds'")
             __props__.__dict__["minimum_viable_contact_duration_seconds"] = minimum_viable_contact_duration_seconds
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             if tracking_config_arn is None and not opts.urn:

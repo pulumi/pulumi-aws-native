@@ -97,8 +97,8 @@ namespace Pulumi.AwsNative.DirectoryService
         [Input("enableSso")]
         public Input<bool>? EnableSso { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;

@@ -62,9 +62,6 @@ export class DataSource extends pulumi.CustomResource {
             if ((!args || args.indexId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'indexId'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
@@ -102,7 +99,7 @@ export interface DataSourceArgs {
     dataSourceConfiguration?: pulumi.Input<inputs.kendra.DataSourceConfigurationArgs>;
     description?: pulumi.Input<string>;
     indexId: pulumi.Input<string>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     roleArn?: pulumi.Input<string>;
     schedule?: pulumi.Input<string>;
     /**

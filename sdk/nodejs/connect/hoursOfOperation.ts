@@ -81,9 +81,6 @@ export class HoursOfOperation extends pulumi.CustomResource {
             if ((!args || args.instanceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.timeZone === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timeZone'");
             }
@@ -129,7 +126,7 @@ export interface HoursOfOperationArgs {
     /**
      * The name of the hours of operation.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * One or more tags.
      */

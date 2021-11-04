@@ -53,14 +53,11 @@ export class ConfigurationSet extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated ConfigurationSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
-    constructor(name: string, args: ConfigurationSetArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ConfigurationSetArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ConfigurationSet is deprecated: ConfigurationSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["deliveryOptions"] = args ? args.deliveryOptions : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["reputationOptions"] = args ? args.reputationOptions : undefined;
@@ -87,7 +84,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
  */
 export interface ConfigurationSetArgs {
     deliveryOptions?: pulumi.Input<inputs.pinpointemail.ConfigurationSetDeliveryOptionsArgs>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     reputationOptions?: pulumi.Input<inputs.pinpointemail.ConfigurationSetReputationOptionsArgs>;
     sendingOptions?: pulumi.Input<inputs.pinpointemail.ConfigurationSetSendingOptionsArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.pinpointemail.ConfigurationSetTagsArgs>[]>;

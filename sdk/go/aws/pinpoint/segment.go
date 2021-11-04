@@ -36,9 +36,6 @@ func NewSegment(ctx *pulumi.Context,
 	if args.ApplicationId == nil {
 		return nil, errors.New("invalid value for required argument 'ApplicationId'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource Segment
 	err := ctx.RegisterResource("aws-native:pinpoint:Segment", name, args, &resource, opts...)
 	if err != nil {
@@ -73,7 +70,7 @@ func (SegmentState) ElementType() reflect.Type {
 type segmentArgs struct {
 	ApplicationId string             `pulumi:"applicationId"`
 	Dimensions    *SegmentDimensions `pulumi:"dimensions"`
-	Name          string             `pulumi:"name"`
+	Name          *string            `pulumi:"name"`
 	SegmentGroups *SegmentGroups     `pulumi:"segmentGroups"`
 	Tags          interface{}        `pulumi:"tags"`
 }
@@ -82,7 +79,7 @@ type segmentArgs struct {
 type SegmentArgs struct {
 	ApplicationId pulumi.StringInput
 	Dimensions    SegmentDimensionsPtrInput
-	Name          pulumi.StringInput
+	Name          pulumi.StringPtrInput
 	SegmentGroups SegmentGroupsPtrInput
 	Tags          pulumi.Input
 }

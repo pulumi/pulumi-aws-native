@@ -189,8 +189,8 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <summary>
         /// The name of the infrastructure configuration.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The tags attached to the resource created by Image Builder.

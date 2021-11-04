@@ -16,30 +16,22 @@ __all__ = ['ProjectArgs', 'Project']
 @pulumi.input_type
 class ProjectArgs:
     def __init__(__self__, *,
-                 project_name: pulumi.Input[str],
                  service_catalog_provisioning_details: pulumi.Input['ServiceCatalogProvisioningDetailsPropertiesArgs'],
                  project_description: Optional[pulumi.Input[str]] = None,
+                 project_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]] = None):
         """
         The set of arguments for constructing a Project resource.
         :param pulumi.Input['ServiceCatalogProvisioningDetailsPropertiesArgs'] service_catalog_provisioning_details: Input ServiceCatalog Provisioning Details
         :param pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "service_catalog_provisioning_details", service_catalog_provisioning_details)
         if project_description is not None:
             pulumi.set(__self__, "project_description", project_description)
+        if project_name is not None:
+            pulumi.set(__self__, "project_name", project_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="projectName")
-    def project_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "project_name")
-
-    @project_name.setter
-    def project_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "project_name", value)
 
     @property
     @pulumi.getter(name="serviceCatalogProvisioningDetails")
@@ -61,6 +53,15 @@ class ProjectArgs:
     @project_description.setter
     def project_description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "project_description", value)
+
+    @property
+    @pulumi.getter(name="projectName")
+    def project_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "project_name")
+
+    @project_name.setter
+    def project_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "project_name", value)
 
     @property
     @pulumi.getter
@@ -134,8 +135,6 @@ class Project(pulumi.CustomResource):
             __props__ = ProjectArgs.__new__(ProjectArgs)
 
             __props__.__dict__["project_description"] = project_description
-            if project_name is None and not opts.urn:
-                raise TypeError("Missing required property 'project_name'")
             __props__.__dict__["project_name"] = project_name
             if service_catalog_provisioning_details is None and not opts.urn:
                 raise TypeError("Missing required property 'service_catalog_provisioning_details'")

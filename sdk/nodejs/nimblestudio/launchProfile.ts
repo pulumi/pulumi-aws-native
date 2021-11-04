@@ -80,9 +80,6 @@ export class LaunchProfile extends pulumi.CustomResource {
             if ((!args || args.launchProfileProtocolVersions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'launchProfileProtocolVersions'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.streamConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'streamConfiguration'");
             }
@@ -138,7 +135,7 @@ export interface LaunchProfileArgs {
     /**
      * <p>The name for the launch profile.</p>
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     streamConfiguration: pulumi.Input<inputs.nimblestudio.LaunchProfileStreamConfigurationArgs>;
     /**
      * <p>Unique identifiers for a collection of studio components that can be used with this launch profile.</p>

@@ -66,9 +66,6 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.brokerNodeGroupInfo === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'brokerNodeGroupInfo'");
             }
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'clusterName'");
-            }
             if ((!args || args.kafkaVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kafkaVersion'");
             }
@@ -112,7 +109,7 @@ export class Cluster extends pulumi.CustomResource {
 export interface ClusterArgs {
     brokerNodeGroupInfo: pulumi.Input<inputs.msk.ClusterBrokerNodeGroupInfoArgs>;
     clientAuthentication?: pulumi.Input<inputs.msk.ClusterClientAuthenticationArgs>;
-    clusterName: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     configurationInfo?: pulumi.Input<inputs.msk.ClusterConfigurationInfoArgs>;
     encryptionInfo?: pulumi.Input<inputs.msk.ClusterEncryptionInfoArgs>;
     enhancedMonitoring?: pulumi.Input<string>;

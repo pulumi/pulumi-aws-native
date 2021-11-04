@@ -129,8 +129,8 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// The name of the hours of operation.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.HoursOfOperationTagArgs>? _tags;

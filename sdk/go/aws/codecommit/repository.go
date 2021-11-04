@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,12 +31,9 @@ type Repository struct {
 func NewRepository(ctx *pulumi.Context,
 	name string, args *RepositoryArgs, opts ...pulumi.ResourceOption) (*Repository, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &RepositoryArgs{}
 	}
 
-	if args.RepositoryName == nil {
-		return nil, errors.New("invalid value for required argument 'RepositoryName'")
-	}
 	var resource Repository
 	err := ctx.RegisterResource("aws-native:codecommit:Repository", name, args, &resource, opts...)
 	if err != nil {
@@ -72,7 +68,7 @@ func (RepositoryState) ElementType() reflect.Type {
 type repositoryArgs struct {
 	Code                  *RepositoryCode     `pulumi:"code"`
 	RepositoryDescription *string             `pulumi:"repositoryDescription"`
-	RepositoryName        string              `pulumi:"repositoryName"`
+	RepositoryName        *string             `pulumi:"repositoryName"`
 	Tags                  []RepositoryTag     `pulumi:"tags"`
 	Triggers              []RepositoryTrigger `pulumi:"triggers"`
 }
@@ -81,7 +77,7 @@ type repositoryArgs struct {
 type RepositoryArgs struct {
 	Code                  RepositoryCodePtrInput
 	RepositoryDescription pulumi.StringPtrInput
-	RepositoryName        pulumi.StringInput
+	RepositoryName        pulumi.StringPtrInput
 	Tags                  RepositoryTagArrayInput
 	Triggers              RepositoryTriggerArrayInput
 }

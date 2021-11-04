@@ -90,8 +90,8 @@ namespace Pulumi.AwsNative.AppConfig
             set => _monitors = value;
         }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.EnvironmentTagsArgs>? _tags;

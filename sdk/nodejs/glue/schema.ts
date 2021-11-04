@@ -87,9 +87,6 @@ export class Schema extends pulumi.CustomResource {
             if ((!args || args.dataFormat === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataFormat'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.schemaDefinition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schemaDefinition'");
             }
@@ -142,7 +139,7 @@ export interface SchemaArgs {
     /**
      * Name of the schema.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     registry?: pulumi.Input<inputs.glue.SchemaRegistryArgs>;
     /**
      * Definition for the initial schema version in plain-text.

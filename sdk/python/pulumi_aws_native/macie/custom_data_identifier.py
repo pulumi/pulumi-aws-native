@@ -13,22 +13,21 @@ __all__ = ['CustomDataIdentifierArgs', 'CustomDataIdentifier']
 @pulumi.input_type
 class CustomDataIdentifierArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  regex: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  ignore_words: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  keywords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 maximum_match_distance: Optional[pulumi.Input[int]] = None):
+                 maximum_match_distance: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CustomDataIdentifier resource.
-        :param pulumi.Input[str] name: Name of custom data identifier.
         :param pulumi.Input[str] regex: Regular expression for custom data identifier.
         :param pulumi.Input[str] description: Description of custom data identifier.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ignore_words: Words to be ignored.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] keywords: Keywords to be matched against.
         :param pulumi.Input[int] maximum_match_distance: Maximum match distance.
+        :param pulumi.Input[str] name: Name of custom data identifier.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "regex", regex)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -38,18 +37,8 @@ class CustomDataIdentifierArgs:
             pulumi.set(__self__, "keywords", keywords)
         if maximum_match_distance is not None:
             pulumi.set(__self__, "maximum_match_distance", maximum_match_distance)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Name of custom data identifier.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -110,6 +99,18 @@ class CustomDataIdentifierArgs:
     @maximum_match_distance.setter
     def maximum_match_distance(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "maximum_match_distance", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of custom data identifier.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class CustomDataIdentifier(pulumi.CustomResource):
@@ -182,8 +183,6 @@ class CustomDataIdentifier(pulumi.CustomResource):
             __props__.__dict__["ignore_words"] = ignore_words
             __props__.__dict__["keywords"] = keywords
             __props__.__dict__["maximum_match_distance"] = maximum_match_distance
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if regex is None and not opts.urn:
                 raise TypeError("Missing required property 'regex'")

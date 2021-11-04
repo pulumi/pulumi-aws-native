@@ -49,13 +49,10 @@ export class Package extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PackageArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: PackageArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.packageName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'packageName'");
-            }
             inputs["packageName"] = args ? args.packageName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -81,6 +78,6 @@ export class Package extends pulumi.CustomResource {
  * The set of arguments for constructing a Package resource.
  */
 export interface PackageArgs {
-    packageName: pulumi.Input<string>;
+    packageName?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.panorama.PackageTagArgs>[]>;
 }

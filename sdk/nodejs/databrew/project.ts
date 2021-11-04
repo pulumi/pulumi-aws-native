@@ -71,9 +71,6 @@ export class Project extends pulumi.CustomResource {
             if ((!args || args.datasetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'datasetName'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.recipeName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'recipeName'");
             }
@@ -112,7 +109,7 @@ export interface ProjectArgs {
     /**
      * Project name
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Recipe name
      */

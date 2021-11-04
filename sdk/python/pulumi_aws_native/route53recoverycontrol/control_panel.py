@@ -16,32 +16,21 @@ __all__ = ['ControlPanelArgs', 'ControlPanel']
 @pulumi.input_type
 class ControlPanelArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  cluster_arn: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ControlPanelTagArgs']]]] = None):
         """
         The set of arguments for constructing a ControlPanel resource.
-        :param pulumi.Input[str] name: The name of the control panel. You can use any non-white space character in the name.
         :param pulumi.Input[str] cluster_arn: Cluster to associate with the Control Panel
+        :param pulumi.Input[str] name: The name of the control panel. You can use any non-white space character in the name.
         :param pulumi.Input[Sequence[pulumi.Input['ControlPanelTagArgs']]] tags: A collection of tags associated with a resource
         """
-        pulumi.set(__self__, "name", name)
         if cluster_arn is not None:
             pulumi.set(__self__, "cluster_arn", cluster_arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the control panel. You can use any non-white space character in the name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="clusterArn")
@@ -54,6 +43,18 @@ class ControlPanelArgs:
     @cluster_arn.setter
     def cluster_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cluster_arn", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the control panel. You can use any non-white space character in the name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -90,7 +91,7 @@ class ControlPanel(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ControlPanelArgs,
+                 args: Optional[ControlPanelArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS Route53 Recovery Control Control Panel resource schema .
@@ -126,8 +127,6 @@ class ControlPanel(pulumi.CustomResource):
             __props__ = ControlPanelArgs.__new__(ControlPanelArgs)
 
             __props__.__dict__["cluster_arn"] = cluster_arn
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["control_panel_arn"] = None

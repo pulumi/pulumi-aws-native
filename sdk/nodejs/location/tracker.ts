@@ -60,9 +60,6 @@ export class Tracker extends pulumi.CustomResource {
             if ((!args || args.pricingPlan === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'pricingPlan'");
             }
-            if ((!args || args.trackerName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'trackerName'");
-            }
             inputs["description"] = args ? args.description : undefined;
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             inputs["positionFiltering"] = args ? args.positionFiltering : undefined;
@@ -101,5 +98,5 @@ export interface TrackerArgs {
     positionFiltering?: pulumi.Input<enums.location.TrackerPositionFiltering>;
     pricingPlan: pulumi.Input<enums.location.TrackerPricingPlan>;
     pricingPlanDataSource?: pulumi.Input<string>;
-    trackerName: pulumi.Input<string>;
+    trackerName?: pulumi.Input<string>;
 }

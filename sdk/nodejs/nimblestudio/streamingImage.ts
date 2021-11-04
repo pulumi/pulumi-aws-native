@@ -81,9 +81,6 @@ export class StreamingImage extends pulumi.CustomResource {
             if ((!args || args.ec2ImageId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ec2ImageId'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.studioId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'studioId'");
             }
@@ -131,7 +128,7 @@ export interface StreamingImageArgs {
     /**
      * <p>A friendly name for a streaming image resource.</p>
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * <p>The studioId. </p>
      */

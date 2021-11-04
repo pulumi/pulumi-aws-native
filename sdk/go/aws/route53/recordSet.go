@@ -41,9 +41,6 @@ func NewRecordSet(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
@@ -87,7 +84,7 @@ type recordSetArgs struct {
 	HostedZoneId     *string               `pulumi:"hostedZoneId"`
 	HostedZoneName   *string               `pulumi:"hostedZoneName"`
 	MultiValueAnswer *bool                 `pulumi:"multiValueAnswer"`
-	Name             string                `pulumi:"name"`
+	Name             *string               `pulumi:"name"`
 	Region           *string               `pulumi:"region"`
 	ResourceRecords  []string              `pulumi:"resourceRecords"`
 	SetIdentifier    *string               `pulumi:"setIdentifier"`
@@ -106,7 +103,7 @@ type RecordSetArgs struct {
 	HostedZoneId     pulumi.StringPtrInput
 	HostedZoneName   pulumi.StringPtrInput
 	MultiValueAnswer pulumi.BoolPtrInput
-	Name             pulumi.StringInput
+	Name             pulumi.StringPtrInput
 	Region           pulumi.StringPtrInput
 	ResourceRecords  pulumi.StringArrayInput
 	SetIdentifier    pulumi.StringPtrInput

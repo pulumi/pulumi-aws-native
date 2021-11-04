@@ -37,9 +37,6 @@ func NewNetworkProfile(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ProjectArn == nil {
 		return nil, errors.New("invalid value for required argument 'ProjectArn'")
 	}
@@ -80,7 +77,7 @@ type networkProfileArgs struct {
 	DownlinkDelayMs       *int                `pulumi:"downlinkDelayMs"`
 	DownlinkJitterMs      *int                `pulumi:"downlinkJitterMs"`
 	DownlinkLossPercent   *int                `pulumi:"downlinkLossPercent"`
-	Name                  string              `pulumi:"name"`
+	Name                  *string             `pulumi:"name"`
 	ProjectArn            string              `pulumi:"projectArn"`
 	Tags                  []NetworkProfileTag `pulumi:"tags"`
 	UplinkBandwidthBits   *int                `pulumi:"uplinkBandwidthBits"`
@@ -96,7 +93,7 @@ type NetworkProfileArgs struct {
 	DownlinkDelayMs       pulumi.IntPtrInput
 	DownlinkJitterMs      pulumi.IntPtrInput
 	DownlinkLossPercent   pulumi.IntPtrInput
-	Name                  pulumi.StringInput
+	Name                  pulumi.StringPtrInput
 	ProjectArn            pulumi.StringInput
 	Tags                  NetworkProfileTagArrayInput
 	UplinkBandwidthBits   pulumi.IntPtrInput

@@ -93,8 +93,8 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// A descriptive label that is associated with an alias. Alias names do not need to be unique.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.

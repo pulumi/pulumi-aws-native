@@ -43,9 +43,6 @@ func NewImageBuilder(ctx *pulumi.Context,
 	if args.InstanceType == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceType'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource ImageBuilder
 	err := ctx.RegisterResource("aws-native:appstream:ImageBuilder", name, args, &resource, opts...)
 	if err != nil {
@@ -88,7 +85,7 @@ type imageBuilderArgs struct {
 	ImageArn                    *string                      `pulumi:"imageArn"`
 	ImageName                   *string                      `pulumi:"imageName"`
 	InstanceType                string                       `pulumi:"instanceType"`
-	Name                        string                       `pulumi:"name"`
+	Name                        *string                      `pulumi:"name"`
 	Tags                        []ImageBuilderTag            `pulumi:"tags"`
 	VpcConfig                   *ImageBuilderVpcConfig       `pulumi:"vpcConfig"`
 }
@@ -105,7 +102,7 @@ type ImageBuilderArgs struct {
 	ImageArn                    pulumi.StringPtrInput
 	ImageName                   pulumi.StringPtrInput
 	InstanceType                pulumi.StringInput
-	Name                        pulumi.StringInput
+	Name                        pulumi.StringPtrInput
 	Tags                        ImageBuilderTagArrayInput
 	VpcConfig                   ImageBuilderVpcConfigPtrInput
 }

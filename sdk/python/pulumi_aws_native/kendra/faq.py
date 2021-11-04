@@ -17,30 +17,31 @@ __all__ = ['FaqArgs', 'Faq']
 class FaqArgs:
     def __init__(__self__, *,
                  index_id: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  s3_path: pulumi.Input['FaqS3PathArgs'],
                  description: Optional[pulumi.Input[str]] = None,
                  file_format: Optional[pulumi.Input['FaqFileFormat']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['FaqTagArgs']]]] = None):
         """
         The set of arguments for constructing a Faq resource.
         :param pulumi.Input[str] index_id: Index ID
-        :param pulumi.Input[str] name: FAQ name
         :param pulumi.Input[str] role_arn: FAQ role ARN
         :param pulumi.Input['FaqS3PathArgs'] s3_path: FAQ S3 path
         :param pulumi.Input[str] description: FAQ description
         :param pulumi.Input['FaqFileFormat'] file_format: FAQ file format
+        :param pulumi.Input[str] name: FAQ name
         :param pulumi.Input[Sequence[pulumi.Input['FaqTagArgs']]] tags: Tags for labeling the FAQ
         """
         pulumi.set(__self__, "index_id", index_id)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "s3_path", s3_path)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if file_format is not None:
             pulumi.set(__self__, "file_format", file_format)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -55,18 +56,6 @@ class FaqArgs:
     @index_id.setter
     def index_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "index_id", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        FAQ name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -115,6 +104,18 @@ class FaqArgs:
     @file_format.setter
     def file_format(self, value: Optional[pulumi.Input['FaqFileFormat']]):
         pulumi.set(self, "file_format", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        FAQ name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -203,8 +204,6 @@ class Faq(pulumi.CustomResource):
             if index_id is None and not opts.urn:
                 raise TypeError("Missing required property 'index_id'")
             __props__.__dict__["index_id"] = index_id
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")

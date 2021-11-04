@@ -16,7 +16,6 @@ __all__ = ['AssociationArgs', 'Association']
 @pulumi.input_type
 class AssociationArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  apply_only_at_cron_interval: Optional[pulumi.Input[bool]] = None,
                  association_name: Optional[pulumi.Input[str]] = None,
                  automation_target_parameter_name: Optional[pulumi.Input[str]] = None,
@@ -26,6 +25,7 @@ class AssociationArgs:
                  instance_id: Optional[pulumi.Input[str]] = None,
                  max_concurrency: Optional[pulumi.Input[str]] = None,
                  max_errors: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  output_location: Optional[pulumi.Input['AssociationInstanceAssociationOutputLocationArgs']] = None,
                  parameters: Optional[Any] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
@@ -34,15 +34,14 @@ class AssociationArgs:
                  wait_for_success_timeout_seconds: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Association resource.
-        :param pulumi.Input[str] name: The name of the SSM document.
         :param pulumi.Input[str] association_name: The name of the association.
         :param pulumi.Input[str] document_version: The version of the SSM document to associate with the target.
         :param pulumi.Input[str] instance_id: The ID of the instance that the SSM document is associated with.
+        :param pulumi.Input[str] name: The name of the SSM document.
         :param Any parameters: Parameter values that the SSM document uses at runtime.
         :param pulumi.Input[str] schedule_expression: A Cron or Rate expression that specifies when the association is applied to the target.
         :param pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]] targets: The targets that the SSM document sends commands to.
         """
-        pulumi.set(__self__, "name", name)
         if apply_only_at_cron_interval is not None:
             pulumi.set(__self__, "apply_only_at_cron_interval", apply_only_at_cron_interval)
         if association_name is not None:
@@ -61,6 +60,8 @@ class AssociationArgs:
             pulumi.set(__self__, "max_concurrency", max_concurrency)
         if max_errors is not None:
             pulumi.set(__self__, "max_errors", max_errors)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if output_location is not None:
             pulumi.set(__self__, "output_location", output_location)
         if parameters is not None:
@@ -73,18 +74,6 @@ class AssociationArgs:
             pulumi.set(__self__, "targets", targets)
         if wait_for_success_timeout_seconds is not None:
             pulumi.set(__self__, "wait_for_success_timeout_seconds", wait_for_success_timeout_seconds)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the SSM document.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="applyOnlyAtCronInterval")
@@ -175,6 +164,18 @@ class AssociationArgs:
     @max_errors.setter
     def max_errors(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "max_errors", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the SSM document.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="outputLocation")
@@ -279,7 +280,7 @@ class Association(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AssociationArgs,
+                 args: Optional[AssociationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::SSM::Association resource associates an SSM document in AWS Systems Manager with EC2 instances that contain a configuration agent to process the document.
@@ -336,8 +337,6 @@ class Association(pulumi.CustomResource):
             __props__.__dict__["instance_id"] = instance_id
             __props__.__dict__["max_concurrency"] = max_concurrency
             __props__.__dict__["max_errors"] = max_errors
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["output_location"] = output_location
             __props__.__dict__["parameters"] = parameters

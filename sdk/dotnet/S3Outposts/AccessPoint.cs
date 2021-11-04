@@ -99,8 +99,8 @@ namespace Pulumi.AwsNative.S3Outposts
         /// <summary>
         /// A name for the AccessPoint.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The access point policy associated with this access point.

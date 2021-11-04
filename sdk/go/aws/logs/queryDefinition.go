@@ -32,9 +32,6 @@ func NewQueryDefinition(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.QueryString == nil {
 		return nil, errors.New("invalid value for required argument 'QueryString'")
 	}
@@ -73,7 +70,7 @@ type queryDefinitionArgs struct {
 	// Optionally define specific log groups as part of your query definition
 	LogGroupNames []string `pulumi:"logGroupNames"`
 	// A name for the saved query definition
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The query string to use for this definition
 	QueryString string `pulumi:"queryString"`
 }
@@ -83,7 +80,7 @@ type QueryDefinitionArgs struct {
 	// Optionally define specific log groups as part of your query definition
 	LogGroupNames pulumi.StringArrayInput
 	// A name for the saved query definition
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The query string to use for this definition
 	QueryString pulumi.StringInput
 }

@@ -16,13 +16,13 @@ __all__ = ['GameServerGroupArgs', 'GameServerGroup']
 @pulumi.input_type
 class GameServerGroupArgs:
     def __init__(__self__, *,
-                 game_server_group_name: pulumi.Input[str],
                  instance_definitions: pulumi.Input[Sequence[pulumi.Input['GameServerGroupInstanceDefinitionArgs']]],
                  launch_template: pulumi.Input['GameServerGroupLaunchTemplateArgs'],
                  role_arn: pulumi.Input[str],
                  auto_scaling_policy: Optional[pulumi.Input['GameServerGroupAutoScalingPolicyArgs']] = None,
                  balancing_strategy: Optional[pulumi.Input['GameServerGroupBalancingStrategy']] = None,
                  delete_option: Optional[pulumi.Input['GameServerGroupDeleteOption']] = None,
+                 game_server_group_name: Optional[pulumi.Input[str]] = None,
                  game_server_protection_policy: Optional[pulumi.Input['GameServerGroupGameServerProtectionPolicy']] = None,
                  max_size: Optional[pulumi.Input[float]] = None,
                  min_size: Optional[pulumi.Input[float]] = None,
@@ -30,20 +30,19 @@ class GameServerGroupArgs:
                  vpc_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a GameServerGroup resource.
-        :param pulumi.Input[str] game_server_group_name: An identifier for the new game server group.
         :param pulumi.Input[Sequence[pulumi.Input['GameServerGroupInstanceDefinitionArgs']]] instance_definitions: A set of EC2 instance types to use when creating instances in the group.
         :param pulumi.Input['GameServerGroupLaunchTemplateArgs'] launch_template: The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
         :param pulumi.Input['GameServerGroupAutoScalingPolicyArgs'] auto_scaling_policy: Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
         :param pulumi.Input['GameServerGroupBalancingStrategy'] balancing_strategy: The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
         :param pulumi.Input['GameServerGroupDeleteOption'] delete_option: The type of delete to perform.
+        :param pulumi.Input[str] game_server_group_name: An identifier for the new game server group.
         :param pulumi.Input['GameServerGroupGameServerProtectionPolicy'] game_server_protection_policy: A flag that indicates whether instances in the game server group are protected from early termination.
         :param pulumi.Input[float] max_size: The maximum number of instances allowed in the EC2 Auto Scaling group.
         :param pulumi.Input[float] min_size: The minimum number of instances allowed in the EC2 Auto Scaling group.
         :param pulumi.Input[Sequence[pulumi.Input['GameServerGroupTagArgs']]] tags: A list of labels to assign to the new game server group resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnets: A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
         """
-        pulumi.set(__self__, "game_server_group_name", game_server_group_name)
         pulumi.set(__self__, "instance_definitions", instance_definitions)
         pulumi.set(__self__, "launch_template", launch_template)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -53,6 +52,8 @@ class GameServerGroupArgs:
             pulumi.set(__self__, "balancing_strategy", balancing_strategy)
         if delete_option is not None:
             pulumi.set(__self__, "delete_option", delete_option)
+        if game_server_group_name is not None:
+            pulumi.set(__self__, "game_server_group_name", game_server_group_name)
         if game_server_protection_policy is not None:
             pulumi.set(__self__, "game_server_protection_policy", game_server_protection_policy)
         if max_size is not None:
@@ -63,18 +64,6 @@ class GameServerGroupArgs:
             pulumi.set(__self__, "tags", tags)
         if vpc_subnets is not None:
             pulumi.set(__self__, "vpc_subnets", vpc_subnets)
-
-    @property
-    @pulumi.getter(name="gameServerGroupName")
-    def game_server_group_name(self) -> pulumi.Input[str]:
-        """
-        An identifier for the new game server group.
-        """
-        return pulumi.get(self, "game_server_group_name")
-
-    @game_server_group_name.setter
-    def game_server_group_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "game_server_group_name", value)
 
     @property
     @pulumi.getter(name="instanceDefinitions")
@@ -147,6 +136,18 @@ class GameServerGroupArgs:
     @delete_option.setter
     def delete_option(self, value: Optional[pulumi.Input['GameServerGroupDeleteOption']]):
         pulumi.set(self, "delete_option", value)
+
+    @property
+    @pulumi.getter(name="gameServerGroupName")
+    def game_server_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        An identifier for the new game server group.
+        """
+        return pulumi.get(self, "game_server_group_name")
+
+    @game_server_group_name.setter
+    def game_server_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "game_server_group_name", value)
 
     @property
     @pulumi.getter(name="gameServerProtectionPolicy")
@@ -296,8 +297,6 @@ class GameServerGroup(pulumi.CustomResource):
             __props__.__dict__["auto_scaling_policy"] = auto_scaling_policy
             __props__.__dict__["balancing_strategy"] = balancing_strategy
             __props__.__dict__["delete_option"] = delete_option
-            if game_server_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'game_server_group_name'")
             __props__.__dict__["game_server_group_name"] = game_server_group_name
             __props__.__dict__["game_server_protection_policy"] = game_server_protection_policy
             if instance_definitions is None and not opts.urn:

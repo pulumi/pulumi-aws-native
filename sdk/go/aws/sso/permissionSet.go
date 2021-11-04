@@ -43,9 +43,6 @@ func NewPermissionSet(ctx *pulumi.Context,
 	if args.InstanceArn == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceArn'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource PermissionSet
 	err := ctx.RegisterResource("aws-native:sso:PermissionSet", name, args, &resource, opts...)
 	if err != nil {
@@ -86,7 +83,7 @@ type permissionSetArgs struct {
 	InstanceArn     string   `pulumi:"instanceArn"`
 	ManagedPolicies []string `pulumi:"managedPolicies"`
 	// The name you want to assign to this permission set.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The relay state URL that redirect links to any service in the AWS Management Console.
 	RelayStateType *string `pulumi:"relayStateType"`
 	// The length of time that a user can be signed in to an AWS account.
@@ -104,7 +101,7 @@ type PermissionSetArgs struct {
 	InstanceArn     pulumi.StringInput
 	ManagedPolicies pulumi.StringArrayInput
 	// The name you want to assign to this permission set.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The relay state URL that redirect links to any service in the AWS Management Console.
 	RelayStateType pulumi.StringPtrInput
 	// The length of time that a user can be signed in to an AWS account.

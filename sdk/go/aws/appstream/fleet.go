@@ -49,9 +49,6 @@ func NewFleet(ctx *pulumi.Context,
 	if args.InstanceType == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceType'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource Fleet
 	err := ctx.RegisterResource("aws-native:appstream:Fleet", name, args, &resource, opts...)
 	if err != nil {
@@ -97,7 +94,7 @@ type fleetArgs struct {
 	ImageName                      *string              `pulumi:"imageName"`
 	InstanceType                   string               `pulumi:"instanceType"`
 	MaxUserDurationInSeconds       *int                 `pulumi:"maxUserDurationInSeconds"`
-	Name                           string               `pulumi:"name"`
+	Name                           *string              `pulumi:"name"`
 	StreamView                     *string              `pulumi:"streamView"`
 	Tags                           []FleetTag           `pulumi:"tags"`
 	VpcConfig                      *FleetVpcConfig      `pulumi:"vpcConfig"`
@@ -118,7 +115,7 @@ type FleetArgs struct {
 	ImageName                      pulumi.StringPtrInput
 	InstanceType                   pulumi.StringInput
 	MaxUserDurationInSeconds       pulumi.IntPtrInput
-	Name                           pulumi.StringInput
+	Name                           pulumi.StringPtrInput
 	StreamView                     pulumi.StringPtrInput
 	Tags                           FleetTagArrayInput
 	VpcConfig                      FleetVpcConfigPtrInput

@@ -81,9 +81,6 @@ export class MonitoringSchedule extends pulumi.CustomResource {
             if ((!args || args.monitoringScheduleConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'monitoringScheduleConfig'");
             }
-            if ((!args || args.monitoringScheduleName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'monitoringScheduleName'");
-            }
             inputs["endpointName"] = args ? args.endpointName : undefined;
             inputs["failureReason"] = args ? args.failureReason : undefined;
             inputs["lastMonitoringExecutionSummary"] = args ? args.lastMonitoringExecutionSummary : undefined;
@@ -127,7 +124,7 @@ export interface MonitoringScheduleArgs {
      */
     lastMonitoringExecutionSummary?: pulumi.Input<inputs.sagemaker.MonitoringScheduleMonitoringExecutionSummaryArgs>;
     monitoringScheduleConfig: pulumi.Input<inputs.sagemaker.MonitoringScheduleConfigArgs>;
-    monitoringScheduleName: pulumi.Input<string>;
+    monitoringScheduleName?: pulumi.Input<string>;
     /**
      * The status of a schedule job.
      */

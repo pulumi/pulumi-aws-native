@@ -36,9 +36,6 @@ func NewSimpleAD(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.Password == nil {
 		return nil, errors.New("invalid value for required argument 'Password'")
 	}
@@ -83,7 +80,7 @@ type simpleADArgs struct {
 	CreateAlias *bool               `pulumi:"createAlias"`
 	Description *string             `pulumi:"description"`
 	EnableSso   *bool               `pulumi:"enableSso"`
-	Name        string              `pulumi:"name"`
+	Name        *string             `pulumi:"name"`
 	Password    string              `pulumi:"password"`
 	ShortName   *string             `pulumi:"shortName"`
 	Size        string              `pulumi:"size"`
@@ -95,7 +92,7 @@ type SimpleADArgs struct {
 	CreateAlias pulumi.BoolPtrInput
 	Description pulumi.StringPtrInput
 	EnableSso   pulumi.BoolPtrInput
-	Name        pulumi.StringInput
+	Name        pulumi.StringPtrInput
 	Password    pulumi.StringInput
 	ShortName   pulumi.StringPtrInput
 	Size        pulumi.StringInput

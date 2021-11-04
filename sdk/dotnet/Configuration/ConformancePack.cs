@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.Configuration
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ConformancePack(string name, ConformancePackArgs args, CustomResourceOptions? options = null)
+        public ConformancePack(string name, ConformancePackArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:configuration:ConformancePack", name, args ?? new ConformancePackArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -111,8 +111,8 @@ namespace Pulumi.AwsNative.Configuration
         /// <summary>
         /// Name of the conformance pack which will be assigned as the unique identifier.
         /// </summary>
-        [Input("conformancePackName", required: true)]
-        public Input<string> ConformancePackName { get; set; } = null!;
+        [Input("conformancePackName")]
+        public Input<string>? ConformancePackName { get; set; }
 
         /// <summary>
         /// AWS Config stores intermediate files while processing conformance pack template.

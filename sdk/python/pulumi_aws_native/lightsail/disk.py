@@ -16,39 +16,28 @@ __all__ = ['DiskArgs', 'Disk']
 @pulumi.input_type
 class DiskArgs:
     def __init__(__self__, *,
-                 disk_name: pulumi.Input[str],
                  size_in_gb: pulumi.Input[int],
                  add_ons: Optional[pulumi.Input[Sequence[pulumi.Input['DiskAddOnArgs']]]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 disk_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DiskTagArgs']]]] = None):
         """
         The set of arguments for constructing a Disk resource.
-        :param pulumi.Input[str] disk_name: The names to use for your new Lightsail disk.
         :param pulumi.Input[int] size_in_gb: Size of the Lightsail disk
         :param pulumi.Input[Sequence[pulumi.Input['DiskAddOnArgs']]] add_ons: An array of objects representing the add-ons to enable for the new instance.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
+        :param pulumi.Input[str] disk_name: The names to use for your new Lightsail disk.
         :param pulumi.Input[Sequence[pulumi.Input['DiskTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "disk_name", disk_name)
         pulumi.set(__self__, "size_in_gb", size_in_gb)
         if add_ons is not None:
             pulumi.set(__self__, "add_ons", add_ons)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
+        if disk_name is not None:
+            pulumi.set(__self__, "disk_name", disk_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="diskName")
-    def disk_name(self) -> pulumi.Input[str]:
-        """
-        The names to use for your new Lightsail disk.
-        """
-        return pulumi.get(self, "disk_name")
-
-    @disk_name.setter
-    def disk_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "disk_name", value)
 
     @property
     @pulumi.getter(name="sizeInGb")
@@ -85,6 +74,18 @@ class DiskArgs:
     @availability_zone.setter
     def availability_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="diskName")
+    def disk_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The names to use for your new Lightsail disk.
+        """
+        return pulumi.get(self, "disk_name")
+
+    @disk_name.setter
+    def disk_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_name", value)
 
     @property
     @pulumi.getter
@@ -164,8 +165,6 @@ class Disk(pulumi.CustomResource):
 
             __props__.__dict__["add_ons"] = add_ons
             __props__.__dict__["availability_zone"] = availability_zone
-            if disk_name is None and not opts.urn:
-                raise TypeError("Missing required property 'disk_name'")
             __props__.__dict__["disk_name"] = disk_name
             if size_in_gb is None and not opts.urn:
                 raise TypeError("Missing required property 'size_in_gb'")

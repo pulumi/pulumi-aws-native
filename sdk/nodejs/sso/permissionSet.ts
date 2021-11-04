@@ -80,9 +80,6 @@ export class PermissionSet extends pulumi.CustomResource {
             if ((!args || args.instanceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["description"] = args ? args.description : undefined;
             inputs["inlinePolicy"] = args ? args.inlinePolicy : undefined;
             inputs["instanceArn"] = args ? args.instanceArn : undefined;
@@ -130,7 +127,7 @@ export interface PermissionSetArgs {
     /**
      * The name you want to assign to this permission set.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The relay state URL that redirect links to any service in the AWS Management Console.
      */

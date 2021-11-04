@@ -48,7 +48,7 @@ namespace Pulumi.AwsNative.MediaStore
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Container(string name, ContainerArgs args, CustomResourceOptions? options = null)
+        public Container(string name, ContainerArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:mediastore:Container", name, args ?? new ContainerArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -88,8 +88,8 @@ namespace Pulumi.AwsNative.MediaStore
         [Input("accessLoggingEnabled")]
         public Input<bool>? AccessLoggingEnabled { get; set; }
 
-        [Input("containerName", required: true)]
-        public Input<string> ContainerName { get; set; } = null!;
+        [Input("containerName")]
+        public Input<string>? ContainerName { get; set; }
 
         [Input("corsPolicy")]
         private InputList<Inputs.ContainerCorsRuleArgs>? _corsPolicy;

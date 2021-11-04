@@ -17,25 +17,26 @@ __all__ = ['DatasetArgs', 'Dataset']
 class DatasetArgs:
     def __init__(__self__, *,
                  input: pulumi.Input['DatasetInputArgs'],
-                 name: pulumi.Input[str],
                  format: Optional[pulumi.Input['DatasetFormat']] = None,
                  format_options: Optional[pulumi.Input['DatasetFormatOptionsArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  path_options: Optional[pulumi.Input['DatasetPathOptionsArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetTagArgs']]]] = None):
         """
         The set of arguments for constructing a Dataset resource.
         :param pulumi.Input['DatasetInputArgs'] input: Input
-        :param pulumi.Input[str] name: Dataset name
         :param pulumi.Input['DatasetFormat'] format: Dataset format
         :param pulumi.Input['DatasetFormatOptionsArgs'] format_options: Format options for dataset
+        :param pulumi.Input[str] name: Dataset name
         :param pulumi.Input['DatasetPathOptionsArgs'] path_options: PathOptions
         """
         pulumi.set(__self__, "input", input)
-        pulumi.set(__self__, "name", name)
         if format is not None:
             pulumi.set(__self__, "format", format)
         if format_options is not None:
             pulumi.set(__self__, "format_options", format_options)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if path_options is not None:
             pulumi.set(__self__, "path_options", path_options)
         if tags is not None:
@@ -52,18 +53,6 @@ class DatasetArgs:
     @input.setter
     def input(self, value: pulumi.Input['DatasetInputArgs']):
         pulumi.set(self, "input", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Dataset name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -88,6 +77,18 @@ class DatasetArgs:
     @format_options.setter
     def format_options(self, value: Optional[pulumi.Input['DatasetFormatOptionsArgs']]):
         pulumi.set(self, "format_options", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Dataset name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="pathOptions")
@@ -181,8 +182,6 @@ class Dataset(pulumi.CustomResource):
             if input is None and not opts.urn:
                 raise TypeError("Missing required property 'input'")
             __props__.__dict__["input"] = input
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["path_options"] = path_options
             __props__.__dict__["tags"] = tags

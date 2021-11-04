@@ -72,9 +72,6 @@ export class Asset extends pulumi.CustomResource {
             if ((!args || args.assetModelId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'assetModelId'");
             }
-            if ((!args || args.assetName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'assetName'");
-            }
             inputs["assetHierarchies"] = args ? args.assetHierarchies : undefined;
             inputs["assetModelId"] = args ? args.assetModelId : undefined;
             inputs["assetName"] = args ? args.assetName : undefined;
@@ -110,7 +107,7 @@ export interface AssetArgs {
     /**
      * A unique, friendly name for the asset.
      */
-    assetName: pulumi.Input<string>;
+    assetName?: pulumi.Input<string>;
     assetProperties?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetPropertyArgs>[]>;
     /**
      * A list of key-value pairs that contain metadata for the asset.

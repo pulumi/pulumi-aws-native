@@ -16,13 +16,13 @@ __all__ = ['DataSourceArgs', 'DataSource']
 class DataSourceArgs:
     def __init__(__self__, *,
                  api_id: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  type: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  dynamo_db_config: Optional[pulumi.Input['DataSourceDynamoDBConfigArgs']] = None,
                  elasticsearch_config: Optional[pulumi.Input['DataSourceElasticsearchConfigArgs']] = None,
                  http_config: Optional[pulumi.Input['DataSourceHttpConfigArgs']] = None,
                  lambda_config: Optional[pulumi.Input['DataSourceLambdaConfigArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  open_search_service_config: Optional[pulumi.Input['DataSourceOpenSearchServiceConfigArgs']] = None,
                  relational_database_config: Optional[pulumi.Input['DataSourceRelationalDatabaseConfigArgs']] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None):
@@ -30,7 +30,6 @@ class DataSourceArgs:
         The set of arguments for constructing a DataSource resource.
         """
         pulumi.set(__self__, "api_id", api_id)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -42,6 +41,8 @@ class DataSourceArgs:
             pulumi.set(__self__, "http_config", http_config)
         if lambda_config is not None:
             pulumi.set(__self__, "lambda_config", lambda_config)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if open_search_service_config is not None:
             pulumi.set(__self__, "open_search_service_config", open_search_service_config)
         if relational_database_config is not None:
@@ -57,15 +58,6 @@ class DataSourceArgs:
     @api_id.setter
     def api_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "api_id", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -120,6 +112,15 @@ class DataSourceArgs:
     @lambda_config.setter
     def lambda_config(self, value: Optional[pulumi.Input['DataSourceLambdaConfigArgs']]):
         pulumi.set(self, "lambda_config", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="openSearchServiceConfig")
@@ -233,8 +234,6 @@ class DataSource(pulumi.CustomResource):
             __props__.__dict__["elasticsearch_config"] = elasticsearch_config
             __props__.__dict__["http_config"] = http_config
             __props__.__dict__["lambda_config"] = lambda_config
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["open_search_service_config"] = open_search_service_config
             __props__.__dict__["relational_database_config"] = relational_database_config

@@ -114,8 +114,8 @@ namespace Pulumi.AwsNative.DeviceFarm
         [Input("downlinkLossPercent")]
         public Input<int>? DownlinkLossPercent { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("projectArn", required: true)]
         public Input<string> ProjectArn { get; set; } = null!;

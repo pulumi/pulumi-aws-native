@@ -34,9 +34,6 @@ func NewDeviceFleet(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DeviceFleetName == nil {
-		return nil, errors.New("invalid value for required argument 'DeviceFleetName'")
-	}
 	if args.OutputConfig == nil {
 		return nil, errors.New("invalid value for required argument 'OutputConfig'")
 	}
@@ -78,7 +75,7 @@ type deviceFleetArgs struct {
 	// Description for the edge device fleet
 	Description *string `pulumi:"description"`
 	// The name of the edge device fleet
-	DeviceFleetName string `pulumi:"deviceFleetName"`
+	DeviceFleetName *string `pulumi:"deviceFleetName"`
 	// S3 bucket and an ecryption key id (if available) to store outputs for the fleet
 	OutputConfig DeviceFleetEdgeOutputConfig `pulumi:"outputConfig"`
 	// Role associated with the device fleet
@@ -92,7 +89,7 @@ type DeviceFleetArgs struct {
 	// Description for the edge device fleet
 	Description pulumi.StringPtrInput
 	// The name of the edge device fleet
-	DeviceFleetName pulumi.StringInput
+	DeviceFleetName pulumi.StringPtrInput
 	// S3 bucket and an ecryption key id (if available) to store outputs for the fleet
 	OutputConfig DeviceFleetEdgeOutputConfigInput
 	// Role associated with the device fleet

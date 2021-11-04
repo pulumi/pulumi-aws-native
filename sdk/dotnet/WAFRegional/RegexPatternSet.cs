@@ -67,8 +67,8 @@ namespace Pulumi.AwsNative.WAFRegional
 
     public sealed class RegexPatternSetArgs : Pulumi.ResourceArgs
     {
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("regexPatternStrings", required: true)]
         private InputList<string>? _regexPatternStrings;

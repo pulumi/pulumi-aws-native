@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,12 +28,9 @@ type Registry struct {
 func NewRegistry(ctx *pulumi.Context,
 	name string, args *RegistryArgs, opts ...pulumi.ResourceOption) (*Registry, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &RegistryArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource Registry
 	err := ctx.RegisterResource("aws-native:glue:Registry", name, args, &resource, opts...)
 	if err != nil {
@@ -70,7 +66,7 @@ type registryArgs struct {
 	// A description of the registry. If description is not provided, there will not be any default value for this.
 	Description *string `pulumi:"description"`
 	// Name of the registry to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.  No whitespace.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// List of tags to tag the Registry
 	Tags []RegistryTag `pulumi:"tags"`
 }
@@ -80,7 +76,7 @@ type RegistryArgs struct {
 	// A description of the registry. If description is not provided, there will not be any default value for this.
 	Description pulumi.StringPtrInput
 	// Name of the registry to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.  No whitespace.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// List of tags to tag the Registry
 	Tags RegistryTagArrayInput
 }

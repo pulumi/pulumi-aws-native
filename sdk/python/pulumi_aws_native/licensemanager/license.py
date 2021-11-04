@@ -19,32 +19,33 @@ class LicenseArgs:
                  entitlements: pulumi.Input[Sequence[pulumi.Input['LicenseEntitlementArgs']]],
                  home_region: pulumi.Input[str],
                  issuer: pulumi.Input['LicenseIssuerDataArgs'],
-                 license_name: pulumi.Input[str],
                  product_name: pulumi.Input[str],
                  validity: pulumi.Input['LicenseValidityDateFormatArgs'],
                  beneficiary: Optional[pulumi.Input[str]] = None,
                  license_metadata: Optional[pulumi.Input[Sequence[pulumi.Input['LicenseMetadataArgs']]]] = None,
+                 license_name: Optional[pulumi.Input[str]] = None,
                  product_sku: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a License resource.
         :param pulumi.Input[str] home_region: Home region for the created license.
-        :param pulumi.Input[str] license_name: Name for the created license.
         :param pulumi.Input[str] product_name: Product name for the created license.
         :param pulumi.Input[str] beneficiary: Beneficiary of the license.
+        :param pulumi.Input[str] license_name: Name for the created license.
         :param pulumi.Input[str] product_sku: ProductSKU of the license.
         """
         pulumi.set(__self__, "consumption_configuration", consumption_configuration)
         pulumi.set(__self__, "entitlements", entitlements)
         pulumi.set(__self__, "home_region", home_region)
         pulumi.set(__self__, "issuer", issuer)
-        pulumi.set(__self__, "license_name", license_name)
         pulumi.set(__self__, "product_name", product_name)
         pulumi.set(__self__, "validity", validity)
         if beneficiary is not None:
             pulumi.set(__self__, "beneficiary", beneficiary)
         if license_metadata is not None:
             pulumi.set(__self__, "license_metadata", license_metadata)
+        if license_name is not None:
+            pulumi.set(__self__, "license_name", license_name)
         if product_sku is not None:
             pulumi.set(__self__, "product_sku", product_sku)
         if status is not None:
@@ -90,18 +91,6 @@ class LicenseArgs:
         pulumi.set(self, "issuer", value)
 
     @property
-    @pulumi.getter(name="licenseName")
-    def license_name(self) -> pulumi.Input[str]:
-        """
-        Name for the created license.
-        """
-        return pulumi.get(self, "license_name")
-
-    @license_name.setter
-    def license_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "license_name", value)
-
-    @property
     @pulumi.getter(name="productName")
     def product_name(self) -> pulumi.Input[str]:
         """
@@ -142,6 +131,18 @@ class LicenseArgs:
     @license_metadata.setter
     def license_metadata(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LicenseMetadataArgs']]]]):
         pulumi.set(self, "license_metadata", value)
+
+    @property
+    @pulumi.getter(name="licenseName")
+    def license_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name for the created license.
+        """
+        return pulumi.get(self, "license_name")
+
+    @license_name.setter
+    def license_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "license_name", value)
 
     @property
     @pulumi.getter(name="productSKU")
@@ -254,8 +255,6 @@ class License(pulumi.CustomResource):
                 raise TypeError("Missing required property 'issuer'")
             __props__.__dict__["issuer"] = issuer
             __props__.__dict__["license_metadata"] = license_metadata
-            if license_name is None and not opts.urn:
-                raise TypeError("Missing required property 'license_name'")
             __props__.__dict__["license_name"] = license_name
             if product_name is None and not opts.urn:
                 raise TypeError("Missing required property 'product_name'")

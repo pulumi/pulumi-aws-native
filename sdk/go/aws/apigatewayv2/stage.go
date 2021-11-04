@@ -41,9 +41,6 @@ func NewStage(ctx *pulumi.Context,
 	if args.ApiId == nil {
 		return nil, errors.New("invalid value for required argument 'ApiId'")
 	}
-	if args.StageName == nil {
-		return nil, errors.New("invalid value for required argument 'StageName'")
-	}
 	var resource Stage
 	err := ctx.RegisterResource("aws-native:apigatewayv2:Stage", name, args, &resource, opts...)
 	if err != nil {
@@ -85,7 +82,7 @@ type stageArgs struct {
 	DeploymentId         *string                 `pulumi:"deploymentId"`
 	Description          *string                 `pulumi:"description"`
 	RouteSettings        interface{}             `pulumi:"routeSettings"`
-	StageName            string                  `pulumi:"stageName"`
+	StageName            *string                 `pulumi:"stageName"`
 	StageVariables       interface{}             `pulumi:"stageVariables"`
 	Tags                 interface{}             `pulumi:"tags"`
 }
@@ -101,7 +98,7 @@ type StageArgs struct {
 	DeploymentId         pulumi.StringPtrInput
 	Description          pulumi.StringPtrInput
 	RouteSettings        pulumi.Input
-	StageName            pulumi.StringInput
+	StageName            pulumi.StringPtrInput
 	StageVariables       pulumi.Input
 	Tags                 pulumi.Input
 }

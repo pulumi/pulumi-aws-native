@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.WAFRegional
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public XssMatchSet(string name, XssMatchSetArgs args, CustomResourceOptions? options = null)
+        public XssMatchSet(string name, XssMatchSetArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:wafregional:XssMatchSet", name, args ?? new XssMatchSetArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -67,8 +67,8 @@ namespace Pulumi.AwsNative.WAFRegional
 
     public sealed class XssMatchSetArgs : Pulumi.ResourceArgs
     {
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("xssMatchTuples")]
         private InputList<Inputs.XssMatchSetXssMatchTupleArgs>? _xssMatchTuples;

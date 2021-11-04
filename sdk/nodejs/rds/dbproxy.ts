@@ -102,9 +102,6 @@ export class DBProxy extends pulumi.CustomResource {
             if ((!args || args.auth === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'auth'");
             }
-            if ((!args || args.dBProxyName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dBProxyName'");
-            }
             if ((!args || args.engineFamily === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engineFamily'");
             }
@@ -160,7 +157,7 @@ export interface DBProxyArgs {
     /**
      * The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
      */
-    dBProxyName: pulumi.Input<string>;
+    dBProxyName?: pulumi.Input<string>;
     /**
      * Whether the proxy includes detailed information about SQL statements in its logs.
      */

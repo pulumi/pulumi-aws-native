@@ -16,13 +16,14 @@ __all__ = ['RuleArgs', 'Rule']
 class RuleArgs:
     def __init__(__self__, *,
                  metric_name: pulumi.Input[str],
-                 name: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
                  predicates: Optional[pulumi.Input[Sequence[pulumi.Input['RulePredicateArgs']]]] = None):
         """
         The set of arguments for constructing a Rule resource.
         """
         pulumi.set(__self__, "metric_name", metric_name)
-        pulumi.set(__self__, "name", name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if predicates is not None:
             pulumi.set(__self__, "predicates", predicates)
 
@@ -37,11 +38,11 @@ class RuleArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
     @property
@@ -117,8 +118,6 @@ class Rule(pulumi.CustomResource):
             if metric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'metric_name'")
             __props__.__dict__["metric_name"] = metric_name
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["predicates"] = predicates
         super(Rule, __self__).__init__(

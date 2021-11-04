@@ -14,20 +14,21 @@ __all__ = ['ModelArgs', 'Model']
 class ModelArgs:
     def __init__(__self__, *,
                  api_id: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  schema: Any,
                  content_type: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None):
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Model resource.
         """
         pulumi.set(__self__, "api_id", api_id)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "schema", schema)
         if content_type is not None:
             pulumi.set(__self__, "content_type", content_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="apiId")
@@ -37,15 +38,6 @@ class ModelArgs:
     @api_id.setter
     def api_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "api_id", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -73,6 +65,15 @@ class ModelArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 warnings.warn("""Model is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
@@ -144,8 +145,6 @@ class Model(pulumi.CustomResource):
             __props__.__dict__["api_id"] = api_id
             __props__.__dict__["content_type"] = content_type
             __props__.__dict__["description"] = description
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")

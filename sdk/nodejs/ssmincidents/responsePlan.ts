@@ -76,9 +76,6 @@ export class ResponsePlan extends pulumi.CustomResource {
             if ((!args || args.incidentTemplate === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'incidentTemplate'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["actions"] = args ? args.actions : undefined;
             inputs["chatChannel"] = args ? args.chatChannel : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
@@ -125,7 +122,7 @@ export interface ResponsePlanArgs {
     /**
      * The name of the response plan.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The tags to apply to the response plan.
      */

@@ -34,9 +34,6 @@ func NewSubnetGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.SubnetGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'SubnetGroupName'")
-	}
 	if args.SubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetIds'")
 	}
@@ -75,7 +72,7 @@ type subnetGroupArgs struct {
 	// An optional description of the subnet group.
 	Description *string `pulumi:"description"`
 	// The name of the subnet group. This value must be unique as it also serves as the subnet group identifier.
-	SubnetGroupName string `pulumi:"subnetGroupName"`
+	SubnetGroupName *string `pulumi:"subnetGroupName"`
 	// A list of VPC subnet IDs for the subnet group.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// An array of key-value pairs to apply to this subnet group.
@@ -87,7 +84,7 @@ type SubnetGroupArgs struct {
 	// An optional description of the subnet group.
 	Description pulumi.StringPtrInput
 	// The name of the subnet group. This value must be unique as it also serves as the subnet group identifier.
-	SubnetGroupName pulumi.StringInput
+	SubnetGroupName pulumi.StringPtrInput
 	// A list of VPC subnet IDs for the subnet group.
 	SubnetIds pulumi.StringArrayInput
 	// An array of key-value pairs to apply to this subnet group.

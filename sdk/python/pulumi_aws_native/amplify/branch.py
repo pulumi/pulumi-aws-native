@@ -17,8 +17,8 @@ __all__ = ['BranchArgs', 'Branch']
 class BranchArgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
-                 branch_name: pulumi.Input[str],
                  basic_auth_config: Optional[pulumi.Input['BranchBasicAuthConfigArgs']] = None,
+                 branch_name: Optional[pulumi.Input[str]] = None,
                  build_spec: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_auto_build: Optional[pulumi.Input[bool]] = None,
@@ -32,9 +32,10 @@ class BranchArgs:
         The set of arguments for constructing a Branch resource.
         """
         pulumi.set(__self__, "app_id", app_id)
-        pulumi.set(__self__, "branch_name", branch_name)
         if basic_auth_config is not None:
             pulumi.set(__self__, "basic_auth_config", basic_auth_config)
+        if branch_name is not None:
+            pulumi.set(__self__, "branch_name", branch_name)
         if build_spec is not None:
             pulumi.set(__self__, "build_spec", build_spec)
         if description is not None:
@@ -64,15 +65,6 @@ class BranchArgs:
         pulumi.set(self, "app_id", value)
 
     @property
-    @pulumi.getter(name="branchName")
-    def branch_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "branch_name")
-
-    @branch_name.setter
-    def branch_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "branch_name", value)
-
-    @property
     @pulumi.getter(name="basicAuthConfig")
     def basic_auth_config(self) -> Optional[pulumi.Input['BranchBasicAuthConfigArgs']]:
         return pulumi.get(self, "basic_auth_config")
@@ -80,6 +72,15 @@ class BranchArgs:
     @basic_auth_config.setter
     def basic_auth_config(self, value: Optional[pulumi.Input['BranchBasicAuthConfigArgs']]):
         pulumi.set(self, "basic_auth_config", value)
+
+    @property
+    @pulumi.getter(name="branchName")
+    def branch_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "branch_name")
+
+    @branch_name.setter
+    def branch_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "branch_name", value)
 
     @property
     @pulumi.getter(name="buildSpec")
@@ -239,8 +240,6 @@ class Branch(pulumi.CustomResource):
                 raise TypeError("Missing required property 'app_id'")
             __props__.__dict__["app_id"] = app_id
             __props__.__dict__["basic_auth_config"] = basic_auth_config
-            if branch_name is None and not opts.urn:
-                raise TypeError("Missing required property 'branch_name'")
             __props__.__dict__["branch_name"] = branch_name
             __props__.__dict__["build_spec"] = build_spec
             __props__.__dict__["description"] = description

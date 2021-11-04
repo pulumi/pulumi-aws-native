@@ -55,9 +55,6 @@ export class Config extends pulumi.CustomResource {
             if ((!args || args.configData === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'configData'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["configData"] = args ? args.configData : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -82,6 +79,6 @@ export class Config extends pulumi.CustomResource {
  */
 export interface ConfigArgs {
     configData: pulumi.Input<inputs.groundstation.ConfigDataArgs>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.groundstation.ConfigTagArgs>[]>;
 }

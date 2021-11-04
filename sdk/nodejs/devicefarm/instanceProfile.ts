@@ -50,13 +50,10 @@ export class InstanceProfile extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: InstanceProfileArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: InstanceProfileArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["description"] = args ? args.description : undefined;
             inputs["excludeAppPackagesFromCleanup"] = args ? args.excludeAppPackagesFromCleanup : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -86,7 +83,7 @@ export class InstanceProfile extends pulumi.CustomResource {
 export interface InstanceProfileArgs {
     description?: pulumi.Input<string>;
     excludeAppPackagesFromCleanup?: pulumi.Input<pulumi.Input<string>[]>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     packageCleanup?: pulumi.Input<boolean>;
     rebootAfterUse?: pulumi.Input<boolean>;
     tags?: pulumi.Input<pulumi.Input<inputs.devicefarm.InstanceProfileTagArgs>[]>;

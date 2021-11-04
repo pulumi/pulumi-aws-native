@@ -18,10 +18,10 @@ class InstanceArgs:
     def __init__(__self__, *,
                  blueprint_id: pulumi.Input[str],
                  bundle_id: pulumi.Input[str],
-                 instance_name: pulumi.Input[str],
                  add_ons: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAddOnArgs']]]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  hardware: Optional[pulumi.Input['InstanceHardwareArgs']] = None,
+                 instance_name: Optional[pulumi.Input[str]] = None,
                  key_pair_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input['InstanceLocationArgs']] = None,
                  networking: Optional[pulumi.Input['InstanceNetworkingArgs']] = None,
@@ -32,22 +32,23 @@ class InstanceArgs:
         The set of arguments for constructing a Instance resource.
         :param pulumi.Input[str] blueprint_id: The ID for a virtual private server image (e.g., app_wordpress_4_4 or app_lamp_7_0 ). Use the get blueprints operation to return a list of available images (or blueprints ).
         :param pulumi.Input[str] bundle_id: The bundle of specification information for your virtual private server (or instance ), including the pricing plan (e.g., micro_1_0 ).
-        :param pulumi.Input[str] instance_name: The names to use for your new Lightsail instance.
         :param pulumi.Input[Sequence[pulumi.Input['InstanceAddOnArgs']]] add_ons: An array of objects representing the add-ons to enable for the new instance.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
+        :param pulumi.Input[str] instance_name: The names to use for your new Lightsail instance.
         :param pulumi.Input[str] key_pair_name: The name of your key pair.
         :param pulumi.Input[Sequence[pulumi.Input['InstanceTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] user_data: A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
         """
         pulumi.set(__self__, "blueprint_id", blueprint_id)
         pulumi.set(__self__, "bundle_id", bundle_id)
-        pulumi.set(__self__, "instance_name", instance_name)
         if add_ons is not None:
             pulumi.set(__self__, "add_ons", add_ons)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if hardware is not None:
             pulumi.set(__self__, "hardware", hardware)
+        if instance_name is not None:
+            pulumi.set(__self__, "instance_name", instance_name)
         if key_pair_name is not None:
             pulumi.set(__self__, "key_pair_name", key_pair_name)
         if location is not None:
@@ -86,18 +87,6 @@ class InstanceArgs:
         pulumi.set(self, "bundle_id", value)
 
     @property
-    @pulumi.getter(name="instanceName")
-    def instance_name(self) -> pulumi.Input[str]:
-        """
-        The names to use for your new Lightsail instance.
-        """
-        return pulumi.get(self, "instance_name")
-
-    @instance_name.setter
-    def instance_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "instance_name", value)
-
-    @property
     @pulumi.getter(name="addOns")
     def add_ons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAddOnArgs']]]]:
         """
@@ -129,6 +118,18 @@ class InstanceArgs:
     @hardware.setter
     def hardware(self, value: Optional[pulumi.Input['InstanceHardwareArgs']]):
         pulumi.set(self, "hardware", value)
+
+    @property
+    @pulumi.getter(name="instanceName")
+    def instance_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The names to use for your new Lightsail instance.
+        """
+        return pulumi.get(self, "instance_name")
+
+    @instance_name.setter
+    def instance_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_name", value)
 
     @property
     @pulumi.getter(name="keyPairName")
@@ -283,8 +284,6 @@ class Instance(pulumi.CustomResource):
                 raise TypeError("Missing required property 'bundle_id'")
             __props__.__dict__["bundle_id"] = bundle_id
             __props__.__dict__["hardware"] = hardware
-            if instance_name is None and not opts.urn:
-                raise TypeError("Missing required property 'instance_name'")
             __props__.__dict__["instance_name"] = instance_name
             __props__.__dict__["key_pair_name"] = key_pair_name
             __props__.__dict__["location"] = location

@@ -33,7 +33,7 @@ namespace Pulumi.AwsNative.Pinpoint
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public App(string name, AppArgs args, CustomResourceOptions? options = null)
+        public App(string name, AppArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:pinpoint:App", name, args ?? new AppArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -70,8 +70,8 @@ namespace Pulumi.AwsNative.Pinpoint
 
     public sealed class AppArgs : Pulumi.ResourceArgs
     {
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("tags")]
         public Input<object>? Tags { get; set; }

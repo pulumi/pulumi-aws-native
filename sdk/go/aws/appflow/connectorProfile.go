@@ -41,9 +41,6 @@ func NewConnectorProfile(ctx *pulumi.Context,
 	if args.ConnectionMode == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectionMode'")
 	}
-	if args.ConnectorProfileName == nil {
-		return nil, errors.New("invalid value for required argument 'ConnectorProfileName'")
-	}
 	if args.ConnectorType == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectorType'")
 	}
@@ -84,7 +81,7 @@ type connectorProfileArgs struct {
 	// Connector specific configurations needed to create connector profile
 	ConnectorProfileConfig *ConnectorProfileConfig `pulumi:"connectorProfileConfig"`
 	// The maximum number of items to retrieve in a single batch.
-	ConnectorProfileName string `pulumi:"connectorProfileName"`
+	ConnectorProfileName *string `pulumi:"connectorProfileName"`
 	// List of Saas providers that need connector profile to be created
 	ConnectorType ConnectorProfileConnectorType `pulumi:"connectorType"`
 	// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
@@ -98,7 +95,7 @@ type ConnectorProfileArgs struct {
 	// Connector specific configurations needed to create connector profile
 	ConnectorProfileConfig ConnectorProfileConfigPtrInput
 	// The maximum number of items to retrieve in a single batch.
-	ConnectorProfileName pulumi.StringInput
+	ConnectorProfileName pulumi.StringPtrInput
 	// List of Saas providers that need connector profile to be created
 	ConnectorType ConnectorProfileConnectorTypeInput
 	// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.

@@ -78,9 +78,6 @@ export class UserProfile extends pulumi.CustomResource {
             if ((!args || args.domainId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainId'");
             }
-            if ((!args || args.userProfileName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'userProfileName'");
-            }
             inputs["domainId"] = args ? args.domainId : undefined;
             inputs["singleSignOnUserIdentifier"] = args ? args.singleSignOnUserIdentifier : undefined;
             inputs["singleSignOnUserValue"] = args ? args.singleSignOnUserValue : undefined;
@@ -127,7 +124,7 @@ export interface UserProfileArgs {
     /**
      * A name for the UserProfile.
      */
-    userProfileName: pulumi.Input<string>;
+    userProfileName?: pulumi.Input<string>;
     /**
      * A collection of settings.
      */

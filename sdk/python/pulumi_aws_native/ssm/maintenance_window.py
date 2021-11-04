@@ -18,10 +18,10 @@ class MaintenanceWindowArgs:
                  allow_unassociated_targets: pulumi.Input[bool],
                  cutoff: pulumi.Input[int],
                  duration: pulumi.Input[int],
-                 name: pulumi.Input[str],
                  schedule: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  end_date: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  schedule_offset: Optional[pulumi.Input[int]] = None,
                  schedule_timezone: Optional[pulumi.Input[str]] = None,
                  start_date: Optional[pulumi.Input[str]] = None,
@@ -32,12 +32,13 @@ class MaintenanceWindowArgs:
         pulumi.set(__self__, "allow_unassociated_targets", allow_unassociated_targets)
         pulumi.set(__self__, "cutoff", cutoff)
         pulumi.set(__self__, "duration", duration)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "schedule", schedule)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if end_date is not None:
             pulumi.set(__self__, "end_date", end_date)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if schedule_offset is not None:
             pulumi.set(__self__, "schedule_offset", schedule_offset)
         if schedule_timezone is not None:
@@ -76,15 +77,6 @@ class MaintenanceWindowArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
     def schedule(self) -> pulumi.Input[str]:
         return pulumi.get(self, "schedule")
 
@@ -109,6 +101,15 @@ class MaintenanceWindowArgs:
     @end_date.setter
     def end_date(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "end_date", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="scheduleOffset")
@@ -234,8 +235,6 @@ class MaintenanceWindow(pulumi.CustomResource):
                 raise TypeError("Missing required property 'duration'")
             __props__.__dict__["duration"] = duration
             __props__.__dict__["end_date"] = end_date
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if schedule is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule'")

@@ -67,8 +67,8 @@ namespace Pulumi.AwsNative.WAF
 
     public sealed class XssMatchSetArgs : Pulumi.ResourceArgs
     {
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("xssMatchTuples", required: true)]
         private InputList<Inputs.XssMatchSetXssMatchTupleArgs>? _xssMatchTuples;

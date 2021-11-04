@@ -67,13 +67,10 @@ export class ConformancePack extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ConformancePackArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ConformancePackArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.conformancePackName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'conformancePackName'");
-            }
             inputs["conformancePackInputParameters"] = args ? args.conformancePackInputParameters : undefined;
             inputs["conformancePackName"] = args ? args.conformancePackName : undefined;
             inputs["deliveryS3Bucket"] = args ? args.deliveryS3Bucket : undefined;
@@ -106,7 +103,7 @@ export interface ConformancePackArgs {
     /**
      * Name of the conformance pack which will be assigned as the unique identifier.
      */
-    conformancePackName: pulumi.Input<string>;
+    conformancePackName?: pulumi.Input<string>;
     /**
      * AWS Config stores intermediate files while processing conformance pack template.
      */

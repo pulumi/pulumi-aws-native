@@ -41,9 +41,6 @@ func NewNotificationRule(ctx *pulumi.Context,
 	if args.EventTypeIds == nil {
 		return nil, errors.New("invalid value for required argument 'EventTypeIds'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.Resource == nil {
 		return nil, errors.New("invalid value for required argument 'Resource'")
 	}
@@ -86,7 +83,7 @@ type notificationRuleArgs struct {
 	DetailType    NotificationRuleDetailType `pulumi:"detailType"`
 	EventTypeId   *string                    `pulumi:"eventTypeId"`
 	EventTypeIds  []string                   `pulumi:"eventTypeIds"`
-	Name          string                     `pulumi:"name"`
+	Name          *string                    `pulumi:"name"`
 	Resource      string                     `pulumi:"resource"`
 	Status        *NotificationRuleStatus    `pulumi:"status"`
 	Tags          interface{}                `pulumi:"tags"`
@@ -100,7 +97,7 @@ type NotificationRuleArgs struct {
 	DetailType    NotificationRuleDetailTypeInput
 	EventTypeId   pulumi.StringPtrInput
 	EventTypeIds  pulumi.StringArrayInput
-	Name          pulumi.StringInput
+	Name          pulumi.StringPtrInput
 	Resource      pulumi.StringInput
 	Status        NotificationRuleStatusPtrInput
 	Tags          pulumi.Input

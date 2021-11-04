@@ -73,9 +73,6 @@ export class FunctionConfiguration extends pulumi.CustomResource {
             if ((!args || args.functionVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'functionVersion'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["apiId"] = args ? args.apiId : undefined;
             inputs["dataSourceName"] = args ? args.dataSourceName : undefined;
             inputs["description"] = args ? args.description : undefined;
@@ -117,7 +114,7 @@ export interface FunctionConfigurationArgs {
     dataSourceName: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     functionVersion: pulumi.Input<string>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     requestMappingTemplate?: pulumi.Input<string>;
     requestMappingTemplateS3Location?: pulumi.Input<string>;
     responseMappingTemplate?: pulumi.Input<string>;

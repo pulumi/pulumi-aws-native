@@ -17,17 +17,18 @@ __all__ = ['MapArgs', 'Map']
 class MapArgs:
     def __init__(__self__, *,
                  configuration: pulumi.Input['MapConfigurationArgs'],
-                 map_name: pulumi.Input[str],
                  pricing_plan: pulumi.Input['MapPricingPlan'],
-                 description: Optional[pulumi.Input[str]] = None):
+                 description: Optional[pulumi.Input[str]] = None,
+                 map_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Map resource.
         """
         pulumi.set(__self__, "configuration", configuration)
-        pulumi.set(__self__, "map_name", map_name)
         pulumi.set(__self__, "pricing_plan", pricing_plan)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if map_name is not None:
+            pulumi.set(__self__, "map_name", map_name)
 
     @property
     @pulumi.getter
@@ -37,15 +38,6 @@ class MapArgs:
     @configuration.setter
     def configuration(self, value: pulumi.Input['MapConfigurationArgs']):
         pulumi.set(self, "configuration", value)
-
-    @property
-    @pulumi.getter(name="mapName")
-    def map_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "map_name")
-
-    @map_name.setter
-    def map_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "map_name", value)
 
     @property
     @pulumi.getter(name="pricingPlan")
@@ -64,6 +56,15 @@ class MapArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="mapName")
+    def map_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "map_name")
+
+    @map_name.setter
+    def map_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "map_name", value)
 
 
 class Map(pulumi.CustomResource):
@@ -126,8 +127,6 @@ class Map(pulumi.CustomResource):
                 raise TypeError("Missing required property 'configuration'")
             __props__.__dict__["configuration"] = configuration
             __props__.__dict__["description"] = description
-            if map_name is None and not opts.urn:
-                raise TypeError("Missing required property 'map_name'")
             __props__.__dict__["map_name"] = map_name
             if pricing_plan is None and not opts.urn:
                 raise TypeError("Missing required property 'pricing_plan'")

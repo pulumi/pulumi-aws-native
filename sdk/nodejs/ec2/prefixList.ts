@@ -89,9 +89,6 @@ export class PrefixList extends pulumi.CustomResource {
             if ((!args || args.maxEntries === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'maxEntries'");
             }
-            if ((!args || args.prefixListName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'prefixListName'");
-            }
             inputs["addressFamily"] = args ? args.addressFamily : undefined;
             inputs["entries"] = args ? args.entries : undefined;
             inputs["maxEntries"] = args ? args.maxEntries : undefined;
@@ -138,7 +135,7 @@ export interface PrefixListArgs {
     /**
      * Name of Prefix List.
      */
-    prefixListName: pulumi.Input<string>;
+    prefixListName?: pulumi.Input<string>;
     /**
      * Tags for Prefix List
      */

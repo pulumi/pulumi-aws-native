@@ -15,7 +15,7 @@ __all__ = ['AppImageConfigArgs', 'AppImageConfig']
 @pulumi.input_type
 class AppImageConfigArgs:
     def __init__(__self__, *,
-                 app_image_config_name: pulumi.Input[str],
+                 app_image_config_name: Optional[pulumi.Input[str]] = None,
                  kernel_gateway_image_config: Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AppImageConfigTagArgs']]]] = None):
         """
@@ -24,7 +24,8 @@ class AppImageConfigArgs:
         :param pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs'] kernel_gateway_image_config: The KernelGatewayImageConfig.
         :param pulumi.Input[Sequence[pulumi.Input['AppImageConfigTagArgs']]] tags: A list of tags to apply to the AppImageConfig.
         """
-        pulumi.set(__self__, "app_image_config_name", app_image_config_name)
+        if app_image_config_name is not None:
+            pulumi.set(__self__, "app_image_config_name", app_image_config_name)
         if kernel_gateway_image_config is not None:
             pulumi.set(__self__, "kernel_gateway_image_config", kernel_gateway_image_config)
         if tags is not None:
@@ -32,14 +33,14 @@ class AppImageConfigArgs:
 
     @property
     @pulumi.getter(name="appImageConfigName")
-    def app_image_config_name(self) -> pulumi.Input[str]:
+    def app_image_config_name(self) -> Optional[pulumi.Input[str]]:
         """
         The Name of the AppImageConfig.
         """
         return pulumi.get(self, "app_image_config_name")
 
     @app_image_config_name.setter
-    def app_image_config_name(self, value: pulumi.Input[str]):
+    def app_image_config_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "app_image_config_name", value)
 
     @property
@@ -89,7 +90,7 @@ class AppImageConfig(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AppImageConfigArgs,
+                 args: Optional[AppImageConfigArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SageMaker::AppImageConfig
@@ -124,8 +125,6 @@ class AppImageConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AppImageConfigArgs.__new__(AppImageConfigArgs)
 
-            if app_image_config_name is None and not opts.urn:
-                raise TypeError("Missing required property 'app_image_config_name'")
             __props__.__dict__["app_image_config_name"] = app_image_config_name
             __props__.__dict__["kernel_gateway_image_config"] = kernel_gateway_image_config
             __props__.__dict__["tags"] = tags

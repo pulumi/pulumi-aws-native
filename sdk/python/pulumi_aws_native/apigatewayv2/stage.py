@@ -16,7 +16,6 @@ __all__ = ['StageArgs', 'Stage']
 class StageArgs:
     def __init__(__self__, *,
                  api_id: pulumi.Input[str],
-                 stage_name: pulumi.Input[str],
                  access_log_settings: Optional[pulumi.Input['StageAccessLogSettingsArgs']] = None,
                  access_policy_id: Optional[pulumi.Input[str]] = None,
                  auto_deploy: Optional[pulumi.Input[bool]] = None,
@@ -25,13 +24,13 @@ class StageArgs:
                  deployment_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  route_settings: Optional[Any] = None,
+                 stage_name: Optional[pulumi.Input[str]] = None,
                  stage_variables: Optional[Any] = None,
                  tags: Optional[Any] = None):
         """
         The set of arguments for constructing a Stage resource.
         """
         pulumi.set(__self__, "api_id", api_id)
-        pulumi.set(__self__, "stage_name", stage_name)
         if access_log_settings is not None:
             pulumi.set(__self__, "access_log_settings", access_log_settings)
         if access_policy_id is not None:
@@ -48,6 +47,8 @@ class StageArgs:
             pulumi.set(__self__, "description", description)
         if route_settings is not None:
             pulumi.set(__self__, "route_settings", route_settings)
+        if stage_name is not None:
+            pulumi.set(__self__, "stage_name", stage_name)
         if stage_variables is not None:
             pulumi.set(__self__, "stage_variables", stage_variables)
         if tags is not None:
@@ -61,15 +62,6 @@ class StageArgs:
     @api_id.setter
     def api_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "api_id", value)
-
-    @property
-    @pulumi.getter(name="stageName")
-    def stage_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "stage_name")
-
-    @stage_name.setter
-    def stage_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "stage_name", value)
 
     @property
     @pulumi.getter(name="accessLogSettings")
@@ -142,6 +134,15 @@ class StageArgs:
     @route_settings.setter
     def route_settings(self, value: Optional[Any]):
         pulumi.set(self, "route_settings", value)
+
+    @property
+    @pulumi.getter(name="stageName")
+    def stage_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "stage_name")
+
+    @stage_name.setter
+    def stage_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stage_name", value)
 
     @property
     @pulumi.getter(name="stageVariables")
@@ -251,8 +252,6 @@ class Stage(pulumi.CustomResource):
             __props__.__dict__["deployment_id"] = deployment_id
             __props__.__dict__["description"] = description
             __props__.__dict__["route_settings"] = route_settings
-            if stage_name is None and not opts.urn:
-                raise TypeError("Missing required property 'stage_name'")
             __props__.__dict__["stage_name"] = stage_name
             __props__.__dict__["stage_variables"] = stage_variables
             __props__.__dict__["tags"] = tags

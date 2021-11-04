@@ -58,9 +58,6 @@ export class RuleGroup extends pulumi.CustomResource {
             if ((!args || args.capacity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'capacity'");
             }
-            if ((!args || args.ruleGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'ruleGroupName'");
-            }
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
@@ -96,7 +93,7 @@ export interface RuleGroupArgs {
     capacity: pulumi.Input<number>;
     description?: pulumi.Input<string>;
     ruleGroup?: pulumi.Input<inputs.networkfirewall.RuleGroupArgs>;
-    ruleGroupName: pulumi.Input<string>;
+    ruleGroupName?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.networkfirewall.RuleGroupTagArgs>[]>;
     type: pulumi.Input<enums.networkfirewall.RuleGroupTypeEnum>;
 }

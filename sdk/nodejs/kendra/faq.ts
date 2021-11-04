@@ -79,9 +79,6 @@ export class Faq extends pulumi.CustomResource {
             if ((!args || args.indexId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'indexId'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
@@ -132,7 +129,7 @@ export interface FaqArgs {
     /**
      * FAQ name
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * FAQ role ARN
      */

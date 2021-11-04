@@ -74,9 +74,6 @@ export class MissionProfile extends pulumi.CustomResource {
             if ((!args || args.minimumViableContactDurationSeconds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'minimumViableContactDurationSeconds'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.trackingConfigArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'trackingConfigArn'");
             }
@@ -127,7 +124,7 @@ export interface MissionProfileArgs {
     /**
      * A name used to identify a mission profile.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.groundstation.MissionProfileTagArgs>[]>;
     trackingConfigArn: pulumi.Input<string>;
 }

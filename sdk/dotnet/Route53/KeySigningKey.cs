@@ -99,8 +99,8 @@ namespace Pulumi.AwsNative.Route53
         /// <summary>
         /// An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.

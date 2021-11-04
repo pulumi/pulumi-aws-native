@@ -105,8 +105,8 @@ namespace Pulumi.AwsNative.Amplify
         [Input("basicAuthConfig")]
         public Input<Inputs.BranchBasicAuthConfigArgs>? BasicAuthConfig { get; set; }
 
-        [Input("branchName", required: true)]
-        public Input<string> BranchName { get; set; } = null!;
+        [Input("branchName")]
+        public Input<string>? BranchName { get; set; }
 
         [Input("buildSpec")]
         public Input<string>? BuildSpec { get; set; }

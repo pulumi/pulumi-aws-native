@@ -68,13 +68,10 @@ export class Accelerator extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AcceleratorArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: AcceleratorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             inputs["ipAddresses"] = args ? args.ipAddresses : undefined;
@@ -117,6 +114,6 @@ export interface AcceleratorArgs {
     /**
      * Name of accelerator.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.AcceleratorTagArgs>[]>;
 }

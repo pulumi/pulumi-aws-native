@@ -17,13 +17,13 @@ __all__ = ['FlowSourceInitArgs', 'FlowSource']
 class FlowSourceInitArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  decryption: Optional[pulumi.Input['FlowSourceEncryptionArgs']] = None,
                  entitlement_arn: Optional[pulumi.Input[str]] = None,
                  flow_arn: Optional[pulumi.Input[str]] = None,
                  ingest_port: Optional[pulumi.Input[int]] = None,
                  max_bitrate: Optional[pulumi.Input[int]] = None,
                  max_latency: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input['FlowSourceProtocol']] = None,
                  stream_id: Optional[pulumi.Input[str]] = None,
                  vpc_interface_name: Optional[pulumi.Input[str]] = None,
@@ -31,20 +31,19 @@ class FlowSourceInitArgs:
         """
         The set of arguments for constructing a FlowSource resource.
         :param pulumi.Input[str] description: A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
-        :param pulumi.Input[str] name: The name of the source.
         :param pulumi.Input['FlowSourceEncryptionArgs'] decryption: The type of encryption that is used on the content ingested from this source.
         :param pulumi.Input[str] entitlement_arn: The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
         :param pulumi.Input[str] flow_arn: The ARN of the flow.
         :param pulumi.Input[int] ingest_port: The port that the flow will be listening on for incoming content.
         :param pulumi.Input[int] max_bitrate: The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
         :param pulumi.Input[int] max_latency: The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
+        :param pulumi.Input[str] name: The name of the source.
         :param pulumi.Input['FlowSourceProtocol'] protocol: The protocol that is used by the source.
         :param pulumi.Input[str] stream_id: The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
         :param pulumi.Input[str] vpc_interface_name: The name of the VPC Interface this Source is configured with.
         :param pulumi.Input[str] whitelist_cidr: The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
         """
         pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "name", name)
         if decryption is not None:
             pulumi.set(__self__, "decryption", decryption)
         if entitlement_arn is not None:
@@ -57,6 +56,8 @@ class FlowSourceInitArgs:
             pulumi.set(__self__, "max_bitrate", max_bitrate)
         if max_latency is not None:
             pulumi.set(__self__, "max_latency", max_latency)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
         if stream_id is not None:
@@ -77,18 +78,6 @@ class FlowSourceInitArgs:
     @description.setter
     def description(self, value: pulumi.Input[str]):
         pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the source.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -161,6 +150,18 @@ class FlowSourceInitArgs:
     @max_latency.setter
     def max_latency(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_latency", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the source.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -304,8 +305,6 @@ class FlowSource(pulumi.CustomResource):
             __props__.__dict__["ingest_port"] = ingest_port
             __props__.__dict__["max_bitrate"] = max_bitrate
             __props__.__dict__["max_latency"] = max_latency
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["protocol"] = protocol
             __props__.__dict__["stream_id"] = stream_id

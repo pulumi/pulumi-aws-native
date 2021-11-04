@@ -16,35 +16,24 @@ __all__ = ['BucketArgs', 'Bucket']
 @pulumi.input_type
 class BucketArgs:
     def __init__(__self__, *,
-                 bucket_name: pulumi.Input[str],
                  outpost_id: pulumi.Input[str],
+                 bucket_name: Optional[pulumi.Input[str]] = None,
                  lifecycle_configuration: Optional[pulumi.Input['BucketLifecycleConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]]] = None):
         """
         The set of arguments for constructing a Bucket resource.
-        :param pulumi.Input[str] bucket_name: A name for the bucket.
         :param pulumi.Input[str] outpost_id: The id of the customer outpost on which the bucket resides.
+        :param pulumi.Input[str] bucket_name: A name for the bucket.
         :param pulumi.Input['BucketLifecycleConfigurationArgs'] lifecycle_configuration: Rules that define how Amazon S3Outposts manages objects during their lifetime.
         :param pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
         """
-        pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "outpost_id", outpost_id)
+        if bucket_name is not None:
+            pulumi.set(__self__, "bucket_name", bucket_name)
         if lifecycle_configuration is not None:
             pulumi.set(__self__, "lifecycle_configuration", lifecycle_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="bucketName")
-    def bucket_name(self) -> pulumi.Input[str]:
-        """
-        A name for the bucket.
-        """
-        return pulumi.get(self, "bucket_name")
-
-    @bucket_name.setter
-    def bucket_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "bucket_name", value)
 
     @property
     @pulumi.getter(name="outpostId")
@@ -57,6 +46,18 @@ class BucketArgs:
     @outpost_id.setter
     def outpost_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "outpost_id", value)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for the bucket.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @bucket_name.setter
+    def bucket_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_name", value)
 
     @property
     @pulumi.getter(name="lifecycleConfiguration")
@@ -143,8 +144,6 @@ class Bucket(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BucketArgs.__new__(BucketArgs)
 
-            if bucket_name is None and not opts.urn:
-                raise TypeError("Missing required property 'bucket_name'")
             __props__.__dict__["bucket_name"] = bucket_name
             __props__.__dict__["lifecycle_configuration"] = lifecycle_configuration
             if outpost_id is None and not opts.urn:

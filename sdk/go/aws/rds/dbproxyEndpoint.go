@@ -44,9 +44,6 @@ func NewDBProxyEndpoint(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DBProxyEndpointName == nil {
-		return nil, errors.New("invalid value for required argument 'DBProxyEndpointName'")
-	}
 	if args.DBProxyName == nil {
 		return nil, errors.New("invalid value for required argument 'DBProxyName'")
 	}
@@ -86,7 +83,7 @@ func (DBProxyEndpointState) ElementType() reflect.Type {
 
 type dbproxyEndpointArgs struct {
 	// The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
-	DBProxyEndpointName string `pulumi:"dBProxyEndpointName"`
+	DBProxyEndpointName *string `pulumi:"dBProxyEndpointName"`
 	// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
 	DBProxyName string `pulumi:"dBProxyName"`
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
@@ -102,7 +99,7 @@ type dbproxyEndpointArgs struct {
 // The set of arguments for constructing a DBProxyEndpoint resource.
 type DBProxyEndpointArgs struct {
 	// The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
-	DBProxyEndpointName pulumi.StringInput
+	DBProxyEndpointName pulumi.StringPtrInput
 	// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
 	DBProxyName pulumi.StringInput
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.

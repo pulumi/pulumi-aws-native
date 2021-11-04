@@ -69,9 +69,6 @@ export class KeySigningKey extends pulumi.CustomResource {
             if ((!args || args.keyManagementServiceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyManagementServiceArn'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.status === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
@@ -107,7 +104,7 @@ export interface KeySigningKeyArgs {
     /**
      * An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
      */

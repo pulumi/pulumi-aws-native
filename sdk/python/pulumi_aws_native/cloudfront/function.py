@@ -15,15 +15,14 @@ __all__ = ['FunctionArgs', 'Function']
 @pulumi.input_type
 class FunctionArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  auto_publish: Optional[pulumi.Input[bool]] = None,
                  function_code: Optional[pulumi.Input[str]] = None,
                  function_config: Optional[pulumi.Input['FunctionConfigArgs']] = None,
-                 function_metadata: Optional[pulumi.Input['FunctionMetadataArgs']] = None):
+                 function_metadata: Optional[pulumi.Input['FunctionMetadataArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Function resource.
         """
-        pulumi.set(__self__, "name", name)
         if auto_publish is not None:
             pulumi.set(__self__, "auto_publish", auto_publish)
         if function_code is not None:
@@ -32,15 +31,8 @@ class FunctionArgs:
             pulumi.set(__self__, "function_config", function_config)
         if function_metadata is not None:
             pulumi.set(__self__, "function_metadata", function_metadata)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="autoPublish")
@@ -78,6 +70,15 @@ class FunctionArgs:
     def function_metadata(self, value: Optional[pulumi.Input['FunctionMetadataArgs']]):
         pulumi.set(self, "function_metadata", value)
 
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
 
 class Function(pulumi.CustomResource):
     @overload
@@ -100,7 +101,7 @@ class Function(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FunctionArgs,
+                 args: Optional[FunctionArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::CloudFront::Function
@@ -141,8 +142,6 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["function_code"] = function_code
             __props__.__dict__["function_config"] = function_config
             __props__.__dict__["function_metadata"] = function_metadata
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["function_arn"] = None
             __props__.__dict__["stage"] = None

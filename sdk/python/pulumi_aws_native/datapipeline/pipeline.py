@@ -15,37 +15,29 @@ __all__ = ['PipelineArgs', 'Pipeline']
 @pulumi.input_type
 class PipelineArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  parameter_objects: pulumi.Input[Sequence[pulumi.Input['PipelineParameterObjectArgs']]],
                  activate: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineParameterValueArgs']]]] = None,
                  pipeline_objects: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineObjectArgs']]]] = None,
                  pipeline_tags: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTagArgs']]]] = None):
         """
         The set of arguments for constructing a Pipeline resource.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "parameter_objects", parameter_objects)
         if activate is not None:
             pulumi.set(__self__, "activate", activate)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if parameter_values is not None:
             pulumi.set(__self__, "parameter_values", parameter_values)
         if pipeline_objects is not None:
             pulumi.set(__self__, "pipeline_objects", pipeline_objects)
         if pipeline_tags is not None:
             pulumi.set(__self__, "pipeline_tags", pipeline_tags)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="parameterObjects")
@@ -73,6 +65,15 @@ class PipelineArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="parameterValues")
@@ -172,8 +173,6 @@ class Pipeline(pulumi.CustomResource):
 
             __props__.__dict__["activate"] = activate
             __props__.__dict__["description"] = description
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if parameter_objects is None and not opts.urn:
                 raise TypeError("Missing required property 'parameter_objects'")

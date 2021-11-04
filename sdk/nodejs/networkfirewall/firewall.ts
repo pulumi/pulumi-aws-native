@@ -59,9 +59,6 @@ export class Firewall extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.firewallName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'firewallName'");
-            }
             if ((!args || args.firewallPolicyArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'firewallPolicyArn'");
             }
@@ -110,7 +107,7 @@ export class Firewall extends pulumi.CustomResource {
 export interface FirewallArgs {
     deleteProtection?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
-    firewallName: pulumi.Input<string>;
+    firewallName?: pulumi.Input<string>;
     firewallPolicyArn: pulumi.Input<string>;
     firewallPolicyChangeProtection?: pulumi.Input<boolean>;
     subnetChangeProtection?: pulumi.Input<boolean>;

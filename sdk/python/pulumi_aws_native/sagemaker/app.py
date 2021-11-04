@@ -16,41 +16,30 @@ __all__ = ['AppArgs', 'App']
 @pulumi.input_type
 class AppArgs:
     def __init__(__self__, *,
-                 app_name: pulumi.Input[str],
                  app_type: pulumi.Input['AppType'],
                  domain_id: pulumi.Input[str],
                  user_profile_name: pulumi.Input[str],
+                 app_name: Optional[pulumi.Input[str]] = None,
                  resource_spec: Optional[pulumi.Input['AppResourceSpecArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AppTagArgs']]]] = None):
         """
         The set of arguments for constructing a App resource.
-        :param pulumi.Input[str] app_name: The name of the app.
         :param pulumi.Input['AppType'] app_type: The type of app.
         :param pulumi.Input[str] domain_id: The domain ID.
         :param pulumi.Input[str] user_profile_name: The user profile name.
+        :param pulumi.Input[str] app_name: The name of the app.
         :param pulumi.Input['AppResourceSpecArgs'] resource_spec: The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
         :param pulumi.Input[Sequence[pulumi.Input['AppTagArgs']]] tags: A list of tags to apply to the app.
         """
-        pulumi.set(__self__, "app_name", app_name)
         pulumi.set(__self__, "app_type", app_type)
         pulumi.set(__self__, "domain_id", domain_id)
         pulumi.set(__self__, "user_profile_name", user_profile_name)
+        if app_name is not None:
+            pulumi.set(__self__, "app_name", app_name)
         if resource_spec is not None:
             pulumi.set(__self__, "resource_spec", resource_spec)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="appName")
-    def app_name(self) -> pulumi.Input[str]:
-        """
-        The name of the app.
-        """
-        return pulumi.get(self, "app_name")
-
-    @app_name.setter
-    def app_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "app_name", value)
 
     @property
     @pulumi.getter(name="appType")
@@ -87,6 +76,18 @@ class AppArgs:
     @user_profile_name.setter
     def user_profile_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "user_profile_name", value)
+
+    @property
+    @pulumi.getter(name="appName")
+    def app_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the app.
+        """
+        return pulumi.get(self, "app_name")
+
+    @app_name.setter
+    def app_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_name", value)
 
     @property
     @pulumi.getter(name="resourceSpec")
@@ -179,8 +180,6 @@ class App(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AppArgs.__new__(AppArgs)
 
-            if app_name is None and not opts.urn:
-                raise TypeError("Missing required property 'app_name'")
             __props__.__dict__["app_name"] = app_name
             if app_type is None and not opts.urn:
                 raise TypeError("Missing required property 'app_type'")

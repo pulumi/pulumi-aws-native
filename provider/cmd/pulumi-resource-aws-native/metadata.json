@@ -52,6 +52,11 @@
                     "description": "The type of the analyzer, must be ACCOUNT or ORGANIZATION"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "analyzerName",
+                "minLength": 1,
+                "maxLength": 1024
+            },
             "required": [
                 "type"
             ],
@@ -474,9 +479,11 @@
                     }
                 }
             },
-            "required": [
-                "name"
-            ]
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 255
+            }
         },
         "aws-native:amplify:Branch": {
             "cf": "AWS::Amplify::Branch",
@@ -571,9 +578,13 @@
                     }
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "branchName",
+                "minLength": 1,
+                "maxLength": 255
+            },
             "required": [
-                "appId",
-                "branchName"
+                "appId"
             ],
             "createOnly": [
                 "appId",
@@ -646,9 +657,12 @@
                     }
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "domainName",
+                "maxLength": 255
+            },
             "required": [
                 "appId",
-                "domainName",
                 "subDomainSettings"
             ],
             "createOnly": [
@@ -757,6 +771,9 @@
                     "description": "The value of the API key. Must be at least 20 characters long."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "createOnly": [
                 "generateDistinctId",
                 "name",
@@ -858,8 +875,10 @@
                     "description": "The authorizer type."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "required": [
-                "name",
                 "restApiId",
                 "type"
             ],
@@ -1260,6 +1279,9 @@
                     "description": "The schema to use to transform data to one or more output formats. Specify null ({}) if you don't want to specify a schema."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "required": [
                 "restApiId"
             ],
@@ -1310,6 +1332,9 @@
                     "type": "boolean",
                     "description": "Indicates whether to validate request parameters."
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
             },
             "required": [
                 "restApiId"
@@ -1494,6 +1519,9 @@
                     "description": "A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "stageName"
+            },
             "required": [
                 "restApiId"
             ],
@@ -1567,6 +1595,9 @@
                     "type": "string",
                     "description": "A name for the usage plan."
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "usagePlanName"
             }
         },
         "aws-native:apigateway:UsagePlanKey": {
@@ -1664,9 +1695,12 @@
                     "description": "The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "connectorProfileName",
+                "maxLength": 256
+            },
             "required": [
                 "connectionMode",
-                "connectorProfileName",
                 "connectorType"
             ],
             "createOnly": [
@@ -1767,9 +1801,13 @@
                     "description": "Trigger settings of the flow."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "flowName",
+                "minLength": 1,
+                "maxLength": 256
+            },
             "required": [
                 "destinationFlowConfigList",
-                "flowName",
                 "sourceFlowConfig",
                 "tasks",
                 "triggerConfig"
@@ -1842,10 +1880,14 @@
                     "description": "The tags (keys and values) associated with the event integration."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 255
+            },
             "required": [
                 "eventBridgeBus",
-                "eventFilter",
-                "name"
+                "eventFilter"
             ],
             "createOnly": [
                 "eventBridgeBus",
@@ -2040,6 +2082,11 @@
                     }
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "serviceName",
+                "minLength": 4,
+                "maxLength": 40
+            },
             "required": [
                 "sourceConfiguration"
             ],
@@ -2096,6 +2143,11 @@
                     "type": "string",
                     "description": "Required to identify a specific APS Workspace associated with this RuleGroupsNamespace."
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 64
             },
             "required": [
                 "data",
@@ -2206,8 +2258,12 @@
                     "description": "The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. "
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 256
+            },
             "required": [
-                "name",
                 "type"
             ],
             "createOnly": [
@@ -2263,6 +2319,11 @@
                     "type": "string",
                     "description": "The name of the workgroup that contains the named query."
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 128
             },
             "required": [
                 "database",
@@ -2396,9 +2457,9 @@
                     "description": "The workgroup configuration update object"
                 }
             },
-            "required": [
-                "name"
-            ],
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "createOnly": [
                 "name"
             ]
@@ -2494,6 +2555,9 @@
                     },
                     "description": "The tags associated with the assessment."
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
             },
             "createOnly": [
                 "awsAccount",
@@ -2676,6 +2740,11 @@
                     "description": "The Base64-encoded user data to make available to the launched EC2 instances."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "launchConfigurationName",
+                "minLength": 1,
+                "maxLength": 255
+            },
             "required": [
                 "imageId",
                 "instanceType"
@@ -2771,6 +2840,11 @@
                     "type": "string",
                     "description": "The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target, for example, an Amazon SNS topic or an Amazon SQS queue."
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "lifecycleHookName",
+                "minLength": 1,
+                "maxLength": 255
             },
             "required": [
                 "autoScalingGroupName",
@@ -2944,9 +3018,9 @@
                     "$ref": "#/types/aws-native:backup:BackupVaultNotificationObjectType"
                 }
             },
-            "required": [
-                "backupVaultName"
-            ],
+            "autoNamingSpec": {
+                "sdkName": "backupVaultName"
+            },
             "createOnly": [
                 "backupVaultName",
                 "encryptionKeyArn"
@@ -3018,6 +3092,11 @@
                     "description": "Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "frameworkName",
+                "minLength": 1,
+                "maxLength": 256
+            },
             "required": [
                 "frameworkControls"
             ],
@@ -3080,6 +3159,11 @@
                     "$ref": "#/types/aws-native:backup:ReportSettingProperties",
                     "description": "Identifies the report template for the report. Reports are built using a report template."
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "reportPlanName",
+                "minLength": 1,
+                "maxLength": 256
             },
             "required": [
                 "reportDeliveryChannel",
@@ -3192,6 +3276,9 @@
                     }
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "keyspaceName"
+            },
             "createOnly": [
                 "keyspaceName"
             ]
@@ -3302,6 +3389,9 @@
                     "description": "An array of key-value pairs to apply to this resource"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "tableName"
+            },
             "required": [
                 "keyspaceName",
                 "partitionKeyColumns"
@@ -3362,8 +3452,12 @@
                     "description": "Json array format of CostCategorySplitChargeRule in Billing and Cost Management API"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 50
+            },
             "required": [
-                "name",
                 "ruleVersion",
                 "rules"
             ],
@@ -3928,9 +4022,12 @@
                     "description": "Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "stackSetName",
+                "maxLength": 128
+            },
             "required": [
-                "permissionModel",
-                "stackSetName"
+                "permissionModel"
             ],
             "createOnly": [
                 "permissionModel",
@@ -4148,9 +4245,9 @@
                     "type": "string"
                 }
             },
-            "required": [
-                "name"
-            ]
+            "autoNamingSpec": {
+                "sdkName": "name"
+            }
         },
         "aws-native:cloudfront:KeyGroup": {
             "cf": "AWS::CloudFront::KeyGroup",
@@ -4254,10 +4351,12 @@
                     "type": "number"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "required": [
                 "endPoints",
                 "fields",
-                "name",
                 "samplingRate"
             ],
             "createOnly": [
@@ -4409,6 +4508,11 @@
                 "trailName": {
                     "type": "string"
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "trailName",
+                "minLength": 3,
+                "maxLength": 128
             },
             "required": [
                 "isLogging",
@@ -4606,6 +4710,11 @@
                     "description": "A set of tags to assign to the delivery stream."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 255
+            },
             "required": [
                 "firehoseArn",
                 "outputFormat",
@@ -4667,9 +4776,11 @@
                     "description": "An array of key-value pairs to apply to this resource."
                 }
             },
-            "required": [
-                "domainName"
-            ],
+            "autoNamingSpec": {
+                "sdkName": "domainName",
+                "minLength": 2,
+                "maxLength": 50
+            },
             "createOnly": [
                 "domainName",
                 "encryptionKey"
@@ -4763,9 +4874,11 @@
                     "description": "A list of upstream repositories associated with the repository."
                 }
             },
-            "required": [
-                "repositoryName"
-            ],
+            "autoNamingSpec": {
+                "sdkName": "repositoryName",
+                "minLength": 2,
+                "maxLength": 100
+            },
             "createOnly": [
                 "domainName",
                 "domainOwner",
@@ -4834,9 +4947,11 @@
                     "description": "The tags associated with a profiling group."
                 }
             },
-            "required": [
-                "profilingGroupName"
-            ],
+            "autoNamingSpec": {
+                "sdkName": "profilingGroupName",
+                "minLength": 1,
+                "maxLength": 255
+            },
             "createOnly": [
                 "computePlatform",
                 "profilingGroupName"
@@ -4906,8 +5021,12 @@
                     "description": "The type of repository to be associated."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 100
+            },
             "required": [
-                "name",
                 "type"
             ],
             "createOnly": [
@@ -4975,9 +5094,11 @@
                     "description": "Specifies the tags applied to a connection."
                 }
             },
-            "required": [
-                "connectionName"
-            ],
+            "autoNamingSpec": {
+                "sdkName": "connectionName",
+                "minLength": 1,
+                "maxLength": 32
+            },
             "createOnly": [
                 "connectionName",
                 "hostArn",
@@ -5065,10 +5186,14 @@
                     }
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 64
+            },
             "required": [
                 "detailType",
                 "eventTypeIds",
-                "name",
                 "resource",
                 "targets"
             ],
@@ -5176,6 +5301,11 @@
                     "description": "The tags for the configuration aggregator."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "configurationAggregatorName",
+                "minLength": 1,
+                "maxLength": 256
+            },
             "createOnly": [
                 "configurationAggregatorName"
             ]
@@ -5240,9 +5370,11 @@
                     "description": "Location of file containing the template body which points to the conformance pack template that is located in an Amazon S3 bucket. You can only specify one of the template body or template S3Uri fields."
                 }
             },
-            "required": [
-                "conformancePackName"
-            ],
+            "autoNamingSpec": {
+                "sdkName": "conformancePackName",
+                "minLength": 1,
+                "maxLength": 256
+            },
             "createOnly": [
                 "conformancePackName"
             ]
@@ -5321,9 +5453,11 @@
                     "description": "Location of file containing the template body."
                 }
             },
-            "required": [
-                "organizationConformancePackName"
-            ],
+            "autoNamingSpec": {
+                "sdkName": "organizationConformancePackName",
+                "minLength": 1,
+                "maxLength": 128
+            },
             "createOnly": [
                 "organizationConformancePackName"
             ]
@@ -5450,10 +5584,14 @@
                     "description": "The time zone of the hours of operation."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 127
+            },
             "required": [
                 "config",
                 "instanceArn",
-                "name",
                 "timeZone"
             ]
         },
@@ -5513,9 +5651,13 @@
                     "description": "One or more tags."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 127
+            },
             "required": [
                 "instanceArn",
-                "name",
                 "quickConnectConfig"
             ]
         },
@@ -5663,9 +5805,13 @@
                     "description": "The Amazon Resource Name (ARN) for the user hierarchy group."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 100
+            },
             "required": [
-                "instanceArn",
-                "name"
+                "instanceArn"
             ],
             "createOnly": [
                 "parentGroupArn"
@@ -5731,9 +5877,11 @@
                     "description": "The tags (keys and values) associated with the domain"
                 }
             },
-            "required": [
-                "domainName"
-            ],
+            "autoNamingSpec": {
+                "sdkName": "domainName",
+                "minLength": 1,
+                "maxLength": 64
+            },
             "createOnly": [
                 "domainName"
             ]
@@ -5917,6 +6065,11 @@
                     "description": "A unique identifier for the object template."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "objectTypeName",
+                "minLength": 1,
+                "maxLength": 255
+            },
             "required": [
                 "domainName"
             ],
@@ -5983,9 +6136,13 @@
                     }
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 255
+            },
             "required": [
-                "input",
-                "name"
+                "input"
             ],
             "createOnly": [
                 "name",
@@ -6164,8 +6321,12 @@
                     "description": "Job type"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 255
+            },
             "required": [
-                "name",
                 "roleArn",
                 "type"
             ],
@@ -6233,9 +6394,13 @@
                     }
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 255
+            },
             "required": [
                 "datasetName",
-                "name",
                 "recipeName",
                 "roleArn"
             ],
@@ -6290,8 +6455,12 @@
                     }
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 255
+            },
             "required": [
-                "name",
                 "steps"
             ],
             "createOnly": [
@@ -6345,9 +6514,13 @@
                     }
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 255
+            },
             "required": [
-                "cronExpression",
-                "name"
+                "cronExpression"
             ],
             "createOnly": [
                 "name",
@@ -6433,6 +6606,11 @@
                     "type": "string",
                     "description": "The ID of the VPC endpoint that the agent has access to."
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "agentName",
+                "minLength": 1,
+                "maxLength": 256
             },
             "required": [
                 "activationKey"
@@ -7058,6 +7236,11 @@
                     "description": "The ARN of the task."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 256
+            },
             "required": [
                 "destinationLocationArn",
                 "sourceLocationArn"
@@ -7203,8 +7386,12 @@
                     }
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 256
+            },
             "required": [
-                "name",
                 "projectArn",
                 "rules"
             ],
@@ -7269,9 +7456,11 @@
                     }
                 }
             },
-            "required": [
-                "name"
-            ]
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 256
+            }
         },
         "aws-native:devicefarm:NetworkProfile": {
             "cf": "AWS::DeviceFarm::NetworkProfile",
@@ -7360,8 +7549,12 @@
                     "type": "integer"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 256
+            },
             "required": [
-                "name",
                 "projectArn"
             ],
             "createOnly": [
@@ -7401,9 +7594,11 @@
                     }
                 }
             },
-            "required": [
-                "name"
-            ]
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 256
+            }
         },
         "aws-native:devicefarm:TestGridProject": {
             "cf": "AWS::DeviceFarm::TestGridProject",
@@ -7444,9 +7639,11 @@
                     "$ref": "#/types/aws-native:devicefarm:TestGridProjectVpcConfig"
                 }
             },
-            "required": [
-                "name"
-            ]
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 64
+            }
         },
         "aws-native:devicefarm:VPCEConfiguration": {
             "cf": "AWS::DeviceFarm::VPCEConfiguration",
@@ -8788,10 +8985,14 @@
                     "description": "Version of Prefix List."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "prefixListName",
+                "minLength": 1,
+                "maxLength": 255
+            },
             "required": [
                 "addressFamily",
-                "maxEntries",
-                "prefixListName"
+                "maxEntries"
             ]
         },
         "aws-native:ec2:RouteTable": {
@@ -9796,6 +9997,11 @@
                     "description": "An array of key-value pairs to apply to this resource."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "repositoryName",
+                "minLength": 2,
+                "maxLength": 256
+            },
             "createOnly": [
                 "encryptionConfiguration",
                 "encryptionConfiguration/EncryptionType",
@@ -9832,6 +10038,9 @@
                         "$ref": "#/types/aws-native:ecs:CapacityProviderTag"
                     }
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
             },
             "required": [
                 "autoScalingGroupProvider"
@@ -9912,6 +10121,9 @@
                         "$ref": "#/types/aws-native:ecs:ClusterTag"
                     }
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "clusterName"
             },
             "createOnly": [
                 "clusterName"
@@ -10189,6 +10401,9 @@
                 "taskDefinition": {
                     "type": "string"
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "serviceName"
             },
             "createOnly": [
                 "cluster",
@@ -10768,8 +10983,11 @@
                     "description": "An array of key-value pairs to apply to this resource."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "addonName",
+                "minLength": 1
+            },
             "required": [
-                "addonName",
                 "clusterName"
             ],
             "createOnly": [
@@ -10875,6 +11093,11 @@
                     "description": "The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 100
+            },
             "required": [
                 "resourcesVpcConfig",
                 "roleArn"
@@ -10958,6 +11181,10 @@
                     },
                     "description": "An array of key-value pairs to apply to this resource."
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "fargateProfileName",
+                "minLength": 1
             },
             "required": [
                 "clusterName",
@@ -11142,10 +11369,12 @@
                     "description": "The username of the user."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "userName"
+            },
             "required": [
                 "engine",
-                "userId",
-                "userName"
+                "userId"
             ],
             "createOnly": [
                 "engine",
@@ -11475,11 +11704,15 @@
                     "description": "The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by VpcId."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 256
+            },
             "required": [
                 "authMode",
                 "defaultS3Location",
                 "engineSecurityGroupId",
-                "name",
                 "serviceRole",
                 "subnetIds",
                 "vpcId",
@@ -11583,9 +11816,13 @@
                     "description": "An array of key-value pairs to apply to this virtual cluster."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 64
+            },
             "required": [
-                "containerProvider",
-                "name"
+                "containerProvider"
             ],
             "createOnly": [
                 "containerProvider",
@@ -11643,6 +11880,11 @@
                     "type": "string",
                     "description": "Name of the apiDestination."
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 64
             },
             "required": [
                 "connectionArn",
@@ -11738,6 +11980,11 @@
                     "type": "string",
                     "description": "The arn of the secrets manager secret created in the customer account."
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 64
             },
             "required": [
                 "authParameters",
@@ -11848,9 +12095,9 @@
                     "description": "State of the Environment"
                 }
             },
-            "required": [
-                "name"
-            ],
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "createOnly": [
                 "kmsKeyId"
             ]
@@ -12036,9 +12283,13 @@
                     }
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "policyName",
+                "minLength": 1,
+                "maxLength": 1024
+            },
             "required": [
                 "excludeResourceTags",
-                "policyName",
                 "remediationEnabled",
                 "resourceType",
                 "securityServicePolicyData"
@@ -12201,9 +12452,11 @@
                     "description": "Tags associated with this entity type."
                 }
             },
-            "required": [
-                "name"
-            ],
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 64
+            },
             "createOnly": [
                 "name"
             ]
@@ -12292,11 +12545,15 @@
                     "description": "Tags associated with this event type."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 64
+            },
             "required": [
                 "entityTypes",
                 "eventVariables",
-                "labels",
-                "name"
+                "labels"
             ],
             "createOnly": [
                 "name"
@@ -12350,9 +12607,11 @@
                     "description": "Tags associated with this label."
                 }
             },
-            "required": [
-                "name"
-            ],
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 64
+            },
             "createOnly": [
                 "name"
             ]
@@ -12405,9 +12664,11 @@
                     "description": "Tags associated with this outcome."
                 }
             },
-            "required": [
-                "name"
-            ],
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 64
+            },
             "createOnly": [
                 "name"
             ]
@@ -12492,11 +12753,13 @@
                     "description": "The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "required": [
                 "dataSource",
                 "dataType",
-                "defaultValue",
-                "name"
+                "defaultValue"
             ],
             "createOnly": [
                 "name"
@@ -12536,8 +12799,12 @@
                     "description": "A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 1024
+            },
             "required": [
-                "name",
                 "routingStrategy"
             ]
         },
@@ -12749,6 +13016,11 @@
                     "description": "This parameter is no longer used. Instead, specify a server launch path using the RuntimeConfiguration parameter. Requests that specify a server launch path and launch parameters instead of a runtime configuration will continue to work."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 1024
+            },
             "createOnly": [
                 "buildId",
                 "certificateConfiguration",
@@ -12892,8 +13164,10 @@
                     "description": "A list of virtual private cloud (VPC) subnets to use with instances in the game server group."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "gameServerGroupName"
+            },
             "required": [
-                "gameServerGroupName",
                 "instanceDefinitions",
                 "launchTemplate",
                 "roleArn"
@@ -12963,9 +13237,11 @@
                     }
                 }
             },
-            "required": [
-                "name"
-            ]
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 64
+            }
         },
         "aws-native:globalaccelerator:EndpointGroup": {
             "cf": "AWS::GlobalAccelerator::EndpointGroup",
@@ -13169,9 +13445,11 @@
                     "description": "List of tags to tag the Registry"
                 }
             },
-            "required": [
-                "name"
-            ],
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 255
+            },
             "createOnly": [
                 "name"
             ]
@@ -13256,10 +13534,14 @@
                     "description": "List of tags to tag the schema"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 255
+            },
             "required": [
                 "compatibility",
                 "dataFormat",
-                "name",
                 "schemaDefinition"
             ],
             "createOnly": [
@@ -13422,9 +13704,11 @@
                     "type": "string"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "required": [
-                "configData",
-                "name"
+                "configData"
             ]
         },
         "aws-native:groundstation:DataflowEndpointGroup": {
@@ -13538,10 +13822,12 @@
                     "type": "string"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "required": [
                 "dataflowEdges",
                 "minimumViableContactDurationSeconds",
-                "name",
                 "trackingConfigArn"
             ]
         },
@@ -13776,6 +14062,10 @@
                     "description": "A list of tags that are attached to the role."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "roleName",
+                "maxLength": 64
+            },
             "required": [
                 "assumeRolePolicyDocument"
             ],
@@ -13817,6 +14107,11 @@
                         "$ref": "#/types/aws-native:iam:SAMLProviderTag"
                     }
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 128
             },
             "required": [
                 "samlMetadataDocument"
@@ -13876,6 +14171,11 @@
                         "$ref": "#/types/aws-native:iam:ServerCertificateTag"
                     }
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "serverCertificateName",
+                "minLength": 1,
+                "maxLength": 128
             },
             "createOnly": [
                 "certificateBody",
@@ -14042,8 +14342,10 @@
                     "description": "The version of the component."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "required": [
-                "name",
                 "platform",
                 "version"
             ],
@@ -14196,6 +14498,9 @@
                     "description": "The working directory to be used during build and test workflows."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "createOnly": [
                 "components",
                 "containerType",
@@ -14262,9 +14567,11 @@
                     "description": "The tags associated with the component."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "required": [
-                "distributions",
-                "name"
+                "distributions"
             ],
             "createOnly": [
                 "name"
@@ -14451,6 +14758,9 @@
                     "description": "The tags of this image pipeline."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "createOnly": [
                 "name"
             ]
@@ -14549,9 +14859,11 @@
                     "description": "The working directory to be used during build and test workflows."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "required": [
                 "components",
-                "name",
                 "parentImage",
                 "version"
             ],
@@ -14692,9 +15004,11 @@
                     "description": "The terminate instance on failure configuration of the infrastructure configuration."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "required": [
-                "instanceProfileName",
-                "name"
+                "instanceProfileName"
             ],
             "createOnly": [
                 "name"
@@ -14828,6 +15142,11 @@
                 "tokenSigningPublicKeys": {
                     "$ref": "pulumi.json#/Any"
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "authorizerName",
+                "minLength": 1,
+                "maxLength": 128
             },
             "required": [
                 "authorizerFunctionArn"
@@ -14996,6 +15315,11 @@
                     "description": "Specifies the type of the dimension."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 128
+            },
             "required": [
                 "stringValues",
                 "type"
@@ -15082,6 +15406,11 @@
                 "validationCertificateArn": {
                     "type": "string"
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "domainConfigurationName",
+                "minLength": 1,
+                "maxLength": 128
             },
             "createOnly": [
                 "domainConfigurationName",
@@ -15547,6 +15876,11 @@
                     "description": "Which checks are performed during the scheduled audit. Checks must be enabled for your account."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "scheduledAuditName",
+                "minLength": 1,
+                "maxLength": 128
+            },
             "required": [
                 "frequency",
                 "targetCheckNames"
@@ -15644,6 +15978,11 @@
                     },
                     "description": "A set of target ARNs that the security profile is attached to."
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "securityProfileName",
+                "minLength": 1,
+                "maxLength": 128
             },
             "createOnly": [
                 "securityProfileName"
@@ -15768,6 +16107,9 @@
                     }
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "channelName"
+            },
             "createOnly": [
                 "channelName"
             ]
@@ -15855,6 +16197,9 @@
                 "versioningConfiguration": {
                     "$ref": "#/types/aws-native:iotanalytics:DatasetVersioningConfiguration"
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "datasetName"
             },
             "required": [
                 "actions"
@@ -15971,6 +16316,11 @@
                     "description": "An array of key-value pairs to apply to this resource.\n\nFor more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "detectorModelName",
+                "minLength": 1,
+                "maxLength": 128
+            },
             "required": [
                 "detectorModelDefinition",
                 "roleArn"
@@ -16021,6 +16371,11 @@
                     },
                     "description": "An array of key-value pairs to apply to this resource.\n\nFor more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)."
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "inputName",
+                "minLength": 1,
+                "maxLength": 128
             },
             "required": [
                 "inputDefinition"
@@ -16105,8 +16460,12 @@
                     "description": "A list of key-value pairs that contain metadata for the application."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "applicationName",
+                "minLength": 1,
+                "maxLength": 256
+            },
             "required": [
-                "applicationName",
                 "roleArn"
             ]
         },
@@ -16222,9 +16581,11 @@
                     "description": "A list of key-value pairs that contain metadata for the asset."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "assetName"
+            },
             "required": [
-                "assetModelId",
-                "assetName"
+                "assetModelId"
             ]
         },
         "aws-native:iotsitewise:AssetModel": {
@@ -16313,9 +16674,9 @@
                     "description": "A list of key-value pairs that contain metadata for the asset model."
                 }
             },
-            "required": [
-                "assetModelName"
-            ]
+            "autoNamingSpec": {
+                "sdkName": "assetModelName"
+            }
         },
         "aws-native:iotsitewise:Dashboard": {
             "cf": "AWS::IoTSiteWise::Dashboard",
@@ -16377,10 +16738,12 @@
                     "description": "A list of key-value pairs that contain metadata for the dashboard."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "dashboardName"
+            },
             "required": [
                 "dashboardDefinition",
-                "dashboardDescription",
-                "dashboardName"
+                "dashboardDescription"
             ],
             "createOnly": [
                 "projectId"
@@ -16440,8 +16803,10 @@
                     "description": "A list of key-value pairs that contain metadata for the gateway."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "gatewayName"
+            },
             "required": [
-                "gatewayName",
                 "gatewayPlatform"
             ],
             "createOnly": [
@@ -16540,9 +16905,11 @@
                     "description": "A list of key-value pairs that contain metadata for the portal."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "portalName"
+            },
             "required": [
                 "portalContactEmail",
-                "portalName",
                 "roleArn"
             ],
             "createOnly": [
@@ -16601,9 +16968,11 @@
                     "description": "A list of key-value pairs that contain metadata for the project."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "projectName"
+            },
             "required": [
-                "portalId",
-                "projectName"
+                "portalId"
             ],
             "createOnly": [
                 "portalId"
@@ -16673,10 +17042,13 @@
                     "description": "A list of key-value pairs that contain metadata for the destination."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "maxLength": 128
+            },
             "required": [
                 "expression",
                 "expressionType",
-                "name",
                 "roleArn"
             ],
             "createOnly": [
@@ -16722,6 +17094,10 @@
                     },
                     "description": "A list of key-value pairs that contain metadata for the device profile."
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "maxLength": 256
             }
         },
         "aws-native:iotwireless:ServiceProfile": {
@@ -16763,6 +17139,10 @@
                     },
                     "description": "A list of key-value pairs that contain metadata for the service profile."
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "maxLength": 256
             }
         },
         "aws-native:iotwireless:TaskDefinition": {
@@ -16828,6 +17208,11 @@
                     "$ref": "#/types/aws-native:iotwireless:TaskDefinitionUpdateWirelessGatewayTaskCreate",
                     "description": "Information about the gateways to update."
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 256
             },
             "required": [
                 "autoCreateTasks"
@@ -16917,6 +17302,10 @@
                     "description": "Wireless device type, currently only Sidewalk and LoRa"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "maxLength": 256
+            },
             "required": [
                 "destinationName",
                 "type"
@@ -16989,6 +17378,10 @@
                     "type": "string",
                     "description": "Thing Arn. If there is a Thing created, this can be returned with a Get call."
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "maxLength": 256
             },
             "required": [
                 "loRaWAN"
@@ -17065,6 +17458,10 @@
                     "$ref": "#/types/aws-native:ivs:ChannelType",
                     "description": "Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately."
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "maxLength": 128
             }
         },
         "aws-native:ivs:PlaybackKeyPair": {
@@ -17110,6 +17507,10 @@
                     },
                     "description": "A list of key-value pairs that contain metadata for the asset model."
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "maxLength": 128
             },
             "required": [
                 "publicKeyMaterial"
@@ -17160,6 +17561,10 @@
                     },
                     "description": "A list of key-value pairs that contain metadata for the asset model."
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "maxLength": 128
             },
             "required": [
                 "destinationConfiguration"
@@ -17279,9 +17684,11 @@
                     "$ref": "#/types/aws-native:kendra:DataSourceType"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "required": [
                 "indexId",
-                "name",
                 "type"
             ],
             "createOnly": [
@@ -17359,9 +17766,11 @@
                     "description": "Tags for labeling the FAQ"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "required": [
                 "indexId",
-                "name",
                 "roleArn",
                 "s3Path"
             ],
@@ -17471,9 +17880,11 @@
                     }
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "required": [
                 "edition",
-                "name",
                 "roleArn"
             ],
             "createOnly": [
@@ -17536,6 +17947,11 @@
                     },
                     "description": "An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream."
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 128
             },
             "required": [
                 "shardCount"
@@ -17631,6 +18047,11 @@
                     }
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "deliveryStreamName",
+                "minLength": 1,
+                "maxLength": 64
+            },
             "createOnly": [
                 "amazonopensearchserviceDestinationConfiguration/VpcConfiguration",
                 "deliveryStreamName",
@@ -17661,8 +18082,12 @@
                     "description": "Identifies the CMK to which the alias refers. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. You cannot specify another alias. For help finding the key ID and ARN, see Finding the Key ID and ARN in the AWS Key Management Service Developer Guide."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "aliasName",
+                "minLength": 1,
+                "maxLength": 256
+            },
             "required": [
-                "aliasName",
                 "targetKeyId"
             ],
             "createOnly": [
@@ -18262,6 +18687,10 @@
                     "description": "For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "functionName",
+                "minLength": 1
+            },
             "required": [
                 "code",
                 "role"
@@ -18337,6 +18766,9 @@
                     "type": "string",
                     "description": "The version of the grant."
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "grantName"
             }
         },
         "aws-native:licensemanager:License": {
@@ -18441,12 +18873,14 @@
                     "description": "The version of the license."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "licenseName"
+            },
             "required": [
                 "consumptionConfiguration",
                 "entitlements",
                 "homeRegion",
                 "issuer",
-                "licenseName",
                 "productName",
                 "validity"
             ]
@@ -18704,8 +19138,12 @@
                     "description": "An array of key-value pairs to apply to this resource."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "diskName",
+                "minLength": 1,
+                "maxLength": 254
+            },
             "required": [
-                "diskName",
                 "sizeInGb"
             ],
             "createOnly": [
@@ -18851,10 +19289,14 @@
                     "description": "Username of the  Lightsail instance."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "instanceName",
+                "minLength": 1,
+                "maxLength": 254
+            },
             "required": [
                 "blueprintId",
-                "bundleId",
-                "instanceName"
+                "bundleId"
             ],
             "createOnly": [
                 "availabilityZone",
@@ -18896,9 +19338,9 @@
                     "description": "The name of the static IP address."
                 }
             },
-            "required": [
-                "staticIpName"
-            ],
+            "autoNamingSpec": {
+                "sdkName": "staticIpName"
+            },
             "createOnly": [
                 "staticIpName"
             ]
@@ -19007,9 +19449,13 @@
                     "type": "string"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "mapName",
+                "minLength": 1,
+                "maxLength": 100
+            },
             "required": [
                 "configuration",
-                "mapName",
                 "pricingPlan"
             ],
             "createOnly": [
@@ -19188,9 +19634,13 @@
                     "type": "string"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "trackerName",
+                "minLength": 1,
+                "maxLength": 100
+            },
             "required": [
-                "pricingPlan",
-                "trackerName"
+                "pricingPlan"
             ],
             "createOnly": [
                 "description",
@@ -19262,6 +19712,11 @@
                     "description": "The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "logGroupName",
+                "minLength": 1,
+                "maxLength": 512
+            },
             "createOnly": [
                 "logGroupName"
             ]
@@ -19306,8 +19761,12 @@
                     "description": "The query string to use for this definition"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 255
+            },
             "required": [
-                "name",
                 "queryString"
             ]
         },
@@ -19391,6 +19850,11 @@
                     "description": "ARN assigned to the alert."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "alertName",
+                "minLength": 1,
+                "maxLength": 63
+            },
             "required": [
                 "action",
                 "alertSensitivityThreshold",
@@ -19459,6 +19923,11 @@
                     "description": "List of metric sets for anomaly detection"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "anomalyDetectorName",
+                "minLength": 1,
+                "maxLength": 63
+            },
             "required": [
                 "anomalyDetectorConfig",
                 "metricSetList"
@@ -19483,9 +19952,9 @@
                     "type": "string"
                 }
             },
-            "required": [
-                "projectName"
-            ],
+            "autoNamingSpec": {
+                "sdkName": "projectName"
+            },
             "createOnly": [
                 "projectName"
             ]
@@ -19560,8 +20029,10 @@
                     "description": "Regular expression for custom data identifier."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "required": [
-                "name",
                 "regex"
             ],
             "createOnly": [
@@ -19630,9 +20101,11 @@
                     "description": "Findings filter position."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "required": [
-                "findingCriteria",
-                "name"
+                "findingCriteria"
             ]
         },
         "aws-native:macie:Session": {
@@ -19712,8 +20185,10 @@
                     "description": "The source failover config of the flow."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "required": [
-                "name",
                 "source"
             ],
             "createOnly": [
@@ -19794,10 +20269,12 @@
                     "description": "The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "required": [
                 "description",
                 "flowArn",
-                "name",
                 "subscribers"
             ],
             "createOnly": [
@@ -19933,6 +20410,9 @@
                     "description": "The name of the VPC interface attachment to use for this output."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "required": [
                 "flowArn",
                 "protocol"
@@ -20055,9 +20535,11 @@
                     "description": "The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "required": [
-                "description",
-                "name"
+                "description"
             ],
             "createOnly": [
                 "name"
@@ -20122,9 +20604,11 @@
                     "description": "Subnet must be in the AZ of the Flow"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "required": [
                 "flowArn",
-                "name",
                 "roleArn",
                 "securityGroupIds",
                 "subnetId"
@@ -20561,9 +21045,9 @@
                     "description": "List of users associated to this acl."
                 }
             },
-            "required": [
-                "aCLName"
-            ],
+            "autoNamingSpec": {
+                "sdkName": "aCLName"
+            },
             "createOnly": [
                 "aCLName"
             ]
@@ -20796,9 +21280,11 @@
                     "description": "An array of key-value pairs to apply to this cluster."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "clusterName"
+            },
             "required": [
                 "aCLName",
-                "clusterName",
                 "nodeType"
             ],
             "createOnly": [
@@ -20866,9 +21352,11 @@
                     "description": "An array of key-value pairs to apply to this parameter group."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "parameterGroupName"
+            },
             "required": [
-                "family",
-                "parameterGroupName"
+                "family"
             ],
             "createOnly": [
                 "description",
@@ -20930,8 +21418,10 @@
                     "description": "An array of key-value pairs to apply to this subnet group."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "subnetGroupName"
+            },
             "required": [
-                "subnetGroupName",
                 "subnetIds"
             ],
             "createOnly": [
@@ -20988,10 +21478,12 @@
                     "description": "The name of the user."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "userName"
+            },
             "required": [
                 "accessString",
-                "authenticationMode",
-                "userName"
+                "authenticationMode"
             ],
             "createOnly": [
                 "userName"
@@ -21133,9 +21625,9 @@
                     "type": "string"
                 }
             },
-            "required": [
-                "name"
-            ],
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "createOnly": [
                 "kmsKey",
                 "name",
@@ -21226,8 +21718,12 @@
                     "type": "string"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "firewallName",
+                "minLength": 1,
+                "maxLength": 128
+            },
             "required": [
-                "firewallName",
                 "firewallPolicyArn",
                 "subnetMappings",
                 "vpcId"
@@ -21289,9 +21785,13 @@
                     }
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "firewallPolicyName",
+                "minLength": 1,
+                "maxLength": 128
+            },
             "required": [
-                "firewallPolicy",
-                "firewallPolicyName"
+                "firewallPolicy"
             ],
             "createOnly": [
                 "firewallPolicyName"
@@ -21404,9 +21904,13 @@
                     "$ref": "#/types/aws-native:networkfirewall:RuleGroupTypeEnum"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "ruleGroupName",
+                "minLength": 1,
+                "maxLength": 128
+            },
             "required": [
                 "capacity",
-                "ruleGroupName",
                 "type"
             ],
             "createOnly": [
@@ -21901,10 +22405,14 @@
                     "$ref": "#/types/aws-native:nimblestudio:LaunchProfileTags"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 64
+            },
             "required": [
                 "ec2SubnetIds",
                 "launchProfileProtocolVersions",
-                "name",
                 "streamConfiguration",
                 "studioComponentIds",
                 "studioId"
@@ -21980,9 +22488,12 @@
                     "$ref": "#/types/aws-native:nimblestudio:StreamingImageTags"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "maxLength": 64
+            },
             "required": [
                 "ec2ImageId",
-                "name",
                 "studioId"
             ],
             "createOnly": [
@@ -22056,10 +22567,14 @@
                     "description": "\u003cp\u003eThe IAM role that Studio Users will assume when logging in to the Nimble Studio portal.\u003c/p\u003e"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "studioName",
+                "minLength": 3,
+                "maxLength": 64
+            },
             "required": [
                 "adminRoleArn",
                 "displayName",
-                "studioName",
                 "userRoleArn"
             ],
             "createOnly": [
@@ -22166,8 +22681,11 @@
                     "$ref": "#/types/aws-native:nimblestudio:StudioComponentType"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "maxLength": 64
+            },
             "required": [
-                "name",
                 "studioId",
                 "type"
             ],
@@ -22295,6 +22813,9 @@
                 "vPCOptions": {
                     "$ref": "#/types/aws-native:opensearchservice:DomainVPCOptions"
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "domainName"
             },
             "createOnly": [
                 "advancedSecurityOptions",
@@ -22463,6 +22984,11 @@
                     }
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "serverName",
+                "minLength": 1,
+                "maxLength": 40
+            },
             "required": [
                 "instanceProfileArn",
                 "instanceType",
@@ -22582,6 +23108,9 @@
                     }
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "required": [
                 "defaultRuntimeContextDevice",
                 "manifestPayload"
@@ -22632,9 +23161,9 @@
                     }
                 }
             },
-            "required": [
-                "packageName"
-            ],
+            "autoNamingSpec": {
+                "sdkName": "packageName"
+            },
             "createOnly": [
                 "packageName"
             ]
@@ -22780,12 +23309,14 @@
                     "description": "An array of key-value pairs to apply to this resource."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "streamName"
+            },
             "required": [
                 "inclusiveStartTime",
                 "kinesisConfiguration",
                 "ledgerName",
-                "roleArn",
-                "streamName"
+                "roleArn"
             ],
             "createOnly": [
                 "exclusiveEndTime",
@@ -22913,6 +23444,11 @@
                     "description": "\u003cp\u003eThe ARN of the theme of the analysis.\u003c/p\u003e"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 2048
+            },
             "required": [
                 "analysisId",
                 "awsAccountId",
@@ -23029,6 +23565,11 @@
                     "type": "string",
                     "description": "\u003cp\u003eA description for the first version of the dashboard being created.\u003c/p\u003e"
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 2048
             },
             "required": [
                 "awsAccountId",
@@ -23179,6 +23720,11 @@
                     "description": "\u003cp\u003eContains a map of the key-value pairs for the resource tag or tags assigned to the dataset.\u003c/p\u003e"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 128
+            },
             "createOnly": [
                 "awsAccountId",
                 "dataSetId"
@@ -23303,6 +23849,11 @@
                     "$ref": "#/types/aws-native:quicksight:DataSourceVpcConnectionProperties"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 128
+            },
             "createOnly": [
                 "awsAccountId",
                 "dataSourceId",
@@ -23391,6 +23942,11 @@
                     "type": "string",
                     "description": "\u003cp\u003eA description of the current template version being created. This API operation creates the\n\t\t\tfirst version of the template. Every time \u003ccode\u003eUpdateTemplate\u003c/code\u003e is called, a new\n\t\t\tversion is created. Each version of the template maintains a description of the version\n\t\t\tin the \u003ccode\u003eVersionDescription\u003c/code\u003e field.\u003c/p\u003e"
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 2048
             },
             "required": [
                 "awsAccountId",
@@ -23495,6 +24051,11 @@
                     "type": "string",
                     "description": "\u003cp\u003eA description of the first version of the theme that you're creating. Every time\n\t\t\t\t\u003ccode\u003eUpdateTheme\u003c/code\u003e is called, a new version is created. Each version of the\n\t\t\ttheme has a description of the version in the \u003ccode\u003eVersionDescription\u003c/code\u003e\n\t\t\tfield.\u003c/p\u003e"
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 2048
             },
             "required": [
                 "awsAccountId",
@@ -23627,9 +24188,12 @@
                     "description": "VPC subnet IDs to associate with the new proxy."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "dBProxyName",
+                "maxLength": 64
+            },
             "required": [
                 "auth",
-                "dBProxyName",
                 "engineFamily",
                 "roleArn",
                 "vpcSubnetIds"
@@ -23728,8 +24292,11 @@
                     "description": "VPC subnet IDs to associate with the new DB proxy endpoint."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "dBProxyEndpointName",
+                "maxLength": 64
+            },
             "required": [
-                "dBProxyEndpointName",
                 "dBProxyName",
                 "vpcSubnetIds"
             ],
@@ -24311,9 +24878,9 @@
                     "type": "string"
                 }
             },
-            "required": [
-                "projectName"
-            ],
+            "autoNamingSpec": {
+                "sdkName": "projectName"
+            },
             "createOnly": [
                 "projectName"
             ]
@@ -24386,9 +24953,10 @@
                     }
                 }
             },
-            "required": [
-                "name"
-            ],
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "maxLength": 128
+            },
             "createOnly": [
                 "name"
             ]
@@ -24415,6 +24983,11 @@
                 "tags": {
                     "$ref": "#/types/aws-native:robomaker:FleetTags"
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 255
             },
             "createOnly": [
                 "name"
@@ -24466,6 +25039,11 @@
                 "tags": {
                     "$ref": "#/types/aws-native:robomaker:RobotTags"
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 255
             },
             "required": [
                 "architecture",
@@ -24588,6 +25166,11 @@
                 "tags": {
                     "$ref": "#/types/aws-native:robomaker:SimulationApplicationTags"
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 255
             },
             "required": [
                 "robotSoftwareSuite",
@@ -24752,9 +25335,10 @@
                     "description": "A complex type that contains information about the VPCs that are associated with the specified hosted zone."
                 }
             },
-            "required": [
-                "name"
-            ],
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "maxLength": 1024
+            },
             "createOnly": [
                 "name"
             ]
@@ -24797,10 +25381,12 @@
                     "description": "A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "required": [
                 "hostedZoneId",
                 "keyManagementServiceArn",
-                "name",
                 "status"
             ],
             "createOnly": [
@@ -24851,6 +25437,11 @@
                     },
                     "description": "A collection of tags associated with a resource"
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 64
             },
             "createOnly": [
                 "name",
@@ -24909,9 +25500,11 @@
                     "description": "A collection of tags associated with a resource"
                 }
             },
-            "required": [
-                "name"
-            ],
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 64
+            },
             "createOnly": [
                 "clusterArn",
                 "tags"
@@ -24955,9 +25548,11 @@
                     "description": "The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION."
                 }
             },
-            "required": [
-                "name"
-            ],
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 64
+            },
             "createOnly": [
                 "clusterArn",
                 "controlPanelArn"
@@ -25023,6 +25618,9 @@
                     "description": "A collection of tags associated with a resource"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "createOnly": [
                 "controlPanelArn",
                 "ruleConfig",
@@ -25082,9 +25680,10 @@
                     "description": "A collection of tags associated with a resource"
                 }
             },
-            "required": [
-                "cellName"
-            ],
+            "autoNamingSpec": {
+                "sdkName": "cellName",
+                "maxLength": 64
+            },
             "createOnly": [
                 "cellName"
             ]
@@ -25129,9 +25728,11 @@
                     "description": "A collection of tags associated with a resource."
                 }
             },
-            "required": [
-                "readinessCheckName"
-            ],
+            "autoNamingSpec": {
+                "sdkName": "readinessCheckName",
+                "minLength": 1,
+                "maxLength": 64
+            },
             "createOnly": [
                 "readinessCheckName"
             ]
@@ -25182,9 +25783,11 @@
                     "description": "A collection of tags associated with a resource."
                 }
             },
-            "required": [
-                "recoveryGroupName"
-            ],
+            "autoNamingSpec": {
+                "sdkName": "recoveryGroupName",
+                "minLength": 1,
+                "maxLength": 64
+            },
             "createOnly": [
                 "recoveryGroupName"
             ]
@@ -25243,8 +25846,10 @@
                     "description": "A tag to associate with the parameters for a resource set."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "resourceSetName"
+            },
             "required": [
-                "resourceSetName",
                 "resourceSetType",
                 "resources"
             ],
@@ -25333,6 +25938,11 @@
                     "description": "Tags"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 64
+            },
             "createOnly": [
                 "name"
             ]
@@ -25414,6 +26024,11 @@
                     },
                     "description": "Tags"
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 64
             },
             "createOnly": [
                 "name"
@@ -25506,6 +26121,10 @@
                     "type": "string",
                     "description": "VpcId"
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "maxLength": 64
             },
             "required": [
                 "firewallRuleGroupId",
@@ -25632,6 +26251,11 @@
                     "description": "ResolverQueryLogConfigStatus, possible values are CREATING, CREATED, DELETED AND FAILED."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 64
+            },
             "createOnly": [
                 "destinationArn",
                 "name"
@@ -25753,6 +26377,10 @@
                     },
                     "description": "An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported."
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "maxLength": 64
             },
             "required": [
                 "domainName",
@@ -26041,6 +26669,11 @@
                     "description": "The Amazon S3 website endpoint for the specified bucket."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "bucketName",
+                "minLength": 3,
+                "maxLength": 63
+            },
             "createOnly": [
                 "bucketName",
                 "objectLockEnabled"
@@ -26089,6 +26722,11 @@
                     },
                     "description": "The list of buckets that you want to associate this Multi Region Access Point with."
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 3,
+                "maxLength": 50
             },
             "required": [
                 "regions"
@@ -26202,6 +26840,11 @@
                     "description": "The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 3,
+                "maxLength": 45
+            },
             "createOnly": [
                 "name"
             ]
@@ -26278,9 +26921,13 @@
                     "description": "Virtual Private Cloud (VPC) from which requests can be made to the AccessPoint."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 3,
+                "maxLength": 50
+            },
             "required": [
                 "bucket",
-                "name",
                 "vpcConfiguration"
             ],
             "createOnly": [
@@ -26337,8 +26984,12 @@
                     "description": "An arbitrary set of tags (key-value pairs) for this S3Outposts bucket."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "bucketName",
+                "minLength": 3,
+                "maxLength": 63
+            },
             "required": [
-                "bucketName",
                 "outpostId"
             ],
             "createOnly": [
@@ -26521,8 +27172,12 @@
                     "description": "The user profile name."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "appName",
+                "minLength": 1,
+                "maxLength": 63
+            },
             "required": [
-                "appName",
                 "appType",
                 "domainId",
                 "userProfileName"
@@ -26575,9 +27230,11 @@
                     "description": "A list of tags to apply to the AppImageConfig."
                 }
             },
-            "required": [
-                "appImageConfigName"
-            ],
+            "autoNamingSpec": {
+                "sdkName": "appImageConfigName",
+                "minLength": 1,
+                "maxLength": 63
+            },
             "createOnly": [
                 "appImageConfigName",
                 "tags"
@@ -26792,8 +27449,12 @@
                     "description": "Associate tags with the resource"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "deviceFleetName",
+                "minLength": 1,
+                "maxLength": 63
+            },
             "required": [
-                "deviceFleetName",
                 "outputConfig",
                 "roleArn"
             ],
@@ -26903,10 +27564,13 @@
                     "description": "The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "domainName",
+                "maxLength": 63
+            },
             "required": [
                 "authMode",
                 "defaultUserSettings",
-                "domainName",
                 "subnetIds",
                 "vpcId"
             ],
@@ -27006,10 +27670,14 @@
                     "description": "An array of key-value pair to apply to this resource."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "featureGroupName",
+                "minLength": 1,
+                "maxLength": 64
+            },
             "required": [
                 "eventTimeFeatureName",
                 "featureDefinitions",
-                "featureGroupName",
                 "recordIdentifierFeatureName"
             ],
             "createOnly": [
@@ -27071,8 +27739,10 @@
                     "description": "An array of key-value pairs to apply to this resource."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "imageName"
+            },
             "required": [
-                "imageName",
                 "imageRoleArn"
             ],
             "createOnly": [
@@ -27375,9 +28045,9 @@
                     "description": "An array of key-value pairs to apply to this resource."
                 }
             },
-            "required": [
-                "modelPackageGroupName"
-            ],
+            "autoNamingSpec": {
+                "sdkName": "modelPackageGroupName"
+            },
             "createOnly": [
                 "modelPackageGroupDescription",
                 "modelPackageGroupName"
@@ -27561,9 +28231,11 @@
                     "description": "An array of key-value pairs to apply to this resource."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "monitoringScheduleName"
+            },
             "required": [
-                "monitoringScheduleConfig",
-                "monitoringScheduleName"
+                "monitoringScheduleConfig"
             ],
             "createOnly": [
                 "monitoringScheduleName"
@@ -27625,9 +28297,13 @@
                     }
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "pipelineName",
+                "minLength": 1,
+                "maxLength": 256
+            },
             "required": [
                 "pipelineDefinition",
-                "pipelineName",
                 "roleArn"
             ],
             "createOnly": [
@@ -27692,8 +28368,10 @@
                     "description": "An array of key-value pairs to apply to this resource."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "projectName"
+            },
             "required": [
-                "projectName",
                 "serviceCatalogProvisioningDetails"
             ],
             "createOnly": [
@@ -27767,9 +28445,13 @@
                     "description": "A collection of settings."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "userProfileName",
+                "minLength": 1,
+                "maxLength": 63
+            },
             "required": [
-                "domainId",
-                "userProfileName"
+                "domainId"
             ],
             "createOnly": [
                 "domainId",
@@ -27935,10 +28617,14 @@
                     "type": "string"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 256
+            },
             "required": [
                 "definition",
-                "definitionType",
-                "name"
+                "definitionType"
             ]
         },
         "aws-native:servicecatalog:ServiceActionAssociation": {
@@ -28007,9 +28693,11 @@
                     "$ref": "#/types/aws-native:servicecatalogappregistry:ApplicationTags"
                 }
             },
-            "required": [
-                "name"
-            ]
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 256
+            }
         },
         "aws-native:servicecatalogappregistry:AttributeGroup": {
             "cf": "AWS::ServiceCatalogAppRegistry::AttributeGroup",
@@ -28048,9 +28736,13 @@
                     "$ref": "#/types/aws-native:servicecatalogappregistry:AttributeGroupTags"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 256
+            },
             "required": [
-                "attributes",
-                "name"
+                "attributes"
             ]
         },
         "aws-native:servicecatalogappregistry:AttributeGroupAssociation": {
@@ -28142,6 +28834,9 @@
                     "description": "The name of the configuration set."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "createOnly": [
                 "name"
             ]
@@ -28195,6 +28890,9 @@
                     },
                     "description": "The topics associated with the contact list."
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "contactListName"
             },
             "createOnly": [
                 "contactListName"
@@ -28442,9 +29140,9 @@
                     "type": "integer"
                 }
             },
-            "required": [
-                "name"
-            ]
+            "autoNamingSpec": {
+                "sdkName": "name"
+            }
         },
         "aws-native:ssm:Document": {
             "cf": "AWS::SSM::Document",
@@ -28541,6 +29239,9 @@
                     "type": "string",
                     "description": "An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed."
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
             },
             "required": [
                 "content"
@@ -28852,9 +29553,13 @@
                     "description": "The tags to apply to the response plan."
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 200
+            },
             "required": [
-                "incidentTemplate",
-                "name"
+                "incidentTemplate"
             ],
             "createOnly": [
                 "name"
@@ -29064,9 +29769,13 @@
                     }
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 32
+            },
             "required": [
-                "instanceArn",
-                "name"
+                "instanceArn"
             ],
             "createOnly": [
                 "instanceArn",
@@ -29100,9 +29809,11 @@
                     }
                 }
             },
-            "required": [
-                "name"
-            ],
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 80
+            },
             "createOnly": [
                 "name"
             ]
@@ -29184,6 +29895,11 @@
                 "tracingConfiguration": {
                     "$ref": "#/types/aws-native:stepfunctions:StateMachineTracingConfiguration"
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "stateMachineName",
+                "minLength": 1,
+                "maxLength": 80
             },
             "required": [
                 "roleArn"
@@ -29318,11 +30034,13 @@
                     "description": "Visual reference configuration for visual testing"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "required": [
                 "artifactS3Location",
                 "code",
                 "executionRoleArn",
-                "name",
                 "runtimeVersion",
                 "schedule",
                 "startCanaryAfterCreation"
@@ -29369,6 +30087,9 @@
                     },
                     "description": "An array of key-value pairs to apply to this resource."
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "databaseName"
             },
             "createOnly": [
                 "databaseName"
@@ -29424,6 +30145,9 @@
                     },
                     "description": "An array of key-value pairs to apply to this resource."
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "tableName"
             },
             "required": [
                 "databaseName"
@@ -29491,6 +30215,9 @@
                         "$ref": "#/types/aws-native:wafv2:IPSetTag"
                     }
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
             },
             "required": [
                 "addresses",
@@ -29622,6 +30349,9 @@
                     }
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "required": [
                 "regularExpressionList",
                 "scope"
@@ -29719,6 +30449,9 @@
                     "$ref": "#/types/aws-native:wafv2:RuleGroupVisibilityConfig"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "required": [
                 "capacity",
                 "scope",
@@ -29806,6 +30539,9 @@
                     "$ref": "#/types/aws-native:wafv2:WebACLVisibilityConfig"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
             "required": [
                 "defaultAction",
                 "scope",
@@ -29891,8 +30627,12 @@
                     "$ref": "#/types/aws-native:wisdom:AssistantType"
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 255
+            },
             "required": [
-                "name",
                 "type"
             ],
             "createOnly": [
@@ -30020,9 +30760,13 @@
                     }
                 }
             },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 255
+            },
             "required": [
-                "knowledgeBaseType",
-                "name"
+                "knowledgeBaseType"
             ],
             "createOnly": [
                 "description",
@@ -30120,6 +30864,11 @@
                         "$ref": "#/types/aws-native:xray:TagsItemProperties"
                     }
                 }
+            },
+            "autoNamingSpec": {
+                "sdkName": "groupName",
+                "minLength": 1,
+                "maxLength": 32
             }
         },
         "aws-native:xray:SamplingRule": {

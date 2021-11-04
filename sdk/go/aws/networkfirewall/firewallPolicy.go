@@ -33,9 +33,6 @@ func NewFirewallPolicy(ctx *pulumi.Context,
 	if args.FirewallPolicy == nil {
 		return nil, errors.New("invalid value for required argument 'FirewallPolicy'")
 	}
-	if args.FirewallPolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'FirewallPolicyName'")
-	}
 	var resource FirewallPolicy
 	err := ctx.RegisterResource("aws-native:networkfirewall:FirewallPolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -70,7 +67,7 @@ func (FirewallPolicyState) ElementType() reflect.Type {
 type firewallPolicyArgs struct {
 	Description        *string             `pulumi:"description"`
 	FirewallPolicy     FirewallPolicyType  `pulumi:"firewallPolicy"`
-	FirewallPolicyName string              `pulumi:"firewallPolicyName"`
+	FirewallPolicyName *string             `pulumi:"firewallPolicyName"`
 	Tags               []FirewallPolicyTag `pulumi:"tags"`
 }
 
@@ -78,7 +75,7 @@ type firewallPolicyArgs struct {
 type FirewallPolicyArgs struct {
 	Description        pulumi.StringPtrInput
 	FirewallPolicy     FirewallPolicyTypeInput
-	FirewallPolicyName pulumi.StringInput
+	FirewallPolicyName pulumi.StringPtrInput
 	Tags               FirewallPolicyTagArrayInput
 }
 

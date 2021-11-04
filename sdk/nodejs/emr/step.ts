@@ -65,9 +65,6 @@ export class Step extends pulumi.CustomResource {
             if ((!args || args.jobFlowId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'jobFlowId'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["actionOnFailure"] = args ? args.actionOnFailure : undefined;
             inputs["hadoopJarStep"] = args ? args.hadoopJarStep : undefined;
             inputs["jobFlowId"] = args ? args.jobFlowId : undefined;
@@ -92,5 +89,5 @@ export interface StepArgs {
     actionOnFailure: pulumi.Input<string>;
     hadoopJarStep: pulumi.Input<inputs.emr.StepHadoopJarStepConfigArgs>;
     jobFlowId: pulumi.Input<string>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

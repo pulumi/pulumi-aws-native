@@ -15,7 +15,6 @@ __all__ = ['AppArgs', 'App']
 @pulumi.input_type
 class AppArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  stack_id: pulumi.Input[str],
                  type: pulumi.Input[str],
                  app_source: Optional[pulumi.Input['AppSourceArgs']] = None,
@@ -25,12 +24,12 @@ class AppArgs:
                  domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_ssl: Optional[pulumi.Input[bool]] = None,
                  environment: Optional[pulumi.Input[Sequence[pulumi.Input['AppEnvironmentVariableArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  shortname: Optional[pulumi.Input[str]] = None,
                  ssl_configuration: Optional[pulumi.Input['AppSslConfigurationArgs']] = None):
         """
         The set of arguments for constructing a App resource.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "stack_id", stack_id)
         pulumi.set(__self__, "type", type)
         if app_source is not None:
@@ -47,19 +46,12 @@ class AppArgs:
             pulumi.set(__self__, "enable_ssl", enable_ssl)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if shortname is not None:
             pulumi.set(__self__, "shortname", shortname)
         if ssl_configuration is not None:
             pulumi.set(__self__, "ssl_configuration", ssl_configuration)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="stackId")
@@ -141,6 +133,15 @@ class AppArgs:
     @environment.setter
     def environment(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppEnvironmentVariableArgs']]]]):
         pulumi.set(self, "environment", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -246,8 +247,6 @@ class App(pulumi.CustomResource):
             __props__.__dict__["domains"] = domains
             __props__.__dict__["enable_ssl"] = enable_ssl
             __props__.__dict__["environment"] = environment
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["shortname"] = shortname
             __props__.__dict__["ssl_configuration"] = ssl_configuration

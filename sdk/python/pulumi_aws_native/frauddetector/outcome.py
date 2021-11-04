@@ -15,32 +15,21 @@ __all__ = ['OutcomeArgs', 'Outcome']
 @pulumi.input_type
 class OutcomeArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['OutcomeTagArgs']]]] = None):
         """
         The set of arguments for constructing a Outcome resource.
-        :param pulumi.Input[str] name: The name of the outcome.
         :param pulumi.Input[str] description: The outcome description.
+        :param pulumi.Input[str] name: The name of the outcome.
         :param pulumi.Input[Sequence[pulumi.Input['OutcomeTagArgs']]] tags: Tags associated with this outcome.
         """
-        pulumi.set(__self__, "name", name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the outcome.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -53,6 +42,18 @@ class OutcomeArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the outcome.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -89,7 +90,7 @@ class Outcome(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: OutcomeArgs,
+                 args: Optional[OutcomeArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An outcome for rule evaluation.
@@ -125,8 +126,6 @@ class Outcome(pulumi.CustomResource):
             __props__ = OutcomeArgs.__new__(OutcomeArgs)
 
             __props__.__dict__["description"] = description
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

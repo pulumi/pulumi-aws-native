@@ -93,8 +93,8 @@ namespace Pulumi.AwsNative.Wisdom
         [Input("knowledgeBaseType", required: true)]
         public Input<Pulumi.AwsNative.Wisdom.KnowledgeBaseType> KnowledgeBaseType { get; set; } = null!;
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("renderingConfiguration")]
         public Input<Inputs.KnowledgeBaseRenderingConfigurationArgs>? RenderingConfiguration { get; set; }

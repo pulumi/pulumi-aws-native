@@ -34,9 +34,6 @@ func NewPolicy(ctx *pulumi.Context,
 	if args.PolicyDocument == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyDocument'")
 	}
-	if args.PolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'PolicyName'")
-	}
 	var resource Policy
 	err := ctx.RegisterResource("aws-native:iam:Policy", name, args, &resource, opts...)
 	if err != nil {
@@ -71,7 +68,7 @@ func (PolicyState) ElementType() reflect.Type {
 type policyArgs struct {
 	Groups         []string    `pulumi:"groups"`
 	PolicyDocument interface{} `pulumi:"policyDocument"`
-	PolicyName     string      `pulumi:"policyName"`
+	PolicyName     *string     `pulumi:"policyName"`
 	Roles          []string    `pulumi:"roles"`
 	Users          []string    `pulumi:"users"`
 }
@@ -80,7 +77,7 @@ type policyArgs struct {
 type PolicyArgs struct {
 	Groups         pulumi.StringArrayInput
 	PolicyDocument pulumi.Input
-	PolicyName     pulumi.StringInput
+	PolicyName     pulumi.StringPtrInput
 	Roles          pulumi.StringArrayInput
 	Users          pulumi.StringArrayInput
 }

@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,12 +26,9 @@ type EventBus struct {
 func NewEventBus(ctx *pulumi.Context,
 	name string, args *EventBusArgs, opts ...pulumi.ResourceOption) (*EventBus, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &EventBusArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource EventBus
 	err := ctx.RegisterResource("aws-native:events:EventBus", name, args, &resource, opts...)
 	if err != nil {
@@ -66,13 +62,13 @@ func (EventBusState) ElementType() reflect.Type {
 
 type eventBusArgs struct {
 	EventSourceName *string `pulumi:"eventSourceName"`
-	Name            string  `pulumi:"name"`
+	Name            *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a EventBus resource.
 type EventBusArgs struct {
 	EventSourceName pulumi.StringPtrInput
-	Name            pulumi.StringInput
+	Name            pulumi.StringPtrInput
 }
 
 func (EventBusArgs) ElementType() reflect.Type {

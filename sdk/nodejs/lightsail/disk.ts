@@ -101,9 +101,6 @@ export class Disk extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.diskName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'diskName'");
-            }
             if ((!args || args.sizeInGb === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sizeInGb'");
             }
@@ -161,7 +158,7 @@ export interface DiskArgs {
     /**
      * The names to use for your new Lightsail disk.
      */
-    diskName: pulumi.Input<string>;
+    diskName?: pulumi.Input<string>;
     /**
      * Size of the Lightsail disk
      */

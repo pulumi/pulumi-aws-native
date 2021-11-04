@@ -55,9 +55,6 @@ export class VpcLink extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
@@ -82,7 +79,7 @@ export class VpcLink extends pulumi.CustomResource {
  * The set of arguments for constructing a VpcLink resource.
  */
 export interface VpcLinkArgs {
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     tags?: any;

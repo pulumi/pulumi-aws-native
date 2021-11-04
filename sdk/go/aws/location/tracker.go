@@ -37,9 +37,6 @@ func NewTracker(ctx *pulumi.Context,
 	if args.PricingPlan == nil {
 		return nil, errors.New("invalid value for required argument 'PricingPlan'")
 	}
-	if args.TrackerName == nil {
-		return nil, errors.New("invalid value for required argument 'TrackerName'")
-	}
 	var resource Tracker
 	err := ctx.RegisterResource("aws-native:location:Tracker", name, args, &resource, opts...)
 	if err != nil {
@@ -77,7 +74,7 @@ type trackerArgs struct {
 	PositionFiltering     *TrackerPositionFiltering `pulumi:"positionFiltering"`
 	PricingPlan           TrackerPricingPlan        `pulumi:"pricingPlan"`
 	PricingPlanDataSource *string                   `pulumi:"pricingPlanDataSource"`
-	TrackerName           string                    `pulumi:"trackerName"`
+	TrackerName           *string                   `pulumi:"trackerName"`
 }
 
 // The set of arguments for constructing a Tracker resource.
@@ -87,7 +84,7 @@ type TrackerArgs struct {
 	PositionFiltering     TrackerPositionFilteringPtrInput
 	PricingPlan           TrackerPricingPlanInput
 	PricingPlanDataSource pulumi.StringPtrInput
-	TrackerName           pulumi.StringInput
+	TrackerName           pulumi.StringPtrInput
 }
 
 func (TrackerArgs) ElementType() reflect.Type {

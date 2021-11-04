@@ -17,7 +17,6 @@ class ClusterArgs:
     def __init__(__self__, *,
                  instances: pulumi.Input['ClusterJobFlowInstancesConfigArgs'],
                  job_flow_role: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  service_role: pulumi.Input[str],
                  additional_info: Optional[Any] = None,
                  applications: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterApplicationArgs']]]] = None,
@@ -30,6 +29,7 @@ class ClusterArgs:
                  log_encryption_kms_key_id: Optional[pulumi.Input[str]] = None,
                  log_uri: Optional[pulumi.Input[str]] = None,
                  managed_scaling_policy: Optional[pulumi.Input['ClusterManagedScalingPolicyArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  release_label: Optional[pulumi.Input[str]] = None,
                  scale_down_behavior: Optional[pulumi.Input[str]] = None,
                  security_configuration: Optional[pulumi.Input[str]] = None,
@@ -42,7 +42,6 @@ class ClusterArgs:
         """
         pulumi.set(__self__, "instances", instances)
         pulumi.set(__self__, "job_flow_role", job_flow_role)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service_role", service_role)
         if additional_info is not None:
             pulumi.set(__self__, "additional_info", additional_info)
@@ -66,6 +65,8 @@ class ClusterArgs:
             pulumi.set(__self__, "log_uri", log_uri)
         if managed_scaling_policy is not None:
             pulumi.set(__self__, "managed_scaling_policy", managed_scaling_policy)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if release_label is not None:
             pulumi.set(__self__, "release_label", release_label)
         if scale_down_behavior is not None:
@@ -98,15 +99,6 @@ class ClusterArgs:
     @job_flow_role.setter
     def job_flow_role(self, value: pulumi.Input[str]):
         pulumi.set(self, "job_flow_role", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="serviceRole")
@@ -215,6 +207,15 @@ class ClusterArgs:
     @managed_scaling_policy.setter
     def managed_scaling_policy(self, value: Optional[pulumi.Input['ClusterManagedScalingPolicyArgs']]):
         pulumi.set(self, "managed_scaling_policy", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="releaseLabel")
@@ -395,8 +396,6 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["log_encryption_kms_key_id"] = log_encryption_kms_key_id
             __props__.__dict__["log_uri"] = log_uri
             __props__.__dict__["managed_scaling_policy"] = managed_scaling_policy
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["release_label"] = release_label
             __props__.__dict__["scale_down_behavior"] = scale_down_behavior

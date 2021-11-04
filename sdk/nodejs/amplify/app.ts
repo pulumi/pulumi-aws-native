@@ -61,13 +61,10 @@ export class App extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AppArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: AppArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["accessToken"] = args ? args.accessToken : undefined;
             inputs["autoBranchCreationConfig"] = args ? args.autoBranchCreationConfig : undefined;
             inputs["basicAuthConfig"] = args ? args.basicAuthConfig : undefined;
@@ -127,7 +124,7 @@ export interface AppArgs {
     enableBranchAutoDeletion?: pulumi.Input<boolean>;
     environmentVariables?: pulumi.Input<pulumi.Input<inputs.amplify.AppEnvironmentVariableArgs>[]>;
     iAMServiceRole?: pulumi.Input<string>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     oauthToken?: pulumi.Input<string>;
     repository?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.amplify.AppTagArgs>[]>;

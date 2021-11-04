@@ -148,8 +148,8 @@ namespace Pulumi.AwsNative.AmazonMQ
         [Input("autoMinorVersionUpgrade", required: true)]
         public Input<bool> AutoMinorVersionUpgrade { get; set; } = null!;
 
-        [Input("brokerName", required: true)]
-        public Input<string> BrokerName { get; set; } = null!;
+        [Input("brokerName")]
+        public Input<string>? BrokerName { get; set; }
 
         [Input("configuration")]
         public Input<Inputs.BrokerConfigurationIdArgs>? Configuration { get; set; }

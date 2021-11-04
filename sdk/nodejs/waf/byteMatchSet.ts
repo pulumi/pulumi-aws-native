@@ -49,14 +49,11 @@ export class ByteMatchSet extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated ByteMatchSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
-    constructor(name: string, args: ByteMatchSetArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ByteMatchSetArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ByteMatchSet is deprecated: ByteMatchSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["byteMatchTuples"] = args ? args.byteMatchTuples : undefined;
             inputs["name"] = args ? args.name : undefined;
         } else {
@@ -75,5 +72,5 @@ export class ByteMatchSet extends pulumi.CustomResource {
  */
 export interface ByteMatchSetArgs {
     byteMatchTuples?: pulumi.Input<pulumi.Input<inputs.waf.ByteMatchSetByteMatchTupleArgs>[]>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

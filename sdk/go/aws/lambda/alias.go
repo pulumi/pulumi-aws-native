@@ -38,9 +38,6 @@ func NewAlias(ctx *pulumi.Context,
 	if args.FunctionVersion == nil {
 		return nil, errors.New("invalid value for required argument 'FunctionVersion'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource Alias
 	err := ctx.RegisterResource("aws-native:lambda:Alias", name, args, &resource, opts...)
 	if err != nil {
@@ -76,7 +73,7 @@ type aliasArgs struct {
 	Description                  *string                                   `pulumi:"description"`
 	FunctionName                 string                                    `pulumi:"functionName"`
 	FunctionVersion              string                                    `pulumi:"functionVersion"`
-	Name                         string                                    `pulumi:"name"`
+	Name                         *string                                   `pulumi:"name"`
 	ProvisionedConcurrencyConfig *AliasProvisionedConcurrencyConfiguration `pulumi:"provisionedConcurrencyConfig"`
 	RoutingConfig                *AliasRoutingConfiguration                `pulumi:"routingConfig"`
 }
@@ -86,7 +83,7 @@ type AliasArgs struct {
 	Description                  pulumi.StringPtrInput
 	FunctionName                 pulumi.StringInput
 	FunctionVersion              pulumi.StringInput
-	Name                         pulumi.StringInput
+	Name                         pulumi.StringPtrInput
 	ProvisionedConcurrencyConfig AliasProvisionedConcurrencyConfigurationPtrInput
 	RoutingConfig                AliasRoutingConfigurationPtrInput
 }

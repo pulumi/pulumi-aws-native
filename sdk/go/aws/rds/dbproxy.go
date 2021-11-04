@@ -53,9 +53,6 @@ func NewDBProxy(ctx *pulumi.Context,
 	if args.Auth == nil {
 		return nil, errors.New("invalid value for required argument 'Auth'")
 	}
-	if args.DBProxyName == nil {
-		return nil, errors.New("invalid value for required argument 'DBProxyName'")
-	}
 	if args.EngineFamily == nil {
 		return nil, errors.New("invalid value for required argument 'EngineFamily'")
 	}
@@ -100,7 +97,7 @@ type dbproxyArgs struct {
 	// The authorization mechanism that the proxy uses.
 	Auth []DBProxyAuthFormat `pulumi:"auth"`
 	// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
-	DBProxyName string `pulumi:"dBProxyName"`
+	DBProxyName *string `pulumi:"dBProxyName"`
 	// Whether the proxy includes detailed information about SQL statements in its logs.
 	DebugLogging *bool `pulumi:"debugLogging"`
 	// The kinds of databases that the proxy can connect to.
@@ -124,7 +121,7 @@ type DBProxyArgs struct {
 	// The authorization mechanism that the proxy uses.
 	Auth DBProxyAuthFormatArrayInput
 	// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
-	DBProxyName pulumi.StringInput
+	DBProxyName pulumi.StringPtrInput
 	// Whether the proxy includes detailed information about SQL statements in its logs.
 	DebugLogging pulumi.BoolPtrInput
 	// The kinds of databases that the proxy can connect to.

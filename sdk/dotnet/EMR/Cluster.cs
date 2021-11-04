@@ -184,8 +184,8 @@ namespace Pulumi.AwsNative.EMR
         [Input("managedScalingPolicy")]
         public Input<Inputs.ClusterManagedScalingPolicyArgs>? ManagedScalingPolicy { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("releaseLabel")]
         public Input<string>? ReleaseLabel { get; set; }

@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,12 +25,9 @@ type TestGridProject struct {
 func NewTestGridProject(ctx *pulumi.Context,
 	name string, args *TestGridProjectArgs, opts ...pulumi.ResourceOption) (*TestGridProject, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &TestGridProjectArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource TestGridProject
 	err := ctx.RegisterResource("aws-native:devicefarm:TestGridProject", name, args, &resource, opts...)
 	if err != nil {
@@ -65,7 +61,7 @@ func (TestGridProjectState) ElementType() reflect.Type {
 
 type testGridProjectArgs struct {
 	Description *string                   `pulumi:"description"`
-	Name        string                    `pulumi:"name"`
+	Name        *string                   `pulumi:"name"`
 	Tags        []TestGridProjectTag      `pulumi:"tags"`
 	VpcConfig   *TestGridProjectVpcConfig `pulumi:"vpcConfig"`
 }
@@ -73,7 +69,7 @@ type testGridProjectArgs struct {
 // The set of arguments for constructing a TestGridProject resource.
 type TestGridProjectArgs struct {
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringInput
+	Name        pulumi.StringPtrInput
 	Tags        TestGridProjectTagArrayInput
 	VpcConfig   TestGridProjectVpcConfigPtrInput
 }

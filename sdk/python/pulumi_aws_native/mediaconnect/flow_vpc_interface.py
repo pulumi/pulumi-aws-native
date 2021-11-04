@@ -14,23 +14,24 @@ __all__ = ['FlowVpcInterfaceArgs', 'FlowVpcInterface']
 class FlowVpcInterfaceArgs:
     def __init__(__self__, *,
                  flow_arn: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 subnet_id: pulumi.Input[str]):
+                 subnet_id: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FlowVpcInterface resource.
         :param pulumi.Input[str] flow_arn: The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
-        :param pulumi.Input[str] name: Immutable and has to be a unique against other VpcInterfaces in this Flow.
         :param pulumi.Input[str] role_arn: Role Arn MediaConnect can assumes to create ENIs in customer's account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Security Group IDs to be used on ENI.
         :param pulumi.Input[str] subnet_id: Subnet must be in the AZ of the Flow
+        :param pulumi.Input[str] name: Immutable and has to be a unique against other VpcInterfaces in this Flow.
         """
         pulumi.set(__self__, "flow_arn", flow_arn)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_id", subnet_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="flowArn")
@@ -43,18 +44,6 @@ class FlowVpcInterfaceArgs:
     @flow_arn.setter
     def flow_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "flow_arn", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Immutable and has to be a unique against other VpcInterfaces in this Flow.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -91,6 +80,18 @@ class FlowVpcInterfaceArgs:
     @subnet_id.setter
     def subnet_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Immutable and has to be a unique against other VpcInterfaces in this Flow.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class FlowVpcInterface(pulumi.CustomResource):
@@ -159,8 +160,6 @@ class FlowVpcInterface(pulumi.CustomResource):
             if flow_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'flow_arn'")
             __props__.__dict__["flow_arn"] = flow_arn
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")

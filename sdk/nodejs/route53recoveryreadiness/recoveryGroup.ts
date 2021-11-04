@@ -59,13 +59,10 @@ export class RecoveryGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RecoveryGroupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: RecoveryGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.recoveryGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'recoveryGroupName'");
-            }
             inputs["cells"] = args ? args.cells : undefined;
             inputs["recoveryGroupName"] = args ? args.recoveryGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -94,7 +91,7 @@ export interface RecoveryGroupArgs {
     /**
      * The name of the recovery group to create.
      */
-    recoveryGroupName: pulumi.Input<string>;
+    recoveryGroupName?: pulumi.Input<string>;
     /**
      * A collection of tags associated with a resource.
      */

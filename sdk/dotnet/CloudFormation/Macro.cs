@@ -88,8 +88,8 @@ namespace Pulumi.AwsNative.CloudFormation
         [Input("logRoleARN")]
         public Input<string>? LogRoleARN { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         public MacroArgs()
         {

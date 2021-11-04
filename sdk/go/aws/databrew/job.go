@@ -57,9 +57,6 @@ func NewJob(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
@@ -115,7 +112,7 @@ type jobArgs struct {
 	// Max retries
 	MaxRetries *int `pulumi:"maxRetries"`
 	// Job name
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Output location
 	OutputLocation *JobOutputLocation `pulumi:"outputLocation"`
 	Outputs        []JobOutputType    `pulumi:"outputs"`
@@ -152,7 +149,7 @@ type JobArgs struct {
 	// Max retries
 	MaxRetries pulumi.IntPtrInput
 	// Job name
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Output location
 	OutputLocation JobOutputLocationPtrInput
 	Outputs        JobOutputTypeArrayInput

@@ -84,9 +84,6 @@ export class Studio extends pulumi.CustomResource {
             if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.studioName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'studioName'");
-            }
             if ((!args || args.userRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userRoleArn'");
             }
@@ -135,7 +132,7 @@ export interface StudioArgs {
     /**
      * <p>The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.</p>
      */
-    studioName: pulumi.Input<string>;
+    studioName?: pulumi.Input<string>;
     tags?: pulumi.Input<inputs.nimblestudio.StudioTagsArgs>;
     /**
      * <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p>

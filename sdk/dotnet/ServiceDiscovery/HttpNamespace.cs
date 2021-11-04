@@ -36,7 +36,7 @@ namespace Pulumi.AwsNative.ServiceDiscovery
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public HttpNamespace(string name, HttpNamespaceArgs args, CustomResourceOptions? options = null)
+        public HttpNamespace(string name, HttpNamespaceArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:servicediscovery:HttpNamespace", name, args ?? new HttpNamespaceArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -76,8 +76,8 @@ namespace Pulumi.AwsNative.ServiceDiscovery
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.HttpNamespaceTagArgs>? _tags;

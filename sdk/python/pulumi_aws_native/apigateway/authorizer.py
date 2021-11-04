@@ -13,7 +13,6 @@ __all__ = ['AuthorizerArgs', 'Authorizer']
 @pulumi.input_type
 class AuthorizerArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  rest_api_id: pulumi.Input[str],
                  type: pulumi.Input[str],
                  auth_type: Optional[pulumi.Input[str]] = None,
@@ -22,10 +21,10 @@ class AuthorizerArgs:
                  authorizer_uri: Optional[pulumi.Input[str]] = None,
                  identity_source: Optional[pulumi.Input[str]] = None,
                  identity_validation_expression: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Authorizer resource.
-        :param pulumi.Input[str] name: The name of the authorizer.
         :param pulumi.Input[str] rest_api_id: The identifier of the API.
         :param pulumi.Input[str] type: The authorizer type.
         :param pulumi.Input[str] auth_type: Optional customer-defined field, used in OpenAPI imports and exports without functional impact.
@@ -34,9 +33,9 @@ class AuthorizerArgs:
         :param pulumi.Input[str] authorizer_uri: Specifies the authorizer's Uniform Resource Identifier (URI).
         :param pulumi.Input[str] identity_source: The identity source for which authorization is requested.
         :param pulumi.Input[str] identity_validation_expression: A validation expression for the incoming identity token.
+        :param pulumi.Input[str] name: The name of the authorizer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] provider_arns: A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "rest_api_id", rest_api_id)
         pulumi.set(__self__, "type", type)
         if auth_type is not None:
@@ -51,20 +50,10 @@ class AuthorizerArgs:
             pulumi.set(__self__, "identity_source", identity_source)
         if identity_validation_expression is not None:
             pulumi.set(__self__, "identity_validation_expression", identity_validation_expression)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if provider_arns is not None:
             pulumi.set(__self__, "provider_arns", provider_arns)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the authorizer.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="restApiId")
@@ -163,6 +152,18 @@ class AuthorizerArgs:
         pulumi.set(self, "identity_validation_expression", value)
 
     @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the authorizer.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
     @pulumi.getter(name="providerARNs")
     def provider_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -259,8 +260,6 @@ class Authorizer(pulumi.CustomResource):
             __props__.__dict__["authorizer_uri"] = authorizer_uri
             __props__.__dict__["identity_source"] = identity_source
             __props__.__dict__["identity_validation_expression"] = identity_validation_expression
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["provider_arns"] = provider_arns
             if rest_api_id is None and not opts.urn:

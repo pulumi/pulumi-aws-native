@@ -13,31 +13,20 @@ __all__ = ['QueryDefinitionArgs', 'QueryDefinition']
 @pulumi.input_type
 class QueryDefinitionArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  query_string: pulumi.Input[str],
-                 log_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 log_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a QueryDefinition resource.
-        :param pulumi.Input[str] name: A name for the saved query definition
         :param pulumi.Input[str] query_string: The query string to use for this definition
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_group_names: Optionally define specific log groups as part of your query definition
+        :param pulumi.Input[str] name: A name for the saved query definition
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query_string", query_string)
         if log_group_names is not None:
             pulumi.set(__self__, "log_group_names", log_group_names)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        A name for the saved query definition
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="queryString")
@@ -62,6 +51,18 @@ class QueryDefinitionArgs:
     @log_group_names.setter
     def log_group_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "log_group_names", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for the saved query definition
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class QueryDefinition(pulumi.CustomResource):
@@ -122,8 +123,6 @@ class QueryDefinition(pulumi.CustomResource):
             __props__ = QueryDefinitionArgs.__new__(QueryDefinitionArgs)
 
             __props__.__dict__["log_group_names"] = log_group_names
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if query_string is None and not opts.urn:
                 raise TypeError("Missing required property 'query_string'")

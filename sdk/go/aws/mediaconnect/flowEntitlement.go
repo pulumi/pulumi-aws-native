@@ -46,9 +46,6 @@ func NewFlowEntitlement(ctx *pulumi.Context,
 	if args.FlowArn == nil {
 		return nil, errors.New("invalid value for required argument 'FlowArn'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.Subscribers == nil {
 		return nil, errors.New("invalid value for required argument 'Subscribers'")
 	}
@@ -95,7 +92,7 @@ type flowEntitlementArgs struct {
 	// The ARN of the flow.
 	FlowArn string `pulumi:"flowArn"`
 	// The name of the entitlement.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
 	Subscribers []string `pulumi:"subscribers"`
 }
@@ -113,7 +110,7 @@ type FlowEntitlementArgs struct {
 	// The ARN of the flow.
 	FlowArn pulumi.StringInput
 	// The name of the entitlement.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
 	Subscribers pulumi.StringArrayInput
 }

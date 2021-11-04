@@ -111,8 +111,8 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <summary>
         /// The name of the distribution configuration.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The tags associated with the component.

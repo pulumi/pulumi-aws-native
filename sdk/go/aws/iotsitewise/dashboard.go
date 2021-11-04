@@ -44,9 +44,6 @@ func NewDashboard(ctx *pulumi.Context,
 	if args.DashboardDescription == nil {
 		return nil, errors.New("invalid value for required argument 'DashboardDescription'")
 	}
-	if args.DashboardName == nil {
-		return nil, errors.New("invalid value for required argument 'DashboardName'")
-	}
 	var resource Dashboard
 	err := ctx.RegisterResource("aws-native:iotsitewise:Dashboard", name, args, &resource, opts...)
 	if err != nil {
@@ -84,7 +81,7 @@ type dashboardArgs struct {
 	// A description for the dashboard.
 	DashboardDescription string `pulumi:"dashboardDescription"`
 	// A friendly name for the dashboard.
-	DashboardName string `pulumi:"dashboardName"`
+	DashboardName *string `pulumi:"dashboardName"`
 	// The ID of the project in which to create the dashboard.
 	ProjectId *string `pulumi:"projectId"`
 	// A list of key-value pairs that contain metadata for the dashboard.
@@ -98,7 +95,7 @@ type DashboardArgs struct {
 	// A description for the dashboard.
 	DashboardDescription pulumi.StringInput
 	// A friendly name for the dashboard.
-	DashboardName pulumi.StringInput
+	DashboardName pulumi.StringPtrInput
 	// The ID of the project in which to create the dashboard.
 	ProjectId pulumi.StringPtrInput
 	// A list of key-value pairs that contain metadata for the dashboard.

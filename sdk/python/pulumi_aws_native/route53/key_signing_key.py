@@ -16,19 +16,20 @@ class KeySigningKeyArgs:
     def __init__(__self__, *,
                  hosted_zone_id: pulumi.Input[str],
                  key_management_service_arn: pulumi.Input[str],
-                 name: pulumi.Input[str],
-                 status: pulumi.Input['KeySigningKeyStatus']):
+                 status: pulumi.Input['KeySigningKeyStatus'],
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a KeySigningKey resource.
         :param pulumi.Input[str] hosted_zone_id: The unique string (ID) used to identify a hosted zone.
         :param pulumi.Input[str] key_management_service_arn: The Amazon resource name (ARN) for a customer managed key (CMK) in AWS Key Management Service (KMS). The KeyManagementServiceArn must be unique for each key signing key (KSK) in a single hosted zone.
-        :param pulumi.Input[str] name: An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.
         :param pulumi.Input['KeySigningKeyStatus'] status: A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
+        :param pulumi.Input[str] name: An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.
         """
         pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
         pulumi.set(__self__, "key_management_service_arn", key_management_service_arn)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "status", status)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="hostedZoneId")
@@ -56,18 +57,6 @@ class KeySigningKeyArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
     def status(self) -> pulumi.Input['KeySigningKeyStatus']:
         """
         A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
@@ -77,6 +66,18 @@ class KeySigningKeyArgs:
     @status.setter
     def status(self, value: pulumi.Input['KeySigningKeyStatus']):
         pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class KeySigningKey(pulumi.CustomResource):
@@ -145,8 +146,6 @@ class KeySigningKey(pulumi.CustomResource):
             if key_management_service_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'key_management_service_arn'")
             __props__.__dict__["key_management_service_arn"] = key_management_service_arn
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if status is None and not opts.urn:
                 raise TypeError("Missing required property 'status'")

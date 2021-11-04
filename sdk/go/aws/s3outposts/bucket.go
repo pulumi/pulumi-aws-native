@@ -34,9 +34,6 @@ func NewBucket(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.BucketName == nil {
-		return nil, errors.New("invalid value for required argument 'BucketName'")
-	}
 	if args.OutpostId == nil {
 		return nil, errors.New("invalid value for required argument 'OutpostId'")
 	}
@@ -73,7 +70,7 @@ func (BucketState) ElementType() reflect.Type {
 
 type bucketArgs struct {
 	// A name for the bucket.
-	BucketName string `pulumi:"bucketName"`
+	BucketName *string `pulumi:"bucketName"`
 	// Rules that define how Amazon S3Outposts manages objects during their lifetime.
 	LifecycleConfiguration *BucketLifecycleConfiguration `pulumi:"lifecycleConfiguration"`
 	// The id of the customer outpost on which the bucket resides.
@@ -85,7 +82,7 @@ type bucketArgs struct {
 // The set of arguments for constructing a Bucket resource.
 type BucketArgs struct {
 	// A name for the bucket.
-	BucketName pulumi.StringInput
+	BucketName pulumi.StringPtrInput
 	// Rules that define how Amazon S3Outposts manages objects during their lifetime.
 	LifecycleConfiguration BucketLifecycleConfigurationPtrInput
 	// The id of the customer outpost on which the bucket resides.

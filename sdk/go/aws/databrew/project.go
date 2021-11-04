@@ -38,9 +38,6 @@ func NewProject(ctx *pulumi.Context,
 	if args.DatasetName == nil {
 		return nil, errors.New("invalid value for required argument 'DatasetName'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.RecipeName == nil {
 		return nil, errors.New("invalid value for required argument 'RecipeName'")
 	}
@@ -82,7 +79,7 @@ type projectArgs struct {
 	// Dataset name
 	DatasetName string `pulumi:"datasetName"`
 	// Project name
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Recipe name
 	RecipeName string `pulumi:"recipeName"`
 	// Role arn
@@ -97,7 +94,7 @@ type ProjectArgs struct {
 	// Dataset name
 	DatasetName pulumi.StringInput
 	// Project name
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Recipe name
 	RecipeName pulumi.StringInput
 	// Role arn

@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,12 +43,9 @@ type Environment struct {
 func NewEnvironment(ctx *pulumi.Context,
 	name string, args *EnvironmentArgs, opts ...pulumi.ResourceOption) (*Environment, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &EnvironmentArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource Environment
 	err := ctx.RegisterResource("aws-native:finspace:Environment", name, args, &resource, opts...)
 	if err != nil {
@@ -90,7 +86,7 @@ type environmentArgs struct {
 	// KMS key used to encrypt customer data within FinSpace Environment infrastructure
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Name of the Environment
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a Environment resource.
@@ -103,7 +99,7 @@ type EnvironmentArgs struct {
 	// KMS key used to encrypt customer data within FinSpace Environment infrastructure
 	KmsKeyId pulumi.StringPtrInput
 	// Name of the Environment
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 }
 
 func (EnvironmentArgs) ElementType() reflect.Type {

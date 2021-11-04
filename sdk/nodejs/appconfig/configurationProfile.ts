@@ -65,9 +65,6 @@ export class ConfigurationProfile extends pulumi.CustomResource {
             if ((!args || args.locationUri === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'locationUri'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["applicationId"] = args ? args.applicationId : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["locationUri"] = args ? args.locationUri : undefined;
@@ -98,7 +95,7 @@ export interface ConfigurationProfileArgs {
     applicationId: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     locationUri: pulumi.Input<string>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     retrievalRoleArn?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.appconfig.ConfigurationProfileTagsArgs>[]>;
     validators?: pulumi.Input<pulumi.Input<inputs.appconfig.ConfigurationProfileValidatorsArgs>[]>;

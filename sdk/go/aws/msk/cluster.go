@@ -40,9 +40,6 @@ func NewCluster(ctx *pulumi.Context,
 	if args.BrokerNodeGroupInfo == nil {
 		return nil, errors.New("invalid value for required argument 'BrokerNodeGroupInfo'")
 	}
-	if args.ClusterName == nil {
-		return nil, errors.New("invalid value for required argument 'ClusterName'")
-	}
 	if args.KafkaVersion == nil {
 		return nil, errors.New("invalid value for required argument 'KafkaVersion'")
 	}
@@ -83,7 +80,7 @@ func (ClusterState) ElementType() reflect.Type {
 type clusterArgs struct {
 	BrokerNodeGroupInfo  ClusterBrokerNodeGroupInfo   `pulumi:"brokerNodeGroupInfo"`
 	ClientAuthentication *ClusterClientAuthentication `pulumi:"clientAuthentication"`
-	ClusterName          string                       `pulumi:"clusterName"`
+	ClusterName          *string                      `pulumi:"clusterName"`
 	ConfigurationInfo    *ClusterConfigurationInfo    `pulumi:"configurationInfo"`
 	EncryptionInfo       *ClusterEncryptionInfo       `pulumi:"encryptionInfo"`
 	EnhancedMonitoring   *string                      `pulumi:"enhancedMonitoring"`
@@ -98,7 +95,7 @@ type clusterArgs struct {
 type ClusterArgs struct {
 	BrokerNodeGroupInfo  ClusterBrokerNodeGroupInfoInput
 	ClientAuthentication ClusterClientAuthenticationPtrInput
-	ClusterName          pulumi.StringInput
+	ClusterName          pulumi.StringPtrInput
 	ConfigurationInfo    ClusterConfigurationInfoPtrInput
 	EncryptionInfo       ClusterEncryptionInfoPtrInput
 	EnhancedMonitoring   pulumi.StringPtrInput

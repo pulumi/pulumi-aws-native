@@ -63,13 +63,10 @@ export class Cell extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CellArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: CellArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.cellName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'cellName'");
-            }
             inputs["cellName"] = args ? args.cellName : undefined;
             inputs["cells"] = args ? args.cells : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -96,7 +93,7 @@ export interface CellArgs {
     /**
      * The name of the cell to create.
      */
-    cellName: pulumi.Input<string>;
+    cellName?: pulumi.Input<string>;
     /**
      * A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells. For example, Availability Zones within specific Regions.
      */

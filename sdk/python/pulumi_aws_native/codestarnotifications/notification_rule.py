@@ -18,11 +18,11 @@ class NotificationRuleArgs:
     def __init__(__self__, *,
                  detail_type: pulumi.Input['NotificationRuleDetailType'],
                  event_type_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 name: pulumi.Input[str],
                  resource: pulumi.Input[str],
                  targets: pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArgs']]],
                  created_by: Optional[pulumi.Input[str]] = None,
                  event_type_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['NotificationRuleStatus']] = None,
                  tags: Optional[Any] = None,
                  target_address: Optional[pulumi.Input[str]] = None):
@@ -31,13 +31,14 @@ class NotificationRuleArgs:
         """
         pulumi.set(__self__, "detail_type", detail_type)
         pulumi.set(__self__, "event_type_ids", event_type_ids)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource", resource)
         pulumi.set(__self__, "targets", targets)
         if created_by is not None:
             pulumi.set(__self__, "created_by", created_by)
         if event_type_id is not None:
             pulumi.set(__self__, "event_type_id", event_type_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tags is not None:
@@ -62,15 +63,6 @@ class NotificationRuleArgs:
     @event_type_ids.setter
     def event_type_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "event_type_ids", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -107,6 +99,15 @@ class NotificationRuleArgs:
     @event_type_id.setter
     def event_type_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "event_type_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -212,8 +213,6 @@ class NotificationRule(pulumi.CustomResource):
             if event_type_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'event_type_ids'")
             __props__.__dict__["event_type_ids"] = event_type_ids
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if resource is None and not opts.urn:
                 raise TypeError("Missing required property 'resource'")

@@ -15,7 +15,7 @@ __all__ = ['DomainArgs', 'Domain']
 @pulumi.input_type
 class DomainArgs:
     def __init__(__self__, *,
-                 domain_name: pulumi.Input[str],
+                 domain_name: Optional[pulumi.Input[str]] = None,
                  permissions_policy_document: Optional[Any] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]] = None):
         """
@@ -24,7 +24,8 @@ class DomainArgs:
         :param Any permissions_policy_document: The access control resource policy on the provided domain.
         :param pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "domain_name", domain_name)
+        if domain_name is not None:
+            pulumi.set(__self__, "domain_name", domain_name)
         if permissions_policy_document is not None:
             pulumi.set(__self__, "permissions_policy_document", permissions_policy_document)
         if tags is not None:
@@ -32,14 +33,14 @@ class DomainArgs:
 
     @property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> pulumi.Input[str]:
+    def domain_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the domain.
         """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
-    def domain_name(self, value: pulumi.Input[str]):
+    def domain_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "domain_name", value)
 
     @property
@@ -89,7 +90,7 @@ class Domain(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DomainArgs,
+                 args: Optional[DomainArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The resource schema to create a CodeArtifact domain.
@@ -124,8 +125,6 @@ class Domain(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DomainArgs.__new__(DomainArgs)
 
-            if domain_name is None and not opts.urn:
-                raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["permissions_policy_document"] = permissions_policy_document
             __props__.__dict__["tags"] = tags

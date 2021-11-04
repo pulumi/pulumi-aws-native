@@ -99,8 +99,8 @@ namespace Pulumi.AwsNative.Kendra
         [Input("indexId", required: true)]
         public Input<string> IndexId { get; set; } = null!;
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

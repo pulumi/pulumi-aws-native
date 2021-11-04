@@ -17,21 +17,22 @@ __all__ = ['RuleGroupInitArgs', 'RuleGroup']
 class RuleGroupInitArgs:
     def __init__(__self__, *,
                  capacity: pulumi.Input[int],
-                 rule_group_name: pulumi.Input[str],
                  type: pulumi.Input['RuleGroupTypeEnum'],
                  description: Optional[pulumi.Input[str]] = None,
                  rule_group: Optional[pulumi.Input['RuleGroupArgs']] = None,
+                 rule_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a RuleGroup resource.
         """
         pulumi.set(__self__, "capacity", capacity)
-        pulumi.set(__self__, "rule_group_name", rule_group_name)
         pulumi.set(__self__, "type", type)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if rule_group is not None:
             pulumi.set(__self__, "rule_group", rule_group)
+        if rule_group_name is not None:
+            pulumi.set(__self__, "rule_group_name", rule_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -43,15 +44,6 @@ class RuleGroupInitArgs:
     @capacity.setter
     def capacity(self, value: pulumi.Input[int]):
         pulumi.set(self, "capacity", value)
-
-    @property
-    @pulumi.getter(name="ruleGroupName")
-    def rule_group_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "rule_group_name")
-
-    @rule_group_name.setter
-    def rule_group_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "rule_group_name", value)
 
     @property
     @pulumi.getter
@@ -79,6 +71,15 @@ class RuleGroupInitArgs:
     @rule_group.setter
     def rule_group(self, value: Optional[pulumi.Input['RuleGroupArgs']]):
         pulumi.set(self, "rule_group", value)
+
+    @property
+    @pulumi.getter(name="ruleGroupName")
+    def rule_group_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "rule_group_name")
+
+    @rule_group_name.setter
+    def rule_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rule_group_name", value)
 
     @property
     @pulumi.getter
@@ -155,8 +156,6 @@ class RuleGroup(pulumi.CustomResource):
             __props__.__dict__["capacity"] = capacity
             __props__.__dict__["description"] = description
             __props__.__dict__["rule_group"] = rule_group
-            if rule_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'rule_group_name'")
             __props__.__dict__["rule_group_name"] = rule_group_name
             __props__.__dict__["tags"] = tags
             if type is None and not opts.urn:

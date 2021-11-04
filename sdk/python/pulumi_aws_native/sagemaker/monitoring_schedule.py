@@ -17,10 +17,10 @@ __all__ = ['MonitoringScheduleArgs', 'MonitoringSchedule']
 class MonitoringScheduleArgs:
     def __init__(__self__, *,
                  monitoring_schedule_config: pulumi.Input['MonitoringScheduleConfigArgs'],
-                 monitoring_schedule_name: pulumi.Input[str],
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  failure_reason: Optional[pulumi.Input[str]] = None,
                  last_monitoring_execution_summary: Optional[pulumi.Input['MonitoringScheduleMonitoringExecutionSummaryArgs']] = None,
+                 monitoring_schedule_name: Optional[pulumi.Input[str]] = None,
                  monitoring_schedule_status: Optional[pulumi.Input['MonitoringScheduleStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleTagArgs']]]] = None):
         """
@@ -31,13 +31,14 @@ class MonitoringScheduleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "monitoring_schedule_config", monitoring_schedule_config)
-        pulumi.set(__self__, "monitoring_schedule_name", monitoring_schedule_name)
         if endpoint_name is not None:
             pulumi.set(__self__, "endpoint_name", endpoint_name)
         if failure_reason is not None:
             pulumi.set(__self__, "failure_reason", failure_reason)
         if last_monitoring_execution_summary is not None:
             pulumi.set(__self__, "last_monitoring_execution_summary", last_monitoring_execution_summary)
+        if monitoring_schedule_name is not None:
+            pulumi.set(__self__, "monitoring_schedule_name", monitoring_schedule_name)
         if monitoring_schedule_status is not None:
             pulumi.set(__self__, "monitoring_schedule_status", monitoring_schedule_status)
         if tags is not None:
@@ -51,15 +52,6 @@ class MonitoringScheduleArgs:
     @monitoring_schedule_config.setter
     def monitoring_schedule_config(self, value: pulumi.Input['MonitoringScheduleConfigArgs']):
         pulumi.set(self, "monitoring_schedule_config", value)
-
-    @property
-    @pulumi.getter(name="monitoringScheduleName")
-    def monitoring_schedule_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "monitoring_schedule_name")
-
-    @monitoring_schedule_name.setter
-    def monitoring_schedule_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "monitoring_schedule_name", value)
 
     @property
     @pulumi.getter(name="endpointName")
@@ -93,6 +85,15 @@ class MonitoringScheduleArgs:
     @last_monitoring_execution_summary.setter
     def last_monitoring_execution_summary(self, value: Optional[pulumi.Input['MonitoringScheduleMonitoringExecutionSummaryArgs']]):
         pulumi.set(self, "last_monitoring_execution_summary", value)
+
+    @property
+    @pulumi.getter(name="monitoringScheduleName")
+    def monitoring_schedule_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "monitoring_schedule_name")
+
+    @monitoring_schedule_name.setter
+    def monitoring_schedule_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "monitoring_schedule_name", value)
 
     @property
     @pulumi.getter(name="monitoringScheduleStatus")
@@ -191,8 +192,6 @@ class MonitoringSchedule(pulumi.CustomResource):
             if monitoring_schedule_config is None and not opts.urn:
                 raise TypeError("Missing required property 'monitoring_schedule_config'")
             __props__.__dict__["monitoring_schedule_config"] = monitoring_schedule_config
-            if monitoring_schedule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'monitoring_schedule_name'")
             __props__.__dict__["monitoring_schedule_name"] = monitoring_schedule_name
             __props__.__dict__["monitoring_schedule_status"] = monitoring_schedule_status
             __props__.__dict__["tags"] = tags

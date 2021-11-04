@@ -15,23 +15,15 @@ __all__ = ['GeoMatchSetArgs', 'GeoMatchSet']
 @pulumi.input_type
 class GeoMatchSetArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 geo_match_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['GeoMatchSetGeoMatchConstraintArgs']]]] = None):
+                 geo_match_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['GeoMatchSetGeoMatchConstraintArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a GeoMatchSet resource.
         """
-        pulumi.set(__self__, "name", name)
         if geo_match_constraints is not None:
             pulumi.set(__self__, "geo_match_constraints", geo_match_constraints)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="geoMatchConstraints")
@@ -41,6 +33,15 @@ class GeoMatchSetArgs:
     @geo_match_constraints.setter
     def geo_match_constraints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GeoMatchSetGeoMatchConstraintArgs']]]]):
         pulumi.set(self, "geo_match_constraints", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 warnings.warn("""GeoMatchSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
@@ -66,7 +67,7 @@ class GeoMatchSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: GeoMatchSetArgs,
+                 args: Optional[GeoMatchSetArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::WAFRegional::GeoMatchSet
@@ -102,8 +103,6 @@ class GeoMatchSet(pulumi.CustomResource):
             __props__ = GeoMatchSetArgs.__new__(GeoMatchSetArgs)
 
             __props__.__dict__["geo_match_constraints"] = geo_match_constraints
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
         super(GeoMatchSet, __self__).__init__(
             'aws-native:wafregional:GeoMatchSet',

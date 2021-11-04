@@ -47,7 +47,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ReadinessCheck(string name, ReadinessCheckArgs args, CustomResourceOptions? options = null)
+        public ReadinessCheck(string name, ReadinessCheckArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:route53recoveryreadiness:ReadinessCheck", name, args ?? new ReadinessCheckArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -87,8 +87,8 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// <summary>
         /// Name of the ReadinessCheck to create.
         /// </summary>
-        [Input("readinessCheckName", required: true)]
-        public Input<string> ReadinessCheckName { get; set; } = null!;
+        [Input("readinessCheckName")]
+        public Input<string>? ReadinessCheckName { get; set; }
 
         /// <summary>
         /// The name of the resource set to check.

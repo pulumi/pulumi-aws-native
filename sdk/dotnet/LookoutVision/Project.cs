@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.LookoutVision
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Project(string name, ProjectArgs args, CustomResourceOptions? options = null)
+        public Project(string name, ProjectArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:lookoutvision:Project", name, args ?? new ProjectArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -66,8 +66,8 @@ namespace Pulumi.AwsNative.LookoutVision
 
     public sealed class ProjectArgs : Pulumi.ResourceArgs
     {
-        [Input("projectName", required: true)]
-        public Input<string> ProjectName { get; set; } = null!;
+        [Input("projectName")]
+        public Input<string>? ProjectName { get; set; }
 
         public ProjectArgs()
         {

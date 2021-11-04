@@ -17,13 +17,13 @@ __all__ = ['PolicyArgs', 'Policy']
 class PolicyArgs:
     def __init__(__self__, *,
                  exclude_resource_tags: pulumi.Input[bool],
-                 policy_name: pulumi.Input[str],
                  remediation_enabled: pulumi.Input[bool],
                  resource_type: pulumi.Input[str],
                  security_service_policy_data: pulumi.Input['SecurityServicePolicyDataPropertiesArgs'],
                  delete_all_policy_resources: Optional[pulumi.Input[bool]] = None,
                  exclude_map: Optional[pulumi.Input['PolicyIEMapArgs']] = None,
                  include_map: Optional[pulumi.Input['PolicyIEMapArgs']] = None,
+                 policy_name: Optional[pulumi.Input[str]] = None,
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyResourceTagArgs']]]] = None,
                  resource_type_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resources_clean_up: Optional[pulumi.Input[bool]] = None,
@@ -32,7 +32,6 @@ class PolicyArgs:
         The set of arguments for constructing a Policy resource.
         """
         pulumi.set(__self__, "exclude_resource_tags", exclude_resource_tags)
-        pulumi.set(__self__, "policy_name", policy_name)
         pulumi.set(__self__, "remediation_enabled", remediation_enabled)
         pulumi.set(__self__, "resource_type", resource_type)
         pulumi.set(__self__, "security_service_policy_data", security_service_policy_data)
@@ -42,6 +41,8 @@ class PolicyArgs:
             pulumi.set(__self__, "exclude_map", exclude_map)
         if include_map is not None:
             pulumi.set(__self__, "include_map", include_map)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if resource_tags is not None:
             pulumi.set(__self__, "resource_tags", resource_tags)
         if resource_type_list is not None:
@@ -59,15 +60,6 @@ class PolicyArgs:
     @exclude_resource_tags.setter
     def exclude_resource_tags(self, value: pulumi.Input[bool]):
         pulumi.set(self, "exclude_resource_tags", value)
-
-    @property
-    @pulumi.getter(name="policyName")
-    def policy_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "policy_name")
-
-    @policy_name.setter
-    def policy_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "policy_name", value)
 
     @property
     @pulumi.getter(name="remediationEnabled")
@@ -122,6 +114,15 @@ class PolicyArgs:
     @include_map.setter
     def include_map(self, value: Optional[pulumi.Input['PolicyIEMapArgs']]):
         pulumi.set(self, "include_map", value)
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "policy_name")
+
+    @policy_name.setter
+    def policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_name", value)
 
     @property
     @pulumi.getter(name="resourceTags")
@@ -238,8 +239,6 @@ class Policy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'exclude_resource_tags'")
             __props__.__dict__["exclude_resource_tags"] = exclude_resource_tags
             __props__.__dict__["include_map"] = include_map
-            if policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'policy_name'")
             __props__.__dict__["policy_name"] = policy_name
             if remediation_enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'remediation_enabled'")

@@ -32,9 +32,6 @@ func NewConfig(ctx *pulumi.Context,
 	if args.ConfigData == nil {
 		return nil, errors.New("invalid value for required argument 'ConfigData'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource Config
 	err := ctx.RegisterResource("aws-native:groundstation:Config", name, args, &resource, opts...)
 	if err != nil {
@@ -68,14 +65,14 @@ func (ConfigState) ElementType() reflect.Type {
 
 type configArgs struct {
 	ConfigData ConfigData  `pulumi:"configData"`
-	Name       string      `pulumi:"name"`
+	Name       *string     `pulumi:"name"`
 	Tags       []ConfigTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Config resource.
 type ConfigArgs struct {
 	ConfigData ConfigDataInput
-	Name       pulumi.StringInput
+	Name       pulumi.StringPtrInput
 	Tags       ConfigTagArrayInput
 }
 

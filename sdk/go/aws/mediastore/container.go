@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,12 +30,9 @@ type Container struct {
 func NewContainer(ctx *pulumi.Context,
 	name string, args *ContainerArgs, opts ...pulumi.ResourceOption) (*Container, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ContainerArgs{}
 	}
 
-	if args.ContainerName == nil {
-		return nil, errors.New("invalid value for required argument 'ContainerName'")
-	}
 	var resource Container
 	err := ctx.RegisterResource("aws-native:mediastore:Container", name, args, &resource, opts...)
 	if err != nil {
@@ -70,7 +66,7 @@ func (ContainerState) ElementType() reflect.Type {
 
 type containerArgs struct {
 	AccessLoggingEnabled *bool                  `pulumi:"accessLoggingEnabled"`
-	ContainerName        string                 `pulumi:"containerName"`
+	ContainerName        *string                `pulumi:"containerName"`
 	CorsPolicy           []ContainerCorsRule    `pulumi:"corsPolicy"`
 	LifecyclePolicy      *string                `pulumi:"lifecyclePolicy"`
 	MetricPolicy         *ContainerMetricPolicy `pulumi:"metricPolicy"`
@@ -81,7 +77,7 @@ type containerArgs struct {
 // The set of arguments for constructing a Container resource.
 type ContainerArgs struct {
 	AccessLoggingEnabled pulumi.BoolPtrInput
-	ContainerName        pulumi.StringInput
+	ContainerName        pulumi.StringPtrInput
 	CorsPolicy           ContainerCorsRuleArrayInput
 	LifecyclePolicy      pulumi.StringPtrInput
 	MetricPolicy         ContainerMetricPolicyPtrInput

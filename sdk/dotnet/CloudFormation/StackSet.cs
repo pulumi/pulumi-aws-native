@@ -225,8 +225,8 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// The name to associate with the stack set. The name must be unique in the Region where you create your stack set.
         /// </summary>
-        [Input("stackSetName", required: true)]
-        public Input<string> StackSetName { get; set; } = null!;
+        [Input("stackSetName")]
+        public Input<string>? StackSetName { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.StackSetTagArgs>? _tags;

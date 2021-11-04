@@ -111,8 +111,8 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// The name of the quick connect.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Configuration settings for the quick connect.

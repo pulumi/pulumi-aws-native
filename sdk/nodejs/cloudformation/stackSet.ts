@@ -107,9 +107,6 @@ export class StackSet extends pulumi.CustomResource {
             if ((!args || args.permissionModel === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'permissionModel'");
             }
-            if ((!args || args.stackSetName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'stackSetName'");
-            }
             inputs["administrationRoleARN"] = args ? args.administrationRoleARN : undefined;
             inputs["autoDeployment"] = args ? args.autoDeployment : undefined;
             inputs["callAs"] = args ? args.callAs : undefined;
@@ -193,7 +190,7 @@ export interface StackSetArgs {
     /**
      * The name to associate with the stack set. The name must be unique in the Region where you create your stack set.
      */
-    stackSetName: pulumi.Input<string>;
+    stackSetName?: pulumi.Input<string>;
     /**
      * The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
      */

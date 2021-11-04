@@ -76,9 +76,6 @@ export class Campaign extends pulumi.CustomResource {
             if ((!args || args.messageConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'messageConfiguration'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.schedule === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schedule'");
             }
@@ -142,7 +139,7 @@ export interface CampaignArgs {
     isPaused?: pulumi.Input<boolean>;
     limits?: pulumi.Input<inputs.pinpoint.CampaignLimitsArgs>;
     messageConfiguration: pulumi.Input<inputs.pinpoint.CampaignMessageConfigurationArgs>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     priority?: pulumi.Input<number>;
     schedule: pulumi.Input<inputs.pinpoint.CampaignScheduleArgs>;
     segmentId: pulumi.Input<string>;

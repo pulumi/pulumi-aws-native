@@ -51,7 +51,7 @@ namespace Pulumi.AwsNative.GameLift
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public GameSessionQueue(string name, GameSessionQueueArgs args, CustomResourceOptions? options = null)
+        public GameSessionQueue(string name, GameSessionQueueArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:gamelift:GameSessionQueue", name, args ?? new GameSessionQueueArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -102,8 +102,8 @@ namespace Pulumi.AwsNative.GameLift
         [Input("filterConfiguration")]
         public Input<Inputs.GameSessionQueueFilterConfigurationArgs>? FilterConfiguration { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("notificationTarget")]
         public Input<string>? NotificationTarget { get; set; }

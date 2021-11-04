@@ -48,9 +48,6 @@ func NewApplication(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ApplicationName == nil {
-		return nil, errors.New("invalid value for required argument 'ApplicationName'")
-	}
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
@@ -89,7 +86,7 @@ type applicationArgs struct {
 	// Application Description, should be between 1 and 2048 characters.
 	ApplicationDescription *string `pulumi:"applicationDescription"`
 	// Application Name, should be between 1 and 256 characters.
-	ApplicationName string `pulumi:"applicationName"`
+	ApplicationName *string `pulumi:"applicationName"`
 	// The ARN of the role that the web application assumes when it interacts with AWS IoT Core. For more info on configuring this attribute, see https://docs.aws.amazon.com/iot/latest/apireference/API_iotfleethub_CreateApplication.html#API_iotfleethub_CreateApplication_RequestSyntax
 	RoleArn string `pulumi:"roleArn"`
 	// A list of key-value pairs that contain metadata for the application.
@@ -101,7 +98,7 @@ type ApplicationArgs struct {
 	// Application Description, should be between 1 and 2048 characters.
 	ApplicationDescription pulumi.StringPtrInput
 	// Application Name, should be between 1 and 256 characters.
-	ApplicationName pulumi.StringInput
+	ApplicationName pulumi.StringPtrInput
 	// The ARN of the role that the web application assumes when it interacts with AWS IoT Core. For more info on configuring this attribute, see https://docs.aws.amazon.com/iot/latest/apireference/API_iotfleethub_CreateApplication.html#API_iotfleethub_CreateApplication_RequestSyntax
 	RoleArn pulumi.StringInput
 	// A list of key-value pairs that contain metadata for the application.

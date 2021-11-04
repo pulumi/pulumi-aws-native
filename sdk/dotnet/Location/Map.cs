@@ -93,8 +93,8 @@ namespace Pulumi.AwsNative.Location
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("mapName", required: true)]
-        public Input<string> MapName { get; set; } = null!;
+        [Input("mapName")]
+        public Input<string>? MapName { get; set; }
 
         [Input("pricingPlan", required: true)]
         public Input<Pulumi.AwsNative.Location.MapPricingPlan> PricingPlan { get; set; } = null!;

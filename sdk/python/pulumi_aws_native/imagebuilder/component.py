@@ -14,30 +14,29 @@ __all__ = ['ComponentArgs', 'Component']
 @pulumi.input_type
 class ComponentArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  platform: pulumi.Input['ComponentPlatform'],
                  version: pulumi.Input[str],
                  change_description: Optional[pulumi.Input[str]] = None,
                  data: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  supported_os_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[Any] = None,
                  uri: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Component resource.
-        :param pulumi.Input[str] name: The name of the component.
         :param pulumi.Input['ComponentPlatform'] platform: The platform of the component.
         :param pulumi.Input[str] version: The version of the component.
         :param pulumi.Input[str] change_description: The change description of the component.
         :param pulumi.Input[str] data: The data of the component.
         :param pulumi.Input[str] description: The description of the component.
         :param pulumi.Input[str] kms_key_id: The KMS key identifier used to encrypt the component.
+        :param pulumi.Input[str] name: The name of the component.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_os_versions: The operating system (OS) version supported by the component.
         :param Any tags: The tags associated with the component.
         :param pulumi.Input[str] uri: The uri of the component.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "platform", platform)
         pulumi.set(__self__, "version", version)
         if change_description is not None:
@@ -48,24 +47,14 @@ class ComponentArgs:
             pulumi.set(__self__, "description", description)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if supported_os_versions is not None:
             pulumi.set(__self__, "supported_os_versions", supported_os_versions)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if uri is not None:
             pulumi.set(__self__, "uri", uri)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the component.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -138,6 +127,18 @@ class ComponentArgs:
     @kms_key_id.setter
     def kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the component.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="supportedOsVersions")
@@ -258,8 +259,6 @@ class Component(pulumi.CustomResource):
             __props__.__dict__["data"] = data
             __props__.__dict__["description"] = description
             __props__.__dict__["kms_key_id"] = kms_key_id
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if platform is None and not opts.urn:
                 raise TypeError("Missing required property 'platform'")

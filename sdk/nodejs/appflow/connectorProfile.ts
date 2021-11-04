@@ -78,9 +78,6 @@ export class ConnectorProfile extends pulumi.CustomResource {
             if ((!args || args.connectionMode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectionMode'");
             }
-            if ((!args || args.connectorProfileName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'connectorProfileName'");
-            }
             if ((!args || args.connectorType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectorType'");
             }
@@ -122,7 +119,7 @@ export interface ConnectorProfileArgs {
     /**
      * The maximum number of items to retrieve in a single batch.
      */
-    connectorProfileName: pulumi.Input<string>;
+    connectorProfileName?: pulumi.Input<string>;
     /**
      * List of Saas providers that need connector profile to be created
      */

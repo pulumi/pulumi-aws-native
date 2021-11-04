@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,12 +32,9 @@ type Label struct {
 func NewLabel(ctx *pulumi.Context,
 	name string, args *LabelArgs, opts ...pulumi.ResourceOption) (*Label, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &LabelArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource Label
 	err := ctx.RegisterResource("aws-native:frauddetector:Label", name, args, &resource, opts...)
 	if err != nil {
@@ -74,7 +70,7 @@ type labelArgs struct {
 	// The label description.
 	Description *string `pulumi:"description"`
 	// The name of the label.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Tags associated with this label.
 	Tags []LabelTag `pulumi:"tags"`
 }
@@ -84,7 +80,7 @@ type LabelArgs struct {
 	// The label description.
 	Description pulumi.StringPtrInput
 	// The name of the label.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Tags associated with this label.
 	Tags LabelTagArrayInput
 }

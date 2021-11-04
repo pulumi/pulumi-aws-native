@@ -78,8 +78,8 @@ namespace Pulumi.AwsNative.GroundStation
         [Input("configData", required: true)]
         public Input<Inputs.ConfigDataArgs> ConfigData { get; set; } = null!;
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.ConfigTagArgs>? _tags;

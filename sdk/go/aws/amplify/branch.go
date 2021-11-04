@@ -40,9 +40,6 @@ func NewBranch(ctx *pulumi.Context,
 	if args.AppId == nil {
 		return nil, errors.New("invalid value for required argument 'AppId'")
 	}
-	if args.BranchName == nil {
-		return nil, errors.New("invalid value for required argument 'BranchName'")
-	}
 	var resource Branch
 	err := ctx.RegisterResource("aws-native:amplify:Branch", name, args, &resource, opts...)
 	if err != nil {
@@ -77,7 +74,7 @@ func (BranchState) ElementType() reflect.Type {
 type branchArgs struct {
 	AppId                      string                      `pulumi:"appId"`
 	BasicAuthConfig            *BranchBasicAuthConfig      `pulumi:"basicAuthConfig"`
-	BranchName                 string                      `pulumi:"branchName"`
+	BranchName                 *string                     `pulumi:"branchName"`
 	BuildSpec                  *string                     `pulumi:"buildSpec"`
 	Description                *string                     `pulumi:"description"`
 	EnableAutoBuild            *bool                       `pulumi:"enableAutoBuild"`
@@ -93,7 +90,7 @@ type branchArgs struct {
 type BranchArgs struct {
 	AppId                      pulumi.StringInput
 	BasicAuthConfig            BranchBasicAuthConfigPtrInput
-	BranchName                 pulumi.StringInput
+	BranchName                 pulumi.StringPtrInput
 	BuildSpec                  pulumi.StringPtrInput
 	Description                pulumi.StringPtrInput
 	EnableAutoBuild            pulumi.BoolPtrInput

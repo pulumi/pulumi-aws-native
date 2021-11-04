@@ -138,8 +138,8 @@ namespace Pulumi.AwsNative.NimbleStudio
         /// <summary>
         /// &lt;p&gt;The name for the launch profile.&lt;/p&gt;
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("streamConfiguration", required: true)]
         public Input<Inputs.LaunchProfileStreamConfigurationArgs> StreamConfiguration { get; set; } = null!;

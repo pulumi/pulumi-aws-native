@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,12 +24,9 @@ type ByteMatchSet struct {
 func NewByteMatchSet(ctx *pulumi.Context,
 	name string, args *ByteMatchSetArgs, opts ...pulumi.ResourceOption) (*ByteMatchSet, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ByteMatchSetArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource ByteMatchSet
 	err := ctx.RegisterResource("aws-native:waf:ByteMatchSet", name, args, &resource, opts...)
 	if err != nil {
@@ -64,13 +60,13 @@ func (ByteMatchSetState) ElementType() reflect.Type {
 
 type byteMatchSetArgs struct {
 	ByteMatchTuples []ByteMatchSetByteMatchTuple `pulumi:"byteMatchTuples"`
-	Name            string                       `pulumi:"name"`
+	Name            *string                      `pulumi:"name"`
 }
 
 // The set of arguments for constructing a ByteMatchSet resource.
 type ByteMatchSetArgs struct {
 	ByteMatchTuples ByteMatchSetByteMatchTupleArrayInput
-	Name            pulumi.StringInput
+	Name            pulumi.StringPtrInput
 }
 
 func (ByteMatchSetArgs) ElementType() reflect.Type {

@@ -65,9 +65,6 @@ func NewInstance(ctx *pulumi.Context,
 	if args.BundleId == nil {
 		return nil, errors.New("invalid value for required argument 'BundleId'")
 	}
-	if args.InstanceName == nil {
-		return nil, errors.New("invalid value for required argument 'InstanceName'")
-	}
 	var resource Instance
 	err := ctx.RegisterResource("aws-native:lightsail:Instance", name, args, &resource, opts...)
 	if err != nil {
@@ -110,7 +107,7 @@ type instanceArgs struct {
 	BundleId string            `pulumi:"bundleId"`
 	Hardware *InstanceHardware `pulumi:"hardware"`
 	// The names to use for your new Lightsail instance.
-	InstanceName string `pulumi:"instanceName"`
+	InstanceName *string `pulumi:"instanceName"`
 	// The name of your key pair.
 	KeyPairName *string             `pulumi:"keyPairName"`
 	Location    *InstanceLocation   `pulumi:"location"`
@@ -134,7 +131,7 @@ type InstanceArgs struct {
 	BundleId pulumi.StringInput
 	Hardware InstanceHardwarePtrInput
 	// The names to use for your new Lightsail instance.
-	InstanceName pulumi.StringInput
+	InstanceName pulumi.StringPtrInput
 	// The name of your key pair.
 	KeyPairName pulumi.StringPtrInput
 	Location    InstanceLocationPtrInput

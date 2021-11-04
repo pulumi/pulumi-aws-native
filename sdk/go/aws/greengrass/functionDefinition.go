@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,12 +27,9 @@ type FunctionDefinition struct {
 func NewFunctionDefinition(ctx *pulumi.Context,
 	name string, args *FunctionDefinitionArgs, opts ...pulumi.ResourceOption) (*FunctionDefinition, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &FunctionDefinitionArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource FunctionDefinition
 	err := ctx.RegisterResource("aws-native:greengrass:FunctionDefinition", name, args, &resource, opts...)
 	if err != nil {
@@ -67,14 +63,14 @@ func (FunctionDefinitionState) ElementType() reflect.Type {
 
 type functionDefinitionArgs struct {
 	InitialVersion *FunctionDefinitionVersionType `pulumi:"initialVersion"`
-	Name           string                         `pulumi:"name"`
+	Name           *string                        `pulumi:"name"`
 	Tags           interface{}                    `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FunctionDefinition resource.
 type FunctionDefinitionArgs struct {
 	InitialVersion FunctionDefinitionVersionTypePtrInput
-	Name           pulumi.StringInput
+	Name           pulumi.StringPtrInput
 	Tags           pulumi.Input
 }
 

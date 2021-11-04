@@ -16,30 +16,22 @@ __all__ = ['ModelPackageGroupArgs', 'ModelPackageGroup']
 @pulumi.input_type
 class ModelPackageGroupArgs:
     def __init__(__self__, *,
-                 model_package_group_name: pulumi.Input[str],
                  model_package_group_description: Optional[pulumi.Input[str]] = None,
+                 model_package_group_name: Optional[pulumi.Input[str]] = None,
                  model_package_group_policy: Optional[Any] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a ModelPackageGroup resource.
         :param pulumi.Input[Sequence[pulumi.Input['ModelPackageGroupTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "model_package_group_name", model_package_group_name)
         if model_package_group_description is not None:
             pulumi.set(__self__, "model_package_group_description", model_package_group_description)
+        if model_package_group_name is not None:
+            pulumi.set(__self__, "model_package_group_name", model_package_group_name)
         if model_package_group_policy is not None:
             pulumi.set(__self__, "model_package_group_policy", model_package_group_policy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="modelPackageGroupName")
-    def model_package_group_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "model_package_group_name")
-
-    @model_package_group_name.setter
-    def model_package_group_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "model_package_group_name", value)
 
     @property
     @pulumi.getter(name="modelPackageGroupDescription")
@@ -49,6 +41,15 @@ class ModelPackageGroupArgs:
     @model_package_group_description.setter
     def model_package_group_description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "model_package_group_description", value)
+
+    @property
+    @pulumi.getter(name="modelPackageGroupName")
+    def model_package_group_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "model_package_group_name")
+
+    @model_package_group_name.setter
+    def model_package_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_package_group_name", value)
 
     @property
     @pulumi.getter(name="modelPackageGroupPolicy")
@@ -93,7 +94,7 @@ class ModelPackageGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ModelPackageGroupArgs,
+                 args: Optional[ModelPackageGroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SageMaker::ModelPackageGroup
@@ -130,8 +131,6 @@ class ModelPackageGroup(pulumi.CustomResource):
             __props__ = ModelPackageGroupArgs.__new__(ModelPackageGroupArgs)
 
             __props__.__dict__["model_package_group_description"] = model_package_group_description
-            if model_package_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'model_package_group_name'")
             __props__.__dict__["model_package_group_name"] = model_package_group_name
             __props__.__dict__["model_package_group_policy"] = model_package_group_policy
             __props__.__dict__["tags"] = tags

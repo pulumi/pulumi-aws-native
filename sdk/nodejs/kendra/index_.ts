@@ -76,9 +76,6 @@ export class Index extends pulumi.CustomResource {
             if ((!args || args.edition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'edition'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
@@ -130,7 +127,7 @@ export interface IndexArgs {
      */
     documentMetadataConfigurations?: pulumi.Input<pulumi.Input<inputs.kendra.IndexDocumentMetadataConfigurationArgs>[]>;
     edition: pulumi.Input<enums.kendra.IndexEdition>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     roleArn: pulumi.Input<string>;
     /**
      * Server side encryption configuration

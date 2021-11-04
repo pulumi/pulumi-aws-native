@@ -40,9 +40,6 @@ func NewDeploymentStrategy(ctx *pulumi.Context,
 	if args.GrowthFactor == nil {
 		return nil, errors.New("invalid value for required argument 'GrowthFactor'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ReplicateTo == nil {
 		return nil, errors.New("invalid value for required argument 'ReplicateTo'")
 	}
@@ -83,7 +80,7 @@ type deploymentStrategyArgs struct {
 	FinalBakeTimeInMinutes      *float64                 `pulumi:"finalBakeTimeInMinutes"`
 	GrowthFactor                float64                  `pulumi:"growthFactor"`
 	GrowthType                  *string                  `pulumi:"growthType"`
-	Name                        string                   `pulumi:"name"`
+	Name                        *string                  `pulumi:"name"`
 	ReplicateTo                 string                   `pulumi:"replicateTo"`
 	Tags                        []DeploymentStrategyTags `pulumi:"tags"`
 }
@@ -95,7 +92,7 @@ type DeploymentStrategyArgs struct {
 	FinalBakeTimeInMinutes      pulumi.Float64PtrInput
 	GrowthFactor                pulumi.Float64Input
 	GrowthType                  pulumi.StringPtrInput
-	Name                        pulumi.StringInput
+	Name                        pulumi.StringPtrInput
 	ReplicateTo                 pulumi.StringInput
 	Tags                        DeploymentStrategyTagsArrayInput
 }

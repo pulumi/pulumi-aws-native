@@ -15,7 +15,7 @@ __all__ = ['ReadinessCheckArgs', 'ReadinessCheck']
 @pulumi.input_type
 class ReadinessCheckArgs:
     def __init__(__self__, *,
-                 readiness_check_name: pulumi.Input[str],
+                 readiness_check_name: Optional[pulumi.Input[str]] = None,
                  resource_set_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ReadinessCheckTagArgs']]]] = None):
         """
@@ -24,7 +24,8 @@ class ReadinessCheckArgs:
         :param pulumi.Input[str] resource_set_name: The name of the resource set to check.
         :param pulumi.Input[Sequence[pulumi.Input['ReadinessCheckTagArgs']]] tags: A collection of tags associated with a resource.
         """
-        pulumi.set(__self__, "readiness_check_name", readiness_check_name)
+        if readiness_check_name is not None:
+            pulumi.set(__self__, "readiness_check_name", readiness_check_name)
         if resource_set_name is not None:
             pulumi.set(__self__, "resource_set_name", resource_set_name)
         if tags is not None:
@@ -32,14 +33,14 @@ class ReadinessCheckArgs:
 
     @property
     @pulumi.getter(name="readinessCheckName")
-    def readiness_check_name(self) -> pulumi.Input[str]:
+    def readiness_check_name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the ReadinessCheck to create.
         """
         return pulumi.get(self, "readiness_check_name")
 
     @readiness_check_name.setter
-    def readiness_check_name(self, value: pulumi.Input[str]):
+    def readiness_check_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "readiness_check_name", value)
 
     @property
@@ -89,7 +90,7 @@ class ReadinessCheck(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ReadinessCheckArgs,
+                 args: Optional[ReadinessCheckArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Aws Route53 Recovery Readiness Check Schema and API specification.
@@ -124,8 +125,6 @@ class ReadinessCheck(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ReadinessCheckArgs.__new__(ReadinessCheckArgs)
 
-            if readiness_check_name is None and not opts.urn:
-                raise TypeError("Missing required property 'readiness_check_name'")
             __props__.__dict__["readiness_check_name"] = readiness_check_name
             __props__.__dict__["resource_set_name"] = resource_set_name
             __props__.__dict__["tags"] = tags

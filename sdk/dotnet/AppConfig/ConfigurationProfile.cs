@@ -91,8 +91,8 @@ namespace Pulumi.AwsNative.AppConfig
         [Input("locationUri", required: true)]
         public Input<string> LocationUri { get; set; } = null!;
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("retrievalRoleArn")]
         public Input<string>? RetrievalRoleArn { get; set; }

@@ -45,9 +45,6 @@ func NewAuthorizer(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.RestApiId == nil {
 		return nil, errors.New("invalid value for required argument 'RestApiId'")
 	}
@@ -99,7 +96,7 @@ type authorizerArgs struct {
 	// A validation expression for the incoming identity token.
 	IdentityValidationExpression *string `pulumi:"identityValidationExpression"`
 	// The name of the authorizer.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.
 	ProviderARNs []string `pulumi:"providerARNs"`
 	// The identifier of the API.
@@ -123,7 +120,7 @@ type AuthorizerArgs struct {
 	// A validation expression for the incoming identity token.
 	IdentityValidationExpression pulumi.StringPtrInput
 	// The name of the authorizer.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.
 	ProviderARNs pulumi.StringArrayInput
 	// The identifier of the API.

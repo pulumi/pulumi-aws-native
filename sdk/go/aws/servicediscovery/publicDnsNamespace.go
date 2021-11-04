@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,12 +27,9 @@ type PublicDnsNamespace struct {
 func NewPublicDnsNamespace(ctx *pulumi.Context,
 	name string, args *PublicDnsNamespaceArgs, opts ...pulumi.ResourceOption) (*PublicDnsNamespace, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &PublicDnsNamespaceArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource PublicDnsNamespace
 	err := ctx.RegisterResource("aws-native:servicediscovery:PublicDnsNamespace", name, args, &resource, opts...)
 	if err != nil {
@@ -67,7 +63,7 @@ func (PublicDnsNamespaceState) ElementType() reflect.Type {
 
 type publicDnsNamespaceArgs struct {
 	Description *string                       `pulumi:"description"`
-	Name        string                        `pulumi:"name"`
+	Name        *string                       `pulumi:"name"`
 	Properties  *PublicDnsNamespaceProperties `pulumi:"properties"`
 	Tags        []PublicDnsNamespaceTag       `pulumi:"tags"`
 }
@@ -75,7 +71,7 @@ type publicDnsNamespaceArgs struct {
 // The set of arguments for constructing a PublicDnsNamespace resource.
 type PublicDnsNamespaceArgs struct {
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringInput
+	Name        pulumi.StringPtrInput
 	Properties  PublicDnsNamespacePropertiesPtrInput
 	Tags        PublicDnsNamespaceTagArrayInput
 }

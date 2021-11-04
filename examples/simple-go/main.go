@@ -16,22 +16,12 @@ package main
 
 import (
 	awslogs "github.com/pulumi/pulumi-aws-native/sdk/go/aws/logs"
-	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
-		name, err := random.NewRandomString(ctx, "name", &random.RandomStringArgs{
-			Length:  pulumi.Int(8),
-			Special: pulumi.Bool(false),
-			Upper:   pulumi.Bool(false),
-		})
-		if err != nil {
-			return err
-		}
 		logGroup, err := awslogs.NewLogGroup(ctx, "log-test", &awslogs.LogGroupArgs{
-			LogGroupName:    name.Result,
 			RetentionInDays: pulumi.Int(90),
 		})
 		if err != nil {

@@ -73,8 +73,8 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class VpcLinkArgs : Pulumi.ResourceArgs
     {
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;

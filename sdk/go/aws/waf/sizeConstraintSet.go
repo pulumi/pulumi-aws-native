@@ -28,9 +28,6 @@ func NewSizeConstraintSet(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.SizeConstraints == nil {
 		return nil, errors.New("invalid value for required argument 'SizeConstraints'")
 	}
@@ -66,13 +63,13 @@ func (SizeConstraintSetState) ElementType() reflect.Type {
 }
 
 type sizeConstraintSetArgs struct {
-	Name            string                            `pulumi:"name"`
+	Name            *string                           `pulumi:"name"`
 	SizeConstraints []SizeConstraintSetSizeConstraint `pulumi:"sizeConstraints"`
 }
 
 // The set of arguments for constructing a SizeConstraintSet resource.
 type SizeConstraintSetArgs struct {
-	Name            pulumi.StringInput
+	Name            pulumi.StringPtrInput
 	SizeConstraints SizeConstraintSetSizeConstraintArrayInput
 }
 

@@ -138,8 +138,8 @@ namespace Pulumi.AwsNative.FraudDetector
         /// <summary>
         /// The name for the event type
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.EventTypeTagArgs>? _tags;

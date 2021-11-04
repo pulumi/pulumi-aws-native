@@ -61,9 +61,6 @@ export class AttributeGroup extends pulumi.CustomResource {
             if ((!args || args.attributes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'attributes'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["attributes"] = args ? args.attributes : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -95,6 +92,6 @@ export interface AttributeGroupArgs {
     /**
      * The name of the attribute group. 
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     tags?: pulumi.Input<inputs.servicecatalogappregistry.AttributeGroupTagsArgs>;
 }

@@ -80,9 +80,6 @@ export class Layer extends pulumi.CustomResource {
             if ((!args || args.enableAutoHealing === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'enableAutoHealing'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.shortname === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shortname'");
             }
@@ -154,7 +151,7 @@ export interface LayerArgs {
     installUpdatesOnBoot?: pulumi.Input<boolean>;
     lifecycleEventConfiguration?: pulumi.Input<inputs.opsworks.LayerLifecycleEventConfigurationArgs>;
     loadBasedAutoScaling?: pulumi.Input<inputs.opsworks.LayerLoadBasedAutoScalingArgs>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     packages?: pulumi.Input<pulumi.Input<string>[]>;
     shortname: pulumi.Input<string>;
     stackId: pulumi.Input<string>;

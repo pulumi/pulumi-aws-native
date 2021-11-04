@@ -84,8 +84,8 @@ namespace Pulumi.AwsNative.Wisdom
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("serverSideEncryptionConfiguration")]
         public Input<Inputs.AssistantServerSideEncryptionConfigurationArgs>? ServerSideEncryptionConfiguration { get; set; }

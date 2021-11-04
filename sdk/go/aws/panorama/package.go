@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,12 +26,9 @@ type Package struct {
 func NewPackage(ctx *pulumi.Context,
 	name string, args *PackageArgs, opts ...pulumi.ResourceOption) (*Package, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &PackageArgs{}
 	}
 
-	if args.PackageName == nil {
-		return nil, errors.New("invalid value for required argument 'PackageName'")
-	}
 	var resource Package
 	err := ctx.RegisterResource("aws-native:panorama:Package", name, args, &resource, opts...)
 	if err != nil {
@@ -65,13 +61,13 @@ func (PackageState) ElementType() reflect.Type {
 }
 
 type packageArgs struct {
-	PackageName string       `pulumi:"packageName"`
+	PackageName *string      `pulumi:"packageName"`
 	Tags        []PackageTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Package resource.
 type PackageArgs struct {
-	PackageName pulumi.StringInput
+	PackageName pulumi.StringPtrInput
 	Tags        PackageTagArrayInput
 }
 

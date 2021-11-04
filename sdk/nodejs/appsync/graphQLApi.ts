@@ -67,9 +67,6 @@ export class GraphQLApi extends pulumi.CustomResource {
             if ((!args || args.authenticationType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authenticationType'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["additionalAuthenticationProviders"] = args ? args.additionalAuthenticationProviders : undefined;
             inputs["authenticationType"] = args ? args.authenticationType : undefined;
             inputs["lambdaAuthorizerConfig"] = args ? args.lambdaAuthorizerConfig : undefined;
@@ -111,7 +108,7 @@ export interface GraphQLApiArgs {
     authenticationType: pulumi.Input<string>;
     lambdaAuthorizerConfig?: pulumi.Input<inputs.appsync.GraphQLApiLambdaAuthorizerConfigArgs>;
     logConfig?: pulumi.Input<inputs.appsync.GraphQLApiLogConfigArgs>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     openIDConnectConfig?: pulumi.Input<inputs.appsync.GraphQLApiOpenIDConnectConfigArgs>;
     tags?: pulumi.Input<inputs.appsync.GraphQLApiTagsArgs>;
     userPoolConfig?: pulumi.Input<inputs.appsync.GraphQLApiUserPoolConfigArgs>;

@@ -69,9 +69,6 @@ export class Authorizer extends pulumi.CustomResource {
             if ((!args || args.authorizerType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authorizerType'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["apiId"] = args ? args.apiId : undefined;
             inputs["authorizerCredentialsArn"] = args ? args.authorizerCredentialsArn : undefined;
             inputs["authorizerPayloadFormatVersion"] = args ? args.authorizerPayloadFormatVersion : undefined;
@@ -117,5 +114,5 @@ export interface AuthorizerArgs {
     identitySource?: pulumi.Input<pulumi.Input<string>[]>;
     identityValidationExpression?: pulumi.Input<string>;
     jwtConfiguration?: pulumi.Input<inputs.apigatewayv2.AuthorizerJWTConfigurationArgs>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

@@ -15,38 +15,27 @@ __all__ = ['DeviceFleetArgs', 'DeviceFleet']
 @pulumi.input_type
 class DeviceFleetArgs:
     def __init__(__self__, *,
-                 device_fleet_name: pulumi.Input[str],
                  output_config: pulumi.Input['DeviceFleetEdgeOutputConfigArgs'],
                  role_arn: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 device_fleet_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceFleetTagArgs']]]] = None):
         """
         The set of arguments for constructing a DeviceFleet resource.
-        :param pulumi.Input[str] device_fleet_name: The name of the edge device fleet
         :param pulumi.Input['DeviceFleetEdgeOutputConfigArgs'] output_config: S3 bucket and an ecryption key id (if available) to store outputs for the fleet
         :param pulumi.Input[str] role_arn: Role associated with the device fleet
         :param pulumi.Input[str] description: Description for the edge device fleet
+        :param pulumi.Input[str] device_fleet_name: The name of the edge device fleet
         :param pulumi.Input[Sequence[pulumi.Input['DeviceFleetTagArgs']]] tags: Associate tags with the resource
         """
-        pulumi.set(__self__, "device_fleet_name", device_fleet_name)
         pulumi.set(__self__, "output_config", output_config)
         pulumi.set(__self__, "role_arn", role_arn)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if device_fleet_name is not None:
+            pulumi.set(__self__, "device_fleet_name", device_fleet_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="deviceFleetName")
-    def device_fleet_name(self) -> pulumi.Input[str]:
-        """
-        The name of the edge device fleet
-        """
-        return pulumi.get(self, "device_fleet_name")
-
-    @device_fleet_name.setter
-    def device_fleet_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "device_fleet_name", value)
 
     @property
     @pulumi.getter(name="outputConfig")
@@ -83,6 +72,18 @@ class DeviceFleetArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="deviceFleetName")
+    def device_fleet_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the edge device fleet
+        """
+        return pulumi.get(self, "device_fleet_name")
+
+    @device_fleet_name.setter
+    def device_fleet_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "device_fleet_name", value)
 
     @property
     @pulumi.getter
@@ -161,8 +162,6 @@ class DeviceFleet(pulumi.CustomResource):
             __props__ = DeviceFleetArgs.__new__(DeviceFleetArgs)
 
             __props__.__dict__["description"] = description
-            if device_fleet_name is None and not opts.urn:
-                raise TypeError("Missing required property 'device_fleet_name'")
             __props__.__dict__["device_fleet_name"] = device_fleet_name
             if output_config is None and not opts.urn:
                 raise TypeError("Missing required property 'output_config'")

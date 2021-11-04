@@ -123,8 +123,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
         /// </summary>
-        [Input("dBProxyEndpointName", required: true)]
-        public Input<string> DBProxyEndpointName { get; set; } = null!;
+        [Input("dBProxyEndpointName")]
+        public Input<string>? DBProxyEndpointName { get; set; }
 
         /// <summary>
         /// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.

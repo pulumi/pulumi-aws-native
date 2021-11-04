@@ -49,14 +49,11 @@ export class XssMatchSet extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated XssMatchSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
-    constructor(name: string, args: XssMatchSetArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: XssMatchSetArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("XssMatchSet is deprecated: XssMatchSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["name"] = args ? args.name : undefined;
             inputs["xssMatchTuples"] = args ? args.xssMatchTuples : undefined;
         } else {
@@ -74,6 +71,6 @@ export class XssMatchSet extends pulumi.CustomResource {
  * The set of arguments for constructing a XssMatchSet resource.
  */
 export interface XssMatchSetArgs {
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     xssMatchTuples?: pulumi.Input<pulumi.Input<inputs.wafregional.XssMatchSetXssMatchTupleArgs>[]>;
 }

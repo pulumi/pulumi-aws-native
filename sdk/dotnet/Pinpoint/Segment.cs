@@ -88,8 +88,8 @@ namespace Pulumi.AwsNative.Pinpoint
         [Input("dimensions")]
         public Input<Inputs.SegmentDimensionsArgs>? Dimensions { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("segmentGroups")]
         public Input<Inputs.SegmentGroupsArgs>? SegmentGroups { get; set; }

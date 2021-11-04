@@ -108,8 +108,8 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// The name of the Pipeline.
         /// </summary>
-        [Input("pipelineName", required: true)]
-        public Input<string> PipelineName { get; set; } = null!;
+        [Input("pipelineName")]
+        public Input<string>? PipelineName { get; set; }
 
         /// <summary>
         /// Role Arn

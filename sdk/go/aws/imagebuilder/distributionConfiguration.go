@@ -37,9 +37,6 @@ func NewDistributionConfiguration(ctx *pulumi.Context,
 	if args.Distributions == nil {
 		return nil, errors.New("invalid value for required argument 'Distributions'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource DistributionConfiguration
 	err := ctx.RegisterResource("aws-native:imagebuilder:DistributionConfiguration", name, args, &resource, opts...)
 	if err != nil {
@@ -77,7 +74,7 @@ type distributionConfigurationArgs struct {
 	// The distributions of the distribution configuration.
 	Distributions []DistributionConfigurationDistribution `pulumi:"distributions"`
 	// The name of the distribution configuration.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The tags associated with the component.
 	Tags interface{} `pulumi:"tags"`
 }
@@ -89,7 +86,7 @@ type DistributionConfigurationArgs struct {
 	// The distributions of the distribution configuration.
 	Distributions DistributionConfigurationDistributionArrayInput
 	// The name of the distribution configuration.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The tags associated with the component.
 	Tags pulumi.Input
 }

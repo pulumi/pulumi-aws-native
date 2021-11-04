@@ -62,9 +62,6 @@ export class WebACL extends pulumi.CustomResource {
             if ((!args || args.metricName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'metricName'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["defaultAction"] = args ? args.defaultAction : undefined;
             inputs["metricName"] = args ? args.metricName : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -88,6 +85,6 @@ export class WebACL extends pulumi.CustomResource {
 export interface WebACLArgs {
     defaultAction: pulumi.Input<inputs.waf.WebACLWafActionArgs>;
     metricName: pulumi.Input<string>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     rules?: pulumi.Input<pulumi.Input<inputs.waf.WebACLActivatedRuleArgs>[]>;
 }

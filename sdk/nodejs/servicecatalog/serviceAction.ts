@@ -58,9 +58,6 @@ export class ServiceAction extends pulumi.CustomResource {
             if ((!args || args.definitionType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'definitionType'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
             inputs["definition"] = args ? args.definition : undefined;
             inputs["definitionType"] = args ? args.definitionType : undefined;
@@ -88,5 +85,5 @@ export interface ServiceActionArgs {
     definition: pulumi.Input<pulumi.Input<inputs.servicecatalog.ServiceActionDefinitionParameterArgs>[]>;
     definitionType: pulumi.Input<enums.servicecatalog.ServiceActionDefinitionType>;
     description?: pulumi.Input<string>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

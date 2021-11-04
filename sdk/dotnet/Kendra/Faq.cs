@@ -126,8 +126,8 @@ namespace Pulumi.AwsNative.Kendra
         /// <summary>
         /// FAQ name
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// FAQ role ARN

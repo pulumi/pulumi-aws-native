@@ -123,8 +123,8 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// Unique name of destination
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// AWS role ARN that grants access

@@ -70,9 +70,6 @@ export class Filter extends pulumi.CustomResource {
             if ((!args || args.findingCriteria === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'findingCriteria'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.rank === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rank'");
             }
@@ -105,6 +102,6 @@ export interface FilterArgs {
     description: pulumi.Input<string>;
     detectorId: pulumi.Input<string>;
     findingCriteria: pulumi.Input<inputs.guardduty.FilterFindingCriteriaArgs>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     rank: pulumi.Input<number>;
 }

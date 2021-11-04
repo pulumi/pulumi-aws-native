@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Cell(string name, CellArgs args, CustomResourceOptions? options = null)
+        public Cell(string name, CellArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:route53recoveryreadiness:Cell", name, args ?? new CellArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -93,8 +93,8 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// <summary>
         /// The name of the cell to create.
         /// </summary>
-        [Input("cellName", required: true)]
-        public Input<string> CellName { get; set; } = null!;
+        [Input("cellName")]
+        public Input<string>? CellName { get; set; }
 
         [Input("cells")]
         private InputList<string>? _cells;

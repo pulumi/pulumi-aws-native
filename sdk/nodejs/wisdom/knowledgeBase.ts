@@ -59,9 +59,6 @@ export class KnowledgeBase extends pulumi.CustomResource {
             if ((!args || args.knowledgeBaseType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'knowledgeBaseType'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["description"] = args ? args.description : undefined;
             inputs["knowledgeBaseType"] = args ? args.knowledgeBaseType : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -95,7 +92,7 @@ export class KnowledgeBase extends pulumi.CustomResource {
 export interface KnowledgeBaseArgs {
     description?: pulumi.Input<string>;
     knowledgeBaseType: pulumi.Input<enums.wisdom.KnowledgeBaseType>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     renderingConfiguration?: pulumi.Input<inputs.wisdom.KnowledgeBaseRenderingConfigurationArgs>;
     serverSideEncryptionConfiguration?: pulumi.Input<inputs.wisdom.KnowledgeBaseServerSideEncryptionConfigurationArgs>;
     sourceConfiguration?: pulumi.Input<inputs.wisdom.KnowledgeBaseSourceConfigurationArgs>;

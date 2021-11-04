@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.PinpointEmail
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ConfigurationSet(string name, ConfigurationSetArgs args, CustomResourceOptions? options = null)
+        public ConfigurationSet(string name, ConfigurationSetArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:pinpointemail:ConfigurationSet", name, args ?? new ConfigurationSetArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -82,8 +82,8 @@ namespace Pulumi.AwsNative.PinpointEmail
         [Input("deliveryOptions")]
         public Input<Inputs.ConfigurationSetDeliveryOptionsArgs>? DeliveryOptions { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("reputationOptions")]
         public Input<Inputs.ConfigurationSetReputationOptionsArgs>? ReputationOptions { get; set; }

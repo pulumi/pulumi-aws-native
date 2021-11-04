@@ -66,9 +66,6 @@ export class CloudFormationProduct extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.owner === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'owner'");
             }
@@ -119,7 +116,7 @@ export interface CloudFormationProductArgs {
     acceptLanguage?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     distributor?: pulumi.Input<string>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     owner: pulumi.Input<string>;
     provisioningArtifactParameters: pulumi.Input<pulumi.Input<inputs.servicecatalog.CloudFormationProductProvisioningArtifactPropertiesArgs>[]>;
     replaceProvisioningArtifacts?: pulumi.Input<boolean>;

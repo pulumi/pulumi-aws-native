@@ -17,20 +17,19 @@ class UserArgs:
     def __init__(__self__, *,
                  role: pulumi.Input[str],
                  server_id: pulumi.Input[str],
-                 user_name: pulumi.Input[str],
                  home_directory: Optional[pulumi.Input[str]] = None,
                  home_directory_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['UserHomeDirectoryMapEntryArgs']]]] = None,
                  home_directory_type: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
                  posix_profile: Optional[pulumi.Input['UserPosixProfileArgs']] = None,
                  ssh_public_keys: Optional[pulumi.Input[Sequence[pulumi.Input['UserSshPublicKeyArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]] = None,
+                 user_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a User resource.
         """
         pulumi.set(__self__, "role", role)
         pulumi.set(__self__, "server_id", server_id)
-        pulumi.set(__self__, "user_name", user_name)
         if home_directory is not None:
             pulumi.set(__self__, "home_directory", home_directory)
         if home_directory_mappings is not None:
@@ -45,6 +44,8 @@ class UserArgs:
             pulumi.set(__self__, "ssh_public_keys", ssh_public_keys)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
 
     @property
     @pulumi.getter
@@ -63,15 +64,6 @@ class UserArgs:
     @server_id.setter
     def server_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "server_id", value)
-
-    @property
-    @pulumi.getter(name="userName")
-    def user_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "user_name")
-
-    @user_name.setter
-    def user_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "user_name", value)
 
     @property
     @pulumi.getter(name="homeDirectory")
@@ -135,6 +127,15 @@ class UserArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name", value)
 
 
 warnings.warn("""User is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
@@ -224,8 +225,6 @@ class User(pulumi.CustomResource):
             __props__.__dict__["server_id"] = server_id
             __props__.__dict__["ssh_public_keys"] = ssh_public_keys
             __props__.__dict__["tags"] = tags
-            if user_name is None and not opts.urn:
-                raise TypeError("Missing required property 'user_name'")
             __props__.__dict__["user_name"] = user_name
             __props__.__dict__["arn"] = None
         super(User, __self__).__init__(

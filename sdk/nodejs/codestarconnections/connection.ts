@@ -71,13 +71,10 @@ export class Connection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ConnectionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.connectionName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'connectionName'");
-            }
             inputs["connectionName"] = args ? args.connectionName : undefined;
             inputs["hostArn"] = args ? args.hostArn : undefined;
             inputs["providerType"] = args ? args.providerType : undefined;
@@ -108,7 +105,7 @@ export interface ConnectionArgs {
     /**
      * The name of the connection. Connection names must be unique in an AWS user account.
      */
-    connectionName: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string>;
     /**
      * The host arn configured to represent the infrastructure where your third-party provider is installed. You must specify either a ProviderType or a HostArn.
      */

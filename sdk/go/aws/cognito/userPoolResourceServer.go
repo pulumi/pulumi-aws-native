@@ -33,9 +33,6 @@ func NewUserPoolResourceServer(ctx *pulumi.Context,
 	if args.Identifier == nil {
 		return nil, errors.New("invalid value for required argument 'Identifier'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.UserPoolId == nil {
 		return nil, errors.New("invalid value for required argument 'UserPoolId'")
 	}
@@ -72,7 +69,7 @@ func (UserPoolResourceServerState) ElementType() reflect.Type {
 
 type userPoolResourceServerArgs struct {
 	Identifier string                                          `pulumi:"identifier"`
-	Name       string                                          `pulumi:"name"`
+	Name       *string                                         `pulumi:"name"`
 	Scopes     []UserPoolResourceServerResourceServerScopeType `pulumi:"scopes"`
 	UserPoolId string                                          `pulumi:"userPoolId"`
 }
@@ -80,7 +77,7 @@ type userPoolResourceServerArgs struct {
 // The set of arguments for constructing a UserPoolResourceServer resource.
 type UserPoolResourceServerArgs struct {
 	Identifier pulumi.StringInput
-	Name       pulumi.StringInput
+	Name       pulumi.StringPtrInput
 	Scopes     UserPoolResourceServerResourceServerScopeTypeArrayInput
 	UserPoolId pulumi.StringInput
 }

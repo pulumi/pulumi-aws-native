@@ -18,25 +18,26 @@ class HoursOfOperationArgs:
     def __init__(__self__, *,
                  config: pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArgs']]],
                  instance_arn: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  time_zone: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['HoursOfOperationTagArgs']]]] = None):
         """
         The set of arguments for constructing a HoursOfOperation resource.
         :param pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArgs']]] config: Configuration information for the hours of operation: day, start time, and end time.
         :param pulumi.Input[str] instance_arn: The identifier of the Amazon Connect instance.
-        :param pulumi.Input[str] name: The name of the hours of operation.
         :param pulumi.Input[str] time_zone: The time zone of the hours of operation.
         :param pulumi.Input[str] description: The description of the hours of operation.
+        :param pulumi.Input[str] name: The name of the hours of operation.
         :param pulumi.Input[Sequence[pulumi.Input['HoursOfOperationTagArgs']]] tags: One or more tags.
         """
         pulumi.set(__self__, "config", config)
         pulumi.set(__self__, "instance_arn", instance_arn)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "time_zone", time_zone)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -65,18 +66,6 @@ class HoursOfOperationArgs:
         pulumi.set(self, "instance_arn", value)
 
     @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the hours of operation.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> pulumi.Input[str]:
         """
@@ -99,6 +88,18 @@ class HoursOfOperationArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the hours of operation.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -186,8 +187,6 @@ class HoursOfOperation(pulumi.CustomResource):
             if instance_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_arn'")
             __props__.__dict__["instance_arn"] = instance_arn
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             if time_zone is None and not opts.urn:

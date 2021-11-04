@@ -41,9 +41,6 @@ func NewStudioComponent(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.StudioId == nil {
 		return nil, errors.New("invalid value for required argument 'StudioId'")
 	}
@@ -90,7 +87,7 @@ type studioComponentArgs struct {
 	// <p>Initialization scripts for studio components.</p>
 	InitializationScripts []StudioComponentInitializationScript `pulumi:"initializationScripts"`
 	// <p>The name for the studio component.</p>
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// <p>Parameters for the studio component scripts.</p>
 	ScriptParameters []StudioComponentScriptParameterKeyValue `pulumi:"scriptParameters"`
 	// <p>The studioId. </p>
@@ -110,7 +107,7 @@ type StudioComponentArgs struct {
 	// <p>Initialization scripts for studio components.</p>
 	InitializationScripts StudioComponentInitializationScriptArrayInput
 	// <p>The name for the studio component.</p>
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// <p>Parameters for the studio component scripts.</p>
 	ScriptParameters StudioComponentScriptParameterKeyValueArrayInput
 	// <p>The studioId. </p>

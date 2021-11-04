@@ -16,10 +16,10 @@ __all__ = ['ClusterArgs', 'Cluster']
 class ClusterArgs:
     def __init__(__self__, *,
                  a_cl_name: pulumi.Input[str],
-                 cluster_name: pulumi.Input[str],
                  node_type: pulumi.Input[str],
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  cluster_endpoint: Optional[pulumi.Input['ClusterEndpointArgs']] = None,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_name: Optional[pulumi.Input[str]] = None,
@@ -42,12 +42,12 @@ class ClusterArgs:
         """
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[str] a_cl_name: The name of the Access Control List to associate with the cluster.
-        :param pulumi.Input[str] cluster_name: The name of the cluster. This value must be unique as it also serves as the cluster identifier.
         :param pulumi.Input[str] node_type: The compute and memory capacity of the nodes in the cluster.
         :param pulumi.Input[bool] auto_minor_version_upgrade: A flag that enables automatic minor version upgrade when set to true.
                
                You cannot modify the value of AutoMinorVersionUpgrade after the cluster is created. To enable AutoMinorVersionUpgrade on a cluster you must set AutoMinorVersionUpgrade to true when you create a cluster.
         :param pulumi.Input['ClusterEndpointArgs'] cluster_endpoint: The cluster endpoint.
+        :param pulumi.Input[str] cluster_name: The name of the cluster. This value must be unique as it also serves as the cluster identifier.
         :param pulumi.Input[str] description: An optional description of the cluster.
         :param pulumi.Input[str] engine_version: The Redis engine version used by the cluster.
         :param pulumi.Input[str] final_snapshot_name: The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. MemoryDB creates the snapshot, and then deletes the cluster immediately afterward.
@@ -71,12 +71,13 @@ class ClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]] tags: An array of key-value pairs to apply to this cluster.
         """
         pulumi.set(__self__, "a_cl_name", a_cl_name)
-        pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "node_type", node_type)
         if auto_minor_version_upgrade is not None:
             pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
         if cluster_endpoint is not None:
             pulumi.set(__self__, "cluster_endpoint", cluster_endpoint)
+        if cluster_name is not None:
+            pulumi.set(__self__, "cluster_name", cluster_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if engine_version is not None:
@@ -129,18 +130,6 @@ class ClusterArgs:
         pulumi.set(self, "a_cl_name", value)
 
     @property
-    @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> pulumi.Input[str]:
-        """
-        The name of the cluster. This value must be unique as it also serves as the cluster identifier.
-        """
-        return pulumi.get(self, "cluster_name")
-
-    @cluster_name.setter
-    def cluster_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "cluster_name", value)
-
-    @property
     @pulumi.getter(name="nodeType")
     def node_type(self) -> pulumi.Input[str]:
         """
@@ -177,6 +166,18 @@ class ClusterArgs:
     @cluster_endpoint.setter
     def cluster_endpoint(self, value: Optional[pulumi.Input['ClusterEndpointArgs']]):
         pulumi.set(self, "cluster_endpoint", value)
+
+    @property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the cluster. This value must be unique as it also serves as the cluster identifier.
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_name", value)
 
     @property
     @pulumi.getter
@@ -538,8 +539,6 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["a_cl_name"] = a_cl_name
             __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
             __props__.__dict__["cluster_endpoint"] = cluster_endpoint
-            if cluster_name is None and not opts.urn:
-                raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["description"] = description
             __props__.__dict__["engine_version"] = engine_version

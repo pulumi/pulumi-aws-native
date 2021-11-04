@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,12 +26,9 @@ type OrganizationConfigRule struct {
 func NewOrganizationConfigRule(ctx *pulumi.Context,
 	name string, args *OrganizationConfigRuleArgs, opts ...pulumi.ResourceOption) (*OrganizationConfigRule, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &OrganizationConfigRuleArgs{}
 	}
 
-	if args.OrganizationConfigRuleName == nil {
-		return nil, errors.New("invalid value for required argument 'OrganizationConfigRuleName'")
-	}
 	var resource OrganizationConfigRule
 	err := ctx.RegisterResource("aws-native:configuration:OrganizationConfigRule", name, args, &resource, opts...)
 	if err != nil {
@@ -66,7 +62,7 @@ func (OrganizationConfigRuleState) ElementType() reflect.Type {
 
 type organizationConfigRuleArgs struct {
 	ExcludedAccounts                []string                                               `pulumi:"excludedAccounts"`
-	OrganizationConfigRuleName      string                                                 `pulumi:"organizationConfigRuleName"`
+	OrganizationConfigRuleName      *string                                                `pulumi:"organizationConfigRuleName"`
 	OrganizationCustomRuleMetadata  *OrganizationConfigRuleOrganizationCustomRuleMetadata  `pulumi:"organizationCustomRuleMetadata"`
 	OrganizationManagedRuleMetadata *OrganizationConfigRuleOrganizationManagedRuleMetadata `pulumi:"organizationManagedRuleMetadata"`
 }
@@ -74,7 +70,7 @@ type organizationConfigRuleArgs struct {
 // The set of arguments for constructing a OrganizationConfigRule resource.
 type OrganizationConfigRuleArgs struct {
 	ExcludedAccounts                pulumi.StringArrayInput
-	OrganizationConfigRuleName      pulumi.StringInput
+	OrganizationConfigRuleName      pulumi.StringPtrInput
 	OrganizationCustomRuleMetadata  OrganizationConfigRuleOrganizationCustomRuleMetadataPtrInput
 	OrganizationManagedRuleMetadata OrganizationConfigRuleOrganizationManagedRuleMetadataPtrInput
 }

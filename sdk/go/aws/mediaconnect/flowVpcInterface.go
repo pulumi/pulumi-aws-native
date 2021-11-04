@@ -39,9 +39,6 @@ func NewFlowVpcInterface(ctx *pulumi.Context,
 	if args.FlowArn == nil {
 		return nil, errors.New("invalid value for required argument 'FlowArn'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
@@ -86,7 +83,7 @@ type flowVpcInterfaceArgs struct {
 	// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
 	FlowArn string `pulumi:"flowArn"`
 	// Immutable and has to be a unique against other VpcInterfaces in this Flow.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Role Arn MediaConnect can assumes to create ENIs in customer's account.
 	RoleArn string `pulumi:"roleArn"`
 	// Security Group IDs to be used on ENI.
@@ -100,7 +97,7 @@ type FlowVpcInterfaceArgs struct {
 	// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
 	FlowArn pulumi.StringInput
 	// Immutable and has to be a unique against other VpcInterfaces in this Flow.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Role Arn MediaConnect can assumes to create ENIs in customer's account.
 	RoleArn pulumi.StringInput
 	// Security Group IDs to be used on ENI.

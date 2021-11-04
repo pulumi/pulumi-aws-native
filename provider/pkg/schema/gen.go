@@ -606,6 +606,14 @@ func (ctx *context) gatherResourceType() error {
 		}
 	}
 
+	createOnlyProperties := codegen.NewStringSet()
+	if cop, ok := ctx.resourceSpec.Extras["createOnlyProperties"].([]interface{}); ok {
+		for _, propRef := range cop {
+			cfName := strings.TrimPrefix(propRef.(string), "/properties/")
+			createOnlyProperties.Add(ToSdkName(cfName))
+		}
+	}
+
 	inputProperties, requiredInputs := map[string]pschema.PropertySpec{}, codegen.NewStringSet()
 	properties, required := map[string]pschema.PropertySpec{}, codegen.NewStringSet()
 	for prop, spec := range ctx.resourceSpec.Properties {
@@ -632,6 +640,13 @@ func (ctx *context) gatherResourceType() error {
 			requiredInputs.Add(sdkName)
 		}
 	}
+
+	autoNamingSpec := ctx.createAutoNamingSpec(inputProperties, resourceTypeName, properties)
+	// If a field can be auto-named, its no longer required.
+	if autoNamingSpec != nil {
+		delete(requiredInputs, autoNamingSpec.SdkName)
+	}
+
 	for prop := range readOnlyProperties {
 		sdkName := ToSdkName(prop)
 		if _, has := properties[sdkName]; has {
@@ -655,21 +670,50 @@ func (ctx *context) gatherResourceType() error {
 		DeprecationMessage: deprecationMessage,
 	}
 
-	createOnlyProperties := codegen.NewStringSet()
-	if rop, ok := ctx.resourceSpec.Extras["createOnlyProperties"].([]interface{}); ok {
-		for _, propRef := range rop {
-			cfName := strings.TrimPrefix(propRef.(string), "/properties/")
-			createOnlyProperties.Add(ToSdkName(cfName))
-		}
-	}
 	ctx.metadata.Resources[ctx.resourceToken] = CloudAPIResource{
-		CfType:     ctx.cfTypeName,
-		Inputs:     inputProperties,
-		Outputs:    properties,
-		CreateOnly: createOnlyProperties.SortedValues(),
-		Required:   requiredInputs.SortedValues(),
+		CfType:         ctx.cfTypeName,
+		Inputs:         inputProperties,
+		Outputs:        properties,
+		CreateOnly:     createOnlyProperties.SortedValues(),
+		Required:       requiredInputs.SortedValues(),
+		AutoNamingSpec: autoNamingSpec,
 	}
 	return nil
+}
+
+func (ctx *context) createAutoNamingSpec(inputProperties map[string]pschema.PropertySpec, resourceTypeName string, properties map[string]pschema.PropertySpec) *AutoNamingSpec {
+	// ** Autonaming **
+	var autoNameSpec *AutoNamingSpec
+
+	lookForField := func(fieldName string) func(map[string]pschema.PropertySpec) {
+		return func(properties map[string]pschema.PropertySpec) {
+			sdkName := ToSdkName(fieldName)
+			if propSpec, has := inputProperties[sdkName]; has && propSpec.Type == "string" {
+				autoNameSpec = &AutoNamingSpec{
+					SdkName: sdkName,
+				}
+				spec, ok := ctx.resourceSpec.Properties[fieldName]
+				if ok {
+					autoNameSpec.MinLength = spec.MinLength.Val
+					autoNameSpec.MaxLength = spec.MaxLength.Val
+				}
+			}
+		}
+	}
+
+	autoNamePropLookupFuncs := []func(map[string]pschema.PropertySpec){
+		lookForField("Name"),
+		lookForField(resourceTypeName + "Name"),
+	}
+
+	for _, fn := range autoNamePropLookupFuncs {
+		fn(properties)
+		if autoNameSpec != nil {
+			break
+		}
+	}
+
+	return autoNameSpec
 }
 
 func (ctx *context) propertySpec(propName, resourceTypeName string, spec *jsschema.Schema) (*pschema.PropertySpec, error) {

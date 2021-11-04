@@ -88,8 +88,8 @@ namespace Pulumi.AwsNative.AppStream
         [Input("messageAction")]
         public Input<string>? MessageAction { get; set; }
 
-        [Input("userName", required: true)]
-        public Input<string> UserName { get; set; } = null!;
+        [Input("userName")]
+        public Input<string>? UserName { get; set; }
 
         public UserArgs()
         {

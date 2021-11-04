@@ -49,14 +49,11 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated SqlInjectionMatchSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
-    constructor(name: string, args: SqlInjectionMatchSetArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: SqlInjectionMatchSetArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("SqlInjectionMatchSet is deprecated: SqlInjectionMatchSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["name"] = args ? args.name : undefined;
             inputs["sqlInjectionMatchTuples"] = args ? args.sqlInjectionMatchTuples : undefined;
         } else {
@@ -74,6 +71,6 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
  * The set of arguments for constructing a SqlInjectionMatchSet resource.
  */
 export interface SqlInjectionMatchSetArgs {
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     sqlInjectionMatchTuples?: pulumi.Input<pulumi.Input<inputs.waf.SqlInjectionMatchSetSqlInjectionMatchTupleArgs>[]>;
 }

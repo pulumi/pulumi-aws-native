@@ -15,8 +15,8 @@ __all__ = ['ConfigurationSetArgs', 'ConfigurationSet']
 @pulumi.input_type
 class ConfigurationSetArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  delivery_options: Optional[pulumi.Input['ConfigurationSetDeliveryOptionsArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  reputation_options: Optional[pulumi.Input['ConfigurationSetReputationOptionsArgs']] = None,
                  sending_options: Optional[pulumi.Input['ConfigurationSetSendingOptionsArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationSetTagsArgs']]]] = None,
@@ -24,9 +24,10 @@ class ConfigurationSetArgs:
         """
         The set of arguments for constructing a ConfigurationSet resource.
         """
-        pulumi.set(__self__, "name", name)
         if delivery_options is not None:
             pulumi.set(__self__, "delivery_options", delivery_options)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if reputation_options is not None:
             pulumi.set(__self__, "reputation_options", reputation_options)
         if sending_options is not None:
@@ -37,15 +38,6 @@ class ConfigurationSetArgs:
             pulumi.set(__self__, "tracking_options", tracking_options)
 
     @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
     @pulumi.getter(name="deliveryOptions")
     def delivery_options(self) -> Optional[pulumi.Input['ConfigurationSetDeliveryOptionsArgs']]:
         return pulumi.get(self, "delivery_options")
@@ -53,6 +45,15 @@ class ConfigurationSetArgs:
     @delivery_options.setter
     def delivery_options(self, value: Optional[pulumi.Input['ConfigurationSetDeliveryOptionsArgs']]):
         pulumi.set(self, "delivery_options", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="reputationOptions")
@@ -118,7 +119,7 @@ class ConfigurationSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ConfigurationSetArgs,
+                 args: Optional[ConfigurationSetArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::PinpointEmail::ConfigurationSet
@@ -158,8 +159,6 @@ class ConfigurationSet(pulumi.CustomResource):
             __props__ = ConfigurationSetArgs.__new__(ConfigurationSetArgs)
 
             __props__.__dict__["delivery_options"] = delivery_options
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["reputation_options"] = reputation_options
             __props__.__dict__["sending_options"] = sending_options

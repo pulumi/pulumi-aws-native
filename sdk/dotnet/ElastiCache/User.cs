@@ -147,8 +147,8 @@ namespace Pulumi.AwsNative.ElastiCache
         /// <summary>
         /// The username of the user.
         /// </summary>
-        [Input("userName", required: true)]
-        public Input<string> UserName { get; set; } = null!;
+        [Input("userName")]
+        public Input<string>? UserName { get; set; }
 
         public UserArgs()
         {

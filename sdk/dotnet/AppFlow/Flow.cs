@@ -135,8 +135,8 @@ namespace Pulumi.AwsNative.AppFlow
         /// <summary>
         /// Name of the flow.
         /// </summary>
-        [Input("flowName", required: true)]
-        public Input<string> FlowName { get; set; } = null!;
+        [Input("flowName")]
+        public Input<string>? FlowName { get; set; }
 
         /// <summary>
         /// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.

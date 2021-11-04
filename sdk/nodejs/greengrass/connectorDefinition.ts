@@ -52,14 +52,11 @@ export class ConnectorDefinition extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated ConnectorDefinition is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
-    constructor(name: string, args: ConnectorDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ConnectorDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ConnectorDefinition is deprecated: ConnectorDefinition is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["initialVersion"] = args ? args.initialVersion : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -84,6 +81,6 @@ export class ConnectorDefinition extends pulumi.CustomResource {
  */
 export interface ConnectorDefinitionArgs {
     initialVersion?: pulumi.Input<inputs.greengrass.ConnectorDefinitionVersionArgs>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     tags?: any;
 }

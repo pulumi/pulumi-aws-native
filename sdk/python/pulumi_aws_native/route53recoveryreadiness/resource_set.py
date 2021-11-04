@@ -15,36 +15,25 @@ __all__ = ['ResourceSetArgs', 'ResourceSet']
 @pulumi.input_type
 class ResourceSetArgs:
     def __init__(__self__, *,
-                 resource_set_name: pulumi.Input[str],
                  resource_set_type: pulumi.Input[str],
                  resources: pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArgs']]],
+                 resource_set_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSetTagArgs']]]] = None):
         """
         The set of arguments for constructing a ResourceSet resource.
-        :param pulumi.Input[str] resource_set_name: The name of the resource set to create.
         :param pulumi.Input[str] resource_set_type: The resource type of the resources in the resource set. Enter one of the following values for resource type: 
                
                AWS: :AutoScaling: :AutoScalingGroup, AWS: :CloudWatch: :Alarm, AWS: :EC2: :CustomerGateway, AWS: :DynamoDB: :Table, AWS: :EC2: :Volume, AWS: :ElasticLoadBalancing: :LoadBalancer, AWS: :ElasticLoadBalancingV2: :LoadBalancer, AWS: :MSK: :Cluster, AWS: :RDS: :DBCluster, AWS: :Route53: :HealthCheck, AWS: :SQS: :Queue, AWS: :SNS: :Topic, AWS: :SNS: :Subscription, AWS: :EC2: :VPC, AWS: :EC2: :VPNConnection, AWS: :EC2: :VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource
         :param pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArgs']]] resources: A list of resource objects in the resource set.
+        :param pulumi.Input[str] resource_set_name: The name of the resource set to create.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceSetTagArgs']]] tags: A tag to associate with the parameters for a resource set.
         """
-        pulumi.set(__self__, "resource_set_name", resource_set_name)
         pulumi.set(__self__, "resource_set_type", resource_set_type)
         pulumi.set(__self__, "resources", resources)
+        if resource_set_name is not None:
+            pulumi.set(__self__, "resource_set_name", resource_set_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="resourceSetName")
-    def resource_set_name(self) -> pulumi.Input[str]:
-        """
-        The name of the resource set to create.
-        """
-        return pulumi.get(self, "resource_set_name")
-
-    @resource_set_name.setter
-    def resource_set_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "resource_set_name", value)
 
     @property
     @pulumi.getter(name="resourceSetType")
@@ -71,6 +60,18 @@ class ResourceSetArgs:
     @resources.setter
     def resources(self, value: pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArgs']]]):
         pulumi.set(self, "resources", value)
+
+    @property
+    @pulumi.getter(name="resourceSetName")
+    def resource_set_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource set to create.
+        """
+        return pulumi.get(self, "resource_set_name")
+
+    @resource_set_name.setter
+    def resource_set_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_set_name", value)
 
     @property
     @pulumi.getter
@@ -147,8 +148,6 @@ class ResourceSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ResourceSetArgs.__new__(ResourceSetArgs)
 
-            if resource_set_name is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_set_name'")
             __props__.__dict__["resource_set_name"] = resource_set_name
             if resource_set_type is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_set_type'")

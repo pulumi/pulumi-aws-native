@@ -76,8 +76,8 @@ namespace Pulumi.AwsNative.Logs
 
     public sealed class DestinationArgs : Pulumi.ResourceArgs
     {
-        [Input("destinationName", required: true)]
-        public Input<string> DestinationName { get; set; } = null!;
+        [Input("destinationName")]
+        public Input<string>? DestinationName { get; set; }
 
         [Input("destinationPolicy", required: true)]
         public Input<string> DestinationPolicy { get; set; } = null!;

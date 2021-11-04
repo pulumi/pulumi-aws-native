@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,12 +27,9 @@ type DeviceDefinition struct {
 func NewDeviceDefinition(ctx *pulumi.Context,
 	name string, args *DeviceDefinitionArgs, opts ...pulumi.ResourceOption) (*DeviceDefinition, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &DeviceDefinitionArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource DeviceDefinition
 	err := ctx.RegisterResource("aws-native:greengrass:DeviceDefinition", name, args, &resource, opts...)
 	if err != nil {
@@ -67,14 +63,14 @@ func (DeviceDefinitionState) ElementType() reflect.Type {
 
 type deviceDefinitionArgs struct {
 	InitialVersion *DeviceDefinitionVersionType `pulumi:"initialVersion"`
-	Name           string                       `pulumi:"name"`
+	Name           *string                      `pulumi:"name"`
 	Tags           interface{}                  `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DeviceDefinition resource.
 type DeviceDefinitionArgs struct {
 	InitialVersion DeviceDefinitionVersionTypePtrInput
-	Name           pulumi.StringInput
+	Name           pulumi.StringPtrInput
 	Tags           pulumi.Input
 }
 

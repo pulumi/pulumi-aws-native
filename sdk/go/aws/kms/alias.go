@@ -28,9 +28,6 @@ func NewAlias(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AliasName == nil {
-		return nil, errors.New("invalid value for required argument 'AliasName'")
-	}
 	if args.TargetKeyId == nil {
 		return nil, errors.New("invalid value for required argument 'TargetKeyId'")
 	}
@@ -67,7 +64,7 @@ func (AliasState) ElementType() reflect.Type {
 
 type aliasArgs struct {
 	// Specifies the alias name. This value must begin with alias/ followed by a name, such as alias/ExampleAlias. The alias name cannot begin with alias/aws/. The alias/aws/ prefix is reserved for AWS managed CMKs.
-	AliasName string `pulumi:"aliasName"`
+	AliasName *string `pulumi:"aliasName"`
 	// Identifies the CMK to which the alias refers. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. You cannot specify another alias. For help finding the key ID and ARN, see Finding the Key ID and ARN in the AWS Key Management Service Developer Guide.
 	TargetKeyId string `pulumi:"targetKeyId"`
 }
@@ -75,7 +72,7 @@ type aliasArgs struct {
 // The set of arguments for constructing a Alias resource.
 type AliasArgs struct {
 	// Specifies the alias name. This value must begin with alias/ followed by a name, such as alias/ExampleAlias. The alias name cannot begin with alias/aws/. The alias/aws/ prefix is reserved for AWS managed CMKs.
-	AliasName pulumi.StringInput
+	AliasName pulumi.StringPtrInput
 	// Identifies the CMK to which the alias refers. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. You cannot specify another alias. For help finding the key ID and ARN, see Finding the Key ID and ARN in the AWS Key Management Service Developer Guide.
 	TargetKeyId pulumi.StringInput
 }

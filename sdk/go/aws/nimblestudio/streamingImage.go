@@ -44,9 +44,6 @@ func NewStreamingImage(ctx *pulumi.Context,
 	if args.Ec2ImageId == nil {
 		return nil, errors.New("invalid value for required argument 'Ec2ImageId'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.StudioId == nil {
 		return nil, errors.New("invalid value for required argument 'StudioId'")
 	}
@@ -87,7 +84,7 @@ type streamingImageArgs struct {
 	// <p>The ID of an EC2 machine image with which to create this streaming image.</p>
 	Ec2ImageId string `pulumi:"ec2ImageId"`
 	// <p>A friendly name for a streaming image resource.</p>
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// <p>The studioId. </p>
 	StudioId string              `pulumi:"studioId"`
 	Tags     *StreamingImageTags `pulumi:"tags"`
@@ -100,7 +97,7 @@ type StreamingImageArgs struct {
 	// <p>The ID of an EC2 machine image with which to create this streaming image.</p>
 	Ec2ImageId pulumi.StringInput
 	// <p>A friendly name for a streaming image resource.</p>
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// <p>The studioId. </p>
 	StudioId pulumi.StringInput
 	Tags     StreamingImageTagsPtrInput

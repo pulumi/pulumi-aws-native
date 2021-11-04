@@ -74,9 +74,6 @@ export class ParameterGroup extends pulumi.CustomResource {
             if ((!args || args.family === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'family'");
             }
-            if ((!args || args.parameterGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'parameterGroupName'");
-            }
             inputs["description"] = args ? args.description : undefined;
             inputs["family"] = args ? args.family : undefined;
             inputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
@@ -113,7 +110,7 @@ export interface ParameterGroupArgs {
     /**
      * The name of the parameter group.
      */
-    parameterGroupName: pulumi.Input<string>;
+    parameterGroupName?: pulumi.Input<string>;
     /**
      * An map of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional.
      */

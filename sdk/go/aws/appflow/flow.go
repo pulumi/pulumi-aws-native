@@ -45,9 +45,6 @@ func NewFlow(ctx *pulumi.Context,
 	if args.DestinationFlowConfigList == nil {
 		return nil, errors.New("invalid value for required argument 'DestinationFlowConfigList'")
 	}
-	if args.FlowName == nil {
-		return nil, errors.New("invalid value for required argument 'FlowName'")
-	}
 	if args.SourceFlowConfig == nil {
 		return nil, errors.New("invalid value for required argument 'SourceFlowConfig'")
 	}
@@ -94,7 +91,7 @@ type flowArgs struct {
 	// List of Destination connectors of the flow.
 	DestinationFlowConfigList []FlowDestinationFlowConfig `pulumi:"destinationFlowConfigList"`
 	// Name of the flow.
-	FlowName string `pulumi:"flowName"`
+	FlowName *string `pulumi:"flowName"`
 	// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
 	KMSArn *string `pulumi:"kMSArn"`
 	// Configurations of Source connector of the flow.
@@ -114,7 +111,7 @@ type FlowArgs struct {
 	// List of Destination connectors of the flow.
 	DestinationFlowConfigList FlowDestinationFlowConfigArrayInput
 	// Name of the flow.
-	FlowName pulumi.StringInput
+	FlowName pulumi.StringPtrInput
 	// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
 	KMSArn pulumi.StringPtrInput
 	// Configurations of Source connector of the flow.

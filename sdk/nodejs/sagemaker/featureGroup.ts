@@ -83,9 +83,6 @@ export class FeatureGroup extends pulumi.CustomResource {
             if ((!args || args.featureDefinitions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'featureDefinitions'");
             }
-            if ((!args || args.featureGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'featureGroupName'");
-            }
             if ((!args || args.recordIdentifierFeatureName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'recordIdentifierFeatureName'");
             }
@@ -135,7 +132,7 @@ export interface FeatureGroupArgs {
     /**
      * The Name of the FeatureGroup.
      */
-    featureGroupName: pulumi.Input<string>;
+    featureGroupName?: pulumi.Input<string>;
     offlineStoreConfig?: pulumi.Input<inputs.sagemaker.OfflineStoreConfigPropertiesArgs>;
     onlineStoreConfig?: pulumi.Input<inputs.sagemaker.OnlineStoreConfigPropertiesArgs>;
     /**

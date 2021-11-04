@@ -15,7 +15,7 @@ __all__ = ['ACLArgs', 'ACL']
 @pulumi.input_type
 class ACLArgs:
     def __init__(__self__, *,
-                 a_cl_name: pulumi.Input[str],
+                 a_cl_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ACLTagArgs']]]] = None,
                  user_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -24,7 +24,8 @@ class ACLArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ACLTagArgs']]] tags: An array of key-value pairs to apply to this cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_names: List of users associated to this acl.
         """
-        pulumi.set(__self__, "a_cl_name", a_cl_name)
+        if a_cl_name is not None:
+            pulumi.set(__self__, "a_cl_name", a_cl_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if user_names is not None:
@@ -32,14 +33,14 @@ class ACLArgs:
 
     @property
     @pulumi.getter(name="aCLName")
-    def a_cl_name(self) -> pulumi.Input[str]:
+    def a_cl_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the acl.
         """
         return pulumi.get(self, "a_cl_name")
 
     @a_cl_name.setter
-    def a_cl_name(self, value: pulumi.Input[str]):
+    def a_cl_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "a_cl_name", value)
 
     @property
@@ -89,7 +90,7 @@ class ACL(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ACLArgs,
+                 args: Optional[ACLArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::MemoryDB::ACL
@@ -124,8 +125,6 @@ class ACL(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ACLArgs.__new__(ACLArgs)
 
-            if a_cl_name is None and not opts.urn:
-                raise TypeError("Missing required property 'a_cl_name'")
             __props__.__dict__["a_cl_name"] = a_cl_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_names"] = user_names

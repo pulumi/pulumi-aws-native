@@ -34,9 +34,6 @@ func NewMacro(ctx *pulumi.Context,
 	if args.FunctionName == nil {
 		return nil, errors.New("invalid value for required argument 'FunctionName'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource Macro
 	err := ctx.RegisterResource("aws-native:cloudformation:Macro", name, args, &resource, opts...)
 	if err != nil {
@@ -73,7 +70,7 @@ type macroArgs struct {
 	FunctionName string  `pulumi:"functionName"`
 	LogGroupName *string `pulumi:"logGroupName"`
 	LogRoleARN   *string `pulumi:"logRoleARN"`
-	Name         string  `pulumi:"name"`
+	Name         *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a Macro resource.
@@ -82,7 +79,7 @@ type MacroArgs struct {
 	FunctionName pulumi.StringInput
 	LogGroupName pulumi.StringPtrInput
 	LogRoleARN   pulumi.StringPtrInput
-	Name         pulumi.StringInput
+	Name         pulumi.StringPtrInput
 }
 
 func (MacroArgs) ElementType() reflect.Type {

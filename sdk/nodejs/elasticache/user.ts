@@ -85,9 +85,6 @@ export class User extends pulumi.CustomResource {
             if ((!args || args.userId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            if ((!args || args.userName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'userName'");
-            }
             inputs["accessString"] = args ? args.accessString : undefined;
             inputs["engine"] = args ? args.engine : undefined;
             inputs["noPasswordRequired"] = args ? args.noPasswordRequired : undefined;
@@ -140,5 +137,5 @@ export interface UserArgs {
     /**
      * The username of the user.
      */
-    userName: pulumi.Input<string>;
+    userName?: pulumi.Input<string>;
 }

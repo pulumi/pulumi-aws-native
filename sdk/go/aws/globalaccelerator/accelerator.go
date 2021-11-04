@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,12 +33,9 @@ type Accelerator struct {
 func NewAccelerator(ctx *pulumi.Context,
 	name string, args *AcceleratorArgs, opts ...pulumi.ResourceOption) (*Accelerator, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &AcceleratorArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource Accelerator
 	err := ctx.RegisterResource("aws-native:globalaccelerator:Accelerator", name, args, &resource, opts...)
 	if err != nil {
@@ -79,7 +75,7 @@ type acceleratorArgs struct {
 	// The IP addresses from BYOIP Prefix pool.
 	IpAddresses []string `pulumi:"ipAddresses"`
 	// Name of accelerator.
-	Name string           `pulumi:"name"`
+	Name *string          `pulumi:"name"`
 	Tags []AcceleratorTag `pulumi:"tags"`
 }
 
@@ -92,7 +88,7 @@ type AcceleratorArgs struct {
 	// The IP addresses from BYOIP Prefix pool.
 	IpAddresses pulumi.StringArrayInput
 	// Name of accelerator.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	Tags AcceleratorTagArrayInput
 }
 

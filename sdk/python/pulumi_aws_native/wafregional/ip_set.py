@@ -15,23 +15,15 @@ __all__ = ['IPSetArgs', 'IPSet']
 @pulumi.input_type
 class IPSetArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 i_p_set_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input['IPSetDescriptorArgs']]]] = None):
+                 i_p_set_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input['IPSetDescriptorArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a IPSet resource.
         """
-        pulumi.set(__self__, "name", name)
         if i_p_set_descriptors is not None:
             pulumi.set(__self__, "i_p_set_descriptors", i_p_set_descriptors)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="iPSetDescriptors")
@@ -41,6 +33,15 @@ class IPSetArgs:
     @i_p_set_descriptors.setter
     def i_p_set_descriptors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPSetDescriptorArgs']]]]):
         pulumi.set(self, "i_p_set_descriptors", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 warnings.warn("""IPSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
@@ -66,7 +67,7 @@ class IPSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: IPSetArgs,
+                 args: Optional[IPSetArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::WAFRegional::IPSet
@@ -102,8 +103,6 @@ class IPSet(pulumi.CustomResource):
             __props__ = IPSetArgs.__new__(IPSetArgs)
 
             __props__.__dict__["i_p_set_descriptors"] = i_p_set_descriptors
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
         super(IPSet, __self__).__init__(
             'aws-native:wafregional:IPSet',

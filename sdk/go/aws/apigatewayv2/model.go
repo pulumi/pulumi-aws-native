@@ -34,9 +34,6 @@ func NewModel(ctx *pulumi.Context,
 	if args.ApiId == nil {
 		return nil, errors.New("invalid value for required argument 'ApiId'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.Schema == nil {
 		return nil, errors.New("invalid value for required argument 'Schema'")
 	}
@@ -75,7 +72,7 @@ type modelArgs struct {
 	ApiId       string      `pulumi:"apiId"`
 	ContentType *string     `pulumi:"contentType"`
 	Description *string     `pulumi:"description"`
-	Name        string      `pulumi:"name"`
+	Name        *string     `pulumi:"name"`
 	Schema      interface{} `pulumi:"schema"`
 }
 
@@ -84,7 +81,7 @@ type ModelArgs struct {
 	ApiId       pulumi.StringInput
 	ContentType pulumi.StringPtrInput
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringInput
+	Name        pulumi.StringPtrInput
 	Schema      pulumi.Input
 }
 

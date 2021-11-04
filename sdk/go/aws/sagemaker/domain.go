@@ -56,9 +56,6 @@ func NewDomain(ctx *pulumi.Context,
 	if args.DefaultUserSettings == nil {
 		return nil, errors.New("invalid value for required argument 'DefaultUserSettings'")
 	}
-	if args.DomainName == nil {
-		return nil, errors.New("invalid value for required argument 'DomainName'")
-	}
 	if args.SubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetIds'")
 	}
@@ -104,7 +101,7 @@ type domainArgs struct {
 	// The default user settings.
 	DefaultUserSettings DomainUserSettings `pulumi:"defaultUserSettings"`
 	// A name for the domain.
-	DomainName string `pulumi:"domainName"`
+	DomainName *string `pulumi:"domainName"`
 	// SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The VPC subnets that Studio uses for communication.
@@ -124,7 +121,7 @@ type DomainArgs struct {
 	// The default user settings.
 	DefaultUserSettings DomainUserSettingsInput
 	// A name for the domain.
-	DomainName pulumi.StringInput
+	DomainName pulumi.StringPtrInput
 	// SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
 	KmsKeyId pulumi.StringPtrInput
 	// The VPC subnets that Studio uses for communication.

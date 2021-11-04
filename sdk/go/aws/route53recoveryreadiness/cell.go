@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,12 +30,9 @@ type Cell struct {
 func NewCell(ctx *pulumi.Context,
 	name string, args *CellArgs, opts ...pulumi.ResourceOption) (*Cell, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &CellArgs{}
 	}
 
-	if args.CellName == nil {
-		return nil, errors.New("invalid value for required argument 'CellName'")
-	}
 	var resource Cell
 	err := ctx.RegisterResource("aws-native:route53recoveryreadiness:Cell", name, args, &resource, opts...)
 	if err != nil {
@@ -70,7 +66,7 @@ func (CellState) ElementType() reflect.Type {
 
 type cellArgs struct {
 	// The name of the cell to create.
-	CellName string `pulumi:"cellName"`
+	CellName *string `pulumi:"cellName"`
 	// A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells. For example, Availability Zones within specific Regions.
 	Cells []string `pulumi:"cells"`
 	// A collection of tags associated with a resource
@@ -80,7 +76,7 @@ type cellArgs struct {
 // The set of arguments for constructing a Cell resource.
 type CellArgs struct {
 	// The name of the cell to create.
-	CellName pulumi.StringInput
+	CellName pulumi.StringPtrInput
 	// A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells. For example, Availability Zones within specific Regions.
 	Cells pulumi.StringArrayInput
 	// A collection of tags associated with a resource

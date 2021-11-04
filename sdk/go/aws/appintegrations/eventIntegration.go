@@ -44,9 +44,6 @@ func NewEventIntegration(ctx *pulumi.Context,
 	if args.EventFilter == nil {
 		return nil, errors.New("invalid value for required argument 'EventFilter'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource EventIntegration
 	err := ctx.RegisterResource("aws-native:appintegrations:EventIntegration", name, args, &resource, opts...)
 	if err != nil {
@@ -86,7 +83,7 @@ type eventIntegrationArgs struct {
 	// The EventFilter (source) associated with the event integration.
 	EventFilter EventIntegrationEventFilter `pulumi:"eventFilter"`
 	// The name of the event integration.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The tags (keys and values) associated with the event integration.
 	Tags []EventIntegrationTag `pulumi:"tags"`
 }
@@ -100,7 +97,7 @@ type EventIntegrationArgs struct {
 	// The EventFilter (source) associated with the event integration.
 	EventFilter EventIntegrationEventFilterInput
 	// The name of the event integration.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The tags (keys and values) associated with the event integration.
 	Tags EventIntegrationTagArrayInput
 }

@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Domain(string name, DomainArgs args, CustomResourceOptions? options = null)
+        public Domain(string name, DomainArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:customerprofiles:Domain", name, args ?? new DomainArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -123,8 +123,8 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// <summary>
         /// The unique name of the domain.
         /// </summary>
-        [Input("domainName", required: true)]
-        public Input<string> DomainName { get; set; } = null!;
+        [Input("domainName")]
+        public Input<string>? DomainName { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.DomainTagArgs>? _tags;

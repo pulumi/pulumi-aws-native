@@ -28,9 +28,6 @@ func NewRegexPatternSet(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.RegexPatternStrings == nil {
 		return nil, errors.New("invalid value for required argument 'RegexPatternStrings'")
 	}
@@ -66,13 +63,13 @@ func (RegexPatternSetState) ElementType() reflect.Type {
 }
 
 type regexPatternSetArgs struct {
-	Name                string   `pulumi:"name"`
+	Name                *string  `pulumi:"name"`
 	RegexPatternStrings []string `pulumi:"regexPatternStrings"`
 }
 
 // The set of arguments for constructing a RegexPatternSet resource.
 type RegexPatternSetArgs struct {
-	Name                pulumi.StringInput
+	Name                pulumi.StringPtrInput
 	RegexPatternStrings pulumi.StringArrayInput
 }
 

@@ -120,9 +120,6 @@ export class Studio extends pulumi.CustomResource {
             if ((!args || args.engineSecurityGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engineSecurityGroupId'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.serviceRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceRole'");
             }
@@ -207,7 +204,7 @@ export interface StudioArgs {
     /**
      * A descriptive name for the Amazon EMR Studio.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The IAM role that will be assumed by the Amazon EMR Studio. The service role provides a way for Amazon EMR Studio to interoperate with other AWS services.
      */

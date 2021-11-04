@@ -41,9 +41,6 @@ func NewUserProfile(ctx *pulumi.Context,
 	if args.DomainId == nil {
 		return nil, errors.New("invalid value for required argument 'DomainId'")
 	}
-	if args.UserProfileName == nil {
-		return nil, errors.New("invalid value for required argument 'UserProfileName'")
-	}
 	var resource UserProfile
 	err := ctx.RegisterResource("aws-native:sagemaker:UserProfile", name, args, &resource, opts...)
 	if err != nil {
@@ -85,7 +82,7 @@ type userProfileArgs struct {
 	// A list of tags to apply to the user profile.
 	Tags []UserProfileTag `pulumi:"tags"`
 	// A name for the UserProfile.
-	UserProfileName string `pulumi:"userProfileName"`
+	UserProfileName *string `pulumi:"userProfileName"`
 	// A collection of settings.
 	UserSettings *UserProfileUserSettings `pulumi:"userSettings"`
 }
@@ -101,7 +98,7 @@ type UserProfileArgs struct {
 	// A list of tags to apply to the user profile.
 	Tags UserProfileTagArrayInput
 	// A name for the UserProfile.
-	UserProfileName pulumi.StringInput
+	UserProfileName pulumi.StringPtrInput
 	// A collection of settings.
 	UserSettings UserProfileUserSettingsPtrInput
 }

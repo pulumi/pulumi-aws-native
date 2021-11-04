@@ -17,8 +17,8 @@ __all__ = ['KnowledgeBaseArgs', 'KnowledgeBase']
 class KnowledgeBaseArgs:
     def __init__(__self__, *,
                  knowledge_base_type: pulumi.Input['KnowledgeBaseType'],
-                 name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  rendering_configuration: Optional[pulumi.Input['KnowledgeBaseRenderingConfigurationArgs']] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input['KnowledgeBaseServerSideEncryptionConfigurationArgs']] = None,
                  source_configuration: Optional[pulumi.Input['KnowledgeBaseSourceConfigurationArgs']] = None,
@@ -27,9 +27,10 @@ class KnowledgeBaseArgs:
         The set of arguments for constructing a KnowledgeBase resource.
         """
         pulumi.set(__self__, "knowledge_base_type", knowledge_base_type)
-        pulumi.set(__self__, "name", name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if rendering_configuration is not None:
             pulumi.set(__self__, "rendering_configuration", rendering_configuration)
         if server_side_encryption_configuration is not None:
@@ -50,21 +51,21 @@ class KnowledgeBaseArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "description")
 
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="renderingConfiguration")
@@ -169,8 +170,6 @@ class KnowledgeBase(pulumi.CustomResource):
             if knowledge_base_type is None and not opts.urn:
                 raise TypeError("Missing required property 'knowledge_base_type'")
             __props__.__dict__["knowledge_base_type"] = knowledge_base_type
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["rendering_configuration"] = rendering_configuration
             __props__.__dict__["server_side_encryption_configuration"] = server_side_encryption_configuration

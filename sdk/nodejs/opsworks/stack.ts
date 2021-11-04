@@ -80,9 +80,6 @@ export class Stack extends pulumi.CustomResource {
             if ((!args || args.defaultInstanceProfileArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'defaultInstanceProfileArn'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.serviceRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceRoleArn'");
             }
@@ -166,7 +163,7 @@ export interface StackArgs {
     ecsClusterArn?: pulumi.Input<string>;
     elasticIps?: pulumi.Input<pulumi.Input<inputs.opsworks.StackElasticIpArgs>[]>;
     hostnameTheme?: pulumi.Input<string>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     rdsDbInstances?: pulumi.Input<pulumi.Input<inputs.opsworks.StackRdsDbInstanceArgs>[]>;
     serviceRoleArn: pulumi.Input<string>;
     sourceStackId?: pulumi.Input<string>;

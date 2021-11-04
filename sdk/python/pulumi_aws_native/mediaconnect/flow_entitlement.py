@@ -18,24 +18,23 @@ class FlowEntitlementArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[str],
                  flow_arn: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  subscribers: pulumi.Input[Sequence[pulumi.Input[str]]],
                  data_transfer_subscriber_fee_percent: Optional[pulumi.Input[int]] = None,
                  encryption: Optional[pulumi.Input['FlowEntitlementEncryptionArgs']] = None,
-                 entitlement_status: Optional[pulumi.Input['FlowEntitlementEntitlementStatus']] = None):
+                 entitlement_status: Optional[pulumi.Input['FlowEntitlementEntitlementStatus']] = None,
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FlowEntitlement resource.
         :param pulumi.Input[str] description: A description of the entitlement.
         :param pulumi.Input[str] flow_arn: The ARN of the flow.
-        :param pulumi.Input[str] name: The name of the entitlement.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subscribers: The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
         :param pulumi.Input[int] data_transfer_subscriber_fee_percent: Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
         :param pulumi.Input['FlowEntitlementEncryptionArgs'] encryption: The type of encryption that will be used on the output that is associated with this entitlement.
         :param pulumi.Input['FlowEntitlementEntitlementStatus'] entitlement_status:  An indication of whether the entitlement is enabled.
+        :param pulumi.Input[str] name: The name of the entitlement.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "flow_arn", flow_arn)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "subscribers", subscribers)
         if data_transfer_subscriber_fee_percent is not None:
             pulumi.set(__self__, "data_transfer_subscriber_fee_percent", data_transfer_subscriber_fee_percent)
@@ -43,6 +42,8 @@ class FlowEntitlementArgs:
             pulumi.set(__self__, "encryption", encryption)
         if entitlement_status is not None:
             pulumi.set(__self__, "entitlement_status", entitlement_status)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -67,18 +68,6 @@ class FlowEntitlementArgs:
     @flow_arn.setter
     def flow_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "flow_arn", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the entitlement.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -127,6 +116,18 @@ class FlowEntitlementArgs:
     @entitlement_status.setter
     def entitlement_status(self, value: Optional[pulumi.Input['FlowEntitlementEntitlementStatus']]):
         pulumi.set(self, "entitlement_status", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the entitlement.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class FlowEntitlement(pulumi.CustomResource):
@@ -207,8 +208,6 @@ class FlowEntitlement(pulumi.CustomResource):
             if flow_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'flow_arn'")
             __props__.__dict__["flow_arn"] = flow_arn
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if subscribers is None and not opts.urn:
                 raise TypeError("Missing required property 'subscribers'")

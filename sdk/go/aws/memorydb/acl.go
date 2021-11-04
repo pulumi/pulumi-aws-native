@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,12 +30,9 @@ type ACL struct {
 func NewACL(ctx *pulumi.Context,
 	name string, args *ACLArgs, opts ...pulumi.ResourceOption) (*ACL, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ACLArgs{}
 	}
 
-	if args.ACLName == nil {
-		return nil, errors.New("invalid value for required argument 'ACLName'")
-	}
 	var resource ACL
 	err := ctx.RegisterResource("aws-native:memorydb:ACL", name, args, &resource, opts...)
 	if err != nil {
@@ -70,7 +66,7 @@ func (ACLState) ElementType() reflect.Type {
 
 type aclArgs struct {
 	// The name of the acl.
-	ACLName string `pulumi:"aCLName"`
+	ACLName *string `pulumi:"aCLName"`
 	// An array of key-value pairs to apply to this cluster.
 	Tags []ACLTag `pulumi:"tags"`
 	// List of users associated to this acl.
@@ -80,7 +76,7 @@ type aclArgs struct {
 // The set of arguments for constructing a ACL resource.
 type ACLArgs struct {
 	// The name of the acl.
-	ACLName pulumi.StringInput
+	ACLName pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this cluster.
 	Tags ACLTagArrayInput
 	// List of users associated to this acl.

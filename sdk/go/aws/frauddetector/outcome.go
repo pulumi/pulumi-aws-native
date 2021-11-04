@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,12 +32,9 @@ type Outcome struct {
 func NewOutcome(ctx *pulumi.Context,
 	name string, args *OutcomeArgs, opts ...pulumi.ResourceOption) (*Outcome, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &OutcomeArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource Outcome
 	err := ctx.RegisterResource("aws-native:frauddetector:Outcome", name, args, &resource, opts...)
 	if err != nil {
@@ -74,7 +70,7 @@ type outcomeArgs struct {
 	// The outcome description.
 	Description *string `pulumi:"description"`
 	// The name of the outcome.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Tags associated with this outcome.
 	Tags []OutcomeTag `pulumi:"tags"`
 }
@@ -84,7 +80,7 @@ type OutcomeArgs struct {
 	// The outcome description.
 	Description pulumi.StringPtrInput
 	// The name of the outcome.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Tags associated with this outcome.
 	Tags OutcomeTagArrayInput
 }

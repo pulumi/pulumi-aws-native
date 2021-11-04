@@ -129,8 +129,8 @@ namespace Pulumi.AwsNative.NimbleStudio
         /// <summary>
         /// &lt;p&gt;The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.&lt;/p&gt;
         /// </summary>
-        [Input("studioName", required: true)]
-        public Input<string> StudioName { get; set; } = null!;
+        [Input("studioName")]
+        public Input<string>? StudioName { get; set; }
 
         [Input("tags")]
         public Input<Inputs.StudioTagsArgs>? Tags { get; set; }

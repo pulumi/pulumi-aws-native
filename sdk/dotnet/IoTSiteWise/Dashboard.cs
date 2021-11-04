@@ -117,8 +117,8 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <summary>
         /// A friendly name for the dashboard.
         /// </summary>
-        [Input("dashboardName", required: true)]
-        public Input<string> DashboardName { get; set; } = null!;
+        [Input("dashboardName")]
+        public Input<string>? DashboardName { get; set; }
 
         /// <summary>
         /// The ID of the project in which to create the dashboard.

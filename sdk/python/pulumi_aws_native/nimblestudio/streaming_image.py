@@ -17,22 +17,23 @@ __all__ = ['StreamingImageArgs', 'StreamingImage']
 class StreamingImageArgs:
     def __init__(__self__, *,
                  ec2_image_id: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  studio_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input['StreamingImageTagsArgs']] = None):
         """
         The set of arguments for constructing a StreamingImage resource.
         :param pulumi.Input[str] ec2_image_id: <p>The ID of an EC2 machine image with which to create this streaming image.</p>
-        :param pulumi.Input[str] name: <p>A friendly name for a streaming image resource.</p>
         :param pulumi.Input[str] studio_id: <p>The studioId. </p>
         :param pulumi.Input[str] description: <p>A human-readable description of the streaming image.</p>
+        :param pulumi.Input[str] name: <p>A friendly name for a streaming image resource.</p>
         """
         pulumi.set(__self__, "ec2_image_id", ec2_image_id)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "studio_id", studio_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -47,18 +48,6 @@ class StreamingImageArgs:
     @ec2_image_id.setter
     def ec2_image_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "ec2_image_id", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        <p>A friendly name for a streaming image resource.</p>
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="studioId")
@@ -83,6 +72,18 @@ class StreamingImageArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>A friendly name for a streaming image resource.</p>
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -160,8 +161,6 @@ class StreamingImage(pulumi.CustomResource):
             if ec2_image_id is None and not opts.urn:
                 raise TypeError("Missing required property 'ec2_image_id'")
             __props__.__dict__["ec2_image_id"] = ec2_image_id
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if studio_id is None and not opts.urn:
                 raise TypeError("Missing required property 'studio_id'")

@@ -50,13 +50,10 @@ export class BackupVault extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: BackupVaultArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: BackupVaultArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.backupVaultName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'backupVaultName'");
-            }
             inputs["accessPolicy"] = args ? args.accessPolicy : undefined;
             inputs["backupVaultName"] = args ? args.backupVaultName : undefined;
             inputs["backupVaultTags"] = args ? args.backupVaultTags : undefined;
@@ -85,7 +82,7 @@ export class BackupVault extends pulumi.CustomResource {
  */
 export interface BackupVaultArgs {
     accessPolicy?: any;
-    backupVaultName: pulumi.Input<string>;
+    backupVaultName?: pulumi.Input<string>;
     backupVaultTags?: any;
     encryptionKeyArn?: pulumi.Input<string>;
     lockConfiguration?: pulumi.Input<inputs.backup.BackupVaultLockConfigurationTypeArgs>;

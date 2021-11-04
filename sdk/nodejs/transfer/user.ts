@@ -69,9 +69,6 @@ export class User extends pulumi.CustomResource {
             if ((!args || args.serverId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            if ((!args || args.userName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'userName'");
-            }
             inputs["homeDirectory"] = args ? args.homeDirectory : undefined;
             inputs["homeDirectoryMappings"] = args ? args.homeDirectoryMappings : undefined;
             inputs["homeDirectoryType"] = args ? args.homeDirectoryType : undefined;
@@ -116,5 +113,5 @@ export interface UserArgs {
     serverId: pulumi.Input<string>;
     sshPublicKeys?: pulumi.Input<pulumi.Input<inputs.transfer.UserSshPublicKeyArgs>[]>;
     tags?: pulumi.Input<pulumi.Input<inputs.transfer.UserTagArgs>[]>;
-    userName: pulumi.Input<string>;
+    userName?: pulumi.Input<string>;
 }

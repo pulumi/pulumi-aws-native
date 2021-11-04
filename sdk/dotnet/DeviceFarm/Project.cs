@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.DeviceFarm
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Project(string name, ProjectArgs args, CustomResourceOptions? options = null)
+        public Project(string name, ProjectArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:devicefarm:Project", name, args ?? new ProjectArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -75,8 +75,8 @@ namespace Pulumi.AwsNative.DeviceFarm
         [Input("defaultJobTimeoutMinutes")]
         public Input<int>? DefaultJobTimeoutMinutes { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.ProjectTagArgs>? _tags;

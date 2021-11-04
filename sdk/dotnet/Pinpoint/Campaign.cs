@@ -144,8 +144,8 @@ namespace Pulumi.AwsNative.Pinpoint
         [Input("messageConfiguration", required: true)]
         public Input<Inputs.CampaignMessageConfigurationArgs> MessageConfiguration { get; set; } = null!;
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("priority")]
         public Input<int>? Priority { get; set; }

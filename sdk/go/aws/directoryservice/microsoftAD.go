@@ -35,9 +35,6 @@ func NewMicrosoftAD(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.Password == nil {
 		return nil, errors.New("invalid value for required argument 'Password'")
 	}
@@ -79,7 +76,7 @@ type microsoftADArgs struct {
 	CreateAlias *bool                  `pulumi:"createAlias"`
 	Edition     *string                `pulumi:"edition"`
 	EnableSso   *bool                  `pulumi:"enableSso"`
-	Name        string                 `pulumi:"name"`
+	Name        *string                `pulumi:"name"`
 	Password    string                 `pulumi:"password"`
 	ShortName   *string                `pulumi:"shortName"`
 	VpcSettings MicrosoftADVpcSettings `pulumi:"vpcSettings"`
@@ -90,7 +87,7 @@ type MicrosoftADArgs struct {
 	CreateAlias pulumi.BoolPtrInput
 	Edition     pulumi.StringPtrInput
 	EnableSso   pulumi.BoolPtrInput
-	Name        pulumi.StringInput
+	Name        pulumi.StringPtrInput
 	Password    pulumi.StringInput
 	ShortName   pulumi.StringPtrInput
 	VpcSettings MicrosoftADVpcSettingsInput

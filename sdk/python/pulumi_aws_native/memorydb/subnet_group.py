@@ -15,35 +15,24 @@ __all__ = ['SubnetGroupArgs', 'SubnetGroup']
 @pulumi.input_type
 class SubnetGroupArgs:
     def __init__(__self__, *,
-                 subnet_group_name: pulumi.Input[str],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  description: Optional[pulumi.Input[str]] = None,
+                 subnet_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a SubnetGroup resource.
-        :param pulumi.Input[str] subnet_group_name: The name of the subnet group. This value must be unique as it also serves as the subnet group identifier.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of VPC subnet IDs for the subnet group.
         :param pulumi.Input[str] description: An optional description of the subnet group.
+        :param pulumi.Input[str] subnet_group_name: The name of the subnet group. This value must be unique as it also serves as the subnet group identifier.
         :param pulumi.Input[Sequence[pulumi.Input['SubnetGroupTagArgs']]] tags: An array of key-value pairs to apply to this subnet group.
         """
-        pulumi.set(__self__, "subnet_group_name", subnet_group_name)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if subnet_group_name is not None:
+            pulumi.set(__self__, "subnet_group_name", subnet_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="subnetGroupName")
-    def subnet_group_name(self) -> pulumi.Input[str]:
-        """
-        The name of the subnet group. This value must be unique as it also serves as the subnet group identifier.
-        """
-        return pulumi.get(self, "subnet_group_name")
-
-    @subnet_group_name.setter
-    def subnet_group_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "subnet_group_name", value)
 
     @property
     @pulumi.getter(name="subnetIds")
@@ -68,6 +57,18 @@ class SubnetGroupArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="subnetGroupName")
+    def subnet_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the subnet group. This value must be unique as it also serves as the subnet group identifier.
+        """
+        return pulumi.get(self, "subnet_group_name")
+
+    @subnet_group_name.setter
+    def subnet_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_group_name", value)
 
     @property
     @pulumi.getter
@@ -143,8 +144,6 @@ class SubnetGroup(pulumi.CustomResource):
             __props__ = SubnetGroupArgs.__new__(SubnetGroupArgs)
 
             __props__.__dict__["description"] = description
-            if subnet_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'subnet_group_name'")
             __props__.__dict__["subnet_group_name"] = subnet_group_name
             if subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_ids'")

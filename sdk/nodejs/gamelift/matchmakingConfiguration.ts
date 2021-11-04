@@ -70,9 +70,6 @@ export class MatchmakingConfiguration extends pulumi.CustomResource {
             if ((!args || args.acceptanceRequired === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'acceptanceRequired'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.requestTimeoutSeconds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'requestTimeoutSeconds'");
             }
@@ -132,7 +129,7 @@ export interface MatchmakingConfigurationArgs {
     gameProperties?: pulumi.Input<pulumi.Input<inputs.gamelift.MatchmakingConfigurationGamePropertyArgs>[]>;
     gameSessionData?: pulumi.Input<string>;
     gameSessionQueueArns?: pulumi.Input<pulumi.Input<string>[]>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     notificationTarget?: pulumi.Input<string>;
     requestTimeoutSeconds: pulumi.Input<number>;
     ruleSetName: pulumi.Input<string>;

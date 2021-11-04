@@ -74,9 +74,6 @@ export class Project extends pulumi.CustomResource {
             if ((!args || args.portalId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'portalId'");
             }
-            if ((!args || args.projectName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'projectName'");
-            }
             inputs["portalId"] = args ? args.portalId : undefined;
             inputs["projectDescription"] = args ? args.projectDescription : undefined;
             inputs["projectName"] = args ? args.projectName : undefined;
@@ -113,7 +110,7 @@ export interface ProjectArgs {
     /**
      * A friendly name for the project.
      */
-    projectName: pulumi.Input<string>;
+    projectName?: pulumi.Input<string>;
     /**
      * A list of key-value pairs that contain metadata for the project.
      */

@@ -104,8 +104,8 @@ namespace Pulumi.AwsNative.Amplify
         [Input("autoSubDomainIAMRole")]
         public Input<string>? AutoSubDomainIAMRole { get; set; }
 
-        [Input("domainName", required: true)]
-        public Input<string> DomainName { get; set; } = null!;
+        [Input("domainName")]
+        public Input<string>? DomainName { get; set; }
 
         [Input("enableAutoSubDomain")]
         public Input<bool>? EnableAutoSubDomain { get; set; }

@@ -13,27 +13,16 @@ __all__ = ['AliasArgs', 'Alias']
 @pulumi.input_type
 class AliasArgs:
     def __init__(__self__, *,
-                 alias_name: pulumi.Input[str],
-                 target_key_id: pulumi.Input[str]):
+                 target_key_id: pulumi.Input[str],
+                 alias_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Alias resource.
-        :param pulumi.Input[str] alias_name: Specifies the alias name. This value must begin with alias/ followed by a name, such as alias/ExampleAlias. The alias name cannot begin with alias/aws/. The alias/aws/ prefix is reserved for AWS managed CMKs.
         :param pulumi.Input[str] target_key_id: Identifies the CMK to which the alias refers. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. You cannot specify another alias. For help finding the key ID and ARN, see Finding the Key ID and ARN in the AWS Key Management Service Developer Guide.
+        :param pulumi.Input[str] alias_name: Specifies the alias name. This value must begin with alias/ followed by a name, such as alias/ExampleAlias. The alias name cannot begin with alias/aws/. The alias/aws/ prefix is reserved for AWS managed CMKs.
         """
-        pulumi.set(__self__, "alias_name", alias_name)
         pulumi.set(__self__, "target_key_id", target_key_id)
-
-    @property
-    @pulumi.getter(name="aliasName")
-    def alias_name(self) -> pulumi.Input[str]:
-        """
-        Specifies the alias name. This value must begin with alias/ followed by a name, such as alias/ExampleAlias. The alias name cannot begin with alias/aws/. The alias/aws/ prefix is reserved for AWS managed CMKs.
-        """
-        return pulumi.get(self, "alias_name")
-
-    @alias_name.setter
-    def alias_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "alias_name", value)
+        if alias_name is not None:
+            pulumi.set(__self__, "alias_name", alias_name)
 
     @property
     @pulumi.getter(name="targetKeyId")
@@ -46,6 +35,18 @@ class AliasArgs:
     @target_key_id.setter
     def target_key_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "target_key_id", value)
+
+    @property
+    @pulumi.getter(name="aliasName")
+    def alias_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the alias name. This value must begin with alias/ followed by a name, such as alias/ExampleAlias. The alias name cannot begin with alias/aws/. The alias/aws/ prefix is reserved for AWS managed CMKs.
+        """
+        return pulumi.get(self, "alias_name")
+
+    @alias_name.setter
+    def alias_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alias_name", value)
 
 
 class Alias(pulumi.CustomResource):
@@ -102,8 +103,6 @@ class Alias(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AliasArgs.__new__(AliasArgs)
 
-            if alias_name is None and not opts.urn:
-                raise TypeError("Missing required property 'alias_name'")
             __props__.__dict__["alias_name"] = alias_name
             if target_key_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_key_id'")

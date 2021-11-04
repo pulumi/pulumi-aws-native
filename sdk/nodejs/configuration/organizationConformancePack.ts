@@ -71,13 +71,10 @@ export class OrganizationConformancePack extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: OrganizationConformancePackArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: OrganizationConformancePackArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.organizationConformancePackName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'organizationConformancePackName'");
-            }
             inputs["conformancePackInputParameters"] = args ? args.conformancePackInputParameters : undefined;
             inputs["deliveryS3Bucket"] = args ? args.deliveryS3Bucket : undefined;
             inputs["deliveryS3KeyPrefix"] = args ? args.deliveryS3KeyPrefix : undefined;
@@ -124,7 +121,7 @@ export interface OrganizationConformancePackArgs {
     /**
      * The name of the organization conformance pack.
      */
-    organizationConformancePackName: pulumi.Input<string>;
+    organizationConformancePackName?: pulumi.Input<string>;
     /**
      * A string containing full conformance pack template body.
      */

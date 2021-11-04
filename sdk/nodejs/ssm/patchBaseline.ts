@@ -60,14 +60,11 @@ export class PatchBaseline extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated PatchBaseline is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
-    constructor(name: string, args: PatchBaselineArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: PatchBaselineArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("PatchBaseline is deprecated: PatchBaseline is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["approvalRules"] = args ? args.approvalRules : undefined;
             inputs["approvedPatches"] = args ? args.approvedPatches : undefined;
             inputs["approvedPatchesComplianceLevel"] = args ? args.approvedPatchesComplianceLevel : undefined;
@@ -113,7 +110,7 @@ export interface PatchBaselineArgs {
     approvedPatchesEnableNonSecurity?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
     globalFilters?: pulumi.Input<inputs.ssm.PatchBaselinePatchFilterGroupArgs>;
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     operatingSystem?: pulumi.Input<string>;
     patchGroups?: pulumi.Input<pulumi.Input<string>[]>;
     rejectedPatches?: pulumi.Input<pulumi.Input<string>[]>;

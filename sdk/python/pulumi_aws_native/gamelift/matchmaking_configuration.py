@@ -16,7 +16,6 @@ __all__ = ['MatchmakingConfigurationArgs', 'MatchmakingConfiguration']
 class MatchmakingConfigurationArgs:
     def __init__(__self__, *,
                  acceptance_required: pulumi.Input[bool],
-                 name: pulumi.Input[str],
                  request_timeout_seconds: pulumi.Input[int],
                  rule_set_name: pulumi.Input[str],
                  acceptance_timeout_seconds: Optional[pulumi.Input[int]] = None,
@@ -28,12 +27,12 @@ class MatchmakingConfigurationArgs:
                  game_properties: Optional[pulumi.Input[Sequence[pulumi.Input['MatchmakingConfigurationGamePropertyArgs']]]] = None,
                  game_session_data: Optional[pulumi.Input[str]] = None,
                  game_session_queue_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  notification_target: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a MatchmakingConfiguration resource.
         """
         pulumi.set(__self__, "acceptance_required", acceptance_required)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "request_timeout_seconds", request_timeout_seconds)
         pulumi.set(__self__, "rule_set_name", rule_set_name)
         if acceptance_timeout_seconds is not None:
@@ -54,6 +53,8 @@ class MatchmakingConfigurationArgs:
             pulumi.set(__self__, "game_session_data", game_session_data)
         if game_session_queue_arns is not None:
             pulumi.set(__self__, "game_session_queue_arns", game_session_queue_arns)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if notification_target is not None:
             pulumi.set(__self__, "notification_target", notification_target)
 
@@ -65,15 +66,6 @@ class MatchmakingConfigurationArgs:
     @acceptance_required.setter
     def acceptance_required(self, value: pulumi.Input[bool]):
         pulumi.set(self, "acceptance_required", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="requestTimeoutSeconds")
@@ -173,6 +165,15 @@ class MatchmakingConfigurationArgs:
     @game_session_queue_arns.setter
     def game_session_queue_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "game_session_queue_arns", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="notificationTarget")
@@ -278,8 +279,6 @@ class MatchmakingConfiguration(pulumi.CustomResource):
             __props__.__dict__["game_properties"] = game_properties
             __props__.__dict__["game_session_data"] = game_session_data
             __props__.__dict__["game_session_queue_arns"] = game_session_queue_arns
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["notification_target"] = notification_target
             if request_timeout_seconds is None and not opts.urn:

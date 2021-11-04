@@ -65,9 +65,6 @@ func NewStudio(ctx *pulumi.Context,
 	if args.EngineSecurityGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'EngineSecurityGroupId'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ServiceRole == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceRole'")
 	}
@@ -125,7 +122,7 @@ type studioArgs struct {
 	// The name of relay state parameter for external Identity Provider.
 	IdpRelayStateParameterName *string `pulumi:"idpRelayStateParameterName"`
 	// A descriptive name for the Amazon EMR Studio.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The IAM role that will be assumed by the Amazon EMR Studio. The service role provides a way for Amazon EMR Studio to interoperate with other AWS services.
 	ServiceRole string `pulumi:"serviceRole"`
 	// A list of up to 5 subnet IDs to associate with the Studio. The subnets must belong to the VPC specified by VpcId. Studio users can create a Workspace in any of the specified subnets.
@@ -155,7 +152,7 @@ type StudioArgs struct {
 	// The name of relay state parameter for external Identity Provider.
 	IdpRelayStateParameterName pulumi.StringPtrInput
 	// A descriptive name for the Amazon EMR Studio.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The IAM role that will be assumed by the Amazon EMR Studio. The service role provides a way for Amazon EMR Studio to interoperate with other AWS services.
 	ServiceRole pulumi.StringInput
 	// A list of up to 5 subnet IDs to associate with the Studio. The subnets must belong to the VPC specified by VpcId. Studio users can create a Workspace in any of the specified subnets.

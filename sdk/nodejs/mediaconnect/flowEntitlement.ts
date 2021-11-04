@@ -85,9 +85,6 @@ export class FlowEntitlement extends pulumi.CustomResource {
             if ((!args || args.flowArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'flowArn'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.subscribers === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subscribers'");
             }
@@ -143,7 +140,7 @@ export interface FlowEntitlementArgs {
     /**
      * The name of the entitlement.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
      */

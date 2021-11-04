@@ -65,9 +65,6 @@ export class UserHierarchyGroup extends pulumi.CustomResource {
             if ((!args || args.instanceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             inputs["instanceArn"] = args ? args.instanceArn : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["parentGroupArn"] = args ? args.parentGroupArn : undefined;
@@ -96,7 +93,7 @@ export interface UserHierarchyGroupArgs {
     /**
      * The name of the user hierarchy group.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) for the parent user hierarchy group.
      */

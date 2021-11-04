@@ -105,8 +105,8 @@ namespace Pulumi.AwsNative.EKS
         /// <summary>
         /// Name of Addon
         /// </summary>
-        [Input("addonName", required: true)]
-        public Input<string> AddonName { get; set; } = null!;
+        [Input("addonName")]
+        public Input<string>? AddonName { get; set; }
 
         /// <summary>
         /// Version of Addon

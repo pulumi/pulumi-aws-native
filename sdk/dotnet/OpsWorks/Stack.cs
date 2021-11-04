@@ -197,8 +197,8 @@ namespace Pulumi.AwsNative.OpsWorks
         [Input("hostnameTheme")]
         public Input<string>? HostnameTheme { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("rdsDbInstances")]
         private InputList<Inputs.StackRdsDbInstanceArgs>? _rdsDbInstances;

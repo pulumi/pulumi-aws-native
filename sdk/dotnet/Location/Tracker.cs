@@ -105,8 +105,8 @@ namespace Pulumi.AwsNative.Location
         [Input("pricingPlanDataSource")]
         public Input<string>? PricingPlanDataSource { get; set; }
 
-        [Input("trackerName", required: true)]
-        public Input<string> TrackerName { get; set; } = null!;
+        [Input("trackerName")]
+        public Input<string>? TrackerName { get; set; }
 
         public TrackerArgs()
         {
