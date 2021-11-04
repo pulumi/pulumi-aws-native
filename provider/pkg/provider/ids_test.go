@@ -56,12 +56,6 @@ func Test_getDefaultName(t *testing.T) {
 			err:        fmt.Errorf("failed to auto-generate value for %[1]q. Prefix: \"myName-\" is too large to fix max length constraint of 6. Please provide a value for %[1]q", sdkName),
 		},
 		{
-			name:       "Autoname with max length too small",
-			maxLength:  6,
-			comparison: within(15, 15),
-			err:        fmt.Errorf("failed to auto-generate value for %[1]q. Prefix: \"myName-\" is too large to fix max length constraint of 6. Please provide a value for %[1]q", sdkName),
-		},
-		{
 			name:       "Autoname with constraints on min and max length",
 			minLength:  13,
 			maxLength:  13,
