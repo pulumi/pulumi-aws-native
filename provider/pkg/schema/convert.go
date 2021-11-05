@@ -23,6 +23,9 @@ func SdkToCfn(res *CloudAPIResource, types map[string]CloudAPIType, properties m
 // DiffToPatch converts a Pulumi object diff to a CloudFormation-shaped patch operation slice. Update/add/delete operations are
 // mapped to corresponding patch terms, and SDK properties are translated to respective CFN names.
 func DiffToPatch(res *CloudAPIResource, types map[string]CloudAPIType, diff *resource.ObjectDiff) ([]jsonpatch.JsonPatchOperation, error) {
+	if diff == nil {
+		return []jsonpatch.JsonPatchOperation{}, nil
+	}
 	converter := sdkToCfnConverter{res, types}
 	return converter.diffToPatch(diff), nil
 }

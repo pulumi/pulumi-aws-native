@@ -6,6 +6,8 @@
   [#156](https://github.com/pulumi/pulumi-aws-native/issues/156)
 - Turn off replacement detection to prevent false replacements
   [#186](https://github.com/pulumi/pulumi-aws-native/issues/186)
+- Support partial initialization errors
+  [#208](https://github.com/pulumi/pulumi-aws-native/pull/208)
 
 ## 0.3.0 (November 2, 2021)
 

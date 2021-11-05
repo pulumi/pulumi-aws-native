@@ -26,7 +26,6 @@ import (
 	"path/filepath"
 	"regexp"
 	"runtime"
-	"runtime/debug"
 	"strings"
 	"time"
 
@@ -56,8 +55,9 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/resource/provider"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/plugin"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/rpcutil/rpcerror"
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
+	"google.golang.org/protobuf/types/known/structpb"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
@@ -642,22 +642,56 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 	if err != nil {
 		return nil, errors.Wrapf(err, "creating resource")
 	}
-	pi, err := p.waitForResourceOpCompletion(ctx, res.ProgressEvent)
-	if err != nil {
-		return nil, err
+	pi, waitErr := p.waitForResourceOpCompletion(ctx, res.ProgressEvent)
+
+	// Read the state - even if there was a creation error but the progress event contains a resource ID.
+	var id string
+	var outputs map[string]interface{}
+	var readErr error
+	if pi != nil && pi.Identifier != nil {
+		// Retrieve the resource state from AWS.
+		// Note that we do so even if creation hasn't succeeded but the identifier is assigned.
+		id = *pi.Identifier
+		glog.V(9).Infof("%s.GetResource %q id %q", label, cfType, id)
+		resourceState, err := p.readResourceState(ctx, cfType, id)
+		if err != nil {
+			readErr = fmt.Errorf("reading resource state: %w", err)
+		} else {
+			outputs = schema.CfnToSdk(resourceState)
+		}
+	}
+
+	if waitErr != nil {
+		if id == "" {
+			return nil, waitErr
+		}
+
+		// Resource was created but failed to fully initialize.
+		// If it has some state, return a partial error.
+		if readErr != nil {
+			return nil, fmt.Errorf("resource partially created but read failed. read error: %v, create error: %w", readErr, waitErr)
+		}
+		obj := checkpointObject(inputs, outputs)
+		checkpoint, err := plugin.MarshalProperties(
+			obj,
+			plugin.MarshalOptions{
+				Label:        "currentResourceStateCheckpoint.checkpoint",
+				KeepSecrets:  true,
+				KeepUnknowns: true,
+				SkipNulls:    true,
+			},
+		)
+		if err != nil {
+			return nil, fmt.Errorf("marshalling currentResourceStateCheckpoint: %w", err)
+		}
+		return nil, partialError(id, waitErr, checkpoint, req.GetProperties())
 	}
 	if pi.Identifier == nil {
 		return nil, errors.New("received nil identifier while reading resource state")
 	}
-
-	// Retrieve the resource state from AWS.
-	id := *pi.Identifier
-	glog.V(9).Infof("%s.GetResource %q id %q", label, cfType, id)
-	resourceState, err := p.readResourceState(ctx, cfType, id)
-	if err != nil {
-		return nil, errors.Wrapf(err, "reading resource state")
+	if readErr != nil {
+		return nil, fmt.Errorf("reading resource state: %w", readErr)
 	}
-	outputs := schema.CfnToSdk(resourceState)
 
 	switch resourceToken {
 	case schema.ExtensionResourceToken:
@@ -988,16 +1022,6 @@ func (p *cfnProvider) waitForResourceOpCompletion(ctx context.Context, pi *types
 	}
 }
 
-func cleanTopLevelAttributeNames(attrs map[string]interface{}) map[string]interface{} {
-	for k, v := range attrs {
-		if strings.Index(k, ".") != -1 {
-			delete(attrs, k)
-			attrs[strings.Replace(k, ".", "", -1)] = v
-		}
-	}
-	return attrs
-}
-
 func mapReplStripSecrets(v resource.PropertyValue) (interface{}, bool) {
 	if v.IsSecret() {
 		return v.SecretValue().Element.MapRepl(nil, mapReplStripSecrets), true
@@ -1071,20 +1095,6 @@ func parseCheckpointObject(obj resource.PropertyMap) resource.PropertyMap {
 	return nil
 }
 
-// getPulumiVersion parses the version of the pulumi SDK used in the running program.
-func getPulumiVersion() string {
-	if bi, ok := debug.ReadBuildInfo(); ok {
-		for _, dep := range bi.Deps {
-			if strings.HasPrefix(dep.Path, "github.com/pulumi/pulumi/sdk") {
-				return strings.TrimPrefix(dep.Version, "v")
-			}
-		}
-	}
-	// We should never get here but let's not panic and return something sensible if we do.
-	logging.V(4).Info("No Pulumi package version found, using '3.0' as the default version for user-agent")
-	return "3.0"
-}
-
 // pulumiUserAgentMiddleware adds a Pulumi-specific user-agent to the request middleware.
 // Example: APN/1.0 Pulumi/1.0 PulumiAwsNative/1.12,
 var pulumiUserAgentMiddleware = middleware.BuildMiddlewareFunc("PulumiUserAgent", func(
@@ -1137,4 +1147,16 @@ func normalizeFilePath(filePath string) (string, error) {
 		filePath = filepath.Join(dir, filePath[14:])
 	}
 	return filePath, nil
+}
+
+// partialError creates an error for resources that did not complete an operation in progress.
+// The last known state of the object is included in the error so that it can be checkpointed.
+func partialError(id string, err error, state *structpb.Struct, inputs *structpb.Struct) error {
+	detail := pulumirpc.ErrorResourceInitFailed{
+		Id:         id,
+		Properties: state,
+		Reasons:    []string{err.Error()},
+		Inputs:     inputs,
+	}
+	return rpcerror.WithDetails(rpcerror.New(codes.Unknown, err.Error()), &detail)
 }
