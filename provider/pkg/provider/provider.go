@@ -574,15 +574,8 @@ func (p *cfnProvider) Diff(ctx context.Context, req *pulumirpc.DiffRequest) (*pu
 		return &pulumirpc.DiffResponse{Changes: pulumirpc.DiffResponse_DIFF_NONE}, nil
 	}
 
-	resourceToken := string(urn.Type())
-	spec, ok := p.resourceMap.Resources[resourceToken]
-	if !ok {
-		return nil, errors.Errorf("Resource type %s not found", resourceToken)
-	}
-
 	return &pulumirpc.DiffResponse{
 		Changes:             pulumirpc.DiffResponse_DIFF_UNKNOWN,
-		Replaces:            spec.CreateOnly,
 		DeleteBeforeReplace: true,
 	}, nil
 }
