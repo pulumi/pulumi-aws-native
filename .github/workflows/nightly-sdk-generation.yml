@@ -53,8 +53,8 @@ jobs:
           git add .
           git commit -m "Preparing the SDK folder for regeneration"
           git push origin generate-sdk/${{ github.run_id }}-${{ github.run_number }}
-      - name: Update submodules
-        run: make update_submodules
+      - name: Discovery
+        run: make discovery
       - name: Build codegen binaries
         run: make codegen
       - name: Build Schema + SDKs
