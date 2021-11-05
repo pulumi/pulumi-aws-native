@@ -1,0 +1,79 @@
+name: nightly-sdk-generation
+"on":
+  schedule:
+    - cron: 35 4 * * *
+  workflow_dispatch: {}
+
+env:
+  GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
+  PROVIDER: aws-native
+
+jobs:
+  generate-sdk:
+    name: prerequisites
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        goversion: [1.16.x]
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          lfs: true
+      - name: Unshallow clone for tags
+        run: git fetch --prune --unshallow --tags
+      - name: Install Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: ${{ matrix.goversion }}
+      - name: Install pulumictl
+        uses: jaxxstorm/action-install-gh-release@v1.1.0
+        with:
+          repo: pulumi/pulumictl
+      - name: Install Pulumi CLI
+        uses: pulumi/action-install-pulumi-cli@v1.0.1
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-region: us-west-2
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          role-duration-seconds: 3600
+          role-session-name: ${{ env.PROVIDER }}@githubActions
+          role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
+      - name: Cleanup SDK folder
+        run: make clean
+      - name: Preparing Git Branch
+        run: |
+          git config --local user.email "bot@pulumi.com"
+          git config --local user.name "pulumi-bot"
+          git checkout -b generate-sdk/${{ github.run_id }}-${{ github.run_number }}
+      - name: commit changes
+        run: |
+          git add .
+          git commit -m "Preparing the SDK folder for regeneration"
+          git push origin generate-sdk/${{ github.run_id }}-${{ github.run_number }}
+      - name: Discovery
+        run: make discovery
+      - name: Build codegen binaries
+        run: make codegen
+      - name: Build Schema + SDKs
+        run: make local_generate
+      - name: Git submodule commit hash
+        id: vars
+        run: echo ::set-output name=commit-hash::$(git rev-parse HEAD)
+        working-directory: aws-cloudformation-user-guide
+      - name: commit changes
+        run: |
+          git add .
+          git commit -m "Regenerating SDK based on aws-cloudformation-user-guide @ ${{ steps.vars.outputs.commit-hash }}"
+          git push origin generate-sdk/${{ github.run_id }}-${{ github.run_number }}
+      - name: pull-request
+        uses: repo-sync/pull-request@v2
+        with:
+          source_branch: "generate-sdk/${{ github.run_id }}-${{ github.run_number }}"
+          destination_branch: "master"
+          pr_title: "Automated SDK generation @ aws-cloudformation-user-guide ${{ steps.vars.outputs.commit-hash }}"
+          pr_label: "automation/merge"
+          pr_allow_empty: true
+          github_token: ${{ secrets.PULUMI_BOT_TOKEN }}   
