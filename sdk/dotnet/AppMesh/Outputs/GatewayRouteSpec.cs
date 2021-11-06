@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
         public readonly Outputs.GatewayRouteGrpcGatewayRoute? GrpcRoute;
         public readonly Outputs.GatewayRouteHttpGatewayRoute? Http2Route;
         public readonly Outputs.GatewayRouteHttpGatewayRoute? HttpRoute;
+        public readonly int? Priority;
 
         [OutputConstructor]
         private GatewayRouteSpec(
@@ -23,11 +24,14 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
 
             Outputs.GatewayRouteHttpGatewayRoute? http2Route,
 
-            Outputs.GatewayRouteHttpGatewayRoute? httpRoute)
+            Outputs.GatewayRouteHttpGatewayRoute? httpRoute,
+
+            int? priority)
         {
             GrpcRoute = grpcRoute;
             Http2Route = http2Route;
             HttpRoute = httpRoute;
+            Priority = priority;
         }
     }
 }

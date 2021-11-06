@@ -20,6 +20,7 @@ class EndpointArgs:
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  exclude_retained_variant_properties: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointVariantPropertyArgs']]]] = None,
                  retain_all_variant_properties: Optional[pulumi.Input[bool]] = None,
+                 retain_deployment_config: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointTagArgs']]]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
@@ -33,6 +34,8 @@ class EndpointArgs:
             pulumi.set(__self__, "exclude_retained_variant_properties", exclude_retained_variant_properties)
         if retain_all_variant_properties is not None:
             pulumi.set(__self__, "retain_all_variant_properties", retain_all_variant_properties)
+        if retain_deployment_config is not None:
+            pulumi.set(__self__, "retain_deployment_config", retain_deployment_config)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -82,6 +85,15 @@ class EndpointArgs:
         pulumi.set(self, "retain_all_variant_properties", value)
 
     @property
+    @pulumi.getter(name="retainDeploymentConfig")
+    def retain_deployment_config(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "retain_deployment_config")
+
+    @retain_deployment_config.setter
+    def retain_deployment_config(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "retain_deployment_config", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointTagArgs']]]]:
         return pulumi.get(self, "tags")
@@ -106,6 +118,7 @@ class Endpoint(pulumi.CustomResource):
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  exclude_retained_variant_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointVariantPropertyArgs']]]]] = None,
                  retain_all_variant_properties: Optional[pulumi.Input[bool]] = None,
+                 retain_deployment_config: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -143,6 +156,7 @@ class Endpoint(pulumi.CustomResource):
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  exclude_retained_variant_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointVariantPropertyArgs']]]]] = None,
                  retain_all_variant_properties: Optional[pulumi.Input[bool]] = None,
+                 retain_deployment_config: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointTagArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""Endpoint is deprecated: Endpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -164,6 +178,7 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["endpoint_name"] = endpoint_name
             __props__.__dict__["exclude_retained_variant_properties"] = exclude_retained_variant_properties
             __props__.__dict__["retain_all_variant_properties"] = retain_all_variant_properties
+            __props__.__dict__["retain_deployment_config"] = retain_deployment_config
             __props__.__dict__["tags"] = tags
         super(Endpoint, __self__).__init__(
             'aws-native:sagemaker:Endpoint',
@@ -192,6 +207,7 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["endpoint_name"] = None
         __props__.__dict__["exclude_retained_variant_properties"] = None
         __props__.__dict__["retain_all_variant_properties"] = None
+        __props__.__dict__["retain_deployment_config"] = None
         __props__.__dict__["tags"] = None
         return Endpoint(resource_name, opts=opts, __props__=__props__)
 
@@ -219,6 +235,11 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="retainAllVariantProperties")
     def retain_all_variant_properties(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "retain_all_variant_properties")
+
+    @property
+    @pulumi.getter(name="retainDeploymentConfig")
+    def retain_deployment_config(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "retain_deployment_config")
 
     @property
     @pulumi.getter

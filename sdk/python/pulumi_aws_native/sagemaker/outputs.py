@@ -2456,6 +2456,8 @@ class EndpointTrafficRoutingConfig(dict):
         suggest = None
         if key == "canarySize":
             suggest = "canary_size"
+        elif key == "linearStepSize":
+            suggest = "linear_step_size"
         elif key == "waitIntervalInSeconds":
             suggest = "wait_interval_in_seconds"
 
@@ -2473,10 +2475,13 @@ class EndpointTrafficRoutingConfig(dict):
     def __init__(__self__, *,
                  type: str,
                  canary_size: Optional['outputs.EndpointCapacitySize'] = None,
+                 linear_step_size: Optional['outputs.EndpointCapacitySize'] = None,
                  wait_interval_in_seconds: Optional[int] = None):
         pulumi.set(__self__, "type", type)
         if canary_size is not None:
             pulumi.set(__self__, "canary_size", canary_size)
+        if linear_step_size is not None:
+            pulumi.set(__self__, "linear_step_size", linear_step_size)
         if wait_interval_in_seconds is not None:
             pulumi.set(__self__, "wait_interval_in_seconds", wait_interval_in_seconds)
 
@@ -2489,6 +2494,11 @@ class EndpointTrafficRoutingConfig(dict):
     @pulumi.getter(name="canarySize")
     def canary_size(self) -> Optional['outputs.EndpointCapacitySize']:
         return pulumi.get(self, "canary_size")
+
+    @property
+    @pulumi.getter(name="linearStepSize")
+    def linear_step_size(self) -> Optional['outputs.EndpointCapacitySize']:
+        return pulumi.get(self, "linear_step_size")
 
     @property
     @pulumi.getter(name="waitIntervalInSeconds")

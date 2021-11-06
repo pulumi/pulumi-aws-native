@@ -22,6 +22,7 @@ type Endpoint struct {
 	EndpointName                     pulumi.StringPtrOutput             `pulumi:"endpointName"`
 	ExcludeRetainedVariantProperties EndpointVariantPropertyArrayOutput `pulumi:"excludeRetainedVariantProperties"`
 	RetainAllVariantProperties       pulumi.BoolPtrOutput               `pulumi:"retainAllVariantProperties"`
+	RetainDeploymentConfig           pulumi.BoolPtrOutput               `pulumi:"retainDeploymentConfig"`
 	Tags                             EndpointTagArrayOutput             `pulumi:"tags"`
 }
 
@@ -72,6 +73,7 @@ type endpointArgs struct {
 	EndpointName                     *string                   `pulumi:"endpointName"`
 	ExcludeRetainedVariantProperties []EndpointVariantProperty `pulumi:"excludeRetainedVariantProperties"`
 	RetainAllVariantProperties       *bool                     `pulumi:"retainAllVariantProperties"`
+	RetainDeploymentConfig           *bool                     `pulumi:"retainDeploymentConfig"`
 	Tags                             []EndpointTag             `pulumi:"tags"`
 }
 
@@ -82,6 +84,7 @@ type EndpointArgs struct {
 	EndpointName                     pulumi.StringPtrInput
 	ExcludeRetainedVariantProperties EndpointVariantPropertyArrayInput
 	RetainAllVariantProperties       pulumi.BoolPtrInput
+	RetainDeploymentConfig           pulumi.BoolPtrInput
 	Tags                             EndpointTagArrayInput
 }
 

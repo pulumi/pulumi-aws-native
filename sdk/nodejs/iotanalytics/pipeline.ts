@@ -39,7 +39,7 @@ export class Pipeline extends pulumi.CustomResource {
     }
 
     public readonly pipelineActivities!: pulumi.Output<outputs.iotanalytics.PipelineActivity[]>;
-    public readonly pipelineName!: pulumi.Output<string | undefined>;
+    public readonly pipelineName!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.iotanalytics.PipelineTag[] | undefined>;
 
     /**

@@ -84,13 +84,7 @@
       "additionalProperties" : false,
       "properties" : {
         "MaintenanceStrategies" : {
-          "type" : "object",
-          "additionalProperties" : false,
-          "properties" : {
-            "CapacityRebalance" : {
-              "$ref" : "#/definitions/CapacityRebalance"
-            }
-          }
+          "$ref" : "#/definitions/MaintenanceStrategies"
         },
         "SingleAvailabilityZone" : {
           "type" : "boolean"
@@ -477,6 +471,15 @@
         },
         "Max" : {
           "type" : "integer"
+        }
+      }
+    },
+    "MaintenanceStrategies" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "CapacityRebalance" : {
+          "$ref" : "#/definitions/CapacityRebalance"
         }
       }
     },

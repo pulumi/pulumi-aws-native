@@ -176,6 +176,505 @@ func (in *agentEndpointTypePtr) ToAgentEndpointTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(AgentEndpointTypePtrOutput)
 }
 
+// The authentication mode used to determine identity of user.
+type LocationHDFSAuthenticationType string
+
+const (
+	LocationHDFSAuthenticationTypeSimple   = LocationHDFSAuthenticationType("SIMPLE")
+	LocationHDFSAuthenticationTypeKerberos = LocationHDFSAuthenticationType("KERBEROS")
+)
+
+func (LocationHDFSAuthenticationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationHDFSAuthenticationType)(nil)).Elem()
+}
+
+func (e LocationHDFSAuthenticationType) ToLocationHDFSAuthenticationTypeOutput() LocationHDFSAuthenticationTypeOutput {
+	return pulumi.ToOutput(e).(LocationHDFSAuthenticationTypeOutput)
+}
+
+func (e LocationHDFSAuthenticationType) ToLocationHDFSAuthenticationTypeOutputWithContext(ctx context.Context) LocationHDFSAuthenticationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LocationHDFSAuthenticationTypeOutput)
+}
+
+func (e LocationHDFSAuthenticationType) ToLocationHDFSAuthenticationTypePtrOutput() LocationHDFSAuthenticationTypePtrOutput {
+	return e.ToLocationHDFSAuthenticationTypePtrOutputWithContext(context.Background())
+}
+
+func (e LocationHDFSAuthenticationType) ToLocationHDFSAuthenticationTypePtrOutputWithContext(ctx context.Context) LocationHDFSAuthenticationTypePtrOutput {
+	return LocationHDFSAuthenticationType(e).ToLocationHDFSAuthenticationTypeOutputWithContext(ctx).ToLocationHDFSAuthenticationTypePtrOutputWithContext(ctx)
+}
+
+func (e LocationHDFSAuthenticationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LocationHDFSAuthenticationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LocationHDFSAuthenticationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LocationHDFSAuthenticationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LocationHDFSAuthenticationTypeOutput struct{ *pulumi.OutputState }
+
+func (LocationHDFSAuthenticationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationHDFSAuthenticationType)(nil)).Elem()
+}
+
+func (o LocationHDFSAuthenticationTypeOutput) ToLocationHDFSAuthenticationTypeOutput() LocationHDFSAuthenticationTypeOutput {
+	return o
+}
+
+func (o LocationHDFSAuthenticationTypeOutput) ToLocationHDFSAuthenticationTypeOutputWithContext(ctx context.Context) LocationHDFSAuthenticationTypeOutput {
+	return o
+}
+
+func (o LocationHDFSAuthenticationTypeOutput) ToLocationHDFSAuthenticationTypePtrOutput() LocationHDFSAuthenticationTypePtrOutput {
+	return o.ToLocationHDFSAuthenticationTypePtrOutputWithContext(context.Background())
+}
+
+func (o LocationHDFSAuthenticationTypeOutput) ToLocationHDFSAuthenticationTypePtrOutputWithContext(ctx context.Context) LocationHDFSAuthenticationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationHDFSAuthenticationType) *LocationHDFSAuthenticationType {
+		return &v
+	}).(LocationHDFSAuthenticationTypePtrOutput)
+}
+
+func (o LocationHDFSAuthenticationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LocationHDFSAuthenticationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationHDFSAuthenticationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LocationHDFSAuthenticationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LocationHDFSAuthenticationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationHDFSAuthenticationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LocationHDFSAuthenticationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (LocationHDFSAuthenticationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationHDFSAuthenticationType)(nil)).Elem()
+}
+
+func (o LocationHDFSAuthenticationTypePtrOutput) ToLocationHDFSAuthenticationTypePtrOutput() LocationHDFSAuthenticationTypePtrOutput {
+	return o
+}
+
+func (o LocationHDFSAuthenticationTypePtrOutput) ToLocationHDFSAuthenticationTypePtrOutputWithContext(ctx context.Context) LocationHDFSAuthenticationTypePtrOutput {
+	return o
+}
+
+func (o LocationHDFSAuthenticationTypePtrOutput) Elem() LocationHDFSAuthenticationTypeOutput {
+	return o.ApplyT(func(v *LocationHDFSAuthenticationType) LocationHDFSAuthenticationType {
+		if v != nil {
+			return *v
+		}
+		var ret LocationHDFSAuthenticationType
+		return ret
+	}).(LocationHDFSAuthenticationTypeOutput)
+}
+
+func (o LocationHDFSAuthenticationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LocationHDFSAuthenticationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LocationHDFSAuthenticationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LocationHDFSAuthenticationTypeInput is an input type that accepts LocationHDFSAuthenticationTypeArgs and LocationHDFSAuthenticationTypeOutput values.
+// You can construct a concrete instance of `LocationHDFSAuthenticationTypeInput` via:
+//
+//          LocationHDFSAuthenticationTypeArgs{...}
+type LocationHDFSAuthenticationTypeInput interface {
+	pulumi.Input
+
+	ToLocationHDFSAuthenticationTypeOutput() LocationHDFSAuthenticationTypeOutput
+	ToLocationHDFSAuthenticationTypeOutputWithContext(context.Context) LocationHDFSAuthenticationTypeOutput
+}
+
+var locationHDFSAuthenticationTypePtrType = reflect.TypeOf((**LocationHDFSAuthenticationType)(nil)).Elem()
+
+type LocationHDFSAuthenticationTypePtrInput interface {
+	pulumi.Input
+
+	ToLocationHDFSAuthenticationTypePtrOutput() LocationHDFSAuthenticationTypePtrOutput
+	ToLocationHDFSAuthenticationTypePtrOutputWithContext(context.Context) LocationHDFSAuthenticationTypePtrOutput
+}
+
+type locationHDFSAuthenticationTypePtr string
+
+func LocationHDFSAuthenticationTypePtr(v string) LocationHDFSAuthenticationTypePtrInput {
+	return (*locationHDFSAuthenticationTypePtr)(&v)
+}
+
+func (*locationHDFSAuthenticationTypePtr) ElementType() reflect.Type {
+	return locationHDFSAuthenticationTypePtrType
+}
+
+func (in *locationHDFSAuthenticationTypePtr) ToLocationHDFSAuthenticationTypePtrOutput() LocationHDFSAuthenticationTypePtrOutput {
+	return pulumi.ToOutput(in).(LocationHDFSAuthenticationTypePtrOutput)
+}
+
+func (in *locationHDFSAuthenticationTypePtr) ToLocationHDFSAuthenticationTypePtrOutputWithContext(ctx context.Context) LocationHDFSAuthenticationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LocationHDFSAuthenticationTypePtrOutput)
+}
+
+// Configuration for Data Transfer Protection.
+type LocationHDFSQopConfigurationDataTransferProtection string
+
+const (
+	LocationHDFSQopConfigurationDataTransferProtectionAuthentication = LocationHDFSQopConfigurationDataTransferProtection("AUTHENTICATION")
+	LocationHDFSQopConfigurationDataTransferProtectionIntegrity      = LocationHDFSQopConfigurationDataTransferProtection("INTEGRITY")
+	LocationHDFSQopConfigurationDataTransferProtectionPrivacy        = LocationHDFSQopConfigurationDataTransferProtection("PRIVACY")
+	LocationHDFSQopConfigurationDataTransferProtectionDisabled       = LocationHDFSQopConfigurationDataTransferProtection("DISABLED")
+)
+
+func (LocationHDFSQopConfigurationDataTransferProtection) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationHDFSQopConfigurationDataTransferProtection)(nil)).Elem()
+}
+
+func (e LocationHDFSQopConfigurationDataTransferProtection) ToLocationHDFSQopConfigurationDataTransferProtectionOutput() LocationHDFSQopConfigurationDataTransferProtectionOutput {
+	return pulumi.ToOutput(e).(LocationHDFSQopConfigurationDataTransferProtectionOutput)
+}
+
+func (e LocationHDFSQopConfigurationDataTransferProtection) ToLocationHDFSQopConfigurationDataTransferProtectionOutputWithContext(ctx context.Context) LocationHDFSQopConfigurationDataTransferProtectionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LocationHDFSQopConfigurationDataTransferProtectionOutput)
+}
+
+func (e LocationHDFSQopConfigurationDataTransferProtection) ToLocationHDFSQopConfigurationDataTransferProtectionPtrOutput() LocationHDFSQopConfigurationDataTransferProtectionPtrOutput {
+	return e.ToLocationHDFSQopConfigurationDataTransferProtectionPtrOutputWithContext(context.Background())
+}
+
+func (e LocationHDFSQopConfigurationDataTransferProtection) ToLocationHDFSQopConfigurationDataTransferProtectionPtrOutputWithContext(ctx context.Context) LocationHDFSQopConfigurationDataTransferProtectionPtrOutput {
+	return LocationHDFSQopConfigurationDataTransferProtection(e).ToLocationHDFSQopConfigurationDataTransferProtectionOutputWithContext(ctx).ToLocationHDFSQopConfigurationDataTransferProtectionPtrOutputWithContext(ctx)
+}
+
+func (e LocationHDFSQopConfigurationDataTransferProtection) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LocationHDFSQopConfigurationDataTransferProtection) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LocationHDFSQopConfigurationDataTransferProtection) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LocationHDFSQopConfigurationDataTransferProtection) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LocationHDFSQopConfigurationDataTransferProtectionOutput struct{ *pulumi.OutputState }
+
+func (LocationHDFSQopConfigurationDataTransferProtectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationHDFSQopConfigurationDataTransferProtection)(nil)).Elem()
+}
+
+func (o LocationHDFSQopConfigurationDataTransferProtectionOutput) ToLocationHDFSQopConfigurationDataTransferProtectionOutput() LocationHDFSQopConfigurationDataTransferProtectionOutput {
+	return o
+}
+
+func (o LocationHDFSQopConfigurationDataTransferProtectionOutput) ToLocationHDFSQopConfigurationDataTransferProtectionOutputWithContext(ctx context.Context) LocationHDFSQopConfigurationDataTransferProtectionOutput {
+	return o
+}
+
+func (o LocationHDFSQopConfigurationDataTransferProtectionOutput) ToLocationHDFSQopConfigurationDataTransferProtectionPtrOutput() LocationHDFSQopConfigurationDataTransferProtectionPtrOutput {
+	return o.ToLocationHDFSQopConfigurationDataTransferProtectionPtrOutputWithContext(context.Background())
+}
+
+func (o LocationHDFSQopConfigurationDataTransferProtectionOutput) ToLocationHDFSQopConfigurationDataTransferProtectionPtrOutputWithContext(ctx context.Context) LocationHDFSQopConfigurationDataTransferProtectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationHDFSQopConfigurationDataTransferProtection) *LocationHDFSQopConfigurationDataTransferProtection {
+		return &v
+	}).(LocationHDFSQopConfigurationDataTransferProtectionPtrOutput)
+}
+
+func (o LocationHDFSQopConfigurationDataTransferProtectionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LocationHDFSQopConfigurationDataTransferProtectionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationHDFSQopConfigurationDataTransferProtection) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LocationHDFSQopConfigurationDataTransferProtectionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LocationHDFSQopConfigurationDataTransferProtectionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationHDFSQopConfigurationDataTransferProtection) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LocationHDFSQopConfigurationDataTransferProtectionPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationHDFSQopConfigurationDataTransferProtectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationHDFSQopConfigurationDataTransferProtection)(nil)).Elem()
+}
+
+func (o LocationHDFSQopConfigurationDataTransferProtectionPtrOutput) ToLocationHDFSQopConfigurationDataTransferProtectionPtrOutput() LocationHDFSQopConfigurationDataTransferProtectionPtrOutput {
+	return o
+}
+
+func (o LocationHDFSQopConfigurationDataTransferProtectionPtrOutput) ToLocationHDFSQopConfigurationDataTransferProtectionPtrOutputWithContext(ctx context.Context) LocationHDFSQopConfigurationDataTransferProtectionPtrOutput {
+	return o
+}
+
+func (o LocationHDFSQopConfigurationDataTransferProtectionPtrOutput) Elem() LocationHDFSQopConfigurationDataTransferProtectionOutput {
+	return o.ApplyT(func(v *LocationHDFSQopConfigurationDataTransferProtection) LocationHDFSQopConfigurationDataTransferProtection {
+		if v != nil {
+			return *v
+		}
+		var ret LocationHDFSQopConfigurationDataTransferProtection
+		return ret
+	}).(LocationHDFSQopConfigurationDataTransferProtectionOutput)
+}
+
+func (o LocationHDFSQopConfigurationDataTransferProtectionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LocationHDFSQopConfigurationDataTransferProtectionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LocationHDFSQopConfigurationDataTransferProtection) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LocationHDFSQopConfigurationDataTransferProtectionInput is an input type that accepts LocationHDFSQopConfigurationDataTransferProtectionArgs and LocationHDFSQopConfigurationDataTransferProtectionOutput values.
+// You can construct a concrete instance of `LocationHDFSQopConfigurationDataTransferProtectionInput` via:
+//
+//          LocationHDFSQopConfigurationDataTransferProtectionArgs{...}
+type LocationHDFSQopConfigurationDataTransferProtectionInput interface {
+	pulumi.Input
+
+	ToLocationHDFSQopConfigurationDataTransferProtectionOutput() LocationHDFSQopConfigurationDataTransferProtectionOutput
+	ToLocationHDFSQopConfigurationDataTransferProtectionOutputWithContext(context.Context) LocationHDFSQopConfigurationDataTransferProtectionOutput
+}
+
+var locationHDFSQopConfigurationDataTransferProtectionPtrType = reflect.TypeOf((**LocationHDFSQopConfigurationDataTransferProtection)(nil)).Elem()
+
+type LocationHDFSQopConfigurationDataTransferProtectionPtrInput interface {
+	pulumi.Input
+
+	ToLocationHDFSQopConfigurationDataTransferProtectionPtrOutput() LocationHDFSQopConfigurationDataTransferProtectionPtrOutput
+	ToLocationHDFSQopConfigurationDataTransferProtectionPtrOutputWithContext(context.Context) LocationHDFSQopConfigurationDataTransferProtectionPtrOutput
+}
+
+type locationHDFSQopConfigurationDataTransferProtectionPtr string
+
+func LocationHDFSQopConfigurationDataTransferProtectionPtr(v string) LocationHDFSQopConfigurationDataTransferProtectionPtrInput {
+	return (*locationHDFSQopConfigurationDataTransferProtectionPtr)(&v)
+}
+
+func (*locationHDFSQopConfigurationDataTransferProtectionPtr) ElementType() reflect.Type {
+	return locationHDFSQopConfigurationDataTransferProtectionPtrType
+}
+
+func (in *locationHDFSQopConfigurationDataTransferProtectionPtr) ToLocationHDFSQopConfigurationDataTransferProtectionPtrOutput() LocationHDFSQopConfigurationDataTransferProtectionPtrOutput {
+	return pulumi.ToOutput(in).(LocationHDFSQopConfigurationDataTransferProtectionPtrOutput)
+}
+
+func (in *locationHDFSQopConfigurationDataTransferProtectionPtr) ToLocationHDFSQopConfigurationDataTransferProtectionPtrOutputWithContext(ctx context.Context) LocationHDFSQopConfigurationDataTransferProtectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LocationHDFSQopConfigurationDataTransferProtectionPtrOutput)
+}
+
+// Configuration for RPC Protection.
+type LocationHDFSQopConfigurationRpcProtection string
+
+const (
+	LocationHDFSQopConfigurationRpcProtectionAuthentication = LocationHDFSQopConfigurationRpcProtection("AUTHENTICATION")
+	LocationHDFSQopConfigurationRpcProtectionIntegrity      = LocationHDFSQopConfigurationRpcProtection("INTEGRITY")
+	LocationHDFSQopConfigurationRpcProtectionPrivacy        = LocationHDFSQopConfigurationRpcProtection("PRIVACY")
+	LocationHDFSQopConfigurationRpcProtectionDisabled       = LocationHDFSQopConfigurationRpcProtection("DISABLED")
+)
+
+func (LocationHDFSQopConfigurationRpcProtection) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationHDFSQopConfigurationRpcProtection)(nil)).Elem()
+}
+
+func (e LocationHDFSQopConfigurationRpcProtection) ToLocationHDFSQopConfigurationRpcProtectionOutput() LocationHDFSQopConfigurationRpcProtectionOutput {
+	return pulumi.ToOutput(e).(LocationHDFSQopConfigurationRpcProtectionOutput)
+}
+
+func (e LocationHDFSQopConfigurationRpcProtection) ToLocationHDFSQopConfigurationRpcProtectionOutputWithContext(ctx context.Context) LocationHDFSQopConfigurationRpcProtectionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LocationHDFSQopConfigurationRpcProtectionOutput)
+}
+
+func (e LocationHDFSQopConfigurationRpcProtection) ToLocationHDFSQopConfigurationRpcProtectionPtrOutput() LocationHDFSQopConfigurationRpcProtectionPtrOutput {
+	return e.ToLocationHDFSQopConfigurationRpcProtectionPtrOutputWithContext(context.Background())
+}
+
+func (e LocationHDFSQopConfigurationRpcProtection) ToLocationHDFSQopConfigurationRpcProtectionPtrOutputWithContext(ctx context.Context) LocationHDFSQopConfigurationRpcProtectionPtrOutput {
+	return LocationHDFSQopConfigurationRpcProtection(e).ToLocationHDFSQopConfigurationRpcProtectionOutputWithContext(ctx).ToLocationHDFSQopConfigurationRpcProtectionPtrOutputWithContext(ctx)
+}
+
+func (e LocationHDFSQopConfigurationRpcProtection) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LocationHDFSQopConfigurationRpcProtection) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LocationHDFSQopConfigurationRpcProtection) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LocationHDFSQopConfigurationRpcProtection) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LocationHDFSQopConfigurationRpcProtectionOutput struct{ *pulumi.OutputState }
+
+func (LocationHDFSQopConfigurationRpcProtectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationHDFSQopConfigurationRpcProtection)(nil)).Elem()
+}
+
+func (o LocationHDFSQopConfigurationRpcProtectionOutput) ToLocationHDFSQopConfigurationRpcProtectionOutput() LocationHDFSQopConfigurationRpcProtectionOutput {
+	return o
+}
+
+func (o LocationHDFSQopConfigurationRpcProtectionOutput) ToLocationHDFSQopConfigurationRpcProtectionOutputWithContext(ctx context.Context) LocationHDFSQopConfigurationRpcProtectionOutput {
+	return o
+}
+
+func (o LocationHDFSQopConfigurationRpcProtectionOutput) ToLocationHDFSQopConfigurationRpcProtectionPtrOutput() LocationHDFSQopConfigurationRpcProtectionPtrOutput {
+	return o.ToLocationHDFSQopConfigurationRpcProtectionPtrOutputWithContext(context.Background())
+}
+
+func (o LocationHDFSQopConfigurationRpcProtectionOutput) ToLocationHDFSQopConfigurationRpcProtectionPtrOutputWithContext(ctx context.Context) LocationHDFSQopConfigurationRpcProtectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationHDFSQopConfigurationRpcProtection) *LocationHDFSQopConfigurationRpcProtection {
+		return &v
+	}).(LocationHDFSQopConfigurationRpcProtectionPtrOutput)
+}
+
+func (o LocationHDFSQopConfigurationRpcProtectionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LocationHDFSQopConfigurationRpcProtectionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationHDFSQopConfigurationRpcProtection) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LocationHDFSQopConfigurationRpcProtectionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LocationHDFSQopConfigurationRpcProtectionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LocationHDFSQopConfigurationRpcProtection) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LocationHDFSQopConfigurationRpcProtectionPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationHDFSQopConfigurationRpcProtectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationHDFSQopConfigurationRpcProtection)(nil)).Elem()
+}
+
+func (o LocationHDFSQopConfigurationRpcProtectionPtrOutput) ToLocationHDFSQopConfigurationRpcProtectionPtrOutput() LocationHDFSQopConfigurationRpcProtectionPtrOutput {
+	return o
+}
+
+func (o LocationHDFSQopConfigurationRpcProtectionPtrOutput) ToLocationHDFSQopConfigurationRpcProtectionPtrOutputWithContext(ctx context.Context) LocationHDFSQopConfigurationRpcProtectionPtrOutput {
+	return o
+}
+
+func (o LocationHDFSQopConfigurationRpcProtectionPtrOutput) Elem() LocationHDFSQopConfigurationRpcProtectionOutput {
+	return o.ApplyT(func(v *LocationHDFSQopConfigurationRpcProtection) LocationHDFSQopConfigurationRpcProtection {
+		if v != nil {
+			return *v
+		}
+		var ret LocationHDFSQopConfigurationRpcProtection
+		return ret
+	}).(LocationHDFSQopConfigurationRpcProtectionOutput)
+}
+
+func (o LocationHDFSQopConfigurationRpcProtectionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LocationHDFSQopConfigurationRpcProtectionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LocationHDFSQopConfigurationRpcProtection) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LocationHDFSQopConfigurationRpcProtectionInput is an input type that accepts LocationHDFSQopConfigurationRpcProtectionArgs and LocationHDFSQopConfigurationRpcProtectionOutput values.
+// You can construct a concrete instance of `LocationHDFSQopConfigurationRpcProtectionInput` via:
+//
+//          LocationHDFSQopConfigurationRpcProtectionArgs{...}
+type LocationHDFSQopConfigurationRpcProtectionInput interface {
+	pulumi.Input
+
+	ToLocationHDFSQopConfigurationRpcProtectionOutput() LocationHDFSQopConfigurationRpcProtectionOutput
+	ToLocationHDFSQopConfigurationRpcProtectionOutputWithContext(context.Context) LocationHDFSQopConfigurationRpcProtectionOutput
+}
+
+var locationHDFSQopConfigurationRpcProtectionPtrType = reflect.TypeOf((**LocationHDFSQopConfigurationRpcProtection)(nil)).Elem()
+
+type LocationHDFSQopConfigurationRpcProtectionPtrInput interface {
+	pulumi.Input
+
+	ToLocationHDFSQopConfigurationRpcProtectionPtrOutput() LocationHDFSQopConfigurationRpcProtectionPtrOutput
+	ToLocationHDFSQopConfigurationRpcProtectionPtrOutputWithContext(context.Context) LocationHDFSQopConfigurationRpcProtectionPtrOutput
+}
+
+type locationHDFSQopConfigurationRpcProtectionPtr string
+
+func LocationHDFSQopConfigurationRpcProtectionPtr(v string) LocationHDFSQopConfigurationRpcProtectionPtrInput {
+	return (*locationHDFSQopConfigurationRpcProtectionPtr)(&v)
+}
+
+func (*locationHDFSQopConfigurationRpcProtectionPtr) ElementType() reflect.Type {
+	return locationHDFSQopConfigurationRpcProtectionPtrType
+}
+
+func (in *locationHDFSQopConfigurationRpcProtectionPtr) ToLocationHDFSQopConfigurationRpcProtectionPtrOutput() LocationHDFSQopConfigurationRpcProtectionPtrOutput {
+	return pulumi.ToOutput(in).(LocationHDFSQopConfigurationRpcProtectionPtrOutput)
+}
+
+func (in *locationHDFSQopConfigurationRpcProtectionPtr) ToLocationHDFSQopConfigurationRpcProtectionPtrOutputWithContext(ctx context.Context) LocationHDFSQopConfigurationRpcProtectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LocationHDFSQopConfigurationRpcProtectionPtrOutput)
+}
+
 // The specific NFS version that you want DataSync to use to mount your NFS share.
 type LocationNFSMountOptionsVersion string
 
@@ -3330,6 +3829,12 @@ func (in *taskStatusPtr) ToTaskStatusPtrOutputWithContext(ctx context.Context) T
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentEndpointTypeInput)(nil)).Elem(), AgentEndpointType("FIPS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentEndpointTypePtrInput)(nil)).Elem(), AgentEndpointType("FIPS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationHDFSAuthenticationTypeInput)(nil)).Elem(), LocationHDFSAuthenticationType("SIMPLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationHDFSAuthenticationTypePtrInput)(nil)).Elem(), LocationHDFSAuthenticationType("SIMPLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationHDFSQopConfigurationDataTransferProtectionInput)(nil)).Elem(), LocationHDFSQopConfigurationDataTransferProtection("AUTHENTICATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationHDFSQopConfigurationDataTransferProtectionPtrInput)(nil)).Elem(), LocationHDFSQopConfigurationDataTransferProtection("AUTHENTICATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationHDFSQopConfigurationRpcProtectionInput)(nil)).Elem(), LocationHDFSQopConfigurationRpcProtection("AUTHENTICATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationHDFSQopConfigurationRpcProtectionPtrInput)(nil)).Elem(), LocationHDFSQopConfigurationRpcProtection("AUTHENTICATION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationNFSMountOptionsVersionInput)(nil)).Elem(), LocationNFSMountOptionsVersion("AUTOMATIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationNFSMountOptionsVersionPtrInput)(nil)).Elem(), LocationNFSMountOptionsVersion("AUTOMATIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationObjectStorageServerProtocolInput)(nil)).Elem(), LocationObjectStorageServerProtocol("HTTPS"))
@@ -3370,6 +3875,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskStatusPtrInput)(nil)).Elem(), TaskStatus("AVAILABLE"))
 	pulumi.RegisterOutputType(AgentEndpointTypeOutput{})
 	pulumi.RegisterOutputType(AgentEndpointTypePtrOutput{})
+	pulumi.RegisterOutputType(LocationHDFSAuthenticationTypeOutput{})
+	pulumi.RegisterOutputType(LocationHDFSAuthenticationTypePtrOutput{})
+	pulumi.RegisterOutputType(LocationHDFSQopConfigurationDataTransferProtectionOutput{})
+	pulumi.RegisterOutputType(LocationHDFSQopConfigurationDataTransferProtectionPtrOutput{})
+	pulumi.RegisterOutputType(LocationHDFSQopConfigurationRpcProtectionOutput{})
+	pulumi.RegisterOutputType(LocationHDFSQopConfigurationRpcProtectionPtrOutput{})
 	pulumi.RegisterOutputType(LocationNFSMountOptionsVersionOutput{})
 	pulumi.RegisterOutputType(LocationNFSMountOptionsVersionPtrOutput{})
 	pulumi.RegisterOutputType(LocationObjectStorageServerProtocolOutput{})

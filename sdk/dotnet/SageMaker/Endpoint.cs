@@ -31,6 +31,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("retainAllVariantProperties")]
         public Output<bool?> RetainAllVariantProperties { get; private set; } = null!;
 
+        [Output("retainDeploymentConfig")]
+        public Output<bool?> RetainDeploymentConfig { get; private set; } = null!;
+
         [Output("tags")]
         public Output<ImmutableArray<Outputs.EndpointTag>> Tags { get; private set; } = null!;
 
@@ -98,6 +101,9 @@ namespace Pulumi.AwsNative.SageMaker
 
         [Input("retainAllVariantProperties")]
         public Input<bool>? RetainAllVariantProperties { get; set; }
+
+        [Input("retainDeploymentConfig")]
+        public Input<bool>? RetainDeploymentConfig { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.EndpointTagArgs>? _tags;

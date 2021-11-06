@@ -13,6 +13,40 @@ export const AgentEndpointType = {
  */
 export type AgentEndpointType = (typeof AgentEndpointType)[keyof typeof AgentEndpointType];
 
+export const LocationHDFSAuthenticationType = {
+    Simple: "SIMPLE",
+    Kerberos: "KERBEROS",
+} as const;
+
+/**
+ * The authentication mode used to determine identity of user.
+ */
+export type LocationHDFSAuthenticationType = (typeof LocationHDFSAuthenticationType)[keyof typeof LocationHDFSAuthenticationType];
+
+export const LocationHDFSQopConfigurationDataTransferProtection = {
+    Authentication: "AUTHENTICATION",
+    Integrity: "INTEGRITY",
+    Privacy: "PRIVACY",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Configuration for Data Transfer Protection.
+ */
+export type LocationHDFSQopConfigurationDataTransferProtection = (typeof LocationHDFSQopConfigurationDataTransferProtection)[keyof typeof LocationHDFSQopConfigurationDataTransferProtection];
+
+export const LocationHDFSQopConfigurationRpcProtection = {
+    Authentication: "AUTHENTICATION",
+    Integrity: "INTEGRITY",
+    Privacy: "PRIVACY",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Configuration for RPC Protection.
+ */
+export type LocationHDFSQopConfigurationRpcProtection = (typeof LocationHDFSQopConfigurationRpcProtection)[keyof typeof LocationHDFSQopConfigurationRpcProtection];
+
 export const LocationNFSMountOptionsVersion = {
     Automatic: "AUTOMATIC",
     Nfs3: "NFS3",

@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::IoTAnalytics::Dataset
+ *
+ * @deprecated Dataset is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class Dataset extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class Dataset extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Dataset {
+        pulumi.log.warn("Dataset is deprecated: Dataset is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Dataset(name, undefined as any, { ...opts, id: id });
     }
 
@@ -37,7 +40,7 @@ export class Dataset extends pulumi.CustomResource {
 
     public readonly actions!: pulumi.Output<outputs.iotanalytics.DatasetAction[]>;
     public readonly contentDeliveryRules!: pulumi.Output<outputs.iotanalytics.DatasetContentDeliveryRule[] | undefined>;
-    public readonly datasetName!: pulumi.Output<string | undefined>;
+    public readonly datasetName!: pulumi.Output<string>;
     public readonly lateDataRules!: pulumi.Output<outputs.iotanalytics.DatasetLateDataRule[] | undefined>;
     public readonly retentionPeriod!: pulumi.Output<outputs.iotanalytics.DatasetRetentionPeriod | undefined>;
     public readonly tags!: pulumi.Output<outputs.iotanalytics.DatasetTag[] | undefined>;
@@ -51,7 +54,9 @@ export class Dataset extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Dataset is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: DatasetArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Dataset is deprecated: Dataset is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

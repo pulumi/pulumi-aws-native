@@ -40,6 +40,103 @@ namespace Pulumi.AwsNative.DataSync
     }
 
     /// <summary>
+    /// The authentication mode used to determine identity of user.
+    /// </summary>
+    [EnumType]
+    public readonly struct LocationHDFSAuthenticationType : IEquatable<LocationHDFSAuthenticationType>
+    {
+        private readonly string _value;
+
+        private LocationHDFSAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LocationHDFSAuthenticationType Simple { get; } = new LocationHDFSAuthenticationType("SIMPLE");
+        public static LocationHDFSAuthenticationType Kerberos { get; } = new LocationHDFSAuthenticationType("KERBEROS");
+
+        public static bool operator ==(LocationHDFSAuthenticationType left, LocationHDFSAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(LocationHDFSAuthenticationType left, LocationHDFSAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(LocationHDFSAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LocationHDFSAuthenticationType other && Equals(other);
+        public bool Equals(LocationHDFSAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Configuration for Data Transfer Protection.
+    /// </summary>
+    [EnumType]
+    public readonly struct LocationHDFSQopConfigurationDataTransferProtection : IEquatable<LocationHDFSQopConfigurationDataTransferProtection>
+    {
+        private readonly string _value;
+
+        private LocationHDFSQopConfigurationDataTransferProtection(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LocationHDFSQopConfigurationDataTransferProtection Authentication { get; } = new LocationHDFSQopConfigurationDataTransferProtection("AUTHENTICATION");
+        public static LocationHDFSQopConfigurationDataTransferProtection Integrity { get; } = new LocationHDFSQopConfigurationDataTransferProtection("INTEGRITY");
+        public static LocationHDFSQopConfigurationDataTransferProtection Privacy { get; } = new LocationHDFSQopConfigurationDataTransferProtection("PRIVACY");
+        public static LocationHDFSQopConfigurationDataTransferProtection Disabled { get; } = new LocationHDFSQopConfigurationDataTransferProtection("DISABLED");
+
+        public static bool operator ==(LocationHDFSQopConfigurationDataTransferProtection left, LocationHDFSQopConfigurationDataTransferProtection right) => left.Equals(right);
+        public static bool operator !=(LocationHDFSQopConfigurationDataTransferProtection left, LocationHDFSQopConfigurationDataTransferProtection right) => !left.Equals(right);
+
+        public static explicit operator string(LocationHDFSQopConfigurationDataTransferProtection value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LocationHDFSQopConfigurationDataTransferProtection other && Equals(other);
+        public bool Equals(LocationHDFSQopConfigurationDataTransferProtection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Configuration for RPC Protection.
+    /// </summary>
+    [EnumType]
+    public readonly struct LocationHDFSQopConfigurationRpcProtection : IEquatable<LocationHDFSQopConfigurationRpcProtection>
+    {
+        private readonly string _value;
+
+        private LocationHDFSQopConfigurationRpcProtection(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LocationHDFSQopConfigurationRpcProtection Authentication { get; } = new LocationHDFSQopConfigurationRpcProtection("AUTHENTICATION");
+        public static LocationHDFSQopConfigurationRpcProtection Integrity { get; } = new LocationHDFSQopConfigurationRpcProtection("INTEGRITY");
+        public static LocationHDFSQopConfigurationRpcProtection Privacy { get; } = new LocationHDFSQopConfigurationRpcProtection("PRIVACY");
+        public static LocationHDFSQopConfigurationRpcProtection Disabled { get; } = new LocationHDFSQopConfigurationRpcProtection("DISABLED");
+
+        public static bool operator ==(LocationHDFSQopConfigurationRpcProtection left, LocationHDFSQopConfigurationRpcProtection right) => left.Equals(right);
+        public static bool operator !=(LocationHDFSQopConfigurationRpcProtection left, LocationHDFSQopConfigurationRpcProtection right) => !left.Equals(right);
+
+        public static explicit operator string(LocationHDFSQopConfigurationRpcProtection value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LocationHDFSQopConfigurationRpcProtection other && Equals(other);
+        public bool Equals(LocationHDFSQopConfigurationRpcProtection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The specific NFS version that you want DataSync to use to mount your NFS share.
     /// </summary>
     [EnumType]

@@ -16,6 +16,7 @@ __all__ = [
     'DomainConfigurationStatus',
     'JobTemplateAction',
     'JobTemplateFailureType',
+    'LoggingDefaultLogLevel',
     'MitigationActionEnableIoTLoggingParamsLogLevel',
     'MitigationActionReplaceDefaultPolicyVersionParamsTemplateName',
     'MitigationActionUpdateCACertificateParamsAction',
@@ -99,6 +100,17 @@ class JobTemplateFailureType(str, Enum):
     REJECTED = "REJECTED"
     TIMED_OUT = "TIMED_OUT"
     ALL = "ALL"
+
+
+class LoggingDefaultLogLevel(str, Enum):
+    """
+    The log level to use. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
+    """
+    ERROR = "ERROR"
+    WARN = "WARN"
+    INFO = "INFO"
+    DEBUG = "DEBUG"
+    DISABLED = "DISABLED"
 
 
 class MitigationActionEnableIoTLoggingParamsLogLevel(str, Enum):

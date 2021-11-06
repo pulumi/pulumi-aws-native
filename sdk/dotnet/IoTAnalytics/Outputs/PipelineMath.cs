@@ -13,18 +13,18 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class PipelineMath
     {
-        public readonly string? Attribute;
-        public readonly string? Math;
-        public readonly string? Name;
+        public readonly string Attribute;
+        public readonly string Math;
+        public readonly string Name;
         public readonly string? Next;
 
         [OutputConstructor]
         private PipelineMath(
-            string? attribute,
+            string attribute,
 
-            string? math,
+            string math,
 
-            string? name,
+            string name,
 
             string? next)
         {

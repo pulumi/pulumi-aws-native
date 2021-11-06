@@ -51,6 +51,21 @@ __all__ = [
     'PublicKeyConfigArgs',
     'RealtimeLogConfigEndPointArgs',
     'RealtimeLogConfigKinesisStreamConfigArgs',
+    'ResponseHeadersPolicyAccessControlAllowHeadersArgs',
+    'ResponseHeadersPolicyAccessControlAllowMethodsArgs',
+    'ResponseHeadersPolicyAccessControlAllowOriginsArgs',
+    'ResponseHeadersPolicyAccessControlExposeHeadersArgs',
+    'ResponseHeadersPolicyConfigArgs',
+    'ResponseHeadersPolicyContentSecurityPolicyArgs',
+    'ResponseHeadersPolicyContentTypeOptionsArgs',
+    'ResponseHeadersPolicyCorsConfigArgs',
+    'ResponseHeadersPolicyCustomHeadersConfigArgs',
+    'ResponseHeadersPolicyCustomHeaderArgs',
+    'ResponseHeadersPolicyFrameOptionsArgs',
+    'ResponseHeadersPolicyReferrerPolicyArgs',
+    'ResponseHeadersPolicySecurityHeadersConfigArgs',
+    'ResponseHeadersPolicyStrictTransportSecurityArgs',
+    'ResponseHeadersPolicyXSSProtectionArgs',
     'StreamingDistributionConfigArgs',
     'StreamingDistributionLoggingArgs',
     'StreamingDistributionS3OriginArgs',
@@ -2182,6 +2197,548 @@ class RealtimeLogConfigKinesisStreamConfigArgs:
     @stream_arn.setter
     def stream_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "stream_arn", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicyAccessControlAllowHeadersArgs:
+    def __init__(__self__, *,
+                 items: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "items")
+
+    @items.setter
+    def items(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "items", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicyAccessControlAllowMethodsArgs:
+    def __init__(__self__, *,
+                 items: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "items")
+
+    @items.setter
+    def items(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "items", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicyAccessControlAllowOriginsArgs:
+    def __init__(__self__, *,
+                 items: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "items")
+
+    @items.setter
+    def items(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "items", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicyAccessControlExposeHeadersArgs:
+    def __init__(__self__, *,
+                 items: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "items")
+
+    @items.setter
+    def items(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "items", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicyConfigArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 comment: Optional[pulumi.Input[str]] = None,
+                 cors_config: Optional[pulumi.Input['ResponseHeadersPolicyCorsConfigArgs']] = None,
+                 custom_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigArgs']] = None,
+                 security_headers_config: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs']] = None):
+        pulumi.set(__self__, "name", name)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if cors_config is not None:
+            pulumi.set(__self__, "cors_config", cors_config)
+        if custom_headers_config is not None:
+            pulumi.set(__self__, "custom_headers_config", custom_headers_config)
+        if security_headers_config is not None:
+            pulumi.set(__self__, "security_headers_config", security_headers_config)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="corsConfig")
+    def cors_config(self) -> Optional[pulumi.Input['ResponseHeadersPolicyCorsConfigArgs']]:
+        return pulumi.get(self, "cors_config")
+
+    @cors_config.setter
+    def cors_config(self, value: Optional[pulumi.Input['ResponseHeadersPolicyCorsConfigArgs']]):
+        pulumi.set(self, "cors_config", value)
+
+    @property
+    @pulumi.getter(name="customHeadersConfig")
+    def custom_headers_config(self) -> Optional[pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigArgs']]:
+        return pulumi.get(self, "custom_headers_config")
+
+    @custom_headers_config.setter
+    def custom_headers_config(self, value: Optional[pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigArgs']]):
+        pulumi.set(self, "custom_headers_config", value)
+
+    @property
+    @pulumi.getter(name="securityHeadersConfig")
+    def security_headers_config(self) -> Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs']]:
+        return pulumi.get(self, "security_headers_config")
+
+    @security_headers_config.setter
+    def security_headers_config(self, value: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs']]):
+        pulumi.set(self, "security_headers_config", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicyContentSecurityPolicyArgs:
+    def __init__(__self__, *,
+                 content_security_policy: pulumi.Input[str],
+                 override: pulumi.Input[bool]):
+        pulumi.set(__self__, "content_security_policy", content_security_policy)
+        pulumi.set(__self__, "override", override)
+
+    @property
+    @pulumi.getter(name="contentSecurityPolicy")
+    def content_security_policy(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "content_security_policy")
+
+    @content_security_policy.setter
+    def content_security_policy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "content_security_policy", value)
+
+    @property
+    @pulumi.getter
+    def override(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "override")
+
+    @override.setter
+    def override(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "override", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicyContentTypeOptionsArgs:
+    def __init__(__self__, *,
+                 override: pulumi.Input[bool]):
+        pulumi.set(__self__, "override", override)
+
+    @property
+    @pulumi.getter
+    def override(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "override")
+
+    @override.setter
+    def override(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "override", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicyCorsConfigArgs:
+    def __init__(__self__, *,
+                 access_control_allow_credentials: pulumi.Input[bool],
+                 access_control_allow_headers: pulumi.Input['ResponseHeadersPolicyAccessControlAllowHeadersArgs'],
+                 access_control_allow_methods: pulumi.Input['ResponseHeadersPolicyAccessControlAllowMethodsArgs'],
+                 access_control_allow_origins: pulumi.Input['ResponseHeadersPolicyAccessControlAllowOriginsArgs'],
+                 origin_override: pulumi.Input[bool],
+                 access_control_expose_headers: Optional[pulumi.Input['ResponseHeadersPolicyAccessControlExposeHeadersArgs']] = None,
+                 access_control_max_age_sec: Optional[pulumi.Input[int]] = None):
+        pulumi.set(__self__, "access_control_allow_credentials", access_control_allow_credentials)
+        pulumi.set(__self__, "access_control_allow_headers", access_control_allow_headers)
+        pulumi.set(__self__, "access_control_allow_methods", access_control_allow_methods)
+        pulumi.set(__self__, "access_control_allow_origins", access_control_allow_origins)
+        pulumi.set(__self__, "origin_override", origin_override)
+        if access_control_expose_headers is not None:
+            pulumi.set(__self__, "access_control_expose_headers", access_control_expose_headers)
+        if access_control_max_age_sec is not None:
+            pulumi.set(__self__, "access_control_max_age_sec", access_control_max_age_sec)
+
+    @property
+    @pulumi.getter(name="accessControlAllowCredentials")
+    def access_control_allow_credentials(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "access_control_allow_credentials")
+
+    @access_control_allow_credentials.setter
+    def access_control_allow_credentials(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "access_control_allow_credentials", value)
+
+    @property
+    @pulumi.getter(name="accessControlAllowHeaders")
+    def access_control_allow_headers(self) -> pulumi.Input['ResponseHeadersPolicyAccessControlAllowHeadersArgs']:
+        return pulumi.get(self, "access_control_allow_headers")
+
+    @access_control_allow_headers.setter
+    def access_control_allow_headers(self, value: pulumi.Input['ResponseHeadersPolicyAccessControlAllowHeadersArgs']):
+        pulumi.set(self, "access_control_allow_headers", value)
+
+    @property
+    @pulumi.getter(name="accessControlAllowMethods")
+    def access_control_allow_methods(self) -> pulumi.Input['ResponseHeadersPolicyAccessControlAllowMethodsArgs']:
+        return pulumi.get(self, "access_control_allow_methods")
+
+    @access_control_allow_methods.setter
+    def access_control_allow_methods(self, value: pulumi.Input['ResponseHeadersPolicyAccessControlAllowMethodsArgs']):
+        pulumi.set(self, "access_control_allow_methods", value)
+
+    @property
+    @pulumi.getter(name="accessControlAllowOrigins")
+    def access_control_allow_origins(self) -> pulumi.Input['ResponseHeadersPolicyAccessControlAllowOriginsArgs']:
+        return pulumi.get(self, "access_control_allow_origins")
+
+    @access_control_allow_origins.setter
+    def access_control_allow_origins(self, value: pulumi.Input['ResponseHeadersPolicyAccessControlAllowOriginsArgs']):
+        pulumi.set(self, "access_control_allow_origins", value)
+
+    @property
+    @pulumi.getter(name="originOverride")
+    def origin_override(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "origin_override")
+
+    @origin_override.setter
+    def origin_override(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "origin_override", value)
+
+    @property
+    @pulumi.getter(name="accessControlExposeHeaders")
+    def access_control_expose_headers(self) -> Optional[pulumi.Input['ResponseHeadersPolicyAccessControlExposeHeadersArgs']]:
+        return pulumi.get(self, "access_control_expose_headers")
+
+    @access_control_expose_headers.setter
+    def access_control_expose_headers(self, value: Optional[pulumi.Input['ResponseHeadersPolicyAccessControlExposeHeadersArgs']]):
+        pulumi.set(self, "access_control_expose_headers", value)
+
+    @property
+    @pulumi.getter(name="accessControlMaxAgeSec")
+    def access_control_max_age_sec(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "access_control_max_age_sec")
+
+    @access_control_max_age_sec.setter
+    def access_control_max_age_sec(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "access_control_max_age_sec", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicyCustomHeadersConfigArgs:
+    def __init__(__self__, *,
+                 items: pulumi.Input[Sequence[pulumi.Input['ResponseHeadersPolicyCustomHeaderArgs']]]):
+        pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> pulumi.Input[Sequence[pulumi.Input['ResponseHeadersPolicyCustomHeaderArgs']]]:
+        return pulumi.get(self, "items")
+
+    @items.setter
+    def items(self, value: pulumi.Input[Sequence[pulumi.Input['ResponseHeadersPolicyCustomHeaderArgs']]]):
+        pulumi.set(self, "items", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicyCustomHeaderArgs:
+    def __init__(__self__, *,
+                 header: pulumi.Input[str],
+                 override: pulumi.Input[bool],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "header", header)
+        pulumi.set(__self__, "override", override)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def header(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "header")
+
+    @header.setter
+    def header(self, value: pulumi.Input[str]):
+        pulumi.set(self, "header", value)
+
+    @property
+    @pulumi.getter
+    def override(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "override")
+
+    @override.setter
+    def override(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "override", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicyFrameOptionsArgs:
+    def __init__(__self__, *,
+                 frame_option: pulumi.Input[str],
+                 override: pulumi.Input[bool]):
+        pulumi.set(__self__, "frame_option", frame_option)
+        pulumi.set(__self__, "override", override)
+
+    @property
+    @pulumi.getter(name="frameOption")
+    def frame_option(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "frame_option")
+
+    @frame_option.setter
+    def frame_option(self, value: pulumi.Input[str]):
+        pulumi.set(self, "frame_option", value)
+
+    @property
+    @pulumi.getter
+    def override(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "override")
+
+    @override.setter
+    def override(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "override", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicyReferrerPolicyArgs:
+    def __init__(__self__, *,
+                 override: pulumi.Input[bool],
+                 referrer_policy: pulumi.Input[str]):
+        pulumi.set(__self__, "override", override)
+        pulumi.set(__self__, "referrer_policy", referrer_policy)
+
+    @property
+    @pulumi.getter
+    def override(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "override")
+
+    @override.setter
+    def override(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "override", value)
+
+    @property
+    @pulumi.getter(name="referrerPolicy")
+    def referrer_policy(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "referrer_policy")
+
+    @referrer_policy.setter
+    def referrer_policy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "referrer_policy", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicySecurityHeadersConfigArgs:
+    def __init__(__self__, *,
+                 content_security_policy: Optional[pulumi.Input['ResponseHeadersPolicyContentSecurityPolicyArgs']] = None,
+                 content_type_options: Optional[pulumi.Input['ResponseHeadersPolicyContentTypeOptionsArgs']] = None,
+                 frame_options: Optional[pulumi.Input['ResponseHeadersPolicyFrameOptionsArgs']] = None,
+                 referrer_policy: Optional[pulumi.Input['ResponseHeadersPolicyReferrerPolicyArgs']] = None,
+                 strict_transport_security: Optional[pulumi.Input['ResponseHeadersPolicyStrictTransportSecurityArgs']] = None,
+                 x_ss_protection: Optional[pulumi.Input['ResponseHeadersPolicyXSSProtectionArgs']] = None):
+        if content_security_policy is not None:
+            pulumi.set(__self__, "content_security_policy", content_security_policy)
+        if content_type_options is not None:
+            pulumi.set(__self__, "content_type_options", content_type_options)
+        if frame_options is not None:
+            pulumi.set(__self__, "frame_options", frame_options)
+        if referrer_policy is not None:
+            pulumi.set(__self__, "referrer_policy", referrer_policy)
+        if strict_transport_security is not None:
+            pulumi.set(__self__, "strict_transport_security", strict_transport_security)
+        if x_ss_protection is not None:
+            pulumi.set(__self__, "x_ss_protection", x_ss_protection)
+
+    @property
+    @pulumi.getter(name="contentSecurityPolicy")
+    def content_security_policy(self) -> Optional[pulumi.Input['ResponseHeadersPolicyContentSecurityPolicyArgs']]:
+        return pulumi.get(self, "content_security_policy")
+
+    @content_security_policy.setter
+    def content_security_policy(self, value: Optional[pulumi.Input['ResponseHeadersPolicyContentSecurityPolicyArgs']]):
+        pulumi.set(self, "content_security_policy", value)
+
+    @property
+    @pulumi.getter(name="contentTypeOptions")
+    def content_type_options(self) -> Optional[pulumi.Input['ResponseHeadersPolicyContentTypeOptionsArgs']]:
+        return pulumi.get(self, "content_type_options")
+
+    @content_type_options.setter
+    def content_type_options(self, value: Optional[pulumi.Input['ResponseHeadersPolicyContentTypeOptionsArgs']]):
+        pulumi.set(self, "content_type_options", value)
+
+    @property
+    @pulumi.getter(name="frameOptions")
+    def frame_options(self) -> Optional[pulumi.Input['ResponseHeadersPolicyFrameOptionsArgs']]:
+        return pulumi.get(self, "frame_options")
+
+    @frame_options.setter
+    def frame_options(self, value: Optional[pulumi.Input['ResponseHeadersPolicyFrameOptionsArgs']]):
+        pulumi.set(self, "frame_options", value)
+
+    @property
+    @pulumi.getter(name="referrerPolicy")
+    def referrer_policy(self) -> Optional[pulumi.Input['ResponseHeadersPolicyReferrerPolicyArgs']]:
+        return pulumi.get(self, "referrer_policy")
+
+    @referrer_policy.setter
+    def referrer_policy(self, value: Optional[pulumi.Input['ResponseHeadersPolicyReferrerPolicyArgs']]):
+        pulumi.set(self, "referrer_policy", value)
+
+    @property
+    @pulumi.getter(name="strictTransportSecurity")
+    def strict_transport_security(self) -> Optional[pulumi.Input['ResponseHeadersPolicyStrictTransportSecurityArgs']]:
+        return pulumi.get(self, "strict_transport_security")
+
+    @strict_transport_security.setter
+    def strict_transport_security(self, value: Optional[pulumi.Input['ResponseHeadersPolicyStrictTransportSecurityArgs']]):
+        pulumi.set(self, "strict_transport_security", value)
+
+    @property
+    @pulumi.getter(name="xSSProtection")
+    def x_ss_protection(self) -> Optional[pulumi.Input['ResponseHeadersPolicyXSSProtectionArgs']]:
+        return pulumi.get(self, "x_ss_protection")
+
+    @x_ss_protection.setter
+    def x_ss_protection(self, value: Optional[pulumi.Input['ResponseHeadersPolicyXSSProtectionArgs']]):
+        pulumi.set(self, "x_ss_protection", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicyStrictTransportSecurityArgs:
+    def __init__(__self__, *,
+                 access_control_max_age_sec: pulumi.Input[int],
+                 override: pulumi.Input[bool],
+                 include_subdomains: Optional[pulumi.Input[bool]] = None,
+                 preload: Optional[pulumi.Input[bool]] = None):
+        pulumi.set(__self__, "access_control_max_age_sec", access_control_max_age_sec)
+        pulumi.set(__self__, "override", override)
+        if include_subdomains is not None:
+            pulumi.set(__self__, "include_subdomains", include_subdomains)
+        if preload is not None:
+            pulumi.set(__self__, "preload", preload)
+
+    @property
+    @pulumi.getter(name="accessControlMaxAgeSec")
+    def access_control_max_age_sec(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "access_control_max_age_sec")
+
+    @access_control_max_age_sec.setter
+    def access_control_max_age_sec(self, value: pulumi.Input[int]):
+        pulumi.set(self, "access_control_max_age_sec", value)
+
+    @property
+    @pulumi.getter
+    def override(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "override")
+
+    @override.setter
+    def override(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "override", value)
+
+    @property
+    @pulumi.getter(name="includeSubdomains")
+    def include_subdomains(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "include_subdomains")
+
+    @include_subdomains.setter
+    def include_subdomains(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_subdomains", value)
+
+    @property
+    @pulumi.getter
+    def preload(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "preload")
+
+    @preload.setter
+    def preload(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "preload", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicyXSSProtectionArgs:
+    def __init__(__self__, *,
+                 override: pulumi.Input[bool],
+                 protection: pulumi.Input[bool],
+                 mode_block: Optional[pulumi.Input[bool]] = None,
+                 report_uri: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "override", override)
+        pulumi.set(__self__, "protection", protection)
+        if mode_block is not None:
+            pulumi.set(__self__, "mode_block", mode_block)
+        if report_uri is not None:
+            pulumi.set(__self__, "report_uri", report_uri)
+
+    @property
+    @pulumi.getter
+    def override(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "override")
+
+    @override.setter
+    def override(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "override", value)
+
+    @property
+    @pulumi.getter
+    def protection(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "protection")
+
+    @protection.setter
+    def protection(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "protection", value)
+
+    @property
+    @pulumi.getter(name="modeBlock")
+    def mode_block(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "mode_block")
+
+    @mode_block.setter
+    def mode_block(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "mode_block", value)
+
+    @property
+    @pulumi.getter(name="reportUri")
+    def report_uri(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "report_uri")
+
+    @report_uri.setter
+    def report_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "report_uri", value)
 
 
 @pulumi.input_type

@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .adm_channel import *
 from .apns_channel import *
 from .apns_sandbox_channel import *
@@ -18,6 +19,7 @@ from .email_channel import *
 from .email_template import *
 from .event_stream import *
 from .gcm_channel import *
+from .in_app_template import *
 from .push_template import *
 from .segment import *
 from .sms_channel import *

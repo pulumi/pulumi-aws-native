@@ -6,6 +6,9 @@ from enum import Enum
 
 __all__ = [
     'AgentEndpointType',
+    'LocationHDFSAuthenticationType',
+    'LocationHDFSQopConfigurationDataTransferProtection',
+    'LocationHDFSQopConfigurationRpcProtection',
     'LocationNFSMountOptionsVersion',
     'LocationObjectStorageServerProtocol',
     'LocationS3S3StorageClass',
@@ -35,6 +38,34 @@ class AgentEndpointType(str, Enum):
     FIPS = "FIPS"
     PUBLIC = "PUBLIC"
     PRIVATE_LINK = "PRIVATE_LINK"
+
+
+class LocationHDFSAuthenticationType(str, Enum):
+    """
+    The authentication mode used to determine identity of user.
+    """
+    SIMPLE = "SIMPLE"
+    KERBEROS = "KERBEROS"
+
+
+class LocationHDFSQopConfigurationDataTransferProtection(str, Enum):
+    """
+    Configuration for Data Transfer Protection.
+    """
+    AUTHENTICATION = "AUTHENTICATION"
+    INTEGRITY = "INTEGRITY"
+    PRIVACY = "PRIVACY"
+    DISABLED = "DISABLED"
+
+
+class LocationHDFSQopConfigurationRpcProtection(str, Enum):
+    """
+    Configuration for RPC Protection.
+    """
+    AUTHENTICATION = "AUTHENTICATION"
+    INTEGRITY = "INTEGRITY"
+    PRIVACY = "PRIVACY"
+    DISABLED = "DISABLED"
 
 
 class LocationNFSMountOptionsVersion(str, Enum):

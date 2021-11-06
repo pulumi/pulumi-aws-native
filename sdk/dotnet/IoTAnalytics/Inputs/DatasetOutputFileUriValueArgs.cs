@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
 
     public sealed class DatasetOutputFileUriValueArgs : Pulumi.ResourceArgs
     {
-        [Input("fileName")]
-        public Input<string>? FileName { get; set; }
+        [Input("fileName", required: true)]
+        public Input<string> FileName { get; set; } = null!;
 
         public DatasetOutputFileUriValueArgs()
         {

@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class DatasetOutputFileUriValue
     {
-        public readonly string? FileName;
+        public readonly string FileName;
 
         [OutputConstructor]
-        private DatasetOutputFileUriValue(string? fileName)
+        private DatasetOutputFileUriValue(string fileName)
         {
             FileName = fileName;
         }

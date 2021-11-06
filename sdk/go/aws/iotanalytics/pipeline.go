@@ -18,7 +18,7 @@ type Pipeline struct {
 	pulumi.CustomResourceState
 
 	PipelineActivities PipelineActivityArrayOutput `pulumi:"pipelineActivities"`
-	PipelineName       pulumi.StringPtrOutput      `pulumi:"pipelineName"`
+	PipelineName       pulumi.StringOutput         `pulumi:"pipelineName"`
 	Tags               PipelineTagArrayOutput      `pulumi:"tags"`
 }
 

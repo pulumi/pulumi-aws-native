@@ -13,15 +13,15 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     [OutputType]
     public sealed class PipelineAddAttributes
     {
-        public readonly object? Attributes;
-        public readonly string? Name;
+        public readonly object Attributes;
+        public readonly string Name;
         public readonly string? Next;
 
         [OutputConstructor]
         private PipelineAddAttributes(
-            object? attributes,
+            object attributes,
 
-            string? name,
+            string name,
 
             string? next)
         {

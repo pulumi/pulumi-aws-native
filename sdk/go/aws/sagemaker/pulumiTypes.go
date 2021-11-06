@@ -7064,6 +7064,7 @@ func (o EndpointTagArrayOutput) Index(i pulumi.IntInput) EndpointTagOutput {
 
 type EndpointTrafficRoutingConfig struct {
 	CanarySize            *EndpointCapacitySize `pulumi:"canarySize"`
+	LinearStepSize        *EndpointCapacitySize `pulumi:"linearStepSize"`
 	Type                  string                `pulumi:"type"`
 	WaitIntervalInSeconds *int                  `pulumi:"waitIntervalInSeconds"`
 }
@@ -7081,6 +7082,7 @@ type EndpointTrafficRoutingConfigInput interface {
 
 type EndpointTrafficRoutingConfigArgs struct {
 	CanarySize            EndpointCapacitySizePtrInput `pulumi:"canarySize"`
+	LinearStepSize        EndpointCapacitySizePtrInput `pulumi:"linearStepSize"`
 	Type                  pulumi.StringInput           `pulumi:"type"`
 	WaitIntervalInSeconds pulumi.IntPtrInput           `pulumi:"waitIntervalInSeconds"`
 }
@@ -7166,6 +7168,10 @@ func (o EndpointTrafficRoutingConfigOutput) CanarySize() EndpointCapacitySizePtr
 	return o.ApplyT(func(v EndpointTrafficRoutingConfig) *EndpointCapacitySize { return v.CanarySize }).(EndpointCapacitySizePtrOutput)
 }
 
+func (o EndpointTrafficRoutingConfigOutput) LinearStepSize() EndpointCapacitySizePtrOutput {
+	return o.ApplyT(func(v EndpointTrafficRoutingConfig) *EndpointCapacitySize { return v.LinearStepSize }).(EndpointCapacitySizePtrOutput)
+}
+
 func (o EndpointTrafficRoutingConfigOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointTrafficRoutingConfig) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -7204,6 +7210,15 @@ func (o EndpointTrafficRoutingConfigPtrOutput) CanarySize() EndpointCapacitySize
 			return nil
 		}
 		return v.CanarySize
+	}).(EndpointCapacitySizePtrOutput)
+}
+
+func (o EndpointTrafficRoutingConfigPtrOutput) LinearStepSize() EndpointCapacitySizePtrOutput {
+	return o.ApplyT(func(v *EndpointTrafficRoutingConfig) *EndpointCapacitySize {
+		if v == nil {
+			return nil
+		}
+		return v.LinearStepSize
 	}).(EndpointCapacitySizePtrOutput)
 }
 

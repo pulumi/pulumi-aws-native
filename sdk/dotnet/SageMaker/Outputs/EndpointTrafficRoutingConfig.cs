@@ -14,6 +14,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     public sealed class EndpointTrafficRoutingConfig
     {
         public readonly Outputs.EndpointCapacitySize? CanarySize;
+        public readonly Outputs.EndpointCapacitySize? LinearStepSize;
         public readonly string Type;
         public readonly int? WaitIntervalInSeconds;
 
@@ -21,11 +22,14 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         private EndpointTrafficRoutingConfig(
             Outputs.EndpointCapacitySize? canarySize,
 
+            Outputs.EndpointCapacitySize? linearStepSize,
+
             string type,
 
             int? waitIntervalInSeconds)
         {
             CanarySize = canarySize;
+            LinearStepSize = linearStepSize;
             Type = type;
             WaitIntervalInSeconds = waitIntervalInSeconds;
         }

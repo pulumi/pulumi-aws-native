@@ -10,6 +10,13 @@ export * from "./clusterParameterGroup";
 export * from "./clusterSecurityGroup";
 export * from "./clusterSecurityGroupIngress";
 export * from "./clusterSubnetGroup";
+export * from "./endpointAccess";
+export * from "./endpointAuthorization";
+export * from "./eventSubscription";
+export * from "./scheduledAction";
+
+// Export enums:
+export * from "../types/enums/redshift";
 
 // Import resources to register:
 import { Cluster } from "./cluster";
@@ -17,6 +24,10 @@ import { ClusterParameterGroup } from "./clusterParameterGroup";
 import { ClusterSecurityGroup } from "./clusterSecurityGroup";
 import { ClusterSecurityGroupIngress } from "./clusterSecurityGroupIngress";
 import { ClusterSubnetGroup } from "./clusterSubnetGroup";
+import { EndpointAccess } from "./endpointAccess";
+import { EndpointAuthorization } from "./endpointAuthorization";
+import { EventSubscription } from "./eventSubscription";
+import { ScheduledAction } from "./scheduledAction";
 
 const _module = {
     version: utilities.getVersion(),
@@ -32,6 +43,14 @@ const _module = {
                 return new ClusterSecurityGroupIngress(name, <any>undefined, { urn })
             case "aws-native:redshift:ClusterSubnetGroup":
                 return new ClusterSubnetGroup(name, <any>undefined, { urn })
+            case "aws-native:redshift:EndpointAccess":
+                return new EndpointAccess(name, <any>undefined, { urn })
+            case "aws-native:redshift:EndpointAuthorization":
+                return new EndpointAuthorization(name, <any>undefined, { urn })
+            case "aws-native:redshift:EventSubscription":
+                return new EventSubscription(name, <any>undefined, { urn })
+            case "aws-native:redshift:ScheduledAction":
+                return new ScheduledAction(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

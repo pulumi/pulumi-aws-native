@@ -729,13 +729,16 @@ class GatewayRouteSpec(dict):
     def __init__(__self__, *,
                  grpc_route: Optional['outputs.GatewayRouteGrpcGatewayRoute'] = None,
                  http2_route: Optional['outputs.GatewayRouteHttpGatewayRoute'] = None,
-                 http_route: Optional['outputs.GatewayRouteHttpGatewayRoute'] = None):
+                 http_route: Optional['outputs.GatewayRouteHttpGatewayRoute'] = None,
+                 priority: Optional[int] = None):
         if grpc_route is not None:
             pulumi.set(__self__, "grpc_route", grpc_route)
         if http2_route is not None:
             pulumi.set(__self__, "http2_route", http2_route)
         if http_route is not None:
             pulumi.set(__self__, "http_route", http_route)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
 
     @property
     @pulumi.getter(name="grpcRoute")
@@ -751,6 +754,11 @@ class GatewayRouteSpec(dict):
     @pulumi.getter(name="httpRoute")
     def http_route(self) -> Optional['outputs.GatewayRouteHttpGatewayRoute']:
         return pulumi.get(self, "http_route")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[int]:
+        return pulumi.get(self, "priority")
 
 
 @pulumi.output_type

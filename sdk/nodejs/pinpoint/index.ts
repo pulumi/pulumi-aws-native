@@ -18,11 +18,15 @@ export * from "./emailChannel";
 export * from "./emailTemplate";
 export * from "./eventStream";
 export * from "./gcmchannel";
+export * from "./inAppTemplate";
 export * from "./pushTemplate";
 export * from "./segment";
 export * from "./smsTemplate";
 export * from "./smschannel";
 export * from "./voiceChannel";
+
+// Export enums:
+export * from "../types/enums/pinpoint";
 
 // Import resources to register:
 import { ADMChannel } from "./admchannel";
@@ -38,6 +42,7 @@ import { EmailChannel } from "./emailChannel";
 import { EmailTemplate } from "./emailTemplate";
 import { EventStream } from "./eventStream";
 import { GCMChannel } from "./gcmchannel";
+import { InAppTemplate } from "./inAppTemplate";
 import { PushTemplate } from "./pushTemplate";
 import { SMSChannel } from "./smschannel";
 import { Segment } from "./segment";
@@ -74,6 +79,8 @@ const _module = {
                 return new EventStream(name, <any>undefined, { urn })
             case "aws-native:pinpoint:GCMChannel":
                 return new GCMChannel(name, <any>undefined, { urn })
+            case "aws-native:pinpoint:InAppTemplate":
+                return new InAppTemplate(name, <any>undefined, { urn })
             case "aws-native:pinpoint:PushTemplate":
                 return new PushTemplate(name, <any>undefined, { urn })
             case "aws-native:pinpoint:SMSChannel":

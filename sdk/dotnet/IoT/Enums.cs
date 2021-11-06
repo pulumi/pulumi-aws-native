@@ -329,6 +329,40 @@ namespace Pulumi.AwsNative.IoT
     }
 
     /// <summary>
+    /// The log level to use. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
+    /// </summary>
+    [EnumType]
+    public readonly struct LoggingDefaultLogLevel : IEquatable<LoggingDefaultLogLevel>
+    {
+        private readonly string _value;
+
+        private LoggingDefaultLogLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LoggingDefaultLogLevel Error { get; } = new LoggingDefaultLogLevel("ERROR");
+        public static LoggingDefaultLogLevel Warn { get; } = new LoggingDefaultLogLevel("WARN");
+        public static LoggingDefaultLogLevel Info { get; } = new LoggingDefaultLogLevel("INFO");
+        public static LoggingDefaultLogLevel Debug { get; } = new LoggingDefaultLogLevel("DEBUG");
+        public static LoggingDefaultLogLevel Disabled { get; } = new LoggingDefaultLogLevel("DISABLED");
+
+        public static bool operator ==(LoggingDefaultLogLevel left, LoggingDefaultLogLevel right) => left.Equals(right);
+        public static bool operator !=(LoggingDefaultLogLevel left, LoggingDefaultLogLevel right) => !left.Equals(right);
+
+        public static explicit operator string(LoggingDefaultLogLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LoggingDefaultLogLevel other && Equals(other);
+        public bool Equals(LoggingDefaultLogLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     ///  Specifies which types of information are logged.
     /// </summary>
     [EnumType]

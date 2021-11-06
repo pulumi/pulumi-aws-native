@@ -92,6 +92,19 @@ export const JobTemplateFailureType = {
 
 export type JobTemplateFailureType = (typeof JobTemplateFailureType)[keyof typeof JobTemplateFailureType];
 
+export const LoggingDefaultLogLevel = {
+    Error: "ERROR",
+    Warn: "WARN",
+    Info: "INFO",
+    Debug: "DEBUG",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * The log level to use. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
+ */
+export type LoggingDefaultLogLevel = (typeof LoggingDefaultLogLevel)[keyof typeof LoggingDefaultLogLevel];
+
 export const MitigationActionEnableIoTLoggingParamsLogLevel = {
     Debug: "DEBUG",
     Info: "INFO",

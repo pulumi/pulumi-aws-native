@@ -62,6 +62,7 @@ AWS::CloudFront::KeyGroup
 AWS::CloudFront::OriginRequestPolicy
 AWS::CloudFront::PublicKey
 AWS::CloudFront::RealtimeLogConfig
+AWS::CloudFront::ResponseHeadersPolicy
 AWS::CloudTrail::Trail
 AWS::CloudWatch::CompositeAlarm
 AWS::CloudWatch::MetricStream
@@ -91,6 +92,7 @@ AWS::DataBrew::Schedule
 AWS::DataSync::Agent
 AWS::DataSync::LocationEFS
 AWS::DataSync::LocationFSxWindows
+AWS::DataSync::LocationHDFS
 AWS::DataSync::LocationNFS
 AWS::DataSync::LocationObjectStorage
 AWS::DataSync::LocationS3
@@ -122,11 +124,9 @@ AWS::EC2::LocalGatewayRouteTableVPCAssociation
 AWS::EC2::NetworkAcl
 AWS::EC2::NetworkInsightsAnalysis
 AWS::EC2::NetworkInsightsPath
-AWS::EC2::NetworkInterface
 AWS::EC2::PrefixList
 AWS::EC2::RouteTable
 AWS::EC2::SpotFleet
-AWS::EC2::Subnet
 AWS::EC2::SubnetNetworkAclAssociation
 AWS::EC2::SubnetRouteTableAssociation
 AWS::EC2::TransitGateway
@@ -215,6 +215,7 @@ AWS::IoT::Dimension
 AWS::IoT::DomainConfiguration
 AWS::IoT::FleetMetric
 AWS::IoT::JobTemplate
+AWS::IoT::Logging
 AWS::IoT::MitigationAction
 AWS::IoT::ProvisioningTemplate
 AWS::IoT::ResourceSpecificLogging
@@ -222,8 +223,6 @@ AWS::IoT::ScheduledAudit
 AWS::IoT::SecurityProfile
 AWS::IoT::TopicRule
 AWS::IoT::TopicRuleDestination
-AWS::IoTAnalytics::Channel
-AWS::IoTAnalytics::Dataset
 AWS::IoTCoreDeviceAdvisor::SuiteDefinition
 AWS::IoTEvents::DetectorModel
 AWS::IoTEvents::Input
@@ -309,6 +308,7 @@ AWS::OpsWorksCM::Server
 AWS::Panorama::ApplicationInstance
 AWS::Panorama::Package
 AWS::Panorama::PackageVersion
+AWS::Pinpoint::InAppTemplate
 AWS::QLDB::Stream
 AWS::QuickSight::Analysis
 AWS::QuickSight::Dashboard
@@ -321,6 +321,10 @@ AWS::RDS::DBProxyEndpoint
 AWS::RDS::DBProxyTargetGroup
 AWS::RDS::GlobalCluster
 AWS::Redshift::Cluster
+AWS::Redshift::EndpointAccess
+AWS::Redshift::EndpointAuthorization
+AWS::Redshift::EventSubscription
+AWS::Redshift::ScheduledAction
 AWS::Rekognition::Project
 AWS::ResourceGroups::Group
 AWS::RoboMaker::Fleet

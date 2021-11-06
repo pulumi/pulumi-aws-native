@@ -7,18 +7,18 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.EC2.Outputs
+namespace Pulumi.AwsNative.CloudFront.Outputs
 {
 
     [OutputType]
-    public sealed class EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties
+    public sealed class ResponseHeadersPolicyCustomHeadersConfig
     {
-        public readonly Outputs.EC2FleetCapacityRebalance? CapacityRebalance;
+        public readonly ImmutableArray<Outputs.ResponseHeadersPolicyCustomHeader> Items;
 
         [OutputConstructor]
-        private EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties(Outputs.EC2FleetCapacityRebalance? capacityRebalance)
+        private ResponseHeadersPolicyCustomHeadersConfig(ImmutableArray<Outputs.ResponseHeadersPolicyCustomHeader> items)
         {
-            CapacityRebalance = capacityRebalance;
+            Items = items;
         }
     }
 }

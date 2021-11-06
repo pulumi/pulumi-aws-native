@@ -68,7 +68,12 @@ class ChannelArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""Channel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+
+
 class Channel(pulumi.CustomResource):
+    warnings.warn("""Channel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -113,6 +118,7 @@ class Channel(pulumi.CustomResource):
                  retention_period: Optional[pulumi.Input[pulumi.InputType['ChannelRetentionPeriodArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelTagArgs']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""Channel is deprecated: Channel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -158,7 +164,7 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="channelName")
-    def channel_name(self) -> pulumi.Output[Optional[str]]:
+    def channel_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "channel_name")
 
     @property

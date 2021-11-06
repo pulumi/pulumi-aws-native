@@ -3872,6 +3872,990 @@ func (o CampaignWriteTreatmentResourceArrayOutput) Index(i pulumi.IntInput) Camp
 	}).(CampaignWriteTreatmentResourceOutput)
 }
 
+type InAppTemplateBodyConfig struct {
+	Alignment *InAppTemplateAlignment `pulumi:"alignment"`
+	Body      *string                 `pulumi:"body"`
+	TextColor *string                 `pulumi:"textColor"`
+}
+
+// InAppTemplateBodyConfigInput is an input type that accepts InAppTemplateBodyConfigArgs and InAppTemplateBodyConfigOutput values.
+// You can construct a concrete instance of `InAppTemplateBodyConfigInput` via:
+//
+//          InAppTemplateBodyConfigArgs{...}
+type InAppTemplateBodyConfigInput interface {
+	pulumi.Input
+
+	ToInAppTemplateBodyConfigOutput() InAppTemplateBodyConfigOutput
+	ToInAppTemplateBodyConfigOutputWithContext(context.Context) InAppTemplateBodyConfigOutput
+}
+
+type InAppTemplateBodyConfigArgs struct {
+	Alignment InAppTemplateAlignmentPtrInput `pulumi:"alignment"`
+	Body      pulumi.StringPtrInput          `pulumi:"body"`
+	TextColor pulumi.StringPtrInput          `pulumi:"textColor"`
+}
+
+func (InAppTemplateBodyConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InAppTemplateBodyConfig)(nil)).Elem()
+}
+
+func (i InAppTemplateBodyConfigArgs) ToInAppTemplateBodyConfigOutput() InAppTemplateBodyConfigOutput {
+	return i.ToInAppTemplateBodyConfigOutputWithContext(context.Background())
+}
+
+func (i InAppTemplateBodyConfigArgs) ToInAppTemplateBodyConfigOutputWithContext(ctx context.Context) InAppTemplateBodyConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InAppTemplateBodyConfigOutput)
+}
+
+func (i InAppTemplateBodyConfigArgs) ToInAppTemplateBodyConfigPtrOutput() InAppTemplateBodyConfigPtrOutput {
+	return i.ToInAppTemplateBodyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i InAppTemplateBodyConfigArgs) ToInAppTemplateBodyConfigPtrOutputWithContext(ctx context.Context) InAppTemplateBodyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InAppTemplateBodyConfigOutput).ToInAppTemplateBodyConfigPtrOutputWithContext(ctx)
+}
+
+// InAppTemplateBodyConfigPtrInput is an input type that accepts InAppTemplateBodyConfigArgs, InAppTemplateBodyConfigPtr and InAppTemplateBodyConfigPtrOutput values.
+// You can construct a concrete instance of `InAppTemplateBodyConfigPtrInput` via:
+//
+//          InAppTemplateBodyConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type InAppTemplateBodyConfigPtrInput interface {
+	pulumi.Input
+
+	ToInAppTemplateBodyConfigPtrOutput() InAppTemplateBodyConfigPtrOutput
+	ToInAppTemplateBodyConfigPtrOutputWithContext(context.Context) InAppTemplateBodyConfigPtrOutput
+}
+
+type inAppTemplateBodyConfigPtrType InAppTemplateBodyConfigArgs
+
+func InAppTemplateBodyConfigPtr(v *InAppTemplateBodyConfigArgs) InAppTemplateBodyConfigPtrInput {
+	return (*inAppTemplateBodyConfigPtrType)(v)
+}
+
+func (*inAppTemplateBodyConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InAppTemplateBodyConfig)(nil)).Elem()
+}
+
+func (i *inAppTemplateBodyConfigPtrType) ToInAppTemplateBodyConfigPtrOutput() InAppTemplateBodyConfigPtrOutput {
+	return i.ToInAppTemplateBodyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *inAppTemplateBodyConfigPtrType) ToInAppTemplateBodyConfigPtrOutputWithContext(ctx context.Context) InAppTemplateBodyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InAppTemplateBodyConfigPtrOutput)
+}
+
+type InAppTemplateBodyConfigOutput struct{ *pulumi.OutputState }
+
+func (InAppTemplateBodyConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InAppTemplateBodyConfig)(nil)).Elem()
+}
+
+func (o InAppTemplateBodyConfigOutput) ToInAppTemplateBodyConfigOutput() InAppTemplateBodyConfigOutput {
+	return o
+}
+
+func (o InAppTemplateBodyConfigOutput) ToInAppTemplateBodyConfigOutputWithContext(ctx context.Context) InAppTemplateBodyConfigOutput {
+	return o
+}
+
+func (o InAppTemplateBodyConfigOutput) ToInAppTemplateBodyConfigPtrOutput() InAppTemplateBodyConfigPtrOutput {
+	return o.ToInAppTemplateBodyConfigPtrOutputWithContext(context.Background())
+}
+
+func (o InAppTemplateBodyConfigOutput) ToInAppTemplateBodyConfigPtrOutputWithContext(ctx context.Context) InAppTemplateBodyConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InAppTemplateBodyConfig) *InAppTemplateBodyConfig {
+		return &v
+	}).(InAppTemplateBodyConfigPtrOutput)
+}
+
+func (o InAppTemplateBodyConfigOutput) Alignment() InAppTemplateAlignmentPtrOutput {
+	return o.ApplyT(func(v InAppTemplateBodyConfig) *InAppTemplateAlignment { return v.Alignment }).(InAppTemplateAlignmentPtrOutput)
+}
+
+func (o InAppTemplateBodyConfigOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InAppTemplateBodyConfig) *string { return v.Body }).(pulumi.StringPtrOutput)
+}
+
+func (o InAppTemplateBodyConfigOutput) TextColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InAppTemplateBodyConfig) *string { return v.TextColor }).(pulumi.StringPtrOutput)
+}
+
+type InAppTemplateBodyConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (InAppTemplateBodyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InAppTemplateBodyConfig)(nil)).Elem()
+}
+
+func (o InAppTemplateBodyConfigPtrOutput) ToInAppTemplateBodyConfigPtrOutput() InAppTemplateBodyConfigPtrOutput {
+	return o
+}
+
+func (o InAppTemplateBodyConfigPtrOutput) ToInAppTemplateBodyConfigPtrOutputWithContext(ctx context.Context) InAppTemplateBodyConfigPtrOutput {
+	return o
+}
+
+func (o InAppTemplateBodyConfigPtrOutput) Elem() InAppTemplateBodyConfigOutput {
+	return o.ApplyT(func(v *InAppTemplateBodyConfig) InAppTemplateBodyConfig {
+		if v != nil {
+			return *v
+		}
+		var ret InAppTemplateBodyConfig
+		return ret
+	}).(InAppTemplateBodyConfigOutput)
+}
+
+func (o InAppTemplateBodyConfigPtrOutput) Alignment() InAppTemplateAlignmentPtrOutput {
+	return o.ApplyT(func(v *InAppTemplateBodyConfig) *InAppTemplateAlignment {
+		if v == nil {
+			return nil
+		}
+		return v.Alignment
+	}).(InAppTemplateAlignmentPtrOutput)
+}
+
+func (o InAppTemplateBodyConfigPtrOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InAppTemplateBodyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Body
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o InAppTemplateBodyConfigPtrOutput) TextColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InAppTemplateBodyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TextColor
+	}).(pulumi.StringPtrOutput)
+}
+
+type InAppTemplateButtonConfig struct {
+	Android       *InAppTemplateOverrideButtonConfiguration `pulumi:"android"`
+	DefaultConfig *InAppTemplateDefaultButtonConfiguration  `pulumi:"defaultConfig"`
+	IOS           *InAppTemplateOverrideButtonConfiguration `pulumi:"iOS"`
+	Web           *InAppTemplateOverrideButtonConfiguration `pulumi:"web"`
+}
+
+// InAppTemplateButtonConfigInput is an input type that accepts InAppTemplateButtonConfigArgs and InAppTemplateButtonConfigOutput values.
+// You can construct a concrete instance of `InAppTemplateButtonConfigInput` via:
+//
+//          InAppTemplateButtonConfigArgs{...}
+type InAppTemplateButtonConfigInput interface {
+	pulumi.Input
+
+	ToInAppTemplateButtonConfigOutput() InAppTemplateButtonConfigOutput
+	ToInAppTemplateButtonConfigOutputWithContext(context.Context) InAppTemplateButtonConfigOutput
+}
+
+type InAppTemplateButtonConfigArgs struct {
+	Android       InAppTemplateOverrideButtonConfigurationPtrInput `pulumi:"android"`
+	DefaultConfig InAppTemplateDefaultButtonConfigurationPtrInput  `pulumi:"defaultConfig"`
+	IOS           InAppTemplateOverrideButtonConfigurationPtrInput `pulumi:"iOS"`
+	Web           InAppTemplateOverrideButtonConfigurationPtrInput `pulumi:"web"`
+}
+
+func (InAppTemplateButtonConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InAppTemplateButtonConfig)(nil)).Elem()
+}
+
+func (i InAppTemplateButtonConfigArgs) ToInAppTemplateButtonConfigOutput() InAppTemplateButtonConfigOutput {
+	return i.ToInAppTemplateButtonConfigOutputWithContext(context.Background())
+}
+
+func (i InAppTemplateButtonConfigArgs) ToInAppTemplateButtonConfigOutputWithContext(ctx context.Context) InAppTemplateButtonConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InAppTemplateButtonConfigOutput)
+}
+
+func (i InAppTemplateButtonConfigArgs) ToInAppTemplateButtonConfigPtrOutput() InAppTemplateButtonConfigPtrOutput {
+	return i.ToInAppTemplateButtonConfigPtrOutputWithContext(context.Background())
+}
+
+func (i InAppTemplateButtonConfigArgs) ToInAppTemplateButtonConfigPtrOutputWithContext(ctx context.Context) InAppTemplateButtonConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InAppTemplateButtonConfigOutput).ToInAppTemplateButtonConfigPtrOutputWithContext(ctx)
+}
+
+// InAppTemplateButtonConfigPtrInput is an input type that accepts InAppTemplateButtonConfigArgs, InAppTemplateButtonConfigPtr and InAppTemplateButtonConfigPtrOutput values.
+// You can construct a concrete instance of `InAppTemplateButtonConfigPtrInput` via:
+//
+//          InAppTemplateButtonConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type InAppTemplateButtonConfigPtrInput interface {
+	pulumi.Input
+
+	ToInAppTemplateButtonConfigPtrOutput() InAppTemplateButtonConfigPtrOutput
+	ToInAppTemplateButtonConfigPtrOutputWithContext(context.Context) InAppTemplateButtonConfigPtrOutput
+}
+
+type inAppTemplateButtonConfigPtrType InAppTemplateButtonConfigArgs
+
+func InAppTemplateButtonConfigPtr(v *InAppTemplateButtonConfigArgs) InAppTemplateButtonConfigPtrInput {
+	return (*inAppTemplateButtonConfigPtrType)(v)
+}
+
+func (*inAppTemplateButtonConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InAppTemplateButtonConfig)(nil)).Elem()
+}
+
+func (i *inAppTemplateButtonConfigPtrType) ToInAppTemplateButtonConfigPtrOutput() InAppTemplateButtonConfigPtrOutput {
+	return i.ToInAppTemplateButtonConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *inAppTemplateButtonConfigPtrType) ToInAppTemplateButtonConfigPtrOutputWithContext(ctx context.Context) InAppTemplateButtonConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InAppTemplateButtonConfigPtrOutput)
+}
+
+type InAppTemplateButtonConfigOutput struct{ *pulumi.OutputState }
+
+func (InAppTemplateButtonConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InAppTemplateButtonConfig)(nil)).Elem()
+}
+
+func (o InAppTemplateButtonConfigOutput) ToInAppTemplateButtonConfigOutput() InAppTemplateButtonConfigOutput {
+	return o
+}
+
+func (o InAppTemplateButtonConfigOutput) ToInAppTemplateButtonConfigOutputWithContext(ctx context.Context) InAppTemplateButtonConfigOutput {
+	return o
+}
+
+func (o InAppTemplateButtonConfigOutput) ToInAppTemplateButtonConfigPtrOutput() InAppTemplateButtonConfigPtrOutput {
+	return o.ToInAppTemplateButtonConfigPtrOutputWithContext(context.Background())
+}
+
+func (o InAppTemplateButtonConfigOutput) ToInAppTemplateButtonConfigPtrOutputWithContext(ctx context.Context) InAppTemplateButtonConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InAppTemplateButtonConfig) *InAppTemplateButtonConfig {
+		return &v
+	}).(InAppTemplateButtonConfigPtrOutput)
+}
+
+func (o InAppTemplateButtonConfigOutput) Android() InAppTemplateOverrideButtonConfigurationPtrOutput {
+	return o.ApplyT(func(v InAppTemplateButtonConfig) *InAppTemplateOverrideButtonConfiguration { return v.Android }).(InAppTemplateOverrideButtonConfigurationPtrOutput)
+}
+
+func (o InAppTemplateButtonConfigOutput) DefaultConfig() InAppTemplateDefaultButtonConfigurationPtrOutput {
+	return o.ApplyT(func(v InAppTemplateButtonConfig) *InAppTemplateDefaultButtonConfiguration { return v.DefaultConfig }).(InAppTemplateDefaultButtonConfigurationPtrOutput)
+}
+
+func (o InAppTemplateButtonConfigOutput) IOS() InAppTemplateOverrideButtonConfigurationPtrOutput {
+	return o.ApplyT(func(v InAppTemplateButtonConfig) *InAppTemplateOverrideButtonConfiguration { return v.IOS }).(InAppTemplateOverrideButtonConfigurationPtrOutput)
+}
+
+func (o InAppTemplateButtonConfigOutput) Web() InAppTemplateOverrideButtonConfigurationPtrOutput {
+	return o.ApplyT(func(v InAppTemplateButtonConfig) *InAppTemplateOverrideButtonConfiguration { return v.Web }).(InAppTemplateOverrideButtonConfigurationPtrOutput)
+}
+
+type InAppTemplateButtonConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (InAppTemplateButtonConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InAppTemplateButtonConfig)(nil)).Elem()
+}
+
+func (o InAppTemplateButtonConfigPtrOutput) ToInAppTemplateButtonConfigPtrOutput() InAppTemplateButtonConfigPtrOutput {
+	return o
+}
+
+func (o InAppTemplateButtonConfigPtrOutput) ToInAppTemplateButtonConfigPtrOutputWithContext(ctx context.Context) InAppTemplateButtonConfigPtrOutput {
+	return o
+}
+
+func (o InAppTemplateButtonConfigPtrOutput) Elem() InAppTemplateButtonConfigOutput {
+	return o.ApplyT(func(v *InAppTemplateButtonConfig) InAppTemplateButtonConfig {
+		if v != nil {
+			return *v
+		}
+		var ret InAppTemplateButtonConfig
+		return ret
+	}).(InAppTemplateButtonConfigOutput)
+}
+
+func (o InAppTemplateButtonConfigPtrOutput) Android() InAppTemplateOverrideButtonConfigurationPtrOutput {
+	return o.ApplyT(func(v *InAppTemplateButtonConfig) *InAppTemplateOverrideButtonConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Android
+	}).(InAppTemplateOverrideButtonConfigurationPtrOutput)
+}
+
+func (o InAppTemplateButtonConfigPtrOutput) DefaultConfig() InAppTemplateDefaultButtonConfigurationPtrOutput {
+	return o.ApplyT(func(v *InAppTemplateButtonConfig) *InAppTemplateDefaultButtonConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultConfig
+	}).(InAppTemplateDefaultButtonConfigurationPtrOutput)
+}
+
+func (o InAppTemplateButtonConfigPtrOutput) IOS() InAppTemplateOverrideButtonConfigurationPtrOutput {
+	return o.ApplyT(func(v *InAppTemplateButtonConfig) *InAppTemplateOverrideButtonConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.IOS
+	}).(InAppTemplateOverrideButtonConfigurationPtrOutput)
+}
+
+func (o InAppTemplateButtonConfigPtrOutput) Web() InAppTemplateOverrideButtonConfigurationPtrOutput {
+	return o.ApplyT(func(v *InAppTemplateButtonConfig) *InAppTemplateOverrideButtonConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Web
+	}).(InAppTemplateOverrideButtonConfigurationPtrOutput)
+}
+
+type InAppTemplateDefaultButtonConfiguration struct {
+	BackgroundColor *string                    `pulumi:"backgroundColor"`
+	BorderRadius    *int                       `pulumi:"borderRadius"`
+	ButtonAction    *InAppTemplateButtonAction `pulumi:"buttonAction"`
+	Link            *string                    `pulumi:"link"`
+	Text            *string                    `pulumi:"text"`
+	TextColor       *string                    `pulumi:"textColor"`
+}
+
+// InAppTemplateDefaultButtonConfigurationInput is an input type that accepts InAppTemplateDefaultButtonConfigurationArgs and InAppTemplateDefaultButtonConfigurationOutput values.
+// You can construct a concrete instance of `InAppTemplateDefaultButtonConfigurationInput` via:
+//
+//          InAppTemplateDefaultButtonConfigurationArgs{...}
+type InAppTemplateDefaultButtonConfigurationInput interface {
+	pulumi.Input
+
+	ToInAppTemplateDefaultButtonConfigurationOutput() InAppTemplateDefaultButtonConfigurationOutput
+	ToInAppTemplateDefaultButtonConfigurationOutputWithContext(context.Context) InAppTemplateDefaultButtonConfigurationOutput
+}
+
+type InAppTemplateDefaultButtonConfigurationArgs struct {
+	BackgroundColor pulumi.StringPtrInput             `pulumi:"backgroundColor"`
+	BorderRadius    pulumi.IntPtrInput                `pulumi:"borderRadius"`
+	ButtonAction    InAppTemplateButtonActionPtrInput `pulumi:"buttonAction"`
+	Link            pulumi.StringPtrInput             `pulumi:"link"`
+	Text            pulumi.StringPtrInput             `pulumi:"text"`
+	TextColor       pulumi.StringPtrInput             `pulumi:"textColor"`
+}
+
+func (InAppTemplateDefaultButtonConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InAppTemplateDefaultButtonConfiguration)(nil)).Elem()
+}
+
+func (i InAppTemplateDefaultButtonConfigurationArgs) ToInAppTemplateDefaultButtonConfigurationOutput() InAppTemplateDefaultButtonConfigurationOutput {
+	return i.ToInAppTemplateDefaultButtonConfigurationOutputWithContext(context.Background())
+}
+
+func (i InAppTemplateDefaultButtonConfigurationArgs) ToInAppTemplateDefaultButtonConfigurationOutputWithContext(ctx context.Context) InAppTemplateDefaultButtonConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InAppTemplateDefaultButtonConfigurationOutput)
+}
+
+func (i InAppTemplateDefaultButtonConfigurationArgs) ToInAppTemplateDefaultButtonConfigurationPtrOutput() InAppTemplateDefaultButtonConfigurationPtrOutput {
+	return i.ToInAppTemplateDefaultButtonConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i InAppTemplateDefaultButtonConfigurationArgs) ToInAppTemplateDefaultButtonConfigurationPtrOutputWithContext(ctx context.Context) InAppTemplateDefaultButtonConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InAppTemplateDefaultButtonConfigurationOutput).ToInAppTemplateDefaultButtonConfigurationPtrOutputWithContext(ctx)
+}
+
+// InAppTemplateDefaultButtonConfigurationPtrInput is an input type that accepts InAppTemplateDefaultButtonConfigurationArgs, InAppTemplateDefaultButtonConfigurationPtr and InAppTemplateDefaultButtonConfigurationPtrOutput values.
+// You can construct a concrete instance of `InAppTemplateDefaultButtonConfigurationPtrInput` via:
+//
+//          InAppTemplateDefaultButtonConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type InAppTemplateDefaultButtonConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToInAppTemplateDefaultButtonConfigurationPtrOutput() InAppTemplateDefaultButtonConfigurationPtrOutput
+	ToInAppTemplateDefaultButtonConfigurationPtrOutputWithContext(context.Context) InAppTemplateDefaultButtonConfigurationPtrOutput
+}
+
+type inAppTemplateDefaultButtonConfigurationPtrType InAppTemplateDefaultButtonConfigurationArgs
+
+func InAppTemplateDefaultButtonConfigurationPtr(v *InAppTemplateDefaultButtonConfigurationArgs) InAppTemplateDefaultButtonConfigurationPtrInput {
+	return (*inAppTemplateDefaultButtonConfigurationPtrType)(v)
+}
+
+func (*inAppTemplateDefaultButtonConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InAppTemplateDefaultButtonConfiguration)(nil)).Elem()
+}
+
+func (i *inAppTemplateDefaultButtonConfigurationPtrType) ToInAppTemplateDefaultButtonConfigurationPtrOutput() InAppTemplateDefaultButtonConfigurationPtrOutput {
+	return i.ToInAppTemplateDefaultButtonConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *inAppTemplateDefaultButtonConfigurationPtrType) ToInAppTemplateDefaultButtonConfigurationPtrOutputWithContext(ctx context.Context) InAppTemplateDefaultButtonConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InAppTemplateDefaultButtonConfigurationPtrOutput)
+}
+
+type InAppTemplateDefaultButtonConfigurationOutput struct{ *pulumi.OutputState }
+
+func (InAppTemplateDefaultButtonConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InAppTemplateDefaultButtonConfiguration)(nil)).Elem()
+}
+
+func (o InAppTemplateDefaultButtonConfigurationOutput) ToInAppTemplateDefaultButtonConfigurationOutput() InAppTemplateDefaultButtonConfigurationOutput {
+	return o
+}
+
+func (o InAppTemplateDefaultButtonConfigurationOutput) ToInAppTemplateDefaultButtonConfigurationOutputWithContext(ctx context.Context) InAppTemplateDefaultButtonConfigurationOutput {
+	return o
+}
+
+func (o InAppTemplateDefaultButtonConfigurationOutput) ToInAppTemplateDefaultButtonConfigurationPtrOutput() InAppTemplateDefaultButtonConfigurationPtrOutput {
+	return o.ToInAppTemplateDefaultButtonConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o InAppTemplateDefaultButtonConfigurationOutput) ToInAppTemplateDefaultButtonConfigurationPtrOutputWithContext(ctx context.Context) InAppTemplateDefaultButtonConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InAppTemplateDefaultButtonConfiguration) *InAppTemplateDefaultButtonConfiguration {
+		return &v
+	}).(InAppTemplateDefaultButtonConfigurationPtrOutput)
+}
+
+func (o InAppTemplateDefaultButtonConfigurationOutput) BackgroundColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InAppTemplateDefaultButtonConfiguration) *string { return v.BackgroundColor }).(pulumi.StringPtrOutput)
+}
+
+func (o InAppTemplateDefaultButtonConfigurationOutput) BorderRadius() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InAppTemplateDefaultButtonConfiguration) *int { return v.BorderRadius }).(pulumi.IntPtrOutput)
+}
+
+func (o InAppTemplateDefaultButtonConfigurationOutput) ButtonAction() InAppTemplateButtonActionPtrOutput {
+	return o.ApplyT(func(v InAppTemplateDefaultButtonConfiguration) *InAppTemplateButtonAction { return v.ButtonAction }).(InAppTemplateButtonActionPtrOutput)
+}
+
+func (o InAppTemplateDefaultButtonConfigurationOutput) Link() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InAppTemplateDefaultButtonConfiguration) *string { return v.Link }).(pulumi.StringPtrOutput)
+}
+
+func (o InAppTemplateDefaultButtonConfigurationOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InAppTemplateDefaultButtonConfiguration) *string { return v.Text }).(pulumi.StringPtrOutput)
+}
+
+func (o InAppTemplateDefaultButtonConfigurationOutput) TextColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InAppTemplateDefaultButtonConfiguration) *string { return v.TextColor }).(pulumi.StringPtrOutput)
+}
+
+type InAppTemplateDefaultButtonConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (InAppTemplateDefaultButtonConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InAppTemplateDefaultButtonConfiguration)(nil)).Elem()
+}
+
+func (o InAppTemplateDefaultButtonConfigurationPtrOutput) ToInAppTemplateDefaultButtonConfigurationPtrOutput() InAppTemplateDefaultButtonConfigurationPtrOutput {
+	return o
+}
+
+func (o InAppTemplateDefaultButtonConfigurationPtrOutput) ToInAppTemplateDefaultButtonConfigurationPtrOutputWithContext(ctx context.Context) InAppTemplateDefaultButtonConfigurationPtrOutput {
+	return o
+}
+
+func (o InAppTemplateDefaultButtonConfigurationPtrOutput) Elem() InAppTemplateDefaultButtonConfigurationOutput {
+	return o.ApplyT(func(v *InAppTemplateDefaultButtonConfiguration) InAppTemplateDefaultButtonConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret InAppTemplateDefaultButtonConfiguration
+		return ret
+	}).(InAppTemplateDefaultButtonConfigurationOutput)
+}
+
+func (o InAppTemplateDefaultButtonConfigurationPtrOutput) BackgroundColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InAppTemplateDefaultButtonConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BackgroundColor
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o InAppTemplateDefaultButtonConfigurationPtrOutput) BorderRadius() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InAppTemplateDefaultButtonConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BorderRadius
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o InAppTemplateDefaultButtonConfigurationPtrOutput) ButtonAction() InAppTemplateButtonActionPtrOutput {
+	return o.ApplyT(func(v *InAppTemplateDefaultButtonConfiguration) *InAppTemplateButtonAction {
+		if v == nil {
+			return nil
+		}
+		return v.ButtonAction
+	}).(InAppTemplateButtonActionPtrOutput)
+}
+
+func (o InAppTemplateDefaultButtonConfigurationPtrOutput) Link() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InAppTemplateDefaultButtonConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Link
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o InAppTemplateDefaultButtonConfigurationPtrOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InAppTemplateDefaultButtonConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Text
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o InAppTemplateDefaultButtonConfigurationPtrOutput) TextColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InAppTemplateDefaultButtonConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TextColor
+	}).(pulumi.StringPtrOutput)
+}
+
+type InAppTemplateHeaderConfig struct {
+	Alignment *InAppTemplateAlignment `pulumi:"alignment"`
+	Header    *string                 `pulumi:"header"`
+	TextColor *string                 `pulumi:"textColor"`
+}
+
+// InAppTemplateHeaderConfigInput is an input type that accepts InAppTemplateHeaderConfigArgs and InAppTemplateHeaderConfigOutput values.
+// You can construct a concrete instance of `InAppTemplateHeaderConfigInput` via:
+//
+//          InAppTemplateHeaderConfigArgs{...}
+type InAppTemplateHeaderConfigInput interface {
+	pulumi.Input
+
+	ToInAppTemplateHeaderConfigOutput() InAppTemplateHeaderConfigOutput
+	ToInAppTemplateHeaderConfigOutputWithContext(context.Context) InAppTemplateHeaderConfigOutput
+}
+
+type InAppTemplateHeaderConfigArgs struct {
+	Alignment InAppTemplateAlignmentPtrInput `pulumi:"alignment"`
+	Header    pulumi.StringPtrInput          `pulumi:"header"`
+	TextColor pulumi.StringPtrInput          `pulumi:"textColor"`
+}
+
+func (InAppTemplateHeaderConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InAppTemplateHeaderConfig)(nil)).Elem()
+}
+
+func (i InAppTemplateHeaderConfigArgs) ToInAppTemplateHeaderConfigOutput() InAppTemplateHeaderConfigOutput {
+	return i.ToInAppTemplateHeaderConfigOutputWithContext(context.Background())
+}
+
+func (i InAppTemplateHeaderConfigArgs) ToInAppTemplateHeaderConfigOutputWithContext(ctx context.Context) InAppTemplateHeaderConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InAppTemplateHeaderConfigOutput)
+}
+
+func (i InAppTemplateHeaderConfigArgs) ToInAppTemplateHeaderConfigPtrOutput() InAppTemplateHeaderConfigPtrOutput {
+	return i.ToInAppTemplateHeaderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i InAppTemplateHeaderConfigArgs) ToInAppTemplateHeaderConfigPtrOutputWithContext(ctx context.Context) InAppTemplateHeaderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InAppTemplateHeaderConfigOutput).ToInAppTemplateHeaderConfigPtrOutputWithContext(ctx)
+}
+
+// InAppTemplateHeaderConfigPtrInput is an input type that accepts InAppTemplateHeaderConfigArgs, InAppTemplateHeaderConfigPtr and InAppTemplateHeaderConfigPtrOutput values.
+// You can construct a concrete instance of `InAppTemplateHeaderConfigPtrInput` via:
+//
+//          InAppTemplateHeaderConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type InAppTemplateHeaderConfigPtrInput interface {
+	pulumi.Input
+
+	ToInAppTemplateHeaderConfigPtrOutput() InAppTemplateHeaderConfigPtrOutput
+	ToInAppTemplateHeaderConfigPtrOutputWithContext(context.Context) InAppTemplateHeaderConfigPtrOutput
+}
+
+type inAppTemplateHeaderConfigPtrType InAppTemplateHeaderConfigArgs
+
+func InAppTemplateHeaderConfigPtr(v *InAppTemplateHeaderConfigArgs) InAppTemplateHeaderConfigPtrInput {
+	return (*inAppTemplateHeaderConfigPtrType)(v)
+}
+
+func (*inAppTemplateHeaderConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InAppTemplateHeaderConfig)(nil)).Elem()
+}
+
+func (i *inAppTemplateHeaderConfigPtrType) ToInAppTemplateHeaderConfigPtrOutput() InAppTemplateHeaderConfigPtrOutput {
+	return i.ToInAppTemplateHeaderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *inAppTemplateHeaderConfigPtrType) ToInAppTemplateHeaderConfigPtrOutputWithContext(ctx context.Context) InAppTemplateHeaderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InAppTemplateHeaderConfigPtrOutput)
+}
+
+type InAppTemplateHeaderConfigOutput struct{ *pulumi.OutputState }
+
+func (InAppTemplateHeaderConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InAppTemplateHeaderConfig)(nil)).Elem()
+}
+
+func (o InAppTemplateHeaderConfigOutput) ToInAppTemplateHeaderConfigOutput() InAppTemplateHeaderConfigOutput {
+	return o
+}
+
+func (o InAppTemplateHeaderConfigOutput) ToInAppTemplateHeaderConfigOutputWithContext(ctx context.Context) InAppTemplateHeaderConfigOutput {
+	return o
+}
+
+func (o InAppTemplateHeaderConfigOutput) ToInAppTemplateHeaderConfigPtrOutput() InAppTemplateHeaderConfigPtrOutput {
+	return o.ToInAppTemplateHeaderConfigPtrOutputWithContext(context.Background())
+}
+
+func (o InAppTemplateHeaderConfigOutput) ToInAppTemplateHeaderConfigPtrOutputWithContext(ctx context.Context) InAppTemplateHeaderConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InAppTemplateHeaderConfig) *InAppTemplateHeaderConfig {
+		return &v
+	}).(InAppTemplateHeaderConfigPtrOutput)
+}
+
+func (o InAppTemplateHeaderConfigOutput) Alignment() InAppTemplateAlignmentPtrOutput {
+	return o.ApplyT(func(v InAppTemplateHeaderConfig) *InAppTemplateAlignment { return v.Alignment }).(InAppTemplateAlignmentPtrOutput)
+}
+
+func (o InAppTemplateHeaderConfigOutput) Header() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InAppTemplateHeaderConfig) *string { return v.Header }).(pulumi.StringPtrOutput)
+}
+
+func (o InAppTemplateHeaderConfigOutput) TextColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InAppTemplateHeaderConfig) *string { return v.TextColor }).(pulumi.StringPtrOutput)
+}
+
+type InAppTemplateHeaderConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (InAppTemplateHeaderConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InAppTemplateHeaderConfig)(nil)).Elem()
+}
+
+func (o InAppTemplateHeaderConfigPtrOutput) ToInAppTemplateHeaderConfigPtrOutput() InAppTemplateHeaderConfigPtrOutput {
+	return o
+}
+
+func (o InAppTemplateHeaderConfigPtrOutput) ToInAppTemplateHeaderConfigPtrOutputWithContext(ctx context.Context) InAppTemplateHeaderConfigPtrOutput {
+	return o
+}
+
+func (o InAppTemplateHeaderConfigPtrOutput) Elem() InAppTemplateHeaderConfigOutput {
+	return o.ApplyT(func(v *InAppTemplateHeaderConfig) InAppTemplateHeaderConfig {
+		if v != nil {
+			return *v
+		}
+		var ret InAppTemplateHeaderConfig
+		return ret
+	}).(InAppTemplateHeaderConfigOutput)
+}
+
+func (o InAppTemplateHeaderConfigPtrOutput) Alignment() InAppTemplateAlignmentPtrOutput {
+	return o.ApplyT(func(v *InAppTemplateHeaderConfig) *InAppTemplateAlignment {
+		if v == nil {
+			return nil
+		}
+		return v.Alignment
+	}).(InAppTemplateAlignmentPtrOutput)
+}
+
+func (o InAppTemplateHeaderConfigPtrOutput) Header() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InAppTemplateHeaderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Header
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o InAppTemplateHeaderConfigPtrOutput) TextColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InAppTemplateHeaderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TextColor
+	}).(pulumi.StringPtrOutput)
+}
+
+type InAppTemplateInAppMessageContent struct {
+	BackgroundColor *string                    `pulumi:"backgroundColor"`
+	BodyConfig      *InAppTemplateBodyConfig   `pulumi:"bodyConfig"`
+	HeaderConfig    *InAppTemplateHeaderConfig `pulumi:"headerConfig"`
+	ImageUrl        *string                    `pulumi:"imageUrl"`
+	PrimaryBtn      *InAppTemplateButtonConfig `pulumi:"primaryBtn"`
+	SecondaryBtn    *InAppTemplateButtonConfig `pulumi:"secondaryBtn"`
+}
+
+// InAppTemplateInAppMessageContentInput is an input type that accepts InAppTemplateInAppMessageContentArgs and InAppTemplateInAppMessageContentOutput values.
+// You can construct a concrete instance of `InAppTemplateInAppMessageContentInput` via:
+//
+//          InAppTemplateInAppMessageContentArgs{...}
+type InAppTemplateInAppMessageContentInput interface {
+	pulumi.Input
+
+	ToInAppTemplateInAppMessageContentOutput() InAppTemplateInAppMessageContentOutput
+	ToInAppTemplateInAppMessageContentOutputWithContext(context.Context) InAppTemplateInAppMessageContentOutput
+}
+
+type InAppTemplateInAppMessageContentArgs struct {
+	BackgroundColor pulumi.StringPtrInput             `pulumi:"backgroundColor"`
+	BodyConfig      InAppTemplateBodyConfigPtrInput   `pulumi:"bodyConfig"`
+	HeaderConfig    InAppTemplateHeaderConfigPtrInput `pulumi:"headerConfig"`
+	ImageUrl        pulumi.StringPtrInput             `pulumi:"imageUrl"`
+	PrimaryBtn      InAppTemplateButtonConfigPtrInput `pulumi:"primaryBtn"`
+	SecondaryBtn    InAppTemplateButtonConfigPtrInput `pulumi:"secondaryBtn"`
+}
+
+func (InAppTemplateInAppMessageContentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InAppTemplateInAppMessageContent)(nil)).Elem()
+}
+
+func (i InAppTemplateInAppMessageContentArgs) ToInAppTemplateInAppMessageContentOutput() InAppTemplateInAppMessageContentOutput {
+	return i.ToInAppTemplateInAppMessageContentOutputWithContext(context.Background())
+}
+
+func (i InAppTemplateInAppMessageContentArgs) ToInAppTemplateInAppMessageContentOutputWithContext(ctx context.Context) InAppTemplateInAppMessageContentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InAppTemplateInAppMessageContentOutput)
+}
+
+// InAppTemplateInAppMessageContentArrayInput is an input type that accepts InAppTemplateInAppMessageContentArray and InAppTemplateInAppMessageContentArrayOutput values.
+// You can construct a concrete instance of `InAppTemplateInAppMessageContentArrayInput` via:
+//
+//          InAppTemplateInAppMessageContentArray{ InAppTemplateInAppMessageContentArgs{...} }
+type InAppTemplateInAppMessageContentArrayInput interface {
+	pulumi.Input
+
+	ToInAppTemplateInAppMessageContentArrayOutput() InAppTemplateInAppMessageContentArrayOutput
+	ToInAppTemplateInAppMessageContentArrayOutputWithContext(context.Context) InAppTemplateInAppMessageContentArrayOutput
+}
+
+type InAppTemplateInAppMessageContentArray []InAppTemplateInAppMessageContentInput
+
+func (InAppTemplateInAppMessageContentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InAppTemplateInAppMessageContent)(nil)).Elem()
+}
+
+func (i InAppTemplateInAppMessageContentArray) ToInAppTemplateInAppMessageContentArrayOutput() InAppTemplateInAppMessageContentArrayOutput {
+	return i.ToInAppTemplateInAppMessageContentArrayOutputWithContext(context.Background())
+}
+
+func (i InAppTemplateInAppMessageContentArray) ToInAppTemplateInAppMessageContentArrayOutputWithContext(ctx context.Context) InAppTemplateInAppMessageContentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InAppTemplateInAppMessageContentArrayOutput)
+}
+
+type InAppTemplateInAppMessageContentOutput struct{ *pulumi.OutputState }
+
+func (InAppTemplateInAppMessageContentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InAppTemplateInAppMessageContent)(nil)).Elem()
+}
+
+func (o InAppTemplateInAppMessageContentOutput) ToInAppTemplateInAppMessageContentOutput() InAppTemplateInAppMessageContentOutput {
+	return o
+}
+
+func (o InAppTemplateInAppMessageContentOutput) ToInAppTemplateInAppMessageContentOutputWithContext(ctx context.Context) InAppTemplateInAppMessageContentOutput {
+	return o
+}
+
+func (o InAppTemplateInAppMessageContentOutput) BackgroundColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InAppTemplateInAppMessageContent) *string { return v.BackgroundColor }).(pulumi.StringPtrOutput)
+}
+
+func (o InAppTemplateInAppMessageContentOutput) BodyConfig() InAppTemplateBodyConfigPtrOutput {
+	return o.ApplyT(func(v InAppTemplateInAppMessageContent) *InAppTemplateBodyConfig { return v.BodyConfig }).(InAppTemplateBodyConfigPtrOutput)
+}
+
+func (o InAppTemplateInAppMessageContentOutput) HeaderConfig() InAppTemplateHeaderConfigPtrOutput {
+	return o.ApplyT(func(v InAppTemplateInAppMessageContent) *InAppTemplateHeaderConfig { return v.HeaderConfig }).(InAppTemplateHeaderConfigPtrOutput)
+}
+
+func (o InAppTemplateInAppMessageContentOutput) ImageUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InAppTemplateInAppMessageContent) *string { return v.ImageUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o InAppTemplateInAppMessageContentOutput) PrimaryBtn() InAppTemplateButtonConfigPtrOutput {
+	return o.ApplyT(func(v InAppTemplateInAppMessageContent) *InAppTemplateButtonConfig { return v.PrimaryBtn }).(InAppTemplateButtonConfigPtrOutput)
+}
+
+func (o InAppTemplateInAppMessageContentOutput) SecondaryBtn() InAppTemplateButtonConfigPtrOutput {
+	return o.ApplyT(func(v InAppTemplateInAppMessageContent) *InAppTemplateButtonConfig { return v.SecondaryBtn }).(InAppTemplateButtonConfigPtrOutput)
+}
+
+type InAppTemplateInAppMessageContentArrayOutput struct{ *pulumi.OutputState }
+
+func (InAppTemplateInAppMessageContentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InAppTemplateInAppMessageContent)(nil)).Elem()
+}
+
+func (o InAppTemplateInAppMessageContentArrayOutput) ToInAppTemplateInAppMessageContentArrayOutput() InAppTemplateInAppMessageContentArrayOutput {
+	return o
+}
+
+func (o InAppTemplateInAppMessageContentArrayOutput) ToInAppTemplateInAppMessageContentArrayOutputWithContext(ctx context.Context) InAppTemplateInAppMessageContentArrayOutput {
+	return o
+}
+
+func (o InAppTemplateInAppMessageContentArrayOutput) Index(i pulumi.IntInput) InAppTemplateInAppMessageContentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InAppTemplateInAppMessageContent {
+		return vs[0].([]InAppTemplateInAppMessageContent)[vs[1].(int)]
+	}).(InAppTemplateInAppMessageContentOutput)
+}
+
+type InAppTemplateOverrideButtonConfiguration struct {
+	ButtonAction *InAppTemplateButtonAction `pulumi:"buttonAction"`
+	Link         *string                    `pulumi:"link"`
+}
+
+// InAppTemplateOverrideButtonConfigurationInput is an input type that accepts InAppTemplateOverrideButtonConfigurationArgs and InAppTemplateOverrideButtonConfigurationOutput values.
+// You can construct a concrete instance of `InAppTemplateOverrideButtonConfigurationInput` via:
+//
+//          InAppTemplateOverrideButtonConfigurationArgs{...}
+type InAppTemplateOverrideButtonConfigurationInput interface {
+	pulumi.Input
+
+	ToInAppTemplateOverrideButtonConfigurationOutput() InAppTemplateOverrideButtonConfigurationOutput
+	ToInAppTemplateOverrideButtonConfigurationOutputWithContext(context.Context) InAppTemplateOverrideButtonConfigurationOutput
+}
+
+type InAppTemplateOverrideButtonConfigurationArgs struct {
+	ButtonAction InAppTemplateButtonActionPtrInput `pulumi:"buttonAction"`
+	Link         pulumi.StringPtrInput             `pulumi:"link"`
+}
+
+func (InAppTemplateOverrideButtonConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InAppTemplateOverrideButtonConfiguration)(nil)).Elem()
+}
+
+func (i InAppTemplateOverrideButtonConfigurationArgs) ToInAppTemplateOverrideButtonConfigurationOutput() InAppTemplateOverrideButtonConfigurationOutput {
+	return i.ToInAppTemplateOverrideButtonConfigurationOutputWithContext(context.Background())
+}
+
+func (i InAppTemplateOverrideButtonConfigurationArgs) ToInAppTemplateOverrideButtonConfigurationOutputWithContext(ctx context.Context) InAppTemplateOverrideButtonConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InAppTemplateOverrideButtonConfigurationOutput)
+}
+
+func (i InAppTemplateOverrideButtonConfigurationArgs) ToInAppTemplateOverrideButtonConfigurationPtrOutput() InAppTemplateOverrideButtonConfigurationPtrOutput {
+	return i.ToInAppTemplateOverrideButtonConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i InAppTemplateOverrideButtonConfigurationArgs) ToInAppTemplateOverrideButtonConfigurationPtrOutputWithContext(ctx context.Context) InAppTemplateOverrideButtonConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InAppTemplateOverrideButtonConfigurationOutput).ToInAppTemplateOverrideButtonConfigurationPtrOutputWithContext(ctx)
+}
+
+// InAppTemplateOverrideButtonConfigurationPtrInput is an input type that accepts InAppTemplateOverrideButtonConfigurationArgs, InAppTemplateOverrideButtonConfigurationPtr and InAppTemplateOverrideButtonConfigurationPtrOutput values.
+// You can construct a concrete instance of `InAppTemplateOverrideButtonConfigurationPtrInput` via:
+//
+//          InAppTemplateOverrideButtonConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type InAppTemplateOverrideButtonConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToInAppTemplateOverrideButtonConfigurationPtrOutput() InAppTemplateOverrideButtonConfigurationPtrOutput
+	ToInAppTemplateOverrideButtonConfigurationPtrOutputWithContext(context.Context) InAppTemplateOverrideButtonConfigurationPtrOutput
+}
+
+type inAppTemplateOverrideButtonConfigurationPtrType InAppTemplateOverrideButtonConfigurationArgs
+
+func InAppTemplateOverrideButtonConfigurationPtr(v *InAppTemplateOverrideButtonConfigurationArgs) InAppTemplateOverrideButtonConfigurationPtrInput {
+	return (*inAppTemplateOverrideButtonConfigurationPtrType)(v)
+}
+
+func (*inAppTemplateOverrideButtonConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InAppTemplateOverrideButtonConfiguration)(nil)).Elem()
+}
+
+func (i *inAppTemplateOverrideButtonConfigurationPtrType) ToInAppTemplateOverrideButtonConfigurationPtrOutput() InAppTemplateOverrideButtonConfigurationPtrOutput {
+	return i.ToInAppTemplateOverrideButtonConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *inAppTemplateOverrideButtonConfigurationPtrType) ToInAppTemplateOverrideButtonConfigurationPtrOutputWithContext(ctx context.Context) InAppTemplateOverrideButtonConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InAppTemplateOverrideButtonConfigurationPtrOutput)
+}
+
+type InAppTemplateOverrideButtonConfigurationOutput struct{ *pulumi.OutputState }
+
+func (InAppTemplateOverrideButtonConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InAppTemplateOverrideButtonConfiguration)(nil)).Elem()
+}
+
+func (o InAppTemplateOverrideButtonConfigurationOutput) ToInAppTemplateOverrideButtonConfigurationOutput() InAppTemplateOverrideButtonConfigurationOutput {
+	return o
+}
+
+func (o InAppTemplateOverrideButtonConfigurationOutput) ToInAppTemplateOverrideButtonConfigurationOutputWithContext(ctx context.Context) InAppTemplateOverrideButtonConfigurationOutput {
+	return o
+}
+
+func (o InAppTemplateOverrideButtonConfigurationOutput) ToInAppTemplateOverrideButtonConfigurationPtrOutput() InAppTemplateOverrideButtonConfigurationPtrOutput {
+	return o.ToInAppTemplateOverrideButtonConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o InAppTemplateOverrideButtonConfigurationOutput) ToInAppTemplateOverrideButtonConfigurationPtrOutputWithContext(ctx context.Context) InAppTemplateOverrideButtonConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InAppTemplateOverrideButtonConfiguration) *InAppTemplateOverrideButtonConfiguration {
+		return &v
+	}).(InAppTemplateOverrideButtonConfigurationPtrOutput)
+}
+
+func (o InAppTemplateOverrideButtonConfigurationOutput) ButtonAction() InAppTemplateButtonActionPtrOutput {
+	return o.ApplyT(func(v InAppTemplateOverrideButtonConfiguration) *InAppTemplateButtonAction { return v.ButtonAction }).(InAppTemplateButtonActionPtrOutput)
+}
+
+func (o InAppTemplateOverrideButtonConfigurationOutput) Link() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InAppTemplateOverrideButtonConfiguration) *string { return v.Link }).(pulumi.StringPtrOutput)
+}
+
+type InAppTemplateOverrideButtonConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (InAppTemplateOverrideButtonConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InAppTemplateOverrideButtonConfiguration)(nil)).Elem()
+}
+
+func (o InAppTemplateOverrideButtonConfigurationPtrOutput) ToInAppTemplateOverrideButtonConfigurationPtrOutput() InAppTemplateOverrideButtonConfigurationPtrOutput {
+	return o
+}
+
+func (o InAppTemplateOverrideButtonConfigurationPtrOutput) ToInAppTemplateOverrideButtonConfigurationPtrOutputWithContext(ctx context.Context) InAppTemplateOverrideButtonConfigurationPtrOutput {
+	return o
+}
+
+func (o InAppTemplateOverrideButtonConfigurationPtrOutput) Elem() InAppTemplateOverrideButtonConfigurationOutput {
+	return o.ApplyT(func(v *InAppTemplateOverrideButtonConfiguration) InAppTemplateOverrideButtonConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret InAppTemplateOverrideButtonConfiguration
+		return ret
+	}).(InAppTemplateOverrideButtonConfigurationOutput)
+}
+
+func (o InAppTemplateOverrideButtonConfigurationPtrOutput) ButtonAction() InAppTemplateButtonActionPtrOutput {
+	return o.ApplyT(func(v *InAppTemplateOverrideButtonConfiguration) *InAppTemplateButtonAction {
+		if v == nil {
+			return nil
+		}
+		return v.ButtonAction
+	}).(InAppTemplateButtonActionPtrOutput)
+}
+
+func (o InAppTemplateOverrideButtonConfigurationPtrOutput) Link() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InAppTemplateOverrideButtonConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Link
+	}).(pulumi.StringPtrOutput)
+}
+
 type PushTemplateAPNSPushNotificationTemplate struct {
 	Action   *string `pulumi:"action"`
 	Body     *string `pulumi:"body"`
@@ -6038,6 +7022,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignSmsMessagePtrInput)(nil)).Elem(), CampaignSmsMessageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignWriteTreatmentResourceInput)(nil)).Elem(), CampaignWriteTreatmentResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignWriteTreatmentResourceArrayInput)(nil)).Elem(), CampaignWriteTreatmentResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InAppTemplateBodyConfigInput)(nil)).Elem(), InAppTemplateBodyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InAppTemplateBodyConfigPtrInput)(nil)).Elem(), InAppTemplateBodyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InAppTemplateButtonConfigInput)(nil)).Elem(), InAppTemplateButtonConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InAppTemplateButtonConfigPtrInput)(nil)).Elem(), InAppTemplateButtonConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InAppTemplateDefaultButtonConfigurationInput)(nil)).Elem(), InAppTemplateDefaultButtonConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InAppTemplateDefaultButtonConfigurationPtrInput)(nil)).Elem(), InAppTemplateDefaultButtonConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InAppTemplateHeaderConfigInput)(nil)).Elem(), InAppTemplateHeaderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InAppTemplateHeaderConfigPtrInput)(nil)).Elem(), InAppTemplateHeaderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InAppTemplateInAppMessageContentInput)(nil)).Elem(), InAppTemplateInAppMessageContentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InAppTemplateInAppMessageContentArrayInput)(nil)).Elem(), InAppTemplateInAppMessageContentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InAppTemplateOverrideButtonConfigurationInput)(nil)).Elem(), InAppTemplateOverrideButtonConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InAppTemplateOverrideButtonConfigurationPtrInput)(nil)).Elem(), InAppTemplateOverrideButtonConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PushTemplateAPNSPushNotificationTemplateInput)(nil)).Elem(), PushTemplateAPNSPushNotificationTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PushTemplateAPNSPushNotificationTemplatePtrInput)(nil)).Elem(), PushTemplateAPNSPushNotificationTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PushTemplateAndroidPushNotificationTemplateInput)(nil)).Elem(), PushTemplateAndroidPushNotificationTemplateArgs{})
@@ -6107,6 +7103,18 @@ func init() {
 	pulumi.RegisterOutputType(CampaignSmsMessagePtrOutput{})
 	pulumi.RegisterOutputType(CampaignWriteTreatmentResourceOutput{})
 	pulumi.RegisterOutputType(CampaignWriteTreatmentResourceArrayOutput{})
+	pulumi.RegisterOutputType(InAppTemplateBodyConfigOutput{})
+	pulumi.RegisterOutputType(InAppTemplateBodyConfigPtrOutput{})
+	pulumi.RegisterOutputType(InAppTemplateButtonConfigOutput{})
+	pulumi.RegisterOutputType(InAppTemplateButtonConfigPtrOutput{})
+	pulumi.RegisterOutputType(InAppTemplateDefaultButtonConfigurationOutput{})
+	pulumi.RegisterOutputType(InAppTemplateDefaultButtonConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(InAppTemplateHeaderConfigOutput{})
+	pulumi.RegisterOutputType(InAppTemplateHeaderConfigPtrOutput{})
+	pulumi.RegisterOutputType(InAppTemplateInAppMessageContentOutput{})
+	pulumi.RegisterOutputType(InAppTemplateInAppMessageContentArrayOutput{})
+	pulumi.RegisterOutputType(InAppTemplateOverrideButtonConfigurationOutput{})
+	pulumi.RegisterOutputType(InAppTemplateOverrideButtonConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PushTemplateAPNSPushNotificationTemplateOutput{})
 	pulumi.RegisterOutputType(PushTemplateAPNSPushNotificationTemplatePtrOutput{})
 	pulumi.RegisterOutputType(PushTemplateAndroidPushNotificationTemplateOutput{})

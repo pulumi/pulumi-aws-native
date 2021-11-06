@@ -11,10 +11,12 @@ import (
 )
 
 // Resource Type definition for AWS::IoTAnalytics::Channel
+//
+// Deprecated: Channel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Channel struct {
 	pulumi.CustomResourceState
 
-	ChannelName     pulumi.StringPtrOutput          `pulumi:"channelName"`
+	ChannelName     pulumi.StringOutput             `pulumi:"channelName"`
 	ChannelStorage  ChannelStoragePtrOutput         `pulumi:"channelStorage"`
 	RetentionPeriod ChannelRetentionPeriodPtrOutput `pulumi:"retentionPeriod"`
 	Tags            ChannelTagArrayOutput           `pulumi:"tags"`

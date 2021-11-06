@@ -13,6 +13,7 @@ export * from "./dimension";
 export * from "./domainConfiguration";
 export * from "./fleetMetric";
 export * from "./jobTemplate";
+export * from "./logging";
 export * from "./mitigationAction";
 export * from "./policy";
 export * from "./policyPrincipalAttachment";
@@ -37,6 +38,7 @@ import { Dimension } from "./dimension";
 import { DomainConfiguration } from "./domainConfiguration";
 import { FleetMetric } from "./fleetMetric";
 import { JobTemplate } from "./jobTemplate";
+import { Logging } from "./logging";
 import { MitigationAction } from "./mitigationAction";
 import { Policy } from "./policy";
 import { PolicyPrincipalAttachment } from "./policyPrincipalAttachment";
@@ -69,6 +71,8 @@ const _module = {
                 return new FleetMetric(name, <any>undefined, { urn })
             case "aws-native:iot:JobTemplate":
                 return new JobTemplate(name, <any>undefined, { urn })
+            case "aws-native:iot:Logging":
+                return new Logging(name, <any>undefined, { urn })
             case "aws-native:iot:MitigationAction":
                 return new MitigationAction(name, <any>undefined, { urn })
             case "aws-native:iot:Policy":

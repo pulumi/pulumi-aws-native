@@ -2098,10 +2098,13 @@ class EndpointTrafficRoutingConfigArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  canary_size: Optional[pulumi.Input['EndpointCapacitySizeArgs']] = None,
+                 linear_step_size: Optional[pulumi.Input['EndpointCapacitySizeArgs']] = None,
                  wait_interval_in_seconds: Optional[pulumi.Input[int]] = None):
         pulumi.set(__self__, "type", type)
         if canary_size is not None:
             pulumi.set(__self__, "canary_size", canary_size)
+        if linear_step_size is not None:
+            pulumi.set(__self__, "linear_step_size", linear_step_size)
         if wait_interval_in_seconds is not None:
             pulumi.set(__self__, "wait_interval_in_seconds", wait_interval_in_seconds)
 
@@ -2122,6 +2125,15 @@ class EndpointTrafficRoutingConfigArgs:
     @canary_size.setter
     def canary_size(self, value: Optional[pulumi.Input['EndpointCapacitySizeArgs']]):
         pulumi.set(self, "canary_size", value)
+
+    @property
+    @pulumi.getter(name="linearStepSize")
+    def linear_step_size(self) -> Optional[pulumi.Input['EndpointCapacitySizeArgs']]:
+        return pulumi.get(self, "linear_step_size")
+
+    @linear_step_size.setter
+    def linear_step_size(self, value: Optional[pulumi.Input['EndpointCapacitySizeArgs']]):
+        pulumi.set(self, "linear_step_size", value)
 
     @property
     @pulumi.getter(name="waitIntervalInSeconds")

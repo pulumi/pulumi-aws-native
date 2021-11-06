@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("canarySize")]
         public Input<Inputs.EndpointCapacitySizeArgs>? CanarySize { get; set; }
 
+        [Input("linearStepSize")]
+        public Input<Inputs.EndpointCapacitySizeArgs>? LinearStepSize { get; set; }
+
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

@@ -2964,6 +2964,7 @@ type GatewayRouteSpec struct {
 	GrpcRoute  *GatewayRouteGrpcGatewayRoute `pulumi:"grpcRoute"`
 	Http2Route *GatewayRouteHttpGatewayRoute `pulumi:"http2Route"`
 	HttpRoute  *GatewayRouteHttpGatewayRoute `pulumi:"httpRoute"`
+	Priority   *int                          `pulumi:"priority"`
 }
 
 // GatewayRouteSpecInput is an input type that accepts GatewayRouteSpecArgs and GatewayRouteSpecOutput values.
@@ -2981,6 +2982,7 @@ type GatewayRouteSpecArgs struct {
 	GrpcRoute  GatewayRouteGrpcGatewayRoutePtrInput `pulumi:"grpcRoute"`
 	Http2Route GatewayRouteHttpGatewayRoutePtrInput `pulumi:"http2Route"`
 	HttpRoute  GatewayRouteHttpGatewayRoutePtrInput `pulumi:"httpRoute"`
+	Priority   pulumi.IntPtrInput                   `pulumi:"priority"`
 }
 
 func (GatewayRouteSpecArgs) ElementType() reflect.Type {
@@ -3072,6 +3074,10 @@ func (o GatewayRouteSpecOutput) HttpRoute() GatewayRouteHttpGatewayRoutePtrOutpu
 	return o.ApplyT(func(v GatewayRouteSpec) *GatewayRouteHttpGatewayRoute { return v.HttpRoute }).(GatewayRouteHttpGatewayRoutePtrOutput)
 }
 
+func (o GatewayRouteSpecOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GatewayRouteSpec) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
 type GatewayRouteSpecPtrOutput struct{ *pulumi.OutputState }
 
 func (GatewayRouteSpecPtrOutput) ElementType() reflect.Type {
@@ -3121,6 +3127,15 @@ func (o GatewayRouteSpecPtrOutput) HttpRoute() GatewayRouteHttpGatewayRoutePtrOu
 		}
 		return v.HttpRoute
 	}).(GatewayRouteHttpGatewayRoutePtrOutput)
+}
+
+func (o GatewayRouteSpecPtrOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpec) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Priority
+	}).(pulumi.IntPtrOutput)
 }
 
 type GatewayRouteTag struct {

@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::IoTAnalytics::Channel
+ *
+ * @deprecated Channel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class Channel extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class Channel extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Channel {
+        pulumi.log.warn("Channel is deprecated: Channel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Channel(name, undefined as any, { ...opts, id: id });
     }
 
@@ -35,7 +38,7 @@ export class Channel extends pulumi.CustomResource {
         return obj['__pulumiType'] === Channel.__pulumiType;
     }
 
-    public readonly channelName!: pulumi.Output<string | undefined>;
+    public readonly channelName!: pulumi.Output<string>;
     public readonly channelStorage!: pulumi.Output<outputs.iotanalytics.ChannelStorage | undefined>;
     public readonly retentionPeriod!: pulumi.Output<outputs.iotanalytics.ChannelRetentionPeriod | undefined>;
     public readonly tags!: pulumi.Output<outputs.iotanalytics.ChannelTag[] | undefined>;
@@ -47,7 +50,9 @@ export class Channel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Channel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: ChannelArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Channel is deprecated: Channel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

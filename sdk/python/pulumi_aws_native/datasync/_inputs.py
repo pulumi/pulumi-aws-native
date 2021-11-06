@@ -14,6 +14,9 @@ __all__ = [
     'LocationEFSEc2ConfigArgs',
     'LocationEFSTagArgs',
     'LocationFSxWindowsTagArgs',
+    'LocationHDFSNameNodeArgs',
+    'LocationHDFSQopConfigurationArgs',
+    'LocationHDFSTagArgs',
     'LocationNFSMountOptionsArgs',
     'LocationNFSOnPremConfigArgs',
     'LocationNFSTagArgs',
@@ -172,6 +175,122 @@ class LocationFSxWindowsTagArgs:
     def value(self) -> pulumi.Input[str]:
         """
         The value for an AWS resource tag.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class LocationHDFSNameNodeArgs:
+    def __init__(__self__, *,
+                 hostname: pulumi.Input[str],
+                 port: pulumi.Input[int]):
+        """
+        HDFS Name Node IP and port information.
+        :param pulumi.Input[str] hostname: The DNS name or IP address of the Name Node in the customer's on premises HDFS cluster.
+        :param pulumi.Input[int] port: The port on which the Name Node is listening on for client requests.
+        """
+        pulumi.set(__self__, "hostname", hostname)
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def hostname(self) -> pulumi.Input[str]:
+        """
+        The DNS name or IP address of the Name Node in the customer's on premises HDFS cluster.
+        """
+        return pulumi.get(self, "hostname")
+
+    @hostname.setter
+    def hostname(self, value: pulumi.Input[str]):
+        pulumi.set(self, "hostname", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        """
+        The port on which the Name Node is listening on for client requests.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+
+@pulumi.input_type
+class LocationHDFSQopConfigurationArgs:
+    def __init__(__self__, *,
+                 data_transfer_protection: Optional[pulumi.Input['LocationHDFSQopConfigurationDataTransferProtection']] = None,
+                 rpc_protection: Optional[pulumi.Input['LocationHDFSQopConfigurationRpcProtection']] = None):
+        """
+        Configuration information for RPC Protection and Data Transfer Protection. These parameters can be set to AUTHENTICATION, INTEGRITY, or PRIVACY. The default value is PRIVACY.
+        :param pulumi.Input['LocationHDFSQopConfigurationDataTransferProtection'] data_transfer_protection: Configuration for Data Transfer Protection.
+        :param pulumi.Input['LocationHDFSQopConfigurationRpcProtection'] rpc_protection: Configuration for RPC Protection.
+        """
+        if data_transfer_protection is not None:
+            pulumi.set(__self__, "data_transfer_protection", data_transfer_protection)
+        if rpc_protection is not None:
+            pulumi.set(__self__, "rpc_protection", rpc_protection)
+
+    @property
+    @pulumi.getter(name="dataTransferProtection")
+    def data_transfer_protection(self) -> Optional[pulumi.Input['LocationHDFSQopConfigurationDataTransferProtection']]:
+        """
+        Configuration for Data Transfer Protection.
+        """
+        return pulumi.get(self, "data_transfer_protection")
+
+    @data_transfer_protection.setter
+    def data_transfer_protection(self, value: Optional[pulumi.Input['LocationHDFSQopConfigurationDataTransferProtection']]):
+        pulumi.set(self, "data_transfer_protection", value)
+
+    @property
+    @pulumi.getter(name="rpcProtection")
+    def rpc_protection(self) -> Optional[pulumi.Input['LocationHDFSQopConfigurationRpcProtection']]:
+        """
+        Configuration for RPC Protection.
+        """
+        return pulumi.get(self, "rpc_protection")
+
+    @rpc_protection.setter
+    def rpc_protection(self, value: Optional[pulumi.Input['LocationHDFSQopConfigurationRpcProtection']]):
+        pulumi.set(self, "rpc_protection", value)
+
+
+@pulumi.input_type
+class LocationHDFSTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
         return pulumi.get(self, "value")
 

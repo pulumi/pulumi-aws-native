@@ -10,6 +10,9 @@
         "type" : "string"
       }
     },
+    "PayerResponsibility" : {
+      "type" : "string"
+    },
     "Id" : {
       "type" : "string"
     },

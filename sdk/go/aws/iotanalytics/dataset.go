@@ -12,12 +12,14 @@ import (
 )
 
 // Resource Type definition for AWS::IoTAnalytics::Dataset
+//
+// Deprecated: Dataset is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Dataset struct {
 	pulumi.CustomResourceState
 
 	Actions                 DatasetActionArrayOutput                `pulumi:"actions"`
 	ContentDeliveryRules    DatasetContentDeliveryRuleArrayOutput   `pulumi:"contentDeliveryRules"`
-	DatasetName             pulumi.StringPtrOutput                  `pulumi:"datasetName"`
+	DatasetName             pulumi.StringOutput                     `pulumi:"datasetName"`
 	LateDataRules           DatasetLateDataRuleArrayOutput          `pulumi:"lateDataRules"`
 	RetentionPeriod         DatasetRetentionPeriodPtrOutput         `pulumi:"retentionPeriod"`
 	Tags                    DatasetTagArrayOutput                   `pulumi:"tags"`

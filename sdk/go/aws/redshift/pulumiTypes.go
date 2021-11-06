@@ -815,6 +815,1160 @@ func (o ClusterTagArrayOutput) Index(i pulumi.IntInput) ClusterTagOutput {
 	}).(ClusterTagOutput)
 }
 
+// Describes a network interface.
+type EndpointAccessNetworkInterface struct {
+	// The Availability Zone.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The network interface identifier.
+	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+	// The IPv4 address of the network interface within the subnet.
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// The subnet identifier.
+	SubnetId *string `pulumi:"subnetId"`
+}
+
+// EndpointAccessNetworkInterfaceInput is an input type that accepts EndpointAccessNetworkInterfaceArgs and EndpointAccessNetworkInterfaceOutput values.
+// You can construct a concrete instance of `EndpointAccessNetworkInterfaceInput` via:
+//
+//          EndpointAccessNetworkInterfaceArgs{...}
+type EndpointAccessNetworkInterfaceInput interface {
+	pulumi.Input
+
+	ToEndpointAccessNetworkInterfaceOutput() EndpointAccessNetworkInterfaceOutput
+	ToEndpointAccessNetworkInterfaceOutputWithContext(context.Context) EndpointAccessNetworkInterfaceOutput
+}
+
+// Describes a network interface.
+type EndpointAccessNetworkInterfaceArgs struct {
+	// The Availability Zone.
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// The network interface identifier.
+	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
+	// The IPv4 address of the network interface within the subnet.
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	// The subnet identifier.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+}
+
+func (EndpointAccessNetworkInterfaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointAccessNetworkInterface)(nil)).Elem()
+}
+
+func (i EndpointAccessNetworkInterfaceArgs) ToEndpointAccessNetworkInterfaceOutput() EndpointAccessNetworkInterfaceOutput {
+	return i.ToEndpointAccessNetworkInterfaceOutputWithContext(context.Background())
+}
+
+func (i EndpointAccessNetworkInterfaceArgs) ToEndpointAccessNetworkInterfaceOutputWithContext(ctx context.Context) EndpointAccessNetworkInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointAccessNetworkInterfaceOutput)
+}
+
+// EndpointAccessNetworkInterfaceArrayInput is an input type that accepts EndpointAccessNetworkInterfaceArray and EndpointAccessNetworkInterfaceArrayOutput values.
+// You can construct a concrete instance of `EndpointAccessNetworkInterfaceArrayInput` via:
+//
+//          EndpointAccessNetworkInterfaceArray{ EndpointAccessNetworkInterfaceArgs{...} }
+type EndpointAccessNetworkInterfaceArrayInput interface {
+	pulumi.Input
+
+	ToEndpointAccessNetworkInterfaceArrayOutput() EndpointAccessNetworkInterfaceArrayOutput
+	ToEndpointAccessNetworkInterfaceArrayOutputWithContext(context.Context) EndpointAccessNetworkInterfaceArrayOutput
+}
+
+type EndpointAccessNetworkInterfaceArray []EndpointAccessNetworkInterfaceInput
+
+func (EndpointAccessNetworkInterfaceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointAccessNetworkInterface)(nil)).Elem()
+}
+
+func (i EndpointAccessNetworkInterfaceArray) ToEndpointAccessNetworkInterfaceArrayOutput() EndpointAccessNetworkInterfaceArrayOutput {
+	return i.ToEndpointAccessNetworkInterfaceArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointAccessNetworkInterfaceArray) ToEndpointAccessNetworkInterfaceArrayOutputWithContext(ctx context.Context) EndpointAccessNetworkInterfaceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointAccessNetworkInterfaceArrayOutput)
+}
+
+// Describes a network interface.
+type EndpointAccessNetworkInterfaceOutput struct{ *pulumi.OutputState }
+
+func (EndpointAccessNetworkInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointAccessNetworkInterface)(nil)).Elem()
+}
+
+func (o EndpointAccessNetworkInterfaceOutput) ToEndpointAccessNetworkInterfaceOutput() EndpointAccessNetworkInterfaceOutput {
+	return o
+}
+
+func (o EndpointAccessNetworkInterfaceOutput) ToEndpointAccessNetworkInterfaceOutputWithContext(ctx context.Context) EndpointAccessNetworkInterfaceOutput {
+	return o
+}
+
+// The Availability Zone.
+func (o EndpointAccessNetworkInterfaceOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointAccessNetworkInterface) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// The network interface identifier.
+func (o EndpointAccessNetworkInterfaceOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointAccessNetworkInterface) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
+}
+
+// The IPv4 address of the network interface within the subnet.
+func (o EndpointAccessNetworkInterfaceOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointAccessNetworkInterface) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
+// The subnet identifier.
+func (o EndpointAccessNetworkInterfaceOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointAccessNetworkInterface) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+type EndpointAccessNetworkInterfaceArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointAccessNetworkInterfaceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointAccessNetworkInterface)(nil)).Elem()
+}
+
+func (o EndpointAccessNetworkInterfaceArrayOutput) ToEndpointAccessNetworkInterfaceArrayOutput() EndpointAccessNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o EndpointAccessNetworkInterfaceArrayOutput) ToEndpointAccessNetworkInterfaceArrayOutputWithContext(ctx context.Context) EndpointAccessNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o EndpointAccessNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) EndpointAccessNetworkInterfaceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointAccessNetworkInterface {
+		return vs[0].([]EndpointAccessNetworkInterface)[vs[1].(int)]
+	}).(EndpointAccessNetworkInterfaceOutput)
+}
+
+// Describes the members of a VPC security group.
+type EndpointAccessVpcSecurityGroup struct {
+	// The status of the VPC security group.
+	Status *string `pulumi:"status"`
+	// The identifier of the VPC security group.
+	VpcSecurityGroupId *string `pulumi:"vpcSecurityGroupId"`
+}
+
+// EndpointAccessVpcSecurityGroupInput is an input type that accepts EndpointAccessVpcSecurityGroupArgs and EndpointAccessVpcSecurityGroupOutput values.
+// You can construct a concrete instance of `EndpointAccessVpcSecurityGroupInput` via:
+//
+//          EndpointAccessVpcSecurityGroupArgs{...}
+type EndpointAccessVpcSecurityGroupInput interface {
+	pulumi.Input
+
+	ToEndpointAccessVpcSecurityGroupOutput() EndpointAccessVpcSecurityGroupOutput
+	ToEndpointAccessVpcSecurityGroupOutputWithContext(context.Context) EndpointAccessVpcSecurityGroupOutput
+}
+
+// Describes the members of a VPC security group.
+type EndpointAccessVpcSecurityGroupArgs struct {
+	// The status of the VPC security group.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// The identifier of the VPC security group.
+	VpcSecurityGroupId pulumi.StringPtrInput `pulumi:"vpcSecurityGroupId"`
+}
+
+func (EndpointAccessVpcSecurityGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointAccessVpcSecurityGroup)(nil)).Elem()
+}
+
+func (i EndpointAccessVpcSecurityGroupArgs) ToEndpointAccessVpcSecurityGroupOutput() EndpointAccessVpcSecurityGroupOutput {
+	return i.ToEndpointAccessVpcSecurityGroupOutputWithContext(context.Background())
+}
+
+func (i EndpointAccessVpcSecurityGroupArgs) ToEndpointAccessVpcSecurityGroupOutputWithContext(ctx context.Context) EndpointAccessVpcSecurityGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointAccessVpcSecurityGroupOutput)
+}
+
+// EndpointAccessVpcSecurityGroupArrayInput is an input type that accepts EndpointAccessVpcSecurityGroupArray and EndpointAccessVpcSecurityGroupArrayOutput values.
+// You can construct a concrete instance of `EndpointAccessVpcSecurityGroupArrayInput` via:
+//
+//          EndpointAccessVpcSecurityGroupArray{ EndpointAccessVpcSecurityGroupArgs{...} }
+type EndpointAccessVpcSecurityGroupArrayInput interface {
+	pulumi.Input
+
+	ToEndpointAccessVpcSecurityGroupArrayOutput() EndpointAccessVpcSecurityGroupArrayOutput
+	ToEndpointAccessVpcSecurityGroupArrayOutputWithContext(context.Context) EndpointAccessVpcSecurityGroupArrayOutput
+}
+
+type EndpointAccessVpcSecurityGroupArray []EndpointAccessVpcSecurityGroupInput
+
+func (EndpointAccessVpcSecurityGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointAccessVpcSecurityGroup)(nil)).Elem()
+}
+
+func (i EndpointAccessVpcSecurityGroupArray) ToEndpointAccessVpcSecurityGroupArrayOutput() EndpointAccessVpcSecurityGroupArrayOutput {
+	return i.ToEndpointAccessVpcSecurityGroupArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointAccessVpcSecurityGroupArray) ToEndpointAccessVpcSecurityGroupArrayOutputWithContext(ctx context.Context) EndpointAccessVpcSecurityGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointAccessVpcSecurityGroupArrayOutput)
+}
+
+// Describes the members of a VPC security group.
+type EndpointAccessVpcSecurityGroupOutput struct{ *pulumi.OutputState }
+
+func (EndpointAccessVpcSecurityGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointAccessVpcSecurityGroup)(nil)).Elem()
+}
+
+func (o EndpointAccessVpcSecurityGroupOutput) ToEndpointAccessVpcSecurityGroupOutput() EndpointAccessVpcSecurityGroupOutput {
+	return o
+}
+
+func (o EndpointAccessVpcSecurityGroupOutput) ToEndpointAccessVpcSecurityGroupOutputWithContext(ctx context.Context) EndpointAccessVpcSecurityGroupOutput {
+	return o
+}
+
+// The status of the VPC security group.
+func (o EndpointAccessVpcSecurityGroupOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointAccessVpcSecurityGroup) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the VPC security group.
+func (o EndpointAccessVpcSecurityGroupOutput) VpcSecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointAccessVpcSecurityGroup) *string { return v.VpcSecurityGroupId }).(pulumi.StringPtrOutput)
+}
+
+type EndpointAccessVpcSecurityGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointAccessVpcSecurityGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointAccessVpcSecurityGroup)(nil)).Elem()
+}
+
+func (o EndpointAccessVpcSecurityGroupArrayOutput) ToEndpointAccessVpcSecurityGroupArrayOutput() EndpointAccessVpcSecurityGroupArrayOutput {
+	return o
+}
+
+func (o EndpointAccessVpcSecurityGroupArrayOutput) ToEndpointAccessVpcSecurityGroupArrayOutputWithContext(ctx context.Context) EndpointAccessVpcSecurityGroupArrayOutput {
+	return o
+}
+
+func (o EndpointAccessVpcSecurityGroupArrayOutput) Index(i pulumi.IntInput) EndpointAccessVpcSecurityGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointAccessVpcSecurityGroup {
+		return vs[0].([]EndpointAccessVpcSecurityGroup)[vs[1].(int)]
+	}).(EndpointAccessVpcSecurityGroupOutput)
+}
+
+// A key-value pair to associate with a resource.
+type EventSubscriptionTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// EventSubscriptionTagInput is an input type that accepts EventSubscriptionTagArgs and EventSubscriptionTagOutput values.
+// You can construct a concrete instance of `EventSubscriptionTagInput` via:
+//
+//          EventSubscriptionTagArgs{...}
+type EventSubscriptionTagInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionTagOutput() EventSubscriptionTagOutput
+	ToEventSubscriptionTagOutputWithContext(context.Context) EventSubscriptionTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type EventSubscriptionTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EventSubscriptionTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionTag)(nil)).Elem()
+}
+
+func (i EventSubscriptionTagArgs) ToEventSubscriptionTagOutput() EventSubscriptionTagOutput {
+	return i.ToEventSubscriptionTagOutputWithContext(context.Background())
+}
+
+func (i EventSubscriptionTagArgs) ToEventSubscriptionTagOutputWithContext(ctx context.Context) EventSubscriptionTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionTagOutput)
+}
+
+// EventSubscriptionTagArrayInput is an input type that accepts EventSubscriptionTagArray and EventSubscriptionTagArrayOutput values.
+// You can construct a concrete instance of `EventSubscriptionTagArrayInput` via:
+//
+//          EventSubscriptionTagArray{ EventSubscriptionTagArgs{...} }
+type EventSubscriptionTagArrayInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionTagArrayOutput() EventSubscriptionTagArrayOutput
+	ToEventSubscriptionTagArrayOutputWithContext(context.Context) EventSubscriptionTagArrayOutput
+}
+
+type EventSubscriptionTagArray []EventSubscriptionTagInput
+
+func (EventSubscriptionTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSubscriptionTag)(nil)).Elem()
+}
+
+func (i EventSubscriptionTagArray) ToEventSubscriptionTagArrayOutput() EventSubscriptionTagArrayOutput {
+	return i.ToEventSubscriptionTagArrayOutputWithContext(context.Background())
+}
+
+func (i EventSubscriptionTagArray) ToEventSubscriptionTagArrayOutputWithContext(ctx context.Context) EventSubscriptionTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type EventSubscriptionTagOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionTag)(nil)).Elem()
+}
+
+func (o EventSubscriptionTagOutput) ToEventSubscriptionTagOutput() EventSubscriptionTagOutput {
+	return o
+}
+
+func (o EventSubscriptionTagOutput) ToEventSubscriptionTagOutputWithContext(ctx context.Context) EventSubscriptionTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o EventSubscriptionTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v EventSubscriptionTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o EventSubscriptionTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EventSubscriptionTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type EventSubscriptionTagArrayOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSubscriptionTag)(nil)).Elem()
+}
+
+func (o EventSubscriptionTagArrayOutput) ToEventSubscriptionTagArrayOutput() EventSubscriptionTagArrayOutput {
+	return o
+}
+
+func (o EventSubscriptionTagArrayOutput) ToEventSubscriptionTagArrayOutputWithContext(ctx context.Context) EventSubscriptionTagArrayOutput {
+	return o
+}
+
+func (o EventSubscriptionTagArrayOutput) Index(i pulumi.IntInput) EventSubscriptionTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventSubscriptionTag {
+		return vs[0].([]EventSubscriptionTag)[vs[1].(int)]
+	}).(EventSubscriptionTagOutput)
+}
+
+// Describes a pause cluster operation. For example, a scheduled action to run the `PauseCluster` API operation.
+type ScheduledActionPauseClusterMessage struct {
+	ClusterIdentifier string `pulumi:"clusterIdentifier"`
+}
+
+// ScheduledActionPauseClusterMessageInput is an input type that accepts ScheduledActionPauseClusterMessageArgs and ScheduledActionPauseClusterMessageOutput values.
+// You can construct a concrete instance of `ScheduledActionPauseClusterMessageInput` via:
+//
+//          ScheduledActionPauseClusterMessageArgs{...}
+type ScheduledActionPauseClusterMessageInput interface {
+	pulumi.Input
+
+	ToScheduledActionPauseClusterMessageOutput() ScheduledActionPauseClusterMessageOutput
+	ToScheduledActionPauseClusterMessageOutputWithContext(context.Context) ScheduledActionPauseClusterMessageOutput
+}
+
+// Describes a pause cluster operation. For example, a scheduled action to run the `PauseCluster` API operation.
+type ScheduledActionPauseClusterMessageArgs struct {
+	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
+}
+
+func (ScheduledActionPauseClusterMessageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledActionPauseClusterMessage)(nil)).Elem()
+}
+
+func (i ScheduledActionPauseClusterMessageArgs) ToScheduledActionPauseClusterMessageOutput() ScheduledActionPauseClusterMessageOutput {
+	return i.ToScheduledActionPauseClusterMessageOutputWithContext(context.Background())
+}
+
+func (i ScheduledActionPauseClusterMessageArgs) ToScheduledActionPauseClusterMessageOutputWithContext(ctx context.Context) ScheduledActionPauseClusterMessageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionPauseClusterMessageOutput)
+}
+
+func (i ScheduledActionPauseClusterMessageArgs) ToScheduledActionPauseClusterMessagePtrOutput() ScheduledActionPauseClusterMessagePtrOutput {
+	return i.ToScheduledActionPauseClusterMessagePtrOutputWithContext(context.Background())
+}
+
+func (i ScheduledActionPauseClusterMessageArgs) ToScheduledActionPauseClusterMessagePtrOutputWithContext(ctx context.Context) ScheduledActionPauseClusterMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionPauseClusterMessageOutput).ToScheduledActionPauseClusterMessagePtrOutputWithContext(ctx)
+}
+
+// ScheduledActionPauseClusterMessagePtrInput is an input type that accepts ScheduledActionPauseClusterMessageArgs, ScheduledActionPauseClusterMessagePtr and ScheduledActionPauseClusterMessagePtrOutput values.
+// You can construct a concrete instance of `ScheduledActionPauseClusterMessagePtrInput` via:
+//
+//          ScheduledActionPauseClusterMessageArgs{...}
+//
+//  or:
+//
+//          nil
+type ScheduledActionPauseClusterMessagePtrInput interface {
+	pulumi.Input
+
+	ToScheduledActionPauseClusterMessagePtrOutput() ScheduledActionPauseClusterMessagePtrOutput
+	ToScheduledActionPauseClusterMessagePtrOutputWithContext(context.Context) ScheduledActionPauseClusterMessagePtrOutput
+}
+
+type scheduledActionPauseClusterMessagePtrType ScheduledActionPauseClusterMessageArgs
+
+func ScheduledActionPauseClusterMessagePtr(v *ScheduledActionPauseClusterMessageArgs) ScheduledActionPauseClusterMessagePtrInput {
+	return (*scheduledActionPauseClusterMessagePtrType)(v)
+}
+
+func (*scheduledActionPauseClusterMessagePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledActionPauseClusterMessage)(nil)).Elem()
+}
+
+func (i *scheduledActionPauseClusterMessagePtrType) ToScheduledActionPauseClusterMessagePtrOutput() ScheduledActionPauseClusterMessagePtrOutput {
+	return i.ToScheduledActionPauseClusterMessagePtrOutputWithContext(context.Background())
+}
+
+func (i *scheduledActionPauseClusterMessagePtrType) ToScheduledActionPauseClusterMessagePtrOutputWithContext(ctx context.Context) ScheduledActionPauseClusterMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionPauseClusterMessagePtrOutput)
+}
+
+// Describes a pause cluster operation. For example, a scheduled action to run the `PauseCluster` API operation.
+type ScheduledActionPauseClusterMessageOutput struct{ *pulumi.OutputState }
+
+func (ScheduledActionPauseClusterMessageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledActionPauseClusterMessage)(nil)).Elem()
+}
+
+func (o ScheduledActionPauseClusterMessageOutput) ToScheduledActionPauseClusterMessageOutput() ScheduledActionPauseClusterMessageOutput {
+	return o
+}
+
+func (o ScheduledActionPauseClusterMessageOutput) ToScheduledActionPauseClusterMessageOutputWithContext(ctx context.Context) ScheduledActionPauseClusterMessageOutput {
+	return o
+}
+
+func (o ScheduledActionPauseClusterMessageOutput) ToScheduledActionPauseClusterMessagePtrOutput() ScheduledActionPauseClusterMessagePtrOutput {
+	return o.ToScheduledActionPauseClusterMessagePtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledActionPauseClusterMessageOutput) ToScheduledActionPauseClusterMessagePtrOutputWithContext(ctx context.Context) ScheduledActionPauseClusterMessagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledActionPauseClusterMessage) *ScheduledActionPauseClusterMessage {
+		return &v
+	}).(ScheduledActionPauseClusterMessagePtrOutput)
+}
+
+func (o ScheduledActionPauseClusterMessageOutput) ClusterIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledActionPauseClusterMessage) string { return v.ClusterIdentifier }).(pulumi.StringOutput)
+}
+
+type ScheduledActionPauseClusterMessagePtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledActionPauseClusterMessagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledActionPauseClusterMessage)(nil)).Elem()
+}
+
+func (o ScheduledActionPauseClusterMessagePtrOutput) ToScheduledActionPauseClusterMessagePtrOutput() ScheduledActionPauseClusterMessagePtrOutput {
+	return o
+}
+
+func (o ScheduledActionPauseClusterMessagePtrOutput) ToScheduledActionPauseClusterMessagePtrOutputWithContext(ctx context.Context) ScheduledActionPauseClusterMessagePtrOutput {
+	return o
+}
+
+func (o ScheduledActionPauseClusterMessagePtrOutput) Elem() ScheduledActionPauseClusterMessageOutput {
+	return o.ApplyT(func(v *ScheduledActionPauseClusterMessage) ScheduledActionPauseClusterMessage {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledActionPauseClusterMessage
+		return ret
+	}).(ScheduledActionPauseClusterMessageOutput)
+}
+
+func (o ScheduledActionPauseClusterMessagePtrOutput) ClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledActionPauseClusterMessage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClusterIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes a resize cluster operation. For example, a scheduled action to run the `ResizeCluster` API operation.
+type ScheduledActionResizeClusterMessage struct {
+	Classic           *bool   `pulumi:"classic"`
+	ClusterIdentifier string  `pulumi:"clusterIdentifier"`
+	ClusterType       *string `pulumi:"clusterType"`
+	NodeType          *string `pulumi:"nodeType"`
+	NumberOfNodes     *int    `pulumi:"numberOfNodes"`
+}
+
+// ScheduledActionResizeClusterMessageInput is an input type that accepts ScheduledActionResizeClusterMessageArgs and ScheduledActionResizeClusterMessageOutput values.
+// You can construct a concrete instance of `ScheduledActionResizeClusterMessageInput` via:
+//
+//          ScheduledActionResizeClusterMessageArgs{...}
+type ScheduledActionResizeClusterMessageInput interface {
+	pulumi.Input
+
+	ToScheduledActionResizeClusterMessageOutput() ScheduledActionResizeClusterMessageOutput
+	ToScheduledActionResizeClusterMessageOutputWithContext(context.Context) ScheduledActionResizeClusterMessageOutput
+}
+
+// Describes a resize cluster operation. For example, a scheduled action to run the `ResizeCluster` API operation.
+type ScheduledActionResizeClusterMessageArgs struct {
+	Classic           pulumi.BoolPtrInput   `pulumi:"classic"`
+	ClusterIdentifier pulumi.StringInput    `pulumi:"clusterIdentifier"`
+	ClusterType       pulumi.StringPtrInput `pulumi:"clusterType"`
+	NodeType          pulumi.StringPtrInput `pulumi:"nodeType"`
+	NumberOfNodes     pulumi.IntPtrInput    `pulumi:"numberOfNodes"`
+}
+
+func (ScheduledActionResizeClusterMessageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledActionResizeClusterMessage)(nil)).Elem()
+}
+
+func (i ScheduledActionResizeClusterMessageArgs) ToScheduledActionResizeClusterMessageOutput() ScheduledActionResizeClusterMessageOutput {
+	return i.ToScheduledActionResizeClusterMessageOutputWithContext(context.Background())
+}
+
+func (i ScheduledActionResizeClusterMessageArgs) ToScheduledActionResizeClusterMessageOutputWithContext(ctx context.Context) ScheduledActionResizeClusterMessageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionResizeClusterMessageOutput)
+}
+
+func (i ScheduledActionResizeClusterMessageArgs) ToScheduledActionResizeClusterMessagePtrOutput() ScheduledActionResizeClusterMessagePtrOutput {
+	return i.ToScheduledActionResizeClusterMessagePtrOutputWithContext(context.Background())
+}
+
+func (i ScheduledActionResizeClusterMessageArgs) ToScheduledActionResizeClusterMessagePtrOutputWithContext(ctx context.Context) ScheduledActionResizeClusterMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionResizeClusterMessageOutput).ToScheduledActionResizeClusterMessagePtrOutputWithContext(ctx)
+}
+
+// ScheduledActionResizeClusterMessagePtrInput is an input type that accepts ScheduledActionResizeClusterMessageArgs, ScheduledActionResizeClusterMessagePtr and ScheduledActionResizeClusterMessagePtrOutput values.
+// You can construct a concrete instance of `ScheduledActionResizeClusterMessagePtrInput` via:
+//
+//          ScheduledActionResizeClusterMessageArgs{...}
+//
+//  or:
+//
+//          nil
+type ScheduledActionResizeClusterMessagePtrInput interface {
+	pulumi.Input
+
+	ToScheduledActionResizeClusterMessagePtrOutput() ScheduledActionResizeClusterMessagePtrOutput
+	ToScheduledActionResizeClusterMessagePtrOutputWithContext(context.Context) ScheduledActionResizeClusterMessagePtrOutput
+}
+
+type scheduledActionResizeClusterMessagePtrType ScheduledActionResizeClusterMessageArgs
+
+func ScheduledActionResizeClusterMessagePtr(v *ScheduledActionResizeClusterMessageArgs) ScheduledActionResizeClusterMessagePtrInput {
+	return (*scheduledActionResizeClusterMessagePtrType)(v)
+}
+
+func (*scheduledActionResizeClusterMessagePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledActionResizeClusterMessage)(nil)).Elem()
+}
+
+func (i *scheduledActionResizeClusterMessagePtrType) ToScheduledActionResizeClusterMessagePtrOutput() ScheduledActionResizeClusterMessagePtrOutput {
+	return i.ToScheduledActionResizeClusterMessagePtrOutputWithContext(context.Background())
+}
+
+func (i *scheduledActionResizeClusterMessagePtrType) ToScheduledActionResizeClusterMessagePtrOutputWithContext(ctx context.Context) ScheduledActionResizeClusterMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionResizeClusterMessagePtrOutput)
+}
+
+// Describes a resize cluster operation. For example, a scheduled action to run the `ResizeCluster` API operation.
+type ScheduledActionResizeClusterMessageOutput struct{ *pulumi.OutputState }
+
+func (ScheduledActionResizeClusterMessageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledActionResizeClusterMessage)(nil)).Elem()
+}
+
+func (o ScheduledActionResizeClusterMessageOutput) ToScheduledActionResizeClusterMessageOutput() ScheduledActionResizeClusterMessageOutput {
+	return o
+}
+
+func (o ScheduledActionResizeClusterMessageOutput) ToScheduledActionResizeClusterMessageOutputWithContext(ctx context.Context) ScheduledActionResizeClusterMessageOutput {
+	return o
+}
+
+func (o ScheduledActionResizeClusterMessageOutput) ToScheduledActionResizeClusterMessagePtrOutput() ScheduledActionResizeClusterMessagePtrOutput {
+	return o.ToScheduledActionResizeClusterMessagePtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledActionResizeClusterMessageOutput) ToScheduledActionResizeClusterMessagePtrOutputWithContext(ctx context.Context) ScheduledActionResizeClusterMessagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledActionResizeClusterMessage) *ScheduledActionResizeClusterMessage {
+		return &v
+	}).(ScheduledActionResizeClusterMessagePtrOutput)
+}
+
+func (o ScheduledActionResizeClusterMessageOutput) Classic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ScheduledActionResizeClusterMessage) *bool { return v.Classic }).(pulumi.BoolPtrOutput)
+}
+
+func (o ScheduledActionResizeClusterMessageOutput) ClusterIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledActionResizeClusterMessage) string { return v.ClusterIdentifier }).(pulumi.StringOutput)
+}
+
+func (o ScheduledActionResizeClusterMessageOutput) ClusterType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduledActionResizeClusterMessage) *string { return v.ClusterType }).(pulumi.StringPtrOutput)
+}
+
+func (o ScheduledActionResizeClusterMessageOutput) NodeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduledActionResizeClusterMessage) *string { return v.NodeType }).(pulumi.StringPtrOutput)
+}
+
+func (o ScheduledActionResizeClusterMessageOutput) NumberOfNodes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ScheduledActionResizeClusterMessage) *int { return v.NumberOfNodes }).(pulumi.IntPtrOutput)
+}
+
+type ScheduledActionResizeClusterMessagePtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledActionResizeClusterMessagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledActionResizeClusterMessage)(nil)).Elem()
+}
+
+func (o ScheduledActionResizeClusterMessagePtrOutput) ToScheduledActionResizeClusterMessagePtrOutput() ScheduledActionResizeClusterMessagePtrOutput {
+	return o
+}
+
+func (o ScheduledActionResizeClusterMessagePtrOutput) ToScheduledActionResizeClusterMessagePtrOutputWithContext(ctx context.Context) ScheduledActionResizeClusterMessagePtrOutput {
+	return o
+}
+
+func (o ScheduledActionResizeClusterMessagePtrOutput) Elem() ScheduledActionResizeClusterMessageOutput {
+	return o.ApplyT(func(v *ScheduledActionResizeClusterMessage) ScheduledActionResizeClusterMessage {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledActionResizeClusterMessage
+		return ret
+	}).(ScheduledActionResizeClusterMessageOutput)
+}
+
+func (o ScheduledActionResizeClusterMessagePtrOutput) Classic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ScheduledActionResizeClusterMessage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Classic
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ScheduledActionResizeClusterMessagePtrOutput) ClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledActionResizeClusterMessage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClusterIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ScheduledActionResizeClusterMessagePtrOutput) ClusterType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledActionResizeClusterMessage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ScheduledActionResizeClusterMessagePtrOutput) NodeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledActionResizeClusterMessage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NodeType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ScheduledActionResizeClusterMessagePtrOutput) NumberOfNodes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ScheduledActionResizeClusterMessage) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfNodes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Describes a resume cluster operation. For example, a scheduled action to run the `ResumeCluster` API operation.
+type ScheduledActionResumeClusterMessage struct {
+	ClusterIdentifier string `pulumi:"clusterIdentifier"`
+}
+
+// ScheduledActionResumeClusterMessageInput is an input type that accepts ScheduledActionResumeClusterMessageArgs and ScheduledActionResumeClusterMessageOutput values.
+// You can construct a concrete instance of `ScheduledActionResumeClusterMessageInput` via:
+//
+//          ScheduledActionResumeClusterMessageArgs{...}
+type ScheduledActionResumeClusterMessageInput interface {
+	pulumi.Input
+
+	ToScheduledActionResumeClusterMessageOutput() ScheduledActionResumeClusterMessageOutput
+	ToScheduledActionResumeClusterMessageOutputWithContext(context.Context) ScheduledActionResumeClusterMessageOutput
+}
+
+// Describes a resume cluster operation. For example, a scheduled action to run the `ResumeCluster` API operation.
+type ScheduledActionResumeClusterMessageArgs struct {
+	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
+}
+
+func (ScheduledActionResumeClusterMessageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledActionResumeClusterMessage)(nil)).Elem()
+}
+
+func (i ScheduledActionResumeClusterMessageArgs) ToScheduledActionResumeClusterMessageOutput() ScheduledActionResumeClusterMessageOutput {
+	return i.ToScheduledActionResumeClusterMessageOutputWithContext(context.Background())
+}
+
+func (i ScheduledActionResumeClusterMessageArgs) ToScheduledActionResumeClusterMessageOutputWithContext(ctx context.Context) ScheduledActionResumeClusterMessageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionResumeClusterMessageOutput)
+}
+
+func (i ScheduledActionResumeClusterMessageArgs) ToScheduledActionResumeClusterMessagePtrOutput() ScheduledActionResumeClusterMessagePtrOutput {
+	return i.ToScheduledActionResumeClusterMessagePtrOutputWithContext(context.Background())
+}
+
+func (i ScheduledActionResumeClusterMessageArgs) ToScheduledActionResumeClusterMessagePtrOutputWithContext(ctx context.Context) ScheduledActionResumeClusterMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionResumeClusterMessageOutput).ToScheduledActionResumeClusterMessagePtrOutputWithContext(ctx)
+}
+
+// ScheduledActionResumeClusterMessagePtrInput is an input type that accepts ScheduledActionResumeClusterMessageArgs, ScheduledActionResumeClusterMessagePtr and ScheduledActionResumeClusterMessagePtrOutput values.
+// You can construct a concrete instance of `ScheduledActionResumeClusterMessagePtrInput` via:
+//
+//          ScheduledActionResumeClusterMessageArgs{...}
+//
+//  or:
+//
+//          nil
+type ScheduledActionResumeClusterMessagePtrInput interface {
+	pulumi.Input
+
+	ToScheduledActionResumeClusterMessagePtrOutput() ScheduledActionResumeClusterMessagePtrOutput
+	ToScheduledActionResumeClusterMessagePtrOutputWithContext(context.Context) ScheduledActionResumeClusterMessagePtrOutput
+}
+
+type scheduledActionResumeClusterMessagePtrType ScheduledActionResumeClusterMessageArgs
+
+func ScheduledActionResumeClusterMessagePtr(v *ScheduledActionResumeClusterMessageArgs) ScheduledActionResumeClusterMessagePtrInput {
+	return (*scheduledActionResumeClusterMessagePtrType)(v)
+}
+
+func (*scheduledActionResumeClusterMessagePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledActionResumeClusterMessage)(nil)).Elem()
+}
+
+func (i *scheduledActionResumeClusterMessagePtrType) ToScheduledActionResumeClusterMessagePtrOutput() ScheduledActionResumeClusterMessagePtrOutput {
+	return i.ToScheduledActionResumeClusterMessagePtrOutputWithContext(context.Background())
+}
+
+func (i *scheduledActionResumeClusterMessagePtrType) ToScheduledActionResumeClusterMessagePtrOutputWithContext(ctx context.Context) ScheduledActionResumeClusterMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionResumeClusterMessagePtrOutput)
+}
+
+// Describes a resume cluster operation. For example, a scheduled action to run the `ResumeCluster` API operation.
+type ScheduledActionResumeClusterMessageOutput struct{ *pulumi.OutputState }
+
+func (ScheduledActionResumeClusterMessageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledActionResumeClusterMessage)(nil)).Elem()
+}
+
+func (o ScheduledActionResumeClusterMessageOutput) ToScheduledActionResumeClusterMessageOutput() ScheduledActionResumeClusterMessageOutput {
+	return o
+}
+
+func (o ScheduledActionResumeClusterMessageOutput) ToScheduledActionResumeClusterMessageOutputWithContext(ctx context.Context) ScheduledActionResumeClusterMessageOutput {
+	return o
+}
+
+func (o ScheduledActionResumeClusterMessageOutput) ToScheduledActionResumeClusterMessagePtrOutput() ScheduledActionResumeClusterMessagePtrOutput {
+	return o.ToScheduledActionResumeClusterMessagePtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledActionResumeClusterMessageOutput) ToScheduledActionResumeClusterMessagePtrOutputWithContext(ctx context.Context) ScheduledActionResumeClusterMessagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledActionResumeClusterMessage) *ScheduledActionResumeClusterMessage {
+		return &v
+	}).(ScheduledActionResumeClusterMessagePtrOutput)
+}
+
+func (o ScheduledActionResumeClusterMessageOutput) ClusterIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledActionResumeClusterMessage) string { return v.ClusterIdentifier }).(pulumi.StringOutput)
+}
+
+type ScheduledActionResumeClusterMessagePtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledActionResumeClusterMessagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledActionResumeClusterMessage)(nil)).Elem()
+}
+
+func (o ScheduledActionResumeClusterMessagePtrOutput) ToScheduledActionResumeClusterMessagePtrOutput() ScheduledActionResumeClusterMessagePtrOutput {
+	return o
+}
+
+func (o ScheduledActionResumeClusterMessagePtrOutput) ToScheduledActionResumeClusterMessagePtrOutputWithContext(ctx context.Context) ScheduledActionResumeClusterMessagePtrOutput {
+	return o
+}
+
+func (o ScheduledActionResumeClusterMessagePtrOutput) Elem() ScheduledActionResumeClusterMessageOutput {
+	return o.ApplyT(func(v *ScheduledActionResumeClusterMessage) ScheduledActionResumeClusterMessage {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledActionResumeClusterMessage
+		return ret
+	}).(ScheduledActionResumeClusterMessageOutput)
+}
+
+func (o ScheduledActionResumeClusterMessagePtrOutput) ClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledActionResumeClusterMessage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClusterIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+type ScheduledActionType struct {
+	PauseCluster  *ScheduledActionPauseClusterMessage  `pulumi:"pauseCluster"`
+	ResizeCluster *ScheduledActionResizeClusterMessage `pulumi:"resizeCluster"`
+	ResumeCluster *ScheduledActionResumeClusterMessage `pulumi:"resumeCluster"`
+}
+
+// ScheduledActionTypeInput is an input type that accepts ScheduledActionTypeArgs and ScheduledActionTypeOutput values.
+// You can construct a concrete instance of `ScheduledActionTypeInput` via:
+//
+//          ScheduledActionTypeArgs{...}
+type ScheduledActionTypeInput interface {
+	pulumi.Input
+
+	ToScheduledActionTypeOutput() ScheduledActionTypeOutput
+	ToScheduledActionTypeOutputWithContext(context.Context) ScheduledActionTypeOutput
+}
+
+type ScheduledActionTypeArgs struct {
+	PauseCluster  ScheduledActionPauseClusterMessagePtrInput  `pulumi:"pauseCluster"`
+	ResizeCluster ScheduledActionResizeClusterMessagePtrInput `pulumi:"resizeCluster"`
+	ResumeCluster ScheduledActionResumeClusterMessagePtrInput `pulumi:"resumeCluster"`
+}
+
+func (ScheduledActionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledActionType)(nil)).Elem()
+}
+
+func (i ScheduledActionTypeArgs) ToScheduledActionTypeOutput() ScheduledActionTypeOutput {
+	return i.ToScheduledActionTypeOutputWithContext(context.Background())
+}
+
+func (i ScheduledActionTypeArgs) ToScheduledActionTypeOutputWithContext(ctx context.Context) ScheduledActionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionTypeOutput)
+}
+
+func (i ScheduledActionTypeArgs) ToScheduledActionTypePtrOutput() ScheduledActionTypePtrOutput {
+	return i.ToScheduledActionTypePtrOutputWithContext(context.Background())
+}
+
+func (i ScheduledActionTypeArgs) ToScheduledActionTypePtrOutputWithContext(ctx context.Context) ScheduledActionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionTypeOutput).ToScheduledActionTypePtrOutputWithContext(ctx)
+}
+
+// ScheduledActionTypePtrInput is an input type that accepts ScheduledActionTypeArgs, ScheduledActionTypePtr and ScheduledActionTypePtrOutput values.
+// You can construct a concrete instance of `ScheduledActionTypePtrInput` via:
+//
+//          ScheduledActionTypeArgs{...}
+//
+//  or:
+//
+//          nil
+type ScheduledActionTypePtrInput interface {
+	pulumi.Input
+
+	ToScheduledActionTypePtrOutput() ScheduledActionTypePtrOutput
+	ToScheduledActionTypePtrOutputWithContext(context.Context) ScheduledActionTypePtrOutput
+}
+
+type scheduledActionTypePtrType ScheduledActionTypeArgs
+
+func ScheduledActionTypePtr(v *ScheduledActionTypeArgs) ScheduledActionTypePtrInput {
+	return (*scheduledActionTypePtrType)(v)
+}
+
+func (*scheduledActionTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledActionType)(nil)).Elem()
+}
+
+func (i *scheduledActionTypePtrType) ToScheduledActionTypePtrOutput() ScheduledActionTypePtrOutput {
+	return i.ToScheduledActionTypePtrOutputWithContext(context.Background())
+}
+
+func (i *scheduledActionTypePtrType) ToScheduledActionTypePtrOutputWithContext(ctx context.Context) ScheduledActionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionTypePtrOutput)
+}
+
+type ScheduledActionTypeOutput struct{ *pulumi.OutputState }
+
+func (ScheduledActionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledActionType)(nil)).Elem()
+}
+
+func (o ScheduledActionTypeOutput) ToScheduledActionTypeOutput() ScheduledActionTypeOutput {
+	return o
+}
+
+func (o ScheduledActionTypeOutput) ToScheduledActionTypeOutputWithContext(ctx context.Context) ScheduledActionTypeOutput {
+	return o
+}
+
+func (o ScheduledActionTypeOutput) ToScheduledActionTypePtrOutput() ScheduledActionTypePtrOutput {
+	return o.ToScheduledActionTypePtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledActionTypeOutput) ToScheduledActionTypePtrOutputWithContext(ctx context.Context) ScheduledActionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledActionType) *ScheduledActionType {
+		return &v
+	}).(ScheduledActionTypePtrOutput)
+}
+
+func (o ScheduledActionTypeOutput) PauseCluster() ScheduledActionPauseClusterMessagePtrOutput {
+	return o.ApplyT(func(v ScheduledActionType) *ScheduledActionPauseClusterMessage { return v.PauseCluster }).(ScheduledActionPauseClusterMessagePtrOutput)
+}
+
+func (o ScheduledActionTypeOutput) ResizeCluster() ScheduledActionResizeClusterMessagePtrOutput {
+	return o.ApplyT(func(v ScheduledActionType) *ScheduledActionResizeClusterMessage { return v.ResizeCluster }).(ScheduledActionResizeClusterMessagePtrOutput)
+}
+
+func (o ScheduledActionTypeOutput) ResumeCluster() ScheduledActionResumeClusterMessagePtrOutput {
+	return o.ApplyT(func(v ScheduledActionType) *ScheduledActionResumeClusterMessage { return v.ResumeCluster }).(ScheduledActionResumeClusterMessagePtrOutput)
+}
+
+type ScheduledActionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledActionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledActionType)(nil)).Elem()
+}
+
+func (o ScheduledActionTypePtrOutput) ToScheduledActionTypePtrOutput() ScheduledActionTypePtrOutput {
+	return o
+}
+
+func (o ScheduledActionTypePtrOutput) ToScheduledActionTypePtrOutputWithContext(ctx context.Context) ScheduledActionTypePtrOutput {
+	return o
+}
+
+func (o ScheduledActionTypePtrOutput) Elem() ScheduledActionTypeOutput {
+	return o.ApplyT(func(v *ScheduledActionType) ScheduledActionType {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledActionType
+		return ret
+	}).(ScheduledActionTypeOutput)
+}
+
+func (o ScheduledActionTypePtrOutput) PauseCluster() ScheduledActionPauseClusterMessagePtrOutput {
+	return o.ApplyT(func(v *ScheduledActionType) *ScheduledActionPauseClusterMessage {
+		if v == nil {
+			return nil
+		}
+		return v.PauseCluster
+	}).(ScheduledActionPauseClusterMessagePtrOutput)
+}
+
+func (o ScheduledActionTypePtrOutput) ResizeCluster() ScheduledActionResizeClusterMessagePtrOutput {
+	return o.ApplyT(func(v *ScheduledActionType) *ScheduledActionResizeClusterMessage {
+		if v == nil {
+			return nil
+		}
+		return v.ResizeCluster
+	}).(ScheduledActionResizeClusterMessagePtrOutput)
+}
+
+func (o ScheduledActionTypePtrOutput) ResumeCluster() ScheduledActionResumeClusterMessagePtrOutput {
+	return o.ApplyT(func(v *ScheduledActionType) *ScheduledActionResumeClusterMessage {
+		if v == nil {
+			return nil
+		}
+		return v.ResumeCluster
+	}).(ScheduledActionResumeClusterMessagePtrOutput)
+}
+
+// The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.
+type VpcEndpointProperties struct {
+	// One or more network interfaces of the endpoint. Also known as an interface endpoint.
+	NetworkInterfaces []EndpointAccessNetworkInterface `pulumi:"networkInterfaces"`
+	// The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
+	VpcEndpointId *string `pulumi:"vpcEndpointId"`
+	// The VPC identifier that the endpoint is associated.
+	VpcId *string `pulumi:"vpcId"`
+}
+
+// VpcEndpointPropertiesInput is an input type that accepts VpcEndpointPropertiesArgs and VpcEndpointPropertiesOutput values.
+// You can construct a concrete instance of `VpcEndpointPropertiesInput` via:
+//
+//          VpcEndpointPropertiesArgs{...}
+type VpcEndpointPropertiesInput interface {
+	pulumi.Input
+
+	ToVpcEndpointPropertiesOutput() VpcEndpointPropertiesOutput
+	ToVpcEndpointPropertiesOutputWithContext(context.Context) VpcEndpointPropertiesOutput
+}
+
+// The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.
+type VpcEndpointPropertiesArgs struct {
+	// One or more network interfaces of the endpoint. Also known as an interface endpoint.
+	NetworkInterfaces EndpointAccessNetworkInterfaceArrayInput `pulumi:"networkInterfaces"`
+	// The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
+	VpcEndpointId pulumi.StringPtrInput `pulumi:"vpcEndpointId"`
+	// The VPC identifier that the endpoint is associated.
+	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
+}
+
+func (VpcEndpointPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointProperties)(nil)).Elem()
+}
+
+func (i VpcEndpointPropertiesArgs) ToVpcEndpointPropertiesOutput() VpcEndpointPropertiesOutput {
+	return i.ToVpcEndpointPropertiesOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointPropertiesArgs) ToVpcEndpointPropertiesOutputWithContext(ctx context.Context) VpcEndpointPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointPropertiesOutput)
+}
+
+func (i VpcEndpointPropertiesArgs) ToVpcEndpointPropertiesPtrOutput() VpcEndpointPropertiesPtrOutput {
+	return i.ToVpcEndpointPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointPropertiesArgs) ToVpcEndpointPropertiesPtrOutputWithContext(ctx context.Context) VpcEndpointPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointPropertiesOutput).ToVpcEndpointPropertiesPtrOutputWithContext(ctx)
+}
+
+// VpcEndpointPropertiesPtrInput is an input type that accepts VpcEndpointPropertiesArgs, VpcEndpointPropertiesPtr and VpcEndpointPropertiesPtrOutput values.
+// You can construct a concrete instance of `VpcEndpointPropertiesPtrInput` via:
+//
+//          VpcEndpointPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type VpcEndpointPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToVpcEndpointPropertiesPtrOutput() VpcEndpointPropertiesPtrOutput
+	ToVpcEndpointPropertiesPtrOutputWithContext(context.Context) VpcEndpointPropertiesPtrOutput
+}
+
+type vpcEndpointPropertiesPtrType VpcEndpointPropertiesArgs
+
+func VpcEndpointPropertiesPtr(v *VpcEndpointPropertiesArgs) VpcEndpointPropertiesPtrInput {
+	return (*vpcEndpointPropertiesPtrType)(v)
+}
+
+func (*vpcEndpointPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEndpointProperties)(nil)).Elem()
+}
+
+func (i *vpcEndpointPropertiesPtrType) ToVpcEndpointPropertiesPtrOutput() VpcEndpointPropertiesPtrOutput {
+	return i.ToVpcEndpointPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *vpcEndpointPropertiesPtrType) ToVpcEndpointPropertiesPtrOutputWithContext(ctx context.Context) VpcEndpointPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointPropertiesPtrOutput)
+}
+
+// The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.
+type VpcEndpointPropertiesOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointProperties)(nil)).Elem()
+}
+
+func (o VpcEndpointPropertiesOutput) ToVpcEndpointPropertiesOutput() VpcEndpointPropertiesOutput {
+	return o
+}
+
+func (o VpcEndpointPropertiesOutput) ToVpcEndpointPropertiesOutputWithContext(ctx context.Context) VpcEndpointPropertiesOutput {
+	return o
+}
+
+func (o VpcEndpointPropertiesOutput) ToVpcEndpointPropertiesPtrOutput() VpcEndpointPropertiesPtrOutput {
+	return o.ToVpcEndpointPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointPropertiesOutput) ToVpcEndpointPropertiesPtrOutputWithContext(ctx context.Context) VpcEndpointPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcEndpointProperties) *VpcEndpointProperties {
+		return &v
+	}).(VpcEndpointPropertiesPtrOutput)
+}
+
+// One or more network interfaces of the endpoint. Also known as an interface endpoint.
+func (o VpcEndpointPropertiesOutput) NetworkInterfaces() EndpointAccessNetworkInterfaceArrayOutput {
+	return o.ApplyT(func(v VpcEndpointProperties) []EndpointAccessNetworkInterface { return v.NetworkInterfaces }).(EndpointAccessNetworkInterfaceArrayOutput)
+}
+
+// The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
+func (o VpcEndpointPropertiesOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcEndpointProperties) *string { return v.VpcEndpointId }).(pulumi.StringPtrOutput)
+}
+
+// The VPC identifier that the endpoint is associated.
+func (o VpcEndpointPropertiesOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcEndpointProperties) *string { return v.VpcId }).(pulumi.StringPtrOutput)
+}
+
+type VpcEndpointPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEndpointProperties)(nil)).Elem()
+}
+
+func (o VpcEndpointPropertiesPtrOutput) ToVpcEndpointPropertiesPtrOutput() VpcEndpointPropertiesPtrOutput {
+	return o
+}
+
+func (o VpcEndpointPropertiesPtrOutput) ToVpcEndpointPropertiesPtrOutputWithContext(ctx context.Context) VpcEndpointPropertiesPtrOutput {
+	return o
+}
+
+func (o VpcEndpointPropertiesPtrOutput) Elem() VpcEndpointPropertiesOutput {
+	return o.ApplyT(func(v *VpcEndpointProperties) VpcEndpointProperties {
+		if v != nil {
+			return *v
+		}
+		var ret VpcEndpointProperties
+		return ret
+	}).(VpcEndpointPropertiesOutput)
+}
+
+// One or more network interfaces of the endpoint. Also known as an interface endpoint.
+func (o VpcEndpointPropertiesPtrOutput) NetworkInterfaces() EndpointAccessNetworkInterfaceArrayOutput {
+	return o.ApplyT(func(v *VpcEndpointProperties) []EndpointAccessNetworkInterface {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkInterfaces
+	}).(EndpointAccessNetworkInterfaceArrayOutput)
+}
+
+// The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
+func (o VpcEndpointPropertiesPtrOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpointProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcEndpointId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The VPC identifier that the endpoint is associated.
+func (o VpcEndpointPropertiesPtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpointProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcId
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEndpointInput)(nil)).Elem(), ClusterEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEndpointPtrInput)(nil)).Elem(), ClusterEndpointArgs{})
@@ -830,6 +1984,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSubnetGroupTagArrayInput)(nil)).Elem(), ClusterSubnetGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTagInput)(nil)).Elem(), ClusterTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTagArrayInput)(nil)).Elem(), ClusterTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAccessNetworkInterfaceInput)(nil)).Elem(), EndpointAccessNetworkInterfaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAccessNetworkInterfaceArrayInput)(nil)).Elem(), EndpointAccessNetworkInterfaceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAccessVpcSecurityGroupInput)(nil)).Elem(), EndpointAccessVpcSecurityGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAccessVpcSecurityGroupArrayInput)(nil)).Elem(), EndpointAccessVpcSecurityGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionTagInput)(nil)).Elem(), EventSubscriptionTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionTagArrayInput)(nil)).Elem(), EventSubscriptionTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionPauseClusterMessageInput)(nil)).Elem(), ScheduledActionPauseClusterMessageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionPauseClusterMessagePtrInput)(nil)).Elem(), ScheduledActionPauseClusterMessageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionResizeClusterMessageInput)(nil)).Elem(), ScheduledActionResizeClusterMessageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionResizeClusterMessagePtrInput)(nil)).Elem(), ScheduledActionResizeClusterMessageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionResumeClusterMessageInput)(nil)).Elem(), ScheduledActionResumeClusterMessageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionResumeClusterMessagePtrInput)(nil)).Elem(), ScheduledActionResumeClusterMessageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionTypeInput)(nil)).Elem(), ScheduledActionTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionTypePtrInput)(nil)).Elem(), ScheduledActionTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointPropertiesInput)(nil)).Elem(), VpcEndpointPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointPropertiesPtrInput)(nil)).Elem(), VpcEndpointPropertiesArgs{})
 	pulumi.RegisterOutputType(ClusterEndpointOutput{})
 	pulumi.RegisterOutputType(ClusterEndpointPtrOutput{})
 	pulumi.RegisterOutputType(ClusterLoggingPropertiesOutput{})
@@ -844,4 +2014,20 @@ func init() {
 	pulumi.RegisterOutputType(ClusterSubnetGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(ClusterTagOutput{})
 	pulumi.RegisterOutputType(ClusterTagArrayOutput{})
+	pulumi.RegisterOutputType(EndpointAccessNetworkInterfaceOutput{})
+	pulumi.RegisterOutputType(EndpointAccessNetworkInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(EndpointAccessVpcSecurityGroupOutput{})
+	pulumi.RegisterOutputType(EndpointAccessVpcSecurityGroupArrayOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionTagOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionTagArrayOutput{})
+	pulumi.RegisterOutputType(ScheduledActionPauseClusterMessageOutput{})
+	pulumi.RegisterOutputType(ScheduledActionPauseClusterMessagePtrOutput{})
+	pulumi.RegisterOutputType(ScheduledActionResizeClusterMessageOutput{})
+	pulumi.RegisterOutputType(ScheduledActionResizeClusterMessagePtrOutput{})
+	pulumi.RegisterOutputType(ScheduledActionResumeClusterMessageOutput{})
+	pulumi.RegisterOutputType(ScheduledActionResumeClusterMessagePtrOutput{})
+	pulumi.RegisterOutputType(ScheduledActionTypeOutput{})
+	pulumi.RegisterOutputType(ScheduledActionTypePtrOutput{})
+	pulumi.RegisterOutputType(VpcEndpointPropertiesOutput{})
+	pulumi.RegisterOutputType(VpcEndpointPropertiesPtrOutput{})
 }

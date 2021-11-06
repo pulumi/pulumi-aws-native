@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PublicKey{}
 	case "aws-native:cloudfront:RealtimeLogConfig":
 		r = &RealtimeLogConfig{}
+	case "aws-native:cloudfront:ResponseHeadersPolicy":
+		r = &ResponseHeadersPolicy{}
 	case "aws-native:cloudfront:StreamingDistribution":
 		r = &StreamingDistribution{}
 	default:

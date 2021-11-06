@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 export * from "./agent";
 export * from "./locationEFS";
 export * from "./locationFSxWindows";
+export * from "./locationHDFS";
 export * from "./locationNFS";
 export * from "./locationObjectStorage";
 export * from "./locationS3";
@@ -21,6 +22,7 @@ export * from "../types/enums/datasync";
 import { Agent } from "./agent";
 import { LocationEFS } from "./locationEFS";
 import { LocationFSxWindows } from "./locationFSxWindows";
+import { LocationHDFS } from "./locationHDFS";
 import { LocationNFS } from "./locationNFS";
 import { LocationObjectStorage } from "./locationObjectStorage";
 import { LocationS3 } from "./locationS3";
@@ -37,6 +39,8 @@ const _module = {
                 return new LocationEFS(name, <any>undefined, { urn })
             case "aws-native:datasync:LocationFSxWindows":
                 return new LocationFSxWindows(name, <any>undefined, { urn })
+            case "aws-native:datasync:LocationHDFS":
+                return new LocationHDFS(name, <any>undefined, { urn })
             case "aws-native:datasync:LocationNFS":
                 return new LocationNFS(name, <any>undefined, { urn })
             case "aws-native:datasync:LocationObjectStorage":

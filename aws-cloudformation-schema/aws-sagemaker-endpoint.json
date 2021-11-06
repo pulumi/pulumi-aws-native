@@ -25,6 +25,9 @@
     "DeploymentConfig" : {
       "$ref" : "#/definitions/DeploymentConfig"
     },
+    "RetainDeploymentConfig" : {
+      "type" : "boolean"
+    },
     "Tags" : {
       "type" : "array",
       "uniqueItems" : false,
@@ -119,6 +122,9 @@
       "properties" : {
         "Type" : {
           "type" : "string"
+        },
+        "LinearStepSize" : {
+          "$ref" : "#/definitions/CapacitySize"
         },
         "CanarySize" : {
           "$ref" : "#/definitions/CapacitySize"

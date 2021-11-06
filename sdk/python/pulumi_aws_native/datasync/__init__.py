@@ -9,6 +9,7 @@ from ._enums import *
 from .agent import *
 from .location_efs import *
 from .location_f_sx_windows import *
+from .location_hdfs import *
 from .location_nfs import *
 from .location_object_storage import *
 from .location_s3 import *

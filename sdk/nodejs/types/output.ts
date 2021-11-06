@@ -2148,6 +2148,7 @@ export namespace appmesh {
         grpcRoute?: outputs.appmesh.GatewayRouteGrpcGatewayRoute;
         http2Route?: outputs.appmesh.GatewayRouteHttpGatewayRoute;
         httpRoute?: outputs.appmesh.GatewayRouteHttpGatewayRoute;
+        priority?: number;
     }
 
     export interface GatewayRouteTag {
@@ -4566,6 +4567,92 @@ export namespace cloudfront {
     export interface RealtimeLogConfigKinesisStreamConfig {
         roleArn: string;
         streamArn: string;
+    }
+
+    export interface ResponseHeadersPolicyAccessControlAllowHeaders {
+        items: string[];
+    }
+
+    export interface ResponseHeadersPolicyAccessControlAllowMethods {
+        items: string[];
+    }
+
+    export interface ResponseHeadersPolicyAccessControlAllowOrigins {
+        items: string[];
+    }
+
+    export interface ResponseHeadersPolicyAccessControlExposeHeaders {
+        items: string[];
+    }
+
+    export interface ResponseHeadersPolicyConfig {
+        comment?: string;
+        corsConfig?: outputs.cloudfront.ResponseHeadersPolicyCorsConfig;
+        customHeadersConfig?: outputs.cloudfront.ResponseHeadersPolicyCustomHeadersConfig;
+        name: string;
+        securityHeadersConfig?: outputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfig;
+    }
+
+    export interface ResponseHeadersPolicyContentSecurityPolicy {
+        contentSecurityPolicy: string;
+        override: boolean;
+    }
+
+    export interface ResponseHeadersPolicyContentTypeOptions {
+        override: boolean;
+    }
+
+    export interface ResponseHeadersPolicyCorsConfig {
+        accessControlAllowCredentials: boolean;
+        accessControlAllowHeaders: outputs.cloudfront.ResponseHeadersPolicyAccessControlAllowHeaders;
+        accessControlAllowMethods: outputs.cloudfront.ResponseHeadersPolicyAccessControlAllowMethods;
+        accessControlAllowOrigins: outputs.cloudfront.ResponseHeadersPolicyAccessControlAllowOrigins;
+        accessControlExposeHeaders?: outputs.cloudfront.ResponseHeadersPolicyAccessControlExposeHeaders;
+        accessControlMaxAgeSec?: number;
+        originOverride: boolean;
+    }
+
+    export interface ResponseHeadersPolicyCustomHeader {
+        header: string;
+        override: boolean;
+        value: string;
+    }
+
+    export interface ResponseHeadersPolicyCustomHeadersConfig {
+        items: outputs.cloudfront.ResponseHeadersPolicyCustomHeader[];
+    }
+
+    export interface ResponseHeadersPolicyFrameOptions {
+        frameOption: string;
+        override: boolean;
+    }
+
+    export interface ResponseHeadersPolicyReferrerPolicy {
+        override: boolean;
+        referrerPolicy: string;
+    }
+
+    export interface ResponseHeadersPolicySecurityHeadersConfig {
+        contentSecurityPolicy?: outputs.cloudfront.ResponseHeadersPolicyContentSecurityPolicy;
+        contentTypeOptions?: outputs.cloudfront.ResponseHeadersPolicyContentTypeOptions;
+        frameOptions?: outputs.cloudfront.ResponseHeadersPolicyFrameOptions;
+        referrerPolicy?: outputs.cloudfront.ResponseHeadersPolicyReferrerPolicy;
+        strictTransportSecurity?: outputs.cloudfront.ResponseHeadersPolicyStrictTransportSecurity;
+        xSSProtection?: outputs.cloudfront.ResponseHeadersPolicyXSSProtection;
+    }
+
+    export interface ResponseHeadersPolicyStrictTransportSecurity {
+        accessControlMaxAgeSec: number;
+        includeSubdomains?: boolean;
+        override: boolean;
+        preload?: boolean;
+    }
+
+    export interface ResponseHeadersPolicyXSSProtection {
+        modeBlock?: boolean;
+        override: boolean;
+        protection: boolean;
+        reportUri?: string;
     }
 
     export interface StreamingDistributionConfig {
@@ -7216,6 +7303,48 @@ export namespace datasync {
     }
 
     /**
+     * HDFS Name Node IP and port information.
+     */
+    export interface LocationHDFSNameNode {
+        /**
+         * The DNS name or IP address of the Name Node in the customer's on premises HDFS cluster.
+         */
+        hostname: string;
+        /**
+         * The port on which the Name Node is listening on for client requests.
+         */
+        port: number;
+    }
+
+    /**
+     * Configuration information for RPC Protection and Data Transfer Protection. These parameters can be set to AUTHENTICATION, INTEGRITY, or PRIVACY. The default value is PRIVACY.
+     */
+    export interface LocationHDFSQopConfiguration {
+        /**
+         * Configuration for Data Transfer Protection.
+         */
+        dataTransferProtection?: enums.datasync.LocationHDFSQopConfigurationDataTransferProtection;
+        /**
+         * Configuration for RPC Protection.
+         */
+        rpcProtection?: enums.datasync.LocationHDFSQopConfigurationRpcProtection;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface LocationHDFSTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
      * The NFS mount options that DataSync can use to mount your NFS share.
      */
     export interface LocationNFSMountOptions {
@@ -8171,6 +8300,10 @@ export namespace ec2 {
         vCpuCount?: outputs.ec2.EC2FleetVCpuCountRangeRequest;
     }
 
+    export interface EC2FleetMaintenanceStrategies {
+        capacityRebalance?: outputs.ec2.EC2FleetCapacityRebalance;
+    }
+
     export interface EC2FleetMemoryGiBPerVCpuRequest {
         max?: number;
         min?: number;
@@ -8210,15 +8343,11 @@ export namespace ec2 {
         allocationStrategy?: enums.ec2.EC2FleetSpotOptionsRequestAllocationStrategy;
         instanceInterruptionBehavior?: enums.ec2.EC2FleetSpotOptionsRequestInstanceInterruptionBehavior;
         instancePoolsToUseCount?: number;
-        maintenanceStrategies?: outputs.ec2.EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties;
+        maintenanceStrategies?: outputs.ec2.EC2FleetMaintenanceStrategies;
         maxTotalPrice?: string;
         minTargetCapacity?: number;
         singleAvailabilityZone?: boolean;
         singleInstanceType?: boolean;
-    }
-
-    export interface EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties {
-        capacityRebalance?: outputs.ec2.EC2FleetCapacityRebalance;
     }
 
     export interface EC2FleetTag {
@@ -14011,7 +14140,7 @@ export namespace iotanalytics {
     }
 
     export interface DatasetContentVersionValue {
-        datasetName?: string;
+        datasetName: string;
     }
 
     export interface DatasetDeltaTime {
@@ -14047,7 +14176,7 @@ export namespace iotanalytics {
     }
 
     export interface DatasetOutputFileUriValue {
-        fileName?: string;
+        fileName: string;
     }
 
     export interface DatasetQueryAction {
@@ -14125,7 +14254,7 @@ export namespace iotanalytics {
     }
 
     export interface DatastoreIotSiteWiseMultiLayerStorage {
-        customerManagedS3Storage: outputs.iotanalytics.DatastoreCustomerManagedS3Storage;
+        customerManagedS3Storage?: outputs.iotanalytics.DatastoreCustomerManagedS3Storage;
     }
 
     export interface DatastoreJsonConfiguration {
@@ -14186,67 +14315,67 @@ export namespace iotanalytics {
     }
 
     export interface PipelineAddAttributes {
-        attributes?: any;
-        name?: string;
+        attributes: any;
+        name: string;
         next?: string;
     }
 
     export interface PipelineChannel {
-        channelName?: string;
-        name?: string;
+        channelName: string;
+        name: string;
         next?: string;
     }
 
     export interface PipelineDatastore {
-        datastoreName?: string;
-        name?: string;
+        datastoreName: string;
+        name: string;
     }
 
     export interface PipelineDeviceRegistryEnrich {
-        attribute?: string;
-        name?: string;
+        attribute: string;
+        name: string;
         next?: string;
-        roleArn?: string;
-        thingName?: string;
+        roleArn: string;
+        thingName: string;
     }
 
     export interface PipelineDeviceShadowEnrich {
-        attribute?: string;
-        name?: string;
+        attribute: string;
+        name: string;
         next?: string;
-        roleArn?: string;
-        thingName?: string;
+        roleArn: string;
+        thingName: string;
     }
 
     export interface PipelineFilter {
-        filter?: string;
-        name?: string;
+        filter: string;
+        name: string;
         next?: string;
     }
 
     export interface PipelineLambda {
-        batchSize?: number;
-        lambdaName?: string;
-        name?: string;
+        batchSize: number;
+        lambdaName: string;
+        name: string;
         next?: string;
     }
 
     export interface PipelineMath {
-        attribute?: string;
-        math?: string;
-        name?: string;
+        attribute: string;
+        math: string;
+        name: string;
         next?: string;
     }
 
     export interface PipelineRemoveAttributes {
-        attributes?: string[];
-        name?: string;
+        attributes: string[];
+        name: string;
         next?: string;
     }
 
     export interface PipelineSelectAttributes {
-        attributes?: string[];
-        name?: string;
+        attributes: string[];
+        name: string;
         next?: string;
     }
 
@@ -20455,6 +20584,48 @@ export namespace pinpoint {
         treatmentName?: string;
     }
 
+    export interface InAppTemplateBodyConfig {
+        alignment?: enums.pinpoint.InAppTemplateAlignment;
+        body?: string;
+        textColor?: string;
+    }
+
+    export interface InAppTemplateButtonConfig {
+        android?: outputs.pinpoint.InAppTemplateOverrideButtonConfiguration;
+        defaultConfig?: outputs.pinpoint.InAppTemplateDefaultButtonConfiguration;
+        iOS?: outputs.pinpoint.InAppTemplateOverrideButtonConfiguration;
+        web?: outputs.pinpoint.InAppTemplateOverrideButtonConfiguration;
+    }
+
+    export interface InAppTemplateDefaultButtonConfiguration {
+        backgroundColor?: string;
+        borderRadius?: number;
+        buttonAction?: enums.pinpoint.InAppTemplateButtonAction;
+        link?: string;
+        text?: string;
+        textColor?: string;
+    }
+
+    export interface InAppTemplateHeaderConfig {
+        alignment?: enums.pinpoint.InAppTemplateAlignment;
+        header?: string;
+        textColor?: string;
+    }
+
+    export interface InAppTemplateInAppMessageContent {
+        backgroundColor?: string;
+        bodyConfig?: outputs.pinpoint.InAppTemplateBodyConfig;
+        headerConfig?: outputs.pinpoint.InAppTemplateHeaderConfig;
+        imageUrl?: string;
+        primaryBtn?: outputs.pinpoint.InAppTemplateButtonConfig;
+        secondaryBtn?: outputs.pinpoint.InAppTemplateButtonConfig;
+    }
+
+    export interface InAppTemplateOverrideButtonConfiguration {
+        buttonAction?: enums.pinpoint.InAppTemplateButtonAction;
+        link?: string;
+    }
+
     export interface PushTemplateAPNSPushNotificationTemplate {
         action?: string;
         body?: string;
@@ -22310,6 +22481,105 @@ export namespace redshift {
          * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
         value: string;
+    }
+
+    /**
+     * Describes a network interface.
+     */
+    export interface EndpointAccessNetworkInterface {
+        /**
+         * The Availability Zone.
+         */
+        availabilityZone?: string;
+        /**
+         * The network interface identifier.
+         */
+        networkInterfaceId?: string;
+        /**
+         * The IPv4 address of the network interface within the subnet.
+         */
+        privateIpAddress?: string;
+        /**
+         * The subnet identifier.
+         */
+        subnetId?: string;
+    }
+
+    /**
+     * Describes the members of a VPC security group.
+     */
+    export interface EndpointAccessVpcSecurityGroup {
+        /**
+         * The status of the VPC security group.
+         */
+        status?: string;
+        /**
+         * The identifier of the VPC security group.
+         */
+        vpcSecurityGroupId?: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface EventSubscriptionTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
+     * Describes a pause cluster operation. For example, a scheduled action to run the `PauseCluster` API operation.
+     */
+    export interface ScheduledActionPauseClusterMessage {
+        clusterIdentifier: string;
+    }
+
+    /**
+     * Describes a resize cluster operation. For example, a scheduled action to run the `ResizeCluster` API operation.
+     */
+    export interface ScheduledActionResizeClusterMessage {
+        classic?: boolean;
+        clusterIdentifier: string;
+        clusterType?: string;
+        nodeType?: string;
+        numberOfNodes?: number;
+    }
+
+    /**
+     * Describes a resume cluster operation. For example, a scheduled action to run the `ResumeCluster` API operation.
+     */
+    export interface ScheduledActionResumeClusterMessage {
+        clusterIdentifier: string;
+    }
+
+    export interface ScheduledActionType {
+        pauseCluster?: outputs.redshift.ScheduledActionPauseClusterMessage;
+        resizeCluster?: outputs.redshift.ScheduledActionResizeClusterMessage;
+        resumeCluster?: outputs.redshift.ScheduledActionResumeClusterMessage;
+    }
+
+    /**
+     * The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.
+     */
+    export interface VpcEndpointProperties {
+        /**
+         * One or more network interfaces of the endpoint. Also known as an interface endpoint.
+         */
+        networkInterfaces?: outputs.redshift.EndpointAccessNetworkInterface[];
+        /**
+         * The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
+         */
+        vpcEndpointId?: string;
+        /**
+         * The VPC identifier that the endpoint is associated.
+         */
+        vpcId?: string;
     }
 
 }
@@ -24398,6 +24668,7 @@ export namespace sagemaker {
 
     export interface EndpointTrafficRoutingConfig {
         canarySize?: outputs.sagemaker.EndpointCapacitySize;
+        linearStepSize?: outputs.sagemaker.EndpointCapacitySize;
         type: string;
         waitIntervalInSeconds?: number;
     }

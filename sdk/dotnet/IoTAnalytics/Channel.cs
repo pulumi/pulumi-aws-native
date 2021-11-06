@@ -12,11 +12,12 @@ namespace Pulumi.AwsNative.IoTAnalytics
     /// <summary>
     /// Resource Type definition for AWS::IoTAnalytics::Channel
     /// </summary>
+    [Obsolete(@"Channel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:iotanalytics:Channel")]
     public partial class Channel : Pulumi.CustomResource
     {
         [Output("channelName")]
-        public Output<string?> ChannelName { get; private set; } = null!;
+        public Output<string> ChannelName { get; private set; } = null!;
 
         [Output("channelStorage")]
         public Output<Outputs.ChannelStorage?> ChannelStorage { get; private set; } = null!;

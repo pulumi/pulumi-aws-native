@@ -1131,7 +1131,7 @@ func (o DatasetContentDeliveryRuleDestinationOutput) S3DestinationConfiguration(
 }
 
 type DatasetContentVersionValue struct {
-	DatasetName *string `pulumi:"datasetName"`
+	DatasetName string `pulumi:"datasetName"`
 }
 
 // DatasetContentVersionValueInput is an input type that accepts DatasetContentVersionValueArgs and DatasetContentVersionValueOutput values.
@@ -1146,7 +1146,7 @@ type DatasetContentVersionValueInput interface {
 }
 
 type DatasetContentVersionValueArgs struct {
-	DatasetName pulumi.StringPtrInput `pulumi:"datasetName"`
+	DatasetName pulumi.StringInput `pulumi:"datasetName"`
 }
 
 func (DatasetContentVersionValueArgs) ElementType() reflect.Type {
@@ -1226,8 +1226,8 @@ func (o DatasetContentVersionValueOutput) ToDatasetContentVersionValuePtrOutputW
 	}).(DatasetContentVersionValuePtrOutput)
 }
 
-func (o DatasetContentVersionValueOutput) DatasetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatasetContentVersionValue) *string { return v.DatasetName }).(pulumi.StringPtrOutput)
+func (o DatasetContentVersionValueOutput) DatasetName() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetContentVersionValue) string { return v.DatasetName }).(pulumi.StringOutput)
 }
 
 type DatasetContentVersionValuePtrOutput struct{ *pulumi.OutputState }
@@ -1259,7 +1259,7 @@ func (o DatasetContentVersionValuePtrOutput) DatasetName() pulumi.StringPtrOutpu
 		if v == nil {
 			return nil
 		}
-		return v.DatasetName
+		return &v.DatasetName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2086,7 +2086,7 @@ func (o DatasetLateDataRuleConfigurationOutput) DeltaTimeSessionWindowConfigurat
 }
 
 type DatasetOutputFileUriValue struct {
-	FileName *string `pulumi:"fileName"`
+	FileName string `pulumi:"fileName"`
 }
 
 // DatasetOutputFileUriValueInput is an input type that accepts DatasetOutputFileUriValueArgs and DatasetOutputFileUriValueOutput values.
@@ -2101,7 +2101,7 @@ type DatasetOutputFileUriValueInput interface {
 }
 
 type DatasetOutputFileUriValueArgs struct {
-	FileName pulumi.StringPtrInput `pulumi:"fileName"`
+	FileName pulumi.StringInput `pulumi:"fileName"`
 }
 
 func (DatasetOutputFileUriValueArgs) ElementType() reflect.Type {
@@ -2181,8 +2181,8 @@ func (o DatasetOutputFileUriValueOutput) ToDatasetOutputFileUriValuePtrOutputWit
 	}).(DatasetOutputFileUriValuePtrOutput)
 }
 
-func (o DatasetOutputFileUriValueOutput) FileName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatasetOutputFileUriValue) *string { return v.FileName }).(pulumi.StringPtrOutput)
+func (o DatasetOutputFileUriValueOutput) FileName() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetOutputFileUriValue) string { return v.FileName }).(pulumi.StringOutput)
 }
 
 type DatasetOutputFileUriValuePtrOutput struct{ *pulumi.OutputState }
@@ -2214,7 +2214,7 @@ func (o DatasetOutputFileUriValuePtrOutput) FileName() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.FileName
+		return &v.FileName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4132,7 +4132,7 @@ func (o DatastoreFileFormatConfigurationPtrOutput) ParquetConfiguration() Datast
 }
 
 type DatastoreIotSiteWiseMultiLayerStorage struct {
-	CustomerManagedS3Storage DatastoreCustomerManagedS3Storage `pulumi:"customerManagedS3Storage"`
+	CustomerManagedS3Storage *DatastoreCustomerManagedS3Storage `pulumi:"customerManagedS3Storage"`
 }
 
 // DatastoreIotSiteWiseMultiLayerStorageInput is an input type that accepts DatastoreIotSiteWiseMultiLayerStorageArgs and DatastoreIotSiteWiseMultiLayerStorageOutput values.
@@ -4147,7 +4147,7 @@ type DatastoreIotSiteWiseMultiLayerStorageInput interface {
 }
 
 type DatastoreIotSiteWiseMultiLayerStorageArgs struct {
-	CustomerManagedS3Storage DatastoreCustomerManagedS3StorageInput `pulumi:"customerManagedS3Storage"`
+	CustomerManagedS3Storage DatastoreCustomerManagedS3StoragePtrInput `pulumi:"customerManagedS3Storage"`
 }
 
 func (DatastoreIotSiteWiseMultiLayerStorageArgs) ElementType() reflect.Type {
@@ -4227,10 +4227,10 @@ func (o DatastoreIotSiteWiseMultiLayerStorageOutput) ToDatastoreIotSiteWiseMulti
 	}).(DatastoreIotSiteWiseMultiLayerStoragePtrOutput)
 }
 
-func (o DatastoreIotSiteWiseMultiLayerStorageOutput) CustomerManagedS3Storage() DatastoreCustomerManagedS3StorageOutput {
-	return o.ApplyT(func(v DatastoreIotSiteWiseMultiLayerStorage) DatastoreCustomerManagedS3Storage {
+func (o DatastoreIotSiteWiseMultiLayerStorageOutput) CustomerManagedS3Storage() DatastoreCustomerManagedS3StoragePtrOutput {
+	return o.ApplyT(func(v DatastoreIotSiteWiseMultiLayerStorage) *DatastoreCustomerManagedS3Storage {
 		return v.CustomerManagedS3Storage
-	}).(DatastoreCustomerManagedS3StorageOutput)
+	}).(DatastoreCustomerManagedS3StoragePtrOutput)
 }
 
 type DatastoreIotSiteWiseMultiLayerStoragePtrOutput struct{ *pulumi.OutputState }
@@ -4262,7 +4262,7 @@ func (o DatastoreIotSiteWiseMultiLayerStoragePtrOutput) CustomerManagedS3Storage
 		if v == nil {
 			return nil
 		}
-		return &v.CustomerManagedS3Storage
+		return v.CustomerManagedS3Storage
 	}).(DatastoreCustomerManagedS3StoragePtrOutput)
 }
 
@@ -5803,7 +5803,7 @@ func (o PipelineActivityArrayOutput) Index(i pulumi.IntInput) PipelineActivityOu
 
 type PipelineAddAttributes struct {
 	Attributes interface{} `pulumi:"attributes"`
-	Name       *string     `pulumi:"name"`
+	Name       string      `pulumi:"name"`
 	Next       *string     `pulumi:"next"`
 }
 
@@ -5820,7 +5820,7 @@ type PipelineAddAttributesInput interface {
 
 type PipelineAddAttributesArgs struct {
 	Attributes pulumi.Input          `pulumi:"attributes"`
-	Name       pulumi.StringPtrInput `pulumi:"name"`
+	Name       pulumi.StringInput    `pulumi:"name"`
 	Next       pulumi.StringPtrInput `pulumi:"next"`
 }
 
@@ -5905,8 +5905,8 @@ func (o PipelineAddAttributesOutput) Attributes() pulumi.AnyOutput {
 	return o.ApplyT(func(v PipelineAddAttributes) interface{} { return v.Attributes }).(pulumi.AnyOutput)
 }
 
-func (o PipelineAddAttributesOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PipelineAddAttributes) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o PipelineAddAttributesOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineAddAttributes) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o PipelineAddAttributesOutput) Next() pulumi.StringPtrOutput {
@@ -5951,7 +5951,7 @@ func (o PipelineAddAttributesPtrOutput) Name() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Name
+		return &v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5965,8 +5965,8 @@ func (o PipelineAddAttributesPtrOutput) Next() pulumi.StringPtrOutput {
 }
 
 type PipelineChannel struct {
-	ChannelName *string `pulumi:"channelName"`
-	Name        *string `pulumi:"name"`
+	ChannelName string  `pulumi:"channelName"`
+	Name        string  `pulumi:"name"`
 	Next        *string `pulumi:"next"`
 }
 
@@ -5982,8 +5982,8 @@ type PipelineChannelInput interface {
 }
 
 type PipelineChannelArgs struct {
-	ChannelName pulumi.StringPtrInput `pulumi:"channelName"`
-	Name        pulumi.StringPtrInput `pulumi:"name"`
+	ChannelName pulumi.StringInput    `pulumi:"channelName"`
+	Name        pulumi.StringInput    `pulumi:"name"`
 	Next        pulumi.StringPtrInput `pulumi:"next"`
 }
 
@@ -6064,12 +6064,12 @@ func (o PipelineChannelOutput) ToPipelineChannelPtrOutputWithContext(ctx context
 	}).(PipelineChannelPtrOutput)
 }
 
-func (o PipelineChannelOutput) ChannelName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PipelineChannel) *string { return v.ChannelName }).(pulumi.StringPtrOutput)
+func (o PipelineChannelOutput) ChannelName() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineChannel) string { return v.ChannelName }).(pulumi.StringOutput)
 }
 
-func (o PipelineChannelOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PipelineChannel) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o PipelineChannelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineChannel) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o PipelineChannelOutput) Next() pulumi.StringPtrOutput {
@@ -6105,7 +6105,7 @@ func (o PipelineChannelPtrOutput) ChannelName() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.ChannelName
+		return &v.ChannelName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6114,7 +6114,7 @@ func (o PipelineChannelPtrOutput) Name() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Name
+		return &v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6128,8 +6128,8 @@ func (o PipelineChannelPtrOutput) Next() pulumi.StringPtrOutput {
 }
 
 type PipelineDatastore struct {
-	DatastoreName *string `pulumi:"datastoreName"`
-	Name          *string `pulumi:"name"`
+	DatastoreName string `pulumi:"datastoreName"`
+	Name          string `pulumi:"name"`
 }
 
 // PipelineDatastoreInput is an input type that accepts PipelineDatastoreArgs and PipelineDatastoreOutput values.
@@ -6144,8 +6144,8 @@ type PipelineDatastoreInput interface {
 }
 
 type PipelineDatastoreArgs struct {
-	DatastoreName pulumi.StringPtrInput `pulumi:"datastoreName"`
-	Name          pulumi.StringPtrInput `pulumi:"name"`
+	DatastoreName pulumi.StringInput `pulumi:"datastoreName"`
+	Name          pulumi.StringInput `pulumi:"name"`
 }
 
 func (PipelineDatastoreArgs) ElementType() reflect.Type {
@@ -6225,12 +6225,12 @@ func (o PipelineDatastoreOutput) ToPipelineDatastorePtrOutputWithContext(ctx con
 	}).(PipelineDatastorePtrOutput)
 }
 
-func (o PipelineDatastoreOutput) DatastoreName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PipelineDatastore) *string { return v.DatastoreName }).(pulumi.StringPtrOutput)
+func (o PipelineDatastoreOutput) DatastoreName() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineDatastore) string { return v.DatastoreName }).(pulumi.StringOutput)
 }
 
-func (o PipelineDatastoreOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PipelineDatastore) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o PipelineDatastoreOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineDatastore) string { return v.Name }).(pulumi.StringOutput)
 }
 
 type PipelineDatastorePtrOutput struct{ *pulumi.OutputState }
@@ -6262,7 +6262,7 @@ func (o PipelineDatastorePtrOutput) DatastoreName() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.DatastoreName
+		return &v.DatastoreName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6271,16 +6271,16 @@ func (o PipelineDatastorePtrOutput) Name() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Name
+		return &v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
 type PipelineDeviceRegistryEnrich struct {
-	Attribute *string `pulumi:"attribute"`
-	Name      *string `pulumi:"name"`
+	Attribute string  `pulumi:"attribute"`
+	Name      string  `pulumi:"name"`
 	Next      *string `pulumi:"next"`
-	RoleArn   *string `pulumi:"roleArn"`
-	ThingName *string `pulumi:"thingName"`
+	RoleArn   string  `pulumi:"roleArn"`
+	ThingName string  `pulumi:"thingName"`
 }
 
 // PipelineDeviceRegistryEnrichInput is an input type that accepts PipelineDeviceRegistryEnrichArgs and PipelineDeviceRegistryEnrichOutput values.
@@ -6295,11 +6295,11 @@ type PipelineDeviceRegistryEnrichInput interface {
 }
 
 type PipelineDeviceRegistryEnrichArgs struct {
-	Attribute pulumi.StringPtrInput `pulumi:"attribute"`
-	Name      pulumi.StringPtrInput `pulumi:"name"`
+	Attribute pulumi.StringInput    `pulumi:"attribute"`
+	Name      pulumi.StringInput    `pulumi:"name"`
 	Next      pulumi.StringPtrInput `pulumi:"next"`
-	RoleArn   pulumi.StringPtrInput `pulumi:"roleArn"`
-	ThingName pulumi.StringPtrInput `pulumi:"thingName"`
+	RoleArn   pulumi.StringInput    `pulumi:"roleArn"`
+	ThingName pulumi.StringInput    `pulumi:"thingName"`
 }
 
 func (PipelineDeviceRegistryEnrichArgs) ElementType() reflect.Type {
@@ -6379,24 +6379,24 @@ func (o PipelineDeviceRegistryEnrichOutput) ToPipelineDeviceRegistryEnrichPtrOut
 	}).(PipelineDeviceRegistryEnrichPtrOutput)
 }
 
-func (o PipelineDeviceRegistryEnrichOutput) Attribute() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PipelineDeviceRegistryEnrich) *string { return v.Attribute }).(pulumi.StringPtrOutput)
+func (o PipelineDeviceRegistryEnrichOutput) Attribute() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineDeviceRegistryEnrich) string { return v.Attribute }).(pulumi.StringOutput)
 }
 
-func (o PipelineDeviceRegistryEnrichOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PipelineDeviceRegistryEnrich) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o PipelineDeviceRegistryEnrichOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineDeviceRegistryEnrich) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o PipelineDeviceRegistryEnrichOutput) Next() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineDeviceRegistryEnrich) *string { return v.Next }).(pulumi.StringPtrOutput)
 }
 
-func (o PipelineDeviceRegistryEnrichOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PipelineDeviceRegistryEnrich) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+func (o PipelineDeviceRegistryEnrichOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineDeviceRegistryEnrich) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-func (o PipelineDeviceRegistryEnrichOutput) ThingName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PipelineDeviceRegistryEnrich) *string { return v.ThingName }).(pulumi.StringPtrOutput)
+func (o PipelineDeviceRegistryEnrichOutput) ThingName() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineDeviceRegistryEnrich) string { return v.ThingName }).(pulumi.StringOutput)
 }
 
 type PipelineDeviceRegistryEnrichPtrOutput struct{ *pulumi.OutputState }
@@ -6428,7 +6428,7 @@ func (o PipelineDeviceRegistryEnrichPtrOutput) Attribute() pulumi.StringPtrOutpu
 		if v == nil {
 			return nil
 		}
-		return v.Attribute
+		return &v.Attribute
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6437,7 +6437,7 @@ func (o PipelineDeviceRegistryEnrichPtrOutput) Name() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Name
+		return &v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6455,7 +6455,7 @@ func (o PipelineDeviceRegistryEnrichPtrOutput) RoleArn() pulumi.StringPtrOutput 
 		if v == nil {
 			return nil
 		}
-		return v.RoleArn
+		return &v.RoleArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6464,16 +6464,16 @@ func (o PipelineDeviceRegistryEnrichPtrOutput) ThingName() pulumi.StringPtrOutpu
 		if v == nil {
 			return nil
 		}
-		return v.ThingName
+		return &v.ThingName
 	}).(pulumi.StringPtrOutput)
 }
 
 type PipelineDeviceShadowEnrich struct {
-	Attribute *string `pulumi:"attribute"`
-	Name      *string `pulumi:"name"`
+	Attribute string  `pulumi:"attribute"`
+	Name      string  `pulumi:"name"`
 	Next      *string `pulumi:"next"`
-	RoleArn   *string `pulumi:"roleArn"`
-	ThingName *string `pulumi:"thingName"`
+	RoleArn   string  `pulumi:"roleArn"`
+	ThingName string  `pulumi:"thingName"`
 }
 
 // PipelineDeviceShadowEnrichInput is an input type that accepts PipelineDeviceShadowEnrichArgs and PipelineDeviceShadowEnrichOutput values.
@@ -6488,11 +6488,11 @@ type PipelineDeviceShadowEnrichInput interface {
 }
 
 type PipelineDeviceShadowEnrichArgs struct {
-	Attribute pulumi.StringPtrInput `pulumi:"attribute"`
-	Name      pulumi.StringPtrInput `pulumi:"name"`
+	Attribute pulumi.StringInput    `pulumi:"attribute"`
+	Name      pulumi.StringInput    `pulumi:"name"`
 	Next      pulumi.StringPtrInput `pulumi:"next"`
-	RoleArn   pulumi.StringPtrInput `pulumi:"roleArn"`
-	ThingName pulumi.StringPtrInput `pulumi:"thingName"`
+	RoleArn   pulumi.StringInput    `pulumi:"roleArn"`
+	ThingName pulumi.StringInput    `pulumi:"thingName"`
 }
 
 func (PipelineDeviceShadowEnrichArgs) ElementType() reflect.Type {
@@ -6572,24 +6572,24 @@ func (o PipelineDeviceShadowEnrichOutput) ToPipelineDeviceShadowEnrichPtrOutputW
 	}).(PipelineDeviceShadowEnrichPtrOutput)
 }
 
-func (o PipelineDeviceShadowEnrichOutput) Attribute() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PipelineDeviceShadowEnrich) *string { return v.Attribute }).(pulumi.StringPtrOutput)
+func (o PipelineDeviceShadowEnrichOutput) Attribute() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineDeviceShadowEnrich) string { return v.Attribute }).(pulumi.StringOutput)
 }
 
-func (o PipelineDeviceShadowEnrichOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PipelineDeviceShadowEnrich) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o PipelineDeviceShadowEnrichOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineDeviceShadowEnrich) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o PipelineDeviceShadowEnrichOutput) Next() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineDeviceShadowEnrich) *string { return v.Next }).(pulumi.StringPtrOutput)
 }
 
-func (o PipelineDeviceShadowEnrichOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PipelineDeviceShadowEnrich) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+func (o PipelineDeviceShadowEnrichOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineDeviceShadowEnrich) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-func (o PipelineDeviceShadowEnrichOutput) ThingName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PipelineDeviceShadowEnrich) *string { return v.ThingName }).(pulumi.StringPtrOutput)
+func (o PipelineDeviceShadowEnrichOutput) ThingName() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineDeviceShadowEnrich) string { return v.ThingName }).(pulumi.StringOutput)
 }
 
 type PipelineDeviceShadowEnrichPtrOutput struct{ *pulumi.OutputState }
@@ -6621,7 +6621,7 @@ func (o PipelineDeviceShadowEnrichPtrOutput) Attribute() pulumi.StringPtrOutput 
 		if v == nil {
 			return nil
 		}
-		return v.Attribute
+		return &v.Attribute
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6630,7 +6630,7 @@ func (o PipelineDeviceShadowEnrichPtrOutput) Name() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Name
+		return &v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6648,7 +6648,7 @@ func (o PipelineDeviceShadowEnrichPtrOutput) RoleArn() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.RoleArn
+		return &v.RoleArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6657,13 +6657,13 @@ func (o PipelineDeviceShadowEnrichPtrOutput) ThingName() pulumi.StringPtrOutput 
 		if v == nil {
 			return nil
 		}
-		return v.ThingName
+		return &v.ThingName
 	}).(pulumi.StringPtrOutput)
 }
 
 type PipelineFilter struct {
-	Filter *string `pulumi:"filter"`
-	Name   *string `pulumi:"name"`
+	Filter string  `pulumi:"filter"`
+	Name   string  `pulumi:"name"`
 	Next   *string `pulumi:"next"`
 }
 
@@ -6679,8 +6679,8 @@ type PipelineFilterInput interface {
 }
 
 type PipelineFilterArgs struct {
-	Filter pulumi.StringPtrInput `pulumi:"filter"`
-	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Filter pulumi.StringInput    `pulumi:"filter"`
+	Name   pulumi.StringInput    `pulumi:"name"`
 	Next   pulumi.StringPtrInput `pulumi:"next"`
 }
 
@@ -6761,12 +6761,12 @@ func (o PipelineFilterOutput) ToPipelineFilterPtrOutputWithContext(ctx context.C
 	}).(PipelineFilterPtrOutput)
 }
 
-func (o PipelineFilterOutput) Filter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PipelineFilter) *string { return v.Filter }).(pulumi.StringPtrOutput)
+func (o PipelineFilterOutput) Filter() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineFilter) string { return v.Filter }).(pulumi.StringOutput)
 }
 
-func (o PipelineFilterOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PipelineFilter) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o PipelineFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o PipelineFilterOutput) Next() pulumi.StringPtrOutput {
@@ -6802,7 +6802,7 @@ func (o PipelineFilterPtrOutput) Filter() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Filter
+		return &v.Filter
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6811,7 +6811,7 @@ func (o PipelineFilterPtrOutput) Name() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Name
+		return &v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6825,9 +6825,9 @@ func (o PipelineFilterPtrOutput) Next() pulumi.StringPtrOutput {
 }
 
 type PipelineLambda struct {
-	BatchSize  *int    `pulumi:"batchSize"`
-	LambdaName *string `pulumi:"lambdaName"`
-	Name       *string `pulumi:"name"`
+	BatchSize  int     `pulumi:"batchSize"`
+	LambdaName string  `pulumi:"lambdaName"`
+	Name       string  `pulumi:"name"`
 	Next       *string `pulumi:"next"`
 }
 
@@ -6843,9 +6843,9 @@ type PipelineLambdaInput interface {
 }
 
 type PipelineLambdaArgs struct {
-	BatchSize  pulumi.IntPtrInput    `pulumi:"batchSize"`
-	LambdaName pulumi.StringPtrInput `pulumi:"lambdaName"`
-	Name       pulumi.StringPtrInput `pulumi:"name"`
+	BatchSize  pulumi.IntInput       `pulumi:"batchSize"`
+	LambdaName pulumi.StringInput    `pulumi:"lambdaName"`
+	Name       pulumi.StringInput    `pulumi:"name"`
 	Next       pulumi.StringPtrInput `pulumi:"next"`
 }
 
@@ -6926,16 +6926,16 @@ func (o PipelineLambdaOutput) ToPipelineLambdaPtrOutputWithContext(ctx context.C
 	}).(PipelineLambdaPtrOutput)
 }
 
-func (o PipelineLambdaOutput) BatchSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PipelineLambda) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
+func (o PipelineLambdaOutput) BatchSize() pulumi.IntOutput {
+	return o.ApplyT(func(v PipelineLambda) int { return v.BatchSize }).(pulumi.IntOutput)
 }
 
-func (o PipelineLambdaOutput) LambdaName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PipelineLambda) *string { return v.LambdaName }).(pulumi.StringPtrOutput)
+func (o PipelineLambdaOutput) LambdaName() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineLambda) string { return v.LambdaName }).(pulumi.StringOutput)
 }
 
-func (o PipelineLambdaOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PipelineLambda) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o PipelineLambdaOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineLambda) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o PipelineLambdaOutput) Next() pulumi.StringPtrOutput {
@@ -6971,7 +6971,7 @@ func (o PipelineLambdaPtrOutput) BatchSize() pulumi.IntPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.BatchSize
+		return &v.BatchSize
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -6980,7 +6980,7 @@ func (o PipelineLambdaPtrOutput) LambdaName() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.LambdaName
+		return &v.LambdaName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6989,7 +6989,7 @@ func (o PipelineLambdaPtrOutput) Name() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Name
+		return &v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7003,9 +7003,9 @@ func (o PipelineLambdaPtrOutput) Next() pulumi.StringPtrOutput {
 }
 
 type PipelineMath struct {
-	Attribute *string `pulumi:"attribute"`
-	Math      *string `pulumi:"math"`
-	Name      *string `pulumi:"name"`
+	Attribute string  `pulumi:"attribute"`
+	Math      string  `pulumi:"math"`
+	Name      string  `pulumi:"name"`
 	Next      *string `pulumi:"next"`
 }
 
@@ -7021,9 +7021,9 @@ type PipelineMathInput interface {
 }
 
 type PipelineMathArgs struct {
-	Attribute pulumi.StringPtrInput `pulumi:"attribute"`
-	Math      pulumi.StringPtrInput `pulumi:"math"`
-	Name      pulumi.StringPtrInput `pulumi:"name"`
+	Attribute pulumi.StringInput    `pulumi:"attribute"`
+	Math      pulumi.StringInput    `pulumi:"math"`
+	Name      pulumi.StringInput    `pulumi:"name"`
 	Next      pulumi.StringPtrInput `pulumi:"next"`
 }
 
@@ -7104,16 +7104,16 @@ func (o PipelineMathOutput) ToPipelineMathPtrOutputWithContext(ctx context.Conte
 	}).(PipelineMathPtrOutput)
 }
 
-func (o PipelineMathOutput) Attribute() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PipelineMath) *string { return v.Attribute }).(pulumi.StringPtrOutput)
+func (o PipelineMathOutput) Attribute() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineMath) string { return v.Attribute }).(pulumi.StringOutput)
 }
 
-func (o PipelineMathOutput) Math() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PipelineMath) *string { return v.Math }).(pulumi.StringPtrOutput)
+func (o PipelineMathOutput) Math() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineMath) string { return v.Math }).(pulumi.StringOutput)
 }
 
-func (o PipelineMathOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PipelineMath) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o PipelineMathOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineMath) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o PipelineMathOutput) Next() pulumi.StringPtrOutput {
@@ -7149,7 +7149,7 @@ func (o PipelineMathPtrOutput) Attribute() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Attribute
+		return &v.Attribute
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7158,7 +7158,7 @@ func (o PipelineMathPtrOutput) Math() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Math
+		return &v.Math
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7167,7 +7167,7 @@ func (o PipelineMathPtrOutput) Name() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Name
+		return &v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7182,7 +7182,7 @@ func (o PipelineMathPtrOutput) Next() pulumi.StringPtrOutput {
 
 type PipelineRemoveAttributes struct {
 	Attributes []string `pulumi:"attributes"`
-	Name       *string  `pulumi:"name"`
+	Name       string   `pulumi:"name"`
 	Next       *string  `pulumi:"next"`
 }
 
@@ -7199,7 +7199,7 @@ type PipelineRemoveAttributesInput interface {
 
 type PipelineRemoveAttributesArgs struct {
 	Attributes pulumi.StringArrayInput `pulumi:"attributes"`
-	Name       pulumi.StringPtrInput   `pulumi:"name"`
+	Name       pulumi.StringInput      `pulumi:"name"`
 	Next       pulumi.StringPtrInput   `pulumi:"next"`
 }
 
@@ -7284,8 +7284,8 @@ func (o PipelineRemoveAttributesOutput) Attributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineRemoveAttributes) []string { return v.Attributes }).(pulumi.StringArrayOutput)
 }
 
-func (o PipelineRemoveAttributesOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PipelineRemoveAttributes) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o PipelineRemoveAttributesOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineRemoveAttributes) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o PipelineRemoveAttributesOutput) Next() pulumi.StringPtrOutput {
@@ -7330,7 +7330,7 @@ func (o PipelineRemoveAttributesPtrOutput) Name() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Name
+		return &v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7345,7 +7345,7 @@ func (o PipelineRemoveAttributesPtrOutput) Next() pulumi.StringPtrOutput {
 
 type PipelineSelectAttributes struct {
 	Attributes []string `pulumi:"attributes"`
-	Name       *string  `pulumi:"name"`
+	Name       string   `pulumi:"name"`
 	Next       *string  `pulumi:"next"`
 }
 
@@ -7362,7 +7362,7 @@ type PipelineSelectAttributesInput interface {
 
 type PipelineSelectAttributesArgs struct {
 	Attributes pulumi.StringArrayInput `pulumi:"attributes"`
-	Name       pulumi.StringPtrInput   `pulumi:"name"`
+	Name       pulumi.StringInput      `pulumi:"name"`
 	Next       pulumi.StringPtrInput   `pulumi:"next"`
 }
 
@@ -7447,8 +7447,8 @@ func (o PipelineSelectAttributesOutput) Attributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineSelectAttributes) []string { return v.Attributes }).(pulumi.StringArrayOutput)
 }
 
-func (o PipelineSelectAttributesOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PipelineSelectAttributes) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o PipelineSelectAttributesOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineSelectAttributes) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o PipelineSelectAttributesOutput) Next() pulumi.StringPtrOutput {
@@ -7493,7 +7493,7 @@ func (o PipelineSelectAttributesPtrOutput) Name() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Name
+		return &v.Name
 	}).(pulumi.StringPtrOutput)
 }
 

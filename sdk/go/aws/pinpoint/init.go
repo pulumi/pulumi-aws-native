@@ -47,6 +47,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EventStream{}
 	case "aws-native:pinpoint:GCMChannel":
 		r = &GCMChannel{}
+	case "aws-native:pinpoint:InAppTemplate":
+		r = &InAppTemplate{}
 	case "aws-native:pinpoint:PushTemplate":
 		r = &PushTemplate{}
 	case "aws-native:pinpoint:SMSChannel":

@@ -13,6 +13,7 @@ export * from "./keyGroup";
 export * from "./originRequestPolicy";
 export * from "./publicKey";
 export * from "./realtimeLogConfig";
+export * from "./responseHeadersPolicy";
 export * from "./streamingDistribution";
 
 // Import resources to register:
@@ -24,6 +25,7 @@ import { KeyGroup } from "./keyGroup";
 import { OriginRequestPolicy } from "./originRequestPolicy";
 import { PublicKey } from "./publicKey";
 import { RealtimeLogConfig } from "./realtimeLogConfig";
+import { ResponseHeadersPolicy } from "./responseHeadersPolicy";
 import { StreamingDistribution } from "./streamingDistribution";
 
 const _module = {
@@ -46,6 +48,8 @@ const _module = {
                 return new PublicKey(name, <any>undefined, { urn })
             case "aws-native:cloudfront:RealtimeLogConfig":
                 return new RealtimeLogConfig(name, <any>undefined, { urn })
+            case "aws-native:cloudfront:ResponseHeadersPolicy":
+                return new ResponseHeadersPolicy(name, <any>undefined, { urn })
             case "aws-native:cloudfront:StreamingDistribution":
                 return new StreamingDistribution(name, <any>undefined, { urn })
             default:

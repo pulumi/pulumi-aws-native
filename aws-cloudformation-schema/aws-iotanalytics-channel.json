@@ -6,10 +6,10 @@
     "ChannelStorage" : {
       "$ref" : "#/definitions/ChannelStorage"
     },
-    "ChannelName" : {
+    "Id" : {
       "type" : "string"
     },
-    "Id" : {
+    "ChannelName" : {
       "type" : "string"
     },
     "RetentionPeriod" : {
@@ -82,6 +82,7 @@
       }
     }
   },
+  "required" : [ "ChannelName" ],
   "createOnlyProperties" : [ "/properties/ChannelName" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]

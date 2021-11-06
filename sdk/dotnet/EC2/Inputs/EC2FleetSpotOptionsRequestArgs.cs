@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public Input<int>? InstancePoolsToUseCount { get; set; }
 
         [Input("maintenanceStrategies")]
-        public Input<Inputs.EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesArgs>? MaintenanceStrategies { get; set; }
+        public Input<Inputs.EC2FleetMaintenanceStrategiesArgs>? MaintenanceStrategies { get; set; }
 
         [Input("maxTotalPrice")]
         public Input<string>? MaxTotalPrice { get; set; }

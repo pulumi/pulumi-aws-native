@@ -154,7 +154,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pipelineName")
-    def pipeline_name(self) -> pulumi.Output[Optional[str]]:
+    def pipeline_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "pipeline_name")
 
     @property

@@ -2808,6 +2808,7 @@ export namespace appmesh {
         grpcRoute?: pulumi.Input<inputs.appmesh.GatewayRouteGrpcGatewayRouteArgs>;
         http2Route?: pulumi.Input<inputs.appmesh.GatewayRouteHttpGatewayRouteArgs>;
         httpRoute?: pulumi.Input<inputs.appmesh.GatewayRouteHttpGatewayRouteArgs>;
+        priority?: pulumi.Input<number>;
     }
 
     export interface GatewayRouteTagArgs {
@@ -5195,6 +5196,92 @@ export namespace cloudfront {
         streamArn: pulumi.Input<string>;
     }
 
+    export interface ResponseHeadersPolicyAccessControlAllowHeadersArgs {
+        items: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ResponseHeadersPolicyAccessControlAllowMethodsArgs {
+        items: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ResponseHeadersPolicyAccessControlAllowOriginsArgs {
+        items: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ResponseHeadersPolicyAccessControlExposeHeadersArgs {
+        items: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ResponseHeadersPolicyConfigArgs {
+        comment?: pulumi.Input<string>;
+        corsConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyCorsConfigArgs>;
+        customHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyCustomHeadersConfigArgs>;
+        name: pulumi.Input<string>;
+        securityHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfigArgs>;
+    }
+
+    export interface ResponseHeadersPolicyContentSecurityPolicyArgs {
+        contentSecurityPolicy: pulumi.Input<string>;
+        override: pulumi.Input<boolean>;
+    }
+
+    export interface ResponseHeadersPolicyContentTypeOptionsArgs {
+        override: pulumi.Input<boolean>;
+    }
+
+    export interface ResponseHeadersPolicyCorsConfigArgs {
+        accessControlAllowCredentials: pulumi.Input<boolean>;
+        accessControlAllowHeaders: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyAccessControlAllowHeadersArgs>;
+        accessControlAllowMethods: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyAccessControlAllowMethodsArgs>;
+        accessControlAllowOrigins: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyAccessControlAllowOriginsArgs>;
+        accessControlExposeHeaders?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyAccessControlExposeHeadersArgs>;
+        accessControlMaxAgeSec?: pulumi.Input<number>;
+        originOverride: pulumi.Input<boolean>;
+    }
+
+    export interface ResponseHeadersPolicyCustomHeaderArgs {
+        header: pulumi.Input<string>;
+        override: pulumi.Input<boolean>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface ResponseHeadersPolicyCustomHeadersConfigArgs {
+        items: pulumi.Input<pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyCustomHeaderArgs>[]>;
+    }
+
+    export interface ResponseHeadersPolicyFrameOptionsArgs {
+        frameOption: pulumi.Input<string>;
+        override: pulumi.Input<boolean>;
+    }
+
+    export interface ResponseHeadersPolicyReferrerPolicyArgs {
+        override: pulumi.Input<boolean>;
+        referrerPolicy: pulumi.Input<string>;
+    }
+
+    export interface ResponseHeadersPolicySecurityHeadersConfigArgs {
+        contentSecurityPolicy?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyContentSecurityPolicyArgs>;
+        contentTypeOptions?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyContentTypeOptionsArgs>;
+        frameOptions?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyFrameOptionsArgs>;
+        referrerPolicy?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyReferrerPolicyArgs>;
+        strictTransportSecurity?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyStrictTransportSecurityArgs>;
+        xSSProtection?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyXSSProtectionArgs>;
+    }
+
+    export interface ResponseHeadersPolicyStrictTransportSecurityArgs {
+        accessControlMaxAgeSec: pulumi.Input<number>;
+        includeSubdomains?: pulumi.Input<boolean>;
+        override: pulumi.Input<boolean>;
+        preload?: pulumi.Input<boolean>;
+    }
+
+    export interface ResponseHeadersPolicyXSSProtectionArgs {
+        modeBlock?: pulumi.Input<boolean>;
+        override: pulumi.Input<boolean>;
+        protection: pulumi.Input<boolean>;
+        reportUri?: pulumi.Input<string>;
+    }
+
     export interface StreamingDistributionConfigArgs {
         aliases?: pulumi.Input<pulumi.Input<string>[]>;
         comment: pulumi.Input<string>;
@@ -5225,7 +5312,6 @@ export namespace cloudfront {
         awsAccountNumbers?: pulumi.Input<pulumi.Input<string>[]>;
         enabled: pulumi.Input<boolean>;
     }
-
 }
 
 export namespace cloudtrail {
@@ -7124,6 +7210,48 @@ export namespace datasync {
     }
 
     /**
+     * HDFS Name Node IP and port information.
+     */
+    export interface LocationHDFSNameNodeArgs {
+        /**
+         * The DNS name or IP address of the Name Node in the customer's on premises HDFS cluster.
+         */
+        hostname: pulumi.Input<string>;
+        /**
+         * The port on which the Name Node is listening on for client requests.
+         */
+        port: pulumi.Input<number>;
+    }
+
+    /**
+     * Configuration information for RPC Protection and Data Transfer Protection. These parameters can be set to AUTHENTICATION, INTEGRITY, or PRIVACY. The default value is PRIVACY.
+     */
+    export interface LocationHDFSQopConfigurationArgs {
+        /**
+         * Configuration for Data Transfer Protection.
+         */
+        dataTransferProtection?: pulumi.Input<enums.datasync.LocationHDFSQopConfigurationDataTransferProtection>;
+        /**
+         * Configuration for RPC Protection.
+         */
+        rpcProtection?: pulumi.Input<enums.datasync.LocationHDFSQopConfigurationRpcProtection>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface LocationHDFSTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
      * The NFS mount options that DataSync can use to mount your NFS share.
      */
     export interface LocationNFSMountOptionsArgs {
@@ -8070,6 +8198,10 @@ export namespace ec2 {
         vCpuCount?: pulumi.Input<inputs.ec2.EC2FleetVCpuCountRangeRequestArgs>;
     }
 
+    export interface EC2FleetMaintenanceStrategiesArgs {
+        capacityRebalance?: pulumi.Input<inputs.ec2.EC2FleetCapacityRebalanceArgs>;
+    }
+
     export interface EC2FleetMemoryGiBPerVCpuRequestArgs {
         max?: pulumi.Input<number>;
         min?: pulumi.Input<number>;
@@ -8109,15 +8241,11 @@ export namespace ec2 {
         allocationStrategy?: pulumi.Input<enums.ec2.EC2FleetSpotOptionsRequestAllocationStrategy>;
         instanceInterruptionBehavior?: pulumi.Input<enums.ec2.EC2FleetSpotOptionsRequestInstanceInterruptionBehavior>;
         instancePoolsToUseCount?: pulumi.Input<number>;
-        maintenanceStrategies?: pulumi.Input<inputs.ec2.EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesArgs>;
+        maintenanceStrategies?: pulumi.Input<inputs.ec2.EC2FleetMaintenanceStrategiesArgs>;
         maxTotalPrice?: pulumi.Input<string>;
         minTargetCapacity?: pulumi.Input<number>;
         singleAvailabilityZone?: pulumi.Input<boolean>;
         singleInstanceType?: pulumi.Input<boolean>;
-    }
-
-    export interface EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesArgs {
-        capacityRebalance?: pulumi.Input<inputs.ec2.EC2FleetCapacityRebalanceArgs>;
     }
 
     export interface EC2FleetTagArgs {
@@ -13723,7 +13851,7 @@ export namespace iotanalytics {
     }
 
     export interface DatasetContentVersionValueArgs {
-        datasetName?: pulumi.Input<string>;
+        datasetName: pulumi.Input<string>;
     }
 
     export interface DatasetDeltaTimeArgs {
@@ -13759,7 +13887,7 @@ export namespace iotanalytics {
     }
 
     export interface DatasetOutputFileUriValueArgs {
-        fileName?: pulumi.Input<string>;
+        fileName: pulumi.Input<string>;
     }
 
     export interface DatasetQueryActionArgs {
@@ -13837,7 +13965,7 @@ export namespace iotanalytics {
     }
 
     export interface DatastoreIotSiteWiseMultiLayerStorageArgs {
-        customerManagedS3Storage: pulumi.Input<inputs.iotanalytics.DatastoreCustomerManagedS3StorageArgs>;
+        customerManagedS3Storage?: pulumi.Input<inputs.iotanalytics.DatastoreCustomerManagedS3StorageArgs>;
     }
 
     export interface DatastoreJsonConfigurationArgs {
@@ -13898,67 +14026,67 @@ export namespace iotanalytics {
     }
 
     export interface PipelineAddAttributesArgs {
-        attributes?: any;
-        name?: pulumi.Input<string>;
+        attributes: any;
+        name: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
     export interface PipelineChannelArgs {
-        channelName?: pulumi.Input<string>;
-        name?: pulumi.Input<string>;
+        channelName: pulumi.Input<string>;
+        name: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
     export interface PipelineDatastoreArgs {
-        datastoreName?: pulumi.Input<string>;
-        name?: pulumi.Input<string>;
+        datastoreName: pulumi.Input<string>;
+        name: pulumi.Input<string>;
     }
 
     export interface PipelineDeviceRegistryEnrichArgs {
-        attribute?: pulumi.Input<string>;
-        name?: pulumi.Input<string>;
+        attribute: pulumi.Input<string>;
+        name: pulumi.Input<string>;
         next?: pulumi.Input<string>;
-        roleArn?: pulumi.Input<string>;
-        thingName?: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
+        thingName: pulumi.Input<string>;
     }
 
     export interface PipelineDeviceShadowEnrichArgs {
-        attribute?: pulumi.Input<string>;
-        name?: pulumi.Input<string>;
+        attribute: pulumi.Input<string>;
+        name: pulumi.Input<string>;
         next?: pulumi.Input<string>;
-        roleArn?: pulumi.Input<string>;
-        thingName?: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
+        thingName: pulumi.Input<string>;
     }
 
     export interface PipelineFilterArgs {
-        filter?: pulumi.Input<string>;
-        name?: pulumi.Input<string>;
+        filter: pulumi.Input<string>;
+        name: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
     export interface PipelineLambdaArgs {
-        batchSize?: pulumi.Input<number>;
-        lambdaName?: pulumi.Input<string>;
-        name?: pulumi.Input<string>;
+        batchSize: pulumi.Input<number>;
+        lambdaName: pulumi.Input<string>;
+        name: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
     export interface PipelineMathArgs {
-        attribute?: pulumi.Input<string>;
-        math?: pulumi.Input<string>;
-        name?: pulumi.Input<string>;
+        attribute: pulumi.Input<string>;
+        math: pulumi.Input<string>;
+        name: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
     export interface PipelineRemoveAttributesArgs {
-        attributes?: pulumi.Input<pulumi.Input<string>[]>;
-        name?: pulumi.Input<string>;
+        attributes: pulumi.Input<pulumi.Input<string>[]>;
+        name: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
     export interface PipelineSelectAttributesArgs {
-        attributes?: pulumi.Input<pulumi.Input<string>[]>;
-        name?: pulumi.Input<string>;
+        attributes: pulumi.Input<pulumi.Input<string>[]>;
+        name: pulumi.Input<string>;
         next?: pulumi.Input<string>;
     }
 
@@ -20031,6 +20159,48 @@ export namespace pinpoint {
         treatmentName?: pulumi.Input<string>;
     }
 
+    export interface InAppTemplateBodyConfigArgs {
+        alignment?: pulumi.Input<enums.pinpoint.InAppTemplateAlignment>;
+        body?: pulumi.Input<string>;
+        textColor?: pulumi.Input<string>;
+    }
+
+    export interface InAppTemplateButtonConfigArgs {
+        android?: pulumi.Input<inputs.pinpoint.InAppTemplateOverrideButtonConfigurationArgs>;
+        defaultConfig?: pulumi.Input<inputs.pinpoint.InAppTemplateDefaultButtonConfigurationArgs>;
+        iOS?: pulumi.Input<inputs.pinpoint.InAppTemplateOverrideButtonConfigurationArgs>;
+        web?: pulumi.Input<inputs.pinpoint.InAppTemplateOverrideButtonConfigurationArgs>;
+    }
+
+    export interface InAppTemplateDefaultButtonConfigurationArgs {
+        backgroundColor?: pulumi.Input<string>;
+        borderRadius?: pulumi.Input<number>;
+        buttonAction?: pulumi.Input<enums.pinpoint.InAppTemplateButtonAction>;
+        link?: pulumi.Input<string>;
+        text?: pulumi.Input<string>;
+        textColor?: pulumi.Input<string>;
+    }
+
+    export interface InAppTemplateHeaderConfigArgs {
+        alignment?: pulumi.Input<enums.pinpoint.InAppTemplateAlignment>;
+        header?: pulumi.Input<string>;
+        textColor?: pulumi.Input<string>;
+    }
+
+    export interface InAppTemplateInAppMessageContentArgs {
+        backgroundColor?: pulumi.Input<string>;
+        bodyConfig?: pulumi.Input<inputs.pinpoint.InAppTemplateBodyConfigArgs>;
+        headerConfig?: pulumi.Input<inputs.pinpoint.InAppTemplateHeaderConfigArgs>;
+        imageUrl?: pulumi.Input<string>;
+        primaryBtn?: pulumi.Input<inputs.pinpoint.InAppTemplateButtonConfigArgs>;
+        secondaryBtn?: pulumi.Input<inputs.pinpoint.InAppTemplateButtonConfigArgs>;
+    }
+
+    export interface InAppTemplateOverrideButtonConfigurationArgs {
+        buttonAction?: pulumi.Input<enums.pinpoint.InAppTemplateButtonAction>;
+        link?: pulumi.Input<string>;
+    }
+
     export interface PushTemplateAPNSPushNotificationTemplateArgs {
         action?: pulumi.Input<string>;
         body?: pulumi.Input<string>;
@@ -20110,6 +20280,7 @@ export namespace pinpoint {
         dimensionType?: pulumi.Input<string>;
         values?: pulumi.Input<pulumi.Input<string>[]>;
     }
+
 }
 
 export namespace pinpointemail {
@@ -21591,6 +21762,52 @@ export namespace redshift {
          */
         value: pulumi.Input<string>;
     }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface EventSubscriptionTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes a pause cluster operation. For example, a scheduled action to run the `PauseCluster` API operation.
+     */
+    export interface ScheduledActionPauseClusterMessageArgs {
+        clusterIdentifier: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes a resize cluster operation. For example, a scheduled action to run the `ResizeCluster` API operation.
+     */
+    export interface ScheduledActionResizeClusterMessageArgs {
+        classic?: pulumi.Input<boolean>;
+        clusterIdentifier: pulumi.Input<string>;
+        clusterType?: pulumi.Input<string>;
+        nodeType?: pulumi.Input<string>;
+        numberOfNodes?: pulumi.Input<number>;
+    }
+
+    /**
+     * Describes a resume cluster operation. For example, a scheduled action to run the `ResumeCluster` API operation.
+     */
+    export interface ScheduledActionResumeClusterMessageArgs {
+        clusterIdentifier: pulumi.Input<string>;
+    }
+
+    export interface ScheduledActionTypeArgs {
+        pauseCluster?: pulumi.Input<inputs.redshift.ScheduledActionPauseClusterMessageArgs>;
+        resizeCluster?: pulumi.Input<inputs.redshift.ScheduledActionResizeClusterMessageArgs>;
+        resumeCluster?: pulumi.Input<inputs.redshift.ScheduledActionResumeClusterMessageArgs>;
+    }
+
 }
 
 export namespace resourcegroups {
@@ -23625,6 +23842,7 @@ export namespace sagemaker {
 
     export interface EndpointTrafficRoutingConfigArgs {
         canarySize?: pulumi.Input<inputs.sagemaker.EndpointCapacitySizeArgs>;
+        linearStepSize?: pulumi.Input<inputs.sagemaker.EndpointCapacitySizeArgs>;
         type: pulumi.Input<string>;
         waitIntervalInSeconds?: pulumi.Input<number>;
     }

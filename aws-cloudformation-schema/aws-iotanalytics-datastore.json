@@ -196,8 +196,7 @@
         "CustomerManagedS3Storage" : {
           "$ref" : "#/definitions/CustomerManagedS3Storage"
         }
-      },
-      "required" : [ "CustomerManagedS3Storage" ]
+      }
     },
     "Tag" : {
       "type" : "object",

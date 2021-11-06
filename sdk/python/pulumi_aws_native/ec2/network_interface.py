@@ -28,17 +28,6 @@ class NetworkInterfaceArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceTagArgs']]]] = None):
         """
         The set of arguments for constructing a NetworkInterface resource.
-        :param pulumi.Input[str] subnet_id: The ID of the subnet to associate with the network interface.
-        :param pulumi.Input[str] description: A description for the network interface.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_set: A list of security group IDs associated with this network interface.
-        :param pulumi.Input[str] interface_type: Indicates the type of network interface.
-        :param pulumi.Input[int] ipv6_address_count: The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. To specify specific IPv6 addresses, use the Ipv6Addresses property and don't specify this property.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceInstanceIpv6AddressArgs']]] ipv6_addresses: One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet to associate with the network interface. If you're specifying a number of IPv6 addresses, use the Ipv6AddressCount property and don't specify this property.
-        :param pulumi.Input[str] private_ip_address: Assigns a single private IP address to the network interface, which is used as the primary private IP address. If you want to specify multiple private IP address, use the PrivateIpAddresses property. 
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfacePrivateIpAddressSpecificationArgs']]] private_ip_addresses: Assigns a list of private IP addresses to the network interface. You can specify a primary private IP address by setting the value of the Primary property to true in the PrivateIpAddressSpecification property. If you want EC2 to automatically assign private IP addresses, use the SecondaryPrivateIpAddressCount property and do not specify this property.
-        :param pulumi.Input[int] secondary_private_ip_address_count: The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses
-        :param pulumi.Input[bool] source_dest_check: Indicates whether traffic to or from the instance is validated.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceTagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this network interface.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         if description is not None:
@@ -65,9 +54,6 @@ class NetworkInterfaceArgs:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the subnet to associate with the network interface.
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -77,9 +63,6 @@ class NetworkInterfaceArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        A description for the network interface.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -89,9 +72,6 @@ class NetworkInterfaceArgs:
     @property
     @pulumi.getter(name="groupSet")
     def group_set(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of security group IDs associated with this network interface.
-        """
         return pulumi.get(self, "group_set")
 
     @group_set.setter
@@ -101,9 +81,6 @@ class NetworkInterfaceArgs:
     @property
     @pulumi.getter(name="interfaceType")
     def interface_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Indicates the type of network interface.
-        """
         return pulumi.get(self, "interface_type")
 
     @interface_type.setter
@@ -113,9 +90,6 @@ class NetworkInterfaceArgs:
     @property
     @pulumi.getter(name="ipv6AddressCount")
     def ipv6_address_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. To specify specific IPv6 addresses, use the Ipv6Addresses property and don't specify this property.
-        """
         return pulumi.get(self, "ipv6_address_count")
 
     @ipv6_address_count.setter
@@ -125,9 +99,6 @@ class NetworkInterfaceArgs:
     @property
     @pulumi.getter(name="ipv6Addresses")
     def ipv6_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceInstanceIpv6AddressArgs']]]]:
-        """
-        One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet to associate with the network interface. If you're specifying a number of IPv6 addresses, use the Ipv6AddressCount property and don't specify this property.
-        """
         return pulumi.get(self, "ipv6_addresses")
 
     @ipv6_addresses.setter
@@ -137,9 +108,6 @@ class NetworkInterfaceArgs:
     @property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        Assigns a single private IP address to the network interface, which is used as the primary private IP address. If you want to specify multiple private IP address, use the PrivateIpAddresses property. 
-        """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
@@ -149,9 +117,6 @@ class NetworkInterfaceArgs:
     @property
     @pulumi.getter(name="privateIpAddresses")
     def private_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfacePrivateIpAddressSpecificationArgs']]]]:
-        """
-        Assigns a list of private IP addresses to the network interface. You can specify a primary private IP address by setting the value of the Primary property to true in the PrivateIpAddressSpecification property. If you want EC2 to automatically assign private IP addresses, use the SecondaryPrivateIpAddressCount property and do not specify this property.
-        """
         return pulumi.get(self, "private_ip_addresses")
 
     @private_ip_addresses.setter
@@ -161,9 +126,6 @@ class NetworkInterfaceArgs:
     @property
     @pulumi.getter(name="secondaryPrivateIpAddressCount")
     def secondary_private_ip_address_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses
-        """
         return pulumi.get(self, "secondary_private_ip_address_count")
 
     @secondary_private_ip_address_count.setter
@@ -173,9 +135,6 @@ class NetworkInterfaceArgs:
     @property
     @pulumi.getter(name="sourceDestCheck")
     def source_dest_check(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether traffic to or from the instance is validated.
-        """
         return pulumi.get(self, "source_dest_check")
 
     @source_dest_check.setter
@@ -185,9 +144,6 @@ class NetworkInterfaceArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceTagArgs']]]]:
-        """
-        An arbitrary set of tags (key-value pairs) for this network interface.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -195,7 +151,12 @@ class NetworkInterfaceArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""NetworkInterface is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+
+
 class NetworkInterface(pulumi.CustomResource):
+    warnings.warn("""NetworkInterface is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -213,21 +174,10 @@ class NetworkInterface(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceTagArgs']]]]] = None,
                  __props__=None):
         """
-        The AWS::EC2::NetworkInterface resource creates network interface
+        Resource Type definition for AWS::EC2::NetworkInterface
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: A description for the network interface.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_set: A list of security group IDs associated with this network interface.
-        :param pulumi.Input[str] interface_type: Indicates the type of network interface.
-        :param pulumi.Input[int] ipv6_address_count: The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. To specify specific IPv6 addresses, use the Ipv6Addresses property and don't specify this property.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceInstanceIpv6AddressArgs']]]] ipv6_addresses: One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet to associate with the network interface. If you're specifying a number of IPv6 addresses, use the Ipv6AddressCount property and don't specify this property.
-        :param pulumi.Input[str] private_ip_address: Assigns a single private IP address to the network interface, which is used as the primary private IP address. If you want to specify multiple private IP address, use the PrivateIpAddresses property. 
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfacePrivateIpAddressSpecificationArgs']]]] private_ip_addresses: Assigns a list of private IP addresses to the network interface. You can specify a primary private IP address by setting the value of the Primary property to true in the PrivateIpAddressSpecification property. If you want EC2 to automatically assign private IP addresses, use the SecondaryPrivateIpAddressCount property and do not specify this property.
-        :param pulumi.Input[int] secondary_private_ip_address_count: The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses
-        :param pulumi.Input[bool] source_dest_check: Indicates whether traffic to or from the instance is validated.
-        :param pulumi.Input[str] subnet_id: The ID of the subnet to associate with the network interface.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceTagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this network interface.
         """
         ...
     @overload
@@ -236,7 +186,7 @@ class NetworkInterface(pulumi.CustomResource):
                  args: NetworkInterfaceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The AWS::EC2::NetworkInterface resource creates network interface
+        Resource Type definition for AWS::EC2::NetworkInterface
 
         :param str resource_name: The name of the resource.
         :param NetworkInterfaceArgs args: The arguments to use to populate this resource's properties.
@@ -265,6 +215,7 @@ class NetworkInterface(pulumi.CustomResource):
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceTagArgs']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""NetworkInterface is deprecated: NetworkInterface is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -331,104 +282,65 @@ class NetworkInterface(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        A description for the network interface.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="groupSet")
     def group_set(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        A list of security group IDs associated with this network interface.
-        """
         return pulumi.get(self, "group_set")
 
     @property
     @pulumi.getter(name="interfaceType")
     def interface_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        Indicates the type of network interface.
-        """
         return pulumi.get(self, "interface_type")
 
     @property
     @pulumi.getter(name="ipv6AddressCount")
     def ipv6_address_count(self) -> pulumi.Output[Optional[int]]:
-        """
-        The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. To specify specific IPv6 addresses, use the Ipv6Addresses property and don't specify this property.
-        """
         return pulumi.get(self, "ipv6_address_count")
 
     @property
     @pulumi.getter(name="ipv6Addresses")
     def ipv6_addresses(self) -> pulumi.Output[Optional[Sequence['outputs.NetworkInterfaceInstanceIpv6Address']]]:
-        """
-        One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet to associate with the network interface. If you're specifying a number of IPv6 addresses, use the Ipv6AddressCount property and don't specify this property.
-        """
         return pulumi.get(self, "ipv6_addresses")
 
     @property
     @pulumi.getter(name="primaryPrivateIpAddress")
     def primary_private_ip_address(self) -> pulumi.Output[str]:
-        """
-        Returns the primary private IP address of the network interface.
-        """
         return pulumi.get(self, "primary_private_ip_address")
 
     @property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> pulumi.Output[Optional[str]]:
-        """
-        Assigns a single private IP address to the network interface, which is used as the primary private IP address. If you want to specify multiple private IP address, use the PrivateIpAddresses property. 
-        """
         return pulumi.get(self, "private_ip_address")
 
     @property
     @pulumi.getter(name="privateIpAddresses")
     def private_ip_addresses(self) -> pulumi.Output[Optional[Sequence['outputs.NetworkInterfacePrivateIpAddressSpecification']]]:
-        """
-        Assigns a list of private IP addresses to the network interface. You can specify a primary private IP address by setting the value of the Primary property to true in the PrivateIpAddressSpecification property. If you want EC2 to automatically assign private IP addresses, use the SecondaryPrivateIpAddressCount property and do not specify this property.
-        """
         return pulumi.get(self, "private_ip_addresses")
 
     @property
     @pulumi.getter(name="secondaryPrivateIpAddressCount")
     def secondary_private_ip_address_count(self) -> pulumi.Output[Optional[int]]:
-        """
-        The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses
-        """
         return pulumi.get(self, "secondary_private_ip_address_count")
 
     @property
     @pulumi.getter(name="secondaryPrivateIpAddresses")
     def secondary_private_ip_addresses(self) -> pulumi.Output[Sequence[str]]:
-        """
-        Returns the secondary private IP addresses of the network interface.
-        """
         return pulumi.get(self, "secondary_private_ip_addresses")
 
     @property
     @pulumi.getter(name="sourceDestCheck")
     def source_dest_check(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicates whether traffic to or from the instance is validated.
-        """
         return pulumi.get(self, "source_dest_check")
 
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the subnet to associate with the network interface.
-        """
         return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.NetworkInterfaceTag']]]:
-        """
-        An arbitrary set of tags (key-value pairs) for this network interface.
-        """
         return pulumi.get(self, "tags")
 

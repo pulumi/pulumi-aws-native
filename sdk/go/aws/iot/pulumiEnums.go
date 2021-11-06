@@ -1823,6 +1823,174 @@ func (in *jobTemplateFailureTypePtr) ToJobTemplateFailureTypePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(JobTemplateFailureTypePtrOutput)
 }
 
+// The log level to use. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
+type LoggingDefaultLogLevel string
+
+const (
+	LoggingDefaultLogLevelError    = LoggingDefaultLogLevel("ERROR")
+	LoggingDefaultLogLevelWarn     = LoggingDefaultLogLevel("WARN")
+	LoggingDefaultLogLevelInfo     = LoggingDefaultLogLevel("INFO")
+	LoggingDefaultLogLevelDebug    = LoggingDefaultLogLevel("DEBUG")
+	LoggingDefaultLogLevelDisabled = LoggingDefaultLogLevel("DISABLED")
+)
+
+func (LoggingDefaultLogLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingDefaultLogLevel)(nil)).Elem()
+}
+
+func (e LoggingDefaultLogLevel) ToLoggingDefaultLogLevelOutput() LoggingDefaultLogLevelOutput {
+	return pulumi.ToOutput(e).(LoggingDefaultLogLevelOutput)
+}
+
+func (e LoggingDefaultLogLevel) ToLoggingDefaultLogLevelOutputWithContext(ctx context.Context) LoggingDefaultLogLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LoggingDefaultLogLevelOutput)
+}
+
+func (e LoggingDefaultLogLevel) ToLoggingDefaultLogLevelPtrOutput() LoggingDefaultLogLevelPtrOutput {
+	return e.ToLoggingDefaultLogLevelPtrOutputWithContext(context.Background())
+}
+
+func (e LoggingDefaultLogLevel) ToLoggingDefaultLogLevelPtrOutputWithContext(ctx context.Context) LoggingDefaultLogLevelPtrOutput {
+	return LoggingDefaultLogLevel(e).ToLoggingDefaultLogLevelOutputWithContext(ctx).ToLoggingDefaultLogLevelPtrOutputWithContext(ctx)
+}
+
+func (e LoggingDefaultLogLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LoggingDefaultLogLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LoggingDefaultLogLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LoggingDefaultLogLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LoggingDefaultLogLevelOutput struct{ *pulumi.OutputState }
+
+func (LoggingDefaultLogLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingDefaultLogLevel)(nil)).Elem()
+}
+
+func (o LoggingDefaultLogLevelOutput) ToLoggingDefaultLogLevelOutput() LoggingDefaultLogLevelOutput {
+	return o
+}
+
+func (o LoggingDefaultLogLevelOutput) ToLoggingDefaultLogLevelOutputWithContext(ctx context.Context) LoggingDefaultLogLevelOutput {
+	return o
+}
+
+func (o LoggingDefaultLogLevelOutput) ToLoggingDefaultLogLevelPtrOutput() LoggingDefaultLogLevelPtrOutput {
+	return o.ToLoggingDefaultLogLevelPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingDefaultLogLevelOutput) ToLoggingDefaultLogLevelPtrOutputWithContext(ctx context.Context) LoggingDefaultLogLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoggingDefaultLogLevel) *LoggingDefaultLogLevel {
+		return &v
+	}).(LoggingDefaultLogLevelPtrOutput)
+}
+
+func (o LoggingDefaultLogLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LoggingDefaultLogLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LoggingDefaultLogLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LoggingDefaultLogLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingDefaultLogLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LoggingDefaultLogLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LoggingDefaultLogLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (LoggingDefaultLogLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoggingDefaultLogLevel)(nil)).Elem()
+}
+
+func (o LoggingDefaultLogLevelPtrOutput) ToLoggingDefaultLogLevelPtrOutput() LoggingDefaultLogLevelPtrOutput {
+	return o
+}
+
+func (o LoggingDefaultLogLevelPtrOutput) ToLoggingDefaultLogLevelPtrOutputWithContext(ctx context.Context) LoggingDefaultLogLevelPtrOutput {
+	return o
+}
+
+func (o LoggingDefaultLogLevelPtrOutput) Elem() LoggingDefaultLogLevelOutput {
+	return o.ApplyT(func(v *LoggingDefaultLogLevel) LoggingDefaultLogLevel {
+		if v != nil {
+			return *v
+		}
+		var ret LoggingDefaultLogLevel
+		return ret
+	}).(LoggingDefaultLogLevelOutput)
+}
+
+func (o LoggingDefaultLogLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LoggingDefaultLogLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LoggingDefaultLogLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LoggingDefaultLogLevelInput is an input type that accepts LoggingDefaultLogLevelArgs and LoggingDefaultLogLevelOutput values.
+// You can construct a concrete instance of `LoggingDefaultLogLevelInput` via:
+//
+//          LoggingDefaultLogLevelArgs{...}
+type LoggingDefaultLogLevelInput interface {
+	pulumi.Input
+
+	ToLoggingDefaultLogLevelOutput() LoggingDefaultLogLevelOutput
+	ToLoggingDefaultLogLevelOutputWithContext(context.Context) LoggingDefaultLogLevelOutput
+}
+
+var loggingDefaultLogLevelPtrType = reflect.TypeOf((**LoggingDefaultLogLevel)(nil)).Elem()
+
+type LoggingDefaultLogLevelPtrInput interface {
+	pulumi.Input
+
+	ToLoggingDefaultLogLevelPtrOutput() LoggingDefaultLogLevelPtrOutput
+	ToLoggingDefaultLogLevelPtrOutputWithContext(context.Context) LoggingDefaultLogLevelPtrOutput
+}
+
+type loggingDefaultLogLevelPtr string
+
+func LoggingDefaultLogLevelPtr(v string) LoggingDefaultLogLevelPtrInput {
+	return (*loggingDefaultLogLevelPtr)(&v)
+}
+
+func (*loggingDefaultLogLevelPtr) ElementType() reflect.Type {
+	return loggingDefaultLogLevelPtrType
+}
+
+func (in *loggingDefaultLogLevelPtr) ToLoggingDefaultLogLevelPtrOutput() LoggingDefaultLogLevelPtrOutput {
+	return pulumi.ToOutput(in).(LoggingDefaultLogLevelPtrOutput)
+}
+
+func (in *loggingDefaultLogLevelPtr) ToLoggingDefaultLogLevelPtrOutputWithContext(ctx context.Context) LoggingDefaultLogLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LoggingDefaultLogLevelPtrOutput)
+}
+
 //  Specifies which types of information are logged.
 type MitigationActionEnableIoTLoggingParamsLogLevel string
 
@@ -4185,6 +4353,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateActionPtrInput)(nil)).Elem(), JobTemplateAction("CANCEL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateFailureTypeInput)(nil)).Elem(), JobTemplateFailureType("FAILED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateFailureTypePtrInput)(nil)).Elem(), JobTemplateFailureType("FAILED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LoggingDefaultLogLevelInput)(nil)).Elem(), LoggingDefaultLogLevel("ERROR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LoggingDefaultLogLevelPtrInput)(nil)).Elem(), LoggingDefaultLogLevel("ERROR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionEnableIoTLoggingParamsLogLevelInput)(nil)).Elem(), MitigationActionEnableIoTLoggingParamsLogLevel("DEBUG"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionEnableIoTLoggingParamsLogLevelPtrInput)(nil)).Elem(), MitigationActionEnableIoTLoggingParamsLogLevel("DEBUG"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionReplaceDefaultPolicyVersionParamsTemplateNameInput)(nil)).Elem(), MitigationActionReplaceDefaultPolicyVersionParamsTemplateName("BLANK_POLICY"))
@@ -4235,6 +4405,8 @@ func init() {
 	pulumi.RegisterOutputType(JobTemplateActionPtrOutput{})
 	pulumi.RegisterOutputType(JobTemplateFailureTypeOutput{})
 	pulumi.RegisterOutputType(JobTemplateFailureTypePtrOutput{})
+	pulumi.RegisterOutputType(LoggingDefaultLogLevelOutput{})
+	pulumi.RegisterOutputType(LoggingDefaultLogLevelPtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionEnableIoTLoggingParamsLogLevelOutput{})
 	pulumi.RegisterOutputType(MitigationActionEnableIoTLoggingParamsLogLevelPtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionReplaceDefaultPolicyVersionParamsTemplateNameOutput{})

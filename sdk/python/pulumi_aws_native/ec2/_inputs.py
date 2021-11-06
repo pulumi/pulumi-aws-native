@@ -35,12 +35,12 @@ __all__ = [
     'EC2FleetFleetLaunchTemplateOverridesRequestArgs',
     'EC2FleetFleetLaunchTemplateSpecificationRequestArgs',
     'EC2FleetInstanceRequirementsRequestArgs',
+    'EC2FleetMaintenanceStrategiesArgs',
     'EC2FleetMemoryGiBPerVCpuRequestArgs',
     'EC2FleetMemoryMiBRequestArgs',
     'EC2FleetNetworkInterfaceCountRequestArgs',
     'EC2FleetOnDemandOptionsRequestArgs',
     'EC2FleetPlacementArgs',
-    'EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesArgs',
     'EC2FleetSpotOptionsRequestArgs',
     'EC2FleetTagSpecificationArgs',
     'EC2FleetTagArgs',
@@ -1242,6 +1242,23 @@ class EC2FleetInstanceRequirementsRequestArgs:
 
 
 @pulumi.input_type
+class EC2FleetMaintenanceStrategiesArgs:
+    def __init__(__self__, *,
+                 capacity_rebalance: Optional[pulumi.Input['EC2FleetCapacityRebalanceArgs']] = None):
+        if capacity_rebalance is not None:
+            pulumi.set(__self__, "capacity_rebalance", capacity_rebalance)
+
+    @property
+    @pulumi.getter(name="capacityRebalance")
+    def capacity_rebalance(self) -> Optional[pulumi.Input['EC2FleetCapacityRebalanceArgs']]:
+        return pulumi.get(self, "capacity_rebalance")
+
+    @capacity_rebalance.setter
+    def capacity_rebalance(self, value: Optional[pulumi.Input['EC2FleetCapacityRebalanceArgs']]):
+        pulumi.set(self, "capacity_rebalance", value)
+
+
+@pulumi.input_type
 class EC2FleetMemoryGiBPerVCpuRequestArgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[float]] = None,
@@ -1507,29 +1524,12 @@ class EC2FleetPlacementArgs:
 
 
 @pulumi.input_type
-class EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesArgs:
-    def __init__(__self__, *,
-                 capacity_rebalance: Optional[pulumi.Input['EC2FleetCapacityRebalanceArgs']] = None):
-        if capacity_rebalance is not None:
-            pulumi.set(__self__, "capacity_rebalance", capacity_rebalance)
-
-    @property
-    @pulumi.getter(name="capacityRebalance")
-    def capacity_rebalance(self) -> Optional[pulumi.Input['EC2FleetCapacityRebalanceArgs']]:
-        return pulumi.get(self, "capacity_rebalance")
-
-    @capacity_rebalance.setter
-    def capacity_rebalance(self, value: Optional[pulumi.Input['EC2FleetCapacityRebalanceArgs']]):
-        pulumi.set(self, "capacity_rebalance", value)
-
-
-@pulumi.input_type
 class EC2FleetSpotOptionsRequestArgs:
     def __init__(__self__, *,
                  allocation_strategy: Optional[pulumi.Input['EC2FleetSpotOptionsRequestAllocationStrategy']] = None,
                  instance_interruption_behavior: Optional[pulumi.Input['EC2FleetSpotOptionsRequestInstanceInterruptionBehavior']] = None,
                  instance_pools_to_use_count: Optional[pulumi.Input[int]] = None,
-                 maintenance_strategies: Optional[pulumi.Input['EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesArgs']] = None,
+                 maintenance_strategies: Optional[pulumi.Input['EC2FleetMaintenanceStrategiesArgs']] = None,
                  max_total_price: Optional[pulumi.Input[str]] = None,
                  min_target_capacity: Optional[pulumi.Input[int]] = None,
                  single_availability_zone: Optional[pulumi.Input[bool]] = None,
@@ -1580,11 +1580,11 @@ class EC2FleetSpotOptionsRequestArgs:
 
     @property
     @pulumi.getter(name="maintenanceStrategies")
-    def maintenance_strategies(self) -> Optional[pulumi.Input['EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesArgs']]:
+    def maintenance_strategies(self) -> Optional[pulumi.Input['EC2FleetMaintenanceStrategiesArgs']]:
         return pulumi.get(self, "maintenance_strategies")
 
     @maintenance_strategies.setter
-    def maintenance_strategies(self, value: Optional[pulumi.Input['EC2FleetSpotOptionsRequestMaintenanceStrategiesPropertiesArgs']]):
+    def maintenance_strategies(self, value: Optional[pulumi.Input['EC2FleetMaintenanceStrategiesArgs']]):
         pulumi.set(self, "maintenance_strategies", value)
 
     @property

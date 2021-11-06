@@ -12,6 +12,8 @@ import (
 )
 
 // Resource Type definition for AWS::EC2::Subnet
+//
+// Deprecated: Subnet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Subnet struct {
 	pulumi.CustomResourceState
 
@@ -23,7 +25,6 @@ type Subnet struct {
 	MapPublicIpOnLaunch         pulumi.BoolPtrOutput     `pulumi:"mapPublicIpOnLaunch"`
 	NetworkAclAssociationId     pulumi.StringOutput      `pulumi:"networkAclAssociationId"`
 	OutpostArn                  pulumi.StringPtrOutput   `pulumi:"outpostArn"`
-	SubnetId                    pulumi.StringOutput      `pulumi:"subnetId"`
 	Tags                        SubnetTagArrayOutput     `pulumi:"tags"`
 	VpcId                       pulumi.StringOutput      `pulumi:"vpcId"`
 }

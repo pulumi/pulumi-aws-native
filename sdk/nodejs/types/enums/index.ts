@@ -63,8 +63,10 @@ import * as mwaa from "./mwaa";
 import * as networkfirewall from "./networkfirewall";
 import * as nimblestudio from "./nimblestudio";
 import * as panorama from "./panorama";
+import * as pinpoint from "./pinpoint";
 import * as quicksight from "./quicksight";
 import * as rds from "./rds";
+import * as redshift from "./redshift";
 import * as resourcegroups from "./resourcegroups";
 import * as robomaker from "./robomaker";
 import * as route53 from "./route53";
@@ -147,8 +149,10 @@ export {
     networkfirewall,
     nimblestudio,
     panorama,
+    pinpoint,
     quicksight,
     rds,
+    redshift,
     resourcegroups,
     robomaker,
     route53,

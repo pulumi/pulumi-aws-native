@@ -52,6 +52,21 @@ __all__ = [
     'PublicKeyConfig',
     'RealtimeLogConfigEndPoint',
     'RealtimeLogConfigKinesisStreamConfig',
+    'ResponseHeadersPolicyAccessControlAllowHeaders',
+    'ResponseHeadersPolicyAccessControlAllowMethods',
+    'ResponseHeadersPolicyAccessControlAllowOrigins',
+    'ResponseHeadersPolicyAccessControlExposeHeaders',
+    'ResponseHeadersPolicyConfig',
+    'ResponseHeadersPolicyContentSecurityPolicy',
+    'ResponseHeadersPolicyContentTypeOptions',
+    'ResponseHeadersPolicyCorsConfig',
+    'ResponseHeadersPolicyCustomHeader',
+    'ResponseHeadersPolicyCustomHeadersConfig',
+    'ResponseHeadersPolicyFrameOptions',
+    'ResponseHeadersPolicyReferrerPolicy',
+    'ResponseHeadersPolicySecurityHeadersConfig',
+    'ResponseHeadersPolicyStrictTransportSecurity',
+    'ResponseHeadersPolicyXSSProtection',
     'StreamingDistributionConfig',
     'StreamingDistributionLogging',
     'StreamingDistributionS3Origin',
@@ -2294,6 +2309,550 @@ class RealtimeLogConfigKinesisStreamConfig(dict):
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> str:
         return pulumi.get(self, "stream_arn")
+
+
+@pulumi.output_type
+class ResponseHeadersPolicyAccessControlAllowHeaders(dict):
+    def __init__(__self__, *,
+                 items: Sequence[str]):
+        pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> Sequence[str]:
+        return pulumi.get(self, "items")
+
+
+@pulumi.output_type
+class ResponseHeadersPolicyAccessControlAllowMethods(dict):
+    def __init__(__self__, *,
+                 items: Sequence[str]):
+        pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> Sequence[str]:
+        return pulumi.get(self, "items")
+
+
+@pulumi.output_type
+class ResponseHeadersPolicyAccessControlAllowOrigins(dict):
+    def __init__(__self__, *,
+                 items: Sequence[str]):
+        pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> Sequence[str]:
+        return pulumi.get(self, "items")
+
+
+@pulumi.output_type
+class ResponseHeadersPolicyAccessControlExposeHeaders(dict):
+    def __init__(__self__, *,
+                 items: Sequence[str]):
+        pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> Sequence[str]:
+        return pulumi.get(self, "items")
+
+
+@pulumi.output_type
+class ResponseHeadersPolicyConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "corsConfig":
+            suggest = "cors_config"
+        elif key == "customHeadersConfig":
+            suggest = "custom_headers_config"
+        elif key == "securityHeadersConfig":
+            suggest = "security_headers_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResponseHeadersPolicyConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResponseHeadersPolicyConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResponseHeadersPolicyConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 comment: Optional[str] = None,
+                 cors_config: Optional['outputs.ResponseHeadersPolicyCorsConfig'] = None,
+                 custom_headers_config: Optional['outputs.ResponseHeadersPolicyCustomHeadersConfig'] = None,
+                 security_headers_config: Optional['outputs.ResponseHeadersPolicySecurityHeadersConfig'] = None):
+        pulumi.set(__self__, "name", name)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if cors_config is not None:
+            pulumi.set(__self__, "cors_config", cors_config)
+        if custom_headers_config is not None:
+            pulumi.set(__self__, "custom_headers_config", custom_headers_config)
+        if security_headers_config is not None:
+            pulumi.set(__self__, "security_headers_config", security_headers_config)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="corsConfig")
+    def cors_config(self) -> Optional['outputs.ResponseHeadersPolicyCorsConfig']:
+        return pulumi.get(self, "cors_config")
+
+    @property
+    @pulumi.getter(name="customHeadersConfig")
+    def custom_headers_config(self) -> Optional['outputs.ResponseHeadersPolicyCustomHeadersConfig']:
+        return pulumi.get(self, "custom_headers_config")
+
+    @property
+    @pulumi.getter(name="securityHeadersConfig")
+    def security_headers_config(self) -> Optional['outputs.ResponseHeadersPolicySecurityHeadersConfig']:
+        return pulumi.get(self, "security_headers_config")
+
+
+@pulumi.output_type
+class ResponseHeadersPolicyContentSecurityPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentSecurityPolicy":
+            suggest = "content_security_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResponseHeadersPolicyContentSecurityPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResponseHeadersPolicyContentSecurityPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResponseHeadersPolicyContentSecurityPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content_security_policy: str,
+                 override: bool):
+        pulumi.set(__self__, "content_security_policy", content_security_policy)
+        pulumi.set(__self__, "override", override)
+
+    @property
+    @pulumi.getter(name="contentSecurityPolicy")
+    def content_security_policy(self) -> str:
+        return pulumi.get(self, "content_security_policy")
+
+    @property
+    @pulumi.getter
+    def override(self) -> bool:
+        return pulumi.get(self, "override")
+
+
+@pulumi.output_type
+class ResponseHeadersPolicyContentTypeOptions(dict):
+    def __init__(__self__, *,
+                 override: bool):
+        pulumi.set(__self__, "override", override)
+
+    @property
+    @pulumi.getter
+    def override(self) -> bool:
+        return pulumi.get(self, "override")
+
+
+@pulumi.output_type
+class ResponseHeadersPolicyCorsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessControlAllowCredentials":
+            suggest = "access_control_allow_credentials"
+        elif key == "accessControlAllowHeaders":
+            suggest = "access_control_allow_headers"
+        elif key == "accessControlAllowMethods":
+            suggest = "access_control_allow_methods"
+        elif key == "accessControlAllowOrigins":
+            suggest = "access_control_allow_origins"
+        elif key == "originOverride":
+            suggest = "origin_override"
+        elif key == "accessControlExposeHeaders":
+            suggest = "access_control_expose_headers"
+        elif key == "accessControlMaxAgeSec":
+            suggest = "access_control_max_age_sec"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResponseHeadersPolicyCorsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResponseHeadersPolicyCorsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResponseHeadersPolicyCorsConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_control_allow_credentials: bool,
+                 access_control_allow_headers: 'outputs.ResponseHeadersPolicyAccessControlAllowHeaders',
+                 access_control_allow_methods: 'outputs.ResponseHeadersPolicyAccessControlAllowMethods',
+                 access_control_allow_origins: 'outputs.ResponseHeadersPolicyAccessControlAllowOrigins',
+                 origin_override: bool,
+                 access_control_expose_headers: Optional['outputs.ResponseHeadersPolicyAccessControlExposeHeaders'] = None,
+                 access_control_max_age_sec: Optional[int] = None):
+        pulumi.set(__self__, "access_control_allow_credentials", access_control_allow_credentials)
+        pulumi.set(__self__, "access_control_allow_headers", access_control_allow_headers)
+        pulumi.set(__self__, "access_control_allow_methods", access_control_allow_methods)
+        pulumi.set(__self__, "access_control_allow_origins", access_control_allow_origins)
+        pulumi.set(__self__, "origin_override", origin_override)
+        if access_control_expose_headers is not None:
+            pulumi.set(__self__, "access_control_expose_headers", access_control_expose_headers)
+        if access_control_max_age_sec is not None:
+            pulumi.set(__self__, "access_control_max_age_sec", access_control_max_age_sec)
+
+    @property
+    @pulumi.getter(name="accessControlAllowCredentials")
+    def access_control_allow_credentials(self) -> bool:
+        return pulumi.get(self, "access_control_allow_credentials")
+
+    @property
+    @pulumi.getter(name="accessControlAllowHeaders")
+    def access_control_allow_headers(self) -> 'outputs.ResponseHeadersPolicyAccessControlAllowHeaders':
+        return pulumi.get(self, "access_control_allow_headers")
+
+    @property
+    @pulumi.getter(name="accessControlAllowMethods")
+    def access_control_allow_methods(self) -> 'outputs.ResponseHeadersPolicyAccessControlAllowMethods':
+        return pulumi.get(self, "access_control_allow_methods")
+
+    @property
+    @pulumi.getter(name="accessControlAllowOrigins")
+    def access_control_allow_origins(self) -> 'outputs.ResponseHeadersPolicyAccessControlAllowOrigins':
+        return pulumi.get(self, "access_control_allow_origins")
+
+    @property
+    @pulumi.getter(name="originOverride")
+    def origin_override(self) -> bool:
+        return pulumi.get(self, "origin_override")
+
+    @property
+    @pulumi.getter(name="accessControlExposeHeaders")
+    def access_control_expose_headers(self) -> Optional['outputs.ResponseHeadersPolicyAccessControlExposeHeaders']:
+        return pulumi.get(self, "access_control_expose_headers")
+
+    @property
+    @pulumi.getter(name="accessControlMaxAgeSec")
+    def access_control_max_age_sec(self) -> Optional[int]:
+        return pulumi.get(self, "access_control_max_age_sec")
+
+
+@pulumi.output_type
+class ResponseHeadersPolicyCustomHeader(dict):
+    def __init__(__self__, *,
+                 header: str,
+                 override: bool,
+                 value: str):
+        pulumi.set(__self__, "header", header)
+        pulumi.set(__self__, "override", override)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def header(self) -> str:
+        return pulumi.get(self, "header")
+
+    @property
+    @pulumi.getter
+    def override(self) -> bool:
+        return pulumi.get(self, "override")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ResponseHeadersPolicyCustomHeadersConfig(dict):
+    def __init__(__self__, *,
+                 items: Sequence['outputs.ResponseHeadersPolicyCustomHeader']):
+        pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> Sequence['outputs.ResponseHeadersPolicyCustomHeader']:
+        return pulumi.get(self, "items")
+
+
+@pulumi.output_type
+class ResponseHeadersPolicyFrameOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "frameOption":
+            suggest = "frame_option"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResponseHeadersPolicyFrameOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResponseHeadersPolicyFrameOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResponseHeadersPolicyFrameOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 frame_option: str,
+                 override: bool):
+        pulumi.set(__self__, "frame_option", frame_option)
+        pulumi.set(__self__, "override", override)
+
+    @property
+    @pulumi.getter(name="frameOption")
+    def frame_option(self) -> str:
+        return pulumi.get(self, "frame_option")
+
+    @property
+    @pulumi.getter
+    def override(self) -> bool:
+        return pulumi.get(self, "override")
+
+
+@pulumi.output_type
+class ResponseHeadersPolicyReferrerPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "referrerPolicy":
+            suggest = "referrer_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResponseHeadersPolicyReferrerPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResponseHeadersPolicyReferrerPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResponseHeadersPolicyReferrerPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 override: bool,
+                 referrer_policy: str):
+        pulumi.set(__self__, "override", override)
+        pulumi.set(__self__, "referrer_policy", referrer_policy)
+
+    @property
+    @pulumi.getter
+    def override(self) -> bool:
+        return pulumi.get(self, "override")
+
+    @property
+    @pulumi.getter(name="referrerPolicy")
+    def referrer_policy(self) -> str:
+        return pulumi.get(self, "referrer_policy")
+
+
+@pulumi.output_type
+class ResponseHeadersPolicySecurityHeadersConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentSecurityPolicy":
+            suggest = "content_security_policy"
+        elif key == "contentTypeOptions":
+            suggest = "content_type_options"
+        elif key == "frameOptions":
+            suggest = "frame_options"
+        elif key == "referrerPolicy":
+            suggest = "referrer_policy"
+        elif key == "strictTransportSecurity":
+            suggest = "strict_transport_security"
+        elif key == "xSSProtection":
+            suggest = "x_ss_protection"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResponseHeadersPolicySecurityHeadersConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResponseHeadersPolicySecurityHeadersConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResponseHeadersPolicySecurityHeadersConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content_security_policy: Optional['outputs.ResponseHeadersPolicyContentSecurityPolicy'] = None,
+                 content_type_options: Optional['outputs.ResponseHeadersPolicyContentTypeOptions'] = None,
+                 frame_options: Optional['outputs.ResponseHeadersPolicyFrameOptions'] = None,
+                 referrer_policy: Optional['outputs.ResponseHeadersPolicyReferrerPolicy'] = None,
+                 strict_transport_security: Optional['outputs.ResponseHeadersPolicyStrictTransportSecurity'] = None,
+                 x_ss_protection: Optional['outputs.ResponseHeadersPolicyXSSProtection'] = None):
+        if content_security_policy is not None:
+            pulumi.set(__self__, "content_security_policy", content_security_policy)
+        if content_type_options is not None:
+            pulumi.set(__self__, "content_type_options", content_type_options)
+        if frame_options is not None:
+            pulumi.set(__self__, "frame_options", frame_options)
+        if referrer_policy is not None:
+            pulumi.set(__self__, "referrer_policy", referrer_policy)
+        if strict_transport_security is not None:
+            pulumi.set(__self__, "strict_transport_security", strict_transport_security)
+        if x_ss_protection is not None:
+            pulumi.set(__self__, "x_ss_protection", x_ss_protection)
+
+    @property
+    @pulumi.getter(name="contentSecurityPolicy")
+    def content_security_policy(self) -> Optional['outputs.ResponseHeadersPolicyContentSecurityPolicy']:
+        return pulumi.get(self, "content_security_policy")
+
+    @property
+    @pulumi.getter(name="contentTypeOptions")
+    def content_type_options(self) -> Optional['outputs.ResponseHeadersPolicyContentTypeOptions']:
+        return pulumi.get(self, "content_type_options")
+
+    @property
+    @pulumi.getter(name="frameOptions")
+    def frame_options(self) -> Optional['outputs.ResponseHeadersPolicyFrameOptions']:
+        return pulumi.get(self, "frame_options")
+
+    @property
+    @pulumi.getter(name="referrerPolicy")
+    def referrer_policy(self) -> Optional['outputs.ResponseHeadersPolicyReferrerPolicy']:
+        return pulumi.get(self, "referrer_policy")
+
+    @property
+    @pulumi.getter(name="strictTransportSecurity")
+    def strict_transport_security(self) -> Optional['outputs.ResponseHeadersPolicyStrictTransportSecurity']:
+        return pulumi.get(self, "strict_transport_security")
+
+    @property
+    @pulumi.getter(name="xSSProtection")
+    def x_ss_protection(self) -> Optional['outputs.ResponseHeadersPolicyXSSProtection']:
+        return pulumi.get(self, "x_ss_protection")
+
+
+@pulumi.output_type
+class ResponseHeadersPolicyStrictTransportSecurity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessControlMaxAgeSec":
+            suggest = "access_control_max_age_sec"
+        elif key == "includeSubdomains":
+            suggest = "include_subdomains"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResponseHeadersPolicyStrictTransportSecurity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResponseHeadersPolicyStrictTransportSecurity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResponseHeadersPolicyStrictTransportSecurity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_control_max_age_sec: int,
+                 override: bool,
+                 include_subdomains: Optional[bool] = None,
+                 preload: Optional[bool] = None):
+        pulumi.set(__self__, "access_control_max_age_sec", access_control_max_age_sec)
+        pulumi.set(__self__, "override", override)
+        if include_subdomains is not None:
+            pulumi.set(__self__, "include_subdomains", include_subdomains)
+        if preload is not None:
+            pulumi.set(__self__, "preload", preload)
+
+    @property
+    @pulumi.getter(name="accessControlMaxAgeSec")
+    def access_control_max_age_sec(self) -> int:
+        return pulumi.get(self, "access_control_max_age_sec")
+
+    @property
+    @pulumi.getter
+    def override(self) -> bool:
+        return pulumi.get(self, "override")
+
+    @property
+    @pulumi.getter(name="includeSubdomains")
+    def include_subdomains(self) -> Optional[bool]:
+        return pulumi.get(self, "include_subdomains")
+
+    @property
+    @pulumi.getter
+    def preload(self) -> Optional[bool]:
+        return pulumi.get(self, "preload")
+
+
+@pulumi.output_type
+class ResponseHeadersPolicyXSSProtection(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modeBlock":
+            suggest = "mode_block"
+        elif key == "reportUri":
+            suggest = "report_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResponseHeadersPolicyXSSProtection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResponseHeadersPolicyXSSProtection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResponseHeadersPolicyXSSProtection.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 override: bool,
+                 protection: bool,
+                 mode_block: Optional[bool] = None,
+                 report_uri: Optional[str] = None):
+        pulumi.set(__self__, "override", override)
+        pulumi.set(__self__, "protection", protection)
+        if mode_block is not None:
+            pulumi.set(__self__, "mode_block", mode_block)
+        if report_uri is not None:
+            pulumi.set(__self__, "report_uri", report_uri)
+
+    @property
+    @pulumi.getter
+    def override(self) -> bool:
+        return pulumi.get(self, "override")
+
+    @property
+    @pulumi.getter
+    def protection(self) -> bool:
+        return pulumi.get(self, "protection")
+
+    @property
+    @pulumi.getter(name="modeBlock")
+    def mode_block(self) -> Optional[bool]:
+        return pulumi.get(self, "mode_block")
+
+    @property
+    @pulumi.getter(name="reportUri")
+    def report_uri(self) -> Optional[str]:
+        return pulumi.get(self, "report_uri")
 
 
 @pulumi.output_type

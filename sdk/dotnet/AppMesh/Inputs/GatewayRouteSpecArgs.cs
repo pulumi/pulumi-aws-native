@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         [Input("httpRoute")]
         public Input<Inputs.GatewayRouteHttpGatewayRouteArgs>? HttpRoute { get; set; }
 
+        [Input("priority")]
+        public Input<int>? Priority { get; set; }
+
         public GatewayRouteSpecArgs()
         {
         }

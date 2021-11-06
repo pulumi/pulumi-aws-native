@@ -43,6 +43,7 @@ export class Endpoint extends pulumi.CustomResource {
     public readonly endpointName!: pulumi.Output<string | undefined>;
     public readonly excludeRetainedVariantProperties!: pulumi.Output<outputs.sagemaker.EndpointVariantProperty[] | undefined>;
     public readonly retainAllVariantProperties!: pulumi.Output<boolean | undefined>;
+    public readonly retainDeploymentConfig!: pulumi.Output<boolean | undefined>;
     public readonly tags!: pulumi.Output<outputs.sagemaker.EndpointTag[] | undefined>;
 
     /**
@@ -66,6 +67,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["endpointName"] = args ? args.endpointName : undefined;
             inputs["excludeRetainedVariantProperties"] = args ? args.excludeRetainedVariantProperties : undefined;
             inputs["retainAllVariantProperties"] = args ? args.retainAllVariantProperties : undefined;
+            inputs["retainDeploymentConfig"] = args ? args.retainDeploymentConfig : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         } else {
             inputs["deploymentConfig"] = undefined /*out*/;
@@ -73,6 +75,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["endpointName"] = undefined /*out*/;
             inputs["excludeRetainedVariantProperties"] = undefined /*out*/;
             inputs["retainAllVariantProperties"] = undefined /*out*/;
+            inputs["retainDeploymentConfig"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -91,5 +94,6 @@ export interface EndpointArgs {
     endpointName?: pulumi.Input<string>;
     excludeRetainedVariantProperties?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointVariantPropertyArgs>[]>;
     retainAllVariantProperties?: pulumi.Input<boolean>;
+    retainDeploymentConfig?: pulumi.Input<boolean>;
     tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointTagArgs>[]>;
 }

@@ -901,6 +901,7 @@ _utilities.register(
    "aws-native:cloudfront:OriginRequestPolicy": "OriginRequestPolicy",
    "aws-native:cloudfront:PublicKey": "PublicKey",
    "aws-native:cloudfront:RealtimeLogConfig": "RealtimeLogConfig",
+   "aws-native:cloudfront:ResponseHeadersPolicy": "ResponseHeadersPolicy",
    "aws-native:cloudfront:StreamingDistribution": "StreamingDistribution"
   }
  },
@@ -1105,6 +1106,7 @@ _utilities.register(
    "aws-native:datasync:Agent": "Agent",
    "aws-native:datasync:LocationEFS": "LocationEFS",
    "aws-native:datasync:LocationFSxWindows": "LocationFSxWindows",
+   "aws-native:datasync:LocationHDFS": "LocationHDFS",
    "aws-native:datasync:LocationNFS": "LocationNFS",
    "aws-native:datasync:LocationObjectStorage": "LocationObjectStorage",
    "aws-native:datasync:LocationS3": "LocationS3",
@@ -1653,6 +1655,7 @@ _utilities.register(
    "aws-native:iot:DomainConfiguration": "DomainConfiguration",
    "aws-native:iot:FleetMetric": "FleetMetric",
    "aws-native:iot:JobTemplate": "JobTemplate",
+   "aws-native:iot:Logging": "Logging",
    "aws-native:iot:MitigationAction": "MitigationAction",
    "aws-native:iot:Policy": "Policy",
    "aws-native:iot:PolicyPrincipalAttachment": "PolicyPrincipalAttachment",
@@ -2120,6 +2123,7 @@ _utilities.register(
    "aws-native:pinpoint:EmailTemplate": "EmailTemplate",
    "aws-native:pinpoint:EventStream": "EventStream",
    "aws-native:pinpoint:GCMChannel": "GCMChannel",
+   "aws-native:pinpoint:InAppTemplate": "InAppTemplate",
    "aws-native:pinpoint:PushTemplate": "PushTemplate",
    "aws-native:pinpoint:SMSChannel": "SMSChannel",
    "aws-native:pinpoint:Segment": "Segment",
@@ -2197,7 +2201,11 @@ _utilities.register(
    "aws-native:redshift:ClusterParameterGroup": "ClusterParameterGroup",
    "aws-native:redshift:ClusterSecurityGroup": "ClusterSecurityGroup",
    "aws-native:redshift:ClusterSecurityGroupIngress": "ClusterSecurityGroupIngress",
-   "aws-native:redshift:ClusterSubnetGroup": "ClusterSubnetGroup"
+   "aws-native:redshift:ClusterSubnetGroup": "ClusterSubnetGroup",
+   "aws-native:redshift:EndpointAccess": "EndpointAccess",
+   "aws-native:redshift:EndpointAuthorization": "EndpointAuthorization",
+   "aws-native:redshift:EventSubscription": "EventSubscription",
+   "aws-native:redshift:ScheduledAction": "ScheduledAction"
   }
  },
  {

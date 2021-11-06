@@ -31,6 +31,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ClusterSecurityGroupIngress{}
 	case "aws-native:redshift:ClusterSubnetGroup":
 		r = &ClusterSubnetGroup{}
+	case "aws-native:redshift:EndpointAccess":
+		r = &EndpointAccess{}
+	case "aws-native:redshift:EndpointAuthorization":
+		r = &EndpointAuthorization{}
+	case "aws-native:redshift:EventSubscription":
+		r = &EventSubscription{}
+	case "aws-native:redshift:ScheduledAction":
+		r = &ScheduledAction{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
