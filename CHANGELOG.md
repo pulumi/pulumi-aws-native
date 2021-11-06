@@ -1,7 +1,11 @@
 ## HEAD (Unreleased)
 
-- Update to pulumi v3.16.0 deps [#202](https://github.com/pulumi/pulumi-aws-native/pull/202)
-- Add autonaming support [#156](https://github.com/pulumi/pulumi-aws-native/issues/156)
+- Update to pulumi v3.16.0 deps
+  [#202](https://github.com/pulumi/pulumi-aws-native/pull/202)
+- Add autonaming support
+  [#156](https://github.com/pulumi/pulumi-aws-native/issues/156)
+- Turn off replacement detection to prevent false replacements
+  [#186](https://github.com/pulumi/pulumi-aws-native/issues/186)
 
 ## 0.3.0 (November 2, 2021)
 
