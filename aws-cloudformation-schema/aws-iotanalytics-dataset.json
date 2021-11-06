@@ -34,11 +34,11 @@
         "$ref" : "#/definitions/Trigger"
       }
     },
-    "VersioningConfiguration" : {
-      "$ref" : "#/definitions/VersioningConfiguration"
-    },
     "Id" : {
       "type" : "string"
+    },
+    "VersioningConfiguration" : {
+      "$ref" : "#/definitions/VersioningConfiguration"
     },
     "RetentionPeriod" : {
       "$ref" : "#/definitions/RetentionPeriod"
@@ -59,7 +59,8 @@
         "DatasetName" : {
           "type" : "string"
         }
-      }
+      },
+      "required" : [ "DatasetName" ]
     },
     "GlueConfiguration" : {
       "type" : "object",
@@ -280,7 +281,8 @@
         "FileName" : {
           "type" : "string"
         }
-      }
+      },
+      "required" : [ "FileName" ]
     },
     "Schedule" : {
       "type" : "object",
@@ -356,7 +358,7 @@
       "required" : [ "DatasetName" ]
     }
   },
-  "required" : [ "Actions" ],
+  "required" : [ "Actions", "DatasetName" ],
   "createOnlyProperties" : [ "/properties/DatasetName" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]

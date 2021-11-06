@@ -25,6 +25,92 @@
     }
   },
   "definitions" : {
+    "SelectAttributes" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Attributes" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "Next" : {
+          "type" : "string"
+        },
+        "Name" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Attributes", "Name" ]
+    },
+    "Datastore" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "DatastoreName" : {
+          "type" : "string"
+        },
+        "Name" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "DatastoreName", "Name" ]
+    },
+    "Filter" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Filter" : {
+          "type" : "string"
+        },
+        "Next" : {
+          "type" : "string"
+        },
+        "Name" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Filter", "Name" ]
+    },
+    "AddAttributes" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Attributes" : {
+          "type" : "object",
+          "patternProperties" : {
+            "[a-zA-Z0-9]+" : {
+              "type" : "string"
+            }
+          }
+        },
+        "Next" : {
+          "type" : "string"
+        },
+        "Name" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Attributes", "Name" ]
+    },
+    "Channel" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ChannelName" : {
+          "type" : "string"
+        },
+        "Next" : {
+          "type" : "string"
+        },
+        "Name" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "ChannelName", "Name" ]
+    },
     "Activity" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -65,10 +151,10 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "Key" : {
+        "Value" : {
           "type" : "string"
         },
-        "Value" : {
+        "Key" : {
           "type" : "string"
         }
       },
@@ -78,102 +164,42 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "ThingName" : {
+          "type" : "string"
+        },
+        "Attribute" : {
+          "type" : "string"
+        },
+        "RoleArn" : {
+          "type" : "string"
+        },
+        "Next" : {
+          "type" : "string"
+        },
+        "Name" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Attribute", "ThingName", "RoleArn", "Name" ]
+    },
+    "Math" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Math" : {
+          "type" : "string"
+        },
         "Attribute" : {
           "type" : "string"
         },
         "Next" : {
           "type" : "string"
         },
-        "ThingName" : {
-          "type" : "string"
-        },
-        "RoleArn" : {
-          "type" : "string"
-        },
         "Name" : {
           "type" : "string"
         }
-      }
-    },
-    "Filter" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Filter" : {
-          "type" : "string"
-        },
-        "Next" : {
-          "type" : "string"
-        },
-        "Name" : {
-          "type" : "string"
-        }
-      }
-    },
-    "RemoveAttributes" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Next" : {
-          "type" : "string"
-        },
-        "Attributes" : {
-          "type" : "array",
-          "uniqueItems" : false,
-          "items" : {
-            "type" : "string"
-          }
-        },
-        "Name" : {
-          "type" : "string"
-        }
-      }
-    },
-    "Datastore" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "DatastoreName" : {
-          "type" : "string"
-        },
-        "Name" : {
-          "type" : "string"
-        }
-      }
-    },
-    "Channel" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "ChannelName" : {
-          "type" : "string"
-        },
-        "Next" : {
-          "type" : "string"
-        },
-        "Name" : {
-          "type" : "string"
-        }
-      }
-    },
-    "SelectAttributes" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Next" : {
-          "type" : "string"
-        },
-        "Attributes" : {
-          "type" : "array",
-          "uniqueItems" : false,
-          "items" : {
-            "type" : "string"
-          }
-        },
-        "Name" : {
-          "type" : "string"
-        }
-      }
+      },
+      "required" : [ "Attribute", "Math", "Name" ]
     },
     "Lambda" : {
       "type" : "object",
@@ -182,73 +208,62 @@
         "BatchSize" : {
           "type" : "integer"
         },
-        "Next" : {
+        "LambdaName" : {
           "type" : "string"
         },
-        "LambdaName" : {
+        "Next" : {
           "type" : "string"
         },
         "Name" : {
           "type" : "string"
         }
-      }
+      },
+      "required" : [ "BatchSize", "LambdaName", "Name" ]
     },
     "DeviceRegistryEnrich" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "Attribute" : {
-          "type" : "string"
-        },
-        "Next" : {
-          "type" : "string"
-        },
         "ThingName" : {
+          "type" : "string"
+        },
+        "Attribute" : {
           "type" : "string"
         },
         "RoleArn" : {
           "type" : "string"
         },
-        "Name" : {
-          "type" : "string"
-        }
-      }
-    },
-    "AddAttributes" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
         "Next" : {
           "type" : "string"
         },
+        "Name" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Attribute", "ThingName", "RoleArn", "Name" ]
+    },
+    "RemoveAttributes" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
         "Attributes" : {
-          "type" : "object"
-        },
-        "Name" : {
-          "type" : "string"
-        }
-      }
-    },
-    "Math" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Attribute" : {
-          "type" : "string"
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
         },
         "Next" : {
           "type" : "string"
         },
-        "Math" : {
-          "type" : "string"
-        },
         "Name" : {
           "type" : "string"
         }
-      }
+      },
+      "required" : [ "Attributes", "Name" ]
     }
   },
-  "required" : [ "PipelineActivities" ],
+  "required" : [ "PipelineName", "PipelineActivities" ],
   "createOnlyProperties" : [ "/properties/PipelineName" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]

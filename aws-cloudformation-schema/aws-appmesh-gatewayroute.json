@@ -165,6 +165,9 @@
         },
         "GrpcRoute" : {
           "$ref" : "#/definitions/GrpcGatewayRoute"
+        },
+        "Priority" : {
+          "type" : "integer"
         }
       }
     },

@@ -87,7 +87,7 @@
       "permissions" : [ "ssm-incidents:DeleteReplicationSet", "ssm-incidents:GetReplicationSet" ]
     },
     "list" : {
-      "permissions" : [ "ssm-incidents:ListRegions" ]
+      "permissions" : [ "ssm-incidents:ListReplicationSets" ]
     }
   }
 }

@@ -4363,6 +4363,25 @@
                 "name"
             ]
         },
+        "aws-native:cloudfront:ResponseHeadersPolicy": {
+            "cf": "AWS::CloudFront::ResponseHeadersPolicy",
+            "inputs": {
+                "responseHeadersPolicyConfig": {
+                    "$ref": "#/types/aws-native:cloudfront:ResponseHeadersPolicyConfig"
+                }
+            },
+            "outputs": {
+                "lastModifiedTime": {
+                    "type": "string"
+                },
+                "responseHeadersPolicyConfig": {
+                    "$ref": "#/types/aws-native:cloudfront:ResponseHeadersPolicyConfig"
+                }
+            },
+            "required": [
+                "responseHeadersPolicyConfig"
+            ]
+        },
         "aws-native:cloudtrail:Trail": {
             "cf": "AWS::CloudTrail::Trail",
             "inputs": {
@@ -6779,6 +6798,141 @@
                 "user"
             ]
         },
+        "aws-native:datasync:LocationHDFS": {
+            "cf": "AWS::DataSync::LocationHDFS",
+            "inputs": {
+                "agentArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "ARN(s) of the agent(s) to use for an HDFS location."
+                },
+                "authenticationType": {
+                    "$ref": "#/types/aws-native:datasync:LocationHDFSAuthenticationType",
+                    "description": "The authentication mode used to determine identity of user."
+                },
+                "blockSize": {
+                    "type": "integer",
+                    "description": "Size of chunks (blocks) in bytes that the data is divided into when stored in the HDFS cluster."
+                },
+                "kerberosKeytab": {
+                    "type": "string",
+                    "description": "The Base64 string representation of the Keytab file."
+                },
+                "kerberosKrb5Conf": {
+                    "type": "string",
+                    "description": "The string representation of the Krb5Conf file, or the presigned URL to access the Krb5.conf file within an S3 bucket."
+                },
+                "kerberosPrincipal": {
+                    "type": "string",
+                    "description": "The unique identity, or principal, to which Kerberos can assign tickets."
+                },
+                "kmsKeyProviderUri": {
+                    "type": "string",
+                    "description": "The identifier for the Key Management Server where the encryption keys that encrypt data inside HDFS clusters are stored."
+                },
+                "nameNodes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:datasync:LocationHDFSNameNode"
+                    },
+                    "description": "An array of Name Node(s) of the HDFS location."
+                },
+                "qopConfiguration": {
+                    "$ref": "#/types/aws-native:datasync:LocationHDFSQopConfiguration"
+                },
+                "replicationFactor": {
+                    "type": "integer",
+                    "description": "Number of copies of each block that exists inside the HDFS cluster."
+                },
+                "simpleUser": {
+                    "type": "string",
+                    "description": "The user name that has read and write permissions on the specified HDFS cluster."
+                },
+                "subdirectory": {
+                    "type": "string",
+                    "description": "The subdirectory in HDFS that is used to read data from the HDFS source location or write data to the HDFS destination."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:datasync:LocationHDFSTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                }
+            },
+            "outputs": {
+                "agentArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "ARN(s) of the agent(s) to use for an HDFS location."
+                },
+                "authenticationType": {
+                    "$ref": "#/types/aws-native:datasync:LocationHDFSAuthenticationType",
+                    "description": "The authentication mode used to determine identity of user."
+                },
+                "blockSize": {
+                    "type": "integer",
+                    "description": "Size of chunks (blocks) in bytes that the data is divided into when stored in the HDFS cluster."
+                },
+                "kerberosKeytab": {
+                    "type": "string",
+                    "description": "The Base64 string representation of the Keytab file."
+                },
+                "kerberosKrb5Conf": {
+                    "type": "string",
+                    "description": "The string representation of the Krb5Conf file, or the presigned URL to access the Krb5.conf file within an S3 bucket."
+                },
+                "kerberosPrincipal": {
+                    "type": "string",
+                    "description": "The unique identity, or principal, to which Kerberos can assign tickets."
+                },
+                "kmsKeyProviderUri": {
+                    "type": "string",
+                    "description": "The identifier for the Key Management Server where the encryption keys that encrypt data inside HDFS clusters are stored."
+                },
+                "locationArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the HDFS location."
+                },
+                "locationUri": {
+                    "type": "string",
+                    "description": "The URL of the HDFS location that was described."
+                },
+                "nameNodes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:datasync:LocationHDFSNameNode"
+                    },
+                    "description": "An array of Name Node(s) of the HDFS location."
+                },
+                "qopConfiguration": {
+                    "$ref": "#/types/aws-native:datasync:LocationHDFSQopConfiguration"
+                },
+                "replicationFactor": {
+                    "type": "integer",
+                    "description": "Number of copies of each block that exists inside the HDFS cluster."
+                },
+                "simpleUser": {
+                    "type": "string",
+                    "description": "The user name that has read and write permissions on the specified HDFS cluster."
+                },
+                "subdirectory": {
+                    "type": "string",
+                    "description": "The subdirectory in HDFS that is used to read data from the HDFS source location or write data to the HDFS destination."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:datasync:LocationHDFSTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                }
+            }
+        },
         "aws-native:datasync:LocationNFS": {
             "cf": "AWS::DataSync::LocationNFS",
             "inputs": {
@@ -8773,144 +8927,6 @@
                 "sourceIp"
             ]
         },
-        "aws-native:ec2:NetworkInterface": {
-            "cf": "AWS::EC2::NetworkInterface",
-            "inputs": {
-                "description": {
-                    "type": "string",
-                    "description": "A description for the network interface."
-                },
-                "groupSet": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "A list of security group IDs associated with this network interface."
-                },
-                "interfaceType": {
-                    "type": "string",
-                    "description": "Indicates the type of network interface."
-                },
-                "ipv6AddressCount": {
-                    "type": "integer",
-                    "description": "The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. To specify specific IPv6 addresses, use the Ipv6Addresses property and don't specify this property."
-                },
-                "ipv6Addresses": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:ec2:NetworkInterfaceInstanceIpv6Address"
-                    },
-                    "description": "One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet to associate with the network interface. If you're specifying a number of IPv6 addresses, use the Ipv6AddressCount property and don't specify this property."
-                },
-                "privateIpAddress": {
-                    "type": "string",
-                    "description": "Assigns a single private IP address to the network interface, which is used as the primary private IP address. If you want to specify multiple private IP address, use the PrivateIpAddresses property. "
-                },
-                "privateIpAddresses": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:ec2:NetworkInterfacePrivateIpAddressSpecification"
-                    },
-                    "description": "Assigns a list of private IP addresses to the network interface. You can specify a primary private IP address by setting the value of the Primary property to true in the PrivateIpAddressSpecification property. If you want EC2 to automatically assign private IP addresses, use the SecondaryPrivateIpAddressCount property and do not specify this property."
-                },
-                "secondaryPrivateIpAddressCount": {
-                    "type": "integer",
-                    "description": "The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses"
-                },
-                "sourceDestCheck": {
-                    "type": "boolean",
-                    "description": "Indicates whether traffic to or from the instance is validated."
-                },
-                "subnetId": {
-                    "type": "string",
-                    "description": "The ID of the subnet to associate with the network interface."
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:ec2:NetworkInterfaceTag"
-                    },
-                    "description": "An arbitrary set of tags (key-value pairs) for this network interface."
-                }
-            },
-            "outputs": {
-                "description": {
-                    "type": "string",
-                    "description": "A description for the network interface."
-                },
-                "groupSet": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "A list of security group IDs associated with this network interface."
-                },
-                "interfaceType": {
-                    "type": "string",
-                    "description": "Indicates the type of network interface."
-                },
-                "ipv6AddressCount": {
-                    "type": "integer",
-                    "description": "The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. To specify specific IPv6 addresses, use the Ipv6Addresses property and don't specify this property."
-                },
-                "ipv6Addresses": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:ec2:NetworkInterfaceInstanceIpv6Address"
-                    },
-                    "description": "One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet to associate with the network interface. If you're specifying a number of IPv6 addresses, use the Ipv6AddressCount property and don't specify this property."
-                },
-                "primaryPrivateIpAddress": {
-                    "type": "string",
-                    "description": "Returns the primary private IP address of the network interface."
-                },
-                "privateIpAddress": {
-                    "type": "string",
-                    "description": "Assigns a single private IP address to the network interface, which is used as the primary private IP address. If you want to specify multiple private IP address, use the PrivateIpAddresses property. "
-                },
-                "privateIpAddresses": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:ec2:NetworkInterfacePrivateIpAddressSpecification"
-                    },
-                    "description": "Assigns a list of private IP addresses to the network interface. You can specify a primary private IP address by setting the value of the Primary property to true in the PrivateIpAddressSpecification property. If you want EC2 to automatically assign private IP addresses, use the SecondaryPrivateIpAddressCount property and do not specify this property."
-                },
-                "secondaryPrivateIpAddressCount": {
-                    "type": "integer",
-                    "description": "The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses"
-                },
-                "secondaryPrivateIpAddresses": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "Returns the secondary private IP addresses of the network interface."
-                },
-                "sourceDestCheck": {
-                    "type": "boolean",
-                    "description": "Indicates whether traffic to or from the instance is validated."
-                },
-                "subnetId": {
-                    "type": "string",
-                    "description": "The ID of the subnet to associate with the network interface."
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:ec2:NetworkInterfaceTag"
-                    },
-                    "description": "An arbitrary set of tags (key-value pairs) for this network interface."
-                }
-            },
-            "required": [
-                "subnetId"
-            ],
-            "createOnly": [
-                "interfaceType",
-                "privateIpAddress",
-                "subnetId"
-            ]
-        },
         "aws-native:ec2:PrefixList": {
             "cf": "AWS::EC2::PrefixList",
             "inputs": {
@@ -9068,89 +9084,6 @@
                 "spotFleetRequestConfigData/Type",
                 "spotFleetRequestConfigData/ValidFrom",
                 "spotFleetRequestConfigData/ValidUntil"
-            ]
-        },
-        "aws-native:ec2:Subnet": {
-            "cf": "AWS::EC2::Subnet",
-            "inputs": {
-                "assignIpv6AddressOnCreation": {
-                    "type": "boolean"
-                },
-                "availabilityZone": {
-                    "type": "string"
-                },
-                "cidrBlock": {
-                    "type": "string"
-                },
-                "ipv6CidrBlock": {
-                    "type": "string"
-                },
-                "mapPublicIpOnLaunch": {
-                    "type": "boolean"
-                },
-                "outpostArn": {
-                    "type": "string"
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:ec2:SubnetTag"
-                    }
-                },
-                "vpcId": {
-                    "type": "string"
-                }
-            },
-            "outputs": {
-                "assignIpv6AddressOnCreation": {
-                    "type": "boolean"
-                },
-                "availabilityZone": {
-                    "type": "string"
-                },
-                "cidrBlock": {
-                    "type": "string"
-                },
-                "ipv6CidrBlock": {
-                    "type": "string"
-                },
-                "ipv6CidrBlocks": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "mapPublicIpOnLaunch": {
-                    "type": "boolean"
-                },
-                "networkAclAssociationId": {
-                    "type": "string"
-                },
-                "outpostArn": {
-                    "type": "string"
-                },
-                "subnetId": {
-                    "type": "string"
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:ec2:SubnetTag"
-                    }
-                },
-                "vpcId": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "cidrBlock",
-                "vpcId"
-            ],
-            "createOnly": [
-                "availabilityZone",
-                "cidrBlock",
-                "outpostArn",
-                "vpcId"
             ]
         },
         "aws-native:ec2:SubnetNetworkAclAssociation": {
@@ -15643,6 +15576,45 @@
                 "timeoutConfig"
             ]
         },
+        "aws-native:iot:Logging": {
+            "cf": "AWS::IoT::Logging",
+            "inputs": {
+                "accountId": {
+                    "type": "string",
+                    "description": "Your 12-digit account ID (used as the primary identifier for the CloudFormation resource)."
+                },
+                "defaultLogLevel": {
+                    "$ref": "#/types/aws-native:iot:LoggingDefaultLogLevel",
+                    "description": "The log level to use. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED."
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "The ARN of the role that allows IoT to write to Cloudwatch logs."
+                }
+            },
+            "outputs": {
+                "accountId": {
+                    "type": "string",
+                    "description": "Your 12-digit account ID (used as the primary identifier for the CloudFormation resource)."
+                },
+                "defaultLogLevel": {
+                    "$ref": "#/types/aws-native:iot:LoggingDefaultLogLevel",
+                    "description": "The log level to use. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED."
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "The ARN of the role that allows IoT to write to Cloudwatch logs."
+                }
+            },
+            "required": [
+                "accountId",
+                "defaultLogLevel",
+                "roleArn"
+            ],
+            "createOnly": [
+                "accountId"
+            ]
+        },
         "aws-native:iot:MitigationAction": {
             "cf": "AWS::IoT::MitigationAction",
             "inputs": {
@@ -16069,143 +16041,6 @@
             "createOnly": [
                 "httpUrlProperties",
                 "vpcProperties"
-            ]
-        },
-        "aws-native:iotanalytics:Channel": {
-            "cf": "AWS::IoTAnalytics::Channel",
-            "inputs": {
-                "channelName": {
-                    "type": "string"
-                },
-                "channelStorage": {
-                    "$ref": "#/types/aws-native:iotanalytics:ChannelStorage"
-                },
-                "retentionPeriod": {
-                    "$ref": "#/types/aws-native:iotanalytics:ChannelRetentionPeriod"
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:iotanalytics:ChannelTag"
-                    }
-                }
-            },
-            "outputs": {
-                "channelName": {
-                    "type": "string"
-                },
-                "channelStorage": {
-                    "$ref": "#/types/aws-native:iotanalytics:ChannelStorage"
-                },
-                "retentionPeriod": {
-                    "$ref": "#/types/aws-native:iotanalytics:ChannelRetentionPeriod"
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:iotanalytics:ChannelTag"
-                    }
-                }
-            },
-            "autoNamingSpec": {
-                "sdkName": "channelName"
-            },
-            "createOnly": [
-                "channelName"
-            ]
-        },
-        "aws-native:iotanalytics:Dataset": {
-            "cf": "AWS::IoTAnalytics::Dataset",
-            "inputs": {
-                "actions": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:iotanalytics:DatasetAction"
-                    }
-                },
-                "contentDeliveryRules": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:iotanalytics:DatasetContentDeliveryRule"
-                    }
-                },
-                "datasetName": {
-                    "type": "string"
-                },
-                "lateDataRules": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:iotanalytics:DatasetLateDataRule"
-                    }
-                },
-                "retentionPeriod": {
-                    "$ref": "#/types/aws-native:iotanalytics:DatasetRetentionPeriod"
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:iotanalytics:DatasetTag"
-                    }
-                },
-                "triggers": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:iotanalytics:DatasetTrigger"
-                    }
-                },
-                "versioningConfiguration": {
-                    "$ref": "#/types/aws-native:iotanalytics:DatasetVersioningConfiguration"
-                }
-            },
-            "outputs": {
-                "actions": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:iotanalytics:DatasetAction"
-                    }
-                },
-                "contentDeliveryRules": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:iotanalytics:DatasetContentDeliveryRule"
-                    }
-                },
-                "datasetName": {
-                    "type": "string"
-                },
-                "lateDataRules": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:iotanalytics:DatasetLateDataRule"
-                    }
-                },
-                "retentionPeriod": {
-                    "$ref": "#/types/aws-native:iotanalytics:DatasetRetentionPeriod"
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:iotanalytics:DatasetTag"
-                    }
-                },
-                "triggers": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:iotanalytics:DatasetTrigger"
-                    }
-                },
-                "versioningConfiguration": {
-                    "$ref": "#/types/aws-native:iotanalytics:DatasetVersioningConfiguration"
-                }
-            },
-            "autoNamingSpec": {
-                "sdkName": "datasetName"
-            },
-            "required": [
-                "actions"
-            ],
-            "createOnly": [
-                "datasetName"
             ]
         },
         "aws-native:iotcoredeviceadvisor:SuiteDefinition": {
@@ -23250,6 +23085,64 @@
                 "patchVersion"
             ]
         },
+        "aws-native:pinpoint:InAppTemplate": {
+            "cf": "AWS::Pinpoint::InAppTemplate",
+            "inputs": {
+                "content": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:pinpoint:InAppTemplateInAppMessageContent"
+                    }
+                },
+                "customConfig": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "layout": {
+                    "$ref": "#/types/aws-native:pinpoint:InAppTemplateLayout"
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "templateDescription": {
+                    "type": "string"
+                },
+                "templateName": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "content": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:pinpoint:InAppTemplateInAppMessageContent"
+                    }
+                },
+                "customConfig": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "layout": {
+                    "$ref": "#/types/aws-native:pinpoint:InAppTemplateLayout"
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "templateDescription": {
+                    "type": "string"
+                },
+                "templateName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "templateName"
+            ],
+            "createOnly": [
+                "templateName"
+            ]
+        },
         "aws-native:qldb:Stream": {
             "cf": "AWS::QLDB::Stream",
             "inputs": {
@@ -24861,6 +24754,397 @@
                 "ownerAccount",
                 "snapshotClusterIdentifier",
                 "snapshotIdentifier"
+            ]
+        },
+        "aws-native:redshift:EndpointAccess": {
+            "cf": "AWS::Redshift::EndpointAccess",
+            "inputs": {
+                "clusterIdentifier": {
+                    "type": "string",
+                    "description": "A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account"
+                },
+                "endpointName": {
+                    "type": "string",
+                    "description": "The name of the endpoint."
+                },
+                "resourceOwner": {
+                    "type": "string",
+                    "description": "The AWS account ID of the owner of the cluster."
+                },
+                "subnetGroupName": {
+                    "type": "string",
+                    "description": "The subnet group name where Amazon Redshift chooses to deploy the endpoint."
+                },
+                "vpcSecurityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of vpc security group ids to apply to the created endpoint access."
+                }
+            },
+            "outputs": {
+                "address": {
+                    "type": "string",
+                    "description": "The DNS address of the endpoint."
+                },
+                "clusterIdentifier": {
+                    "type": "string",
+                    "description": "A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account"
+                },
+                "endpointCreateTime": {
+                    "type": "string",
+                    "description": "The time (UTC) that the endpoint was created."
+                },
+                "endpointName": {
+                    "type": "string",
+                    "description": "The name of the endpoint."
+                },
+                "endpointStatus": {
+                    "type": "string",
+                    "description": "The status of the endpoint."
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "The port number on which the cluster accepts incoming connections."
+                },
+                "resourceOwner": {
+                    "type": "string",
+                    "description": "The AWS account ID of the owner of the cluster."
+                },
+                "subnetGroupName": {
+                    "type": "string",
+                    "description": "The subnet group name where Amazon Redshift chooses to deploy the endpoint."
+                },
+                "vpcEndpoint": {
+                    "$ref": "#/types/aws-native:redshift:VpcEndpointProperties",
+                    "description": "The connection endpoint for connecting to an Amazon Redshift cluster through the proxy."
+                },
+                "vpcSecurityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of vpc security group ids to apply to the created endpoint access."
+                },
+                "vpcSecurityGroups": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:redshift:EndpointAccessVpcSecurityGroup"
+                    },
+                    "description": "A list of Virtual Private Cloud (VPC) security groups to be associated with the endpoint."
+                }
+            },
+            "required": [
+                "endpointName",
+                "vpcSecurityGroupIds"
+            ],
+            "createOnly": [
+                "clusterIdentifier",
+                "endpointName",
+                "resourceOwner",
+                "subnetGroupName"
+            ]
+        },
+        "aws-native:redshift:EndpointAuthorization": {
+            "cf": "AWS::Redshift::EndpointAuthorization",
+            "inputs": {
+                "account": {
+                    "type": "string",
+                    "description": "The target AWS account ID to grant or revoke access for."
+                },
+                "clusterIdentifier": {
+                    "type": "string",
+                    "description": "The cluster identifier."
+                },
+                "force": {
+                    "type": "boolean",
+                    "description": " Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted."
+                },
+                "vpcIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The virtual private cloud (VPC) identifiers to grant or revoke access to."
+                }
+            },
+            "outputs": {
+                "account": {
+                    "type": "string",
+                    "description": "The target AWS account ID to grant or revoke access for."
+                },
+                "allowedAllVPCs": {
+                    "type": "boolean",
+                    "description": "Indicates whether all VPCs in the grantee account are allowed access to the cluster."
+                },
+                "allowedVPCs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The VPCs allowed access to the cluster."
+                },
+                "authorizeTime": {
+                    "type": "string",
+                    "description": "The time (UTC) when the authorization was created."
+                },
+                "clusterIdentifier": {
+                    "type": "string",
+                    "description": "The cluster identifier."
+                },
+                "clusterStatus": {
+                    "type": "string",
+                    "description": "The status of the cluster."
+                },
+                "endpointCount": {
+                    "type": "integer",
+                    "description": "The number of Redshift-managed VPC endpoints created for the authorization."
+                },
+                "force": {
+                    "type": "boolean",
+                    "description": " Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted."
+                },
+                "grantee": {
+                    "type": "string",
+                    "description": "The AWS account ID of the grantee of the cluster."
+                },
+                "grantor": {
+                    "type": "string",
+                    "description": "The AWS account ID of the cluster owner."
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The status of the authorization action."
+                },
+                "vpcIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The virtual private cloud (VPC) identifiers to grant or revoke access to."
+                }
+            },
+            "required": [
+                "account",
+                "clusterIdentifier"
+            ],
+            "createOnly": [
+                "account",
+                "clusterIdentifier"
+            ]
+        },
+        "aws-native:redshift:EventSubscription": {
+            "cf": "AWS::Redshift::EventSubscription",
+            "inputs": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "A boolean value; set to true to activate the subscription, and set to false to create the subscription but not activate it."
+                },
+                "eventCategories": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:redshift:EventSubscriptionEventCategoriesItem"
+                    },
+                    "description": "Specifies the Amazon Redshift event categories to be published by the event notification subscription."
+                },
+                "severity": {
+                    "$ref": "#/types/aws-native:redshift:EventSubscriptionSeverity",
+                    "description": "Specifies the Amazon Redshift event severity to be published by the event notification subscription."
+                },
+                "snsTopicArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the Amazon SNS topic used to transmit the event notifications."
+                },
+                "sourceIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of one or more identifiers of Amazon Redshift source objects."
+                },
+                "sourceType": {
+                    "$ref": "#/types/aws-native:redshift:EventSubscriptionSourceType",
+                    "description": "The type of source that will be generating the events."
+                },
+                "subscriptionName": {
+                    "type": "string",
+                    "description": "The name of the Amazon Redshift event notification subscription"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:redshift:EventSubscriptionTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                }
+            },
+            "outputs": {
+                "custSubscriptionId": {
+                    "type": "string",
+                    "description": "The name of the Amazon Redshift event notification subscription."
+                },
+                "customerAwsId": {
+                    "type": "string",
+                    "description": "The AWS account associated with the Amazon Redshift event notification subscription."
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "A boolean value; set to true to activate the subscription, and set to false to create the subscription but not activate it."
+                },
+                "eventCategories": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:redshift:EventSubscriptionEventCategoriesItem"
+                    },
+                    "description": "Specifies the Amazon Redshift event categories to be published by the event notification subscription."
+                },
+                "eventCategoriesList": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of Amazon Redshift event categories specified in the event notification subscription."
+                },
+                "severity": {
+                    "$ref": "#/types/aws-native:redshift:EventSubscriptionSeverity",
+                    "description": "Specifies the Amazon Redshift event severity to be published by the event notification subscription."
+                },
+                "snsTopicArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the Amazon SNS topic used to transmit the event notifications."
+                },
+                "sourceIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of one or more identifiers of Amazon Redshift source objects."
+                },
+                "sourceIdsList": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of the sources that publish events to the Amazon Redshift event notification subscription."
+                },
+                "sourceType": {
+                    "$ref": "#/types/aws-native:redshift:EventSubscriptionSourceType",
+                    "description": "The type of source that will be generating the events."
+                },
+                "status": {
+                    "$ref": "#/types/aws-native:redshift:EventSubscriptionStatus",
+                    "description": "The status of the Amazon Redshift event notification subscription."
+                },
+                "subscriptionCreationTime": {
+                    "type": "string",
+                    "description": "The date and time the Amazon Redshift event notification subscription was created."
+                },
+                "subscriptionName": {
+                    "type": "string",
+                    "description": "The name of the Amazon Redshift event notification subscription"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:redshift:EventSubscriptionTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                }
+            },
+            "required": [
+                "subscriptionName"
+            ],
+            "createOnly": [
+                "subscriptionName"
+            ]
+        },
+        "aws-native:redshift:ScheduledAction": {
+            "cf": "AWS::Redshift::ScheduledAction",
+            "inputs": {
+                "enable": {
+                    "type": "boolean",
+                    "description": "If true, the schedule is enabled. If false, the scheduled action does not trigger."
+                },
+                "endTime": {
+                    "type": "string",
+                    "description": "The end time in UTC of the scheduled action. After this time, the scheduled action does not trigger."
+                },
+                "iamRole": {
+                    "type": "string",
+                    "description": "The IAM role to assume to run the target action."
+                },
+                "schedule": {
+                    "type": "string",
+                    "description": "The schedule in `at( )` or `cron( )` format."
+                },
+                "scheduledActionDescription": {
+                    "type": "string",
+                    "description": "The description of the scheduled action."
+                },
+                "scheduledActionName": {
+                    "type": "string",
+                    "description": "The name of the scheduled action. The name must be unique within an account."
+                },
+                "startTime": {
+                    "type": "string",
+                    "description": "The start time in UTC of the scheduled action. Before this time, the scheduled action does not trigger."
+                },
+                "targetAction": {
+                    "$ref": "#/types/aws-native:redshift:ScheduledActionType",
+                    "description": "A JSON format string of the Amazon Redshift API operation with input parameters."
+                }
+            },
+            "outputs": {
+                "enable": {
+                    "type": "boolean",
+                    "description": "If true, the schedule is enabled. If false, the scheduled action does not trigger."
+                },
+                "endTime": {
+                    "type": "string",
+                    "description": "The end time in UTC of the scheduled action. After this time, the scheduled action does not trigger."
+                },
+                "iamRole": {
+                    "type": "string",
+                    "description": "The IAM role to assume to run the target action."
+                },
+                "nextInvocations": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of times when the scheduled action will run."
+                },
+                "schedule": {
+                    "type": "string",
+                    "description": "The schedule in `at( )` or `cron( )` format."
+                },
+                "scheduledActionDescription": {
+                    "type": "string",
+                    "description": "The description of the scheduled action."
+                },
+                "scheduledActionName": {
+                    "type": "string",
+                    "description": "The name of the scheduled action. The name must be unique within an account."
+                },
+                "startTime": {
+                    "type": "string",
+                    "description": "The start time in UTC of the scheduled action. Before this time, the scheduled action does not trigger."
+                },
+                "state": {
+                    "$ref": "#/types/aws-native:redshift:ScheduledActionState",
+                    "description": "The state of the scheduled action."
+                },
+                "targetAction": {
+                    "$ref": "#/types/aws-native:redshift:ScheduledActionType",
+                    "description": "A JSON format string of the Amazon Redshift API operation with input parameters."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "scheduledActionName"
+            },
+            "createOnly": [
+                "scheduledActionName"
             ]
         },
         "aws-native:rekognition:Project": {
@@ -35620,6 +35904,219 @@
                 }
             }
         },
+        "aws-native:cloudfront:ResponseHeadersPolicyAccessControlAllowHeaders": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "aws-native:cloudfront:ResponseHeadersPolicyAccessControlAllowMethods": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "aws-native:cloudfront:ResponseHeadersPolicyAccessControlAllowOrigins": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "aws-native:cloudfront:ResponseHeadersPolicyAccessControlExposeHeaders": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "aws-native:cloudfront:ResponseHeadersPolicyConfig": {
+            "type": "object",
+            "properties": {
+                "comment": {
+                    "type": "string"
+                },
+                "corsConfig": {
+                    "$ref": "#/types/aws-native:cloudfront:ResponseHeadersPolicyCorsConfig"
+                },
+                "customHeadersConfig": {
+                    "$ref": "#/types/aws-native:cloudfront:ResponseHeadersPolicyCustomHeadersConfig"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "securityHeadersConfig": {
+                    "$ref": "#/types/aws-native:cloudfront:ResponseHeadersPolicySecurityHeadersConfig"
+                }
+            }
+        },
+        "aws-native:cloudfront:ResponseHeadersPolicyContentSecurityPolicy": {
+            "type": "object",
+            "properties": {
+                "contentSecurityPolicy": {
+                    "type": "string"
+                },
+                "override": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:cloudfront:ResponseHeadersPolicyContentTypeOptions": {
+            "type": "object",
+            "properties": {
+                "override": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:cloudfront:ResponseHeadersPolicyCorsConfig": {
+            "type": "object",
+            "properties": {
+                "accessControlAllowCredentials": {
+                    "type": "boolean"
+                },
+                "accessControlAllowHeaders": {
+                    "$ref": "#/types/aws-native:cloudfront:ResponseHeadersPolicyAccessControlAllowHeaders"
+                },
+                "accessControlAllowMethods": {
+                    "$ref": "#/types/aws-native:cloudfront:ResponseHeadersPolicyAccessControlAllowMethods"
+                },
+                "accessControlAllowOrigins": {
+                    "$ref": "#/types/aws-native:cloudfront:ResponseHeadersPolicyAccessControlAllowOrigins"
+                },
+                "accessControlExposeHeaders": {
+                    "$ref": "#/types/aws-native:cloudfront:ResponseHeadersPolicyAccessControlExposeHeaders"
+                },
+                "accessControlMaxAgeSec": {
+                    "type": "integer"
+                },
+                "originOverride": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:cloudfront:ResponseHeadersPolicyCustomHeader": {
+            "type": "object",
+            "properties": {
+                "header": {
+                    "type": "string"
+                },
+                "override": {
+                    "type": "boolean"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:cloudfront:ResponseHeadersPolicyCustomHeadersConfig": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:cloudfront:ResponseHeadersPolicyCustomHeader"
+                    }
+                }
+            }
+        },
+        "aws-native:cloudfront:ResponseHeadersPolicyFrameOptions": {
+            "type": "object",
+            "properties": {
+                "frameOption": {
+                    "type": "string"
+                },
+                "override": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:cloudfront:ResponseHeadersPolicyReferrerPolicy": {
+            "type": "object",
+            "properties": {
+                "override": {
+                    "type": "boolean"
+                },
+                "referrerPolicy": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:cloudfront:ResponseHeadersPolicySecurityHeadersConfig": {
+            "type": "object",
+            "properties": {
+                "contentSecurityPolicy": {
+                    "$ref": "#/types/aws-native:cloudfront:ResponseHeadersPolicyContentSecurityPolicy"
+                },
+                "contentTypeOptions": {
+                    "$ref": "#/types/aws-native:cloudfront:ResponseHeadersPolicyContentTypeOptions"
+                },
+                "frameOptions": {
+                    "$ref": "#/types/aws-native:cloudfront:ResponseHeadersPolicyFrameOptions"
+                },
+                "referrerPolicy": {
+                    "$ref": "#/types/aws-native:cloudfront:ResponseHeadersPolicyReferrerPolicy"
+                },
+                "strictTransportSecurity": {
+                    "$ref": "#/types/aws-native:cloudfront:ResponseHeadersPolicyStrictTransportSecurity"
+                },
+                "xSSProtection": {
+                    "$ref": "#/types/aws-native:cloudfront:ResponseHeadersPolicyXSSProtection"
+                }
+            }
+        },
+        "aws-native:cloudfront:ResponseHeadersPolicyStrictTransportSecurity": {
+            "type": "object",
+            "properties": {
+                "accessControlMaxAgeSec": {
+                    "type": "integer"
+                },
+                "includeSubdomains": {
+                    "type": "boolean"
+                },
+                "override": {
+                    "type": "boolean"
+                },
+                "preload": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:cloudfront:ResponseHeadersPolicyXSSProtection": {
+            "type": "object",
+            "properties": {
+                "modeBlock": {
+                    "type": "boolean"
+                },
+                "override": {
+                    "type": "boolean"
+                },
+                "protection": {
+                    "type": "boolean"
+                },
+                "reportUri": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:cloudtrail:TrailDataResource": {
             "type": "object",
             "properties": {
@@ -37460,6 +37957,54 @@
                 }
             }
         },
+        "aws-native:datasync:LocationHDFSAuthenticationType": {
+            "type": "string"
+        },
+        "aws-native:datasync:LocationHDFSNameNode": {
+            "type": "object",
+            "properties": {
+                "hostname": {
+                    "type": "string",
+                    "description": "The DNS name or IP address of the Name Node in the customer's on premises HDFS cluster."
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "The port on which the Name Node is listening on for client requests."
+                }
+            }
+        },
+        "aws-native:datasync:LocationHDFSQopConfiguration": {
+            "type": "object",
+            "properties": {
+                "dataTransferProtection": {
+                    "$ref": "#/types/aws-native:datasync:LocationHDFSQopConfigurationDataTransferProtection",
+                    "description": "Configuration for Data Transfer Protection."
+                },
+                "rpcProtection": {
+                    "$ref": "#/types/aws-native:datasync:LocationHDFSQopConfigurationRpcProtection",
+                    "description": "Configuration for RPC Protection."
+                }
+            }
+        },
+        "aws-native:datasync:LocationHDFSQopConfigurationDataTransferProtection": {
+            "type": "string"
+        },
+        "aws-native:datasync:LocationHDFSQopConfigurationRpcProtection": {
+            "type": "string"
+        },
+        "aws-native:datasync:LocationHDFSTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
         "aws-native:datasync:LocationNFSMountOptions": {
             "type": "object",
             "properties": {
@@ -38417,6 +38962,14 @@
         "aws-native:ec2:EC2FleetInstanceRequirementsRequestLocalStorageTypesItem": {
             "type": "string"
         },
+        "aws-native:ec2:EC2FleetMaintenanceStrategies": {
+            "type": "object",
+            "properties": {
+                "capacityRebalance": {
+                    "$ref": "#/types/aws-native:ec2:EC2FleetCapacityRebalance"
+                }
+            }
+        },
         "aws-native:ec2:EC2FleetMemoryGiBPerVCpuRequest": {
             "type": "object",
             "properties": {
@@ -38515,7 +39068,7 @@
                     "type": "integer"
                 },
                 "maintenanceStrategies": {
-                    "$ref": "#/types/aws-native:ec2:EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties"
+                    "$ref": "#/types/aws-native:ec2:EC2FleetMaintenanceStrategies"
                 },
                 "maxTotalPrice": {
                     "type": "string"
@@ -38536,14 +39089,6 @@
         },
         "aws-native:ec2:EC2FleetSpotOptionsRequestInstanceInterruptionBehavior": {
             "type": "string"
-        },
-        "aws-native:ec2:EC2FleetSpotOptionsRequestMaintenanceStrategiesProperties": {
-            "type": "object",
-            "properties": {
-                "capacityRebalance": {
-                    "$ref": "#/types/aws-native:ec2:EC2FleetCapacityRebalance"
-                }
-            }
         },
         "aws-native:ec2:EC2FleetTag": {
             "type": "object",
@@ -39074,36 +39619,6 @@
             "type": "string"
         },
         "aws-native:ec2:NetworkInsightsPathTag": {
-            "type": "object",
-            "properties": {
-                "key": {
-                    "type": "string"
-                },
-                "value": {
-                    "type": "string"
-                }
-            }
-        },
-        "aws-native:ec2:NetworkInterfaceInstanceIpv6Address": {
-            "type": "object",
-            "properties": {
-                "ipv6Address": {
-                    "type": "string"
-                }
-            }
-        },
-        "aws-native:ec2:NetworkInterfacePrivateIpAddressSpecification": {
-            "type": "object",
-            "properties": {
-                "primary": {
-                    "type": "boolean"
-                },
-                "privateIpAddress": {
-                    "type": "string"
-                }
-            }
-        },
-        "aws-native:ec2:NetworkInterfaceTag": {
             "type": "object",
             "properties": {
                 "key": {
@@ -39831,17 +40346,6 @@
                 },
                 "min": {
                     "type": "integer"
-                }
-            }
-        },
-        "aws-native:ec2:SubnetTag": {
-            "type": "object",
-            "properties": {
-                "key": {
-                    "type": "string"
-                },
-                "value": {
-                    "type": "string"
                 }
             }
         },
@@ -44286,6 +44790,9 @@
                 }
             }
         },
+        "aws-native:iot:LoggingDefaultLogLevel": {
+            "type": "string"
+        },
         "aws-native:iot:MitigationActionActionParams": {
             "type": "object",
             "properties": {
@@ -45248,318 +45755,6 @@
                 },
                 "value": {
                     "type": "string"
-                }
-            }
-        },
-        "aws-native:iotanalytics:ChannelCustomerManagedS3": {
-            "type": "object",
-            "properties": {
-                "bucket": {
-                    "type": "string"
-                },
-                "keyPrefix": {
-                    "type": "string"
-                },
-                "roleArn": {
-                    "type": "string"
-                }
-            }
-        },
-        "aws-native:iotanalytics:ChannelRetentionPeriod": {
-            "type": "object",
-            "properties": {
-                "numberOfDays": {
-                    "type": "integer"
-                },
-                "unlimited": {
-                    "type": "boolean"
-                }
-            }
-        },
-        "aws-native:iotanalytics:ChannelServiceManagedS3": {
-            "type": "object"
-        },
-        "aws-native:iotanalytics:ChannelStorage": {
-            "type": "object",
-            "properties": {
-                "customerManagedS3": {
-                    "$ref": "#/types/aws-native:iotanalytics:ChannelCustomerManagedS3"
-                },
-                "serviceManagedS3": {
-                    "$ref": "#/types/aws-native:iotanalytics:ChannelServiceManagedS3"
-                }
-            }
-        },
-        "aws-native:iotanalytics:ChannelTag": {
-            "type": "object",
-            "properties": {
-                "key": {
-                    "type": "string"
-                },
-                "value": {
-                    "type": "string"
-                }
-            }
-        },
-        "aws-native:iotanalytics:DatasetAction": {
-            "type": "object",
-            "properties": {
-                "actionName": {
-                    "type": "string"
-                },
-                "containerAction": {
-                    "$ref": "#/types/aws-native:iotanalytics:DatasetContainerAction"
-                },
-                "queryAction": {
-                    "$ref": "#/types/aws-native:iotanalytics:DatasetQueryAction"
-                }
-            }
-        },
-        "aws-native:iotanalytics:DatasetContainerAction": {
-            "type": "object",
-            "properties": {
-                "executionRoleArn": {
-                    "type": "string"
-                },
-                "image": {
-                    "type": "string"
-                },
-                "resourceConfiguration": {
-                    "$ref": "#/types/aws-native:iotanalytics:DatasetResourceConfiguration"
-                },
-                "variables": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:iotanalytics:DatasetVariable"
-                    }
-                }
-            }
-        },
-        "aws-native:iotanalytics:DatasetContentDeliveryRule": {
-            "type": "object",
-            "properties": {
-                "destination": {
-                    "$ref": "#/types/aws-native:iotanalytics:DatasetContentDeliveryRuleDestination"
-                },
-                "entryName": {
-                    "type": "string"
-                }
-            }
-        },
-        "aws-native:iotanalytics:DatasetContentDeliveryRuleDestination": {
-            "type": "object",
-            "properties": {
-                "iotEventsDestinationConfiguration": {
-                    "$ref": "#/types/aws-native:iotanalytics:DatasetIotEventsDestinationConfiguration"
-                },
-                "s3DestinationConfiguration": {
-                    "$ref": "#/types/aws-native:iotanalytics:DatasetS3DestinationConfiguration"
-                }
-            }
-        },
-        "aws-native:iotanalytics:DatasetContentVersionValue": {
-            "type": "object",
-            "properties": {
-                "datasetName": {
-                    "type": "string"
-                }
-            }
-        },
-        "aws-native:iotanalytics:DatasetDeltaTime": {
-            "type": "object",
-            "properties": {
-                "offsetSeconds": {
-                    "type": "integer"
-                },
-                "timeExpression": {
-                    "type": "string"
-                }
-            }
-        },
-        "aws-native:iotanalytics:DatasetDeltaTimeSessionWindowConfiguration": {
-            "type": "object",
-            "properties": {
-                "timeoutInMinutes": {
-                    "type": "integer"
-                }
-            }
-        },
-        "aws-native:iotanalytics:DatasetFilter": {
-            "type": "object",
-            "properties": {
-                "deltaTime": {
-                    "$ref": "#/types/aws-native:iotanalytics:DatasetDeltaTime"
-                }
-            }
-        },
-        "aws-native:iotanalytics:DatasetGlueConfiguration": {
-            "type": "object",
-            "properties": {
-                "databaseName": {
-                    "type": "string"
-                },
-                "tableName": {
-                    "type": "string"
-                }
-            }
-        },
-        "aws-native:iotanalytics:DatasetIotEventsDestinationConfiguration": {
-            "type": "object",
-            "properties": {
-                "inputName": {
-                    "type": "string"
-                },
-                "roleArn": {
-                    "type": "string"
-                }
-            }
-        },
-        "aws-native:iotanalytics:DatasetLateDataRule": {
-            "type": "object",
-            "properties": {
-                "ruleConfiguration": {
-                    "$ref": "#/types/aws-native:iotanalytics:DatasetLateDataRuleConfiguration"
-                },
-                "ruleName": {
-                    "type": "string"
-                }
-            }
-        },
-        "aws-native:iotanalytics:DatasetLateDataRuleConfiguration": {
-            "type": "object",
-            "properties": {
-                "deltaTimeSessionWindowConfiguration": {
-                    "$ref": "#/types/aws-native:iotanalytics:DatasetDeltaTimeSessionWindowConfiguration"
-                }
-            }
-        },
-        "aws-native:iotanalytics:DatasetOutputFileUriValue": {
-            "type": "object",
-            "properties": {
-                "fileName": {
-                    "type": "string"
-                }
-            }
-        },
-        "aws-native:iotanalytics:DatasetQueryAction": {
-            "type": "object",
-            "properties": {
-                "filters": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:iotanalytics:DatasetFilter"
-                    }
-                },
-                "sqlQuery": {
-                    "type": "string"
-                }
-            }
-        },
-        "aws-native:iotanalytics:DatasetResourceConfiguration": {
-            "type": "object",
-            "properties": {
-                "computeType": {
-                    "type": "string"
-                },
-                "volumeSizeInGB": {
-                    "type": "integer"
-                }
-            }
-        },
-        "aws-native:iotanalytics:DatasetRetentionPeriod": {
-            "type": "object",
-            "properties": {
-                "numberOfDays": {
-                    "type": "integer"
-                },
-                "unlimited": {
-                    "type": "boolean"
-                }
-            }
-        },
-        "aws-native:iotanalytics:DatasetS3DestinationConfiguration": {
-            "type": "object",
-            "properties": {
-                "bucket": {
-                    "type": "string"
-                },
-                "glueConfiguration": {
-                    "$ref": "#/types/aws-native:iotanalytics:DatasetGlueConfiguration"
-                },
-                "key": {
-                    "type": "string"
-                },
-                "roleArn": {
-                    "type": "string"
-                }
-            }
-        },
-        "aws-native:iotanalytics:DatasetSchedule": {
-            "type": "object",
-            "properties": {
-                "scheduleExpression": {
-                    "type": "string"
-                }
-            }
-        },
-        "aws-native:iotanalytics:DatasetTag": {
-            "type": "object",
-            "properties": {
-                "key": {
-                    "type": "string"
-                },
-                "value": {
-                    "type": "string"
-                }
-            }
-        },
-        "aws-native:iotanalytics:DatasetTrigger": {
-            "type": "object",
-            "properties": {
-                "schedule": {
-                    "$ref": "#/types/aws-native:iotanalytics:DatasetSchedule"
-                },
-                "triggeringDataset": {
-                    "$ref": "#/types/aws-native:iotanalytics:DatasetTriggeringDataset"
-                }
-            }
-        },
-        "aws-native:iotanalytics:DatasetTriggeringDataset": {
-            "type": "object",
-            "properties": {
-                "datasetName": {
-                    "type": "string"
-                }
-            }
-        },
-        "aws-native:iotanalytics:DatasetVariable": {
-            "type": "object",
-            "properties": {
-                "datasetContentVersionValue": {
-                    "$ref": "#/types/aws-native:iotanalytics:DatasetContentVersionValue"
-                },
-                "doubleValue": {
-                    "type": "number"
-                },
-                "outputFileUriValue": {
-                    "$ref": "#/types/aws-native:iotanalytics:DatasetOutputFileUriValue"
-                },
-                "stringValue": {
-                    "type": "string"
-                },
-                "variableName": {
-                    "type": "string"
-                }
-            }
-        },
-        "aws-native:iotanalytics:DatasetVersioningConfiguration": {
-            "type": "object",
-            "properties": {
-                "maxVersions": {
-                    "type": "integer"
-                },
-                "unlimited": {
-                    "type": "boolean"
                 }
             }
         },
@@ -52141,6 +52336,117 @@
         "aws-native:panorama:PackageVersionStatus": {
             "type": "string"
         },
+        "aws-native:pinpoint:InAppTemplateAlignment": {
+            "type": "string"
+        },
+        "aws-native:pinpoint:InAppTemplateBodyConfig": {
+            "type": "object",
+            "properties": {
+                "alignment": {
+                    "$ref": "#/types/aws-native:pinpoint:InAppTemplateAlignment"
+                },
+                "body": {
+                    "type": "string"
+                },
+                "textColor": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pinpoint:InAppTemplateButtonAction": {
+            "type": "string"
+        },
+        "aws-native:pinpoint:InAppTemplateButtonConfig": {
+            "type": "object",
+            "properties": {
+                "android": {
+                    "$ref": "#/types/aws-native:pinpoint:InAppTemplateOverrideButtonConfiguration"
+                },
+                "defaultConfig": {
+                    "$ref": "#/types/aws-native:pinpoint:InAppTemplateDefaultButtonConfiguration"
+                },
+                "iOS": {
+                    "$ref": "#/types/aws-native:pinpoint:InAppTemplateOverrideButtonConfiguration"
+                },
+                "web": {
+                    "$ref": "#/types/aws-native:pinpoint:InAppTemplateOverrideButtonConfiguration"
+                }
+            }
+        },
+        "aws-native:pinpoint:InAppTemplateDefaultButtonConfiguration": {
+            "type": "object",
+            "properties": {
+                "backgroundColor": {
+                    "type": "string"
+                },
+                "borderRadius": {
+                    "type": "integer"
+                },
+                "buttonAction": {
+                    "$ref": "#/types/aws-native:pinpoint:InAppTemplateButtonAction"
+                },
+                "link": {
+                    "type": "string"
+                },
+                "text": {
+                    "type": "string"
+                },
+                "textColor": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pinpoint:InAppTemplateHeaderConfig": {
+            "type": "object",
+            "properties": {
+                "alignment": {
+                    "$ref": "#/types/aws-native:pinpoint:InAppTemplateAlignment"
+                },
+                "header": {
+                    "type": "string"
+                },
+                "textColor": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pinpoint:InAppTemplateInAppMessageContent": {
+            "type": "object",
+            "properties": {
+                "backgroundColor": {
+                    "type": "string"
+                },
+                "bodyConfig": {
+                    "$ref": "#/types/aws-native:pinpoint:InAppTemplateBodyConfig"
+                },
+                "headerConfig": {
+                    "$ref": "#/types/aws-native:pinpoint:InAppTemplateHeaderConfig"
+                },
+                "imageUrl": {
+                    "type": "string"
+                },
+                "primaryBtn": {
+                    "$ref": "#/types/aws-native:pinpoint:InAppTemplateButtonConfig"
+                },
+                "secondaryBtn": {
+                    "$ref": "#/types/aws-native:pinpoint:InAppTemplateButtonConfig"
+                }
+            }
+        },
+        "aws-native:pinpoint:InAppTemplateLayout": {
+            "type": "string"
+        },
+        "aws-native:pinpoint:InAppTemplateOverrideButtonConfiguration": {
+            "type": "object",
+            "properties": {
+                "buttonAction": {
+                    "$ref": "#/types/aws-native:pinpoint:InAppTemplateButtonAction"
+                },
+                "link": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:qldb:StreamKinesisConfiguration": {
             "type": "object",
             "properties": {
@@ -53842,6 +54148,138 @@
                 "value": {
                     "type": "string",
                     "description": "The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
+        "aws-native:redshift:EndpointAccessNetworkInterface": {
+            "type": "object",
+            "properties": {
+                "availabilityZone": {
+                    "type": "string",
+                    "description": "The Availability Zone."
+                },
+                "networkInterfaceId": {
+                    "type": "string",
+                    "description": "The network interface identifier."
+                },
+                "privateIpAddress": {
+                    "type": "string",
+                    "description": "The IPv4 address of the network interface within the subnet."
+                },
+                "subnetId": {
+                    "type": "string",
+                    "description": "The subnet identifier."
+                }
+            }
+        },
+        "aws-native:redshift:EndpointAccessVpcSecurityGroup": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string",
+                    "description": "The status of the VPC security group."
+                },
+                "vpcSecurityGroupId": {
+                    "type": "string",
+                    "description": "The identifier of the VPC security group."
+                }
+            }
+        },
+        "aws-native:redshift:EventSubscriptionEventCategoriesItem": {
+            "type": "string"
+        },
+        "aws-native:redshift:EventSubscriptionSeverity": {
+            "type": "string"
+        },
+        "aws-native:redshift:EventSubscriptionSourceType": {
+            "type": "string"
+        },
+        "aws-native:redshift:EventSubscriptionStatus": {
+            "type": "string"
+        },
+        "aws-native:redshift:EventSubscriptionTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
+        "aws-native:redshift:ScheduledActionPauseClusterMessage": {
+            "type": "object",
+            "properties": {
+                "clusterIdentifier": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:redshift:ScheduledActionResizeClusterMessage": {
+            "type": "object",
+            "properties": {
+                "classic": {
+                    "type": "boolean"
+                },
+                "clusterIdentifier": {
+                    "type": "string"
+                },
+                "clusterType": {
+                    "type": "string"
+                },
+                "nodeType": {
+                    "type": "string"
+                },
+                "numberOfNodes": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:redshift:ScheduledActionResumeClusterMessage": {
+            "type": "object",
+            "properties": {
+                "clusterIdentifier": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:redshift:ScheduledActionState": {
+            "type": "string"
+        },
+        "aws-native:redshift:ScheduledActionType": {
+            "type": "object",
+            "properties": {
+                "pauseCluster": {
+                    "$ref": "#/types/aws-native:redshift:ScheduledActionPauseClusterMessage"
+                },
+                "resizeCluster": {
+                    "$ref": "#/types/aws-native:redshift:ScheduledActionResizeClusterMessage"
+                },
+                "resumeCluster": {
+                    "$ref": "#/types/aws-native:redshift:ScheduledActionResumeClusterMessage"
+                }
+            }
+        },
+        "aws-native:redshift:VpcEndpointProperties": {
+            "type": "object",
+            "properties": {
+                "networkInterfaces": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:redshift:EndpointAccessNetworkInterface"
+                    },
+                    "description": "One or more network interfaces of the endpoint. Also known as an interface endpoint."
+                },
+                "vpcEndpointId": {
+                    "type": "string",
+                    "description": "The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy."
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "The VPC identifier that the endpoint is associated."
                 }
             }
         },
