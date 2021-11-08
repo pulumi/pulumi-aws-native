@@ -30,7 +30,7 @@ snapshot:
 changelog:
   skip: true
 release:
-  name_template:"{{.ProjectName}}-v{{.Version}}"
+  name_template: "{{.ProjectName}}-v{{.Version}}"
 project_name: cf2pulumi
 brews:
   -
