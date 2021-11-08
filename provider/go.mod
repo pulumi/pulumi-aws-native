@@ -34,6 +34,7 @@ require (
 	github.com/stretchr/testify v1.7.0
 	github.com/zclconf/go-cty v1.3.1
 	google.golang.org/grpc v1.37.0
+	google.golang.org/protobuf v1.26.0
 )
 
 replace github.com/lestrrat-go/jsschema => github.com/mikhailshilkov/jsschema v0.0.0-20210924145243-fc93fd28ee1b
