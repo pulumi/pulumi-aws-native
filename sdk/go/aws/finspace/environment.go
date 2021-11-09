@@ -16,6 +16,8 @@ type Environment struct {
 
 	// AWS account ID associated with the Environment
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
+	// ARNs of FinSpace Data Bundles to install
+	DataBundles pulumi.StringArrayOutput `pulumi:"dataBundles"`
 	// ID for FinSpace created account used to store Environment artifacts
 	DedicatedServiceAccountId pulumi.StringOutput `pulumi:"dedicatedServiceAccountId"`
 	// Description of the Environment
@@ -36,7 +38,8 @@ type Environment struct {
 	// SageMaker Studio Domain URL associated with the Environment
 	SageMakerStudioDomainUrl pulumi.StringOutput `pulumi:"sageMakerStudioDomainUrl"`
 	// State of the Environment
-	Status EnvironmentStatusOutput `pulumi:"status"`
+	Status              EnvironmentStatusOutput                 `pulumi:"status"`
+	SuperuserParameters EnvironmentSuperuserParametersPtrOutput `pulumi:"superuserParameters"`
 }
 
 // NewEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -78,6 +81,8 @@ func (EnvironmentState) ElementType() reflect.Type {
 }
 
 type environmentArgs struct {
+	// ARNs of FinSpace Data Bundles to install
+	DataBundles []string `pulumi:"dataBundles"`
 	// Description of the Environment
 	Description *string `pulumi:"description"`
 	// Federation mode used with the Environment
@@ -86,11 +91,14 @@ type environmentArgs struct {
 	// KMS key used to encrypt customer data within FinSpace Environment infrastructure
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Name of the Environment
-	Name *string `pulumi:"name"`
+	Name                *string                         `pulumi:"name"`
+	SuperuserParameters *EnvironmentSuperuserParameters `pulumi:"superuserParameters"`
 }
 
 // The set of arguments for constructing a Environment resource.
 type EnvironmentArgs struct {
+	// ARNs of FinSpace Data Bundles to install
+	DataBundles pulumi.StringArrayInput
 	// Description of the Environment
 	Description pulumi.StringPtrInput
 	// Federation mode used with the Environment
@@ -99,7 +107,8 @@ type EnvironmentArgs struct {
 	// KMS key used to encrypt customer data within FinSpace Environment infrastructure
 	KmsKeyId pulumi.StringPtrInput
 	// Name of the Environment
-	Name pulumi.StringPtrInput
+	Name                pulumi.StringPtrInput
+	SuperuserParameters EnvironmentSuperuserParametersPtrInput
 }
 
 func (EnvironmentArgs) ElementType() reflect.Type {

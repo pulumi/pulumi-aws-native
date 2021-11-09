@@ -70,32 +70,30 @@ class AccessPointObjectLambdaConfigurationArgs:
 @pulumi.input_type
 class AccessPointTransformationConfigurationArgs:
     def __init__(__self__, *,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 content_transformation: Optional[Any] = None):
+                 actions: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 content_transformation: Any):
         """
         Configuration to define what content transformation will be applied on which S3 Action.
         """
-        if actions is not None:
-            pulumi.set(__self__, "actions", actions)
-        if content_transformation is not None:
-            pulumi.set(__self__, "content_transformation", content_transformation)
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "content_transformation", content_transformation)
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "actions", value)
 
     @property
     @pulumi.getter(name="contentTransformation")
-    def content_transformation(self) -> Optional[Any]:
+    def content_transformation(self) -> Any:
         return pulumi.get(self, "content_transformation")
 
     @content_transformation.setter
-    def content_transformation(self, value: Optional[Any]):
+    def content_transformation(self, value: Any):
         pulumi.set(self, "content_transformation", value)
 
 

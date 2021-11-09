@@ -47,7 +47,7 @@ export class AccessPoint extends pulumi.CustomResource {
     /**
      * The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
      */
-    public readonly objectLambdaConfiguration!: pulumi.Output<outputs.s3objectlambda.AccessPointObjectLambdaConfiguration | undefined>;
+    public readonly objectLambdaConfiguration!: pulumi.Output<outputs.s3objectlambda.AccessPointObjectLambdaConfiguration>;
     public /*out*/ readonly policyStatus!: pulumi.Output<outputs.s3objectlambda.PolicyStatusProperties>;
     /**
      * The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
@@ -61,10 +61,13 @@ export class AccessPoint extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AccessPointArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AccessPointArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.objectLambdaConfiguration === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'objectLambdaConfiguration'");
+            }
             inputs["name"] = args ? args.name : undefined;
             inputs["objectLambdaConfiguration"] = args ? args.objectLambdaConfiguration : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -97,5 +100,5 @@ export interface AccessPointArgs {
     /**
      * The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
      */
-    objectLambdaConfiguration?: pulumi.Input<inputs.s3objectlambda.AccessPointObjectLambdaConfigurationArgs>;
+    objectLambdaConfiguration: pulumi.Input<inputs.s3objectlambda.AccessPointObjectLambdaConfigurationArgs>;
 }

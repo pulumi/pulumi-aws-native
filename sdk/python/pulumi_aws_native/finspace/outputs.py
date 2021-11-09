@@ -11,6 +11,7 @@ from ._enums import *
 
 __all__ = [
     'EnvironmentFederationParameters',
+    'EnvironmentSuperuserParameters',
 ]
 
 @pulumi.output_type
@@ -121,5 +122,73 @@ class EnvironmentFederationParameters(dict):
         SAML metadata URL to link with the Environment
         """
         return pulumi.get(self, "saml_metadata_url")
+
+
+@pulumi.output_type
+class EnvironmentSuperuserParameters(dict):
+    """
+    Parameters of the first Superuser for the FinSpace Environment
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailAddress":
+            suggest = "email_address"
+        elif key == "firstName":
+            suggest = "first_name"
+        elif key == "lastName":
+            suggest = "last_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentSuperuserParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentSuperuserParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentSuperuserParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 email_address: Optional[str] = None,
+                 first_name: Optional[str] = None,
+                 last_name: Optional[str] = None):
+        """
+        Parameters of the first Superuser for the FinSpace Environment
+        :param str email_address: Email address
+        :param str first_name: First name
+        :param str last_name: Last name
+        """
+        if email_address is not None:
+            pulumi.set(__self__, "email_address", email_address)
+        if first_name is not None:
+            pulumi.set(__self__, "first_name", first_name)
+        if last_name is not None:
+            pulumi.set(__self__, "last_name", last_name)
+
+    @property
+    @pulumi.getter(name="emailAddress")
+    def email_address(self) -> Optional[str]:
+        """
+        Email address
+        """
+        return pulumi.get(self, "email_address")
+
+    @property
+    @pulumi.getter(name="firstName")
+    def first_name(self) -> Optional[str]:
+        """
+        First name
+        """
+        return pulumi.get(self, "first_name")
+
+    @property
+    @pulumi.getter(name="lastName")
+    def last_name(self) -> Optional[str]:
+        """
+        Last name
+        """
+        return pulumi.get(self, "last_name")
 
 

@@ -11,6 +11,7 @@ from ._enums import *
 
 __all__ = [
     'EnvironmentFederationParametersArgs',
+    'EnvironmentSuperuserParametersArgs',
 ]
 
 @pulumi.input_type
@@ -115,5 +116,61 @@ class EnvironmentFederationParametersArgs:
     @saml_metadata_url.setter
     def saml_metadata_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "saml_metadata_url", value)
+
+
+@pulumi.input_type
+class EnvironmentSuperuserParametersArgs:
+    def __init__(__self__, *,
+                 email_address: Optional[pulumi.Input[str]] = None,
+                 first_name: Optional[pulumi.Input[str]] = None,
+                 last_name: Optional[pulumi.Input[str]] = None):
+        """
+        Parameters of the first Superuser for the FinSpace Environment
+        :param pulumi.Input[str] email_address: Email address
+        :param pulumi.Input[str] first_name: First name
+        :param pulumi.Input[str] last_name: Last name
+        """
+        if email_address is not None:
+            pulumi.set(__self__, "email_address", email_address)
+        if first_name is not None:
+            pulumi.set(__self__, "first_name", first_name)
+        if last_name is not None:
+            pulumi.set(__self__, "last_name", last_name)
+
+    @property
+    @pulumi.getter(name="emailAddress")
+    def email_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        Email address
+        """
+        return pulumi.get(self, "email_address")
+
+    @email_address.setter
+    def email_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "email_address", value)
+
+    @property
+    @pulumi.getter(name="firstName")
+    def first_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        First name
+        """
+        return pulumi.get(self, "first_name")
+
+    @first_name.setter
+    def first_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "first_name", value)
+
+    @property
+    @pulumi.getter(name="lastName")
+    def last_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Last name
+        """
+        return pulumi.get(self, "last_name")
+
+    @last_name.setter
+    def last_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_name", value)
 
 

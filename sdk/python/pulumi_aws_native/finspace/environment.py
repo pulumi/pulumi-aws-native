@@ -16,18 +16,23 @@ __all__ = ['EnvironmentArgs', 'Environment']
 @pulumi.input_type
 class EnvironmentArgs:
     def __init__(__self__, *,
+                 data_bundles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  federation_mode: Optional[pulumi.Input['EnvironmentFederationMode']] = None,
                  federation_parameters: Optional[pulumi.Input['EnvironmentFederationParametersArgs']] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 superuser_parameters: Optional[pulumi.Input['EnvironmentSuperuserParametersArgs']] = None):
         """
         The set of arguments for constructing a Environment resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] data_bundles: ARNs of FinSpace Data Bundles to install
         :param pulumi.Input[str] description: Description of the Environment
         :param pulumi.Input['EnvironmentFederationMode'] federation_mode: Federation mode used with the Environment
         :param pulumi.Input[str] kms_key_id: KMS key used to encrypt customer data within FinSpace Environment infrastructure
         :param pulumi.Input[str] name: Name of the Environment
         """
+        if data_bundles is not None:
+            pulumi.set(__self__, "data_bundles", data_bundles)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if federation_mode is not None:
@@ -38,6 +43,20 @@ class EnvironmentArgs:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if superuser_parameters is not None:
+            pulumi.set(__self__, "superuser_parameters", superuser_parameters)
+
+    @property
+    @pulumi.getter(name="dataBundles")
+    def data_bundles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        ARNs of FinSpace Data Bundles to install
+        """
+        return pulumi.get(self, "data_bundles")
+
+    @data_bundles.setter
+    def data_bundles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "data_bundles", value)
 
     @property
     @pulumi.getter
@@ -96,23 +115,35 @@ class EnvironmentArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="superuserParameters")
+    def superuser_parameters(self) -> Optional[pulumi.Input['EnvironmentSuperuserParametersArgs']]:
+        return pulumi.get(self, "superuser_parameters")
+
+    @superuser_parameters.setter
+    def superuser_parameters(self, value: Optional[pulumi.Input['EnvironmentSuperuserParametersArgs']]):
+        pulumi.set(self, "superuser_parameters", value)
+
 
 class Environment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 data_bundles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  federation_mode: Optional[pulumi.Input['EnvironmentFederationMode']] = None,
                  federation_parameters: Optional[pulumi.Input[pulumi.InputType['EnvironmentFederationParametersArgs']]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 superuser_parameters: Optional[pulumi.Input[pulumi.InputType['EnvironmentSuperuserParametersArgs']]] = None,
                  __props__=None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] data_bundles: ARNs of FinSpace Data Bundles to install
         :param pulumi.Input[str] description: Description of the Environment
         :param pulumi.Input['EnvironmentFederationMode'] federation_mode: Federation mode used with the Environment
         :param pulumi.Input[str] kms_key_id: KMS key used to encrypt customer data within FinSpace Environment infrastructure
@@ -142,11 +173,13 @@ class Environment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 data_bundles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  federation_mode: Optional[pulumi.Input['EnvironmentFederationMode']] = None,
                  federation_parameters: Optional[pulumi.Input[pulumi.InputType['EnvironmentFederationParametersArgs']]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 superuser_parameters: Optional[pulumi.Input[pulumi.InputType['EnvironmentSuperuserParametersArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -159,11 +192,13 @@ class Environment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EnvironmentArgs.__new__(EnvironmentArgs)
 
+            __props__.__dict__["data_bundles"] = data_bundles
             __props__.__dict__["description"] = description
             __props__.__dict__["federation_mode"] = federation_mode
             __props__.__dict__["federation_parameters"] = federation_parameters
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["name"] = name
+            __props__.__dict__["superuser_parameters"] = superuser_parameters
             __props__.__dict__["aws_account_id"] = None
             __props__.__dict__["dedicated_service_account_id"] = None
             __props__.__dict__["environment_arn"] = None
@@ -194,6 +229,7 @@ class Environment(pulumi.CustomResource):
         __props__ = EnvironmentArgs.__new__(EnvironmentArgs)
 
         __props__.__dict__["aws_account_id"] = None
+        __props__.__dict__["data_bundles"] = None
         __props__.__dict__["dedicated_service_account_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["environment_arn"] = None
@@ -205,6 +241,7 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["sage_maker_studio_domain_url"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["superuser_parameters"] = None
         return Environment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -214,6 +251,14 @@ class Environment(pulumi.CustomResource):
         AWS account ID associated with the Environment
         """
         return pulumi.get(self, "aws_account_id")
+
+    @property
+    @pulumi.getter(name="dataBundles")
+    def data_bundles(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        ARNs of FinSpace Data Bundles to install
+        """
+        return pulumi.get(self, "data_bundles")
 
     @property
     @pulumi.getter(name="dedicatedServiceAccountId")
@@ -299,4 +344,9 @@ class Environment(pulumi.CustomResource):
         State of the Environment
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="superuserParameters")
+    def superuser_parameters(self) -> pulumi.Output[Optional['outputs.EnvironmentSuperuserParameters']]:
+        return pulumi.get(self, "superuser_parameters")
 

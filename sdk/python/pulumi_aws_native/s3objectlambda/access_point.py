@@ -15,17 +15,28 @@ __all__ = ['AccessPointArgs', 'AccessPoint']
 @pulumi.input_type
 class AccessPointArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None,
-                 object_lambda_configuration: Optional[pulumi.Input['AccessPointObjectLambdaConfigurationArgs']] = None):
+                 object_lambda_configuration: pulumi.Input['AccessPointObjectLambdaConfigurationArgs'],
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AccessPoint resource.
-        :param pulumi.Input[str] name: The name you want to assign to this Object lambda Access Point.
         :param pulumi.Input['AccessPointObjectLambdaConfigurationArgs'] object_lambda_configuration: The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
+        :param pulumi.Input[str] name: The name you want to assign to this Object lambda Access Point.
         """
+        pulumi.set(__self__, "object_lambda_configuration", object_lambda_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if object_lambda_configuration is not None:
-            pulumi.set(__self__, "object_lambda_configuration", object_lambda_configuration)
+
+    @property
+    @pulumi.getter(name="objectLambdaConfiguration")
+    def object_lambda_configuration(self) -> pulumi.Input['AccessPointObjectLambdaConfigurationArgs']:
+        """
+        The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
+        """
+        return pulumi.get(self, "object_lambda_configuration")
+
+    @object_lambda_configuration.setter
+    def object_lambda_configuration(self, value: pulumi.Input['AccessPointObjectLambdaConfigurationArgs']):
+        pulumi.set(self, "object_lambda_configuration", value)
 
     @property
     @pulumi.getter
@@ -38,18 +49,6 @@ class AccessPointArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="objectLambdaConfiguration")
-    def object_lambda_configuration(self) -> Optional[pulumi.Input['AccessPointObjectLambdaConfigurationArgs']]:
-        """
-        The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
-        """
-        return pulumi.get(self, "object_lambda_configuration")
-
-    @object_lambda_configuration.setter
-    def object_lambda_configuration(self, value: Optional[pulumi.Input['AccessPointObjectLambdaConfigurationArgs']]):
-        pulumi.set(self, "object_lambda_configuration", value)
 
 
 class AccessPoint(pulumi.CustomResource):
@@ -72,7 +71,7 @@ class AccessPoint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[AccessPointArgs] = None,
+                 args: AccessPointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::S3ObjectLambda::AccessPoint resource is an Amazon S3ObjectLambda resource type that you can use to add computation to S3 actions
@@ -107,6 +106,8 @@ class AccessPoint(pulumi.CustomResource):
             __props__ = AccessPointArgs.__new__(AccessPointArgs)
 
             __props__.__dict__["name"] = name
+            if object_lambda_configuration is None and not opts.urn:
+                raise TypeError("Missing required property 'object_lambda_configuration'")
             __props__.__dict__["object_lambda_configuration"] = object_lambda_configuration
             __props__.__dict__["arn"] = None
             __props__.__dict__["creation_date"] = None
@@ -165,7 +166,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="objectLambdaConfiguration")
-    def object_lambda_configuration(self) -> pulumi.Output[Optional['outputs.AccessPointObjectLambdaConfiguration']]:
+    def object_lambda_configuration(self) -> pulumi.Output['outputs.AccessPointObjectLambdaConfiguration']:
         """
         The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
         """

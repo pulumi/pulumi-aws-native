@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.FinSpace
         public Output<string> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
+        /// ARNs of FinSpace Data Bundles to install
+        /// </summary>
+        [Output("dataBundles")]
+        public Output<ImmutableArray<string>> DataBundles { get; private set; } = null!;
+
+        /// <summary>
         /// ID for FinSpace created account used to store Environment artifacts
         /// </summary>
         [Output("dedicatedServiceAccountId")]
@@ -84,6 +90,9 @@ namespace Pulumi.AwsNative.FinSpace
         [Output("status")]
         public Output<Pulumi.AwsNative.FinSpace.EnvironmentStatus> Status { get; private set; } = null!;
 
+        [Output("superuserParameters")]
+        public Output<Outputs.EnvironmentSuperuserParameters?> SuperuserParameters { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Environment resource with the given unique name, arguments, and options.
@@ -129,6 +138,18 @@ namespace Pulumi.AwsNative.FinSpace
 
     public sealed class EnvironmentArgs : Pulumi.ResourceArgs
     {
+        [Input("dataBundles")]
+        private InputList<string>? _dataBundles;
+
+        /// <summary>
+        /// ARNs of FinSpace Data Bundles to install
+        /// </summary>
+        public InputList<string> DataBundles
+        {
+            get => _dataBundles ?? (_dataBundles = new InputList<string>());
+            set => _dataBundles = value;
+        }
+
         /// <summary>
         /// Description of the Environment
         /// </summary>
@@ -155,6 +176,9 @@ namespace Pulumi.AwsNative.FinSpace
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("superuserParameters")]
+        public Input<Inputs.EnvironmentSuperuserParametersArgs>? SuperuserParameters { get; set; }
 
         public EnvironmentArgs()
         {

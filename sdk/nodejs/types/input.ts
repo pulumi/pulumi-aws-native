@@ -10960,6 +10960,24 @@ export namespace finspace {
          */
         samlMetadataURL?: pulumi.Input<string>;
     }
+
+    /**
+     * Parameters of the first Superuser for the FinSpace Environment
+     */
+    export interface EnvironmentSuperuserParametersArgs {
+        /**
+         * Email address
+         */
+        emailAddress?: pulumi.Input<string>;
+        /**
+         * First name
+         */
+        firstName?: pulumi.Input<string>;
+        /**
+         * Last name
+         */
+        lastName?: pulumi.Input<string>;
+    }
 }
 
 export namespace fis {
@@ -23222,8 +23240,8 @@ export namespace s3objectlambda {
      * Configuration to define what content transformation will be applied on which S3 Action.
      */
     export interface AccessPointTransformationConfigurationArgs {
-        actions?: pulumi.Input<pulumi.Input<string>[]>;
-        contentTransformation?: any;
+        actions: pulumi.Input<pulumi.Input<string>[]>;
+        contentTransformation: any;
     }
 
 }

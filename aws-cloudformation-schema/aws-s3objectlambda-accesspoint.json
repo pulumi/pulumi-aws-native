@@ -83,7 +83,8 @@
             "required" : [ "AwsLambda" ]
           } ]
         }
-      }
+      },
+      "required" : [ "Actions", "ContentTransformation" ]
     },
     "AwsLambda" : {
       "type" : "object",
@@ -139,6 +140,7 @@
       "$ref" : "#/definitions/ObjectLambdaConfiguration"
     }
   },
+  "required" : [ "ObjectLambdaConfiguration" ],
   "additionalProperties" : false,
   "createOnlyProperties" : [ "/properties/Name" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreationDate", "/properties/PolicyStatus", "/properties/PublicAccessBlockConfiguration" ],

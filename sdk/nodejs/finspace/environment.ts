@@ -40,6 +40,10 @@ export class Environment extends pulumi.CustomResource {
      */
     public /*out*/ readonly awsAccountId!: pulumi.Output<string>;
     /**
+     * ARNs of FinSpace Data Bundles to install
+     */
+    public readonly dataBundles!: pulumi.Output<string[] | undefined>;
+    /**
      * ID for FinSpace created account used to store Environment artifacts
      */
     public /*out*/ readonly dedicatedServiceAccountId!: pulumi.Output<string>;
@@ -80,6 +84,7 @@ export class Environment extends pulumi.CustomResource {
      * State of the Environment
      */
     public /*out*/ readonly status!: pulumi.Output<enums.finspace.EnvironmentStatus>;
+    public readonly superuserParameters!: pulumi.Output<outputs.finspace.EnvironmentSuperuserParameters | undefined>;
 
     /**
      * Create a Environment resource with the given unique name, arguments, and options.
@@ -92,11 +97,13 @@ export class Environment extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            inputs["dataBundles"] = args ? args.dataBundles : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["federationMode"] = args ? args.federationMode : undefined;
             inputs["federationParameters"] = args ? args.federationParameters : undefined;
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["superuserParameters"] = args ? args.superuserParameters : undefined;
             inputs["awsAccountId"] = undefined /*out*/;
             inputs["dedicatedServiceAccountId"] = undefined /*out*/;
             inputs["environmentArn"] = undefined /*out*/;
@@ -106,6 +113,7 @@ export class Environment extends pulumi.CustomResource {
             inputs["status"] = undefined /*out*/;
         } else {
             inputs["awsAccountId"] = undefined /*out*/;
+            inputs["dataBundles"] = undefined /*out*/;
             inputs["dedicatedServiceAccountId"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["environmentArn"] = undefined /*out*/;
@@ -117,6 +125,7 @@ export class Environment extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["sageMakerStudioDomainUrl"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["superuserParameters"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -129,6 +138,10 @@ export class Environment extends pulumi.CustomResource {
  * The set of arguments for constructing a Environment resource.
  */
 export interface EnvironmentArgs {
+    /**
+     * ARNs of FinSpace Data Bundles to install
+     */
+    dataBundles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Description of the Environment
      */
@@ -146,4 +159,5 @@ export interface EnvironmentArgs {
      * Name of the Environment
      */
     name?: pulumi.Input<string>;
+    superuserParameters?: pulumi.Input<inputs.finspace.EnvironmentSuperuserParametersArgs>;
 }

@@ -9086,6 +9086,89 @@
                 "spotFleetRequestConfigData/ValidUntil"
             ]
         },
+        "aws-native:ec2:Subnet": {
+            "cf": "AWS::EC2::Subnet",
+            "inputs": {
+                "assignIpv6AddressOnCreation": {
+                    "type": "boolean"
+                },
+                "availabilityZone": {
+                    "type": "string"
+                },
+                "cidrBlock": {
+                    "type": "string"
+                },
+                "ipv6CidrBlock": {
+                    "type": "string"
+                },
+                "mapPublicIpOnLaunch": {
+                    "type": "boolean"
+                },
+                "outpostArn": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:SubnetTag"
+                    }
+                },
+                "vpcId": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "assignIpv6AddressOnCreation": {
+                    "type": "boolean"
+                },
+                "availabilityZone": {
+                    "type": "string"
+                },
+                "cidrBlock": {
+                    "type": "string"
+                },
+                "ipv6CidrBlock": {
+                    "type": "string"
+                },
+                "ipv6CidrBlocks": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "mapPublicIpOnLaunch": {
+                    "type": "boolean"
+                },
+                "networkAclAssociationId": {
+                    "type": "string"
+                },
+                "outpostArn": {
+                    "type": "string"
+                },
+                "subnetId": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:SubnetTag"
+                    }
+                },
+                "vpcId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "cidrBlock",
+                "vpcId"
+            ],
+            "createOnly": [
+                "availabilityZone",
+                "cidrBlock",
+                "outpostArn",
+                "vpcId"
+            ]
+        },
         "aws-native:ec2:SubnetNetworkAclAssociation": {
             "cf": "AWS::EC2::SubnetNetworkAclAssociation",
             "inputs": {
@@ -9809,6 +9892,37 @@
             ],
             "createOnly": [
                 "cidrBlock"
+            ]
+        },
+        "aws-native:ec2:VPCDHCPOptionsAssociation": {
+            "cf": "AWS::EC2::VPCDHCPOptionsAssociation",
+            "inputs": {
+                "dhcpOptionsId": {
+                    "type": "string",
+                    "description": "The ID of the DHCP options set, or default to associate no DHCP options with the VPC."
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "The ID of the VPC."
+                }
+            },
+            "outputs": {
+                "dhcpOptionsId": {
+                    "type": "string",
+                    "description": "The ID of the DHCP options set, or default to associate no DHCP options with the VPC."
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "The ID of the VPC."
+                }
+            },
+            "required": [
+                "dhcpOptionsId",
+                "vpcId"
+            ],
+            "createOnly": [
+                "dhcpOptionsId",
+                "vpcId"
             ]
         },
         "aws-native:ecr:RegistryPolicy": {
@@ -11959,6 +12073,13 @@
         "aws-native:finspace:Environment": {
             "cf": "AWS::FinSpace::Environment",
             "inputs": {
+                "dataBundles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "ARNs of FinSpace Data Bundles to install"
+                },
                 "description": {
                     "type": "string",
                     "description": "Description of the Environment"
@@ -11977,12 +12098,22 @@
                 "name": {
                     "type": "string",
                     "description": "Name of the Environment"
+                },
+                "superuserParameters": {
+                    "$ref": "#/types/aws-native:finspace:EnvironmentSuperuserParameters"
                 }
             },
             "outputs": {
                 "awsAccountId": {
                     "type": "string",
                     "description": "AWS account ID associated with the Environment"
+                },
+                "dataBundles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "ARNs of FinSpace Data Bundles to install"
                 },
                 "dedicatedServiceAccountId": {
                     "type": "string",
@@ -12026,13 +12157,18 @@
                 "status": {
                     "$ref": "#/types/aws-native:finspace:EnvironmentStatus",
                     "description": "State of the Environment"
+                },
+                "superuserParameters": {
+                    "$ref": "#/types/aws-native:finspace:EnvironmentSuperuserParameters"
                 }
             },
             "autoNamingSpec": {
                 "sdkName": "name"
             },
             "createOnly": [
-                "kmsKeyId"
+                "dataBundles",
+                "kmsKeyId",
+                "superuserParameters"
             ]
         },
         "aws-native:fis:ExperimentTemplate": {
@@ -27129,6 +27265,9 @@
                 "minLength": 3,
                 "maxLength": 45
             },
+            "required": [
+                "objectLambdaConfiguration"
+            ],
             "createOnly": [
                 "name"
             ]
@@ -40349,6 +40488,17 @@
                 }
             }
         },
+        "aws-native:ec2:SubnetTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:ec2:TransitGatewayConnectOptions": {
             "type": "object",
             "properties": {
@@ -42551,6 +42701,23 @@
         },
         "aws-native:finspace:EnvironmentStatus": {
             "type": "string"
+        },
+        "aws-native:finspace:EnvironmentSuperuserParameters": {
+            "type": "object",
+            "properties": {
+                "emailAddress": {
+                    "type": "string",
+                    "description": "Email address"
+                },
+                "firstName": {
+                    "type": "string",
+                    "description": "First name"
+                },
+                "lastName": {
+                    "type": "string",
+                    "description": "Last name"
+                }
+            }
         },
         "aws-native:fis:ExperimentTemplateActionMap": {
             "type": "object"

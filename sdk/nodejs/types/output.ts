@@ -11213,6 +11213,24 @@ export namespace finspace {
         samlMetadataURL?: string;
     }
 
+    /**
+     * Parameters of the first Superuser for the FinSpace Environment
+     */
+    export interface EnvironmentSuperuserParameters {
+        /**
+         * Email address
+         */
+        emailAddress?: string;
+        /**
+         * First name
+         */
+        firstName?: string;
+        /**
+         * Last name
+         */
+        lastName?: string;
+    }
+
 }
 
 export namespace fis {
@@ -24034,8 +24052,8 @@ export namespace s3objectlambda {
      * Configuration to define what content transformation will be applied on which S3 Action.
      */
     export interface AccessPointTransformationConfiguration {
-        actions?: string[];
-        contentTransformation?: any;
+        actions: string[];
+        contentTransformation: any;
     }
 
     export interface PolicyStatusProperties {

@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.S3ObjectLambda.Inputs
     /// </summary>
     public sealed class AccessPointTransformationConfigurationArgs : Pulumi.ResourceArgs
     {
-        [Input("actions")]
+        [Input("actions", required: true)]
         private InputList<string>? _actions;
         public InputList<string> Actions
         {
@@ -23,8 +23,8 @@ namespace Pulumi.AwsNative.S3ObjectLambda.Inputs
             set => _actions = value;
         }
 
-        [Input("contentTransformation")]
-        public Input<object>? ContentTransformation { get; set; }
+        [Input("contentTransformation", required: true)]
+        public Input<object> ContentTransformation { get; set; } = null!;
 
         public AccessPointTransformationConfigurationArgs()
         {

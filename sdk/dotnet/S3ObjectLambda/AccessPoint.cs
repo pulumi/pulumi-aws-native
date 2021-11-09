@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.S3ObjectLambda
         /// The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
         /// </summary>
         [Output("objectLambdaConfiguration")]
-        public Output<Outputs.AccessPointObjectLambdaConfiguration?> ObjectLambdaConfiguration { get; private set; } = null!;
+        public Output<Outputs.AccessPointObjectLambdaConfiguration> ObjectLambdaConfiguration { get; private set; } = null!;
 
         [Output("policyStatus")]
         public Output<Outputs.PolicyStatusProperties> PolicyStatus { get; private set; } = null!;
@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.S3ObjectLambda
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public AccessPoint(string name, AccessPointArgs? args = null, CustomResourceOptions? options = null)
+        public AccessPoint(string name, AccessPointArgs args, CustomResourceOptions? options = null)
             : base("aws-native:s3objectlambda:AccessPoint", name, args ?? new AccessPointArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -99,8 +99,8 @@ namespace Pulumi.AwsNative.S3ObjectLambda
         /// <summary>
         /// The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
         /// </summary>
-        [Input("objectLambdaConfiguration")]
-        public Input<Inputs.AccessPointObjectLambdaConfigurationArgs>? ObjectLambdaConfiguration { get; set; }
+        [Input("objectLambdaConfiguration", required: true)]
+        public Input<Inputs.AccessPointObjectLambdaConfigurationArgs> ObjectLambdaConfiguration { get; set; } = null!;
 
         public AccessPointArgs()
         {

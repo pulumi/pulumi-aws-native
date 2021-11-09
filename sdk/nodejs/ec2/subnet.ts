@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::EC2::Subnet
- *
- * @deprecated Subnet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class Subnet extends pulumi.CustomResource {
     /**
@@ -20,7 +18,6 @@ export class Subnet extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Subnet {
-        pulumi.log.warn("Subnet is deprecated: Subnet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Subnet(name, undefined as any, { ...opts, id: id });
     }
 
@@ -46,6 +43,7 @@ export class Subnet extends pulumi.CustomResource {
     public readonly mapPublicIpOnLaunch!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly networkAclAssociationId!: pulumi.Output<string>;
     public readonly outpostArn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly subnetId!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.ec2.SubnetTag[] | undefined>;
     public readonly vpcId!: pulumi.Output<string>;
 
@@ -56,9 +54,7 @@ export class Subnet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Subnet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: SubnetArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Subnet is deprecated: Subnet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -78,6 +74,7 @@ export class Subnet extends pulumi.CustomResource {
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["ipv6CidrBlocks"] = undefined /*out*/;
             inputs["networkAclAssociationId"] = undefined /*out*/;
+            inputs["subnetId"] = undefined /*out*/;
         } else {
             inputs["assignIpv6AddressOnCreation"] = undefined /*out*/;
             inputs["availabilityZone"] = undefined /*out*/;
@@ -87,6 +84,7 @@ export class Subnet extends pulumi.CustomResource {
             inputs["mapPublicIpOnLaunch"] = undefined /*out*/;
             inputs["networkAclAssociationId"] = undefined /*out*/;
             inputs["outpostArn"] = undefined /*out*/;
+            inputs["subnetId"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
