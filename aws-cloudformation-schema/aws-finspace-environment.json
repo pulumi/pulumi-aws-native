@@ -41,6 +41,37 @@
           "type" : "object"
         }
       }
+    },
+    "SuperuserParameters" : {
+      "description" : "Parameters of the first Superuser for the FinSpace Environment",
+      "type" : "object",
+      "properties" : {
+        "FirstName" : {
+          "description" : "First name",
+          "type" : "string",
+          "pattern" : "^[a-zA-Z0-9]{1,50}$",
+          "minLength" : 1,
+          "maxLength" : 50
+        },
+        "LastName" : {
+          "description" : "Last name",
+          "type" : "string",
+          "pattern" : "^[a-zA-Z0-9]{1,50}$",
+          "minLength" : 1,
+          "maxLength" : 50
+        },
+        "EmailAddress" : {
+          "description" : "Email address",
+          "type" : "string",
+          "pattern" : "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+[.]+[A-Za-z]+",
+          "minLength" : 1,
+          "maxLength" : 128
+        }
+      }
+    },
+    "DataBundleArn" : {
+      "type" : "string",
+      "pattern" : "^arn:aws:finspace:[A-Za-z0-9_/.-]{0,63}:\\d*:data-bundle/[0-9A-Za-z_-]{1,128}$"
     }
   },
   "properties" : {
@@ -72,7 +103,7 @@
     "EnvironmentUrl" : {
       "description" : "URL used to login to the Environment",
       "type" : "string",
-      "pattern" : "^https?://[-a-zA-Z0-9+&amp;@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&amp;@#/%=~_|]{1,1000}"
+      "pattern" : "^[-a-zA-Z0-9+&amp;@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&amp;@#/%=~_|]{1,1000}"
     },
     "EnvironmentArn" : {
       "description" : "ARN of the Environment",
@@ -101,12 +132,23 @@
     },
     "FederationParameters" : {
       "$ref" : "#/definitions/FederationParameters"
+    },
+    "SuperuserParameters" : {
+      "$ref" : "#/definitions/SuperuserParameters"
+    },
+    "DataBundles" : {
+      "description" : "ARNs of FinSpace Data Bundles to install",
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "$ref" : "#/definitions/DataBundleArn"
+      }
     }
   },
   "additionalProperties" : false,
   "required" : [ "Name" ],
   "readOnlyProperties" : [ "/properties/EnvironmentId", "/properties/Status", "/properties/SageMakerStudioDomainUrl", "/properties/EnvironmentArn", "/properties/EnvironmentUrl", "/properties/AwsAccountId", "/properties/DedicatedServiceAccountId" ],
-  "createOnlyProperties" : [ "/properties/KmsKeyId" ],
+  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/SuperuserParameters", "/properties/DataBundles" ],
   "primaryIdentifier" : [ "/properties/EnvironmentId" ],
   "handlers" : {
     "create" : {
