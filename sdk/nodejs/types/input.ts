@@ -4625,6 +4625,23 @@ export namespace batch {
         computeEnvironment: pulumi.Input<string>;
         order: pulumi.Input<number>;
     }
+
+    /**
+     * Fair Share Policy for the Job Queue.
+     */
+    export interface SchedulingPolicyFairsharePolicyArgs {
+        computeReservation?: pulumi.Input<number>;
+        shareDecaySeconds?: pulumi.Input<number>;
+        /**
+         * List of Share Attributes
+         */
+        shareDistribution?: pulumi.Input<pulumi.Input<inputs.batch.SchedulingPolicyShareAttributesArgs>[]>;
+    }
+
+    export interface SchedulingPolicyShareAttributesArgs {
+        shareIdentifier?: pulumi.Input<string>;
+        weightFactor?: pulumi.Input<number>;
+    }
 }
 
 export namespace budgets {
@@ -14976,6 +14993,46 @@ export namespace iotwireless {
         value?: pulumi.Input<string>;
     }
 
+    export interface FuotaTaskLoRaWANArgs {
+        /**
+         * FUOTA task LoRaWAN RF region
+         */
+        rfRegion: pulumi.Input<string>;
+        /**
+         * FUOTA task LoRaWAN start time
+         */
+        startTime?: pulumi.Input<string>;
+    }
+
+    export interface FuotaTaskTagArgs {
+        key?: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
+    }
+
+    export interface MulticastGroupLoRaWANArgs {
+        /**
+         * Multicast group LoRaWAN DL Class
+         */
+        dlClass: pulumi.Input<string>;
+        /**
+         * Multicast group number of devices in group. Returned after successful read.
+         */
+        numberOfDevicesInGroup?: pulumi.Input<number>;
+        /**
+         * Multicast group number of devices requested. Returned after successful read.
+         */
+        numberOfDevicesRequested?: pulumi.Input<number>;
+        /**
+         * Multicast group LoRaWAN RF region
+         */
+        rfRegion: pulumi.Input<string>;
+    }
+
+    export interface MulticastGroupTagArgs {
+        key?: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
+    }
+
     export interface PartnerAccountSidewalkAccountInfoArgs {
         appServerPrivateKey: pulumi.Input<string>;
     }
@@ -15102,6 +15159,7 @@ export namespace iotwireless {
         key?: pulumi.Input<string>;
         value?: pulumi.Input<string>;
     }
+
 }
 
 export namespace ivs {

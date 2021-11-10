@@ -8,11 +8,13 @@ import * as utilities from "../utilities";
 export * from "./computeEnvironment";
 export * from "./jobDefinition";
 export * from "./jobQueue";
+export * from "./schedulingPolicy";
 
 // Import resources to register:
 import { ComputeEnvironment } from "./computeEnvironment";
 import { JobDefinition } from "./jobDefinition";
 import { JobQueue } from "./jobQueue";
+import { SchedulingPolicy } from "./schedulingPolicy";
 
 const _module = {
     version: utilities.getVersion(),
@@ -24,6 +26,8 @@ const _module = {
                 return new JobDefinition(name, <any>undefined, { urn })
             case "aws-native:batch:JobQueue":
                 return new JobQueue(name, <any>undefined, { urn })
+            case "aws-native:batch:SchedulingPolicy":
+                return new SchedulingPolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

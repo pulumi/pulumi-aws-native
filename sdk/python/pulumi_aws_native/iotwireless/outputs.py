@@ -14,6 +14,10 @@ __all__ = [
     'DestinationTag',
     'DeviceProfileLoRaWANDeviceProfile',
     'DeviceProfileTag',
+    'FuotaTaskLoRaWAN',
+    'FuotaTaskTag',
+    'MulticastGroupLoRaWAN',
+    'MulticastGroupTag',
     'PartnerAccountSidewalkAccountInfo',
     'PartnerAccountSidewalkAccountInfoWithFingerprint',
     'PartnerAccountSidewalkUpdateAccount',
@@ -220,6 +224,173 @@ class DeviceProfileLoRaWANDeviceProfile(dict):
 
 @pulumi.output_type
 class DeviceProfileTag(dict):
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FuotaTaskLoRaWAN(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rfRegion":
+            suggest = "rf_region"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FuotaTaskLoRaWAN. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FuotaTaskLoRaWAN.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FuotaTaskLoRaWAN.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rf_region: str,
+                 start_time: Optional[str] = None):
+        """
+        :param str rf_region: FUOTA task LoRaWAN RF region
+        :param str start_time: FUOTA task LoRaWAN start time
+        """
+        pulumi.set(__self__, "rf_region", rf_region)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="rfRegion")
+    def rf_region(self) -> str:
+        """
+        FUOTA task LoRaWAN RF region
+        """
+        return pulumi.get(self, "rf_region")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        """
+        FUOTA task LoRaWAN start time
+        """
+        return pulumi.get(self, "start_time")
+
+
+@pulumi.output_type
+class FuotaTaskTag(dict):
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class MulticastGroupLoRaWAN(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dlClass":
+            suggest = "dl_class"
+        elif key == "rfRegion":
+            suggest = "rf_region"
+        elif key == "numberOfDevicesInGroup":
+            suggest = "number_of_devices_in_group"
+        elif key == "numberOfDevicesRequested":
+            suggest = "number_of_devices_requested"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MulticastGroupLoRaWAN. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MulticastGroupLoRaWAN.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MulticastGroupLoRaWAN.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dl_class: str,
+                 rf_region: str,
+                 number_of_devices_in_group: Optional[int] = None,
+                 number_of_devices_requested: Optional[int] = None):
+        """
+        :param str dl_class: Multicast group LoRaWAN DL Class
+        :param str rf_region: Multicast group LoRaWAN RF region
+        :param int number_of_devices_in_group: Multicast group number of devices in group. Returned after successful read.
+        :param int number_of_devices_requested: Multicast group number of devices requested. Returned after successful read.
+        """
+        pulumi.set(__self__, "dl_class", dl_class)
+        pulumi.set(__self__, "rf_region", rf_region)
+        if number_of_devices_in_group is not None:
+            pulumi.set(__self__, "number_of_devices_in_group", number_of_devices_in_group)
+        if number_of_devices_requested is not None:
+            pulumi.set(__self__, "number_of_devices_requested", number_of_devices_requested)
+
+    @property
+    @pulumi.getter(name="dlClass")
+    def dl_class(self) -> str:
+        """
+        Multicast group LoRaWAN DL Class
+        """
+        return pulumi.get(self, "dl_class")
+
+    @property
+    @pulumi.getter(name="rfRegion")
+    def rf_region(self) -> str:
+        """
+        Multicast group LoRaWAN RF region
+        """
+        return pulumi.get(self, "rf_region")
+
+    @property
+    @pulumi.getter(name="numberOfDevicesInGroup")
+    def number_of_devices_in_group(self) -> Optional[int]:
+        """
+        Multicast group number of devices in group. Returned after successful read.
+        """
+        return pulumi.get(self, "number_of_devices_in_group")
+
+    @property
+    @pulumi.getter(name="numberOfDevicesRequested")
+    def number_of_devices_requested(self) -> Optional[int]:
+        """
+        Multicast group number of devices requested. Returned after successful read.
+        """
+        return pulumi.get(self, "number_of_devices_requested")
+
+
+@pulumi.output_type
+class MulticastGroupTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):

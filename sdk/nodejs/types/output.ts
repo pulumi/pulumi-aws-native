@@ -3992,6 +3992,23 @@ export namespace batch {
         order: number;
     }
 
+    /**
+     * Fair Share Policy for the Job Queue.
+     */
+    export interface SchedulingPolicyFairsharePolicy {
+        computeReservation?: number;
+        shareDecaySeconds?: number;
+        /**
+         * List of Share Attributes
+         */
+        shareDistribution?: outputs.batch.SchedulingPolicyShareAttributes[];
+    }
+
+    export interface SchedulingPolicyShareAttributes {
+        shareIdentifier?: string;
+        weightFactor?: number;
+    }
+
 }
 
 export namespace budgets {
@@ -15265,6 +15282,46 @@ export namespace iotwireless {
     }
 
     export interface DeviceProfileTag {
+        key?: string;
+        value?: string;
+    }
+
+    export interface FuotaTaskLoRaWAN {
+        /**
+         * FUOTA task LoRaWAN RF region
+         */
+        rfRegion: string;
+        /**
+         * FUOTA task LoRaWAN start time
+         */
+        startTime?: string;
+    }
+
+    export interface FuotaTaskTag {
+        key?: string;
+        value?: string;
+    }
+
+    export interface MulticastGroupLoRaWAN {
+        /**
+         * Multicast group LoRaWAN DL Class
+         */
+        dlClass: string;
+        /**
+         * Multicast group number of devices in group. Returned after successful read.
+         */
+        numberOfDevicesInGroup?: number;
+        /**
+         * Multicast group number of devices requested. Returned after successful read.
+         */
+        numberOfDevicesRequested?: number;
+        /**
+         * Multicast group LoRaWAN RF region
+         */
+        rfRegion: string;
+    }
+
+    export interface MulticastGroupTag {
         key?: string;
         value?: string;
     }

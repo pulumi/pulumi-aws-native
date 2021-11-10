@@ -538,6 +538,556 @@ func (o DeviceProfileTagArrayOutput) Index(i pulumi.IntInput) DeviceProfileTagOu
 	}).(DeviceProfileTagOutput)
 }
 
+type FuotaTaskLoRaWAN struct {
+	// FUOTA task LoRaWAN RF region
+	RfRegion string `pulumi:"rfRegion"`
+	// FUOTA task LoRaWAN start time
+	StartTime *string `pulumi:"startTime"`
+}
+
+// FuotaTaskLoRaWANInput is an input type that accepts FuotaTaskLoRaWANArgs and FuotaTaskLoRaWANOutput values.
+// You can construct a concrete instance of `FuotaTaskLoRaWANInput` via:
+//
+//          FuotaTaskLoRaWANArgs{...}
+type FuotaTaskLoRaWANInput interface {
+	pulumi.Input
+
+	ToFuotaTaskLoRaWANOutput() FuotaTaskLoRaWANOutput
+	ToFuotaTaskLoRaWANOutputWithContext(context.Context) FuotaTaskLoRaWANOutput
+}
+
+type FuotaTaskLoRaWANArgs struct {
+	// FUOTA task LoRaWAN RF region
+	RfRegion pulumi.StringInput `pulumi:"rfRegion"`
+	// FUOTA task LoRaWAN start time
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+}
+
+func (FuotaTaskLoRaWANArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FuotaTaskLoRaWAN)(nil)).Elem()
+}
+
+func (i FuotaTaskLoRaWANArgs) ToFuotaTaskLoRaWANOutput() FuotaTaskLoRaWANOutput {
+	return i.ToFuotaTaskLoRaWANOutputWithContext(context.Background())
+}
+
+func (i FuotaTaskLoRaWANArgs) ToFuotaTaskLoRaWANOutputWithContext(ctx context.Context) FuotaTaskLoRaWANOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FuotaTaskLoRaWANOutput)
+}
+
+func (i FuotaTaskLoRaWANArgs) ToFuotaTaskLoRaWANPtrOutput() FuotaTaskLoRaWANPtrOutput {
+	return i.ToFuotaTaskLoRaWANPtrOutputWithContext(context.Background())
+}
+
+func (i FuotaTaskLoRaWANArgs) ToFuotaTaskLoRaWANPtrOutputWithContext(ctx context.Context) FuotaTaskLoRaWANPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FuotaTaskLoRaWANOutput).ToFuotaTaskLoRaWANPtrOutputWithContext(ctx)
+}
+
+// FuotaTaskLoRaWANPtrInput is an input type that accepts FuotaTaskLoRaWANArgs, FuotaTaskLoRaWANPtr and FuotaTaskLoRaWANPtrOutput values.
+// You can construct a concrete instance of `FuotaTaskLoRaWANPtrInput` via:
+//
+//          FuotaTaskLoRaWANArgs{...}
+//
+//  or:
+//
+//          nil
+type FuotaTaskLoRaWANPtrInput interface {
+	pulumi.Input
+
+	ToFuotaTaskLoRaWANPtrOutput() FuotaTaskLoRaWANPtrOutput
+	ToFuotaTaskLoRaWANPtrOutputWithContext(context.Context) FuotaTaskLoRaWANPtrOutput
+}
+
+type fuotaTaskLoRaWANPtrType FuotaTaskLoRaWANArgs
+
+func FuotaTaskLoRaWANPtr(v *FuotaTaskLoRaWANArgs) FuotaTaskLoRaWANPtrInput {
+	return (*fuotaTaskLoRaWANPtrType)(v)
+}
+
+func (*fuotaTaskLoRaWANPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FuotaTaskLoRaWAN)(nil)).Elem()
+}
+
+func (i *fuotaTaskLoRaWANPtrType) ToFuotaTaskLoRaWANPtrOutput() FuotaTaskLoRaWANPtrOutput {
+	return i.ToFuotaTaskLoRaWANPtrOutputWithContext(context.Background())
+}
+
+func (i *fuotaTaskLoRaWANPtrType) ToFuotaTaskLoRaWANPtrOutputWithContext(ctx context.Context) FuotaTaskLoRaWANPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FuotaTaskLoRaWANPtrOutput)
+}
+
+type FuotaTaskLoRaWANOutput struct{ *pulumi.OutputState }
+
+func (FuotaTaskLoRaWANOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FuotaTaskLoRaWAN)(nil)).Elem()
+}
+
+func (o FuotaTaskLoRaWANOutput) ToFuotaTaskLoRaWANOutput() FuotaTaskLoRaWANOutput {
+	return o
+}
+
+func (o FuotaTaskLoRaWANOutput) ToFuotaTaskLoRaWANOutputWithContext(ctx context.Context) FuotaTaskLoRaWANOutput {
+	return o
+}
+
+func (o FuotaTaskLoRaWANOutput) ToFuotaTaskLoRaWANPtrOutput() FuotaTaskLoRaWANPtrOutput {
+	return o.ToFuotaTaskLoRaWANPtrOutputWithContext(context.Background())
+}
+
+func (o FuotaTaskLoRaWANOutput) ToFuotaTaskLoRaWANPtrOutputWithContext(ctx context.Context) FuotaTaskLoRaWANPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FuotaTaskLoRaWAN) *FuotaTaskLoRaWAN {
+		return &v
+	}).(FuotaTaskLoRaWANPtrOutput)
+}
+
+// FUOTA task LoRaWAN RF region
+func (o FuotaTaskLoRaWANOutput) RfRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v FuotaTaskLoRaWAN) string { return v.RfRegion }).(pulumi.StringOutput)
+}
+
+// FUOTA task LoRaWAN start time
+func (o FuotaTaskLoRaWANOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FuotaTaskLoRaWAN) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+type FuotaTaskLoRaWANPtrOutput struct{ *pulumi.OutputState }
+
+func (FuotaTaskLoRaWANPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FuotaTaskLoRaWAN)(nil)).Elem()
+}
+
+func (o FuotaTaskLoRaWANPtrOutput) ToFuotaTaskLoRaWANPtrOutput() FuotaTaskLoRaWANPtrOutput {
+	return o
+}
+
+func (o FuotaTaskLoRaWANPtrOutput) ToFuotaTaskLoRaWANPtrOutputWithContext(ctx context.Context) FuotaTaskLoRaWANPtrOutput {
+	return o
+}
+
+func (o FuotaTaskLoRaWANPtrOutput) Elem() FuotaTaskLoRaWANOutput {
+	return o.ApplyT(func(v *FuotaTaskLoRaWAN) FuotaTaskLoRaWAN {
+		if v != nil {
+			return *v
+		}
+		var ret FuotaTaskLoRaWAN
+		return ret
+	}).(FuotaTaskLoRaWANOutput)
+}
+
+// FUOTA task LoRaWAN RF region
+func (o FuotaTaskLoRaWANPtrOutput) RfRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FuotaTaskLoRaWAN) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RfRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+// FUOTA task LoRaWAN start time
+func (o FuotaTaskLoRaWANPtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FuotaTaskLoRaWAN) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+type FuotaTaskTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// FuotaTaskTagInput is an input type that accepts FuotaTaskTagArgs and FuotaTaskTagOutput values.
+// You can construct a concrete instance of `FuotaTaskTagInput` via:
+//
+//          FuotaTaskTagArgs{...}
+type FuotaTaskTagInput interface {
+	pulumi.Input
+
+	ToFuotaTaskTagOutput() FuotaTaskTagOutput
+	ToFuotaTaskTagOutputWithContext(context.Context) FuotaTaskTagOutput
+}
+
+type FuotaTaskTagArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (FuotaTaskTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FuotaTaskTag)(nil)).Elem()
+}
+
+func (i FuotaTaskTagArgs) ToFuotaTaskTagOutput() FuotaTaskTagOutput {
+	return i.ToFuotaTaskTagOutputWithContext(context.Background())
+}
+
+func (i FuotaTaskTagArgs) ToFuotaTaskTagOutputWithContext(ctx context.Context) FuotaTaskTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FuotaTaskTagOutput)
+}
+
+// FuotaTaskTagArrayInput is an input type that accepts FuotaTaskTagArray and FuotaTaskTagArrayOutput values.
+// You can construct a concrete instance of `FuotaTaskTagArrayInput` via:
+//
+//          FuotaTaskTagArray{ FuotaTaskTagArgs{...} }
+type FuotaTaskTagArrayInput interface {
+	pulumi.Input
+
+	ToFuotaTaskTagArrayOutput() FuotaTaskTagArrayOutput
+	ToFuotaTaskTagArrayOutputWithContext(context.Context) FuotaTaskTagArrayOutput
+}
+
+type FuotaTaskTagArray []FuotaTaskTagInput
+
+func (FuotaTaskTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FuotaTaskTag)(nil)).Elem()
+}
+
+func (i FuotaTaskTagArray) ToFuotaTaskTagArrayOutput() FuotaTaskTagArrayOutput {
+	return i.ToFuotaTaskTagArrayOutputWithContext(context.Background())
+}
+
+func (i FuotaTaskTagArray) ToFuotaTaskTagArrayOutputWithContext(ctx context.Context) FuotaTaskTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FuotaTaskTagArrayOutput)
+}
+
+type FuotaTaskTagOutput struct{ *pulumi.OutputState }
+
+func (FuotaTaskTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FuotaTaskTag)(nil)).Elem()
+}
+
+func (o FuotaTaskTagOutput) ToFuotaTaskTagOutput() FuotaTaskTagOutput {
+	return o
+}
+
+func (o FuotaTaskTagOutput) ToFuotaTaskTagOutputWithContext(ctx context.Context) FuotaTaskTagOutput {
+	return o
+}
+
+func (o FuotaTaskTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FuotaTaskTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o FuotaTaskTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FuotaTaskTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type FuotaTaskTagArrayOutput struct{ *pulumi.OutputState }
+
+func (FuotaTaskTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FuotaTaskTag)(nil)).Elem()
+}
+
+func (o FuotaTaskTagArrayOutput) ToFuotaTaskTagArrayOutput() FuotaTaskTagArrayOutput {
+	return o
+}
+
+func (o FuotaTaskTagArrayOutput) ToFuotaTaskTagArrayOutputWithContext(ctx context.Context) FuotaTaskTagArrayOutput {
+	return o
+}
+
+func (o FuotaTaskTagArrayOutput) Index(i pulumi.IntInput) FuotaTaskTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FuotaTaskTag {
+		return vs[0].([]FuotaTaskTag)[vs[1].(int)]
+	}).(FuotaTaskTagOutput)
+}
+
+type MulticastGroupLoRaWAN struct {
+	// Multicast group LoRaWAN DL Class
+	DlClass string `pulumi:"dlClass"`
+	// Multicast group number of devices in group. Returned after successful read.
+	NumberOfDevicesInGroup *int `pulumi:"numberOfDevicesInGroup"`
+	// Multicast group number of devices requested. Returned after successful read.
+	NumberOfDevicesRequested *int `pulumi:"numberOfDevicesRequested"`
+	// Multicast group LoRaWAN RF region
+	RfRegion string `pulumi:"rfRegion"`
+}
+
+// MulticastGroupLoRaWANInput is an input type that accepts MulticastGroupLoRaWANArgs and MulticastGroupLoRaWANOutput values.
+// You can construct a concrete instance of `MulticastGroupLoRaWANInput` via:
+//
+//          MulticastGroupLoRaWANArgs{...}
+type MulticastGroupLoRaWANInput interface {
+	pulumi.Input
+
+	ToMulticastGroupLoRaWANOutput() MulticastGroupLoRaWANOutput
+	ToMulticastGroupLoRaWANOutputWithContext(context.Context) MulticastGroupLoRaWANOutput
+}
+
+type MulticastGroupLoRaWANArgs struct {
+	// Multicast group LoRaWAN DL Class
+	DlClass pulumi.StringInput `pulumi:"dlClass"`
+	// Multicast group number of devices in group. Returned after successful read.
+	NumberOfDevicesInGroup pulumi.IntPtrInput `pulumi:"numberOfDevicesInGroup"`
+	// Multicast group number of devices requested. Returned after successful read.
+	NumberOfDevicesRequested pulumi.IntPtrInput `pulumi:"numberOfDevicesRequested"`
+	// Multicast group LoRaWAN RF region
+	RfRegion pulumi.StringInput `pulumi:"rfRegion"`
+}
+
+func (MulticastGroupLoRaWANArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MulticastGroupLoRaWAN)(nil)).Elem()
+}
+
+func (i MulticastGroupLoRaWANArgs) ToMulticastGroupLoRaWANOutput() MulticastGroupLoRaWANOutput {
+	return i.ToMulticastGroupLoRaWANOutputWithContext(context.Background())
+}
+
+func (i MulticastGroupLoRaWANArgs) ToMulticastGroupLoRaWANOutputWithContext(ctx context.Context) MulticastGroupLoRaWANOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MulticastGroupLoRaWANOutput)
+}
+
+func (i MulticastGroupLoRaWANArgs) ToMulticastGroupLoRaWANPtrOutput() MulticastGroupLoRaWANPtrOutput {
+	return i.ToMulticastGroupLoRaWANPtrOutputWithContext(context.Background())
+}
+
+func (i MulticastGroupLoRaWANArgs) ToMulticastGroupLoRaWANPtrOutputWithContext(ctx context.Context) MulticastGroupLoRaWANPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MulticastGroupLoRaWANOutput).ToMulticastGroupLoRaWANPtrOutputWithContext(ctx)
+}
+
+// MulticastGroupLoRaWANPtrInput is an input type that accepts MulticastGroupLoRaWANArgs, MulticastGroupLoRaWANPtr and MulticastGroupLoRaWANPtrOutput values.
+// You can construct a concrete instance of `MulticastGroupLoRaWANPtrInput` via:
+//
+//          MulticastGroupLoRaWANArgs{...}
+//
+//  or:
+//
+//          nil
+type MulticastGroupLoRaWANPtrInput interface {
+	pulumi.Input
+
+	ToMulticastGroupLoRaWANPtrOutput() MulticastGroupLoRaWANPtrOutput
+	ToMulticastGroupLoRaWANPtrOutputWithContext(context.Context) MulticastGroupLoRaWANPtrOutput
+}
+
+type multicastGroupLoRaWANPtrType MulticastGroupLoRaWANArgs
+
+func MulticastGroupLoRaWANPtr(v *MulticastGroupLoRaWANArgs) MulticastGroupLoRaWANPtrInput {
+	return (*multicastGroupLoRaWANPtrType)(v)
+}
+
+func (*multicastGroupLoRaWANPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MulticastGroupLoRaWAN)(nil)).Elem()
+}
+
+func (i *multicastGroupLoRaWANPtrType) ToMulticastGroupLoRaWANPtrOutput() MulticastGroupLoRaWANPtrOutput {
+	return i.ToMulticastGroupLoRaWANPtrOutputWithContext(context.Background())
+}
+
+func (i *multicastGroupLoRaWANPtrType) ToMulticastGroupLoRaWANPtrOutputWithContext(ctx context.Context) MulticastGroupLoRaWANPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MulticastGroupLoRaWANPtrOutput)
+}
+
+type MulticastGroupLoRaWANOutput struct{ *pulumi.OutputState }
+
+func (MulticastGroupLoRaWANOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MulticastGroupLoRaWAN)(nil)).Elem()
+}
+
+func (o MulticastGroupLoRaWANOutput) ToMulticastGroupLoRaWANOutput() MulticastGroupLoRaWANOutput {
+	return o
+}
+
+func (o MulticastGroupLoRaWANOutput) ToMulticastGroupLoRaWANOutputWithContext(ctx context.Context) MulticastGroupLoRaWANOutput {
+	return o
+}
+
+func (o MulticastGroupLoRaWANOutput) ToMulticastGroupLoRaWANPtrOutput() MulticastGroupLoRaWANPtrOutput {
+	return o.ToMulticastGroupLoRaWANPtrOutputWithContext(context.Background())
+}
+
+func (o MulticastGroupLoRaWANOutput) ToMulticastGroupLoRaWANPtrOutputWithContext(ctx context.Context) MulticastGroupLoRaWANPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MulticastGroupLoRaWAN) *MulticastGroupLoRaWAN {
+		return &v
+	}).(MulticastGroupLoRaWANPtrOutput)
+}
+
+// Multicast group LoRaWAN DL Class
+func (o MulticastGroupLoRaWANOutput) DlClass() pulumi.StringOutput {
+	return o.ApplyT(func(v MulticastGroupLoRaWAN) string { return v.DlClass }).(pulumi.StringOutput)
+}
+
+// Multicast group number of devices in group. Returned after successful read.
+func (o MulticastGroupLoRaWANOutput) NumberOfDevicesInGroup() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MulticastGroupLoRaWAN) *int { return v.NumberOfDevicesInGroup }).(pulumi.IntPtrOutput)
+}
+
+// Multicast group number of devices requested. Returned after successful read.
+func (o MulticastGroupLoRaWANOutput) NumberOfDevicesRequested() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MulticastGroupLoRaWAN) *int { return v.NumberOfDevicesRequested }).(pulumi.IntPtrOutput)
+}
+
+// Multicast group LoRaWAN RF region
+func (o MulticastGroupLoRaWANOutput) RfRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v MulticastGroupLoRaWAN) string { return v.RfRegion }).(pulumi.StringOutput)
+}
+
+type MulticastGroupLoRaWANPtrOutput struct{ *pulumi.OutputState }
+
+func (MulticastGroupLoRaWANPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MulticastGroupLoRaWAN)(nil)).Elem()
+}
+
+func (o MulticastGroupLoRaWANPtrOutput) ToMulticastGroupLoRaWANPtrOutput() MulticastGroupLoRaWANPtrOutput {
+	return o
+}
+
+func (o MulticastGroupLoRaWANPtrOutput) ToMulticastGroupLoRaWANPtrOutputWithContext(ctx context.Context) MulticastGroupLoRaWANPtrOutput {
+	return o
+}
+
+func (o MulticastGroupLoRaWANPtrOutput) Elem() MulticastGroupLoRaWANOutput {
+	return o.ApplyT(func(v *MulticastGroupLoRaWAN) MulticastGroupLoRaWAN {
+		if v != nil {
+			return *v
+		}
+		var ret MulticastGroupLoRaWAN
+		return ret
+	}).(MulticastGroupLoRaWANOutput)
+}
+
+// Multicast group LoRaWAN DL Class
+func (o MulticastGroupLoRaWANPtrOutput) DlClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MulticastGroupLoRaWAN) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DlClass
+	}).(pulumi.StringPtrOutput)
+}
+
+// Multicast group number of devices in group. Returned after successful read.
+func (o MulticastGroupLoRaWANPtrOutput) NumberOfDevicesInGroup() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MulticastGroupLoRaWAN) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfDevicesInGroup
+	}).(pulumi.IntPtrOutput)
+}
+
+// Multicast group number of devices requested. Returned after successful read.
+func (o MulticastGroupLoRaWANPtrOutput) NumberOfDevicesRequested() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MulticastGroupLoRaWAN) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfDevicesRequested
+	}).(pulumi.IntPtrOutput)
+}
+
+// Multicast group LoRaWAN RF region
+func (o MulticastGroupLoRaWANPtrOutput) RfRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MulticastGroupLoRaWAN) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RfRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+type MulticastGroupTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// MulticastGroupTagInput is an input type that accepts MulticastGroupTagArgs and MulticastGroupTagOutput values.
+// You can construct a concrete instance of `MulticastGroupTagInput` via:
+//
+//          MulticastGroupTagArgs{...}
+type MulticastGroupTagInput interface {
+	pulumi.Input
+
+	ToMulticastGroupTagOutput() MulticastGroupTagOutput
+	ToMulticastGroupTagOutputWithContext(context.Context) MulticastGroupTagOutput
+}
+
+type MulticastGroupTagArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (MulticastGroupTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MulticastGroupTag)(nil)).Elem()
+}
+
+func (i MulticastGroupTagArgs) ToMulticastGroupTagOutput() MulticastGroupTagOutput {
+	return i.ToMulticastGroupTagOutputWithContext(context.Background())
+}
+
+func (i MulticastGroupTagArgs) ToMulticastGroupTagOutputWithContext(ctx context.Context) MulticastGroupTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MulticastGroupTagOutput)
+}
+
+// MulticastGroupTagArrayInput is an input type that accepts MulticastGroupTagArray and MulticastGroupTagArrayOutput values.
+// You can construct a concrete instance of `MulticastGroupTagArrayInput` via:
+//
+//          MulticastGroupTagArray{ MulticastGroupTagArgs{...} }
+type MulticastGroupTagArrayInput interface {
+	pulumi.Input
+
+	ToMulticastGroupTagArrayOutput() MulticastGroupTagArrayOutput
+	ToMulticastGroupTagArrayOutputWithContext(context.Context) MulticastGroupTagArrayOutput
+}
+
+type MulticastGroupTagArray []MulticastGroupTagInput
+
+func (MulticastGroupTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MulticastGroupTag)(nil)).Elem()
+}
+
+func (i MulticastGroupTagArray) ToMulticastGroupTagArrayOutput() MulticastGroupTagArrayOutput {
+	return i.ToMulticastGroupTagArrayOutputWithContext(context.Background())
+}
+
+func (i MulticastGroupTagArray) ToMulticastGroupTagArrayOutputWithContext(ctx context.Context) MulticastGroupTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MulticastGroupTagArrayOutput)
+}
+
+type MulticastGroupTagOutput struct{ *pulumi.OutputState }
+
+func (MulticastGroupTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MulticastGroupTag)(nil)).Elem()
+}
+
+func (o MulticastGroupTagOutput) ToMulticastGroupTagOutput() MulticastGroupTagOutput {
+	return o
+}
+
+func (o MulticastGroupTagOutput) ToMulticastGroupTagOutputWithContext(ctx context.Context) MulticastGroupTagOutput {
+	return o
+}
+
+func (o MulticastGroupTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MulticastGroupTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o MulticastGroupTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MulticastGroupTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type MulticastGroupTagArrayOutput struct{ *pulumi.OutputState }
+
+func (MulticastGroupTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MulticastGroupTag)(nil)).Elem()
+}
+
+func (o MulticastGroupTagArrayOutput) ToMulticastGroupTagArrayOutput() MulticastGroupTagArrayOutput {
+	return o
+}
+
+func (o MulticastGroupTagArrayOutput) ToMulticastGroupTagArrayOutputWithContext(ctx context.Context) MulticastGroupTagArrayOutput {
+	return o
+}
+
+func (o MulticastGroupTagArrayOutput) Index(i pulumi.IntInput) MulticastGroupTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MulticastGroupTag {
+		return vs[0].([]MulticastGroupTag)[vs[1].(int)]
+	}).(MulticastGroupTagOutput)
+}
+
 type PartnerAccountSidewalkAccountInfo struct {
 	AppServerPrivateKey string `pulumi:"appServerPrivateKey"`
 }
@@ -3843,6 +4393,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceProfileLoRaWANDeviceProfilePtrInput)(nil)).Elem(), DeviceProfileLoRaWANDeviceProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceProfileTagInput)(nil)).Elem(), DeviceProfileTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceProfileTagArrayInput)(nil)).Elem(), DeviceProfileTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FuotaTaskLoRaWANInput)(nil)).Elem(), FuotaTaskLoRaWANArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FuotaTaskLoRaWANPtrInput)(nil)).Elem(), FuotaTaskLoRaWANArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FuotaTaskTagInput)(nil)).Elem(), FuotaTaskTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FuotaTaskTagArrayInput)(nil)).Elem(), FuotaTaskTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MulticastGroupLoRaWANInput)(nil)).Elem(), MulticastGroupLoRaWANArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MulticastGroupLoRaWANPtrInput)(nil)).Elem(), MulticastGroupLoRaWANArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MulticastGroupTagInput)(nil)).Elem(), MulticastGroupTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MulticastGroupTagArrayInput)(nil)).Elem(), MulticastGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountSidewalkAccountInfoInput)(nil)).Elem(), PartnerAccountSidewalkAccountInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountSidewalkAccountInfoPtrInput)(nil)).Elem(), PartnerAccountSidewalkAccountInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountSidewalkAccountInfoWithFingerprintInput)(nil)).Elem(), PartnerAccountSidewalkAccountInfoWithFingerprintArgs{})
@@ -3891,6 +4449,14 @@ func init() {
 	pulumi.RegisterOutputType(DeviceProfileLoRaWANDeviceProfilePtrOutput{})
 	pulumi.RegisterOutputType(DeviceProfileTagOutput{})
 	pulumi.RegisterOutputType(DeviceProfileTagArrayOutput{})
+	pulumi.RegisterOutputType(FuotaTaskLoRaWANOutput{})
+	pulumi.RegisterOutputType(FuotaTaskLoRaWANPtrOutput{})
+	pulumi.RegisterOutputType(FuotaTaskTagOutput{})
+	pulumi.RegisterOutputType(FuotaTaskTagArrayOutput{})
+	pulumi.RegisterOutputType(MulticastGroupLoRaWANOutput{})
+	pulumi.RegisterOutputType(MulticastGroupLoRaWANPtrOutput{})
+	pulumi.RegisterOutputType(MulticastGroupTagOutput{})
+	pulumi.RegisterOutputType(MulticastGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(PartnerAccountSidewalkAccountInfoOutput{})
 	pulumi.RegisterOutputType(PartnerAccountSidewalkAccountInfoPtrOutput{})
 	pulumi.RegisterOutputType(PartnerAccountSidewalkAccountInfoWithFingerprintOutput{})

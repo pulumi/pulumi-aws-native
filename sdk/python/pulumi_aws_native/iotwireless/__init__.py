@@ -8,6 +8,8 @@ import typing
 from ._enums import *
 from .destination import *
 from .device_profile import *
+from .fuota_task import *
+from .multicast_group import *
 from .partner_account import *
 from .service_profile import *
 from .task_definition import *

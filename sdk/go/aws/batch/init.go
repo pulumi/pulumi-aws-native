@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &JobDefinition{}
 	case "aws-native:batch:JobQueue":
 		r = &JobQueue{}
+	case "aws-native:batch:SchedulingPolicy":
+		r = &SchedulingPolicy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

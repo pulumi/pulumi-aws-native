@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./destination";
 export * from "./deviceProfile";
+export * from "./fuotaTask";
+export * from "./multicastGroup";
 export * from "./partnerAccount";
 export * from "./serviceProfile";
 export * from "./taskDefinition";
@@ -19,6 +21,8 @@ export * from "../types/enums/iotwireless";
 // Import resources to register:
 import { Destination } from "./destination";
 import { DeviceProfile } from "./deviceProfile";
+import { FuotaTask } from "./fuotaTask";
+import { MulticastGroup } from "./multicastGroup";
 import { PartnerAccount } from "./partnerAccount";
 import { ServiceProfile } from "./serviceProfile";
 import { TaskDefinition } from "./taskDefinition";
@@ -33,6 +37,10 @@ const _module = {
                 return new Destination(name, <any>undefined, { urn })
             case "aws-native:iotwireless:DeviceProfile":
                 return new DeviceProfile(name, <any>undefined, { urn })
+            case "aws-native:iotwireless:FuotaTask":
+                return new FuotaTask(name, <any>undefined, { urn })
+            case "aws-native:iotwireless:MulticastGroup":
+                return new MulticastGroup(name, <any>undefined, { urn })
             case "aws-native:iotwireless:PartnerAccount":
                 return new PartnerAccount(name, <any>undefined, { urn })
             case "aws-native:iotwireless:ServiceProfile":

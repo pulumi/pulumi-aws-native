@@ -35,6 +35,8 @@ __all__ = [
     'JobDefinitionVolumes',
     'JobDefinitionVolumesHost',
     'JobQueueComputeEnvironmentOrder',
+    'SchedulingPolicyFairsharePolicy',
+    'SchedulingPolicyShareAttributes',
 ]
 
 @pulumi.output_type
@@ -1378,5 +1380,105 @@ class JobQueueComputeEnvironmentOrder(dict):
     @pulumi.getter
     def order(self) -> int:
         return pulumi.get(self, "order")
+
+
+@pulumi.output_type
+class SchedulingPolicyFairsharePolicy(dict):
+    """
+    Fair Share Policy for the Job Queue.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeReservation":
+            suggest = "compute_reservation"
+        elif key == "shareDecaySeconds":
+            suggest = "share_decay_seconds"
+        elif key == "shareDistribution":
+            suggest = "share_distribution"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SchedulingPolicyFairsharePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SchedulingPolicyFairsharePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SchedulingPolicyFairsharePolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compute_reservation: Optional[float] = None,
+                 share_decay_seconds: Optional[float] = None,
+                 share_distribution: Optional[Sequence['outputs.SchedulingPolicyShareAttributes']] = None):
+        """
+        Fair Share Policy for the Job Queue.
+        :param Sequence['SchedulingPolicyShareAttributes'] share_distribution: List of Share Attributes
+        """
+        if compute_reservation is not None:
+            pulumi.set(__self__, "compute_reservation", compute_reservation)
+        if share_decay_seconds is not None:
+            pulumi.set(__self__, "share_decay_seconds", share_decay_seconds)
+        if share_distribution is not None:
+            pulumi.set(__self__, "share_distribution", share_distribution)
+
+    @property
+    @pulumi.getter(name="computeReservation")
+    def compute_reservation(self) -> Optional[float]:
+        return pulumi.get(self, "compute_reservation")
+
+    @property
+    @pulumi.getter(name="shareDecaySeconds")
+    def share_decay_seconds(self) -> Optional[float]:
+        return pulumi.get(self, "share_decay_seconds")
+
+    @property
+    @pulumi.getter(name="shareDistribution")
+    def share_distribution(self) -> Optional[Sequence['outputs.SchedulingPolicyShareAttributes']]:
+        """
+        List of Share Attributes
+        """
+        return pulumi.get(self, "share_distribution")
+
+
+@pulumi.output_type
+class SchedulingPolicyShareAttributes(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "shareIdentifier":
+            suggest = "share_identifier"
+        elif key == "weightFactor":
+            suggest = "weight_factor"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SchedulingPolicyShareAttributes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SchedulingPolicyShareAttributes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SchedulingPolicyShareAttributes.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 share_identifier: Optional[str] = None,
+                 weight_factor: Optional[float] = None):
+        if share_identifier is not None:
+            pulumi.set(__self__, "share_identifier", share_identifier)
+        if weight_factor is not None:
+            pulumi.set(__self__, "weight_factor", weight_factor)
+
+    @property
+    @pulumi.getter(name="shareIdentifier")
+    def share_identifier(self) -> Optional[str]:
+        return pulumi.get(self, "share_identifier")
+
+    @property
+    @pulumi.getter(name="weightFactor")
+    def weight_factor(self) -> Optional[float]:
+        return pulumi.get(self, "weight_factor")
 
 

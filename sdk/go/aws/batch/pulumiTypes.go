@@ -3773,6 +3773,276 @@ func (o JobQueueComputeEnvironmentOrderArrayOutput) Index(i pulumi.IntInput) Job
 	}).(JobQueueComputeEnvironmentOrderOutput)
 }
 
+// Fair Share Policy for the Job Queue.
+type SchedulingPolicyFairsharePolicy struct {
+	ComputeReservation *float64 `pulumi:"computeReservation"`
+	ShareDecaySeconds  *float64 `pulumi:"shareDecaySeconds"`
+	// List of Share Attributes
+	ShareDistribution []SchedulingPolicyShareAttributes `pulumi:"shareDistribution"`
+}
+
+// SchedulingPolicyFairsharePolicyInput is an input type that accepts SchedulingPolicyFairsharePolicyArgs and SchedulingPolicyFairsharePolicyOutput values.
+// You can construct a concrete instance of `SchedulingPolicyFairsharePolicyInput` via:
+//
+//          SchedulingPolicyFairsharePolicyArgs{...}
+type SchedulingPolicyFairsharePolicyInput interface {
+	pulumi.Input
+
+	ToSchedulingPolicyFairsharePolicyOutput() SchedulingPolicyFairsharePolicyOutput
+	ToSchedulingPolicyFairsharePolicyOutputWithContext(context.Context) SchedulingPolicyFairsharePolicyOutput
+}
+
+// Fair Share Policy for the Job Queue.
+type SchedulingPolicyFairsharePolicyArgs struct {
+	ComputeReservation pulumi.Float64PtrInput `pulumi:"computeReservation"`
+	ShareDecaySeconds  pulumi.Float64PtrInput `pulumi:"shareDecaySeconds"`
+	// List of Share Attributes
+	ShareDistribution SchedulingPolicyShareAttributesArrayInput `pulumi:"shareDistribution"`
+}
+
+func (SchedulingPolicyFairsharePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchedulingPolicyFairsharePolicy)(nil)).Elem()
+}
+
+func (i SchedulingPolicyFairsharePolicyArgs) ToSchedulingPolicyFairsharePolicyOutput() SchedulingPolicyFairsharePolicyOutput {
+	return i.ToSchedulingPolicyFairsharePolicyOutputWithContext(context.Background())
+}
+
+func (i SchedulingPolicyFairsharePolicyArgs) ToSchedulingPolicyFairsharePolicyOutputWithContext(ctx context.Context) SchedulingPolicyFairsharePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchedulingPolicyFairsharePolicyOutput)
+}
+
+func (i SchedulingPolicyFairsharePolicyArgs) ToSchedulingPolicyFairsharePolicyPtrOutput() SchedulingPolicyFairsharePolicyPtrOutput {
+	return i.ToSchedulingPolicyFairsharePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i SchedulingPolicyFairsharePolicyArgs) ToSchedulingPolicyFairsharePolicyPtrOutputWithContext(ctx context.Context) SchedulingPolicyFairsharePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchedulingPolicyFairsharePolicyOutput).ToSchedulingPolicyFairsharePolicyPtrOutputWithContext(ctx)
+}
+
+// SchedulingPolicyFairsharePolicyPtrInput is an input type that accepts SchedulingPolicyFairsharePolicyArgs, SchedulingPolicyFairsharePolicyPtr and SchedulingPolicyFairsharePolicyPtrOutput values.
+// You can construct a concrete instance of `SchedulingPolicyFairsharePolicyPtrInput` via:
+//
+//          SchedulingPolicyFairsharePolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type SchedulingPolicyFairsharePolicyPtrInput interface {
+	pulumi.Input
+
+	ToSchedulingPolicyFairsharePolicyPtrOutput() SchedulingPolicyFairsharePolicyPtrOutput
+	ToSchedulingPolicyFairsharePolicyPtrOutputWithContext(context.Context) SchedulingPolicyFairsharePolicyPtrOutput
+}
+
+type schedulingPolicyFairsharePolicyPtrType SchedulingPolicyFairsharePolicyArgs
+
+func SchedulingPolicyFairsharePolicyPtr(v *SchedulingPolicyFairsharePolicyArgs) SchedulingPolicyFairsharePolicyPtrInput {
+	return (*schedulingPolicyFairsharePolicyPtrType)(v)
+}
+
+func (*schedulingPolicyFairsharePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchedulingPolicyFairsharePolicy)(nil)).Elem()
+}
+
+func (i *schedulingPolicyFairsharePolicyPtrType) ToSchedulingPolicyFairsharePolicyPtrOutput() SchedulingPolicyFairsharePolicyPtrOutput {
+	return i.ToSchedulingPolicyFairsharePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *schedulingPolicyFairsharePolicyPtrType) ToSchedulingPolicyFairsharePolicyPtrOutputWithContext(ctx context.Context) SchedulingPolicyFairsharePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchedulingPolicyFairsharePolicyPtrOutput)
+}
+
+// Fair Share Policy for the Job Queue.
+type SchedulingPolicyFairsharePolicyOutput struct{ *pulumi.OutputState }
+
+func (SchedulingPolicyFairsharePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchedulingPolicyFairsharePolicy)(nil)).Elem()
+}
+
+func (o SchedulingPolicyFairsharePolicyOutput) ToSchedulingPolicyFairsharePolicyOutput() SchedulingPolicyFairsharePolicyOutput {
+	return o
+}
+
+func (o SchedulingPolicyFairsharePolicyOutput) ToSchedulingPolicyFairsharePolicyOutputWithContext(ctx context.Context) SchedulingPolicyFairsharePolicyOutput {
+	return o
+}
+
+func (o SchedulingPolicyFairsharePolicyOutput) ToSchedulingPolicyFairsharePolicyPtrOutput() SchedulingPolicyFairsharePolicyPtrOutput {
+	return o.ToSchedulingPolicyFairsharePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o SchedulingPolicyFairsharePolicyOutput) ToSchedulingPolicyFairsharePolicyPtrOutputWithContext(ctx context.Context) SchedulingPolicyFairsharePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SchedulingPolicyFairsharePolicy) *SchedulingPolicyFairsharePolicy {
+		return &v
+	}).(SchedulingPolicyFairsharePolicyPtrOutput)
+}
+
+func (o SchedulingPolicyFairsharePolicyOutput) ComputeReservation() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SchedulingPolicyFairsharePolicy) *float64 { return v.ComputeReservation }).(pulumi.Float64PtrOutput)
+}
+
+func (o SchedulingPolicyFairsharePolicyOutput) ShareDecaySeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SchedulingPolicyFairsharePolicy) *float64 { return v.ShareDecaySeconds }).(pulumi.Float64PtrOutput)
+}
+
+// List of Share Attributes
+func (o SchedulingPolicyFairsharePolicyOutput) ShareDistribution() SchedulingPolicyShareAttributesArrayOutput {
+	return o.ApplyT(func(v SchedulingPolicyFairsharePolicy) []SchedulingPolicyShareAttributes { return v.ShareDistribution }).(SchedulingPolicyShareAttributesArrayOutput)
+}
+
+type SchedulingPolicyFairsharePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (SchedulingPolicyFairsharePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchedulingPolicyFairsharePolicy)(nil)).Elem()
+}
+
+func (o SchedulingPolicyFairsharePolicyPtrOutput) ToSchedulingPolicyFairsharePolicyPtrOutput() SchedulingPolicyFairsharePolicyPtrOutput {
+	return o
+}
+
+func (o SchedulingPolicyFairsharePolicyPtrOutput) ToSchedulingPolicyFairsharePolicyPtrOutputWithContext(ctx context.Context) SchedulingPolicyFairsharePolicyPtrOutput {
+	return o
+}
+
+func (o SchedulingPolicyFairsharePolicyPtrOutput) Elem() SchedulingPolicyFairsharePolicyOutput {
+	return o.ApplyT(func(v *SchedulingPolicyFairsharePolicy) SchedulingPolicyFairsharePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret SchedulingPolicyFairsharePolicy
+		return ret
+	}).(SchedulingPolicyFairsharePolicyOutput)
+}
+
+func (o SchedulingPolicyFairsharePolicyPtrOutput) ComputeReservation() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SchedulingPolicyFairsharePolicy) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeReservation
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o SchedulingPolicyFairsharePolicyPtrOutput) ShareDecaySeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SchedulingPolicyFairsharePolicy) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ShareDecaySeconds
+	}).(pulumi.Float64PtrOutput)
+}
+
+// List of Share Attributes
+func (o SchedulingPolicyFairsharePolicyPtrOutput) ShareDistribution() SchedulingPolicyShareAttributesArrayOutput {
+	return o.ApplyT(func(v *SchedulingPolicyFairsharePolicy) []SchedulingPolicyShareAttributes {
+		if v == nil {
+			return nil
+		}
+		return v.ShareDistribution
+	}).(SchedulingPolicyShareAttributesArrayOutput)
+}
+
+type SchedulingPolicyShareAttributes struct {
+	ShareIdentifier *string  `pulumi:"shareIdentifier"`
+	WeightFactor    *float64 `pulumi:"weightFactor"`
+}
+
+// SchedulingPolicyShareAttributesInput is an input type that accepts SchedulingPolicyShareAttributesArgs and SchedulingPolicyShareAttributesOutput values.
+// You can construct a concrete instance of `SchedulingPolicyShareAttributesInput` via:
+//
+//          SchedulingPolicyShareAttributesArgs{...}
+type SchedulingPolicyShareAttributesInput interface {
+	pulumi.Input
+
+	ToSchedulingPolicyShareAttributesOutput() SchedulingPolicyShareAttributesOutput
+	ToSchedulingPolicyShareAttributesOutputWithContext(context.Context) SchedulingPolicyShareAttributesOutput
+}
+
+type SchedulingPolicyShareAttributesArgs struct {
+	ShareIdentifier pulumi.StringPtrInput  `pulumi:"shareIdentifier"`
+	WeightFactor    pulumi.Float64PtrInput `pulumi:"weightFactor"`
+}
+
+func (SchedulingPolicyShareAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchedulingPolicyShareAttributes)(nil)).Elem()
+}
+
+func (i SchedulingPolicyShareAttributesArgs) ToSchedulingPolicyShareAttributesOutput() SchedulingPolicyShareAttributesOutput {
+	return i.ToSchedulingPolicyShareAttributesOutputWithContext(context.Background())
+}
+
+func (i SchedulingPolicyShareAttributesArgs) ToSchedulingPolicyShareAttributesOutputWithContext(ctx context.Context) SchedulingPolicyShareAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchedulingPolicyShareAttributesOutput)
+}
+
+// SchedulingPolicyShareAttributesArrayInput is an input type that accepts SchedulingPolicyShareAttributesArray and SchedulingPolicyShareAttributesArrayOutput values.
+// You can construct a concrete instance of `SchedulingPolicyShareAttributesArrayInput` via:
+//
+//          SchedulingPolicyShareAttributesArray{ SchedulingPolicyShareAttributesArgs{...} }
+type SchedulingPolicyShareAttributesArrayInput interface {
+	pulumi.Input
+
+	ToSchedulingPolicyShareAttributesArrayOutput() SchedulingPolicyShareAttributesArrayOutput
+	ToSchedulingPolicyShareAttributesArrayOutputWithContext(context.Context) SchedulingPolicyShareAttributesArrayOutput
+}
+
+type SchedulingPolicyShareAttributesArray []SchedulingPolicyShareAttributesInput
+
+func (SchedulingPolicyShareAttributesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SchedulingPolicyShareAttributes)(nil)).Elem()
+}
+
+func (i SchedulingPolicyShareAttributesArray) ToSchedulingPolicyShareAttributesArrayOutput() SchedulingPolicyShareAttributesArrayOutput {
+	return i.ToSchedulingPolicyShareAttributesArrayOutputWithContext(context.Background())
+}
+
+func (i SchedulingPolicyShareAttributesArray) ToSchedulingPolicyShareAttributesArrayOutputWithContext(ctx context.Context) SchedulingPolicyShareAttributesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchedulingPolicyShareAttributesArrayOutput)
+}
+
+type SchedulingPolicyShareAttributesOutput struct{ *pulumi.OutputState }
+
+func (SchedulingPolicyShareAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchedulingPolicyShareAttributes)(nil)).Elem()
+}
+
+func (o SchedulingPolicyShareAttributesOutput) ToSchedulingPolicyShareAttributesOutput() SchedulingPolicyShareAttributesOutput {
+	return o
+}
+
+func (o SchedulingPolicyShareAttributesOutput) ToSchedulingPolicyShareAttributesOutputWithContext(ctx context.Context) SchedulingPolicyShareAttributesOutput {
+	return o
+}
+
+func (o SchedulingPolicyShareAttributesOutput) ShareIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchedulingPolicyShareAttributes) *string { return v.ShareIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o SchedulingPolicyShareAttributesOutput) WeightFactor() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SchedulingPolicyShareAttributes) *float64 { return v.WeightFactor }).(pulumi.Float64PtrOutput)
+}
+
+type SchedulingPolicyShareAttributesArrayOutput struct{ *pulumi.OutputState }
+
+func (SchedulingPolicyShareAttributesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SchedulingPolicyShareAttributes)(nil)).Elem()
+}
+
+func (o SchedulingPolicyShareAttributesArrayOutput) ToSchedulingPolicyShareAttributesArrayOutput() SchedulingPolicyShareAttributesArrayOutput {
+	return o
+}
+
+func (o SchedulingPolicyShareAttributesArrayOutput) ToSchedulingPolicyShareAttributesArrayOutputWithContext(ctx context.Context) SchedulingPolicyShareAttributesArrayOutput {
+	return o
+}
+
+func (o SchedulingPolicyShareAttributesArrayOutput) Index(i pulumi.IntInput) SchedulingPolicyShareAttributesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SchedulingPolicyShareAttributes {
+		return vs[0].([]SchedulingPolicyShareAttributes)[vs[1].(int)]
+	}).(SchedulingPolicyShareAttributesOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentComputeResourcesInput)(nil)).Elem(), ComputeEnvironmentComputeResourcesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentComputeResourcesPtrInput)(nil)).Elem(), ComputeEnvironmentComputeResourcesArgs{})
@@ -3824,6 +4094,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionVolumesHostPtrInput)(nil)).Elem(), JobDefinitionVolumesHostArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueComputeEnvironmentOrderInput)(nil)).Elem(), JobQueueComputeEnvironmentOrderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueComputeEnvironmentOrderArrayInput)(nil)).Elem(), JobQueueComputeEnvironmentOrderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyFairsharePolicyInput)(nil)).Elem(), SchedulingPolicyFairsharePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyFairsharePolicyPtrInput)(nil)).Elem(), SchedulingPolicyFairsharePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyShareAttributesInput)(nil)).Elem(), SchedulingPolicyShareAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyShareAttributesArrayInput)(nil)).Elem(), SchedulingPolicyShareAttributesArray{})
 	pulumi.RegisterOutputType(ComputeEnvironmentComputeResourcesOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentComputeResourcesPtrOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentEc2ConfigurationObjectOutput{})
@@ -3874,4 +4148,8 @@ func init() {
 	pulumi.RegisterOutputType(JobDefinitionVolumesHostPtrOutput{})
 	pulumi.RegisterOutputType(JobQueueComputeEnvironmentOrderOutput{})
 	pulumi.RegisterOutputType(JobQueueComputeEnvironmentOrderArrayOutput{})
+	pulumi.RegisterOutputType(SchedulingPolicyFairsharePolicyOutput{})
+	pulumi.RegisterOutputType(SchedulingPolicyFairsharePolicyPtrOutput{})
+	pulumi.RegisterOutputType(SchedulingPolicyShareAttributesOutput{})
+	pulumi.RegisterOutputType(SchedulingPolicyShareAttributesArrayOutput{})
 }

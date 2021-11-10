@@ -3173,6 +3173,45 @@
                 "reportPlanName"
             ]
         },
+        "aws-native:batch:SchedulingPolicy": {
+            "cf": "AWS::Batch::SchedulingPolicy",
+            "inputs": {
+                "fairsharePolicy": {
+                    "$ref": "#/types/aws-native:batch:SchedulingPolicyFairsharePolicy"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of Scheduling Policy."
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A key-value pair to associate with a resource."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "fairsharePolicy": {
+                    "$ref": "#/types/aws-native:batch:SchedulingPolicyFairsharePolicy"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of Scheduling Policy."
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A key-value pair to associate with a resource."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
+            "createOnly": [
+                "name",
+                "tags"
+            ]
+        },
         "aws-native:budgets:BudgetsAction": {
             "cf": "AWS::Budgets::BudgetsAction",
             "inputs": {
@@ -34857,6 +34896,35 @@
                 "reportTemplate": {
                     "type": "string",
                     "description": "Identifies the report template for the report. Reports are built using a report template. The report templates are: `BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`"
+                }
+            }
+        },
+        "aws-native:batch:SchedulingPolicyFairsharePolicy": {
+            "type": "object",
+            "properties": {
+                "computeReservation": {
+                    "type": "number"
+                },
+                "shareDecaySeconds": {
+                    "type": "number"
+                },
+                "shareDistribution": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:batch:SchedulingPolicyShareAttributes"
+                    },
+                    "description": "List of Share Attributes"
+                }
+            }
+        },
+        "aws-native:batch:SchedulingPolicyShareAttributes": {
+            "type": "object",
+            "properties": {
+                "shareIdentifier": {
+                    "type": "string"
+                },
+                "weightFactor": {
+                    "type": "number"
                 }
             }
         },

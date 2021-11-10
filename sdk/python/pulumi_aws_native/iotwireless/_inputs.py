@@ -13,6 +13,10 @@ __all__ = [
     'DestinationTagArgs',
     'DeviceProfileLoRaWANDeviceProfileArgs',
     'DeviceProfileTagArgs',
+    'FuotaTaskLoRaWANArgs',
+    'FuotaTaskTagArgs',
+    'MulticastGroupLoRaWANArgs',
+    'MulticastGroupTagArgs',
     'PartnerAccountSidewalkAccountInfoArgs',
     'PartnerAccountSidewalkUpdateAccountArgs',
     'PartnerAccountTagArgs',
@@ -239,6 +243,171 @@ class DeviceProfileLoRaWANDeviceProfileArgs:
 
 @pulumi.input_type
 class DeviceProfileTagArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class FuotaTaskLoRaWANArgs:
+    def __init__(__self__, *,
+                 rf_region: pulumi.Input[str],
+                 start_time: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] rf_region: FUOTA task LoRaWAN RF region
+        :param pulumi.Input[str] start_time: FUOTA task LoRaWAN start time
+        """
+        pulumi.set(__self__, "rf_region", rf_region)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="rfRegion")
+    def rf_region(self) -> pulumi.Input[str]:
+        """
+        FUOTA task LoRaWAN RF region
+        """
+        return pulumi.get(self, "rf_region")
+
+    @rf_region.setter
+    def rf_region(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rf_region", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        FUOTA task LoRaWAN start time
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
+
+
+@pulumi.input_type
+class FuotaTaskTagArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class MulticastGroupLoRaWANArgs:
+    def __init__(__self__, *,
+                 dl_class: pulumi.Input[str],
+                 rf_region: pulumi.Input[str],
+                 number_of_devices_in_group: Optional[pulumi.Input[int]] = None,
+                 number_of_devices_requested: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] dl_class: Multicast group LoRaWAN DL Class
+        :param pulumi.Input[str] rf_region: Multicast group LoRaWAN RF region
+        :param pulumi.Input[int] number_of_devices_in_group: Multicast group number of devices in group. Returned after successful read.
+        :param pulumi.Input[int] number_of_devices_requested: Multicast group number of devices requested. Returned after successful read.
+        """
+        pulumi.set(__self__, "dl_class", dl_class)
+        pulumi.set(__self__, "rf_region", rf_region)
+        if number_of_devices_in_group is not None:
+            pulumi.set(__self__, "number_of_devices_in_group", number_of_devices_in_group)
+        if number_of_devices_requested is not None:
+            pulumi.set(__self__, "number_of_devices_requested", number_of_devices_requested)
+
+    @property
+    @pulumi.getter(name="dlClass")
+    def dl_class(self) -> pulumi.Input[str]:
+        """
+        Multicast group LoRaWAN DL Class
+        """
+        return pulumi.get(self, "dl_class")
+
+    @dl_class.setter
+    def dl_class(self, value: pulumi.Input[str]):
+        pulumi.set(self, "dl_class", value)
+
+    @property
+    @pulumi.getter(name="rfRegion")
+    def rf_region(self) -> pulumi.Input[str]:
+        """
+        Multicast group LoRaWAN RF region
+        """
+        return pulumi.get(self, "rf_region")
+
+    @rf_region.setter
+    def rf_region(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rf_region", value)
+
+    @property
+    @pulumi.getter(name="numberOfDevicesInGroup")
+    def number_of_devices_in_group(self) -> Optional[pulumi.Input[int]]:
+        """
+        Multicast group number of devices in group. Returned after successful read.
+        """
+        return pulumi.get(self, "number_of_devices_in_group")
+
+    @number_of_devices_in_group.setter
+    def number_of_devices_in_group(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "number_of_devices_in_group", value)
+
+    @property
+    @pulumi.getter(name="numberOfDevicesRequested")
+    def number_of_devices_requested(self) -> Optional[pulumi.Input[int]]:
+        """
+        Multicast group number of devices requested. Returned after successful read.
+        """
+        return pulumi.get(self, "number_of_devices_requested")
+
+    @number_of_devices_requested.setter
+    def number_of_devices_requested(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "number_of_devices_requested", value)
+
+
+@pulumi.input_type
+class MulticastGroupTagArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):

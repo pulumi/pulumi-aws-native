@@ -812,7 +812,8 @@ _utilities.register(
   "classes": {
    "aws-native:batch:ComputeEnvironment": "ComputeEnvironment",
    "aws-native:batch:JobDefinition": "JobDefinition",
-   "aws-native:batch:JobQueue": "JobQueue"
+   "aws-native:batch:JobQueue": "JobQueue",
+   "aws-native:batch:SchedulingPolicy": "SchedulingPolicy"
   }
  },
  {
@@ -1744,6 +1745,8 @@ _utilities.register(
   "classes": {
    "aws-native:iotwireless:Destination": "Destination",
    "aws-native:iotwireless:DeviceProfile": "DeviceProfile",
+   "aws-native:iotwireless:FuotaTask": "FuotaTask",
+   "aws-native:iotwireless:MulticastGroup": "MulticastGroup",
    "aws-native:iotwireless:PartnerAccount": "PartnerAccount",
    "aws-native:iotwireless:ServiceProfile": "ServiceProfile",
    "aws-native:iotwireless:TaskDefinition": "TaskDefinition",

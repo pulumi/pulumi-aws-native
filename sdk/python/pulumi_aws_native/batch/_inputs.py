@@ -34,6 +34,8 @@ __all__ = [
     'JobDefinitionVolumesHostArgs',
     'JobDefinitionVolumesArgs',
     'JobQueueComputeEnvironmentOrderArgs',
+    'SchedulingPolicyFairsharePolicyArgs',
+    'SchedulingPolicyShareAttributesArgs',
 ]
 
 @pulumi.input_type
@@ -1290,5 +1292,82 @@ class JobQueueComputeEnvironmentOrderArgs:
     @order.setter
     def order(self, value: pulumi.Input[int]):
         pulumi.set(self, "order", value)
+
+
+@pulumi.input_type
+class SchedulingPolicyFairsharePolicyArgs:
+    def __init__(__self__, *,
+                 compute_reservation: Optional[pulumi.Input[float]] = None,
+                 share_decay_seconds: Optional[pulumi.Input[float]] = None,
+                 share_distribution: Optional[pulumi.Input[Sequence[pulumi.Input['SchedulingPolicyShareAttributesArgs']]]] = None):
+        """
+        Fair Share Policy for the Job Queue.
+        :param pulumi.Input[Sequence[pulumi.Input['SchedulingPolicyShareAttributesArgs']]] share_distribution: List of Share Attributes
+        """
+        if compute_reservation is not None:
+            pulumi.set(__self__, "compute_reservation", compute_reservation)
+        if share_decay_seconds is not None:
+            pulumi.set(__self__, "share_decay_seconds", share_decay_seconds)
+        if share_distribution is not None:
+            pulumi.set(__self__, "share_distribution", share_distribution)
+
+    @property
+    @pulumi.getter(name="computeReservation")
+    def compute_reservation(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "compute_reservation")
+
+    @compute_reservation.setter
+    def compute_reservation(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "compute_reservation", value)
+
+    @property
+    @pulumi.getter(name="shareDecaySeconds")
+    def share_decay_seconds(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "share_decay_seconds")
+
+    @share_decay_seconds.setter
+    def share_decay_seconds(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "share_decay_seconds", value)
+
+    @property
+    @pulumi.getter(name="shareDistribution")
+    def share_distribution(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchedulingPolicyShareAttributesArgs']]]]:
+        """
+        List of Share Attributes
+        """
+        return pulumi.get(self, "share_distribution")
+
+    @share_distribution.setter
+    def share_distribution(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchedulingPolicyShareAttributesArgs']]]]):
+        pulumi.set(self, "share_distribution", value)
+
+
+@pulumi.input_type
+class SchedulingPolicyShareAttributesArgs:
+    def __init__(__self__, *,
+                 share_identifier: Optional[pulumi.Input[str]] = None,
+                 weight_factor: Optional[pulumi.Input[float]] = None):
+        if share_identifier is not None:
+            pulumi.set(__self__, "share_identifier", share_identifier)
+        if weight_factor is not None:
+            pulumi.set(__self__, "weight_factor", weight_factor)
+
+    @property
+    @pulumi.getter(name="shareIdentifier")
+    def share_identifier(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "share_identifier")
+
+    @share_identifier.setter
+    def share_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "share_identifier", value)
+
+    @property
+    @pulumi.getter(name="weightFactor")
+    def weight_factor(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "weight_factor")
+
+    @weight_factor.setter
+    def weight_factor(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "weight_factor", value)
 
 

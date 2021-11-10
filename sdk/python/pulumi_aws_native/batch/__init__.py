@@ -8,5 +8,6 @@ import typing
 from .compute_environment import *
 from .job_definition import *
 from .job_queue import *
+from .scheduling_policy import *
 from ._inputs import *
 from . import outputs
