@@ -40,6 +40,7 @@ AWS::Backup::BackupSelection
 AWS::Backup::BackupVault
 AWS::Backup::Framework
 AWS::Backup::ReportPlan
+AWS::Batch::SchedulingPolicy
 AWS::Budgets::BudgetsAction
 AWS::CE::CostCategory
 AWS::Cassandra::Keyspace

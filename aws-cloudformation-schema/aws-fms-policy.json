@@ -25,15 +25,18 @@
           "type" : "array",
           "items" : {
             "$ref" : "#/definitions/AccountId"
-          }
+          },
+          "insertionOrder" : true
         },
         "ORGUNIT" : {
           "type" : "array",
           "items" : {
             "$ref" : "#/definitions/OrganizationalUnitId"
-          }
+          },
+          "insertionOrder" : true
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "PolicyTag" : {
       "description" : "A policy tag.",
@@ -51,6 +54,7 @@
           "maxLength" : 256
         }
       },
+      "additionalProperties" : false,
       "required" : [ "Key", "Value" ]
     },
     "ResourceTag" : {
@@ -67,6 +71,7 @@
           "maxLength" : 256
         }
       },
+      "additionalProperties" : false,
       "required" : [ "Key" ]
     },
     "ResourceType" : {
@@ -114,7 +119,8 @@
       "items" : {
         "$ref" : "#/definitions/ResourceTag"
       },
-      "maxLength" : 8
+      "maxItems" : 8,
+      "insertionOrder" : true
     },
     "ResourceType" : {
       "$ref" : "#/definitions/ResourceType"
@@ -123,7 +129,8 @@
       "type" : "array",
       "items" : {
         "$ref" : "#/definitions/ResourceType"
-      }
+      },
+      "insertionOrder" : true
     },
     "SecurityServicePolicyData" : {
       "type" : "object",
@@ -138,6 +145,7 @@
           "enum" : [ "WAF", "WAFV2", "SHIELD_ADVANCED", "SECURITY_GROUPS_COMMON", "SECURITY_GROUPS_CONTENT_AUDIT", "SECURITY_GROUPS_USAGE_AUDIT", "NETWORK_FIREWALL", "DNS_FIREWALL" ]
         }
       },
+      "additionalProperties" : false,
       "required" : [ "Type" ]
     },
     "Arn" : {
@@ -153,7 +161,8 @@
       "type" : "array",
       "items" : {
         "$ref" : "#/definitions/PolicyTag"
-      }
+      },
+      "insertionOrder" : true
     }
   },
   "additionalProperties" : false,

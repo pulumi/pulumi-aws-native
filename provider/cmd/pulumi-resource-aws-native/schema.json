@@ -5788,6 +5788,36 @@
                 "reportTemplate"
             ]
         },
+        "aws-native:batch:SchedulingPolicyFairsharePolicy": {
+            "description": "Fair Share Policy for the Job Queue.",
+            "properties": {
+                "computeReservation": {
+                    "type": "number"
+                },
+                "shareDecaySeconds": {
+                    "type": "number"
+                },
+                "shareDistribution": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:batch:SchedulingPolicyShareAttributes"
+                    },
+                    "description": "List of Share Attributes"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:batch:SchedulingPolicyShareAttributes": {
+            "properties": {
+                "shareIdentifier": {
+                    "type": "string"
+                },
+                "weightFactor": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
         "aws-native:budgets:BudgetsActionActionThreshold": {
             "properties": {
                 "type": {
@@ -52211,6 +52241,42 @@
                 "reportSetting"
             ]
         },
+        "aws-native:batch:SchedulingPolicy": {
+            "description": "Resource Type schema for AWS::Batch::SchedulingPolicy",
+            "properties": {
+                "arn": {
+                    "type": "string"
+                },
+                "fairsharePolicy": {
+                    "$ref": "#/types/aws-native:batch:SchedulingPolicyFairsharePolicy"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of Scheduling Policy."
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A key-value pair to associate with a resource."
+                }
+            },
+            "type": "object",
+            "required": [
+                "arn"
+            ],
+            "inputProperties": {
+                "fairsharePolicy": {
+                    "$ref": "#/types/aws-native:batch:SchedulingPolicyFairsharePolicy"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of Scheduling Policy."
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A key-value pair to associate with a resource."
+                }
+            }
+        },
         "aws-native:budgets:BudgetsAction": {
             "description": "An example resource schema demonstrating some basic constructs and validation rules.",
             "properties": {
@@ -80768,6 +80834,7 @@
                 "autoscaling": "AutoScaling",
                 "aws-native": "AwsNative",
                 "backup": "Backup",
+                "batch": "Batch",
                 "budgets": "Budgets",
                 "cassandra": "Cassandra",
                 "ce": "CE",
