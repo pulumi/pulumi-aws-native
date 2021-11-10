@@ -984,13 +984,14 @@ func (p *cfnProvider) waitForResourceOpCompletion(ctx context.Context, pi *types
 		Factor: 1.5,
 		Jitter: true,
 	}
+	i := 0
 	for {
 		status := pi.OperationStatus
 		identifier := ""
 		if pi.Identifier != nil {
 			identifier = *pi.Identifier
 		}
-		glog.V(9).Infof("waiting for resource %q: status %q", identifier, status)
+		glog.V(9).Infof("waiting for resource %q: attempt #%d status %q", identifier, i, status)
 		switch status {
 		case "SUCCESS":
 			return pi, nil
@@ -1002,11 +1003,12 @@ func (p *cfnProvider) waitForResourceOpCompletion(ctx context.Context, pi *types
 			return pi, errors.Errorf("operation %s failed with %q: %s", pi.Operation, pi.ErrorCode, statusMessage)
 		case "IN_PROGRESS":
 			var pause time.Duration
-			if pi.RetryAfter != nil {
+			if pi.RetryAfter != nil && pi.RetryAfter.After(time.Now()) {
 				pause = pi.RetryAfter.Sub(time.Now())
 			} else {
 				pause = retryPolicy.Duration()
 			}
+			glog.V(9).Infof("resource operation is in progress, pausing for %v", pause)
 			time.Sleep(pause)
 		default:
 			return nil, errors.Errorf("unknown status %q: %+v", status, pi)
@@ -1018,6 +1020,7 @@ func (p *cfnProvider) waitForResourceOpCompletion(ctx context.Context, pi *types
 		if err != nil {
 			return nil, errors.Wrap(err, "getting resource request status")
 		}
+		i += 1
 		pi = output.ProgressEvent
 	}
 }
