@@ -1018,6 +1018,12 @@ func (p *cfnProvider) waitForResourceOpCompletion(ctx context.Context, pi *types
 			return nil, errors.Errorf("unknown status %q: %+v", status, pi)
 		}
 
+		select {
+		case <-p.canceler.context.Done():
+			return nil, p.canceler.context.Err()
+		default:
+		}
+
 		output, err := p.cctl.GetResourceRequestStatus(p.canceler.context, &cloudcontrol.GetResourceRequestStatusInput{
 			RequestToken: pi.RequestToken,
 		})
