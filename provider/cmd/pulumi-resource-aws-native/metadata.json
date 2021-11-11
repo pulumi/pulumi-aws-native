@@ -9933,37 +9933,6 @@
                 "cidrBlock"
             ]
         },
-        "aws-native:ec2:VPCDHCPOptionsAssociation": {
-            "cf": "AWS::EC2::VPCDHCPOptionsAssociation",
-            "inputs": {
-                "dhcpOptionsId": {
-                    "type": "string",
-                    "description": "The ID of the DHCP options set, or default to associate no DHCP options with the VPC."
-                },
-                "vpcId": {
-                    "type": "string",
-                    "description": "The ID of the VPC."
-                }
-            },
-            "outputs": {
-                "dhcpOptionsId": {
-                    "type": "string",
-                    "description": "The ID of the DHCP options set, or default to associate no DHCP options with the VPC."
-                },
-                "vpcId": {
-                    "type": "string",
-                    "description": "The ID of the VPC."
-                }
-            },
-            "required": [
-                "dhcpOptionsId",
-                "vpcId"
-            ],
-            "createOnly": [
-                "dhcpOptionsId",
-                "vpcId"
-            ]
-        },
         "aws-native:ecr:RegistryPolicy": {
             "cf": "AWS::ECR::RegistryPolicy",
             "inputs": {
@@ -17109,6 +17078,192 @@
                 "sdkName": "name",
                 "maxLength": 256
             }
+        },
+        "aws-native:iotwireless:FuotaTask": {
+            "cf": "AWS::IoTWireless::FuotaTask",
+            "inputs": {
+                "associateMulticastGroup": {
+                    "type": "string",
+                    "description": "Multicast group to associate. Only for update request."
+                },
+                "associateWirelessDevice": {
+                    "type": "string",
+                    "description": "Wireless device to associate. Only for update request."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "FUOTA task description"
+                },
+                "disassociateMulticastGroup": {
+                    "type": "string",
+                    "description": "Multicast group to disassociate. Only for update request."
+                },
+                "disassociateWirelessDevice": {
+                    "type": "string",
+                    "description": "Wireless device to disassociate. Only for update request."
+                },
+                "firmwareUpdateImage": {
+                    "type": "string",
+                    "description": "FUOTA task firmware update image binary S3 link"
+                },
+                "firmwareUpdateRole": {
+                    "type": "string",
+                    "description": "FUOTA task firmware IAM role for reading S3"
+                },
+                "loRaWAN": {
+                    "$ref": "#/types/aws-native:iotwireless:FuotaTaskLoRaWAN",
+                    "description": "FUOTA task LoRaWAN"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of FUOTA task"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotwireless:FuotaTaskTag"
+                    },
+                    "description": "A list of key-value pairs that contain metadata for the FUOTA task."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string",
+                    "description": "FUOTA task arn. Returned after successful create."
+                },
+                "associateMulticastGroup": {
+                    "type": "string",
+                    "description": "Multicast group to associate. Only for update request."
+                },
+                "associateWirelessDevice": {
+                    "type": "string",
+                    "description": "Wireless device to associate. Only for update request."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "FUOTA task description"
+                },
+                "disassociateMulticastGroup": {
+                    "type": "string",
+                    "description": "Multicast group to disassociate. Only for update request."
+                },
+                "disassociateWirelessDevice": {
+                    "type": "string",
+                    "description": "Wireless device to disassociate. Only for update request."
+                },
+                "firmwareUpdateImage": {
+                    "type": "string",
+                    "description": "FUOTA task firmware update image binary S3 link"
+                },
+                "firmwareUpdateRole": {
+                    "type": "string",
+                    "description": "FUOTA task firmware IAM role for reading S3"
+                },
+                "fuotaTaskStatus": {
+                    "type": "string",
+                    "description": "FUOTA task status. Returned after successful read."
+                },
+                "loRaWAN": {
+                    "$ref": "#/types/aws-native:iotwireless:FuotaTaskLoRaWAN",
+                    "description": "FUOTA task LoRaWAN"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of FUOTA task"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotwireless:FuotaTaskTag"
+                    },
+                    "description": "A list of key-value pairs that contain metadata for the FUOTA task."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "maxLength": 256
+            },
+            "required": [
+                "firmwareUpdateImage",
+                "firmwareUpdateRole",
+                "loRaWAN"
+            ]
+        },
+        "aws-native:iotwireless:MulticastGroup": {
+            "cf": "AWS::IoTWireless::MulticastGroup",
+            "inputs": {
+                "associateWirelessDevice": {
+                    "type": "string",
+                    "description": "Wireless device to associate. Only for update request."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Multicast group description"
+                },
+                "disassociateWirelessDevice": {
+                    "type": "string",
+                    "description": "Wireless device to disassociate. Only for update request."
+                },
+                "loRaWAN": {
+                    "$ref": "#/types/aws-native:iotwireless:MulticastGroupLoRaWAN",
+                    "description": "Multicast group LoRaWAN"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of Multicast group"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotwireless:MulticastGroupTag"
+                    },
+                    "description": "A list of key-value pairs that contain metadata for the Multicast group."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string",
+                    "description": "Multicast group arn. Returned after successful create."
+                },
+                "associateWirelessDevice": {
+                    "type": "string",
+                    "description": "Wireless device to associate. Only for update request."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Multicast group description"
+                },
+                "disassociateWirelessDevice": {
+                    "type": "string",
+                    "description": "Wireless device to disassociate. Only for update request."
+                },
+                "loRaWAN": {
+                    "$ref": "#/types/aws-native:iotwireless:MulticastGroupLoRaWAN",
+                    "description": "Multicast group LoRaWAN"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of Multicast group"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Multicast group status. Returned after successful read."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotwireless:MulticastGroupTag"
+                    },
+                    "description": "A list of key-value pairs that contain metadata for the Multicast group."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "maxLength": 256
+            },
+            "required": [
+                "loRaWAN"
+            ]
         },
         "aws-native:iotwireless:ServiceProfile": {
             "cf": "AWS::IoTWireless::ServiceProfile",
@@ -46993,6 +47148,62 @@
             }
         },
         "aws-native:iotwireless:DeviceProfileTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotwireless:FuotaTaskLoRaWAN": {
+            "type": "object",
+            "properties": {
+                "rfRegion": {
+                    "type": "string",
+                    "description": "FUOTA task LoRaWAN RF region"
+                },
+                "startTime": {
+                    "type": "string",
+                    "description": "FUOTA task LoRaWAN start time"
+                }
+            }
+        },
+        "aws-native:iotwireless:FuotaTaskTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iotwireless:MulticastGroupLoRaWAN": {
+            "type": "object",
+            "properties": {
+                "dlClass": {
+                    "type": "string",
+                    "description": "Multicast group LoRaWAN DL Class"
+                },
+                "numberOfDevicesInGroup": {
+                    "type": "integer",
+                    "description": "Multicast group number of devices in group. Returned after successful read."
+                },
+                "numberOfDevicesRequested": {
+                    "type": "integer",
+                    "description": "Multicast group number of devices requested. Returned after successful read."
+                },
+                "rfRegion": {
+                    "type": "string",
+                    "description": "Multicast group LoRaWAN RF region"
+                }
+            }
+        },
+        "aws-native:iotwireless:MulticastGroupTag": {
             "type": "object",
             "properties": {
                 "key": {

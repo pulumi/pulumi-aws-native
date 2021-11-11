@@ -56,7 +56,7 @@
     }
   },
   "additionalProperties" : false,
-  "required" : [ "Workspace", "Data" ],
+  "required" : [ "Workspace", "Data", "Name" ],
   "createOnlyProperties" : [ "/properties/Name" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
   "taggable" : true,
