@@ -640,7 +640,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 	// Create the resource with Cloud API.
 	clientToken := uuid.New().String()
 	glog.V(9).Infof("%s.CreateResource %q token %q state %q", label, cfType, clientToken, desiredState)
-	res, err := p.cctl.CreateResource(ctx, &cloudcontrol.CreateResourceInput{
+	res, err := p.cctl.CreateResource(p.canceler.context, &cloudcontrol.CreateResourceInput{
 		ClientToken:  aws.String(clientToken),
 		TypeName:     aws.String(cfType),
 		DesiredState: aws.String(desiredState),
@@ -841,7 +841,7 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 	docAsString := string(doc)
 	clientToken := uuid.New().String()
 	glog.V(9).Infof("%s.UpdateResource %q id %q token %q state %+v", label, spec.CfType, id, clientToken, ops)
-	res, err := p.cctl.UpdateResource(ctx, &cloudcontrol.UpdateResourceInput{
+	res, err := p.cctl.UpdateResource(p.canceler.context, &cloudcontrol.UpdateResourceInput{
 		ClientToken:   aws.String(clientToken),
 		TypeName:      aws.String(spec.CfType),
 		Identifier:    aws.String(id),
@@ -912,7 +912,7 @@ func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) 
 
 	clientToken := uuid.New().String()
 	glog.V(9).Infof("%s.DeleteResource %q id %q token %q", label, cfType, id, clientToken)
-	res, err := p.cctl.DeleteResource(ctx, &cloudcontrol.DeleteResourceInput{
+	res, err := p.cctl.DeleteResource(p.canceler.context, &cloudcontrol.DeleteResourceInput{
 		ClientToken: aws.String(clientToken),
 		TypeName:    aws.String(cfType),
 		Identifier:  aws.String(id),
@@ -962,7 +962,7 @@ func (p *cfnProvider) Cancel(context.Context, *pbempty.Empty) (*pbempty.Empty, e
 }
 
 func (p *cfnProvider) readResourceState(ctx context.Context, typeName, identifier string) (map[string]interface{}, error) {
-	getRes, err := p.cctl.GetResource(ctx, &cloudcontrol.GetResourceInput{
+	getRes, err := p.cctl.GetResource(p.canceler.context, &cloudcontrol.GetResourceInput{
 		TypeName:   aws.String(typeName),
 		Identifier: aws.String(identifier),
 	})
@@ -1018,7 +1018,7 @@ func (p *cfnProvider) waitForResourceOpCompletion(ctx context.Context, pi *types
 			return nil, errors.Errorf("unknown status %q: %+v", status, pi)
 		}
 
-		output, err := p.cctl.GetResourceRequestStatus(ctx, &cloudcontrol.GetResourceRequestStatusInput{
+		output, err := p.cctl.GetResourceRequestStatus(p.canceler.context, &cloudcontrol.GetResourceRequestStatusInput{
 			RequestToken: pi.RequestToken,
 		})
 		if err != nil {
