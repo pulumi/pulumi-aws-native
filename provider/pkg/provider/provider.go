@@ -1021,7 +1021,7 @@ func (p *cfnProvider) waitForResourceOpCompletion(ctx context.Context, pi *types
 		select {
 		case <-p.canceler.context.Done():
 			return nil, p.canceler.context.Err()
-		default:
+		default: // Continue to wait
 		}
 
 		output, err := p.cctl.GetResourceRequestStatus(p.canceler.context, &cloudcontrol.GetResourceRequestStatusInput{
