@@ -46,7 +46,7 @@ export class RuleGroupsNamespace extends pulumi.CustomResource {
     /**
      * The RuleGroupsNamespace name.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

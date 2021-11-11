@@ -140,7 +140,6 @@ AWS::EC2::TransitGatewayMulticastGroupSource
 AWS::EC2::TransitGatewayPeeringAttachment
 AWS::EC2::TransitGatewayVpcAttachment
 AWS::EC2::VPC
-AWS::EC2::VPCDHCPOptionsAssociation
 AWS::ECR::RegistryPolicy
 AWS::ECR::ReplicationConfiguration
 AWS::ECR::Repository
@@ -239,6 +238,8 @@ AWS::IoTSiteWise::Portal
 AWS::IoTSiteWise::Project
 AWS::IoTWireless::Destination
 AWS::IoTWireless::DeviceProfile
+AWS::IoTWireless::FuotaTask
+AWS::IoTWireless::MulticastGroup
 AWS::IoTWireless::ServiceProfile
 AWS::IoTWireless::TaskDefinition
 AWS::IoTWireless::WirelessDevice

@@ -12,8 +12,6 @@ import (
 )
 
 // Create and manage FUOTA tasks.
-//
-// Deprecated: FuotaTask is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type FuotaTask struct {
 	pulumi.CustomResourceState
 

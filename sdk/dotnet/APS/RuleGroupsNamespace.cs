@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.APS
         /// The RuleGroupsNamespace name.
         /// </summary>
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

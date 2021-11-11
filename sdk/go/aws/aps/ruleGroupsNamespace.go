@@ -20,7 +20,7 @@ type RuleGroupsNamespace struct {
 	// The RuleGroupsNamespace data.
 	Data pulumi.StringOutput `pulumi:"data"`
 	// The RuleGroupsNamespace name.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
 	// An array of key-value pairs to apply to this resource.
 	Tags RuleGroupsNamespaceTagArrayOutput `pulumi:"tags"`
 	// Required to identify a specific APS Workspace associated with this RuleGroupsNamespace.

@@ -27336,6 +27336,69 @@
             },
             "type": "object"
         },
+        "aws-native:iotwireless:FuotaTaskLoRaWAN": {
+            "properties": {
+                "rfRegion": {
+                    "type": "string",
+                    "description": "FUOTA task LoRaWAN RF region"
+                },
+                "startTime": {
+                    "type": "string",
+                    "description": "FUOTA task LoRaWAN start time"
+                }
+            },
+            "type": "object",
+            "required": [
+                "rfRegion"
+            ]
+        },
+        "aws-native:iotwireless:FuotaTaskTag": {
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:iotwireless:MulticastGroupLoRaWAN": {
+            "properties": {
+                "dlClass": {
+                    "type": "string",
+                    "description": "Multicast group LoRaWAN DL Class"
+                },
+                "numberOfDevicesInGroup": {
+                    "type": "integer",
+                    "description": "Multicast group number of devices in group. Returned after successful read."
+                },
+                "numberOfDevicesRequested": {
+                    "type": "integer",
+                    "description": "Multicast group number of devices requested. Returned after successful read."
+                },
+                "rfRegion": {
+                    "type": "string",
+                    "description": "Multicast group LoRaWAN RF region"
+                }
+            },
+            "type": "object",
+            "required": [
+                "dlClass",
+                "rfRegion"
+            ]
+        },
+        "aws-native:iotwireless:MulticastGroupTag": {
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
         "aws-native:iotwireless:ServiceProfileLoRaWANServiceProfile": {
             "properties": {
                 "addGwMetadata": {
@@ -51218,6 +51281,7 @@
             "required": [
                 "arn",
                 "data",
+                "name",
                 "workspace"
             ],
             "inputProperties": {
@@ -59121,38 +59185,6 @@
                 "cidrBlock"
             ]
         },
-        "aws-native:ec2:VPCDHCPOptionsAssociation": {
-            "description": "Associates a set of DHCP options with a VPC, or associates no DHCP options with the VPC.",
-            "properties": {
-                "dhcpOptionsId": {
-                    "type": "string",
-                    "description": "The ID of the DHCP options set, or default to associate no DHCP options with the VPC."
-                },
-                "vpcId": {
-                    "type": "string",
-                    "description": "The ID of the VPC."
-                }
-            },
-            "type": "object",
-            "required": [
-                "dhcpOptionsId",
-                "vpcId"
-            ],
-            "inputProperties": {
-                "dhcpOptionsId": {
-                    "type": "string",
-                    "description": "The ID of the DHCP options set, or default to associate no DHCP options with the VPC."
-                },
-                "vpcId": {
-                    "type": "string",
-                    "description": "The ID of the VPC."
-                }
-            },
-            "requiredInputs": [
-                "dhcpOptionsId",
-                "vpcId"
-            ]
-        },
         "aws-native:ecr:RegistryPolicy": {
             "description": "The AWS::ECR::RegistryPolicy is used to specify permissions for another AWS account and is used when configuring cross-account replication. For more information, see Registry permissions in the Amazon Elastic Container Registry User Guide: https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var testRegistryPolicy = new AwsNative.ECR.RegistryPolicy(\"testRegistryPolicy\", new AwsNative.ECR.RegistryPolicyArgs\n        {\n            PolicyText = \n            {\n                { \"version\", \"2012-10-17\" },\n                { \"statement\", \n                {\n                    \n                    {\n                        { \"sid\", \"UpdatedRegistryPolicy\" },\n                        { \"effect\", \"Allow\" },\n                        { \"principal\", \n                        {\n                            { \"aws\", \"arn:aws:iam::210987654321:root\" },\n                        } },\n                        { \"action\", \n                        {\n                            \"ecr:CreateRepository\",\n                            \"ecr:ReplicateImage\",\n                        } },\n                        { \"resource\", \"arn:aws:ecr:us-west-2:123456789012:repository/*\" },\n                    },\n                } },\n            },\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/ecr\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ecr.NewRegistryPolicy(ctx, \"testRegistryPolicy\", \u0026ecr.RegistryPolicyArgs{\n\t\t\tPolicyText: pulumi.Any{\n\t\t\t\tVersion: \"2012-10-17\",\n\t\t\t\tStatement: []map[string]interface{}{\n\t\t\t\t\tmap[string]interface{}{\n\t\t\t\t\t\t\"sid\":    \"UpdatedRegistryPolicy\",\n\t\t\t\t\t\t\"effect\": \"Allow\",\n\t\t\t\t\t\t\"principal\": map[string]interface{}{\n\t\t\t\t\t\t\t\"aws\": \"arn:aws:iam::210987654321:root\",\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"action\": []string{\n\t\t\t\t\t\t\t\"ecr:CreateRepository\",\n\t\t\t\t\t\t\t\"ecr:ReplicateImage\",\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"resource\": \"arn:aws:ecr:us-west-2:123456789012:repository/*\",\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst testRegistryPolicy = new aws_native.ecr.RegistryPolicy(\"testRegistryPolicy\", {policyText: {\n    version: \"2012-10-17\",\n    statement: [{\n        sid: \"UpdatedRegistryPolicy\",\n        effect: \"Allow\",\n        principal: {\n            aws: \"arn:aws:iam::210987654321:root\",\n        },\n        action: [\n            \"ecr:CreateRepository\",\n            \"ecr:ReplicateImage\",\n        ],\n        resource: \"arn:aws:ecr:us-west-2:123456789012:repository/*\",\n    }],\n}});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\ntest_registry_policy = aws_native.ecr.RegistryPolicy(\"testRegistryPolicy\", policy_text={\n    \"version\": \"2012-10-17\",\n    \"statement\": [{\n        \"sid\": \"UpdatedRegistryPolicy\",\n        \"effect\": \"Allow\",\n        \"principal\": {\n            \"aws\": \"arn:aws:iam::210987654321:root\",\n        },\n        \"action\": [\n            \"ecr:CreateRepository\",\n            \"ecr:ReplicateImage\",\n        ],\n        \"resource\": \"arn:aws:ecr:us-west-2:123456789012:repository/*\",\n    }],\n})\n\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
             "properties": {
@@ -66311,6 +66343,198 @@
                     "description": "A list of key-value pairs that contain metadata for the device profile."
                 }
             }
+        },
+        "aws-native:iotwireless:FuotaTask": {
+            "description": "Create and manage FUOTA tasks.",
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "FUOTA task arn. Returned after successful create."
+                },
+                "associateMulticastGroup": {
+                    "type": "string",
+                    "description": "Multicast group to associate. Only for update request."
+                },
+                "associateWirelessDevice": {
+                    "type": "string",
+                    "description": "Wireless device to associate. Only for update request."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "FUOTA task description"
+                },
+                "disassociateMulticastGroup": {
+                    "type": "string",
+                    "description": "Multicast group to disassociate. Only for update request."
+                },
+                "disassociateWirelessDevice": {
+                    "type": "string",
+                    "description": "Wireless device to disassociate. Only for update request."
+                },
+                "firmwareUpdateImage": {
+                    "type": "string",
+                    "description": "FUOTA task firmware update image binary S3 link"
+                },
+                "firmwareUpdateRole": {
+                    "type": "string",
+                    "description": "FUOTA task firmware IAM role for reading S3"
+                },
+                "fuotaTaskStatus": {
+                    "type": "string",
+                    "description": "FUOTA task status. Returned after successful read."
+                },
+                "loRaWAN": {
+                    "$ref": "#/types/aws-native:iotwireless:FuotaTaskLoRaWAN",
+                    "description": "FUOTA task LoRaWAN"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of FUOTA task"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotwireless:FuotaTaskTag"
+                    },
+                    "description": "A list of key-value pairs that contain metadata for the FUOTA task."
+                }
+            },
+            "type": "object",
+            "required": [
+                "arn",
+                "firmwareUpdateImage",
+                "firmwareUpdateRole",
+                "fuotaTaskStatus",
+                "loRaWAN"
+            ],
+            "inputProperties": {
+                "associateMulticastGroup": {
+                    "type": "string",
+                    "description": "Multicast group to associate. Only for update request."
+                },
+                "associateWirelessDevice": {
+                    "type": "string",
+                    "description": "Wireless device to associate. Only for update request."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "FUOTA task description"
+                },
+                "disassociateMulticastGroup": {
+                    "type": "string",
+                    "description": "Multicast group to disassociate. Only for update request."
+                },
+                "disassociateWirelessDevice": {
+                    "type": "string",
+                    "description": "Wireless device to disassociate. Only for update request."
+                },
+                "firmwareUpdateImage": {
+                    "type": "string",
+                    "description": "FUOTA task firmware update image binary S3 link"
+                },
+                "firmwareUpdateRole": {
+                    "type": "string",
+                    "description": "FUOTA task firmware IAM role for reading S3"
+                },
+                "loRaWAN": {
+                    "$ref": "#/types/aws-native:iotwireless:FuotaTaskLoRaWAN",
+                    "description": "FUOTA task LoRaWAN"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of FUOTA task"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotwireless:FuotaTaskTag"
+                    },
+                    "description": "A list of key-value pairs that contain metadata for the FUOTA task."
+                }
+            },
+            "requiredInputs": [
+                "firmwareUpdateImage",
+                "firmwareUpdateRole",
+                "loRaWAN"
+            ]
+        },
+        "aws-native:iotwireless:MulticastGroup": {
+            "description": "Create and manage Multicast groups.",
+            "properties": {
+                "arn": {
+                    "type": "string",
+                    "description": "Multicast group arn. Returned after successful create."
+                },
+                "associateWirelessDevice": {
+                    "type": "string",
+                    "description": "Wireless device to associate. Only for update request."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Multicast group description"
+                },
+                "disassociateWirelessDevice": {
+                    "type": "string",
+                    "description": "Wireless device to disassociate. Only for update request."
+                },
+                "loRaWAN": {
+                    "$ref": "#/types/aws-native:iotwireless:MulticastGroupLoRaWAN",
+                    "description": "Multicast group LoRaWAN"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of Multicast group"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Multicast group status. Returned after successful read."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotwireless:MulticastGroupTag"
+                    },
+                    "description": "A list of key-value pairs that contain metadata for the Multicast group."
+                }
+            },
+            "type": "object",
+            "required": [
+                "arn",
+                "loRaWAN",
+                "status"
+            ],
+            "inputProperties": {
+                "associateWirelessDevice": {
+                    "type": "string",
+                    "description": "Wireless device to associate. Only for update request."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Multicast group description"
+                },
+                "disassociateWirelessDevice": {
+                    "type": "string",
+                    "description": "Wireless device to disassociate. Only for update request."
+                },
+                "loRaWAN": {
+                    "$ref": "#/types/aws-native:iotwireless:MulticastGroupLoRaWAN",
+                    "description": "Multicast group LoRaWAN"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of Multicast group"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iotwireless:MulticastGroupTag"
+                    },
+                    "description": "A list of key-value pairs that contain metadata for the Multicast group."
+                }
+            },
+            "requiredInputs": [
+                "loRaWAN"
+            ]
         },
         "aws-native:iotwireless:ServiceProfile": {
             "description": "An example resource schema demonstrating some basic constructs and validation rules.",

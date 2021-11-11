@@ -5,7 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Associates a set of DHCP options with a VPC, or associates no DHCP options with the VPC.
+ * Resource Type definition for AWS::EC2::VPCDHCPOptionsAssociation
+ *
+ * @deprecated VPCDHCPOptionsAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class VPCDHCPOptionsAssociation extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class VPCDHCPOptionsAssociation extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VPCDHCPOptionsAssociation {
+        pulumi.log.warn("VPCDHCPOptionsAssociation is deprecated: VPCDHCPOptionsAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new VPCDHCPOptionsAssociation(name, undefined as any, { ...opts, id: id });
     }
 
@@ -34,13 +37,7 @@ export class VPCDHCPOptionsAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === VPCDHCPOptionsAssociation.__pulumiType;
     }
 
-    /**
-     * The ID of the DHCP options set, or default to associate no DHCP options with the VPC.
-     */
     public readonly dhcpOptionsId!: pulumi.Output<string>;
-    /**
-     * The ID of the VPC.
-     */
     public readonly vpcId!: pulumi.Output<string>;
 
     /**
@@ -50,7 +47,9 @@ export class VPCDHCPOptionsAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated VPCDHCPOptionsAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: VPCDHCPOptionsAssociationArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("VPCDHCPOptionsAssociation is deprecated: VPCDHCPOptionsAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -77,12 +76,6 @@ export class VPCDHCPOptionsAssociation extends pulumi.CustomResource {
  * The set of arguments for constructing a VPCDHCPOptionsAssociation resource.
  */
 export interface VPCDHCPOptionsAssociationArgs {
-    /**
-     * The ID of the DHCP options set, or default to associate no DHCP options with the VPC.
-     */
     dhcpOptionsId: pulumi.Input<string>;
-    /**
-     * The ID of the VPC.
-     */
     vpcId: pulumi.Input<string>;
 }

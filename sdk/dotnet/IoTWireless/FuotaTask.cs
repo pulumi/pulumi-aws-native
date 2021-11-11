@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.IoTWireless
     /// <summary>
     /// Create and manage FUOTA tasks.
     /// </summary>
-    [Obsolete(@"FuotaTask is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:iotwireless:FuotaTask")]
     public partial class FuotaTask : Pulumi.CustomResource
     {

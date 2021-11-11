@@ -12,8 +12,6 @@ import (
 )
 
 // Create and manage Multicast groups.
-//
-// Deprecated: MulticastGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type MulticastGroup struct {
 	pulumi.CustomResourceState
 
